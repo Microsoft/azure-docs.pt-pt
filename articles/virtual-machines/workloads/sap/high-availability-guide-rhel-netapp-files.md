@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: ba8dc3080f3b584ae3a60576e4cc670dc60c28a0
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8acb4819c6ef7a1969a85a056dfdde1fd021a5e6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151822"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894659"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP
 
@@ -86,7 +86,7 @@ Leia as seguintes notas e documentos SAP primeiro:
   * [Instalando e configurando um cluster de alta disponibilidade Red Hat Enterprise Linux 7,4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
 * [Aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 HA (alta disponibilidade) para serviços centrais do SAP NetWeaver requer armazenamento compartilhado.
 Para conseguir isso no Red Hat Linux até o momento, era necessário criar um cluster GlusterFS de alta disponibilidade separado. 
@@ -172,6 +172,7 @@ Ao considerar Azure NetApp Files para o SAP NetWeaver na arquitetura de alta dis
 - A rede virtual selecionada deve ter uma sub-rede, delegada para Azure NetApp Files.
 - O Azure NetApp Files oferece [política de exportação](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): você pode controlar os clientes permitidos, o tipo de acesso (leitura & gravação, somente leitura, etc.). 
 - O recurso de Azure NetApp Files ainda não reconhece a zona. Atualmente Azure NetApp Files recurso não está implantado em todas as zonas de disponibilidade em uma região do Azure. Esteja atento às possíveis implicações de latência em algumas regiões do Azure. 
+- Azure NetApp Files volumes podem ser implantados como volumes NFSv3 ou NFSv 4.1. Os dois protocolos têm suporte para a camada de aplicativo SAP (ASCS/ERS, servidores de aplicativos SAP). 
 
 ## <a name="setting-up-ascs"></a>Configurando o (A) SCS
 
@@ -255,11 +256,46 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
       1. Portas adicionais para o ASCS ERS
          * Repita as etapas acima em "d" para as portas 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP para o ASCS ers
 
-> [!Note]
-> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+      > [!Note]
+      > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-> [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+      > [!IMPORTANT]
+      > Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+
+## <a name="disable-id-mapping-if-using-nfsv41"></a>Desabilitar mapeamento de ID (se estiver usando NFSv 4.1)
+
+As instruções nesta seção só serão aplicáveis se você estiver usando Azure NetApp Files volumes com o protocolo NFSv 4.1. Execute a configuração em todas as VMs, onde Azure NetApp Files os volumes NFSv 4.1 serão montados.  
+
+1. Verifique a configuração de domínio do NFS. Verifique se o domínio está configurado como o domínio de Azure NetApp Files padrão, ou seja, **`defaultv4iddomain.com`** e o mapeamento está definido como **ninguém**.  
+
+    > [!IMPORTANT]
+    > Certifique-se de definir o domínio NFS em `/etc/idmapd.conf` na VM para corresponder à configuração de domínio padrão em Azure NetApp Files: **`defaultv4iddomain.com`** . Se houver uma incompatibilidade entre a configuração de domínio no cliente NFS (ou seja, a VM) e o servidor NFS, ou seja, a configuração da Azure NetApp, as permissões para arquivos nos volumes do Azure NetApp que são montados nas VMs serão exibidas como `nobody`.  
+
+    <pre><code>
+    sudo cat /etc/idmapd.conf
+    # Example
+    [General]
+    Domain = <b>defaultv4iddomain.com</b>
+    [Mapping]
+    Nobody-User = <b>nobody</b>
+    Nobody-Group = <b>nobody</b>
+    </code></pre>
+
+4. **[A]** verificar `nfs4_disable_idmapping`. Ele deve ser definido como **Y**. Para criar a estrutura de diretório onde `nfs4_disable_idmapping` está localizado, execute o comando Mount. Você não poderá criar o diretório manualmente em/sys/modules, pois o acesso é reservado para o kernel/drivers.  
+
+    <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
+    mkdir /mnt/tmp
+    mount 192.168.24.5:/sap<b>QAS</b>
+    umount  /mnt/tmp
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   Para obter mais detalhes sobre como alterar `nfs4_disable_idmapping` parâmetro, consulte https://access.redhat.com/solutions/1749883.
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 
@@ -295,9 +331,12 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    Monte temporariamente o volume Azure NetApp Files em uma das VMs e crie os diretórios SAP (caminhos de arquivo).  
 
     ```
-     #mount temporarily the volume
+     # mount temporarily the volume
      sudo mkdir -p /saptmp
+     # If using NFSv3
      sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 192.168.24.5:/sapQAS /saptmp
+     # If using NFSv4.1
+     sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys,tcp 192.168.24.5:/sapQAS /saptmp
      # create the SAP directories
      sudo cd /saptmp
      sudo mkdir -p sapmntQAS
@@ -361,6 +400,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[A]** adicionar entradas de montagem
 
+   Se estiver usando NFSv3:
    ```
    sudo vi /etc/fstab
    
@@ -370,8 +410,18 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
     192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
    ```
 
+   Se estiver usando o NFSv 4.1:
+   ```
+   sudo vi /etc/fstab
+   
+   # Add the following lines to fstab, save and exit
+    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   ```
+
    > [!NOTE]
-   > Certifique-se de corresponder à versão do protocolo NFS dos volumes de Azure NetApp Files, ao montar os volumes. Neste exemplo, os volumes de Azure NetApp Files foram criados como volumes NFSv3.  
+   > Certifique-se de corresponder à versão do protocolo NFS dos volumes de Azure NetApp Files, ao montar os volumes. Se os volumes de Azure NetApp Files forem criados como volumes NFSv3, use a configuração de NFSv3 correspondente. Se os volumes de Azure NetApp Files forem criados como volumes NFSv 4.1, siga as instruções para desabilitar o mapeamento de ID e certifique-se de usar a configuração correspondente do NFSv 4.1. Neste exemplo, os volumes de Azure NetApp Files foram criados como volumes NFSv3.  
 
    Montar os novos compartilhamentos
 
@@ -410,9 +460,14 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
    ```
    sudo pcs node standby anftstsapcl2
-   
+   # If using NFSv3
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
      directory='/usr/sap/QAS/ASCS00' fstype='nfs' \
+     --group g-QAS_ASCS
+   
+   # If using NFSv4.1
+   sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' options='sec=sys,vers=4.1' \
      --group g-QAS_ASCS
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
@@ -442,7 +497,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[1]** instalar o ASCS do SAP NetWeaver  
 
-   Instale o ASCS do SAP NetWeaver como raiz no primeiro nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ASCS, por exemplo, <b>anftstsapvh</b>, <b>192.168.14.9</b> e o número da instância que você usou para o investigação do balanceador de carga, por exemplo <b>00</b>.
+   Instale o ASCS do SAP NetWeaver como raiz no primeiro nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ASCS, por exemplo, <b>anftstsapvh</b>, <b>192.168.14.9</b> e o número da instância que você usou para a investigação do balanceador de carga, por exemplo <b>00</b>.
 
    Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
 
@@ -466,10 +521,16 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo pcs node unstandby anftstsapcl2
    sudo pcs node standby anftstsapcl1
    
+   # If using NFSv3
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
      directory='/usr/sap/QAS/ERS01' fstype='nfs' \
     --group g-QAS_AERS
-
+   
+   # If using NFSv4.1
+   sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' options='sec=sys,vers=4.1' \
+    --group g-QAS_AERS
+   
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
      ip=192.168.14.10 cidr_netmask=24 \
     --group g-QAS_AERS
@@ -501,7 +562,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[2]** instalar o ers do SAP NetWeaver  
 
-   Instale o ERS do SAP NetWeaver como raiz no segundo nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ERS, por exemplo, <b>anftstsapers</b>, <b>192.168.14.10</b> e o número da instância que você usou para o investigação do balanceador de carga, por exemplo <b>01</b>.
+   Instale o ERS do SAP NetWeaver como raiz no segundo nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ERS, por exemplo, <b>anftstsapers</b>, <b>192.168.14.10</b> e o número da instância que você usou para a investigação do balanceador de carga, por exemplo <b>01</b>.
 
    Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst.
 
@@ -721,13 +782,22 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    ```
 
 1. **[A]** adicionar entradas de montagem  
-
+   Se estiver usando NFSv3:
    ```
    sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   ```
+
+   Se estiver usando o NFSv 4.1:
+   ```
+   sudo vi /etc/fstab
+   
+   # Add the following lines to fstab, save and exit
+   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
    ```
 
    Montar os novos compartilhamentos
@@ -737,7 +807,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    ```
 
 1. **[P]** criar e montar o diretório do Pas  
-
+   Se estiver usando NFSv3:
    ```
    sudo mkdir -p /usr/sap/QAS/D02
    sudo chattr +i /usr/sap/QAS/D02
@@ -750,8 +820,21 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo mount -a
    ```
 
-1. **[S]** criar e montar o diretório AAS  
+   Se estiver usando o NFSv 4.1:
+   ```
+   sudo mkdir -p /usr/sap/QAS/D02
+   sudo chattr +i /usr/sap/QAS/D02
+   
+   sudo vi /etc/fstab
+   # Add the following line to fstab
+   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   
+   # Mount
+   sudo mount -a
+   ```
 
+1. **[S]** criar e montar o diretório AAS  
+   Se estiver usando NFSv3:
    ```
    sudo mkdir -p /usr/sap/QAS/D03
    sudo chattr +i /usr/sap/QAS/D03
@@ -764,6 +847,18 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo mount -a
    ```
 
+   Se estiver usando o NFSv 4.1:
+   ```
+   sudo mkdir -p /usr/sap/QAS/D03
+   sudo chattr +i /usr/sap/QAS/D03
+   
+   sudo vi /etc/fstab
+   # Add the following line to fstab
+   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   
+   # Mount
+   sudo mount -a
+   ```
 
 1. **[A]** configurar arquivo de permuta
  
@@ -786,7 +881,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo service waagent restart
    ```
 
-## <a name="install-database"></a>Instalar banco de dados
+## <a name="install-database"></a>Instalar base de dados
 
 Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada banco de dados com suporte para esta instalação. Para obter mais informações sobre como instalar SAP HANA no Azure, consulte [alta disponibilidade de SAP Hana em VMs do Azure no Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 

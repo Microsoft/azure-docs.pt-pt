@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793415"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896390"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para aplicativos lógicos do Azure
 
@@ -29,7 +29,7 @@ Por exemplo, as ações incluem:
 
 * Gatilhos, que são ações especiais. Todos os aplicativos lógicos exigem um gatilho como a primeira etapa.
 * [Ações "internas" ou nativas](../connectors/apis-list.md#built-in) como http, chamadas para Azure Functions e gerenciamento de API e assim por diante
-* Chamadas para [conectores gerenciados](../connectors/apis-list.md##managed-connectors) , como o Outlook 365, Dropbox e assim por diante
+* Chamadas para [conectores gerenciados](../connectors/apis-list.md#managed-connectors) , como o Outlook 365, Dropbox e assim por diante
 * Etapas de fluxo de controle, como loops, instruções condicionais e assim por diante
 
 Os [conectores padrão](../connectors/apis-list.md#managed-connectors) são cobrados com o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps). Os [conectores empresariais](../connectors/apis-list.md#managed-connectors) geralmente disponíveis são cobrados pelo [preço do conector corporativo](https://azure.microsoft.com/pricing/details/logic-apps), enquanto os conectores corporativos de visualização pública são cobrados com o [preço do conector padrão](https://azure.microsoft.com/pricing/details/logic-apps).

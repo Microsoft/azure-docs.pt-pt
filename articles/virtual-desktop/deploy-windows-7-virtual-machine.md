@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606879"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896211"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
@@ -35,20 +35,21 @@ Para configurar uma VM do Windows 7 na área de trabalho virtual do Windows:
 5. Vá para Windows Update em sua VM.
 6. Instale todas as atualizações do Windows na categoria importante.
 7. Instale todas as atualizações do Windows na categoria opcional (excluindo os pacotes de idiomas). Isso instala a atualização do protocolo RDP 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) que você precisa para concluir estas instruções.
-8. Abra o Editor de Política de Grupo Local e navegue até **configuração do computador** > **modelos administrativos** > **componentes do Windows** ** > serviços de área de trabalho remota > host da sessão da área de trabalho remota** > **ambiente de sessão remota**.
+8. Abra o Editor de Política de Grupo Local e navegue até **configuração do computador** > **modelos administrativos** > **componentes do Windows** >  **serviços de área de trabalho remota > host da sessão da área de trabalho remota** ambiente de **sessão remota**.
 9. Habilite a política protocolo RDP 8,0.
-10. Reinicie a máquina virtual executando o seguinte comando:
+10. Ingresse essa VM em seu domínio de Active Directory.
+11. Reinicie a máquina virtual executando o seguinte comando:
     
      ```cmd
      shutdown /r /t 0
      ```
     
-11. Siga as instruções [aqui](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) para obter um token de registro.
-12. [Baixe o agente de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
-13. [Baixe o Gerenciador de agentes de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
-14. Abra o instalador do agente de área de trabalho virtual do Windows e siga as instruções. Quando solicitado, forneça a chave de registro que você criou na etapa 11.
-15. Abra o instalador de área de trabalho virtual do Windows e siga as instruções.
-16. Opcionalmente, bloqueie a porta TCP/3389 para remover o acesso direto de protocolo RDP à VM.
+12. Siga as instruções [aqui](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) para obter um token de registro.
+13. [Baixe o agente de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+14. [Baixe o Gerenciador de agentes de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+15. Abra o instalador do agente de área de trabalho virtual do Windows e siga as instruções. Quando solicitado, forneça a chave de registro que você criou na etapa 12.
+16. Abra o instalador de área de trabalho virtual do Windows e siga as instruções.
+17. Opcionalmente, bloqueie a porta TCP/3389 para remover o acesso direto de protocolo RDP à VM.
 
 ## <a name="next-steps"></a>Passos seguintes
 

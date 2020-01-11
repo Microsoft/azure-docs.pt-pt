@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963522"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891502"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Segurança e proteção de dados do StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A segurança é uma grande preocupação para qualquer pessoa que esteja adotando uma nova tecnologia, especialmente quando a tecnologia for usada com dados confidenciais ou proprietários. Ao avaliar diferentes tecnologias, você deve considerar o aumento dos riscos e dos custos da proteção de dados. O Microsoft Azure StorSimple fornece uma solução de segurança e privacidade para proteção de dados, ajudando a garantir:
 
@@ -45,7 +45,7 @@ As seções a seguir descrevem os recursos de segurança do StorSimple que ajuda
 
 O serviço StorSimple Device Manager é um serviço de gerenciamento hospedado no Microsoft Azure e usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço de Device Manager do StorSimple usando suas credenciais organizacionais para fazer logon no portal do Azure por meio de um navegador da Web.
 
-O acesso ao serviço de Device Manager do StorSimple exige que sua organização tenha uma assinatura do Azure que inclua o StorSimple. A subscrição controla as funcionalidades a que pode aceder no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre elas, consulte inscrever-se [no Azure como uma organização](../active-directory/fundamentals/sign-up-organization.md).
+O acesso ao serviço de Device Manager do StorSimple exige que sua organização tenha uma assinatura do Azure que inclua o StorSimple. A subscrição controla as funcionalidades a que pode aceder no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre elas, consulte [inscrever-se no Azure como uma organização](../active-directory/fundamentals/sign-up-organization.md).
 
 Como o serviço StorSimple Device Manager é hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
@@ -57,7 +57,7 @@ Somente dispositivos StorSimple autorizados têm permissão para ingressar no se
 
 ![Chave de registro do serviço](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Para saber como obter uma chave de registro de serviço, [vá para a etapa 2: Obtenha a chave](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key)de registro do serviço.
+Para saber como obter uma chave de registro de serviço, vá para a [etapa 2: obter a chave de registro do serviço](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 A chave de registro do serviço é uma chave longa que contém mais de 100 caracteres. Você pode copiar a chave e salvá-la em um arquivo de texto em um local seguro para que você possa usá-la para autorizar dispositivos adicionais conforme necessário. Se a chave de registro do serviço for perdida depois que você registrar seu primeiro dispositivo, você poderá gerar uma nova chave do serviço StorSimple Device Manager. Isso não afetará a operação dos dispositivos existentes.
 
@@ -164,7 +164,7 @@ Para alterar a chave de criptografia de dados de serviço e o certificado de cri
 
 A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, recomendamos que você altere a chave de criptografia de dados de serviço anualmente para ajudar a impedir o comprometimento da chave.
 
-## <a name="protect-data-at-rest"></a>Proteger dados em repouso
+## <a name="protect-data-at-rest"></a>Proteger os dados inativos
 
 O dispositivo StorSimple gerencia os dados armazenando-os em camadas localmente e na nuvem, dependendo da frequência de uso. Todos os computadores host que estão conectados ao dispositivo enviam dados para o dispositivo, que, em seguida, move os dados para a nuvem, conforme apropriado. Os dados são transferidos do dispositivo para a nuvem com segurança pela Internet. Cada dispositivo tem um destino iSCSI que superfícies todos os volumes compartilhados nesse dispositivo. Todos os dados são criptografados antes de serem enviados para o armazenamento em nuvem. 
 
@@ -219,7 +219,7 @@ O StorSimple Device Manager para séries físicas e virtuais coleta informaçõe
 
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
 A seguir estão algumas perguntas e respostas sobre segurança e Microsoft Azure StorSimple.
 
@@ -234,11 +234,11 @@ A seguir estão algumas perguntas e respostas sobre segurança e Microsoft Azure
 
 **R:** Essa chave foi criada quando você criou o serviço StorSimple Device Manager pela primeira vez. Ao usar o serviço de Device Manager do StorSimple para se conectar ao dispositivo, você pode usar a página de início rápido do serviço para exibir ou regenerar a chave de registro do serviço. A geração de uma nova chave de registro de serviço não afetará os dispositivos registrados existentes. Para obter instruções, acesse:
 
-* [Exibir ou regenerar a chave de registro do serviço](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [Exibir ou regenerar a chave de registro do serviço](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
-**P:** Perdi minha chave de criptografia de dados de serviço. O que posso fazer?
+**P:** Perdi minha chave de criptografia de dados de serviço. O que devo fazer?
 
-**R:** Contacte o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte em seu dispositivo e ajudá-lo a recuperar a chave (desde que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, acesse:
+**R:** Contate a Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte em seu dispositivo e ajudá-lo a recuperar a chave (desde que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, acesse:
 
 * [Alterar a chave de criptografia de dados de serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 

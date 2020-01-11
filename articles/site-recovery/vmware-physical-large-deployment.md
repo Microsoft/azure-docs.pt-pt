@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082229"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895785"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
 
@@ -85,7 +85,7 @@ Queremos garantir que as cotas disponíveis na assinatura de destino sejam sufic
 
 **Tarefa** | **Detalhes** | **Ação**
 --- | --- | ---
-**Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura**do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sobre como aumentar as cotas.
+**Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura**do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre como aumentar as cotas.
 **Verificar limites de failover** | O número de failovers não deve excede Site Recovery limites de failover. |  Se os failovers excederem os limites, você poderá adicionar assinaturas e fazer failover para várias assinaturas ou aumentar a cota de uma assinatura. 
 
 

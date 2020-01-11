@@ -3,13 +3,13 @@ title: Perguntas mais frequentes
 description: Respostas para perguntas frequentes relacionadas ao serviço de instâncias de contêiner do Azure
 author: dkkapur
 ms.topic: article
-ms.date: 4/25/2019
-ms.openlocfilehash: b5888efe210ab0f3794895d350c5647b6f685880
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 01/07/2020
+ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484139"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888044"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre as instâncias de contêiner do Azure
 
@@ -83,7 +83,7 @@ Atualmente, o dimensionamento não está disponível para contêineres ou grupos
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quais recursos estão disponíveis para instâncias em execução em uma VNet personalizada?
 
-Você pode implantar grupos de contêineres em uma rede virtual do Azure de sua escolha e delegar IPs privados aos grupos de contêineres para rotear o tráfego na VNet entre os recursos do Azure. A implantação de um grupo de contêineres em uma rede virtual está em visualização no momento, e alguns aspectos desse recurso podem ser alterados antes da disponibilidade geral (GA). Consulte [limitações de visualização](container-instances-vnet.md#preview-limitations) para obter informações atualizadas.
+Você pode [implantar grupos de contêineres em uma rede virtual do Azure](container-instances-vnet.md) de sua escolha e delegar IPS privados aos grupos de contêineres para rotear o tráfego na VNet entre os recursos do Azure. A implantação de um grupo de contêineres em uma rede virtual está disponível atualmente para cargas de trabalho de produção em um subconjunto de regiões do Azure.
 
 ## <a name="pricing"></a>Preços
 
@@ -95,7 +95,7 @@ A duração do grupo de contêineres é calculada a partir do momento em que com
 
 Os medidores param de ser executados quando todo o grupo de contêineres é interrompido. Contanto que um contêiner em seu grupo de contêineres esteja em execução, guardaremos os recursos caso você queira iniciar os contêineres novamente. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais](container-instances-overview.md) sobre as instâncias de contêiner do Azure.
 * [Solucionar problemas comuns](container-instances-troubleshooting.md) em instâncias de contêiner do Azure.

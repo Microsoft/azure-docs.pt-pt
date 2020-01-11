@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 7ccd908c96e68190f09da37a83e0a34a09f5e697
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4659274110add96613ca88560edfb459b20a99cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087135"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894351"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>Apache Spark trabalho de streaming que lê Apache Kafka dados falha com NoClassDefFoundError no HDInsight
 
@@ -32,7 +32,7 @@ Stack trace: ExitCodeException exitCode=50:
 
 ## <a name="cause"></a>Causa
 
-Esse erro pode ser causado pela especificação de uma versão do `spark-streaming-kafka` arquivo JAR que seja diferente da versão do cluster Kafka que você está executando.
+Esse erro pode ser causado pela especificação de uma versão do arquivo JAR `spark-streaming-kafka` que seja diferente da versão do cluster Kafka que você está executando.
 
 Por exemplo, se você estiver executando uma versão de cluster Kafka 0.10.1, o seguinte comando resultará em um erro:
 
@@ -46,7 +46,7 @@ spark-submit \
 
 ## <a name="resolution"></a>Resolução
 
-Use o comando Spark-Submit com a `–packages` opção e verifique se a versão do arquivo JAR Spark-streaming-Kafka é a mesma que a versão do cluster Kafka que você está executando.
+Use o comando Spark-Submit com a opção `–packages` e certifique-se de que a versão do arquivo JAR Spark-streaming-Kafka seja a mesma que a versão do cluster Kafka que você está executando.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -54,6 +54,6 @@ Se você não tiver visto seu problema ou não conseguir resolver o problema, vi
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -9,10 +9,10 @@ ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 01/11/2020
 ms.locfileid: "75750402"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas com suporte com Azure Monitor

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6835132192040b4b943b156fb78ae1547522be0c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12786f59db9644fd54e812687d27443c250aec05
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229241"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891846"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -29,7 +29,7 @@ O Azure Spring Cloud aprimora a experiência do Application Diagnostics para des
 
 O Azure Spring Cloud oferece um plano de serviço durante o período de versão prévia.  Uma implantação de Spring Cloud contém 16 núcleos de vCPU e 32 gigabytes (GB) de memória.  O limite superior para cada instância de microserviço em uma implantação é de 4 núcleos vCPU com 8 GB de memória.
 
-Resource | Montante
+Recurso | Montante
 ------- | -------
 Instâncias de aplicativo por aplicativo Spring | 20
 Total de instâncias de aplicativo por instância de serviço de nuvem do Azure Spring | 500
@@ -63,7 +63,7 @@ Durante a versão de visualização, o Azure Spring Cloud tem as seguintes limit
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Como posso fornecer comentários e relatar problemas?
 
-Se você encontrar problemas com o Azure Spring Cloud, crie uma [solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Para enviar uma solicitação de recurso ou fornecer comentários, acesse [comentários do Azure](https://feedback.azure.com/forums/34192--general-feedback).
+Se você encontrar problemas com o Azure Spring Cloud, crie uma [solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Para enviar uma solicitação de recurso ou fornecer comentários, acesse [comentários do Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Desenvolvimento
 
@@ -121,6 +121,6 @@ Não.
 
 Após a migração, monitore suas métricas de CPU/RAM e o tráfego de rede para garantir que as instâncias do aplicativo sejam dimensionadas adequadamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você tiver outras dúvidas, consulte o [Guia de solução de problemas do Azure Spring Cloud](spring-cloud-troubleshoot.md).

@@ -3,12 +3,12 @@ title: Mover recursos para uma nova assinatura ou grupo de recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 60c2046b1bbdc92c9b63c748c7d758659abfbe46
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659478"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891361"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
 
@@ -33,7 +33,7 @@ Há algumas etapas importantes a serem adotadas antes de mover um recurso. Ao co
    * [Diretrizes de movimentação dos serviços de recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md)
 
-1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que foi desabilitada, [crie uma solicitação de suporte do Azure](../../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
+1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que foi desabilitada, [crie uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
 
 1. As subscrições de origem e de destino tem de existir no mesmo [inquilino do Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md). Para verificar-se de que ambas as subscrições têm o mesmo ID de inquilino, utilize o Azure PowerShell ou a CLI do Azure.
 

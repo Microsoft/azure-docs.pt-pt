@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b90a22a793c15104bba3eb91e88f851158e13f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 301fe9c213ec6d78d32d6ccde84a689c4659acb3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106954"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888968"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -82,7 +82,7 @@ Depois de introduzir o nome da floresta e de clicar em **Adicionar Diretório**,
 | Opção | Descrição |
 | --- | --- |
 | Criar conta nova | Selecione esta opção se quiser que o assistente do Azure AD Connect crie a conta do AD DS de que precisa para ligar à floresta do AD durante a sincronização de diretórios. Se esta opção estiver selecionada, introduza o nome de utilizador e a palavra-passe de uma conta de administrador empresarial. O assistente do Azure AD Connect vai utilizar a conta de administrador empresarial indicada para criar a conta do AD DS necessária. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrator ou fabrikam.com\administrator. |
-| Utilizar conta existente | Selecione esta opção se quiser indicar uma conta do AD DS existente para ser utilizada com o Azure AD Connect para ligar à floresta do AD durante a sincronização de diretórios. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\syncuser ou fabrikam.com\syncuser. Esta conta pode ser uma conta de utilizador normal, porque precisa apenas das permissões de leitura predefinidas. No entanto, dependendo do seu cenário, poderá precisar de mais permissões. Para obter mais informações, veja [Azure AD Connect Accounts and permissions](reference-connect-accounts-permissions.md##create-the-ad-ds-connector-account) (Contas e permissões do Azure AD Connet). |
+| Utilizar conta existente | Selecione esta opção se quiser indicar uma conta do AD DS existente para ser utilizada com o Azure AD Connect para ligar à floresta do AD durante a sincronização de diretórios. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\syncuser ou fabrikam.com\syncuser. Esta conta pode ser uma conta de utilizador normal, porque precisa apenas das permissões de leitura predefinidas. No entanto, dependendo do seu cenário, poderá precisar de mais permissões. Para obter mais informações, veja [Azure AD Connect Accounts and permissions](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account) (Contas e permissões do Azure AD Connet). |
 
 ![Ligar o Diretório](./media/how-to-connect-install-custom/connectdir02.png)
 
@@ -125,7 +125,7 @@ Se vir este aviso, certifique-se de que estes domínios são de facto inacessív
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Selecione a forma como os utilizadores devem ser identificados nos seus diretórios no local
 A funcionalidade Correspondência entre florestas permite-lhe definir o modo como são representados no Azure AD os utilizadores das florestas do AD DS. Um utilizador pode ser representado apenas uma vez em todas as florestas ou ter uma combinação de contas ativadas e desativadas. O utilizador também pode ser representado como um contacto em algumas florestas.
 
-![Exclusivo](./media/how-to-connect-install-custom/unique2.png)
+![Unique](./media/how-to-connect-install-custom/unique2.png)
 
 | Definição | Descrição |
 | --- | --- |
@@ -382,7 +382,7 @@ O Azure AD Connect verifica as definições de DNS quando clica no botão Verifi
 
 * Resolver FQDN de federação: o Azure AD Connect verifica se o FQDN de federação pode ser resolvido pelo DNS para garantir a conectividade.
 
-![Concluída](./media/how-to-connect-install-custom/completed.png)
+![Completo](./media/how-to-connect-install-custom/completed.png)
 
 ![Verificar](./media/how-to-connect-install-custom/adfs7.png)
 

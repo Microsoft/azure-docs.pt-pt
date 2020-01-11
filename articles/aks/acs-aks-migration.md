@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658547"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889511"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o serviço kubernetes do Azure (AKS)
 
@@ -87,9 +87,9 @@ Ao migrar clusters, você pode ter anexado serviços externos do Azure. Eles nã
 
 ## <a name="ensure-valid-quotas"></a>Garantir cotas válidas
 
-Como máquinas virtuais adicionais serão implantadas em sua assinatura durante a migração, você deve verificar se suas cotas e limites são suficientes para esses recursos. Talvez seja necessário solicitar um aumento na [cota de vCPU](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+Como máquinas virtuais adicionais serão implantadas em sua assinatura durante a migração, você deve verificar se suas cotas e limites são suficientes para esses recursos. Talvez seja necessário solicitar um aumento na [cota de vCPU](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
-Talvez seja necessário solicitar um aumento nas [cotas de rede](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) para garantir que você não utilize IPS. Consulte [Networking and IP Ranges for AKs](https://docs.microsoft.com/azure/aks/configure-kubenet) para obter informações adicionais.
+Talvez seja necessário solicitar um aumento nas [cotas de rede](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) para garantir que você não utilize IPS. Consulte [Networking and IP Ranges for AKs](https://docs.microsoft.com/azure/aks/configure-kubenet) para obter informações adicionais.
 
 Para obter mais informações, consulte [limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Para verificar suas cotas atuais, na portal do Azure, vá para a [folha assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecione sua assinatura e, em seguida, selecione **uso + cotas**.
 

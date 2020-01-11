@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: f3f89de07e2e17a4dda47ce3650391af38663004
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087192"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894319"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções de OutOfMemoryError para Apache Spark no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Cenário: Exceção de OutOfMemoryError para Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Cenário: exceção OutOfMemoryError para Apache Spark
 
 ### <a name="issue"></a>Problema
 
@@ -60,7 +60,7 @@ A causa mais provável desta exceção é que não suficiente memória de heap �
 
 1. Determine o tamanho máximo dos dados que a aplicação Spark vai processar. Faça uma estimativa do tamanho com base no máximo do tamanho dos dados de entrada, os dados intermediários produzidos transformando os dados de entrada e os dados de saída produzidos mais transformando os dados intermediários. Se a estimativa inicial não for suficiente, aumente o tamanho ligeiramente e itere até que os erros de memória sejam sublados.
 
-1. Confirme que o cluster do HDInsight a ser utilizado tem recursos suficientes em termos de memória, assim como núcleos, para alojar a aplicação Spark. Isso pode ser determinado exibindo a seção métricas de cluster da interface do usuário do amYARN do cluster para os valores de **memória usados** versus **Total de memória** e **VCores usados** versus **Total de VCores**.
+1. Confirme que o cluster do HDInsight a ser utilizado tem recursos suficientes em termos de memória, assim como núcleos, para alojar a aplicação Spark. Isso pode ser determinado exibindo a seção métricas de cluster da interface do usuário do amYARN do cluster para os valores de **memória usados** versus **total de memória** e **VCores usados** versus o **total de VCores**.
 
     ![exibição de memória do yarn Core](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
@@ -90,7 +90,7 @@ A causa mais provável desta exceção é que não suficiente memória de heap �
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Cenário: Erro de espaço de heap de Java ao tentar abrir o servidor de histórico de Apache Spark
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Cenário: erro de espaço de heap de Java ao tentar abrir o servidor de histórico de Apache Spark
 
 ### <a name="issue"></a>Problema
 
@@ -116,13 +116,13 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>Resolução
 
-Você pode aumentar a memória do servidor de histórico do Spark `SPARK_DAEMON_MEMORY` editando a propriedade na configuração do Spark e reiniciando todos os serviços.
+Você pode aumentar a memória do servidor de histórico do Spark editando a propriedade `SPARK_DAEMON_MEMORY` na configuração do Spark e reiniciando todos os serviços.
 
 Você pode fazer isso de dentro da interface do usuário do navegador do Ambari selecionando a seção Spark2/config/Advanced Spark2-env.
 
 ![Seção spark2-env avançada](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-Adicione a seguinte propriedade para alterar a memória do servidor de histórico do Spark de 1g `SPARK_DAEMON_MEMORY=4g`para 4G:.
+Adicione a seguinte propriedade para alterar a memória do servidor de histórico do Spark de 1g para 4G: `SPARK_DAEMON_MEMORY=4g`.
 
 ![Propriedade do Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
@@ -130,7 +130,7 @@ Certifique-se de reiniciar todos os serviços afetados do Ambari.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Cenário: Falha na inicialização do servidor Livy no cluster Apache Spark
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Cenário: falha na inicialização do servidor Livy no cluster Apache Spark
 
 ### <a name="issue"></a>Problema
 
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Causa
 
-`java.lang.OutOfMemoryError: unable to create new native thread`OS destaques do sistema operacional não podem atribuir mais threads nativos a JVMs. Confirmado que essa exceção é causada pela violação do limite de contagem de thread por processo.
+`java.lang.OutOfMemoryError: unable to create new native thread` realça o sistema operacional não pode atribuir mais threads nativos ao JVMs. Confirmado que essa exceção é causada pela violação do limite de contagem de thread por processo.
 
 Quando o Livy Server termina inesperadamente, todas as conexões com clusters Spark também são encerradas, o que significa que todos os trabalhos e dados relacionados serão perdidos. No mecanismo de recuperação de sessão do HDP 2,6 foi introduzido, o Livy armazena os detalhes da sessão em Zookeeper a serem recuperados depois que o servidor de Livy estiver de volta.
 
@@ -239,11 +239,11 @@ Exclua todas as entradas usando as etapas detalhadas abaixo.
 1. Aguarde até que o comando acima seja concluído e o cursor para retornar o prompt e reinicie o serviço Livy de Ambari, que deve ter sucesso.
 
 > [!NOTE]
-> `DELETE`a sessão Livy depois de concluir sua execução. As sessões do lote Livy não serão excluídas automaticamente assim que o aplicativo Spark for concluído, o que é por design. Uma sessão Livy é uma entidade criada por uma solicitação POST em relação ao servidor REST Livy. É `DELETE` necessária uma chamada para excluir essa entidade. Ou devemos aguardar até que o GC seja ativado.
+> `DELETE` a sessão Livy depois de concluir sua execução. As sessões do lote Livy não serão excluídas automaticamente assim que o aplicativo Spark for concluído, o que é por design. Uma sessão Livy é uma entidade criada por uma solicitação POST em relação ao servidor REST Livy. Uma chamada de `DELETE` é necessária para excluir essa entidade. Ou devemos aguardar até que o GC seja ativado.
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
@@ -253,6 +253,6 @@ Se você não tiver visto seu problema ou não conseguir resolver o problema, vi
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 653e57a69e1c7ff8dbeadb14cda6e415ff3a9ee9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440984"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887568"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -110,7 +110,7 @@ As assinaturas do Azure criadas a partir de ofertas individuais, como o pré-pag
 
 Os administradores individuais da conta de assinatura do Azure podem exibir e gerenciar dados de cobrança, como faturas e pagamentos, do [centro de contas do Azure](https://account.azure.com/subscriptions). No entanto, eles não podem exibir dados de custo ou gerenciar recursos no portal do Azure. Para conceder acesso ao administrador da conta, use as funções de gerenciamento de custos mencionadas anteriormente.
 
-Ao contrário de EA, os administradores de conta de assinatura individuais do Azure podem ver suas notas fiscais no portal do Azure. Lembre-se de que as funções de colaborador de gerenciamento de custo e de leitor de gerenciamento de custos não fornecem acesso a faturas. Para obter mais informações, consulte [como conceder acesso a faturas](../billing/billing-manage-access.md##give-read-only-access-to-billing).
+Ao contrário de EA, os administradores de conta de assinatura individuais do Azure podem ver suas notas fiscais no portal do Azure. Lembre-se de que as funções de colaborador de gerenciamento de custo e de leitor de gerenciamento de custos não fornecem acesso a faturas. Para obter mais informações, consulte [como conceder acesso a faturas](../billing/billing-manage-access.md#give-read-only-access-to-billing).
 
 ## <a name="microsoft-customer-agreement-scopes"></a>Escopos do contrato de cliente da Microsoft
 

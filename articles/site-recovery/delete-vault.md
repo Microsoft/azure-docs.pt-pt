@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721293"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894969"
 ---
-# <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre de serviços de Site Recovery
+# <a name="delete-a-site-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação de Sites
 
 Este artigo descreve como excluir um cofre dos serviços de recuperação para Site Recovery. Para excluir um cofre usado no backup do Azure, consulte [excluir um cofre de backup no Azure](../backup/backup-azure-delete-vault.md).
 
@@ -44,7 +44,7 @@ Antes de excluir um cofre, você deve remover os servidores registrados e os ite
 
 1. Siga [estas etapas](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) para excluir VMs do Hyper-V gerenciadas pelo System Center VMM.
 2. Desassocie e exclua todas as políticas de replicação. Faça isso em seu cofre > **site Recovery infraestrutura** > **para o System Center VMM** > **políticas de replicação**.
-3. Siga [estas etapas](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) para cancelar o registro de um servidor VMM conectado.
+3. Siga [estas etapas](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) para cancelar o registro de um servidor VMM conectado.
 4. Em seguida, exclua o cofre.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Excluir um cofre-VM Hyper-V para o Azure

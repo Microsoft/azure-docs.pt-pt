@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953752"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893640"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -108,7 +108,7 @@ Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o segui
 
 
 ## <a name="failback-requirements"></a>Requisitos de reativação pós-falha
-Se você planeja fazer failback para o site local, há vários [pré-requisitos para o failback](vmware-azure-reprotect.md##before-you-begin). Você pode prepará-los agora, mas não precisa. Você pode se preparar depois de fazer failover para o Azure.
+Se você planeja fazer failback para o site local, há vários [pré-requisitos para o failback](vmware-azure-reprotect.md#before-you-begin). Você pode prepará-los agora, mas não precisa. Você pode se preparar depois de fazer failover para o Azure.
 
 
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7184a6b85e93c41dfe914813301a4b1a0c88f2cd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441690"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887687"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
 
@@ -29,7 +29,7 @@ Para criar uma chave de partição grande, ao criar um novo contêiner usando o 
 
 Para criar um contêiner com suporte de chave de partição grande, consulte
 
-* [Criar um contêiner Cosmos do Azure com um tamanho de chave de partição grande](manage-with-powershell.md##create-container-big-pk)
+* [Criar um contêiner Cosmos do Azure com um tamanho de chave de partição grande](manage-with-powershell.md#create-container-big-pk)
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>Criar uma chave de partição grande (SDK do .net)
 

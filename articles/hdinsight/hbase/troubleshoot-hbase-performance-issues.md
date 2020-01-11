@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529561"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887160"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solucionar problemas de desempenho do Apache HBase no Azure HDInsight
 
@@ -57,7 +57,7 @@ Se suas consultas começaram a fazer muito pior do que antes, verifique se há b
 
 ## <a name="migration-issues"></a>Problemas de migração
 
-Se você estiver migrando para o Azure HDInsight, certifique-se de que sua migração seja feita sistematicamente e com precisão, preferencialmente por meio da automação. Evite a migração manual. Certifique-se de que:
+Se você estiver migrando para o Azure HDInsight, certifique-se de que sua migração seja feita sistematicamente e com precisão, preferencialmente por meio da automação. Evite a migração manual. Confirme que:
 
 - Os atributos de tabela são migrados com precisão. Os atributos podem incluir como compactação, filtros de flor e assim por diante.
 
@@ -75,7 +75,7 @@ A seguir estão alguns dos outros parâmetros específicos que ajustamos, e isso
 
 - Aumente o número de threads dedicados para compactação, da configuração padrão de **1** a **4**. Essa configuração será relevante se observarmos compactações secundárias frequentes.
 
-- Evite bloquear a liberação de `memstore` devido ao limite de armazenamento. Para fornecer esse buffer, aumente a configuração de `Hbase.hstore.blockingStoreFiles` para **100**.
+- Evite bloquear `memstore` liberação devido ao limite de armazenamento. Para fornecer esse buffer, aumente a configuração de `Hbase.hstore.blockingStoreFiles` para **100**.
 
 - Para controlar liberações, use as seguintes configurações:
 
@@ -124,4 +124,4 @@ Se o problema permanecer sem resolução, visite um dos seguintes canais para ob
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

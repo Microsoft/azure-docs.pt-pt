@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9b17548bf840ff0e2f94ed6933e5abdcc04110c8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286505"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887789"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>PRETERIDO Perguntas frequentes sobre o serviço de contêiner
 
@@ -64,7 +64,7 @@ Se utilizar os [comandos do CLI do Azure](../../container-service/dcos-swarm/con
 Pode criar clusters com um, três ou cinco nós principais. Pode escolher até cem nós de agente.
 
 > [!IMPORTANT]
-> Relativamente a clusters maiores e consoante o tamanho da VM que escolher para os nós, poderá ter de aumentar a quota de núcleos da sua subscrição. Para pedir um aumento de quota, abra um [pedido de suporte ao cliente online](../../azure-supportability/how-to-create-azure-support-request.md), sem custos. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
+> Relativamente a clusters maiores e consoante o tamanho da VM que escolher para os nós, poderá ter de aumentar a quota de núcleos da sua subscrição. Para pedir um aumento de quota, abra um [pedido de suporte ao cliente online](../../azure-portal/supportability/how-to-create-azure-support-request.md), sem custos. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Como posso aumentar o número de modelos de estrutura mestres depois de ser criado um cluster? 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47dbd28f301009969ae02acfac6f4b272ef608f0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918649"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895666"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de arquivos local usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -436,7 +436,7 @@ O exemplo a seguir mostra:
 * Um serviço vinculado do tipo [OnPremisesFileServer](#linked-service-properties).
 * Um conjunto de dados de entrada do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
 * Um conjunto de uma saída do tipo [FileShare](#dataset-properties).
-* Um pipeline com uma atividade de cópia que usa [sqlsource](data-factory-azure-sql-connector.md##copy-activity-properties) e [FileSystemSink](#copy-activity-properties).
+* Um pipeline com uma atividade de cópia que usa [sqlsource](data-factory-azure-sql-connector.md#copy-activity-properties) e [FileSystemSink](#copy-activity-properties).
 
 O exemplo copia dados de série temporal de uma tabela SQL do Azure para um sistema de arquivos local a cada hora. As propriedades JSON que são usadas nesses exemplos são descritas em seções após os exemplos.
 

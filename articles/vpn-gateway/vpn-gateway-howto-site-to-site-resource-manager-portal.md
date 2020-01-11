@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 31775286271ba45dd323ff02b405131e28ce9e23
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780322"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894995"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
 

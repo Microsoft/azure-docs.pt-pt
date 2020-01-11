@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195957"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888571"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar contêineres do Docker LUIS
  
@@ -24,7 +24,7 @@ O contêiner Reconhecimento vocal (LUIS) carrega seu modelo de Reconhecimento vo
 
 O vídeo a seguir demonstra como usar esse contêiner.
 
-[demonstração do contêiner de ![para serviços cognitivas](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Demonstração de contentor para os serviços cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,9 +32,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
-|Necessário|Objetivo|
+|Obrigatório|Finalidade|
 |--|--|
-|Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter uma introdução sobre o Docker e noções básicas de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Motor do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos básicos de `docker`.| 
 |Recurso de `Cognitive Services` do Azure e arquivo de [aplicativo empacotado](luis-how-to-start-new-app.md) Luis |Para usar o contêiner, você deve ter:<br><br>* Um recurso do Azure de _Serviços cognitivas_ e a chave de cobrança associada ao URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner. <br>* Um aplicativo treinado ou publicado empacotado como uma entrada montada para o contêiner com sua ID de aplicativo associada. Você pode obter o arquivo empacotado no portal do LUIS ou as APIs de criação. Se você estiver obtendo um aplicativo LUIS empacotado das [APIs de criação](#authoring-apis-for-package-file), também precisará da sua _chave de criação_.<br><br>Esses requisitos são usados para passar argumentos de linha de comando para as seguintes variáveis:<br><br>**{AUTHORING_KEY}** : essa chave é usada para obter o aplicativo empacotado do serviço Luis na nuvem e carregar os logs de consulta de volta para a nuvem. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}** : essa ID é usada para selecionar o aplicativo. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{Api_key}** : essa chave é usada para iniciar o contêiner. Você pode encontrar a chave do ponto de extremidade em dois locais. A primeira é a portal do Azure na lista de chaves do recurso de _Serviços cognitivas_ . A chave do ponto de extremidade também está disponível no portal do LUIS na página Configurações de ponto de extremidade e chaves. Não use a chave inicial.<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página Visão geral.<br><br>A chave de [criação e a chave do ponto de extremidade](luis-boundaries.md#key-limits) têm finalidades diferentes. Não os use de forma intercambiável. |
 
@@ -84,7 +84,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 1. [Exportar pacote](#export-packaged-app-from-luis) para contêiner do portal do Luis ou APIs do Luis.
 1. Mova o arquivo de pacote para o diretório de **entrada** necessário no [computador host](#the-host-computer). Não renomeie, altere, substitua ou Descompacte o arquivo de pacote LUIS.
-1. [Execute o contêiner](##run-the-container-with-docker-run), com as configurações necessárias de montagem e cobrança de _entrada_ . Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis. 
+1. [Execute o contêiner](#run-the-container-with-docker-run), com as configurações necessárias de montagem e cobrança de _entrada_ . Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis. 
 1. [Consultando o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint). 
 1. Quando você terminar o contêiner, [importe os logs de ponto de extremidade](#import-the-endpoint-logs-for-active-learning) da montagem de saída no portal do Luis e [interrompa](#stop-the-container) o contêiner.
 1. Use o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md) do portal do Luis na página **examinar ponto de extremidade declarações** para melhorar o aplicativo.
@@ -146,7 +146,7 @@ O pacote do aplicativo publicado está disponível na página de lista **meus ap
 O pacote do aplicativo com versão está disponível na página de lista de **versões** .
 
 1. Entre no [portal](https://www.luis.ai)do Luis.
-1. Selecione o aplicativo na lista. 
+1. Selecione a aplicação na lista. 
 1. Selecione **gerenciar** na barra de navegação do aplicativo.
 1. Selecione **versões** na barra de navegação à esquerda.
 1. Marque a caixa de seleção à esquerda do nome da versão na lista.
@@ -228,7 +228,7 @@ Este comando:
 Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis. 
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing`e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para obter mais informações, consulte [cobrança](#billing).
+> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
 > O valor ApiKey é a **chave** da página de **recursos do Azure** no portal do Luis e também está disponível na página chaves de recurso do `Cognitive Services` do Azure.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
@@ -252,7 +252,7 @@ Use o host, `http://localhost:5000`, para APIs de contêiner.
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
-|Parâmetro de consulta|Tipo|Objetivo|
+|Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
 |`query`|string|O expressão do usuário.|
 |`verbose`|boolean|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. A predefinição é falso.|
@@ -268,13 +268,13 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
-|Parâmetro de consulta|Tipo|Objetivo|
+|Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
 |`q`|string|O expressão do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite que você [altere o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela entidade predefinida datetimeV2.|
 |`verbose`|boolean|Retorna todas as intenções e suas pontuações quando definidas como true. O padrão é false, que retorna apenas a intenção mais.|
 |`staging`|boolean|Retorna a consulta de resultados do ambiente de preparo se definido como true. |
-|`log`|boolean|Registra consultas, que podem ser usadas posteriormente para o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
+|`log`|boolean|Registra consultas, que podem ser usadas posteriormente para o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). A predefinição é verdadeiro.|
 
 ***
 
@@ -351,7 +351,7 @@ Depois que o log for carregado, [examine o ponto de extremidade](https://docs.mi
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Parar o contêiner
+## <a name="stop-the-container"></a>Parar o contentor
 
 Para desligar o contêiner, no ambiente de linha de comando em que o contêiner está em execução, pressione **Ctrl + C**.
 
@@ -367,7 +367,7 @@ O contêiner LUIS envia informações de cobrança para o Azure, usando um recur
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, consulte [configurar contêineres](luis-container-configuration.md).
+Para obter mais informações sobre estas opções, consulte [configurar contentores](luis-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]

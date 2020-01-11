@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 304d0615a12871fb4a9610058bc1be0ad6dff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929536"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892810"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -195,7 +195,7 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | Blob |Byte[] |
 | char |String |
 | Clob |String |
-| Date |DateTime |
+| Data |DateTime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
@@ -222,4 +222,4 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 58bfc35776e83df7754379a12ad4b7afca73e32c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862820"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892348"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir um tempo de execução de integração do Azure-SSIS a uma rede virtual
 
@@ -57,7 +57,7 @@ Ao ingressar seu Azure-SSIS IR em uma rede virtual, lembre-se destes pontos impo
 
 - Se uma rede virtual clássica já estiver conectada à sua rede local em um local diferente do seu Azure-SSIS IR, você poderá criar uma [rede virtual Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para que seu Azure-SSIS ir ingresse. Em seguida, configure uma conexão de [rede virtual clássica para Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) . 
  
-- Se uma rede virtual Azure Resource Manager já estiver conectada à sua rede local em um local diferente do seu Azure-SSIS IR, você poderá primeiro criar uma [rede virtual Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) para sua Azure-SSIS ir para ingressar. Em seguida, configure uma conexão de rede virtual de Azure Resource Manager para Azure Resource Manager. 
+- Se uma rede virtual Azure Resource Manager já estiver conectada à sua rede local em um local diferente do seu Azure-SSIS IR, você poderá primeiro criar uma [rede virtual Azure Resource Manager](../virtual-network/quick-create-portal.md#create-a-virtual-network) para sua Azure-SSIS ir para ingressar. Em seguida, configure uma conexão de rede virtual de Azure Resource Manager para Azure Resource Manager. 
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>Hospedando o catálogo do SSIS no banco de dados SQL
 

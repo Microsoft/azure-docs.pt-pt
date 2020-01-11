@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 33e4b22bd4455d19fc334c4a3093183a8f9872f0
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 4d7c094904529323b0665d14255d1eb76cb78bd3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830127"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891908"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando Azure Data Factory
 
@@ -442,4 +442,4 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

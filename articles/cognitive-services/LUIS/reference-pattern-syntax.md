@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974347"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890265"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrão
 
@@ -142,7 +142,7 @@ As marcas de Pontuação (`?`, `!`, `.`) devem ser ignoradas e você precisa ign
 Saiba mais sobre padrões:
 
 * [Como adicionar padrões](luis-how-to-model-intent-pattern.md)
-* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Conceitos de padrões](luis-concept-patterns.md)
 
 Entenda como [a](luis-reference-prebuilt-sentiment.md) opinião é retornada na resposta. JSON.

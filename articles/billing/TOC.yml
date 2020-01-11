@@ -232,7 +232,7 @@
     - name: Vista de custos empresariais desativada
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contactar o suporte
-      href: ../azure-supportability/how-to-create-azure-support-request.md
+      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Amostras
   items:
     - name: API REST

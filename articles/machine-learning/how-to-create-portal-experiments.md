@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764648"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894026"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crie, explore e implante experimentos automatizados de aprendizado de máquina com o Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Variância| A medida de difundir os dados desta coluna é de seu valor médio.
 Assimetrias| Medida de quão diferentes os dados dessa coluna são de uma distribuição normal.
 Kurtosis| A medida de quão cauda os dados desta coluna é comparada a uma distribuição normal.
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Opções avançadas de pré-processamento
 
-Ao configurar seus experimentos, você pode habilitar a configuração avançada `Preprocess`. Isso significa que as etapas de pré-processamento e personalização de dados a seguir são executadas automaticamente.
+Ao configurar seus experimentos, você pode habilitar a configuração avançada `Preprocess`. Isso significa que, como parte do pré-processamento, as etapas de guardrails e personalização de dados a seguir são executadas automaticamente.
 
 |Pré-processando&nbsp;etapas| Descrição |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ Ao configurar seus experimentos, você pode habilitar a configuração avançada
 |Codificação de destino de texto|Para entrada de texto, um modelo linear empilhado com conjunto de palavras é usado para gerar a probabilidade de cada classe.|
 |Peso de evidência (WoE)|Calcula WoE como uma medida de correlação de colunas categóricas para a coluna de destino. Ele é calculado como o log da taxa de probabilidades de fora de classe vs in-Class. Esta etapa gera uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceção.|
 |Distância do cluster|Treina um modelo de clustering k-means em todas as colunas numéricas.  Gera novos recursos e um novo recurso numérico por cluster, contendo a distância de cada amostra para o centróide de cada cluster.|
+
+### <a name="data-guardrails"></a>Guardrails de dados
+
+O aprendizado de máquina automatizado oferece guardrails de dados para ajudá-lo a identificar possíveis problemas com seus dados (por exemplo, valores ausentes, desequilíbrio de classe) e ajudar a executar ações corretivas para resultados aprimorados. Há muitas práticas recomendadas que estão disponíveis e podem ser aplicadas para obter resultados confiáveis. 
+
+A tabela a seguir descreve os dados atualmente com suporte guardrails e os status associados que os usuários podem chegar ao enviar o experimento.
+
+Guardrail|Estado|&nbsp;de condição para gatilho de&nbsp;
+---|---|---
+Valores de&nbsp;ausentes&nbsp;imputação |**Passagem** <br> <br> **Fixo**|    Nenhum valor ausente em nenhuma das colunas de&nbsp;de entrada <br> <br> Algumas colunas têm valores ausentes
+Validação cruzada|**Trabalhado**|Se nenhum conjunto de validação explícito for fornecido
+&nbsp;de&nbsp;detecção do recurso de cardinalidade de alta&nbsp;|  **Passagem** <br> <br>**Trabalhado**|   Nenhum recurso de cardinalidade alta foi detectado <br><br> Colunas de entrada de alta cardinalidade foram detectadas
+Detecção de balanceamento de classe |**Passagem** <br><br><br>**Alertado** |As classes são equilibradas nos dados de treinamento; Um conjunto de um DataSet é considerado balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras <br> <br> As classes nos dados de treinamento são desbalanceadas
+Consistência de dados de série temporal|**Passagem** <br><br><br><br> **Fixo** |<br> Os valores de {horizonte, atraso, janela sem interrupção} selecionados foram analisados e não foram detectados problemas de falta de memória em potencial. <br> <br>Os valores selecionados {Horizonte, lag, janela sem interrupção} foram analisados e, potencialmente, farão com que o teste fique sem memória. A janela de atraso ou rolagem foi desativada.
 
 ## <a name="run-experiment-and-view-results"></a>Executar experimento e exibir resultados
 

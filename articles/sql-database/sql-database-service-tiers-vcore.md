@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351403"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895999"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
 
@@ -32,8 +32,8 @@ As opções da camada de serviço no modelo vCore incluem Uso Geral, Comercialme
 ||**Fins gerais**|**Comercialmente crítico**|**Em hiperescala**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e de computação voltadas para o orçamento, equilibradas e escalonáveis. |Oferece aos aplicativos de negócios a resiliência mais alta para falhas usando várias réplicas isoladas e fornece o desempenho de e/s mais alto por réplica de banco de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento e escala de leitura altamente escalonáveis.  Oferece maior resiliência a falhas, permitindo a configuração de mais de uma réplica de banco de dados isolada. |
-|Armazenamento|Usa o armazenamento remoto.<br/>**Computação provisionada de banco de dados individual e pool elástico**:<br/>5 GB – 4 TB<br/>**Computação sem servidor**:<br/>5 GB-3 TB<br/>**Instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada de banco de dados individual e pool elástico**:<br/>5 GB – 4 TB<br/>**Instância gerenciada**:<br/>32 GB-4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
-|Taxa de transferência de e/s (aproximada)|**Banco de dados individual e pool elástico**: 500 IOPS por vCore até 40000 IOPS máximo.<br/>**Instância gerenciada**: depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por vCore até 320.000 IOPS máximo|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho.|
+|Armazenamento|Usa o armazenamento remoto.<br/>**Computação provisionada de bancos de dados individuais e pools elásticos**:<br/>5 GB – 4 TB<br/>**Computação sem servidor**:<br/>5 GB-3 TB<br/>**Instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada de bancos de dados individuais e pools elásticos**:<br/>5 GB – 4 TB<br/>**Instância gerenciada**:<br/>32 GB-4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
+|IOPS e taxa de transferência (aproximado)|**Bancos de dados individuais e pools elásticos**: consulte limites de recursos para [bancos de dados individuais](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pools elásticos](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Instância gerenciada**: consulte [visão geral limites de recursos de instância gerenciada do banco de dados SQL do Azure](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|Consulte limites de recursos para [bancos de dados individuais](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pools elásticos](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS e a taxa de transferência efetivos dependerão da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas de escala de leitura|3 réplicas, 1 [réplica de escala de leitura](sql-database-read-scale-out.md),<br/>alta disponibilidade com redundância de zona (HA)|1 réplica de leitura/gravação, além [de 0-4 réplicas de escala de leitura](sql-database-read-scale-out.md)|
 |Cópias de segurança|[Armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[Ra-grs](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|Backups baseados em instantâneo no armazenamento remoto do Azure. As restaurações usam esses instantâneos para recuperação rápida. Os backups são instantâneos e não afetam O desempenho de e/s de computação. As restaurações são rápidas e não são uma operação de tamanho de dados (levando minutos em vez de horas ou dias).|
 |Dentro da memória|Não suportado|Suportadas|Não suportado|

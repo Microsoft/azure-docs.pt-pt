@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787187"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888146"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Enviar chamadas de saída para pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
 
@@ -40,7 +40,7 @@ Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá s
 
 Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto de extremidade e retorna uma resposta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
 1. Em **escolher uma ação**, na caixa de pesquisa, digite "http" como filtro. Na lista de **gatilhos** , selecione o gatilho **http** .
 
@@ -48,7 +48,7 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
    Este exemplo renomeia o gatilho para "gatilho HTTP" para que a etapa tenha um nome mais descritivo. Além disso, o exemplo posteriormente adiciona uma ação HTTP e ambos os nomes devem ser exclusivos.
 
-1. Forneça os valores para os [parâmetros de gatilho http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que você deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho Verifique o ponto de extremidade de destino.
+1. Forneça os valores para os [parâmetros de gatilho http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) que você deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho Verifique o ponto de extremidade de destino.
 
    Se você selecionar um tipo de autenticação diferente de **nenhum**, as configurações de autenticação diferem com base na sua seleção. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -64,7 +64,7 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
 Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto de extremidade e retorna uma resposta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
 
    Este exemplo usa o gatilho HTTP como a primeira etapa.
 
@@ -78,7 +78,7 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
    Este exemplo renomeia a ação como "ação HTTP" para que a etapa tenha um nome mais descritivo.
 
-1. Forneça os valores para os [parâmetros de ação http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que você deseja incluir na chamada para o ponto de extremidade de destino.
+1. Forneça os valores para os [parâmetros de ação http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) que você deseja incluir na chamada para o ponto de extremidade de destino.
 
    Se você selecionar um tipo de autenticação diferente de **nenhum**, as configurações de autenticação diferem com base na sua seleção. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -138,8 +138,8 @@ Aqui está o mesmo exemplo que mostra a definição de JSON da ação HTTP na de
 
 Para obter mais informações sobre parâmetros de ação e gatilho, consulte estas seções:
 
-* [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>Detalhes da saída
 
@@ -148,18 +148,18 @@ Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, qu
 | Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
 | conector | objeto | Os cabeçalhos da solicitação |
-| conteúdo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| código de status | int | O código de status da solicitação |
+| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| código de estado | int | O código de status da solicitação |
 |||
 
 | Código de estado | Descrição |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Aceitar |
-| 400 | Solicitação inadequada |
+| 202 | Aceite |
+| 400 | Pedido incorreto |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não encontrado |
+| 404 | Não foi encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 

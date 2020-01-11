@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 7721aca9187a0faee2254bc100bce03fe34232c4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 20017f42031e126bbdae40f66bf4c36efd12f17c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646919"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893469"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
@@ -81,7 +81,7 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>Instâncias de VM Reservada
 As instâncias de VM reservadas, que têm o escopo de uma única assinatura sem flexibilidade de tamanho de VM, adicionarão um novo aspecto às cotas de vCPU. Esses valores descrevem o número de instâncias do tamanho declarado que devem ser implantáveis na assinatura. Eles funcionam como um espaço reservado no sistema de cotas para garantir que a cota seja reservada para garantir que as instâncias de VM reservadas sejam implantáveis na assinatura. Por exemplo, se uma assinatura específica tiver 10 Standard_D1 instâncias de VM reservadas, o limite de usos para Standard_D1 instâncias de VM reservadas será 10. Isso fará com que o Azure Verifique se há sempre pelo menos 10 vCPUs disponíveis na cota de vCPUs regional total a ser usada para Standard_D1 instâncias e se há pelo menos 10 vCPUs disponíveis na cota de vCPU da família D padrão para serem usadas para Standard_D1 instâncias.
 
-Se um aumento de cota for necessário para comprar uma única assinatura RI, você poderá [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) em sua assinatura.
+Se um aumento de cota for necessário para comprar uma única assinatura RI, você poderá [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) em sua assinatura.
 
 ## <a name="next-steps"></a>Passos seguintes
 

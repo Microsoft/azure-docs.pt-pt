@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: dc79582efd2f009f1715e04b769d030cfd36561f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e85696afde5f0332ff6481bfadabbde5ac2d4800
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972494"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894916"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referência de script Azure Data Factory-JSON
 > [!NOTE]
@@ -289,7 +289,7 @@ A tabela a seguir descreve as propriedades no JSON acima:
 | structure | Esquema do conjunto de um. Ele contém colunas, seus tipos, etc. | Não |N/D |
 | typeProperties | Propriedades correspondentes ao tipo selecionado. Consulte a seção [armazenamentos de dados](#data-stores) para obter os tipos com suporte e suas propriedades. |Sim |N/D |
 | externo | Sinalizador booliano para especificar se um conjunto de um DataSet é gerado explicitamente por um pipeline data factory ou não. |Não |false |
-| availability | Define a janela de processamento ou o modelo de divisão para a produção do conjunto de os. Para obter detalhes sobre o modelo de divisão de conjunto de informações, consulte o artigo [agendamento e execução](data-factory-scheduling-and-execution.md) . |Sim |N/D |
+| disponibilidade | Define a janela de processamento ou o modelo de divisão para a produção do conjunto de os. Para obter detalhes sobre o modelo de divisão de conjunto de informações, consulte o artigo [agendamento e execução](data-factory-scheduling-and-execution.md) . |Sim |N/D |
 | política |Define os critérios ou a condição que as fatias de DataSet devem atender. <br/><br/>Para obter detalhes, consulte a seção política de conjunto de informações. |Não |N/D |
 
 Cada coluna na seção **estrutura** contém as seguintes propriedades:
@@ -375,7 +375,7 @@ Clique no link da loja em que você está interessado para ver os esquemas JSON 
 |:--- |:--- |
 | **Azure** |[Armazenamento de Blobs do Azure](#azure-blob-storage) |
 | &nbsp; |Arquivo do Azure Data Lake |
-| &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
+| &nbsp; |[BD do Cosmos para o Azure](#azure-cosmos-db) |
 | &nbsp; |[Base de Dados SQL do Azure](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Pesquisa Cognitiva do Azure](#azure-cognitive-search) |
@@ -4162,7 +4162,7 @@ Para definir um conjunto de um DataSet, defina o **tipo** do conjunto de um como
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não for especificado, somente a URL especificada na definição de serviço vinculado será usada. <br><br> Para construir a URL dinâmica, você pode usar [Data Factory funções e variáveis do sistema](data-factory-functions-variables.md), por exemplo: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Não |
 | requestMethod | Método http. Os valores permitidos são **Get** ou **post**. | Não. A predefinição é `GET`. |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
-| requestBody | Corpo da solicitação HTTP. | Não |
+| RequestBody | Corpo da solicitação HTTP. | Não |
 | format | Se você quiser simplesmente **recuperar os dados do ponto de extremidade http como estão** sem analisá-los, ignore estas configurações de formato. <br><br> Se você deseja analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
@@ -4743,7 +4743,7 @@ Para definir um conjunto de uma Web, defina o **tipo** do conjunto de um como **
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |Tipo do conjunto de um. deve ser definido como **Webtable** |Sim |
+| tipo |tipo do conjunto de um. deve ser definido como **Webtable** |Sim |
 | Caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, somente a URL especificada na definição de serviço vinculado será usada. |
 | index |O índice da tabela no recurso. Consulte a seção obter índice de uma tabela em uma página HTML para obter as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
 
@@ -4909,7 +4909,7 @@ A tabela a seguir fornece descrições para as propriedades usadas na definiçã
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como **AzureBatch**. |Sim |
 | accountName |Nome da conta do lote do Azure. |Sim |
-| accessKey |Chave de acesso para a conta do lote do Azure. |Sim |
+| AccessKey |Chave de acesso para a conta do lote do Azure. |Sim |
 | poolName |Nome do pool de máquinas virtuais. |Sim |
 | linkedServiceName |Nome do serviço vinculado do armazenamento do Azure associado a este serviço vinculado do lote do Azure. Esse serviço vinculado é usado para arquivos de preparação necessários para executar a atividade e armazenar os logs de execução da atividade. |Sim |
 
@@ -5552,7 +5552,7 @@ As propriedades a seguir têm suporte na seção **typeproperties** quando você
 
 Se você especificar um conjunto de dados de entrada, ele deverá estar disponível (no status ' pronto ') para que a atividade de procedimento armazenado seja executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Ele é usado apenas para verificar a dependência antes de iniciar a atividade de procedimento armazenado. Você deve especificar um conjunto de uma saída para uma atividade de procedimento armazenado.
 
-O conjunto de resultados de saída especifica o **agendamento** para a atividade de procedimento armazenado (por hora, semanalmente, mensalmente, etc.). O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um banco de dados SQL do Azure ou a um SQL data warehouse do Azure ou a um banco de dados SQL Server no qual você deseja que o procedimento armazenado seja executado. O conjunto de resultados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento subsequente por outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) no pipeline. No entanto, Data Factory não grava automaticamente a saída de um procedimento armazenado para esse conjunto de um. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de resultados de saída aponta. Em alguns casos, o conjunto de resultados de saída pode ser um conjunto de uma **fictício**, que é usado apenas para especificar o agendamento para executar a atividade de procedimento armazenado.
+O conjunto de resultados de saída especifica o **agendamento** para a atividade de procedimento armazenado (por hora, semanalmente, mensalmente, etc.). O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um banco de dados SQL do Azure ou a um SQL data warehouse do Azure ou a um banco de dados SQL Server no qual você deseja que o procedimento armazenado seja executado. O conjunto de resultados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento subsequente por outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) no pipeline. No entanto, Data Factory não grava automaticamente a saída de um procedimento armazenado para esse conjunto de um. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de resultados de saída aponta. Em alguns casos, o conjunto de resultados de saída pode ser um conjunto de uma **fictício**, que é usado apenas para especificar o agendamento para executar a atividade de procedimento armazenado.
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5591,7 +5591,7 @@ Você pode especificar as propriedades a seguir em uma definição de JSON de at
 | EntryPoint |Nome da classe que implementa a interface IDotNetActivity. No exemplo, é: **MyDotNetActivityNS. MyDotNetActivity** , em que MyDotNetActivityNS é o namespace e MyDotNetActivity é a classe.  | Sim |
 | PackageLinkedService | Nome do serviço vinculado do armazenamento do Azure que aponta para o armazenamento de BLOBs que contém o arquivo zip da atividade personalizada. No exemplo, é: **AzureStorageLinkedService**.| Sim |
 | PackageFile | Nome do arquivo zip. No exemplo, é: **customactivitycontainer/MyDotNetActivity. zip**. | Sim |
-| extendedProperties | Propriedades estendidas que você pode definir e passar para o código .NET. Neste exemplo, a variável **SliceStart** é definida como um valor com base na variável de sistema SliceStart. | Não |
+| ExtendedProperties | Propriedades estendidas que você pode definir e passar para o código .NET. Neste exemplo, a variável **SliceStart** é definida como um valor com base na variável de sistema SliceStart. | Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
 

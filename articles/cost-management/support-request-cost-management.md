@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 82c9a13c50f9d9786f405032d6339c8323d9cf68
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2ea1d33f6302a04a7844e4504d30bac897599e69
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229887"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887551"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar um pedido de suporte para o Cloudyn
 
@@ -23,29 +23,29 @@ ms.locfileid: "74229887"
 
 ## <a name="open-a-support-ticket"></a>Abrir um pedido de suporte
 
-1. Entre no portal do Azure (https://portal.azure.com).
-2. Na barra de navegação superior, clique em **ajuda**.
-3. No menu **ajuda** , clique em **ajuda + suporte**.
-4. No menu ajuda + suporte em suporte, clique em **nova solicitação de suporte**.
-5. Na área noções básicas, em tipo de problema, selecione **cobrança**.
+1. Inicie sessão no portal do Azure (https://portal.azure.com).
+2. Na barra de navegação superior, clique em **ajudar**.
+3. Na **ajudar** menu, clique em **ajuda + suporte**.
+4. Na ajuda + suporte menu em suporte, clique em **novo pedido de suporte**.
+5. Na área de noções básicas, no tipo de problema, selecione **faturação**.
 6. Sob a subscrição, escolha qualquer subscrição listada. A subscrição que escolher não é utilizada para encaminhamento do problema.
-7. Em plano de suporte, selecione seu plano de suporte do Azure e clique em **Avançar**.  
-8. Na área problema, selecione um nível de **severidade** para ajudar a determinar o tempo de resposta.
-9. Em **tipo de problema** , selecione **Cloudyn Legacy**e, em seguida, selecione uma **categoria**.
-10. Na caixa **título** , insira um título que descreva sua solicitação.
-11. Na caixa **detalhes** , digite informações adicionais.
-12. Para **quando o problema foi iniciado?** , selecione uma data e hora aproximadas para e clique em **Avançar**.  
-14. Na área **informações de contato** , selecione seu método de contato preferencial e forneça suas informações de contato e, em seguida, clique em **criar**.  
+7. Plano de suporte, selecionar o seu plano de suporte do Azure e, em seguida, clique em **seguinte**.  
+8. Na área de problema, selecione um **gravidade** nível para ajudar a determinar o tempo de resposta.
+9. Na **tipo de problema** selecionar **Cloudyn legada**e, em seguida, selecione um **categoria**.
+10. Na **Title** , introduza um título que descreve o seu pedido.
+11. Na **detalhes** caixa de informações adicionais sobre o tipo.
+12. Para **quando o problema começou?** , selecione uma aproximado data e hora para e, em seguida, clique em **próxima**.  
+14. Na **informações de contacto** área, selecione seu preferencial método de contacto e fornece as informações de contacto, em seguida, clique em **criar**.  
 
-Quando o pedido de suporte é criado, é adicionado à fila de suporte. Tempo de resposta varia com base no plano de suporte e de gravidade (impacto comercial) do problema. Para obter mais informações, consulte [suporte a escopo e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
+Quando o pedido de suporte é criado, é adicionado à fila de suporte. Tempo de resposta varia com base no plano de suporte e de gravidade (impacto comercial) do problema. Para obter mais informações, consulte [âmbito de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
 
-Se você quiser criar um tíquete de suporte de cobrança para o gerenciamento de custos, em **tipo de problema**, selecione **Gerenciamento de custos do Azure**.
+Se pretender criar um pedido de suporte de faturação para a gestão de custos, em **tipo de problema**, selecione **Azure Cost Management**.
 
-Para verificar o status de um incidente que você arquivau, consulte [todas as solicitações de suporte](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
+Para verificar o estado de um incidente que submeteu, veja [todos os pedidos de suporte](../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
 
-Se você for um usuário herdado do Cloudyn sem uma conta do Azure, poderá abrir uma solicitação de suporte em https://support.microsoft.com/oas/default.aspx?prid=16451.
+Se for um usuário herdado do Cloudyn sem uma conta do Azure, pode abrir um pedido de suporte em https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre o Cloudyn, continue no tutorial [analisar o uso e os custos](tutorial-review-usage.md) do Cloudyn.
+- Para saber mais sobre o Cloudyn, avance para o [rever a utilização e custos](tutorial-review-usage.md) tutorial da Cloudyn.

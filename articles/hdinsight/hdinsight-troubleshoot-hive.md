@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 9169bd9a63666238e9d6b97d86bf1e9e10312c1b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076517"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895225"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hive usando o Azure HDInsight
 
@@ -39,7 +39,7 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
     hive -f alltables.sql
     ```
 
-O código nas etapas de resolução pressupõe que os caminhos de dados no novo cluster são iguais aos caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, você poderá editar manualmente o `alltables.sql` arquivo gerado para refletir as alterações.
+O código nas etapas de resolução pressupõe que os caminhos de dados no novo cluster são iguais aos caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, você poderá editar manualmente o arquivo de `alltables.sql` gerado para refletir as alterações.
 
 ### <a name="additional-reading"></a>Leitura adicional
 
@@ -120,17 +120,17 @@ O código nas etapas de resolução pressupõe que os caminhos de dados no novo 
    Você deve fornecer um programa de exemplo como o primeiro argumento.
 
    Os nomes de programa válidos incluem:
-    - **ContainerReuseAnalyzer**: Imprimir detalhes de reutilização de contêiner em um DAG
-    - **CriticalPath**: Localizar o caminho crítico de um DAG
-    - **LocalityAnalyzer**: Detalhes de localidade de impressão em um DAG
-    - **ShuffleTimeAnalyzer**: Analisar os detalhes de tempo de ordem aleatória em um DAG
-    - **SkewAnalyzer**: Analisar os detalhes de distorção em um DAG
-    - **SlowNodeAnalyzer**: Detalhes do nó de impressão em um DAG
-    - **SlowTaskIdentifier**: Imprimir detalhes da tarefa lenta em um DAG
-    - **SlowestVertexAnalyzer**: Imprimir detalhes de vértice mais lentos em um DAG
-    - **SpillAnalyzer**: Imprimir detalhes de despejo em um DAG
-    - **TaskConcurrencyAnalyzer**: Imprimir os detalhes de simultaneidade da tarefa em um DAG
-    - **VertexLevelCriticalPathAnalyzer**: Localizar o caminho crítico no nível de vértice em um DAG
+    - **ContainerReuseAnalyzer**: imprimir detalhes de reutilização de contêiner em um DAG
+    - **CriticalPath**: localizar o caminho crítico de um DAG
+    - **LocalityAnalyzer**: imprimir detalhes de localidade em um DAG
+    - **ShuffleTimeAnalyzer**: analisar os detalhes de tempo de embaralhamento em um DAG
+    - **SkewAnalyzer**: analisar os detalhes de distorção em um DAG
+    - **SlowNodeAnalyzer**: imprimir detalhes do nó em um DAG
+    - **SlowTaskIdentifier**: imprimir detalhes da tarefa lenta em um DAG
+    - **SlowestVertexAnalyzer**: imprimir detalhes de vértice mais lentos em um DAG
+    - **SpillAnalyzer**: imprimir detalhes de despejo em um DAG
+    - **TaskConcurrencyAnalyzer**: imprimir os detalhes de simultaneidade da tarefa em um DAG
+    - **VertexLevelCriticalPathAnalyzer**: localizar o caminho crítico no nível de vértice em um DAG
 
 ### <a name="additional-reading"></a>Leitura adicional
 
@@ -161,12 +161,12 @@ Há duas maneiras de coletar os dados do tez DAG:
 
 [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
 - Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-- Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

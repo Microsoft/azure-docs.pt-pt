@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f4164966d1a9662a72d41fefcb7cfbb1b444d614
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129313"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888990"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre o Azure Databricks
 
@@ -92,7 +92,7 @@ Se você não criou o espaço de trabalho e foi adicionado como um usuário, ent
 
 #### <a name="solution"></a>Solução
 
-Os clusters do Databricks utilizam um endereço IP público por nó. Se sua assinatura já tiver usado todos os seus IPs públicos, você deverá [solicitar o aumento da cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Escolha **cota** como o **tipo de problema**e **rede: ARM** como o **tipo de cota**. Em **detalhes**, solicite um aumento de cota de endereço IP público. Por exemplo, se o limite for atualmente 60 e você quiser criar um cluster de 100 nós, solicite um aumento de limite para 160.
+Os clusters do Databricks utilizam um endereço IP público por nó. Se sua assinatura já tiver usado todos os seus IPs públicos, você deverá [solicitar o aumento da cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **cota** como o **tipo de problema**e **rede: ARM** como o **tipo de cota**. Em **detalhes**, solicite um aumento de cota de endereço IP público. Por exemplo, se o limite for atualmente 60 e você quiser criar um cluster de 100 nós, solicite um aumento de limite para 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: um segundo tipo de falha de inicialização do provedor de nuvem durante a configuração do cluster (MissingSubscriptionRegistration)
 

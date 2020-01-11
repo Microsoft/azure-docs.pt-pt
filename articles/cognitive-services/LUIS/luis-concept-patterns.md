@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280861"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890278"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior precisão numa intenção sem fornecer demasiadas expressões. 
@@ -50,7 +50,7 @@ Um padrão destina-se principalmente a ajudar a previsão de intenções e funç
 Não espere ver uma previsão de entidade aprimorada se você recolher várias declarações em um único padrão. Para que as entidades simples sejam acionadas, você precisa adicionar declarações ou usar entidades de lista caso contrário, o padrão não será acionado.
 
 ## <a name="patterns-use-entity-roles"></a>Padrões de utilizam as funções de entidade
-Se duas ou mais entidades em um padrão estiverem contextualmente relacionadas, os padrões usarão [funções](luis-concept-roles.md) de entidade para extrair informações contextuais sobre entidades.  
+Se dois ou mais entidades num padrão contextualmente estejam relacionadas, padrões de utilizam entidade [funções](luis-concept-roles.md) para extrair informações contextuais sobre entidades.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de previsão com e sem padrões
 Tendo em conta suficiente expressões de exemplo, LUIS seria capaz de aumentar a confiança da previsão sem padrões. Padrões de aumentam a pontuação de confiança, sem ter de fornecer expressões com tantos.  
@@ -62,7 +62,7 @@ Um padrão é correspondido com base em detetar as entidades dentro o padrão em
 Você pode criar um aplicativo com tentativas que não têm nenhum exemplo de declarações, contanto que haja um padrão para cada tentativa. Para um aplicativo somente de padrão, o padrão não deve conter entidades aprendidas por computador, pois elas exigem um exemplo de declarações. 
 
 ## <a name="best-practices"></a>Melhores práticas
-Conheça [as práticas recomendadas](luis-concept-best-practices.md).
+Saiba mais [melhores práticas](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Sintaxe de padrão
 
@@ -73,7 +73,7 @@ Aprenda a sintaxe de padrão da [referência de sintaxe de padrão](reference-pa
 Saiba mais sobre padrões:
 
 * [Como adicionar padrões](luis-how-to-model-intent-pattern.md)
-* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Sintaxe de padrões](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272745"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888894"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (visualização)
 |     |
@@ -83,7 +83,7 @@ Primeiro, sua organização parceira precisa configurar seu provedor de identida
 O Azure AD B2B pode ser configurado para federar com provedores de identidade que usam o protocolo SAML com requisitos específicos listados abaixo. Para obter mais informações sobre como configurar uma relação de confiança entre seu provedor de identidade SAML e o Azure AD, consulte [usar um IDP (SAML 2,0 Identity Provider) para logon único](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
-> Observe que o domínio de destino para a Federação direta não deve ser verificado pelo DNS no Azure AD. O domínio da URL de autenticação deve corresponder ao domínio de destino ou deve ser o domínio de um provedor de identidade permitido. Consulte a seção [limitações](#limitations) para obter detalhes. 
+> O domínio de destino para a Federação direta não deve ser verificado pelo DNS no Azure AD. O domínio da URL de autenticação deve corresponder ao domínio de destino ou deve ser o domínio de um provedor de identidade permitido. Consulte a seção [limitações](#limitations) para obter detalhes. 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Atributos e declarações SAML 2,0 necessários
 As tabelas a seguir mostram os requisitos para atributos específicos e declarações que devem ser configuradas no provedor de identidade de terceiros. Para configurar a Federação direta, os atributos a seguir devem ser recebidos na resposta SAML 2,0 do provedor de identidade. Esses atributos podem ser configurados vinculando-se ao arquivo XML do serviço de token de segurança online ou inserindo-os manualmente.

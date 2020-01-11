@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689124"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888789"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido 
 
@@ -245,7 +245,7 @@ Aplicável somente para contas de domínio federado.
 Motivos da falha:
 
 - Não é possível obter um token de acesso silenciosamente para o recurso DRS.
-   - Os dispositivos Windows 10 adquirem o token de autenticação do serviço de Federação usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo. Detalhes: [configuração de serviço de Federação](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Os dispositivos Windows 10 adquirem o token de autenticação do serviço de Federação usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo. Detalhes: [configuração de serviço de Federação](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Códigos de erro comuns:**
 

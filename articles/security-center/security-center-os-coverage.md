@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353326"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894611"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -48,7 +48,7 @@ As seções a seguir listam os sistemas operacionais de servidor com suporte nos
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-Para saber mais sobre os recursos com suporte para os sistemas operacionais Windows listados acima, consulte [recursos com suporte do servidor/máquina virtual](security-center-services.md##vm-server-features).
+Para saber mais sobre os recursos com suporte para os sistemas operacionais Windows listados acima, consulte [recursos com suporte do servidor/máquina virtual](security-center-services.md#vm-server-features).
 
 ### Sistemas operacionais Linux<a name="os-linux"></a>
 
@@ -72,7 +72,7 @@ Para saber mais sobre os recursos com suporte para os sistemas operacionais Wind
 > [!NOTE]
 > Como a lista de sistemas operacionais Linux com suporte está em constante mudança, se você preferir, clique [aqui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para exibir a lista mais atualizada de versões com suporte, caso haja alterações desde que este tópico foi publicado pela última vez.
 
-Para saber mais sobre os recursos com suporte para os sistemas operacionais Linux listados acima, consulte [recursos com suporte do servidor/máquina virtual](security-center-services.md##vm-server-features).
+Para saber mais sobre os recursos com suporte para os sistemas operacionais Linux listados acima, consulte [recursos com suporte do servidor/máquina virtual](security-center-services.md#vm-server-features).
 
 ### Serviços de máquina virtual gerenciados<a name="virtual-machine"></a>
 

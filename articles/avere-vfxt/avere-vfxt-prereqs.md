@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 27b0fd1e6a9238e978518e06ab7f0aeeae5501d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0dafef7cf262153ccdb3b490aa0c7bd039b4a89b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414394"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889173"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -43,7 +43,7 @@ Uma alternativa é criar uma função de RBAC (controle de acesso baseado em fun
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Cota para o cluster vFXT
 
-Você deve ter cota suficiente para os seguintes componentes do Azure. Se necessário, [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Você deve ter cota suficiente para os seguintes componentes do Azure. Se necessário, [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
 > As máquinas virtuais e os componentes SSD listados aqui são para o próprio cluster vFXT. Você precisará de mais cota para as VMs e SSD que pretende usar para seu farm de computação.  Verifique se a cota está habilitada para a região em que você pretende executar o fluxo de trabalho.

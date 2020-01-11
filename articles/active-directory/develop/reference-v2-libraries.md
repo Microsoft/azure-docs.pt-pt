@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2b2ea9d878db8284aa44cdbdacb92c8cd4fabe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7ff9e2015b4621c89b6a831cf7000aa32db5ea6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423993"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888946"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação da plataforma de identidade da Microsoft
 
@@ -108,7 +108,7 @@ Para qualquer biblioteca compatível com padrões, você pode usar o ponto de ex
 * Para problemas e novas solicitações de recursos no código de biblioteca, contate o proprietário da biblioteca.
 * Para problemas e novas solicitações de recursos na implementação do protocolo do lado do serviço, entre em contato com a Microsoft.
 * [Arquivo uma solicitação de recurso](https://feedback.azure.com/forums/169401-azure-active-directory) para recursos adicionais que você deseja ver no protocolo.
-* [Crie uma solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) se você encontrar um problema em que o ponto de extremidade da plataforma de identidade da Microsoft não está em conformidade com o OAuth 2,0 ou o OpenID Connect 1,0.
+* [Crie uma solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) se você encontrar um problema em que o ponto de extremidade da plataforma de identidade da Microsoft não está em conformidade com o OAuth 2,0 ou o OpenID Connect 1,0.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

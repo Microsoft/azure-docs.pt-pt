@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e1ef87471c81fbf0d242837bd94fdc17f686387f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442823"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889407"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do AKS (serviço kubernetes do Azure)
 
@@ -25,7 +25,7 @@ Para clusters AKS que usam vários pools de nó ou nós do Windows Server (atual
 Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
-> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar.  Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para obter mais informações.
+> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar.  Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para obter mais informações.
 > Se você estiver executando sua própria implantação de autodimensionamento de cluster, desabilite-a (você pode dimensioná-la para zero réplicas) durante a atualização, pois há uma chance de que ela interfira no processo de atualização. O dimensionador automático gerenciado manipula isso automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificar atualizações de cluster do AKS disponíveis

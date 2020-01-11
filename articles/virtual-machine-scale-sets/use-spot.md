@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647633"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894076"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Visualização: VMs de ponto do Azure para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -156,7 +156,7 @@ O exemplo a seguir cria um conjunto de escala de spot do Linux chamado *Myscales
 
 **P:** Posso solicitar uma cota adicional para o ponto?
 
-**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs pontuais por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs pontuais por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
 **P:** Posso converter conjuntos de dimensionamento existentes para identificar conjuntos de dimensionamento?

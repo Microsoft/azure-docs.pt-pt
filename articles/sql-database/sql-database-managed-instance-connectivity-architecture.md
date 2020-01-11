@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433853"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894827"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 
@@ -66,7 +66,7 @@ Vamos aprofundar-se na arquitetura de conectividade para instâncias gerenciadas
 
 ![Arquitetura de conectividade do cluster virtual](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes se conectam a uma instância gerenciada usando um nome de host que tem o formulário `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para um endereço IP privado, embora esteja registrado em uma zona DNS (sistema de nomes de domínio) público e possa ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospedar uma instância gerenciada secundária, ele compartilhará sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Os clientes se conectam a uma instância gerenciada usando um nome de host que tem o formulário `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para um endereço IP privado, embora esteja registrado em uma zona DNS (sistema de nomes de domínio) público e possa ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospedar uma instância gerenciada secundária, ele compartilhará sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Esse endereço IP privado pertence ao balanceador de carga interno da instância gerenciada. O balanceador de carga direciona o tráfego para o gateway da instância gerenciada. Como várias instâncias gerenciadas podem ser executadas dentro do mesmo cluster, o gateway usa o nome de host da instância gerenciada para redirecionar o tráfego para o serviço de mecanismo do SQL correto.
 

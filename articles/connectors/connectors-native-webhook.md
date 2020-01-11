@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787051"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888129"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho baseados em eventos automatizados usando WebHooks HTTP em aplicativos lógicos do Azure
 
@@ -38,7 +38,7 @@ Por exemplo, a ação [**Enviar email de aprovação**](connectors-create-api-of
 > [!NOTE]
 > Os aplicativos lógicos imponham o protocolo TLS 1,2 ao receber a chamada de volta para o gatilho ou ação de webhook HTTP. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2.
 
-Para obter mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
 * [Parâmetros de gatilho de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [WebHooks e assinaturas](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
@@ -58,7 +58,7 @@ Para obter mais informações, consulte estes tópicos:
 
 Esse gatilho interno registra uma URL de retorno de chamada com o serviço especificado e aguarda que esse serviço envie uma solicitação HTTP POST para essa URL. Quando esse evento acontece, o gatilho é acionado e executa imediatamente o aplicativo lógico.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
 1. No designer, na caixa de pesquisa, digite "http webhook" como filtro. Na lista de **gatilhos** , selecione o gatilho de **webhook http** .
 
@@ -86,7 +86,7 @@ Esse gatilho interno registra uma URL de retorno de chamada com o serviço espec
 
 Essa ação interna registra uma URL de retorno de chamada com o serviço especificado, pausa o fluxo de trabalho do aplicativo lógico e aguarda que esse serviço envie uma solicitação HTTP POST para essa URL. Quando esse evento acontece, a ação retoma a execução do aplicativo lógico.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
 
    Este exemplo usa o gatilho de webhook HTTP como a primeira etapa.
 
@@ -100,7 +100,7 @@ Essa ação interna registra uma URL de retorno de chamada com o serviço especi
 
    Este exemplo renomeia a ação como "ação de webhook HTTP" para que a etapa tenha um nome mais descritivo.
 
-1. Forneça os valores para os parâmetros de ação de webhook HTTP, que são semelhantes aos [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) que você deseja usar para as chamadas inscrever e cancelar assinatura, por exemplo:
+1. Forneça os valores para os parâmetros de ação de webhook HTTP, que são semelhantes aos [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que você deseja usar para as chamadas inscrever e cancelar assinatura, por exemplo:
 
    ![Inserir parâmetros de ação de webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -114,7 +114,7 @@ Essa ação interna registra uma URL de retorno de chamada com o serviço especi
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais informações sobre parâmetros de ação e gatilho, que são semelhantes entre si, consulte [parâmetros de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+Para obter mais informações sobre parâmetros de ação e gatilho, que são semelhantes entre si, consulte [parâmetros de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Detalhes da saída
 
@@ -123,18 +123,18 @@ Aqui estão mais informações sobre as saídas de um gatilho ou ação de webho
 | Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
 | conector | objeto | Os cabeçalhos da solicitação |
-| conteúdo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| código de status | int | O código de status da solicitação |
+| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| código de estado | int | O código de status da solicitação |
 |||
 
 | Código de estado | Descrição |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Aceitar |
-| 400 | Solicitação inadequada |
+| 202 | Aceite |
+| 400 | Pedido incorreto |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não encontrado |
+| 404 | Não foi encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 

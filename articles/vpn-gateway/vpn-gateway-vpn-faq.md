@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: fa4e403733c418a4ceff417dd0cf7b54f9409a49
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151662"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895983"
 ---
-# <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
+# <a name="vpn-gateway-faq"></a>FAQ do Gateway de VPN
 
 ## <a name="connecting"></a>Ligar às redes virtuais
 
@@ -73,7 +73,7 @@ Não. Um tipo de gateway de vnet do Azure não pode ser alterado de baseado em 
 1. Elimine todas as ligações associadas ao gateway a eliminar.
 1. Elimine o gateway:
 1. [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [O Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 1. [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Criar um novo gateway do tipo pretendido e concluir a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 

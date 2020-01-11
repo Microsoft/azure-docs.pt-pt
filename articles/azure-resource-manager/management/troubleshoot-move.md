@@ -3,12 +3,12 @@ title: Solucionar problemas de erros de movimentação
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 422ecb92e264d7e728282bbe8ee491a642cf013f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478347"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891265"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura
 
@@ -21,7 +21,7 @@ Se você realmente deseja atualizar sua assinatura do Azure (como alternar de gr
 * Para atualizar uma versão de avaliação gratuita, consulte [atualizar a sua subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go](../../billing/billing-upgrade-azure-subscription.md).
 * Para alterar uma conta pay as you go, consulte [alterar a sua subscrição pay as you go do Azure para outra oferta](../../billing/billing-how-to-switch-azure-offer.md).
 
-Se não é possível converter a subscrição [criar um pedido de suporte do Azure](../../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
+Se não é possível converter a subscrição [criar um pedido de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
 
 ## <a name="service-limitations"></a>Limitações de serviço
 
@@ -44,7 +44,7 @@ Quando você recebe uma mensagem de erro que indica que um recurso não pode ser
 
 Se o grupo de recursos de origem ou de destino contiver uma rede virtual, os Estados de todos os recursos dependentes da rede virtual serão verificados durante a movimentação. A verificação inclui esses recursos diretamente e indiretamente dependente da rede virtual. Se qualquer um desses recursos estiver em um estado de falha, a movimentação será bloqueada. Por exemplo, se uma máquina virtual que usa a rede virtual falhou, a movimentação será bloqueada. A movimentação é bloqueada mesmo quando a máquina virtual não é um dos recursos que estão sendo movidos e não está em um dos grupos de recursos para a movimentação.
 
-Ao receber esse erro, você tem duas opções. Mova seus recursos para um grupo de recursos que não tem uma rede virtual ou [contate o suporte](../../azure-supportability/how-to-create-azure-support-request.md).
+Ao receber esse erro, você tem duas opções. Mova seus recursos para um grupo de recursos que não tem uma rede virtual ou [contate o suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

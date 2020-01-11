@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
-ms.openlocfilehash: 621b02363310ccc6f3dc1b32807874307210e964
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/10/2020
+ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861137"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895603"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure
 
@@ -23,7 +23,7 @@ O serviço de duplos Digital do Azure permite-lhe voltar a criar uma imagem digi
 
 Este início rápido utiliza [um par de amostras do .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) a digitalização de um edifício de escritórios imaginário. Ele mostra como de salas disponíveis desse edifício. Digital duplos, pode associar vários sensores com o seu ambiente. Também pode descobrir se a qualidade de ar do seu espaço disponível é o ideal com a ajuda de um sensor simulado para emissões de dióxido de carbono. Uma das aplicações de exemplo gera dados de sensor aleatório para o ajudar a visualizar este cenário.
 
-O vídeo seguinte apresenta um resumo da configuração do início rápido:
+O vídeo a seguir resume a configuração de início rápido:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
@@ -83,11 +83,11 @@ O gráfico espacial é aprovisionado através da utilização a [provisionSample
 
 1. O passo de aprovisionamento pode demorar alguns minutos. Ele também fornece um IoT Hub na sua instância de duplos Digital. Percorre até que o IoT Hub mostra o estado =`Running`.
 
-    [![provisionar o exemplo-status = em execução](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![provisionar o exemplo-status = em execução](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. No final da execução, copie o `ConnectionString` do dispositivo para utilização no exemplo de simulador de dispositivos. Copie apenas a cadeia de caracteres descrita nesta imagem.
 
-    [![copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > Pode ver e modificar seu gráfico espacial com o [Visualizador de gráfico de duplos do Azure Digital](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -104,7 +104,7 @@ Compile e execute o aplicativo de dispositivo do sensor Simulator seguindo estas
 1. Editar [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para atualizar **DeviceConnectionString** com o anterior `ConnectionString`. Guarde o ficheiro atualizado.
 1. Executar `dotnet run` para começar a enviar dados de sensor. Ele será enviado para o gêmeos digital do Azure, conforme mostrado na imagem a seguir.
 
-     [Conectividade de dispositivo ![](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [Conectividade de dispositivo ![](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. Permitir que este simulador em execução para que possa visualizar os resultados lado a lado com a ação de passo seguinte. Esta janela mostra os dados de sensor simulado enviados para o Digital duplos. As consultas de passo seguintes em tempo real de salas com ar fresco disponíveis.
 
@@ -123,7 +123,7 @@ O exemplo de sensor simula os valores de dados aleatórios para dois sensores. E
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![obter espaços disponíveis com o ar novo](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![obter espaços disponíveis com o ar novo](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 Para entender o que aconteceu neste guia de início rápido e quais APIs foram chamadas, abra [Visual Studio Code](https://code.visualstudio.com/Download) com o projeto espaço de trabalho de código encontrado em `digital-twins-samples-csharp`. Utilize o seguinte comando:
 

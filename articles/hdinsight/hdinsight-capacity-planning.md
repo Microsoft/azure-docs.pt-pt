@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640946"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887245"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -123,7 +123,7 @@ Se você precisar solicitar um aumento de cota, execute as seguintes etapas:
 > [!NOTE]  
 > Se você precisar aumentar a cota de núcleo do HDInsight em uma região privada, [envie uma solicitação de lista de](https://aka.ms/canaryintwhitelist)permissões.
 
-Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter no máximo 10.000 núcleos. Para obter detalhes sobre esses limites, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

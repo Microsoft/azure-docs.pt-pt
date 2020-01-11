@@ -1,5 +1,5 @@
 ---
-title: Aceder ao armazenamento do Azure com uma VM do Windows atribuídos de sistema identidade gerida | Documentos da Microsoft
+title: Acessar o armazenamento do Azure usando uma identidade gerenciada atribuída pelo sistema da VM do Windows | Microsoft Docs
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4da78fbb15aea2bd0f54ffec1b0851466c799584
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278019"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888588"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder ao Armazenamento do Azure
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,13 +34,13 @@ Este tutorial mostra-lhe como utilizar uma identidade gerida atribuída pelo sis
 > * Obter um token de acesso e utilizá-lo para chamar o Armazenamento do Azure
 
 > [!NOTE]
-> A autenticação do Azure Active Directory para o Armazenamento do Azure está em pré-visualização pública.
+> A autenticação do Active Directory do Azure para o Armazenamento do Azure está em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-account"></a>Criar conta
 
 Nesta secção, vai criar uma conta de armazenamento.
 
@@ -69,25 +69,25 @@ Os ficheiros requerem armazenamento de blobs, por isso tem de criar um contentor
 7. No painel **Carregar blob**, em **Ficheiros**, clique no ícone de pasta e procure o ficheiro **hello_world.txt** no seu computador local, selecione o ficheiro e, em seguida, clique em **Carregar**.
     ![Carregar ficheiro de texto](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder à VM o acesso a um contentor do Armazenamento do Azure
+## <a name="grant-access"></a>Conceder acesso
 
-Pode utilizar a identidade gerida atribuída pelo sistema da VM para obter os dados no blob de armazenamento do Azure.
+Esta seção mostra como conceder acesso à VM para um contêiner de armazenamento do Azure. Pode utilizar a identidade gerida atribuída pelo sistema da VM para obter os dados no blob de armazenamento do Azure.
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.
-3. Clique em **+ adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para a sua VM.
-4. Sob **função**, na lista pendente, selecione **leitor de dados de Blob de armazenamento**.
+3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para sua VM.
+4. Em **função**, no menu suspenso, selecione **leitor de dados de blob de armazenamento**.
 5. Na lista pendente seguinte, em **Atribuir acesso a**, selecione **Máquina Virtual**.
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para **Todos os grupos de recursos**.
 7. Em **Selecionar**, selecione a VM e, em seguida, clique em **Guardar**.
 
     ![Atribuir permissões](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Obter um token de acesso e utilizá-lo para chamar o Armazenamento do Azure 
+## <a name="get-an-access-token"></a>Obter um token de acesso 
 
 O Armazenamento do Azure suporta nativamente Autenticação do Azure AD, para poder aceitar diretamente tokens de acesso obtidos através de uma identidade gerida. Isto faz parte da integração do Armazenamento do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 
-Eis um exemplo de código do .NET de abrir uma ligação ao armazenamento do Azure com um token de acesso e, em seguida, ler o conteúdo do ficheiro que criou anteriormente. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida da VM. .NET framework 4.6 ou posterior é necessário para usar o método de token de acesso. Substitua o valor de `<URI to blob file>` em conformidade. Pode obter este valor ao navegar para o ficheiro que criou e carregou para o armazenamento de blobs e copiar o **URL** em **Propriedades** para a página **Descrição Geral**.
+Aqui está um exemplo de código .NET para abrir uma conexão com o armazenamento do Azure usando um token de acesso e, em seguida, lendo o conteúdo do arquivo que você criou anteriormente. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida da VM. .NET Framework 4,6 ou superior é necessário para usar o método de token de acesso. Substitua o valor de `<URI to blob file>` em conformidade. Pode obter este valor ao navegar para o ficheiro que criou e carregou para o armazenamento de blobs e copiar o **URL** em **Propriedades** para a página **Descrição Geral**.
 
 ```csharp
 using System;
@@ -166,4 +166,4 @@ A resposta inclui o conteúdo do ficheiro:
 Neste tutorial, aprendeu a ativar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder ao Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
-> [Armazenamento do Azure](/azure/storage/common/storage-introduction)
+> [Storage do Azure](/azure/storage/common/storage-introduction)

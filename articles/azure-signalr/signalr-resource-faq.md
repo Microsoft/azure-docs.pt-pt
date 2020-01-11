@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 013cf619edd998752265b8fa7e58e36869c830c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450206"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891256"
 ---
 # <a name="azure-signalr-service-faq"></a>Perguntas frequentes sobre o serviço do Azure Signalr
 
@@ -37,7 +37,7 @@ Se você tiver servidores de aplicativos, essa mensagem de erro significa que ne
 As possíveis causas são:
 - Nenhum servidor de aplicativos está conectado com o serviço de sinalização. Verifique os logs do servidor de aplicativos para obter possíveis erros de conexão. Esse caso é raro na configuração de alta disponibilidade com mais de um servidor de aplicativos.
 - Há problemas de conectividade com instâncias de serviço do Signalr. Esse problema é transitório e será recuperado automaticamente.
-Se persistir por mais de uma hora, [abra um problema no GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [crie uma solicitação de suporte no Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Se persistir por mais de uma hora, [abra um problema no GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [crie uma solicitação de suporte no Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando há vários servidores de aplicativos, as mensagens do cliente são enviadas a todos os servidores ou apenas um deles?
 

@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: b988d500ed2a201bb31f0d3a7cbeb7df00af9faf
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860899"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895372"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: provisionar suas condições de trabalho de criação e monitor com o Azure digital gêmeos Preview
 
@@ -38,7 +38,7 @@ Este tutorial pressupõe que você [concluiu a instalação do gêmeos digital d
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para compilar e executar o exemplo. Execute `dotnet --version` para verificar se a versão correta está instalada. 
 - [Visual Studio Code](https://code.visualstudio.com/), para explorar o código de exemplo. 
 
-> [!TIP]
+>[!TIP]
 > Use um nome de instância de gêmeos digital exclusivo se você estiver Provisionando uma nova instância.
 
 ## <a name="define-conditions-to-monitor"></a>Definir as condições a monitorizar
@@ -74,7 +74,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
 
    Modifique o arquivo JavaScript para monitorar a temperatura e outras condições. Adicione as seguintes linhas de código para procurar condições quando nenhum movimento for detectado na sala, os níveis de dióxido de carbono estão abaixo de 1.000 ppm e a temperatura está abaixo de 78 graus Fahrenheit.
 
-   > [!NOTE]
+   >[!NOTE]
    > Esta seção modifica o arquivo *src\actions\userDefinedFunctions\availability.js* para que você possa aprender em detalhes uma maneira de gravar uma função definida pelo usuário. No entanto, você pode optar por usar diretamente o arquivo [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) na sua configuração. que tem todas as alterações necessárias para este tutorial. Se você usar esse arquivo em vez disso, certifique-se de usar o nome de arquivo correto para a chave de **script** em [src\actions\provisionSample.YAML](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
     a. Na parte superior do ficheiro, adicione as linhas seguintes para temperatura, abaixo do comentário `// Add your sensor type here`:
@@ -178,7 +178,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > Para impedir o acesso não autorizado à sua API de gerenciamento de gêmeos digital, o aplicativo **ocupação-início rápido** exige que você entre com suas credenciais de conta do Azure. Ele salva suas credenciais por um breve período, portanto, talvez você não precise entrar toda vez que executá-la. Na primeira vez em que este programa é executado e quando suas credenciais salvas expiram depois disso, o aplicativo o direciona para uma página de entrada e fornece um código específico da sessão para entrar nessa página. Siga os pedidos para iniciar sessão com a conta do Azure.
 
 1. Depois que sua conta for autenticada, o aplicativo começará a criar um grafo espacial de exemplo conforme configurado em *provisionSample. YAML*. Aguarde até que o provisionamento seja concluído. Levará alguns minutos. Depois disso, observe as mensagens na janela de comando e observe como o grafo espacial é criado. Observe como o aplicativo cria um hub IoT no nó raiz ou no `Venue`.
@@ -187,7 +187,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
 
     [exemplo de provisionamento de ![](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > Se você receber uma mensagem de erro semelhante a "a operação de e/s foi anulada devido a uma saída de thread ou a uma solicitação de aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer se o cliente HTTP esgotou o tempo limite de um problema de rede.
 
 ## <a name="simulate-sensor-data"></a>Simular dados do sensor
@@ -229,7 +229,7 @@ Nesta seção, você usará o projeto chamado *dispositivo-conectividade* no exe
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > Como o exemplo de simulação não se comunica diretamente com sua instância de gêmeos digital, ele não exige a autenticação.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obter resultados da função definida pelo usuário
@@ -246,7 +246,7 @@ A função definida pelo utilizador é executada sempre que a sua instância rec
 
 A janela saída mostra como a função definida pelo usuário é executada e intercepta eventos da simulação de dispositivo. 
 
-   [Saída de ![para o UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [Saída de ![para o UDF](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A função `GetAvailableAndFreshSpaces` imprime a mensagem no console.
 
@@ -256,7 +256,7 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 
 1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
-    > [!TIP]
+    >[!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.

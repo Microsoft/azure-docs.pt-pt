@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: apimpm
-ms.openlocfilehash: 4a188a8de4f1cbf9d5bc20f7e514e3f5a2c752dc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074617"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889535"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o gerenciamento de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Essas redes podem ser conectadas às suas redes locais usando várias tecnologias de VPN. Para saber mais sobre as redes virtuais do Azure, comece com as informações aqui: [visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -45,44 +45,47 @@ Para executar as etapas descritas neste artigo, você deve ter:
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Habilitar conectividade VNET usando o portal do Azure
 
-1. Navegue até sua instância do APIM no [portal do Azure](https://portal.azure.com/).
-2. Selecione **rede virtual**.
-3. Configure a instância de gerenciamento de API a ser implantada dentro de uma rede virtual.
+1. Vá para a [portal do Azure](https://portal.azure.com) para localizar sua instância de gerenciamento de API. Procure e selecione **serviços de gerenciamento de API**.
+
+2. Escolha sua instância de gerenciamento de API.
+
+3. Selecione **Rede virtual**.
+4. Configure a instância de gerenciamento de API a ser implantada dentro de uma rede virtual.
 
     ![Menu de rede virtual do gerenciamento de API][api-management-using-vnet-menu]
-4. Selecione o tipo de acesso desejado:
+5. Selecione o tipo de acesso desejado:
 
-   * **Off**: esse é o padrão. O gerenciamento de API não é implantado em uma rede virtual.
+    * **Off**: esse é o padrão. O gerenciamento de API não é implantado em uma rede virtual.
 
-   * **Externo**: o gateway de gerenciamento de API e o portal do desenvolvedor podem ser acessados da Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
+    * **Externo**: o gateway de gerenciamento de API e o portal do desenvolvedor podem ser acessados da Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
 
-     ![Peering público][api-management-vnet-public]
+        ![Peering público][api-management-vnet-public]
 
-   * **Interno**: o gateway de gerenciamento de API e o portal do desenvolvedor são acessíveis somente de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
+    * **Interno**: o gateway de gerenciamento de API e o portal do desenvolvedor são acessíveis somente de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
 
-     ![Peering privado][api-management-vnet-private]
+        ![Peering privado][api-management-vnet-private]
 
-     Agora, você verá uma lista de todas as regiões em que o serviço de gerenciamento de API é provisionado. Selecione uma VNET e uma sub-rede para cada região. A lista é preenchida com as redes virtuais clássicas e do Resource Manager disponíveis em suas assinaturas do Azure que são configuradas na região que você está definindo.
+6. Se você selecionou **externo** ou **interno**, verá uma lista de todas as regiões em que o serviço de gerenciamento de API é provisionado. Escolha um **local**e, em seguida, selecione sua **rede virtual** e **sub-rede**. A lista de redes virtuais é preenchida com as redes virtuais clássicas e do Resource Manager disponíveis em suas assinaturas do Azure configuradas na região que você está configurando.
 
-     > [!IMPORTANT]
-     > Ao implantar uma instância de gerenciamento de API do Azure em uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto para instâncias de gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância de gerenciamento de API do Azure em uma sub-rede VNET do Resource Manager que contenha outros recursos, a implantação falhará.
-     >
+    > [!IMPORTANT]
+    > Ao implantar uma instância de gerenciamento de API do Azure em uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto para instâncias de gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância de gerenciamento de API do Azure em uma sub-rede VNET do Resource Manager que contenha outros recursos, a implantação falhará.
 
-     ![Selecionar VPN][api-management-setup-vpn-select]
+    Em seguida, selecione **Aplicar**. A página **rede virtual** da sua instância de gerenciamento de API é atualizada com as novas opções de rede virtual e sub-rede.
 
-5. Clique em **salvar** na barra de navegação superior.
-6. Clique em **aplicar configuração de rede** na barra de navegação superior.
+    ![Selecionar VPN][api-management-setup-vpn-select]
+
+7. Na barra de navegação superior, selecione **salvar**e, em seguida, selecione **aplicar configuração de rede**.
 
 > [!NOTE]
 > O endereço VIP da instância de gerenciamento de API será alterado toda vez que a VNET estiver habilitada ou desabilitada.
-> O endereço VIP também será alterado quando o gerenciamento de API for movido de **externo** para **interno** ou vice-versa
+> O endereço VIP também será alterado quando o gerenciamento de API for movido de **externo** para **interno**ou vice-versa.
 >
 
 > [!IMPORTANT]
 > Se você remover o gerenciamento de API de uma VNET ou alterar aquela em que ela está implantada, a VNET usada anteriormente poderá permanecer bloqueada por até seis horas. Durante esse período, não será possível excluir a VNET ou implantar um novo recurso nele. Esse comportamento é verdadeiro para clientes que usam a API-versão 2018-01-01 e anterior. Clientes que usam a API-Version 2019-01-01 e posterior, a VNET é liberada assim que o serviço de gerenciamento de API associado é excluído.
 
 ## <a name="enable-vnet-powershell"> </a>Habilitar conexão VNET usando cmdlets do PowerShell
-Você também pode habilitar a conectividade VNET usando os cmdlets do PowerShell
+Você também pode habilitar a conectividade VNET usando os cmdlets do PowerShell.
 
 * **Criar um serviço de gerenciamento de API dentro de uma vnet**: Use o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de gerenciamento de API do Azure dentro de uma vnet.
 
@@ -133,7 +136,7 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
 
     | Ambiente do Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Público do Azure      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com em que `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Público      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com em que `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -151,7 +154,7 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
     
      | Ambiente do Azure | Endereços IP de gerenciamento                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Público do Azure      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
+    | Azure Público      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
     | Azure Government  | 52.127.42.160/32, 52.127.34.192/32 |
     | Azure China       | 139.217.51.16/32, 139.217.171.176/32 |
 

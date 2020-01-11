@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: dec5d1c7c7664bf72d92e5aca4333ba64db26d02
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671913"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889341"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -313,9 +313,9 @@ Os desenvolvedores podem baixar a edição de produção do azul Zulu Enterprise
 
 O suporte ao produto para o [azul Zulu com suporte do Azure](https://www.azul.com/downloads/azure-only/zulu/) está disponível por meio da Microsoft ao desenvolver para o azure ou [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) com um [plano de suporte qualificado do Azure](https://azure.microsoft.com/support/plans/).
 
-### <a name="runtime-support"></a>Suporte a tempo de execução
+### <a name="runtime-support"></a>Suporte de tempo de execução
 
-Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-create-azure-support-request) com o azul Zulu JDKs por meio do suporte do Azure se eles tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
+Os desenvolvedores podem [abrir um problema](/azure/azure-portal/supportability/how-to-create-azure-support-request) com o azul Zulu JDKs por meio do suporte do Azure se eles tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

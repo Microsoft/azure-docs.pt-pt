@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 55433efabea516151cfb858bb61f504e180f5fb7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6084eca4f7d2d6040eb3f32a9b28cfc50922d200
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353577"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896106"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN ponto a site
 

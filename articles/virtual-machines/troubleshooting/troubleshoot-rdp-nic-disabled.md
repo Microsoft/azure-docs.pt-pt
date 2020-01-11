@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bc637976632551eb1afce1894714fc96baabfe03
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057926"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894221"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível do ambiente de trabalho remoto a uma VM porque a interface de rede está desativada
 
 Este artigo explica como resolver um problema em que não pode fazer uma ligação de ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) se a interface de rede está desativada.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -34,7 +34,7 @@ Não pode fazer uma ligação RDP ou qualquer outro tipo de ligação para quais
 
 Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para ativar a interface para a VM, utilize o controlo Serial ou [interface de rede de reposição](##reset-network-interface) para a VM.
+Para ativar a interface para a VM, utilize o controlo Serial ou [interface de rede de reposição](#reset-network-interface) para a VM.
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 

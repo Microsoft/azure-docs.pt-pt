@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: c4177e4310be3e03b64c260d88239de71f70c17a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720145"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894889"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -95,7 +95,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pré-processamento avançado: personalização opcional
 
-O pré-processamento avançado adicional e os personalização também estão disponíveis, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess). Habilite essa configuração com:
+O pré-processamento avançado adicional e os personalização também estão disponíveis, como data guardrails, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess). Habilite essa configuração com:
 
 + Azure Machine Learning Studio: selecionando as **configurações Exibir personalização** na seção **execução de configuração** [com estas etapas](how-to-create-portal-experiments.md).
 
@@ -161,7 +161,7 @@ Saiba mais e veja um exemplo de [Machine Learning automatizado para previsão de
 
 * detecção de feriados e personalização
 * série temporal e aprendizes DNN (auto-ARIMA, Prophet, ForecastTCN)
-* muitos modelos de suporte por meio de agrupamento
+* muitos modelos dão suporte ao agrupamento
 * validação cruzada de origem sem interrupção
 * retardo configurável
 * recursos agregados de janela sem interrupção

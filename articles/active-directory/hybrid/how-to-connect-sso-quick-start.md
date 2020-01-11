@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603412"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888673"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory logon único contínuo: início rápido
 
@@ -115,7 +115,7 @@ Por padrão, o navegador calcula automaticamente a zona correta, a Internet ou a
 
 Há duas maneiras de modificar as configurações de zona da intranet dos usuários:
 
-| Opção | Consideração do administrador | Experiência do usuário |
+| Opção | Consideração do administrador | Experiência de utilizador |
 | --- | --- | --- |
 | Política de grupo | O administrador bloqueia a edição das configurações de zona da intranet | Os usuários não podem modificar suas próprias configurações |
 | Preferência de política de grupo |  O administrador permite a edição nas configurações de zona da intranet | Os usuários podem modificar suas próprias configurações |
@@ -124,7 +124,7 @@ Há duas maneiras de modificar as configurações de zona da intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou a todos os seus usuários. Este exemplo usa a **política de domínio padrão**.
-3. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** >  **Página de segurança**. Em seguida, selecione **lista de atribuição de site a zona**.
+3. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** > **página segurança**. Em seguida, selecione **lista de atribuição de site a zona**.
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e, em seguida, insira os seguintes valores na caixa de diálogo:
    - **Nome do valor**: a URL do Azure AD em que os tíquetes Kerberos são encaminhados.
@@ -140,11 +140,11 @@ Há duas maneiras de modificar as configurações de zona da intranet dos usuár
    > Se você quiser impedir que alguns usuários usem o SSO contínuo (por exemplo, se esses usuários entrarem em quiosques compartilhados), defina os valores anteriores como **4**. Essa ação adiciona a URL do Azure AD à zona restrita e falha no SSO contínuo o tempo todo.
    >
 
-5. Selecione **OK**e, em seguida, selecione **OK** novamente.
+5. Selecione **OK** e, em seguida, selecione **OK** novamente.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** >  **Página de segurança** > **zona da intranet**. Em seguida, selecione **permitir atualizações na barra de status por meio de script**.
+6. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** > **página segurança** > **zona da intranet**. Em seguida, selecione **permitir atualizações na barra de status por meio de script**.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -199,7 +199,7 @@ Se você tiver substituído as configurações de política [AuthNegotiateDelega
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS e outras plataformas que não são Windows)
 
-Para o Google Chrome em Mac OS e outras plataformas que não são do Windows, consulte [a lista de políticas de projeto do Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como adicionar a URL do Azure Active Directory a ela para autenticação integrada.
+Para o Google Chrome em Mac OS e outras plataformas não Windows, consulte [lista de políticas de projeto do The Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como a lista aprovada o URL do Azure AD para autenticação integrada.
 
 O uso de extensões de Política de Grupo de Active Directory de terceiros para distribuir a URL do Azure AD para o Firefox e o Google Chrome em usuários do Mac está fora do escopo deste artigo.
 
@@ -213,7 +213,7 @@ Para testar o recurso para um usuário específico, verifique se todas as condi�
   - O usuário entra em um dispositivo corporativo.
   - O dispositivo está ingressado em seu domínio de Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure ad](../active-directory-azureadjoin-overview.md).
   - O dispositivo tem uma conexão direta com seu DC (controlador de domínio), seja na rede corporativa com ou sem fio ou por meio de uma conexão de acesso remoto, como uma conexão VPN.
-  - Você [distribuiu o recurso](##step-3-roll-out-the-feature) para esse usuário por meio de política de grupo.
+  - Você [distribuiu o recurso](#step-3-roll-out-the-feature) para esse usuário por meio de política de grupo.
 
 Para testar o cenário em que o usuário insere somente o nome de usuário, mas não a senha:
    - Entre no `https://myapps.microsoft.com/` em uma nova sessão privada do navegador.

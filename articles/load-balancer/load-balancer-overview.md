@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4f6a0a2631c3f7458548a2ff435c3e565e744f41
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c4f06afb63279f2b493c8938da2e9954b2c7e6c3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660222"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894475"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -93,7 +93,7 @@ A figura a seguir mostra um ponto de extremidade com balanceamento de carga para
 
 *Figura: equilibrando o tráfego da Web usando um Load Balancer público*
 
-Os clientes da Internet enviam solicitações da página da Web para o endereço IP público de um aplicativo de rede na porta TCP 80. Azure Load Balancer distribui as solicitações entre as três VMs no conjunto de balanceamento de carga. Para obter mais informações sobre algoritmos de Load Balancer, consulte [conceitos de Load Balancer](load-balancer-overview.md##load-balancer-concepts).
+Os clientes da Internet enviam solicitações da página da Web para o endereço IP público de um aplicativo de rede na porta TCP 80. Azure Load Balancer distribui as solicitações entre as três VMs no conjunto de balanceamento de carga. Para obter mais informações sobre algoritmos de Load Balancer, consulte [conceitos de Load Balancer](load-balancer-overview.md#load-balancer-concepts).
 
 O Azure Load Balancer distribui o tráfego de rede igualmente entre várias instâncias de VM por padrão. Também pode configurar a afinidade de sessão. Para obter mais informações, consulte [Configurar o modo de distribuição para Azure Load Balancer](load-balancer-distribution-mode.md).
 

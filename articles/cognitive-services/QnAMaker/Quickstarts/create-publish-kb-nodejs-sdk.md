@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 01/10/2020
 ms.author: diberry
-ms.openlocfilehash: a605b5145e393352e8cd6fe18ac97ea749caf4ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 45917e9e44535261fcafb8d53a150356bb1757fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447594"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890308"
 ---
 # <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente QnA Maker para node. js
 
@@ -27,7 +27,7 @@ Use a biblioteca de cliente QnA Maker para node. js para:
 * Gerenciar uma base de dados de conhecimento
 * Publicar uma base de dados de conhecimento
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [do NuGet ( do pacote)de](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [amostras biblioteca](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [do NuGet ( do pacote)de](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [amostras biblioteca](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
