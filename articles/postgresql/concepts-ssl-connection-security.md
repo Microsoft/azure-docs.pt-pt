@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 21b4dffa135e1311be8c738c634de22304665695
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4f7fd3ea1c83e1bf5183aedf4fe894809884414c
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768151"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903513"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar a conectividade SSL no banco de dados do Azure para PostgreSQL-servidor único
 O banco de dados do Azure para PostgreSQL prefere conectar seus aplicativos cliente ao serviço PostgreSQL usando protocolo SSL (SSL). A imposição de conexões SSL entre o servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques "Man-in-the-middle" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -26,8 +26,11 @@ Da mesma forma, cadeias de conexão predefinidas nas configurações de "cadeias
 ## <a name="configure-enforcement-of-ssl"></a>Configurar a imposição de SSL
 Opcionalmente, você pode desabilitar a imposição de conectividade SSL. Microsoft Azure recomenda sempre habilitar a configuração **impor conexão SSL** para aumentar a segurança.
 
+> [!NOTE]
+> Atualmente, a versão do TLS com suporte para o banco de dados do Azure para PostgreSQL é TLS 1,0, TLS 1,1, TLS 1,2.
+
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
-Visite o servidor do banco de dados do Azure para PostgreSQL e clique em **segurança de conexão**. Use o botão de alternância para habilitar ou desabilitar a configuração **impor conexão SSL** . Em seguida, clique em **salvar**. 
+Visite o servidor do banco de dados do Azure para PostgreSQL e clique em **segurança de conexão**. Use o botão de alternância para habilitar ou desabilitar a configuração **impor conexão SSL** . Em seguida, clique em **Guardar**. 
 
 ![Segurança da conexão-desabilitar impor SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 

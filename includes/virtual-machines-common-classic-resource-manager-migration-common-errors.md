@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9b47d3bde4c4c5ef7fd3d41c038ea078c19db900
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e590c07c3969865d573838352a8a778caa1cc799
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005738"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901656"
 ---
 Este artigo cataloga os erros e mitigações mais comuns durante a migração de recursos de IaaS do modelo de implementação clássica do Azure para a pilha do Azure Resource Manager.
 
@@ -19,9 +19,9 @@ Este artigo cataloga os erros e mitigações mais comuns durante a migração de
 
 | Cadeia do erro | Mitigação |
 | --- | --- |
-| Erro de servidor interno |Em alguns casos, este é um erro transitório que desaparece com uma nova tentativa. Se persistir, [contacte o suporte do Azure](../articles/azure-supportability/how-to-create-azure-support-request.md), pois requer que sejam investigados os registos da plataforma. <br><br> **NOTA:** quando a equipa de suporte assumir o controlo do incidente, não experimente mitigá-lo sozinho, pois pode originar consequências indesejadas no seu ambiente. |
+| Erro de servidor interno |Em alguns casos, este é um erro transitório que desaparece com uma nova tentativa. Se persistir, [contacte o suporte do Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md), pois requer que sejam investigados os registos da plataforma. <br><br> **NOTA:** quando a equipa de suporte assumir o controlo do incidente, não experimente mitigá-lo sozinho, pois pode originar consequências indesejadas no seu ambiente. |
 | A migração não é suporta na Implementação {deployment-name} em HostedService {hosted-service-name}, porque é uma implementação de PaaS (função da Web/Trabalho). |Isto acontece quando uma implementação contém uma função da Web/trabalho. Uma vez que a migração só é suportada para Máquinas Virtuais, remova a função da Web/Trabalho da implementação e repita a migração. |
-| Falha na implementação de modelo {template-name}. CorrelationId={guid} |No back-end do serviço de migração, utilizamos modelos do Azure Resource Manager para criar recursos na pilha do Azure Resource Manager. Uma vez que os modelos são idempotent, pode, normalmente, repetir a operação de migração em segurança para ultrapassar este erro. Se o mesmo persistir, [contacte o suporte do Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) e dê o CorrelationId ao técnico. <br><br> **NOTA:** quando a equipa de suporte assumir o controlo do incidente, não experimente mitigá-lo sozinho, pois pode originar consequências indesejadas no seu ambiente. |
+| Falha na implementação de modelo {template-name}. CorrelationId={guid} |No back-end do serviço de migração, utilizamos modelos do Azure Resource Manager para criar recursos na pilha do Azure Resource Manager. Uma vez que os modelos são idempotent, pode, normalmente, repetir a operação de migração em segurança para ultrapassar este erro. Se o mesmo persistir, [contacte o suporte do Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) e dê o CorrelationId ao técnico. <br><br> **NOTA:** quando a equipa de suporte assumir o controlo do incidente, não experimente mitigá-lo sozinho, pois pode originar consequências indesejadas no seu ambiente. |
 | A rede virtual {virtual-network-name} não existe. |Isto pode acontecer se tiver criado a Rede Virtual no novo portal do Azure. O nome da rede virtual real segue o padrão "grupo * \<nome da VNET >" |
 | A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão {extension-name}, que o Azure Resource Manager não suporta. Recomenda-se desinstalá-la da VM antes de continuar a migração. |Extensões XML como o BGInfo 1. Não há suporte para\* no Azure Resource Manager. Por conseguinte, estas extensões não podem ser migradas. Se permanecerem instaladas na máquina virtual, são desinstaladas automaticamente antes de a migração ser concluída. |
 | A VM {vm-name} em HostedService {hosted-service-name} contém a Extensão VMSnapshot/VMSnapshotLinux, que não é suportada, atualmente, para Migração. Desinstale-a da VM e adicione-a novamente com o Azure Resource Manager após a Conclusão da Migração. |Este é o cenário em que a máquina virtual está configurada para o Azure Backup. Como esse não é um cenário sem suporte, siga a solução alternativa em https://aka.ms/vmbackupmigration |

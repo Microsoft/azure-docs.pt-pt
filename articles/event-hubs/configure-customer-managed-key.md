@@ -8,18 +8,15 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a5aa6a2e2578a995e4ef00489557fc02623e2d6a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744820"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903292"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure (versão prévia)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
-
->[!NOTE]
-> Esta funcionalidade encontra-se em pré-visualização. Recomendamos que você não use o no em um ambiente de produção.
 
 ## <a name="overview"></a>Visão geral
 Os hubs de eventos do Azure agora dão suporte à opção de criptografar dados em repouso com chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente (Bring Your Own Key – BYOK). Esse recurso permite que você crie, gire, desabilite e revogue o acesso às chaves gerenciadas pelo cliente que são usadas para criptografar dados de hubs de eventos do Azure em repouso.
@@ -41,7 +38,7 @@ Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas
 
 1. Navegue até o cluster Hubs de Eventos Dedicados.
 1. Selecione o namespace no qual você deseja habilitar BYOK.
-1. Na página **configurações** do seu namespace de hubs de eventos, selecione **criptografia (versão prévia)** . 
+1. Na página **configurações** do seu namespace de hubs de eventos, selecione **criptografia**. 
 1. Selecione a **criptografia de chave gerenciada pelo cliente em repouso** , conforme mostrado na imagem a seguir. 
 
     ![Habilitar chave gerenciada pelo cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -72,8 +69,6 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
         ![Selecionar chave do Key Vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
     1. Preencha os detalhes da chave e clique em **selecionar**. Isso habilitará a criptografia de dados em repouso no namespace com uma chave gerenciada pelo cliente. 
 
-        > [!NOTE]
-        > Para visualização, você só pode selecionar uma única chave. 
 
 ## <a name="rotate-your-encryption-keys"></a>Girar suas chaves de criptografia
 Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do Azure Key Vaults. Para obter mais informações, consulte [Configurar a rotação de chaves e a auditoria](../key-vault/key-vault-key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço de hubs de eventos detectará novas versões de chave e começará a usá-las automaticamente.
@@ -82,9 +77,6 @@ Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do
 Revogar o acesso às chaves de criptografia não limpará os dados dos hubs de eventos. No entanto, os dados não podem ser acessados no namespace de hubs de eventos. Você pode revogar a chave de criptografia por meio da política de acesso ou excluindo a chave. Saiba mais sobre as políticas de acesso e proteger o cofre de chaves de [acesso seguro a um cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).
 
 Depois que a chave de criptografia for revogada, o serviço de hubs de eventos no namespace criptografado se tornará inoperável. Se o acesso à chave estiver habilitado ou a chave de exclusão for restaurada, o serviço de hubs de eventos escolherá a chave para que você possa acessar os dados do namespace de hubs de eventos criptografados.
-
-> [!NOTE]
-> Se você excluir uma chave de criptografia existente do cofre de chaves e substituí-la por uma nova chave no namespace de hubs de eventos, já que a chave de exclusão ainda é válida (já que ela é armazenada em cache) por até uma hora, seus dados antigos (que foram criptografados com a chave antiga) ainda podem estar acessíveis ao longo  com os novos dados, que agora são acessíveis apenas usando a nova chave. Esse comportamento é por design na versão de visualização do recurso. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurar os registos de diagnóstico 
 A configuração de logs de diagnóstico para namespaces habilitados para BYOK fornece as informações necessárias sobre as operações quando um namespace é criptografado com chaves gerenciadas pelo cliente. Esses logs podem ser habilitados e transmitidos posteriormente para um hub de eventos ou analisados por meio do log Analytics ou transmitidos para o armazenamento para executar análises personalizadas. Para saber mais sobre os logs de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
@@ -171,10 +163,6 @@ Veja a seguir os códigos de erros comuns a serem procurados quando a criptograf
 
 > [!IMPORTANT]
 > Para habilitar o geo-DR em um namespace que está usando a criptografia BYOK, o namespace secundário para emparelhamento deve estar em um cluster dedicado e deve ter uma identidade gerenciada atribuída ao sistema habilitada nele. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-> [!NOTE]
-> Se os pontos de extremidade de serviço de rede virtual (VNet) estiverem configurados em Azure Key Vault para seu namespace de hubs de eventos, não haverá suporte para BYOK. 
-
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:

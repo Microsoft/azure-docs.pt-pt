@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666499"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902830"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre requisitos de criptografia e gateways de VPN do Azure
 
@@ -34,7 +34,7 @@ A política padrão definida para o gateway de VPN do Azure está listada no art
 
 ## <a name="cryptographic-requirements"></a>Requisitos de criptografia
 
-Para comunicações que exigem algoritmos criptográficos ou parâmetros específicos, normalmente devido a requisitos de conformidade ou de segurança, agora você pode configurar seus gateways de VPN do Azure para usar uma política de IPsec/IKE personalizada com algoritmos criptográficos específicos e forças de chave, em vez dos conjuntos de políticas padrão do Azure.
+Para comunicações que exigem algoritmos ou parâmetros criptográficos específicos, normalmente devido a requisitos de conformidade ou de segurança, agora você pode configurar seus gateways de VPN do Azure para usar uma política de IPsec/IKE personalizada com algoritmos de criptografia e forças de chave específicos, em vez dos conjuntos de políticas padrão do Azure.
 
 Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure utilizam apenas o grupo Diffie-Hellman 2 (1024 bits), enquanto talvez seja necessário especificar grupos mais fortes a serem usados no IKE, como o grupo 14 (2048 bits), grupo 24 (grupo de MODP bits de 2048 bits) ou ECP (curva elíptica grupos) 256 ou 384 bits (grupo 19 e grupo 20, respectivamente). Requisitos semelhantes também se aplicam às políticas de modo rápido do IPsec.
 

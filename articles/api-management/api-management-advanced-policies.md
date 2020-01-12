@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 225f26ac2133f45fe7eba9e39d64d0cfe9e20766
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c8ef481fe277d6451923da828f0e7473354c24cf
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885292"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903013"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de gerenciamento de API
 
@@ -126,15 +126,15 @@ Este exemplo mostra como executar a filtragem de conteúdo removendo elementos d
 
 ### <a name="elements"></a>Elementos
 
-| Elemento   | Descrição                                                                                                                                                                                                                                                               | Necessário |
+| Elemento   | Descrição                                                                                                                                                                                                                                                               | Obrigatório |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| escolha    | Elemento raiz.                                                                                                                                                                                                                                                             | Sim      |
-| Ao      | A condição a ser usada para o `if` ou `ifelse` partes da política de `choose`. Se a política de `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Depois que a `condition` de um elemento When é avaliada como `true`, nenhuma outra condição de `when` é avaliada. | Sim      |
+| selecione    | Elemento raiz.                                                                                                                                                                                                                                                             | Sim      |
+| ao      | A condição a ser usada para o `if` ou `ifelse` partes da política de `choose`. Se a política de `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Depois que a `condition` de um elemento When é avaliada como `true`, nenhuma outra condição de `when` é avaliada. | Sim      |
 | , | Contém o trecho de política a ser usado se nenhuma das condições de `when` forem avaliadas como `true`.                                                                                                                                                                               | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                                              | Descrição                                                                                               | Necessário |
+| Atributo                                              | Descrição                                                                                               | Obrigatório |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | Condition = "constante booliana da expressão &#124; booliana" | A expressão booliana ou constante a ser avaliada quando a instrução de política de `when` que a contém é avaliada. | Sim      |
 
@@ -156,7 +156,7 @@ A política de `forward-request` encaminha a solicitação de entrada para o ser
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="true | false" buffer-request-body="true | false" />
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Exemplos
@@ -203,7 +203,7 @@ Essa política de nível de operação usa o elemento `base` para herdar a polí
 
 #### <a name="example"></a>Exemplo
 
-Essa política de nível de operação encaminha explicitamente todas as solicitações para o serviço de back-end com um tempo limite de 120 e não herda a política de back-end do nível da API pai.
+Essa política de nível de operação encaminha explicitamente todas as solicitações para o serviço de back-end com um tempo limite de 120 e não herda a política de back-end do nível da API pai. Se o serviço de back-end responder com um código de status de erro de 400 para 599, inclusive, a seção [On-Error](api-management-error-handling-policies.md) será disparada.
 
 ```xml
 <!-- operation level -->
@@ -212,7 +212,7 @@ Essa política de nível de operação encaminha explicitamente todas as solicit
         <base/>
     </inbound>
     <backend>
-        <forward-request timeout="120"/>
+        <forward-request timeout="120" fail-on-error-status-code="true" />
         <!-- effective policy. note the absence of <base/> -->
     </backend>
     <outbound>
@@ -244,17 +244,18 @@ Essa política de nível de operação não encaminha solicitações para o serv
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição   | Necessário |
+| Elemento         | Descrição   | Obrigatório |
 | --------------- | ------------- | -------- |
-| solicitação de encaminhamento | Elemento raiz. | Sim      |
+| reencaminhar-pedido | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                               | Descrição                                                                                                      | Necessário | Predefinição     |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout = "inteiro"                       | A quantidade de tempo em segundos a aguardar que os cabeçalhos de resposta HTTP sejam retornados pelo serviço de back-end antes que um erro de tempo limite seja gerado. O valor mínimo é 0 segundos. Valores maiores que 240 segundos podem não ser respeitados, pois a infraestrutura de rede subjacente pode descartar conexões ociosas após esse tempo. | Não       | Nenhum |
-| Siga-redirecionamentos = "verdadeiro &#124; falso"    | Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados para o chamador.      | Não       | false       |
-| buffer – solicitação-corpo = "verdadeiro &#124; falso" | Quando definido como "true", a solicitação é armazenada em buffer e será reutilizada na [nova tentativa](api-management-advanced-policies.md#Retry). | Não       | false       |
+| Atributo                                     | Descrição                                                                                                                                                                                                                                                                                                    | Obrigatório | Predefinição |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| timeout="integer"                             | A quantidade de tempo em segundos a aguardar que os cabeçalhos de resposta HTTP sejam retornados pelo serviço de back-end antes que um erro de tempo limite seja gerado. O valor mínimo é 0 segundos. Valores maiores que 240 segundos podem não ser respeitados, pois a infraestrutura de rede subjacente pode descartar conexões ociosas após esse tempo. | Não       | Nenhuma    |
+| Siga-redirecionamentos = "falso &#124; verdadeiro"          | Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados para o chamador.                                                                                                                                                                                                    | Não       | false   |
+| buffer-Request-Body = "false &#124; true"       | Quando definido como "true", a solicitação é armazenada em buffer e será reutilizada na [nova tentativa](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Não       | false   |
+| falha-em-erro-status-código = "falso &#124; verdadeiro" | Quando definido como true triggers [On-Error](api-management-error-handling-policies.md) seção para códigos de resposta no intervalo de 400 a 599, inclusive.                                                                                                                                                                      | Não       | false   |
 
 ### <a name="usage"></a>Utilização
 
@@ -295,16 +296,16 @@ O exemplo a seguir demonstra como limitar o número de solicitações encaminhad
 
 ### <a name="elements"></a>Elementos
 
-| Elemento           | Descrição   | Necessário |
+| Elemento           | Descrição   | Obrigatório |
 | ----------------- | ------------- | -------- |
 | limite-simultaneidade | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                                                        | Necessário | Predefinição |
+| Atributo | Descrição                                                                                        | Obrigatório | Predefinição |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas. | Sim      | N/D     |
-| contagem máxima | Um inteiro. Especifica um número máximo de solicitações que têm permissão para entrar na política.           | Sim      | N/D     |
+| key       | Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas. | Sim      | N/A     |
+| contagem máxima | Um número inteiro. Especifica um número máximo de solicitações que têm permissão para entrar na política.           | Sim      | N/A     |
 
 ### <a name="usage"></a>Utilização
 
@@ -332,7 +333,7 @@ A política de `log-to-eventhub` envia mensagens no formato especificado para um
 
 ### <a name="example"></a>Exemplo
 
-Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado nos hubs de eventos. Neste exemplo, a data e hora, o nome do serviço de implantação, a ID da solicitação, o endereço IP e o nome da operação para todas as chamadas de entrada são registrados no agente do hub de eventos registrado com a ID de `contoso-logger`.
+Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado nos hubs de eventos. Neste exemplo, a data e hora, o nome do serviço de implantação, a ID da solicitação, o endereço IP e o nome da operação para todas as chamadas de entrada são registrados no agente do hub de eventos registrado com a ID de `contoso-logger`
 
 ```xml
 <policies>
@@ -348,15 +349,15 @@ Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado nos h
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição                                                                     | Necessário |
+| Elemento         | Descrição                                                                     | Obrigatório |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Elemento raiz. O valor desse elemento é a cadeia de caracteres a ser registrada em seu hub de eventos. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo     | Descrição                                                               | Necessário                                                             |
+| Atributo     | Descrição                                                               | Obrigatório                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| ID do agente     | A ID do agente de log registrado com o serviço de gerenciamento de API.         | Sim                                                                  |
+| logger-id     | A ID do agente de log registrado com o serviço de gerenciamento de API.         | Sim                                                                  |
 | ID da partição  | Especifica o índice da partição para a qual as mensagens são enviadas.             | Opcional. Esse atributo não poderá ser usado se `partition-key` for usado. |
 | chave de partição | Especifica o valor usado para atribuição de partição quando as mensagens são enviadas. | Opcional. Esse atributo não poderá ser usado se `partition-id` for usado.  |
 
@@ -393,16 +394,16 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-| Elemento       | Descrição   | Necessário |
+| Elemento       | Descrição   | Obrigatório |
 | ------------- | ------------- | -------- |
-| simulação-resposta | Elemento raiz. | Sim      |
+| mock-response | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo    | Descrição                                                                                           | Necessário | Predefinição |
+| Atributo    | Descrição                                                                                           | Obrigatório | Predefinição |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-código  | Especifica o código de status de resposta e é usado para selecionar o exemplo ou o esquema correspondente.                 | Não       | 200     |
-| tipo de conteúdo | Especifica `Content-Type` valor do cabeçalho de resposta e é usado para selecionar o exemplo ou o esquema correspondente. | Não       | Nenhum    |
+| Tipo de conteúdo | Especifica `Content-Type` valor do cabeçalho de resposta e é usado para selecionar o exemplo ou o esquema correspondente. | Não       | Nenhuma    |
 
 ### <a name="usage"></a>Utilização
 
@@ -452,19 +453,19 @@ No exemplo a seguir, o encaminhamento de solicitação é tentado novamente até
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição                                                         | Necessário |
+| Elemento | Descrição                                                         | Obrigatório |
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Elemento raiz. Pode conter quaisquer outras políticas como seus elementos filho. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo        | Descrição                                                                                                                                           | Necessário | Predefinição |
+| Atributo        | Descrição                                                                                                                                           | Obrigatório | Predefinição |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| problema        | Um literal booliano ou [expressão](api-management-policy-expressions.md) que especifica se as repetições devem ser interrompidas (`false`) ou continuadas (`true`).      | Sim      | N/D     |
-| count            | Um número positivo que especifica o número máximo de repetições a tentar.                                                                                | Sim      | N/D     |
-| intervalo         | Um número positivo, em segundos, que especifica o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/D     |
-| intervalo máx.     | Um número positivo, em segundos, que especifica o intervalo de espera máximo entre as tentativas de repetição. Ele é usado para implementar um algoritmo de repetição exponencial. | Não       | N/D     |
-| trifásico            | Um número positivo em segundos que especifica o incremento de intervalo de espera. Ele é usado para implementar os algoritmos de repetição linear e exponencial.             | Não       | N/D     |
+| condition        | Um literal booliano ou [expressão](api-management-policy-expressions.md) que especifica se as repetições devem ser interrompidas (`false`) ou continuadas (`true`).      | Sim      | N/A     |
+| count            | Um número positivo que especifica o número máximo de repetições a tentar.                                                                                | Sim      | N/A     |
+| intervalo         | Um número positivo, em segundos, que especifica o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/A     |
+| intervalo máx.     | Um número positivo, em segundos, que especifica o intervalo de espera máximo entre as tentativas de repetição. Ele é usado para implementar um algoritmo de repetição exponencial. | Não       | N/A     |
+| delta            | Um número positivo em segundos que especifica o incremento de intervalo de espera. Ele é usado para implementar os algoritmos de repetição linear e exponencial.             | Não       | N/A     |
 | primeira-rápida-repetição | Se definido como `true`, a primeira tentativa de repetição é executada imediatamente.                                                                                  | Não       | `false` |
 
 > [!NOTE]
@@ -509,18 +510,18 @@ A política de `return-response` anula a execução do pipeline e retorna uma re
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descrição                                                                               | Necessário |
+| Elemento         | Descrição                                                                               | Obrigatório |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | retorno de resposta | Elemento raiz.                                                                             | Sim      |
-| definir cabeçalho      | Uma declaração [de política Set-header](api-management-transformation-policies.md#SetHTTPheader) . | Não       |
+| set-header      | Uma declaração [de política Set-header](api-management-transformation-policies.md#SetHTTPheader) . | Não       |
 | definir corpo        | Uma declaração [de política Set-Body](api-management-transformation-policies.md#SetBody) .         | Não       |
-| definir status      | Uma declaração [de política Set-status](api-management-advanced-policies.md#SetStatus) .           | Não       |
+| set-status      | Uma declaração [de política Set-status](api-management-advanced-policies.md#SetStatus) .           | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo              | Descrição                                                                                                                                                                          | Necessário  |
+| Atributo              | Descrição                                                                                                                                                                          | Obrigatório  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| nome da variável de resposta | O nome da variável de contexto referenciada de, por exemplo, uma política de [envio e solicitação](api-management-advanced-policies.md#SendRequest) de upstream e que contém um objeto `Response` | Opcional. |
+| response-variable-name | O nome da variável de contexto referenciada de, por exemplo, uma política de [envio e solicitação](api-management-advanced-policies.md#SendRequest) de upstream e que contém um objeto `Response` | Opcional. |
 
 ### <a name="usage"></a>Utilização
 
@@ -579,22 +580,22 @@ Esta política de exemplo mostra um exemplo de como usar a política de `send-on
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descrição                                                                                                 | Necessário                        |
+| Elemento                    | Descrição                                                                                                 | Obrigatório                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | solicitação Send-unidirecional       | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se Mode = Copy; caso contrário, sim. |
 | método                     | O método HTTP para a solicitação.                                                                            | Não se Mode = Copy; caso contrário, sim. |
 | cabeçalho                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                              |
-| conteúdo                       | O corpo da solicitação.                                                                                           | Não                              |
+| body                       | O corpo da solicitação.                                                                                           | Não                              |
 | autenticação-certificado | [Certificado a ser usado para autenticação de cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição  |
+| Atributo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Predefinição  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| Mode = "String" | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, Mode = Copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
-| nome          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
-| Exists-ação | Especifica a ação a ser tomada quando o cabeçalho já estiver especificado. Esse atributo deve ter um dos valores a seguir.<br /><br /> -Override – substitui o valor do cabeçalho existente.<br />-Skip-não substitui o valor do cabeçalho existente.<br />-Append – acrescenta o valor ao valor de cabeçalho existente.<br />-Delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override` a listar várias entradas com os mesmos resultados de nome no cabeçalho que está sendo definido de acordo com todas as entradas (que serão listadas várias vezes); somente os valores listados serão definidos no resultado. | Não       | Substituição |
+| mode="string" | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, Mode = Copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
+| nome          | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/A      |
+| Exists-ação | Especifica a ação a ser tomada quando o cabeçalho já estiver especificado. Esse atributo deve ter um dos valores a seguir.<br /><br /> -Override – substitui o valor do cabeçalho existente.<br />-Skip-não substitui o valor do cabeçalho existente.<br />-Append – acrescenta o valor ao valor de cabeçalho existente.<br />-Delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override` a listar várias entradas com os mesmos resultados de nome no cabeçalho que está sendo definido de acordo com todas as entradas (que serão listadas várias vezes); somente os valores listados serão definidos no resultado. | Não       | substituição |
 
 ### <a name="usage"></a>Utilização
 
@@ -663,25 +664,25 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descrição                                                                                                 | Necessário                        |
+| Elemento                    | Descrição                                                                                                 | Obrigatório                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | Enviar solicitação               | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se Mode = Copy; caso contrário, sim. |
 | método                     | O método HTTP para a solicitação.                                                                            | Não se Mode = Copy; caso contrário, sim. |
 | cabeçalho                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                              |
-| conteúdo                       | O corpo da solicitação.                                                                                           | Não                              |
+| body                       | O corpo da solicitação.                                                                                           | Não                              |
 | autenticação-certificado | [Certificado a ser usado para autenticação de cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Necessário | Predefinição  |
+| Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Predefinição  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| Mode = "String"                   | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, Mode = Copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
-| Response-variável-name = "String" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, ela será criada após a execução bem-sucedida da política e ficará acessível por meio de [`context.Variable`](api-management-policy-expressions.md#ContextVariables) coleção.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
-| timeout = "inteiro"               | O intervalo de tempo limite em segundos antes da chamada para a URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Não       | 60       |
-| ignorar-erro                    | Se for true e a solicitação resultar em um erro:<br /><br /> -Se o nome da variável de resposta tiver sido especificado, ele conterá um valor nulo.<br />-Se Response-variável-name não tiver sido especificado, Context. A solicitação não será atualizada.                                                                                                                                                                                                                                                                                                                                                                                   | Não       | false    |
-| nome                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
-| Exists-ação                   | Especifica a ação a ser tomada quando o cabeçalho já estiver especificado. Esse atributo deve ter um dos valores a seguir.<br /><br /> -Override – substitui o valor do cabeçalho existente.<br />-Skip-não substitui o valor do cabeçalho existente.<br />-Append – acrescenta o valor ao valor de cabeçalho existente.<br />-Delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override` a listar várias entradas com os mesmos resultados de nome no cabeçalho que está sendo definido de acordo com todas as entradas (que serão listadas várias vezes); somente os valores listados serão definidos no resultado. | Não       | Substituição |
+| mode="string"                   | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, Mode = Copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
+| response-variable-name="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, ela será criada após a execução bem-sucedida da política e ficará acessível por meio de [`context.Variable`](api-management-policy-expressions.md#ContextVariables) coleção.                                                                                                                                                                                                                                                                                                                          | Sim      | N/A      |
+| timeout="integer"               | O intervalo de tempo limite em segundos antes da chamada para a URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Não       | 60       |
+| ignore-error                    | Se for true e a solicitação resultar em um erro:<br /><br /> -Se o nome da variável de resposta tiver sido especificado, ele conterá um valor nulo.<br />-Se Response-variável-name não tiver sido especificado, Context. A solicitação não será atualizada.                                                                                                                                                                                                                                                                                                                                                                                   | Não       | false    |
+| nome                            | Especifica o nome do cabeçalho a definir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/A      |
+| Exists-ação                   | Especifica a ação a ser tomada quando o cabeçalho já estiver especificado. Esse atributo deve ter um dos valores a seguir.<br /><br /> -Override – substitui o valor do cabeçalho existente.<br />-Skip-não substitui o valor do cabeçalho existente.<br />-Append – acrescenta o valor ao valor de cabeçalho existente.<br />-Delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override` a listar várias entradas com os mesmos resultados de nome no cabeçalho que está sendo definido de acordo com todas as entradas (que serão listadas várias vezes); somente os valores listados serão definidos no resultado. | Não       | substituição |
 
 ### <a name="usage"></a>Utilização
 
@@ -713,17 +714,17 @@ Observe o uso de [Propriedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição  | Necessário |
+| Elemento | Descrição  | Obrigatório |
 | ------- | ------------ | -------- |
-| acionista   | Elemento raiz | Sim      |
+| Proxy   | Elemento raiz | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo         | Descrição                                            | Necessário | Predefinição |
+| Atributo         | Descrição                                            | Obrigatório | Predefinição |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| URL = "cadeia de caracteres"      | URL do proxy na forma de http://host:port.             | Sim      | N/D     |
-| nome de usuário = "cadeia de caracteres" | Nome de usuário a ser usado para autenticação com o proxy. | Não       | N/D     |
-| senha = "cadeia de caracteres" | Senha a ser usada para autenticação com o proxy. | Não       | N/D     |
+| url="string"      | URL do proxy na forma de http://host:port.             | Sim      | N/A     |
+| username="string" | Nome de usuário a ser usado para autenticação com o proxy. | Não       | N/A     |
+| password="string" | Senha a ser usada para autenticação com o proxy. | Não       | N/A     |
 
 ### <a name="usage"></a>Utilização
 
@@ -776,7 +777,7 @@ Esta política de exemplo que usa a política de `set-method` mostra um exemplo 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descrição                                                       | Necessário |
+| Elemento    | Descrição                                                       | Obrigatório |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | Set-Method | Elemento raiz. O valor do elemento Especifica o método HTTP. | Sim      |
 
@@ -819,16 +820,16 @@ Este exemplo mostra como retornar uma resposta 401 se o token de autorização f
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descrição   | Necessário |
+| Elemento    | Descrição   | Obrigatório |
 | ---------- | ------------- | -------- |
-| definir status | Elemento raiz. | Sim      |
+| set-status | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo       | Descrição                                                | Necessário | Predefinição |
+| Atributo       | Descrição                                                | Obrigatório | Predefinição |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| código = "inteiro"  | O código de status HTTP a ser retornado.                            | Sim      | N/D     |
-| Reason = "String" | Uma descrição do motivo para retornar o código de status. | Sim      | N/D     |
+| code="integer"  | O código de status HTTP a ser retornado.                            | Sim      | N/A     |
+| reason="string" | Uma descrição do motivo para retornar o código de status. | Sim      | N/A     |
 
 ### <a name="usage"></a>Utilização
 
@@ -857,13 +858,13 @@ O exemplo a seguir demonstra uma política de definir variável na seção de en
 
 ### <a name="elements"></a>Elementos
 
-| Elemento      | Descrição   | Necessário |
+| Elemento      | Descrição   | Obrigatório |
 | ------------ | ------------- | -------- |
-| definir variável | Elemento raiz. | Sim      |
+| set-variable | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                              | Necessário |
+| Atributo | Descrição                                                              | Obrigatório |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | nome      | O nome da variável.                                                | Sim      |
 | valor     | O valor da variável. Pode ser uma expressão ou um valor literal. | Sim      |
@@ -879,46 +880,45 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 
 As expressões usadas na política de `set-variable` devem retornar um dos tipos básicos a seguir.
 
--   System. Boolean
--   System. SByte
--   System. byte
--   System. UInt16
--   System. UInt32
--   System. UInt64
--   System. Int16
--   System. Int32
--   System. Int64
--   System. decimal
--   Sistema. único
--   Sistema. Double
--   System. GUID
--   System. String
--   System. Char
--   System. DateTime
--   System. TimeSpan
+-   System.Boolean
+-   System.SByte
+-   System.Byte
+-   System.UInt16
+-   System.UInt32
+-   System.UInt64
+-   System.Int16
+-   System.Int32
+-   System.Int64
+-   System.Decimal
+-   System.Single
+-   System.Double
+-   System.Guid
+-   System.String
+-   System.Char
+-   System.DateTime
+-   System.TimeSpan
 -   System. byte?
--   System. UInt16?
--   System. UInt32?
--   System. UInt64?
--   System. Int16?
--   System. Int32?
--   System. Int64?
--   System. decimal?
--   Sistema. único?
+-   System.UInt16?
+-   System.UInt32?
+-   System.UInt64?
+-   System.Int16?
+-   System.Int32?
+-   System.Int64?
+-   System.Decimal?
+-   System.Single?
 -   System. Double?
--   System. GUID?
--   System. String?
--   System. Char?
--   System. DateTime?
+-   System.Guid?
+-   System.String?
+-   System.Char?
+-   System.DateTime?
 
 ## <a name="Trace"></a>Rastreou
 
-A política de `trace` adiciona um rastreamento personalizado à saída do Inspetor de API, Application Insights telemetrias e/ou logs de diagnóstico. 
+A política de `trace` adiciona um rastreamento personalizado à saída do Inspetor de API, Application Insights telemetrias e/ou logs de diagnóstico.
 
-* A política adiciona um rastreamento personalizado à saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando o rastreamento é disparado, ou seja, `Ocp-Apim-Trace` cabeçalho de solicitação está presente e definido como true e `Ocp-Apim-Subscription-Key` cabeçalho de solicitação está presente e contém uma chave válida que permite o rastreamento. 
-* A política cria uma telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) no Application insights, quando [Application insights integração](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) está habilitada e o nível de `severity` especificado na política é ou superior ao nível de `verbosity` especificado na configuração de diagnóstico. 
-* A política adiciona uma propriedade na entrada de log quando [os logs de diagnóstico](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) estão habilitados e o nível de severidade especificado na política é ou superior ao nível de detalhes especificado na configuração de diagnóstico.  
-
+-   A política adiciona um rastreamento personalizado à saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando o rastreamento é disparado, ou seja, `Ocp-Apim-Trace` cabeçalho de solicitação está presente e definido como true e `Ocp-Apim-Subscription-Key` cabeçalho de solicitação está presente e contém uma chave válida que permite o rastreamento.
+-   A política cria uma telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) no Application insights, quando [Application insights integração](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) está habilitada e o nível de `severity` especificado na política é ou superior ao nível de `verbosity` especificado na configuração de diagnóstico.
+-   A política adiciona uma propriedade na entrada de log quando [os logs de diagnóstico](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) estão habilitados e o nível de severidade especificado na política é ou superior ao nível de detalhes especificado na configuração de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -942,20 +942,20 @@ A política de `trace` adiciona um rastreamento personalizado à saída do Inspe
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição   | Necessário |
-| ------- | ------------- | -------- |
-| rastreou   | Elemento raiz. | Sim      |
-| message | Uma cadeia de caracteres ou expressão a ser registrada. | Sim |
-| do IdP | Adiciona uma propriedade personalizada à telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Application insights. | Não |
+| Elemento  | Descrição                                                                                                                                          | Obrigatório |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| rastreou    | Elemento raiz.                                                                                                                                        | Sim      |
+| message  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
+| do IdP | Adiciona uma propriedade personalizada à telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Application insights. | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                                             | Necessário | Predefinição |
-| --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | Literal de cadeia de caracteres significativo para o Visualizador de rastreamento e especificando a origem da mensagem. | Sim      | N/D     |
-| Severity    | Especifica o nível de severidade do rastreamento. Os valores permitidos são `verbose`, `information`, `error` (do mais baixo ao mais alto). | Não      | Extensa     |
-| nome    | Nome da propriedade. | Sim      | N/D     |
-| valor    | Valor da propriedade. | Sim      | N/D     |
+| Atributo | Descrição                                                                                                               | Obrigatório | Predefinição |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| source    | Literal de cadeia de caracteres significativo para o Visualizador de rastreamento e especificando a origem da mensagem.                                   | Sim      | N/A     |
+| gravidade  | Especifica o nível de severidade do rastreamento. Os valores permitidos são `verbose`, `information`, `error` (do mais baixo ao mais alto). | Não       | Verboso |
+| nome      | Nome da propriedade.                                                                                                     | Sim      | N/A     |
+| valor     | Valor da propriedade.                                                                                                    | Sim      | N/A     |
 
 ### <a name="usage"></a>Utilização
 
@@ -1017,15 +1017,15 @@ No exemplo a seguir, há duas políticas de `choose` como políticas filho imedi
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descrição                                                                                                   | Necessário |
+| Elemento | Descrição                                                                                                   | Obrigatório |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| Esperado    | Elemento raiz. Pode conter como elementos filho somente `send-request`as políticas, `cache-lookup-value`e `choose`. | Sim      |
+| esperado    | Elemento raiz. Pode conter como elementos filho somente `send-request`as políticas, `cache-lookup-value`e `choose`. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Necessário | Predefinição |
+| Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Predefinição |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| fins       | Determina se a política de `wait` aguarda que todas as políticas filho imediatas sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all`-aguardar a conclusão de todas as políticas filho imediatas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Depois que a primeira política filho imediata for concluída, a política de `wait` será concluída e a execução de quaisquer outras políticas filho imediatas é encerrada. | Não       | all     |
+| 작성하시겠어요?       | Determina se a política de `wait` aguarda que todas as políticas filho imediatas sejam concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all`-aguardar a conclusão de todas as políticas filho imediatas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Depois que a primeira política filho imediata for concluída, a política de `wait` será concluída e a execução de quaisquer outras políticas filho imediatas é encerrada. | Não       | all     |
 
 ### <a name="usage"></a>Utilização
 

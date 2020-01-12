@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 9b08dd60020dad6f747167f35e8d172fdc24a59e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b9637265d263a75949d5a70c3e4f0ce06044d93c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752188"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902050"
 ---
 Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas disponíveis com uma ou várias GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho com uso intensivo de computação, gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda da rede também estão incluídas para cada tamanho neste agrupamento.
 
@@ -56,7 +56,7 @@ As VMs da série NCv2 são alimentadas por GPUs [NVIDIA Tesla P100](https://www.
 A configuração do NC24rs v2 fornece uma interface de rede de alta taxa de transferência e baixa latência otimizada para cargas de trabalho de computação paralela firmemente acopladas.
 
 > [!IMPORTANT]
-> Para essa família de tamanho, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
+> Para essa família de tamanho, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs máximos |
@@ -79,7 +79,7 @@ Cache de armazenamento Premium: com suporte
 As VMs da série NCv3 são alimentadas por GPUs [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/) . Essas GPUs podem fornecer um desempenho computacional de 1,5 x da série NCv2. Os clientes podem aproveitar essas GPUs atualizadas para cargas de trabalho de HPC tradicionais, como modelagem de reservatório, sequenciamento de DNA, análise de proteína, simulações de Carlo monte e outros. A configuração do NC24rs v3 fornece uma interface de rede de alta taxa de transferência e baixa latência otimizada para cargas de trabalho de computação paralela firmemente acopladas. Além das GPUs, as VMs da série NCv3 também são alimentadas por CPUs Intel Xeon E5-2690 V4 (Broadwell).
 
 > [!IMPORTANT]
-> Para essa família de tamanho, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
+> Para essa família de tamanho, a cota de vCPU (núcleo) em sua assinatura é inicialmente definida como 0 em cada região. [Solicite um aumento de cota de vCPU](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs máximos |
@@ -131,7 +131,7 @@ Cache de armazenamento Premium: com suporte
 As máquinas virtuais da série ND são uma nova adição à família de GPU projetada para ia e cargas de trabalho de aprendizado profundo. Eles oferecem um desempenho excelente para treinamento e inferência. As instâncias do ND são alimentadas por [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs e CPUs Intel Xeon E5-2690 V4 (Broadwell). Essas instâncias fornecem um desempenho excelente para operações de ponto flutuante de precisão simples, para cargas de trabalho de ia que utilizam Microsoft Cognitive Toolkit, TensorFlow, Caffe e outras estruturas. A série ND também oferece um tamanho de memória GPU muito maior (24 GB), que permite adaptar modelos de rede neuronal muito maiores. Como a série NC, a série ND oferece uma configuração com uma rede secundária de baixa latência e alta taxa de transferência por meio de RDMA e conectividade InfiniBand para que você possa executar trabalhos de treinamento em grande escala abrangendo muitas GPUs.
 
 > [!IMPORTANT]
-> Para essa família de tamanho, a cota de vCPU (núcleo) por região em sua assinatura é definida inicialmente como 0. [Solicite um aumento de cota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
+> Para essa família de tamanho, a cota de vCPU (núcleo) por região em sua assinatura é definida inicialmente como 0. [Solicite um aumento de cota de vCPU](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) para essa família em uma [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário em GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs máximos |

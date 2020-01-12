@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: de2b79c5016b44011a14c1071eab6579f3a0b6df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e756617a700d258078e84a3fa11c8aceb6f4dd88
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650255"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903270"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição da aplicação gerida
 
@@ -18,7 +18,7 @@ ms.locfileid: "75650255"
 
 Pode criar e publicar [aplicações geridas](overview.md) do Azure que se destinam aos membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que cumprem normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, e não no Azure marketplace.
 
-Para publicar uma aplicação gerida no catálogo de serviços, tem de:
+Para publicar um aplicativo gerenciado em seu catálogo de serviços do Azure, você deve:
 
 * Criar um modelo que define os recursos a implementar com a aplicação gerida.
 * Defina os elementos de interface de utilizador para o portal quando implementar a aplicação gerida.
@@ -207,6 +207,108 @@ New-AzManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga seu próprio armazenamento para a definição de aplicativo gerenciado
+Você pode optar por armazenar a definição de aplicativo gerenciado em uma conta de armazenamento fornecida por você durante a criação para que a localização e o acesso possam ser totalmente gerenciados por você para suas necessidades regulatórias.
+
+> [!NOTE]
+> Só há suporte para traga seu próprio armazenamento com as implantações de modelo ARM ou API REST da definição de aplicativo gerenciado.
+
+### <a name="select-your-storage-account"></a>Selecione sua conta de armazenamento
+Você deve [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para conter a definição de aplicativo gerenciado para uso com o catálogo de serviços.
+
+Copie a ID de recurso da conta de armazenamento. Ele será usado posteriormente ao implantar a definição.
+
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Defina a atribuição de função para "provedor de recursos de dispositivo" em sua conta de armazenamento
+Antes que a definição do aplicativo gerenciado possa ser implantada em sua conta de armazenamento, você deve conceder permissões de colaborador para a função do **provedor de recursos do dispositivo** para que ele possa gravar os arquivos de definição no contêiner da sua conta de armazenamento.
+
+1. No [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento.
+1. Selecione **controle de acesso (iam)** para exibir as configurações de controle de acesso para a conta de armazenamento. Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
+1. Na janela **Adicionar atribuição de função** , selecione a função **colaborador** . 
+1. No campo **atribuir acesso a** , selecione **usuário, grupo ou entidade de serviço do Azure ad**.
+1. Em **selecionar** Pesquisar função do **provedor de recursos do dispositivo** e selecione-o.
+1. Salve a atribuição de função.
+
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implantar a definição de aplicativo gerenciado com um modelo ARM 
+
+Use o modelo ARM a seguir para implantar o aplicativo gerenciado empacotado como uma nova definição de aplicativo gerenciado no catálogo de serviços cujos arquivos de definição são armazenados e mantidos em sua própria conta de armazenamento:
+   
+```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "applicationName": {
+            "type": "string",
+            "metadata": {
+                "description": "Managed Application name"
+            }
+        },
+        "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+        "definitionStorageResourceID": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account resource ID for where you're storing your definition"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            }
+        }
+    },
+    "variables": {
+        "lockLevel": "None",
+        "description": "Sample Managed application definition",
+        "displayName": "Sample Managed application definition",
+        "managedApplicationDefinitionName": "[parameters('applicationName')]",
+        "packageFileUri": "[parameters('_artifactsLocation')]",
+        "defLocation": "[parameters('definitionStorageResourceID')]",
+        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Solutions/applicationDefinitions",
+            "apiVersion": "2019-07-01",
+            "name": "[variables('managedApplicationDefinitionName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "lockLevel": "[variables('lockLevel')]",
+                "description": "[variables('description')]",
+                "displayName": "[variables('displayName')]",
+                "packageFileUri": "[variables('packageFileUri')]",
+                "storageAccountId": "[variables('defLocation')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Adicionamos uma nova propriedade chamada **storageAccountId** às propriedades de applicationDefintion e fornecemos a ID da conta de armazenamento na qual você deseja armazenar sua definição como seu valor:
+
+Você pode verificar se os arquivos de definição de aplicativo são salvos em sua conta de armazenamento fornecida em um contêiner intitulado **applicationdefinitions**.
+
+> [!NOTE]
+> Para aumentar a segurança, você pode criar uma definição de aplicativos gerenciados armazenando-o em um [BLOB da conta de armazenamento do Azure em que a criptografia está habilitada](../../storage/common/storage-service-encryption.md). O conteúdo da definição é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver a definição no catálogo de serviços.
 
 ### <a name="make-sure-users-can-see-your-definition"></a>Confirmar que os utilizadores podem ver a definição
 

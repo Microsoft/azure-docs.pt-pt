@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67622117"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901812"
 ---
-| Resource | Limite máximo/padrão |
+| Recurso | Limite máximo/padrão |
 | --- | --- |
 | Circuitos de ExpressRoute por assinatura |10 |
 | Circuitos de ExpressRoute por região por assinatura, com Azure Resource Manager |10 |
@@ -31,15 +31,18 @@ ms.locfileid: "67622117"
 #### <a name="vnetpercircuit"></a>Número de redes virtuais por circuito de ExpressRoute
 | **Tamanho do circuito** | **Número de links de rede virtual para Standard** | **Número de links de rede virtual com complemento Premium** |
 | --- | --- | --- |
-| 50 Mbps |10 |20 |
-| 100 Mbps |10 |25 |
-| 200 Mbps |10 |25 |
-| 500 Mbps |10 |40 |
-| 1 Gbps |10 |50 |
+| 50 Mbps |10 |20 |
+| 100 Mbps |10 |25 |
+| 200 Mbps |10 |25 |
+| 500 Mbps |10 |40 |
+| 1 Gbps |10 |50 |
 | 2 Gbps |10 |60 |
 | 5 Gbps |10 |75 |
-| 10 Gbps |10 |100 |
+| 10 Gbps |10 |100 |
 | 40 Gbps * |10 |100 |
 | 100 Gbps * |10 |100 |
 
-**100 Gbps ExpressRoute somente direto*
+*de *100 Gbps de ExpressRoute somente direto*
+
+> [!NOTE]
+> Alcance Global as conexões contam com o limite de conexões de rede virtual por circuito de ExpressRoute. Por exemplo, um circuito Premium de 10 Gbps permitiria conexões de 5 Alcance Global e 95 para os gateways de ExpressRoute ou 95 conexões de Alcance Global e 5 conexões com os gateways de ExpressRoute ou qualquer outra combinação até o limite de 100 conexões para o circuito.

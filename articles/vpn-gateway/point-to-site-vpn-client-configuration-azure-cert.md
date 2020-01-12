@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4df22108591fe3f80078bce050081c4953443847
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143791"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903000"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações nativas de P2S de autenticação de certificado do Azure
 
@@ -110,7 +110,7 @@ Use as etapas a seguir para configurar o cliente VPN nativo no Mac para autentic
    ![identidade](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. No campo **ID local** , especifique o nome do certificado (da etapa 6). Neste exemplo, é "ikev2Client.com". Em seguida, clique no botão **aplicar** para salvar as alterações.
 
-   ![usar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![inscrever-se](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Na caixa de diálogo **rede** , clique em **aplicar** para salvar todas as alterações. Em seguida, clique em **conectar** para iniciar a conexão P2S com a VNet do Azure.
 
 ## <a name="linuxgui"></a>Linux (GUI strongSwan)

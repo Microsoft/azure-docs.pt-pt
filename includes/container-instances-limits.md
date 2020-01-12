@@ -4,16 +4,17 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: 3608eb6182f7806c0d4df8b96aa69faac68928f1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 055fbc652d0d72925cccfae40efff8b8eef2a8c2
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73591212"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75904470"
 ---
 | Recurso | Limite predefinido |
 | --- | :--- |
-| Grupos de contêineres por região por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| Grupos de contêineres SKU padrão por região por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| Grupos de contêineres de SKU dedicados por região por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 0<sup>1</sup> |
 | Número de contentores por grupo de contentores | 60 |
 | Número de volumes por grupo de contentores | 20 |
 | Portas por IP | 5 |

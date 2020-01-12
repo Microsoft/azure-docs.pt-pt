@@ -1,18 +1,18 @@
 ---
 title: Solucionar problemas de replicação de VM do Azure no Azure Site Recovery
 description: Solucionar erros ao replicar máquinas virtuais do Azure para recuperação de desastre.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgangal
-ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895016"
+ms.locfileid: "75902561"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -66,7 +66,7 @@ Para obter mais informações, consulte [Configurar raízes confiáveis e certif
 
 Siga as orientações fornecidas pelo distribuidor da sua versão do sistema operacional Linux para obter os certificados raiz confiáveis mais recentes e a lista de certificados revogados mais recente na VM.
 
-Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de certificados, siga estas etapas:
+Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de certificados, siga estas etapas:
 
 1. Inicie sessão como um utilizador de raiz.
 

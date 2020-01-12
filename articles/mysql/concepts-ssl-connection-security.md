@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d677e7c80d98b15a638b00c5b8f4d390a492c7fa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d7abed41f3d02382d690f9d7f2a088318632d531
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770820"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902576"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL no banco de dados do Azure para MySQL
 O banco de dados do Azure para MySQL dá suporte à conexão do servidor de banco de dados com aplicativos cliente usando protocolo SSL (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -22,6 +22,9 @@ Por padrão, o serviço de banco de dados deve ser configurado para exigir conex
 Ao provisionar um novo servidor de banco de dados do Azure para MySQL por meio do portal do Azure e da CLI, a imposição de conexões SSL é habilitada por padrão. 
 
 As cadeias de conexão para várias linguagens de programação são mostradas na portal do Azure. Essas cadeias de conexão incluem os parâmetros SSL necessários para se conectar ao banco de dados. No portal do Azure, selecione o servidor. No título **configurações** , selecione as **cadeias de conexão**. O parâmetro SSL varia de acordo com o conector, por exemplo, "SSL = true" ou "sslmode = require" ou "sslmode = required" e outras variações.
+
+> [!NOTE]
+> Atualmente, a versão do TLS com suporte para o banco de dados do Azure para MySQL é TLS 1,0, TLS 1,1, TLS 1,2
 
 Para saber como habilitar ou desabilitar a conexão SSL ao desenvolver o aplicativo, consulte [como configurar o SSL](howto-configure-ssl.md). 
 

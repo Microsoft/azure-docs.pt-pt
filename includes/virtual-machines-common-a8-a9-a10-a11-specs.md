@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: 0930fa371500125c15cd969b9e9f4b7a2853612e
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 8de1163ab68b394b6eeaaad6412995156dbe7212
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174984"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902024"
 ---
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 * **Assinatura do Azure** – para implantar mais do que algumas instâncias de computação intensiva, considere uma assinatura paga conforme o uso ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
 
 * **Preços e disponibilidade** -esses tamanhos de VM são oferecidos apenas no tipo de preço Standard. Verifique os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade nas regiões do Azure. 
-* **Cota de núcleos** – talvez seja necessário aumentar a cota de núcleos na sua assinatura do Azure a partir do valor padrão. Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série H. Para solicitar um aumento de cota, [abra uma solicitação](../articles/azure-supportability/how-to-create-azure-support-request.md) de atendimento ao cliente online sem encargos. (Os limites padrão podem variar dependendo da sua categoria de assinatura.)
+* **Cota de núcleos** – talvez seja necessário aumentar a cota de núcleos na sua assinatura do Azure a partir do valor padrão. Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série H. Para solicitar um aumento de cota, [abra uma solicitação](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) de atendimento ao cliente online sem encargos. (Os limites padrão podem variar dependendo da sua categoria de assinatura.)
   
   > [!NOTE]
   > Entre em contato com o suporte do Azure se você tiver necessidades de capacidade em grande escala. As cotas do Azure são limites de crédito, não garantias de capacidade. Independentemente da sua cota, você será cobrado apenas pelos núcleos que usar.

@@ -8,14 +8,14 @@ author: axisc
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 356f825524192c3b6cf7df7f0460975f23ea4f7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852292"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903325"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal-preview"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure (versão prévia)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
 
 ## <a name="overview"></a>Visão geral
@@ -27,7 +27,6 @@ Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 > Há algumas advertências para a chave gerenciada pelo cliente para criptografia do lado do serviço. 
 >   * Esse recurso é suportado pela camada [Premium do barramento de serviço do Azure](service-bus-premium-messaging.md) . Ele não pode ser habilitado para namespaces de barramento de serviço da camada Standard.
 >   * A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver dados, a operação de criptografia falhará.
->   * Se os [pontos de extremidade de serviço de rede virtual (VNet)](service-bus-service-endpoints.md) estiverem configurados em Azure Key Vault para o namespace do barramento de serviço, o BYOK não terá suporte. 
 
 Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -40,7 +39,7 @@ Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pel
 Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
 
 1. Navegue até o namespace Premium do barramento de serviço.
-2. Na página **configurações** do namespace do barramento de serviço, selecione **criptografia (versão prévia)** .
+2. Na página **configurações** do namespace do barramento de serviço, selecione **criptografia**.
 3. Selecione a **criptografia de chave gerenciada pelo cliente em repouso** , conforme mostrado na imagem a seguir.
 
     ![Habilitar chave gerenciada pelo cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -106,9 +105,6 @@ Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do
 Revogar o acesso às chaves de criptografia não limpará os dados do barramento de serviço. No entanto, os dados não podem ser acessados no namespace do barramento de serviço. Você pode revogar a chave de criptografia por meio da política de acesso ou excluindo a chave. Saiba mais sobre as políticas de acesso e proteger o cofre de chaves de [acesso seguro a um cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).
 
 Depois que a chave de criptografia for revogada, o serviço do barramento de serviço no namespace criptografado se tornará inoperável. Se o acesso à chave estiver habilitado ou a chave excluída for restaurada, o serviço do barramento de serviço escolherá a chave para que você possa acessar os dados do namespace do barramento de serviço criptografado.
-
-> [!NOTE]
-> Se você excluir uma chave de criptografia existente do cofre de chaves e substituí-la por uma nova chave no namespace do barramento de serviço, como a chave de exclusão ainda é válida (pois ela é armazenada em cache) por até uma hora, seus dados antigos (que foram criptografados com a chave antiga) ainda podem estar acessíveis junto g com os novos dados, que agora são acessíveis apenas usando a nova chave. Esse comportamento é por design na versão de visualização do recurso. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
