@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2a5a5bc91e4d83975d05d63dbab4b621734a0ac5
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 8d2e0b4683261a06c39b9a5f335d7f4f22a2fd05
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494720"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912331"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início rápido: implantar seu primeiro módulo de IoT Edge em um dispositivo Linux Virtual
 
@@ -62,7 +62,7 @@ Dispositivo IoT Edge
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-   Pode levar alguns minutos para criar e iniciar a nova máquina virtual.
+   Criar e iniciar a nova máquina virtual poderá demorar alguns minutos.
 
    Quando cria uma nova máquina virtual, anote o **publicIpAddress**, que é fornecido como parte da saída do comando de criar. Utilizará este endereço IP público para ligar à máquina virtual mais tarde no início rápido.
 
@@ -108,7 +108,7 @@ Uma vez que os dispositivos do IoT Edge se comportar e podem ser geridos de form
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie o valor da chave de `connectionString` da saída JSON e salve-o. Esse valor é a cadeia de conexão do dispositivo. Você usará essa cadeia de conexão para configurar o tempo de execução de IoT Edge na próxima seção.
+3. Copie o valor da chave de `connectionString` da saída JSON e salve-o. Este valor é a cadeia de ligação do dispositivo. Irá utilizar esta cadeia de ligação para configurar o runtime do IoT Edge na secção seguinte.
 
    ![Recuperar cadeia de conexão da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
@@ -124,7 +124,7 @@ Durante a configuração do runtime, apresenta a cadeia de ligação do disposit
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Definir a cadeia de ligação no dispositivo IoT Edge
 
-Se você estiver usando o Azure IoT Edge na máquina virtual do Ubuntu, conforme descrito em pré-requisitos, o dispositivo já terá o tempo de execução do IoT Edge instalado. Você só precisa configurar seu dispositivo com a cadeia de conexão do dispositivo que você recuperou na seção anterior. Você pode fazer isso remotamente sem precisar se conectar à máquina virtual. Execute o comando a seguir, substituindo `{device_connection_string}` pela sua própria cadeia de caracteres.
+Se você estiver usando o Azure IoT Edge na máquina virtual do Ubuntu, conforme descrito em pré-requisitos, o dispositivo já terá o tempo de execução do IoT Edge instalado. Você só precisa configurar seu dispositivo com a cadeia de conexão do dispositivo que você recuperou na seção anterior. Pode fazer isto de forma remota sem ter de se ligar à máquina virtual. Execute o comando a seguir, substituindo `{device_connection_string}` pela sua própria cadeia de caracteres.
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
@@ -180,7 +180,7 @@ Gira o seu dispositivo Azure IoT Edge a partir da cloud para implementar um mód
 
 Neste início rápido, criou um novo dispositivo IoT Edge e instalou o runtime do IoT Edge no mesmo. Em seguida, você usou o portal do Azure para implantar um módulo IoT Edge a ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo.
 
-Nesse caso, o módulo enviado por push cria dados de exemplo que você pode usar para teste. O módulo sensor de temperatura simulado gera dados de ambiente que você pode usar para testar posteriormente. O sensor simulado está monitorando um computador e o ambiente em todo o computador. Por exemplo, esse sensor pode estar em uma sala de servidores, em um piso de fábrica ou em uma turbina de vento. A mensagem inclui temperatura ambiente e umidade, temperatura e pressão do computador e um carimbo de data/hora. Os tutoriais de IoT Edge usam os dados criados por este módulo como dados de teste para análise.
+Nesse caso, o módulo enviado por push cria dados de exemplo que você pode usar para teste. O módulo sensor de temperatura simulado gera dados de ambiente que você pode usar para testar posteriormente. O sensor simulado está monitorando um computador e o ambiente em todo o computador. Por exemplo, este sensor poderá estar num espaço de servidor, numa fábrica ou numa turbina eólica. A mensagem inclui temperatura ambiente e humidade, temperatura e pressão do computador e um carimbo de data/hora. Os tutoriais de IoT Edge usam os dados criados por este módulo como dados de teste para análise.
 
 Abra a linha de comandos no seu dispositivo IoT Edge novamente ou utilize a ligação de SSH do CLI do Azure. Certifique-se de que o módulo implementado a partir da cloud está em execução no seu dispositivo do IoT Edge:
 
@@ -201,7 +201,7 @@ Exiba as mensagens que estão sendo enviadas do módulo sensor de temperatura:
 
    ![Ver os dados a partir do seu módulo](./media/quickstart-linux/iotedge-logs.png)
 
-Você também pode observar que as mensagens chegam ao seu hub IoT usando a [extensão do kit de ferramentas do Hub IOT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente, a extensão do kit de ferramentas do Azure IOT).
+Você também pode observar que as mensagens chegam ao seu hub IoT usando a [extensão do Hub IOT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

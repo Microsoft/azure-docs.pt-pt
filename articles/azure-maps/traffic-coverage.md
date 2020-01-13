@@ -1,6 +1,6 @@
 ---
-title: Cobertura de tráfego no Azure Maps | Microsoft Docs
-description: Saiba mais sobre a cobertura de tráfego no Azure Maps
+title: Cobertura de tráfego | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre a cobertura de tráfego em mapas de Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958010"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910392"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
 
@@ -23,7 +23,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidente  |Fluxo  |
+|País/Região  |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
@@ -39,7 +39,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
 
-|País/Região   |Incidente  |Fluxo  |
+|País/Região   |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
@@ -58,7 +58,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidente  |Fluxo  |
+|País/Região   |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
@@ -83,7 +83,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Cazaquistão    |✓         |✓        |
 |Letónia     |✓         |✓         |
 |Lesoto     |✓         |✓         |
-|Liechtenstein      |✓         |✓         |
+|Listenstaine      |✓         |✓         |
 |Lituânia     |✓         |✓         |
 |Luxemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
@@ -116,9 +116,9 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="middle-east-and-africa"></a>Médio Oriente e África
 
-|País/Região |Incidente  |Fluxo  |
+|País/Região |Incidentes  |Flow  |
 |---------|:---------:|:---------:|
-|Barém     |✓         |✓         |
+|Bahrain     |✓         |✓         |
 |Egito     |✓         |✓         |
 |Israel     |✓         |✓         |
 |Quénia     |✓         |✓         |

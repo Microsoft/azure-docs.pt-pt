@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de símbolo ao Azure Maps | Microsoft Docs
-description: Como adicionar símbolos ao SDK da Web do Azure Maps.
+title: Adicionar uma camada de símbolo a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a usar a camada de símbolo para personalizar e adicionar símbolos em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480611"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911168"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 

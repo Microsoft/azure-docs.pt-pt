@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Pesquisar com o Azure Maps'
-description: 'Tutorial: Pesquisar ponto de interesse próximo usando mapas do Azure'
+title: 'Tutorial: pesquisar locais próximos em um mapa | Mapas do Microsoft Azure'
+description: Neste tutorial, você aprenderá a procurar locais próximos (pontos de interesse) em um mapa usando mapas de Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432752"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910815"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando o Azure Maps
 
@@ -49,7 +49,7 @@ Crie uma nova conta dos Maps com os seguintes passos:
     * Leia a *Licença* e a *Declaração de Privacidade*, e selecione a caixa de verificação para aceitar os termos.
     * Clique no botão **Criar**.
 
-![Criar a conta do Maps no portal](./media/tutorial-search-location/create-account.png)
+![Criar conta do Azure Maps no portal do Azure](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -61,7 +61,7 @@ Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe per
 2. Na seção Configurações, selecione **autenticação**.
 3. Copie a **Chave primária** para a área de transferência. Guarde-a localmente para a utilizar mais tarde neste tutorial.
 
-![Obter a Chave Primária no portal](./media/tutorial-search-location/get-key.png)
+![Obter chave primária no portal do Azure](./media/tutorial-search-location/get-key.png)
 
 Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](how-to-manage-authentication.md).
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890166"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912001"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para aplicativos lógicos do Azure
 
@@ -106,9 +106,9 @@ Para executar ou disparar manualmente um trabalho ocasional, envie uma chamada p
 
 Por exemplo, usando o aplicativo de postmaster, você pode criar uma solicitação POST com as configurações semelhantes a este exemplo e, em seguida, selecione **Enviar** para fazer a solicitação.
 
-| Método de solicitação | do IdP | Corpo | Cabeçalhos |
+| Método de solicitação | URL | Corpo | Cabeçalhos |
 |----------------|-----|------|---------|
-| **POST** | *ponto de extremidade <-URL*> | **recebem** <p>**JSON (aplicativo/JSON)** <p>Na caixa **bruto** , insira a carga que você deseja enviar na solicitação. <p>**Observação**: essa configuração configura automaticamente os valores dos **cabeçalhos** . | **Chave**: tipo de conteúdo <br>**Valor**: aplicativo/JSON |
+| **POST** | <*endpoint-URL*> | **recebem** <p>**JSON(application/json)** <p>Na caixa **bruto** , insira a carga que você deseja enviar na solicitação. <p>**Observação**: essa configuração configura automaticamente os valores dos **cabeçalhos** . | **Chave**: tipo de conteúdo <br>**Valor**: aplicativo/JSON |
 |||||
 
 ![Enviar solicitação para disparar o aplicativo lógico manualmente](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -169,7 +169,7 @@ Para controlar a maneira como uma ação tenta executar novamente em seu aplicat
 
    ![Selecionar política de repetição](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
 
-## <a name="handle-exceptions-and-errors"></a>Tratar exceções e erros
+## <a name="handle-exceptions-and-errors"></a>Lidar com exceções e erros
 
 No Agendador do Azure, se a ação padrão falhar ao ser executada, você poderá executar uma ação alternativa que resolve a condição de erro. Em aplicativos lógicos do Azure, você também pode executar a mesma tarefa.
 
@@ -191,7 +191,7 @@ No Agendador do Azure, se a ação padrão falhar ao ser executada, você poder�
 
 1. Quando tiver terminado, selecione **Concluído**.
 
-Para saber mais sobre a manipulação de exceção, consulte [tratar erros e exceções – Propriedade RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Para saber mais sobre a manipulação de exceção, consulte [tratar erros e exceções – Propriedade RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 ## <a name="faq"></a>FAQ
 
@@ -223,7 +223,7 @@ Se sua assinatura do Azure tiver um plano de suporte pago, você poderá criar u
    | Propriedade | Valor |
    |---------|-------|
    | **Tipo de problema** | **Technical** |
-   | **Subscrição** | <*seu-Azure-subscription*> |
+   | **Subscrição** | <*your-Azure-subscription*> |
    | **Serviço** | Em **monitoramento & gerenciamento**, selecione **Agendador**. Se você não conseguir localizar o **Agendador**, selecione **todos os serviços** primeiro. |
    ||| 
 

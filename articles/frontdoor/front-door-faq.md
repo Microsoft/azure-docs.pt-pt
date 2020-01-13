@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639859"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908875"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Perguntas frequentes sobre o serviço de porta frontal do Azure
 
@@ -99,7 +99,7 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
     > O espaço de IP de back-end da porta frontal pode ser alterado mais tarde. no entanto, garantiremos que, antes disso, isso seria integrado aos [intervalos de IP e às marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que você assine [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
 
 -   Filtre os valores do cabeçalho de entrada '**X-Forwarded-host**' enviado pela porta frontal. Os únicos valores permitidos para o cabeçalho devem ser todos os hosts de front-end, conforme definido em sua configuração de porta frontal. Na verdade, ainda mais especificamente, apenas os nomes de host para os quais você deseja aceitar o tráfego, nesse back-end específico do seu.
-    - Exemplo – digamos que sua configuração de porta frontal tenha os seguintes hosts de front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C) e _`notifications.contoso.com`_ (D). Vamos supor que você tenha dois back-ends X e Y. 
+    - Exemplo – digamos que sua configuração de porta frontal tenha os seguintes hosts de front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C) e _`notifications.contoso.com`_ (D). Vamos supor que você tenha dois back-ends X e Y. 
     - O back-end X deve pegar apenas o tráfego dos nomes de host A e B. o back-end Y pode pegar o tráfego de A, C e D.
     - Portanto, no back-end X, você só deve aceitar o tráfego que tem o cabeçalho '**X-Forwarded-host**' definido como _`contoso.azurefd.net`_ ou _`www.contoso.com`_ . Para todo o resto, o back-end X deve rejeitar o tráfego.
     - Da mesma forma, no back-end Y, você só deve aceitar o tráfego que tem o cabeçalho "**X-Forwarded-host**" definido como _`contoso.azurefd.net`_ , _`api.contoso.com`_ ou _`notifications.contoso.com`_ . Para todo o resto, o back-end Y deve rejeitar o tráfego.

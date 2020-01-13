@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de símbolo aos mapas do Android no Azure Maps | Microsoft Docs
-description: Como adicionar símbolos a um mapa usando o Azure Maps SDK do Android
+title: Adicionar uma camada de símbolo aos mapas do Android | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá como renderizar dados de ponto em um mapa adicionando uma camada de símbolo a ele usando o SDK do Android mapas de Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0292c8a441589a01241fbef6923246b4bcafb5c8
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 877147bc0fd680278f999d2007040a92b0cbff38
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976249"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911540"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma camada de símbolo a um mapa usando o Azure Maps SDK do Android
 
@@ -27,7 +27,7 @@ Para seguir as etapas deste artigo, você precisa instalar o [Azure Maps SDK do 
 
 Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas abaixo:
 
-1. Edite o > **layout** > res**activity_main. xml** para que ele se pareça com o seguinte XML:
+1. Edite o **layout** de > **res** > **activity_main. xml** para que ele se pareça com o seguinte XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
     </FrameLayout>
     ```
 
-2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua `MainActivity.java` classe.
+2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
     
     ```
     
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada onreadal **()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele adiciona um **recurso** que contém uma geometria de ponto a ele. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** usa texto ou ícones para renderizar dados baseados em pontos encapsulados na fonte de dados como símbolo no mapa. Em seguida, uma camada de símbolo é criada e a fonte de dados é passada para ela para renderização e, em seguida, é adicionada às camadas do mapa.
+    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele adiciona um **recurso** que contém uma geometria de ponto a ele. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** usa texto ou ícones para renderizar dados baseados em pontos encapsulados na fonte de dados como símbolo no mapa. Em seguida, uma camada de símbolo é criada e a fonte de dados é passada para ela para renderização e, em seguida, é adicionada às camadas do mapa.
     
-    Depois de adicionar o trecho de código acima `MainActivity.java` , seu deve se parecer com o seguinte:
+    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve ser semelhante ao seguinte:
     
     ```Java
     package com.example.myapplication;
@@ -173,7 +173,7 @@ Neste ponto, se você executar seu aplicativo, verá um marcador no mapa, como m
 ![PIN do mapa do Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para adicionar mais coisas ao mapa, consulte:
 

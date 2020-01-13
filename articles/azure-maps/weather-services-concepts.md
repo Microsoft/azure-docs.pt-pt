@@ -1,6 +1,6 @@
 ---
-title: Conceitos de serviços meteorológicos no Azure Maps | Microsoft Docs
-description: Saiba mais sobre os serviços meteorológicos no Azure Maps
+title: Conceitos de serviços meteorológicos | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9d464ab172fcb375d62b9928818362574a485231
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382458"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911033"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
 
@@ -47,14 +47,14 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 |19      |Kelvin              |
 |20      |%             |
 |21      |float               |
-|22      |integer             |
+|22      |número inteiro             |
 
 
 ## <a name="weather-icons"></a>Ícones de clima
 
 Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCode) na resposta, um valor numérico que pode ser usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
-| Número do ícone |Ícone| Dia | jogo | Texto |
+| Número do ícone |Ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sim |  Não    | Ensolarado|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sim |  Não    | Quase que ensolarado|
@@ -62,7 +62,7 @@ Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCo
 | 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sim |  Não    | Nuvens intermitentes|
 | 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sim |  Não    | Hazy sol |
 | 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sim |  Não    | Principalmente em nuvem|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sim |  Sim   | Nublado |
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sim |  Sim   | nublado |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sim |  Sim   | Dreary (Overcast)|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sim |  Sim   | Neblina|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sim |  Sim   | Hadrônicos|
@@ -77,12 +77,12 @@ Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCo
 | 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sim |  Não    | Parcialmente ensolarado com flurries|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | Sim |  Sim   | Neve|
 | 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sim |  Não    | Principalmente em nuvem com neve|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sim |  Sim   | Congela |
+| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sim |  Sim   | Ferreira |
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sim |  Sim   | Sleet|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sim |  Sim   | Chuva de congelamento|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Sim |  Sim   | Chuva e neve|
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sim |  Sim   | Acesso Frequente|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sim |  Sim   | Frio|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sim |  Sim   | Sem interesse|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sim |  Sim   | Vento|
 | 33           |![](./media/weather-services-concepts/clear-night.png)                | Não  |  Sim   | Limpar|
 | 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Não  |  Sim   | Quase sempre claro|

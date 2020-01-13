@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada do mapa de calor ao Azure Maps | Microsoft Docs
-description: Como adicionar uma camada do mapa de calor ao SDK da Web do Azure Maps.
+title: Adicionar uma camada do mapa de calor a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá como adicionar uma camada do mapa de calor a um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b0d07f18682bf39558180753de38a9c5ff106ee3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ead30a80a6568e72f922f355916d31121b49a93b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408528"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911214"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada de mapa térmico
 

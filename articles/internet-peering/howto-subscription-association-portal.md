@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d3737be5a3186774f230aef9d932464a27a764f4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775644"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912200"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do peer à assinatura do Azure usando o portal
 
@@ -25,6 +25,34 @@ Se preferir, você pode concluir este guia usando o [PowerShell](howto-subscript
 
 ### <a name="sign-in-to-the-portal"></a>Entrar no portal
 [!INCLUDE [Account](./includes/account-portal.md)]
+
+### <a name="register-for-peering-resource-provider"></a>Registrar para provedor de recursos de emparelhamento
+Registre-se para provedor de recursos de emparelhamento em sua assinatura seguindo as etapas abaixo. Se você não executar isso, os recursos do Azure necessários para configurar o emparelhamento não estarão acessíveis.
+
+1. Clique em **assinaturas** no canto superior esquerdo do Portal. Se você não o vir, clique em **mais serviços** e pesquise por ele.
+
+    > [!div class="mx-imgBorder"]
+    > ![](./media/rp-subscriptions-open.png) de assinaturas abertas
+
+1. Clique na assinatura que você deseja usar para emparelhamento.
+
+    > [!div class="mx-imgBorder"]
+    > ](./media/rp-subscriptions-launch.png) ![iniciar assinatura
+
+1. Quando a assinatura for aberta, à esquerda, clique em **provedores de recursos**. Em seguida, no painel direito, pesquise *emparelhamento* na janela de pesquisa ou use a barra de rolagem para localizar **Microsoft. emparelhamento** e examine o **status**. Se o status for ***registrado***, ignore as etapas abaixo e vá para a seção **criar PeerAsn**. Se o status for não ***registrado***, selecione **Microsoft. emparelhamento** e clique em **registrar**.
+
+    > [!div class="mx-imgBorder"]
+    > ](./media/rp-register-start.png) de início do registro de ![
+
+1. Observe que o status muda para ***registro***.
+
+    > [!div class="mx-imgBorder"]
+    > ![registro em andamento](./media/rp-register-progress.png)
+
+1. Aguarde um mínimo ou então para que ele conclua o registro. Em seguida, clique em **Atualizar** e verifique se o status é ***registrado***.
+
+    > [!div class="mx-imgBorder"]
+    > Registro de ![concluído](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Criar PeerAsn
 Você pode criar um novo recurso PeerAsn para associar um número de sistema autônomo (ASN) com a assinatura do Azure. Você pode associar vários ASNs a uma assinatura criando um **PeerAsn** para cada ASN que você precisa associar.

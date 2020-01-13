@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 279b09250aaa3a87e066ade81fc63719adaf07b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429394"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912290"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -167,7 +167,7 @@ Substitua `env: {}` com:
 
 Guarde o ficheiro e reinicie o Gestor de segurança de IoT Edge.
 
-Também pode verificar as mensagens que são enviadas entre o Hub IoT e os dispositivos do IoT Edge. Exiba essas mensagens usando a extensão do [Kit de ferramentas do Hub IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente a extensão do kit de ferramentas do Azure IOT) para Visual Studio Code. Para obter mais informações, consulte [ferramenta útil ao desenvolver com o Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+Também pode verificar as mensagens que são enviadas entre o Hub IoT e os dispositivos do IoT Edge. Exiba essas mensagens usando a [extensão do Hub IOT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). Para obter mais informações, consulte [ferramenta útil ao desenvolver com o Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### <a name="restart-containers"></a>Reiniciar contentores
 

@@ -1,6 +1,6 @@
 ---
-title: Como ver a utilização da API de mapas do Azure | Documentos da Microsoft
-description: Saiba como ver as métricas de suas chamadas de API de mapas do Azure no portal.
+title: Exibir métricas de uso da API do Azure Maps | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a exibir as métricas para suas chamadas de API do Microsoft Azure Maps no portal do Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/06/2018
@@ -8,62 +8,62 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460198"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911325"
 ---
-# <a name="view-azure-maps-api-usage"></a>Ver a utilização de API do Azure Maps
+# <a name="view-azure-maps-api-usage-metrics"></a>Ver as métricas de utilização da API do Azure Maps
 
-Este artigo mostra-lhe como ver as métricas de utilização da API para a sua conta do Azure Maps no [portal](https://portal.azure.com). As métricas são exibidas num formato gráfico conveniente ao longo de um período de tempo personalizáveis.
+Este artigo mostra como exibir as métricas de uso da API para sua conta do Azure Maps no [portal](https://portal.azure.com). As métricas são mostradas em um formato de gráfico conveniente ao longo de uma duração de tempo personalizável.
 
-## <a name="view-metric-snapshot"></a>Ver instantâneo de métrica
+## <a name="view-metric-snapshot"></a>Exibir instantâneo de métrica
 
-Pode ver algumas métricas comuns sobre o **descrição geral** página da sua conta de mapas. Mostra atualmente *Total de pedidos*, *Total de erros*, e *disponibilidade* através de uma duração de tempo selecionável.
+Você pode ver algumas métricas comuns na página **visão geral** da sua conta do Maps. Atualmente, ele mostra *solicitações totais*, *total de erros*e *disponibilidade* em uma duração de tempo selecionável.
 
-![Descrição geral das métricas de mapas do Azure](media/how-to-view-api-usage/portal-overview.png)
+![Visão geral das métricas de uso do Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
-Continue para a secção seguinte, se precisar de personalizar nestes gráficos para sua análise específico.
+Continue na próxima seção se precisar personalizar esses grafos para sua análise específica.
 
-## <a name="view-detailed-metrics"></a>Ver métricas detalhadas
+## <a name="view-detailed-metrics"></a>Exibir métricas detalhadas
 
-1. Inicie sessão na sua subscrição do Azure no [portal](https://portal.azure.com).
+1. Entre em sua assinatura do Azure no [portal](https://portal.azure.com).
 
-2. Clique nas **todos os recursos** menu no lado esquerdo do item e navegue até à sua *conta do Azure Maps*.
+2. Clique no item de menu **todos os recursos** no lado esquerdo e navegue até sua *conta do Azure Maps*.
 
-3. Assim que a sua conta do Maps estiver aberta, clique nas **métricas** menu à esquerda.
+3. Quando sua conta do Maps estiver aberta, clique no menu **métrica** à esquerda.
 
-4. Sobre o **métricas** painel, escolher entre um dos seguintes:
+4. No painel **métricas** , escolha entre um dos seguintes:
 
-   1. **Disponibilidade** -que mostra a *médio* de disponibilidade da API durante um período de tempo.
-   2. **Utilização** -que mostra como a utilização *contagem* para a sua conta.
+   1. **Disponibilidade** -que mostra a *média* da disponibilidade da API em um período de tempo.
+   2. **Uso** -que mostra como a *contagem* de uso para sua conta.
 
-      ![Painel de métricas de mapas do Azure](media/how-to-view-api-usage/portal-metrics.png)
+      ![Painel de métricas de uso do Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Em seguida, pode selecionar o *intervalo de tempo* ao clicar em **últimas 24 horas (automático)** . Por predefinição, o intervalo de tempo é definido como 24 horas. Depois de clicar, verá todos os intervalos de tempo selecionável. Pode selecionar o *granularidade de tempo* e optar por mostrar o tempo como *local* ou *GMT* no mesmo menu pendente. Clique em **Aplicar**.
+5. Em seguida, você pode selecionar o *intervalo de tempo* clicando em **últimas 24 horas (automático)** . Por padrão, o intervalo de tempo é definido como 24 horas. Depois de clicar, você verá todos os intervalos de tempo selecionáveis. Você pode selecionar a *granularidade de tempo* e optar por mostrar a hora como *local* ou *GMT* na mesma lista suspensa. Clique em **Aplicar**.
 
-    ![Intervalo de tempo de métricas de mapas do Azure](media/how-to-view-api-usage/time-range.png)
+    ![Intervalo de tempo das métricas do Azure Maps](media/how-to-view-api-usage/time-range.png)
 
-6. Depois de adicionar sua métrica, pode então **Adicionar filtro** de entre as propriedades relevantes para que métrica e, em seguida, selecione o valor da propriedade que pretende ver o gráfico para.
+6. Depois de adicionar sua métrica, você pode **Adicionar o filtro** entre as propriedades relevantes para essa métrica e, em seguida, selecionar o valor da propriedade para a qual você deseja ver o grafo.
 
-    ![Filtro de métricas do Azure Maps](media/how-to-view-api-usage/filter.png)
+    ![Filtro de métricas de uso do Azure Maps](media/how-to-view-api-usage/filter.png)
 
-7. Também poderá **aplicam-se de que a divisão** para sua métrica com base na sua propriedade métrica selecionada. Isso permite que o gráfico ser dividido em vários gráficos, um para cada valor dessa propriedade. Na imagem seguinte, a cor de cada gráfico corresponde ao valor de propriedade mostrado na parte inferior do gráfico.
+7. Você também pode **aplicar a divisão** para sua métrica com base na propriedade de métrica selecionada. Isso permite que o grafo seja dividido em vários grafos, um para cada valor dessa propriedade. Na imagem a seguir, a cor de cada grafo corresponde ao valor da propriedade mostrado na parte inferior do grafo.
 
-    ![Métricas de divisão de mapas do Azure](media/how-to-view-api-usage/splitting.png)
+    ![Divisão de métricas de uso do Azure Maps](media/how-to-view-api-usage/splitting.png)
 
-8. Também pode ver várias métricas no mesmo gráfico, simplesmente clicando no **adicionar métrica** botão na parte superior.
+8. Você também pode observar várias métricas no mesmo grafo, simplesmente clicando no botão **Adicionar métrica** na parte superior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as APIs de mapas do Azure que pretende controlar a utilização de:
+Saiba mais sobre as APIs do Azure Maps para as quais você deseja acompanhar o uso:
 > [!div class="nextstepaction"] 
-> [Procedimentos SDK de Web do Azure Maps](how-to-use-map-control.md)
+> [Instruções do SDK para Web do Azure Maps](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"] 
-> [Procedimentos Android SDK do Azure Maps](how-to-use-android-map-control-library.md)
+> [Instruções do Azure Maps SDK do Android](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
-> [Documentação da API de REST de mapas do Azure](https://docs.microsoft.com/rest/api/maps)
+> [Documentação da API REST do Azure Maps](https://docs.microsoft.com/rest/api/maps)

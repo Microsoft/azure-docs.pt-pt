@@ -1,6 +1,6 @@
 ---
-title: Descrição Geral do Azure Maps | Microsoft Docs
-description: Uma introdução ao Azure Maps
+title: Visão geral | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os serviços e funcionalidades do Microsoft Azure Maps e como utilizá-los em seus aplicativos.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/04/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 353850cacb06dcc8a0db1b957114db314d7002a3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516641"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911837"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
-O mapas do Azure é uma coleção de serviços geoespaciais que usam dados de mapeamento atualizados para fornecer um contexto geográfico preciso para aplicativos Web e móveis. O Azure Maps fornece:
+O Azure Maps é uma coleção de serviços geoespaciais que utiliza dados de mapeamento atualizados para dar contexto geográfico preciso para as aplicações Web e móveis. O Azure Maps fornece:
 
 * APIs REST para renderizar mapas em vários estilos e em imagens de satélite.
 * Procura endereços, lugares e pontos de interesse em todo o mundo.
@@ -38,7 +38,7 @@ O vídeo seguinte explica o Azure Maps detalhadamente:
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-## <a name="map-controls"></a>Controles de mapa
+## <a name="map-controls"></a>Controlos de mapa
 
 ### <a name="web-sdk"></a>Web SDK
 
@@ -92,7 +92,7 @@ Para obter detalhes sobre os recursos de roteamento, leia a [documentação da A
 
 ### <a name="search-service"></a>Serviço de pesquisa
 
-O serviço de pesquisa ajuda os desenvolvedores a procurar endereços, locais, listagens de negócios por nome ou categoria e outras informações geográficas. O serviço de pesquisa pode [reverter](https://en.wikipedia.org/wiki/Reverse_geocoding) endereços geocódigo e entre ruas com base em latitudes e longitudes.
+O serviço de pesquisa ajuda os desenvolvedores a procurar endereços, locais, listagens de negócios por nome ou categoria e outras informações geográficas. O serviço de pesquisa pode [reverter endereços geocódigo](https://en.wikipedia.org/wiki/Reverse_geocoding) e entre ruas com base em latitudes e longitudes.
 
 ![Exemplo de uma pesquisa em um mapa](media/about-azure-maps/Introduction_Search.png)
 
@@ -145,8 +145,8 @@ Para obter detalhes sobre esse serviço, leia a [documentação da API de fuso h
 
 O serviço de tráfego é um pacote de serviços Web que os desenvolvedores podem usar para criar aplicativos Web e móveis que exigem informações de tráfego. O serviço fornece dois tipos de dados:
 
-* Fluxo de tráfego: Velocidades observadas em tempo real e tempos de viagem para todas as estradas chave na rede.
-* Incidentes de tráfego: Uma visão atualizada dos congestionamentos de tráfego e dos incidentes em toda a rede de estrada.
+* Fluxo de tráfego: velocidades observadas em tempo real e tempos de viagem para todas as estradas chave na rede.
+* Incidentes de tráfego: uma exibição atualizada dos congestionamentos de tráfego e dos incidentes em toda a rede de viagens.
 
 ![Exemplo de um mapa com informações de tráfego](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -156,7 +156,7 @@ Para obter mais informações, consulte a [documentação da API de tráfego](ht
 
 Use o serviço IP para localização para visualizar o código do país de duas letras recuperado para um endereço IP. Esse serviço pode ajudá-lo a adaptar e aprimorar a experiência do usuário fornecendo conteúdo de aplicativo personalizado com base na localização geográfica.
 
-Para obter mais detalhes sobre as APIs REST para o serviço IP para localização, leia a documentação da API de geolocalização [do Azure Maps](https://docs.microsoft.com/rest/api/maps/geolocation).
+Para obter mais detalhes sobre as APIs REST para o serviço IP para localização, leia a [documentação da API de geolocalização do Azure Maps](https://docs.microsoft.com/rest/api/maps/geolocation).
 
 ## <a name="programming-model"></a>Modelo de programação
 
@@ -184,7 +184,7 @@ Verifique se a localização do endereço IP atual não está num dos países n�
 Experimente um aplicativo de exemplo que demonstra os mapas do Azure:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um aplicativo Web](quick-demo-map-app.md)
+> [Início rápido: criar um aplicativo Web](quick-demo-map-app.md)
 
 Mantenha-se atualizado sobre o Azure Maps: 
 

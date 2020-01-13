@@ -1,6 +1,6 @@
 ---
-title: Gerir o escalão de preço da sua conta do Azure Maps | Documentos da Microsoft
-description: Pode utilizar o portal do Azure para gerir a sua conta do Azure Maps e das respetivas camadas de preços.
+title: Gerenciar o tipo de preço da sua conta do Azure Maps | Mapas do Microsoft Azure
+description: Você pode usar o portal do Azure para gerenciar sua conta do Microsoft Azure Maps e seu tipo de preço.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -8,37 +8,37 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cba1e56b96f24764af00f04f399d0cdbe54be24
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794212"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911494"
 ---
-# <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerir o escalão de preço da sua conta do Azure Maps
+# <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerenciar o tipo de preço da sua conta do Azure Maps
 
-Pode gerir o escalão de preço da sua conta do Azure Maps através do portal do Azure. Depois de criar uma [conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), pode ver ou alterar o escalão de preço da sua conta.
+Você pode gerenciar o tipo de preço da sua conta do Azure Maps por meio do portal do Azure. Depois de criar uma [conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), você pode exibir ou alterar o tipo de preço da sua conta.
 
-Obtenha mais informações sobre [escolhendo o direito de escalão de preço no Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
+Obtenha mais informações sobre como [escolher o tipo de preço certo no Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
 
-## <a name="view-your-pricing-tier"></a>Ver o escalão de preço
+## <a name="view-your-pricing-tier"></a>Exibir seu tipo de preço
 
-Para ver seu escolhida escalão de preço, navegue para o **escalão de preço** opção no menu de definições.
+Para exibir o tipo de preço escolhido, navegue até a opção **tipo de preço** no menu configurações.
 
-![Vista de escolhido o escalão de preço](./media/how-to-manage-pricing-tier/view-pricing-tier.png)
+![Exibir tipo de preço escolhido](./media/how-to-manage-pricing-tier/view-pricing-tier.png)
 
-## <a name="change-a-pricing-tier"></a>Alterar um escalão de preço
+## <a name="change-a-pricing-tier"></a>Alterar um tipo de preço
 
-Depois de criar a sua conta do Azure Maps, pode atualizar ou mudar o escalão de preço para a sua conta do Azure Maps. Para atualizar ou mudar para a versão, navegue para o **escalão de preço** opção no menu de definições. Selecione o escalão de preço que não é realçado. Selecione o **guardar** botão para guardar a sua opção de escalão de preço de escolhida.
+Depois de criar sua conta do Azure Maps, você pode atualizar ou fazer downgrade do tipo de preço para sua conta do Azure Maps. Para atualizar ou fazer downgrade, navegue até a opção **tipo de preço** no menu configurações. Selecione o tipo de preço que não está realçado. Selecione o botão **salvar** para salvar a opção tipo de preço escolhido.
 
-![Alterar um escalão de preço](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
+![Alterar um tipo de preço](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> Não é preciso gerar novas chaves de subscrição ou o ID de cliente (para autenticação do Azure AD), se atualizar ou mudar o escalão de preço para a sua conta do Azure Maps.
+> Você não precisa gerar novas chaves de assinatura ou ID do cliente (para autenticação do Azure AD) se atualizar ou fazer downgrade do tipo de preço para sua conta do Azure Maps.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como ver as métricas de utilização da API para a sua conta do Azure Maps:
+Saiba como ver as métricas de uso da API para sua conta do Azure Maps:
 
 > [!div class="nextstepaction"] 
-> [Ver métricas de utilização](./how-to-view-api-usage.md)
+> [Exibir métricas de uso](./how-to-view-api-usage.md)

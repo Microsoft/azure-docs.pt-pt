@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar uma cerca geográfica usando mapas do Azure'
-description: 'Tutorial: configurar uma cerca geográfica usando mapas do Azure.'
+title: 'Tutorial: criar uma cerca geográfica e controlar dispositivos em um mapa | Mapas do Microsoft Azure'
+description: Neste tutorial, saiba como configurar uma cerca geográfica e controlar dispositivos em relação à cerca geográfica usando Microsoft Azure mapear serviço espacial.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407837"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910950"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar uma cerca geográfica usando o Azure Maps
 
@@ -58,7 +58,7 @@ Abra o aplicativo de postmaster e siga as etapas a seguir para carregar a cerca 
 
 3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela sua chave do Azure Maps.
    
-    ![Chave-valor params do postmaster](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parâmetros para carregar dados (cerca geográfica) no postmaster](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Clique em **corpo** e selecione formato de entrada bruto e escolha JSON como o formato de entrada na lista suspensa. Forneça o JSON a seguir como dados a serem carregados:
 
@@ -177,7 +177,7 @@ Você pode ver todos os [manipuladores de eventos com suporte](https://docs.micr
 
 1. Criar um aplicativo lógico no portal do Azure
 
-   ![criar aplicativos lógicos](./media/tutorial-geofence/logic-app.png)
+   ![Criar aplicativos lógicos do Azure para manipular eventos de cerca geográfica](./media/tutorial-geofence/logic-app.png)
 
 2. Selecione um gatilho de solicitação HTTP e, em seguida, selecione "enviar um email" como uma ação no conector do Outlook
   
@@ -185,7 +185,7 @@ Você pode ver todos os [manipuladores de eventos com suporte](https://docs.micr
 
 3. Salve o aplicativo lógico para gerar o ponto de extremidade de URL HTTP e copie a URL HTTP.
 
-   ![Ponto de extremidade dos aplicativos lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Gerar um ponto de extremidade de aplicativos lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Criar uma assinatura de eventos do Azure Maps
@@ -196,15 +196,15 @@ Siga as etapas abaixo para criar uma assinatura de evento para a cerca geográfi
 
 1. Navegue até sua conta do Azure Maps por meio [deste link do portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) e selecione a guia eventos.
 
-   ![Eventos do Azure Maps](./media/tutorial-geofence/events-tab.png)
+   ![Navegue até os eventos da conta do Azure Maps](./media/tutorial-geofence/events-tab.png)
 
 2. Para criar uma assinatura de evento, selecione assinatura de evento na página eventos.
 
-   ![Assinatura de eventos do Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
+   ![Criar uma assinatura de eventos do Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Nomeie a assinatura de eventos e assine o tipo de evento Enter. Agora, selecione o Web Hook como "tipo de ponto de extremidade" e copie o ponto de extremidade de URL HTTP do aplicativo lógico para "ponto de extremidade"
 
-   ![Assinatura de eventos](./media/tutorial-geofence/events-subscription.png)
+   ![Detalhes da assinatura de eventos do Azure Maps](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Usar API de cerca geográfica
@@ -214,7 +214,7 @@ Você pode usar a API de cerca geográfica para verificar se um **dispositivo** 
 > [!Note]
 > O cenário e o comportamento acima baseiam-se na mesma **ID de dispositivo** , de forma que ele reflita os cinco locais diferentes, como na figura abaixo.
 
-![Mapa de cerca geográfica](./media/tutorial-geofence/geofence.png)
+![Mapa de cerca geográfica no Azure Maps](./media/tutorial-geofence/geofence.png)
 
 No aplicativo de postmaster, abra uma nova guia na mesma coleção que você criou acima. Selecione obter método HTTP na guia Construtor:
 

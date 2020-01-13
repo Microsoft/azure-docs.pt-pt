@@ -1,18 +1,18 @@
 ---
 title: Criar um cluster de Data Explorer do Azure e um banco de dados usando Python
 description: Saiba como criar um cluster de Data Explorer do Azure e um banco de dados usando o Python.
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b3329ccb3edb3077a45e3bbf9ba7b48d7e3a93a2
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5a3a7d79e43a4e0b4a160837be4d7f3cc33f4a91
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996223"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911944"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando Python
 
@@ -38,8 +38,8 @@ Para instalar o pacote do Python para o Data Explorer do Azure (Kusto), abra um 
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
-## <a name="authentication"></a>Authentication
-Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter o `Directory (tenant) ID`, `Application ID` e `Client Secret`.
+## <a name="authentication"></a>Autenticação
+Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster de Data Explorer do Azure
 
@@ -87,7 +87,7 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
    | resource_group_name | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
     > [!NOTE]
-    > **Criar um cluster** é uma operação de execução longa. O método **create_or_update** retorna uma instância de LROPoller, consulte [classe LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) para obter mais informações.
+    > **Criar um cluster** é uma operação de execução longa. O método **create_or_update** retorna uma instância de LROPoller, consulte a [classe LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) para obter mais informações.
 
 1. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
 
@@ -95,7 +95,7 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
     ```
 
-Se o resultado contiver `provisioningState` com o valor de `Succeeded`, o cluster foi criado com êxito.
+Se o resultado contiver `provisioningState` com o valor `Succeeded`, o cluster foi criado com êxito.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar o banco de dados no cluster de Data Explorer do Azure
 

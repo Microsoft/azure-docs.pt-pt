@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707751"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912268"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: gerar dados de dispositivo simulados
 
@@ -111,7 +111,7 @@ Agora que temos a compilação do projeto, conecte-se ao Hub IoT para acessar a 
 
    Se você não vir um prompt, selecione Enter.
 
-1. Insira `dotnet run` no terminal.
+1. Introduza `dotnet run` no terminal.
 
 1. Quando a cadeia de conexão do Hub IoT for solicitada, Cole a cadeia de conexão copiada na seção anterior.
 
@@ -123,7 +123,7 @@ Agora que temos a compilação do projeto, conecte-se ao Hub IoT para acessar a 
 
 1. Você pode exibir as mensagens que estão sendo enviadas ao Hub clicando com o botão direito do mouse em qualquer dispositivo e selecionando **Iniciar Monitoramento de ponto de extremidade de evento interno**. As mensagens serão mostradas no painel de saída em Visual Studio Code.
 
-1. Pare o monitoramento clicando no painel de saída do **Kit de ferramentas do Hub IOT do Azure** e escolha **parar monitoramento do ponto de extremidade do evento interno**.
+1. Pare o monitoramento clicando no painel saída do **Hub IOT do Azure** e escolha **parar monitoramento do ponto de extremidade do evento interno**.
 
 1. Deixe o aplicativo ser executado até a conclusão, o que levará alguns minutos.
 

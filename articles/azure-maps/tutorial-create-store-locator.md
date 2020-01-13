@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar um localizador de repositório usando mapas do Azure'
-description: 'Tutorial: criar um localizador de repositório usando mapas do Azure.'
+title: 'Tutorial: criar um aplicativo de localizador de repositório usando o Azure Maps | Mapas do Microsoft Azure'
+description: Neste tutorial, você aprenderá a criar um aplicativo Web do localizador de repositório usando Microsoft Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408028"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910958"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: criar um localizador de repositório usando mapas do Azure
 
@@ -43,13 +43,13 @@ Antes de ir para o código, é uma boa ideia começar com um design. O localizad
 
 <center>
 
-![wireframe de um localizador de loja para locais de cafeteria de café da Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![wireframe de um aplicativo de localizador de loja para locais da oficina de café da Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Para maximizar a utilidade desse localizador de loja, incluímos um layout responsivo que se ajusta quando a largura da tela de um usuário é menor que 700 pixels de largura. Um layout responsivo facilita o uso do localizador de armazenamento em uma tela pequena, como em um dispositivo móvel. Aqui está um wireframe de um layout de tela pequena:  
 
 <center>
 
-![wireframe do localizador da loja da Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![wireframe do aplicativo de localizador de loja da Contoso café em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 Os wireframes mostram um aplicativo razoavelmente simples. O aplicativo tem uma caixa de pesquisa, uma lista de lojas próximas, um mapa que tem alguns marcadores (símbolos) e uma janela pop-up que exibe informações adicionais quando o usuário seleciona um marcador. Mais detalhadamente, aqui estão os recursos que criamos neste localizador de armazenamento neste tutorial:
 

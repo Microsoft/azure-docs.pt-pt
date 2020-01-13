@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 3fe4dfae2e86d549056805e87c0fd3927697fe24
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 668087ae596688e86b7b84a16bc5c0fd0f9fcef6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890557"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912252"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Criar um hub IoT usando as ferramentas de IoT do Azure para Visual Studio Code
 
@@ -32,13 +32,13 @@ Para concluir este artigo, você precisará do seguinte:
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-1. No Visual Studio Code, abra a exibição do **Explorer** .
+1. No Visual Studio Code, abra a **Explorer** vista.
 
-2. Na parte inferior do Explorer, expanda a seção **dispositivos do Hub IOT do Azure** . 
+2. Na parte inferior do Explorer, expanda o **dispositivos do Azure IoT Hub** secção. 
 
    ![Expandir dispositivos do Hub IoT do Azure](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
 
-3. Clique em **...** no cabeçalho da seção **dispositivos do Hub IOT do Azure** . Se você não vir as reticências, passe o mouse sobre o cabeçalho. 
+3. Clique no **...**  no **dispositivos do Azure IoT Hub** cabeçalho de secção. Se não vir o botão de reticências, Paire o rato sobre o cabeçalho. 
 
 4. Escolha **criar Hub IOT**.
 
@@ -64,4 +64,4 @@ Agora você implantou um hub IoT usando as ferramentas de IoT do Azure para Visu
 
 * [Usar as ferramentas do Azure IoT para Visual Studio Code para o gerenciamento de dispositivos do Hub IoT do Azure](iot-hub-device-management-iot-toolkit.md)
 
-* [Consulte a página wiki do kit de ferramentas do Hub IOT do Azure](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
+* [Consulte a página wiki do Hub IOT do Azure para vs Code](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

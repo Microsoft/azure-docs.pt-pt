@@ -1,6 +1,6 @@
 ---
-title: Renderize a cobertura no Azure Maps | Microsoft Docs
-description: Saiba mais sobre a cobertura de renderização no Azure Maps
+title: Cobertura de renderização | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre regiões com Microsoft Azure mapas de renderização com cobertura junto com seus níveis de detalhes renderizados.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934297"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910675"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Azure Maps
 
@@ -26,7 +26,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Símbolo | Significado |
 |--------|---------|
 | ✓ | A região é representada com dados detalhados.   |
-| A partir do | A região é representada com dados simplificados. |
+| Ø | A região é representada com dados simplificados. |
 
 
 ## <a name="africa"></a>África 
@@ -42,40 +42,40 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camarões                         | ✓ | ✓ |
-| República Centro-Africana         | ✓ | A partir do |
-| Chad                             | ✓ | A partir do |
-| Ilhas                          | ✓ | A partir do |
+| República Centro-Africana         | ✓ | Ø |
+| Chade                             | ✓ | Ø |
+| Comoros                          | ✓ | Ø |
 | República Democrática do Congo | ✓ | ✓ |
-| Costa do Marfim (Côte d’Ivoire)                    | ✓ | A partir do |
-| Djibuti                         | ✓ | A partir do |
+| Costa do Marfim (Côte d’Ivoire)                    | ✓ | Ø |
+| Jibuti                         | ✓ | Ø |
 | Egito                            | ✓ | ✓ |
-| Guiné Equatorial                | ✓ | A partir do |
-| Eritreia                          | ✓ | A partir do |
-| Etiópia                         | ✓ | A partir do |
+| Guiné Equatorial                | ✓ | Ø |
+| Eritreia                          | ✓ | Ø |
+| Etiópia                         | ✓ | Ø |
 | Gabão                            | ✓ | ✓ |
-| Gâmbia                           | ✓ | A partir do |
+| Gâmbia                           | ✓ | Ø |
 | Gana                            | ✓ | ✓ |
-| Guiné                           | ✓ | A partir do |
-| Guiné-Bissau                    | ✓ | A partir do |
+| Guiné                           | ✓ | Ø |
+| Guiné-Bissau                    | ✓ | Ø |
 | Quénia                            | ✓ | ✓ |
 | Lesoto                          | ✓ | ✓ |
-| Libéria                          | ✓ | A partir do |
-| Líbia                            | ✓ | A partir do |
-| Madagáscar                       | ✓ | A partir do |
+| Libéria                          | ✓ | Ø |
+| Líbia                            | ✓ | Ø |
+| Madagáscar                       | ✓ | Ø |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
 | Maurícia                        | ✓ | ✓ |
-| Mayotte                          | ✓ | ✓ |
+| Maiote                          | ✓ | ✓ |
 | Marrocos                          | ✓ | ✓ |
 | Moçambique                       | ✓ | ✓ |
 | Namíbia                          | ✓ | ✓ |
 | Níger                            | ✓ | ✓ |
 | Nigéria                          | ✓ | ✓ |
-| Réunion                          | ✓ | ✓ |
+| Reunião                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
-| Santa Helena, ascensão e Tristão da Cunha | ✓ | A partir do |
-| São Tomé e Príncipe            | ✓ | A partir do |
+| Santa Helena, ascensão e Tristão da Cunha | ✓ | Ø |
+| São Tomé e Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Serra Leoa                     | ✓ | ✓ |
 | Somália                          | ✓ | ✓ |
@@ -112,12 +112,12 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
-| Dominica                  | ✓ | ✓ |
+| Domínica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
-| Ilhas Falkland (Malvinas) | ✓ | ✓ |
+| Ilhas Malvinas (Malvinas) | ✓ | ✓ |
 | Guiana Francesa             | ✓ | ✓ |
-| Gronelândia                 | ✓ | A partir do |
+| Gronelândia                 | ✓ | Ø |
 | Granada                   | ✓ | ✓ |
 | Guadalupe                | ✓ | ✓ |
 | Guatemala                 | ✓ | ✓ |
@@ -156,84 +156,84 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 | País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
-| Afeganistão               |   | A partir do |
+| Afeganistão               |   | Ø |
 | Bahrain                   | ✓ | ✓ |
-| Bangladeche                |   | A partir do |
-| Butão                    |   | A partir do |
-| Território Britânico do Oceano Índico |   | A partir do |
+| Bangladeche                |   | Ø |
+| Butão                    |   | Ø |
+| Território Britânico do Oceano Índico |   | Ø |
 | Brunei                    | ✓ | ✓ |
-| Camboja                  |   | A partir do |
-| China                     |   | A partir do |
-| Ilhas Cocos (Keeling)   |   | A partir do |
-| República Democrática Popular da Coreia do Norte |   | A partir do |
+| Camboja                  |   | Ø |
+| China                     |   | Ø |
+| Ilhas dos Cocos (Keeling)   |   | Ø |
+| República Democrática Popular da Coreia do Norte |   | Ø |
 | RAE de Hong Kong             | ✓ | ✓ |
-| Índia                     | A partir do | ✓ | 
+| Índia                     | Ø | ✓ | 
 | Indonésia                 | ✓ | ✓ |
-| Irã                      |   | A partir do |
+| Irão                      |   | Ø |
 | Iraque                      | ✓ | ✓ |
 | Israel                    |   | ✓ |
-| Japão                     |   | A partir do |
+| Japão                     |   | Ø |
 | Jordânia                    | ✓ | ✓ |
 | Cazaquistão                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
-| Quirguizistão                |   | A partir do |
-| República Democrática Popular do Laos |   | A partir do |
+| Quirguizistão                |   | Ø |
+| República Democrática Popular do Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
-| Rae de Macau                 | ✓ | ✓ |
+| RAE de Macau                 | ✓ | ✓ |
 | Malásia                  | ✓ | ✓ |
-| Maldivas                  |   | A partir do |
-| Mongólia                  |   | A partir do |
-| Myanmar                   |   | A partir do |
-| Nepal                     |   | A partir do |
+| Maldivas                  |   | Ø |
+| Mongólia                  |   | Ø |
+| Myanmar                   |   | Ø |
+| Nepal                     |   | Ø |
 | Omã                      | ✓ | ✓ |
-| Paquistão                  |   | A partir do |
+| Paquistão                  |   | Ø |
 | Filipinas               | ✓ | ✓ |
 | Catar                     | ✓ | ✓ |
-| República da Coreia         | ✓ | A partir do |
+| República da Coreia         | ✓ | Ø |
 | Arábia Saudita              | ✓ | ✓ |
 | Ilhas Senkaku/Diaoyutai           |   | ✓ |
 | Singapura                 | ✓ | ✓|
-| Sri Lanka                 |   | A partir do |
-| República Árabe Síria      |   | A partir do |
+| Sri Lanka                 |   | Ø |
+| República Árabe Síria      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
-| Tajiquistão                |   | A partir do |
+| Tajiquistão                |   | Ø |
 | Tailândia                  | ✓ | ✓ |
-| Timor-Timor Leste               |   | A partir do |
-| Turquemenistão              |   | A partir do |
+| Timor-Leste               |   | Ø |
+| Turquemenistão              |   | Ø |
 | Emirados Árabes Unidos      | ✓ | ✓ |
-| Ilhas Menores Afastadas dos Estados Unidos |   | A partir do |
-| Usbequistão                |   | A partir do |
+| Ilhas Menores Afastadas dos Estados Unidos |   | Ø |
+| Usbequistão                |   | Ø |
 | Vietname                   | ✓ | ✓ |
 | Iémen                     | ✓ | ✓ |
 
-## <a name="oceania"></a>Oceania
+## <a name="oceania"></a>Oceânia
 
 | País/Região | Blocos de varredura unificados | Blocos de vetor unificados |
 | ------ | :------------------: | :------------------: |
 | Samoa Americana            |   | ✓ |
 | Austrália                 | ✓ | ✓ |
-| Ilhas Cook              |   | A partir do |
-| Fiji                      |   | A partir do |
-| Polinésia francesa          |   | A partir do |
-| Guam                      | ✓ | ✓ |
-| Kiribati                  |   | A partir do |
-| Ilhas Marshall          |   | A partir do |
-| Micronésia                |   | A partir do |
-| Nauru                     |   | A partir do |
-| Nova Caledônia             |   | A partir do |
+| Ilhas Cook              |   | Ø |
+| Fiji                      |   | Ø |
+| Polinésia Francesa          |   | Ø |
+| Guame                      | ✓ | ✓ |
+| Kiribati                  |   | Ø |
+| Ilhas Marshall          |   | Ø |
+| Micronésia                |   | Ø |
+| Nauru                     |   | Ø |
+| Nova Caledónia             |   | Ø |
 | Nova Zelândia               | ✓ | ✓ |
-| Niue                      |   | A partir do |
-| Ilha Norfolk            |   | A partir do |
-| Palau                     |   | A partir do |
-| Papua-Nova Guiné          |   | A partir do |
-| Pitcairn                  |   | A partir do |
-| Samoa                     |   | A partir do |
-| Ilhas Salomão           |   | A partir do|
-| Toquelau                   |   | A partir do |
-| Tonga                     |   | A partir do |
-| Tuvalu                    |   | A partir do |
-| Vanuatu                   |   | A partir do |
-| Wallis e Futuna         |   | A partir do |
+| Niue                      |   | Ø |
+| Ilha Norfolk            |   | Ø |
+| Palau                     |   | Ø |
+| Papua-Nova Guiné          |   | Ø |
+| Pitcairn                  |   | Ø |
+| Samoa                     |   | Ø |
+| Ilhas Salomão           |   | Ø|
+| Toquelau                   |   | Ø |
+| Tonga                     |   | Ø |
+| Tuvalu                    |   | Ø |
+| Vanuatu                   |   | Ø |
+| Wallis e Futuna         |   | Ø |
 
 
 ## <a name="europe"></a>Europa
@@ -242,38 +242,38 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | ------ | :------------------: | :------------------: |
 | Albânia                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Arménia                   | ✓ | A partir do |
+| Arménia                   | ✓ | Ø |
 | Áustria                   | ✓ | ✓ |
-| Azerbaijão                | ✓ | A partir do |
-| Bielorrússia                   | A partir do | ✓ |
+| Azerbaijão                | ✓ | Ø |
+| Bielorrússia                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Bósnia e Herzegovina        | ✓ | ✓ |
+| Bosnia e Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |
 | República Checa            | ✓ | ✓ |
 | Dinamarca                   | ✓ | ✓ |
 | Estónia                   | ✓ | ✓ |
-| Ilhas Faroé             | ✓ | A partir do |
+| Ilhas Faroé             | ✓ | Ø |
 | Finlândia                   | ✓ | ✓ |
 | França                    | ✓ | ✓ |
-| Geórgia                   | ✓ | A partir do |
+| Geórgia                   | ✓ | Ø |
 | Alemanha                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grécia                    | ✓ | ✓ |
-| Guernsey                  | ✓ | ✓ |
+| Guernesey                  | ✓ | ✓ |
 | Hungria                   | ✓ | ✓ |
 | Islândia                   | ✓ | ✓ |
 | Irlanda                   | ✓ | ✓ |
 | Ilha de Man               | ✓ | ✓ |
 | Itália                     | ✓ | ✓ |
 | Jan Mayen                 | ✓ | ✓ |
-| Camisas                    | ✓ | ✓ |
+| Jersey                    | ✓ | ✓ |
 | Letónia                    | ✓ | ✓ |
 | Listenstaine             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| Nordeste da Macedônia           | ✓ | ✓ |
+| Macedónia do Norte           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |

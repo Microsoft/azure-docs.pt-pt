@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 73d2e075dd4d3cf9e9b37aa9131ab5f4c822e140
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4e84a43f8984e2adeac916e467a8cac693ee453d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895913"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912441"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas
 
@@ -51,6 +51,8 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
 1. Baixe o [sistema de Build CMake](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
+
+    As versões mais antigas do sistema de compilação CMake falham ao gerar o arquivo de solução usado neste artigo. Certifique-se de usar uma versão mais recente do CMake.
 
 2. Clique em **marcas** e localize o nome da marca para a versão mais recente na [página versão do SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -136,6 +138,8 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
+
+    Se o arquivo não foi gerado no diretório CMake, verifique se você usou uma versão recente do sistema de Build do CMake.
 
 3. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue para a pasta **Provision\_Samples**. Expanda o projeto de exemplo com o nome **prov\_dev\_client\_sample**. Expanda **Source Files** (Ficheiros de Origem) e abra **prov\_dev\_client\_sample.c**.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: unir dados de sensor com dados de previsão do tempo usando Azure Notebooks (Python) | Microsoft Docs'
-description: 'Tutorial: Este tutorial mostra como unir dados de sensor com dados de previsão do tempo do serviço de clima do Azure Maps usando o Azure Notebooks (Python).'
+title: 'Tutorial: unir dados de sensor com dados de previsão do tempo usando Azure Notebooks (Python) | Mapas do Microsoft Azure'
+description: Este tutorial mostra como unir dados de sensor com dados de previsão do tempo de Microsoft Azure mapeia o serviço meteorológico usando Azure Notebooks (Python).
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/09/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1a1493033717b18bef5d80b28d06004c901ffb29
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613572"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910783"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: unir dados de sensor com dados de previsão do tempo usando Azure Notebooks (Python)
 

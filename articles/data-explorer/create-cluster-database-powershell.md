@@ -1,18 +1,18 @@
 ---
 title: Criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
 description: Saiba como criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1975125dd3bcd327ae7520e4cc413718e48d6ba9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326759"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911987"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
 
@@ -67,7 +67,7 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
-   | Name | *mykustocluster* | O nome desejado do cluster.|
+   | Nome | *mykustocluster* | O nome desejado do cluster.|
    | SKU | *D13_v2* | A SKU que será usada para o cluster. |
    | ResourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
@@ -79,7 +79,7 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
     Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
-Se o resultado contiver `provisioningState` com o `Succeeded` valor, o cluster foi criado com êxito.
+Se o resultado contiver `provisioningState` com o valor `Succeeded`, o cluster foi criado com êxito.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar o banco de dados no cluster de Data Explorer do Azure
 
@@ -91,8 +91,8 @@ Se o resultado contiver `provisioningState` com o `Succeeded` valor, o cluster f
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
-   | clusterName | *mykustocluster* | O nome do cluster em que o banco de dados será criado.|
-   | Name | *mykustodatabase* | O nome do seu banco de dados.|
+   | ClusterName | *mykustocluster* | O nome do cluster em que o banco de dados será criado.|
+   | Nome | *mykustodatabase* | O nome do seu banco de dados.|
    | ResourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
    | SoftDeletePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
    | HotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |

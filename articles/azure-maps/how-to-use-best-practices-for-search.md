@@ -1,6 +1,6 @@
 ---
-title: Como Pesquisar com eficiência usando o serviço de pesquisa do Azure Maps | Microsoft Docs
-description: Saiba como usar as práticas recomendadas para pesquisa usando o serviço de pesquisa do Azure Maps
+title: Pesquisar com eficiência usando o Azure Maps Serviço de Pesquisa | Mapas do Microsoft Azure
+description: Saiba como usar as práticas recomendadas para pesquisa usando o Microsoft Azure Maps Serviço de Pesquisa
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa3c7b58b3a391de40940636a67a4a224c44fe10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768831"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911375"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Práticas recomendadas para usar o Azure Maps Serviço de Pesquisa
 

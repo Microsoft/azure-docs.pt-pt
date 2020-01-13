@@ -1,6 +1,6 @@
 ---
-title: Expressões de estilo controladas por dados no SDK da Web do Azure Maps | Microsoft Docs
-description: Como usar expressões de estilo controladas por dados no SDK da Web do Azure Maps.
+title: Expressões de estilo controladas por dados no SDK da Web do Azure Maps | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a usar expressões de estilo controladas por dados no SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480648"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911768"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
 
@@ -437,7 +437,7 @@ As expressões de cor facilitam a criação e a manipulação de valores de core
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Cria um valor de cor dos componentes *vermelho*, *verde*e *azul* que devem variar entre `0` e `255`e um componente alfa de `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
 | `['rgba', number, number, number, number]` | color | Cria um valor de cor de componentes *vermelhos*, *verdes*e *azuis* que devem variar entre `0` e `255`e um componente alfa dentro de um intervalo de `0` e `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
-| `['to-rgba']` | número \[, número, número, número\] | Retorna uma matriz de quatro elementos que contém os componentes *vermelho*, *verde*, *azul*e *alfa* da cor de entrada, nessa ordem. |
+| `['to-rgba']` | \[number, number, number, number\] | Retorna uma matriz de quatro elementos que contém os componentes *vermelho*, *verde*, *azul*e *alfa* da cor de entrada, nessa ordem. |
 
 **Exemplo**
 
@@ -823,8 +823,8 @@ As expressões de associação de variáveis armazenam os resultados de um cálc
 
 | Expressão | Tipo de retorno | Descrição |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childy<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão filho que retorna o resultado. |
-| `['var', name: string]` | outro | Faz referência a uma variável que foi criada usando a expressão `let`. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão filho que retorna o resultado. |
+| `['var', name: string]` | qualquer | Faz referência a uma variável que foi criada usando a expressão `let`. |
 
 **Exemplo**
 

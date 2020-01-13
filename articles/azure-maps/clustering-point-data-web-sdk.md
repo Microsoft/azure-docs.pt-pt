@@ -1,6 +1,6 @@
 ---
-title: Dados de ponto de clustering no Azure Maps | Microsoft Docs
-description: Como agrupar dados de ponto de cluster no SDK da Web
+title: Dados de ponto de clustering em um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá como armazenar os dados de ponto de cluster e renderizá-los em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 846abb61511ae1d5aedf77059ed2f1e9f4e5dbfb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433021"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911747"
 ---
 # <a name="clustering-point-data"></a>Dados do ponto de cluster
 

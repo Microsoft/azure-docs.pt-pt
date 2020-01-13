@@ -1,6 +1,6 @@
 ---
-title: Mostrar tráfego com mapas do Azure | Microsoft Docs
-description: Como exibir dados de tráfego no SDK da Web do Azure Maps.
+title: Mostrar o tráfego em um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá como exibir dados de tráfego em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b765f6f35cecfdd3183b4432954fcfb2548de046
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874867"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910884"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar o tráfego no mapa
 
@@ -22,7 +22,7 @@ Há dois tipos de dados de tráfego disponíveis no Azure Maps:
 
 - Dados de incidentes – consistem em dados de ponto e de linha para coisas como construção, fechamentos de estrada e acidentes.
 - Dados de fluxo-fornece métricas sobre o fluxo de tráfego nas estradas. Os dados de fluxo de tráfego geralmente são usados para colorir as estradas com base na quantidade de tráfego que está diminuindo o fluxo em relação ao limite de velocidade ou a alguma outra métrica. Os dados de fluxo de tráfego no Azure Maps têm três métricas diferentes de medida:
-    - `relative`-é relativo à velocidade de fluxo livre da estrada.
+    - `relative`-é relativo à velocidade do fluxo livre da estrada.
     - `absolute`-é a velocidade absoluta de todos os veículos em trânsito.
     - `relative-delay`-exibe áreas que são mais lentas do que o atraso médio esperado.
 
@@ -50,15 +50,15 @@ A ferramenta a seguir permite alternar entre as diferentes configurações de so
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de sobreposição de tráfego" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as opções de sobreposição de <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>tráfego</a> de caneta<a href='https://codepen.io/azuremaps'>@azuremaps</a>pelo Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> de caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [Trafficoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)

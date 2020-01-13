@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: implementar análise espacial de IoT usando mapas do Azure'
-description: 'Tutorial: integrar o Hub IoT com as APIs de serviço do Azure Maps.'
+title: 'Tutorial: implementar análise espacial de IoT | Mapas do Microsoft Azure'
+description: Integrar o Hub IoT com as APIs de serviço do Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf2c5aceae0112187949ded78bea8e93e8723084
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432815"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910996"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: implementar análise espacial de IoT usando mapas do Azure
 

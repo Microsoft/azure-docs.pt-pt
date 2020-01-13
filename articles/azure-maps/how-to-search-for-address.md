@@ -1,6 +1,6 @@
 ---
-title: Localizar um endereço usando o serviço de pesquisa do Azure Maps | Microsoft Docs
-description: Saiba como procurar um endereço usando o serviço de pesquisa do Azure Maps
+title: Pesquisar locais usando o Azure Maps Serviço de Pesquisa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a procurar um local usando os mapas de Microsoft Azure Serviço de Pesquisa.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59d58b9ecb42a7329df6c91e0a646c557d78a415
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432968"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911444"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço usando o serviço de pesquisa do Azure Maps
 

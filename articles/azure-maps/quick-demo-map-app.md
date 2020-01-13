@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: pesquisa de mapa interativa com mapas do Azure'
-description: Início rápido do Azure-criar uma pesquisa de mapa interativo de demonstração usando o Azure Maps
+title: 'Início rápido: pesquisa de mapa interativa com mapas do Azure | Mapas do Microsoft Azure'
+description: Saiba como criar um aplicativo Web de demonstração para a pesquisa de mapa interativo usando o SDK da Web do Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408426"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910687"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Início rápido: criar um mapa de pesquisa interativo usando o Azure Maps
 
@@ -57,7 +57,7 @@ Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe per
 2. Na seção Configurações, selecione **autenticação**.
 3. Copie a **Chave primária** para a área de transferência. Guarde-a localmente para a utilizar mais tarde neste tutorial.
 
-![Obter a Chave Primária no portal](./media/quick-demo-map-app/get-key.png)
+![Obter chave primária mapas do Azure no portal do Azure](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Transferir a aplicação
 
@@ -73,7 +73,7 @@ Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe per
 4. Usufrua da experiência de pesquisa interativa. Na caixa de pesquisa no canto superior esquerdo do aplicativo Web de demonstração, procure por **restaurantes**.
 5. Mova o mouse sobre a lista de endereços e locais que aparecem abaixo da caixa de pesquisa. Observe como o PIN correspondente no mapa exibe informações sobre esse local. Por motivos de privacidade das empresas privadas, são apresentados nomes e endereços fictícios.
 
-    ![Aplicativo Web de pesquisa interativa](./media/quick-demo-map-app/interactive-search.png)
+    ![Aplicativo Web de pesquisa de mapa interativo](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -3,7 +3,7 @@ title: Atualizar o agente Linux do Azure do GitHub
 description: Saiba como atualizar o agente Linux do Azure para sua VM Linux no Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: akjosh
-ms.openlocfilehash: 02180af0b388a8f10e0689bc4ea176ee60974666
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 03e1689ca495d3fd3c8efce6b039386711a49472
+ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359013"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75904912"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o agente Linux do Azure em uma VM
 
@@ -88,77 +88,6 @@ initctl restart walinuxagent
 
 ```bash
 systemctl restart walinuxagent.service
-```
-
-## <a name="debian"></a>Debian
-
-### <a name="debian-7-wheezy"></a>Debian 7 "Wheezy"
-
-#### <a name="check-your-current-package-version"></a>Verifique a versão atual do pacote
-
-```bash
-dpkg -l | grep waagent
-```
-
-#### <a name="update-package-cache"></a>Atualizar cache do pacote
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>Instalar a versão mais recente do pacote
-
-```bash
-sudo apt-get install waagent
-```
-
-#### <a name="enable-agent-auto-update"></a>Habilitar atualização automática do agente
-Esta versão do Debian não tem uma versão > = 2.0.16, portanto, a atualização automática não está disponível para ela. A saída do comando acima lhe mostrará se o pacote estiver atualizado.
-
-### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 "Jessie"/Debian 9 "Stretch"
-
-#### <a name="check-your-current-package-version"></a>Verifique a versão atual do pacote
-
-```bash
-apt list --installed | grep waagent
-```
-
-#### <a name="update-package-cache"></a>Atualizar cache do pacote
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>Instalar a versão mais recente do pacote
-
-```bash
-sudo apt-get install waagent
-```
-#### <a name="ensure-auto-update-is-enabled"></a>Verificar se a atualização automática está habilitada 
-
-Primeiro, verifique se ele está habilitado:
-
-```bash
-cat /etc/waagent.conf
-```
-
-Localize ' AutoUpdate. Enabled '. Se você vir essa saída, ela será habilitada:
-
-```bash
-# AutoUpdate.Enabled=y
-AutoUpdate.Enabled=y
-```
-
-Para habilitar a execução:
-
-```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
-```
-
-### <a name="restart-the-waagent-service"></a>Reiniciar o serviço waagent
-
-```
-sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="red-hat--centos"></a>Red Hat/CentOS

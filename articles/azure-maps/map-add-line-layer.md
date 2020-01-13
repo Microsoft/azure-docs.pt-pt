@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de linha ao Azure Maps | Microsoft Docs
-description: Como adicionar uma camada de linha ao SDK da Web do Azure Maps.
+title: Adicionar uma camada de linha a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a adicionar uma camada de linha a um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f07e36d82c9044a212cda8173df9fe0a9544393a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977329"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911173"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicionar uma camada de linha ao mapa
 
-Uma camada de linha pode ser usada para `LineString` processar `MultiLineString` e recursos como caminhos ou rotas no mapa. Uma camada de linha também pode ser usada para renderizar a `Polygon` estrutura `MultiPolygon` de tópicos e os recursos. Uma fonte de dados é conectada a uma camada de linha para fornecer dados a serem renderizados. 
+Uma camada de linha pode ser usada para renderizar `LineString` e `MultiLineString` recursos como caminhos ou rotas no mapa. Uma camada de linha também pode ser usada para processar a estrutura de tópicos de `Polygon` e `MultiPolygon` recursos. Uma fonte de dados é conectada a uma camada de linha para fornecer dados a serem renderizados. 
 
 > [!TIP]
-> As camadas de linha por padrão renderizarão as coordenadas de polígonos, bem como as linhas de uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de LineString `filter` , defina a propriedade da `['==', ['geometry-type'], 'LineString']` camada `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` como ou se você quiser incluir recursos MultiLineString também.
+> As camadas de linha por padrão renderizarão as coordenadas de polígonos, bem como as linhas de uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de LineString, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'LineString']` ou `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` se desejar incluir recursos MultiLineString também.
 
 O código a seguir mostra como criar uma linha, adicioná-la a uma fonte de dados e renderizá-la com uma camada de linha usando a classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
 
@@ -56,7 +56,7 @@ Este exemplo mostra como adicionar ícones de seta ao longo de uma linha no mapa
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mostrar a seta ao longo da linha" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a <a href='https://codepen.io/azuremaps/pen/drBJwX/'>seta de mostrar caneta ao longo da linha</a> pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte a <a href='https://codepen.io/azuremaps/pen/drBJwX/'>seta de mostrar caneta ao longo da linha</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -66,12 +66,12 @@ Consulte a <a href='https://codepen.io/azuremaps/pen/drBJwX/'>seta de mostrar ca
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Adicionar um gradiente de traço a uma linha
 
-Além de ser capaz de aplicar uma única cor de traço a uma linha, você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o próximo. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e distância, ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados deve ter a `lineMetrics` opção definida como true e, em seguida, uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão de gradiente de traço precisa `['line-progress']` fazer referência à expressão de dados que expõe as métricas de linha calculadas para a expressão.
+Além de ser capaz de aplicar uma única cor de traço a uma linha, você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o próximo. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e distância, ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados deve ter a opção `lineMetrics` definida como true e, em seguida, uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão de gradiente de traço precisa fazer referência à expressão de dados de `['line-progress']` que expõe as métricas de linha calculada para a expressão.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Linha com gradiente de traço" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Veja a linha de caneta <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>com gradiente de traço</a> pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Veja a linha de caneta <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>com gradiente de traço</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-line-layer"></a>Personalizar uma camada de linha
@@ -80,10 +80,10 @@ A camada de linha várias opções de estilo. Aqui está uma ferramenta para exp
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de linha' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opções da camada de linha</a> de caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de camada de linha' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opções da camada de linha</a> de caneta pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as classes e os métodos usados neste artigo:
 

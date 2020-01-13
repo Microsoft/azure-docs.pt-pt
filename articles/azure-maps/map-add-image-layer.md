@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de imagem ao Azure Maps | Microsoft Docs
-description: Como adicionar uma camada de imagem ao SDK da Web do Azure Maps.
+title: Adicionar uma camada de imagem a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a sobrepor uma imagem em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 631a9e2d44b798404ee7567d3ccfed90628d2f8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d2260e5c9e4125be1c4b0fa5e9d7c39a8e03d43f
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432853"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911201"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem a um mapa
 

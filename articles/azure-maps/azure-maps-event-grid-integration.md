@@ -1,6 +1,6 @@
 ---
-title: Reagir a eventos do Azure Maps com o Event Grid | Documentos da Microsoft
-description: Saiba como reagir a eventos de mapas do Azure com o Event Grid.
+title: Reagir a eventos de mapeamento usando a grade de eventos | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a reagir a Microsoft Azure eventos de mapas usando a grade de eventos.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019
@@ -9,36 +9,36 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799184"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911801"
 ---
-# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Maps com o Event Grid 
+# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir aos eventos do Azure Maps usando a grade de eventos 
 
-Mapas do Azure integra-se com o Azure Event Grid para que possa enviar notificações de eventos para outros serviços e processos de downstream do acionador. O objetivo deste artigo é ajudar a configurar seus aplicativos de negócios para escutar eventos do Azure Maps para que possa reagir a eventos críticos de forma fiável, dimensionável e segura. Por exemplo, crie um aplicativo que realiza várias ações como atualizar uma base de dados, criar um pedido e fornecimento de uma notificação por e-mail sempre que um dispositivo é inserido um perímetro geográfico.
+O Azure Maps integra-se à grade de eventos do Azure para que você possa enviar notificações de eventos para outros serviços e disparar processos downstream. A finalidade deste artigo é ajudá-lo a configurar seus aplicativos de negócios para escutar eventos do Azure Maps para que você possa reagir a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, crie um aplicativo que executa várias ações como atualizar um banco de dados, criar um tíquete e entregar uma notificação por email toda vez que um dispositivo entrar em uma cerca geográfica.
 
-O Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que utiliza um publicar-subscrever o modelo. Grelha de eventos possui suporte interno para serviços do Azure como [as funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview)e pode enviar alertas de eventos para serviços não pertencente ao Azure através de webhooks. Para obter uma lista completa dos manipuladores de eventos que suporta o Event Grid, veja [uma introdução ao Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação/assinatura. A grade de eventos tem suporte interno para serviços do Azure, como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview), e pode entregar alertas de eventos a serviços não Azure usando WebHooks. Para obter uma lista completa dos manipuladores de eventos aos quais a grade de eventos dá suporte, consulte [uma introdução à grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
 
-![Modelo de funcional do Azure Event Grid](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
+![Modelo funcional da grade de eventos do Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
 
 
 ## <a name="azure-maps-events-types"></a>Tipos de eventos do Azure Maps
 
-Grelha de eventos usa [subscrições de eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) encaminhar mensagens de eventos para os assinantes. Uma conta do Azure Maps emite os seguintes tipos de evento: 
+A grade de eventos usa [assinaturas de evento](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para rotear mensagens de evento para assinantes. Uma conta do Azure Maps emite os seguintes tipos de evento: 
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Gerado quando recebidas de coordenadas passaram de fora de um determinado perímetro geográfico para dentro |
-| Microsoft.Maps.GeofenceExited | Gerado quando recebidas de coordenadas passaram de dentro de um determinado perímetro geográfico para fora |
-| Microsoft.Maps.GeofenceResult | Gerado sempre que uma consulta de barreira geográfica devolve um resultado, independentemente do Estado |
+| Microsoft.Maps.GeofenceEntered | Gerado quando as coordenadas recebidas foram movidas de fora de uma determinada cerca geográfica para dentro |
+| Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas foram movidas de dentro de uma determinada cerca geográfica para externa |
+| Microsoft.Maps.GeofenceResult | Gerado toda vez que uma consulta de isolamento geográfica retorna um resultado, independentemente do estado |
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-O esquema de apresentação do exemplo seguinte para GeofenceResult
+O exemplo a seguir mostra o esquema para GeofenceResult
 
 ```JSON
 {   
@@ -76,17 +76,17 @@ O esquema de apresentação do exemplo seguinte para GeofenceResult
 }
 ```
 
-## <a name="tips-for-consuming-events"></a>Dicas para o consumo de eventos
+## <a name="tips-for-consuming-events"></a>Dicas para consumir eventos
 
-Aplicações que processam os eventos do Azure Maps perímetro geográfico devem seguir algumas práticas recomendadas:
+Os aplicativos que lidam com os eventos de limite geográfico do Azure devem seguir algumas práticas recomendadas:
 
-* Várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos. É importante não partem do princípio de que os eventos são de uma origem específica. Verifique sempre o tópico de mensagem para se certificar de que trata da origem de que pretende.
-* As mensagens podem chegar fora de ordem ou após um atraso. Utilize o `X-Correlation-id` campo no cabeçalho de resposta para saber se as informações sobre objetos são atualizadas.
-* Quando começar e a API do perímetro geográfico de publicação é chamado com o parâmetro de modo definido como `EnterAndExit`, um evento de Enter ou Exit é gerado para cada geometry no perímetro geográfico para o qual o estado mudou da chamada de API do perímetro geográfico anterior.
+* Várias assinaturas podem ser configuradas para rotear eventos para o mesmo manipulador de eventos. É importante não supor que os eventos sejam de uma fonte específica. Sempre verifique o tópico da mensagem para garantir que ele venha da origem esperada.
+* As mensagens podem chegar fora de ordem ou após um atraso. Use o campo `X-Correlation-id` no cabeçalho de resposta para entender se suas informações sobre objetos estão atualizadas.
+* Quando a API Get e POST de cerca geográfica é chamada com o parâmetro mode definido como `EnterAndExit`, um evento Enter ou Exit é gerado para cada geometria no limite geográfico para o qual o status foi alterado da chamada à API de limite geográfico anterior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como utilizar a barreira geográfica para operações de controle num site de construção, veja:
+Para saber mais sobre como usar o isolamento geográfico para controlar as operações em um site de construção, consulte:
 
 > [!div class="nextstepaction"] 
-> [Configure um perímetro geográfico, utilizando o Azure Maps](tutorial-geofence.md)
+> [Configurar uma cerca geográfica usando mapas do Azure](tutorial-geofence.md)

@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8bf7f3a423b97f6cd84f0b575d00d60776c598c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476001"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911903"
 ---
-Para continuar a introdução ao IoT Hub do Azure e explorar todos os cenários de IoT alargados, consulte o seguinte:
+Para continuar a começar a usar o Hub IoT do Azure e explorar todos os cenários de IoT estendidos, consulte o seguinte:
 
-- [Gerir o dispositivo na cloud com a extensão do Kit de ferramentas do Azure IoT Hub de mensagens para o Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+- [Gerenciar mensagens de dispositivo de nuvem com a extensão do Hub IoT do Azure para Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 
-- [Gerir dispositivos com a extensão do Kit de ferramentas do Azure IoT Hub para o Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
+- [Gerenciar dispositivos com a extensão do Hub IoT do Azure para Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
 
-- [Configurar o encaminhamento de mensagens](../articles/iot-hub/tutorial-routing.md)
+- [Configurar o roteamento de mensagens](../articles/iot-hub/tutorial-routing.md)
 
 - [Utilizar o Power BI para visualizar dados de sensores em tempo real do seu hub IoT](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [Utilizar uma aplicação web para visualizar dados de sensores em tempo real do seu hub IoT](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [Usar um aplicativo Web para visualizar dados de sensor em tempo real de seu hub IoT](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Previsão do tempo com os dados de sensor do seu hub IoT no Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

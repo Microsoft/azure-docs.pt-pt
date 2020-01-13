@@ -1,6 +1,6 @@
 ---
-title: Usar o módulo ferramentas de desenho no Azure Maps | Microsoft Docs
-description: Como definir dados de opções de desenho usando o SDK da Web do Azure Maps
+title: Módulo de ferramentas de desenho | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a definir dados de opções de desenho usando o SDK da Web do Microsoft Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0ac9bc775798a14e6431718bc602d8ff41288c10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2f23d4d7962fc4a01ac2f9d20dc834bcd2f08be5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408154"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910591"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utilizar o módulo de ferramentas de desenho
 

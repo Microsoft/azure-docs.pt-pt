@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e7239fdedafedc96a382de6c3c2f90b5da4df00c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774253"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908994"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associar o ASN do par à assinatura do Azure usando o PowerShell
 
@@ -29,7 +29,24 @@ Se preferir, você pode concluir este guia usando o [portal](howto-subscription-
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Inicie sessão na sua conta do Azure e selecione a sua subscrição
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
+### <a name="register-for-peering-resource-provider"></a>Registrar para provedor de recursos de emparelhamento
+Registre-se para provedor de recursos de emparelhamento em sua assinatura usando o comando a seguir. Se você não executar isso, os recursos do Azure necessários para configurar o emparelhamento não estarão acessíveis.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+Você pode verificar o status do registro usando os comandos abaixo:
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+> [!IMPORTANT]
+> Aguarde o *registrostate* ativar "registrado" antes de continuar. Pode levar de 5 a 30 minutos após a execução do comando.
+
 ### <a name="update-the-peer-information-associated-with-this-subscription"></a>Atualizar as informações de pares associadas a esta assinatura
+
+Veja abaixo um exemplo para atualizar informações de pares.
 
 ```powershell
 New-AzPeerAsn `

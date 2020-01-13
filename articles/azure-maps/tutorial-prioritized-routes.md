@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: várias rotas com mapas do Azure'
-description: 'Tutorial: localizar rotas para modos diferentes de viagem usando mapas do Azure'
+title: 'Tutorial: localizar várias rotas por modo de viagem | Mapas do Microsoft Azure'
+description: Neste tutorial, você aprenderá a encontrar rotas para modos diferentes de viagem usando mapas de Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613640"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910856"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: localizar rotas para modos diferentes de viagem usando mapas do Azure
 
@@ -117,7 +117,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
 
 2. Guarde o ficheiro **MapTruckRoute.html** e atualize a página no browser. Se você interagir com o mapa e ampliar para Los Angeles, você deverá ver as ruas com os dados de tráfego atuais.
 
-   ![Ver mapa do tráfego](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![Exibir o tráfego em um mapa](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

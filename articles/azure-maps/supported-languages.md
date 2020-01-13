@@ -1,6 +1,6 @@
 ---
-title: Suporte à localização no Azure Maps | Microsoft Docs
-description: Saiba mais sobre os idiomas com suporte para os serviços no Azure Maps
+title: Suporte à localização | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os idiomas com suporte para os serviços no Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 64197cc85822997926a8011af8cb3b981fa9064d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286423"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910433"
 ---
 # <a name="localization-support-in-azure-maps"></a>Suporte à localização no Azure Maps
 
@@ -25,12 +25,12 @@ O Azure Maps dá suporte a várias linguagens e exibições baseadas em país/re
 Os mapas do Azure foram localizados em uma variedade de linguagens entre os serviços. A tabela a seguir fornece os códigos de idioma com suporte para cada serviço.  
   
 
-| ID         | Nome                   |  Maps | Pesquisa | Encaminhamento | Meteorologia | Incidentes de tráfego | Controle de mapa de JS |
+| ID         | Nome                   |  Mapas | Search | Encaminhamento | Meteorologia | Incidentes de tráfego | Controle de mapa de JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
-| bilhão-BD      | Bengali (Bangladesh)    |       |       |         |     ✓    |                   |                |
-| bilhão-IN      | Bengali (Índia)         |       |       |         |     ✓    |                   |                |
+| bilhão-BD      | Bangla (Bangladeche)    |       |       |         |     ✓    |                   |                |
+| bilhão-IN      | Bangla (Índia)         |       |       |         |     ✓    |                   |                |
 | BS-BA      | Bósnio                 |       |       |         |     ✓    |                   |                |
 | UE-ES      | Basco (Basco)                 |       |    ✓   |         |         |                   |                |
 | bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
@@ -41,12 +41,12 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 | RH de RH      | Croata               |       |    ✓   |         |    ✓      |                   |                |
 | cs-CZ      | Checo                  |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
 | da-DK      | Dinamarquês                 |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| NL-ser      | Holandês (Bélgica)        |       |    ✓   |         |      ✓    |                   |                |
+| NL-ser      | Neerlandês (Bélgica)        |       |    ✓   |         |      ✓    |                   |                |
 | NL-NL      | Holandês (Países Baixos)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | EN-AU      | Inglês (Austrália)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | EN-NZ      | Inglês (Nova Zelândia)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Inglês (Grã-Bretanha) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-US      | Inglês (EUA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| pt-PT      | Inglês (EUA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estónio               |       |    ✓   |         |      ✓    |         ✓         |                |
 | Fil-PH     | Filipino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finlandês                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
@@ -64,15 +64,15 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 | it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | ja-JP      | Japonês               |       |        |         |     ✓    |                   |                |
 | kN-IN      | Canarim                |       |       |         |     ✓    |                   |                |
-| kk-KZ      | Cazaque                 |       |    ✓   |         |     ✓    |                   |                |
+| kk-KZ      | Cazaquistanês                 |       |    ✓   |         |     ✓    |                   |                |
 | ko-KR      | Coreano                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
 | es-419     | Espanhol da América Latina |       |    ✓   |         |         |                   |                |
 | lv-LV      | Letão                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| MK-MK      | Macedônio             |       |       |         |     ✓    |                   |                |
+| MK-MK      | Macedónio             |       |       |         |     ✓    |                   |                |
 | MS-MY      | Malaio (latino)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
-| Mr-IN      | Marata                 |       |       |         |     ✓    |                   |                |
-| nb-NO      | Norueguês, Bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| Mr-IN      | Marati                 |       |       |         |     ✓    |                   |                |
+| nb-NO      | Norueguês Bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Linguagem de aterramento neutra-idiomas oficiais para todas as regiões em scripts locais, se disponíveis |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | A terra neutra de verdade – latim exonyms. O script Latin será usado se estiver disponível |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -82,7 +82,7 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 | RO-RO      | Romeno               |       |    ✓    |         |     ✓    |         ✓         |                |
 | ru-RU      | Russo                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | sr-Cyrl-RS | Sérvio (Cirílico)     |       |   Sr-RS  |         |    Sr-RS     |                   |                |
-| Sr-Latn-RS | Sérvio (Latim)        |       |       |         |     Sr-Latn    |                   |                |
+| sr-Latn-RS | Sérvio (Latim)        |       |       |         |     Sr-Latn    |                   |                |
 | sk SK      | Eslovaco             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | sl-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
 | es-ES      | Espanhol                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -94,7 +94,7 @@ Os mapas do Azure foram localizados em uma variedade de linguagens entre os serv
 | tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | uk-UA      | Ucraniano               |       |    ✓   |         |     ✓    |                   |                |
 | sua CP      | Urdu                 |       |       |         |     ✓    |                   |                |
-| Uz-Latn-UZ | Uzbeque                 |       |       |         |     ✓    |                   |                |
+| Uz-Latn-UZ | Usbeque                 |       |       |         |     ✓    |                   |                |
 | vi-VN      | Vietnamita             |       |    ✓   |         |      ✓    |                  |                |
 
 
@@ -148,7 +148,7 @@ Por padrão, o parâmetro de exibição é definido como **unificado**, mesmo qu
 
 A tabela a seguir fornece exibições com suporte.
 
-| Vista         | Descrição                            |  Maps | Pesquisa | JS Controle de Mapeamento |
+| Vista         | Descrição                            |  Mapas | Search | JS Controle de Mapeamento |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirados Árabes Unidos (modo de exibição árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (exibição de Argentinian)           |   ✓   |    ✓   |     ✓          |

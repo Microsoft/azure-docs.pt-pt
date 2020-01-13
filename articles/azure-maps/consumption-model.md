@@ -1,6 +1,6 @@
 ---
-title: Modelo de consumo do Azure Maps | Documentos da Microsoft
-description: Saiba mais sobre o modelo de consumo do Azure Maps
+title: Modelos de consumo de veículo para roteamento | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os modelos de consumo de veículo para roteamento em mapas de Microsoft Azure.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,41 +8,41 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797910"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911700"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 
-Encaminhamento online fornece um conjunto de parâmetros para uma descrição detalhada do modelo de consumo específicos de veículos.
-Dependendo do valor de **vehicleEngineType**, são suportados dois modelos de consumo principal: _Combustion_ e _Electric_. Especificar os parâmetros que pertencem a diferentes modelos no mesmo pedido é um erro.
+O roteamento online fornece um conjunto de parâmetros para uma descrição detalhada do modelo de consumo específico do veículo.
+Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo _principal:_ compendênciaing e _Electric_. A especificação de parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
 Não é possível utilizar o Modelo de Consumo com os valores _bicycle_ e _pedestrian_ de **travelMode**.
 
-## <a name="parameter-constraints-for-consumption-model"></a>Restrições de parâmetro de modelo de consumo
+## <a name="parameter-constraints-for-consumption-model"></a>Restrições de parâmetro para o modelo de consumo
 
-Em ambos os modelos de consumo, especificar explicitamente alguns parâmetros exige a especificação de alguns outros também. Estas dependências estão:
+Em ambos os modelos de consumo, especificar explicitamente alguns parâmetros requer a especificação de alguns outros também. Essas dependências são:
 
-* Todos os parâmetros exigem **constantSpeedConsumption** seja especificado pelo utilizador. É um erro para especificar qualquer outro consumo modelo parâmetro, com exceção do **vehicleWeight**, se **constantSpeedConsumption** não for especificado.
-* **accelerationEfficiency** e **decelerationEfficiency** sempre deve ser especificado como um par (ou seja, ambos ou nenhum).
-* Se **accelerationEfficiency** e **decelerationEfficiency** forem especificados, produto dos respetivos valores não tem de ser superior a 1 (para evitar perpetual motion).
-* **uphillEfficiency** e **downhillEfficiency** sempre deve ser especificado como um par (ou seja, ambos ou nenhum).
-* Se **uphillEfficiency** e **downhillEfficiency** forem especificados, produto dos respetivos valores não tem de ser superior a 1 (para evitar perpetual motion).
-* Se o \* __eficiência__ parâmetros especificados pelo usuário, em seguida, **vehicleWeight** também tem de ser especificado. Quando **vehicleEngineType** é _combustion_, **fuelEnergyDensityInMJoulesPerLiter** tem de ser especificado bem.
-* **maxChargeInkWh** e **currentChargeInkWh** sempre deve ser especificado como um par (ou seja, ambos ou nenhum).
+* Todos os parâmetros exigem que o **constantSpeedConsumption** seja especificado pelo usuário. É um erro especificar qualquer outro parâmetro de modelo de consumo, com exceção de **vehicleWeight**, se **constantSpeedConsumption** não for especificado.
+* **accelerationEfficiency** e **decelerationEfficiency** devem ser sempre especificados como um par (ou seja, ambos ou nenhum).
+* Se **accelerationEfficiency** e **decelerationEfficiency** forem especificados, o produto dos seus valores não deverá ser maior que 1 (para evitar o movimento permanente).
+* **uphillEfficiency** e **downhillEfficiency** devem ser sempre especificados como um par (ou seja, ambos ou nenhum).
+* Se **uphillEfficiency** e **downhillEfficiency** forem especificados, o produto dos seus valores não deverá ser maior que 1 (para evitar o movimento permanente).
+* Se os parâmetros de __eficiência__ \*forem especificados pelo usuário, **vehicleWeight** também deverá ser especificado. Quando **vehicleEngineType** forrefazer, **fuelEnergyDensityInMJoulesPerLiter** também deverá ser especificado.
+* **maxChargeInkWh** e **currentChargeInkWh** devem ser sempre especificados como um par (ou seja, ambos ou nenhum).
 
 > [!NOTE]
-> Se só **constantSpeedConsumption** for especificado, não existem outros aspectos de consumo, como slopes e aceleração de veículos são levados em consideração para computações de consumo.
+> Se apenas **constantSpeedConsumption** for especificado, nenhum outro aspecto de consumo como inclinação e aceleração do veículo será levado em conta para cálculos de consumo.
 
-## <a name="combustion-consumption-model"></a>Modelo de consumo Combustion
+## <a name="combustion-consumption-model"></a>Modelo de consumo de reutilização
 
-O modelo de consumo Combustion é usado quando **vehicleEngineType** está definida como _combustion_.
-A lista de parâmetros que pertencem a esse modelo estão abaixo. Consulte a secção de parâmetros para a descrição detalhada.
+O modelo de consumo de retratação é usado quando **vehicleEngineType** é _definido como_resumido.
+A lista de parâmetros que pertencem a este modelo está abaixo. Consulte a seção de parâmetros para obter uma descrição detalhada.
 
 * constantSpeedConsumptionInLitersPerHundredkm
-* VehicleWeight
+* vehicleWeight
 * currentFuelInLiters
 * auxiliaryPowerInLitersPerHour
 * fuelEnergyDensityInMJoulesPerLiter
@@ -51,13 +51,13 @@ A lista de parâmetros que pertencem a esse modelo estão abaixo. Consulte a sec
 * uphillEfficiency
 * downhillEfficiency
 
-## <a name="electric-consumption-model"></a>Modelo de consumo Electric
+## <a name="electric-consumption-model"></a>Modelo de consumo elétrico
 
-O modelo de consumo Electric é usado quando **vehicleEngineType** está definida como _electric_.
-A lista de parâmetros que pertencem a esse modelo estão abaixo. Consulte a secção de parâmetros para a descrição detalhada.
+O modelo de consumo elétrico é usado quando **vehicleEngineType** é definido como _elétrico_.
+A lista de parâmetros que pertencem a este modelo está abaixo. Consulte a seção de parâmetros para obter uma descrição detalhada.
 
 * constantSpeedConsumptionInkWhPerHundredkm
-* VehicleWeight
+* vehicleWeight
 * currentChargeInkWh
 * maxChargeInkWh
 * auxiliaryPowerInkW
@@ -66,7 +66,7 @@ A lista de parâmetros que pertencem a esse modelo estão abaixo. Consulte a sec
 * uphillEfficiency
 * downhillEfficiency
 
-## <a name="sensible-values-of-consumption-parameters"></a>Valores razoáveis dos parâmetros de consumo
+## <a name="sensible-values-of-consumption-parameters"></a>Valores razoáveis de parâmetros de consumo
 
-Pode ser rejeitado um determinado conjunto de parâmetros de consumo, mesmo que ele pode atender a todos os requisitos explícitos especificados acima. Isso acontece quando o valor de um parâmetro específico ou uma combinação de valores de vários parâmetros, é considerado para levar a magnitudes excessiva de valores de consumo. Se isto acontecer, é muito provável que indica um erro de entrada, conforme adequado cuidado para acomodar todos os valores razoáveis dos parâmetros de consumo. No caso de um determinado conjunto de parâmetros de consumo é rejeitado, a mensagem de erro que acompanha este artigo irá conter uma explicação textual sobre os motivos.
-As descrições detalhadas dos parâmetros têm de exemplos de valores razoáveis para ambos os modelos.
+Um determinado conjunto de parâmetros de consumo pode ser rejeitado, embora possa atender a todos os requisitos explícitos especificados acima. Acontece quando o valor de um parâmetro específico, ou uma combinação de valores de vários parâmetros, é considerado para levar a magnitudes indesejadas de valores de consumo. Se isso acontecer, provavelmente indica um erro de entrada, pois é necessário tomar cuidado para acomodar todos os valores razoáveis dos parâmetros de consumo. Caso um determinado conjunto de parâmetros de consumo seja rejeitado, a mensagem de erro que o acompanha conterá uma explicação textual do (s) motivo (es).
+As descrições detalhadas dos parâmetros têm exemplos de valores razoáveis para ambos os modelos.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: localizar a rota com mapas do Azure'
-description: 'Tutorial: rotear para um ponto de interesse usando o Azure Maps'
+title: 'Tutorial: localizar a rota para um local | Mapas do Microsoft Azure'
+description: Este tutorial mostra como renderizar a rota para um local (ponto de interesse) em um mapa usando o serviço de roteamento do Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613606"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910841"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: rotear para um ponto de interesse usando o Azure Maps
 
@@ -168,7 +168,7 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Agora o mapa é centralizado em Seattle e você pode ver o pino azul marcando o ponto de partida e o pino azul arredondado marcando o ponto de conclusão.
 
-   ![Ver mapa com os pontos de partida e de chegada](media/tutorial-route-location/map-pins.png)
+   ![Exibir rotas de início e de fim no mapa](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

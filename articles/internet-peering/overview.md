@@ -8,16 +8,16 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: c5fd37c532e2abf2697c741e4dab10a945926e2b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775692"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908919"
 ---
 # <a name="internet-peering-overview"></a>Visão geral de emparelhamento de Internet
 
-O emparelhamento é a interconexão entre a rede global da Microsoft (AS8075) e sua rede com a finalidade de trocar tráfego de Internet de/para Microsoft serviços online e serviços de Microsoft Azure. As operadoras ou os provedores de serviços podem solicitar a conexão com a Microsoft em qualquer um de nossos locais de borda. Cada solicitação é revisada por Microsoft Azure rede para garantir que ela atenda à nossa política de emparelhamento. Você pode configurar um emparelhamento com a rede da Microsoft de duas maneiras:
+O emparelhamento é a interconexão entre a rede global da Microsoft (AS8075) e sua rede com a finalidade de trocar tráfego de Internet de/para Microsoft serviços online e serviços de Microsoft Azure. As operadoras ou os provedores de serviços podem solicitar a conexão com a Microsoft em qualquer um de nossos locais de borda. Cada solicitação é revisada pela Microsoft para garantir que ela atenda à nossa política de emparelhamento. Você pode configurar um emparelhamento com a rede da Microsoft de duas maneiras:
 
 * **Emparelhamento direto:**
 
@@ -33,7 +33,7 @@ O emparelhamento é a interconexão entre a rede global da Microsoft (AS8075) e 
 * Proteja o tráfego do cliente contra falhas na rede do seu provedor de rede ou de trânsito, passando o emparelhamento com a Microsoft em locais redundantes.
 * Aprenda métricas de desempenho sobre suas conexões de emparelhamento e utilize o insights para solucionar problemas de sua rede.
 
-## <a name="benefits-of-using-azure"></a>Benefícios do uso do Azure
+## <a name="benefits-of-using-azure-to-set-up-peering"></a>Benefícios de usar o Azure para configurar o emparelhamento
 
 Você pode solicitar o emparelhamento com a Microsoft usando Azure PowerShell ou Portal. O emparelhamento configurado dessa maneira é gerenciado como um recurso do Azure e oferece os seguintes benefícios:
 * Etapas simplificadas e automatizadas para configurar e gerenciar o emparelhamento com a Microsoft.
