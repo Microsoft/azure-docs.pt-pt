@@ -3,14 +3,14 @@ title: Resolução de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 64b9cda61e5af3e8b9ea52477b5bf4fa879f48e6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438113"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Se você tiver um problema ao usar Azure Dev Spaces, crie um [problema no reposi
 
 Para solucionar problemas com mais eficiência, pode ajudar a criar logs mais detalhados para análise.
 
-Para a extensão do Visual Studio, defina a variável de ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` como 1. Certifique-se de que reinicie o Visual Studio para a variável de ambiente para entrar em vigor. Uma vez habilitado, os logs detalhados são gravados no diretório `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
+Para a extensão do Visual Studio, defina o `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` variável de ambiente para 1. Certifique-se de que reinicie o Visual Studio para a variável de ambiente para entrar em vigor. Uma vez habilitado, os logs detalhados são gravados no diretório `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-Na CLI, você pode gerar mais informações durante a execução do comando usando a opção `--verbose`. Você também pode procurar logs mais detalhados em `%TEMP%\Azure Dev Spaces`. Em um Mac, o diretório TEMP pode ser encontrado executando `echo $TMPDIR` de uma janela de terminal. Em um computador Linux, o diretório temporário geralmente é `/tmp`.
+Na CLI, o utilizador pode apresentar mais informações durante a execução do comando utilizando o `--verbose` mudar. Também pode procurar registos mais detalhados no `%TEMP%\Azure Dev Spaces`. Num Mac, o diretório TEMP do diretório pode ser encontrado ao executar `echo $TMPDIR` de uma janela de terminal. Num computador Linux, o diretório TEMP do diretório é normalmente `/tmp`.
 
 Azure Dev Spaces também funciona melhor ao depurar uma única instância ou Pod. O arquivo de `azds.yaml` contém uma configuração, *replicaCount*, que indica o número de pods que o kubernetes executa para o serviço. Se você alterar o *replicaCount* para configurar seu aplicativo para executar vários pods para um determinado serviço, o depurador será anexado ao primeiro Pod, quando listado em ordem alfabética. O depurador é anexado a um pod diferente quando o Pod original é reciclado, possivelmente resultando em um comportamento inesperado.
 
@@ -157,7 +157,7 @@ Por exemplo, suponha que você use um comando Helm para executar o aplicativo in
 
 ### <a name="existing-dockerfile-not-used-to-build-a-container"></a>Dockerfile existentes não usados para criar um contêiner
 
-Azure Dev Spaces pode ser configurado para apontar para um _Dockerfile_ específico em seu projeto. Se aparecer Azure Dev Spaces não estiver usando o _Dockerfile_ de que você espera criar seus contêineres, talvez seja necessário informar explicitamente Azure dev Spaces qual Dockerfile usar. 
+Espaços de desenvolvimento do Azure pode ser configurados para apontar para um específico _Dockerfile_ no seu projeto. Se aparecer Azure Dev Spaces não estiver usando o _Dockerfile_ de que você espera criar seus contêineres, talvez seja necessário informar explicitamente Azure dev Spaces qual Dockerfile usar. 
 
 Para corrigir esse problema, abra o arquivo _azds. YAML_ que Azure dev Spaces gerado em seu projeto. Configurações de atualização *: desenvolver: Build: dockerfile* para apontar para o dockerfile que você deseja usar. Por exemplo:
 
@@ -214,8 +214,8 @@ azds up --verbose --output json
 
 No Visual Studio:
 
-1. Abra **ferramentas > opções** e, em **projetos e soluções**, escolha **Compilar e executar**.
-2. Altere as configurações do **detalhamento de saída de compilação do projeto do MSBuild** para **detalhado** ou **diagnóstico**.
+1. Open **ferramentas > opções** e, em **projetos e soluções**, escolha **compilar e executar**.
+2. Alterar as definições de **verbosidade de saída da compilação de projeto do MSBuild** ao **Detailed** ou **diagnóstico**.
 
     ![Caixa de diálogo Opções de captura de ecrã de ferramentas](media/common/VerbositySetting.PNG)
 
@@ -302,9 +302,9 @@ Para corrigir esse problema, instale a [extensão de vs Code para Azure dev Spac
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Erro "valor de ' CWD ' inválido '/src '. O sistema não é possível localizar o ficheiro especificado." ou "Iniciar: programa '/ src / [caminho para o binário do projeto]' não existe"
 
-Você pode ver esse erro ao executar o depurador de Visual Studio Code. Por padrão, a extensão VS Code usa `src` como o diretório de trabalho para o projeto no contêiner. Se você atualizou seu `Dockerfile` para especificar um diretório de trabalho diferente, você poderá ver esse erro.
+Você pode ver esse erro ao executar o depurador de Visual Studio Code. Por predefinição, utiliza a extensão do VS Code `src` como o diretório de trabalho para o projeto no contentor. Se atualizou seu `Dockerfile` para especificar um diretório de trabalho diferentes, pode ver este erro.
 
-Para corrigir esse problema, atualize o arquivo de `launch.json` no subdiretório `.vscode` da pasta do projeto. Altere a diretiva `configurations->cwd` para apontar para o mesmo diretório que o `WORKDIR` definido na `Dockerfile`do seu projeto. Também pode ser necessário atualizar a diretiva `configurations->program`.
+Para corrigir esse problema, atualize o arquivo de `launch.json` no subdiretório `.vscode` da pasta do projeto. Alterar o `configurations->cwd` diretiva para apontar para o mesmo diretório que o `WORKDIR` definidos no seu projeto `Dockerfile`. Também poderá ter de atualizar o `configurations->program` diretiva também.
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro "o programa de pipe ' azds ' saiu inesperadamente com o código 126."
 
@@ -416,16 +416,16 @@ Para resolver este problema:
 
 Poderá ver este erro ao tentar aceder ao seu serviço. Por exemplo, quando passa para o URL do serviço num navegador. Esse erro significa que a porta do contêiner não está disponível. Isso pode ser pelos seguintes motivos:
 
-* O contentor está ainda estiver no processo que está a ser compilado e implantado. Esse problema pode ocorrer se você executar `azds up` ou iniciar o depurador e, em seguida, tentar acessar o contêiner antes que ele seja implantado com êxito.
-* A configuração de porta não é consistente em seu _Dockerfile_, no gráfico do Helm e em qualquer código de servidor que abra uma porta.
+* O contentor está ainda estiver no processo que está a ser compilado e implantado. Este problema pode surgir se executar `azds up` ou iniciar o depurador e, em seguida, tente aceder ao contentor antes de ser implementada com êxito.
+* Configuração da porta não é consistente em toda sua _Dockerfile_, gráfico Helm e qualquer código de servidor que se abre uma porta.
 
 Para resolver este problema:
 
 1. Se o contentor está no processo a ser criado/implementado, pode aguardar 2 a 3 segundos e tente acessar o serviço novamente. 
 1. Verifique a configuração de porta. Os números de porta especificados devem ser **idênticos** em todos os seguintes ativos:
-    * **Dockerfile:** Especificado pela instrução `EXPOSE`.
-    * **[Gráfico de Helm](https://docs.helm.sh):** Especificado pelo `externalPort` e `internalPort` valores para um serviço (geralmente localizado em um arquivo `values.yml`),
-    * Todas as portas que estão sendo abertas no código do aplicativo, por exemplo, em node. js: `var server = app.listen(80, function () {...}`
+    * **O Dockerfile:** especificado pelo `EXPOSE` instrução.
+    * **[Gráfico do Helm](https://docs.helm.sh):** especificado pela `externalPort` e `internalPort` valores para um serviço (muitas vezes, localizados num `values.yml` ficheiro),
+    * Nenhuma porta de que está a ser aberta no código da aplicação, por exemplo, no node. js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Não foi possível encontrar o nome do namespace ou tipo "MyLibrary"
 
@@ -469,7 +469,7 @@ Depois que o pods for reiniciado, você poderá começar a usar seu namespace ex
 
 Para habilitar Azure Dev Spaces em um cluster AKS para o qual o tráfego de saída de nós de cluster é restrito, você precisará permitir os seguintes FQDNs:
 
-| FQDN                                    | Porta      | Utilizar      |
+| FQDN                                    | Porta      | Usar      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Para efetuar pull de imagens do Linux Alpine e outras Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|

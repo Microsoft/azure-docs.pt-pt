@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 059937cc390a15c986724b3107a7f64fb789fc92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 975f4940590bfbdab559122c68488c51c65d868e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480284"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896305"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implantar um sistema de escalabilidade horizontal SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux 
 
@@ -435,7 +435,11 @@ Configure e prepare seu sistema operacional executando as seguintes etapas:
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   Para obter mais detalhes sobre como alterar `nfs4_disable_idmapping` parâmetro, consulte https://access.redhat.com/solutions/1749883.
 
 6. **[A]** montar os volumes de Azure NetApp files compartilhados.  
 
@@ -569,14 +573,14 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
      * Para **selecionar uso do sistema/inserir índice [4]** : insira **4** (para personalizado)
      * Para o **local dos volumes de dados** [/Hana/data/HN1]: pressione ENTER para aceitar o padrão
      * Para o **local dos volumes de log** [/Hana/log/HN1]: pressione ENTER para aceitar o padrão
-     * Para **restringir a alocação máxima de memória?** [n]\: insira **n**
+     * Para **restringir a alocação máxima de memória?** [n]: insira **n**
      * Para o **nome do host do certificado para o host hanadb1** [hanadb1]: pressione ENTER para aceitar o padrão
      * Para o **nome do host do certificado para o host hanadb2** [hanadb2]: pressione ENTER para aceitar o padrão
      * Para o **nome do host do certificado para o host hanadb3** [hanadb3]: pressione ENTER para aceitar o padrão
      * Para a **senha do administrador do sistema (hn1adm)** : Insira a senha
      * Para a **senha do usuário do banco de dados do sistema (sistema)** : Insira a senha do sistema
      * Para **Confirmar senha do usuário do banco de dados do sistema (sistema)** : Insira a senha do sistema
-     * Para **reiniciar o sistema após a reinicialização do computador?** [n]\: insira **n** 
+     * Para **reiniciar o sistema após a reinicialização do computador?** [n]: insira **n** 
      * Para **continuar (s/n)** : validar o resumo e, se tudo estiver correto, digite **y**
 
 

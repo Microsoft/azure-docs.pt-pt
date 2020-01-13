@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435782"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extração, transformação e carregamento (ETL) em escala
 
@@ -51,11 +51,11 @@ Para obter mais informações sobre Azure Data Factory, consulte a [documentaç�
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Ingerir armazenamento de arquivos e armazenamento de resultados
 
-Normalmente, os arquivos de dados de origem são carregados em um local no armazenamento do Azure ou Azure Data Lake Storage. Os arquivos podem estar em qualquer formato, mas normalmente são arquivos simples, como CSVs. 
+Normalmente, os arquivos de dados de origem são carregados em um local no armazenamento do Azure ou Azure Data Lake Storage. Os arquivos podem estar em qualquer formato, mas normalmente são arquivos simples, como CSVs.
 
-### <a name="azure-storage"></a>Storage do Azure 
+### <a name="azure-storage"></a>Armazenamento do Azure
 
-O [armazenamento do Azure](https://azure.microsoft.com/services/storage/blobs/) tem [metas de escalabilidade específicas](../../storage/common/storage-scalability-targets.md).  Para a maioria dos nós analíticos, o armazenamento do Azure é mais bem dimensionado ao lidar com muitos arquivos menores.  O armazenamento do Azure garante o mesmo desempenho, independentemente de quantos arquivos ou do tamanho dos arquivos (desde que você esteja dentro dos limites).  Isso significa que você pode armazenar terabytes de dados e ainda obter um desempenho consistente, esteja você usando um subconjunto dos dados ou todos os dados.
+O [armazenamento do Azure](https://azure.microsoft.com/services/storage/blobs/) tem metas de escalabilidade específicas. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../../storage/blobs/scalability-targets.md). Para a maioria dos nós analíticos, o armazenamento do Azure é mais bem dimensionado ao lidar com muitos arquivos menores.  O armazenamento do Azure garante o mesmo desempenho, independentemente de quantos arquivos ou do tamanho dos arquivos (desde que você esteja dentro dos limites).  Isso significa que você pode armazenar terabytes de dados e ainda obter um desempenho consistente, esteja você usando um subconjunto dos dados ou todos os dados.
 
 O armazenamento do Azure tem vários tipos diferentes de BLOBs.  Um *blob de acréscimo* é uma ótima opção para armazenar logs da Web ou dados de sensor.  
 
@@ -77,11 +77,11 @@ O ADLS também é otimizado para ingestão de eventos usando o Hub de eventos do
 
 Para carregar conjuntos de dados no intervalo de terabytes, a latência de rede pode ser um grande problema, especialmente se os dados forem provenientes de um local.  Nesses casos, você pode usar as opções abaixo:
 
-* Azure ExpressRoute:  O Azure ExpressRoute permite criar conexões privadas entre data centers do Azure e sua infraestrutura local. Essas conexões fornecem uma opção confiável para transferir grandes quantidades de dados. Para obter mais informações, consulte a [documentação do Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute: o Azure ExpressRoute permite criar conexões privadas entre data centers do Azure e sua infraestrutura local. Essas conexões fornecem uma opção confiável para transferir grandes quantidades de dados. Para obter mais informações, consulte a [documentação do Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 * Carregamento de dados "offline". Você pode usar o [serviço de importação/exportação do Azure](../../storage/common/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um data center do Azure. Seus dados são carregados primeiro nos blobs de armazenamento do Azure. Em seguida, você pode usar [Azure data Factory](../../data-factory/connector-azure-data-lake-store.md) ou a ferramenta [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) para copiar dados de blobs de armazenamento do Azure para data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-sql-data-warehouse"></a>Armazém de Dados SQL do Azure
 
 O SQL DW do Azure é uma ótima opção para armazenar resultados limpos e preparados para análises futuras.  O Azure HDInsight pode ser usado para executar esses serviços para o SQL DW do Azure.
 
@@ -133,7 +133,7 @@ O Apache Flume não pode ser usado com o Azure HDInsight.  Uma instalação loca
 
 Depois que os dados existirem no local escolhido, você precisa limpá-los, combiná-los ou prepará-los para um padrão de uso específico.  Hive, Pig e Spark SQL são todas boas opções para esse tipo de trabalho.  Todos eles têm suporte no HDInsight. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Usar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usando Apache Hive como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

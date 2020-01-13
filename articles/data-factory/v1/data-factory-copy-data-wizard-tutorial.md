@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 22fcf75ace672b1481228996d6e7efe9c73013e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438907"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com Atividade de Cópia com o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "74927266"
 
 Este tutorial mostra como utilizar o **Assistente de Cópia** para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. 
 
-O **Assistente de Cópia** do Azure Data Factory{b> <b}permite criar rapidamente um pipeline de dados que copia dados de um arquivo de dados de origem suportado para um arquivo de dados de destino suportado. Consequentemente, recomendamos que o utilize como primeiro passo para criar um pipeline de exemplo para o cenário de movimento de dados. Para obter uma lista dos arquivos de dados suportados como origens e destinos, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados).  
+O **Assistente de Cópia** do Azure Data Factorypermite criar rapidamente um pipeline de dados que copia dados de um arquivo de dados de origem suportado para um arquivo de dados de destino suportado. Consequentemente, recomendamos que o utilize como primeiro passo para criar um pipeline de exemplo para o cenário de movimento de dados. Para obter uma lista dos arquivos de dados suportados como origens e destinos, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados).  
 
 Este tutorial mostra-lhe como criar uma fábrica de dados do Azure, iniciar o Assistente de Cópia e passar por uma série de passos para fornecer os detalhes sobre o seu cenário de ingestão/movimento de dados. Após concluir os passos do assistente, este cria automaticamente um pipeline com uma Atividade de Cópia para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. Para obter mais informações sobre a Atividade de Cópia, veja [Data movement activities](data-factory-data-movement-activities.md) (Atividades de movimento de dados).
 
@@ -61,7 +61,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
       - Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
       - Selecione **Criar novo** para introduzir um nome para um grupo de recursos.
           
-        Alguns dos passos deste tutorial pressupõe que utiliza o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../../azure-resource-manager/resource-group-overview.md).
+        Alguns dos passos deste tutorial pressupõe que utiliza o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../../azure-resource-manager/management/overview.md).
    4. Selecione uma **localização** para a fábrica de dados.
    5. Selecione a caixa de verificação **Afixar ao dashboard**, na parte inferior do painel.  
    6. Clique em **Criar**.

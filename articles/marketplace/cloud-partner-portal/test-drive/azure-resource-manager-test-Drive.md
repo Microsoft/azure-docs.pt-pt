@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838085"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644907"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versão de Teste do Azure Resource Manager
 
@@ -289,7 +289,7 @@ Exemplo:
 
 Mais uma coisa que deve levar em consideração é a subscrição e limites de serviço. Por exemplo, se quiser implementar até dez máquinas de virtuais de 4 núcleos, terá de certificar-se de que a subscrição que utiliza para seu laboratório permite-lhe utilizar 40 núcleos.
 
-Pode encontrar mais informações sobre a subscrição do Azure e limites de serviço do [este artigo](https://docs.microsoft.com/azure/azure-subscription-service-limits). Como várias versões de teste podem ser realizadas ao mesmo tempo, certifique-se de que a sua subscrição pode lidar com o \# de núcleos, multiplicados pelo número total de simultâneas versões de teste que podem ser realizadas.
+Pode encontrar mais informações sobre a subscrição do Azure e limites de serviço do [este artigo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Como várias versões de teste podem ser realizadas ao mesmo tempo, certifique-se de que a sua subscrição pode lidar com o \# de núcleos, multiplicados pelo número total de simultâneas versões de teste que podem ser realizadas.
 
 ### <a name="what-to-upload"></a>O que carregar
 
