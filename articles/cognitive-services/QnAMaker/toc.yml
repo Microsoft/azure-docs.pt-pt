@@ -147,6 +147,8 @@
       href: troubleshooting.md
     - name: Formatos de ficheiro
       items:
+        - name: Referência de Markdown
+          href: reference-markdown-format.md
         - name: TSV de testes em lote
           href: reference-tsv-format-batch-testing.md
     - name: Referência da API REST

@@ -57,10 +57,12 @@
               href: team-development-nodejs.md
     - name: Conceitos
       items:
-        - name: Como funcionam os Espaços de Desenvolvimento
+        - name: Como funciona o Dev Spaces
           href: how-dev-spaces-works.md
         - name: Como funciona o VS Code com o Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
+        - name: Configuração de rede em diferentes topologias de rede
+          href: configure-networking.md
     - name: Procedimento
       items:
         - name: Instalar o Azure Dev Spaces

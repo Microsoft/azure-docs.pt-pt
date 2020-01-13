@@ -16,9 +16,7 @@
       href: manage-app-groups.md
     - name: 5. Criar um conjunto de anfitriões para validar as atualizações de serviço
       href: create-validation-host-pool.md
-    - name: 6. Implementar uma ferramenta de gestão
-      href: manage-resources-using-ui.md
-    - name: 7. Configurar alertas de serviço
+    - name: 6. Configurar alertas de serviço
       href: set-up-service-alerts.md
 - name: Procedimentos
   items:
@@ -70,6 +68,12 @@
       href: set-up-scaling-script.md
     - name: Personalizar o feed
       href: customize-feed-for-virtual-desktop-users.md
+    - name: Implementar a ferramenta de gestão
+      items:
+        - name: Modelo Azure Resource Manager
+          href: manage-resources-using-ui.md
+        - name: PowerShell
+          href: manage-resources-using-ui-powershell.md
     - name: Utilizar o diagnóstico do serviço
       items:
         - name: Implementar a ferramenta de diagnóstico

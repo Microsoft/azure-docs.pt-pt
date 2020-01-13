@@ -337,6 +337,8 @@
               href: sql-database-design-first-database-csharp.md
         - name: Carregar e mover dados
           items:
+            - name: Importar ou exportar a partir de uma VM do Azure
+              href: import-export-from-vm.md
             - name: Importar uma base de dados de um ficheiro BACPAC
               href: sql-database-import.md
             - name: Exportar uma base de dados para um ficheiro BACPAC

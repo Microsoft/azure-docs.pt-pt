@@ -617,6 +617,8 @@
           href: solution-template-copy-new-files-lastmodifieddate.md
         - name: Cópia em massa a partir da base de dados
           href: solution-template-bulk-copy-with-control-table.md
+        - name: Cópia em massa de ficheiros para base de dados
+          href: solution-template-bulk-copy-from-files-to-database.md
         - name: Cópia delta a partir da base de dados
           href: solution-template-delta-copy-with-control-table.md
         - name: Migrar dados do Amazon S3 para o Armazenamento do Azure

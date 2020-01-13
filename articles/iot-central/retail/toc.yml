@@ -36,6 +36,8 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: Arquitetura de análises da loja
       href: store-analytics-architecture.md
+    - name: Arquitetura do modelo de aplicação de centro de microconclusão
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: Conectividade
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: O que são modelos de aplicação?

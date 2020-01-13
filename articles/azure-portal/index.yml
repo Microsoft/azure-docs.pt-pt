@@ -12,12 +12,12 @@ metadata:
   author: mblythe
   ms.author: mblythe
   ms.date: 12/19/2019
-  ms.openlocfilehash: 4c04ae88f69ab4e17ea70e94683ce0add4823040
-  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.openlocfilehash: 277326eb6b120c4cc1b456a17c6f58791c66dd16
+  ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/03/2020
-  ms.locfileid: "75640045"
+  ms.lasthandoff: 01/11/2020
+  ms.locfileid: "75890782"
 landingContent:
 - title: Acerca do portal do Azure
   linkLists:
@@ -77,3 +77,11 @@ landingContent:
     links:
     - text: Ativar o contraste elevado
       url: azure-portal-change-theme-high-contrast.md
+- title: Criar e gerir pedidos de suporte
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar um pedido de suporte do Azure
+      url: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - text: Resolução de problemas de subscrição de SKU ou região
+      url: ../azure-portal/supportability/sku-series-unavailable.md

@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: Configurar a autenticação com o AWS
       href: automation-config-aws-account.md
+    - name: Encriptação de recursos seguros na Automatização do Azure
+      href: automation-secure-asset-encryption.md
     - name: Gerir controlo de acesso baseado em funções
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -40,7 +42,7 @@
           displayName: 'graphical, python, powershell, powershell workflow'
         - name: Conhecer o Fluxo de Trabalho do PowerShell
           href: automation-powershell-workflow.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Criar um runbook
           href: automation-quickstart-create-runbook.md
@@ -241,9 +243,9 @@
       displayName: DSC
     - name: Conceitos
       items:
-        - name: PowerShell DSC
+        - name: DSC do PowerShell
           href: /powershell/dsc/overview/overview
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Introdução
           href: automation-dsc-getting-started.md

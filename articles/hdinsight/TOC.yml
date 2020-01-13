@@ -848,6 +848,8 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Etiquetas de serviço da firewall do Azure
           href: ./hdinsight-service-tags.md
+        - name: Encriptação de discos chave gerida pelo cliente
+          href: ./disk-encryption.md
     - name: Procedimento
       items:
         - name: Utilizar o Mediador de ID para a gestão de credenciais

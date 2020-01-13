@@ -32,6 +32,30 @@
       href: azure-portal-export-delete-settings.md
     - name: Séries de vídeos de procedimentos do portal do Azure
       href: azure-portal-video-series.md
+    - name: Criar e gerir pedidos de suporte
+      items:
+        - name: Criar um pedido de suporte do Azure
+          href: supportability/how-to-create-azure-support-request.md
+        - name: Carregar ficheiros para um pedido de suporte
+          href: supportability/how-to-use-file-uploader.md
+        - name: Pedir aumentos de quota
+          items:
+            - name: Aumentar os limites de vCPU de computação
+              items:
+                - name: Modelo de implementação Resource Manager
+                  items:
+                    - name: Aumentar o limite de vCPU das séries de VM
+                      href: supportability/per-vm-quota-requests.md
+                    - name: Aumentar o limite total regional de vCPU
+                      href: supportability/regional-quota-requests.md
+                    - name: Aumentar o limite de quota do Spot
+                      href: supportability/low-priority-quota.md
+                - name: Modelo de implementação clássica
+                  href: supportability/classic-deployment-model-quota-increase-requests.md
+            - name: Aumentar os limites de rede
+              href: supportability/networking-quota-requests.md
+        - name: Resolução de problemas de subscrição de SKU ou região
+          href: supportability/sku-series-unavailable.md
 - name: Referência
   items:
     - name: Atalhos de teclado

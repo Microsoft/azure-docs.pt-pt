@@ -4,7 +4,7 @@
   items:
     - name: Acerca do Azure Container Instances
       href: container-instances-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Implementar uma instância de contentor - CLI
@@ -55,10 +55,14 @@
   items:
     - name: Implementação
       items:
-        - name: Implementar numa rede virtual (pré-visualização)
+        - name: Implementar numa rede virtual
           href: container-instances-vnet.md
         - name: Implementar do Azure Container Registry
           href: container-instances-using-azure-container-registry.md
+        - name: Encriptar dados de implementação
+          href: container-instances-encrypt-data.md
+        - name: Implementar em anfitriões dedicados
+          href: container-instances-dedicated-hosts.md
     - name: Cenários de contentor
       items:
         - name: Definir política de reinício para tarefas de execução única
