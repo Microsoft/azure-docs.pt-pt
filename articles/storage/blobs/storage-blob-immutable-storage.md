@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 61a8cf366d5ae03f5267718f8ab20580295ddab5
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903432"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912802"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazene dados de blob críticos para os negócios com armazenamento imutável
 
@@ -80,7 +80,7 @@ Somente as políticas de retenção baseadas em tempo têm uma configuração `a
 
 Como essa configuração faz parte de uma política de retenção baseada em tempo, os blobs de acréscimo ainda permanecem no estado imutável pela duração do período de retenção *efetivo* . Como novos dados podem ser acrescentados além da criação inicial do blob de acréscimo, há uma pequena diferença na forma como o período de retenção é determinado. A retenção efetiva é a diferença entre a hora da **última modificação** do blob de acréscimo e o intervalo de retenção especificado pelo usuário. Da mesma forma, quando o intervalo de retenção é estendido, o armazenamento imutável usa o valor mais recente do intervalo de retenção especificado pelo usuário para calcular o período de retenção efetivo.
 
-Por exemplo, suponha que um usuário crie uma política de retenção baseada em tempo com `allowProtectedAppendWrites` habilitado e um intervalo de retenção de 90 dias. Um blob de acréscimo, _logblob1_, é criado no contêiner hoje, novos logs continuam a ser adicionados ao blob de acréscimo pelos próximos 10 dias; Portanto, o período de retenção efetivo para o _logblob1_ é de 100 dias a partir de hoje (o tempo de sua última modificação/acréscimo).
+Por exemplo, suponha que um usuário crie uma política de retenção baseada em tempo com `allowProtectedAppendWrites` habilitado e um intervalo de retenção de 90 dias. Um blob de acréscimo, _logblob1_, é criado no contêiner hoje, novos logs continuam a ser adicionados ao blob de acréscimo pelos próximos 10 dias; Portanto, o período de retenção efetivo para o _logblob1_ é de 100 dias a partir de hoje (a hora de seu último acréscimo + 90 dias).
 
 Políticas de retenção baseadas em tempo desbloqueadas permitem que a configuração de `allowProtectedAppendWrites` seja habilitada e desabilitada a qualquer momento. Quando a política de retenção baseada em tempo estiver bloqueada, a configuração de `allowProtectedAppendWrites` não poderá ser alterada.
 

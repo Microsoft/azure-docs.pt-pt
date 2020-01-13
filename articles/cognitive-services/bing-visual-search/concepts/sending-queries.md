@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 2a87bee4769111e01dc49e8fce14569233dfaef3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5d27aa80a63232694e1c9951f98b2191ba575e74
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111629"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913075"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para o API da Pesquisa Visual do Bing
 
@@ -73,12 +73,12 @@ Os pedidos só podem ser enviados como HTTP POST.
 
 Os parâmetros seguintes são os parâmetros de consulta que o pedido deve especificar. No mínimo, você deve incluir o parâmetro de consulta `mkt`:
 
-| Nome | Valor | Tipo | Necessário |
+| Nome | Valor | Tipo | Obrigatório |
 | --- | --- | --- | --- |
-| <a name="cc" />cc  | Um código de país de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Não       |
-| <a name="mkt" />mkt   | O mercado de onde os resultados provêm. <br /><br /> **Observação:** Você sempre deve especificar o mercado, se for conhecido. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Sim      |
-| <a name="safesearch" />safeSearch | Um filtro para conteúdo adulto. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Desativado &mdash; devolve páginas Web com conteúdos em textos ou imagens para adultos.<br /><br/></li><li>Moderado &mdash; devolve páginas Web com conteúdos para adultos em texto, mas não em imagens.<br /><br/></li><li>Estrito &mdash; não devolve páginas Web com conteúdos em textos ou imagens para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** se o pedido vier de um mercado no qual a política de conteúdos para adultos do Bing exija que `safeSearch` esteja Estrito, o Bing ignora o valor `safeSearch` e utiliza Estrito.<br/><br/>**Observação:** Se você usar o operador de consulta `site:`, haverá uma chance de que a resposta possa conter conteúdo adulto, independentemente de como o parâmetro de consulta `safeSearch` está definido como. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos.  | Cadeia | Não       |
-| <a name="setlang" />setLang  | O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma usando o código de linguagem ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado. | Cadeia | Não   |
+| <a name="cc" />cc  | Um código de país de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | String | Não       |
+| <a name="mkt" />mkt   | O mercado de onde os resultados provêm. <br /><br /> **Observação:** Você sempre deve especificar o mercado, se for conhecido. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | String | Sim      |
+| <a name="safesearch" />safeSearch | Um filtro para conteúdo adulto. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Desativado &mdash; devolve páginas Web com conteúdos em textos ou imagens para adultos.<br /><br/></li><li>Moderado &mdash; devolve páginas Web com conteúdos para adultos em texto, mas não em imagens.<br /><br/></li><li>Estrito &mdash; não devolve páginas Web com conteúdos em textos ou imagens para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** se o pedido vier de um mercado no qual a política de conteúdos para adultos do Bing exija que `safeSearch` esteja Estrito, o Bing ignora o valor `safeSearch` e utiliza Estrito.<br/><br/>**Observação:** Se você usar o operador de consulta `site:`, haverá uma chance de que a resposta possa conter conteúdo adulto, independentemente de como o parâmetro de consulta `safeSearch` está definido como. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos.  | String | Não       |
+| <a name="setlang" />setLang  | O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma usando o código de linguagem ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado. | String | Não   |
 
 ## <a name="headers"></a>Cabeçalhos
 
@@ -116,6 +116,26 @@ Content-Disposition: form-data; name="knowledgeRequest"
     "imageInfo" : {
         "url" : "https://contoso.com/2018/05/fashion/red.jpg"
     }
+}
+
+--boundary_1234-abcd--
+```
+
+Opcionalmente, você pode definir o atributo `enableEntityData` no cabeçalho como `true` para obter informações detalhadas sobre a entidade principal na imagem que você carrega, incluindo links para as informações da Web e de atribuição. Esse campo é `false` por padrão.
+
+```
+--boundary_1234-abcd
+Content-Disposition: form-data; name="knowledgeRequest"
+
+{
+  "imageInfo" : {
+      "url" : "https://contoso.com/2018/05/fashion/red.jpg"
+  },
+  "knowledgeRequest" : {
+    "invokedSkillsRequestData" : {
+        "enableEntityData" : "true"
+    }
+  }
 }
 
 --boundary_1234-abcd--
@@ -368,37 +388,81 @@ O reconhecimento de texto também pode reconhecer as informações de contacto e
     }
 ```
 
-Se a imagem contiver uma entidade reconhecida como uma pessoa, lugar ou coisa culturalmente conhecida/popular, uma das marcas poderá incluir um insight de entidade.
+Se a imagem contiver uma entidade reconhecida como uma pessoa, lugar ou coisa culturalmente conhecida/popular, uma das marcas poderá incluir um insight de entidade. Os campos `mainEntity` e `data` só estarão disponíveis se o atributo `enableEntityData` no cabeçalho `Content-Type` estiver definido como `true`.
 
 ```json
-    {
-      "image" : {
-        "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Statue+of+Liberty..."
-      },
-      "displayName" : "Statue of Liberty",
-      "boundingBox" : {
-        "queryRectangle" : {
-          "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
-          "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
-          "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
-          "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
-        },
-        "displayRectangle" : {
-          "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
-          "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
-          "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
-          "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
-        }
-      },
-      "actions" : [
-        {
-          "_type" : "ImageEntityAction",
-          "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
-          "displayName" : "Statue of Liberty",
-          "actionType" : "Entity",
-        }
-      ]
+{
+  "image" : {
+    "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Statue+of+Liberty..."
+  },
+  "displayName" : "Statue of Liberty",
+  "boundingBox" : {
+    "queryRectangle" : {
+      "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
+      "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
+      "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
+      "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
+    },
+    "displayRectangle" : {
+      "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
+      "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
+      "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
+      "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
     }
+  },
+  "actions" : [
+    {
+      "_type" : "ImageEntityAction",
+      "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
+      "displayName" : "Statue of Liberty",
+      "actionType" : "Entity",
+      "mainEntity" : {
+        "name" = "Statue of liberty",
+        "bingId" : "..."
+      },
+      "data" : {
+        "id" : "https://api.cognitive.microsoft.com/api/v7/entities/...",
+        "readLink": "https://www.bingapis.com/api/v7/search?q=...",
+        "readLinkPingSuffix": "...",
+        "contractualRules": [
+          {
+            "_type": "ContractualRules/LicenseAttribution",
+            "targetPropertyName": "description",
+            "mustBeCloseToContent": true,
+            "license": {
+                "name": "CC-BY-SA",
+                "url": "http://creativecommons.org/licenses/by-sa/3.0/",
+                "urlPingSuffix": "..."
+            },
+            "licenseNotice": "Text under CC-BY-SA license"
+          },
+          {
+            "_type": "ContractualRules/LinkAttribution",
+            "targetPropertyName": "description",
+            "mustBeCloseToContent": true,
+            "text": "Wikipedia",
+            "url": "http://en.wikipedia.org/wiki/...",
+            "urlPingSuffix": "..."
+          }
+        ],
+        "webSearchUrl": "https://www.bing.com/entityexplore?q=...",
+        "webSearchUrlPingSuffix": "...",
+        "name": "Statue of Liberty",
+        "image": {
+          "thumbnailUrl": "https://tse1.mm.bing.net/th?id=...",
+          "hostPageUrl": "http://upload.wikimedia.org/wikipedia/...",
+          "hostPageUrlPingSuffix": "...",
+          "width": 50,
+          "height": 50,
+          "sourceWidth": 474,
+          "sourceHeight": 598
+        },
+        "description" : "...",
+        "bingId": "..."
+        }
+      }
+  ]
+}
 ```
 
 ## <a name="see-also"></a>Ver também

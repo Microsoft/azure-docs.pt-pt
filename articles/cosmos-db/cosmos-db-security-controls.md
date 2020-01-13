@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 5ab4281f1ad591befda5a439906604331a1ab323
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872150"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913081"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Controles de segurança para Azure Cosmos DB
 
@@ -48,11 +48,11 @@ Este artigo documenta os controles de segurança internos do Azure Cosmos DB.
 
 | Controle de segurança | Sim/não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Todos os bancos de dados e backups do Azure cosmos são criptografados por padrão; consulte [criptografia de dados em Azure Cosmos DB](database-encryption-at-rest.md). Não há suporte para a criptografia do lado do servidor com chaves gerenciadas pelo cliente. |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não |  |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Todos os bancos de dados e backups do Azure cosmos são criptografados por padrão; consulte [criptografia de dados em Azure Cosmos DB](database-encryption-at-rest.md). |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | Consulte [Configurar chaves gerenciadas pelo cliente para sua conta de Azure Cosmos DB](how-to-setup-cmk.md)  |
 | Criptografia em nível de coluna (serviços de dados do Azure)| Sim | Somente na API de tabelas Premium. Nem todas as APIs dão suporte a esse recurso. Consulte [introdução ao Azure Cosmos DB: API de tabela](table-introduction.md). |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Todos os dados de Azure Cosmos DB são criptografados em trânsito. |
-| Chamadas de API criptografadas| Sim | Todas as conexões com Azure Cosmos DB dão suporte a HTTPS. O Azure Cosmos DB também dá suporte a conexões TLS 1,2, mas isso ainda não é imposto. Se os clientes desligarem o TLS de nível inferior em seu final, eles poderão se conectar ao Cosmos DB.  |
+| Chamadas de API criptografadas| Sim | Todas as conexões com Azure Cosmos DB dão suporte a HTTPS. Azure Cosmos DB também dá suporte a TLS 1,2.<br>É possível impor uma versão mínima do TLS do lado do servidor. Para fazer isso, entre em contato com [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com]). |
 
 ## <a name="configuration-management"></a>Gestão de configurações
 

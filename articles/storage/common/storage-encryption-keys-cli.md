@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: db0b5db98f654c140a640f10df2c22c22c85c848
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: bf21cd27fa290b9b9b863803aef043eccc815573
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665301"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912703"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando CLI do Azure
 
