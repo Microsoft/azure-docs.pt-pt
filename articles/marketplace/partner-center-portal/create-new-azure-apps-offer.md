@@ -1,19 +1,19 @@
 ---
 title: Criar uma nova oferta de aplicativos do Azure no Marketplace comercial
 description: Como criar uma nova oferta de aplicativos do Azure para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281275"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930715"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -55,7 +55,7 @@ Todas as novas ofertas de aplicativos do Azure devem incluir um [GUID de atribui
 Examine a seguinte documentação do aplicativo do Azure, que fornece guias de início rápido, tutoriais e exemplos.
 
 * [Entender modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-* Inícios rápidos:
+* Guias de Início Rápido:
 
     * [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/)
     * [Modelos de início rápido do Azure para GitHub](https://github.com/azure/azure-quickstart-templates)
@@ -70,7 +70,7 @@ Examine a seguinte documentação do aplicativo do Azure, que fornece guias de i
 * Amostras
 
     * [CLI do Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    * [O Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Soluções de aplicativos gerenciados](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Conceitos básicos no conhecimento técnico
@@ -89,7 +89,7 @@ Sua equipe de engenharia deve ter conhecimento sobre as seguintes tecnologias da
 
 Escolha um ou ambos os seguintes ambientes de script para ajudar a gerenciar seu aplicativo do Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 É recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
@@ -236,7 +236,7 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 Forneça o logotipo de sua oferta em três tamanhos: **pequeno (48 x 48)** , **médio (90 x 90)** e **grande (216 x 216)** .
 
-#### <a name="hero"></a>'
+#### <a name="hero"></a>Herói
 
 A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pixels.
 
@@ -452,7 +452,7 @@ Indique quem deve ter acesso de gerenciamento a esse aplicativo gerenciado em ca
 
 ***Autorizações*** – adicione a ID de objeto Azure Active Directory do usuário, grupo ou aplicativo para o qual você deseja receber permissão para o grupo de recursos gerenciado. Identifique o usuário por sua ID de entidade de segurança, que pode ser encontrada na [folha Azure Active Directory usuários no portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada entidade de segurança, selecione uma das funções internas do Azure AD na lista (proprietário ou colaborador). A função selecionada descreverá as permissões que a entidade de segurança terá sobre os recursos na assinatura do cliente. Para obter mais informações, veja [Funções incorporadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  Para obter mais informações sobre o RBAC (controle de acesso baseado em função), consulte Introdução [ao RBAC no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Para cada entidade de segurança, selecione uma das funções internas do Azure AD na lista (proprietário ou colaborador). A função selecionada descreverá as permissões que a entidade de segurança terá sobre os recursos na assinatura do cliente. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  Para obter mais informações sobre o RBAC (controle de acesso baseado em função), consulte Introdução [ao RBAC no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
 >Embora você possa adicionar até 100 autorizações por nuvem, geralmente é mais fácil criar um grupo de usuários Active Directory e especificar sua ID na "ID da entidade de segurança".  Isso permitirá que você adicione mais usuários ao grupo de gerenciamento depois que o plano for implantado e reduza a necessidade de atualizar o plano apenas para adicionar mais autorizações.
@@ -461,7 +461,7 @@ Para cada entidade de segurança, selecione uma das funções internas do Azure 
 
 Aplique [políticas do Azure](https://docs.microsoft.com/azure/governance/policy/overview) ao seu aplicativo gerenciado para especificar os requisitos de conformidade para a solução implantada.  Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](https://docs.microsoft.com/azure/governance/policy/samples/index).  Você pode configurar um máximo de cinco políticas e apenas uma instância de cada opção de políticas.  Algumas políticas exigem parâmetros adicionais.  O SKU Standard é necessário para as políticas de auditoria.  O nome da política está limitado a 50 caracteres.
 
-## <a name="co-sell"></a>Venda conjunta
+## <a name="co-sell"></a>Venda Conjunta
 
 Fornecer informações sobre a guia de televenda é totalmente opcional para publicar sua oferta. É necessário atingir o status pronto para venda de covenda pronta e de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes.
 
@@ -501,7 +501,7 @@ A opção de **lista de unidades de teste** encontrada na guia **Test Drive** ex
 
 - **Manual do usuário** (obrigatório): uma explicação detalhada de sua experiência de Test Drive. O manual do usuário deve abranger exatamente o que você deseja que o cliente tenha de apresentar o test drive e servir como uma referência para quaisquer perguntas que possam ter. O arquivo deve estar no formato PDF e ter o nome (máximo de 255 caracteres) após o carregamento.
 
-- **Vídeos: adicionar vídeos** (opcional): vídeos podem ser carregados no YouTube ou Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir um passo a passo de informações para ajudá-los a entender melhor o Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
+- **Vídeos: adicionar vídeos** (opcional): os vídeos podem ser carregados no YouTube ou Vimeo e mencionados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir um passo a passo de informações para ajudá-los a entender melhor os Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
   - **Nome** (obrigatório)
   - **URL (somente YouTube ou Vimeo)** (obrigatório)
   - **Miniatura (533 x 324 px)** : o arquivo de imagem deve estar no formato png.
@@ -529,6 +529,6 @@ A etapa de **validação manual** no processo de publicação representa uma an�
 
 Se você encontrou erros em uma ou mais das etapas de publicação, você deve corrigi-los e republicar sua oferta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

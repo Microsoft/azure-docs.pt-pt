@@ -1,19 +1,19 @@
 ---
 title: Códigos de estado de venda conjunta | Azure Marketplace
 description: Use esses códigos de estado/província ao fornecer informações de contato na página de venda de sua oferta.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812863"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934368"
 ---
 # <a name="co-sell-state-codes"></a>Códigos de estado de venda conjunta
 
@@ -30,10 +30,10 @@ Se aplicável, use esses códigos para fornecer informações de estado/provínc
 | Califórnia                          | US-CA     |
 | Colorado                            | US-CO     |
 | Connecticut                         | US-CT     |
-| Corpora                            | US-DE     |
+| Delaware                            | US-DE     |
 | Flórida                             | US-FL     |
 | Geórgia                             | EUA-GA     |
-| Havaí                              | US-HI     |
+| Havai                              | US-HI     |
 | Idaho                               | ID DOS EUA     |
 | Illinois                            | US-IL     |
 | Indiana                             | EUA-EM     |
@@ -46,12 +46,12 @@ Se aplicável, use esses códigos para fornecer informações de estado/provínc
 | Massachusetts                       | US-MA     |
 | Michigan                            | US-MI     |
 | Minnesota                           | US-MN     |
-| Mississipi                         | EUA-MS     |
+| Mississippi                         | EUA-MS     |
 | Missouri                            | EUA-MO     |
 | Montana                             | US-MT     |
 | Nebraska                            | US-NE     |
 | Nevada                              | US-NV     |
-| Novo Hampshire                       | US-NH     |
+| New Hampshire                       | US-NH     |
 | Nova Jersey                          | EUA-NJ     |
 | Novo México                          | US-NM     |
 | Nova Iorque                            | US-NY     |
@@ -61,7 +61,7 @@ Se aplicável, use esses códigos para fornecer informações de estado/provínc
 | Oklahoma                            | EUA-OK     |
 | Oregon                              | EUA-OU     |
 | Pensilvânia                        | EUA-PA     |
-| Ilha Rhode                        | EUA-RI     |
+| Rhode Island                        | EUA-RI     |
 | Carolina do Sul                      | US-SC     |
 | Dakota do Sul                        | US-SD     |
 | Tennessee                           | US-TN     |
@@ -75,7 +75,7 @@ Se aplicável, use esses códigos para fornecer informações de estado/provínc
 | Wyoming                             | US-WY     |
 | Distrito de Colúmbia                | US-DC     |
 | Samoa Americana                      | EUA-COMO     |
-| Guam                                | US-GU     |
+| Guame                                | US-GU     |
 | Ilhas Marianas do Norte            | EUA-MP     |
 | Porto Rico                         | US-PR     |
 | Ilhas Menores Afastadas dos Estados Unidos | US-UM    |

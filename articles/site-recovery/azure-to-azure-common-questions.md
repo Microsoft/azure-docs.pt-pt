@@ -1,18 +1,18 @@
 ---
 title: Perguntas comuns sobre a recuperação de desastres de VM do Azure com o Azure Site Recovery
 description: Este artigo responde a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621074"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929910"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
@@ -26,7 +26,7 @@ Examine [Azure site Recovery](https://azure.microsoft.com/blog/know-exactly-how-
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como funciona o escalão gratuito do Azure Site Recovery?
 Cada uma das instâncias que está protegida pelo Azure Site Recovery é gratuíta nos primeiros 31 dias de proteção. A partir do 32.º dia, a proteção para a instância é cobrada aos preços acima.
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, terei quaisquer outros custos com o Azure?
-Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, pode incorrer em custos de Armazenamento do Azure, de transações de armazenamento e de transferência de dados. Uma máquina virtual recuperada também pode ter custos de computação do Azure. Obtenha detalhes completos sobre os preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
+Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, pode ter custos para o Armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também pode ter custos de computação do Azure. Obtenha detalhes completos sobre os preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Onde posso encontrar as práticas recomendadas para a recuperação de desastres de VM do Azure? 
 1. [Entender a arquitetura do Azure para o Azure](azure-to-azure-architecture.md)
@@ -163,7 +163,7 @@ Você pode replicar 16 máquinas virtuais juntas em um grupo de replicação.
 Como a CPU é intensiva, a habilitação da consistência de várias VMs pode afetar o desempenho da carga de trabalho. Ele deve ser usado somente se os computadores estiverem executando a mesma carga de trabalho e você precisar de consistência em vários computadores. Por exemplo, se você tiver duas instâncias de SQL Server e dois servidores Web em um aplicativo, deverá ter consistência de várias VMs somente para as instâncias de SQL Server.
 
 
-## <a name="failover"></a>Ativação pós-falha
+## <a name="failover"></a>Ativação Pós-Falha
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Como a capacidade é garantida na região de destino para VMs do Azure?
 A equipe de Site Recovery trabalha com a equipe de gerenciamento de capacidade do Azure para planejar a capacidade de infraestrutura suficiente, para ajudar a garantir que as VMs habilitadas para a recuperação de desastre serão implantadas com êxito na região de destino quando o failover for iniciado.
@@ -244,7 +244,7 @@ Após a nova proteção, a quantidade de tempo para o failback geralmente é sem
 A equipe de Site Recovery trabalha com a equipe de gerenciamento de capacidade do Azure para planejar a capacidade de infraestrutura suficiente, para ajudar a garantir que as VMs habilitadas para recuperação de desastres serão implantadas com êxito na região de destino quando o failover for iniciado.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery funciona com instâncias reservadas?
-Sim, você pode comprar [instâncias de reserva](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastre e site Recovery operações de failover as usarão. </br> Nenhuma configuração adicional é necessária.
+Sim, você pode comprar [instâncias de reserva](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastre e site Recovery operações de failover as usarão. </br> Não é necessária nenhuma configuração adicional.
 
 
 ## <a name="security"></a>Segurança

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814849"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934119"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre fala para texto
 
@@ -77,9 +77,9 @@ Se você tiver adaptado e implantado um modelo com a linha de base V 1.0, essa i
 
 **R**: a API REST limita as solicitações a 25 por 5 segundos. Os detalhes podem ser encontrados em nossas páginas de [fala para texto](speech-to-text.md).
 
-**P: como sou cobrado por áudio de canal duplo?**
+**P: como serei cobrado pelo áudio de dois canais?**
 
-**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado por duração do arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
+**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado pela duração de cada arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo. Para obter detalhes sobre preços, consulte a [página de preços dos serviços cognitivas do Azure](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Se você tiver outras preocupações de privacidade que proíbam de usar o serviço de fala personalizado, entre em contato com um dos canais de suporte.
@@ -197,5 +197,5 @@ As experiências de fala incorporadas ao Office 365, como ditado e legendas do P
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Resolução de problemas](troubleshooting.md)
+- [Resolução de Problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

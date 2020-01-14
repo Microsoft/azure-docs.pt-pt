@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57956573dfe913828fb20db08397fac52528403d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422442"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932402"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gerir o acesso de utilizador com as revisões de acesso do Azure AD
 
@@ -34,7 +34,7 @@ Com o Azure Active Directory (Azure AD), pode facilmente garantir que os utiliza
 
 - Azure AD Premium P2
 
-Para obter mais informações, consulte [quais usuários devem ter licenças?](access-reviews-overview.md#which-users-must-have-licenses).
+Para obter mais informações, consulte [requisitos de licença](access-reviews-overview.md#license-requirements).
 
 ## <a name="create-and-perform-an-access-review"></a>Criar e realizar uma revisão de acesso
 

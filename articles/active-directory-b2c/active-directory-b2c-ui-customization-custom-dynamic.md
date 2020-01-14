@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950243"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931207"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
 
@@ -217,17 +217,19 @@ Para configurar `ContentDefinition`, faça o seguinte:
     ![Exemplo de trecho XML com elemento LoadUri realçado](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Etapa 6: carregar a política para seu locatário
-1. No [portal do Azure](https://portal.azure.com), alterne para o [contexto do seu locatário do Azure ad B2C](active-directory-b2c-navigate-to-b2c-context.md)e, em seguida, selecione **Azure ad B2C**.
+1. Na [portal do Azure](https://portal.azure.com), selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o locatário Azure ad B2C.
 
-2. Selecione **Identity Experience Framework**.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 
-3. Selecione **todas as políticas**.
+1. Selecione **Identity Experience Framework**.
 
-4. Selecione **carregar política**.
+1. Selecione **todas as políticas**.
 
-5. Marque a caixa de seleção **substituir a política se ela existir** .
+1. Selecione **carregar política**.
 
-6. Carregue o arquivo *TrustFrameworkExtensions. xml* e certifique-se de que ele passe na validação.
+1. Marque a caixa de seleção **substituir a política se ela existir** .
+
+1. Carregue o arquivo *TrustFrameworkExtensions. xml* e certifique-se de que ele passe na validação.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Etapa 7: testar a política personalizada usando executar agora
 1. Selecione **configurações de Azure ad B2C**e, em seguida, selecione **estrutura de experiência de identidade**.
@@ -345,7 +347,3 @@ Se você selecionar o link **inscrever** -se agora na página de entrada, o nave
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>Adicional Baixar o código e os arquivos de política completos
 * Depois de concluir as instruções introdução [às políticas personalizadas](active-directory-b2c-get-started-custom.md) , recomendamos que você crie seu cenário usando seus próprios arquivos de política personalizados. Para sua referência, fornecemos [arquivos de política de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
 * Você pode baixar o código completo da [solução de exemplo do Visual Studio para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-

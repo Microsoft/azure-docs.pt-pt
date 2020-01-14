@@ -2,18 +2,18 @@
 title: Serviços de entrada no mercado-seus benefícios do Marketplace comercial | Azure
 description: Serviços de entrada no mercado-recursos da Microsoft que os editores podem usar são descritos nesta seção.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818652"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933928"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Seus benefícios do Marketplace comercial
 
@@ -103,7 +103,7 @@ A Microsoft se reserva o direito de revogar e encerrar os benefícios das recomp
 
 Essa oferta é conduzida em inglês para todos os parceiros com uma oferta ao vivo no Azure Marketplace ou Microsoft AppSource.
 
-As transações comprovadas como fraudulentas não serão contadas na [camada do programa de vendas cobradas](https://aka.ms/marketplacepublisherrewards)do Publicador, conforme observado na [lista, avaliação,](#list-trial-and-consulting-benefits) seção de consultoria, seção de [benefícios do parceiro do Transact](#marketplace-rewards-for-transact-partners) e o [baralho detalhado do programa ](https://aka.ms/marketplacepublisherrewards). A Microsoft alocará parceiros a camadas de qualificação com base em suas vendas cobradas reais, depois que a fraude tiver sido removida. 
+As transações comprovadas como fraudulentas não serão consideradas como uma [camada do programa de vendas cobrada](https://aka.ms/marketplacepublisherrewards)do Publicador, conforme observado na [lista, avaliação,](#list-trial-and-consulting-benefits) seção de consultoria, seção de [benefícios do parceiro do Transact](#marketplace-rewards-for-transact-partners) e o [baralho detalhado do programa](https://aka.ms/marketplacepublisherrewards). A Microsoft alocará parceiros a camadas de qualificação com base em suas vendas cobradas reais, depois que a fraude tiver sido removida. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

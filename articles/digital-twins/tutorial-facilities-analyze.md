@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: d955711c44e3822f9c37d47b390b928701ab773b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/10/2020
+ms.openlocfilehash: 38bd1755ed87050cf8b91a0a82f6e5f1d2af9db5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861001"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933793"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos do Azure digital gêmeos usando o Time Series Insights
 
@@ -54,16 +54,16 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 1. Procure e selecione **Hubs de Eventos**. Selecione **Criar**.
 
-    [![criar um namespace de hubs de eventos](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+    [![criar um namespace de hubs de eventos](./media/tutorial-facilities-analyze/tutorial-create-event-hubs.png)](./media/tutorial-facilities-analyze/tutorial-create-event-hubs.png#lightbox)
 
 1. Insira um **nome** para seu namespace de hubs de eventos. Escolha **Standard** para **tipo de preço**, sua **assinatura**, o **grupo de recursos** que você usou para sua instância de gêmeos digital e o **local**. Selecione **Criar**.
 
 1. Na implantação do namespace de hubs de eventos, selecione o painel **visão geral** e, em seguida, selecione **ir para recurso**.
 
-    [![namespace de hubs de eventos após a implantação](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
+    [![namespace de hubs de eventos após a implantação](./media/tutorial-facilities-analyze/tutorial-event-hub-ns.png)](./media/tutorial-facilities-analyze/tutorial-event-hub-ns.png#lightbox)
 
 1. No painel **visão geral** do namespace de hubs de eventos, selecione o botão **Hub de eventos** na parte superior.
-    [botão ![Hub de eventos](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
+    [botão ![Hub de eventos](./media/tutorial-facilities-analyze/tutorial-create-event-hub.png)](./media/tutorial-facilities-analyze/tutorial-create-event-hub.png#lightbox)
 
 1. Insira um **nome** para o Hub de eventos e selecione **criar**.
 
@@ -143,15 +143,15 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 1. Introduza um **Nome** para a instância do Time Series Insights e selecione a sua **Subscrição**. Selecione o **grupo de recursos** que você usou para sua instância de gêmeos digital e seu **local**. Selecione **próximo:** botão de origem do evento ou a guia **origem do evento** .
 
-    [![seleções para criar uma instância de Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
+    [![seleções para criar uma instância de Time Series Insights](./media/tutorial-facilities-analyze/tutorial-create-tsi-environment.png)](./media/tutorial-facilities-analyze/tutorial-create-tsi-environment.png#lightbox)
 
 1. Na guia **origem do evento** , insira um **nome**, selecione **Hub de eventos** como o **tipo de origem**e verifique se os outros valores foram selecionados corretamente para fazer referência ao Hub de eventos que você criou. Selecione **ManageSend** para **nome da política de acesso do hub de eventos**e, em seguida, selecione o grupo de consumidores que você criou na seção anterior para o grupo de consumidores do hub de **eventos**. Selecione **Rever + criar**.
 
-    [![seleções para criar uma origem de evento](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
+    [![seleções para criar uma origem de evento](./media/tutorial-facilities-analyze/tutorial-tsi-event-source.png)](./media/tutorial-facilities-analyze/tutorial-tsi-event-source.png#lightbox)
 
 1. No painel **revisar + criar** , examine as informações inseridas e selecione **criar**.
 
-1. No painel implantação, selecione o Time Series Insights recurso que você acabou de criar. Ele abre o painel **visão geral** do seu ambiente de time Series insights.
+1. No painel implantação, selecione o Time Series Insights recurso que você criou. Ele abre o painel **visão geral** do seu ambiente de time Series insights.
 
 1. Selecione o botão **ir para ambiente** na parte superior. Se você receber um aviso de acesso a dados, abra o painel **políticas de acesso a dados** para sua instância do time Series insights, selecione **Adicionar**, **colaborador** como a função e selecione o usuário apropriado.
 
@@ -159,7 +159,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 1. Depois que alguns eventos simulados forem gerados, volte para o Time Series Insights Explorer e selecione o botão atualizar na parte superior. Os gráficos analíticos que estão sendo criados para os dados simulados do sensor serão exibidos. 
 
-    [Gráfico de ![no Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
+    [Gráfico de ![no Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer-with-adt-telemetry.png)](./media/tutorial-facilities-analyze/tsi-explorer-with-adt-telemetry.png#lightbox)
 
 1. No Time Series Insights Explorer, você pode gerar gráficos e calor para diferentes eventos e dados de suas salas, sensores e outros recursos. No lado esquerdo, use as caixas suspensa **medida** e **divisão por** para criar suas próprias visualizações. 
 

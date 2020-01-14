@@ -1,19 +1,19 @@
 ---
 title: Lista de verificação de criação de oferta de SaaS-Marketplace comercial para Azure
 description: Os detalhes que você pode fornecer no processo de criação da oferta de SaaS. -Marketplace comercial para o Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824632"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930305"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista de verificação de criação de ofertas de SaaS
 
@@ -111,7 +111,7 @@ A página de configuração técnica é onde você especifica os detalhes técni
 | :---------------- | :-----------| 
 | URL da página de aterrissagem | Necessário se estiver vendendo pela Microsoft. |
 | Webhook de conexão | Necessário se estiver vendendo pela Microsoft. |
-| ID do locatário do Azure AD | Necessário se estiver vendendo pela Microsoft. |
+| ID de inquilino do Azure AD | Necessário se estiver vendendo pela Microsoft. |
 | ID do aplicativo do Azure AD | Necessário se estiver vendendo pela Microsoft. |
 
 ## <a name="plan-identity-modal"></a>Planejar identidade modal
@@ -159,8 +159,8 @@ Disponível somente se você optar por oferecer um test drive para sua oferta. D
 
 | **Nome do campo**    | **Notas**   | 
 | :---------------- | :-----------| 
-| Notas de certificação  | Opcional. |
+| Notas para certificação  | Opcional. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma nova oferta de SaaS](./create-new-saas-offer.md)
+- [Criar uma nova oferta SaaS](./create-new-saas-offer.md)

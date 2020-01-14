@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790338"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933701"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos
 
@@ -51,7 +51,7 @@ Nesta seção, você configura a [grade de eventos](../event-grid/overview.md) p
 
 Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma interface para rotear os eventos gerados pela função definida pelo usuário. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**. 
 
@@ -65,7 +65,7 @@ Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma i
 
 1. Selecione **chaves de acesso**e copie a **chave 1** e a **chave 2** em um arquivo temporário. Você precisará desses valores para criar o ponto de extremidade na próxima seção.
 
-    [![chaves de grade de eventos](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![chaves de grade de eventos](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Criar um ponto de extremidade para o tópico da grade de eventos
 
@@ -114,7 +114,7 @@ Você pode usar o serviço de [aplicativos lógicos do Azure](../logic-apps/logi
 
 1. Insira um **nome** para o recurso de aplicativo lógico e, em seguida, selecione sua **assinatura**, **grupo de recursos**e **local**. Selecione **Criar**.
 
-    [![criar um recurso de aplicativos lógicos](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![criar um recurso de aplicativos lógicos](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
 1. Abra o recurso de aplicativos lógicos quando ele for implantado e, em seguida, abra o painel **Designer de aplicativo lógico** . 
 
@@ -172,7 +172,7 @@ Você pode usar o serviço de [aplicativos lógicos do Azure](../logic-apps/logi
 
    c. Na segunda caixa de texto **escolher um valor** , digite `UdfCustom`.
 
-   [![condições selecionadas](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![condições selecionadas](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. Na janela **se verdadeiro** :
 
@@ -182,9 +182,9 @@ Você pode usar o serviço de [aplicativos lógicos do Azure](../logic-apps/logi
 
    c. Na caixa **To** (Para), introduza o ID do seu e-mail para receber notificações. Em **assunto**, insira o texto **notificação de gêmeos digital para uma qualidade de ar ruim no espaço**. Em seguida, selecione **TopologyObjectId** na lista de **conteúdo dinâmico** para **analisar JSON**.
 
-   d. Em **corpo** na mesma janela, insira um texto semelhante a este: **qualidade de ar ruim detectada em uma sala e a temperatura precisa ser ajustada**. Sinta-se à vontade para elaborar usando elementos da lista de **conteúdo dinâmico** .
+   d. Em **corpo** na mesma janela, insira um texto semelhante ao seguinte: **qualidade de ar ruim detectada em uma sala e a temperatura precisa ser ajustada**. Sinta-se à vontade para elaborar usando elementos da lista de **conteúdo dinâmico** .
 
-   [seleções de "enviar um email" de aplicativos lógicos de ![](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [seleções de "enviar um email" de aplicativos lógicos de ![](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
 1. Selecione o botão **salvar** na parte superior do painel **Designer de aplicativo lógico** .
 
@@ -194,16 +194,16 @@ Em alguns minutos, você deve começar a receber notificações por email desse 
 
    [notificação de email ![](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
-Para parar de receber esses emails, vá para o recurso aplicativos lógicos no portal e selecione o painel **visão geral** . Selecione **desabilitar**.
+Para parar de receber esses emails, vá para o recurso aplicativos lógicos no portal e selecione o painel **visão geral** . Selecione **desativar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você quiser interromper a exploração do Azure digital gêmeos neste ponto, sinta-se à vontade para excluir os recursos criados neste tutorial:
+Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
 
-1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digital gêmeos e selecione **excluir**.
+1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
     > [!TIP]
-    > Se você teve problemas ao excluir sua instância de gêmeos digital, uma atualização de serviço foi distribuída com a correção. Tente excluir a instância novamente.
+    > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692761"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933472"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Predefinição experimental para codificação com reconhecimento de conteúdo
 
@@ -29,7 +29,9 @@ O interesse em passar além de uma abordagem de um-predefinido-All-vídeos aumen
 
 No início de 2017, a Microsoft lançou a predefinição de [streaming adaptável](autogen-bitrate-ladder.md) para resolver o problema da variabilidade na qualidade e na resolução dos vídeos de origem. Nossos clientes tinham uma mistura variada de conteúdo, alguns na 1080p, outros em 720p e alguns no SD e em resoluções inferiores. Além disso, nem todo o conteúdo de origem era a mezanino de alta qualidade de estúdios de filmes ou de TV. A predefinição de streaming adaptável resolve esses problemas, garantindo que a escada de taxa de bits nunca exceda a resolução ou a taxa de bits média da mezanino de entrada.
 
-A predefinição de codificação experimental com reconhecimento de conteúdo estende esse mecanismo, incorporando uma lógica personalizada que permite ao codificador buscar o valor ideal de taxa de bits para uma determinada resolução, mas sem a necessidade de uma análise computacional extensiva. O resultado é que essa nova predefinição produz uma saída com taxa de bits inferior à predefinição de streaming adaptável, mas com uma qualidade mais alta. Consulte os gráficos de exemplo a seguir que mostram a comparação usando métricas de qualidade como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). A fonte foi criada por meio da concatenação de pequenos clipes de capturas de alta complexidade de filmes e programas de TV, destinados a enfatizar o codificador. Por definição, essa predefinição produz resultados que variam de conteúdo para conteúdo – isso também significa que, para algum conteúdo, pode não haver uma redução significativa na taxa de bits ou melhoria na qualidade.
+A nova predefinição de codificação com reconhecimento de conteúdo estende esse mecanismo, incorporando uma lógica personalizada que permite ao codificador buscar o valor ideal de taxa de bits para uma determinada resolução, mas sem a necessidade de uma análise computacional extensiva. Essa predefinição produz um conjunto de MP4s alinhado a GOP. Dado qualquer conteúdo de entrada, o serviço executa uma análise leve inicial do conteúdo de entrada e usa os resultados para determinar o número ideal de camadas, taxa de bits apropriada e configurações de resolução para entrega por streaming adaptável. Essa predefinição é particularmente eficaz para vídeos de complexidade baixa e média, em que os arquivos de saída estarão em taxas de bits menores do que a predefinição de streaming adaptável, mas com uma qualidade que ainda oferece uma boa experiência para os visualizadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados
+
+Consulte os gráficos de exemplo a seguir que mostram a comparação usando métricas de qualidade como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). A fonte foi criada por meio da concatenação de pequenos clipes de capturas de alta complexidade de filmes e programas de TV, destinados a enfatizar o codificador. Por definição, essa predefinição produz resultados que variam de conteúdo para conteúdo – isso também significa que, para algum conteúdo, pode não haver uma redução significativa na taxa de bits ou melhoria na qualidade.
 
 ![Curva de taxa de distorção (RD) usando PSNR](media/cae-experimental/msrv1.png)
 
@@ -39,7 +41,7 @@ A predefinição de codificação experimental com reconhecimento de conteúdo e
 
 **Figura 2: curva de taxa de distorção (RD) usando a métrica VMAF para fonte de alta complexidade**
 
-Atualmente, a predefinição está ajustada para alta complexidade, vídeos de origem de alta qualidade (filmes, programas de TV). O trabalho está em andamento para se adaptar ao conteúdo de baixa complexidade (por exemplo, apresentações do PowerPoint), bem como a vídeos com qualidade inferior. Essa predefinição também usa o mesmo conjunto de resoluções que a predefinição de streaming adaptável. A Microsoft está trabalhando em métodos para selecionar o conjunto mínimo de resoluções com base no conteúdo. Como segue, os resultados de outra categoria de conteúdo de origem, em que o codificador foi capaz de determinar que a entrada era de baixa qualidade (muitos artefatos de compactação devido à baixa taxa de bits). Observe que, com a predefinição experimental, o codificador decidiu produzir apenas uma camada de saída – em uma taxa de bits baixa o suficiente para que a maioria dos clientes possa reproduzir o fluxo sem interrupções.
+Abaixo estão os resultados de outra categoria de conteúdo de origem, em que o codificador foi capaz de determinar que a entrada era de baixa qualidade (muitos artefatos de compactação devido à baixa taxa de bits). Observe que, com a predefinição de reconhecimento de conteúdo, o codificador decidiu produzir apenas uma camada de saída – em uma taxa de bits baixa o suficiente para que a maioria dos clientes possa reproduzir o fluxo sem interrupções.
 
 ![Curva de RD usando PSNR](media/cae-experimental/msrv3.png)
 
@@ -62,16 +64,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> O prefixo "experimental" é usado aqui para sinalizar que os algoritmos subjacentes ainda estão em evolução. Pode haver mudanças ao longo do tempo para a lógica usada para gerar esgotamentos de taxa de bits, com o objetivo de convergir em um algoritmo robusto e se adapta a uma ampla variedade de condições de entrada. Os trabalhos de codificação que usam essa predefinição ainda serão cobrados com base nos minutos de saída, e o ativo de saída poderá ser entregue de nossos pontos de extremidade de streaming em protocolos como DASH e HLS.
+> Os algoritmos subjacentes estão sujeitos a aprimoramentos adicionais. Pode haver mudanças ao longo do tempo para a lógica usada para gerar esgotamentos de taxa de bits, com o objetivo de fornecer um algoritmo robusto e se adaptar a uma ampla variedade de condições de entrada. Os trabalhos de codificação que usam essa predefinição ainda serão cobrados com base nos minutos de saída, e o ativo de saída poderá ser entregue de nossos pontos de extremidade de streaming em protocolos como DASH e HLS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre essa nova opção de otimização de seus vídeos, convidamos você a experimentá-lo. Você pode enviar comentários usando os links no final deste artigo ou nos envolver mais diretamente em <amsved@microsoft.com>.
+Agora que você aprendeu sobre essa nova opção de otimização de seus vídeos, convidamos você a experimentá-lo. Você pode nos enviar comentários usando os links no final deste artigo.

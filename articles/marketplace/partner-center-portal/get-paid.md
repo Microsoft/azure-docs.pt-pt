@@ -1,20 +1,20 @@
 ---
 title: Sendo pago no Marketplace comercial | Azure Marketplace
 description: Saiba mais sobre como receber pagamentos para seus ganhos no mercado comercial.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: a87c74c2c344670d2d305e472245c56946d658ad
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7f539d4165df04ddca198385f9eef4f90ed15189
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980351"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933591"
 ---
-# <a name="getting-paid"></a>Remuneração
+# <a name="getting-paid"></a>Receber o pagamento
 Aqui estão algumas informações importantes sobre o recebimento de pagamentos para suas ofertas, Complementos e anúncios de publicidade.
 
 > [!IMPORTANT]

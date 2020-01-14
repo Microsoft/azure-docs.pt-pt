@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: d052226470042d374544de0b7e1ced4ca0f48a14
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564156"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934336"
 ---
 # <a name="security-control-network-security"></a>Controle de segurança: segurança de rede
 
@@ -29,7 +29,9 @@ Verifique se todas as implantações de sub-rede da rede virtual têm um grupo d
 
 Como alternativa, se você tiver um caso de uso específico, os requisitos poderão ser atendidos com a implementação do firewall do Azure.
 
-Informações gerais sobre o link privado: https://docs.microsoft.com/azure/private-link/private-link-overview
+Informações gerais sobre o link privado:
+
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 Como criar uma rede virtual:
 
@@ -55,7 +57,7 @@ Como habilitar os logs de fluxo do NSG:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Noções básicas sobre segurança de rede fornecida pela central de segurança do Azure:
+Entenda a segurança de rede fornecida pela central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
@@ -97,11 +99,11 @@ Entenda a inteligência de ameaças integrada da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Entender a proteção de rede adaptável da central de segurança do Azure
+Entender a proteção de rede adaptável da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Entender o controle de acesso à rede just in time da central de segurança do Azure
+Entenda o controle de acesso à rede just in time da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -113,9 +115,13 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 Registre os logs de fluxo do NSG em uma conta de armazenamento para gerar registros de fluxo. Se necessário para investigar a atividade anômala, habilite a captura de pacotes do observador de rede.
 
-Como habilitar os logs de fluxo do NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Como habilitar os logs de fluxo do NSG:
 
-Como habilitar o observador de rede: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+
+Como habilitar o observador de rede:
+
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: implantar os sistemas de detecção de intrusão/prevenção de invasão baseado em rede (IDS/IPS)
 
@@ -137,11 +143,17 @@ Como configurar alertas com o Firewall do Azure: https://docs.microsoft.com/azur
 
 Implante Aplicativo Azure gateway para aplicativos Web com HTTPS/SSL habilitado para certificados confiáveis.
 
-Como implantar o gateway de aplicativo: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+Como implantar o gateway de aplicativo:
 
-Como configurar o gateway de aplicativo para usar HTTPS: https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-Noções básicas sobre balanceamento de carga de camada 7 com gateways de aplicativo Web do Azure: https://docs.microsoft.com/azure/application-gateway/overview
+Como configurar o gateway de aplicativo para usar HTTPS:
+
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+
+Entenda o balanceamento de carga de camada 7 com gateways de aplicativo Web do Azure:
+
+https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimizar a complexidade e a sobrecarga administrativa das regras de segurança de rede
 
@@ -149,9 +161,11 @@ Noções básicas sobre balanceamento de carga de camada 7 com gateways de aplic
 |--|--|--|
 | 1.8 | 1.5 | Cliente |
 
-Use as marcas de serviço de rede virtual &nbsp;para definir os controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Ao especificar o nome da marca de serviço (por exemplo, ApiManagement) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados.
+Use marcas de serviço de rede virtual para definir controles de acesso de rede em grupos de segurança de rede ou no firewall do Azure. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Ao especificar o nome da marca de serviço (por exemplo, ApiManagement) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados.
 
-Compreendendo e usando marcas de serviço: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Entender e usar marcas de serviço:
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: manter configurações de segurança padrão para dispositivos de rede
 
@@ -161,7 +175,7 @@ Compreendendo e usando marcas de serviço: https://docs.microsoft.com/azure/virt
 
 Defina e implemente configurações de segurança padrão para recursos de rede com Azure Policy.
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ambientes, bem como ajustar o controle e o gerenciamento por meio da versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico às novas assinaturas e ajustar o controle e o gerenciamento, por meio da versão.
 
 Como configurar e gerenciar Azure Policy:
 

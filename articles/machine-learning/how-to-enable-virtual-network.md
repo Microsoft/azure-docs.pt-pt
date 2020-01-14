@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/03/2020
-ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/13/2020
+ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893999"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934405"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
    - Armazenamento do Azure, usando a __marca de serviço__ de __armazenamento. Region_Name__ (por exemplo, Storage. eastus)
    - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. Region_Name__ (por exemplo, AzureContainerRegistry. eastus)
    - Azure Machine Learning, usando a __marca de serviço__ de __AzureMachineLearning__
-   - No caso de instância de computação, nuvem do Azure, usando a __marca de serviço__ de __AzureCloud. Region_Name__ (por exemplo, AzureCloud. NorthCentralUS)
+   - No caso de instância de computação, nuvem do Azure, usando a __marca de serviço__ de __AzureResourceManager__
 
 A configuração da regra NSG na portal do Azure é mostrada na imagem a seguir:
 

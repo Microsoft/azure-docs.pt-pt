@@ -1,19 +1,19 @@
 ---
 title: Cobrança limitada usando o serviço de medição do Marketplace | Azure Marketplace
 description: Esta documentação é um guia para ISVs que publicam ofertas de SaaS com modelos de cobrança flexível.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f1b60831e08383ee455cd3afbfbc21ed27445ffc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827933"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934174"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Cobrança limitada usando o serviço de medição do Marketplace
 
@@ -71,13 +71,13 @@ As dimensões de cobrança são usadas para se comunicar com o cliente sobre com
 
 As dimensões de cobrança são compartilhadas entre todos os planos para uma oferta.  Alguns atributos se aplicam à dimensão em todos os planos e outros atributos são específicos do plano.
 
-Os atributos que definem a própria dimensão são compartilhados entre todos os planos para uma oferta.  Antes de publicar a oferta, uma alteração feita nesses atributos do contexto de qualquer plano afetará a definição da dimensão em todos os planos.  Depois de publicar a oferta, esses atributos não serão mais editáveis.  Esses atributos são:
+Os atributos que definem a própria dimensão são compartilhados entre todos os planos para uma oferta.  Antes de publicar a oferta, uma alteração feita nesses atributos do contexto de qualquer plano afetará a definição da dimensão em todos os planos.  Depois de publicar a oferta, esses atributos não serão mais editáveis.  Estes atributos são:
 
 * Identificador
 * Nome
 * Unidade de medida
 
-Os outros atributos de uma dimensão são específicos para cada plano e podem ter valores diferentes do plano para o plano.  Antes de publicar o plano, você pode editar esses valores e somente esse plano será afetado.  Depois de publicar o plano, esses atributos não serão mais editáveis.  Esses atributos são:
+Os outros atributos de uma dimensão são específicos para cada plano e podem ter valores diferentes do plano para o plano.  Antes de publicar o plano, você pode editar esses valores e somente esse plano será afetado.  Depois de publicar o plano, esses atributos não serão mais editáveis.  Estes atributos são:
 
 * Preço por unidade
 * Quantidade incluída para clientes mensais 

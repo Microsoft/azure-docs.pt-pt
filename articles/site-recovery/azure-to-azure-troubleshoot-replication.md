@@ -2,22 +2,22 @@
 title: Solucionar problemas de replicação contínua de VMs Azrue com Azure Site Recovery
 description: Solução de problemas e erros ao replicar máquinas virtuais do Azure para recuperação de desastre
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
-ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620889"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930747"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Solucionar problemas contínuos na replicação de VM do Azure para o Azure
 
-Este artigo descreve problemas comuns no Azure Site Recovery quando você está replicando e recuperando máquinas virtuais do Azure de uma região para outra região. Ele também explica como solucionar esses problemas. Para obter mais informações sobre as configurações com suporte, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve problemas comuns no Azure Site Recovery quando você está replicando e recuperando máquinas virtuais do Azure de uma região para outra região. Ele também explica como solucionar esses problemas. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
 
 Azure Site Recovery Replica consistentemente os dados da região de origem para a região de recuperação de desastre e cria um ponto de recuperação consistente com falhas a cada 5 minutos. Se Site Recovery não puder criar pontos de recuperação por 60 minutos, ele o alertará com essas informações:
 
@@ -79,7 +79,7 @@ Para verificar um problema relacionado à latência, use [azcopy](https://docs.m
 É recomendável criar um ponto de extremidade de serviço de rede em sua rede virtual para "armazenamento" para que o tráfego de replicação não vá para o NVA. Para obter mais informações, consulte [configuração de solução de virtualização de rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
 
 ### <a name="network-connectivity"></a>Conectividade de rede
-Para que a replicação de Site Recovery funcione, a conectividade de saída para URLs específicas ou intervalos de IP é necessária da VM. Se sua VM estiver atrás de um firewall ou usar regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, você poderá enfrentar um desses problemas. Para verificar se todas as URLs estão conectadas, confira [conectividade de saída para URLs de site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+Para replicação do Site Recovery para o trabalho, a conectividade de saída para URLs ou IP específicos a intervalos é necessária da VM. Se sua VM estiver atrás de um firewall ou usar regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, você poderá enfrentar um desses problemas. Para verificar se todas as URLs estão conectadas, confira [conectividade de saída para URLs de site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID do erro 153006-nenhum ponto de recuperação consistente com o aplicativo disponível para a VM nos últimos ' XXX ' minutos
 

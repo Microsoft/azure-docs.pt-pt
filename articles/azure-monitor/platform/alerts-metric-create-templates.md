@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/5/2019
+ms.date: 1/13/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397345"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932888"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -555,7 +555,12 @@ az group deployment create \
 
 Alertas de métrica mais recentes dão suporte a alertas em métricas multidimensionais, bem como suporte a vários critérios. Você pode usar o modelo a seguir para criar uma regra de alerta de métrica mais avançada em métricas dimensionais e especificar vários critérios.
 
-Observe que, quando a regra de alerta contém vários critérios, o uso de dimensões é limitado a um valor por dimensão dentro de cada critério.
+Observe as seguintes restrições ao usar dimensões em uma regra de alerta que contém vários critérios:
+- Você só pode selecionar um valor por dimensão dentro de cada critério.
+- Você não pode usar "\*" como um valor de dimensão.
+- Quando as métricas que são configuradas em critérios diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nos critérios relevantes).
+    - No exemplo a seguir, como as métricas de **Transações** e **SuccessE2ELatency** têm uma dimensão de **nome de API** e *critérion1* especifica o valor *"getBlob"* para a dimensão de **nome da API** , *criterion2* também deve definir um valor *"getBlob"* para a dimensão de **nome da API** .
+
 
 Salve o JSON abaixo como advancedstaticmetricalert. JSON para fins deste passo a passos.
 
@@ -784,9 +789,6 @@ az group deployment create \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> Quando uma regra de alerta contém vários critérios, o uso de dimensões é limitado a um valor por dimensão dentro de cada critério.
 
 ## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Modelo para um alerta de métrica estática que monitora várias dimensões
 

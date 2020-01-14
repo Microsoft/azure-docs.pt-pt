@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687731"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931700"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -322,10 +322,7 @@ Para obter mais informações sobre como usar cada método, consulte [como usar 
 
 ## <a name="sampleScripts"></a>Exemplos de script personalizado
 
-A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte os links a seguir para obter mais ações de script de exemplo.
-
-* [Instalar e usar o matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Instalar e usar o Apache O giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte [instalar e usar o matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md) como uma ação de script de exemplo.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

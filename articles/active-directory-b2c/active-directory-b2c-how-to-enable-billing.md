@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931452"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930717"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
@@ -76,11 +76,11 @@ Para obter as informações mais recentes sobre cobrança de uso e preços para 
 
 ## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Vincular um locatário Azure AD B2C a uma assinatura
 
-Os encargos de uso de Azure Active Directory B2C (Azure AD B2C) são cobrados em uma assinatura do Azure. Quando um locatário de Azure AD B2C é criado, o administrador de locatários precisa vincular explicitamente o locatário do Azure AD B2C a uma assinatura do Azure.
+Os encargos de uso de Azure Active Directory B2C (Azure AD B2C) são cobrados em uma assinatura do Azure. Quando é criado um inquilino do Azure AD B2C, o administrador de inquilino tem de ligar explicitamente o inquilino do Azure AD B2C a uma subscrição do Azure.
 
 O link de assinatura é obtido criando um *recurso* de Azure ad B2C dentro da assinatura de destino do Azure. Vários recursos de Azure AD B2C podem ser criados em uma única assinatura do Azure, juntamente com outros recursos do Azure, como máquinas virtuais, contas de armazenamento e aplicativos lógicos. Você pode ver todos os recursos em uma assinatura acessando o locatário do Azure Active Directory (Azure AD) ao qual a assinatura está associada.
 
-Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobrança de Azure AD B2C uso ou outros recursos do Azure, incluindo recursos de Azure AD B2C adicionais. Ele não pode ser usado para adicionar outros serviços baseados em licença do Azure ou licenças do Office 365 no locatário Azure AD B2C.
+Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobrança de Azure AD B2C uso ou outros recursos do Azure, incluindo recursos de Azure AD B2C adicionais. Ele não pode ser usado para adicionar outros serviços do Azure baseada na licença ou licenças do Office 365 no inquilino do Azure AD B2C.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,7 +91,7 @@ Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobr
 
 ### <a name="create-the-link"></a>Criar o link
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e selecione o diretório que contém a assinatura do Azure que você gostaria de usar (*não* o diretório que contém o locatário Azure ad B2C).
 1. Selecione **criar um recurso**, insira `Active Directory B2C` no campo **Pesquisar no Marketplace** e, em seguida, selecione **Azure Active Directory B2C**.
 1. Selecione **Criar**
@@ -104,15 +104,15 @@ Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobr
 
 Depois de concluir essas etapas para um locatário Azure AD B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement, se aplicável.
 
-### <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerenciar seus Azure AD B2C recursos de locatário
+### <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerir os recursos de inquilino do Azure AD B2C
 
 Depois de criar o recurso de Azure AD B2C em uma assinatura do Azure, você deverá ver um novo recurso do tipo "locatário do B2C" que aparece com outros recursos do Azure.
 
-Você pode usar esse recurso para:
+Pode usar este recurso para:
 
 * Navegue até a assinatura para examinar as informações de cobrança
 * Obter a ID do locatário do Azure AD B2C locatário no formato GUID
-* Vá para seu locatário do Azure AD B2C
+* Aceda ao seu inquilino do Azure AD B2C
 * Submeter pedidos de suporte
 * Mover seu Azure AD B2C recurso de locatário para outra assinatura do Azure ou grupo de recursos
 
@@ -134,7 +134,7 @@ O gerenciamento de Azure AD B2C usando o controle de acesso baseado em função 
 
 Azure AD B2C locatários podem ser movidos para outra assinatura se as assinaturas de origem e de destino existirem dentro do mesmo locatário Azure Active Directory.
 
-Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C para outra assinatura, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C para outra assinatura, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Antes de iniciar a movimentação, lembre-se de ler todo o artigo para entender totalmente as limitações e os requisitos para tal movimentação. Além de instruções para mover recursos, ele inclui informações críticas, como uma lista de verificação de pré-movimentação e como validar a operação de movimentação.
 

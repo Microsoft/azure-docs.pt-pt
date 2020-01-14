@@ -1,18 +1,18 @@
 ---
 title: Recuperação de desastre para uma implantação de várias camadas do Dynamics AX com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como configurar a recuperação de desastre para o Dynamics AX com o Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620742"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930174"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 
@@ -92,7 +92,7 @@ Você pode selecionar a VM nos itens replicados para definir as configurações 
 
 * Se você estiver usando um IP estático, especifique o IP que você deseja que a VM execute na caixa de texto **IP de destino** .
 
-    ![Configurações de rede](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![Definições de rede](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. criar um plano de recuperação

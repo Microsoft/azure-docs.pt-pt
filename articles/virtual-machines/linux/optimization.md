@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a042e768ef6693d2ced6d679947a6fe321d259bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035378"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934727"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 Criar uma VM (máquina virtual) do Linux é fácil de fazer na linha de comando ou no Portal. Este tutorial mostra como garantir que você o configurou para otimizar seu desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do servidor Ubuntu, mas você também pode criar uma máquina virtual Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -33,7 +33,7 @@ Este tópico pressupõe que você já tenha uma assinatura do Azure em funcionam
 Depois de criar uma VM do Linux no Azure, ela tem dois discos associados a ela. **/dev/sda** é o disco do sistema operacional, **/dev/sdb** é o disco temporário.  Não use o disco do sistema operacional principal ( **/dev/sda**) para qualquer coisa, exceto o sistema operacional, pois ele é otimizado para o tempo de inicialização rápido da VM e não fornece um bom desempenho para suas cargas de trabalho. Você deseja anexar um ou mais discos à sua VM para obter armazenamento persistente e otimizado para seus dados. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adicionando discos para metas de desempenho e tamanho
-Com base no tamanho da VM, você pode anexar até 16 discos adicionais em uma série A, 32 discos em uma série D e 64 discos em uma máquina da série G, cada um com até 1 TB de tamanho. Você adiciona discos extras conforme necessário, de acordo com seus requisitos de espaço e IOps. Cada disco tem um destino de desempenho de 500 IOps para armazenamento Standard e até 5000 IOps por disco para armazenamento Premium.
+Com base no tamanho da VM, você pode anexar até 16 discos adicionais em uma série A, 32 discos em uma série D e 64 discos em uma máquina da série G, cada um até 32 TB de tamanho. Você adiciona discos extras conforme necessário, de acordo com seus requisitos de espaço e IOps. Cada disco tem um destino de desempenho de 500 IOps para armazenamento Standard e até 20.000 IOps por disco para armazenamento Premium.
 
 Para obter o IOps mais alto em discos de armazenamento Premium em que suas configurações de cache foram definidas como **ReadOnly** ou **None**, você deve desabilitar as **barreiras** ao montar o sistema de arquivos no Linux. Você não precisa de barreiras porque as gravações para os discos de backup do armazenamento Premium são duráveis para essas configurações de cache.
 
@@ -93,7 +93,7 @@ noop [deadline] cfq
 ```
 
 ### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Alterar o dispositivo atual (/dev/sda) do algoritmo de agendamento de e/s
-Use os seguintes comandos:  
+Utilize os seguintes comandos:  
 
 ```bash
 azureuser@myVM:~$ sudo su -
@@ -129,7 +129,7 @@ Se suas cargas de trabalho exigirem mais IOps do que um único disco pode fornec
 
 Como alternativa a uma configuração de RAID tradicional, você também pode optar por instalar o LVM (Gerenciador de volumes lógicos) para configurar um número de discos físicos em um único volume de armazenamento lógico distribuído. Nessa configuração, leituras e gravações são distribuídas para vários discos contidos no grupo de volumes (semelhante a RAID0). Por motivos de desempenho, é provável que você queira distribuir seus volumes lógicos para que as leituras e gravações utilizem todos os discos de dados anexados.  Mais detalhes sobre como configurar um volume lógico distribuído em sua VM do Linux no Azure podem ser encontrados no documento **[Configurar o LVM em uma VM do Linux no Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Lembre-se, assim como em todas as discussões sobre otimização, você precisa executar testes antes e depois de cada alteração para medir o impacto que a alteração tem.  A otimização é um processo passo a passo que tem resultados diferentes em máquinas diferentes em seu ambiente.  O que funciona para uma configuração pode não funcionar para outros.
 
 Alguns links úteis para recursos adicionais:

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1354bd2895a8fe6e8aa1f12cd92295c77ca2d4b2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564169"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930020"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controle de segurança: registro em log e monitoramento
 
@@ -67,7 +67,7 @@ Como coletar logs e métricas de plataforma com o Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings
 
-Entendendo o registro em log e diferentes tipos de log no Azure:
+Entender o registro em log e diferentes tipos de log no Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
@@ -79,9 +79,13 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 Se o recurso de computação pertence à Microsoft, a Microsoft é responsável por monitorá-lo. Se o recurso de computação pertence à sua organização, é sua responsabilidade monitorá-lo. Você pode usar a central de segurança do Azure para monitorar o sistema operacional. Os dados coletados pela central de segurança do sistema operacional incluem o tipo e a versão do so, sistema operacional (logs de eventos do Windows), processos em execução, nome da máquina, endereços IP e usuário conectado. O agente de Log Analytics também coleta arquivos de despejo de memória.
 
-Como coletar logs de host interno da máquina virtual do Azure com o Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+Como coletar logs de host interno da máquina virtual do Azure com o Azure Monitor:
 
-Entendendo a coleta de dados da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+
+Entender a coleta de dados da central de segurança do Azure:
+
+https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
 ## <a name="25-configure-security-log-storage-retention"></a>2,5: configurar retenção de armazenamento de log de segurança
 
@@ -91,7 +95,9 @@ Entendendo a coleta de dados da central de segurança do Azure: https://docs.mic
 
 Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento.
 
-Como definir parâmetros de retenção de log para Log Analytics espaços de trabalho: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Como definir parâmetros de retenção de log para Log Analytics espaços de trabalho:
+
+https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 ## <a name="26-monitor-and-review-logs"></a>2,6: monitorar e examinar os logs
 
@@ -107,7 +113,7 @@ Como carregar o Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Compreendendo o espaço de trabalho Log Analytics:
+Entender Log Analytics espaço de trabalho:
 
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
@@ -153,7 +159,7 @@ Como configurar o Microsoft antimalware para serviços de nuvem:
 
 https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0
 
-Noções básicas sobre o Microsoft AntiMalware:
+Entender o Microsoft AntiMalware:
 
 https://docs.microsoft.com/azure/security/fundamentals/antimalware
 

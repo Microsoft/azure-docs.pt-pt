@@ -1,18 +1,18 @@
 ---
 title: Configurar a recuperação de desastre do SAP NetWeaver com o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastre para implantações de aplicativo do SAP NetWeaver usando o Azure Site Recovery.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.author: carmonm
+ms.openlocfilehash: 3ae9a92a27da1b736bf9db6dff88660f7d40143b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533856"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934451"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo SAP NetWeaver de várias camadas
 
@@ -59,24 +59,24 @@ Essa arquitetura de referência mostra a execução do SAP NetWeaver em um ambie
 
 ## <a name="disaster-recovery-considerations"></a>Considerações sobre recuperação de desastre
 
-Para DR (recuperação de desastre), você deve ser capaz de fazer failover para uma região secundária. Cada camada utiliza uma estratégia diferente para fornecer proteção de recuperação após desastre (DR).
+Para a recuperação após desastre (DR), tem de ser capaz de fazer a ativação pós-falha para uma região secundária. Cada camada utiliza uma estratégia diferente para fornecer proteção de recuperação após desastre (DR).
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>VMs executando o pool de Dispatcher da Web SAP 
-O componente Web Dispatcher é usado como um balanceador de carga para o tráfego SAP entre os servidores de aplicativos SAP. Para obter alta disponibilidade para o componente Web Dispatcher, Azure Load Balancer é usado para implementar a instalação do Dispatcher da Web paralela em uma configuração de Round Robin para a distribuição de tráfego HTTP (S) entre os expatchers da Web disponíveis no pool de balanceadores. Isso será replicado usando Azure Site Recovery (ASR) e scripts de automação serão usados para configurar o balanceador de carga na região de recuperação de desastre. 
+O componente Web Dispatcher é utilizado como um balanceador de carga para tráfego SAP entre os servidores de aplicações SAP. Para obter alta disponibilidade para o componente Web Dispatcher, Azure Load Balancer é usado para implementar a instalação do Dispatcher da Web paralela em uma configuração de Round Robin para a distribuição de tráfego HTTP (S) entre os expatchers da Web disponíveis no pool de balanceadores. Isso será replicado usando Azure Site Recovery (ASR) e scripts de automação serão usados para configurar o balanceador de carga na região de recuperação de desastre. 
 
 #### <a name="vms-running-application-servers-pool"></a>VMs executando pool de servidores de aplicativos
-Para gerenciar grupos de logon para servidores de aplicativos ABAP, a transação SMLG é usada. Ele usa a função de balanceamento de carga dentro do servidor de mensagens dos serviços centrais para distribuir a carga de trabalho entre o pool de servidores de aplicativos SAP para o tráfego SAPGUIs e RFC. Isso será replicado usando Azure Site Recovery 
+Para gerir grupos de logon para servidores de aplicações ABAP, a transação de SMLG é usada. Ele usa a função dentro do servidor de mensagens dos serviços de Central de balanceamento de carga para distribuir a carga de trabalho entre o agrupamento de servidores de aplicações SAP para SAPGUIs e RFC tráfego. Isso será replicado usando Azure Site Recovery 
 
 #### <a name="vms-running-sap-central-services-cluster"></a>VMs executando o cluster do SAP central Services
-Essa arquitetura de referência executa serviços centrais em VMs na camada de aplicativo. Os serviços centrais são um possível ponto único de falha (SPOF) quando implantados em uma única VM – implantação típica quando a alta disponibilidade não é um requisito.<br>
+Esta arquitetura de referência é executada Central de serviços em VMs na camada de aplicativos. Os serviços Central é um potencial ponto único de falha (SPOF) quando implantado numa única VM — uma implementação típica quando a elevada disponibilidade não é um requisito.<br>
 
 Para implementar uma solução de alta disponibilidade, é possível usar um cluster de disco compartilhado ou um cluster de compartilhamento de arquivos. Para configurar VMs para um cluster de disco compartilhado, use o cluster de failover do Windows Server. A testemunha em nuvem é recomendada como uma testemunha de quorum. 
  > [!NOTE]
  > O Azure Site Recovery não Replica a testemunha de nuvem, portanto, é recomendável implantar a testemunha de nuvem na região de recuperação de desastre.
 
-Para dar suporte ao ambiente de cluster de failover, o [sios Datakeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) executa a função de volume compartilhado clusterizado replicando discos independentes pertencentes aos nós do cluster. O Azure não dá suporte nativo a discos compartilhados e, portanto, requer soluções fornecidas por SIOS. 
+Para suportar o ambiente de cluster de ativação pós-falha [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) executa a função de volume partilhado de cluster através da replicação de discos independentes pertencentes nós do cluster. O Azure não suporta nativamente discos partilhados e, portanto, requer soluções fornecidas pelo SIOS. 
 
-Outra maneira de lidar com o clustering é implementar um cluster de compartilhamento de arquivos. O [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificou recentemente o padrão de implantação de serviços centrais para acessar os diretórios globais do/sapmnt por meio de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC do/sapmnt seja altamente disponível. Isso pode ser feito na instância dos serviços centrais usando o cluster de failover do Windows Server com o SOFS (servidor de arquivos do Scale Out) e o recurso Espaços de Armazenamento Diretos (S2D) no Windows Server 2016. 
+Outra maneira de lidar com o clustering é implementar um cluster de compartilhamento de arquivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificados recentemente o padrão de implementação de serviços Central para aceder os diretórios globais /sapmnt através de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC do/sapmnt seja altamente disponível. Isso pode ser feito na instância dos serviços centrais usando o cluster de failover do Windows Server com o SOFS (servidor de arquivos do Scale Out) e o recurso Espaços de Armazenamento Diretos (S2D) no Windows Server 2016. 
  > [!NOTE]
  > Atualmente Azure Site Recovery suporte apenas à replicação de ponto consistente de falha de máquinas virtuais usando espaços de armazenamento diretos e o nó passivo do SIOS datakeeper
 

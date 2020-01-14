@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0266c08052cd3db7d9081d6b617da94703b9ab77
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896324"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931935"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -88,7 +88,7 @@ A seção a seguir descreve a configuração de auditoria usando o portal do Azu
 5. **Novo** -agora você tem várias opções para configurar onde os logs de auditoria serão gravados. Você pode gravar logs em uma conta de armazenamento do Azure, em um espaço de trabalho Log Analytics para consumo por Azure Monitor logs ou no Hub de eventos para consumo usando o Hub de eventos. Você pode configurar qualquer combinação dessas opções e os logs de auditoria serão gravados em cada um.
   
   > [!NOTE]
-   >O cliente que deseja configurar um repositório de logs imutável para seus eventos de auditoria no nível do servidor ou banco de dados deve seguir as [instruções fornecidas pelo armazenamento do Azure] (https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+   >O cliente que deseja configurar um repositório de logs imutável para seus eventos de auditoria no nível do servidor ou banco de dados deve seguir as [instruções fornecidas pelo armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
   
   > [!WARNING]
    > Habilitar a auditoria para Log Analytics incorrerá em custo com base nas taxas de ingestão. Esteja ciente do custo associado com o uso dessa [opção](https://azure.microsoft.com/pricing/details/monitor/)ou considere armazenar os logs de auditoria em uma conta de armazenamento do Azure.

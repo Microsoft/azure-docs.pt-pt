@@ -1,55 +1,55 @@
 ---
-title: APIs do serviço de medição do Marketplace-perguntas frequentes | Azure Marketplace
-description: Emitir o uso de uma oferta de SaaS no Azure Marketplace.
-author: qianw211
+title: Marketplace metering service APIs - FAQ | Azure Marketplace
+description: Emit usage of a SaaS offer in the Azure Marketplace.
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 044d92e79d8a885f553a7d081ce40c8b6de880a1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825501"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931226"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>FAQ - APIs do serviço de medição do Marketplace
 
-Depois que um usuário do Azure assina um serviço SaaS que inclui cobrança limitada, você acompanhará o consumo de cada dimensão de cobrança usada pelo cliente. Se o consumo exceder as quantidades incluídas definidas para o termo selecionado pelo cliente, seu serviço emitirá eventos de uso para a Microsoft.
+Once an Azure user subscribes to a SaaS service that includes metered billing, you will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
 
-## <a name="emit-usage-events"></a>Emitir eventos de uso
+## <a name="emit-usage-events"></a>Emit usage events
 
 >[!Note]
->Esta seção é aplicável somente para ofertas de SaaS, nas quais pelo menos um dos planos tem dimensões de serviço de medição definidas no momento da publicação da oferta.
+>This section is applicable only for SaaS offers, where at least one of the plans has metering service dimensions defined at the time of publishing the offer.
 
-![Emitir eventos de uso](media/isv-emits-usage-event.png)
+![Emit usage events](media/isv-emits-usage-event.png)
 
-Consulte a [API de evento SaaS batch Usage](./marketplace-metering-service-apis.md#batch-usage-event) para obter informações sobre o contrato de API para emissão de eventos de uso.
+See the [SaaS batch usage event API](./marketplace-metering-service-apis.md#batch-usage-event) for information on the API contract for emitting usage events.
 
-### <a name="how-often-is-it-expected-to-emit-usage"></a>Com que frequência é esperado que ele emita o uso?
+### <a name="how-often-is-it-expected-to-emit-usage"></a>How often is it expected to emit usage?
 
-Idealmente, você deve emitir o uso a cada hora na última hora, somente se houver uso na hora anterior.
+Ideally, you are expected to emit usage every hour for the past hour, only if there is usage in the previous hour.
 
-### <a name="what-is-the-maximum-delay-between-the-time-an-event-occurs-and-the-time-a-usage-event-is-emitted-to-microsoft"></a>Qual é o atraso máximo entre a hora em que um evento ocorre e a hora em que um evento de uso é emitido para a Microsoft?
+### <a name="what-is-the-maximum-delay-between-the-time-an-event-occurs-and-the-time-a-usage-event-is-emitted-to-microsoft"></a>What is the maximum delay between the time an event occurs, and the time a usage event is emitted to Microsoft?
 
-O ideal é que o evento de uso seja emitido a cada hora para eventos que ocorreram na última hora. No entanto, os atrasos são esperados. O atraso máximo permitido é de 24 horas, após o qual os eventos de uso não serão aceitos.
+Ideally, usage event is emitted every hour for events that occurred in the past hour. However, delays are expected. The maximum delay allowed is 24 hours, after which usage events will not be accepted.
 
-Por exemplo, se um evento de uso ocorrer em 1 PM em um dia, você terá até 1 PM no dia seguinte para emitir um evento de uso associado a esse evento. Isso significa que, no caso do sistema que está emitindo o uso tem um tempo de inatividade, ele pode recuperar e, em seguida, enviar o evento de uso para o intervalo de hora em que o uso ocorreu, sem perda de fidelidade.
+For example, if a usage event occurs at 1 PM on a day, you have until 1 PM on the next day to emit a usage event associated with this event. This means in the case of the system emitting usage has a down time, it can recover and then send the usage event for the hour interval in which the usage happened, without loss of fidelity.
 
-### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>O que acontece quando você envia mais de um evento de uso na mesma hora?
+### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>What happens when you send more than one usage event on the same hour?
 
-Apenas um evento de uso é aceito para o intervalo de horas. O intervalo de horas começa no minuto 0 e termina em minuto 59.  Se mais de um evento de uso for emitido para o mesmo intervalo de hora, todos os eventos de uso subsequentes serão removidos como duplicatas.
+Only one usage event is accepted for the hour interval. The hour interval starts at minute 0 and ends at minute 59.  If more than one usage event is emitted for the same hour interval, any subsequent usage events are dropped as duplicates.
 
-### <a name="what-happens-when-you-emit-usage-for-a-saas-subscription-that-has-been-unsubscribed-already"></a>O que acontece quando você emite o uso de uma assinatura de SaaS que já tinha o assinatura cancelada?
+### <a name="what-happens-when-you-emit-usage-for-a-saas-subscription-that-has-been-unsubscribed-already"></a>What happens when you emit usage for a SaaS subscription that has been unsubscribed already?
 
-Qualquer evento de uso emitido para a plataforma do Marketplace não será aceito depois que uma assinatura de SaaS tiver sido excluída.
+Any usage event emitted to marketplace platform will not be accepted after a SaaS subscription has been deleted.
 
-### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Você pode obter uma lista de todas as assinaturas de SaaS, incluindo assinaturas ativas e não assinadas?
+### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Can you get a list of all SaaS subscriptions, including active and unsubscribed subscriptions?
 
-Sim, quando você chama a API de `GET /saas/subscriptions`, ela inclui uma lista de todas as assinaturas de SaaS. O campo status na resposta para cada assinatura de SaaS captura se a assinatura está ativa ou não assinada. A chamada para listar assinaturas retorna um máximo de 100 assinaturas no momento.
+Yes, when you call the `GET /saas/subscriptions` API it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed. The call to list Subscriptions returns a maximum of 100 subscriptions at the time.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para obter mais informações.
+- See [Marketplace metering service APIs](./marketplace-metering-service-apis.md) for more information.

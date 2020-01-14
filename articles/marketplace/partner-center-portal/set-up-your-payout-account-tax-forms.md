@@ -3,18 +3,18 @@ Description: Para receber dinheiro das vendas da oferta no Marketplace comercial
 title: Configurar sua conta de pagamento e formulários de impostos | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 73ee800a837e7cd201025c93c7e88ad46f7fe256
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6ef9711d6047a75ca5058f12e95d72a79628e30
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980221"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934161"
 ---
-# <a name="set-up-your-payout-account-and-tax-forms"></a>Configurar sua conta de pagamento e formulários de impostos
+# <a name="set-up-your-payout-account-and-tax-forms"></a>Configurar a conta de dividendos e os formulários fiscais
 
 Para receber dinheiro de vendas de ofertas no Marketplace comercial, você precisa configurar sua conta de pagamento e preencher os formulários de impostos necessários no [Partner Center](https://partner.microsoft.com/dashboard).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358006"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933947"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Elevada disponibilidade e recuperação após desastre para SQL Server em Máquinas Virtuais do Azure
 
@@ -77,7 +77,7 @@ Você pode ter uma solução de recuperação de desastre para seus bancos de da
 
 ## <a name="free-dr-replica-in-azure"></a>Réplica de DR gratuita no Azure
 
-Se você tiver o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), poderá implementar planos de Dr (recuperação de desastre híbrido) com SQL Server usando grupos de disponibilidade Always on ou instâncias de cluster de failover sem incorrer em custos de licenciamento adicionais para a instância de Dr passiva.
+Se você tiver o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), poderá implementar planos de Dr (recuperação de desastre híbrido) com o SQL Server sem incorrer em custos de licenciamento adicionais para a instância de Dr passiva.
 
 Na imagem abaixo, a instalação usa SQL Server em execução em uma máquina virtual do Azure utilizando 12 núcleos como uma réplica de recuperação de desastre para uma implantação de SQL Server local usando 12 núcleos. No passado, você precisaria licenciar 12 núcleos de SQL Server para a implantação de máquina virtual local e do Azure. O novo benefício oferece benefícios de réplica passiva em execução em uma máquina virtual do Azure. Agora, você precisará apenas licenciar 12 núcleos de SQL Server em execução local, desde que os critérios de recuperação de desastre para a réplica passiva na máquina virtual do Azure sejam atendidos.
 

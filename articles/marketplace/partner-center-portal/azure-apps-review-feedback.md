@@ -1,19 +1,19 @@
 ---
 title: Lidando com comentários de revisão para a oferta de aplicativos do Azure no Marketplace comercial
 description: Como lidar com comentários de revisão para a oferta de aplicativos do Azure para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 7406a6e35929e3df5d342affbcb4b740efa0cab8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5dd74a7be95ecf92289f2a144c9c509c71ce935b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281223"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933651"
 ---
 # <a name="handling-review-feedback"></a>Processar comentários de crítica
 
@@ -73,6 +73,6 @@ Use o procedimento a seguir para examinar os problemas documentados na solicita�
 
    ![Primeira correção e resposta de comentário](./media/first-comment-reply.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de corrigir os problemas críticos documentados na PR (s) revisão (ões), você deve [republicar sua oferta de aplicativo do Azure](./create-new-azure-apps-offer.md#publish).

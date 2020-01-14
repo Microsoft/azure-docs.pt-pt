@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 08458777d8a8c5c74ac20a63245135ffaf0a5c04
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564117"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934299"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -27,7 +27,9 @@ Estabeleça, implemente e gerencie ativamente (acompanhe, relate e corrija) a co
 
 Use Azure Policy ou a central de segurança do Azure para manter as configurações de segurança para todos os recursos do Azure.
 
-Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerenciar Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7,2: estabelecer configurações seguras do sistema operacional
 
@@ -57,7 +59,7 @@ Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Entendendo os efeitos de Azure Policy:
+Entender Azure Policy efeitos:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -85,7 +87,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | Cliente |
 
-Se você estiver usando definições personalizadas de política do Azure, use o Azure Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
+Se você estiver usando definições personalizadas de política do Azure, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
 Como armazenar código no Azure DevOps:
 
@@ -159,7 +161,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 Use a central de segurança do Azure para executar verificações de linha de base para configurações do sistema operacional e do Docker para contêineres.
 
-Noções básicas sobre as recomendações de contêiner da central de segurança do Azure:
+Entender as recomendações de contêiner da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
@@ -171,11 +173,17 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 Use Identidade de Serviço Gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de segredos para seus aplicativos de nuvem.
 
-Como integrar com identidades gerenciadas do Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Como integrar com identidades gerenciadas do Azure:
 
-Como criar um Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como fornecer Key Vault autenticação com uma identidade gerenciada: https://docs.microsoft.com/azure/key-vault/managed-identity
+Como criar um Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/quick-create-portal
+
+Como fornecer Key Vault autenticação com uma identidade gerenciada:
+
+https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7,12: gerenciar identidades de forma segura e automática
 
@@ -185,7 +193,9 @@ Como fornecer Key Vault autenticação com uma identidade gerenciada: https://do
 
 Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Identidades gerenciadas permitem que você se autentique em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Key Vault, sem nenhuma credencial em seu código.
 
-Como configurar identidades gerenciadas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Como configurar identidades gerenciadas:
+
+https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminar exposição de credencial não intencional
 
@@ -195,7 +205,9 @@ Como configurar identidades gerenciadas: https://docs.microsoft.com/azure/active
 
 Implemente o verificador de credenciais para identificar as credenciais no código. O verificador de credenciais também encorajará a movimentação de credenciais descobertas para locais mais seguros, como Azure Key Vault. 
 
-Como configurar o verificador de credenciais: https://secdevtools.azurewebsites.net/helpcredscan.html
+Como configurar o verificador de credenciais:
+
+https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>Passos seguintes
 

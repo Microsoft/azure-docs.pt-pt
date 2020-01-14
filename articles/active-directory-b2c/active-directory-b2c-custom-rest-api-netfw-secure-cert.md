@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0201c0947c2f6052182721294e8972e29479825d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949862"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930646"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados de cliente
 
@@ -100,17 +100,19 @@ Para dar suporte à autenticação de certificado de cliente em sua política pe
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>Etapa 4: carregar a política para seu locatário
 
-1. No [portal do Azure](https://portal.azure.com), alterne para o [contexto do seu locatário do Azure ad B2C](active-directory-b2c-navigate-to-b2c-context.md)e, em seguida, selecione **Azure ad B2C**.
+1. Na [portal do Azure](https://portal.azure.com), selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o locatário Azure ad B2C.
 
-2. Selecione **Identity Experience Framework**.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 
-3. Selecione **todas as políticas**.
+1. Selecione **Identity Experience Framework**.
 
-4. Selecione **carregar política**.
+1. Selecione **todas as políticas**.
 
-5. Marque a caixa de seleção **substituir a política se ela existir** .
+1. Selecione **carregar política**.
 
-6. Carregue o arquivo *TrustFrameworkExtensions. xml* e verifique se ele passou na validação.
+1. Marque a caixa de seleção **substituir a política se ela existir** .
+
+1. Carregue o arquivo *TrustFrameworkExtensions. xml* e verifique se ele passou na validação.
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Etapa 5: testar a política personalizada usando executar agora
 1. Abra **Azure ad B2C configurações**e, em seguida, selecione **estrutura de experiência de identidade**.

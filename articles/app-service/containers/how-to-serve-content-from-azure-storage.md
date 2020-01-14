@@ -5,21 +5,20 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866962"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930017"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Fornecer conteúdo do armazenamento do Azure no serviço de aplicativo no Linux
 
-Este guia mostra como anexar o armazenamento do Azure ao serviço de aplicativo no Linux. Os benefícios incluem conteúdo protegido, portabilidade de conteúdo, armazenamento persistente, acesso a vários aplicativos e vários métodos de transferência.
-
-
-> [!IMPORTANT]
-> O armazenamento do Azure no serviço de aplicativo no Linux é um recurso de **Visualização** . **Não há suporte para esse recurso em cenários de produção**.
+> [!NOTE]
+> Este artigo se aplica a contêineres do Linux. Para implantar os contêineres personalizados do Windows, consulte [Configurar arquivos do Azure em um contêiner do Windows no serviço de aplicativo](../configure-connect-to-azure-storage.md). O armazenamento do Azure no serviço de aplicativo no Linux é um recurso de **Visualização** . **Não há suporte para esse recurso em cenários de produção**.
 >
+
+Este guia mostra como anexar o armazenamento do Azure ao serviço de aplicativo no Linux. Os benefícios incluem conteúdo protegido, portabilidade de conteúdo, armazenamento persistente, acesso a vários aplicativos e vários métodos de transferência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

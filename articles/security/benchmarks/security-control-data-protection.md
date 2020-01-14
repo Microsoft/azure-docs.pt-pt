@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 914d1af9793107031af9797cb965420443e80c4a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5482495f87e87e5d05d8adca6b053810a62dcb4e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564338"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934510"
 ---
 # <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
 
@@ -23,7 +23,7 @@ As recomendações de proteção de dados concentram-se em resolver problemas re
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 4,1 | 13,1 | Cliente |
+| 4.1 | 13,1 | Cliente |
 
 Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
@@ -35,7 +35,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 4,2 | 13.2 | Cliente |
+| 4.2 | 13.2 | Cliente |
 
 Implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Os recursos devem ser separados por VNet/sub-rede, marcados adequadamente e protegidos por um NSG ou um firewall do Azure. Os recursos que armazenam ou processam dados confidenciais devem ser suficientemente isolados. Para máquinas virtuais que armazenam ou processam dados confidenciais, implemente políticas e procedimentos para desligá-los quando não estiverem em uso.
 
@@ -79,13 +79,13 @@ Implante uma ferramenta automatizada em perímetros de rede que monitora a trans
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 4.4 | 14,4 | Partilhada |
+| 4.4 | 14,4 | Partilhado |
 
 Criptografe todas as informações confidenciais em trânsito. Verifique se todos os clientes que se conectam aos recursos do Azure são capazes de negociar o TLS 1,2 ou superior.
 
 Siga as recomendações da central de segurança do Azure para criptografia em repouso e criptografia em trânsito, quando aplicável.
 
-Noções básicas sobre criptografia em trânsito com o Azure:
+Entenda a criptografia em trânsito com o Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
@@ -117,7 +117,7 @@ https://docs.microsoft.com/azure/information-protection/deployment-roadmap
 
 Use o RBAC do Azure AD para controlar o acesso a dados e recursos, caso contrário, use métodos de controle de acesso específicos de serviço.
 
-Noções básicas sobre o RBAC do Azure:
+Entender o RBAC do Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -129,7 +129,7 @@ https://docs.microsoft.com/azure/role-based-access-control/role-assignments-port
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 4,7 | 14,7 | Cliente |
+| 4.7 | 14,7 | Cliente |
 
 Implemente uma ferramenta de terceiros, como uma solução de prevenção contra perda de dados baseada em host automatizada, para impor controles de acesso a dados mesmo quando os dados são copiados fora de um sistema.
 
@@ -164,4 +164,3 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ## <a name="next-steps"></a>Passos seguintes
 
 Consulte o próximo controle de segurança: [Gerenciamento de vulnerabilidades](security-control-vulnerability-management.md)
-

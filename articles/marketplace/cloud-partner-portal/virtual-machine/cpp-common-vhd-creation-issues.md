@@ -2,19 +2,19 @@
 title: Problemas comuns durante a criação do VHD (FAQ) para o Azure Marketplace
 description: Perguntas frequentes sobre a criação de VHD e problemas associados.
 services: Azure Marketplace
-author: HannibalSII
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio
+ms.author: evansma
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826623"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934264"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (FAQ)
 
@@ -73,7 +73,7 @@ O artigo a seguir fornece detalhes sobre como usar a extensão de script persona
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Há suporte para aplicativos de 32 bits ou serviços no Azure Marketplace?
 
-Em geral, não.  Os sistemas operacionais com suporte e os serviços padrão para VMs do Azure são todos de 64 bits.  No entanto, do ponto de vista técnico, a maioria dos sistemas operacionais de 64 bits dá suporte à execução de versões de 32 bits de aplicativos para compatibilidade com versões anteriores.  No entanto, o uso de aplicativos de 32 bits como parte de sua solução de VM não tem suporte e, portanto, é *altamente desencorajado*.  Em vez disso, recompile seu aplicativo como um projeto de 64 bits.
+Geralmente, não.  Os sistemas operacionais com suporte e os serviços padrão para VMs do Azure são todos de 64 bits.  No entanto, do ponto de vista técnico, a maioria dos sistemas operacionais de 64 bits dá suporte à execução de versões de 32 bits de aplicativos para compatibilidade com versões anteriores.  No entanto, o uso de aplicativos de 32 bits como parte de sua solução de VM não tem suporte e, portanto, é *altamente desencorajado*.  Em vez disso, recompile seu aplicativo como um projeto de 64 bits.
 
 Para obter mais informações, veja os artigos seguintes:
 - [Executando aplicativos de 32 bits](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)

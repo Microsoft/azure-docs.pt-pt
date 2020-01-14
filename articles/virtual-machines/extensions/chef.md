@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8a5b54131210d243015b37bf234408fd9d2b4c12
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073194"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933613"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM chefe para Linux e Windows
 
@@ -70,7 +70,7 @@ O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão reque
 | Nome | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (data) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| publicador | `Chef.Bootstrap.WindowsAzure` | string |
 | tipo | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | string (double) |
 
@@ -151,6 +151,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
 
 Informações adicionais de solução de problemas podem ser encontradas no [Leiame da extensão de VM chefe](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> Para qualquer outra coisa diretamente relacionada ao chefe, entre em contato com o [suporte do chefe](https://www.chef.io/support/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

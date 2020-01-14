@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: d656099f98d75b192d02d185b2ba51a90abb4efc
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3f2dcce4a3907084f8cb1b5ace1ace6ab795f85a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778588"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929460"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeando tutoriais de vídeo do fluxo de dados
 
@@ -122,3 +122,5 @@ Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento cri
 [Mascaramento de dados para dados confidenciais](https://www.youtube.com/watch?v=OFd4LeiTmfs)
 
 [Modelos lógicos versus modelos físicos](http://youtu.be/K5tgzLjEE9Q)
+
+[Detectar alterações de dados de origem](http://youtu.be/CaxIlI7oXfI?hd=1)

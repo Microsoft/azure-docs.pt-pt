@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: af6848e85db5d2a557835b063a499e3439557eb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 93a70bf0d9189368135b8007e95627fc64064c51
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690437"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932190"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Reutilize ambientes para treinamento & implantação com Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -344,6 +344,34 @@ service = Model.deploy(
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
 Este [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expande sobre conceitos e métodos demonstrados neste artigo.
+
+## <a name="create-and-manage-environments-with-the-cli"></a>Criar e gerenciar ambientes com a CLI
+
+A [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) espelha a maioria da funcionalidade do SDK do Python e pode ser usada para criação e gerenciamento de ambiente. Os comandos a seguir demonstram a funcionalidade básica.
+
+O comando a seguir aplica Scaffold os arquivos para uma definição de ambiente padrão no diretório especificado. Esses arquivos são arquivos JSON que são semelhantes em função à classe correspondente no SDK e podem ser usados para criar novos ambientes com configurações personalizadas. 
+
+```azurecli-interactive
+az ml environment scaffold -n myenv -d myenvdir
+```
+
+Execute o comando a seguir para registrar um ambiente de um diretório especificado.
+
+```azurecli-interactive
+az ml environment register -d myenvdir
+```
+
+A execução do comando a seguir listará todos os ambientes registrados.
+
+```azurecli-interactive
+az ml environment list
+```
+
+Baixe um ambiente registrado com o comando a seguir.
+
+```azurecli-interactive
+az ml environment download -n myenv -d downloaddir
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

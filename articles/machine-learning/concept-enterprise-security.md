@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/09/2019
-ms.openlocfilehash: dafcdaa1ac014dbe4d45be58477bb3b9010b857f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.date: 01/09/2020
+ms.openlocfilehash: 9dad936e2e6cc7a9b0cdde78a9557a51d3074e71
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921073"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930884"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 

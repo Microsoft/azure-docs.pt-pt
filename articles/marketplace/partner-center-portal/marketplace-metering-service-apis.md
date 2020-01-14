@@ -1,19 +1,19 @@
 ---
 title: APIs do serviço de medição do Marketplace | Azure Marketplace
 description: Evento de uso para ofertas de SaaS no Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825482"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933580"
 ---
 # <a name="marketplace-metering-service-apis"></a>APIs do serviço de medição do Marketplace
 
@@ -31,7 +31,7 @@ A API de evento de uso permite que você emita eventos de uso para uma entidade 
 
 *Cabeçalhos de solicitação:*
 
-| tipo de conteúdo       | `application/json`    |
+| Tipo de conteúdo       | `application/json`    |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Valor de cadeia de caracteres exclusiva para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -131,7 +131,7 @@ A API de evento de uso do lote permite que você emita eventos de uso para mais 
 
 *Cabeçalhos de solicitação:*
 
-| tipo de conteúdo       | `application/json`       |
+| Tipo de conteúdo       | `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Valor de cadeia de caracteres exclusiva para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |

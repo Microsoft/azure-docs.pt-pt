@@ -1,6 +1,6 @@
 ---
-title: Gerir clusters do Apache Hadoop no HDInsight com o SDK de .NET - Azure
-description: Saiba como executar tarefas administrativas para os clusters do Apache Hadoop no HDInsight com o SDK de .NET do HDInsight.
+title: Gerenciar clusters de Apache Hadoop no HDInsight com o SDK do .NET – Azure
+description: Saiba como executar tarefas administrativas para os clusters de Apache Hadoop no HDInsight usando o SDK do .NET do HDInsight.
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508100"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934743"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Apache Hadoop no HDInsight com o .NET SDK
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters de Apache Hadoop no HDInsight usando o SDK do .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Saiba como gerir clusters do HDInsight através de [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+Saiba como gerenciar clusters HDInsight usando o [SDK do HDInsight.net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Pré-requisitos**
 
@@ -27,9 +27,9 @@ Antes de começar este artigo, tem de ter o seguinte:
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="connect-to-azure-hdinsight"></a>Ligar ao Azure HDInsight
+## <a name="connect-to-azure-hdinsight"></a>Conectar-se ao Azure HDInsight
 
-Terá dos seguintes pacotes NuGet:
+Você precisa dos seguintes pacotes NuGet:
 
 ```powershell
 Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -37,7 +37,7 @@ Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
 ```
 
-O exemplo de código seguinte mostra como ligar ao Azure antes de poder administrar clusters do HDInsight com a sua subscrição do Azure.
+O exemplo de código a seguir mostra como se conectar ao Azure para que você possa administrar clusters HDInsight em sua assinatura do Azure.
 
 ```csharp
 using System;
@@ -106,15 +106,12 @@ namespace HDInsightManagement
 }
 ```
 
-Deverá ver uma linha de comandos quando executar esse programa.  Se não quiser ver a linha de comandos, veja [criar aplicações de HDInsight de .NET de autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Você deverá ver um prompt ao executar este programa.  Se você não quiser ver o prompt, consulte [criar aplicativos .net HDInsight de autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## <a name="create-clusters"></a>Criar clusters
-
-Consulte [baseado em Linux criar clusters no HDInsight com o SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## <a name="list-clusters"></a>Listar clusters
 
-O fragmento de código seguinte apresenta uma lista de clusters e algumas propriedades:
+O trecho de código a seguir lista clusters e algumas propriedades:
 
 ```csharp
 var results = _hdiManagementClient.Clusters.List();
@@ -126,9 +123,9 @@ foreach (var name in results.Clusters) {
 }
 ```
 
-## <a name="delete-clusters"></a>Eliminar clusters
+## <a name="delete-clusters"></a>Excluir clusters
 
-Utilize o seguinte fragmento de código para eliminar um cluster de forma síncrona ou assíncrona: 
+Use o seguinte trecho de código para excluir um cluster de forma síncrona ou assíncrona: 
 
 ```csharp
 _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
@@ -137,21 +134,21 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 ## <a name="scale-clusters"></a>Dimensionar clusters
 
-O funcionalidade de dimensionamento do cluster permite-lhe alterar o número de nós de trabalho utilizado por um cluster que está em execução no Azure HDInsight sem ter de voltar a criar o cluster.
+O recurso de dimensionamento de cluster permite que você altere o número de nós de trabalho usados por um cluster que está sendo executado no Azure HDInsight sem precisar recriar o cluster.
 
 > [!NOTE]  
-> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.  Ver [listar e Mostrar clusters](hdinsight-administer-use-portal-linux.md#showClusters).
+> Há suporte apenas para clusters com o HDInsight versão 3.1.3 ou superior. Se não tiver certeza da versão do cluster, você poderá verificar a página Propriedades.  Consulte [listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#showClusters).
 
-O impacto de alterar o número de nós de dados para cada tipo de cluster suportada pelo HDInsight:
+O impacto da alteração do número de nós de dados para cada tipo de cluster com suporte no HDInsight:
 
 * Apache Hadoop
   
-    Pode facilmente aumentar o número de nós de trabalho num cluster do Hadoop que está a ser executado sem afetar todas as tarefas em execução ou pendentes. Também podem ser submetidas a novas tarefas enquanto a operação estiver em curso. Falhas numa operação de dimensionamento são processadas corretamente para que o cluster está sempre deixado no estado funcional.
+    Você pode aumentar diretamente o número de nós de trabalho em um cluster Hadoop em execução sem afetar nenhum trabalho pendente ou em execução. Novos trabalhos também podem ser enviados enquanto a operação está em andamento. As falhas em uma operação de dimensionamento são normalmente manipuladas para que o cluster sempre fique em um estado funcional.
   
-    Quando um cluster do Hadoop é reduzido, reduzindo o número de nós de dados, alguns dos serviços do cluster são reiniciados. Isso faz com que tudo em execução e tarefas pendentes a falhar após a conclusão da operação de dimensionamento. Pode, no entanto, volte a submeter as tarefas depois de concluída a operação.
+    Quando um cluster Hadoop é reduzido reduzindo o número de nós de dados, alguns dos serviços no cluster são reiniciados. Isso faz com que todos os trabalhos em execução e pendentes falhem na conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
 * Apache HBase
   
-    Pode facilmente adicionar ou remover nós ao cluster do HBase durante a execução. Servidores regionais são balanceadas automaticamente dentro de alguns minutos a concluir a operação de dimensionamento. No entanto, também manualmente pode balancear servidores regionais iniciando sessão no nó principal do cluster e executar os seguintes comandos a partir de uma janela de linha de comandos:
+    Você pode adicionar ou remover nós diretamente em seu cluster HBase enquanto ele está em execução. Os servidores regionais são balanceados automaticamente em alguns minutos após a conclusão da operação de dimensionamento. No entanto, você também pode balancear manualmente os servidores regionais fazendo logon no cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
   
 
     ```bash
@@ -162,20 +159,20 @@ O impacto de alterar o número de nós de dados para cada tipo de cluster suport
 
 * Apache Storm
   
-    Pode facilmente adicionar ou remover nós de dados ao seu cluster do Storm, enquanto estiver em execução. Mas, após a conclusão bem-sucedida da operação de dimensionamento, terá de reequilibrar a topologia.
+    Você pode adicionar ou remover nós de dados diretamente em seu cluster Storm enquanto ele estiver em execução. Mas, após a conclusão bem-sucedida da operação de dimensionamento, será necessário reequilibrar a topologia.
   
-    Reequilíbrio pode ser feito de duas formas:
+    O rebalanceamento pode ser realizado de duas maneiras:
   
-  * IU da web do Storm
-  * Ferramenta de interface de linha de comandos (CLI)
+  * Interface do usuário da Web do Storm
+  * Ferramenta de interface de linha de comando (CLI)
     
-    Consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
+    Consulte a documentação do [Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
     
-    A IU da web de Storm está disponível no cluster do HDInsight:
+    A interface do usuário da Web do Storm está disponível no cluster HDInsight:
     
-    ![Reequilíbrio de dimensionamento do HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![Rebalanceamento de escala do HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
-    Eis um exemplo como utilizar o comando da CLI para reequilibrar a topologia do Storm:
+    Aqui está um exemplo de como usar o comando da CLI para reequilibrar a topologia do Storm:
     
 
     ```cli
@@ -185,7 +182,7 @@ O impacto de alterar o número de nós de dados para cada tipo de cluster suport
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-O fragmento de código seguinte mostra como redimensionar um cluster de forma síncrona ou assíncrona:
+O trecho de código a seguir mostra como redimensionar um cluster de forma síncrona ou assíncrona:
 
 ```csharp
 _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
@@ -194,7 +191,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 
-Clusters do HDInsight tem os seguintes serviços da web HTTP (todos estes serviços tem pontos de extremidade RESTful):
+Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
 * ODBC
 * JDBC
@@ -202,7 +199,7 @@ Clusters do HDInsight tem os seguintes serviços da web HTTP (todos estes servi�
 * Apache Oozie
 * Apache Templeton
 
-Por predefinição, estes serviços são concedidos para o acesso. Pode revogar/conceder o acesso. Para revogar:
+Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso. Para revogar:
 
 ```csharp
 var httpParams = new HttpSettingsParameters
@@ -227,17 +224,17 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 ```
 
 > [!NOTE]  
-> Ao conceder/revogar o acesso irá repor o nome de utilizador do cluster e a palavra-passe.
+> Ao conceder/revogar o acesso, você redefinirá o nome de usuário e a senha do cluster.
 
-Também pode ser feito através do Portal. Ver [Apache Hadoop gerir clusters no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md).
+Isso também pode ser feito por meio do Portal. Consulte [gerenciar clusters de Apache Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md).
 
-## <a name="update-http-user-credentials"></a>Atualize as credenciais de utilizador HTTP
+## <a name="update-http-user-credentials"></a>Atualizar credenciais de usuário HTTP
 
-É o mesmo procedimento como conceder/revogar HTTP acesso.  Se o cluster tiver sido concedido o acesso HTTP, tem primeiro de o revogar.  E, em seguida, conceder o acesso com novas credenciais de utilizador HTTP.
+É o mesmo procedimento que conceder/revogar acesso HTTP.  Se o cluster tiver recebido o acesso HTTP, você deverá primeiro revogá-lo.  E, em seguida, conceder o acesso com novas credenciais de usuário HTTP.
 
-## <a name="find-the-default-storage-account"></a>Localizar a conta de armazenamento predefinida
+## <a name="find-the-default-storage-account"></a>Localizar a conta de armazenamento padrão
 
-O fragmento de código seguinte demonstra como obter o nome de conta do storage predefinida e a chave de conta de armazenamento padrão para um cluster.
+O trecho de código a seguir demonstra como obter o nome da conta de armazenamento padrão e a chave de conta de armazenamento padrão para um cluster.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -247,35 +244,35 @@ foreach (var key in results.Configuration.Keys)
 }
 ```
 
-## <a name="submit-jobs"></a>Submeter tarefas
+## <a name="submit-jobs"></a>Enviar trabalhos
 
-**Submeter tarefas de MapReduce**
+**Para enviar trabalhos MapReduce**
 
-Ver [exemplos de executar o MapReduce no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Consulte [executar exemplos de MapReduce no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Para submeter tarefas do Apache Hive** 
+**Para enviar trabalhos de Apache Hive** 
 
-Ver [executar Apache consultas do Hive com o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Consulte [executar consultas de Apache Hive usando o SDK do .net](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Submeter tarefas do Apache Sqoop**
+**Para enviar trabalhos do Apache Sqoop**
 
-Ver [utilizar o Apache Sqoop com o HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Consulte [usar o Apache Sqoop com o HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Submeter tarefas do Apache Oozie**
+**Para enviar trabalhos do Apache Oozie**
 
-Ver [utilização Apache Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
+Consulte [usar o Apache Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para o armazenamento de Blobs do Azure
+## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de BLOBs do Azure
 
-Ver [carregar dados para o HDInsight][hdinsight-upload-data].
+Consulte [carregar dados no HDInsight][hdinsight-upload-data].
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md)
-* [Administrar o HDInsight, através de uma interface de linha de comandos][hdinsight-admin-cli]
-* [Criar clusters do HDInsight][hdinsight-provision]
-* [Carregar dados para o HDInsight][hdinsight-upload-data]
+* [Documentação de referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [Gerenciar clusters de Apache Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md)
+* [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]
+* [Criar clusters HDInsight][hdinsight-provision]
+* [Carregar dados no HDInsight][hdinsight-upload-data]
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/

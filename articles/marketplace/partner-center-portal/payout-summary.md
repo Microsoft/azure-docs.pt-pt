@@ -1,18 +1,18 @@
 ---
 title: Resumo de pagamento do Marketplace comercial | Azure Marketplace
 description: O resumo de pagamento mostra detalhes sobre o dinheiro que você ganhou com sua oferta. Ele também permite que você saiba quando receberá pagamentos e quanto será pago.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427149"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931806"
 ---
 # <a name="payout-reporting"></a>Relatório de pagamento
 
@@ -68,21 +68,21 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso 
 
-|Descrição    |    Date  | Pedidos/uso  | Dividendos |
+|Descrição    |    Data  | Pedidos/uso  | Dividendos |
 |----------|----------|-----------|-------------|
 |Período do pedido   | 15 de agosto de 2019-30 de agosto de 2019 | **Pedidos de atributos de correlação** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilização** <br> <ul> <li>CustomerId </li> <li>Nome do cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Custo estendido estimado <br> Pagamento estimado (PC) </li> </ul> |  |
 |Final do termo (mês)   | 30 de agosto de 2019 | | |
 |Data de cobrança | 1 de setembro de 2019 | | |
 |Data de pagamento do cliente | 1 de setembro de 2019 | | |
-|Período de caução (somente cartões de crédito, 30 dias) | 1 de setembro de 2019-30 de setembro de 2019 | | **Pedidos de atributos de correlação:** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Não processados |
+|Período de caução (somente cartões de crédito, 30 dias) | 1 de setembro de 2019-30 de setembro de 2019 | | **Pedidos de atributos de correlação:** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Não processados |
 |Início do período de coleta | 1 de setembro de 2019 | | |
 |Término do período de coleta (máximo, 30 dias) | 30 de setembro de 2019 | | |
-|Data de cálculo do pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Cerimônia |
-|Data do pagamento | 15 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Pagamento enviado |
+|Data de cálculo do pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Cerimônia |
+|Data do pagamento | 15 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Pagamento enviado |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contrato Enterprise (clientes trimestrais/mensais)
 
-| Descrição |    Date  | Utilização | Dividendos |
+| Descrição |    Data  | Utilização | Dividendos |
 |----------|----------|---------|-----------|
 |Período do pedido | 15 de agosto de 2019-30 de agosto de 2019 | **Pedidos de atributos de correlação** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Relatório de uso** <br> <ul> <li>CustomerId </li> <li>Nome do cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Custo estendido estimado <br> Pagamento estimado (PC) </li> </ul> | |
 |Final do termo (trimestre) | 30 de setembro de 2019 | | |
@@ -93,7 +93,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 |Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2020 | | |
 |Data de pagamento do cliente | 30 de dezembro de 2019 | | |
 |Cálculo de pagamento | 15 de janeiro de 2020 | | |
-|Data do pagamento | 15 de fevereiro de 2020 | | **Para clientes baseados em trimestre** <br> <br> **Relatório de pedidos** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** enviado |
+|Data do pagamento | 15 de fevereiro de 2020 | | **Para clientes baseados em trimestre** <br> <br> **Relatório de pedidos** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** enviado |
 
 ## <a name="transaction-history-download-export"></a>Exportação de download de histórico de transações
 

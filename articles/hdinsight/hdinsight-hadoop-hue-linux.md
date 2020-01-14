@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
-ms.openlocfilehash: 8a644beede4089133f88b824fd8d34dddec3b15e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751110"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934566"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e usar o matiz em clusters Hadoop do HDInsight
 
@@ -127,6 +127,4 @@ O túnel SSH é a única maneira de acessar o matiz no cluster quando ele está 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Instale o Apache o giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use a personalização de cluster para instalar o O giraph em clusters Hadoop do HDInsight. O o giraph permite que você execute o processamento de grafo usando o Hadoop e ele pode ser usado com o Azure HDInsight.
-
-* [Instale o R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md). Use a personalização de cluster para instalar o R em clusters Hadoop do HDInsight. R é um ambiente e linguagem de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece amplos recursos gráficos.
+[Instale o R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md). Use a personalização de cluster para instalar o R em clusters Hadoop do HDInsight. R é um ambiente e linguagem de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece amplos recursos gráficos.

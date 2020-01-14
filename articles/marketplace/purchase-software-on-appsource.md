@@ -1,19 +1,19 @@
 ---
 title: Como comprar software no AppSource | Azure Marketplace
 description: Etapas para uma aquisição de software em AppSource | Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827738"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933504"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como comprar software em Microsoft AppSource
 
@@ -23,7 +23,7 @@ O Microsoft [AppSource](https://appsource.microsoft.com/) agora permite que os c
 
 Para adquirir ofertas de SaaS, você precisa de:
 
-- Uma conta corporativa ou de estudante.
+- Uma conta escolar ou profissional.
 
     > [!Note]
     > Se você não tiver uma conta corporativa ou de estudante, precisará criar um locatário Azure Active Directory ao qual uma conta corporativa ou de estudante pode ser adicionada. Para saber mais, consulte [início rápido: criar um novo locatário no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
@@ -41,7 +41,7 @@ Para adquirir ofertas de SaaS, você precisa de:
     > [!Note]
     > O AppSource fornece uma seleção de aplicativos para escolher, incluindo assinaturas gratuitas, avaliações e pagas. Este artigo descreve como as assinaturas pagas podem ser adquiridas por meio do AppSource.
 
-1. Selecione **obter agora**.
+1. Selecione **Obter agora**.
 1. Escolha o plano:
 
     1. Definir o número de estações
