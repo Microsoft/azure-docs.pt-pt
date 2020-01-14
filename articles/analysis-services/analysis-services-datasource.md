@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442766"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922295"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -120,7 +120,9 @@ Para fontes de dados de nuvem:
 
 ## <a name="oauth-credentials"></a>Credenciais do OAuth
 
-Para modelos de tabela no nível de compatibilidade 1400 e superior, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
+Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
+
+Não há suporte para o modo de consulta direta com credenciais OAuth.
 
 ## <a name="next-steps"></a>Passos seguintes
   [de gateway local](analysis-services-gateway.md)  

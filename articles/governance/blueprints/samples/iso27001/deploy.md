@@ -1,14 +1,14 @@
 ---
 title: Implantar exemplo de plano gráfico ISO 27001
 description: Implante as etapas para o exemplo autônomo ISO 27001 Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9ea579537ff98d662066ecb8900a62f080b88d3d
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546660"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922508"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implantar a amostra do plano gráfico ISO 27001
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
@@ -44,7 +44,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de plano gráfico pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-lo para fora do padrão ISO 27001.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -54,7 +54,7 @@ Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado 
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -101,14 +101,14 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |-|-|-|-|
 |\]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de dimensionamento de VM do Linux (VMSS)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
 |\]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Espaço de trabalho Log Analytics para VMs Linux|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Espaço de trabalho Log Analytics para VMs Linux|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
 |\]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMSS (conjuntos de dimensionamento de VMs do Windows)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
 |\]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
 |SKUs de contas de armazenamento permitidos|Atribuição de política|Lista de SKUs de armazenamento permitidas|A lista de SKUs que podem ser especificadas para contas de armazenamento.|
-|SKUs de máquina virtual permitidas|Atribuição de política|Lista de SKUs de máquina virtual permitidas|A lista de SKUs que podem ser especificados para máquinas virtuais.|
+|SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual permitidas|A lista de SKUs que podem ser especificados para máquinas virtuais.|
 |Iniciativa Blueprint para ISO 27001|Atribuição de política|Lista de tipos de recursos que devem ter logs de diagnóstico habilitados|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 
 ## <a name="next-steps"></a>Passos seguintes

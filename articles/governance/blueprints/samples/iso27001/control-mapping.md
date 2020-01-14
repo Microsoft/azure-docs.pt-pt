@@ -1,14 +1,14 @@
 ---
 title: Controles de exemplo do plano gráfico ISO 27001
 description: Mapeamento de controle do exemplo de plano gráfico ISO 27001. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: effc68f3b7daa576b855fb61b39c1e47929a614e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 501884491dbef85cdf8a29cb5fdcef44a68235a9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546681"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920572"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controle da amostra do plano gráfico ISO 27001
 
@@ -53,7 +53,7 @@ Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atri
 - \[\]de visualização: contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
 - \]de visualização de \[: auditar contas externas com permissões de proprietário em uma assinatura
 - \]de visualização de \[: auditar contas externas com permissões de gravação em uma assinatura
-- Auditar o provisionamento de um administrador de Azure Active Directory para o SQL Server
+- Aprovisionamento de auditoria de um administrador do Azure Active Directory para o servidor SQL
 - Auditar o uso de Azure Active Directory para autenticação de cliente no Service Fabric
 - Auditar o uso de regras personalizadas de RBAC
 

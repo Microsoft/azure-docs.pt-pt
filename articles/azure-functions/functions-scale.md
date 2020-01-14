@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768929"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921920"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e Hospedagem de Azure Functions
 

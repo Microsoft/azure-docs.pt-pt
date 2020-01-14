@@ -4,16 +4,16 @@ description: Criar uma aplicação de funções e implementar o código de funç
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 37dc0235b258f6d47f8813546fe953e92799454a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e424737b67be58ac0c3880ad2454c87fab803a15
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532812"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922723"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar uma aplicação de funções no Azure que é implementada a partir do GitHub
 
-Este script de exemplo das Funções do Azure cria uma aplicação de funções com o [plano de consumo](../functions-scale.md#consumption-plan), juntamente com os recursos relacionados. O script também configura o seu código de função para a implementação contínua de um repositório do GitHub. 
+Este Azure Functions script de exemplo cria um aplicativo de funções usando o [plano de consumo](../functions-scale.md#consumption-plan), juntamente com seus recursos relacionados. O script também configura o seu código de função para a implementação contínua de um repositório do GitHub. 
 
 Neste exemplo, precisa de:
 
@@ -42,7 +42,7 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para a aplicação de funções. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor e associa-a ao repositório de Git ou de Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no plano de [consumo](../functions-scale.md#consumption-plan) sem servidor e o associa a um repositório git ou Mercurial. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

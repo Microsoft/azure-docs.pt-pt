@@ -6,12 +6,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226963"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920782"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions recuperação de desastres geograficamente
 
@@ -54,7 +54,7 @@ Antes do failover, os editores que enviarem para o alias compartilhado rotearão
 
 Leia mais sobre informações e considerações sobre failover com o [barramento de serviço](../service-bus-messaging/service-bus-geo-dr.md) e os hubs de [eventos](../event-hubs/event-hubs-geo-dr.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar porta frontal do Azure](../frontdoor/quickstart-create-front-door.md)
 * [Considerações sobre failover de hubs de eventos](../event-hubs/event-hubs-geo-dr.md#considerations)

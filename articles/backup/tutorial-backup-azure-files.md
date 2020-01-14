@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de compartilhamentos de arquivos do Azure
 description: Neste tutorial, saiba como usar o portal do Azure para configurar um cofre dos serviços de recuperação e fazer backup de compartilhamentos de arquivos do Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171874"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921633"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Fazer backup de compartilhamentos de arquivos do Azure no portal do Azure
 
@@ -28,7 +28,6 @@ Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, g
 
 A cópia de segurança de partilhas de ficheiros do Azure está em pré-visualização. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de finalidade geral v2. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
 
-* Não pode proteger partilhas de ficheiros do Azure em contas de armazenamento que têm Redes Virtuais ou Firewall ativadas.
 * Não há uma CLI disponível para proteger os arquivos do Azure usando o backup do Azure.
 * O número máximo de cópias de segurança agendadas por dia é de um.
 * O número máximo de cópias de segurança a pedido por dia é de quatro.

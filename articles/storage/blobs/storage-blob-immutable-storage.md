@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912802"
+ms.locfileid: "75921224"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazene dados de blob críticos para os negócios com armazenamento imutável
 
@@ -76,7 +76,7 @@ Os seguintes limites se aplicam às políticas de retenção:
 
 Os blobs de acréscimo são compostos de blocos de dados e otimizados para operações de acréscimo de dados exigidas pelos cenários de auditoria e registro em log. Por design, os blobs de acréscimo permitem apenas a adição de novos blocos ao final do blob. Independentemente da imutabilidade, a modificação ou a exclusão de blocos existentes em um blob de acréscimo não é permitida de maneira fundamental. Para saber mais sobre blobs de acréscimo, confira [sobre blobs de acréscimo](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Somente as políticas de retenção baseadas em tempo têm uma configuração `allowProtectedAppendWrites` que permite gravar novos blocos em um blob de acréscimo, mantendo a proteção contra imutabilidade e a conformidade. Se habilitada, você poderá criar um blob de acréscimo diretamente no contêiner protegido por política e continuar a adicionar novos blocos de dados ao final dos BLOBs de acréscimo existentes usando a API *AppendBlock* . Somente novos blocos podem ser adicionados e os blocos existentes não podem ser modificados ou excluídos. A proteção de imutabilidade de retenção de tempo ainda se aplica, impedindo a exclusão do blob de acréscimo até que o período de retenção efetivo tenha decorrido.  
+Somente as políticas de retenção baseadas em tempo têm uma configuração `allowProtectedAppendWrites` que permite gravar novos blocos em um blob de acréscimo, mantendo a proteção contra imutabilidade e a conformidade. Se habilitada, você poderá criar um blob de acréscimo diretamente no contêiner protegido por política e continuar a adicionar novos blocos de dados ao final dos BLOBs de acréscimo existentes usando a API *AppendBlock* . Somente novos blocos podem ser adicionados e os blocos existentes não podem ser modificados ou excluídos. A proteção de imutabilidade de retenção de tempo ainda se aplica, impedindo a exclusão do blob de acréscimo até que o período de retenção efetivo tenha decorrido. A habilitação dessa configuração não afeta o comportamento de imutabilidade de blobs de blocos ou BLOBs de páginas.
 
 Como essa configuração faz parte de uma política de retenção baseada em tempo, os blobs de acréscimo ainda permanecem no estado imutável pela duração do período de retenção *efetivo* . Como novos dados podem ser acrescentados além da criação inicial do blob de acréscimo, há uma pequena diferença na forma como o período de retenção é determinado. A retenção efetiva é a diferença entre a hora da **última modificação** do blob de acréscimo e o intervalo de retenção especificado pelo usuário. Da mesma forma, quando o intervalo de retenção é estendido, o armazenamento imutável usa o valor mais recente do intervalo de retenção especificado pelo usuário para calcular o período de retenção efetivo.
 

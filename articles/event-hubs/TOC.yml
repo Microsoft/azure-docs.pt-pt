@@ -10,7 +10,7 @@
       href: event-hubs-capture-overview.md
     - name: Hubs de Eventos Dedicados
       href: event-hubs-dedicated-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um hub de eventos
@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Ativar a Integração e as Firewalls das Redes Virtuais no Espaço de Nomes dos Hubs de Eventos
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurar chaves geridas pelo cliente para a encriptação de dados inativos (Pré-visualização)
+        - name: Configurar chaves geridas pelo cliente para a encriptação de dados inativos
           href: configure-customer-managed-key.md
     - name: Resolução de problemas
       items:

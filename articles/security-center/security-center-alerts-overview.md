@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666283"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920762"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
 Na central de segurança do Azure, há uma variedade de alertas para vários tipos de recursos diferentes. A central de segurança gera alertas para recursos implantados no Azure e também para recursos implantados em ambientes de nuvem híbrida e locais.
 
-As deteções avançadas estão disponíveis no Escalão Standard do Centro de Segurança do Azure. Está disponível uma avaliação gratuita. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-pricing.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços.
+Os alertas de segurança são disparados por detecções avançadas e estão disponíveis apenas na camada Standard da central de segurança do Azure. Está disponível uma avaliação gratuita. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-pricing.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços.
 
 ## Respondendo às ameaças <a name="respond-threats"></a> atuais
 

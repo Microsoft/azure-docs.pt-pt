@@ -1,14 +1,14 @@
 ---
 title: Exemplo de implantação de plano gráfico de serviços compartilhados ISO 27001
 description: Implante as etapas para o exemplo de plano gráfico dos serviços compartilhados ISO 27001, incluindo detalhes do parâmetro de artefato do Blueprint.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 1ef96a3ccffa705290a90caf436fe1857d9442a7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546713"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920681"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar o exemplo de plano gráfico dos serviços compartilhados ISO 27001
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
@@ -44,7 +44,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de plano gráfico pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-lo para fora do padrão ISO 27001.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -54,7 +54,7 @@ Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado 
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -104,12 +104,12 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
 |\]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
 |Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos que podem ser implantados. Essa lista é composta por todos os tipos de recursos implantados em serviços compartilhados.|
 |SKUs de contas de armazenamento permitidos|Atribuição de política|SKUs de armazenamento permitidas|Lista de logs de diagnóstico SKUs de conta de armazenamento permitidos. O valor padrão é _["Standard_LRS"]_ .|
-|SKUs de máquina virtual permitidas|Atribuição de política|Lista de SKUs de máquina virtual que podem ser implantadas. O valor padrão é _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
+|SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual que podem ser implantadas. O valor padrão é _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
 |Iniciativa Blueprint para ISO 27001|Atribuição de política|Tipos de recurso para auditar logs de diagnóstico|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 |Log Analytics Grupo de recursos|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-sharedsvsc-log-rg` para tornar o grupo de recursos exclusivo.|
 |Log Analytics Grupo de recursos|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|

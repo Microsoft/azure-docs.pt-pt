@@ -1,21 +1,20 @@
 ---
 title: 'Início rápido: reconhecer a fala de um C++ microfone, (MacOS)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer a fala no C++ MacOS usando o SDK de fala
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 885e853528eb0b20079e6a7739450687ed001b8e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 08459238173b379280cb513ccb3242e4f15ef0bc
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818899"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927837"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

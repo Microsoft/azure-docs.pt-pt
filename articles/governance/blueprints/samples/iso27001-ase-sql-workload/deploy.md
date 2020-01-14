@@ -1,14 +1,14 @@
 ---
 title: Exemplo de implantação de esquema de carga de trabalho do ISO 27001 ASE/SQL
 description: Implante as etapas do exemplo de plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL, incluindo detalhes do parâmetro de artefato Blueprint.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 3cf3c062b1e8b69a6a0b9eb585b30ce2d5c4acfb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546756"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922582"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar a amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL
 
@@ -33,7 +33,7 @@ Antes que este exemplo de plano gráfico possa ser implantado, o exemplo de plan
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
@@ -52,7 +52,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de plano gráfico pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-lo para fora do padrão ISO 27001.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -62,7 +62,7 @@ Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado 
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 

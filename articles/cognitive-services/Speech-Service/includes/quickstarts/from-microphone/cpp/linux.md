@@ -1,21 +1,20 @@
 ---
 title: 'Início rápido: reconhecer a fala de um C++ microfone, (Linux)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer o Speech in C++ no Linux usando o SDK de fala
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 42f4b093ddec763bddb651e2ff24d51b613d5009
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b2b59eb4c81f28a0bb74aca11d925405256c16a5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818893"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928104"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

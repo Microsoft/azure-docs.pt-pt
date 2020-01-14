@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: fabccb7a3f49442a009fd69ee6d3b831760751d2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a66ea200082f60a3a763c6a4e2bdea62ec473d8
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201016"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920993"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fornecer detalhes de contato de segurança na central de segurança do Azure
-A central de segurança do Azure recomendará que você forneça detalhes de contato de segurança para sua assinatura do Azure, se ainda não tiver feito isso. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. O MSRC realiza o monitoramento de segurança selecionado da rede e da infraestrutura do Azure e recebe a inteligência contra ameaças e reclamações de abuso de terceiros.
+A central de segurança do Azure recomendará que você forneça detalhes de contato de segurança para sua assinatura do Azure, se ainda não tiver feito isso. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. O MSRC realiza uma monitorização de segurança selecionada da rede e da infraestrutura do Azure e recebe informações sobre ameaças e reclamações de abuso de terceiros.
 
-É enviada uma notificação por e-mail na primeira ocorrência diária de um alerta e apenas relativamente a alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Os grupos de recursos numa subscrição herdarão estas definições. 
+É enviada uma notificação por e-mail na primeira ocorrência diária de um alerta e apenas relativamente a alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Os grupos de recursos numa subscrição herdarão estas definições. Os alertas estão disponíveis apenas na camada Standard da central de segurança do Azure.
 
 As notificações de e-mail de alerta são enviadas:
 - Apenas para alertas de gravidade elevada
@@ -39,21 +39,21 @@ Por exemplo, se uma mensagem de e-mail já tiver sido enviada para o alertar sob
 ## Configurar notificações por email para alertas<a name="email"></a>
 
 1. No portal, selecione **preços & configurações**.
-1. Clique na assinatura.
-1. Clique em **notificações por email**.
+1. Clique na subscrição.
+1. Clique em **Notificações por e-mail**.
 
 > [!NOTE]
 > Se você estiver implementando uma recomendação, em **recomendações**, selecione **fornecer detalhes de contato de segurança**, selecione a assinatura do Azure para fornecer informações de contato. Isso abre **notificações por email**.
 
-   ![Fornecer detalhes de contactos de segurança][2]
+   ![Disponibilizar detalhes de contacto de segurança][2]
 
    * Insira o endereço de email de contato de segurança ou endereços separados por vírgulas. Não há um limite para o número de endereços de email que você pode inserir.
    * Insira um número de telefone internacional de contato de segurança.
    * Para receber emails sobre alertas de severidade alta, ative a opção **enviar-me emails sobre alertas**.
-   * No futuro, você terá a opção de enviar notificações por email aos proprietários da assinatura. Esta opção está esmaecida no momento.
+   * Você tem a opção de enviar notificações por email para proprietários de assinatura (administrador de serviço clássico e coadministradores, além da função de proprietário RBAC no escopo da assinatura).
    * Selecione **salvar** para aplicar as informações de contato de segurança à sua assinatura.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.

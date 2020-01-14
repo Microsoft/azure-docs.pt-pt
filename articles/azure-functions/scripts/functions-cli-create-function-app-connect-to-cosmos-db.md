@@ -4,12 +4,12 @@ description: Exemplo do Script da CLI do Azure - Criar uma Função do Azure que
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc
-ms.openlocfilehash: d881a5eb6132f95239418f032da51d002af01905
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532870"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922718"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar uma Função do Azure que se liga a um Azure Cosmos DB
 
@@ -36,8 +36,8 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com localização |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Create a storage account |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
+| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta do Storage |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no plano de [consumo](../functions-scale.md#consumption-plan)sem servidor. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crie uma base de dados do Azure Cosmos DB. |
 | [AZ cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a conexão da conta do banco de dados. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Obtém as chaves para o banco de dados. |

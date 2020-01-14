@@ -4,12 +4,12 @@ description: Implante seu primeiro contêiner do Windows personalizado no servi�
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671338"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922302"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -79,7 +79,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 ## <a name="create-a-windows-container-app"></a>Criar uma aplicação de contentor do Windows
 
-1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure]( https://portal.azure.com).
 
 1. Selecione **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
@@ -103,7 +103,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 Quando a operação do Azure estiver concluída, é apresentada uma caixa de notificação.
 
-![Implantação bem-sucedida](media/app-service-web-get-started-windows-container/portal-create-finished.png)
+![Implementação efetuada com êxito](media/app-service-web-get-started-windows-container/portal-create-finished.png)
 
 1. Clique em **Ir para recurso**.
 
@@ -163,15 +163,15 @@ Os registos transmitidos têm o seguinte aspeto:
 
 ## <a name="use-a-different-parent-image"></a>Utilizar uma imagem principal diferente
 
-Você está livre para usar uma imagem personalizada do Docker diferente para executar seu aplicativo. Contudo, tem de escolher a [imagem principal](https://docs.docker.com/develop/develop-images/baseimages/) certa para a arquitetura que pretende:
+Você está livre para usar uma imagem personalizada do Docker diferente para executar seu aplicativo. No entanto, você deve escolher a [imagem pai correta (imagem base)](https://docs.docker.com/develop/develop-images/baseimages/) para a estrutura que você deseja:
 
 - Para implantar .NET Framework aplicativos, use uma imagem pai baseada na versão [LTSC (canal de manutenção em longo prazo)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) do Windows Server Core 2019. 
 - Para implantar aplicativos do .NET Core, use uma imagem pai com base na versão do [SAC (canal de manutenção semestral)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) do Windows Server nano 1809. 
 
 O carregamento das imagens principais durante o arranque da aplicação demora algum tempo. No entanto, pode utilizar uma das seguintes imagens principais que já estão em cache no Serviço de Aplicações do Azure para reduzir o tempo de arranque:
 
-- [MCR.Microsoft.com/DOTNET/Framework/ASPNET](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.7.2-windowsservercore-ltsc2019
-- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809-esta imagem é o contêiner de base usado em imagens do Microsoft Windows Nano Server [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft.
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809-esta imagem é o contêiner de base usado em imagens do Microsoft Windows Nano Server [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 

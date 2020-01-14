@@ -1,14 +1,14 @@
 ---
 title: Controles de exemplo de plantas de carga de trabalho do ISO 27001 ASE/SQL
 description: Mapeamento de controle da amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL para Azure Policy e RBAC.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5c5b83669a477255f0cdce45993a5871b5a9c6f8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546782"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920708"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra do esquema de carga de trabalho do ISO 27001 ASE/SQL
 
@@ -53,7 +53,7 @@ Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atri
 - \[\]de visualização: contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
 - \]de visualização de \[: auditar contas externas com permissões de proprietário em uma assinatura
 - \]de visualização de \[: auditar contas externas com permissões de gravação em uma assinatura
-- Auditar o provisionamento de um administrador de Azure Active Directory para o SQL Server
+- Aprovisionamento de auditoria de um administrador do Azure Active Directory para o servidor SQL
 - Auditar o uso de Azure Active Directory para autenticação de cliente no Service Fabric
 - Auditar o uso de regras personalizadas de RBAC
 

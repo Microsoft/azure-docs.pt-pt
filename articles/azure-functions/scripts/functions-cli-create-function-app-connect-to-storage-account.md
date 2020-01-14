@@ -4,12 +4,12 @@ description: Exemplo do Script da CLI do Azure - Criar uma Função do Azure que
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 9c2a70066e673bfa164a58884891f29e220c7bd6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532822"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922676"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Criar um aplicativo de funções com uma conexão de conta de armazenamento nomeada 
 
@@ -37,7 +37,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com localização. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no plano de [consumo](../functions-scale.md#consumption-plan)sem servidor. |
 | [AZ Storage Account show-Connection-String](/cli/azure/storage/account#az-storage-account-show-connection-string) | Obtenha a cadeia de ligação para a conta. |
 | [AZ functionapp config appSettings Set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Define a cadeia de conexão como uma configuração de aplicativo no aplicativo de funções. |
 

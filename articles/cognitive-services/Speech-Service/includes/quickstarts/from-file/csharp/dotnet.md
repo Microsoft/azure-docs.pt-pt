@@ -1,21 +1,20 @@
 ---
 title: 'Início rápido: reconhecer a fala de um arquivo C# de áudio, (.net)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2818ba3319509327d1b2f7dd65841a3ed4fd9cdc
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819201"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927779"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -4,12 +4,12 @@ description: Saiba como criar um modelo de Azure Resource Manager que implanta s
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 5612417e11c99dd4e0b2f339c62f8f954e62deb2
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 6d5b7b33bfb2645128a545bb371c70188a724c40
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829838"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920621"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions
 

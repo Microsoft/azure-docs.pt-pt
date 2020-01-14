@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670485"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922264"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar um aplicativo Linux Python para o Azure App Service
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="container-characteristics"></a>Características do contentor
 
-Os aplicativos Python implantados no serviço de aplicativo no Linux são executados em um contêiner do Docker que é definido no repositório GitHub, [python 3,6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) ou [Python 3,7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Os aplicativos Python implantados no serviço de aplicativo no Linux são executados em um contêiner do Docker que é definido no [repositório do GitHub do Python do serviço de aplicativo](https://github.com/Azure-App-Service/python). Você pode encontrar as configurações de imagem nos diretórios específicos da versão.
 
 Este contentor tem as seguintes características:
 
@@ -58,7 +58,7 @@ Este contentor tem as seguintes características:
 
 - Por predefinição, a imagem base inclui a arquitetura Web Flask, mas o contentor suporta outras arquiteturas compatíveis com o WSGI e o Python 3.7, como o Django.
 
-- Para instalar pacotes adicionais, como o Django, crie um ficheiro [*requirements.txt* ](https://pip.pypa.io/en/stable/user_guide/#requirements-files) na raiz do projeto com `pip freeze > requirements.txt`. Em seguida, publique o projeto no Serviço de Aplicações com a implementação do Git, que executa automaticamente `pip install -r requirements.txt` no contentor para instalar as dependências da aplicação.
+- Para instalar pacotes adicionais, como o Django, crie um ficheiro [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) na raiz do projeto com `pip freeze > requirements.txt`. Em seguida, publique o projeto no Serviço de Aplicações com a implementação do Git, que executa automaticamente `pip install -r requirements.txt` no contentor para instalar as dependências da aplicação.
 
 ## <a name="container-startup-process"></a>Processo de inicialização do contêiner
 
@@ -132,7 +132,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 > [!Note]
 > O Serviço de Aplicações ignora todos os erros ocorridos durante o processamento de um ficheiro de comando personalizado e continua o processo de arranque ao procurar as aplicações Django e Flask. Se não vir o comportamento esperado, verifique se o ficheiro de arranque está implementado no Serviço de Aplicações e não contém quaisquer erros.
 
-## <a name="access-environment-variables"></a>Variáveis de ambiente de acesso
+## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
 No serviço de aplicativo, você pode [definir configurações de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão [. Environ padrão do sistema operacional](https://docs.python.org/3/library/os.html#os.environ) . Por exemplo, para acessar uma configuração de aplicativo chamada `WEBSITE_SITE_NAME`, use o seguinte código:
 

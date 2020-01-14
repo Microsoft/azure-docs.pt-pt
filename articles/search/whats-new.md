@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863092"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921017"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -33,7 +33,11 @@ As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são 
 
 + [As chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) agora estão disponíveis para o público geral. Se você estiver usando o REST, poderá acessar o recurso usando `api-version=2019-05-06`. Para código gerenciado, o pacote correto ainda é o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , embora o recurso esteja fora de visualização. 
 
-+ O *acesso IP restrito e o ponto de extremidade privado (visualização)* em um ponto de extremidade de serviço de pesquisa agora estão disponíveis em **API-Version = 2019-10-01-Preview**. Você pode configurar um ponto de extremidade seguro usando as novas propriedades **IpRule** e **NETWORKRULESET** na API REST de gerenciamento de [criação ou atualização](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) . Para obter mais informações sobre versões de API e disponibilidade regional, consulte [como usar a API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
++ O acesso privado a um serviço de pesquisa está disponível por meio de dois mecanismos:
+
+  + Você pode restringir o acesso a endereços IP específicos usando a API REST de gerenciamento `api-version=2019-10-01-Preview` para criar o serviço. A API de visualização tem novas propriedades **IpRule** e **NetworkRuleSet** na [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Esse recurso de visualização está disponível em regiões selecionadas. Para obter mais informações, consulte [como usar a API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+
+  + Atualmente disponível por meio de uma visualização de acesso limitado, você pode provisionar um serviço de Azure Search que dá suporte ao ponto de extremidade privado do Azure para conexões de clientes na mesma rede virtual. Para obter mais informações, consulte [criar um ponto de extremidade privado para uma conexão segura](service-create-private-endpoint.md).
 
 ### <a name="december-2019"></a>Dezembro de 2019
 

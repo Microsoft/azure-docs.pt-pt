@@ -6,16 +6,16 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: c4e3ce148b3cc2db9681bd9c7a7ba0e33335d2cc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a64f680adbfca08e334f51697a305c93a408e1e4
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925764"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922366"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
-Este artigo explica como trabalhar com ligações de Azure Service Bus nas funções do Azure. Funções do Azure suporta acionaram e ligações para tópicos e filas do Service Bus de saída.
+Este artigo explica como trabalhar com ligações de Azure Service Bus nas funções do Azure. As Funções do Azure suportam associações de acionador e saída para filas e tópicos do Service Bus.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -496,7 +496,7 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
 
 ### <a name="output---java-example"></a>Saída - exemplo de Java
 
-O exemplo seguinte mostra uma função de Java que envia uma mensagem numa fila do Service Bus `myqueue` quando acionada por um pedido HTTP.
+O exemplo a seguir mostra uma função Java que envia uma mensagem para uma fila do barramento de serviço `myqueue` quando disparada por uma solicitação HTTP.
 
 ```java
 @FunctionName("httpToServiceBusQueue")

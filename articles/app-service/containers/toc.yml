@@ -180,7 +180,7 @@
     - name: CLI do Azure
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: /powershell
+      href: '/powershell/module/az.websites/#app_service'
     - name: API REST
       href: /rest/api/appservice/
 - name: Recursos

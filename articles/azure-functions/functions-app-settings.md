@@ -3,12 +3,12 @@ title: Referência de configurações de aplicação para as funções do Azure
 description: Documentação de referência para as definições de aplicação de funções do Azure ou variáveis de ambiente.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 4de6f093e43bbb8b3e258c3dd2a71f728beb7287
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769545"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921103"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 

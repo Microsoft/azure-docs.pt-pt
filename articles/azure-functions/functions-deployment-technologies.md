@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 0eeb9c0c938793bb13218c5407f2a3fa117880e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226996"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921028"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -32,7 +32,7 @@ Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantaç
 | URL do pacote externo<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Implantação de zip |✔|✔|✔|✔|✔|✔|
 | Contêiner do Docker | | | | |✔|✔|
-| Implantação da Web |✔|✔|✔| | | |
+| Web Deploy |✔|✔|✔| | | |
 | Controlo de código fonte |✔|✔|✔| |✔|✔|
 | Git local<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Sincronização de nuvem<sup>1</sup> |✔|✔|✔| |✔|✔|
@@ -114,7 +114,7 @@ Use a implantação de zip para enviar por push um arquivo. zip que contém seu 
 
 Você pode implantar uma imagem de contêiner do Linux que contém seu aplicativo de funções.
 
->__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. Você pode fazer isso de duas maneiras:
+>__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. Pode fazê-lo de duas formas:
 >
 >* Crie um aplicativo de funções do Linux em um plano de serviço Azure App no portal do Azure. Para **publicar**, selecione **imagem do Docker**e configure o contêiner. Insira o local onde a imagem está hospedada.
 >* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo usando o CLI do Azure. Para saber como, consulte [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-a-premium-plan).
@@ -196,7 +196,7 @@ A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à 
 
 Ao implantar seu aplicativo de funções no Azure, você pode implantar em um slot de implantação separado em vez de diretamente na produção. Para obter mais informações sobre slots de implantação, consulte a documentação dos [Slots de implantação do Azure Functions](../app-service/deploy-staging-slots.md) para obter detalhes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia estes artigos para saber mais sobre como implantar seus aplicativos de funções: 
 

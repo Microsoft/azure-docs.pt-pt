@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: bf8357d88cce848316cad524315100f00d1aaabb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ae250c7d15801789ad22955845cfa535ed91f2c1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898329"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921145"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de arquivos para banco de dados
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28bd45b0e9bdaf87c29b0118c47595db9179edc5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670232"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921163"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implantar seu aplicativo no serviço de Azure App com um arquivo ZIP ou WAR
 
@@ -88,6 +88,8 @@ Para obter mais informações, consulte a [documentação do kudu](https://githu
 ## <a name="deploy-war-file"></a>Implantar arquivo WAR
 
 Para implantar um arquivo WAR no serviço de aplicativo, envie uma solicitação POST para `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. O pedido POST tem de conter o ficheiro .war no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP.
+
+Sempre use `/api/wardeploy` ao implantar arquivos WAR. Essa API expandirá o arquivo WAR e o posicionará na unidade de arquivo compartilhada. o uso de outras APIs de implantação pode resultar em um comportamento inconsistente. 
 
 Para a autenticação básica HTTP, você precisa de suas credenciais de implantação do serviço de aplicativo. Para ver como definir suas credenciais de implantação, consulte [definir e redefinir credenciais de nível de usuário](deploy-configure-credentials.md#userscope).
 
