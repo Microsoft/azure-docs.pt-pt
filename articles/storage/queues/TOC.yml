@@ -144,9 +144,9 @@
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Gerir a encriptação do Armazenamento do Azure
               items:
-                - name: Verificar o modelo da chave de encriptação da conta
-                  href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Configurar as chaves de encriptação geridas pelo cliente
+                - name: Criar uma conta que suporte chaves geridas pelo cliente
+                  href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Configurar chaves geridas pelo cliente
                   items:
                     - name: Portal
                       href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -154,6 +154,8 @@
                       href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                     - name: CLI do Azure
                       href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Verificar o modelo da chave de encriptação da conta
+                  href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configurar a encriptação do lado do cliente
           items:
             - name: .NET
