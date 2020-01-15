@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564809"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942741"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -126,7 +126,7 @@ Para obter mais informações sobre tamanhos de VM e sobre IOPS, taxa de transfe
 | **Tamanho de e/s** |O tamanho de e/s menor gera IOPS maiores. |Tamanho de e/s maior para gerar uma taxa de transferência mais alta. | &nbsp;|
 | **Tamanho da VM** |Use um tamanho de VM que ofereça IOPS maior do que o requisito do seu aplicativo. |Use um tamanho de VM com limite de taxa de transferência maior do que o requisito do aplicativo. |Use um tamanho de VM que ofereça limites de escala maiores do que o requisito do aplicativo. |
 | **Tamanho do disco** |Use um tamanho de disco que ofereça IOPS maior do que o requisito do seu aplicativo. |Use um tamanho de disco com limite de taxa de transferência maior do que o requisito do aplicativo. |Use um tamanho de disco que ofereça limites de escala maiores do que o requisito do seu aplicativo. |
-| **Limites de escala de VM e disco** |O limite de IOPS do tamanho da VM escolhido deve ser maior que o total de IOPS orientado por discos de armazenamento Premium anexados a ele. |O limite de taxa de transferência do tamanho da VM escolhido deve ser maior que a taxa de transferência total controlada por discos de armazenamento Premium anexados a ele. |Os limites de escala do tamanho da VM escolhido devem ser maiores que os limites de escala totais de discos de armazenamento Premium anexados. |
+| **Limites de escala de VM e disco** |O limite de IOPS do tamanho da VM escolhido deve ser maior que o total de IOPS controlados por discos de armazenamento anexados a ele. |O limite de taxa de transferência do tamanho da VM escolhido deve ser maior que a taxa de transferência total controlada por discos de armazenamento Premium anexados a ele. |Os limites de escala do tamanho da VM escolhido devem ser maiores que os limites de escala totais de discos de armazenamento Premium anexados. |
 | **Cache de disco** |Habilite o cache ReadOnly em discos de armazenamento Premium com operações de leitura intensa para obter IOPS de leitura mais alta. | &nbsp; |Habilite o cache ReadOnly em discos de armazenamento Premium com operações pesadas prontas para obter latências de leitura muito baixas. |
 | **Distribuição de disco** |Use vários discos e distribua-os juntos para obter um limite de IOPS e taxa de transferência mais alto combinado. O limite combinado por VM deve ser maior que os limites combinados de discos Premium anexados. | &nbsp; | &nbsp; |
 | **Tamanho da distribuição** |Tamanho de distribuição menor para o padrão de e/s pequeno aleatório visto em aplicativos OLTP. Por exemplo, use o tamanho de distribuição de 64 KB para SQL Server aplicativo OLTP. |Tamanho de distribuição maior para o padrão de e/s grande sequencial visto em aplicativos data warehouse. Por exemplo, use o tamanho de distribuição de 256 KB para SQL Server aplicativo de data warehouse. | &nbsp; |

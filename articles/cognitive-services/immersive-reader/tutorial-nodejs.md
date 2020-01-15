@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Iniciar o leitor de imersão usando node. js'
+title: 'Tutorial: iniciar o leitor de imersão usando o Node. js'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo node. js que inicia o leitor de imersão.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 37453e1fdd8fdcfc89468731980581652027343c
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338508"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945244"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: iniciar o leitor de imersão (Node. js)
 
 Na [visão geral](./overview.md), você aprendeu sobre o que é o leitor de imersão e como ele implementa técnicas comprovadas para melhorar a compreensão da leitura para aprendizes de idioma, leitores emergentes e estudantes com diferenças de aprendizado. Este tutorial aborda como criar um aplicativo Web node. js que inicia o leitor de imersão. Neste tutorial, ficará a saber como:
 
@@ -33,13 +33,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um recurso de leitor de imersão configurado para autenticação do Azure Active Directory (AD do Azure). Siga [estas instruções](./azure-active-directory-authentication.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
+* Um recurso de leitor de imersão configurado para Azure Active Directory autenticação. Siga [estas instruções](./how-to-create-immersive-reader.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
 * [Node. js](https://nodejs.org/) e [yarn](https://yarnpkg.com)
 * Um IDE, como [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="create-a-nodejs-web-app-with-express"></a>Criar um aplicativo Web node. js com o Express
 
-Crie um aplicativo Web node. js com a `express-generator` ferramenta.
+Crie um aplicativo Web node. js com a ferramenta `express-generator`.
 
 ```bash
 npm install express-generator -g
@@ -47,7 +47,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Instale as dependências do yarn e `request` Adicione `dotenv`dependências e, que serão usadas posteriormente no tutorial.
+Instale as dependências do yarn e adicione dependências `request` e `dotenv`, que serão usadas posteriormente no tutorial.
 
 ```bash
 yarn
@@ -111,14 +111,14 @@ router.get('/getimmersivereaderlaunchparams', function(req, res) {
                 if (err) {
                     return res.status(500).send('CogSvcs IssueToken error');
                 }
-        
+
                 const token = JSON.parse(tokenResponse).access_token;
                 const subdomain = process.env.SUBDOMAIN;
                 return res.send({token: token, subdomain: subdomain});
         }
   );
 });
- 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -132,7 +132,7 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
 
-1. Abra _views\layout.Pug_e adicione o seguinte código sob a `head` marca, antes da `body` marca. Essas `script` marcas carregam o SDK e o jQuery do [leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) .
+1. Abra _views\layout.Pug_e adicione o código a seguir sob a marca de `head`, antes da marca de `body`. Essas `script` marcas carregam o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e o jQuery.
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -149,7 +149,7 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
           p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
           div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
           script.
-        
+
             function getImmersiveReaderLaunchParamsAsync() {
                     return new Promise((resolve, reject) => {
                         $.ajax({
@@ -165,7 +165,7 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
                         });
                     });
             }
-        
+
             async function launchImmersiveReader() {
                     const content = {
                             title: document.getElementById('title').innerText,
@@ -174,11 +174,11 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
                                     lang: 'en'
                             }]
                     };
-            
+
                     const launchParams = await getImmersiveReaderLaunchParamsAsync();
                     const token = launchParams.token;
                     const subdomain = launchParams.subdomain;
-            
+
                     ImmersiveReader.launchAsync(token, subdomain, content);
             }
     ```
@@ -195,7 +195,7 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
 
 O leitor de imersão tem suporte para vários idiomas diferentes. Você pode especificar o idioma do seu conteúdo seguindo as etapas abaixo.
 
-1. Abra _views\index.Pug_ e adicione o código a seguir abaixo `p(id=content)` da marca que você adicionou na etapa anterior. Esse código adiciona conteúdo em espanhol à sua página.
+1. Abra _views\index.Pug_ e adicione o código a seguir abaixo da marca `p(id=content)` que você adicionou na etapa anterior. Esse código adiciona conteúdo em espanhol à sua página.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
@@ -216,7 +216,7 @@ O leitor de imersão tem suporte para vários idiomas diferentes. Você pode esp
 
 Por padrão, o idioma da interface do leitor de imersão corresponde às configurações de idioma do navegador. Você também pode especificar o idioma da interface do leitor de imersão com o código a seguir.
 
-1. No _views\index.Pug_, substitua a chamada para `ImmersiveReader.launchAsync(token, subdomain, content)` pelo código abaixo.
+1. No _views\index.Pug_, substitua a chamada para `ImmersiveReader.launchAsync(token, subdomain, content)` com o código abaixo.
 
     ```javascript
     const options = {
@@ -225,7 +225,7 @@ Por padrão, o idioma da interface do leitor de imersão corresponde às configu
     ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
-2. Navegue até _http://localhost:3000_ . Quando você iniciar o leitor de imersão, a interface será mostrada em francês.
+2. Navegue para _http://localhost:3000_ . Quando você iniciar o leitor de imersão, a interface será mostrada em francês.
 
 ## <a name="launch-the-immersive-reader-with-math-content"></a>Iniciar o leitor de imersão com conteúdo matemático
 
@@ -256,7 +256,7 @@ Você pode incluir conteúdo matemático no leitor de imersão usando o [MathML]
     });
     ```
 
-2. Navegue até _http://localhost:3000_ . Ao iniciar o leitor de imersão e rolar até a parte inferior, você verá a fórmula matemática.
+2. Navegue para _http://localhost:3000_ . Ao iniciar o leitor de imersão e rolar até a parte inferior, você verá a fórmula matemática.
 
 ## <a name="next-steps"></a>Passos seguintes
 

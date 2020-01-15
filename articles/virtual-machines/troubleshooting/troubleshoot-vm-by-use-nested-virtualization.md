@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185512"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942189"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 
@@ -29,8 +29,6 @@ Este artigo mostra como criar um ambiente de virtualização aninhado no Microso
 Para montar a VM com problema, a VM de resgate deve atender aos seguintes pré-requisitos:
 
 -   A VM de resgate deve estar no mesmo local que a VM com problema.
-
--   A VM de resgate deve estar no mesmo grupo de recursos que a VM com problema.
 
 -   A VM de resgate deve usar o mesmo tipo de conta de armazenamento (Standard ou Premium) que a VM com problema.
 

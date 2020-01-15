@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: 291d2ca69a1f02f76430074b2a548b7d36c942be
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: e0fc6aaaedc5eff98017eb62187575ab9afbba59
+  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75446403"
+  ms.lasthandoff: 01/14/2020
+  ms.locfileid: "75945187"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -71,7 +71,7 @@ conceptualContent:
     links:
     - url: ./immersive-reader/index.yml
       itemType: overview
-      text: Leitura Avançada (Pré-visualização)
+      text: Leitura Avançada
     - url: ./luis/index.yml
       itemType: overview
       text: Compreensão de Idiomas (LUIS)

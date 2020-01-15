@@ -1,19 +1,16 @@
 ---
-title: Replicar VMs do Azure executando Espaços de Armazenamento Diretos usando Azure Site Recovery
-description: Este artigo descreve como replicar VMs do Azure que executam Espaços de Armazenamento Diretos usando Azure Site Recovery.
-services: site-recovery
-author: carmonmills
+title: Replicar VMs do Azure executando Espaços de Armazenamento Diretos com Azure Site Recovery
+description: Saiba como replicar VMs do Azure que executam Espaços de Armazenamento Diretos usando Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.author: carmonm
-ms.openlocfilehash: 49a4f59e68a409696480f89ee4b606fbed2b77ed
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 465c0ddd91e81bb597a996637fdc2147e90464de
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929849"
+ms.locfileid: "75942218"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicar VMs do Azure em execução Espaços de Armazenamento Diretos para outra região
 
@@ -23,13 +20,13 @@ Este artigo descreve como habilitar a recuperação de desastre de VMs do Azure 
 >Somente pontos de recuperação consistentes com falha têm suporte para clusters de espaços de armazenamento diretos.
 >
 
-## <a name="introduction"></a>Introdução 
-O [S2D (espaços de armazenamento diretos)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) é um armazenamento definido pelo software, que fornece uma maneira de criar [clusters de convidado](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) no Azure.  Um cluster de convidado no Microsoft Azure é um cluster de failover composto por VMs de IaaS. Ele permite que as cargas de trabalho de VM hospedadas entrem em clusters convidados que atinjam um SLA de disponibilidade maior para aplicativos do que uma única VM do Azure pode fornecer. Ele é útil em cenários em que a VM hospeda um aplicativo crítico como SQL ou servidor de arquivos de escalabilidade horizontal, etc.
+Os [espaços de armazenamento diretos (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) são o armazenamento definido pelo software, que fornece uma maneira de criar [clusters convidados](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) no Azure.  Um cluster de convidado no Microsoft Azure é um cluster de failover composto por VMs de IaaS. Ele permite que as cargas de trabalho de VM hospedadas entrem em clusters de convidado, alcançando um SLA de maior disponibilidade para aplicativos, do que uma única VM do Azure pode fornecer. Ele é útil em cenários em que uma VM hospeda um aplicativo crítico como SQL ou servidor de arquivos de escalabilidade horizontal.
 
-## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Recuperação de desastre de máquinas virtuais do Azure usando espaços de armazenamento diretos
+## <a name="disaster-recovery-with-storage-spaces-direct"></a>Recuperação de desastres com espaços de armazenamento diretos
+
 Em um cenário típico, você pode ter o cluster de convidados de máquinas virtuais no Azure para maior resiliência de seu aplicativo, como o servidor de arquivos de escalabilidade horizontal. Embora isso possa fornecer maior disponibilidade ao seu aplicativo, você gostaria de proteger esses aplicativos usando Site Recovery para qualquer falha no nível de região. Site Recovery replica os dados de uma região para outra região do Azure e abre o cluster na região de recuperação de desastre em caso de failover.
 
-O diagrama abaixo mostra a representação de ilustração de dois clusters de failover de VMs do Azure usando espaços de armazenamento diretos.
+O diagrama abaixo mostra um cluster de failover de VM do Azure de dois nós usando espaços de armazenamento diretos.
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
@@ -42,7 +39,7 @@ O diagrama abaixo mostra a representação de ilustração de dois clusters de f
 **Considerações sobre recuperação de desastre**
 
 1. Quando você estiver configurando a [testemunha de nuvem](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) para o cluster, mantenha a testemunha na região de recuperação de desastre.
-2. Se você for fazer failover das máquinas virtuais para a sub-rede na região de DR que é diferente da região de origem, o endereço IP do cluster precisará ser alterado após o failover.  Para alterar o IP do cluster, você precisa usar o [script do plano de recuperação ASR.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
+2. Se você for fazer failover das máquinas virtuais para a sub-rede na região de DR que é diferente da região de origem, o endereço IP do cluster precisará ser alterado após o failover.  Para alterar o IP do cluster, você precisa usar o [script de plano de recuperação site Recovery.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
 [Script de exemplo](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) para executar o comando dentro da VM usando a extensão de script personalizado 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Habilitando Site Recovery para o cluster S2D:
@@ -73,7 +70,7 @@ Para que seus aplicativos funcionem corretamente, talvez seja necessário realiz
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Failover das máquinas virtuais 
-Ambos os nós das máquinas virtuais precisam fazer failover usando o [plano de recuperação ASR](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
+Ambos os nós das VMs precisam fazer failover usando o [plano de recuperação](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) site Recovery 
 
 ![proteção do storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 

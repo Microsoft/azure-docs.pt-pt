@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: d88df0c7e17d297162a1921021b89f02077c2ac7
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d07bb9b69f022da98b3d46e3e36f4c4de2b4d006
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560390"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945639"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -181,10 +181,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
     // builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 
-    builder.Build();
-
     // If you have other telemetry processors:
     builder.Use((next) => new AnotherProcessor(next));
+    
+    builder.Build();
+
     // ...
 }
 

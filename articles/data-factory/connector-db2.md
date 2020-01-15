@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892810"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941756"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -46,11 +46,6 @@ Especificamente, esse conector do DB2 dá suporte às seguintes plataformas e ve
 * IBM DB2 para LUW 10,5
 * IBM DB2 para LUW 10,1
 
-> [!TIP]
-> Se você receber uma mensagem de erro afirmando "o pacote correspondente a uma solicitação de execução de instrução SQL não foi encontrado. SQLSTATE = 51002 SQLCODE =-805 ", o motivo é que um pacote necessário não é criado para o usuário normal nesse sistema operacional. Siga estas instruções de acordo com o tipo de servidor DB2:
-> - DB2 para i (AS400): Deixe o usuário avançado criar a coleção para o usuário de logon antes de usar a atividade de cópia. Comando: `create collection <username>`
-> - DB2 para z/OS ou LUW: usar uma conta de alto privilégio – usuário avançado ou administrador com autoridades de pacote e BIND, BINDADD, conceder permissões executar para público-para executar a atividade de cópia uma vez, o pacote necessário é criado automaticamente durante a cópia. Posteriormente, você pode alternar de volta para o usuário normal para as execuções de cópia subsequentes.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
@@ -75,9 +70,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **básico**. |Sim |
 | o nome de utilizador |Especifique o nome de usuário para se conectar ao banco de dados DB2. |Sim |
 | palavra-passe |Especifique a senha para a conta de usuário especificada para o nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| pacotecollection | Especifique em onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados | Não |
+| pacotecollection | Especifique em onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados. | Não |
 | certificateCommonName | Ao usar o protocolo SSL (SSL) ou a criptografia TLS, você deve inserir um valor para o nome comum do certificado. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+
+> [!TIP]
+> Se você receber uma mensagem de erro que declara `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, o motivo é que um pacote necessário não é criado para o usuário. Por padrão, o ADF tentará criar um pacote na coleção denominada como o usuário que você usou para se conectar ao DB2. Especifique a propriedade de coleção de pacote para indicar sob onde você deseja que o ADF crie os pacotes necessários ao consultar o banco de dados.
 
 **Exemplo:**
 

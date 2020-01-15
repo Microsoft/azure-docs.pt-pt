@@ -86,6 +86,16 @@ groups:
     title: Ir
   - id: programming-language-ruby
     title: Ruby
+- id: programming-languages-set-six
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
 - id: URL-test-interface
   title: Ferramenta de Teste de URL
   prompt: Escolher uma das seguintes opções
@@ -95,9 +105,9 @@ groups:
   - id: url-test-tool-postman
     title: Postman
 metadata:
-  ms.openlocfilehash: aa838dc839bdd5b3b1b24dbfccc216802af29358
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: ef4114c8af495abca3c10a2e80a285105d72232a
+  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75458634"
+  ms.lasthandoff: 01/14/2020
+  ms.locfileid: "75945566"

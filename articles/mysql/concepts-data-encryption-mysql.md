@@ -1,17 +1,17 @@
 ---
 title: Banco de dados do Azure para MySQL Data Encryption com chave gerenciada pelo cliente
-description: Banco de dados do Azure para MySQL Data Encryption com chave gerenciada pelo cliente
+description: O banco de dados do Azure para MySQL Data Encryption com chave gerenciada pelo cliente permite que você Bring Your Own Key (BYOK) para proteção de dados em repouso e permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: f858d33d0d67ae9ded9c16e99725c8556d1b45e0
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/13/2020
+ms.openlocfilehash: 12e9ab9066449e8928d937d9c3f9f7f1522b6c60
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904110"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942106"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-customer-managed-key"></a>Banco de dados do Azure para MySQL Data Encryption com chave gerenciada pelo cliente
 
@@ -20,7 +20,7 @@ ms.locfileid: "75904110"
 
 O banco de dados do Azure para MySQL Data Encryption com chave gerenciada pelo cliente permite que você Bring Your Own Key (BYOK) para proteção de dados em repouso e permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados. Com a criptografia gerenciada pelo cliente, você é responsável por e em um controle total do ciclo de vida de uma chave (criação de chave, carregamento, rotação, exclusão), permissões de uso de chave e auditoria de operações em chaves.
 
-Para o banco de dados do Azure para MySQL, a criptografia é definida no nível do servidor. Com essa forma de criptografia de dados, a chave é usada na criptografia da DEK (chave de criptografia de banco de dado), que é uma chave assimétrica gerenciada pelo cliente, armazenada em um [akv (Azure Key Vault](https://docs.microsoft.com/azure/key-Vault/key-Vault-secure-your-key-Vault)de Propriedade do cliente), um sistema de gerenciamento de chaves externas baseado em nuvem. O AKV é altamente disponível e fornece armazenamento seguro escalonável para chaves de criptografia RSA, opcionalmente apoiada por HSMs (módulos de segurança de hardware) validados pelo FIPS 140-2 nível 2. Ele não permite acesso direto a uma chave armazenada, mas fornece serviços de criptografia/descriptografia usando a chave para as entidades autorizadas. A chave pode ser gerada pelo Key Vault, importada ou [transferida para o Key Vault de um dispositivo HSM local](https://docs.microsoft.com/azure/key-Vault/key-Vault-hsm-protected-keys).
+Para o banco de dados do Azure para MySQL, a criptografia é definida no nível do servidor. Com essa forma de criptografia de dados, a chave é usada na criptografia da DEK (chave de criptografia de banco de dado), que é uma chave assimétrica gerenciada pelo cliente, armazenada em um [akv (Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md)de Propriedade do cliente), um sistema de gerenciamento de chaves externas baseado em nuvem. O AKV é altamente disponível e fornece armazenamento seguro escalonável para chaves de criptografia RSA, opcionalmente apoiada por HSMs (módulos de segurança de hardware) validados pelo FIPS 140-2 nível 2. Ele não permite acesso direto a uma chave armazenada, mas fornece serviços de criptografia/descriptografia usando a chave para as entidades autorizadas. A chave pode ser gerada pelo Key Vault, importada ou [transferida para o Key Vault de um dispositivo HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MySQL dá suporte a tipos de preço Uso Geral e com otimização de memória.
@@ -28,11 +28,12 @@ Para o banco de dados do Azure para MySQL, a criptografia é definida no nível 
 ## <a name="benefits"></a>Vantagens
 
 A criptografia de dados para o Azure Database para MySQL oferece os seguintes benefícios:
-* Maior transparência, controle granular e gerenciamento para a chave de criptografia 
-* Gerenciamento central e organização de chaves hospedando-as em Azure Key Vault. 
-* Capacidade de implementar a separação de tarefas no gerenciamento de chaves e dados dentro da organização
-* Gerenciamento de chaves separado do gerenciamento de dados em uma organização, de modo que Key Vault administrador possa revogar as permissões de acesso de chave para tornar o banco de dados criptografado inacessível 
-* Maior confiança de seus clientes finais, pois Azure Key Vault é projetada de modo que a Microsoft não possa ver nem extrair chaves de criptografia
+
+* Maior transparência, controle granular e gerenciamento para a chave de criptografia.
+* Gerenciamento central e organização de chaves hospedando-as em Azure Key Vault.
+* Capacidade de implementar a separação de tarefas no gerenciamento de chaves e dados dentro da organização.
+* Gerenciamento de chaves separado do gerenciamento de dados em uma organização, de modo que Key Vault administrador possa revogar permissões de acesso de chave para tornar o banco de dados criptografado inacessível.
+* Maior confiança de seus clientes finais, pois Azure Key Vault é projetada de modo que a Microsoft não possa ver nem extrair as chaves de criptografia.
 
 ## <a name="terminology-and-description"></a>Terminologia e descrição
 
@@ -40,14 +41,14 @@ A criptografia de dados para o Azure Database para MySQL oferece os seguintes be
 
 Chave de **criptografia de chave (Kek)** -uma chave de criptografia usada para criptografar as chaves de criptografia de dados. O uso de uma chave de criptografia de chave que nunca deixa Key Vault, permite que as próprias chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Como o KEK é necessário para descriptografar o DEKs, o KEK é efetivamente um único ponto pelo qual DEKs pode ser efetivamente excluído pela exclusão do KEK.
 
-As chaves de criptografia de dados, criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode descriptografar essas chaves de criptografia de dados. Para obter detalhes, consulte [segurança em criptografia em repouso](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
+As chaves de criptografia de dados, criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode descriptografar essas chaves de criptografia de dados. Para obter mais informações, consulte [segurança em criptografia em repouso](../security/fundamentals/encryption-atrest.md).
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>Como funciona a criptografia de dados com a chave gerenciada pelo cliente
 
 ![Visão geral de traga sua própria chave](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
 
-
 Para que um servidor MySQL seja capaz de usar chaves gerenciadas pelo cliente armazenadas em AKV para criptografia do DEK, um administrador de Key Vault precisa conceder os seguintes direitos de acesso ao servidor usando sua identidade exclusiva:
+
 * **Get** -para recuperar a parte pública e as propriedades da chave no Key Vault
 * **wrapKey** -para poder proteger (criptografar) DEK
 * **unwrapKey** – ser capaz de desproteger (descriptografar) DEK
@@ -67,10 +68,10 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente que �
 * Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall*.
 
 ### <a name="requirements-for-configuring-customer-key"></a>Requisitos para configurar a chave do cliente
+
 * A chave gerenciada pelo cliente a ser usada para criptografar o DEK só pode ser assimétrica, RSA 2028.
 * A data de ativação da chave (se definido) deve ser uma data e uma hora no passado. A data de validade (se definido) deve ser uma data e hora futura.
 * A chave deve estar no estado *habilitado* .
-
 * Se você estiver importando uma chave existente para o Key Vault, certifique-se de fornecê-la nos formatos de arquivo com suporte (`.pfx`, `.byok``.backup`).
 
 ## <a name="recommendations-when-using-data-encryption-using-customer-managed-key"></a>Recomendações ao usar a criptografia de dados usando a chave gerenciada pelo cliente
@@ -80,13 +81,13 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente que �
 * Defina um bloqueio de recurso no Key Vault para controlar quem pode excluir esse recurso crítico e impedir a exclusão acidental ou não autorizada. Saiba mais sobre bloqueios de recursos.
 * Habilitar a auditoria e os relatórios em todas as chaves de criptografia: Key Vault fornece logs que são fáceis de injetar em outras ferramentas de gerenciamento de eventos e informações de segurança. Azure Monitor Log Analytics é um exemplo de um serviço que já está integrado.
 
-* Verifique se o Key Vault e o banco de dados do Azure para MySQL residem na mesma região para garantir um acesso mais rápido para operações de encapsulamento/desencapsulamento DEK. 
+* Verifique se o Key Vault e o banco de dados do Azure para MySQL residem na mesma região para garantir um acesso mais rápido para operações de encapsulamento/desencapsulamento DEK.
 
 ### <a name="recommendation-for-configuring-customer-managed-key"></a>Recomendação para configurar a chave gerenciada pelo cliente
 
 * Mantenha uma cópia da chave gerenciada pelo cliente (KEK) em um local seguro ou a caução para o serviço de caução.
 
-* Se a chave for gerada no Key Vault, crie um backup de chave antes de usar a chave em AKV pela primeira vez. O backup pode ser restaurado somente para um Azure Key Vault. Saiba mais sobre o comando [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) . 
+* Se a chave for gerada no Key Vault, crie um backup de chave antes de usar a chave em AKV pela primeira vez. O backup pode ser restaurado somente para um Azure Key Vault. Saiba mais sobre o comando [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) .
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Condição de chave gerenciada pelo cliente inacessível
 
@@ -95,6 +96,7 @@ Quando a criptografia de dados é configurada com a chave gerenciada pelo client
 ### <a name="accidental-key-access-revocation-from-the-azure-key-vault-akv"></a>Revogação de acesso de chave acidental do Azure Key Vault (AKV)
 
 Pode acontecer que alguém com direitos de acesso suficientes para o Key Vault desabilita acidentalmente o acesso do servidor à chave por:
+
 * Key Vault revogando as permissões Get, wrapKey, unwrapKey do servidor
 * excluindo a chave
 * excluindo o Key Vault
@@ -113,16 +115,16 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 
 ## <a name="restore-and-replica-with-customers-managed-key-in-the-key-vault"></a>Restaurar e replicar com a chave gerenciada do cliente no Key Vault
 
-Depois que um banco de dados do Azure para MySQL é criptografado com a chave gerenciada do cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor, por meio da operação de restauração local ou geográfica, ou por meio de réplicas de leitura também é criptografada com a chave gerenciada do mesmo cliente. No entanto, eles podem ser alterados para refletir a chave gerenciada do novo cliente para criptografia. Quando a chave gerenciada pelo cliente é alterada, os backups antigos do servidor serão iniciados usando a chave mais recente.
+Depois que um banco de dados do Azure para MySQL é criptografado com a chave gerenciada do cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor (por meio da operação de restauração local ou geográfica ou por meio de réplicas de leitura) também é criptografada com a chave gerenciada do mesmo cliente. No entanto, eles podem ser alterados para refletir a chave gerenciada do novo cliente para criptografia. Quando a chave gerenciada pelo cliente é alterada, os backups antigos do servidor serão iniciados usando a chave mais recente.
 
-Para evitar problemas ao estabelecer a configuração da criptografia de dados gerenciada pelo cliente durante a restauração ou leitura da réplica, é importante seguir estas etapas no servidor mestre e restaurações/réplica:
+Para evitar problemas ao estabelecer a configuração da criptografia de dados gerenciada pelo cliente durante a restauração ou a criação da réplica de leitura, é importante seguir estas etapas no servidor mestre e restaurações/réplica:
 
 * Inicie o processo de restauração ou leitura de réplica do banco de dados mestre do Azure para MySQL.
 * O servidor recém-criado (restaurado/réplica) é mantido como um estado inacessível, já que sua identidade exclusiva ainda não recebeu permissões para o Azure Key Vault (AKV)
-* No servidor restaurado/de réplica, valide novamente a chave gerenciada pelo cliente nas configurações de criptografia de dados para garantir que o servidor recém-criado receba permissões de encapsulamento/desencapsulamento para a chave armazenada em AKV.
+* No servidor restaurado/de réplica, revalide a chave gerenciada pelo cliente nas configurações de criptografia de dados para garantir que o servidor recém-criado receba permissões de encapsulamento/desencapsulamento para a chave armazenada em AKV.
 
 * Ambas as etapas acima devem ser feitas para garantir que a criptografia de dados seja preservada no mestre, bem como no servidor restaurado/de réplica.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como configurar a criptografia de dados com a chave gerenciada pelo cliente para o banco de dado do Azure para MySQL usando [portal do Azure](howto-data-encryption-portal.md).
+Saiba como [Configurar a criptografia de dados com a chave gerenciada pelo cliente para o banco de dado do Azure para MySQL usando o portal do Azure](howto-data-encryption-portal.md).

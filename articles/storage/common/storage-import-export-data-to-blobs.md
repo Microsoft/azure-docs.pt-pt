@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bd15e406cdbee57112ff8ecba158d503e908b73f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cab9d309d052acca493e112965c8477a325d8c88
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178009"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944760"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Azure para importar dados para o armazenamento de BLOBs do Azure
 
@@ -66,13 +66,13 @@ Execute as etapas a seguir para preparar as unidades.
 
     |Opção  |Descrição  |
     |---------|---------|
-    |/j     |O nome do arquivo de diário, com a extensão. JRN. Um arquivo de diário é gerado por unidade. Recomendamos que você use o número de série do disco como o nome do arquivo de diário.         |
+    |/j:     |O nome do arquivo de diário, com a extensão. JRN. Um arquivo de diário é gerado por unidade. Recomendamos que você use o número de série do disco como o nome do arquivo de diário.         |
     |/ID     |A ID da sessão. Use um número de sessão exclusivo para cada instância do comando.      |
-    |/t     |A letra da unidade do disco a ser enviado. Por exemplo, `D`de unidade.         |
-    |/BK     |A chave do BitLocker para a unidade. Sua senha numérica da saída de `manage-bde -protectors -get D:`      |
-    |/srcdir     |A letra da unidade do disco a ser enviado seguido por `:\`. Por exemplo, `D:\`.         |
-    |/dstdir     |O nome do contêiner de destino no armazenamento do Azure.         |
-    |/BlobType     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, isso é `BlockBlob` e para BLOBs de páginas, é `PagaBlob`.         |
+    |/t:     |A letra da unidade do disco a ser enviado. Por exemplo, `D`de unidade.         |
+    |/bk:     |A chave do BitLocker para a unidade. Sua senha numérica da saída de `manage-bde -protectors -get D:`      |
+    |/srcdir:     |A letra da unidade do disco a ser enviado seguido por `:\`. Por exemplo, `D:\`.         |
+    |/dstdir:     |O nome do contêiner de destino no armazenamento do Azure.         |
+    |/blobtype:     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, isso é `BlockBlob` e para BLOBs de páginas, é `PageBlob`.         |
     |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e os dados existentes no disco devem ser preparados.          |
     |/enablecontentmd5:     |A opção quando habilitada, garante que o MD5 seja computado e definido como `Content-md5` Propriedade em cada blob. Use esta opção somente se desejar usar o campo `Content-md5` depois que os dados forem carregados no Azure. <br> Essa opção não afeta a verificação de integridade de dados (que ocorre por padrão). A configuração aumenta o tempo necessário para carregar dados na nuvem.          |
 7. Repita a etapa anterior para cada disco que precisa ser enviado. Um arquivo de diário com o nome fornecido é criado para cada execução da linha de comando.
@@ -84,7 +84,7 @@ Execute as etapas a seguir para preparar as unidades.
 
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 
-1. Faça logon em https://portal.azure.com/.
+1. Faça logon no https://portal.azure.com/.
 2. Vá para **todos os serviços > armazenamento > trabalhos de importação/exportação**. 
     
     ![Ir para trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)

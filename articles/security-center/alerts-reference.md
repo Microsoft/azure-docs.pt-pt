@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 696bba195ac3902a3a90a82bcc7665591eba643f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4ef2987ee72348fb4353ba735d6da76fb218f01e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922344"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942142"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -97,6 +97,7 @@ Abaixo da tabela de alertas está uma tabela que descreve a cadeia de eliminaç�
 |**Quantidade incomum de dados extraídos de uma conta de armazenamento**|Indica que uma quantidade incomum de dados muito grande foi extraída em comparação com a atividade recente neste contêiner de armazenamento. Uma causa potencial é que um invasor extraiu uma grande quantidade de dados de um contêiner que mantém o armazenamento de BLOBs.|Exfiltração|
 |**Exclusão incomum em uma conta de armazenamento**|Indica que uma ou mais operações de exclusão inesperadas ocorreram em uma conta de armazenamento, em comparação com a atividade recente nesta conta. Uma causa potencial é que um invasor excluiu dados de sua conta de armazenamento.|Exfiltração|
 |**Carregamento incomum de. cspkg para uma conta de armazenamento**|Indica que um pacote de serviços de nuvem do Azure (arquivo. cspkg) foi carregado em uma conta de armazenamento de maneira incomum, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor está se preparando para implantar código mal-intencionado de sua conta de armazenamento em um serviço de nuvem do Azure.|LateralMovement/execução|
+|**Carregamento incomum de. exe em uma conta de armazenamento**|Indica que um arquivo. exe foi carregado em uma conta de armazenamento de maneira incomum, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor carregou um arquivo executável mal-intencionado em sua conta de armazenamento ou que um usuário legítimo carregou um arquivo executável.|LateralMovement/execução|
 |**Alteração incomum de permissões de acesso em uma conta de armazenamento**|Indica que as permissões de acesso deste contêiner de armazenamento foram alteradas de maneira incomum. Uma causa potencial é que um invasor alterou as permissões de contêiner para enfraquecer sua postura de segurança ou para obter persistência.|Persistência|
 |**Inspeção de acesso incomum em uma conta de armazenamento**|Indica que as permissões de acesso de uma conta de armazenamento foram inspecionadas de forma incomum, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor executou o reconhecimento para um ataque futuro.|Coleção|
 |**Exploração de dados incomum em uma conta de armazenamento**|Indica que os BLOBs ou contêineres em uma conta de armazenamento foram enumerados de forma anormal, em comparação com a atividade recente nessa conta. Uma causa potencial é que um invasor executou o reconhecimento para um ataque futuro.|Coleção|

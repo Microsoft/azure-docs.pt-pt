@@ -1,18 +1,16 @@
 ---
-title: Recuperação de desastre para uma implantação de várias camadas do Dynamics AX com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como configurar a recuperação de desastre para o Dynamics AX com o Azure Site Recovery
-author: carmonmills
+title: Recuperação de desastre do Dynamics AX com Azure Site Recovery
+description: Saiba como configurar a recuperação de desastre para o Dynamics AX com o Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930174"
+ms.locfileid: "75941594"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 
@@ -39,7 +37,7 @@ A implementação da recuperação de desastre para o aplicativo Dynamics AX usa
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Para a finalidade de criar este artigo, usamos máquinas virtuais VMware com o Dynamics AX 2012 R3 no Windows Server 2012 R2 Enterprise. Como a replicação do site Recovery é independente do aplicativo, esperamos que as recomendações fornecidas aqui sejam mantidas para os cenários a seguir.
+Para a finalidade de criar este artigo, usamos máquinas virtuais VMware com o Dynamics AX 2012 R3 no Windows Server 2012 R2 Enterprise. Como Site Recovery replicação é independente de aplicativo, esperamos que as recomendações fornecidas aqui sejam mantidas para os cenários a seguir.
 
 ### <a name="source-and-target"></a>Origem e destino
 

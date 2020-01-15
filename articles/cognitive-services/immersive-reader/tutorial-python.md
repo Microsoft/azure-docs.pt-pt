@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Iniciar o leitor de imersão usando Python'
+title: 'Tutorial: iniciar o leitor de imersão usando Python'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo Python que inicia o leitor de imersão.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326389"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945234"
 ---
-# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Iniciar o leitor de imersão usando o projeto de exemplo do Python
+# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: iniciar o leitor de imersão usando o projeto de exemplo do Python
 
 Na [visão geral](./overview.md), você aprendeu sobre o que é o leitor de imersão e como ele implementa técnicas comprovadas para melhorar a compreensão da leitura para aprendizes de idioma, leitores emergentes e estudantes com diferenças de aprendizado. Este tutorial aborda como criar um aplicativo Web Python que inicia o leitor de imersão. Neste tutorial, ficará a saber como:
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um recurso de leitor de imersão configurado para autenticação do Azure Active Directory (AD do Azure). Siga [estas instruções](./azure-active-directory-authentication.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
+* Um recurso de leitor de imersão configurado para Azure Active Directory autenticação. Siga [estas instruções](./how-to-create-immersive-reader.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
 * [Git](https://git-scm.com/)
 * [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) e [Pip](https://docs.python.org/3/installing/index.html). A partir do Python 3,4, o Pip é incluído por padrão com os instaladores de binários do Python.
@@ -40,20 +40,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * [módulo de solicitações](https://pypi.org/project/requests/2.7.0/)
 * Um IDE, como [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação do Azure AD
+## <a name="configure-authentication-credentials"></a>Configurar credenciais de autenticação
 
-Escreva uma API de back-end para recuperar um token de autenticação do Azure AD.
-
-Você precisa de alguns valores da etapa de pré-requisito da configuração de autenticação do Azure AD acima para esta parte. Consulte novamente o arquivo de texto que você salvou dessa sessão.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Quando você tiver esses valores, crie um novo arquivo chamado _. env_e cole o código a seguir nele, fornecendo os valores de propriedade personalizada acima. Substitua o _. env._ arquivo no aplicativo de exemplo com o arquivo recém-criado.
+Crie um novo arquivo chamado _. env_e cole o código a seguir nele, fornecendo os valores fornecidos quando você criou o recurso de leitura de imersão.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -88,11 +77,11 @@ Adicione recursos opcionais marcando as caixas e, em seguida, clique no botão '
 
 ![Caixa de diálogo de instalação do Python Windows etapa 2](./media/pythoninstalltwo.jpg)
 
-Escolha ' instalação personalizada ' e defina o caminho de instalação como sua pasta raiz, por exemplo, `C:\Python37-32\` e clique no botão ' instalar '.
+Escolha ' instalação personalizada ' e defina o caminho de instalação como sua pasta raiz, por exemplo, `C:\Python37-32\` clique no botão ' instalar '.
 
 ![Caixa de diálogo de instalação do Python Windows etapa 3](./media/pythoninstallthree.jpg)
 
-Após a conclusão da instalação do Python, abra um prompt de comando e `cd` na pasta scripts Python.
+Após a conclusão da instalação do Python, abra um prompt de comando e `cd` na pasta scripts do Python.
 
 ```cmd
 cd C:\Python37-32\Scripts
@@ -140,7 +129,7 @@ Criar um ambiente virtual
 mkvirtualenv advanced-python
 ```
 
-`cd` para a pasta raiz do projeto de exemplo.
+`cd` à pasta raiz do projeto de exemplo.
 
 ```cmd
 cd C:\immersive-reader-sdk\js\samples\advanced-python
@@ -166,7 +155,7 @@ Desative o ambiente.
 deactivate
 ```
 
-O prefixo `(advanced-python)` agora deve estar, já que o ambiente está desativado.
+Agora, o prefixo de `(advanced-python)` deve ser removido, pois o ambiente agora está desativado.
 
 Para reativar o ambiente, execute `workon advanced-python` na pasta raiz do projeto de exemplo.
 
@@ -198,9 +187,9 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Instale o [Python](https://www.python.org/downloads/).
 
-A pasta raiz do Python, por exemplo, `Python37-32` agora deve estar na pasta aplicativos.
+A pasta raiz do Python, por exemplo, `Python37-32` deve estar agora na pasta aplicativos.
 
-Após a conclusão da instalação do Python, abra o terminal e `cd` na pasta scripts do Python.
+Após a conclusão da instalação do Python, abra o terminal e `cd` para a pasta scripts Python.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -271,7 +260,7 @@ Escolha uma pasta na qual você gostaria de manter seus ambientes virtuais e exe
 mkdir ~/.virtualenvs
 ```
 
-`cd` para a pasta do aplicativo de exemplo Python do SDK do leitor de imersão.
+`cd` para a pasta de aplicativo de exemplo do SDK do leitor de imersão do Python.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -303,7 +292,7 @@ Desative o ambiente.
 deactivate
 ```
 
-O prefixo `(advanced-python)` agora deve estar, já que o ambiente está desativado.
+Agora, o prefixo de `(advanced-python)` deve ser removido, pois o ambiente agora está desativado.
 
 Para reativar o ambiente, execute `workon advanced-python` na pasta raiz do projeto de exemplo.
 

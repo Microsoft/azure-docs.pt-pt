@@ -1,5 +1,5 @@
 ---
-title: Máscara de dados dinâmica
+title: Mascaramento de dados dinâmicos
 description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e data warehouse
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: 2ff2dfe6384acc8a56558e6e7ba0fc5cc05f7783
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3f3aef66af056ca06d066c5235b0d23a2f39ecc
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819974"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945773"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Mascaramento de dados dinâmicos para o Azure SQL Database e data warehouse
 
@@ -29,7 +29,7 @@ Por exemplo, um representante de serviço em um Call Center pode identificar os 
 
 ## <a name="dynamic-data-masking-basics"></a>Noções básicas de mascaramento de dados dinâmicos
 
-Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a operação máscara de dados dinâmicos na folha configuração ou folha de configurações do banco de dados SQL.
+Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a operação máscara de dados dinâmicos na folha configuração ou folha de configurações do banco de dados SQL. Este recurso não pode ser definido usando o portal para SQL DW (use o PowerShell ou a API REST)
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmicos
 
@@ -46,8 +46,8 @@ A máscara de dados dinâmicos pode ser configurada pelas funções administrado
 | **Predefinição** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos XS se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, Decimal, int, Money, Numeric, smallint, SmallMoney, tinyint, float, real).<br/>• Use 01-01-1900 para tipos de dados de data/hora (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, time).<br/>• Para variante SQL, o valor padrão do tipo atual é usado.<br/>• For XML, o documento \<mascarado/> será usado.<br/>• Use um valor vazio para tipos de dados especiais (carimbo de data/hora, hierarchyid, GUID, binário, imagem, tipos espaciais varbinary). |
 | **Cartão de crédito** |**Método de mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por xxx.com** usando um prefixo de cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e o último caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizada no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>sufixo do prefixo [Padding]<br/><br/>![painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e o último caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizada no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>sufixo do prefixo [Padding]<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 

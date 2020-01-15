@@ -1,18 +1,16 @@
 ---
 title: Perguntas comuns sobre a recuperação de desastres de VM do Azure com o Azure Site Recovery
-description: Este artigo responde a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando Azure Site Recovery
-author: carmonmills
+description: Este artigo responde a perguntas comuns sobre a recuperação de desastres de VM do Azure usando Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: carmonm
-ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929910"
+ms.locfileid: "75941902"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
@@ -45,7 +43,7 @@ A equipe de Site Recovery trabalha com a equipe de gerenciamento de capacidade d
 Sim, Site Recovery dá suporte à recuperação de desastre de VMs com o Azure Disk Encryption (ADE) habilitado. Quando você habilita a replicação, todas as chaves de criptografia de disco e os segredos necessários são copiados da região de origem para a região de destino no contexto do usuário. Se você não tiver a permissão apropriada, um script pronto para uso poderá ser enviado ao administrador de segurança para copiar as chaves e os segredos.
 
 - O Site Recovery dá suporte a ADE para VMs do Azure que executam o Windows.
-- O site Recovery dá suporte à versão 0,1 do ADE, com um esquema usando Azure Active Directory (AAD) e a versão 1,1, sem o AAD. [Saiba mais](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- O Site Recovery oferece suporte à versão 0,1 do ADE, com um esquema usando o AAD (Azure Active Directory) e a versão 1,1, sem o AAD. [Saiba mais](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
 - ADE versão 1,1, as VMs do Windows devem ser usadas em discos gerenciados.
 - [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre como habilitar a replicação para VMs criptografadas.
 

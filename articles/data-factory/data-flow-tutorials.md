@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/08/2020
-ms.openlocfilehash: 3f2dcce4a3907084f8cb1b5ace1ace6ab795f85a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.date: 01/13/2020
+ms.openlocfilehash: 8350a42bc5f72adec135b2b39c5dde36e408c174
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929460"
+ms.locfileid: "75942138"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeando tutoriais de vídeo do fluxo de dados
 
@@ -60,6 +60,12 @@ Veja abaixo uma lista de vídeos de tutorial de fluxo de dados de mapeamento cri
 [Transformação não dinâmica](http://youtu.be/KFYkxcpB8b0?hd=1)
 
 [Transformação de janela](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
+
+[Transformação de filtro](https://youtu.be/OhbKDOXSfeE)
+
+[Transformação Divisão condicional](https://youtu.be/OhbKDOXSfeE)
+
+[Transformação Exists](http://youtu.be/GS8JVgNBMfs?hd=1)
 
 ## <a name="source-and-sink"></a>Origem e coletor
 

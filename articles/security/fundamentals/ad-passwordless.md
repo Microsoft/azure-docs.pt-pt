@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007284"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945590"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Um mundo sem senhas com Azure Active Directory
 
@@ -38,7 +38,7 @@ Atualmente, bancos, empresas de cartões de crédito e outras organizações e s
 
 O Windows Hello para empresas, a entrada sem senha com o Microsoft Authenticator e as chaves de segurança FIDO2 compartilham uma arquitetura simples e comum que fornece aos usuários um método de autenticação que é altamente seguro e conveniente de usar. Todos os três são baseados em tecnologia pública/privada-chave, precisam de um gesto local, como biométrica ou PIN, e chaves privadas ligadas a um único dispositivo e armazenados com segurança e nunca compartilhados.
 
-## <a name="windows-hello-for-business"></a>Windows Hello para empresas
+## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
 No Windows 10, o Windows Hello para empresas substitui senhas com autenticação forte de dois fatores em computadores e dispositivos. A autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa um gesto ou PIN biométrico que permite que os usuários se autentiquem no Azure AD, bem como em um Active Directory local. Simplesmente entrar em um dispositivo usando o Windows Hello para empresas é fácil. Você usa um gesto de PIN ou biométrica, como uma impressão digital ou um reconhecimento facial.
 
@@ -236,13 +236,13 @@ Além de selecionar o token de hardware como o método de autenticação multifa
 
 * Aplicativo autenticador ou token de hardware--código
 
-* Chamada telefônica
+* Chamada telefónica
 
 * Mensagem de texto
 
 #### <a name="user-using-fido2-security-key-for-sign-in"></a>Usuário usando a chave de segurança FIDO2 para entrar
 
-O FIDO2 fornece uma camada de abstração entre o fator forma usado como o autenticador e a criptografia pública/privada-Key para habilitar autenticadores de plataforma internos, como o Windows Hello e as chaves de segurança para resolver para uma chave privada e entregar uma chave pública Isso pode ser usado como um identificador para acessar recursos externos. As chaves de segurança do FIDO2 são equipadas com suas próprias enclave seguras internas que armazenam a chave privada e exigem a biométrica ou o PIN para desbloqueá-la. As credenciais não podem ser reutilizadas, reproduzidas ou compartilhadas entre serviços e não estão sujeitas a ataques de phishing e MiTM ou violações do servidor.
+O FIDO2 fornece uma camada de abstração entre o fator forma usado como autenticador e criptografia pública/privada-chave para habilitar autenticadores de plataforma internos, como o Windows Hello e as chaves de segurança para resolver para uma chave privada e fornecer uma chave pública que pode ser usada como um identificador para acessar recursos externos. As chaves de segurança do FIDO2 são equipadas com suas próprias enclave seguras internas que armazenam a chave privada e exigem a biométrica ou o PIN para desbloqueá-la. As credenciais não podem ser reutilizadas, reproduzidas ou compartilhadas entre serviços e não estão sujeitas a ataques de phishing e MiTM ou violações do servidor.
 
 ![Entrada FIDO2](./media/ad-passwordless/azure-ad-pwdless-image6.png)
 
@@ -284,7 +284,7 @@ Aqui estão alguns fatores a serem considerados ao escolher a tecnologia sem sen
 ||**Windows Hello para empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança do FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicação Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1809 ou posterior<br>Azure Active Directory|
-|**Moda**|Plataforma|Software|Hardware|
+|**Mode**|Plataforma|Software|Hardware|
 |**Sistemas e dispositivos**|PC com um Trusted Platform Module interno (TPM)<br>Reconhecimento de PIN e Biometria |Reconhecimento de PIN e biometria no telefone|Dispositivos de segurança FIDO2 que são compatíveis com a Microsoft|
 |**Experiência do usuário**|Entre usando um PIN ou um reconhecimento biométrico (facial, íris ou impressão digital) com dispositivos Windows.<br>A autenticação do Windows Hello está vinculada ao dispositivo; o usuário precisa do dispositivo e de um componente de entrada, como um PIN ou um fator biométrico para acessar recursos corporativos.|Entre usando um telefone celular com verificação de impressão digital, reconhecimento facial ou íris ou PIN.<br>Os usuários entram na conta corporativa ou pessoal de seu PC ou telefone celular.|Entrar usando o dispositivo de segurança FIDO2 (biometria, PIN e NFC)<br>O usuário pode acessar o dispositivo com base nos controles da organização e autenticar com base no PIN, a biometria usando dispositivos como chaves de segurança USB e cartões inteligentes, chaves ou wearables habilitados para NFC.|
 |**Cenários habilitados**| Experiência sem senha com o dispositivo Windows.<br>Aplicável a um PC de trabalho dedicado com capacidade de logon único para dispositivos e aplicativos.|Solução sem senha em qualquer lugar usando o telefone celular.<br>Aplicável para acessar aplicativos pessoais ou de trabalho na Web de qualquer dispositivo.|Experiência sem senha para trabalhadores que usam biometria, PIN e NFC.<br>Aplicável a PCs compartilhados e onde um telefone celular não é uma opção viável (por exemplo, para pessoal de suporte técnico, quiosque público ou equipe de hospital)|
@@ -311,7 +311,7 @@ A autenticação sem senha é a onda do futuro e o caminho para um ambiente mais
 
 * Implante Microsoft Authenticator aplicativo para mobilidade.
 
-* Implante o Windows Hello para empresas (1903: Mantenha-se atualizado).
+* Implante o Windows Hello para empresas (1909: Mantenha-se atualizado).
 
 * Implantar dispositivos FIDO2 para usuários que não podem usar telefones.
 

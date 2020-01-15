@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 1558b2eb12b1d4745cdfeab41fc2d1bd829b3d9c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: eef9a99e4c94fa45e21abfc9d19fcef1230ffe76
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816686"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944685"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Início rápido: síntese assíncrona para áudio de forma longa em Python (versão prévia)
 
-Neste guia de início rápido, você usará a API de áudio longo para converter de forma assíncrona o texto em fala e recuperará a saída de áudio de um URI fornecido pelo serviço. Essa API REST é ideal para provedores de conteúdo que precisam converter arquivos de texto com mais de 10.000 caracteres ou 50 parágrafos em fala sintetizada. Para obter mais informações, consulte [longa API de áudio](../../long-audio-api.md).
+Neste guia de início rápido, você usará a API de áudio longo para converter de forma assíncrona o texto em fala e recuperará a saída de áudio de um URI fornecido pelo serviço. Essa API REST é ideal para provedores de conteúdo que precisam sintetizar áudio de texto maior que 5.000 caracteres (ou mais de 10 minutos de comprimento). Para obter mais informações, consulte [longa API de áudio](../../long-audio-api.md).
 
 > [!NOTE]
 > A síntese assíncrona para áudio de forma longa só pode ser usada com [vozes neurais personalizadas](../../how-to-custom-voice.md#custom-neural-voices).
@@ -50,13 +50,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `pip install requests urllib3`.
+> Se você não tiver usado esses módulos, precisará instalá-los antes de executar o programa. Para instalar estes pacotes, execute: `pip install requests urllib3`.
 
 Esses módulos são usados para analisar argumentos, construir a solicitação HTTP e chamar a API REST de áudio longo de conversão de texto em fala.
 
 ## <a name="get-a-list-of-supported-voices"></a>Obter uma lista de vozes com suporte
 
-Esse código obtém uma lista de vozes disponíveis que você pode usar para converter conversão de texto em fala. Adicione este código `voice_synthesis_client.py`:
+Esse código obtém uma lista de vozes disponíveis que você pode usar para converter conversão de texto em fala. Adicione o código a `voice_synthesis_client.py`:
 
 ```python
 parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
@@ -80,13 +80,18 @@ if args.voices:
 
 ### <a name="test-your-code"></a>Testar seu código
 
-Vamos testar o que você fez até agora. Execute este comando, substituindo `<your_key>` pela sua chave de assinatura de fala e `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+Vamos testar o que você fez até agora. Você precisará atualizar algumas coisas na solicitação abaixo:
+
+* Substitua `<your_key>` pela sua chave de assinatura do serviço de fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substitua `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+
+Execute este comando:
 
 ```console
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>
 ```
 
-Você deve obter uma saída parecida com esta:
+Você verá uma saída parecida com esta:
 
 ```console
 There are xx voices available:
@@ -95,14 +100,16 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+## <a name="prepare-input-files"></a>Preparar arquivos de entrada
+
+Prepare um arquivo de texto de entrada. Pode ser texto sem formatação ou de SSML. Para os requisitos de arquivo de entrada, consulte como [preparar o conteúdo para síntese](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
+
 ## <a name="convert-text-to-speech"></a>Converter texto em fala
 
-A próxima etapa é preparar um arquivo de texto de entrada. Pode ser texto sem formatação ou SSML, mas deve ter mais de 10.000 caracteres ou 50 parágrafos. Para obter uma lista completa dos requisitos, consulte [API de áudio de longa duração](../../long-audio-api.md).
-
-Depois de preparar o arquivo de texto. A próxima etapa é adicionar o código para a síntese de fala ao seu projeto. Adicione este código a `voice_synthesis_client.py`:
+Depois de preparar o arquivo de texto de entrada, adicione este código para que a síntese de fala `voice_synthesis_client.py`:
 
 > [!NOTE]
-> Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre as saídas de áudio com suporte, consulte [longa API de áudio](../../long-audio-api.md#audio-output-formats).
+> ' concatenateResult ' é um parâmetro opcional. Se esse parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Você também pode concatenar os áudios em 1 saída definindo o parâmetro. Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre as saídas de áudio com suporte, consulte [formatos de saída de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -123,7 +130,7 @@ def submitSynthesis():
         files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
     response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
     if response.status_code == 202:
-        location = response.headers['Operation-Location']
+        location = response.headers['Location']
         id = location.split("/")[-1]
         print("Submit synthesis request successful")
         return id
@@ -165,13 +172,13 @@ if args.submit:
 
 ### <a name="test-your-code"></a>Testar seu código
 
-Vamos tentar fazer uma solicitação para sintetizar o texto usando seu arquivo de entrada como fonte. Você precisará atualizar algumas coisas na solicitação abaixo:
+Vamos fazer uma solicitação para sintetizar o texto usando seu arquivo de entrada como a origem. Você precisará atualizar algumas coisas na solicitação abaixo:
 
 * Substitua `<your_key>` pela sua chave de assinatura do serviço de fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 * Substitua `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
-* Substitua `<input>` pelo caminho para o arquivo de texto que você pretende converter de conversão de texto em fala.
+* Substitua `<input>` pelo caminho para o arquivo de texto que você preparou para conversão de texto em fala.
 * Substitua `<locale>` pela localidade de saída desejada. Para obter mais informações, consulte [suporte a idiomas](../../language-support.md#neural-voices).
-* Substitua `<voice_guid>` pela voz desejada para a saída de áudio. Use uma das vozes retornadas por [obter uma lista de vozes com suporte](#get-a-list-of-supported-voices) ou use a lista de vozes neurais fornecidas no [suporte a idiomas](../../language-support.md#neural-voices).
+* Substitua `<voice_guid>` pela voz de saída desejada. Use uma das vozes retornadas por [obter uma lista de vozes com suporte](#get-a-list-of-supported-voices).
 
 Converter texto em fala com este comando:
 
@@ -180,9 +187,11 @@ python voice_synthesis_client.py --submit -key <your_key> -region <Region> -file
 ```
 
 > [!NOTE]
-> ' concatenateResult ' é um parâmetro opcional, se esse parâmetro não for fornecido, a saída será fornecida como vários arquivos Wave, um para cada linha.
+> Se você tiver mais de 1 arquivo de entrada, será necessário enviar várias solicitações. Há algumas limitações que precisam estar cientes. 
+> * O cliente tem permissão para enviar até **5** solicitações ao servidor por segundo para cada conta de assinatura do Azure. Se ele exceder a limitação, o cliente receberá um código de erro 429 (muitas solicitações). Reduza o valor da solicitação por segundo
+> * O servidor tem permissão para executar e enfileirar até **120** solicitações para cada conta de assinatura do Azure. Se ele exceder a limitação, o servidor retornará um código de erro 429 (número excessivo de solicitações). Aguarde e evite enviar uma nova solicitação até que algumas solicitações sejam concluídas
 
-Você deve obter uma saída parecida com esta:
+Você verá uma saída parecida com esta:
 
 ```console
 Submit synthesis request successful
@@ -200,13 +209,13 @@ Checking status
 Succeeded... Result file downloaded : xxxx.zip
 ```
 
-O resultado fornecido contém o texto de entrada e os arquivos de saída de áudio gerados pelo serviço. Eles são baixados como um zip.
+O resultado contém o texto de entrada e os arquivos de saída de áudio gerados pelo serviço. Você pode baixar esses arquivos em um zip.
 
 ## <a name="remove-previous-requests"></a>Remover solicitações anteriores
 
-Há um limite de 2.000 solicitações para cada assinatura. Assim, haverá ocasiões em que você precisa remover as solicitações enviadas anteriormente antes de poder fazer novas. Se você não remover as solicitações existentes, receberá um erro quando exceder 2.000.
+O servidor manterá até **20.000** solicitações para cada conta de assinatura do Azure. Se o valor da solicitação exceder essa limitação, remova as solicitações anteriores antes de fazer as novas. Se você não remover as solicitações existentes, receberá uma notificação de erro.
 
-Adicione este código a `voice_synthesis_client.py`:
+Adicione o código a `voice_synthesis_client.py`:
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -239,13 +248,18 @@ if args.delete:
 
 ### <a name="test-your-code"></a>Testar seu código
 
-Execute este comando, substituindo `<your_key>` pela sua chave de assinatura de fala e `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+Agora, vamos verificar para ver quais solicitações você enviou anteriormente. Antes de continuar, você precisará atualizar algumas coisas nesta solicitação:
+
+* Substitua `<your_key>` pela sua chave de assinatura do serviço de fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substitua `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+
+Execute este comando:
 
 ```console
-python voice_synthesis_client.py – syntheses -key <your_key> -region <Region>
+python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
 ```
 
-Isso retornará uma lista de Syntheses que você solicitou. Você deve obter uma saída parecida com esta:
+Isso retornará uma lista de solicitações de síntese que você fez. Você verá uma saída como esta:
 
 ```console
 There are <number> synthesis requests submitted:
@@ -254,16 +268,22 @@ ID : xxx , Name : xxx, Status : Running
 ID : xxx , Name : xxx : Succeeded
 ```
 
-Agora, vamos usar alguns desses valores para remover/excluir solicitações enviadas anteriormente. Execute este comando, substituindo `<your_key>` pela sua chave de assinatura de fala e `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal). O `<synthesis_id>` deve ser um dos valores retornados na solicitação anterior.
+Agora, vamos remover uma solicitação enviada anteriormente. Você precisará atualizar algumas coisas no código abaixo:
+
+* Substitua `<your_key>` pela sua chave de assinatura do serviço de fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substitua `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus`). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substitua `<synthesis_id>` pelo valor retornado na solicitação anterior.
 
 > [!NOTE]
 > As solicitações com o status ' running '/' Wait ' não podem ser removidas ou excluídas.
 
+Execute este comando:
+
 ```console
-python voice_synthesis_client.py – delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
+python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
 ```
 
-Você deve obter uma saída parecida com esta:
+Você verá uma saída como esta:
 
 ```console
 delete voice synthesis xxx
@@ -272,7 +292,7 @@ delete successful
 
 ## <a name="get-the-full-client"></a>Obter o cliente completo
 
-O `voice_synthesis_client.py` completo está disponível para download no [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
+A `voice_synthesis_client.py` concluída está disponível para download no [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
 
 ## <a name="next-steps"></a>Passos seguintes
 

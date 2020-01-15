@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo iOS que usa uma foto e a inicia no leitor de imersão (Swift)'
+title: 'Tutorial: criar um aplicativo iOS que usa uma foto e a inicia no leitor de imersão (Swift)'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo iOS do zero e adicionará a imagem à funcionalidade de leitura de imersão.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: bdaee97c8c5d7e19076847c5f1f7c07c528c1747
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: defa49bd5ca6be6862412e3caf40295ef1d639cf
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899382"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945303"
 ---
-# <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Criar um aplicativo iOS que inicia o leitor de imersão com o conteúdo de uma foto (Swift)
+# <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: criar um aplicativo iOS que inicia o leitor de imersão com o conteúdo de uma foto (Swift)
 
 O [leitor de imersão](https://www.onenote.com/learningtools) é uma ferramenta projetada de inclusivamente que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [XCode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* Um recurso de leitor de imersão configurado para autenticação do Azure Active Directory (AD do Azure). Siga [estas instruções](./azure-active-directory-authentication.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de exemplo. Salve a saída da sessão em um arquivo de texto para referência futura.
+* Um recurso de leitor de imersão configurado para Azure Active Directory autenticação. Siga [estas instruções](./how-to-create-immersive-reader.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de exemplo. Salve a saída da sessão em um arquivo de texto para referência futura.
 * O uso deste exemplo requer uma assinatura do Azure para o serviço Pesquisa Visual Computacional cognitiva. [Crie um pesquisa Visual computacional recurso de serviço cognitiva no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
@@ -58,7 +58,7 @@ A maneira mais fácil de usar o SDK do leitor de imersão é via CocoaPods. Para
 ```
 4. No terminal, no diretório do seu projeto do Xcode, execute o comando `pod install` para instalar o Pod do SDK do leitor de imersão.
 5. Adicione `import immersive_reader_sdk` a todos os arquivos que precisam referenciar o SDK.
-6. Certifique-se de abrir o projeto abrindo `.xcworkspace` o arquivo e não `.xcodeproj` o arquivo.
+6. Certifique-se de abrir o projeto abrindo o arquivo de `.xcworkspace` e não o arquivo de `.xcodeproj`.
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação do Azure AD
 
@@ -90,8 +90,8 @@ Renomeie ViewController. Swift para PictureLaunchViewController. Swift e substit
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Defina o esquema de arquivo no Xcode selecionando um simulador ou um destino do dispositivo.
-![Esquema de arquivo morto](./media/ios/xcode-archive-scheme.png)<br/>
-![Selecionar destino](./media/ios/xcode-select-target.png)
+![esquema de arquivo morto](./media/ios/xcode-archive-scheme.png)<br/>
+![selecionar](./media/ios/xcode-select-target.png) de destino
 
 No Xcode, pressione CTRL + R ou clique no botão reproduzir para executar o projeto e o aplicativo deverá ser iniciado no simulador ou dispositivo especificado.
 
@@ -103,6 +103,6 @@ Dentro do aplicativo, faça ou carregue uma foto de texto pressionando o botão 
 
 ![Leitura Avançada](./media/ios/picture-to-immersive-reader-ipad.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Explorar o [SDK do IOS do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) e a [referência do SDK do IOS do leitor de imersão](./ios-reference.md)
+* Explore a [referência do SDK do leitor de imersão](./reference.md)

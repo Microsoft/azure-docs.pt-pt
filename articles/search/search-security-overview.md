@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4788dc700324637d69ffbcb4308df3a323b9590c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: c1a800ceb12c2e7ad69329d0391478a8e2ae268b
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934078"
+ms.locfileid: "75945691"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Segurança e privacidade de dados no Azure Pesquisa Cognitiva
 
@@ -43,7 +43,7 @@ A criptografia se estende durante todo o pipeline de indexação: de conexões, 
 |----------------|-------------|
 | Encriptação em circulação <br>(HTTPS/SSL/TLS) | O Azure Pesquisa Cognitiva escuta na porta HTTPS 443. Em toda a plataforma, as conexões com os serviços do Azure são criptografadas. <br/><br/>Todas as interações do Azure Pesquisa Cognitiva de cliente para serviço são compatíveis com SSL/TLS 1,2.  Certifique-se de usar o TLSv 1.2 para conexões SSL com seu serviço.|
 | Encriptação inativa <br>Chaves gerenciadas pela Microsoft | A criptografia é totalmente internalizada no processo de indexação, sem impacto mensurável na indexação do tempo de conclusão ou do tamanho do índice. Ele ocorre automaticamente em toda a indexação, incluindo atualizações incrementais em um índice que não está totalmente criptografado (criado antes de janeiro de 2018).<br><br>Internamente, a criptografia é baseada no [Azure criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits.<br><br> A criptografia é interna à Pesquisa Cognitiva do Azure, com certificados e chaves de criptografia gerenciadas internamente pela Microsoft e aplicada universalmente. Você não pode ativar ou desativar a criptografia, gerenciar ou substituir suas próprias chaves ou exibir configurações de criptografia no portal ou programaticamente.<br><br>A criptografia em repouso foi anunciada em 24 de janeiro de 2018 e se aplica a todas as camadas de serviço, incluindo a camada gratuita, em todas as regiões. Para criptografia completa, os índices criados antes dessa data devem ser descartados e recriados para que a criptografia ocorra. Caso contrário, somente os novos dados adicionados após 24 de Janeiro serão criptografados.|
-| Encriptação inativa <br>Chaves geridas pelo cliente | A criptografia com chaves gerenciadas pelo cliente agora está disponível para os serviços de pesquisa criados em ou após janeiro de 2019.<br><br>Os índices de Pesquisa Cognitiva do Azure e os mapas de sinônimos agora podem ser criptografados em repouso com chaves gerenciadas por chaves do cliente no Azure Key Vault. Para saber mais, confira [gerenciar chaves de criptografia no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).<br><br>Esse recurso não substitui a criptografia padrão em repouso, mas sim aplicado além dela.<br><br>Habilitar esse recurso aumentará o tamanho do índice e diminuirá o desempenho da consulta. Com base nas observações até a data, você pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a esse impacto no desempenho, recomendamos que você habilite apenas esse recurso em índices que realmente o exigem.
+| Encriptação inativa <br>Chaves geridas pelo cliente | A criptografia com chaves gerenciadas pelo cliente agora está disponível para os serviços de pesquisa criados em ou após janeiro de 2019. Não há suporte para serviços gratuitos (compartilhados).<br><br>Os índices de Pesquisa Cognitiva do Azure e os mapas de sinônimos agora podem ser criptografados em repouso com chaves gerenciadas por chaves do cliente no Azure Key Vault. Para saber mais, confira [gerenciar chaves de criptografia no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).<br><br>Esse recurso não substitui a criptografia padrão em repouso, mas sim aplicado além dela.<br><br>Habilitar esse recurso aumentará o tamanho do índice e diminuirá o desempenho da consulta. Com base nas observações até a data, você pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a esse impacto no desempenho, recomendamos que você habilite apenas esse recurso em índices que realmente o exigem.
 
 ## <a name="azure-wide-user-access-controls"></a>Controles de acesso de usuário de todo o Azure
 
