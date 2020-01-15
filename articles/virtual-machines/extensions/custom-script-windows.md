@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9fe0875f34745b0b5b8b1b7e8b352116b6cbf997
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073829"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941911"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para Windows
 
@@ -81,7 +81,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -92,11 +92,15 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
+
+> [!NOTE]
+> a propriedade managedIdentity **não deve** ser usada em conjunto com as propriedades StorageAccountName ou storageAccountKey
 
 > [!NOTE]
 > Somente uma versão de uma extensão pode ser instalada em uma VM em um ponto no tempo, especificar o script personalizado duas vezes no mesmo modelo do Resource Manager para a mesma VM falhará.
@@ -109,14 +113,15 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | string |
+| publicador | Microsoft.Compute | string |
 | tipo | CustomScriptExtension | string |
-| typeHandlerVersion | 1.9 | int |
+| typeHandlerVersion | 1,10 | int |
 | fileuris (por exemplo,) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (por exemplo) | 123456789 | inteiro de 32 bits |
 | commandToExecute (por exemplo,) | PowerShell-ExecutionPolicy Unrestricted-File configure-Music-app. ps1 | string |
 | storageAccountName (por exemplo,) | examplestorageacct | string |
 | storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (por exemplo,) | {} ou {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} ou {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | objeto JSON |
 
 >[!NOTE]
 >Esses nomes de propriedade diferenciam maiúsculas de minúsculas. Para evitar problemas de implantação, use os nomes conforme mostrado aqui.
@@ -128,6 +133,9 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 * `timestamp` (opcional, número inteiro de 32 bits) Use este campo somente para disparar uma nova execução do script alterando o valor desse campo.  Qualquer valor inteiro é aceitável; Ele deve ser diferente do valor anterior.
 * `storageAccountName`: (opcional, Cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os `fileUris` devem ser URLs para BLOBs do Azure.
 * `storageAccountKey`: (opcional, Cadeia de caracteres) a chave de acesso da conta de armazenamento
+* `managedIdentity`: (opcional, objeto JSON) a [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para baixar arquivo (s)
+  * `clientId`: (opcional, Cadeia de caracteres) a ID do cliente da identidade gerenciada
+  * `objectId`: (opcional, Cadeia de caracteres) a ID de objeto da identidade gerenciada
 
 Os valores a seguir podem ser definidos em configurações públicas ou protegidas, a extensão rejeitará qualquer configuração na qual os valores abaixo estejam definidos nas configurações pública e protegida.
 
@@ -136,6 +144,46 @@ Os valores a seguir podem ser definidos em configurações públicas ou protegid
 O uso de configurações públicas talvez seja útil para depuração, mas é recomendável que você use configurações protegidas.
 
 As configurações públicas são enviadas em texto não criptografado para a VM em que o script será executado.  As configurações protegidas são criptografadas usando uma chave conhecida somente para o Azure e a VM. As configurações são salvas na VM conforme elas foram enviadas, ou seja, se as configurações foram criptografadas, elas são salvas criptografadas na VM. O certificado usado para descriptografar os valores criptografados é armazenado na VM e usado para descriptografar as configurações (se necessário) em tempo de execução.
+
+####  <a name="property-managedidentity"></a>Propriedade: managedIdentity
+
+O CustomScript (versão 1.10.4 em diante) dá suporte ao RBAC baseado em [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para baixar arquivo (s) de URLs fornecidas na configuração "fileuris". Ele permite que o CustomScript acesse BLOBs/contêineres privados do armazenamento do Azure sem que o usuário precise passar segredos como tokens SAS ou chaves de conta de armazenamento.
+
+Para usar esse recurso, o usuário deve adicionar uma identidade atribuída pelo [usuário](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) ou com o [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) à VM ou VMSS em que se espera que CustomScript seja executado e [conceder acesso de identidade gerenciada ao contêiner ou BLOB de armazenamento do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+Para usar a identidade atribuída pelo sistema na VM/VMSS de destino, defina o campo "managedidentity" como um objeto JSON vazio. 
+
+> Exemplo:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+Para usar a identidade atribuída pelo usuário na VM/VMSS de destino, configure o campo "managedidentity" com a ID do cliente ou a ID de objeto da identidade gerenciada.
+
+> Exemplos:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> a propriedade managedIdentity **não deve** ser usada em conjunto com as propriedades StorageAccountName ou storageAccountKey
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
@@ -181,7 +229,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -199,7 +247,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```

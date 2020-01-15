@@ -7,20 +7,24 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720542"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939956"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Início rápido: enviar e receber eventos com hubs de eventos usando o Python
 
-Os hubs de eventos do Azure são uma plataforma de streaming de Big data e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os hubs de eventos podem processar e armazenar eventos, dados ou telemetria de software e dispositivos distribuídos. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações sobre os hubs de eventos, consulte [hubs de eventos do Azure](event-hubs-about.md) e [recursos e terminologia nos hubs de eventos do Azure](event-hubs-features.md).
+Os hubs de eventos do Azure são uma plataforma de streaming de Big data e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os hubs de eventos podem processar e armazenar eventos, dados ou telemetria de software e dispositivos distribuídos. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análises em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações sobre os hubs de eventos, consulte [hubs de eventos do Azure](event-hubs-about.md) e [recursos e terminologia nos hubs de eventos do Azure](event-hubs-features.md).
 
 Este guia de início rápido mostra como criar aplicativos Python que enviam eventos e recebem eventos de um hub de eventos. 
+
+> [!IMPORTANT]
+> Este guia de início rápido usa a versão 1 do SDK do Python de hubs de eventos do Azure. Se você for novo nos hubs de eventos do Azure, use a versão 5 do SDK do Python. Para obter um início rápido que usa a versão 5 do SDK do Python, consulte [Este artigo](get-started-python-send-v2.md). Para migrar o código existente da versão 1 para a versão 5, consulte o [Guia de migração](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+
 
 > [!NOTE]
 > Em vez de trabalhar no início rápido, você pode baixar e executar os [aplicativos de exemplo](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) do github. Substitua as cadeias de caracteres `EventHubConnectionString` e `EventHubName` pelos valores do hub de eventos. 
@@ -47,7 +51,7 @@ Para concluir este guia de início rápido, você precisa dos seguintes pré-req
 Para criar um aplicativo Python que envia eventos para um hub de eventos:
 
 1. Abra seu editor de Python favorito, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um novo arquivo chamado *Send.py*. Esse script envia eventos 100 para o Hub de eventos.
+2. Crie um novo arquivo chamado *Send.py*. Este script para enviar eventos de 100 para o hub de eventos.
 3. Cole o código a seguir em *Send.py*, substituindo os hubs de eventos \<namespace >, \<> do eventhub, \<accesskeyname > e \<valor da chave primária > com seus valores: 
    
    ```python

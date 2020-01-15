@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e81871e27c04f8a43f678110d7f44cc9c3be149c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717853"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940749"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Guia de início rápido: captura de hubs de eventos: Python
 
-A captura é um recurso dos hubs de eventos do Azure. Você pode usar a captura para entregar automaticamente os dados de streaming em seu hub de eventos para uma conta de armazenamento de BLOBs do Azure de sua escolha. Esse recurso facilita o processamento em lotes em dados de streaming em tempo real. Este artigo descreve como usar a captura de hubs de eventos com o Python. Para obter mais informações sobre a captura de hubs de eventos, consulte [capturar eventos por meio dos hubs de eventos do Azure][Overview of Event Hubs Capture].
+Captura é uma funcionalidade dos Hubs de eventos do Azure. Você pode usar a captura para entregar automaticamente os dados de streaming em seu hub de eventos para uma conta de armazenamento de BLOBs do Azure de sua escolha. Esse recurso facilita o processamento em lotes em dados de streaming em tempo real. Este artigo descreve como utilizar a captura de Hubs de eventos com o Python. Para obter mais informações sobre a captura de hubs de eventos, consulte [capturar eventos por meio dos hubs de eventos do Azure][Overview of Event Hubs Capture].
 
 Este tutorial usa o [SDK do Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso de captura. O programa *Sender.py* envia telemetria de ambiente simulada para os hubs de eventos no formato JSON. O Hub de eventos usa o recurso de captura para gravar esses dados no armazenamento de BLOBs em lotes. O aplicativo *capturereader.py* lê esses BLOBs, cria um arquivo de acréscimo para cada um dos dispositivos e grava os dados em arquivos *. csv* em cada dispositivo.
+
+> [!IMPORTANT]
+> Este guia de início rápido usa a versão 1 do SDK do Python de hubs de eventos do Azure. Se você for novo nos hubs de eventos do Azure, use a versão 5 do SDK do Python. Para obter um início rápido que usa a versão 5 do SDK do Python, consulte [Este artigo](get-started-capture-python-v2.md). Se você precisar migrar o código existente da versão 1 para a versão 5, consulte o [Guia de migração](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
 
 Neste tutorial, você: 
 
@@ -54,7 +57,7 @@ Neste tutorial, você:
 
 Crie uma conta de armazenamento e um contêiner para usar na captura. 
 
-1. Iniciar sessão no [portal do Azure][Azure portal].
+1. Inicie sessão no [Portal do Azure][Azure portal].
 2. No painel de navegação esquerdo, selecione **contas de armazenamento**e, na tela contas de **armazenamento** , selecione **Adicionar**.
 3. Na tela de criação da conta de armazenamento, selecione uma assinatura e um grupo de recursos e dê um nome à conta de armazenamento. Você pode deixar as outras seleções no padrão. Selecione **revisão + criar**, examine as configurações e, em seguida, selecione **criar**. 
    
@@ -74,7 +77,7 @@ Crie uma conta de armazenamento e um contêiner para usar na captura.
 5. Na tela **capturar** , selecione **salvar alterações**. 
 
 ## <a name="create-a-python-script-to-send-events-to-event-hub"></a>Criar um script Python para enviar eventos ao Hub de eventos
-Esse script envia eventos 200 para o Hub de eventos. Os eventos são leituras ambientais simples enviadas em JSON.
+Este script para enviar 200 eventos para o hub de eventos. Os eventos são leituras ambientais simples enviadas em JSON.
 
 1. Abra seu editor de Python favorito, como [Visual Studio Code][Visual Studio Code].
 2. Crie um novo arquivo chamado *Sender.py*. 

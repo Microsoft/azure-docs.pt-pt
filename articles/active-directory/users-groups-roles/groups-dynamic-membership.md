@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768724"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940996"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -99,8 +99,8 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 | país |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Country-EQ "valor") |
 | companyName | Qualquer valor de cadeia de caracteres ou *nulo* | (user.companyName -eq "value") |
 | Departamento |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Department-EQ "valor") |
-| displayName |Qualquer valor de cadeia de caracteres |(user.displayName -eq "value") |
-| employeeId |Qualquer valor de cadeia de caracteres |(user.employeeId -eq "value")<br>(User. employeeId-ne *NULL*) |
+| displayName |qualquer valor de cadeia de caracteres |(user.displayName -eq "value") |
+| employeeId |qualquer valor de cadeia de caracteres |(user.employeeId -eq "value")<br>(User. employeeId-ne *NULL*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Qualquer valor de cadeia de caracteres ou *nulo* |(user.givenName -eq "value") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou *nulo* |(User. jobTitle-EQ "valor") |
@@ -119,14 +119,14 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 | Apelido |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sobrenome-EQ "valor") |
 | telephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. telephoneNumber-EQ "valor") |
 | usageLocation |Código de país de duas letras |(user.usageLocation -eq "US") |
-| userPrincipalName |Qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro convidado *nulo* |(User. UserType-EQ "membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades do tipo coleção de cadeia de caracteres
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| otherMails |Qualquer valor de cadeia de caracteres |(User. otherMails-contém "alias@domain") |
+| otherMails |qualquer valor de cadeia de caracteres |(User. otherMails-contém "alias@domain") |
 | proxyAddresses |SMTP: alias@domain SMTP: alias@domain |(User. proxyAddresses-contém "SMTP: alias@domain") |
 
 Para as propriedades usadas para regras de dispositivo, consulte [regras para dispositivos](#rules-for-devices).
@@ -321,7 +321,12 @@ Você pode criar um grupo que contém todos os usuários em um locatário usando
 A regra "todos os usuários" é construída usando uma única expressão usando o operador-ne e o valor nulo. Essa regra adiciona usuários de convidado B2B, bem como usuários Membros ao grupo.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+Se você quiser que o grupo exclua os usuários convidados e inclua somente os membros do seu locatário, poderá usar a seguinte sintaxe:
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Criar uma regra de "todos os dispositivos"
@@ -331,7 +336,7 @@ Você pode criar um grupo que contém todos os dispositivos dentro de um locatá
 A regra "todos os dispositivos" é construída usando uma única expressão usando o operador-ne e o valor nulo:
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propriedades de extensão e propriedades de extensão personalizadas

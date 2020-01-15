@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997059"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940916"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -71,6 +71,7 @@ Junto com essa propriedade, os mapeamentos de atributo também oferecem suporte 
 
 - **Atributo de origem** -o atributo de usuário do sistema de origem (exemplo: Azure Active Directory).
 - **Atributo de destino** – o atributo de usuário no sistema de destino (exemplo: ServiceNow).
+- **Valor padrão se NULL (opcional)** – o valor que será passado para o sistema de destino se o atributo de origem for nulo. Esse valor só será provisionado quando um usuário for criado. O "valor padrão quando nulo" não será provisionado durante a atualização de um usuário existente. Se, por exemplo, você quiser provisionar todos os usuários existentes no sistema de destino com um cargo específico (quando ele for nulo no sistema de origem), você poderá usar a seguinte [expressão](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): switch (IsPresent ([JobTitle]), "DefaultValue", "true", [JobTitle]). Certifique-se de substituir o "valor padrão" pelo que você gostaria de provisionar quando nulo no sistema de origem. 
 - **Corresponder objetos usando este atributo** – se esse mapeamento deve ser usado para identificar exclusivamente os usuários entre os sistemas de origem e de destino. Normalmente, ele é definido no atributo userPrincipalName ou mail no Azure AD, que normalmente é mapeado para um campo de nome de usuário em um aplicativo de destino.
 - **Precedência de correspondência** – vários atributos correspondentes podem ser definidos. Quando há vários, eles são avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum atributo correspondente será avaliado.
 - **Aplicar este mapeamento**

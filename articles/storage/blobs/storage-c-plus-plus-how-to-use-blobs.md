@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227912"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941815"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como usar o armazenamento de blobs deC++
 

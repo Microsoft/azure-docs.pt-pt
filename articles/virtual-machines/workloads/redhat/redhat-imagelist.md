@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 61991e271a68c9160a34d0de99fe4c9259ca41cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32df17ffed400af80eadadbdeaafbaa1e3e1dbce
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486342"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941710"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux (RHEL) imagens disponíveis no Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -66,5 +66,5 @@ RHEL-BYOS     |RHEL-lvm74| LVM    | Agente Linux | As imagens RHEL 7,4 BYOS, nã
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre as [imagens do Red Hat no Azure](./redhat-images.md).
 * Saiba mais sobre a [infraestrutura de atualização do Red Hat](./redhat-rhui.md).
-* Saiba mais sobre a [oferta BYOS do RHEL](./redhat-byos.md).
+* Saiba mais sobre a [oferta BYOS do RHEL](./byos.md).
 * Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

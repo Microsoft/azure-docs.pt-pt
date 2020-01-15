@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 3169959250eb45346456c64e606f25efb0ea44f0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934234"
+ms.locfileid: "75945324"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução ao benchmark de segurança do Azure
 
@@ -27,7 +27,7 @@ O benchmark de segurança do Azure inclui uma coleção de recomendações de se
 
 A documentação de benchmark de segurança do Azure especifica controles de segurança e recomendações de serviço.
 
-- **Controles de segurança**: as recomendações de benchmark de segurança do Azure são categorizadas por controles de segurança. Os controles de segurança representam requisitos de segurança independentes de fornecedor de alto nível, como segurança de rede e proteção de dados. Cada controle de segurança tem um conjunto de recomendações de segurança e instruções que ajudam a Implment essas recomendações. 
+- **Controles de segurança**: as recomendações de benchmark de segurança do Azure são categorizadas por controles de segurança. Os controles de segurança representam requisitos de segurança independentes de fornecedor de alto nível, como segurança de rede e proteção de dados. Cada controle de segurança tem um conjunto de recomendações de segurança e instruções que ajudam a implementar essas recomendações. 
 - **Recomendações de serviço**: quando disponível, as recomendações de parâmetro de comparação para os serviços do Azure incluirão recomendações de benchmark de segurança do Azure que são adaptadas especificamente para esse serviço. 
 
 Os termos "controle", "parâmetro de comparação" e "linha de base" são usados frequentemente na documentação de benchmark de segurança do Azure e é importante entender como o Azure usa esses termos. 

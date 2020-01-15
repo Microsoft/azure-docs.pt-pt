@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-author: chris-lauren
+author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf86826d77c690b60c7b091d6250a85fffd21fc0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 1645d2848c6d4b852a81042c4db8a0f6e90fd8fd
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896340"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945804"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -351,7 +351,7 @@ As implantações de serviço Web local exigem uma instalação de Docker em fun
 
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-    myenv.docker.base_image = NONE
+    myenv.docker.base_image = None
     myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)

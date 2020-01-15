@@ -8,19 +8,19 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 6c6e092f16111f3f54ed17e19d28775e35eedc96
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4fe543010df9514cb2b22c56482a4b592574e917
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227808"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941769"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como utilizar o Armazenamento de Filas a partir do C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este guia mostrará como executar cenários comuns usando o serviço de armazenamento de filas do Azure. Os exemplos são escritos no C++ e utilizam a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários cobertos incluem **Inserir**, **inspecionar**, **obter**e **excluir** mensagens da fila, bem como **criar e excluir filas**.
 
 > [!NOTE]
@@ -75,7 +75,7 @@ Para iniciar o emulador de armazenamento do Azure, selecione o botão **Iniciar*
 
 Os exemplos seguintes partem do princípio de que utiliza um destes dois métodos para obter a cadeia de ligação de armazenamento.
 
-## <a name="retrieve-your-connection-string"></a>Obter a cadeia de ligação
+## <a name="retrieve-your-connection-string"></a>Obter a sua cadeia de ligação
 Você pode usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para obter as informações da conta de armazenamento da cadeia de ligação de armazenamento, pode utilizar o método **analisar**.
 
 ```cpp

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839562"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941548"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: como se inscrever e carregar seu primeiro vídeo
 
@@ -32,6 +32,12 @@ Para começar a criar com o Video Indexer, aceda ao site do [Video Indexer](http
 > [!NOTE]
 > Um nome do vídeo não deve ter mais de 80 caracteres.
 
+### <a name="supported-file-formats-for-video-indexer"></a>Formatos de arquivo com suporte para Video Indexer
+
+Consulte o artigo [formatos de contêiner/arquivo de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com Video indexer.
+
+### <a name="upload-a-video"></a>Carregar um vídeo
+
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/).
 2. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
 
@@ -43,11 +49,13 @@ Para começar a criar com o Video Indexer, aceda ao site do [Video Indexer](http
 
     Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora você pode usar o [Video indexer](video-indexer-view-edit.md) site ou [Video indexer portal do desenvolvedor](video-indexer-use-apis.md) para ver as informações do vídeo. 
+Consulte [carregar e indexar vídeos](upload-index-videos.md) para obter mais detalhes.
 
-## <a name="see-also"></a>Consultar também
+Depois de carregar e indexar um vídeo, você pode começar a usar [Video indexer](video-indexer-view-edit.md) site ou [Video indexer portal do desenvolvedor](video-indexer-use-apis.md) para ver as informações do vídeo. 
+
+## <a name="see-also"></a>Ver também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)
 

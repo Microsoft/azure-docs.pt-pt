@@ -1,21 +1,18 @@
 ---
-title: Solucionar problemas de replicação contínua de VMs Azrue com Azure Site Recovery
-description: Solução de problemas e erros ao replicar máquinas virtuais do Azure para recuperação de desastre
-services: site-recovery
-author: carmonmills
+title: Solucionar problemas de replicação de VMs do Azure com Azure Site Recovery
+description: Solucionar problemas de replicação na recuperação de desastre de VM do Azure com Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: carmonm
-ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930747"
+ms.locfileid: "75941569"
 ---
-# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Solucionar problemas contínuos na replicação de VM do Azure para o Azure
+# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
 Este artigo descreve problemas comuns no Azure Site Recovery quando você está replicando e recuperando máquinas virtuais do Azure de uma região para outra região. Ele também explica como solucionar esses problemas. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
 
@@ -67,7 +64,7 @@ Se um pico for de uma intermitência de dados ocasional e a taxa de alteração 
     - Navegue até a folha discos da máquina replicada afetada e copie o nome do disco de réplica
     - Navegar até este disco gerenciado de réplica
     - Você pode ver uma faixa na folha de visão geral dizendo que uma URL SAS foi gerada. Clique nessa faixa e cancele a exportação. Ignore esta etapa se você não vir a faixa.
-    - Assim que a URL SAS for revogada, vá para a folha de configuração do disco gerenciado e aumente o tamanho para que a ASR dê suporte à taxa de rotatividade observada no disco de origem
+    - Assim que a URL SAS for revogada, vá para a folha de configuração do disco gerenciado e aumente o tamanho para que Site Recovery suporte a taxa de rotatividade observada no disco de origem
 
 ## <a name="Network-connectivity-problem"></a>Problemas de conectividade de rede
 

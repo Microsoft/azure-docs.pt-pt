@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 65bc164f344090894622a7b2db62336b19d3599e
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 775c6016acbcd0f87f368852a68eaea706c79898
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540675"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945710"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
 
@@ -67,21 +67,10 @@ Para criar conjuntos de itens de um [repositório de armazenamento do Azure](how
 
 1. Verifique se você tem `contributor` ou `owner` acesso ao Azure datastore registrado.
 
-1. Crie o conjunto de um fazendo referência a um caminho no repositório de armazenamento:
+2. Crie o conjunto de um referenciando caminhos no repositório de armazenamento.
+> [!Note]
+> Você pode criar um conjunto de um DataSet a partir de vários caminhos em vários repositórios de armazenamento. Não há nenhum limite rígido para o número de arquivos ou o tamanho de dados do qual você pode criar um DataSet. No entanto, para cada caminho de dados, algumas solicitações serão enviadas ao serviço de armazenamento para verificar se ele aponta para um arquivo ou uma pasta. Essa sobrecarga pode levar à degradação do desempenho ou falha. Um conjunto de dados que faz referência a uma pasta com 1000 arquivos dentro é considerado fazendo referência a um caminho de dado. É recomendável criar um conjunto de consulta que referencie menos de 100 caminhos em repositórios de armazenamento para um desempenho ideal.
 
-    ```Python
-    from azureml.core.workspace import Workspace
-    from azureml.core.datastore import Datastore
-    from azureml.core.dataset import Dataset
-    
-    datastore_name = 'your datastore name'
-    
-    # get existing workspace
-    workspace = Workspace.from_config()
-    
-    # retrieve an existing datastore in the workspace by name
-    datastore = Datastore.get(workspace, datastore_name)
-    ```
 
 #### <a name="create-a-tabulardataset"></a>Criar um TabularDataset
 
@@ -90,12 +79,20 @@ Você pode criar TabularDatasets por meio do SDK ou usando Azure Machine Learnin
 Use o método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) na classe `TabularDatasetFactory` para ler arquivos no formato. csv ou. tsv e para criar um TabularDataset não registrado. Se você estiver lendo de vários arquivos, os resultados serão agregados em uma representação tabular.
 
 ```Python
-# create a TabularDataset from multiple paths in datastore
-datastore_paths = [
-                  (datastore, 'weather/2018/11.csv'),
-                  (datastore, 'weather/2018/12.csv'),
-                  (datastore, 'weather/2019/*.csv')
-                 ]
+from azureml.core import Workspace, Datastore, Dataset
+
+datastore_name = 'your datastore name'
+
+# get existing workspace
+workspace = Workspace.from_config()
+    
+# retrieve an existing datastore in the workspace by name
+datastore = Datastore.get(workspace, datastore_name)
+
+# create a TabularDataset from 3 paths in datastore
+datastore_paths = [(datastore, 'ather/2018/11.csv'),
+                   (datastore, 'weather/2018/12.csv'),
+                   (datastore, 'weather/2019/*.csv')]
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
@@ -156,16 +153,12 @@ Use o método [`from_files()`](https://docs.microsoft.com/python/api/azureml-cor
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
-datastore_paths = [
-                  (datastore, 'animals')
-                 ]
+datastore_paths = [(datastore, 'animals')]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
 
 # create a FileDataset from image and label files behind public web urls
-web_paths = [
-            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
-            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]
+web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
@@ -248,10 +241,8 @@ Agora, o conjunto de linhas está disponível em seu espaço de trabalho em **co
 Você pode registrar um novo conjunto de registros com o mesmo nome criando uma nova versão. Uma versão de conjunto de dados é uma maneira de marcar o estado de seus dados de forma que você possa aplicar uma versão específica do conjunto para experimentação ou reprodução futura. Saiba mais sobre [as versões do conjunto](how-to-version-track-datasets.md)de informações.
 ```Python
 # create a TabularDataset from Titanic training data
-web_paths = [
-            'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
-            'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
-           ]
+web_paths = ['https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
+             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv']
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
 # create a new version of titanic_ds

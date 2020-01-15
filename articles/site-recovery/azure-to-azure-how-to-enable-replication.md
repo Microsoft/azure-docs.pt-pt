@@ -1,19 +1,16 @@
 ---
-title: Configurar a replicação para VMs do Azure no Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como configurar a replicação para VMs do Azure, de uma região do Azure para outra usando Site Recovery.
-services: site-recovery
-author: carmonmills
+title: Configurar a replicação para VMs do Azure no Azure Site Recovery
+description: Saiba como configurar a replicação para outra região para VMs do Azure, usando Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2018
-ms.author: carmonm
-ms.openlocfilehash: 4dbac05ddf747ccaf483e547a2070505487a3706
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929862"
+ms.locfileid: "75942323"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 

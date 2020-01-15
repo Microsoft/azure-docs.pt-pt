@@ -117,6 +117,8 @@
       items:
         - name: Implementar a aplicação
           items:
+            - name: Executar a partir do pacote
+              href: deploy-run-package.md
             - name: Implementar ZIP ou WAR
               href: deploy-zip.md
             - name: Implementar através de FTP

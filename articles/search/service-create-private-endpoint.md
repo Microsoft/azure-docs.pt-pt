@@ -8,22 +8,26 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: cfa8db0d00f351f5ab2bda96744305ca83cccb19
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 2664b1abd4131cf1dca186c7b044e338bf1efa84
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922460"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945826"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search-preview"></a>Criar um ponto de extremidade privado para uma conexão segura com o Azure Pesquisa Cognitiva (versão prévia)
 
-[Pontos de extremidade privados](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permitem que um cliente em uma rede virtual acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md). O ponto de extremidade privado usa um endereço IP do [espaço de endereço de rede virtual](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) para o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Para obter uma lista de outros serviços de PaaS que dão suporte ao link privado, verifique a [seção disponibilidade](../private-link/private-link-overview.md#availability) na documentação do produto.
+Neste artigo, use o portal para criar uma nova instância do serviço de Pesquisa Cognitiva do Azure que não pode ser acessada por meio de um endereço IP público. Em seguida, configure uma máquina virtual do Azure na mesma rede virtual e use-a para acessar o serviço de pesquisa por meio de um ponto de extremidade privado.
 
 > [!Important]
-> O suporte de ponto de extremidade privado para o Azure Pesquisa Cognitiva está disponível como uma visualização de acesso limitado e, no momento, não se destina ao uso em produção. Preencha e envie o formulário de [solicitação de acesso](https://aka.ms/SearchPrivateLinkRequestAccess) se desejar acessar a visualização. O formulário solicita informações sobre você, sua empresa e arquitetura de aplicativo geral. Depois de examinarmos sua solicitação, você receberá um email de confirmação com instruções adicionais.
+> O suporte de ponto de extremidade privado para o Azure Pesquisa Cognitiva está disponível [mediante solicitação](https://aka.ms/SearchPrivateLinkRequestAccess) como uma visualização de acesso limitado. Os recursos de visualização são fornecidos sem um contrato de nível de serviço e não são recomendados para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 >
-> Depois de receber acesso à visualização, você poderá configurar pontos de extremidade privados para seu serviço usando o portal do Azure e a API REST versão [2019-10-06-Preview](search-api-preview.md).
+> Depois de receber acesso à visualização, você poderá configurar pontos de extremidade privados para seu serviço usando o portal do Azure ou a [API REST de gerenciamento versão 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
 >   
+
+## <a name="why-use-private-endpoint-for-secure-access"></a>Por que usar o ponto de extremidade privado para acesso seguro?
+
+[Pontos de extremidade privados](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permitem que um cliente em uma rede virtual acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md). O ponto de extremidade privado usa um endereço IP do [espaço de endereço de rede virtual](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) para o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Para obter uma lista de outros serviços de PaaS que dão suporte ao link privado, verifique a [seção disponibilidade](../private-link/private-link-overview.md#availability) na documentação do produto.
 
 Pontos de extremidade privados para o serviço de pesquisa permitem que você:
 
@@ -36,16 +40,18 @@ Pontos de extremidade privados para o serviço de pesquisa permitem que você:
 > * Disponível somente para serviços de pesquisa na camada **básica** . 
 > * Disponível nas regiões oeste dos EUA 2, Oeste EUA Central, leste dos EUA, Sul EUA Central, leste da Austrália e sudeste da Austrália.
 > * Quando o ponto de extremidade de serviço é privado, alguns recursos do portal são desabilitados. Você poderá exibir e gerenciar as informações de nível de serviço, mas o acesso ao portal para indexar dados e os vários componentes no serviço, como o índice, o indexador e as definições de qualificações, é restrito por motivos de segurança.
-> * Quando o ponto de extremidade de serviço é privado, você deve usar a API de pesquisa para carregar documentos no índice.
+> * Quando o ponto de extremidade de serviço é privado, você deve usar a [API REST de pesquisa](https://docs.microsoft.com/rest/api/searchservice/) para carregar documentos no índice.
 > * Você deve usar o link a seguir para ver a opção de suporte ao ponto de extremidade privado no portal do Azure: https://portal.azure.com/?feature.enablePrivateEndpoints=true
 
-Neste artigo, você aprenderá a usar o portal para criar uma nova instância do serviço de Pesquisa Cognitiva do Azure que não pode ser acessada por meio de um endereço IP público, configurar uma máquina virtual do Azure na mesma rede virtual e usá-la para acessar o serviço de pesquisa por meio de um extremidade.
 
 
-## <a name="create-a-vm"></a>Criar uma VM
+## <a name="request-access"></a>Pedir acesso 
+
+Clique em [solicitar acesso](https://aka.ms/SearchPrivateLinkRequestAccess) para se inscrever neste recurso de visualização. O formulário solicita informações sobre você, sua empresa e a topologia de rede geral. Depois de examinarmos sua solicitação, você receberá um email de confirmação com instruções adicionais.
+
+## <a name="create-the-virtual-network"></a>Criar a rede virtual
+
 Nesta seção, você criará uma rede virtual e uma sub-rede para hospedar a VM que será usada para acessar o ponto de extremidade privado do serviço de pesquisa.
-
-### <a name="create-the-virtual-network"></a>Criar a rede virtual
 
 1. Na guia portal do Azure página inicial, selecione **criar um recurso** > **rede** > **rede virtual**.
 
@@ -65,7 +71,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede para hospedar a VM 
 1. Deixe o restante como padrão e selecione **criar**.
 
 
-## <a name="create-your-search-service-with-a-private-endpoint"></a>Criar seu serviço de pesquisa com um ponto de extremidade privado
+## <a name="create-a-search-service-with-a-private-endpoint"></a>Criar um serviço de pesquisa com um ponto de extremidade privado
 
 Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com um ponto de extremidade privado. 
 
@@ -119,9 +125,9 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Selecione **chaves** no menu conteúdo à esquerda.
 
-1. Copie a **chave de administração primária** para mais tarde.
+1. Copie a **chave de administração primária** para mais tarde, ao conectar-se ao serviço.
 
-### <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
 1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **computação** > **máquina virtual**.
 
@@ -170,9 +176,9 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 1. Quando você vir a mensagem **validação aprovada** , selecione **criar**. 
 
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
+## <a name="connect-to-the-vm"></a>Ligar à VM
 
-Conecte-se à VM *myVm* da Internet da seguinte maneira:
+Baixe e, em seguida, conecte-se à VM *myVm* da seguinte maneira:
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
@@ -196,9 +202,11 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.  
 
 
-## <a name="access-the-search-service-privately-from-the-vm"></a>Acessar o serviço de pesquisa de forma privada da VM
+## <a name="test-connections"></a>Testar conexões
 
 Nesta seção, você verificará o acesso à rede privada ao serviço de pesquisa e se conectará de modo privado ao usando o ponto de extremidade privado.
+
+Lembre-se da introdução de que todas as interações com o serviço de pesquisa exigem a [API REST de pesquisa](https://docs.microsoft.com/rest/api/searchservice/). Não há suporte para o portal e o SDK do .NET nesta visualização.
 
 1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
@@ -213,14 +221,14 @@ Nesta seção, você verificará o acesso à rede privada ao serviço de pesquis
     Address:  10.0.0.5
     Aliases:  [search service name].search.windows.net
     ```
-1. Siga este guia de [início rápido](search-get-started-postman.md) da VM para criar um novo índice de pesquisa em seu serviço no postmaster usando a API REST.  Use a chave que você copiou em uma etapa anterior para se autenticar no serviço.
 
-1. Experimente várias dessas mesmas solicitações no postmaster em sua estação de trabalho local.
+1. Na VM, conecte-se ao serviço de pesquisa e crie um índice. Você pode seguir este guia de [início rápido](search-get-started-postman.md) para criar um novo índice de pesquisa em seu serviço no postmaster usando a API REST. A configuração de solicitações do postmaster requer o ponto de extremidade do serviço de pesquisa (https://[nome do serviço de pesquisa]. Search. Windows. net) e a chave de API de administração que você copiou em uma etapa anterior.
 
-1. Se você conseguir concluir o início rápido da VM, mas receber um erro informando que o servidor remoto não existe na estação de trabalho local, você configurou com êxito um ponto de extremidade privado para o serviço de pesquisa.
+1. A conclusão do início rápido da VM é sua confirmação de que o serviço está totalmente operacional.
 
 1. Feche a conexão de área de trabalho remota para *myVM*. 
 
+1. Para verificar se o serviço não está acessível em um ponto de extremidade público, abra o postmaster em sua estação de trabalho local e tente as várias tarefas no início rápido. Se você receber um erro informando que o servidor remoto não existe, você configurou com êxito um ponto de extremidade privado para o serviço de pesquisa.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 Quando você terminar de usar o ponto de extremidade privado, o serviço de pesquisa e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
