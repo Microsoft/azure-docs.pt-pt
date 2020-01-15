@@ -666,7 +666,7 @@
         - name: Segurança
           items:
             - name: Descrição geral da segurança do armazenamento
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Controlo de acesso
               href: data-lake-storage-access-control.md
         - name: Registo

@@ -6,7 +6,7 @@
       href: app-service-mobile-value-prop.md
     - name: Planos do Serviço de Aplicações
       href: ../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Android
       href: app-service-mobile-android-get-started.md
@@ -172,7 +172,7 @@
         - name: Rede Virtual do Azure
           href: ../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Grupos de recursos
-          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations'
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations'
           items:
             - name: Executar tarefas em Segundo Plano com o WebJobs
               href: ../app-service/webjobs-create.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json

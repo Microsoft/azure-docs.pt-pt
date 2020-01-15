@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: a25189e75bcf313a5e2e8eee410a581d50f70584
-  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+  ms.openlocfilehash: 37427277a8d4b7bde5e5671510a8f5cdb9979483
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/31/2019
-  ms.locfileid: "75563756"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75980367"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -94,7 +94,7 @@ conceptualContent:
     - url: ./fundamentals/data-encryption-best-practices.md
       itemType: concept
       text: Melhores práticas de segurança e encriptação de dados
-    - url: ../storage/common/storage-security-guide.md
+    - url: ../storage/blobs/security-recommendations.md
       itemType: concept
       text: Segurança de armazenamento
     footerLink:

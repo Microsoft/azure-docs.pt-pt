@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/10/2019
-  ms.openlocfilehash: 04a7d8a791b716b446101afe9b32ab83759c7a49
-  ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+  ms.openlocfilehash: b88d17578156aa391690efa214b46d23a100a4b8
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/20/2019
-  ms.locfileid: "74210159"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75982511"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -77,11 +77,11 @@ productDirectory:
   - title: Gestão de Custos
     imageSrc: ./media/cost-management.svg
     links:
-    - url: ../cost-management/overview-cost-mgt.md
+    - url: ../cost-management-billing/cost-management-billing-overview.md
       text: Descrição geral
-    - url: ../cost-management/aws-integration-manage.md
+    - url: ../cost-management-billing/costs/aws-integration-manage.md
       text: Gerir os custos e a utilização do AWS
-    - url: ../cost-management/index.yml
+    - url: ../cost-management-billing/index.yml
       text: Ver mais >
 tools:
   title: Amostras

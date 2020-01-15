@@ -10,12 +10,12 @@ metadata:
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 11/19/2019
-  ms.openlocfilehash: e49bfdefe08b3a8f4598e809fd44b57f3f93de67
-  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+  ms.openlocfilehash: 1bf915e1e49ca4633d64575086f17038018c24c0
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/19/2019
-  ms.locfileid: "74185841"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75973981"
 landingContent:
 - title: Acerca do Azure Migrate
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
     - text: Automatizar e dimensionar a migração
       url: ./how-to-migrate-at-scale.md
     - text: Resolução de problemas de avaliação e migração
-      url: ./troubleshooting-general.md
+      url: ./troubleshoot-general.md
 - title: Saiba mais
   linkLists:
   - linkListType: learn

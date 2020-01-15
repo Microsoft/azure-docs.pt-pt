@@ -77,7 +77,7 @@
         - name: Degraus de bitrate adaptativo auto-generativo
           href: autogen-bitrate-ladder.md
         - name: Codificação com reconhecimento de conteúdo
-          href: cae-experimental.md
+          href: content-aware-encoding.md
     - name: Analisar conteúdo (Video Indexer)
       items:
         - name: Descrição geral
