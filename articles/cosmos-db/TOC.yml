@@ -869,6 +869,9 @@
         - name: Encontrar cobranças de unidades de pedido
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Dimensionar com o temporizador das Funções do Azure
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: Trabalhar com contentores e itens
       items:
         - name: Trabalhar com dados do Cosmos DB

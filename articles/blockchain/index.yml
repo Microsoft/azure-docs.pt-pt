@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: 87184cc5be0494ade7cc3e055083134b6cbe4bd7
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: a0e43171e70923cfb3af551391204f118be01970
+  ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73466118"
+  ms.lasthandoff: 01/14/2020
+  ms.locfileid: "75932671"
 productDirectory:
   items:
   - title: Azure Blockchain Service
@@ -98,9 +98,9 @@ conceptualContent:
     - url: ./templates/ethereum-poa-deployment.md
       itemType: how-to-guide
       text: Implementar uma rede Ethereum de Prova de Autoridade de consórcio com vários membros no Azure
-    - url: ./templates/hyperledger-fabric-consortium-blockchain.md
+    - url: ./templates/hyperledger-fabric-consortium-azure-kubernetes-service.md
       itemType: how-to-guide
-      text: Implementar uma rede de consórcio do Hyperledger Fabric no Azure
+      text: Implementar uma rede de consórcio do Hyperledger Fabric no Azure Kubernetes Service
 additionalContent:
   sections:
   - title: Ferramentas e exemplos de desenvolvimento

@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: a023092c675c8a99285abfdf81c29a5163c3fadd
-  ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+  ms.openlocfilehash: ebe88aea9b84e640ccc4cecb495d2beedae2893e
+  ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73681638"
+  ms.lasthandoff: 01/14/2020
+  ms.locfileid: "75934116"
 landingContent:
 - title: Acerca da BD do Cosmos para o Azure
   linkLists:
@@ -142,6 +142,8 @@ landingContent:
       url: how-to-provision-container-throughput.md
     - text: Obter as cobranças de unidades do pedido
       url: find-request-unit-charge.md
+    - text: Dimensionar com o temporizador das Funções do Azure
+      url: scale-on-schedule.md
 - title: Criar uma aplicação com a API para SQL
   linkLists:
   - linkListType: quickstart

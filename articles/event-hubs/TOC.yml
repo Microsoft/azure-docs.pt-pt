@@ -31,9 +31,9 @@
         - name: Java
           href: event-hubs-java-get-started-send.md
         - name: Python
-          href: event-hubs-python-get-started-send.md
+          href: get-started-python-send-v2.md
         - name: Node.js
-          href: event-hubs-node-get-started-send.md
+          href: get-started-node-send-v2.md
         - name: Ir
           href: event-hubs-go-get-started-send.md
         - name: C (apenas enviar)
@@ -49,7 +49,7 @@
         - name: Utilizar um modelo do Resource Manager para ativar a Recolha dos Hubs de Eventos
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
         - name: Recolher dados dos Hubs de Eventos através de Python
-          href: event-hubs-capture-python.md
+          href: get-started-capture-python-v2.md
     - name: Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Criar um cluster dedicado
@@ -114,10 +114,22 @@
           href: event-hubs-get-connection-string.md
         - name: Trocar eventos entre aplicações através de protocolos diferentes
           href: event-hubs-exchange-events-different-protocols.md
-        - name: Guia de programação .NET
-          href: event-hubs-programming-guide.md
-        - name: 'Enviar, receber e capturar eventos com o Python'
-          href: event-hubs-python.md
+        - name: Guias de programação
+          items:
+            - name: Python
+              href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
+            - name: JavaScript
+              href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
+            - name: Guia de programação .NET
+              href: event-hubs-programming-guide.md
+        - name: Ler dados capturados com o Python (legado)
+          href: event-hubs-capture-python.md
+        - name: Enviar e receber eventos (legado)
+          items:
+            - name: Python (legado)
+              href: event-hubs-python-get-started-send.md
+            - name: Node.js (legado)
+              href: event-hubs-node-get-started-send.md
     - name: Processar dados
       items:
         - name: Processar dados com o Azure Stream Analytics
@@ -193,7 +205,15 @@
         - name: Microsoft.Azure.Management.EventHub
           href: /dotnet/api/microsoft.azure.management.eventhub
     - name: Node.js
-      href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+      items:
+        - name: Migrar da versão 2 para a versão 5
+          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
+        - name: Referência da API
+          href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+    - name: Python
+      items:
+        - name: Migrar da versão 1 para a versão 5
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
     - name: REST
       href: /rest/api/eventhub
     - name: Modelo do Resource Manager
