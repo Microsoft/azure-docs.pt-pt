@@ -630,8 +630,6 @@
           href: sql-database-advisor-portal.md
         - name: Criar alertas
           href: sql-database-insights-alerts-portal.md
-        - name: Resolver problemas de conectividade
-          href: sql-database-troubleshoot-common-connection-issues.md
         - name: Gerir o espaço de ficheiros
           href: sql-database-file-space-management.md
         - name: Utilizar o Resource Health para problemas de conectividade
