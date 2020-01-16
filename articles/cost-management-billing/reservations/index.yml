@@ -1,0 +1,96 @@
+### YamlMime:Landing
+title: Poupe com as reservas do Azure
+summary: Saiba como o Azure Reservations o ajuda a poupar ao subscrever planos de um ou três anos de máquinas virtuais, do armazenamento de Blobs do Azure ou do Azure Data Lake Storage Gen2, da capacidade de computação da Base de Dados SQL, do débito do Azure Cosmos DB e de outros recursos do Azure. 
+metadata:
+  title: Poupe com as reservas do Azure
+  description: Saiba como o Azure Reservations o ajuda a poupar ao subscrever planos de um ou três anos de máquinas virtuais, do armazenamento de Blobs do Azure ou do Azure Data Lake Storage Gen2, da capacidade de computação da Base de Dados SQL, do débito do Azure Cosmos DB e de outros recursos do Azure. 
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+  ms.openlocfilehash: 4a215795df7d96f0516d4ecca691843994342f46
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983431"
+landingContent:
+- title: Comprar reservas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que são as reservas do Azure?
+      url: save-compute-costs-reservations.md
+    - text: Trocas e reembolsos das reservas
+      url: exchange-and-refund-azure-reservations.md
+    - text: Comprar uma reserva com pagamentos mensais
+      url: monthly-payments-reservations.md
+  - linkListType: how-to-guide
+    links:
+    - text: Renovar reservas
+      url: reservation-renew.md
+    - text: SQL Data Warehouse
+      url: prepay-sql-data-warehouse-charges.md
+    - text: Máquina virtual
+      url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Storage do Azure
+      url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: BD do Cosmos
+      url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: SQL Database
+      url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: Azure Data Explorer
+      url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: Azure Databricks
+      url: prepay-databricks-reserved-capacity.md
+    - text: Serviço de Aplicações
+      url: prepay-app-service-isolated-stamp.md
+    - text: Planos de software do Azure
+      url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+- title: Saiba como são aplicados os descontos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Instâncias de VM reservadas
+      url: ../manage/understand-vm-reservation-charges.md
+    - text: Capacidade reservada do Armazenamento do Azure
+      url: understand-storage-charges.md
+    - text: Capacidade reservada do Cosmos DB
+      url: understand-cosmosdb-reservation-charges.md
+    - text: Capacidade de reserva da Base de Dados SQL
+      url: understand-reservation-charges.md
+    - text: SQL Data Warehouse
+      url: reservation-discount-azure-sql-dw.md
+    - text: Azure Data Explorer
+      url: understand-azure-data-explorer-reservation-charges.md
+    - text: Azure Databricks
+      url: reservation-discount-databricks.md
+    - text: Serviço de Aplicações
+      url: reservation-discount-app-service-isolated-stamp.md
+    - text: Encargos de software do Azure
+      url: understand-suse-reservation-charges.md
+- title: Como são aplicados os descontos à Base de Dados do Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Base de Dados do Azure para MySQL
+      url: understand-reservation-charges-mysql.md
+    - text: Base de Dados do Azure para PostgreSQL
+      url: understand-reservation-charges-postgresql.md
+    - text: Azure Database for MariaDB
+      url: understand-reservation-charges-mariadb.md
+- title: Gerir reservas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir reservas
+      url: manage-reserved-vm-instance.md
+    - text: Ver reservas
+      url: view-reservations.md
+  - linkListType: reference
+    links:
+    - text: APIs de Reserva
+      url: reservation-apis.md

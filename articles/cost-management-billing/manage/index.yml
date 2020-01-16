@@ -1,0 +1,90 @@
+### YamlMime:Landing
+title: Gerir contas e subscrições com a Faturação do Azure
+summary: Saiba como compreender a faturação do Azure e gerir a sua conta e subscrições.
+metadata:
+  title: Gerir contas e subscrições com a Faturação do Azure
+  description: Saiba como compreender a faturação do Azure e gerir a sua conta e subscrições.
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+  ms.openlocfilehash: 61158d44399891f0f6293f53a11f227506fbddbe
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983329"
+landingContent:
+- title: Gerir contas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Funções do Contrato de Cliente Microsoft no Azure
+      url: understand-mca-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Editar perfil
+      url: change-azure-account-profile.md
+    - text: Resolver saldo em dívida
+      url: resolve-past-due-balance.md
+    - text: Conceder acesso à faturação
+      url: manage-billing-access.md
+    - text: Ver contas de faturação
+      url: view-all-accounts.md
+    - text: Organizar os custos com secções de fatura
+      url: mca-section-invoice.md
+- title: Gerir subscrições
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Reativar subscrição
+      url: subscription-disabled.md
+    - text: Transferir a propriedade de uma subscrição individual
+      url: billing-subscription-transfer.md
+    - text: Transferir a propriedade de um Contrato de Cliente Microsoft
+      url: mca-request-billing-ownership.md
+    - text: Transferir a propriedade de um Contrato de Parceiro da Microsoft
+      url: mpa-request-ownership.md
+    - text: Cancelar subscrição
+      url: cancel-azure-subscription.md
+    - text: Alterar cartão de crédito
+      url: change-credit-card.md
+    - text: Alterar administrador
+      url: add-change-subscription-administrator.md
+    - text: Pagar por fatura
+      url: pay-by-invoice.md
+    - text: Criar uma subscrição adicional
+      url: create-subscription.md
+- title: Gerir conta gratuita
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar serviços gratuitos
+      url: create-free-services.md
+    - text: Evitar custos
+      url: avoid-charges-free-account.md
+    - text: Verificar utilização
+      url: check-free-service-usage.md
+    - text: Atualizar conta
+      url: upgrade-azure-subscription.md
+- title: Gestão do Contrato Enterprise
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Funções de EA no Azure
+      url: understand-ea-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Introdução ao EA Portal do Azure
+      url: ea-portal-get-started.md
+    - text: Administração do Azure EA Portal
+      url: ea-portal-administration.md
+    - text: Resolver problemas de acesso ao Azure EA Portal
+      url: ea-portal-troubleshoot.md
+  - linkListType: reference
+    links:
+    - text: APIs REST do Azure Enterprise
+      url: ea-portal-rest-apis.md

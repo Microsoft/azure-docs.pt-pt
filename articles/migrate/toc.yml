@@ -54,22 +54,28 @@
   items:
     - name: Matrizes de suporte
       items:
-        - name: Matriz de suporte do Azure Migrate
+        - name: Suporte geral
           href: migrate-support-matrix.md
-        - name: Matriz de suporte para avaliar e migrar o VMware
+        - name: Suporte de avaliação de VMware
           href: migrate-support-matrix-vmware.md
-        - name: Matriz de suporte para avaliar e migrar o Hyper-V
+        - name: Suporte de migração de VMware
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Suporte de avaliação de Hyper-V
           href: migrate-support-matrix-hyper-v.md
-        - name: Matriz de suporte para avaliação e migração de servidores físicos
+        - name: Suporte de migração de Hyper-V
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: Suporte de avaliação do servidor físico
           href: migrate-support-matrix-physical.md
-        - name: Matriz de suporte para a aplicação do Azure Migrate
+        - name: Suporte de migração do servidor físico
+          href: migrate-support-matrix-physical-migration.md
+        - name: Requisitos de aplicação do Azure Migrate
           href: migrate-appliance.md
+        - name: Requisitos de aplicação de replicação
+          href: migrate-replication-appliance.md
     - name: Arquitetura de migração do Hyper-V
       href: hyper-v-migration-architecture.md
     - name: Arquitetura de migração baseada em agentes
       href: agent-based-migration-architecture.md
-    - name: Aplicação de replicação do Azure Migrate
-      href: migrate-replication-appliance.md
     - name: Melhores práticas para avaliações
       href: best-practices-assessment.md
     - name: Descrição geral das avaliações
@@ -112,16 +118,16 @@
       href: prepare-for-migration.md
     - name: Eliminar um projeto do Azure Migrate
       href: how-to-delete-project.md
-- name: Dimensionar a avaliação e a migração
-  items:
-    - name: Avaliar um grande número de VMs VMware
-      href: scale-vmware-assessment.md
-    - name: Avaliar um grande número de VMs Hyper-V
-      href: scale-hyper-v-assessment.md
-    - name: Automatizar a migração de um elevado número de VMs
-      href: how-to-migrate-at-scale.md
-    - name: Exemplos de migração (série Contoso)
-      href: contoso-migration-overview.md
+    - name: Dimensionar a avaliação e a migração
+      items:
+        - name: Avaliar um grande número de VMs VMware
+          href: scale-vmware-assessment.md
+        - name: Avaliar um grande número de VMs Hyper-V
+          href: scale-hyper-v-assessment.md
+        - name: Automatizar a migração de um elevado número de VMs
+          href: how-to-migrate-at-scale.md
+        - name: Exemplos de migração (série Contoso)
+          href: contoso-migration-overview.md
 - name: Resolução de problemas
   items:
     - name: Resolver problemas do Azure Migrate

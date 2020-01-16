@@ -1,0 +1,84 @@
+### YamlMime:Landing
+title: Gerir os custos e a utilização do Azure
+summary: O Azure Cost Management é uma solução de gestão de custos que ajuda a monitorizar e a controlar a gastos do Azure e otimizar a utilização de recursos. Utilize os nossos tutoriais e guias de início rápido para saber como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e atuar de acordo com recomendações.
+metadata:
+  title: Azure Cost Management + Faturação
+  description: O Azure Cost Management é uma solução de gestão de custos que ajuda a monitorizar e a controlar a gastos do Azure e otimizar a utilização de recursos. Utilize os nossos tutoriais e guias de início rápido para saber como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e atuar de acordo com recomendações.
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+  ms.openlocfilehash: 33821c027d242da1a9361a796280213b5265dcde
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983227"
+landingContent:
+- title: Saiba mais sobre o Cost Management
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Cost Management e Faturação?
+      url: ../cost-management-billing-overview.md
+  - linkListType: concept
+    links:
+    - text: Melhores práticas do Azure Cost Management
+      url: cost-mgt-best-practices.md
+    - text: Compreender os dados do Cost Management
+      url: understand-cost-mgt-data.md
+    - text: Compreender e trabalhar com âmbitos
+      url: understand-work-scopes.md
+- title: Analisar e gerir os custos do Azure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Começar a analisar os custos
+      url: quick-acm-cost-analysis.md
+  - linkListType: tutorial
+    links:
+    - text: Criar e gerir orçamentos
+      url: tutorial-acm-create-budgets.md
+    - text: Exportar os dados de custos e de utilização
+      url: tutorial-export-acm-data.md
+    - text: Agir com base em recomendações
+      url: tutorial-acm-opt-recommendations.md
+  - linkListType: how-to-guide
+    links:
+    - text: Atribuir acesso aos dados
+      url: assign-access-acm-data.md
+    - text: Utilizar a análise de custos para tarefas comuns
+      url: cost-analysis-common-uses.md
+    - text: Utilizar alertas de custos
+      url: cost-mgt-alerts-monitor-usage-spending.md
+    - text: Cost Management para parceiros
+      url: get-started-partners.md
+    - text: Ligar com o Power BI Desktop
+      url: /power-bi/desktop-connect-azure-cost-management
+- title: Analisar e gerir os custos do AWS
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Definir e configurar a integração do AWS
+      url: aws-integration-set-up-configure.md
+    - text: Gerir os custos e a utilização do AWS
+      url: aws-integration-manage.md
+- title: APIs do Cost Management
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Migrar do EA para APIs do MCA
+      url: migrate-cost-management-api.md
+  - linkListType: reference
+    links:
+    - text: API REST Azure Cost Management
+      url: https://docs.microsoft.com/rest/api/cost-management
+    - text: API REST de Consumo do Azure
+      url: https://docs.microsoft.com/rest/api/consumption
+    - text: Modelo do Resource Manager
+      url: /azure/templates/microsoft.consumption/budgets
+    - text: Exemplos da API REST de Cost Management
+      url: https://github.com/Azure-Samples/Cost-Management-Samples

@@ -1,0 +1,88 @@
+### YamlMime:Landing
+title: Introdução à Faturação do Azure
+summary: Saiba como começar a utilizar a Faturação do Azure ao analisar a sua fatura e ver informações de custos e utilização.
+metadata:
+  title: Introdução à Faturação do Azure
+  description: Introdução à Faturação do Azure
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+  ms.openlocfilehash: bc472c68ea2a414fce81fe39e3282a43be3db829
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983295"
+landingContent:
+- title: Analisar contas individuais
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Analisar a fatura de contas individuais
+      url: review-individual-bill.md
+  - linkListType: concept
+    links:
+    - text: Termos de utilização explicados
+      url: understand-usage.md
+    - text: Termos da fatura explicados
+      url: understand-invoice.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ver e transferir a sua fatura do Azure
+      url: download-azure-invoice.md
+    - text: Ver e transferir a utilização e os custos do Azure
+      url: download-azure-daily-usage.md
+    - text: Ver os encargos de serviços externos
+      url: understand-azure-marketplace-charges.md
+- title: Analisar as contas do Contrato de Cliente Microsoft
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Analisar a fatura do Contrato de Cliente Microsoft
+      url: review-customer-agreement-bill.md
+  - linkListType: concept
+    links:
+    - text: Contas de faturação do Contrato de Cliente Microsoft
+      url: mca-overview.md
+    - text: Termos de utilização do Contrato de Cliente Microsoft
+      url: mca-understand-your-usage.md
+    - text: Termos da fatura do Contrato de Cliente Microsoft
+      url: mca-understand-your-invoice.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ver e transferir a fatura do Azure
+      url: download-azure-invoice.md
+    - text: Ver e transferir a utilização e os custos do Azure
+      url: download-azure-daily-usage.md
+    - text: Ver e transferir documentos fiscais
+      url: mca-download-tax-document.md
+    - text: Ver os encargos de serviços externos
+      url: understand-azure-marketplace-charges.md
+    - text: Pagar a fatura do Contrato de Cliente Microsoft
+      url: pay-bill.md
+- title: Analisar as contas do Contrato de Parceiro da Microsoft
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Analisar a fatura do Contrato de Parceiro da Microsoft
+      url: review-partner-agreement-bill.md
+  - linkListType: concept
+    links:
+    - text: Contas de faturação do Contrato de Parceiro da Microsoft
+      url: mpa-overview.md
+    - text: Termos da fatura do Contrato de Cliente Microsoft
+      url: mpa-invoice-terms.md
+- title: Analisar as contas do Contrato Enterprise
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Analisar a fatura do Contrato Enterprise
+      url: review-enterprise-agreement-bill.md
+  - linkListType: concept
+    links:
+    - text: Introdução ao EA Portal do Azure
+      url: ../manage/ea-portal-get-started.md

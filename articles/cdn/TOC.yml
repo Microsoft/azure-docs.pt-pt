@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Comparar funcionalidades de produto
       href: cdn-features.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar um perfil e ponto final
       href: cdn-create-new-endpoint.md
@@ -40,7 +40,7 @@
       href: cdn-china-delivery.md
     - name: Suporte HTTP/2
       href: cdn-http2.md
-    - name: Obter uma lista POP da Verizon
+    - name: Recuperar IPs POP
       href: cdn-pop-list-api.md
     - name: Migrar do Standard Verizon para o Premium Verizon
       href: cdn-migrate.md
