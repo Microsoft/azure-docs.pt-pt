@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942323"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973698"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -62,7 +62,7 @@ Ative a replicação. Este procedimento pressupõe que a região primária do Az
      >[!NOTE]
      >Você não pode alterar o tipo de disponibilidade-instância única, conjunto de disponibilidade ou zona de disponibilidade, depois de habilitar a replicação. Você precisa desabilitar e habilitar a replicação para alterar o tipo de disponibilidade.
      >
-    
+
    - **Política de replicação**: define as configurações para o histórico de retenção de ponto de recuperação e a frequência de instantâneo consistente do aplicativo. Por padrão, Azure Site Recovery cria uma nova política de replicação com configurações padrão de "24 horas" para retenção de ponto de recuperação e "4 horas" para a frequência de instantâneo consistente do aplicativo.
 
      ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -74,7 +74,7 @@ Se você adicionar discos a uma VM do Azure para a qual a replicação está hab
 -   Se você habilitar a proteção para os discos adicionados, o aviso desaparecerá após a replicação inicial do disco.
 -   Se optar por não habilitar a replicação para o disco, você poderá optar por ignorar o aviso.
 
-    
+
     ![Novo disco adicionado](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 Para habilitar a replicação para um disco adicionado, faça o seguinte:
@@ -88,7 +88,7 @@ Para habilitar a replicação para um disco adicionado, faça o seguinte:
 Depois que o trabalho habilitar replicação é executado e a replicação inicial é concluída, o aviso de integridade da replicação para o problema do disco é removido.
 
 
-  
+
 ## <a name="customize-target-resources"></a>Personalizar recursos de destino
 
 Você pode modificar as configurações de destino padrão usadas pelo Site Recovery.
@@ -112,7 +112,7 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
     - Verifique se não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs pela porta 20004.
     - Se você quiser que as VMs do Linux façam parte de um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 seja aberto manualmente de acordo com as diretrizes para a versão específica do Linux.
 ![Ativar replicação](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. Clique em **criar recurso de destino** > **habilitar a replicação**.
 6. Depois que as VMs estiverem habilitadas para replicação, você poderá verificar o status da integridade da VM em **itens replicados**
 

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672509"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967125"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gerenciamento para aplicativos Web no Azure
 
@@ -23,7 +23,7 @@ Este artigo tem respostas para perguntas frequentes sobre problemas de configura
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Há limitações que devo saber se eu quiser mover os recursos do serviço de aplicativo?
 
-Se você planeja mover os recursos do serviço de aplicativo para um novo grupo de recursos ou assinatura, há algumas limitações a serem consideradas. Para obter mais informações, consulte [limitações do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Se você planeja mover os recursos do serviço de aplicativo para um novo grupo de recursos ou assinatura, há algumas limitações a serem consideradas. Para obter mais informações, consulte [limitações do serviço de aplicativo](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Como fazer usar um nome de domínio personalizado para meu aplicativo Web?
 
@@ -49,11 +49,11 @@ Para saber como comprar e configurar um certificado SSL para seu aplicativo Web 
 
 Atualmente, o Aplicativo Azure insights não dá suporte à operação de movimentação. Se o grupo de recursos original incluir um recurso de Application Insights, você não poderá mover esse recurso. Se você incluir o recurso de Application Insights quando tentar mover um aplicativo do serviço de aplicativo, toda a operação de movimentação falhará. No entanto, Application Insights e o plano do serviço de aplicativo não precisam estar no mesmo grupo de recursos que o aplicativo para que o aplicativo funcione corretamente.
 
-Para obter mais informações, consulte [limitações do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Para obter mais informações, consulte [limitações do serviço de aplicativo](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Onde posso encontrar uma lista de verificação de diretrizes e saber mais sobre as operações de movimentação de recursos?
 
-As [limitações do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostram como mover recursos para uma nova assinatura ou para um novo grupo de recursos na mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos, saiba quais serviços dão suporte à operação de movimentação e saiba mais sobre as limitações do serviço de aplicativo e outros tópicos.
+As [limitações do serviço de aplicativo](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) mostram como mover recursos para uma nova assinatura ou para um novo grupo de recursos na mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos, saiba quais serviços dão suporte à operação de movimentação e saiba mais sobre as limitações do serviço de aplicativo e outros tópicos.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Como fazer definir o fuso horário do servidor para meu aplicativo Web?
 
@@ -61,7 +61,7 @@ Para definir o fuso horário do servidor para seu aplicativo Web:
 
 1. Na portal do Azure, em sua assinatura do serviço de aplicativo, vá para o menu **configurações do aplicativo** .
 2. Em **configurações do aplicativo**, adicione esta configuração:
-    * Chave = WEBSITE_TIME_ZONE
+    * Key = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
 3. Selecione **Guardar**.
 

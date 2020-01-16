@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672385"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967305"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de Azure App
 
@@ -23,7 +23,7 @@ Para a VM do Azure ou o armazenamento do Azure, consulte [atribuir domínio do s
 Para concluir este tutorial:
 
 * [Crie uma aplicação do Serviço de Aplicações](/azure/app-service/) ou utilize uma aplicação que tenha criado para outro tutorial.
-* [Remova o limite de gastos em sua assinatura](../billing/billing-spending-limit.md#remove). Não é possível comprar domínios do serviço de aplicativo com créditos de assinatura gratuitos.
+* [Remova o limite de gastos em sua assinatura](../cost-management-billing/manage/spending-limit.md#remove). Não é possível comprar domínios do serviço de aplicativo com créditos de assinatura gratuitos.
 
 ## <a name="prepare-the-app"></a>Preparar a aplicação
 

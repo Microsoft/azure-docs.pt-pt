@@ -3,12 +3,12 @@ title: Avaliações em migrações para Azure
 description: Saiba mais sobre as avaliações nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6950050be3c6fb812a6ade47e98f2d1ed479e61f
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720247"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029116"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Sobre avaliações em migrações para Azure
 
@@ -23,7 +23,7 @@ Os dados de desempenho para configurações de computação são coletados da se
 
 1. O [dispositivo de migrações para Azure](migrate-appliance.md) coleta um ponto de exemplo em tempo real:
 
-    - **VMs VMware*: para VMs VMware, o dispositivo migrações para Azure coleta um ponto de exemplo em tempo real em cada intervalo de 20 segundos.
+    - **VMs VMware**: para VMs VMware, o dispositivo migrações para Azure coleta um ponto de exemplo em tempo real em cada intervalo de 20 segundos.
     - **VMs do Hyper-v**: para VMs do Hyper-v, o ponto de exemplo em tempo real é coletado a cada intervalo de 30 segundos.
     - **Servidores físicos**: para servidores físicos, o ponto de exemplo em tempo real é coletado a cada intervalo de cinco minutos. 
     
@@ -58,7 +58,7 @@ Os dados de desempenho são coletados da seguinte maneira:
 
 1. O [dispositivo de migrações para Azure](migrate-appliance.md) coleta um ponto de exemplo em tempo real:
 
-    - **VMs VMware*: para VMs VMware, o dispositivo migrações para Azure coleta um ponto de exemplo em tempo real em cada intervalo de 20 segundos.
+    - **VMs VMware**: para VMs VMware, o dispositivo migrações para Azure coleta um ponto de exemplo em tempo real em cada intervalo de 20 segundos.
     - **VMs do Hyper-v**: para VMs do Hyper-v, o ponto de exemplo em tempo real é coletado a cada intervalo de 30 segundos.
     - **Servidores físicos**: para servidores físicos, o ponto de exemplo em tempo real é coletado a cada intervalo de cinco minutos. 
     
@@ -73,25 +73,24 @@ Os dados de desempenho são coletados da seguinte maneira:
 5. Esse valor é multiplicado pelo fator de conforto para obter os dados de utilização de desempenho efetivos de cada métrica (utilização de CPU, utilização de memória, IOPS de disco (leitura e gravação), taxa de transferência de disco (leitura e gravação) e taxa de transferência de rede (dentro e fora) que o o dispositivo coleta.
 ## <a name="whats-in-an-assessment"></a>Novidades nas avaliações
 
-Veja o que está incluído em uma avaliação em migrações para Azure: avaliação do servidor
+Aqui está o que está incluído em uma avaliação em migrações para Azure: avaliação do servidor.
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | O local para o qual você deseja migrar.<br/><br/>Atualmente, a avaliação do servidor dá suporte a essas regiões do Azure de destino: leste da Austrália, sudeste da Austrália, sul do Brasil, central do Canadá, leste do Canadá, Índia central, EUA Central, Leste da China, Norte da China, Ásia Oriental, leste dos EUA, leste dos EUA 2, Alemanha central, Alemanha Nordeste, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov Arizona, US Gov Texas, US Gov-Virgínia, Oeste EUA Central, Europa Ocidental, Índia ocidental, oeste dos EUA e oeste Dos EUA 2.
-**Disco de armazenamento de destino: como está o dimensionamento** | O tipo de discos a ser usado para armazenamento no Azure. <br/><br/> Especifique o disco de armazenamento de destino como gerenciado Premium, padrão de SSD gerenciado ou HDD padrão gerenciado.<br/><br/> 
-**Disco de armazenamento de destino: dimensionamento baseado em desempenho** | Especifique o tipo de disco de armazenamento de destino como automático, gerenciado Premium, HDD padrão gerenciado ou SSD padrão gerenciado.<br/><br/> **Automático**: a recomendação de disco baseia-se nos dados de desempenho dos discos (as operações de entrada/saída por segundo (IOPS) e taxa de transferência). <br/><br/>**Premium/Standard**: a avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se você quiser obter um SLA de VM de instância única de 99,9%, considerando o uso de Managed disks Premium. Isso garante que todos os discos na avaliação sejam recomendados como discos gerenciados Premium.<br/><br/> O Azure Migrate só suporta discos geridos para avaliação de migrações.
+**Localização de destino** | O local para o qual você deseja migrar. Atualmente, a avaliação do servidor dá suporte a essas regiões do Azure de destino:<br/><br/> Leste da Austrália, sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Índia central, EUA Central, Leste da China, Norte da China, Ásia Oriental, leste dos EUA, leste dos dos EUA 2, Alemanha central, Alemanha nordeste, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov Arizona, US Gov Texas, US Gov-Virgínia, West EUA Central, Europa Ocidental, oeste da Índia, oeste dos EUA e West dos EUA 2.
+*Disco de armazenamento de destino (no estado em que está sendo dimensionado)* * | O tipo de discos a ser usado para armazenamento no Azure. <br/><br/> Especifique o disco de armazenamento de destino como gerenciado Premium, padrão de SSD gerenciado ou HDD padrão gerenciado.
+**Disco de armazenamento de destino (dimensionamento baseado em desempenho)** | Especifique o tipo de disco de armazenamento de destino como automático, gerenciado Premium, HDD padrão gerenciado ou SSD padrão gerenciado.<br/><br/> **Automático**: a recomendação de disco baseia-se nos dados de desempenho dos discos (as operações de entrada/saída por segundo (IOPS) e taxa de transferência).<br/><br/>**Premium/Standard**: a avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se você quiser obter um SLA de VM de instância única de 99,9%, considerando o uso de Managed disks Premium. Isso garante que todos os discos na avaliação sejam recomendados como discos gerenciados Premium.<br/><br/> O Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Instâncias reservadas (RIs)** | Especifique [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure, para que as estimativas de custo na avaliação tomem os descontos de ri em conta.<br/><br/> Atualmente, o RIs tem suporte apenas para ofertas pagas conforme o uso nas migrações para Azure.
 **Critérios de dimensionamento** | Usado para dimensionar o tamanho correto da VM no Azure.<br/><br/> Use como está o dimensionamento, ou o dimensionamento baseado em desempenho.
 **Histórico de desempenho** | Usado com o dimensionamento baseado em desempenho. Especifique a duração usada ao avaliar dados de desempenho.
 **Utilização de percentil** | Usado com o dimensionamento baseado em desempenho. Especifica o valor percentual do exemplo de desempenho a ser usado para o dimensionamento correto. 
 **Série das VMs** | Especifique a série de VMs do Azure que você deseja considerar para o dimensionamento correto. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista ou série.
-**Fator de conforto** | Buffer usado durante a avaliação. Aplicado na parte superior dos dados de utilização do computador para VMs (CPU, memória, disco e rede). 
-Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0 x, o resultado é uma VM de quatro núcleos.
+**Fator de conforto** | Buffer usado durante a avaliação. Aplicado na parte superior dos dados de utilização do computador para VMs (CPU, memória, disco e rede). Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0 x, o resultado é uma VM de quatro núcleos.
 **Oferta** | Exibe a [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está registrado. A avaliação do servidor estima o custo de acordo.
 **Moeda** | Moeda de cobrança da sua conta.
 **Desconto (%)** | Lista quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A predefinição é 0%.
-**Tempo de atividade da VM** | Se as VMs do Azure não forem executadas 24 horas por dia, 7 dias por semana, você poderá especificar a duração (dias por mês e horas por dia) em que serão executadas. As estimativas de custo são manipuladas de acordo.<br/><br/> O valor padrão é 31 dias por mês e 24 horas por dia.
-**Benefício híbrido do Azure** | Especifica se você tem o Software Assurance e se está qualificado para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se definido como Sim (a configuração padrão), os preços não Windows Azure são considerados para VMs do Windows.
+**Tempo de atividade de VM** | Se as VMs do Azure não forem executadas 24 horas por dia, 7 dias por semana, você poderá especificar a duração (dias por mês e horas por dia) em que serão executadas. As estimativas de custo são manipuladas de acordo.<br/><br/> O valor padrão é 31 dias por mês e 24 horas por dia.
+**Benefício Híbrido do Azure** | Especifica se você tem o Software Assurance e se está qualificado para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se definido como Sim (a configuração padrão), os preços não Windows Azure são considerados para VMs do Windows.
 
 [Examine as práticas recomendadas](best-practices-assessment.md) para criar a avaliação com a avaliação do servidor.
 
