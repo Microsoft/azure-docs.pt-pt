@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754734"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046139"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entenda sua fatura de Azure Cosmos DB
 
@@ -22,7 +22,8 @@ Com o Azure Cosmos DB, você será cobrado por hora com base na taxa de transfer
 
 Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes que você vê na fatura mensal. Os números mostrados nos exemplos podem ser diferentes se os contêineres de Cosmos do Azure tiverem uma quantidade diferente de taxa de transferência provisionada, se eles se estenderem por várias regiões ou forem executados por um período diferente por um mês.
 
->! Observação: a cobrança é para qualquer parte de uma hora do relógio de parede, não uma duração de 60 minutos.
+> [!NOTE]
+> A cobrança é para qualquer parte de uma hora do relógio de parede, não uma duração de 60 minutos.
 
 ## <a name="billing-examples"></a>Exemplos de faturação
 
@@ -76,11 +77,11 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Exemplo de cobrança: contêineres com modo de taxa de transferência compartilhada
 
-* Se você criar uma conta do Azure Cosmos no leste dos EUA 2 com dois bancos de dados do Azure Cosmos (com um conjunto de contêineres que compartilham a taxa de transferência no nível do banco de dados) com a taxa de transferência provisionada de 50-K RU/SEC e 70-K RU/seg, respectivamente, você teria um total provisionado taxa de transferência de 120 K RU/s.  
+* Se você criar uma conta do Azure Cosmos no leste dos EUA 2 com dois bancos de dados do Azure Cosmos (com um conjunto de contêineres que compartilham a taxa de transferência no nível do banco de dados) com a taxa de transferência provisionada de 50-K RU/seg e 70-K RU/seg, respectivamente, você teria uma taxa de transferência total provisionada de 120 K RU  
 
 * Você será cobrado 1200 x $0.08 = US $9,60/hora. 
 
-* Se suas necessidades de taxa de transferência forem alteradas e você aumentar a taxa de transferência provisionada de cada banco de dados em 10K RU/s para cada banco de dados e adicionar um novo contêiner ao primeiro banco de dados com o modo de taxa de transferência dedicado de 15 a K RU/seg ao banco de dados de produtividade compartilhado, seu a capacidade geral provisionada seria 155-K RU/seg (60 K RU/seg + 80 K RU/SEC + 15 K RU/s).  
+* Se suas necessidades de taxa de transferência forem alteradas e você aumentar a taxa de transferência provisionada de cada banco de dados em 10K RU/s para cada banco de dados, e você adiciona um novo contêiner ao primeiro banco de dados com o modo de taxa de transferência dedicado de 15 a K RU/seg ao seu banco de dados de produtividade compartilhado, sua capacidade provisionada geral seria 155-K RU/s (60 K RU/seg + 80 K RU/seg + 15 K RU/s).  
 
 * Em seguida, sua fatura mudaria para: 1.550 * $0.08 = $12.40/hora.  
 
@@ -90,19 +91,19 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemplos de cobrança com replicação geográfica e vários mestres  
 
-Você pode adicionar/remover regiões do Azure em qualquer lugar do mundo para sua conta de banco de dados Cosmos do Azure a qualquer momento. A taxa de transferência que você configurou para vários contêineres e bancos de dados Cosmos do Azure será reservada em cada uma das regiões do Azure associadas à sua conta de banco de dados Cosmos do Azure. Se a soma da taxa de transferência provisionada (RU/s) configurada em todos os bancos de dados e contêineres em sua conta do Azure Cosmos Database (provisionado por hora) for T e o número de regiões do Azure associado à sua conta de banco de dados for N, o total taxa de transferência provisionada para uma determinada hora, para sua conta de banco de dados Cosmos do Azure, (a) configurada com uma única região de gravação é igual a T x N RU/seg e (b) configurado com todas as regiões capazes de processar gravações é igual a T x (N + 1) RU/s respectivos. A taxa de transferência provisionada (região de gravação única) custa US $0.008/hora por 100 RU/s e taxa de transferência provisionada com várias regiões graváveis (configuração de vários mestres) custos de $0.016/por hora por 100 RU/s (consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)). Seja sua única região de gravação ou várias regiões de gravação, Azure Cosmos DB permite que você leia dados de qualquer região.
+Você pode adicionar/remover regiões do Azure em qualquer lugar do mundo para sua conta de banco de dados Cosmos do Azure a qualquer momento. A taxa de transferência que você configurou para vários contêineres e bancos de dados Cosmos do Azure será reservada em cada uma das regiões do Azure associadas à sua conta de banco de dados Cosmos do Azure. Se a soma da taxa de transferência provisionada (RU/s) configurada em todos os bancos de dados e contêineres na sua conta do Azure Cosmos Database (provisionado por hora) for T e o número de regiões do Azure associado à sua conta de banco de dados for N, em seguida, a taxa de transferência total provisionada para uma determinada hora, para sua conta de banco de dados Cosmos do Azure, (a) configurada com uma única região de gravação é igual a T x N RU/seg e (b) configurado com todas as regiões capazes de processar gravações é igual a T x (N + 1) RU/s, respectivamente. A taxa de transferência provisionada (região de gravação única) custa US $0.008/hora por 100 RU/s e taxa de transferência provisionada com várias regiões graváveis (configuração de vários mestres) custos de $0.016/por hora por 100 RU/s (consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)). Seja sua única região de gravação ou várias regiões de gravação, Azure Cosmos DB permite que você leia dados de qualquer região.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemplo de cobrança: conta de várias regiões do Azure Cosmos, gravações de região única
 
 Vamos supor que você tenha um contêiner Cosmos do Azure no oeste dos EUA. O contêiner é criado com a taxa de transferência de 10K RU/seg e você armazena 1 TB de dados neste mês. Vamos supor que você adicione três regiões (leste dos EUA, Europa Setentrional e Ásia Oriental) à sua conta do Azure Cosmos, cada uma com o mesmo armazenamento e taxa de transferência. Sua fatura mensal total será (supondo 30 dias em um mês). Sua fatura seria a seguinte: 
 
-|**Item** |**Uso (mês)** |**Frequência** |**Custo mensal** |
+|**Item** |**Uso (mês)** |**Rate** (Taxa) |**Custo mensal** |
 |---------|---------|---------|-------|
 |Conta de débito para o contentor em E.U.A. Oeste      | 10K RU/s * 24 * 30    |$0.08 por 100 RU/s por hora   |$576|
 |Conta de débito para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental       | 3 * 10K RU/s * 24 * 30    |$0.08 por 100 RU/s por hora  |$1728|
 |Conta de armazenamento para o contentor em E.U.A. Oeste      | 250 GB    |US $0,25/GB  |$62.50|
 |Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental      | 3 * 250 GB    |US $0,25/GB  |$187.50|
-|**Completa**     |     |  |**$2554**|
+|**Total**     |     |  |**$2554**|
 
 *Vamos supor também que você egresso 100 GB de dados todos os meses do contêiner no oeste dos EUA para replicar dados no leste dos EUA, Europa Setentrional e Ásia Oriental. Você será cobrado pela saída de acordo com as taxas de transferência de dados.*
 
@@ -110,13 +111,13 @@ Vamos supor que você tenha um contêiner Cosmos do Azure no oeste dos EUA. O co
 
 Vamos supor que você crie um contêiner Cosmos do Azure no oeste dos EUA. O contêiner é criado com a taxa de transferência de 10K RU/seg e você armazena 1 TB de dados neste mês. Vamos supor que você adicione três regiões (leste dos EUA, Europa Setentrional e Ásia Oriental), cada uma com o mesmo armazenamento e taxa de transferência e queira a capacidade de gravar nos contêineres em todas as regiões associadas à sua conta do Azure Cosmos. A sua fatura mensal total será (supondo 30 dias em um mês) da seguinte maneira:
 
-|**Item** |**Uso (mês)**|**Frequência** |**Custo mensal** |
+|**Item** |**Uso (mês)**|**Rate** (Taxa) |**Custo mensal** |
 |---------|---------|---------|-------|
 |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)       | 10K RU/s * 24 * 30    |$0.16 por 100 RU/s por hora    |$1152 |
 |Fatura de taxa de transferência para três regiões adicionais – leste dos EUA, Europa Setentrional e Ásia Oriental (todas as regiões são graváveis)        | (3 + 1) * 10K RU/seg * 24 * 30    |$0.16 por 100 RU/s por hora   |$4608 |
 |Conta de armazenamento para o contentor em E.U.A. Oeste      | 250 GB    |US $0,25/GB  |$62.50|
 |Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental      | 3 * 250 GB    |US $0,25/GB  |$187.50|
-|**Completa**     |     |  |**$6010**|
+|**Total**     |     |  |**$6010**|
 
 *Vamos supor também que você egresso 100 GB de dados todos os meses do contêiner no oeste dos EUA para replicar dados no leste dos EUA, Europa Setentrional e Ásia Oriental. Você será cobrado pela saída de acordo com as taxas de transferência de dados.*
 
@@ -180,21 +181,21 @@ Visualmente, as alterações na taxa de transferência total provisionada durant
 
 A conta mensal total será (supondo 30 dias/720 horas em um mês) será calculada da seguinte maneira:
 
-|**Duração**  |**RU/s** |**Item** |**Uso (por hora)** |**Custo** |
+|**Hours**  |**RU/s** |**Item** |**Uso (por hora)** |**Custo** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10K <br/>D2:30 MIL <br/>C1:20 MIL |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2880  |
-|[101-200] |D1:50 MIL <br/>D2:70K <br/>C1:-- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
+|[101-200] |D1:50 MIL <br/>D2:70K <br/>C1: -- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5760  |
 |[201-300]  |D1:50 MIL <br/>D2:70K <br/>C1:20 MIL |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2240  |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6720 |
-|[301-400] |D1:10K <br/>D2:80K <br/>C1:-- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1440   |
+|[301-400] |D1:10K <br/>D2:80K <br/>C1: -- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1440   |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2880  |
 |[401-500] |D1:10K <br>D2:10K <br>C1:20 MIL |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$640  |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1280  |
-|[501-700] |D1:20 MIL <br>D2:100 MIL <br>C1:-- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3840  |
+|[501-700] |D1:20 MIL <br>D2:100 MIL <br>C1: -- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3840  |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7680  |
-|[701-720] |D1:20 MIL <br/>D2:50 MIL <br/>C1:-- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
+|[701-720] |D1:20 MIL <br/>D2:50 MIL <br/>C1: -- |Fatura de taxa de transferência para o contêiner no oeste dos EUA (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Custo mensal total**  | |**$38688**   |
 

@@ -8,7 +8,7 @@
       href: overview.md
     - name: Comparar serviços de mensagens
       href: compare-messaging-services.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Eventos de armazenamento
@@ -19,6 +19,9 @@
           href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Portal
           href: blob-event-quickstart-portal.md
+        - name: Modelo
+          displayName: 'arm, resource manager template'
+          href: blob-event-quickstart-template.md
     - name: Eventos personalizados
       items:
         - name: CLI do Azure
