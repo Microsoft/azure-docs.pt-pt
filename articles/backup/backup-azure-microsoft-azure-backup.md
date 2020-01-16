@@ -3,12 +3,12 @@ title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar seu ambiente para proteger e fazer backup de cargas de trabalho usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172997"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979873"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 
@@ -31,7 +31,7 @@ Este artigo explica como preparar seu ambiente para fazer backup de cargas de tr
 O MABS implantado em uma VM do Azure pode fazer backup de VMs no Azure, mas deve estar no mesmo domínio para habilitar a operação de backup. O processo de back-up de uma VM do Azure permanece o mesmo que fazer backup de VMs no local, no entanto, a implantação de MABS no Azure tem algumas limitações. Para obter mais informações sobre limitações, consulte [DPM como uma máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e os procedimentos para restaurar as VMs implantadas usando o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/management/deployment-models.md). Este artigo fornece as informações e os procedimentos para restaurar as VMs implantadas usando o modelo do Resource Manager.
 >
 >
 
@@ -90,7 +90,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="downloading-the-software-package"></a>Baixando o pacote de software
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Se você já tiver um cofre dos serviços de recuperação aberto, vá para a etapa 3. Se você não tiver um cofre dos serviços de recuperação aberto, mas estiver na portal do Azure, no menu principal, clique em **procurar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
@@ -215,7 +215,7 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
     ![Servidor de Backup do Azure PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Depois que o registro do Backup do Microsoft Azure Server for concluído com êxito, o assistente de instalação geral continuará a instalação e a configuração do SQL Server e dos componentes do Servidor de Backup do Azure. Depois que a instalação do componente do SQL Server for concluída, os componentes do Servidor de Backup do Azure serão instalados.
 
-    ![Servidor do Backup do Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 Quando a etapa de instalação for concluída, os ícones da área de trabalho do produto também serão criados. Basta clicar duas vezes no ícone para iniciar o produto.
 
@@ -262,7 +262,7 @@ Aqui estão as etapas se você precisar mover MABS para um novo servidor, manten
 2. Desligue o servidor de backup do Azure original ou retire-o da conexão.
 3. Redefina a conta do computador no Active Directory.
 4. Instale o servidor 2016 no novo computador e nomeie-o com o mesmo nome de computador do servidor de backup do Azure original.
-5. Ingressar no domínio
+5. Aderir ao Domínio
 6. Instalar o servidor de backup do Azure V3 ou posterior (mover os discos do pool de armazenamento do MABS do servidor antigo e importar)
 7. Restaure o DPMDB feito na etapa 1.
 8. Anexe o armazenamento do servidor de backup original ao novo servidor.
@@ -283,7 +283,7 @@ Ao mesmo tempo, a assinatura do Azure precisa estar em um estado íntegro. Para 
 
 Depois de saber o estado da conectividade do Azure e da assinatura do Azure, você pode usar a tabela abaixo para descobrir o impacto sobre a funcionalidade de backup/restauração oferecida.
 
-| Estado de conectividade | Subscrição do Azure | Fazer backup no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar a partir do disco |
+| Estado de conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
 | Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |

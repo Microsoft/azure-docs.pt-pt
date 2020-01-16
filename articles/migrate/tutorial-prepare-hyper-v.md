@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de VMs do Hype
 ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: a76c249f3d179a34fbb14e6c8bfb3666816fa160
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720213"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028915"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs do Hyper-V para o Azure
 
@@ -91,9 +91,9 @@ O locatário/administrador global pode atribuir a função de desenvolvedor de a
 
 ## <a name="prepare-hyper-v-for-assessment"></a>Preparar o Hyper-V para avaliação
 
-Você pode preparar o Hyper-V para a avaliação de VM manualmente ou usando um script de configuração. Aqui está o que precisa ser preparado:
+Você pode preparar o Hyper-V para a avaliação de VM manualmente ou usando um script de configuração. Aqui está o que precisa ser preparado, seja com o script ou [manualmente](#prepare-hyper-v-manually).
 
-- Verifique as configurações do host Hyper-V e certifique-se de que as portas necessárias estejam abertas em hosts Hyper-V.
+- [Verificar](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) Configurações de host do Hyper-V e certifique-se de que as [portas necessárias](migrate-support-matrix-hyper-v.md#port-access) estejam abertas em hosts Hyper-v.
 - Configure a comunicação remota do PowerShell em cada host, para que o dispositivo de migrações para Azure possa executar comandos do PowerShell no host, em uma conexão do WinRM.
 - Delegar credenciais se os discos de VM estiverem localizados em compartilhamentos SMB remotos.
 - Configure uma conta que será usada pelo dispositivo para descobrir VMs em hosts Hyper-V.
@@ -171,8 +171,8 @@ As migrações para Azure precisam de permissões para descobrir VMs locais.
 
 ### <a name="verify-hyper-v-host-settings"></a>Verificar as configurações do host Hyper-V
 
-1. Verifique [os requisitos de host do Hyper-V](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) para avaliação do servidor.
-2. Verifique se as [portas necessárias](migrate-support-matrix-hyper-v.md#assessment-port-requirements) estão abertas em hosts Hyper-V.
+1. Verifique [os requisitos de host do Hyper-V](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) para avaliação do servidor.
+2. Verifique se as [portas necessárias](migrate-support-matrix-hyper-v.md#port-access) estão abertas em hosts Hyper-V.
 
 ### <a name="enable-powershell-remoting-on-hosts"></a>Habilitar a comunicação remota do PowerShell em hosts
 
@@ -214,17 +214,17 @@ Ao configurar o dispositivo, você conclui a configuração do CredSSP [habilita
 
 Antes de configurar o dispositivo migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
-1. [Verifique](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) os requisitos do dispositivo.
-2. [Examine](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) as URLs do Azure que o dispositivo precisará acessar.
+1. [Verifique](migrate-appliance.md#appliance---hyper-v) os requisitos do dispositivo.
+2. [Examine](migrate-appliance.md#url-access) as URLs do Azure que o dispositivo precisará acessar.
 3. Examine os dados que o dispositivo coletará durante a descoberta e a avaliação.
-4. [Anote](migrate-support-matrix-hyper-v.md#assessment-port-requirements) os requisitos de acesso da porta para o dispositivo.
+4. [Anote](migrate-appliance.md#collected-data---hyper-v) os requisitos de acesso da porta para o dispositivo.
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Preparar para a migração do Hyper-V
 
-1. [Examinar](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) Requisitos de host do Hyper-V para migração.
-2. [Examine](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) os requisitos para VMs do Hyper-V que você deseja migrar para o Azure.
-3. [Observe](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) as URLs do Azure às quais os hosts e clusters do Hyper-V precisam de acesso para a migração da VM.
+1. [Examinar](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Requisitos de host do Hyper-V para migração e as URLs do Azure às quais os hosts e clusters do Hyper-V precisam de acesso para migração de VM.
+2. [Examine](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para VMs do Hyper-V que você deseja migrar para o Azure.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

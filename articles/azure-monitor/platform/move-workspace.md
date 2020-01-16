@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278798"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980087"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 
-Neste artigo, você aprenderá as etapas para mover Log Analytics espaço de trabalho para outro grupo de recursos ou assinatura na mesma região. Você pode aprender mais sobre como mover recursos do Azure por meio do portal do Azure, do PowerShell, do CLI do Azure ou da API REST. em [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/resource-group-move-resources.md). 
+Neste artigo, você aprenderá as etapas para mover Log Analytics espaço de trabalho para outro grupo de recursos ou assinatura na mesma região. Você pode aprender mais sobre como mover recursos do Azure por meio do portal do Azure, do PowerShell, do CLI do Azure ou da API REST. em [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > Não é possível mover um espaço de trabalho para uma região diferente.
@@ -106,5 +106,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > Após a operação de movimentação, as soluções removidas e o link da conta de automação devem ser reconfigurados para colocar o espaço de trabalho de volta ao estado anterior.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](../../azure-resource-manager/move-support-resources.md).
+## <a name="next-steps"></a>Passos seguintes
+- Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](../../azure-resource-manager/management/move-support-resources.md).

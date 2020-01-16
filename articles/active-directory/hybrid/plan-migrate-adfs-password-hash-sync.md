@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818896"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028387"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da Federação para a sincronização de hash de senha para Azure Active Directory
 
 Este artigo descreve como mover os domínios da sua organização de Serviços de Federação do Active Directory (AD FS) (AD FS) para a sincronização de hash de senha.
 
-Você pode [baixar este artigo](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Alterar seu método de autenticação requer planejamento, teste e potencialmente tempo de inatividade. A [distribuição em etapas](how-to-connect-staged-rollout.md) fornece uma maneira alternativa de testar e migrar gradualmente da Federação para a autenticação na nuvem usando a sincronização de hash de senha.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Pré-requisitos para migrar para a sincronização de hash de senha
 
@@ -135,10 +136,10 @@ Esta seção descreve as considerações de implantação e detalhes sobre como 
 
 Antes de converter a identidade federada para a identidade gerenciada, observe de maneira mais detalhada como você usa AD FS para o Azure AD, o Office 365 e outros aplicativos (confianças de terceira parte confiável). Especificamente, considere os cenários descritos na tabela a seguir:
 
-| Se | Clique |
+| Se | Em seguida, |
 |-|-|
 | Você planeja continuar usando AD FS com outros aplicativos (além do Azure AD e do Office 365). | Depois de converter seus domínios, você usará o AD FS e o Azure AD. Considere a experiência do usuário. Em alguns cenários, os usuários podem ser solicitados a autenticar duas vezes: uma vez ao Azure AD (em que um usuário obtém acesso SSO a outros aplicativos, como o Office 365), e novamente para todos os aplicativos que ainda estão associados a AD FS como uma relação de confiança de terceira parte confiável. |
-| Sua instância de AD FS é bastante personalizada e depende de configurações de personalização específicas no arquivo OnLoad. js (por exemplo, se você alterou a experiência de entrada para que os usuários usem apenas um formato **sAMAccountName** para seu nome de usuário em vez de uma entidade Nome (UPN) ou sua organização tem uma marca intensamente a experiência de entrada). O arquivo OnLoad. js não pode ser duplicado no Azure AD. | Antes de continuar, você deve verificar se o Azure AD pode atender aos seus requisitos de personalização atuais. Para obter mais informações e diretrizes, consulte as seções em AD FS identidade visual e AD FS personalização.|
+| Sua instância de AD FS é bastante personalizada e depende de configurações de personalização específicas no arquivo OnLoad. js (por exemplo, se você alterou a experiência de entrada para que os usuários usem apenas um formato **sAMAccountName** para seu nome de usuário em vez de um nome UPN ou a sua organização tem uma marca intensamente a experiência de entrada). O arquivo OnLoad. js não pode ser duplicado no Azure AD. | Antes de continuar, você deve verificar se o Azure AD pode atender aos seus requisitos de personalização atuais. Para obter mais informações e diretrizes, consulte as seções em AD FS identidade visual e AD FS personalização.|
 | Você usa AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles de AD FS que bloqueiam versões anteriores de clientes de autenticação usando uma combinação de [controles de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regras de acesso para cliente do Exchange Online](https://aka.ms/EXOCAR). |
 | Você exige que os usuários executem a autenticação multifator em uma solução de servidor de autenticação multifator local quando os usuários se autenticam no AD FS.| Em um domínio de identidade gerenciada, você não pode injetar um desafio de autenticação multifator por meio da solução de autenticação multifator local no fluxo de autenticação. No entanto, você pode usar o serviço de autenticação multifator do Azure para autenticação multifator depois que o domínio é convertido.<br /><br /> Se os usuários não usarem atualmente a autenticação multifator do Azure, uma etapa de registro de usuário OneTime será necessária. Você deve se preparar e comunicar o registro planejado para seus usuários. |
 | Atualmente, você usa políticas de controle de acesso (regras de AuthZ) em AD FS para controlar o acesso ao Office 365.| Considere substituir as políticas com as [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) do Azure ad equivalentes e as [regras de acesso para cliente do Exchange Online](https://aka.ms/EXOCAR).|
@@ -167,7 +168,7 @@ Para contas de computador com Windows 8 e Windows 7, a junção híbrida usa o S
 
 Para obter mais informações, consulte [configurar dispositivos ingressados no Azure ad híbrido](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
-#### <a name="branding"></a>Identidade visual
+#### <a name="branding"></a>Personalização
 
 Se sua organização [personalizou suas páginas de entrada AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) para exibir informações mais pertinentes à organização, considere fazer [personalizações semelhantes na página de entrada do Azure ad](https://docs.microsoft.com/azure/active-directory/customize-branding).
 
@@ -202,7 +203,7 @@ Para planejar a reversão, verifique o design da Federação e a documentação 
 * Convertendo domínios gerenciados em domínios federados usando o cmdlet **Convert-MSOLDomainToFederated** .
 * Se necessário, Configurando regras de declarações adicionais.
 
-### <a name="plan-communications"></a>Planejar comunicações
+### <a name="plan-communications"></a>Planear as comunicações
 
 Uma parte importante do planejamento da implantação e do suporte é garantir que seus usuários sejam informados proativamente sobre alterações futuras. Os usuários devem saber com antecedência o que podem experimentar e o que é necessário. 
 
@@ -437,7 +438,7 @@ Depois de validar que todos os usuários e clientes são autenticados com êxito
 
 Se você não usar AD FS para outras finalidades (ou seja, para outras relações de confiança de terceira parte confiável), será seguro descomissionar AD FS neste ponto.
 
-### <a name="rollback"></a>Versão
+### <a name="rollback"></a>Reverter
 
 Se você descobrir um problema importante e não puder resolvê-lo rapidamente, poderá optar por reverter a solução para a Federação.
 

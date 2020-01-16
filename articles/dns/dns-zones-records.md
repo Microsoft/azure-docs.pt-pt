@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211012"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980534"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -115,7 +115,7 @@ As várias cadeias de caracteres em um registro DNS não devem ser confundidas c
 
 ### <a name="tags"></a>Etiquetas
 
-As marcas são uma lista de pares nome-valor e são usadas por Azure Resource Manager para rotular recursos.  Azure Resource Manager usa marcas para habilitar exibições filtradas da sua fatura do Azure e também permite que você defina uma política na qual as marcas são necessárias. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
+As marcas são uma lista de pares nome-valor e são usadas por Azure Resource Manager para rotular recursos.  Azure Resource Manager usa marcas para habilitar exibições filtradas da sua fatura do Azure e também permite que você defina uma política na qual as marcas são necessárias. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
 O DNS do Azure dá suporte ao uso de marcas de Azure Resource Manager em recursos de zona DNS.  Ele não dá suporte a marcas em conjuntos de registros DNS, embora como uma alternativa ' Metadata ' tenha suporte em conjuntos de registros DNS, conforme explicado abaixo.
 
@@ -135,8 +135,8 @@ No nível da API REST do DNS do Azure, as ETags são especificadas usando cabeç
 
 | Cabeçalho | Comportamento |
 | --- | --- |
-| Nenhum |PUT sempre sucede (nenhuma verificação de eTag) |
-| > If-Match \<ETag |PUT só terá sucesso se o recurso existir e a ETag corresponder |
+| Nenhuma |PUT sempre sucede (nenhuma verificação de eTag) |
+| If-match \<etag> |PUT só terá sucesso se o recurso existir e a ETag corresponder |
 | If-Match * |PUT só terá sucesso se o recurso existir |
 | If-None-Match * |PUT só terá sucesso se o recurso não existir |
 

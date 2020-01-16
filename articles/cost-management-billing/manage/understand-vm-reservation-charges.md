@@ -1,0 +1,114 @@
+---
+title: Compreender o desconto de Azure Reserved VM Instances | Microsoft Docs
+description: Saiba como o desconto de Azure Reserved VM Instance é aplicado à execução de máquinas virtuais.
+author: yashesvi
+manager: yashar
+ms.service: cost-management-billing
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75989803"
+---
+# <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
+
+Depois de comprar a Instância de Máquina Virtual Reservada do Azure, o desconto de reserva é automaticamente aplicado às máquinas virtuais que correspondam aos atributos e à quantidade da reserva. Uma reserva abrange os custos de computação das suas máquinas virtuais.
+
+Aplica-se um desconto de reserva às máquinas virtuais de base que compra no Azure Marketplace.
+
+Para a capacidade reservada da Base de Dados SQL, veja [Compreender o desconto de Instâncias Reservadas do Azure](../reservations/understand-reservation-charges.md).
+
+A tabela a seguir ilustra os custos para a sua máquina virtual após a compra de uma Reserved VM Instance. Em todos os casos, são-lhe cobradas tarifas normais por armazenamento e rede.
+
+| Tipo de máquina virtual  | Custos da Reserved VM Instance |
+|-----------------------|--------------------------------------------|
+|Máquinas virtuais de Linux sem software adicional | A reserva abrange os custos de infraestrutura da sua máquina virtual.|
+|Máquinas virtuais do Linux com custos de software (por exemplo, Red Hat) | A reserva abrange os custos de infraestrutura. É-lhe cobrado software adicional.|
+|Máquinas virtuais do Windows sem software adicional |A reserva abrange os custos de infraestrutura. É-lhe cobrado software do Windows.|
+|Máquinas virtuais do Windows com software adicional (por exemplo, SQL Server) | A reserva abrange os custos de infraestrutura. É-lhe cobrado software Windows e software adicional.|
+|Máquinas virtuais do Windows com o [Benefício Híbrido do Azure](../../virtual-machines/windows/hybrid-use-benefit-licensing.md) | A reserva abrange os custos de infraestrutura. Os custos de software do Windows são cobertos pelo Benefício Híbrido do Azure. Qualquer software adicional é cobrado em separado.|
+
+## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
+
+Um desconto de reserva é "*use-it-or-lose-it*" (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
+
+Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão *perdidas*.
+
+## <a name="reservation-discount-for-non-windows-vms"></a>Desconto de reserva para máquinas virtuais não Windows
+
+ O desconto de reserva do Azure é aplicado à execução de instâncias de máquina virtual por hora. As reservas que comprou são correspondidas à utilização emitida pelas máquinas virtuais em execução para aplicar o desconto de reserva. Para máquinas virtuais que não podem executar a hora completa, a reserva será preenchida de outras máquinas virtuais que não usam uma reserva, incluindo máquinas virtuais em execução simultânea. No final da hora, a aplicação de reserva para máquinas virtuais na hora é bloqueada. No caso de uma máquina virtual não ser executada por uma hora ou máquinas virtuais simultâneas dentro da hora não preencherem a hora da reserva, a reserva será subutilizada para essa hora. O grafo a seguir ilustra a aplicação de uma reserva para a utilização de máquina virtual faturável. A ilustração baseia-se numa compra de reserva e duas instâncias de máquina virtual correspondentes.
+
+![Captura de ecrã de uma reserva aplicada e duas instâncias de máquina virtual correspondentes](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
+
+1. Qualquer utilização acima da linha de reserva é cobrada à tarifa normal pay as you go. Não é cobrado por nenhuma utilização abaixo da linha de reservas, pois já foi pago como parte da compra de reserva.
+2. Na hora 1, a instância 1 é executada por 0,75 horas e a instância 2 é executada por 0,5 horas. A utilização total para a hora 1 é de 1,25 horas. É cobrado tarifas pay as you go relativamente às 0,25 horas restantes.
+3. Para a hora 2 e a hora 3, ambas as instâncias foram executadas por 1 hora. Uma instância é coberta pela reserva e a outra é cobrada de acordo à tarifa pay as you go.
+4. Para a hora 4, a instância 1 é executada por 0,5 horas e a instância 2 é executada por 1 hora. A instância 1 é totalmente coberta pela reserva e 0,5 horas da instância 2 é coberta. É-lhe cobrada a tarifa pay as you go pela 0,5 hora restante.
+
+Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas](../reservations/understand-reserved-instance-usage-ea.md).
+
+## <a name="reservation-discount-for-windows-vms"></a>Desconto de reserva para máquinas virtuais do Windows
+
+Quando estiver a executar instâncias de máquina virtual do Windows, a reserva será aplicada para cobrir os custos de infraestrutura. A aplicação da reserva para os custos de infraestrutura de máquina virtual para máquinas virtuais do Windows é o mesmo para máquinas virtuais não Windows. É cobrado separadamente para software do Windows por vCPU. Veja [Custos de software do Windows com Reservas](../reservations/reserved-instance-windows-software-costs.md). Pode cobrir os custos de licenciamento do Windows com o [Benefício Híbrido do Azure para Windows Server](../../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+## <a name="discount-can-apply-to-different-sizes"></a>O desconto aplica-se a diferentes tamanhos
+
+Ao comprar uma Reserved VM Instance, se selecionar a opção **Otimizado para**: **flexibilidade de tamanho de instância**, a cobertura do desconto depende do tamanho da máquina virtual que selecionar. A reserva pode ser aplicada aos tamanhos das máquinas virtuais (VMs) no mesmo grupo de série de tamanhos. Para obter mais informações, veja [Flexibilidade de tamanho da máquina virtual com Instâncias Reservadas da VM](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
+## <a name="discount-applies-to-matching-servicetype-only"></a>O desconto aplica-se somente ao ServiceType correspondente
+
+Um desconto de reserva aplica-se somente à utilização da máquina virtual em que o `ServiceType` valor em `AdditionalInfo` corresponde à reserva comprada. A aplicação de desconto de reserva ignora o medidor usado para máquinas virtuais e só avalia `ServiceType`. Conheça o tipo de serviço para o qual comprou a máquina virtual. Pode trocar uma reserva de máquina virtual de armazenamento não Premium para uma reserva de armazenamento Premium ou vice-versa.
+
+## <a name="services-that-get-vm-reservation-discounts"></a>Serviços que recebem descontos de reserva de máquina virtual
+
+As suas reservas de máquina virtual podem aplicar-se à utilização de máquina virtual emitida de vários serviços e não apenas para implementações de máquina virtual. Os recursos que recebem descontos de reserva mudam dependendo da definição de flexibilidade de tamanho de instância.
+
+### <a name="instance-size-flexibility-setting"></a>Definição de flexibilidade de tamanho de instância
+
+A definição de flexibilidade de tamanho de instância determina quais serviços recebem os descontos da instância reservada.
+
+Quer a definição esteja ativada ou desativada, os descontos de reserva serão aplicados automaticamente a qualquer utilização de máquina virtual quando o *ConsumedService* for `Microsoft.Compute`. Portanto, verifique os dados de utilização para o valor *ConsumedService*. Alguns exemplos incluem:
+
+- Virtual Machines
+- Conjuntos de dimensionamento de máquinas virtuais
+- Serviço de contentores
+- Implementações do Azure Batch (no modo de subscrições do utilizador)
+- Serviço Kubernetes do Azure (AKS)
+- Service Fabric
+
+Quando a definição está ativada, os descontos de reserva aplicam-se automaticamente à utilização correspondente da máquina virtual quando o *ConsumedService* é qualquer um dos seguintes itens:
+
+- Microsoft.Compute
+- Microsoft.ClassicCompute
+- Microsoft.Batch
+- Microsoft.MachineLearningServices
+- Microsoft.Kusto
+
+Verifique o valor de *ConsumedService* nos seus dados de utilização para determinar se a utilização está qualificada para descontos de reserva.
+
+Para obter mais informações sobre a flexibilidade de tamanho de instância, veja [Flexibilidade de tamanho de máquina virtual com Instâncias de Máquina Virtual Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
+
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
+
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
+
+- [O que são as reservas do Azure?](../reservations/save-compute-costs-reservations.md)
+- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)
+- [Gerir reservas do Azure](../reservations/manage-reserved-vm-instance.md)
+- [Compreender a utilização de reservas na sua subscrição Pay As You Go](../reservations/understand-reserved-instance-usage.md)
+- [Compreender a utilização de reservas na inscrição Enterprise](../reservations/understand-reserved-instance-usage-ea.md)
+- [Compreender a utilização de reservas nas subscrições do CSP](/partner-center/azure-reservations)
+- [Custos de software Windows não incluídos nas reservas](../reservations/reserved-instance-windows-software-costs.md)

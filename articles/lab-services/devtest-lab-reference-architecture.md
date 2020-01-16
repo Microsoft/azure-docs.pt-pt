@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 059fd1eb5df09cd0f24763f18cbb02b34017793c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647905"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982106"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitetura de referência de Azure DevTest Labs para empresas
 Este artigo fornece uma arquitetura de referência para ajudá-lo a implantar uma solução com base em Azure DevTest Labs em uma empresa. Ele inclui o seguinte:
@@ -56,7 +56,7 @@ Embora o DevTest Labs não tenha cotas ou limites internos, outros recursos do A
 - **Recursos por grupo de recursos por tipo de recurso**: o limite padrão para [recursos por grupo de recursos por tipo de recurso é 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Quando você usar *todas as VMs, vá para a mesma* configuração de grupo de recursos, os usuários atingirão esse limite de assinatura muito mais cedo, especialmente se as VMs tiverem muitos discos extras.
 - **Contas de armazenamento**: um laboratório do DevTest Labs vem com uma conta de armazenamento. A cota do Azure para o [número de contas de armazenamento por região por assinatura é de 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). O número máximo de laboratórios de DevTest na mesma região também é 250.
 - **Atribuições de função**: uma atribuição de função é como você dá a um usuário ou acesso de entidade de segurança a um recurso (proprietário, recurso, nível de permissão). No Azure, há um [limite de 2.000 atribuições de função por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits). Por padrão, o serviço do DevTest Labs cria um grupo de recursos para cada VM. O proprietário recebe permissão de *proprietário* para a VM do DevTest Labs e a permissão de *leitor* para o grupo de recursos. Dessa forma, cada nova VM que você cria usa duas atribuições de função, além das atribuições que são usadas quando você concede aos usuários a permissão para o laboratório.
-- **Leituras/gravações da API**: há várias maneiras de automatizar o Azure e o DevTest Labs, incluindo APIs REST, PowerShell, CLI do Azure e SDK do Azure. Por meio da automação, você pode atingir outro limite nas solicitações de API: cada assinatura permite até [12.000 solicitações de leitura e 1.200 solicitações de gravação por hora](../azure-resource-manager/resource-manager-request-limits.md). Esteja atento a esse limite ao automatizar os laboratórios de DevTest.
+- **Leituras/gravações da API**: há várias maneiras de automatizar o Azure e o DevTest Labs, incluindo APIs REST, PowerShell, CLI do Azure e SDK do Azure. Por meio da automação, você pode atingir outro limite nas solicitações de API: cada assinatura permite até [12.000 solicitações de leitura e 1.200 solicitações de gravação por hora](../azure-resource-manager/management/request-limits-and-throttling.md). Esteja atento a esse limite ao automatizar os laboratórios de DevTest.
 
 ## <a name="manageability-considerations"></a>Considerações sobre a capacidade de gestão
 O DevTest Labs tem uma ótima interface de usuário administrativa para trabalhar com um único laboratório. Mas, em uma empresa, você provavelmente tem várias assinaturas do Azure e muitos laboratórios. Fazer alterações de forma consistente para todos os seus laboratórios requer scripts/automação. Aqui estão alguns exemplos e melhores práticas de gerenciamento para uma implantação do DevTest Labs:

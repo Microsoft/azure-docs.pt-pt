@@ -1,0 +1,57 @@
+---
+title: Reativar uma subscrição do Microsoft Azure for Students desativada | Microsoft Docs
+description: Explica por que motivo a sua subscrição do Microsoft Azure for Students está desativada e como pode reativá-la.
+author: amberbhargava
+manager: amberb
+tags: billing
+ms.service: cost-management-billing
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/01/2018
+ms.author: banders
+ROBOTS: NOINDEX
+ms.openlocfilehash: 111b95ddcff3667fa3f1e7df694af1d38887710f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75990024"
+---
+# <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que motivo a minha subscrição do Microsoft Azure for Students está desativada e como posso reativá-la?
+
+A sua subscrição do Microsoft Azure for Students pode estar desativada porque utilizou todo o seu crédito, o seu crédito expirou ou cancelou acidentalmente a sua subscrição. Veja qual o problema que se aplica ao seu caso e saiba como é possível reativar a sua subscrição.
+
+## <a name="youve-used-all-of-your-credit"></a>Utilizou todo o seu crédito
+
+A conta do Microsoft Azure for Students fornece 100 $ de crédito e uma quantidade limitada de serviços gratuitos durante 12 meses. Qualquer utilização para além dos serviços gratuitos e das quantidades é deduzida do seu crédito. Quando o seu crédito esgota, o Azure desativa os serviços e a subscrição. Para continuar a utilizar os serviços do Azure tem de atualizar a sua subscrição para uma subscrição Pay As You Go. Para tal, contacte o [Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Após a atualização, a subscrição ainda terá acesso aos serviços gratuitos durante 12 meses, desde a data de inscrição. Só lhe será faturada a utilização que exceda os serviços gratuitos e as quantidades.
+
+Pode verificar o crédito restante no [portal do Microsoft Azure Sponsorship](https://www.microsoftazuresponsorships.com/balance)
+
+1. Inicie sessão com as credenciais da conta do Microsoft Azure for Students.
+2. A página de saldo fornece informações sobre o crédito utilizado e restante. Pode encontrar a data de validade do crédito abaixo do gráfico de crédito.  
+
+    ![Captura de ecrã a mostrar as informações de crédito da subscrição do Microsoft Azure for Students](./media/azurestudents-subscription-disabled/azurestudents-credit-balance.png)
+
+3. Para verificar a utilização dos serviços que estão a consumir o seu crédito do Azure, selecione **Utilização** no painel de navegação esquerdo e selecione a sua subscrição do Microsoft Azure for Students.
+
+    ![Captura de ecrã a mostrar as informações de utilização do crédito do Microsoft Azure for Students](./media/azurestudents-subscription-disabled/azurestudents-credit-usage.png)
+
+A tabela contém as seguintes colunas:
+
+* **Nome do serviço:** Serviço que está consumindo seu crédito do Azure.
+* **Recurso de serviço:** Unidade de medida para o serviço que está sendo consumido.
+* **Gastos:** Valor de crédito em USD ($) gasto no serviço.
+
+## <a name="your-credit-has-expired"></a>O seu crédito expirou
+
+O seu crédito do Microsoft Azure for Students expira ao fim de 12 meses. Depois de o seu crédito expirar, o Azure desativa a sua subscrição. Para continuar a utilizar os serviços do Azure tem de atualizar a sua subscrição para uma subscrição Pay As You Go. Para tal, contacte o [Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Após a atualização, o Azure cobra as tarifas pay as you go para os serviços que estiver a utilizar.
+
+## <a name="youve-accidentally-canceled-your-subscription"></a>Cancelou acidentalmente a sua subscrição
+
+Se tiver cancelado acidentalmente a sua subscrição do Microsoft Azure for Students, pode reativá-la ao contactar o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Após a reativação, ainda terá acesso ao crédito restante e aos serviços gratuitos durante 12 meses a partir da data de inscrição.
+
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

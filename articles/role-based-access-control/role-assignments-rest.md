@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707832"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981040"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST
 
@@ -105,6 +105,6 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Para remove
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Listar atribuições de função usando o RBAC do Azure e a API REST](role-assignments-list-rest.md)
-- [Implementar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Implementar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 - [Referência à API REST do Azure](/rest/api/azure/)
 - [Criar funções personalizadas para recursos do Azure usando a API REST](custom-roles-rest.md)

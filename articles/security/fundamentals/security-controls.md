@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ae75df89ef5ab45dd241b38f904b6645e3978aa
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 570cc8457e69b7056b2865af9c1feb5d62a395eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910206"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981441"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Índice de artigos "controles de segurança internos" para serviços do Azure
 
@@ -25,7 +25,7 @@ Os artigos de controle de segurança internos estão disponíveis para os seguin
 
 - [Gestão de API](../../api-management/api-management-security-controls.md)
 - [Serviço de Aplicações do Azure](../../app-service/app-service-security-controls.md)
-- [Azure Resource Manager](../../azure-resource-manager/azure-resource-manager-security-controls.md)
+- [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
 - [Azure Backup](../../backup/backup-security-controls.md)
 - [BD do Cosmos para o Azure](../../cosmos-db/cosmos-db-security-controls.md)
 - [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
@@ -36,8 +36,8 @@ Os artigos de controle de segurança internos estão disponíveis para os seguin
 - [Retransmissão do barramento de serviço do Azure](../../service-bus-relay/service-bus-relay-security-controls.md)
 - [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
 - [Base de Dados SQL do Azure](../../sql-database/sql-database-security-controls.md)
-- [Armazenamento do Azure](../../storage/common/storage-security-controls.md)
-- [Conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
+- [Storage do Azure](../../storage/common/storage-security-controls.md)
+- [Conjuntos de Dimensionamento de Máquinas Virtuais do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
 - [Máquinas Virtuais do Linux](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
 - [Máquinas Virtuais do Windows](../../virtual-machines/windows/virtual-machines-windows-security-controls.md)
 - [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-security-controls.md)

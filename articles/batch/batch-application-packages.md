@@ -3,7 +3,7 @@ title: Instalar pacotes de aplicativos em nós de computação – lote do Azure
 description: Use o recurso pacotes de aplicativos do lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação em nós de computação do lote.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc136a0359c73b164eb1e175092a97f2fde4bdfa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449813"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029784"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do lote
 

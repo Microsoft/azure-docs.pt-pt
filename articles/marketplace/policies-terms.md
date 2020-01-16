@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/28/2019
 ms.author: evansma
-ms.openlocfilehash: f836e479c396d16d3052db62a2fb3503cae39865
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 191362f0e19cec71cd1c9114000e8a4e7c4e07e8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933508"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980413"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Termos e políticas do Marketplace comercial
 
