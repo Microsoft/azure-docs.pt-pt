@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428778"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969111"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: automatizar tarefas para processar emails usando aplicativos lógicos do Azure, Azure Functions e armazenamento do Azure
 
@@ -52,7 +52,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
 Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazenamento do Azure](../storage/common/storage-introduction.md).
 
-1. Antes de criar um contêiner de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) com essas configurações na guia **noções básicas** na portal do Azure:
+1. Antes de criar um contêiner de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-account-create.md) com essas configurações na guia **noções básicas** na portal do Azure:
 
    | Definição | Valor | Descrição |
    |---------|-------|-------------|
@@ -159,7 +159,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    ![Aplicação de funções criada](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Para criar um aplicativo de funções, você também pode usar [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md), ou o [PowerShell e modelos do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+   Para criar um aplicativo de funções, você também pode usar [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md), ou o [PowerShell e modelos do Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Na lista **aplicativos de funções** , expanda seu aplicativo de funções, se ainda não estiver expandido. Em seu aplicativo de funções, selecione **funções**. Na barra de ferramentas das funções, selecione **Nova função**.
 
@@ -282,7 +282,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
       | **Intervalo** | 1 | O número de intervalos de espera entre verificações |
       | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações |
       ||||
-  
+
    1. Na lista **Adicionar novo parâmetro** , selecione **filtro de assunto**.
 
    1. Depois que a caixa de **filtro de assunto** aparecer na ação, especifique o assunto como listado aqui:
@@ -377,7 +377,8 @@ Agora, teste para verificar se a condição funciona corretamente:
 Em seguida, defina as ações a realizar para o ramo **Se verdadeiro**. Para guardar o e-mail juntamente com eventuais anexos, remova todo o HTML do corpo do e-mail e crie blobs no contentor de armazenamento para a mensagem e os anexos.
 
 > [!NOTE]
-> A aplicação lógica não tem de fazer nada no ramo **Se falso** se os e-mails não tiverem anexos. Como exercício de bónus após concluir este tutorial, pode adicionar qualquer ação adequada que queira realizar no ramo **Se falso**.
+> A aplicação lógica não tem de fazer nada no ramo **Se falso** se os e-mails não tiverem anexos.
+> Como exercício de bónus após concluir este tutorial, pode adicionar qualquer ação adequada que queira realizar no ramo **Se falso**.
 
 ## <a name="call-removehtmlfunction"></a>Chamar RemoveHTMLFunction
 
@@ -605,7 +606,9 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    ||||
 
    > [!NOTE]
-   > Se selecionar um campo que contém uma matriz, como o campo **Conteúdo**, que é uma matriz que contém anexos, o estruturador adiciona automaticamente um ciclo “Para cada” em torno da ação que referencia esse campo. Desta forma, a sua aplicação lógica pode realizar essa ação em cada item da matriz. Para remover o loop, remova o campo da matriz, mova a ação de referência para fora do loop, selecione as reticências ( **...** ) na barra de título do loop e selecione **excluir**.
+   > Se selecionar um campo que contém uma matriz, como o campo **Conteúdo**, que é uma matriz que contém anexos, o estruturador adiciona automaticamente um ciclo “Para cada” em torno da ação que referencia esse campo.
+   > Desta forma, a sua aplicação lógica pode realizar essa ação em cada item da matriz.
+   > Para remover o loop, remova o campo da matriz, mova a ação de referência para fora do loop, selecione as reticências ( **...** ) na barra de título do loop e selecione **excluir**.
 
 1. Guarde a aplicação lógica.
 

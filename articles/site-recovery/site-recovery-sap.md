@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0cef6332a169b71d7812efdc41247443fbc194f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940672"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982366"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo SAP NetWeaver de várias camadas
 
@@ -68,13 +68,13 @@ Para gerir grupos de logon para servidores de aplicações ABAP, a transação d
 #### <a name="vms-running-sap-central-services-cluster"></a>VMs executando o cluster do SAP central Services
 Esta arquitetura de referência é executada Central de serviços em VMs na camada de aplicativos. Os serviços Central é um potencial ponto único de falha (SPOF) quando implantado numa única VM — uma implementação típica quando a elevada disponibilidade não é um requisito.<br>
 
-Para implementar uma solução de alta disponibilidade, é possível usar um cluster de disco compartilhado ou um cluster de compartilhamento de arquivos. Para configurar VMs para um cluster de disco compartilhado, use o cluster de failover do Windows Server. A testemunha em nuvem é recomendada como uma testemunha de quorum. 
+Para implementar uma solução de alta disponibilidade, é possível usar um cluster de disco compartilhado ou um cluster de compartilhamento de arquivos. Para configurar VMs para um cluster de disco compartilhado, use o cluster de failover do Windows Server. A testemunha em nuvem é recomendada como uma testemunha de quorum.
  > [!NOTE]
  > O Site Recovery não Replica a testemunha de nuvem, portanto, é recomendável implantar a testemunha de nuvem na região de recuperação de desastre.
 
-Para suportar o ambiente de cluster de ativação pós-falha [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) executa a função de volume partilhado de cluster através da replicação de discos independentes pertencentes nós do cluster. O Azure não suporta nativamente discos partilhados e, portanto, requer soluções fornecidas pelo SIOS. 
+Para suportar o ambiente de cluster de ativação pós-falha [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) executa a função de volume partilhado de cluster através da replicação de discos independentes pertencentes nós do cluster. O Azure não suporta nativamente discos partilhados e, portanto, requer soluções fornecidas pelo SIOS.
 
-Outra maneira de lidar com o clustering é implementar um cluster de compartilhamento de arquivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificados recentemente o padrão de implementação de serviços Central para aceder os diretórios globais /sapmnt através de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC do/sapmnt seja altamente disponível. Isso pode ser feito na instância dos serviços centrais usando o cluster de failover do Windows Server com o SOFS (servidor de arquivos do Scale Out) e o recurso Espaços de Armazenamento Diretos (S2D) no Windows Server 2016. 
+Outra maneira de lidar com o clustering é implementar um cluster de compartilhamento de arquivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificados recentemente o padrão de implementação de serviços Central para aceder os diretórios globais /sapmnt através de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC do/sapmnt seja altamente disponível. Isso pode ser feito na instância dos serviços centrais usando o cluster de failover do Windows Server com o SOFS (servidor de arquivos do Scale Out) e o recurso Espaços de Armazenamento Diretos (S2D) no Windows Server 2016.
  > [!NOTE]
  > Atualmente Site Recovery suporte apenas à replicação de ponto consistente de falha de máquinas virtuais usando espaços de armazenamento diretos e o nó passivo do SIOS datakeeper
 
@@ -84,14 +84,14 @@ Outra maneira de lidar com o clustering é implementar um cluster de compartilha
 Você pode usar Site Recovery para orquestrar o failover da implantação completa do SAP nas regiões do Azure.
 Abaixo estão as etapas para configurar a recuperação de desastres 
 
-1. Replicar máquinas virtuais 
+1. Replicar máquinas virtuais
 2. Criar uma rede de recuperação
 3.  Replicar um controlador de domínio
-4.  Replicar a camada base de dados 
-5.  Fazer uma ativação pós-falha de teste 
-6.  Fazer uma ativação pós-falha 
+4.  Replicar a camada base de dados
+5.  Fazer uma ativação pós-falha de teste
+6.  Fazer uma ativação pós-falha
 
-Abaixo está a recomendação para a recuperação de desastre de cada camada usada neste exemplo. 
+Abaixo está a recomendação para a recuperação de desastre de cada camada usada neste exemplo.
 
  **Camadas SAP** | **Recomendação**
  --- | ---

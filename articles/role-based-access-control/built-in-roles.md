@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 00d4487abed97084976d81ee1ec78316fc688193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851388"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979330"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -3032,7 +3032,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="virtual-machine-contributor"></a>Colaborador da Máquina Virtual
+## <a name="virtual-machine-contributor"></a>Contribuidor de Máquina Virtual
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3153,6 +3153,6 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Corresponder provedor de recursos ao serviço](../azure-resource-manager/azure-services-resource-providers.md)
+- [Corresponder provedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
 - [Permissions in Azure Security Center](../security-center/security-center-permissions.md) (Permissões no Centro de Segurança do Azure)

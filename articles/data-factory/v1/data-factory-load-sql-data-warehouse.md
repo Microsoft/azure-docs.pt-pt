@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b5fec342cf9f228edce80e3f0e8fb5243196973d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924160"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980922"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregue 1 TB no Azure SQL Data Warehouse menos de 15 minutos com Data Factory
 > [!NOTE]
@@ -45,7 +45,7 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Armazenamento de BLOBs do Azure: esse experimento usa o armazenamento de BLOBs do Azure (GRS) para armazenar o conjunto de testes de TPC-H.  Se você não tiver uma conta de armazenamento do Azure, saiba [como criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
+* Armazenamento de BLOBs do Azure: esse experimento usa o armazenamento de BLOBs do Azure (GRS) para armazenar o conjunto de testes de TPC-H.  Se você não tiver uma conta de armazenamento do Azure, saiba [como criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 * Dados do [TPC-h](http://www.tpc.org/tpch/) : vamos usar o TPC-h como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, que ajuda a gerar o conjunto de um.  Você pode baixar o código-fonte para `dbgen` de [Ferramentas do TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou baixar o binário compilado do [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Execute o dbgen. exe com os seguintes comandos para gerar um arquivo simples de 1 TB para a tabela `lineitem` se espalhar em 10 arquivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`

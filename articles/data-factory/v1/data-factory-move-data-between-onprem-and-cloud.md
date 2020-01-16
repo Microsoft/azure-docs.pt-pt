@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931911"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982203"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com Gerenciamento de Dados gateway
 > [!NOTE]
@@ -29,15 +29,15 @@ Este artigo fornece uma visão geral da integração de dados entre armazenament
 Você deve instalar Gerenciamento de Dados gateway em seu computador local para habilitar a movimentação de dados de/para um armazenamento de dados local. O gateway pode ser instalado no mesmo computador que o armazenamento de dados ou em um computador diferente, contanto que o gateway possa se conectar ao armazenamento de dados.
 
 > [!IMPORTANT]
-> Consulte o artigo [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter detalhes sobre o gateway de gerenciamento de dados. 
+> Consulte o artigo [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter detalhes sobre o gateway de gerenciamento de dados.
 
 A instrução a seguir mostra como criar um data factory com um pipeline que move dados de um banco de **SQL Server** local para um armazenamento de BLOBs do Azure. Como parte das instruções, vai instalar e configurar o Data Management Gateway no seu computador.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Walkthrough: copiar dados locais para a nuvem
-Neste passo a passos, você executa as seguintes etapas: 
+Neste passo a passos, você executa as seguintes etapas:
 
 1. Criar uma fábrica de dados.
-2. Crie um gateway de gerenciamento de dados. 
+2. Crie um gateway de gerenciamento de dados.
 3. Crie serviços vinculados para armazenamentos de dados de origem e de coletor.
 4. Crie DataSets para representar dados de entrada e saída.
 5. Criar um pipeline com uma atividade de cópia para mover os dados.
@@ -46,8 +46,8 @@ Neste passo a passos, você executa as seguintes etapas:
 Antes de iniciar este passo a passos, você deve ter os seguintes pré-requisitos:
 
 * **Subscrição do Azure**.  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte o artigo [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
-* **Conta de armazenamento do Azure**. Você usa o armazenamento de BLOBs como um armazenamento de dados de **destino/coletor** neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
-* **SQL Server**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um arquivo de dados de **origem**. 
+* **Conta de armazenamento do Azure**. Você usa o armazenamento de BLOBs como um armazenamento de dados de **destino/coletor** neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter os passos para criar uma.
+* **SQL Server**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um arquivo de dados de **origem**.
 
 ## <a name="create-data-factory"></a>Criar fábrica de dados
 Nesta etapa, você usa o portal do Azure para criar uma instância de Azure Data Factory chamada **ADFTutorialOnPremDF**.

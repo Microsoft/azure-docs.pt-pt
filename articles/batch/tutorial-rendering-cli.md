@@ -2,21 +2,21 @@
 title: Compor uma cena na cloud - Azure Batch
 description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272342"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029186"
 ---
-# <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o lote do Azure 
+# <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
 O Azure Batch fornece capacidades de composição à escala da cloud num modelo de faturação de pagamento por utilização. O Azure Batch suporta aplicações de composição, incluindo o Autodesk Maya, 3ds Max, Arnold e V-Ray. Este tutorial mostra-lhe os passos para compor uma pequena cena com o Batch, através da Interface de Linha de Comandos do Azure. Saiba como:
 
@@ -156,7 +156,7 @@ az batch pool show \
     --query "allocationState"
 ```
 
-Continue para os passos seguintes para criar um trabalho e tarefas enquanto o estado do conjunto é alterado. O conjunto está completamente aprovisionado quando o estado de atribuição for `steady` e os nós estiverem em execução.  
+Continue para os passos seguintes para criar tarefas enquanto o estado do conjunto é alterado. O conjunto está completamente aprovisionado quando o estado de atribuição for `steady` e os nós estiverem em execução.  
 
 ## <a name="create-a-blob-container-for-output"></a>Criar um contentor de blobs para a saída
 
@@ -254,7 +254,7 @@ az batch task create \
 O Batch agenda a tarefa, e a tarefa é executada assim que um nó no conjunto estiver disponível.
 
 
-### <a name="view-task-output"></a>Ver o resultado das tarefas
+### <a name="view-task-output"></a>Ver resultado das tarefas
 
 A tarefa demora alguns minutos para ser executada. Utilize o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para ver detalhes sobre a tarefa.
 
@@ -291,7 +291,7 @@ O conjunto demora alguns minutos a redimensionar. Durante o processo, configure 
 
 ## <a name="render-a-multiframe-scene"></a>Compor uma cena com vários fotogramas
 
-Tal como no exemplo de fotograma único, utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de composição no trabalho com o nome *myrenderjob*. Aqui, especifique as definições de tarefas num ficheiro JSON denominado *myrendertask_multi.json*. (Pode transferir o ficheiro do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comandos Arnold para compor um fotograma da cena 3ds Max *MotionBlur-DragonFlying.max*.
+Tal como no exemplo de fotograma único, utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de composição no trabalho com o nome *myrenderjob*. Aqui, especifique as definições de tarefas num ficheiro JSON denominado *myrendertask_multi.json*. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar um quadro da cena 3ds Max *MotionBlur-DragonFlying. Max*.
 
 Crie um ficheiro na sua shell atual com o nome *myrendertask_multi.json* e copie e cole o conteúdo do ficheiro transferido. Modifique os elementos `blobSource` e `containerURL` no ficheiro JSON, para incluir o nome da sua conta de armazenamento e o token SAS. Não se esqueça de alterar as definições para cada uma das seis tarefas. Guarde o ficheiro e execute o seguinte comando para colocar as tarefas em fila:
 
@@ -299,7 +299,7 @@ Crie um ficheiro na sua shell atual com o nome *myrendertask_multi.json* e copie
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 ```
 
-### <a name="view-task-output"></a>Ver o resultado das tarefas
+### <a name="view-task-output"></a>Ver resultado das tarefas
 
 A tarefa demora alguns minutos para ser executada. Utilize o comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para ver o estado das tarefas. Por exemplo:
 
@@ -332,7 +332,7 @@ Abra um dos ficheiros no seu computador. O fotograma composto 6 é semelhante ao
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for preciso, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Batch e todos os recursos relacionados. Elimine os recursos da seguinte forma:
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, a conta do Batch, os conjuntos e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7af05f6d39a60a72df5e951f657a6f9b3761876
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767624"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045810"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,10 +84,11 @@ Os exemplos de código a seguir demonstram como armazenar os dados nesses format
 * TabularDataset
   ```python
   from azureml.core.dataset import Dataset
+  from azureml.opendatasets import Diabetes
   
-  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-  label = "Label"
+  tabular_dataset = Diabetes.get_tabular_dataset()
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage=0.1, seed=42)
+  label = "Y"
   ```
 
 * Pandas dataframe
@@ -96,9 +97,9 @@ Os exemplos de código a seguir demonstram como armazenar os dados nesses format
     import pandas as pd
     from sklearn.model_selection import train_test_split
 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    train_data, test_data = train_test_split(df, test_size = 0.1, random_state = 42)
-    label = "Label"
+    df = pd.read_csv("your-local-file.csv")
+    train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
+    label = "label-col-name"
     ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Obter dados para executar a experimentação em computação remota

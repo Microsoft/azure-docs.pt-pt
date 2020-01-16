@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cb21291d4beb9fbba27a56089f13bd0363604eab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686716"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981820"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos para o armazenamento de BLOBs com capacidade reservada
 
@@ -21,7 +21,7 @@ Você pode economizar dinheiro em custos de armazenamento para dados de blob com
 
 A capacidade reservada de armazenamento do Azure pode reduzir significativamente os custos de capacidade para BLOBs de bloco e dados de Azure Data Lake Storage Gen2. As economias de custo obtidas dependem da duração da sua reserva, da capacidade total que você optar por reservar e da camada de acesso e do tipo de redundância que você escolheu para sua conta de armazenamento. A capacidade reservada fornece um desconto de cobrança e não afeta o estado dos seus recursos de armazenamento do Azure.
 
-Para obter informações sobre preços de reserva de armazenamento do Azure, consulte preços de [bloco de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) e [preços Azure data Lake Storage Gen 2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Para obter mais informações sobre os preços de reserva do Armazenamento do Microsoft Azure, veja os [Preços do blob de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/) e os [Preços do Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## <a name="reservation-terms-for-azure-storage"></a>Termos de reserva para o armazenamento do Azure
 
@@ -66,7 +66,7 @@ As reservas estão disponíveis hoje para blocos de 100 TB ou 1 PB, com desconto
 
 Você pode comprar a capacidade reservada do armazenamento do Azure por meio do [portal do Azure](https://portal.azure.com). Pague pela reserva antecipada ou com pagamentos mensais. Para obter mais informações sobre como comprar com pagamentos mensais, consulte [comprar reservas do Azure com pagamentos iniciais ou mensais](/azure/billing/billing-monthly-payments-reservations).
 
-Para obter ajuda para identificar os termos de reserva que são adequados para seu cenário, consulte [entender o desconto de capacidade reservada do armazenamento do Azure](../../billing/billing-understand-storage-charges.md).
+Para obter ajuda para identificar os termos de reserva que são adequados para seu cenário, consulte [entender o desconto de capacidade reservada do armazenamento do Azure](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Siga estas etapas para comprar a capacidade reservada:
 
@@ -85,7 +85,7 @@ Siga estas etapas para comprar a capacidade reservada:
    | **Redundância** | A opção de redundância para a reserva. As opções incluem *LRS*, *ZRS*, *grs*e *ra-GZRS*. Para obter mais informações sobre as opções de redundância, consulte [redundância de armazenamento do Azure](../common/storage-redundancy.md). |
    | **Frequência de cobrança** | Indica com que frequência a conta é cobrada pela reserva. As opções incluem *mensalmente* ou *antecipadamente*. |
    | **Tamanho** | A região em que a reserva está em vigor. |
-   |**Prazo**  | Um ano ou três anos.   |
+   |**Termo**  | Um ano ou três anos.   |
 
 1. Depois de selecionar os parâmetros para sua reserva, o portal do Azure exibirá o custo. O portal também mostra a porcentagem de desconto sobre a cobrança paga conforme o uso.
 
@@ -101,7 +101,7 @@ Você pode trocar ou reembolsar uma reserva, com certas limitações. Essas limi
 
 Para trocar ou reembolsar uma reserva, navegue até os detalhes de reserva na portal do Azure. Selecione **Exchange** ou **reembolso**e siga as instruções para enviar uma solicitação de suporte. Quando a solicitação tiver sido processada, a Microsoft lhe enviará um email para confirmar a conclusão da solicitação.
 
-Para obter mais informações sobre as políticas de reservas do Azure, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Para obter mais informações sobre as políticas de reservas do Azure, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### <a name="exchange-a-reservation"></a>Trocar uma reserva
 
@@ -127,5 +127,5 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que são as reservas do Azure?](../../billing/billing-save-compute-costs-reservations.md)
-- [Entenda como o desconto de reserva é aplicado ao armazenamento do Azure](../../billing/billing-understand-storage-charges.md)
+- [O que são as reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Entenda como o desconto de reserva é aplicado ao armazenamento do Azure](../../cost-management-billing/reservations/understand-storage-charges.md)

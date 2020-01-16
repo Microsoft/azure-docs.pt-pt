@@ -1,6 +1,6 @@
 ---
-title: Utilizar Protocol Buffers com simulação do dispositivo - Azure | Documentos da Microsoft
-description: Este guia de procedimentos, irá aprender a usar Protocol Buffers para serializar a telemetria enviada a partir do solution accelerator de simulação do dispositivo.
+title: Usar buffers de protocolo com simulação de dispositivo – Azure | Microsoft Docs
+description: Neste guia de instruções, você aprende a usar buffers de protocolo para serializar a telemetria enviada do acelerador de solução de simulação de dispositivo.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,83 +9,83 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447986"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982152"
 ---
-# <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar telemetria com Buffers de protocolo
+# <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar telemetria usando buffers de protocolo
 
-Buffers de protocolo (Protobuf) é um formato de serialização binária para dados estruturados. Protobuf é projetado para enfatizar a simplicidade e o desempenho com o objetivo de ser menor e mais rápido do que XML.
+Buffers de protocolo (Protobuf) é um formato de serialização binária para dados estruturados. O Protobuf foi projetado para enfatizar a simplicidade e o desempenho com o objetivo de ser menor e mais rápido que o XML.
 
-Simulação do dispositivo suporta o **proto3** versão do protocolo coloca na memória intermédia idioma.
+A simulação de dispositivo dá suporte à versão **Proto3** do idioma dos buffers de protocolo.
 
-Como o Protobuf exige código compilado para serializar os dados, tem de criar uma versão personalizada de simulação do dispositivo.
+Como o Protobuf requer código compilado para serializar os dados, você deve criar uma versão personalizada da simulação de dispositivo.
 
-Os passos neste procedimentos-to-guia mostram como para:
+As etapas neste guia de instruções mostram como:
 
 1. Preparar um ambiente de desenvolvimento
-1. Especificar usando o formato de Protobuf num modelo de dispositivo
-1. Definir o seu formato de Protobuf
-1. Gerar classes de Protobuf
+1. Especificar usando o formato Protobuf em um modelo de dispositivo
+1. Definir o formato Protobuf
+1. Gerar classes Protobuf
 1. Testar localmente
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir os passos neste guia de procedimentos, tem de:
+Para seguir as etapas neste guia de instruções, você precisará de:
 
-* Visual Studio Code. Pode baixar [Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
-* .NET Core. Pode baixar [.NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
-* Postman. Pode baixar [Postman para Mac, windows ou Linux](https://www.getpostman.com/apps).
-* Uma [hub IoT implementado na sua subscrição do Azure](../iot-hub/iot-hub-create-through-portal.md). Terá de cadeia de ligação do hub IoT para concluir os passos neste guia. Pode obter a cadeia de ligação do portal do Azure.
-* R [base de dados do Cosmos DB implementado na sua subscrição do Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que utiliza a API de SQL e que está configurada para [consistência forte](../cosmos-db/manage-account.md). Terá de cadeia de ligação da base de dados do Cosmos DB para concluir os passos neste guia. Pode obter a cadeia de ligação do portal do Azure.
-* Uma [conta de armazenamento do Azure implementada na sua subscrição do Azure](../storage/common/storage-quickstart-create-account.md). Terá de cadeia de ligação da conta de armazenamento para concluir os passos neste guia. Pode obter a cadeia de ligação do portal do Azure.
+* Visual Studio Code. Você pode baixar [Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
+* .NET Core. Você pode baixar o [.NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
+* Postman. Você pode baixar o [postmaster para Mac, Windows ou Linux](https://www.getpostman.com/apps).
+* Um [Hub IOT implantado em sua assinatura do Azure](../iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de conexão do Hub IoT para concluir as etapas neste guia. Você pode obter a cadeia de conexão do portal do Azure.
+* Um [banco de dados Cosmos DB implantado em sua assinatura do Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que usa a API do SQL e que está configurado para [consistência forte](../cosmos-db/manage-account.md). Você precisa da cadeia de conexão do banco de dados Cosmos DB para concluir as etapas neste guia. Você pode obter a cadeia de conexão do portal do Azure.
+* Uma [conta de armazenamento do Azure implantada em sua assinatura do Azure](../storage/common/storage-account-create.md). Você precisa da cadeia de conexão da conta de armazenamento para concluir as etapas neste guia. Você pode obter a cadeia de conexão do portal do Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparar o ambiente de desenvolvimento
 
-Conclua as seguintes tarefas para preparar o ambiente de desenvolvimento:
+Conclua as seguintes tarefas para preparar seu ambiente de desenvolvimento:
 
-* Transfira a origem para os microsserviços de simulação do dispositivo.
-* Transfira a origem para os microsserviços de placa de armazenamento.
-* Execute localmente o microsserviços de placa de armazenamento.
+* Baixe a origem do microserviço de simulação de dispositivo.
+* Baixe a origem do microserviço do adaptador de armazenamento.
+* Execute o microserviço do adaptador de armazenamento localmente.
 
-As instruções neste artigo partem do princípio de que está a utilizar o Windows. Se estiver a utilizar outro sistema operacional, poderá ter de ajustar alguns dos caminhos de ficheiro e comandos de acordo com seu ambiente.
+As instruções neste artigo pressupõem que você esteja usando o Windows. Se você estiver usando outro sistema operacional, talvez seja necessário ajustar alguns dos caminhos de arquivo e comandos para adequá-los ao seu ambiente.
 
-### <a name="download-the-microservices"></a>Transferir os microsserviços
+### <a name="download-the-microservices"></a>Baixar os microserviços
 
-Transfira e deszipe o [Microsserviços de monitorização remota](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local. Este repositório inclui os microsserviços de placa de armazenamento que precisa para este procedimentos.
+Baixe e descompacte os [microserviços de monitoramento remoto](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) do GitHub para um local adequado no computador local. Esse repositório inclui o microserviço de adaptador de armazenamento que você precisa para este "como".
 
-Transfira e deszipe o [microsserviços de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) do GitHub para um local adequado no seu computador local.
+Baixe e descompacte o [microserviço de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) do GitHub para um local adequado no computador local.
 
-### <a name="run-the-storage-adapter-microservice"></a>Execute os microsserviços de placa de armazenamento
+### <a name="run-the-storage-adapter-microservice"></a>Executar o microserviço do adaptador de armazenamento
 
-No Visual Studio Code, abra a **remote-monitoring-services-dotnet-master\storage-adapter** pasta. Clique em qualquer **restaurar** botões para corrigir as dependências não resolvidas.
+No Visual Studio Code, abra a pasta **Remote-Monitoring-Services-dotnet-master\storage-Adapter** . Clique em qualquer botão de **restauração** para corrigir dependências não resolvidas.
 
-Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do Cosmos DB para o **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** ambiente variável.
+Abra o arquivo **. vscode/Launch. JSON** e atribua sua cadeia de conexão Cosmos DB à variável de ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_connString** .
 
 > [!NOTE]
-> Quando executa os microsserviços localmente no seu computador, ele ainda exige que uma instância de Cosmos DB no Azure para funcionar corretamente.
+> Quando você executa o microserviço localmente em seu computador, ele ainda requer uma instância de Cosmos DB no Azure para funcionar corretamente.
 
-Para executar os microsserviços de placa de armazenamento localmente, clique em **depurar \> iniciar depuração**.
+Para executar o microserviço do adaptador de armazenamento localmente, clique em **depurar \> iniciar a depuração**.
 
-O **Terminal** janela no Visual Studio Code mostra a saída dos microsserviços em execução, incluindo um URL para a verificação de estado de funcionamento do serviço web: <http://127.0.0.1:9022/v1/status>. Ao navegar para este endereço, o estado deve ser "OK: Ativo e bem".
+A janela do **terminal** no Visual Studio Code mostra a saída do microserviço em execução, incluindo uma URL para a verificação de integridade do serviço web: <http://127.0.0.1:9022/v1/status>. Quando você navega para esse endereço, o status deve ser "OK: vivo e bem".
 
-Deixe os microsserviços de placa de armazenamento em execução nesta instância do Visual Studio Code enquanto efetua os passos seguintes.
+Deixe o microserviço do adaptador de armazenamento em execução nesta instância do Visual Studio Code enquanto você conclui as etapas a seguir.
 
-## <a name="define-your-device-model"></a>Definir o seu modelo de dispositivo
+## <a name="define-your-device-model"></a>Definir o modelo do dispositivo
 
-Abra o **dispositivo-simulação-dotnet-mestre** pasta transferiu a partir do GitHub numa nova instância do Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
+Abra a pasta **Device-Simulation-dotnet-Master** que você baixou do GitHub em uma nova instância do Visual Studio Code. Clique em qualquer botão de **restauração** para corrigir as dependências não resolvidas.
 
-Este procedimentos-to-guia, vai criar um novo modelo de dispositivo para um controlador de recurso:
+Neste guia de instruções, você cria um novo modelo de dispositivo para um rastreador de ativos:
 
-1. Crie um novo ficheiro de modelo de dispositivo chamado **assettracker 01.json** no **Services\data\devicemodels** pasta.
+1. Crie um novo arquivo de modelo de dispositivo chamado **assettracker-01. JSON** na pasta **Services\data\devicemodels**
 
-1. Definir a funcionalidade de dispositivos no modelo do dispositivo **assettracker 01.json** ficheiro. A secção de telemetria de um modelo de dispositivo Protobuf tem:
+1. Defina a funcionalidade do dispositivo no arquivo **assettracker-01. JSON** do modelo do dispositivo. A seção telemetria de um modelo de dispositivo Protobuf deve:
 
-   * Inclua o nome da classe Protobuf que gerar para o seu dispositivo. A seção a seguir mostra como gerar a classe.
-   * Especifica Protobuf como o formato de mensagem.
+   * Inclua o nome da classe Protobuf que você gera para seu dispositivo. A seção a seguir mostra como gerar essa classe.
+   * Especifique Protobuf como o formato de mensagem.
 
      ```json
      {
@@ -141,17 +141,17 @@ Este procedimentos-to-guia, vai criar um novo modelo de dispositivo para um cont
 
 Escreva o script de comportamento que define como o seu dispositivo se comporta. Para obter mais informações, consulte [criar um dispositivo simulado avançado](iot-accelerators-device-simulation-advanced-device.md).
 
-## <a name="define-your-protobuf-format"></a>Definir o seu formato de Protobuf
+## <a name="define-your-protobuf-format"></a>Definir o formato Protobuf
 
-Quando tem um modelo de dispositivo e determinar seu formato de mensagem, pode criar uma **proto** ficheiro. Na **proto** de ficheiros, adicionar:
+Quando você tiver um modelo de dispositivo e tiver determinado seu formato de mensagem, poderá criar um arquivo **proto** . No arquivo **proto** , você adiciona:
 
-* R `csharp_namespace` que corresponde a **ClassName** propriedade no modelo do dispositivo.
-* Uma mensagem para cada estrutura de dados para a serialização.
-* Um nome e tipo para cada campo na mensagem.
+* Um `csharp_namespace` que corresponde à propriedade **ClassName** em seu modelo de dispositivo.
+* Uma mensagem para cada estrutura de dados a ser serializada.
+* Um nome e um tipo para cada campo na mensagem.
 
-1. Crie um novo ficheiro chamado **assettracker.proto** no **Services\Models\Protobuf\proto** pasta.
+1. Crie um novo arquivo chamado **assettracker. proto** na pasta **Services\Models\Protobuf\proto** .
 
-1. Definir a sintaxe, o espaço de nomes e o esquema de mensagens no **proto** ficheiros da seguinte forma:
+1. Defina a sintaxe, o namespace e o esquema de mensagem no arquivo **proto** da seguinte maneira:
 
     ```proto
     syntax = "proto3";
@@ -166,47 +166,47 @@ Quando tem um modelo de dispositivo e determinar seu formato de mensagem, pode c
     }
     ```
 
-O `=1`, `=2` marcadores em cada elemento especificam uma marca exclusiva utiliza o campo na codificação binária. Números de 1 a 15 requerem um menos byte para codificar que números mais elevados.
+A `=1`, `=2` marcadores em cada elemento especificam uma marca exclusiva que o campo usa na codificação binária. Os números 1-15 exigem um menos byte para codificar do que números mais altos.
 
 ## <a name="generate-the-protobuf-class"></a>Gerar a classe Protobuf
 
-Quando tem um **proto** ficheiro, a próxima etapa é gerar as classes necessárias para ler e escrever mensagens. Para concluir este passo, terá do **Protoc** Protobuf compilador.
+Quando você tem um arquivo **proto** , a próxima etapa é gerar as classes necessárias para ler e gravar mensagens. Para concluir esta etapa, você precisa do compilador **protoc** Protobuf.
 
-1. [Transferir o compilador Protobuf a partir do GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
+1. [Baixe o compilador Protobuf do GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Executar o compilador, especificando o diretório de origem, o diretório de destino e o nome da sua **proto** ficheiro. Por exemplo:
+1. Execute o compilador, especificando o diretório de origem, o diretório de destino e o nome do seu arquivo **proto** . Por exemplo:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
     ```
 
-    Este comando gera um **Assettracker.cs** de ficheiros a **Services\Models\Protobuf** pasta.
+    Esse comando gera um arquivo **Assettracker.cs** na pasta **Services\Models\Protobuf** .
 
-## <a name="test-protobuf-locally"></a>Protobuf de teste localmente
+## <a name="test-protobuf-locally"></a>Testar Protobuf localmente
 
-Nesta secção, vai testar o dispositivo de controlador de recurso que criou nas secções anteriores localmente.
+Nesta seção, você testará o dispositivo do rastreador de ativos que você criou nas seções anteriores localmente.
 
-### <a name="run-the-device-simulation-microservice"></a>Execute os microsserviços de simulação do dispositivo
+### <a name="run-the-device-simulation-microservice"></a>Executar o microserviço de simulação de dispositivo
 
-Abra o **.vscode/launch.json** de ficheiros e atribuir sua:
+Abra o arquivo **. vscode/Launch. JSON** e atribua:
 
-* Cadeia de ligação do IoT Hub para o **PCS\_IOTHUB\_CONNSTRING** variável de ambiente.
-* A cadeia de ligação de conta de armazenamento para o **PCS\_AZURE\_armazenamento\_conta** variável de ambiente.
-* Cadeia de ligação do cosmos DB para o **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** variável de ambiente.
+* Cadeia de conexão do Hub IoT para os PCs\_a variável de ambiente **IOTHUB\_connString** .
+* Cadeia de conexão da conta de armazenamento para os **PCS\_o AZURE\_armazenamento\_** variável de ambiente de conta.
+* Cosmos DB cadeia de conexão para os **PCS\_STORAGEADAPTER\_DOCUMENTDB\_** a variável de ambiente connString.
 
-Abra o **WebService/Properties/launchSettings.json** de ficheiros e atribuir sua:
+Abra o arquivo **WebService/Properties/launchSettings. JSON** e atribua:
 
-* Cadeia de ligação do IoT Hub para o **PCS\_IOTHUB\_CONNSTRING** variável de ambiente.
-* A cadeia de ligação de conta de armazenamento para o **PCS\_AZURE\_armazenamento\_conta** variável de ambiente.
-* Cadeia de ligação do cosmos DB para o **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** variável de ambiente.
+* Cadeia de conexão do Hub IoT para os PCs\_a variável de ambiente **IOTHUB\_connString** .
+* Cadeia de conexão da conta de armazenamento para os **PCS\_o AZURE\_armazenamento\_** variável de ambiente de conta.
+* Cosmos DB cadeia de conexão para os **PCS\_STORAGEADAPTER\_DOCUMENTDB\_** a variável de ambiente connString.
 
-Abra o **WebService\appsettings.ini** de ficheiros e modifique as definições da seguinte forma:
+Abra o arquivo **WebService\appsettings.ini** e modifique as configurações da seguinte maneira:
 
-#### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurar a solução incluir seus novos arquivos de modelo do dispositivo
+#### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurar a solução para incluir os novos arquivos de modelo de dispositivo
 
-Por predefinição, o novo modelo de dispositivo JSON e JS não serão copiados para a solução criada. Tem de incluir explicitamente.
+Por padrão, seus novos arquivos JSON e JS de modelo de dispositivo não serão copiados para a solução interna. Você precisa incluí-las explicitamente.
 
-Adicionar uma entrada para o **services\services.csproj** ficheiro para cada ficheiro que pretende que o incluído. Por exemplo:
+Adicione uma entrada ao arquivo **Services\Services.csproj** para cada arquivo que você deseja incluir. Por exemplo:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -217,17 +217,17 @@ Adicionar uma entrada para o **services\services.csproj** ficheiro para cada fic
 </None>
 ```
 
-Para executar os microsserviços localmente, clique em **depurar \> iniciar depuração**.
+Para executar o Microservice localmente, clique em **depurar \> iniciar a depuração**.
 
-O **Terminal** janela no Visual Studio Code mostra a saída dos microsserviços em execução.
+A janela do **terminal** no Visual Studio Code mostra a saída do Microservice em execução.
 
-Deixe os microsserviços de simulação de dispositivo em execução nesta instância do Visual Studio Code enquanto efetua os passos seguintes.
+Deixe o microserviço de simulação de dispositivo em execução nesta instância do Visual Studio Code enquanto você conclui as próximas etapas.
 
-### <a name="set-up-a-monitor-for-device-events"></a>Configurar um monitor de eventos do dispositivo
+### <a name="set-up-a-monitor-for-device-events"></a>Configurar um monitor para eventos de dispositivo
 
-Nesta secção, vai utilizar a CLI do Azure para configurar um monitor de eventos para ver a telemetria enviada a partir dos dispositivos ligados ao seu hub IoT.
+Nesta seção, você usa o CLI do Azure para configurar um monitor de eventos para exibir a telemetria enviada dos dispositivos conectados ao Hub IoT.
 
-O seguinte script parte do princípio de que é o nome do IoT hub **testes de simulação de dispositivo**.
+O script a seguir pressupõe que o nome do Hub IoT é o **teste de simulação de dispositivo**.
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
@@ -237,44 +237,44 @@ az extension add --name azure-cli-iot-ext
 az iot hub monitor-events --hub-name device-simulation-test
 ```
 
-Deixe o monitor de eventos em execução enquanto testa os dispositivos simulados.
+Deixe o monitor de eventos em execução enquanto você testa os dispositivos simulados.
 
-### <a name="create-a-simulation-with-the-asset-tracker-device-type"></a>Criar uma simulação com o tipo de dispositivo do controlador ativo
+### <a name="create-a-simulation-with-the-asset-tracker-device-type"></a>Criar uma simulação com o tipo de dispositivo do rastreador de ativos
 
-Nesta secção, vai utilizar a ferramenta de Postman para pedir os microsserviços de simulação de dispositivo para executar uma simulação usando o tipo de dispositivo do controlador ativo. Postman é uma ferramenta que permite que envie pedidos REST para um serviço web.
+Nesta seção, você usará a ferramenta de postmaster para solicitar que o microserviço de simulação de dispositivo execute uma simulação usando o tipo de dispositivo do rastreador de ativos. O postmaster é uma ferramenta que permite enviar solicitações REST a um serviço Web.
 
-Para configurar o Postman:
+Para configurar o postmaster:
 
-1. Abra o Postman no seu computador local.
+1. Abra o postmaster no computador local.
 
-1. Clique em **arquivo \> importação**. Em seguida, clique em **escolher ficheiros**.
+1. Clique em **arquivo \> importar**. Em seguida, clique em **escolher arquivos**.
 
-1. Selecione **accelerator.postman de solução de simulação de dispositivo do Azure IoT\_coleção** e **accelerator.postman de solução de simulação de dispositivo do IoT do Azure\_ambiente** e Clique em **aberto**.
+1. Selecione **acelerador de solução de simulação de dispositivo IOT do Azure. postmaster\_coleção** e **acelerador de solução de simulação de dispositivo IOT do azure. postmaster\_ambiente** e clique em **abrir**.
 
-1. Expanda a **acelerador de solução de simulação de dispositivo do IoT do Azure** para ver os pedidos que pode enviar.
+1. Expanda o **acelerador de solução de simulação de dispositivo IOT do Azure** para exibir as solicitações que você pode enviar.
 
-1. Clique em **ambiente sem** e selecione **acelerador de solução de simulação de dispositivo do IoT do Azure**.
+1. Clique em **nenhum ambiente** e selecione **acelerador de solução de simulação de dispositivo IOT do Azure**.
 
-Tem agora uma coleção e carregado na sua área de trabalho do Postman que pode utilizar para interagir com os microsserviços de simulação de dispositivo de ambiente.
+Agora você tem uma coleção e um ambiente carregados no seu espaço de trabalho do postmaster que você pode usar para interagir com o microserviço de simulação de dispositivo.
 
 Para configurar e executar a simulação:
 
-1. Na coleção do Postman, selecione **criar a simulação de controlador asset** e clique em **enviar**. Este pedido cria quatro instâncias do tipo de dispositivo do controlador ativo simulado.
+1. Na coleção do postmaster, selecione **criar simulação do rastreador de ativos** e clique em **Enviar**. Essa solicitação cria quatro instâncias do tipo de dispositivo do rastreador de ativos simulado.
 
-1. O resultado de monitor de eventos na janela da CLI do Azure mostra a telemetria dos dispositivos simulados.
+1. A saída do monitor de eventos na janela CLI do Azure mostra a telemetria dos dispositivos simulados.
 
-Para parar a simulação, selecione o **parar simulação** pedido no Postman e clique em **enviar**.
+Para interromper a simulação, selecione a solicitação **parar simulação** no postmaster e clique em **Enviar**.
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Pode parar os dois microsserviços localmente em execução nas suas instâncias do Visual Studio Code (**depurar \> parar depuração**).
+Você pode parar os dois microserviços em execução localmente em suas instâncias de Visual Studio Code (**depurar \> interromper a depuração**).
 
-Se já não necessitar de instâncias do IoT Hub e do Cosmos DB, eliminá-los a partir da sua subscrição do Azure para evitar eventuais encargos desnecessários.
+Se você não precisar mais do Hub IoT e Cosmos DB instâncias, exclua-os da sua assinatura do Azure para evitar quaisquer encargos desnecessários.
 
-## <a name="iot-hub-support"></a>Suporte do IoT Hub
+## <a name="iot-hub-support"></a>Suporte ao Hub IoT
 
-Muitos recursos do IoT Hub não suportam nativamente Protobuf ou outros formatos binários. Por exemplo, não é possível encaminhar com base no payload da mensagem porque o IoT Hub será não é possível processar a carga da mensagem. No entanto, pode, encaminhar com base nos cabeçalhos de mensagens.
+Muitos recursos do Hub IoT não dão suporte nativo a Protobuf ou a outros formatos binários. Por exemplo, você não pode rotear com base na carga da mensagem porque o Hub IoT não poderá processar a carga da mensagem. No entanto, você pode rotear com base em cabeçalhos de mensagens.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu como personalizar a simulação do dispositivo utilizar Protobuf para enviar telemetria, a próxima etapa é saber agora para [implantar uma imagem personalizada para a cloud](iot-accelerators-device-simulation-deploy-image.md).
+Agora que você aprendeu como personalizar a simulação de dispositivo para usar o Protobuf para enviar telemetria, a próxima etapa é aprender agora a [implantar uma imagem personalizada na nuvem](iot-accelerators-device-simulation-deploy-image.md).

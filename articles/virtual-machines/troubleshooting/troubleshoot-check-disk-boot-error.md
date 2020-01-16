@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 839803c8cf54a85946e7134fdb6fe6be2da3dc4c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ba3138076da89610bef878583e424153594c5dcc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058083"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981380"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>O Windows mostra "verificando o sistema de arquivos" ao inicializar uma VM do Azure
 
 Este artigo descreve o erro "verificando o sistema de arquivos" que você pode encontrar ao inicializar uma VM (máquina virtual) do Windows no Microsoft Azure.
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve como usar o modelo de implantação do Gerenciador de recursos, que é recomendável usar para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo descreve como usar o modelo de implantação do Gerenciador de recursos, que é recomendável usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma 
 

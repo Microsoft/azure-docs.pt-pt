@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4af2afc0efad2784bbde902fd2cdf4a40beb7803
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5488606939bafc402210ad35f3a17e71ac072010
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769086"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044524"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure  
 Funções do Azure é uma solução para uma fácil execução de pequenos blocos de código, ou "funções", na nuvem. É possível escrever apenas o código que necessita para o problema em questão, sem ter de se preocupar com toda a aplicação ou a infraestrutura para executá-la. As funções podem tornar o desenvolvimento ainda mais produtivo e você pode usar a linguagem de desenvolvimento de sua escolha C#, como Java, JavaScript, PowerShell e Python. Paga apenas para a hora que o seu código é executado e confie no Azure para dimensionar conforme necessário. As Funções do Azure permitem desenvolver aplicações [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
@@ -30,7 +30,7 @@ Seguem-se algumas funcionalidades-chave das Funções:
 * **Código aberto** - O tempo de execução das Funções é de código aberto e [está disponível no GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>O que posso fazer com as Funções?
-Funções é uma excelente solução para processar dados, integrar sistemas, trabalhar com a Internet das Coisas (IoT) e a criação de API simples e micro-serviços. Considere utilizar as Funções para tarefas como processamento de imagem ou encomendas, manutenção de ficheiros ou para quaisquer tarefas que pretende executar com base numa agenda. 
+Funções é uma excelente solução para processar dados, integrar sistemas, trabalhar com a Internet das Coisas (IoT) e a criação de API simples e micro-serviços. Considere funções para tarefas como APIs Web, processamento de imagens ou pedidos, manutenção de arquivos ou tarefas que você deseja executar em uma agenda. 
 
 Funções fornece modelos para ajudar a começar com cenários-chave, que incluem:
 

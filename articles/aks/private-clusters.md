@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: d7b1d82f88afd8ac3d94cbdd2d117834c12d0b96
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867144"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045606"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado do serviço kubernetes do Azure (versão prévia)
 
@@ -131,7 +131,7 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
 
 ## <a name="limitations"></a>Limitações 
 * As [limitações do serviço de vínculo privado do Azure][private-link-service] se aplicam a clusters privados, pontos de extremidade privados do Azure e pontos de extremidade de serviço de rede virtual, que atualmente não têm suporte na mesma rede virtual.
-* Não há suporte para nós virtuais em um cluster privado para girar instâncias privadas do ACI (infraestrutura centrada em aplicativos) do Cisco em uma rede virtual do Azure privada.
+* Não há suporte para nós virtuais em um cluster privado para girar instâncias privadas do Cisco ACI (infraestrutura centrada em aplicativos) em uma rede virtual do Azure privada.
 * Não há suporte para a integração do Azure DevOps pronta para uso com clusters privados.
 * Para clientes que precisam habilitar o registro de contêiner do Azure para trabalhar com AKS particulares, a rede virtual do registro de contêiner deve ser emparelhada com a rede virtual do cluster do agente.
 * Não há suporte atual para Azure Dev Spaces.

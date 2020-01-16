@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863810"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045524"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -167,7 +167,7 @@ Selecione **salvar** depois de concluir esses campos.
 
 ### <a name="category"></a>Categoria
 
-Selecione no mínimo um (1) e no máximo três (3) categorias usadas para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. 
+Selecione no mínimo um (1) e no máximo três (3) categorias usadas para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descubra como sua oferta dá suporte a essas categorias na descrição da oferta.
 
 ### <a name="industry"></a>Indústria
 
@@ -175,7 +175,7 @@ Selecione no mínimo um (1) e no máximo três (3) categorias usadas para agrupa
 
 ### <a name="app-version"></a>Versão da aplicação
 
-Esse é um campo opcional usado no AppSource Marketplace para identificar o número de versão da sua oferta.
+Esse campo é opcional e usado no AppSource Marketplace para identificar o número de versão da sua oferta.
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato padrão para o Marketplace comercial da Microsoft
 
@@ -204,7 +204,7 @@ Há dois tipos de emendas disponíveis para editores de mercado comercial:
 >[!NOTE]
 > Esses dois tipos de emendas se empilham um sobre o outro. Os clientes destinados a emendas personalizadas também terão a emenda universal ao contrato padrão durante a compra.
 
-**Termos de emenda universal para o contrato padrão do Marketplace comercial da Microsoft**: Insira os termos de emenda universal nesta caixa. Você pode fornecer uma única emenda universal por oferta. Você pode inserir um número ilimitado de caracteres nesta caixa. Eles são exibidos para clientes no AppSource, no Azure Marketplace e/ou portal do Azure durante a descoberta e o fluxo de compra.
+**Termos de emenda universal para o contrato padrão do Marketplace comercial da Microsoft**: Insira os termos de emenda universal nesta caixa. Você pode fornecer uma única emenda universal por oferta. Você pode inserir um número ilimitado de caracteres nesta caixa. Esses termos são exibidos para clientes no AppSource, no Azure Marketplace e/ou portal do Azure durante a descoberta e o fluxo de compra.
 
 **Termos personalizados de emenda para o contrato padrão do Marketplace comercial da Microsoft**: comece selecionando **Adicionar termos de emenda personalizada**. Você pode fornecer até 10 termos personalizados de emenda por oferta.
 
@@ -231,7 +231,7 @@ A guia listagem de ofertas exibe os idiomas (e os mercados) onde sua oferta est�
 
 Forneça detalhes a serem exibidos no Marketplace, incluindo descrições de sua oferta e ativos de marketing.
 
-- **Nome** (obrigatório): o nome definido aqui será exibido como o título da listagem de oferta no (s) Marketplace (es) que você escolheu. O nome é preenchido previamente com base na nova entrada de **oferta** anterior.  Isso pode ser marcado.  Isso não deve conter emojis (a menos que sejam a marca registrada e os símbolos de direitos autorais) e deve ser limitado a 50 caracteres.
+- **Nome** (obrigatório): o nome definido aqui será exibido como o título da listagem de oferta no (s) Marketplace (es) que você escolheu. O nome é preenchido previamente com base na nova entrada de **oferta** anterior. O nome pode ser marcado. Ele não pode conter emojis (a menos que sejam a marca registrada e os símbolos de direitos autorais) e deve ser limitado a 50 caracteres.
 - **Resumo** (obrigatório): forneça uma breve descrição da sua oferta a ser usada em resultados da pesquisa de listagem (s) do Marketplace. Até 100 caracteres de texto podem ser inseridos neste campo.
 - **Descrição** (obrigatório): forneça uma descrição da sua oferta a ser exibida na visão geral das listagem (s) do Marketplace. Considere incluir uma proposta de valor, benefícios principais, qualquer associação de categoria ou do setor, oportunidades de compra no aplicativo, quaisquer divulgações necessárias e um link para saber mais.
 Até 3.000 caracteres de texto podem ser inseridos neste campo. Para obter dicas adicionais, consulte o artigo [escrever uma excelente descrição do aplicativo](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -240,7 +240,7 @@ Até 3.000 caracteres de texto podem ser inseridos neste campo. Para obter dicas
 
 #### <a name="description"></a>**Descrição**
 
-Este é um campo obrigatório. Itens a serem incluídos na descrição:
+Este campo é obrigatório. Itens a serem incluídos na **Descrição**:
 
 * Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição.  
 * Tenha em mente que as primeiras frases podem ser exibidas nos resultados do mecanismo de pesquisa.  
@@ -253,76 +253,28 @@ Os componentes principais da sua proposta de valor devem incluir as seguintes in
 * Tipo de usuário que se beneficia do produto.
 * O cliente precisa ou problemático que o produto aborda.
 
-Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML para formatar a descrição.
+Para tornar a **Descrição** da sua oferta mais atraente, use o editor de Rich Text para formatar sua descrição.
 
-1. Se você quiser criar parágrafos, adicione `<p>` no implorando do texto e adicione `</p>` no final.
+![Usando o editor de Rich Text](./media/text-editor2.png)
 
-    **Exemplo**:
+Use as instruções a seguir para usar o editor de Rich Text:
 
-    `<p>` este é o primeiro parágrafo. `</p>` <br>
-    `<p>` este é o meu segundo parágrafo. `</p>` <br>
+- Para alterar o formato do seu conteúdo, realce o texto que você deseja formatar e selecione um estilo de texto, conforme mostrado abaixo:
 
-    O anterior ficaria assim:
+     ![Usando o editor de Rich Text para alterar o formato de texto](./media/text-editor3.png)
 
-    <p> Este é o primeiro parágrafo. </p>
-    <p> Este é o meu segundo parágrafo. </p>
+- Para adicionar uma lista com marcadores ou numerada ao texto, use as opções abaixo:
 
-1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das marcas de `<li>` abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as marcas de `<li>` e de `</li>`) dentro das marcas `<ul>` e `</ul>`. Certifique-se de adicionar o `<ul></ul>`.
+     ![Usando o editor de Rich Text para adicionar listas](./media/text-editor4.png)
 
-    **Exemplo**:
+- Para adicionar ou remover o recuo para o texto, use as opções abaixo:
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    O anterior ficaria assim:
-    <ul> 
-        <li>Adicionar texto aqui</li>
-        <li> Adicionar texto aqui </li>
-        <li> Adicionar texto aqui </li>
-    </ul> 
-
-1. Para conteúdo em **negrito** , adicione `<b>` no início do texto que você deseja negrito e adicione `</b>` no final do texto que você deseja colocar em negrito.
-
-    **Exemplo**: `<b>` avaliação gratuita `</b>`
-    
-    O anterior faria com que as palavras de avaliação gratuita fossem em negrito na descrição da oferta na vitrine.
-
-    **AVALIAÇÃO GRATUITA**
-
-1. Para adicionar **quebras de linha** entre o conteúdo, adicione `<br>` antes do conteúdo que você deseja iniciar em uma nova linha. Se você quiser deixar um espaço e certificar-se de que o conteúdo começa em uma nova linha, adicione `<br><br>` antes do conteúdo.
-
-    **Exemplo**:
-
-    Esta é uma linha de texto. `<br>` esta é uma linha de texto que será iniciada em uma nova linha. `<br><br>` esta é uma linha que iniciará duas linhas abaixo.
-
-    O anterior ficaria assim:
-
-    Esta é uma linha de texto. <br> Esta é uma linha de texto que será iniciada em uma nova linha. <br><br> Esta é uma linha que iniciará duas linhas abaixo.
-
-1. Se você quiser **aumentar o tamanho do texto**, primeiro escolha a quantidade desejada para o texto. Use os exemplos a seguir. Depois de selecionar o tamanho do texto, adicione as marcas de `<H*></H*>` correspondentes ao início e ao final do texto.
-
-    **Exemplo**:
-
-    `<h1>`este é o título 1`</h1>` <br>
-    `<h2>`este é o título 2`</h2>` <br>
-    `<h3>`este é o título 3`</h3>` <br>
-    `<h4>`é o título 4`</h4>` <br>
-    `<h5>`este é o título 5`</h5>` <br>
-    `<h6>`é o título 6`</h6>` 
-
-    O anterior ficaria assim:
-
-    ![Títulos de exemplo](./media/heading.png)
+     ![Usando o editor de Rich Text para recuar](./media/text-editor5.png)
 
 #### <a name="links"></a>Ligações
 
 - **Política de privacidade** (obrigatória): link para a política de privacidade da sua organização. Você é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade e para fornecer uma política de privacidade válida
-- **Materiais de marketing do programa CSP** (opcional): você deve fornecer um link para materiais de marketing se optar por estender sua oferta para o programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . O CSP amplia sua oferta para uma variedade maior de clientes qualificados, permitindo que os parceiros do CSP agrupem, comercializam e revendam sua oferta. Esses revendedores precisarão de acesso aos materiais para marketing de sua oferta. Para obter mais informações, consulte [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
+- **Materiais de marketing do programa CSP** (opcional): forneça um link para materiais de marketing se você optar por estender sua oferta para o programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . O CSP amplia sua oferta para uma variedade maior de clientes qualificados, permitindo que os parceiros do CSP agrupem, comercializam e revendam sua oferta. Esses revendedores precisarão de acesso aos materiais para marketing de sua oferta. Para obter mais informações, consulte [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
 - **Links úteis** (opcional): documentos online complementares opcionais sobre seu aplicativo ou serviços relacionados listados fornecendo um **título** e uma **URL**. Adicione links úteis adicionais clicando em **+ Adicionar uma URL**.
 
 #### <a name="contact-information"></a>Informações de contacto
@@ -353,7 +305,7 @@ Lembre-se de **salvar** antes de passar para a próxima seção.
 A guia **Visualização** permite que você defina um **público de visualização** limitado para liberar sua oferta antes de publicar sua oferta em tempo real para o público mais amplo do Marketplace.
 
 > [!IMPORTANT]
-> Você deve selecionar **entrar em ativação** antes que sua oferta seja publicada em tempo real para o público público do Marketplace depois de verificar sua oferta em versão prévia.
+> Depois de verificar sua oferta em versão prévia, selecione **entrar em operação** para que sua oferta possa ser publicada em tempo real para o público público do Marketplace.
 
 - **Definir um público de visualização: Adicione um único email de conta do AAD/MSA por linha, juntamente com uma descrição opcional.**
 
@@ -390,8 +342,8 @@ As **ações** disponíveis na **visão geral do plano** variam de acordo com o 
 
 **Criar novo plano** (mínimo de um plano para aqueles que selecionam vender pela Microsoft)
 
-- **ID do plano:** Crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes na URL do produto e nos modelos de Azure Resource Manager (se aplicável). Use somente letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. São permitidos no máximo 50 caracteres para essa ID de plano. Observe que a ID não pode ser modificada depois de selecionar criar.
-- **Nome do plano:** Os clientes verão esse nome ao decidir qual plano selecionar dentro de sua oferta. Crie um nome de oferta exclusivo para cada plano nesta oferta. O nome do plano é usado para diferenciar os planos de software que podem fazer parte da mesma oferta (por exemplo, Nome da oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
+- **ID do plano:** Crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes na URL do produto e nos modelos de Azure Resource Manager (se aplicável). Use apenas caracteres minúsculos, alfanuméricos, traços ou sublinhados. São permitidos no máximo 50 caracteres para essa ID de plano. A ID não pode ser modificada após a seleção de Create.
+- **Nome do plano:** Os clientes verão esse nome ao decidir qual plano selecionar dentro de sua oferta. Crie um nome de oferta exclusivo para cada plano nesta oferta. O nome do plano é usado para diferenciar os planos de software que podem fazer parte da mesma oferta (por exemplo, nome da oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Lista de planos
 
@@ -424,7 +376,7 @@ A capacidade de configurar uma avaliação gratuita está disponível para cada 
 >[!Note]
 >Depois que sua oferta de transação for publicada com uma avaliação gratuita, ela não poderá ser desabilitada para esse plano. Verifique se essa configuração está correta para a primeira publicação para evitar ter que recriar o plano.
 
-Para obter informações sobre as assinaturas de cliente que estão participando de uma avaliação gratuita, use a nova propriedade de API `isFreeTrial`, que será marcada como verdadeira ou falsa. Consulte a [API obter assinatura de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) para obter mais informações.
+Para obter informações sobre as assinaturas de cliente que estão participando de uma avaliação gratuita, use a nova propriedade de API `isFreeTrial`, que será marcada como verdadeira ou falsa. Para obter mais informações, consulte a [API de obter assinatura de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
 >Não há suporte para avaliações gratuitas para planos que aproveitam o serviço de medição do Marketplace.

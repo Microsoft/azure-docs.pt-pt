@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: allensu
-ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211453"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969011"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger registros e zonas DNS
 
@@ -20,7 +20,7 @@ ms.locfileid: "74211453"
 
 As zonas e os registros DNS são recursos críticos. Excluir uma zona DNS ou até mesmo apenas um único registro DNS pode resultar em uma interrupção total do serviço.  Portanto, é importante que os registros e as zonas DNS críticas sejam protegidos contra alterações não autorizadas ou acidentais.
 
-Este artigo explica como o DNS do Azure permite que você proteja suas zonas e registros DNS contra essas alterações.  Aplicamos dois recursos de segurança avançados fornecidos por Azure Resource Manager: [controle de acesso baseado em função](../role-based-access-control/overview.md) e [bloqueios de recursos](../azure-resource-manager/resource-group-lock-resources.md).
+Este artigo explica como o DNS do Azure permite que você proteja suas zonas e registros DNS contra essas alterações.  Aplicamos dois recursos de segurança avançados fornecidos por Azure Resource Manager: [controle de acesso baseado em função](../role-based-access-control/overview.md) e [bloqueios de recursos](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
@@ -156,9 +156,9 @@ A função pode ser atribuída da mesma maneira que as funções internas, confo
 
 Para obter mais informações sobre como criar, gerenciar e atribuir funções personalizadas, consulte [funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Bloqueios de recursos
+## <a name="resource-locks"></a>Bloqueios de recurso
 
-Além do RBAC, o Azure Resource Manager dá suporte a outro tipo de controle de segurança, ou seja, a capacidade de bloquear recursos. Onde as regras de RBAC permitem controlar as ações de usuários e grupos específicos, os bloqueios de recursos são aplicados ao recurso e são efetivos entre todos os usuários e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+Além do RBAC, o Azure Resource Manager dá suporte a outro tipo de controle de segurança, ou seja, a capacidade de bloquear recursos. Onde as regras de RBAC permitem controlar as ações de usuários e grupos específicos, os bloqueios de recursos são aplicados ao recurso e são efetivos entre todos os usuários e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 Há dois tipos de bloqueio de recurso: **CanNotDelete** e **ReadOnly**. Eles podem ser aplicados a uma zona DNS ou a um conjunto de registros individual.  As seções a seguir descrevem vários cenários comuns e como dar suporte a eles usando bloqueios de recursos.
 
@@ -217,4 +217,4 @@ Essa segunda abordagem tem a vantagem de que ela funciona para todas as zonas ac
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre como trabalhar com o RBAC, consulte Introdução [ao gerenciamento de acesso no portal do Azure](../role-based-access-control/overview.md).
-* Para obter mais informações sobre como trabalhar com bloqueios de recursos, consulte [Bloquear recursos com Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+* Para obter mais informações sobre como trabalhar com bloqueios de recursos, consulte [Bloquear recursos com Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

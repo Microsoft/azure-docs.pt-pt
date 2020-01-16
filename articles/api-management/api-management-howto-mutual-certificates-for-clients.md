@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 85eeaaa052604c3198ca2ab8988f9e7a77e2a63d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3680473209b3d65d616879dfbb9080dfbb9c80f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430657"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967406"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs usando a autenticação de certificado de cliente no gerenciamento de API
 
@@ -27,7 +27,12 @@ O gerenciamento de API fornece a capacidade de proteger o acesso a APIs (ou seja
 Para obter informações sobre como proteger o acesso ao serviço de back-end de uma API usando certificados de cliente (ou seja, gerenciamento de API para back-end), consulte [como proteger serviços de back-end usando autenticação de certificado de cliente](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 > [!IMPORTANT]
-> Para receber e verificar os certificados do cliente no nível de consumo, primeiro você deve ativar a configuração "solicitar certificado do cliente" na folha "domínios personalizados", conforme mostrado abaixo.
+> Para receber e verificar certificados de cliente por HTTP/2 nas camadas Developer, Basic, Standard ou Premium, você deve ativar a configuração "negociar certificado de cliente" na folha "domínios personalizados", conforme mostrado abaixo.
+
+![Negociar certificado do cliente](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+
+> [!IMPORTANT]
+> Para receber e verificar os certificados do cliente na camada de consumo, você deve ativar a configuração "solicitar certificado do cliente" na folha "domínios personalizados", conforme mostrado abaixo.
 
 ![Pedir certificado do cliente](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

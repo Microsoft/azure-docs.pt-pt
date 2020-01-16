@@ -2,23 +2,23 @@
 title: Simulação paralela em R com o Azure Batch
 description: Tutorial - instruções passo a passo para executar uma simulação financeira Monte Carlo no Azure Batch com o pacote doAzureParallel de R
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321912"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029203"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação de R paralela com o lote do Azure 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: executar uma simulação paralela em R com o Azure Batch 
 
 Execute as suas cargas de trabalho paralelas em R em escala com [doAzureParallel](https://www.github.com/Azure/doAzureParallel), um pacote de R leve que lhe permite utilizar o Azure Batch diretamente na sua sessão de R. O pacote doAzureParallel foi criado com base no popular pacote de R [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel obtém cada iteração do ciclo foreach e submete-a como tarefa do Azure Batch.
 
@@ -36,7 +36,7 @@ Este tutorial mostra-lhe como implementar um conjunto do Batch e executar um tra
 
 * [RStudio](https://www.rstudio.com/), quer a edição comercial, quer o [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) de código aberto. 
 
-* Uma conta do Azure Batch e uma conta de Armazenamento do Azure. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md). 
+* Uma conta do Azure Batch e uma conta de Armazenamento do Azure. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -256,7 +256,7 @@ O trabalho é eliminado automaticamente depois de terminar. Quando o cluster dei
 stopCluster(cluster)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

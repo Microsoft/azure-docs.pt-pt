@@ -1,14 +1,14 @@
 ---
 title: Ver a atividade do fornecedor de serviços
 description: Os clientes podem exibir a atividade registrada para ver as ações executadas pelos provedores de serviço por meio do gerenciamento de recursos delegado do Azure.
-ms.date: 12/6/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31a9e7ff80623cc59b0a2db5951dff95d3088b05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: de149bddb6917a63d91b1890c0430f64465cb40c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749172"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046109"
 ---
 # <a name="view-service-provider-activity"></a>Ver a atividade do fornecedor de serviços
 
@@ -24,6 +24,9 @@ Você pode [Exibir o log de atividades](../../azure-monitor/platform/activity-lo
 No log de atividades, você verá o nome da operação e seu status, juntamente com a data e a hora em que ele foi executado. O **evento iniciado por** coluna mostra qual usuário realizou a operação, se ele foi um usuário em um locatário do provedor de serviços agindo por meio do gerenciamento de recursos delegado do Azure ou um usuário no próprio locatário do cliente. Observe que o nome do usuário é mostrado, em vez do locatário, ou da função que o usuário foi atribuído para essa assinatura.
 
 A atividade registrada está disponível no portal do Azure nos últimos 90 dias. Para saber como armazenar esses dados por mais de 90 dias, consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](../../azure-monitor/platform/activity-log-collect.md)
+
+> [!NOTE]
+> Os usuários do provedor de serviços aparecem no log de atividades, mas esses usuários e suas atribuições de função não são mostrados no **controle de acesso (iam)** ou ao recuperar informações de atribuição de função por meio de APIs.
 
 ## <a name="set-alerts-for-critical-operations"></a>Definir alertas para operações críticas
 

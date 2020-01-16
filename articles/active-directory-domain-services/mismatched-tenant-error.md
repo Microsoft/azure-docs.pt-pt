@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704552"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979504"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório incompatíveis para domínios gerenciados Azure AD Domain Services existentes
 
@@ -56,7 +56,7 @@ Neste cenário de implantação de exemplo, o contoso Azure AD DS domínio geren
 As duas opções a seguir resolvem o erro de diretório incompatível:
 
 * [Exclua o domínio gerenciado AD DS do Azure](delete-aadds.md) do diretório do Azure ad existente. [Crie um domínio gerenciado do azure AD DS de substituição](tutorial-create-instance.md) no mesmo diretório do AD do Azure que a rede virtual que você deseja usar. Quando estiver pronto, junte-se a todos os computadores adicionados anteriormente ao domínio excluído ao domínio gerenciado recriado.
-* [Mova a assinatura do Azure](../billing/billing-subscription-transfer.md) que contém a rede virtual para o mesmo diretório do Azure AD que o domínio gerenciado do Azure AD DS.
+* [Mova a assinatura do Azure](../cost-management-billing/manage/billing-subscription-transfer.md) que contém a rede virtual para o mesmo diretório do Azure AD que o domínio gerenciado do Azure AD DS.
 
 ## <a name="next-steps"></a>Passos seguintes
 

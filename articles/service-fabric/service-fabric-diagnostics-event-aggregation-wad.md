@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 104fc212dc590c1366b8dd2cd276f70bdadee5db
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614541"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980211"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e coleta de eventos usando o Windows Diagnóstico do Azure
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Para criar um cluster usando o Gerenciador de recursos, você precisa adicionar 
 
 Para ver a configuração de diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy. JSON e procure **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **implantar no Azure** disponível no link anterior.
 
-Como alternativa, você pode baixar o exemplo do Resource Manager, fazer alterações nele e criar um cluster com o modelo modificado usando o comando `New-AzResourceGroupDeployment` em uma janela Azure PowerShell. Consulte o código a seguir para os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [implantar um grupo de recursos com o modelo de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Como alternativa, você pode baixar o exemplo do Resource Manager, fazer alterações nele e criar um cluster com o modelo modificado usando o comando `New-AzResourceGroupDeployment` em uma janela Azure PowerShell. Consulte o código a seguir para os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [implantar um grupo de recursos com o modelo de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Adicionar a extensão de diagnóstico a um cluster existente
 Se você tiver um cluster existente que não tenha o diagnóstico implantado, poderá adicioná-lo ou atualizá-lo por meio do modelo de cluster. Modifique o modelo do Resource Manager que é usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito anteriormente. Modifique o arquivo template. JSON executando as seguintes tarefas:

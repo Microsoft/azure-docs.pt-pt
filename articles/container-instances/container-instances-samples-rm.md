@@ -3,12 +3,12 @@ title: Exemplos de modelo de Azure Resource Manager
 description: Localizar exemplos de modelo de Azure Resource Manager para implantar instâncias de contêiner do Azure em diferentes configurações
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: ddea823525002662363d61a795f34d6094c897d0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533449"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981652"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de Azure Resource Manager para instâncias de contêiner do Azure
 
@@ -26,7 +26,7 @@ Para obter opções de implantação, consulte a seção [implantação](#deploy
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implanta dois contêineres do Linux que compartilham um volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Implanta um contêiner do Linux que clona um repositório do GitHub e o monta como um volume. |
-| [RADIUS][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume secreto. |
+| [secret][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume secreto. |
 | **Redes** ||
 | [Contêiner de UDP exposto][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
 | [Contêiner do Linux com IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
@@ -59,8 +59,8 @@ Você tem várias opções para implantar recursos com modelos do Resource Manag
 [vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-secret
 
 <!-- LINKS - Internal -->
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
-[deploy-portal]: ../azure-resource-manager/resource-group-template-deploy-portal.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-rest]: ../azure-resource-manager/resource-group-template-deploy-rest.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md
+[deploy-portal]: ../azure-resource-manager/templates/deploy-portal.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-rest]: ../azure-resource-manager/templates/deploy-rest.md
 [ref]: /azure/templates/microsoft.containerinstance/containergroups
