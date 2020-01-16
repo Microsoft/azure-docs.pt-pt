@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d26eb0160316737c9ad31d98c8cf23bdcad42d32
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206507"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045727"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Escolher uma solução de balanceamento de carga para nuvens privadas do CloudSimple
 
@@ -37,7 +37,7 @@ Para saber mais sobre como configurar essa solução, consulte o guia de soluç�
 
 Se você optar por executar seu aplicativo em uma implantação híbrida em que a camada de front-end da Web está sendo executada em uma vNet do Azure em sua assinatura do Azure e a camada de BD do aplicativo estiver sendo executada em VMs VMware na nuvem privada do CloudSimple, você poderá usar a carga interna do Azure balanceador (balanceador de carga L4) na frente de suas VMs de camada de BD para o gerenciamento de tráfego.
 
-Para saber mais, consulte a documentação de [Load balancer interno](../load-balancer/load-balancer-overview.md#internalloadbalancer) do Azure.
+Para saber mais, consulte a documentação de [Load balancer interno](../load-balancer/concepts-limitations.md#internalloadbalancer) do Azure.
 
 ## <a name="global-server-load-balancer"></a>Balanceador de carga do servidor global
 
