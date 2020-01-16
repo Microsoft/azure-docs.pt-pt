@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f40b479b66f2fa9a60e084fc0e29f40cef052e99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162521"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965672"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 
@@ -29,7 +29,7 @@ ms.locfileid: "73162521"
 O [SSDs Premium do Azure](../disks-types.md) é a próxima geração de armazenamento que fornece baixa latência e e/s de alta taxa de transferência. Ele funciona melhor para cargas de trabalho com uso intensivo de e/s de chave, como SQL Server em [máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 
 Este artigo fornece planejamento e orientação para a migração de uma máquina virtual que executa o SQL Server para usar o armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows convidadas. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) mostra uma migração completa abrangente de ponta a ponta de como mover VMs maiores para tirar proveito do armazenamento SSD local aprimorado com o PowerShell.
 
@@ -456,7 +456,7 @@ Você deve provisionar o tempo em que você pode executar o failover manual e o 
 > [!NOTE]
 > Você deve interromper todas as instâncias de SQL Server em que os pools de armazenamento são usados antes da execução da validação.
 >
-> ##### <a name="high-level-steps"></a>Etapas de alto nível
+> ##### <a name="high-level-steps"></a>Passos gerais
 >
 
 1. Crie dois novos SQL Servers no novo serviço de nuvem com o armazenamento Premium anexado.
@@ -479,7 +479,7 @@ Você deve provisionar o tempo em que você pode executar o failover manual e o 
 13. Faça os novos nós parceiros de failover automático e failovers de teste.
 14. Remova os nós originais do grupo de disponibilidade.
 
-##### <a name="advantages"></a>Principais
+##### <a name="advantages"></a>Vantagens
 
 * Novos SQL Servers podem ser testados (SQL Server e aplicativo) antes de serem adicionados ao Always On.
 * Você pode alterar o tamanho da VM e personalizar o armazenamento para seus requisitos exatos. No entanto, seria benéfico manter todos os caminhos de arquivo SQL iguais.
@@ -503,7 +503,7 @@ Há um tempo de inatividade quando você transfere aplicativos e usuários para 
 * O tempo necessário para restaurar os backups de log de transações finais para bancos de dados em novos servidores.
 * O tempo necessário para atualizar os aplicativos cliente para usar o novo ouvinte de Always On.
 
-##### <a name="advantages"></a>Principais
+##### <a name="advantages"></a>Vantagens
 
 * Você pode testar o ambiente de produção real, SQL Server e alterações de Build do sistema operacional.
 * Você tem a opção de personalizar o armazenamento e reduzir potencialmente o tamanho da VM. Isso pode resultar em redução de custos.
@@ -536,7 +536,7 @@ Uma estratégia para tempo de inatividade mínimo é pegar um secundário de nuv
 > [!NOTE]
 > Quando desejar que o nó adicionado adicional participe como um parceiro de failover Always On, você precisará adicionar um Ponto de Extremidade do Azure com uma referência ao conjunto de balanceamento de carga. Quando você executa o comando **Add-AzureEndpoint** para fazer isso, as conexões atuais permanecem abertas, mas não é possível estabelecer novas conexões com o ouvinte até que o balanceador de carga seja atualizado. No teste, isso foi visto para os últimos 90 120seconds, isso deve ser testado.
 
-##### <a name="advantages"></a>Principais
+##### <a name="advantages"></a>Vantagens
 
 * Nenhum custo adicional incorrido durante a migração.
 * Uma migração de um para um.
@@ -552,7 +552,7 @@ Uma estratégia para tempo de inatividade mínimo é pegar um secundário de nuv
   * Execute a migração fora da manutenção agendada do Azure.
   * Verifique se você configurou o quorum de cluster corretamente.  
 
-##### <a name="high-level-steps"></a>Etapas de alto nível
+##### <a name="high-level-steps"></a>Passos gerais
 
 Este documento não demonstra um exemplo completo de ponta a ponta, no entanto, o [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) fornece detalhes que podem ser aproveitados para fazer isso.
 
@@ -583,7 +583,7 @@ Considere o seguinte exemplo de uma configuração de Always On híbrida:
 
 ![MultiSite1][9]
 
-##### <a name="advantages"></a>Principais
+##### <a name="advantages"></a>Vantagens
 
 * Você pode utilizar a infraestrutura existente.
 * Você tem a opção de atualizar previamente o armazenamento do Azure no controlador de domínio de DR do Azure primeiro.
@@ -602,7 +602,7 @@ Considere o seguinte exemplo de uma configuração de Always On híbrida:
 
 Este cenário pressupõe que você tenha documentado sua instalação e saiba como o armazenamento é mapeado para fazer alterações nas configurações de cache de disco ideais.
 
-##### <a name="high-level-steps"></a>Etapas de alto nível
+##### <a name="high-level-steps"></a>Passos gerais
 
 ![Multisite2][10]
 

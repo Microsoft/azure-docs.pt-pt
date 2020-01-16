@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784836"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045304"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Traffic Manager
 
@@ -29,7 +29,7 @@ Conforme explicado em [como funciona o Gerenciador de tráfego, o](../traffic-ma
 Portanto, o Gerenciador de tráfego não fornece um endereço IP ou ponto de extremidade para os clientes se conectarem ao. Se você quiser um endereço IP estático para seu serviço, ele deverá ser configurado no serviço, não no Gerenciador de tráfego.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quais tipos de tráfego podem ser roteados usando o Gerenciador de tráfego?
-Conforme explicado em [como funciona o Gerenciador de tráfego](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade do Gerenciador de tráfego pode ser qualquer serviço voltado para a Internet hospedado dentro ou fora do Azure. Portanto, o Traffic Manager pode rotear o tráfego originado da Internet pública para um conjunto de pontos de extremidade que também são voltados para a Internet. Se você tiver pontos de extremidade que estejam dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou fazer com que os usuários façam solicitações de DNS dessas redes internas, você não poderá usar o Gerenciador de tráfego para rotear esse tráfego.
+Conforme explicado em [como funciona o Gerenciador de tráfego](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade do Gerenciador de tráfego pode ser qualquer serviço voltado para a Internet hospedado dentro ou fora do Azure. Portanto, o Traffic Manager pode rotear o tráfego originado da Internet pública para um conjunto de pontos de extremidade que também são voltados para a Internet. Se você tiver pontos de extremidade que estejam dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) ou fazer com que os usuários façam solicitações de DNS dessas redes internas, você não poderá usar o Gerenciador de tráfego para rotear esse tráfego.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gerenciador de tráfego dá suporte a sessões "adesivas"?
 
@@ -390,7 +390,7 @@ Para perfis com qualquer método de roteamento diferente de vários valores:
 |AAAA | AAAA/CNAME |  Ponto de extremidade de destino|
 |AAAA | A | NODATA |
 |CNAME |    CNAME | Ponto de extremidade de destino|
-|CNAME  |A/AAAA | NODATA |
+|CNAME  |A / AAAA | NODATA |
 |
 
 Para perfis com o método de roteamento definido como vários valores:
@@ -406,7 +406,7 @@ Para perfis com o método de roteamento definido como vários valores:
 
 Sim, você pode, com a exceção de que um perfil do tipo de vários valores não pode ser um perfil pai em um conjunto de perfis aninhado.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parei um ponto de extremidade do aplicativo Web no meu perfil do Gerenciador de tráfego, mas não estou recebendo nenhum tráfego mesmo depois de reiniciá-lo. Como posso corrigir isso?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parei um ponto de extremidade do aplicativo Web no meu perfil do Gerenciador de tráfego, mas não estou recebendo nenhum tráfego mesmo depois de reiniciá-lo. Como posso corrigir este problema?
 
 Quando um ponto de extremidade de aplicativo Web do Azure é interrompido, o Gerenciador de tráfego para de verificar sua integridade e reinicia as verificações de integridade somente após detectar que o ponto de extremidade foi reiniciado. Para evitar esse atraso, desabilite e reabilite o ponto de extremidade no perfil do Gerenciador de tráfego depois de reiniciar o ponto de extremidade.
 
@@ -499,9 +499,9 @@ A tabela a seguir descreve o comportamento das verificações de integridade do 
 
 | Status do monitor de perfil filho | Status do monitor de ponto de extremidade pai | Notas |
 | --- | --- | --- |
-| Desabilitado. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é parado, não desabilitado. O estado desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
+| Desativado. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é parado, não desabilitado. O estado desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade de perfil filho está em um estado degradado. |Online: o número de pontos de extremidade online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade online Plus CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints for definido muito alto, o ponto de extremidade sempre será degradado. |
-| Conectar. Pelo menos um ponto de extremidade de perfil filho é um estado online. Nenhum ponto de extremidade está no estado degradado. |Veja acima. | |
+| Online. Pelo menos um ponto de extremidade de perfil filho é um estado online. Nenhum ponto de extremidade está no estado degradado. |Veja acima. | |
 | Verificando pontos. Pelo menos um ponto de extremidade de perfil filho é ' CheckingEndpoint '. Nenhum ponto de extremidade está ' online ' ou ' degradado ' |O mesmo que acima. | |
 | Inativo. Todos os pontos de extremidade de perfil filho estão desabilitados ou interrompidos ou este perfil não tem nenhum ponto de extremidade. |Parada | |
 

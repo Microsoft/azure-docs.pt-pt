@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 866a7fdabaf51738333d8583bea5d0fa9fabf6f2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139862"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969297"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Criação de Perfis de Cliente
 Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Para obter mais informações sobre Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como Azure Data Factory pode resolver problemas comuns de análise.
@@ -29,10 +29,10 @@ A meta da Contoso é identificar oportunidades de venda/venda cruzada com base n
 Nesta solução, a contoso deseja avaliar a eficácia de uma campanha de marketing que foi iniciada recentemente. Começamos com os logs brutos de jogos, processamos-os e enriquecemos-os com dados de localização geográfica, unem-nos com dados de referência de anúncio e os copiamos por último em um banco de dado SQL do Azure para analisar o impacto da campanha.
 
 ## <a name="deploy-solution"></a>Implantar solução
-Tudo o que você precisa para acessar e testar esse caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [conta de armazenamento de BLOBs do Azure](../../storage/common/storage-quickstart-create-account.md)e um [banco de dados SQL do Azure](../../sql-database/sql-database-get-started.md). Você implanta o pipeline de criação de perfil do cliente do bloco pipelines de **exemplo** no Home Page do seu data Factory.
+Tudo o que você precisa para acessar e testar esse caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/), uma [conta de armazenamento de BLOBs do Azure](../../storage/common/storage-account-create.md)e um [banco de dados SQL do Azure](../../sql-database/sql-database-get-started.md). Você implanta o pipeline de criação de perfil do cliente do bloco **pipelines de exemplo** no Home Page do seu data Factory.
 
 1. Crie um data factory ou abra um data factory existente. Confira [copiar dados do armazenamento de BLOBs para o SQL Database usando data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter as etapas para criar um data Factory.
-2. Na folha **Data Factory** do data Factory, clique no bloco pipelines de **exemplo** .
+2. Na folha **Data Factory** do data Factory, clique no bloco **pipelines de exemplo** .
 
     ![Bloco pipelines de exemplo](./media/data-factory-samples/SamplePipelinesTile.png)
 3. Na folha **pipelines de exemplo** , clique na **criação de perfil do cliente** que você deseja implantar.
@@ -42,10 +42,10 @@ Tudo o que você precisa para acessar e testar esse caso de uso simples é uma [
 
     ![Folha de exemplo](./media/data-factory-samples/SampleBlade.png)
 5. Depois de concluir a especificação das definições de configuração, clique em **criar** para criar/implantar os pipelines de exemplo e os serviços/tabelas vinculados usados pelos pipelines.
-6. Você verá o status da implantação no bloco de exemplo em que você clicou anteriormente na folha pipelines de **exemplo** .
+6. Você verá o status da implantação no bloco de exemplo em que você clicou anteriormente na folha **pipelines de exemplo** .
 
     ![Estado da implementação](./media/data-factory-samples/DeploymentStatus.png)
-7. Quando você vir a mensagem **implantação bem-sucedida** no bloco do exemplo, feche a folha pipelines de **exemplo** .  
+7. Quando você vir a mensagem **implantação bem-sucedida** no bloco do exemplo, feche a folha **pipelines de exemplo** .  
 8. Na folha **Data Factory** , você vê que os serviços vinculados, os conjuntos de dados e os pipelines são adicionados à sua data Factory.  
 
     ![Painel Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
@@ -63,6 +63,6 @@ Esta figura descreve como os pipelines de dados aparecem no portal do Azure depo
 
 Neste exemplo, Data Factory é usado para orquestrar atividades que copiam dados de entrada, transformam e processam os dados e geram os dados finais para um banco de dado SQL do Azure.  Você também pode visualizar a rede de pipelines de dados, gerenciá-los e monitorar seu status da interface do usuário.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 Otimizando sua análise de perfil de usuário e alinhando-a com as metas de negócios, a empresa de jogos é capaz de coletar rapidamente os padrões de uso e analisar a eficácia de suas campanhas de marketing.
 

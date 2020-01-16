@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 87cdd3d18fe0e6a3655c8bbc940cdc00fa211e74
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750587"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982255"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -79,7 +79,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
      ![Visão geral da interface de rede](./media/manage-virtual-network/vnet-overview.png)
 
-     Você pode mover uma rede virtual para uma assinatura ou grupo de recursos diferente selecionando **alterar** ao lado de **grupo de recursos** ou **nome da assinatura**. Para saber como mover uma rede virtual, confira [mover recursos para um grupo de recursos ou uma assinatura diferente](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O artigo lista os pré-requisitos e como mover recursos usando o portal do Azure, o PowerShell e o CLI do Azure. Todos os recursos que estão conectados à rede virtual devem ser movidos com a rede virtual.
+     Você pode mover uma rede virtual para uma assinatura ou grupo de recursos diferente selecionando **alterar** ao lado de **grupo de recursos** ou **nome da assinatura**. Para saber como mover uma rede virtual, confira [mover recursos para um grupo de recursos ou uma assinatura diferente](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O artigo lista os pré-requisitos e como mover recursos usando o portal do Azure, o PowerShell e o CLI do Azure. Todos os recursos que estão conectados à rede virtual devem ser movidos com a rede virtual.
    - **Espaço de endereço**: os espaços de endereço atribuídos à rede virtual são listados. Para saber como adicionar e remover um intervalo de endereços para o espaço de endereço, conclua as etapas em [Adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
    - **Dispositivos conectados**: todos os recursos que estão conectados à rede virtual são listados. Na captura de tela anterior, três interfaces de rede e um balanceador de carga estão conectados à rede virtual. Todos os novos recursos criados e conectados à rede virtual são listados. Se você excluir um recurso que estava conectado à rede virtual, ele não aparecerá mais na lista.
    - **Sub-redes**: uma lista de sub-redes que existem na rede virtual é mostrada. Para saber como adicionar e remover uma sub-rede, consulte [gerenciar sub-redes](virtual-network-manage-subnet.md).
@@ -90,8 +90,8 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
    - **Configurações comuns do Azure**: para saber mais sobre as configurações comuns do Azure, consulte as seguintes informações:
      - [Registo de atividades](../azure-monitor/platform/platform-logs-overview.md)
      - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
-     - [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Bloquea](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Bloquea](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Script de automação](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandos**

@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70231372"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895954"
 ---
 ::: zone target="docs"
 
@@ -46,7 +46,7 @@ Neste tutorial, ficará a saber como:
 Antes de começar, certifique-se de que:
 - Concluiu o [Tutorial: Instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Os discos são desbloqueados e ligados a um computador cliente.
-- O computador cliente que é utilizado para copiar dados para os discos tem de executar um [Sistema operativo suportado](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- O computador cliente que é utilizado para copiar dados para os discos tem de executar um [Sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Certifique-se de que o tipo de armazenamento pretendido para os seus dados corresponde aos [Tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Reveja os [Limites dos discos geridos na secção Limites de tamanho dos objetos do Azure](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -255,7 +255,7 @@ Este procedimento opcional pode ser utilizado quando utilizar vários discos e d
 11. Certifique-se de que os dados são divididos por todos os discos de destino. 
  
     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     Se examinar o conteúdo da unidade `n:`, verá que são criadas duas subpastas que correspondem aos dados dos formatos de blobs de blocos e blobs de páginas.
     

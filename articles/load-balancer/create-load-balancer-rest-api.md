@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b52c554617bdcbe88b65639473044eb9c5eb7fa8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077081"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045421"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Criar um balanceador de carga básico do Azure com a REST API
 
-Um balanceador de carga do Azure distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para as instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. O Balanceador de carga está disponível em dois SKUs: básico e Standard. Compreender a diferença entre as duas versões SKU, [comparações de SKU do Balanceador de carga](load-balancer-overview.md#skus).
+Um balanceador de carga do Azure distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para as instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. O Balanceador de carga está disponível em dois SKUs: básico e Standard. Compreender a diferença entre as duas versões SKU, [comparações de SKU do Balanceador de carga](concepts-limitations.md#skus).
  
 Nesta explicação de procedimento mostra como criar um balanceador de carga básico do Azure, utilizando [API REST do Azure](/rest/api/azure/) para ajudar a solicitação de entrada do balanceamento de carga em várias VMs dentro de uma rede virtual do Azure. Estão disponíveis na documentação de referência completa e exemplos adicionais do [referência de REST de Balanceador de carga do Azure](/rest/api/load-balancer/).
  
@@ -33,11 +33,11 @@ Utilize o seguinte pedido HTTP PUT para criar um novo Azure Balanceador de carga
   ```
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
-|Nome  |Em  |Necessário |Tipo |Descrição |
+|Nome  |Em  |Obrigatório |Tipo |Descrição |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  Verdadeiro       |   string      |  As credenciais de subscrição que identificam de forma exclusiva a subscrição do Microsoft Azure. O ID de subscrição faz parte do URI a cada chamada de serviço.      |
-|resourceGroupName     |     path    | Verdadeiro        |  string       |   O nome do grupo de recursos.     |
-|loadBalancerName     |  path       |      Verdadeiro   |    string     |    O nome do Balanceador de carga.    |
+|subscriptionId   |  Caminho       |  Verdadeiro       |   string      |  As credenciais de subscrição que identificam de forma exclusiva a subscrição do Microsoft Azure. O ID de subscrição faz parte do URI a cada chamada de serviço.      |
+|resourceGroupName     |     Caminho    | Verdadeiro        |  string       |   O nome do grupo de recursos.     |
+|loadBalancerName     |  Caminho       |      Verdadeiro   |    string     |    O nome do Balanceador de carga.    |
 |api-version    |   consulta     |  Verdadeiro       |     string    |  Versão de API do cliente.      |
 
 

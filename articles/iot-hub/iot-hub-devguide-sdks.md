@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 01/14/2020
+ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903318"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045145"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar SDKs do Hub IoT do Azure
 
@@ -111,8 +111,8 @@ SDK de serviço do Hub IoT do Azure para node. js:
 
 SDK do serviço de Hub IoT do Azure para Python: 
 
-* Baixar do [Pip](https://pypi.python.org/pypi/azure-iothub-service-client/)
-* [Código fonte](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)
+* Baixar do [Pip](https://pypi.python.org/pypi/azure-iot-hub/)
+* [Código fonte](https://github.com/Azure/azure-iot-sdk-python/tree/master)
 
 SDK do serviço de Hub IoT do Azure para C: 
 

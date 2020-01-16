@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037518"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045818"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: configurar o grupo de disponibilidade na VM de SQL Server do Azure manualmente
 
@@ -74,7 +74,7 @@ Após a conclusão dos pré-requisitos, a primeira etapa é criar um cluster de 
 
    | Página | Definições |
    | --- | --- |
-   | Antes de começar |Usar padrões |
+   | Antes de Começar |Usar padrões |
    | Selecionar servidores |Digite o nome do primeiro SQL Server em **Inserir nome do servidor** e clique em **Adicionar**. |
    | Aviso de validação |Selecione **não. não preciso de suporte da Microsoft para este cluster e, portanto, não quero executar os testes de validação. Quando eu clicar em avançar, continuará criando o cluster**. |
    | Ponto de acesso para administrar o cluster |Digite um nome de cluster, por exemplo **SQLAGCluster1** no **nome do cluster**.|
@@ -318,7 +318,7 @@ Agora você está pronto para configurar um grupo de disponibilidade usando as s
 10. Na página **Resumo** , clique em **concluir**e aguarde enquanto o assistente configura o novo grupo de disponibilidade. Na página **progresso** , você pode clicar em **mais detalhes** para exibir o progresso detalhado. Quando o assistente for concluído, inspecione a página **resultados** para verificar se o grupo de disponibilidade foi criado com êxito.
 
      ![Novo assistente AG, resultados](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. Clique em **fechar** para sair do assistente.
+11. Clique em **Fechar** para sair do assistente.
 
 ### <a name="check-the-availability-group"></a>Verificar o grupo de disponibilidade
 
@@ -348,7 +348,7 @@ Neste ponto, você tem um grupo de disponibilidade com réplicas em duas instân
 
 Em máquinas virtuais do Azure, um grupo de disponibilidade SQL Server requer um balanceador de carga. O balanceador de carga mantém os endereços IP para os ouvintes do grupo de disponibilidade e o cluster de failover do Windows Server. Esta seção resume como criar o balanceador de carga no portal do Azure.
 
-Um Azure Load Balancer pode ser um Standard Load Balancer ou um Load Balancer básico. Standard Load Balancer tem mais recursos do que o Load Balancer básico. Para um grupo de disponibilidade, o Standard Load Balancer será necessário se você usar uma zona de disponibilidade (em vez de um conjunto de disponibilidade). Para obter detalhes sobre a diferença entre os tipos de balanceador de carga, consulte [Load Balancer a comparação de SKU](../../../load-balancer/load-balancer-overview.md#skus).
+Um Azure Load Balancer pode ser um Standard Load Balancer ou um Load Balancer básico. Standard Load Balancer tem mais recursos do que o Load Balancer básico. Para um grupo de disponibilidade, o Standard Load Balancer será necessário se você usar uma zona de disponibilidade (em vez de um conjunto de disponibilidade). Para obter detalhes sobre a diferença entre os tipos de balanceador de carga, consulte [Load Balancer a comparação de SKU](../../../load-balancer/concepts-limitations.md#skus).
 
 1. Na portal do Azure, vá para o grupo de recursos onde estão os servidores SQL e clique em **+ Adicionar**.
 1. Procure **Load Balancer**. Escolha o balanceador de carga publicado pela Microsoft.
@@ -408,7 +408,7 @@ Para configurar o balanceador de carga, você precisa criar um pool de back-end,
    | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 59999 |
    | **Intervalo**  | A quantidade de tempo entre as tentativas de investigação em segundos |5 |
-   | **Limite não íntegro** | O número de falhas de investigação consecutivas que devem ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
+   | **Limiar com funcionamento incorreto** | O número de falhas de investigação consecutivas que devem ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
 
 1. Clique em **OK** para definir a investigação de integridade.
 
@@ -451,7 +451,7 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
    | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 58888 |
    | **Intervalo**  | A quantidade de tempo entre as tentativas de investigação em segundos |5 |
-   | **Limite não íntegro** | O número de falhas de investigação consecutivas que devem ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
+   | **Limiar com funcionamento incorreto** | O número de falhas de investigação consecutivas que devem ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
 
 1. Clique em **OK** para definir a investigação de integridade.
 

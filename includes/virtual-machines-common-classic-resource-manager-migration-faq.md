@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c8629975d375dda32fdd9aee42b4ae09069a2049
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a7a3c6edbbeca96a90f8003fda1b92fc8bf99fec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005426"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021205"
 ---
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
@@ -21,7 +21,7 @@ Não. As VMs (clássicas) são serviços totalmente suportados na disponibilidad
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>O que acontece às minhas VMs se não pretender migrá-las no futuro próximo? 
 
-Não vamos descontinuar as APIs clássicas nem o modelo de recursos atuais. Queremos facilitar a migração, tendo em conta as funcionalidades avançadas que o modelo de implementação Resource Manager disponibiliza. Recomendamos vivamente que reveja [alguns dos avanços](../articles/azure-resource-manager/resource-manager-deployment-model.md) que fazem parte do IaaS no Resource Manager.
+Não vamos descontinuar as APIs clássicas nem o modelo de recursos atuais. Queremos facilitar a migração, tendo em conta as funcionalidades avançadas que o modelo de implementação Resource Manager disponibiliza. Recomendamos vivamente que reveja [alguns dos avanços](../articles/azure-resource-manager/management/deployment-models.md) que fazem parte do IaaS no Resource Manager.
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>O que significa este plano de migração para as minhas ferramentas existentes? 
 
@@ -52,7 +52,7 @@ Durante a migração, os recursos passam da implementação clássica para Resou
 <a name="vault">Quando</a> você move uma VM do modo clássico para o Gerenciador de recursos, os backups feitos antes da migração não serão migrados para a VM do Gerenciador de recursos recém migrado. No entanto, se você quiser manter seus backups de VMs clássicas, siga estas etapas antes da migração. 
 
 1. No cofre dos serviços de recuperação, vá para a guia **itens protegidos** e selecione a VM. 
-2. Clique em parar proteção. Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
+2. Clique em Parar Proteção. Deixe a opção *Eliminar dados de cópia de segurança associados***desmarcada**.
 
 > [!NOTE]
 > Você será cobrado pelo custo da instância de backup até manter os dados. As cópias de backup serão removidas de acordo com o período de retenção. No entanto, a última cópia de backup sempre é mantida até que você exclua explicitamente os dados de backup. É aconselhável verificar o período de retenção da máquina virtual e disparar "excluir dados de backup" no item protegido no cofre depois que o período de retenção terminar. 

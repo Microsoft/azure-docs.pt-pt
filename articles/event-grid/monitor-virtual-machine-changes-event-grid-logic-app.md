@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488618"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982578"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: monitorar alterações de máquina virtual usando a grade de eventos do Azure e os aplicativos lógicos
 
@@ -63,11 +63,11 @@ Neste tutorial, ficará a saber como:
 
    ![Indicar os detalhes da aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | Sim | <*lógica-nome do aplicativo*> | Forneça um nome exclusivo para seu aplicativo lógico. |
+   | **Nome** | Sim | <*logic-app-name*> | Forneça um nome exclusivo para seu aplicativo lógico. |
    | **Subscrição** | Sim | <*Azure-subscription-name*> | Selecione a mesma assinatura do Azure para todos os serviços neste tutorial. |
-   | **Grupo de recursos** | Sim | <*Azure-Resource-group*> | O nome do grupo de recursos do Azure para seu aplicativo lógico, que você pode selecionar para todos os serviços neste tutorial. |
+   | **Grupo de recursos** | Sim | <*Azure-resource-group*> | O nome do grupo de recursos do Azure para seu aplicativo lógico, que você pode selecionar para todos os serviços neste tutorial. |
    | **Localização** | Sim | <*do Azure-region*> | Selecione a mesma região para todos os serviços neste tutorial. |
    |||
 
@@ -98,12 +98,12 @@ Agora, adicione o gatilho de grade de eventos, que você usa para monitorar o gr
 
    ![Fornecer detalhes para a subscrição de eventos](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Subscrição** | Sim | <*evento-Publisher-Azure-Subscription-name*> | Selecione o nome da assinatura do Azure que está associado ao *Publicador de eventos*. Para este tutorial, selecione o nome da assinatura do Azure para sua máquina virtual. |
-   | **Tipo de Recurso** | Sim | *evento de <-Publisher-Azure-Resource-type*> | Selecione o tipo de recurso do Azure para o editor de eventos. Para obter mais informações sobre os tipos de recursos do Azure, consulte [tipos e provedores de recursos do Azure](../azure-resource-manager/resource-manager-supported-services.md). Para este tutorial, selecione o valor `Microsoft.Resources.ResourceGroups` para monitorar os grupos de recursos do Azure. |
-   | **Nome do Recurso** |  Sim | <*Event-Publisher-Azure-Resource-name*> | Selecione o nome do recurso do Azure para o editor de eventos. Essa lista varia de acordo com o tipo de recurso que você selecionou. Para este tutorial, selecione o nome do grupo de recursos do Azure que inclui sua máquina virtual. |
-   | **Item de tipo de evento** |  Não | <*tipos de evento*> | Selecione um ou mais tipos de eventos específicos para filtrar e enviar à sua grade de eventos. Por exemplo, opcionalmente, você pode adicionar esses tipos de evento para detectar quando os recursos são alterados ou excluídos: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Para obter mais informações, consulte estes tópicos: <p><p>- o [esquema de eventos da grade de eventos do Azure para grupos de recursos](../event-grid/event-schema-resource-groups.md) <br>- [entender a filtragem de eventos](../event-grid/event-filtering.md) <br>- [filtrar eventos para a grade de eventos](../event-grid/how-to-filter-events.md) |
+   | **Subscrição** | Sim | <*event-publisher-Azure-subscription-name*> | Selecione o nome da assinatura do Azure que está associado ao *Publicador de eventos*. Para este tutorial, selecione o nome da assinatura do Azure para sua máquina virtual. |
+   | **Tipo de Recurso** | Sim | <*event-publisher-Azure-resource-type*> | Selecione o tipo de recurso do Azure para o editor de eventos. Para obter mais informações sobre os tipos de recursos do Azure, consulte [tipos e provedores de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md). Para este tutorial, selecione o valor `Microsoft.Resources.ResourceGroups` para monitorar os grupos de recursos do Azure. |
+   | **Nome do Recurso** |  Sim | <*event-publisher-Azure-resource-name*> | Selecione o nome do recurso do Azure para o editor de eventos. Essa lista varia de acordo com o tipo de recurso que você selecionou. Para este tutorial, selecione o nome do grupo de recursos do Azure que inclui sua máquina virtual. |
+   | **Item de tipo de evento** |  Não | <*tipos de evento*> | Selecione um ou mais tipos de eventos específicos para filtrar e enviar à sua grade de eventos. Por exemplo, opcionalmente, você pode adicionar esses tipos de evento para detectar quando os recursos são alterados ou excluídos: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Para obter mais informações, veja estes tópicos: <p><p>- o [esquema de eventos da grade de eventos do Azure para grupos de recursos](../event-grid/event-schema-resource-groups.md) <br>- [entender a filtragem de eventos](../event-grid/event-filtering.md) <br>- [filtrar eventos para a grade de eventos](../event-grid/how-to-filter-events.md) |
    | Para adicionar propriedades opcionais, selecione **Adicionar novo parâmetro**e, em seguida, selecione as propriedades desejadas. | Não | {Veja as descrições} | **filtro de prefixo**de * : para este tutorial, deixe essa propriedade vazia. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de prefixo como filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>**filtro de sufixo*** : para este tutorial, deixe essa propriedade vazia. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de sufixo como filtro, por exemplo, uma extensão de nome de ficheiro, quando quiser apenas tipos de ficheiro específicos. <p>**nome da assinatura**do * : para este tutorial, você pode fornecer um nome exclusivo para sua assinatura de evento. |
    |||
 
@@ -196,11 +196,11 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
    > [!TIP]
    > Para selecionar a saída das etapas anteriores no fluxo de trabalho, clique dentro de uma caixa de edição para que a lista de conteúdo dinâmico seja exibida ou selecione **adicionar conteúdo dinâmico**. Para obter mais resultados, selecione **Ver mais** para cada seção na lista. Para fechar a lista de conteúdo dinâmico, selecione **adicionar conteúdo dinâmico** novamente.
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
    | **Para** | Sim | <*destinatário\@domínio*> | Introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto** | Sim | `Resource updated:` **Subject** | Introduza o conteúdo para o assunto do e-mail. Para este tutorial, insira o texto especificado e selecione o campo **assunto** do evento. Aqui, o assunto do e-mail inclui o nome do recurso atualizado (máquina virtual). |
-   | **Corpo** | Sim | `Resource:` **tópico** <p>**tipo de evento** `Event type:`<p>**ID** de `Event ID:`<p>`Time:` **tempo do evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, insira o texto especificado e selecione os campos de **tópico**, **tipo de evento**, **ID**e **hora** do evento para que seu email inclua o recurso que disparou o evento, o tipo de evento, o carimbo de data/hora do evento e a ID do evento para o cumulativo. Para este tutorial, o recurso é o grupo de recursos do Azure selecionado no gatilho. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. |
+   | **Assunto** | Sim | `Resource updated:` **assunto** | Introduza o conteúdo para o assunto do e-mail. Para este tutorial, insira o texto especificado e selecione o campo **assunto** do evento. Aqui, o assunto do e-mail inclui o nome do recurso atualizado (máquina virtual). |
+   | **Corpo** | Sim | `Resource:` **tópico** <p>**tipo de evento** `Event type:`<p>**ID** de `Event ID:`<p>`Time:` **tempo do evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, insira o texto especificado e selecione os campos de **tópico**, **tipo de evento**, **ID**e **hora** do evento para que seu email inclua o recurso que disparou o evento, o tipo de evento, o carimbo de data/hora do evento e a ID do evento para a atualização. Para este tutorial, o recurso é o grupo de recursos do Azure selecionado no gatilho. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. |
    ||||
 
    > [!NOTE]

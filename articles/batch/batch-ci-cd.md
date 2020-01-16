@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449803"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982704"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -192,7 +192,7 @@ O próximo modelo mostra um exemplo de criação de um pool do lote do Azure (os
 
 Por fim, temos um modelo que funciona de forma semelhante a um orquestrador. Este modelo é responsável por implantar os modelos de funcionalidade.
 
-Você também pode saber mais sobre como [criar modelos de Azure Resource Manager vinculados](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) em um artigo separado.
+Você também pode saber mais sobre como [criar modelos de Azure Resource Manager vinculados](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) em um artigo separado.
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure Pipelines também usado para implantar seu aplicativo e a infraestrutura s
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implantando seu aplicativo e a infraestrutura subjacente
 
-Há várias etapas envolvidas na implantação da infraestrutura. Como nós usamos [modelos vinculados](../azure-resource-manager/resource-group-linked-templates.md), esses modelos precisarão ser acessíveis de um ponto de extremidade público (http ou HTTPS). Isso pode ser um repositório no GitHub ou uma conta de armazenamento de BLOBs do Azure ou outro local de armazenamento. Os artefatos de modelo carregados podem permanecer seguros, pois podem ser mantidos em um modo privado, mas acessados usando alguma forma de token SAS (assinatura de acesso compartilhado). O exemplo a seguir demonstra como implantar uma infraestrutura com modelos de um blob de armazenamento do Azure.
+Há várias etapas envolvidas na implantação da infraestrutura. Como nós usamos [modelos vinculados](../azure-resource-manager/templates/linked-templates.md), esses modelos precisarão ser acessíveis de um ponto de extremidade público (http ou HTTPS). Isso pode ser um repositório no GitHub ou uma conta de armazenamento de BLOBs do Azure ou outro local de armazenamento. Os artefatos de modelo carregados podem permanecer seguros, pois podem ser mantidos em um modo privado, mas acessados usando alguma forma de token SAS (assinatura de acesso compartilhado). O exemplo a seguir demonstra como implantar uma infraestrutura com modelos de um blob de armazenamento do Azure.
 
 1. Crie uma **nova definição de versão**e selecione uma definição vazia. Em seguida, precisamos renomear o ambiente recém-criado para algo relevante para nosso pipeline.
 

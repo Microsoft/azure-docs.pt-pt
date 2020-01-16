@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 226151d81319dc4e6f132e76ce2d310f88a484e8
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e8e4bed052ec5b70c441a3ae76f3409c307299e5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087028"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981423"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>A inicialização da VM do Azure está presa no Windows Update
 
 Este artigo ajuda a resolver o problema quando sua VM (máquina virtual) está presa no estágio de Windows Update durante a inicialização. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de recursos. Recomendamos que você use esse modelo para novas implantações em vez de usar o modelo de implantação clássico.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de recursos. Recomendamos que você use esse modelo para novas implantações em vez de usar o modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -55,7 +55,7 @@ Dependendo do número de atualizações que estão sendo instaladas ou revertida
     Por exemplo, se o disco do sistema operacional anexado for a unidade F, execute o seguinte comando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Abra o arquivo C:\temp\Patch_level.txt e, em seguida, leia-o de baixo para cima. Localize a atualização que está no estado **instalação pendente** ou **desinstalação pendente** .  Veja a seguir um exemplo do status da atualização:
+5. Abra o arquivo C:\Temp\ Patch_level. txt e, em seguida, leia-o de baixo para cima. Localize a atualização que está no estado **instalação pendente** ou **desinstalação pendente** .  Veja a seguir um exemplo do status da atualização:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

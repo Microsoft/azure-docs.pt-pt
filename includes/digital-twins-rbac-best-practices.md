@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/15/2020
 ms.custom: include file
-ms.openlocfilehash: e22ca39536e8e5d216d786c9d3c473f13431859f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 893beb0800af0eece4d69e727e427c3e92b79121
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307218"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044955"
 ---
 O controle de acesso baseado em função é uma estratégia de segurança controlada por herança para gerenciar o acesso, as permissões e as funções. As funções descendentes herdam permissões de funções pai. As permissões também podem ser atribuídas sem serem herdadas de uma função pai. Eles também podem ser atribuídos para personalizar uma função, conforme necessário.
 

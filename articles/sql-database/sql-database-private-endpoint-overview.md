@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821298"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045635"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Link privado para o banco de dados SQL do Azure e data warehouse (visualização)
 
@@ -57,7 +57,7 @@ Os pontos de extremidade privados podem ser criados usando o portal, o PowerShel
 ### <a name="approval-process"></a>Processo de aprovação
 Depois que o administrador de rede cria o ponto de extremidade privado (PE), o administrador do SQL pode gerenciar a conexão de ponto de extremidade privado (PEC) para o banco de dados SQL.
 
-1. Navegue até o recurso do SQL Server na portal do Azure.
+1. Navegue até o recurso do SQL Server na portal do Azure de acordo com as etapas mostradas na captura de tela abaixo
 
     - (1) selecione as conexões de ponto de extremidade privado no painel esquerdo
     - (2) mostra uma lista de todas as conexões de ponto de extremidade privado (PECs)
@@ -84,7 +84,7 @@ Para este cenário, suponha que você criou uma VM (máquina virtual) do Azure e
 
 1. [Inicie uma sessão de área de trabalho remota (RDP) e conecte-se à máquina virtual](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
 1. Em seguida, você pode fazer algumas verificações de conectividade básicas para garantir que a VM esteja se conectando ao banco de dados SQL por meio do ponto de extremidade privado usando as seguintes ferramentas:
-    1. Estabelecer
+    1. Telnet
     1. Psping
     1. Nmap
     1. SQL Server Management Studio (SSMS)
@@ -146,8 +146,10 @@ O resultado mostra que um endereço IP está ativo; que corresponde ao endereço
 
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verificar a conectividade usando o SQL Server Management Studio (SSMS)
+> [!NOTE]
+>Use o **FQDN (nome de domínio totalmente qualificado)** do servidor em cadeias de conexão para seus clientes. As tentativas de logon feitas diretamente no endereço IP devem falhar por design.
 
-A última etapa é usar o [SSMS para se conectar ao banco de dados SQL](sql-database-connect-query-ssms.md). Depois de se conectar ao banco de dados SQL usando o SSMS, verifique se você está se conectando a partir do endereço IP privado da VM do Azure executando a seguinte consulta:
+Siga as etapas aqui para usar o [SSMS para se conectar ao banco de dados SQL](sql-database-connect-query-ssms.md). Depois de se conectar ao banco de dados SQL usando o SSMS, verifique se você está se conectando a partir do endereço IP privado da VM do Azure executando a seguinte consulta:
 
 ````
 select client_net_address from sys.dm_exec_connections 

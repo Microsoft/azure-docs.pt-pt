@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466786"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045036"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
@@ -122,7 +122,7 @@ Conforme mostrado no exemplo anterior, você pode retornar mensagens de erro e d
 
 ## <a name="consuming-custom-skills-from-skillset"></a>Consumindo habilidades personalizadas do qualificable
 
-Quando você cria um aprimorador de API Web, pode descrever os cabeçalhos e os parâmetros HTTP como parte da solicitação. O trecho de código a seguir mostra como os parâmetros de solicitação e os cabeçalhos HTTP podem ser descritos como parte da definição do congrau de habilidade.
+Quando você cria um aprimorador de API Web, pode descrever os cabeçalhos e os parâmetros HTTP como parte da solicitação. O trecho de código a seguir mostra como os parâmetros de solicitação e os cabeçalhos HTTP *opcionais* podem ser descritos como parte da definição do congrau de habilidade. Os cabeçalhos HTTP não são um requisito, mas permitem que você adicione recursos de configuração adicionais à sua habilidade e defina-os a partir da definição de conjunto de qualificações.
 
 ```json
 {

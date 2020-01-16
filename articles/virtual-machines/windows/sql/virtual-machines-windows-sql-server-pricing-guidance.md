@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038863"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981720"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Diretrizes de preços para VMs de SQL Server do Azure
 
@@ -47,7 +47,7 @@ Para criar uma VM do Azure SQL Server 2017 com uma dessas imagens, consulte os l
 |---|---|
 | Windows Server 2016 | [VM do Azure para o SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016)<br/>[VM do Azure para SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016) |
 | Red Hat Enterprise Linux | [VM do Azure para o SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74)<br/>[VM do Azure para SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74) |
-| SUSE Linux Enterprise Server | [VM do Azure para o SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2)<br/>[VM do Azure para SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) |
+| Servidor Linux Empresarial SUSE | [VM do Azure para o SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2)<br/>[VM do Azure para SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) |
 | Ubuntu | [VM do Azure para o SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS)<br/>[VM do Azure para SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) |
 
 ## <a name="paid-sql-server-editions"></a>Edições de SQL Server pagas
@@ -57,7 +57,7 @@ Se você tiver uma carga de trabalho de produção não leve, use uma das seguin
 | SQL Server Edition | Carga de trabalho |
 |-----|-----|
 | Web | Sites pequenos |
-| Standard | Cargas de trabalho pequenas a médias |
+| Padrão | Cargas de trabalho pequenas a médias |
 | Enterprise | Cargas de trabalho grandes ou de missão crítica|
 
 Você tem duas opções para pagar SQL Server licenciamento para essas edições: *pague por uso* ou *traga sua própria licença (BYOL)* .
@@ -80,7 +80,7 @@ Para criar uma VM do Azure SQL Server 2017 com uma dessas imagens pagas conforme
 |---|---|
 | Windows Server 2016 | [VM do Azure para a SQL Server 2017 Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016)<br/>[VM do Azure Standard SQL Server 2017](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016)<br/>[VM do Azure do SQL Server 2017 Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016) |
 | Red Hat Enterprise Linux | [VM do Azure para a SQL Server 2017 Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74)<br/>[VM do Azure Standard SQL Server 2017](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74)<br/>[VM do Azure do SQL Server 2017 Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74) |
-| SUSE Linux Enterprise Server | [VM do Azure para a SQL Server 2017 Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2)<br/>[VM do Azure Standard SQL Server 2017](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2)<br/>[VM do Azure do SQL Server 2017 Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2) |
+| Servidor Linux Empresarial SUSE | [VM do Azure para a SQL Server 2017 Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2)<br/>[VM do Azure Standard SQL Server 2017](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2)<br/>[VM do Azure do SQL Server 2017 Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2) |
 | Ubuntu | [VM do Azure para a SQL Server 2017 Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[VM do Azure Standard SQL Server 2017](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[VM do Azure do SQL Server 2017 Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
@@ -139,10 +139,10 @@ O custo de licenciamento de SQL Server está diretamente relacionado ao número 
 
 Há novos tamanhos de máquina que funcionam bem com determinados tipos de cargas de trabalho de SQL Server. Esses tamanhos de máquinas mantêm altos níveis de memória, armazenamento e largura de banda de e/s, mas têm uma contagem de núcleos virtualizados mais baixo. Por exemplo, considere o seguinte exemplo:
 
-| Tamanho da VM | vCPUs | Memória | Máximo de discos | Taxa de transferência de e/s máxima | Custos de licenciamento do SQL | Custos totais (computação + licenciamento) |
+| Tamanho de VM | vCPUs | Memória | Máximo de discos | Taxa de transferência de e/s máxima | Custos de licenciamento do SQL | Custos totais (computação + licenciamento) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS ou 768 MB/s | | |
-| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS ou 768 MB/s | 75% inferior | 57% inferior |
+| **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS ou 768 MB/s | | |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS ou 768 MB/s | Menos 75% | Menos 57% |
 
 > [!IMPORTANT]
 > Este é um exemplo de ponto no tempo. Para obter as especificações mais recentes, consulte os artigos sobre tamanhos de máquina e a página de preços do Azure para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
@@ -151,7 +151,7 @@ No exemplo anterior, você pode ver que as especificações para **Standard_DS14
 
 ### <a name="shut-down-your-vm-when-possible"></a>Desligar sua VM quando possível
 
-Se você estiver usando qualquer carga de trabalho que não seja executada continuamente, considere desligar a máquina virtual durante os períodos inativos. Só paga o que utilizar.
+Se você estiver usando qualquer carga de trabalho que não seja executada continuamente, considere desligar a máquina virtual durante os períodos inativos. Paga apenas o que utilizar.
 
 Por exemplo, se você estiver simplesmente experimentando SQL Server em uma VM do Azure, você não desejará incorrer em encargos deixando-o acidentalmente em execução por semanas. Uma solução é usar o [recurso de desligamento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
@@ -166,7 +166,7 @@ Para outros fluxos de trabalho, considere desligar e reiniciar automaticamente a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter diretrizes gerais de preços do Azure, confira [evitar custos inesperados com cobrança e gerenciamento de custos do Azure](../../../billing/billing-getting-started.md). Para obter os preços das máquinas virtuais mais recentes, incluindo SQL Server, consulte a página de preços do Azure da VM do Azure para [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e VMs do [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Para obter diretrizes gerais de preços do Azure, confira [evitar custos inesperados com cobrança e gerenciamento de custos do Azure](../../../cost-management-billing/manage/getting-started.md). Para obter os preços das máquinas virtuais mais recentes, incluindo SQL Server, consulte a página de preços do Azure da VM do Azure para [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e VMs do [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Para obter uma visão geral do SQL Server em execução em máquinas virtuais do Azure, consulte os seguintes artigos:
 

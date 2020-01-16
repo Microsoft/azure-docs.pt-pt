@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931806"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979704"
 ---
 # <a name="payout-reporting"></a>Relatório de pagamento
 
@@ -52,7 +52,7 @@ Se você vender ofertas no Azure Marketplace, também verá informações sobre 
 | A transação não está pronta para pagamento | Cobrança em andamento | Próximo pagamento estimado: o status do pagamento está no estado não processado.  |
 | Status do pagamento |  | Não processados <br> A conquista está qualificada para pagamento. Ele permanece nesse estado por um período de resfriamento, conforme definido no guia do programa do programa de incentivo. <br> <br> Cerimônia <br> Ordem de pagamento-revisões internas pendentes geradas antes de o pagamento ser processado. <br> <br> Enviadas: <br> O pagamento foi enviado ao seu banco. |
 
-## <a name="customer-types"></a>Tipos de clientes 
+## <a name="customer-types"></a>Tipos de clientes
 
 ### <a name="enterprise-agreement"></a>Contrato Enterprise
 
@@ -66,7 +66,7 @@ Os clientes também podem pagar usando um cartão de crédito e uma nota fiscal 
 
 Por exemplo, se o cliente comprar usando um cartão de crédito.
 
-## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso 
+## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso
 
 |Descrição    |    Data  | Pedidos/uso  | Dividendos |
 |----------|----------|-----------|-------------|
@@ -74,11 +74,11 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 |Final do termo (mês)   | 30 de agosto de 2019 | | |
 |Data de cobrança | 1 de setembro de 2019 | | |
 |Data de pagamento do cliente | 1 de setembro de 2019 | | |
-|Período de caução (somente cartões de crédito, 30 dias) | 1 de setembro de 2019-30 de setembro de 2019 | | **Pedidos de atributos de correlação:** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Não processados |
+|Período de caução (somente cartões de crédito, 30 dias) | 1 de setembro de 2019-30 de setembro de 2019 | | **Pedidos de atributos de correlação:** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Não processados |
 |Início do período de coleta | 1 de setembro de 2019 | | |
 |Término do período de coleta (máximo, 30 dias) | 30 de setembro de 2019 | | |
-|Data de cálculo do pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Cerimônia |
-|Data do pagamento | 15 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Pagamento enviado |
+|Data de cálculo do pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Cerimônia |
+|Data do pagamento | 15 de outubro de 2019 | | **Atributos de correlação** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** Pagamento enviado |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contrato Enterprise (clientes trimestrais/mensais)
 
@@ -93,37 +93,37 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 |Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2020 | | |
 |Data de pagamento do cliente | 30 de dezembro de 2019 | | |
 |Cálculo de pagamento | 15 de janeiro de 2020 | | |
-|Data do pagamento | 15 de fevereiro de 2020 | | **Para clientes baseados em trimestre** <br> <br> **Relatório de pedidos** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** enviado |
+|Data do pagamento | 15 de fevereiro de 2020 | | **Para clientes baseados em trimestre** <br> <br> **Relatório de pedidos** <br> <ul><li>AssetId</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Status do pagamento:** enviado |
 
 ## <a name="transaction-history-download-export"></a>Exportação de download de histórico de transações
 
-Essa opção fornece um download de cada item de linha de produção que você vê na página Histórico de transações, tipo de conquista, data, valor da transação associada, cliente, produto e outros detalhes transacionais aplicáveis ao programa incentivos. 
+Essa opção fornece um download de cada item de linha de produção que você vê na página Histórico de transações, tipo de conquista, data, valor da transação associada, cliente, produto e outros detalhes transacionais aplicáveis ao programa incentivos.
 
-| Nome da coluna     | Descrição    | 
+| Nome da coluna     | Descrição    |
 |-------------|-------------------------------|
 | ganhandoid                      | Identificador exclusivo para cada conquista                                                                                                       |
-| participante da                  | A principal identidade do parceiro ganhando sob o programa                                                                            | 
-| participantIdType              | Principalmente a ID do programa para programas de incentivo e vendedor se for para os programas da loja e o Azure Marketplace                                          | 
-| participantename                | Nome do parceiro de conquista                                                                                                              | 
+| participante da                  | A principal identidade do parceiro ganhando sob o programa                                                                            |
+| participantIdType              | Principalmente a ID do programa para programas de incentivo e vendedor se for para os programas da loja e o Azure Marketplace                                          |
+| participantename                | Nome do parceiro de conquista                                                                                                              |
 | partnerCountryCode             | Localização/país do parceiro de conquista                                                                                                  |
-| programName                    | Nome do programa de incentivo/loja                                                                                                             | 
-| transactionId                  | Identificador exclusivo para a transação                                                                                                    | 
-| transactionCurrency            | Moeda na qual a transação original do cliente ocorreu (não é a moeda do local do parceiro)                                     | 
-| transactionDate                | Data da transação. Útil para programas em que muitas transações contribuem para uma conquista                                           | 
-| transactionExchangeRate        | Taxa de câmbio usada para mostrar a transação correspondente valor USD                                                                 | 
-| transactionAmount              | Valor da transação na moeda da transação original com base na qual a conquista é gerada                                              | 
-| transactionAmountUSD           | Valor da transação em USD                                                                                                                | 
-| alavanca                          | Indica a regra de negócio para a conquista                                                                                                  | 
-| earningRate                    | Taxa de incentivo aplicada ao valor da transação para gerar uma conquista                                                                      | 
-| quantidade                       | Varia de acordo com o programa. Indica a quantidade cobrada para programas transacionais                                                            | 
+| programName                    | Nome do programa de incentivo/loja                                                                                                             |
+| transactionId                  | Identificador exclusivo para a transação                                                                                                    |
+| transactionCurrency            | Moeda na qual a transação original do cliente ocorreu (não é a moeda do local do parceiro)                                     |
+| transactionDate                | Data da transação. Útil para programas em que muitas transações contribuem para uma conquista                                           |
+| transactionExchangeRate        | Taxa de câmbio usada para mostrar a transação correspondente valor USD                                                                 |
+| transactionAmount              | Valor da transação na moeda da transação original com base na qual a conquista é gerada                                              |
+| transactionAmountUSD           | Valor da transação em USD                                                                                                                |
+| alavanca                          | Indica a regra de negócio para a conquista                                                                                                  |
+| earningRate                    | Taxa de incentivo aplicada ao valor da transação para gerar uma conquista                                                                      |
+| quantidade                       | Varia de acordo com o programa. Indica a quantidade cobrada para programas transacionais                                                            |
 | quanttype                   | Indica o tipo de quantidade, por exemplo: quantidade cobrada, MAU                                                                                     |
-| ganhandotype                    | Indica se é Tarifa, desconto, Coop, venda etc.                                                                                          | 
+| ganhandotype                    | Indica se é Tarifa, desconto, Coop, venda etc.                                                                                          |
 | earningAmount                  | Conquistando valor na moeda da transação original                                                                                      |
 | earningAmountUSD               | Conquistando valor em USD                                                                                                                    |
 | earningDate                    | Data da conquista                                                                                                                      |
 | calculationDate                | Data em que a conquista foi calculada no sistema                                                                                            |
 | earningExchangeRate            | Taxa de câmbio usada para mostrar o valor USD correspondente                                                                                  |
-| exchangeRateDate               | Data da taxa de câmbio usada para calcular EarningAmount USD                                                                                   | 
+| exchangeRateDate               | Data da taxa de câmbio usada para calcular EarningAmount USD                                                                                   |
 | paymentAmountWOTax             | Valor de conquista (sem imposto) em pagar para moeda somente para pagamentos "enviados"                                                                 |
 | paymentCurrency                | Pague para moeda escolhida pelo parceiro no perfil de pagamento. Mostrado somente para pagamentos enviados                                                   |
 | paymentExchangeRate            | Taxa de câmbio usada para calcular paymentAmountWOTax na moeda de pagamento usando ExchangeRateDate                                            |

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975810"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982694"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
@@ -30,7 +30,7 @@ O tradutor personalizado fornece recursos diferentes para criar um sistema de tr
 
 |Funcionalidade  |Descrição  |
 |---------|---------|
-|[Aproveite a tecnologia de tradução da máquina neural](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Aprimore sua tradução aproveitando a NMT (conversão de máquina neural) fornecida pelo Tradutor personalizado.       |
+|[Aproveite a tecnologia de tradução da máquina neural](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Aprimore sua tradução aproveitando a NMT (conversão de máquina neural) fornecida pelo Tradutor personalizado.       |
 |[Crie sistemas que conhecem sua terminologia de negócios](what-are-parallel-documents.md)     |  Personalize e crie sistemas de tradução usando documentos paralelos, que compreendem as terminologias usadas em seu próprio negócio e setor.       |
 |[Usar um dicionário para criar seus modelos](what-is-dictionary.md)     |   Se você não tiver um conjunto de dados de treinamento, poderá treinar um modelo com apenas os dados do dicionário.       |
 |[Colabore com outras pessoas](how-to-manage-settings.md#share-your-workspace)     |   Colabore com sua equipe compartilhando seu trabalho com pessoas diferentes.     |
@@ -38,7 +38,7 @@ O tradutor personalizado fornece recursos diferentes para criar um sistema de tr
 
 ## <a name="get-better-translations"></a>Obter traduções melhores
 
-O Microsoft Translator liberou a [conversão de máquina neural (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) em 2016. A NMT forneceu grandes avanços na qualidade da tradução em relação à tecnologia [SMT (conversão de máquina estatística)](https://en.wikipedia.org/wiki/Statistical_machine_translation) padrão do setor. Como o NMT captura melhor o contexto de frases completas antes de translada-las, ele fornece maior qualidade, mais sons humanos e mais traduções fluentes. O [Tradutor personalizado](https://portal.customtranslator.azure.ai) fornece NMT para seus modelos personalizados, resultando em melhor qualidade de tradução.
+O Microsoft Translator liberou a [conversão de máquina neural (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) em 2016. A NMT forneceu grandes avanços na qualidade da tradução em relação à tecnologia [SMT (conversão de máquina estatística)](https://en.wikipedia.org/wiki/Statistical_machine_translation) padrão do setor. Como o NMT captura melhor o contexto de frases completas antes de translada-las, ele fornece maior qualidade, mais sons humanos e mais traduções fluentes. O [Tradutor personalizado](https://portal.customtranslator.azure.ai) fornece NMT para seus modelos personalizados, resultando em melhor qualidade de tradução.
 
 Você pode usar documentos traduzidos anteriormente para criar um sistema de tradução. Esses documentos incluem terminologia e estilo específicos de domínio, melhor do que um sistema de tradução padrão. Os usuários podem carregar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX e XLSX.
 

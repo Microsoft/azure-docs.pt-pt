@@ -4,15 +4,15 @@ description: Saiba o que deve ser considerado ao planejar uma implantação de a
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665265"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046094"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -347,13 +347,13 @@ Na tabela a seguir, fornecemos o tamanho do namespace, bem como uma conversão p
 | Tamanho do namespace-arquivos & diretórios (milhões)  | Capacidade típica (TiB)  | Núcleos de CPU  | Memória recomendada (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (sincronização inicial)/2 (variação típica)      |
-| 5        | 2.3     | 2        | 16 (sincronização inicial)/4 (rotatividade típica)    |
-| 10       | 4.7     | 4        | 32 (sincronização inicial)/8 (variação típica)   |
-| 30       | 14,0    | 8        | 48 (sincronização inicial)/16 (variação típica)   |
-| 50       | 23,3    | 16       | 64 (sincronização inicial)/32 (variação típica)  |
-| 100 *     | 46,6    | 32       | 128 (sincronização inicial)/32 (variação típica)  |
+| 5        | 2.4     | 2        | 16 (sincronização inicial)/4 (rotatividade típica)    |
+| 10       | 4.8     | 4        | 32 (sincronização inicial)/8 (variação típica)   |
+| 30       | 14,3    | 8        | 48 (sincronização inicial)/16 (variação típica)   |
+| 50       | 23,8    | 16       | 64 (sincronização inicial)/32 (variação típica)  |
+| 100 *     | 47,7   | 32       | 128 (sincronização inicial)/32 (variação típica)  |
 
-Não há suporte para \*mais de 100 milhões arquivos & diretórios no momento. Esse é um limite flexível.
+\*mais de 100 milhões arquivos & diretórios não foram testados. Esse é um limite flexível.
 
 > [!TIP]
 > A sincronização inicial de um namespace é uma operação intensiva e é recomendável alocar mais memória até que a sincronização inicial seja concluída. Isso não é necessário, mas pode acelerar a sincronização inicial. 

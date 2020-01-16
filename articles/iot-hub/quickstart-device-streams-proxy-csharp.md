@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084354"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045969"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início rápido: habilitar SSH e RDP em um fluxo de dispositivo do Hub IoT C# usando um aplicativo proxy (versão prévia)
 
@@ -51,7 +51,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
-  * EUA Central
+  * Centro dos E.U.A.
   * EUA Central EUAP
   * Sudeste Asiático
   * Europa do Norte
@@ -152,7 +152,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>Executar o aplicativo de proxy local de serviço
 
-Em outra janela do terminal local, navegue até `device-streams-proxy/service` em sua pasta de projeto descompactada. Mantenha as seguintes informações à mão:
+Em outra janela do terminal local, navegue até `iot-hub/quickstarts/device-streams-proxy/service` em sua pasta de projeto descompactada. Mantenha as seguintes informações à mão:
 
 | Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|
@@ -261,7 +261,7 @@ Agora, use seu aplicativo cliente RDP e conecte-se ao aplicativo de proxy local 
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, implantou aplicativos proxy locais e de serviço local para estabelecer um fluxo de dispositivo por meio do Hub IoT e usou os aplicativos de proxy para encapsular o tráfego SSH ou RDP. O mesmo paradigma pode acomodar outros protocolos cliente-servidor, onde o servidor é executado no dispositivo (por exemplo, o daemon SSH).
 

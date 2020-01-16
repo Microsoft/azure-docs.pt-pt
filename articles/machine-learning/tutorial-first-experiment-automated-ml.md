@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533462"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982426"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
         Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>&nbsp;de validação cruzada de &nbsp;k-fold <br> <br> Número de validações: 2
         Simultaneidade| O número máximo de iterações paralelas executadas e núcleos usados por iteração| Máximo&nbsp;iterações de&nbsp;simultâneas: 5<br> Máximo de núcleos de&nbsp;&nbsp;por iteração de&nbsp;: nenhum
         
-        Selecione **OK**.
+        Selecione **Guardar**.
 
-1. Selecione **criar** para executar o experimento. A tela **executar detalhes** é aberta com o **status de execução** à medida que a preparação do experimento é iniciada.
+1. Selecione **concluir** para executar o experimento. A tela **executar detalhes** é aberta com o **status de execução** à medida que a preparação do experimento é iniciada.
 
 >[!IMPORTANT]
 > A preparação leva de **10-15 minutos** para preparar a execução do experimento.

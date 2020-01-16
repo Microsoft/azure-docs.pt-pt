@@ -15,20 +15,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5829ca41aaa4bd61f8878657e5eedbf6351b5df4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 701f1f7c26731f3e9653955907f5f16d2688cdb2
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423568"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043432"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>API Web que chama APIs da Web – chamar uma API
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API Web que chama APIs da Web: chamar uma API
 
-Depois de ter um token, você pode chamar uma API Web protegida. Isso é feito a partir do controlador de sua API Web do ASP.NET/ASP.NET Core.
+Depois de ter um token, você pode chamar uma API Web protegida. Faça isso no controlador de sua API Web do ASP.NET ou do ASP.NET Core.
 
 ## <a name="controller-code"></a>Código do controlador
 
-Aqui está a continuação do código de exemplo mostrado em [API Web protegida chama APIs da Web-adquirindo um token](scenario-web-api-call-api-acquire-token.md), chamado nas ações dos controladores de API, chamando uma API downstream (chamada ToDoList).
+O código a seguir continua o código de exemplo mostrado em [uma API Web que chama APIs da Web: adquirir um token para o aplicativo](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores de API. Ele chama uma API downstream chamada *ToDoList*.
 
 Depois de adquirir o token, use-o como um token de portador para chamar a API downstream.
 
@@ -49,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
  }
 ...
 
-// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+// After the token has been returned by Microsoft Authentication Library (MSAL), add it to the HTTP authorization header before making the call to access the To Do list service.
 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
 // Call the To Do list service.
@@ -61,4 +61,4 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-web-api-call-api-production.md)
+> [Uma API Web que chama APIs da Web: mover para produção](scenario-web-api-call-api-production.md)

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103308"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045353"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solucionando problemas de erros de limitação de API 
 
@@ -26,9 +26,9 @@ As solicitações de computação do Azure podem ser limitadas em uma assinatura
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitação por Azure Resource Manager provedores de recursos vs  
 
-Como a porta de frente para o Azure, Azure Resource Manager faz a autenticação e a validação de primeiro pedido e a limitação de todas as solicitações de API de entrada. Azure Resource Manager limites de taxa de chamada e cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
+Como a porta de frente para o Azure, Azure Resource Manager faz a autenticação e a validação de primeiro pedido e a limitação de todas as solicitações de API de entrada. Azure Resource Manager limites de taxa de chamada e cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
  
-Quando um cliente de API do Azure recebe um erro de limitação, o status HTTP é 429 muitas solicitações. Para entender se a limitação da solicitação é feita por Azure Resource Manager ou por um provedor de recursos subjacente como a `x-ms-ratelimit-remaining-subscription-reads` CRP, inspecione o `x-ms-ratelimit-remaining-subscription-writes` para obter solicitações de Get e cabeçalhos de resposta para solicitações que não são de obtenção. Se a contagem de chamadas restante estiver se aproximando de 0, o limite de chamada geral da assinatura definido por Azure Resource Manager foi atingido. As atividades por todos os clientes de assinatura são contadas em conjunto. Caso contrário, a limitação é proveniente do provedor de recursos de destino (aquele abordado `/providers/<RP>` pelo segmento da URL de solicitação). 
+Quando um cliente de API do Azure recebe um erro de limitação, o status HTTP é 429 muitas solicitações. Para entender se a limitação da solicitação é feita por Azure Resource Manager ou por um provedor de recursos subjacente como a CRP, inspecione a `x-ms-ratelimit-remaining-subscription-reads` para obter solicitações GET e `x-ms-ratelimit-remaining-subscription-writes` cabeçalhos de resposta para solicitações que não são de GET. Se a contagem de chamadas restante estiver se aproximando de 0, o limite de chamada geral da assinatura definido por Azure Resource Manager foi atingido. As atividades por todos os clientes de assinatura são contadas em conjunto. Caso contrário, a limitação é proveniente do provedor de recursos de destino (aquele abordado pelo segmento de `/providers/<RP>` da URL de solicitação). 
 
 ## <a name="call-rate-informational-response-headers"></a>Cabeçalhos de resposta informativos de taxa de chamada 
 
@@ -38,7 +38,7 @@ Quando um cliente de API do Azure recebe um erro de limitação, o status HTTP �
 | x-MS-Request-encargos               | ```<count>```                             | 1                                     | O número de chamadas conta "cobrado" para essa solicitação HTTP para o limite da política aplicável. Geralmente, isso é 1. Solicitações em lote, como para dimensionar um conjunto de dimensionamento de máquinas virtuais, podem cobrar várias contagens. |
 
 
-Observe que uma solicitação de API pode estar sujeita a várias políticas de limitação. Haverá um cabeçalho separado `x-ms-ratelimit-remaining-resource` para cada política. 
+Observe que uma solicitação de API pode estar sujeita a várias políticas de limitação. Haverá um cabeçalho de `x-ms-ratelimit-remaining-resource` separado para cada política. 
 
 Aqui está uma resposta de exemplo para excluir a solicitação do conjunto de dimensionamento de máquinas virtuais.
 
@@ -73,9 +73,9 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-A política com a contagem de chamadas restante de 0 é a devida à qual o erro de limitação é retornado. Nesse caso, isso é `HighCostGet30Min`. O formato geral do corpo da resposta é o formato de erro de API Azure Resource Manager geral (compatível com OData). O código de erro principal `OperationNotAllowed`,, é o que um provedor de recursos de computação usa para relatar erros de limitação (entre outros tipos de erros de cliente). A `message` propriedade dos erros internos contém uma estrutura JSON serializada com os detalhes da violação de limitação.
+A política com a contagem de chamadas restante de 0 é a devida à qual o erro de limitação é retornado. Nesse caso, é `HighCostGet30Min`. O formato geral do corpo da resposta é o formato de erro de API Azure Resource Manager geral (compatível com OData). O código de erro principal, `OperationNotAllowed`, é usado por um provedor de recursos de computação para relatar erros de limitação (entre outros tipos de erros de cliente). A propriedade `message` dos erros internos contém uma estrutura JSON serializada com os detalhes da violação de limitação.
 
-Conforme ilustrado acima, cada erro de limitação `Retry-After` inclui o cabeçalho, que fornece o número mínimo de segundos que o cliente deve aguardar antes de repetir a solicitação. 
+Conforme ilustrado acima, cada erro de limitação inclui o cabeçalho `Retry-After`, que fornece o número mínimo de segundos que o cliente deve aguardar antes de repetir a solicitação. 
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taxa de chamadas da API e acelerador de erros de limitação
 Uma versão de visualização de um recurso de solução de problemas está disponível para a API do provedor de recursos de computação. Esses cmdlets do PowerShell fornecem estatísticas sobre a taxa de solicitação de API por intervalo de tempo por operação e violações de limitação por grupo de operação (política):
@@ -95,8 +95,8 @@ Os cmdlets do PowerShell estão usando uma API de serviço REST, que pode ser fa
 - Em casos de automação de API de alto volume, considere a possibilidade de implementar a autolimitação do lado do cliente proativo quando a contagem de chamadas disponível para um grupo de operações de destino cair abaixo de um limite baixo. 
 - Ao rastrear operações assíncronas, respeite as dicas de cabeçalho Retry-After. 
 - Se o código do cliente precisar de informações sobre uma máquina virtual específica, consulte a VM diretamente em vez de listar todas as VMs no grupo de recursos que a contém ou toda a assinatura e, em seguida, escolher a VM necessária no lado do cliente. 
-- Se o código do cliente precisar de VMs, discos e instantâneos de um local específico do Azure, use o formulário baseado na localização da consulta em vez de consultar todas as VMs de assinatura e, em seguida `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` , filtrar por local no lado do cliente: consulta para o provedor de recursos de computação regional extremidade. 
--   Ao criar ou atualizar recursos de API em particular, VMs e conjuntos de dimensionamento de máquinas virtuais, é muito mais eficiente rastrear a operação assíncrona retornada para conclusão do que a sondagem na própria URL do `provisioningState`recurso (com base no).
+- Se o código do cliente precisar de VMs, discos e instantâneos de um local específico do Azure, use o formulário baseado na localização da consulta em vez de consultar todas as VMs de assinatura e, em seguida, filtrar por local no lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta para computar pontos de extremidade regionais do provedor de recursos. 
+-   Ao criar ou atualizar recursos de API em particular, VMs e conjuntos de dimensionamento de máquinas virtuais, é muito mais eficiente rastrear a operação assíncrona retornada para conclusão do que a sondagem na própria URL do recurso (com base no `provisioningState`).
 
 ## <a name="next-steps"></a>Passos seguintes
 

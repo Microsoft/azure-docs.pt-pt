@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: f2fda893ad84aaf9d11d26d761f5395c7f5650d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a85ec565077ac229cd24bb7b9cf753015aa56ebf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666377"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024856"
 ---
 # <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Detecção de ameaças para computação nativa em nuvem na central de segurança do Azure
 
@@ -36,7 +36,7 @@ A central de segurança usa a escala da nuvem para identificar os ataques que vi
 
 Usando a visibilidade que o Azure tem como um provedor de nuvem, a central de segurança analisa os logs internos do serviço de aplicativo para identificar a metodologia de ataque em vários destinos. Por exemplo, a metodologia inclui verificação generalizada e ataques distribuídos. Esse tipo de ataque normalmente vem de um pequeno subconjunto de IPs e mostra padrões de rastreamento para pontos de extremidade semelhantes em vários hosts. Os ataques estão procurando uma página ou um plug-in vulnerável e não podem ser identificados no ponto de vista de um único host.
 
-A central de segurança também tem acesso às áreas restritas e VMs subjacentes. Junto com a análise forense de memória, a infra-estrutura pode contar a história, desde um novo ataque que está circulando de forma a comprometimento nas máquinas dos clientes. Portanto, mesmo que a central de segurança seja implantada depois que um aplicativo Web for explorado, ele poderá detectar ataques contínuos.
+Se você estiver executando um plano do serviço de aplicativo baseado no Windows, a central de segurança também terá acesso às áreas restritas e VMs subjacentes. Junto com os dados de log mencionados acima, a infra-estrutura pode contar a história, desde um novo ataque que está circulando de forma a comprometimentos nas máquinas dos clientes. Portanto, mesmo que a central de segurança seja implantada depois que um aplicativo Web for explorado, ele poderá detectar ataques contínuos.
 
 Para obter uma lista dos alertas de serviço Azure App, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-azureappserv).
 
@@ -64,3 +64,7 @@ Detectamos ameaças em diferentes níveis:
     Para obter uma lista dos alertas de nível de cluster AKS, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-akscluster).
 
 Além disso, nossa equipe global de pesquisadores de segurança monitora constantemente o panorama de ameaças. Eles adicionam alertas e vulnerabilidades específicos do contêiner à medida que são descobertos.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Para obter mais informações sobre os planos do serviço de aplicativo, consulte [planos do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).

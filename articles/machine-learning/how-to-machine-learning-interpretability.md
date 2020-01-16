@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 7101cef6acd7c7b321fbd31c614063a1fa8fe17a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771875"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968490"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretabilidade de modelo no Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Este pacote usa as técnicas de interpretação desenvolvidas na [interpretaçã
 * **Explicador de imitação**: o explicador de imitação se baseia na ideia de treinar [modelos substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos Blackbox. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de um modelo de caixa preta o mais precisamente possível. O cientista de dados pode interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LGBMExplainableModel), regressão linear (LinearExplainableModel), estocástico gradiente descendente de modelo explicativo (SGDExplainableModel) e árvore de decisão ( DecisionTreeExplainableModel).
 
 
-* **Explicador de importância do recurso de permutação**: a importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular quanto a métrica de desempenho de interesse muda. Quanto maior a alteração, mais importante é esse recurso.
+* **Explicador de importância do recurso de permutação**: a importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular quanto a métrica de desempenho de interesse muda. Quanto maior a alteração, mais importante é esse recurso.
 
 * **Explicador de verde-limão** (`contrib`): com base em [verde](https://github.com/marcotcr/lime)-limão, o explicador de verde-limão usa o algoritmo de verde-limão (explicações de modelo interpretativo) de última geração local para criar modelos substitutos locais. Diferentemente dos modelos substitutos globais, o verde-limão se concentra em treinar modelos substitutos locais para explicar previsões individuais.
 * **Explicador de texto Han** (`contrib`): o explicador de texto Han usa uma rede de atenção hierárquica para obter explicações de modelo de dados de texto para um determinado modelo de texto de caixa preta. Ele treina o modelo substituto de HAN em uma determinada saída prevista do modelo de caixa preta. Depois de treinar globalmente pelo texto corpus, ele adiciona uma etapa de ajuste fino para um documento específico a fim de melhorar a precisão das explicações. O HAN usa um RNN bidirecional com duas camadas de atenção, para a atenção da frase e da palavra. Depois que o DNN é treinado no modelo de caixa preta e ajustado em um documento específico, o usuário pode extrair a palavra importância das camadas de atenção. O HAN é mostrado para ser mais preciso do que verde-limão ou SHAP para dados de texto, mas também mais dispendioso em termos de tempo de treinamento. Foram feitas melhorias para dar ao usuário a opção de inicializar a rede com incorporações de palavras diferenciada para reduzir o tempo de treinamento. O tempo de treinamento pode ser melhorado significativamente com a execução de HAN em uma VM de GPU remota do Azure. A implementação de HAN é descrita em ["redes de atenção hierárquica para classificação de documentos (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).

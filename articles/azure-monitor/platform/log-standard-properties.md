@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932200"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979748"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão em logs de Azure Monitor
 Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](../log-query/logs-structure.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de propriedades. Muitos tipos de dados terão propriedades padrão comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como você pode usá-las em consultas.
@@ -76,10 +76,10 @@ search *
 A propriedade **\_ItemId** mantém um identificador exclusivo para o registro.
 
 
-## <a name="_resourceid"></a>ResourceId \_
+## <a name="_resourceid"></a>\_ResourceId
 A propriedade **\_ResourceId** contém um identificador exclusivo para o recurso ao qual o registro está associado. Isso lhe dá uma propriedade padrão a ser usada para fazer o escopo de sua consulta somente para registros de um recurso específico ou para unir dados relacionados em várias tabelas.
 
-Para recursos do Azure, o valor de **_ResourceId** é a [URL da ID de recurso do Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). A propriedade está atualmente limitada aos recursos do Azure, mas será estendida para recursos fora do Azure, como computadores locais.
+Para recursos do Azure, o valor de **_ResourceId** é a [URL da ID de recurso do Azure](../../azure-resource-manager/templates/template-functions-resource.md). A propriedade está atualmente limitada aos recursos do Azure, mas será estendida para recursos fora do Azure, como computadores locais.
 
 > [!NOTE]
 > Alguns tipos de dados já têm campos que contêm a ID de recurso do Azure ou pelo menos partes dele, como a ID da assinatura. Embora esses campos sejam mantidos para compatibilidade com versões anteriores, é recomendável usar o _ResourceId para executar a correlação cruzada, pois ele será mais consistente.
@@ -110,7 +110,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-A consulta a seguir analisa o **_ResourceId** e agrega os volumes de dados cobrados por assinatura do Azure.
+A consulta a seguir analisa **_ResourceId** e agrega os volumes de dados cobrados por assinatura do Azure.
 
 ```Kusto
 union withsource = tt * 

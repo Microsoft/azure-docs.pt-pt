@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.openlocfilehash: efa19cdd1dd0827fd0e88f533b94f69bd7b99ca9
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 01/15/2020
+ms.openlocfilehash: feda4b3a7f21b581fb4f08aec013f87c0fabb7e5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307215"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044916"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função no Azure digital gêmeos
 

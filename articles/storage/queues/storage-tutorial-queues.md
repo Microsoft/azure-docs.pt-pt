@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721132"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968203"
 ---
-# <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
+# <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: trabalhar com filas do armazenamento do Azure
 
 O armazenamento de filas do Azure implementa filas baseadas em nuvem para habilitar a comunicação entre os componentes de um aplicativo distribuído. Cada fila mantém uma lista de mensagens que podem ser adicionadas por um componente de remetente e processadas por um componente de receptor. Com uma fila, seu aplicativo pode ser dimensionado imediatamente para atender à demanda. Este artigo mostra as etapas básicas para trabalhar com uma fila de armazenamento do Azure.
 
@@ -23,7 +23,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
-> - Criar uma conta do Storage do Azure
+> - Criar uma conta de armazenamento do Azure
 > - Criar a aplicação
 > - Adicionar suporte para código assíncrono
 > - Criar uma fila
@@ -39,15 +39,15 @@ Neste tutorial, ficará a saber como:
 - Baixe e instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 - Se você não tiver uma assinatura atual do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Primeiro, crie uma conta de armazenamento do Azure. Para obter um guia passo a passo para criar uma conta de armazenamento, consulte o início rápido [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) .
+Primeiro, crie uma conta de armazenamento do Azure. Para obter um guia passo a passo para criar uma conta de armazenamento, consulte o início rápido [criar uma conta de armazenamento](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) .
 
 ## <a name="create-the-app"></a>Criar a aplicação
 
 Crie um aplicativo .NET Core chamado **QueueApp**. Para simplificar, esse aplicativo enviará e receberá mensagens por meio da fila.
 
-1. Em uma janela de console (como cmd, PowerShell ou CLI do Azure), use o `dotnet new` comando para criar um novo aplicativo de console com o nome **QueueApp**. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: **Program.cs**.
+1. Em uma janela de console (como CMD, PowerShell ou CLI do Azure), use o comando `dotnet new` para criar um novo aplicativo de console com o nome **QueueApp**. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: **Program.cs**.
 
    ```console
    dotnet new console -n QueueApp
@@ -99,9 +99,9 @@ Como o aplicativo usa recursos de nuvem, o código é executado de forma assínc
 
 1. Na linha de comando no diretório do projeto, digite `code .` para abrir Visual Studio Code no diretório atual. Mantenha a janela de linha de comando aberta. Haverá mais comandos para executar mais tarde. Se você for solicitado a adicionar C# ativos necessários para compilar e depurar, clique no botão **Sim** .
 
-2. Abra o arquivo **QueueApp. csproj** no editor.
+2. Abra o ficheiro **QueueApp.csproj** no editor.
 
-3. Adicione `<LangVersion>7.1</LangVersion>` ao primeiro **PropertyGroup** no arquivo de compilação. Certifique-se de adicionar apenas a marca **langversion** , pois seu **TargetFramework** pode ser diferente dependendo da versão do .net instalada.
+3. Adicione `<LangVersion>7.1</LangVersion>` à primeira **PropertyGroup** no arquivo de compilação. Certifique-se de adicionar apenas a marca **langversion** , pois seu **TargetFramework** pode ser diferente dependendo da versão do .net instalada.
 
    ```xml
    <Project Sdk="Microsoft.NET.Sdk">
@@ -124,18 +124,18 @@ Como o aplicativo usa recursos de nuvem, o código é executado de forma assínc
    static async Task Main(string[] args)
    ```
 
-6. Salve o arquivo **Program.cs** .
+6. Guarde o ficheiro **Program.cs**.
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-1. Instale os pacotes **Microsoft. Azure. Storage. Common** e **Microsoft. Azure. Storage. Queue** no projeto com o `dotnet add package` comando. Execute os seguintes comandos dotnet na pasta do projeto na janela do console.
+1. Instale os pacotes **Microsoft. Azure. Storage. Common** e **Microsoft. Azure. Storage. Queue** no projeto com o comando `dotnet add package`. Execute os seguintes comandos dotnet na pasta do projeto na janela do console.
 
    ```console
    dotnet add package Microsoft.Azure.Storage.Common
    dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
-2. Na parte superior do arquivo **Program.cs** , adicione os namespaces a seguir logo após a `using System;` instrução. Esse aplicativo usa tipos desses namespaces para se conectar ao armazenamento do Azure e trabalhar com filas.
+2. Na parte superior do arquivo **Program.cs** , adicione os namespaces a seguir logo após a instrução `using System;`. Esse aplicativo usa tipos desses namespaces para se conectar ao armazenamento do Azure e trabalhar com filas.
 
    ```csharp
    using System.Threading.Tasks;
@@ -143,7 +143,7 @@ Como o aplicativo usa recursos de nuvem, o código é executado de forma assínc
    using Microsoft.Azure.Storage.Queue;
    ```
 
-3. Salve o arquivo **Program.cs** .
+3. Guarde o ficheiro **Program.cs**.
 
 ### <a name="get-your-connection-string"></a>Obtenha a cadeia de ligação
 
@@ -171,7 +171,7 @@ Adicione a cadeia de conexão ao aplicativo para que ele possa acessar a conta d
 
 1. Volte para Visual Studio Code.
 
-2. Na classe **programa** , adicione um `private const string connectionString =` membro para conter a cadeia de conexão.
+2. Na classe **programa** , adicione um membro `private const string connectionString =` para manter a cadeia de conexão.
 
 3. Após o sinal de igual, Cole o valor da cadeia de caracteres que você copiou anteriormente em seu portal do Azure. O valor **ConnectionString** será exclusivo para sua conta.
 
@@ -264,7 +264,7 @@ Crie um novo método chamado **ReceiveMessageAsync**. Esse método recebe uma me
 
 ## <a name="delete-an-empty-queue"></a>Excluir uma fila vazia
 
-É uma prática recomendada no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos deixados em execução podem custar dinheiro. Se a fila existir, mas estiver vazia, pergunte ao usuário se ele gostaria de excluí-la.
+É uma prática recomendada no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Se a fila existir, mas estiver vazia, pergunte ao usuário se ele gostaria de excluí-la.
 
 1. Expanda o método **ReceiveMessageAsync** para incluir um prompt para excluir a fila vazia.
 
@@ -452,7 +452,7 @@ Aqui está a listagem de código completa para este projeto.
    dotnet run First queue message
    ```
 
-Você deve ver esta saída:
+Deverá ver este resultado:
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
@@ -503,7 +503,7 @@ Você deve ver esta saída:
    C:\Tutorials\QueueApp>_
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

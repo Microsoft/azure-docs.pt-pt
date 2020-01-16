@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: c1de86c1d12109853bb5d6d1aac4143caab9199f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5bcbb8c6845928cf21b5b6a1c04f609305bd7983
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638226"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979535"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Endereços de IP Reservado (implantação clássica)
 
@@ -28,7 +28,7 @@ ms.locfileid: "75638226"
 Para impedir que os endereços IP sejam alterados, você pode reservar um endereço IP. Os IPs reservados podem ser usados somente como um VIP, garantindo que o endereço IP do serviço de nuvem permaneça o mesmo, mesmo que os recursos sejam desligados ou interrompidos (desalocados). Além disso, você pode converter IPs dinâmicos existentes usados como um VIP para um endereço IP reservado.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como reservar um endereço IP público estático usando o [modelo de implantação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/management/deployment-models.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como reservar um endereço IP público estático usando o [modelo de implantação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Para saber mais sobre endereços IP no Azure, leia o artigo [endereços IP](virtual-network-ip-addresses-overview-classic.md) .
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 38e460138fde1de6d8fd57dcab5a88238f0981fe
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751024"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045336"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurar o LVM em uma VM do Linux no Azure
 Este documento explicará como configurar o LVM (Gerenciador de volumes lógicos) em sua máquina virtual do Azure. O LVM pode ser usado no disco do sistema operacional ou nos discos de dados em VMs do Azure, no entanto, por padrão, a maioria das imagens de nuvem não terá o LVM configurado no disco do sistema operacional. As etapas a seguir se concentrarão na configuração do LVM para seus discos de dados.
@@ -172,7 +172,7 @@ Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costum
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL, CentOS & Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

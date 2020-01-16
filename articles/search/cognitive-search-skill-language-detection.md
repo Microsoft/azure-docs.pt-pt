@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e3ec9ea9cfbae314297c5b59f6a07bcebaef6a5c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8439788c63ec1b9feaea148ab52aba498791dc12
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045028"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de linguagem
 
@@ -30,14 +30,14 @@ A detecção de idioma aproveita as bibliotecas de processamento de idioma natur
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. Skills. Text. LanguageDetectionSkill
+Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, você poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para a habilidade de detecção de idioma, poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-Os parâmetros diferenciam maiúsculas de minúsculas.
+Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Entradas     | Descrição |
 |--------------------|-------------|
@@ -49,7 +49,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 |--------------------|-------------|
 | languageCode | O código de idioma ISO 6391 para o idioma identificado. Por exemplo, "en". |
 | LanguageName | O nome do idioma. Por exemplo, "inglês". |
-| placar | Um valor entre 0 e 1. A probabilidade de o idioma ser identificado corretamente. A pontuação pode ser inferior a 1 se a frase tiver idiomas mistos.  |
+| pontuação | Um valor entre 0 e 1. A probabilidade de o idioma ser identificado corretamente. A pontuação pode ser inferior a 1 se a frase tiver idiomas mistos.  |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

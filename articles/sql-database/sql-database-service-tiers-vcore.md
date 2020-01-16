@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895999"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045199"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
 
@@ -142,6 +142,16 @@ Na guia **noções básicas** , selecione o link **configurar banco de dados** n
   
 **Para alterar a geração de hardware de uma instância gerenciada existente**
 
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Na página instância gerenciada, selecione o link do **tipo de preço** posicionado na seção Configurações
+
+![alterar hardware de instância gerenciada](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+Na página **tipo de preço** , você poderá alterar a geração de hardware conforme descrito nas etapas anteriores.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Utilize o seguinte script do PowerShell:
 
 ```powershell-interactive
@@ -178,6 +188,8 @@ Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType
 
 Certifique-se de inserir a ID da assinatura, o nome e o grupo de recursos da instância gerenciada.
 
+---
+
 ### <a name="hardware-availability"></a>Disponibilidade de hardware
 
 #### <a name="gen4gen5-1"></a>Gen4/Gen5
@@ -213,9 +225,9 @@ Na página **noções básicas** , forneça o seguinte:
 
 Na página **detalhes** , forneça o seguinte:
 
-5. Na seção **detalhes do problema** , selecione o link **fornecer detalhes** . 
-6. Para **tipo de cota do banco de dados SQL** **, selecione série M**.
-7. Para **região**, selecione a região para habilitar a série M.
+1. Na seção **detalhes do problema** , selecione o link **fornecer detalhes** . 
+2. Para **tipo de cota do banco de dados SQL** **, selecione série M**.
+3. Para **região**, selecione a região para habilitar a série M.
     Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series).
 
 Solicitações de suporte aprovadas normalmente são atendidas dentro de 5 dias úteis.
