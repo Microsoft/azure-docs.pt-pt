@@ -1,19 +1,15 @@
 ---
 title: Migrar VMs VMware com migração de servidor de migrações do Azure baseada em agente
 description: Saiba como executar uma migração baseada em agente de VMs VMware com migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196285"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028950"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs do VMware para o Azure (baseado em agente)
 
@@ -177,9 +173,9 @@ Verifique se os servidores VMware e as VMs estão em conformidade com os requisi
 > [!NOTE]
 > A migração baseada em agente com a migração de servidor de migrações para Azure baseia-se nos recursos do serviço de Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação Site Recovery.
 
-1. [Verifique](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor do VMware.
-2. [Verificar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) Requisitos de suporte de VM para migração.
-3. Verifique as configurações da VM. As VMs locais que você replica para o Azure devem estar em conformidade com [os requisitos de VM do Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verifique](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) os requisitos do servidor do VMware.
+2. [Verificar](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) Requisitos de suporte de VM para migração.
+3. Verifique as configurações da VM. As VMs locais que você replica para o Azure devem estar em conformidade com [os requisitos de VM do Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -336,7 +332,7 @@ Agora, selecione VMs para migração.
     - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Clique depois em **Seguinte**.
     - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Clique depois em **Seguinte**.
 
-12. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **Tamanho da VM**: se você estiver usando recomendações de avaliação, a lista suspensa tamanho da VM conterá o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**. 
     - **Disco do so**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
@@ -366,7 +362,7 @@ Você pode acompanhar o status do trabalho nas notificações do Portal.
 ![Acompanhar trabalho](./media/tutorial-migrate-vmware-agent/jobs.png)
 
 Você pode monitorar o status de replicação clicando em **replicar servidores** no **Azure migrar: migração de servidor**.
-![](./media/tutorial-migrate-vmware-agent/replicate-servers.png) de replicação do monitor
+![Monitorar a replicação](./media/tutorial-migrate-vmware-agent/replicate-servers.png)
 
 ## <a name="run-a-test-migration"></a>Executar uma migração de teste
 
@@ -450,6 +446,6 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 
 
- ## <a name="next-steps"></a>Passos Seguintes
+ ## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) na estrutura de adoção de nuvem do Azure.

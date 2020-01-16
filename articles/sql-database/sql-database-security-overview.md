@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997331"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978578"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do banco de dados SQL do Azure
 
@@ -39,12 +39,12 @@ Os [pontos de extremidade de serviço de rede virtual](../virtual-network/virtua
 [As regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) permitem que o banco de dados SQL do Azure aceite somente comunicações que são enviadas de sub-redes selecionadas dentro de uma rede virtual.
 
 > [!NOTE]
-> O controle de acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Para obter mais informações sobre a configuração de rede necessária, consulte [conectando-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md)
+> Controlling access with firewall rules does *not* apply to **a managed instance**. Para obter mais informações sobre a configuração de rede necessária, consulte [conectando-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>Gestão de acesso
 
 > [!IMPORTANT]
-> O gerenciamento de bancos de dados e servidores de banco de dados no Azure é controlado pelas atribuições de função da sua conta de usuário do Portal. Para obter mais informações sobre este artigo, consulte [controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).
+> O gerenciamento de bancos de dados e servidores de banco de dados no Azure é controlado pelas atribuições de função da sua conta de usuário do Portal. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -56,55 +56,55 @@ A autenticação é o processo de provar que o usuário é quem alega ser. O ban
 
 - **Autenticação Azure Active Directory**:
 
-    Azure Active Directory autenticação é um mecanismo de conexão com o [banco de dados SQL do Azure](sql-database-technical-overview.md) e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (AD do Azure). A autenticação do Azure AD permite que os administradores gerenciem centralmente as identidades e permissões de usuários de banco de dados junto com outros serviços da Microsoft em um local central. Isso inclui a minimização do armazenamento de senha e permite políticas de rotação de senha centralizadas.
+    Azure Active Directory autenticação é um mecanismo de conexão com o [banco de dados SQL do Azure](sql-database-technical-overview.md) e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (AD do Azure). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Microsoft services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
-     Um administrador de servidor chamado de **Active Directory administrador** deve ser criado para usar a autenticação do Azure AD com o banco de dados SQL. Para obter mais informações, consulte [conectando-se ao banco de dados SQL usando Azure Active Directory autenticação](sql-database-aad-authentication.md). A autenticação do Azure AD dá suporte a contas gerenciadas e federadas. As contas federadas dão suporte a usuários e grupos do Windows para um domínio de cliente federado com o Azure AD.
+     A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
-    As opções de autenticação adicionais do Azure AD disponíveis são [Active Directory autenticação universal para SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) conexões, incluindo [a autenticação multifator](../active-directory/authentication/concept-mfa-howitworks.md) e o [acesso condicional](sql-database-conditional-access.md).
+    Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> O gerenciamento de bancos de dados e servidores no Azure é controlado pelas atribuições de função da sua conta de usuário do Portal. Para obter mais informações sobre este artigo, consulte [controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md). O controle de acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Consulte o seguinte artigo sobre como [se conectar a uma instância gerenciada](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a managed instance**. Please see the following article on [connecting to a managed instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
 ## <a name="authorization"></a>Autorização
 
-A autorização refere-se às permissões atribuídas a um usuário em um banco de dados SQL do Azure e determina o que o usuário tem permissão para fazer. As permissões são controladas adicionando contas de usuário a [funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles) e atribuindo permissões de nível de banco de dados a essas funções ou concedendo ao usuário determinadas [permissões de nível de objeto](/sql/relational-databases/security/permissions-database-engine). Para obter mais informações, consulte [logons e usuários](sql-database-manage-logins.md)
+Authorization refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
 
-Como prática recomendada, crie funções personalizadas quando necessário. Adicione usuários à função com os privilégios mínimos necessários para realizar sua função de trabalho. Não atribua permissões diretamente aos usuários. A conta do administrador do servidor é um membro da função de db_owner interna, que tem permissões extensivas e só deve ser concedida a poucos usuários com tarefas administrativas. Para aplicativos de banco de dados SQL do Azure, use [Executar como](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo chamado ou usar [funções de aplicativo](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Essa prática garante que o aplicativo que se conecta ao banco de dados tenha os privilégios mínimos necessários para o aplicativo. Seguir essas práticas recomendadas também promove a separação de tarefas.
+As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For Azure SQL Database applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
 
 ### <a name="row-level-security"></a>Segurança ao nível da linha
 
-A segurança em nível de linha permite que os clientes controlem o acesso a linhas em uma tabela de banco de dados com base nas características do usuário que está executando uma consulta (por exemplo, associação de grupo ou contexto de execução). A segurança em nível de linha também pode ser usada para implementar conceitos de segurança personalizados baseados em rótulo. Para obter mais informações, veja [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security).
+Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (for example, group membership or execution context). Row-Level Security can also be used to implement custom Label-based security concepts. Para obter mais informações, veja [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
-O banco de dados SQL protege o cliente fornecendo recursos de auditoria e detecção de ameaças.
+SQL Database secures customer data by providing auditing and threat detection capabilities.
 
-### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Auditoria do SQL em logs de Azure Monitor e hubs de eventos
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>SQL auditing in Azure Monitor logs and Event Hubs
 
-A auditoria do banco de dados SQL rastreia as atividades do banco de dados e ajuda a manter a conformidade com os padrões de segurança ao gravar eventos de banco de dados em um log de auditoria em uma conta de armazenamento do Azure do cliente A auditoria permite que os usuários monitorem atividades de banco de dados em andamento, bem como analisem e investiguem atividades históricas para identificar possíveis ameaças ou violações suspeitas de segurança e abuso. Para obter mais informações, consulte Introdução à [auditoria do banco de dados SQL](sql-database-auditing.md).  
+SQL Database auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 
 ### <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
 
-A proteção avançada contra ameaças está analisando seus logs de SQL Server para detectar comportamento incomum e tentativas potencialmente prejudiciais de acessar ou explorar bancos de dados. Os alertas são criados para atividades suspeitas, como injeção de SQL, potencial pós-infiltração de dados e ataques de força bruta ou para anomalias em padrões de acesso para capturar as progressão de privilégio e o uso de credenciais violadas. Os alertas são exibidos na [central de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde os detalhes das atividades suspeitas são fornecidos e recomendações para uma investigação mais detalhada fornecida junto com as ações para atenuar a ameaça. A proteção avançada contra ameaças pode ser habilitada por servidor por uma taxa adicional. Para obter mais informações, consulte Introdução [à proteção avançada contra ameaças do banco de dados SQL](sql-database-threat-detection.md).
+Advanced Threat Protection is analyzing your SQL Server logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
-## <a name="information-protection-and-encryption"></a>Proteção de informações e criptografia
+## <a name="information-protection-and-encryption"></a>Information protection and encryption
 
-### <a name="transport-layer-security-tls-encryption-in-transit"></a>TLS de segurança da camada de transporte (criptografia em trânsito)
+### <a name="transport-layer-security-tls-encryption-in-transit"></a>Transport Layer Security TLS (Encryption-in-transit)
 
-O banco de dados SQL protege o cliente criptografando os dados em movimento com a [segurança da camada de transporte](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-O SQL Server impõe a criptografia (SSL/TLS) em todos os momentos para todas as conexões. Isso garante que todos os dados sejam criptografados "em trânsito" entre o cliente e o servidor, independentemente da configuração de **Encrypt** ou **TrustServerCertificate** na cadeia de conexão.
+Sql Server enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
 
 Como prática recomendada, recomende que, na cadeia de conexão do aplicativo, você especifique uma conexão criptografada e _**não**_ confie no certificado do servidor. Isso força seu aplicativo a verificar o certificado do servidor e, portanto, impede que o aplicativo fique vulnerável a ataques de tipo intermediário.
 
 Por exemplo, ao usar o driver ADO.NET, isso é realizado por meio de **encrypt = true** e **TrustServerCertificate = false**. Se você obter a cadeia de conexão do portal do Azure, ela terá as configurações corretas.
 
 > [!IMPORTANT]
-> Observe que alguns drivers que não são da Microsoft não podem usar o TLS por padrão ou contar com uma versão mais antiga do TLS (< 1.2) para funcionar. Nesse caso, SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir que esses drivers e aplicativos se conectem ao banco de dados SQL, especialmente se você armazená-los. 
+> Observe que alguns drivers que não são da Microsoft não podem usar o TLS por padrão ou contar com uma versão mais antiga do TLS (< 1.2) para funcionar. Nesse caso, SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir que esses drivers e aplicativos se conectem ao banco de dados SQL, especialmente se você armazená-los.
 >
 > Para obter mais informações sobre TLS e conectividade, consulte [Considerações sobre TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

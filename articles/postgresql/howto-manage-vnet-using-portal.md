@@ -6,18 +6,18 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: e3146554cf9fa49e50f6ae24d3c0984bbc081760
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 413c3a7b6fdcda996d3db548fb53f358eb8c71e0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770259"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978282"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerenciar pontos de extremidade de serviço VNet e regras de VNet no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
 Os pontos de extremidade e as regras de serviços de rede virtual (VNet) estendem o espaço de endereço privado de uma rede virtual para o servidor do banco de dados do Azure para PostgreSQL. Para obter uma visão geral dos pontos de extremidade do serviço VNet do banco de dados do Azure para PostgreSQL, incluindo limitações, consulte [pontos de extremidade do serviço de vnet do servidor do banco de dados do Azure para PostgreSQL](concepts-data-access-and-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para PostgreSQL.
 
 > [!NOTE]
-> O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+> Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 > No caso de emparelhamento VNet, se o tráfego estiver fluindo por um gateway de VNet comum com pontos de extremidade de serviço e for supostamente fluir para o par, crie uma regra de ACL/VNet para permitir que as máquinas virtuais do Azure na VNet do gateway acessem o servidor de banco de dados do Azure para PostgreSQL.
 
 
@@ -61,4 +61,4 @@ Os pontos de extremidade e as regras de serviços de rede virtual (VNet) estende
 - Para obter ajuda para se conectar a um servidor de banco de dados do Azure para PostgreSQL, consulte [bibliotecas de conexões para o banco de dados do Azure para PostgreSQL](./concepts-connection-libraries.md)
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

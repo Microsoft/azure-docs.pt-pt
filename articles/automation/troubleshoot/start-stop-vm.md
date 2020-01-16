@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eeaf44b9abe5c8f0343325454f599d282be6c743
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769851"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966693"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solucionar problemas da solução iniciar/parar VMs fora do horário comercial
 
@@ -67,13 +67,13 @@ As implantações podem falhar devido a um dos seguintes motivos:
 Examine a lista a seguir para obter as possíveis soluções para o problema ou os locais a serem examinados:
 
 1. As contas de automação precisam ser exclusivas em uma região do Azure, mesmo se estiverem em grupos de recursos diferentes. Verifique suas contas de automação existentes na região de destino.
-2. Uma política existente impede que um recurso necessário para a solução iniciar/parar VM seja implantado. Vá para as atribuições de política no portal do Azure e verifique se você tem uma atribuição de política que não permite a implantação desse recurso. Para saber mais sobre isso, consulte [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+2. Uma política existente impede que um recurso necessário para a solução iniciar/parar VM seja implantado. Vá para as atribuições de política no portal do Azure e verifique se você tem uma atribuição de política que não permite a implantação desse recurso. Para saber mais sobre isso, consulte [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
 3. Para implantar a solução iniciar/parar VM, sua assinatura precisa ser registrada nos seguintes namespaces de recursos do Azure:
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   Consulte [resolver erros de registro do provedor de recursos](../../azure-resource-manager/resource-manager-register-provider-errors.md) para saber mais sobre erros ao registrar provedores.
+   Consulte [resolver erros de registro do provedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md) para saber mais sobre erros ao registrar provedores.
 4. Se você tiver um bloqueio em seu espaço de trabalho Log Analytics, vá para seu espaço de trabalho no portal do Azure e remova os bloqueios no recurso.
 5. Se as resoluções acima não resolverem o problema, siga as instruções em [atualizar a solução](../automation-solution-vm-management.md#update-the-solution) para reimplantar a solução de início/parada.
 

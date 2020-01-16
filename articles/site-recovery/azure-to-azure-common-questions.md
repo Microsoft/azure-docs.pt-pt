@@ -5,16 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 051e8b0add7cf7ab2c4cb2f02ed4e33ea9a23c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941902"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973813"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
-Este artigo fornece respostas a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando [site Recovery](site-recovery-overview.md). 
+Este artigo fornece respostas a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando [site Recovery](site-recovery-overview.md).
 
 
 ## <a name="general"></a>Geral
@@ -26,7 +26,7 @@ Cada uma das instâncias que está protegida pelo Azure Site Recovery é gratuí
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, terei quaisquer outros custos com o Azure?
 Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, pode ter custos para o Armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também pode ter custos de computação do Azure. Obtenha detalhes completos sobre os preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Onde posso encontrar as práticas recomendadas para a recuperação de desastres de VM do Azure? 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Onde posso encontrar as práticas recomendadas para a recuperação de desastres de VM do Azure?
 1. [Entender a arquitetura do Azure para o Azure](azure-to-azure-architecture.md)
 2. [Examine as configurações com suporte e sem suporte](azure-to-azure-support-matrix.md)
 3. [Configurar a recuperação de desastre para VMs do Azure](azure-to-azure-how-to-enable-replication.md)

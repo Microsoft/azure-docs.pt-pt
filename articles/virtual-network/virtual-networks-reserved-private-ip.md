@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c37c49d8f7e09334014af290bf3a8c8e6d35f04b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a13a0a54e9ded48cc5848843f4c329b2dea90f65
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058360"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975222"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP privado estático interno usando o PowerShell (clássico)
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs em uma rede virtual receberão automaticamente um endereço IP interno de um intervalo que você especificar. Mas, em determinados casos, a especificação de um endereço IP estático para uma VM específica faz sentido. Por exemplo, se sua VM vai executar o DNS ou será um controlador de domínio. Um endereço IP interno estático permanece com a VM mesmo por meio de um estado de interrupção/desprovisionamento. 
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que a maioria das implantações novas usem o [modelo de implantação do Gerenciador de recursos](virtual-networks-static-private-ip-arm-ps.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/management/deployment-models.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que a maioria das implantações novas usem o [modelo de implantação do Gerenciador de recursos](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 > ## <a name="install-the-azure-powershell-service-management-module"></a>Instalar o módulo de gerenciamento de serviços Azure PowerShell
 
-Antes de executar os comandos a seguir, verifique se o [módulo](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
-) de gerenciamento de serviços Azure PowerShell está instalado no computador. Para obter o histórico de versão do módulo de gerenciamento de serviços Azure PowerShell, consulte o [módulo do Azure no Galeria do PowerShell](https://www.powershellgallery.com/packages/Azure/5.3.0).
+Antes de executar os comandos a seguir, verifique se o [módulo de gerenciamento de serviços Azure PowerShell](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+) está instalado no computador. Para obter o histórico de versão do módulo de gerenciamento de serviços Azure PowerShell, consulte o [módulo do Azure no Galeria do PowerShell](https://www.powershellgallery.com/packages/Azure/5.3.0).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Como verificar se um endereço IP específico está disponível
 Para verificar se o endereço IP *10.0.0.7* está disponível em uma vnet denominada *TestVnet*, execute o seguinte comando do PowerShell e verifique o valor de *IsAvailable*.
@@ -51,7 +51,7 @@ Para verificar se o endereço IP *10.0.0.7* está disponível em uma vnet denomi
 > 
 
 ## <a name="how-to-specify-a-static-internal-ip-when-creating-a-vm"></a>Como especificar um IP interno estático ao criar uma VM
-O script do PowerShell abaixo cria um novo serviço de nuvem chamado *TestService*, em seguida, recupera uma imagem do Azure e, em seguida, cria uma VM denominada *TestVM* no novo serviço de nuvem usando a imagem recuperada, define a VM como em uma sub-rede chamada *Subnet-1*, e define *10.0.0.7* como um IP interno estático para a VM:
+O script do PowerShell abaixo cria um novo serviço de nuvem chamado *TestService*, em seguida, recupera uma imagem do Azure e, em seguida, cria uma VM denominada *TestVM* no novo serviço de nuvem usando a imagem recuperada, define a VM como em uma sub-rede chamada *Subnet-1*e define *10.0.0.7* como um IP interno estático para a VM:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 75a11cb5d513438824773a3bfba3b7443300dc05
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5e80b48e43e72bc3eda16a5dcc64f980065c923f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770344"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974111"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Criar e gerenciar pontos de extremidade de serviço de VNet para o banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 Os pontos de extremidade e as regras de serviços de rede virtual (VNet) estendem o espaço de endereço privado de uma rede virtual para o servidor do banco de dados do Azure para PostgreSQL. Usando comandos convenientes da CLI (interface de linha de comando) do Azure, você pode criar, atualizar, excluir, listar e mostrar os pontos de extremidade e as regras do serviço VNet para gerenciar o servidor. Para obter uma visão geral dos pontos de extremidade do serviço VNet do banco de dados do Azure para PostgreSQL, incluindo limitações, consulte [pontos de extremidade do serviço de vnet do servidor do banco de dados do Azure para PostgreSQL](concepts-data-access-and-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para PostgreSQL.
@@ -23,7 +23,7 @@ Para percorrer este guia de instruções, você precisa de:
 - Um [banco de dados do Azure para servidor PostgreSQL e banco de dados](quickstart-create-server-database-azure-cli.md).
 
 > [!NOTE]
-> O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+> Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 > No caso de emparelhamento VNet, se o tráfego estiver fluindo por um gateway de VNet comum com pontos de extremidade de serviço e for supostamente fluir para o par, crie uma regra de ACL/VNet para permitir que as máquinas virtuais do Azure na VNet do gateway acessem o servidor de banco de dados do Azure para PostgreSQL.
 
 
@@ -66,4 +66,4 @@ Depois de executar o script de exemplo, pode ser utilizado o seguinte comando pa
 [!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/delete-postgresql.sh "Delete the resource group.")]
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

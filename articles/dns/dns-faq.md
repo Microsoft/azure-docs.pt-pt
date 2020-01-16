@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: allensu
-ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212019"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974536"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes sobre o DNS do Azure
 
 ## <a name="about-azure-dns"></a>Sobre o DNS do Azure
 
-### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
+### <a name="what-is-azure-dns"></a>O que é o Azure DNS?
 
 O DNS (sistema de nomes de domínio) traduz ou resolve, um nome de site ou serviço para seu endereço IP. O DNS do Azure é um serviço de hospedagem para domínios DNS. Ele fornece a resolução de nomes usando Microsoft Azure infraestrutura. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
@@ -42,7 +42,7 @@ Para obter mais informações, consulte a [página SLA do DNS do Azure](https://
 
 Um domínio é um nome exclusivo no sistema de nomes de domínio. Um exemplo é contoso.com.
 
-Uma zona DNS serve para alojar os registos DNS para um determinado domínio. Por exemplo, o domínio contoso.com pode conter vários registros DNS. Os registros podem incluir mail.contoso.com para um servidor de email e o www\.contoso.com para um site. Esses registros são hospedados na zona DNS contoso.com.
+Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Por exemplo, o domínio contoso.com pode conter vários registros DNS. Os registros podem incluir mail.contoso.com para um servidor de email e o www\.contoso.com para um site. Esses registros são hospedados na zona DNS contoso.com.
 
 Um nome de domínio é *apenas um nome*. Uma zona DNS é um recurso de dados que contém os registros DNS para um nome de domínio. Pode utilizar o DNS do Azure para alojar uma zona DNS e gerir os registos DNS para um domínio no Azure. Ele também fornece servidores de nomes DNS para responder a consultas DNS da Internet.
 
@@ -167,7 +167,7 @@ Sim. As zonas DNS podem ser movidas entre grupos de recursos ou entre assinatura
 
 Não há nenhum efeito nas consultas DNS quando você move uma zona DNS. Os servidores de nomes atribuídos à zona permanecem os mesmos. As consultas DNS são processadas normalmente em todo o processo.
 
-Para obter mais informações e instruções sobre como mover zonas DNS, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+Para obter mais informações e instruções sobre como mover zonas DNS, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Quanto tempo leva para que as alterações de DNS entrem em vigor?
 

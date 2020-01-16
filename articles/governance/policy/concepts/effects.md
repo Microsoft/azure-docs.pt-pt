@@ -3,12 +3,12 @@ title: Entender como os efeitos funcionam
 description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436354"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972803"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
@@ -367,7 +367,7 @@ A propriedade **Details** do efeito DeployIfNotExists tem todas as subpropriedad
   - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (opcional)
   - Valores permitidos são _subscrição_ e _ResourceGroup_.
-  - Define o tipo de implantação a ser disparada. A _assinatura_ indica uma [implantação no nível da assinatura](../../../azure-resource-manager/deploy-to-subscription.md), _resourcegroup_ indica uma implantação em um grupo de recursos.
+  - Define o tipo de implantação a ser disparada. A _assinatura_ indica uma [implantação no nível da assinatura](../../../azure-resource-manager/templates/deploy-to-subscription.md), _resourcegroup_ indica uma implantação em um grupo de recursos.
   - Uma propriedade _Location_ deve ser especificada na _implantação_ ao usar implantações de nível de assinatura.
   - A predefinição é _ResourceGroup_.
 - **Implementação** [necessário]

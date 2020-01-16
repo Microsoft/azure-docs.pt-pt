@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 4170418b4f53277a8f4306fe2835286c8ac99dee
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: ffeb8e1347d75af2be59763faf0b512c0b329221
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186342"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975336"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o roteamento e usar dispositivos virtuais (clássico) usando o PowerShell
 
@@ -33,7 +33,7 @@ ms.locfileid: "74186342"
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Para trabalhar com recursos do Azure, é importante compreender que o Azure tem atualmente dois modelos de implementação: o Azure Resource Manager e a implementação clássica. Confirme que compreende os [modelos e ferramentas de implementação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para diferentes ferramentas selecionando uma opção na parte superior deste artigo. Este artigo abrange o modelo de implementação clássica.
+> Para trabalhar com recursos do Azure, é importante compreender que o Azure tem atualmente dois modelos de implementação: o Azure Resource Manager e a implementação clássica. Confirme que compreende os [modelos e ferramentas de implementação](../azure-resource-manager/management/deployment-models.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para diferentes ferramentas selecionando uma opção na parte superior deste artigo. Este artigo abrange o modelo de implementação clássica.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]

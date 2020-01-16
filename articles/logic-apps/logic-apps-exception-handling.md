@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: a5cfb79626370ab9f8493038ac1583993a154b59
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912051"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965939"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções nos aplicativos lógicos do Azure
 
@@ -249,7 +249,7 @@ Você pode personalizar o comportamento "executar após" de uma ação para que 
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>Avaliar ações com escopos e seus resultados
 
-Semelhante à execução de etapas após ações individuais com a propriedade `runAfter`, você pode agrupar ações em um [escopo](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Você pode usar escopos quando quiser agrupar ações logicamente, avaliar o status agregado do escopo e executar ações com base nesse status. Depois que todas as ações em um escopo terminarem de ser executadas, o próprio escopo obterá seu próprio status. 
+Semelhante à execução de etapas após ações individuais com a propriedade `runAfter`, você pode agrupar ações em um [escopo](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Você pode usar escopos quando quiser agrupar ações logicamente, avaliar o status agregado do escopo e executar ações com base nesse status. Depois que todas as ações em um escopo terminarem de ser executadas, o próprio escopo obterá seu próprio status.
 
 Para verificar o status de um escopo, você pode usar os mesmos critérios usados para verificar o status de execução de um aplicativo lógico, como `Succeeded`, `Failed`e assim por diante.
 
@@ -267,7 +267,7 @@ Embora a captura de falhas de um escopo seja útil, você também pode querer o 
 
 A função [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fornece contexto sobre os resultados de todas as ações em um escopo. A função `result()` aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém todos os resultados da ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o objeto `actions()`, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode facilmente emparelhar uma expressão de `@result()` com a propriedade `runAfter`.
 
-Para executar uma ação para cada ação em um escopo que tenha um resultado de `Failed` e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma expressão `@result()` com uma ação [**Filtrar matriz**](../connectors/connectors-native-query.md) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o loop de `For_each`.
+Para executar uma ação para cada ação em um escopo que tenha um resultado de `Failed` e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma expressão `@result()` com uma ação [**Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o loop de `For_each`.
 
 Veja um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para todas as ações que falharam no escopo "My_Scope":
 

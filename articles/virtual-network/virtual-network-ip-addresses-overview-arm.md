@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: c522e88b5c7a759f72704e44e041c01d8541cc7c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 23db74b1cd157141454692805f9ec306ef89710a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646817"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975196"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -30,7 +30,7 @@ Pode atribuir endereços IP a recursos do Azure para comunicar com outros recurs
 Também pode criar um intervalo de endereços IP públicos estáticos contíguo, por meio de um prefixo IP público. [Saiba mais sobre o prefixo IP público](public-ip-address-prefix.md).
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo explica como utilizar o modelo de implementação Resource Manager, o que é recomendado pela Microsoft para a maioria das novas implementações em vez do [modelo de implementação clássica](virtual-network-ip-addresses-overview-classic.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo explica como utilizar o modelo de implementação Resource Manager, o que é recomendado pela Microsoft para a maioria das novas implementações em vez do [modelo de implementação clássica](virtual-network-ip-addresses-overview-classic.md).
 > 
 
 Se estiver familiarizado com o modelo de implementação clássica, veja as [diferenças dos endereços IP entre a implementação Clássica e Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).

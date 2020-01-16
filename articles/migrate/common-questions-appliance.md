@@ -3,12 +3,12 @@ title: Perguntas comuns sobre o dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo de migrações para Azure
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 29cb390f509a2a4ebf44c1f9aacef99b507aebb8
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720332"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029122"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -40,9 +40,9 @@ Ao criar a VM do dispositivo usando o modelo baixado, você pode adicionar compo
 ## <a name="what-network-connectivity-is-needed"></a>Qual é a conectividade de rede necessária?
 
 Examine o seguinte:
-- Avaliação de VMware do dispositivo: requisitos de acesso de [porta](migrate-support-matrix-vmware.md#assessment-port-requirements) e [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) .
-- Migração de VMware sem agente de dispositivo: requisitos de acesso de [porta](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) e [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) .
-- Avaliação do Hyper-V do dispositivo: requisitos de acesso de [porta](migrate-support-matrix-hyper-v.md#assessment-port-requirements) e [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) .
+- Avaliação do VMware usando o dispositivo de migrações para Azure: requisitos de acesso de [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-vmware.md#port-access) .
+- Migração sem agente do VMware usando o dispositivo de migrações para Azure: requisitos de acesso de [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-vmware-migration.md#agentless-ports) .
+- Avaliação do Hyper-V usando o dispositivo de migrações para Azure: requisitos de acesso de [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-hyper-v.md#port-access) .
 
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quais dados o dispositivo coleta?

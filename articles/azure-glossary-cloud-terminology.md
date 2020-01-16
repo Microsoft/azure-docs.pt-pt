@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659564"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978765"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário de Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -31,7 +31,7 @@ O Glossário de Microsoft Azure é um pequeno dicionário de terminologia de nuv
 
 ## <a name="account"></a>conta
 Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Geralmente, ele é conhecido como uma conta do Azure, embora uma conta possa ser qualquer uma delas: um trabalho existente, escolar ou pessoal conta Microsoft ou um nome de usuário e senha do Office 365. Você também pode criar uma conta para gerenciar uma assinatura do Azure ao se inscrever para a [avaliação gratuita](https://azure.microsoft.com).  
-Consulte [inscrever-se para uma assinatura do Azure com sua conta do Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [contas que você pode usar para entrar](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Consulte [inscrever-se para uma assinatura do Azure com sua conta do Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [contas que você pode usar para entrar](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicação de API
 Outro nome para o [aplicativo do serviço de aplicativo](#app-service-app).
@@ -96,11 +96,11 @@ Confira [regiões do Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
 Um item que faz parte de sua solução do Azure. Cada serviço do Azure permite que você implante diferentes tipos de recursos, como bancos de dados ou máquinas virtuais.   
-Consulte a [visão geral de Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Consulte a [visão geral de Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="resource-group"></a>grupo de recursos
 Um contêiner no Gerenciador de recursos que contém recursos relacionados para um aplicativo. O grupo de recursos pode incluir todos os recursos de um aplicativo ou apenas os recursos que estão logicamente agrupados. Pode decidir como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.  
-Consulte a [visão geral de Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Consulte a [visão geral de Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>Modelo do Resource Manager
 Um arquivo JSON que declarativamente define um ou mais recursos do Azure e que define as dependências entre os recursos implantados. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida.  
@@ -108,7 +108,7 @@ Consulte [criação de modelos de Azure Resource Manager](resource-group-authori
 
 ## <a name="resource-provider"></a>provedor de recursos
 Um serviço que fornece os recursos que você pode implantar e gerenciar por meio do Resource Manager. Cada fornecedor de recursos oferece operações para trabalhar com os recursos implementados. Os provedores de recursos podem ser acessados por meio do portal do Azure, Azure PowerShell e vários SDKs de programação.  
-Consulte a [visão geral de Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Consulte a [visão geral de Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="role"></a>role
 Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e serviços. As funções são capazes de executar ações como criar, gerenciar e ler recursos do Azure.  

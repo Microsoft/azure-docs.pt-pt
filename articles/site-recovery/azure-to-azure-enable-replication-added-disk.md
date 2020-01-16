@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
-ms.openlocfilehash: fd020755ec579b2553bca42db5d050bd442bf6fc
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942309"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973797"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Habilitar a replicação para um disco adicionado a uma VM do Azure
 
@@ -31,9 +31,9 @@ Quando você adiciona um novo disco a uma VM do Azure que está replicando para 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Este artigo pressupõe que você já configurou a recuperação de desastre para a VM à qual você está adicionando o disco. Se você ainda não fez isso, siga o [tutorial de recuperação de desastre do Azure para o Azure](azure-to-azure-tutorial-enable-replication.md). 
+Este artigo pressupõe que você já configurou a recuperação de desastre para a VM à qual você está adicionando o disco. Se você ainda não fez isso, siga o [tutorial de recuperação de desastre do Azure para o Azure](azure-to-azure-tutorial-enable-replication.md).
 
-## <a name="enable-replication-for-an-added-disk"></a>Ativar a replicação para um disco adicionado 
+## <a name="enable-replication-for-an-added-disk"></a>Ativar a replicação para um disco adicionado
 
 Para habilitar a replicação para um disco adicionado, faça o seguinte:
 

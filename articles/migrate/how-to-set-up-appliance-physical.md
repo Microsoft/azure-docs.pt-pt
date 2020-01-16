@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028832"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
@@ -90,7 +90,7 @@ O script iniciará o aplicativo Web do dispositivo quando ele for concluído com
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)necessárias.
+Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access)necessárias.
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo
 

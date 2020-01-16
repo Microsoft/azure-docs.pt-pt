@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748256"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973369"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -51,7 +51,7 @@ Quando os dados são gravados em uma conta de armazenamento com GZRS ou RA-GZRS 
 > [!IMPORTANT]
 > A replicação assíncrona envolve um atraso entre a hora em que os dados são gravados na região primária e quando eles são replicados para a região secundária. No caso de um desastre regional, as alterações que ainda não foram replicadas para a região secundária poderão ser perdidas se esses dados não puderem ser recuperados da região primária.
 
-Ao criar uma conta de armazenamento, você especifica como os dados dessa conta serão replicados e também especifica a região primária dessa conta. A região secundária emparelhada para uma conta replicada geograficamente é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre regiões com suporte do Azure, consulte [continuidade de negócios e recuperação de desastres (BCDR): regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Para obter informações sobre como criar uma conta de armazenamento usando GZRS ou RA-GZRS, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
+Ao criar uma conta de armazenamento, você especifica como os dados dessa conta serão replicados e também especifica a região primária dessa conta. A região secundária emparelhada para uma conta replicada geograficamente é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre regiões com suporte do Azure, consulte [continuidade de negócios e recuperação de desastres (BCDR): regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Para obter informações sobre como criar uma conta de armazenamento usando GZRS ou RA-GZRS, consulte [criar uma conta de armazenamento](storage-account-create.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Usar RA-GZRS para alta disponibilidade
 

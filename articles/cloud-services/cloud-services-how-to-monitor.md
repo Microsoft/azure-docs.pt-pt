@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
-ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386073"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972949"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao monitoramento do serviço de nuvem
 
@@ -52,7 +52,7 @@ O monitoramento avançado envolve o uso da extensão **diagnóstico do Azure** (
 
 ## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico de instalação
 
-Primeiro, se você não tiver uma conta de armazenamento **clássico** , [crie uma](../storage/common/storage-quickstart-create-account.md). Verifique se a conta de armazenamento foi criada com o **modelo de implantação clássico** especificado.
+Primeiro, se você não tiver uma conta de armazenamento **clássico** , [crie uma](../storage/common/storage-account-create.md). Verifique se a conta de armazenamento foi criada com o **modelo de implantação clássico** especificado.
 
 Em seguida, navegue até o recurso **conta de armazenamento (clássico)** . Selecione **configurações** > **chaves de acesso** e copie o valor da **cadeia de conexão primária** . Você precisa desse valor para o serviço de nuvem. 
 

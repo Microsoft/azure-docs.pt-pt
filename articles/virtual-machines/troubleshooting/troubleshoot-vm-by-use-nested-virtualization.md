@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942189"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028423"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 
@@ -26,11 +26,7 @@ Este artigo mostra como criar um ambiente de virtualização aninhado no Microso
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para montar a VM com problema, a VM de resgate deve atender aos seguintes pré-requisitos:
-
--   A VM de resgate deve estar no mesmo local que a VM com problema.
-
--   A VM de resgate deve usar o mesmo tipo de conta de armazenamento (Standard ou Premium) que a VM com problema.
+Para montar a VM com problema, a VM de resgate deve usar o mesmo tipo de conta de armazenamento (Standard ou Premium) que a VM com problema.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Etapa 1: criar uma VM de resgate e instalar a função do Hyper-V
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 84bb33f724622ba994c81b1d09c99b6399fd36ac
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 38459e76cc8f9df8bfb7c15750e138cfd55c453c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913126"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028471"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor de Azure Managed disks
 
@@ -54,29 +54,24 @@ A lista a seguir explica o diagrama ainda mais detalhadamente:
 
 Para revogar o acesso às chaves gerenciadas pelo cliente, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia é inacessível pelo armazenamento do Azure.
 
-### <a name="supported-scenarios-and-restrictions"></a>Cenários e restrições com suporte
+### <a name="supported-regions"></a>Regiões suportadas
 
-Por enquanto, há suporte apenas para os seguintes cenários:
+No momento, há suporte apenas para as seguintes regiões:
 
-- Crie uma VM (máquina virtual) de uma imagem do Azure Marketplace e criptografe o disco do sistema operacional com a criptografia do lado do servidor usando chaves gerenciadas pelo cliente.
-- Crie uma imagem personalizada criptografada com criptografia do lado do servidor e chaves gerenciadas pelo cliente.
-- Crie uma VM com base em uma imagem personalizada e criptografe o disco do sistema operacional usando a criptografia do lado do servidor e as chaves gerenciadas pelo cliente.
-- Crie discos de dados criptografados usando criptografia do lado do servidor e chaves gerenciadas pelo cliente.
-- (Somente CLI/PowerShell) Crie instantâneos que são criptografados usando criptografia do lado do servidor e chaves gerenciadas pelo cliente.
-- Crie conjuntos de dimensionamento de máquinas virtuais criptografados com criptografia do lado do servidor e chaves gerenciadas pelo cliente.
-- [As chaves RSA "soft" e "Hard](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) " do tamanho 2080 têm suporte.
+- Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2 e EUA Central do Sul.
+- Disponível como uma visualização pública nas regiões EUA Central ocidental, leste dos EUA 2, Canadá central e Europa Setentrional.
 
-Por enquanto, também temos as seguintes restrições:
+### <a name="restrictions"></a>Restrições
 
-- Disponível como uma oferta GA no leste dos EUA, oeste dos EUA 2 e EUA Central do Sul.
-- Disponível como uma visualização pública no Oeste EUA Central, leste dos EUA 2, Canadá central e Europa Setentrional.
+Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
+
+- Somente [as chaves RSA "soft" e "Hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080 têm suporte, sem outras chaves ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são criptografadas usando criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados usando as mesmas chaves gerenciadas pelo cliente e devem estar na mesma assinatura.
 - Os instantâneos criados a partir de discos criptografados com criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados com as mesmas chaves gerenciadas pelo cliente.
 - Imagens personalizadas criptografadas usando criptografia do lado do servidor e chaves gerenciadas pelo cliente não podem ser usadas na Galeria de imagens compartilhadas.
 - Todos os recursos relacionados às chaves gerenciadas pelo cliente (cofres de chaves do Azure, conjuntos de criptografia de disco, VMs, discos e instantâneos) devem estar na mesma assinatura e região.
 - Discos, instantâneos e imagens criptografadas com chaves gerenciadas pelo cliente não podem passar para outra assinatura.
 - Se você usar o portal do Azure para criar o conjunto de criptografia de disco, não poderá usar instantâneos por enquanto.
-- Somente [as chaves RSA "soft" e "Hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080 têm suporte, sem outras chaves ou tamanhos.
 
 ### <a name="powershell"></a>PowerShell
 

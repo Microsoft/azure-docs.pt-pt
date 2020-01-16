@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 6e07b82104e5c7ff2d817a90e2be4aa336cf47ce
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 5bd100a5858660d80f3704844ed974f2bc9257b4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942055"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028935"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-server-using-azure-portal"></a>Criptografia de dados para o servidor do Azure para MySQL usando portal do Azure
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832183"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028522"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introdução ao Caching e enriquecimento incremental no Azure Pesquisa Cognitiva
 
@@ -56,14 +56,16 @@ O ciclo de vida do cache é gerenciado pelo indexador. Se a propriedade `cache` 
 
 Embora o aperfeiçoamento incremental seja projetado para detectar e responder a alterações sem intervenção de sua parte, há parâmetros que podem ser usados para substituir os comportamentos padrão:
 
-+ Suspender cache
++ Priorizar novos documentos
 + Ignorar verificações de conferentes
 + Ignorar verificações da fonte de dados
 + Forçar avaliação do conforçador de habilidades
 
-### <a name="suspend-caching"></a>Suspender cache
+### <a name="prioritize-new-documents"></a>Priorizar novos documentos
 
-Temporariamente, você pode suspender o enriquecimento incremental definindo a propriedade `enableReprocessing` no cache como `false`e, posteriormente, retomar a consistência incremental e impulsionar a coerência eventual definindo-a como `true`. Esse controle é particularmente útil quando você deseja priorizar a indexação de novos documentos em relação à garantia de consistência em seus corpus de documentos.
+Defina a propriedade `enableReprocessing` para controlar o processamento de documentos de entrada já representados no cache. Quando `true` (padrão), os documentos que já estão no cache são reprocessados quando você executa novamente o indexador, supondo que a atualização de suas habilidades afete esse documento. 
+
+Quando `false`, os documentos existentes não são reprocessados, priorizando efetivamente o conteúdo novo e recebido sobre o conteúdo existente. Você só deve definir `enableReprocessing` para `false` em uma base temporária. Para garantir a consistência em todo o corpus, `enableReprocessing` deve ser `true` na maior parte do tempo, garantindo que todos os documentos, novos e existentes, sejam válidos de acordo com a definição atual do Configurador de qualificações.
 
 ### <a name="bypass-skillset-evaluation"></a>Ignorar avaliação do contorno de habilidades
 
@@ -93,9 +95,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ### <a name="force-skillset-evaluation"></a>Forçar avaliação do conforçador de habilidades
 
-A finalidade do cache é evitar o processamento desnecessário, mas suponha que você tenha feito uma alteração em uma habilidade ou conjunto de qualificações que o indexador não detecta (por exemplo, alterações em componentes externos, como um conjunto de qualificações personalizado). 
+A finalidade do cache é evitar o processamento desnecessário, mas suponha que você faça uma alteração em uma habilidade que o indexador não detecta (por exemplo, alterando algo no código externo, como uma habilidade personalizada).
 
-Nesse caso, você pode usar a API de [redefinição de habilidades](preview-api-resetskills.md) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e executadas novamente. Após a redefinição das habilidades, execute o indexador para executar a operação.
+Nesse caso, você pode usar as [habilidades de redefinição](preview-api-resetskills.md) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Após a redefinição das habilidades, execute o indexador para invocar o pipeline.
 
 ## <a name="change-detection"></a>Detecção de alteração
 
@@ -158,7 +160,7 @@ Informações de uso e exemplos podem ser encontrados em [Configurar o Caching p
 
 ### <a name="datasources"></a>Origens de dados
 
-+ Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperam dados, a [fonte de dados de atualização](https://docs.microsoft.com/rest/api/searchservice/update-datasource) dá suporte a um novo parâmetro em uma solicitação `ignoreResetRequirement`, que deve ser definida como `true` quando a ação de atualização não deve invalidar o cache.
++ Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperam dados, a [fonte de dados de atualização](https://docs.microsoft.com/rest/api/searchservice/update-data-source) dá suporte a um novo parâmetro em uma solicitação `ignoreResetRequirement`, que deve ser definida como `true` quando a ação de atualização não deve invalidar o cache.
 
 Use o `ignoreResetRequirement` com moderação, pois isso pode levar à inconsistência indesejada em seus dados que não serão detectados com facilidade.
 

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e647725c5d30f35f39263757508bdd1725552731
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 72825a709ec55bf5879e15287eb8b258dc4c8e94
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997314"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965780"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: habilitar Transparent Data Encryption com chave gerenciada pelo cliente de Azure Key Vault
 

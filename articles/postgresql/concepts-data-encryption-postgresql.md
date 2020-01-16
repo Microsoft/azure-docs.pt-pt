@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9e60b2f1685e03a9daa7a4801f43799a21eb411
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 263fdda178752ee22997a03a11902a7bff4791dc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940555"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028622"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-customer-managed-key"></a>Azure Database para PostgreSQL criptografia de dados de servidor único com chave gerenciada pelo cliente
 
@@ -41,7 +41,7 @@ O servidor único do banco de dados do Azure para PostgreSQL fornece os seguinte
 
 Chave de **criptografia de chave (Kek)** -uma chave de criptografia usada para criptografar as chaves de criptografia de dados. O uso de uma chave de criptografia de chave que nunca deixa Key Vault, permite que as próprias chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Como o KEK é necessário para descriptografar o DEKs, o KEK é efetivamente um único ponto pelo qual DEKs pode ser efetivamente excluído pela exclusão do KEK.
 
-As chaves de criptografia de dados, criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode descriptografar essas chaves de criptografia de dados. Para obter mais informações, consulte [segurança em criptografia em repouso](../security/fundamentals/encryption-atrest.md).
+As chaves de criptografia de dados (DEK), criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode descriptografar essas chaves de criptografia de dados. Para obter mais informações, consulte [segurança em criptografia em repouso](../security/fundamentals/encryption-atrest.md).
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>Como funciona a criptografia de dados com a chave gerenciada pelo cliente
 
@@ -50,8 +50,8 @@ As chaves de criptografia de dados, criptografadas com as chaves de criptografia
 Para que um servidor PostgreSQL possa usar chaves gerenciadas pelo cliente armazenadas em AKV para criptografia do DEK, um administrador de Key Vault precisa conceder os seguintes direitos de acesso ao servidor usando sua identidade exclusiva:
 
 * **Get** -para recuperar a parte pública e as propriedades da chave no Key Vault
-* **wrapKey** -para poder proteger (criptografar) DEK
-* **unwrapKey** – ser capaz de desproteger (descriptografar) DEK
+* **wrapKey** -para poder CRIPTOGRAFAr DEK
+* **unwrapKey** -para ser capaz de descriptografar DEK
 
 Key Vault administrador também pode [habilitar o registro em log de eventos de auditoria de Key Vault](../azure-monitor/insights/azure-key-vault.md), para que possam ser auditados posteriormente.
 

@@ -3,12 +3,12 @@ title: Configurar clusters do Azure Red Hat OpenShift com Azure Monitor para con
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: cb68d08f86efa395f9d4567a00e74632a293ea3f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0d5ed362d6eb76e2fa04b88e9e45c890118a53eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930368"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979778"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurar clusters do Azure Red Hat OpenShift com Azure Monitor para contêineres
 
@@ -21,7 +21,7 @@ Azure Monitor para contêineres fornece experiência de monitoramento avançada 
 Azure Monitor para contêineres podem ser habilitados para novas ou uma ou mais implantações existentes do Azure Red Hat OpenShift usando os seguintes métodos com suporte:
 
 - Para um cluster existente do portal do Azure ou usando o modelo de Azure Resource Manager
-- Para um novo cluster usando Azure Resource Manager modelo 
+- Para um novo cluster usando Azure Resource Manager modelo
 
 ## <a name="supported-and-unsupported-features"></a>Recursos com e sem suporte
 
@@ -42,7 +42,7 @@ Execute as etapas a seguir para implantar um cluster do Azure Red Hat OpenShift 
 
 Esse método inclui dois modelos JSON. Um modelo especifica a configuração para implantar o cluster com monitoramento habilitado e o outro contém valores de parâmetro que você configura para especificar o seguinte:
 
-- A ID de recurso de cluster do Azure Red Hat OpenShift. 
+- A ID de recurso de cluster do Azure Red Hat OpenShift.
 
 - O grupo de recursos no qual o cluster é implantado.
 
@@ -60,15 +60,15 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 
 - O número de nós de computação no perfil do pool de agentes.
 
-- O número de nós de infraestrutura no perfil do pool de agentes. 
+- O número de nós de infraestrutura no perfil do pool de agentes.
 
 Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
 
-- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
-- [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+- [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o monitoramento usando Azure PowerShell ou a CLI. Para criar a área de trabalho, pode configurá-lo por meio [do Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), da funcionalidade [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), ou no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
@@ -76,20 +76,20 @@ O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o moni
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json` 
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
-2. Iniciar sessão no Azure 
+2. Iniciar sessão no Azure
 
     ```azurecli
     az login    
     ```
-    
+
     Se você tiver acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` pela assinatura que você deseja usar.
- 
-3. Crie um grupo de recursos para o cluster se você ainda não tiver um. Para obter uma lista de regiões do Azure que dão suporte a OpenShift no Azure, consulte [regiões com suporte](../../openshift/supported-resources.md#azure-regions). 
+
+3. Crie um grupo de recursos para o cluster se você ainda não tiver um. Para obter uma lista de regiões do Azure que dão suporte a OpenShift no Azure, consulte [regiões com suporte](../../openshift/supported-resources.md#azure-regions).
 
     ```azurecli
-    az group create -g <clusterResourceGroup> -l <location> 
+    az group create -g <clusterResourceGroup> -l <location>
     ```
 
 4. Edite o arquivo de parâmetro JSON **newClusterWithMonitoringParam. JSON** e atualize os seguintes valores:
@@ -98,19 +98,19 @@ O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o moni
     - *clusterName*
     - *aadTenantId*
     - *aadClientId*
-    - *aadClientSecret* 
-    - *aadCustomerAdminGroupId* 
+    - *aadClientSecret*
+    - *aadCustomerAdminGroupId*
     - *workspaceResourceId*
     - *masterNodeCount*
     - *computeNodeCount*
     - *infraNodeCount*
 
-5. A etapa a seguir implanta o cluster com monitoramento habilitado usando o CLI do Azure. 
+5. A etapa a seguir implanta o cluster com monitoramento habilitado usando o CLI do Azure.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json 
+    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
- 
+
     A saída é semelhante ao seguinte:
 
     ```azurecli
@@ -122,30 +122,30 @@ O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o moni
 Execute as etapas a seguir para habilitar o monitoramento de um cluster do Azure Red Hat OpenShift implantado no Azure. Você pode fazer isso na portal do Azure ou usando os modelos fornecidos.
 
 ### <a name="from-the-azure-portal"></a>No portal do Azure
- 
+
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. No menu portal do Azure ou na home page do, selecione **Azure monitor**. Sob o **Insights** secção, selecione **contentores**. 
+2. No menu portal do Azure ou na home page do, selecione **Azure monitor**. Sob o **Insights** secção, selecione **contentores**.
 
 3. Sobre o **Monitor - contentores** página, selecione **clusters não monitorizados**.
 
 4. Na lista de clusters não monitorados, localize o cluster na lista e clique em **habilitar**. Você pode identificar os resultados na lista procurando o valor **toa** sob o **tipo de cluster**de coluna.
 
 5. Sobre o **integração para o Azure Monitor para contentores** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  
-    A lista seleciona o espaço de trabalho padrão e o local no qual o cluster é implantado na assinatura. 
+    A lista seleciona o espaço de trabalho padrão e o local no qual o cluster é implantado na assinatura.
 
     ![Habilitar o monitoramento de clusters não monitorados](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização do cluster, siga as instruções em [criar uma área de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma assinatura em que o cluster do RedHat OpenShift é implantado. 
- 
-Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento para o cluster. 
+    >Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização do cluster, siga as instruções em [criar uma área de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma assinatura em que o cluster do RedHat OpenShift é implantado.
+
+Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento para o cluster.
 
 ### <a name="enable-using-an-azure-resource-manager-template"></a>Habilitar usando um modelo de Azure Resource Manager
 
 Esse método inclui dois modelos JSON. Um modelo especifica a configuração para ativar a monitorização e a outra contém valores de parâmetros que pode configurar para especificar o seguinte:
 
-- A ID de recurso de cluster do Azure RedHat OpenShift. 
+- A ID de recurso de cluster do Azure RedHat OpenShift.
 
 - O grupo de recursos no qual o cluster é implantado.
 
@@ -153,11 +153,11 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 
 Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
 
-- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
-- [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+- [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o monitoramento usando Azure PowerShell ou a CLI. Para criar a área de trabalho, pode configurá-lo por meio [do Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), da funcionalidade [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), ou no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
@@ -165,9 +165,9 @@ O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o moni
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json` 
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
-2. Iniciar sessão no Azure 
+2. Iniciar sessão no Azure
 
     ```azurecli
     az login    
@@ -184,15 +184,15 @@ O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o moni
 4. Execute o seguinte comando para identificar o local do cluster e a ID do recurso:
 
     ```azurecli
-    az openshift show -g <clusterResourceGroup> -n <clusterName> 
+    az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Edite o arquivo de parâmetro JSON **existingClusterParam. JSON** e atualize os valores *araResourceId* e *araResoruceLocation*. O valor para **workspaceResourceId** é a ID de recurso completo da sua área de trabalho do Log Analytics, que inclui o nome de área de trabalho. 
+5. Edite o arquivo de parâmetro JSON **existingClusterParam. JSON** e atualize os valores *araResourceId* e *araResoruceLocation*. O valor para **workspaceResourceId** é a ID de recurso completo da sua área de trabalho do Log Analytics, que inclui o nome de área de trabalho.
 
-6. Para implantar com o CLI do Azure, execute os seguintes comandos: 
+6. Para implantar com o CLI do Azure, execute os seguintes comandos:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json 
+    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     A saída é semelhante ao seguinte:

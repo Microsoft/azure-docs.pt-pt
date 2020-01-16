@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 3e510cc4073a4b0075cdaeb80091657dbee93fcb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792480"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979412"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas em aplicativos lógicos do Azure com Enterprise Integration Pack
 
@@ -38,7 +38,7 @@ Para os limites relacionados a contas de integração e artefatos como mapas, co
 
     | Item | Descrição |
     |------|-------------|
-    | [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) | Nessa conta, crie um contêiner de blob do Azure para seu assembly. Saiba [como criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). |
+    | [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) | Nessa conta, crie um contêiner de blob do Azure para seu assembly. Saiba [como criar uma conta de armazenamento](../storage/common/storage-account-create.md). |
     | Contentor de blobs | Nesse contêiner, você pode carregar seu assembly. Você também precisa do local desse contêiner ao adicionar o assembly à sua conta de integração. Saiba como [criar um contêiner de BLOBs](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Explorador do Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Essa ferramenta ajuda você a gerenciar mais facilmente as contas de armazenamento e os contêineres de BLOB. Para usar Gerenciador de Armazenamento, [Baixe e instale o Gerenciador de armazenamento do Azure](https://www.storageexplorer.com/). Em seguida, conecte Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em introdução [ao Gerenciador de armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [início rápido: criar um blob no armazenamento de objetos com o Gerenciador de armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal do Azure, localize e selecione sua conta de armazenamento. No menu da sua conta de armazenamento, selecione **Gerenciador de armazenamento**. |
     |||

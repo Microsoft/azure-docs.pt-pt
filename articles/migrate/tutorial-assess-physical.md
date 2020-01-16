@@ -1,18 +1,14 @@
 ---
 title: Avaliar servidores físicos para migração para o Azure com a avaliação de servidor de migrações para Azure
 description: Descreve como avaliar servidores físicos locais para migração para o Azure usando a avaliação de servidor de migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280556"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028982"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Avaliar servidores físicos com as migrações para Azure: avaliação do servidor
 
@@ -141,7 +137,7 @@ No caso de quaisquer problemas, você pode acessar os logs de script em C:\Progr
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se o dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Verifique se o dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
 
 
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
@@ -294,7 +290,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 [Saiba mais](best-practices-assessment.md#best-practices-for-confidence-ratings) sobre as práticas recomendadas para classificações de confiança.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

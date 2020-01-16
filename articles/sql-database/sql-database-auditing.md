@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931935"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028523"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -246,6 +246,14 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
 - Ao usar a autenticação do AAD, os registros de logons com falha *não* serão exibidos no log de auditoria do SQL. Para exibir os registros de auditoria de logon com falha, você precisa visitar o [portal de Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra em log os detalhes desses eventos.
 
 - A auditoria do banco de dados SQL do Azure é otimizada para disponibilidade & desempenho. Durante uma atividade muito alta, o banco de dados SQL do Azure permite que as operações continuem e não registrem alguns eventos auditados.
+
+- Para configurar a auditoria imutável na conta de armazenamento, consulte [permitir gravações de blobs de acréscimo protegidos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Observe que o nome do contêiner para auditoria é **sqldbauditlogs**.
+
+> [!IMPORTANT] 
+>  A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível no momento e visível somente nas seguintes regiões:
+> - Este dos E.U.A.
+> - E.U.A. Centro-Sul
+> - E.U.A. Oeste 2
 
 
 ## <a id="subheading-7"></a>Gerenciar a auditoria de banco de dados e SQL Server do Azure usando Azure PowerShell

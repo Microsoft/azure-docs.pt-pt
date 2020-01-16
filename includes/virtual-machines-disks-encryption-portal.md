@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a799339f2780c2bc372c39120a6e20b34d907326
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912767"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973387"
 ---
 ### <a name="portal"></a>Portal
 
@@ -88,3 +88,27 @@ O processo de implantação de VM é semelhante ao processo de implantação pad
 1. Faça as seleções restantes como desejar.
 
     ![SSE-Create-VM-Select-CMK-Encryption-set. png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+
+#### <a name="enable-on-an-existing-disk"></a>Habilitar em um disco existente
+
+Para gerenciar e configurar a criptografia de disco em seus discos existentes, você deve usar o seguinte link: https://aka.ms/diskencryptionsets. Habilitar chaves gerenciadas pelo cliente em discos existentes ainda não está disponível no portal do Azure global.
+
+> [!CAUTION]
+> Habilitar a criptografia de disco em qualquer disco anexado a uma VM exigirá que você interrompa a VM.
+
+1. Navegue até uma VM que está na mesma região que um de seus conjuntos de criptografia de disco.
+1. Abra a VM e selecione **parar**.
+
+    ![sse-stop-VM-to-encrypt-disk. png](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+
+1. Após a interrupção da VM, selecione **discos** e, em seguida, selecione o disco que você deseja criptografar.
+
+    ![SSE-existing-Disk-SELECT. png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+
+1. Selecione **criptografia** e selecione **criptografia em repouso com uma chave gerenciada pelo cliente** e, em seguida, selecione o conjunto de criptografia de disco na lista suspensa.
+1. Selecione **Guardar**.
+
+    ![SSE-Encrypt-existing-Disk-Customer-Managed-Key. png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+
+1. Repita esse processo para todos os outros discos anexados à VM que você gostaria de criptografar.
+1. Quando os discos terminarem de alternar para chaves gerenciadas pelo cliente, se não houver nenhum outro disco anexado que você queira criptografar, você poderá iniciar sua VM.

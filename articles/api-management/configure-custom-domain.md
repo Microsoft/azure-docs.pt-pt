@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442550"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967350"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
-Quando você cria uma instância de serviço de gerenciamento de API do Azure, o Azure atribui um subdomínio de azure-api.net (por exemplo, `apim-service-name.azure-api.net`). No entanto, você pode expor seus pontos de extremidade de gerenciamento de API usando seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de gerenciamento de API.
+Quando você cria uma instância de serviço de gerenciamento de API do Azure, o Azure atribui um subdomínio de `azure-api.net` (por exemplo, `apim-service-name.azure-api.net`). No entanto, você pode expor seus pontos de extremidade de gerenciamento de API usando seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de gerenciamento de API.
+
+> [!IMPORTANT]
+> O gerenciamento de API aceita somente solicitações com valores de [cabeçalho de host](https://tools.ietf.org/html/rfc2616#section-14.23) que correspondem ao nome de domínio padrão ou a qualquer um dos nomes de domínio personalizados configurados.
 
 > [!WARNING]
-> Os clientes que desejam usar a fixação de certificado para melhorar a segurança de seus aplicativos devem usar um nome de domínio personalizado > e um certificado que eles gerenciam, não o certificado padrão. Os clientes que fixarem o certificado padrão serão > tomando uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
+> Os clientes que desejam usar a fixação de certificado para melhorar a segurança de seus aplicativos devem usar um nome de domínio personalizado > e um certificado que eles gerenciam, não o certificado padrão. Os clientes que fixarem o certificado padrão receberão uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

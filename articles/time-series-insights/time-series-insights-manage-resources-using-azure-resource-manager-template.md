@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b60b036954691bdea12dfff559ceee86f179d44d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861851"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973212"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -33,8 +33,8 @@ O Time Series Insights dá suporte aos seguintes recursos:
 
 Um modelo do Resource Manager é um arquivo JSON que define a infraestrutura e a configuração de recursos em um grupo de recursos. Os documentos a seguir descrevem os arquivos de modelo com mais detalhes:
 
-- [Implantação de modelo de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md)
-- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Implantação de modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md)
+- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Tipos de recurso Microsoft. TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 O modelo de início rápido [201-timeseriesinsights-ambiente-com-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) é publicado no github. Este modelo cria um ambiente de Time Series Insights, uma origem de evento filho configurada para consumir eventos de um hub de eventos e políticas de acesso que concedem acesso aos dados do ambiente. Se um hub de eventos existente não for especificado, um será criado com a implantação.
@@ -118,7 +118,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
          }
      }
      ```
-  
+
     * Para obter mais informações, leia o artigo [parâmetros](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implantar o modelo de início rápido localmente usando o PowerShell
@@ -174,12 +174,12 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
 1. Criar a implantação
 
-    * Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo de modelo. Se o parâmetro **Mode** não for especificado, o valor padrão de **incremental** será usado. Para obter mais informações, leia [implantações incrementais e completas](../azure-resource-manager/deployment-modes.md).
+    * Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo de modelo. Se o parâmetro **Mode** não for especificado, o valor padrão de **incremental** será usado. Para obter mais informações, leia [implantações incrementais e completas](../azure-resource-manager/templates/deployment-modes.md).
 
     * O comando a seguir solicita os cinco parâmetros necessários na janela do PowerShell:
 
       ```powershell
-      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
     * Para especificar um arquivo de parâmetros em vez disso, use o seguinte comando:
@@ -194,7 +194,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Para executar uma implantação [completa](../azure-resource-manager/deployment-modes.md) , defina o parâmetro de **modo** como **concluído**:
+    * Para executar uma implantação [completa](../azure-resource-manager/templates/deployment-modes.md) , defina o parâmetro de **modo** como **concluído**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

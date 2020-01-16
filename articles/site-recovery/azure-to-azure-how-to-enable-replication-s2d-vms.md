@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 465c0ddd91e81bb597a996637fdc2147e90464de
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942218"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973653"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicar VMs do Azure em execução Espaços de Armazenamento Diretos para outra região
 
@@ -30,7 +30,7 @@ O diagrama abaixo mostra um cluster de failover de VM do Azure de dois nós usan
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Duas máquinas virtuais do Azure em um cluster de failover do Windows e cada máquina virtual têm dois ou mais discos de dados.
 - O S2D sincroniza os dados no disco de dados e apresenta o armazenamento sincronizado como um pool de armazenamento.
 - O pool de armazenamento apresenta um CSV (volume compartilhado clusterizado) para o cluster de failover.
@@ -51,7 +51,7 @@ O diagrama abaixo mostra um cluster de failover de VM do Azure de dois nós usan
 
    ![proteção do storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Vá para itens replicados e você poderá ver o status da máquina virtual. 
+2. Vá para itens replicados e você poderá ver o status da máquina virtual.
 3. Ambas as máquinas virtuais estão sendo protegidas e também são mostradas como parte do grupo de consistência de várias VMS.
 
    ![proteção do storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
