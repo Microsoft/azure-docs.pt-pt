@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f808158c959894e757adaa73a81e3bf57f475da0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490689"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020945"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Para criar e gerir recursos subordinados do Data Factory - incluindo conjuntos d
 - Para criar e gerir recursos subordinados no portal do Azure, tem de pertencer à função **Contribuidor do Data Factory** ao nível do grupo de recursos ou superior.
 - Para criar e gerir recursos subordinados com o PowerShell ou o SDK, a função **contribuidor** ao nível do grupo de recursos ou superior é suficiente.
 
-Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Adicionar funções](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Adicionar funções](../articles/cost-management-billing/manage/add-change-subscription-administrator.md).
 
 Para obter mais informações, veja os artigos seguintes:
 
@@ -36,7 +36,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Funções e permissões do Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
-Neste início rápido, vai utilizar uma conta de armazenamento do Azure para fins gerais (especificamente o armazenamento de Blobs) como arquivo de dados de *origem* e de *destino*. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) para criar uma. 
+Neste início rápido, vai utilizar uma conta de armazenamento do Azure para fins gerais (especificamente o armazenamento de Blobs) como arquivo de dados de *origem* e de *destino*. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../articles/storage/common/storage-account-create.md) para criar uma. 
 
 #### <a name="get-the-storage-account-name"></a>Obter o nome da conta de armazenamento
 Você precisará do nome da sua conta de armazenamento do Azure para este guia de início rápido. O procedimento a seguir fornece as etapas para obter o nome da sua conta de armazenamento: 
@@ -52,7 +52,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no ar
 
 1. Na página conta de armazenamento, selecione **visão geral** > **BLOBs**.
 2. Na barra de ferramentas da página *\<nome da conta >*  - **BLOBs** , selecione **contêiner**.
-3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e selecione **OK**. O *nome da conta de\<>* página - **BLOBs** é atualizado para incluir **adftutorial** na lista de contêineres.
+3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e selecione **OK**. O *nome da conta de\<* página - **BLOBs** é atualizado para incluir **adftutorial** na lista de contêineres.
 
    ![Lista de contêineres](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 

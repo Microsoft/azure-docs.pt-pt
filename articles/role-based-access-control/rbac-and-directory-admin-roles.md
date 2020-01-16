@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8dbccdfdcf2a309c8324328f46336bab74839da4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d0966737964c44fc4a6778cdb811a4ecc732ffc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357532"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979298"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -81,7 +81,7 @@ O RBAC do Azure é um sistema de autorização criado com base no [Azure Resourc
 
 As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite ao utilizador criar e gerir máquinas virtuais. Para obter uma lista de todas as funções internas, consulte [funções internas para recursos do Azure](built-in-roles.md).
 
-Apenas o portal do Azure e as APIs do Azure Resource Manager suportam o RBAC. Os utilizadores, grupos e aplicações com funções RBAC atribuídas não podem utilizar as [APIs do modelo de implementação clássica do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
+Apenas o portal do Azure e as APIs do Azure Resource Manager suportam o RBAC. Os utilizadores, grupos e aplicações com funções RBAC atribuídas não podem utilizar as [APIs do modelo de implementação clássica do Azure](../azure-resource-manager/management/deployment-models.md).
 
 No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)** . Essa folha pode ser encontrada em todo o portal, como grupos de gerenciamento, assinaturas, grupos de recursos e vários recursos.
 

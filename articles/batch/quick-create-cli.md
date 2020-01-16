@@ -2,22 +2,22 @@
 title: Início Rápido do Azure - Executar Tarefa do Batch - CLI
 description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322501"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029491"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início rápido: Executar seu primeiro trabalho em lotes com o CLI do Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido mostra como utilizar a CLI do Azure para criar uma conta do Batch, um *conjunto* de nós de computação (máquinas virtuais) e uma *tarefa* que executa *tarefas* no conjunto. Cada tarefa de exemplo executa um comando básico num dos nós do conjunto. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 
@@ -39,9 +39,9 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Pode associar uma conta de Armazenamento do Microsoft Azure à sua conta do Batch. Apesar de não ser obrigatório neste início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create) para criar uma conta de armazenamento no seu grupo de recursos.
+Pode associar uma conta de Armazenamento do Microsoft Azure à sua conta do Batch. Apesar de não ser obrigatório para este início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create) para criar uma conta de armazenamento no seu grupo de recursos.
 
 ```azurecli-interactive
 az storage account create \
@@ -55,7 +55,7 @@ az storage account create \
 
 Crie uma conta do Batch com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). Precisa de uma conta para criar recursos de computação (conjuntos de nós de computação) e tarefas do Batch.
 
-O exemplo seguinte cria uma conta do Batch com o nome *mybatchaccount* em *myResourceGroup* e associa a conta de armazenamento criada.  
+O exemplo seguinte cria uma conta do Batch com o nome *mybatchaccount* em *myResourceGroup* e associa a conta de armazenamento que criou.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -97,7 +97,7 @@ Continue para os passos seguintes para criar tarefas enquanto o estado do conjun
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
-Agora que tem um conjunto, crie um trabalho para ser executado no mesmo.  Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
+Agora que tem um conjunto, crie um trabalho para ser executado no mesmo.  Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
 
 ```azurecli-interactive 
 az batch job create \
@@ -198,13 +198,13 @@ Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do 
 az batch pool delete --pool-id mypool
 ```
 
-Quando já não for preciso, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Batch e todos os recursos relacionados. Elimine os recursos da seguinte forma:
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, a conta do Batch, os conjuntos e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma conta, um conjunto e um trabalho do Batch. O trabalho executou tarefas de exemplo e viu os resultados num dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch. 
 

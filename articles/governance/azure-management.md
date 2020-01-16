@@ -3,12 +3,12 @@ title: Visão geral do gerenciamento do Azure-governança do Azure
 description: Descrição geral das áreas de gestão para aplicações do Azure e de recursos com ligações para conteúdo em ferramentas de gestão do Azure.
 ms.date: 12/06/2018
 ms.topic: overview
-ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132836"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980907"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento no Azure
 
@@ -36,9 +36,9 @@ Automatização destas tarefas permite-lhe eliminar a redundância, minimizar o 
 ## <a name="govern"></a>Governação
 
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure. A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.
-A governação no Azure é implementada principalmente com dois serviços. [O Azure Policy](./policy/overview.md) permite-lhe criar, atribuir e gerir definições de política para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões empresariais. O [Gerenciamento de custos do Azure](../cost-management/overview-cost-mgt.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem.
+A governação no Azure é implementada principalmente com dois serviços. [O Azure Policy](./policy/overview.md) permite-lhe criar, atribuir e gerir definições de política para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões empresariais. O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem.
 
-## <a name="secure"></a>Proteger
+## <a name="secure"></a>Segura
 
 Gerir a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, recolha e análise de dados e a conformidade das suas aplicações e recursos. Análise de ameaças e monitorização de segurança são fornecidos pela [Centro de segurança do Azure](../security-center/security-center-intro.md), que inclui segurança gestão unificada e proteção avançada contra ameaças entre cargas de trabalho híbrida na cloud. Ver [introdução à segurança do Azure](../security/fundamentals/overview.md) para informações abrangentes e orientações sobre como proteger recursos do Azure.
 
@@ -46,7 +46,7 @@ Gerir a segurança dos seus recursos e dados. Um programa de segurança envolve 
 
 Proteção refere-se para manter as suas aplicações e dados disponíveis, mesmo com falhas que estejam fora do seu controle. A proteção no Azure é fornecida por dois serviços. O [Azure Backup](../backup/backup-introduction-to-azure-backup.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local. [O Azure Site Recovery](../site-recovery/site-recovery-overview.md) proporciona continuidade do negócio e recuperação imediata durante um desastre.
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migração
 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.
 [O Azure Migrate](../migrate/migrate-overview.md) é um serviço que o ajuda a avaliar a adequabilidade de migração de máquinas de virtuais no local para o Azure. O Azure Site Recovery migra máquinas virtuais [locais](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Migração de base de dados do Azure](../dms/dms-overview.md) ajuda a migrar origens de base de dados para plataformas de dados do Azure.

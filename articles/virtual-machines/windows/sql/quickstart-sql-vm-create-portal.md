@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828368"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965659"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do SQL Server 2017 do Windows no portal do Azure
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a id="select"></a> Selecionar uma imagem de VM do SQL Server
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta.
 
 1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
 1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais selecionando **Mostrar detalhes** no bloco **máquinas virtuais do SQL** .
@@ -88,7 +88,7 @@ Na guia **configurações de SQL Server** , configure as seguintes opções:
 
 1. Altere todas as outras configurações, se necessário, e selecione **revisar + criar**. 
 
-   ![Examinar + criar](media/quickstart-sql-vm-create-portal/review-create.png)
+   ![Rever + criar](media/quickstart-sql-vm-create-portal/review-create.png)
 
 
 ## <a name="create-the-sql-server-vm"></a>Criar a VM do SQL Server
@@ -128,7 +128,7 @@ O acesso ao computador permite-lhe alterar diretamente as definições do SQL Se
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não precisar que a sua VM SQL execute continuamente, pode evitar despesas desnecessárias ao pará-la quando não estiver a utilizar. Também pode eliminar permanentemente todos os recursos associados à máquina virtual ao eliminar o seu grupo de recursos associados no portal. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado. Para mais informações, consulte [Manage Azure resources through portal (Gerir recursos do Azure através do portal)](../../../azure-resource-manager/manage-resource-groups-portal.md).
+Se não precisar que a sua VM SQL execute continuamente, pode evitar despesas desnecessárias ao pará-la quando não estiver a utilizar. Também pode eliminar permanentemente todos os recursos associados à máquina virtual ao eliminar o seu grupo de recursos associados no portal. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado. Para mais informações, consulte [Manage Azure resources through portal (Gerir recursos do Azure através do portal)](../../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a09e9206b3ecd23a6208572a88c16b149033f123
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d4054760c77a7a70b7ed84a9f95b88a3bcf2bda3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "68699449"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021248"
 ---
 Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar uma partilha de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
@@ -24,7 +24,7 @@ Para criar uma conta de armazenamento:
     ![Uma captura de ecrã do aspeto que a entrada da conta de armazenamento deve ter na caixa de diálogo de pesquisa de recursos](../articles/storage/files/media/storage-how-to-use-files-portal/create-storage-account-1.png)
 
 3. Em **Nome**, introduza *mystorageacct* seguido de alguns números aleatórios até ver uma marca de verificação verde a indicar que é um nome exclusivo. Um nome de conta de armazenamento tem de estar todo em minúsculas e ser globalmente exclusivo. Tome nota do nome da conta de armazenamento. Irá utilizá-lo mais tarde. 
-4. Em **Modelo de implementação**, deixe o valor predefinido de **Resource Manager**. Para saber mais sobre as diferenças entre o Azure Resource Manager e o modelo de implementação clássica, veja [Compreender os modelos de implementação e o estado dos seus recursos](../articles/azure-resource-manager/resource-manager-deployment-model.md).
+4. Em **Modelo de implementação**, deixe o valor predefinido de **Resource Manager**. Para saber mais sobre as diferenças entre o Azure Resource Manager e o modelo de implementação clássica, veja [Compreender os modelos de implementação e o estado dos seus recursos](../articles/azure-resource-manager/management/deployment-models.md).
 5. Em **Tipo de conta**, selecione **StorageV2**. Para saber mais sobre os diferentes tipos de contas de armazenamento, veja [Compreender as contas de armazenamento](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 6. Em **Desempenho**, mantenha o valor predefinido de **Armazenamento Standard**. Atualmente, os Ficheiros do Azure só suportam o armazenamento standard; mesmo se selecionar o Armazenamento Premium do Azure, a partilha de ficheiros é armazenada no armazenamento standard.
 7. Em **Replicação**, selecione **Armazenamento localmente redundante (LRS)** . 

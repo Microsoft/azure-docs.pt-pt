@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: e63892962802d38ac7337a99a9a33f3770785ad2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 62455b395e6cad3ccf7650534d92d94a6a0a2417
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170274"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977481"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>Início rápido: criar um Azure Data Factory e um pipeline usando o Python
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
+* **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
 * **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que vai utilizar em passos posteriores: **ID da aplicação**, **chave de autenticação** e **ID de inquilino**. Atribua a aplicação à função "**Contribuidor**", seguindo as instruções no mesmo artigo.
 
 ### <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
@@ -150,7 +150,7 @@ Adicione o código seguinte ao método **Main** que cria uma **fábrica de dados
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-Adicione o código seguinte ao método **Main**, que cria um **serviço ligado do Armazenamento do Microsoft Azure**.
+Adicione o código seguinte ao método **Main** que cria um **serviço ligado do Armazenamento do Azure**.
 
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste início rápido, só precisa de criar um serviço ligado do Armazenamento do Azure como origem de cópia e arquivo sink, com o nome "AzureStorageLinkedService" no exemplo. Substitua `<storageaccountname>` e `<storageaccountkey>` pelo nome e pela chave da sua conta de Armazenamento do Azure.
 

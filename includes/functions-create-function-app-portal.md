@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7da9f795f1865d635a26cd3acf3866dff3565716
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469328"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021023"
 ---
 1. No menu portal do Azure, selecione **criar um recurso**.
 
@@ -28,9 +28,9 @@ ms.locfileid: "73469328"
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
     | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. |
-    | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
-    | **Nome do Aplicativo de funções** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9`e `-`.  |
-    |**Publicar**| Código | Opção para publicar arquivos de código ou um contêiner do Docker. |
+    | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
+    | **Nome da Aplicação de Funções** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9`e `-`.  |
+    |**Publicar**| Código | Opção para publicar ficheiros de código ou um contentor de Docker. |
     | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. Selecione **.NET** para funções C# e F#. |
     |**Região**| Região preferida | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. |
 
@@ -42,7 +42,7 @@ ms.locfileid: "73469328"
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Você também pode usar uma conta existente, que deve atender aos [requisitos da conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Você também pode usar uma conta existente, que deve atender aos [requisitos da conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Sistema operativo**| Sistema operacional preferencial | Um sistema operacional é previamente selecionado para você com base em sua seleção de pilha de tempo de execução, mas você pode alterar a configuração, se necessário. |
     | **[Intenção](../articles/azure-functions/functions-scale.md)** | Plano de consumo | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No **Plano de Consumo** predefinido, os recursos são adicionados dinamicamente, conforme necessário por parte das suas funções. Neste alojamento [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), só paga pelo tempo de execução das suas funções. Quando executa num plano do Serviço de Aplicações, tem de gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |
 

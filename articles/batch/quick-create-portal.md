@@ -2,21 +2,21 @@
 title: Início Rápido do Azure - Executar Trabalho do Batch - Portal
 description: Aprenda rapidamente a executar um trabalho do Batch com o portal do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094131"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029407"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: Executar seu primeiro trabalho em lotes no portal do Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: Executar a sua primeira tarefa do Batch no portal do Azure
 
 Este início rápido mostra como utilizar o portal do Azure para criar uma conta do Batch, um *conjunto* de nós de computação (máquinas virtuais) e um *trabalho* que executa *tarefas* no conjunto. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 
@@ -28,7 +28,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
-Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. Tem de ter uma conta do Batch para criar conjuntos e trabalhos. Conforme mostrado aqui, pode associar uma conta de armazenamento do Azure à conta do Batch. Apesar de não ser obrigatório neste início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real.
+Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. Tem de ter uma conta do Batch para criar conjuntos e trabalhos. Conforme mostrado aqui, pode associar uma conta de armazenamento do Azure à conta do Batch. Apesar de não ser obrigatório para este início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real.
 
 
 1. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**. 
@@ -56,7 +56,7 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
 3. Em **Sistema Operativo**, selecione as definições seguintes (pode explorar outras opções).
   
-   |Definição  |Value  |
+   |Definição  |Valor  |
    |---------|---------|
    |**Tipo de Imagem**|Marketplace (Linux/Windows)|
    |**Publicador**     |MicrosoftWindowsServer|
@@ -65,9 +65,9 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
    ![Selecionar um sistema operativo para o conjunto][pool_os] 
 
-4. Desloque-se para baixo para introduzir as definições de **Tamanho do Nó** e **Dimensionamento**. Neste exemplo rápido, o tamanho do nó sugerido oferece um bom equilíbrio de desempenho em comparação com o custo.
+4. Desloque-se para baixo para introduzir as definições de **Tamanho do Nó** e **Dimensionamento**. O tamanho do nó sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
   
-   |Definição  |Value  |
+   |Definição  |Valor  |
    |---------|---------|
    |**Escalão de preço do nó**     |Standard_A1|
    |**Nós dedicados de destino**     |2|
@@ -84,7 +84,7 @@ Após alguns minutos, o estado do conjunto passa para **Estável** e o nó é in
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
-Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, os trabalhos não têm tarefas. 
+Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, o trabalho não tem tarefas. 
 
 1. Na vista de conta do Batch, selecione **Tarefas** > **Adicionar**. 
 
@@ -110,15 +110,15 @@ Para criar a primeira tarefa:
 
    ![Criar uma tarefa][task_create]
 
-Depois de criar uma tarefa, o Batch coloca-a em fila para executá-la no conjunto. Assim que um nó estiver disponível para executá-la, a tarefa é executada.
+Depois de criar uma tarefa, o Batch coloca em fila para a execução no conjunto. Assim que um nó estiver disponível para executá-la, a tarefa é executada.
 
 Para criar uma segunda tarefa, volte ao passo 1. Introduza outro **ID de Tarefa**, mas especifique uma linha de comandos idêntica. Se a primeira tarefa ainda estiver em execução, o Batch começa a segunda tarefa no outro nó do conjunto.
 
-## <a name="view-task-output"></a>Ver o resultado das tarefas
+## <a name="view-task-output"></a>Ver resultado das tarefas
 
 As tarefas de exemplo anteriores são concluídas em poucos minutos. Para ver o resultado de uma tarefa concluída, selecione **Ficheiros no nó** e selecione o ficheiro `stdout.txt`. Este ficheiro mostra o resultado padrão da tarefa. Os conteúdos são semelhantes ao seguinte:
 
-![Ver o resultado das tarefas][task_output]
+![Ver resultado das tarefas][task_output]
 
 O conteúdo mostra as variáveis de ambiente do Azure Batch que estão definidas no nó. Quando criar os seus próprios trabalhos e as suas próprias tarefas do Batch, pode referenciar estas variáveis de ambiente nas linhas de comandos de tarefas e nas aplicações e scripts executados pelas linhas de comandos.
 
@@ -130,7 +130,7 @@ Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do 
 
 Quando já não for necessário, elimine o grupo de recursos, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos da conta do Batch e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma conta, um conjunto e um trabalho do Batch. O trabalho executou tarefas de exemplo e viu os resultados num dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch. 
 

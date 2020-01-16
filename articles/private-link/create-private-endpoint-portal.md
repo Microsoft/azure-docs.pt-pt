@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459929"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028890"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início rápido: criar um ponto de extremidade privado usando portal do Azure
 
@@ -162,7 +162,7 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | ------- | ----- |
     |**REDE**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Subrede | Selecione *mysubnet*. |
+    | Subrede | Selecione *mysubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com a zona DNS privada |Selecione **Sim**. |
     |Zona de DNS privado |Selecione *(novo) privatelink. Database. Windows. net* |
@@ -199,9 +199,9 @@ Depois de criar o **myVm**, conecte-se a ele da Internet da seguinte maneira:
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL de forma privada da VM
 
-1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
+1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
-2. Insira `nslookup myserver.database.windows.net`. 
+2. Introduza `nslookup myserver.database.windows.net`. 
 
     Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
@@ -227,11 +227,11 @@ Depois de criar o **myVm**, conecte-se a ele da Internet da seguinte maneira:
 1. Selecione **Ligar**.
 2. Procurar bancos de dados no menu à esquerda.
 3. Opcionalmente Criar ou consultar informações de MyDatabase.
-4. Feche a conexão de área de trabalho remota para *myVm*. 
+4. Feche a conexão de área de trabalho remota para *myVm*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 Quando você terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
-1. Insira o *MyResource* na caixa de **pesquisa** na parte superior do portal e selecione o *MyResource* nos resultados da pesquisa. 
+1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource* Bedos resultados da pesquisa. 
 2. Selecione **Eliminar grupo de recursos**. 
 3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 

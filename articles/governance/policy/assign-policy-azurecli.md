@@ -3,12 +3,12 @@ title: 'Início rápido: nova atribuição de política com CLI do Azure'
 description: Neste guia de início rápido, você usa CLI do Azure para criar uma atribuição de Azure Policy para identificar recursos sem conformidade.
 ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 2bc5c77ac5c2ac0a1f4c80d9b770d9e95d7864cf
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903522"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978313"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade com CLI do Azure
 
@@ -31,7 +31,7 @@ A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da lin
   az provider register --namespace 'Microsoft.PolicyInsights'
   ```
 
-  Para obter mais informações sobre como registar e ver os fornecedores de recursos, veja [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md) (Fornecedores e Tipos de Recursos)
+  Para obter mais informações sobre como registar e ver os fornecedores de recursos, veja [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md) (Fornecedores e Tipos de Recursos)
 
 - Se ainda não o fez, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos de HTTP para APIs baseadas no Azure Resource Manager.
 

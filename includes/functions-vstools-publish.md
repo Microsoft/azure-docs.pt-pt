@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 689889588aba4da888a7d66f5e1d45dfde71d520
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769710"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021001"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
@@ -38,9 +38,9 @@ ms.locfileid: "75769710"
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome globalmente exclusivo | Nome que identifica exclusivamente a sua nova aplicação de funções. Os carateres válidos são `a-z`, `0-9` e `-`. |
     | **Subscrição** | Escolher a sua subscrição | A subscrição do Azure que deve utilizar. |
-    | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nome do grupo de recursos no qual a sua aplicação de funções será criada. Escolha **Novo** para criar um grupo de recursos novo.|
+    | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** | myResourceGroup |  Nome do grupo de recursos no qual a sua aplicação de funções será criada. Escolha **Novo** para criar um grupo de recursos novo.|
     | **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** | Plano de consumo | Certifique-se de escolher o **consumo** em **tamanho** depois de selecionar **novo** para criar um plano sem servidor. Escolha também uma **Localização** numa [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. Quando executa um plano diferente de **Consumo**, deve gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |
-    | **[Armazenamento do Microsoft Azure](../articles/storage/common/storage-quickstart-create-account.md)** | Conta de armazenamento de uso geral | O runtime das Funções precisa de uma conta de armazenamento do Azure. Selecione **novo** para criar uma conta de armazenamento de uso geral. Também pode utilizar uma conta existente que cumpra os [requisitos de conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Armazenamento do Microsoft Azure](../articles/storage/common/storage-account-create.md)** | Conta de armazenamento de uso geral | O runtime das Funções precisa de uma conta de armazenamento do Azure. Selecione **novo** para criar uma conta de armazenamento de uso geral. Também pode utilizar uma conta existente que cumpra os [requisitos de conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
 
 5. Selecione **criar** para criar um aplicativo de funções e recursos relacionados no Azure com essas configurações e implantar o código do projeto de função. 
 

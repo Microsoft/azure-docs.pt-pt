@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 884ba1106e7b68fefaf91ee4e25cacd05bf96fc0
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 28c4ca59b20fcdd8ab0249392dc0f13cbabf1a97
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048753"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970637"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início rápido: criar um balanceador de carga padrão para balancear a carga de VMs usando Azure Resource Manager modelo
 
 O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por múltiplas máquinas virtuais (VMs). Este guia de início rápido mostra como implantar um modelo de Azure Resource Manager que cria um balanceador de carga padrão para balancear a carga de VMs. O uso do modelo do Resource Manager leva menos etapas em comparação com outros métodos de implantação.
 
-O [modelo do Resource Manager](../azure-resource-manager/template-deployment-overview.md) é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite que você declare o que pretende implantar sem precisar escrever a sequência de comandos de programação para criá-lo. Se você quiser saber mais sobre como desenvolver modelos do Resource Manager, consulte a [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência do modelo](/azure/templates/microsoft.network/loadbalancers).
+O [modelo do Resource Manager](../azure-resource-manager/templates/overview.md) é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite que você declare o que pretende implantar sem precisar escrever a sequência de comandos de programação para criá-lo. Se você quiser saber mais sobre como desenvolver modelos do Resource Manager, consulte a [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência do modelo](/azure/templates/microsoft.network/loadbalancers).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -84,11 +84,11 @@ Leva cerca de 10 minutos para implantar o modelo. Quando concluído, a saída é
 
 ![Saída de implantação do PowerShell do modelo do Azure Standard Load Balancer Resource Manager](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell é usado para implantar o modelo. Além de Azure PowerShell, você também pode usar o portal do Azure, CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, consulte [implantar modelos](../azure-resource-manager/resource-group-template-deploy-portal.md).
+Azure PowerShell é usado para implantar o modelo. Além de Azure PowerShell, você também pode usar o portal do Azure, CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, consulte [implantar modelos](../azure-resource-manager/templates/deploy-portal.md).
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos de recursos** no painel esquerdo.
 

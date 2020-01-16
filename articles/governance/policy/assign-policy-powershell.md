@@ -3,12 +3,12 @@ title: 'Início rápido: nova atribuição de política com o PowerShell'
 description: Neste guia de início rápido, você usa Azure PowerShell para criar uma atribuição de Azure Policy para identificar recursos sem conformidade.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482397"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978297"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando Azure PowerShell
 
@@ -30,7 +30,7 @@ Este guia explica como usar o módulo AZ para criar uma atribuição de polític
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Para obter mais informações sobre como registar e visualizar os fornecedores de recursos, veja [Fornecedores e Tipos de Recursos](../../azure-resource-manager/resource-manager-supported-services.md).
+  Para obter mais informações sobre como registar e visualizar os fornecedores de recursos, veja [Fornecedores e Tipos de Recursos](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -54,8 +54,8 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 Os comandos anteriores utilizam as seguintes informações:
 
 - **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
-- **DisplayName** – O nome da atribuição de política a apresentar. Nesse caso, você está usando as _VMs de auditoria sem a atribuição de discos gerenciados_.
-- **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Nesse caso, é a ID das VMs de auditoria de definição de política _que não usam discos gerenciados_.
+- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está usando _VMs de auditoria sem discos geridos atribuição_.
+- **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política _VMs de auditoria que não utilizam discos geridos_.
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
 
 Agora você está pronto para identificar recursos sem conformidade para entender o estado de conformidade do seu ambiente.

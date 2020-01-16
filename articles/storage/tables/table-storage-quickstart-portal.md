@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/02/2019
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 4cfb44964b06c811d6d587f2a406cdcfb8048a42
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 63495206ffffc57a895a9ec1efc88410a02ea097
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793331"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979951"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Início Rápido: Criar uma Tabela de armazenamento do Azure no portal do Azure 
 
@@ -23,7 +23,7 @@ Este início rápido mostra como criar tabelas e entidades no portal do Azure ba
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [Portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [Portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-account-create.md).
 
 ## <a name="add-a-table"></a>Adicionar uma tabela
 

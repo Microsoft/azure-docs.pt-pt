@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693456"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970848"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução aos operadores de ti do Azure
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre as regiões do Azure disponíveis, consulte 
 ### <a name="cloud-computing-model"></a>Modelo de computação em nuvem
 
 O Azure usa um modelo de computação em nuvem baseado em categorias de serviço fornecidas aos clientes. As três categorias de serviço incluem IaaS (infraestrutura como serviço), PaaS (plataforma como serviço) e SaaS (software como serviço). Os fornecedores compartilham algumas ou todas as responsabilidades dos componentes na pilha de computação em cada uma dessas categorias. Vamos dar uma olhada em cada uma das categorias para computação em nuvem.
-![Cloud de comparação de pilha de computação ](./media/cloud-computing-comparison.png)
+![de comparação de pilha de computação em nuvem](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infraestrutura como serviço
 
@@ -128,7 +128,7 @@ Serviços para rede no Azure e entre datacenters locais e do Azure:
 
 - Traffic Manager do Azure
 
-- Rede de distribuição de conteúdo do Azure
+- Rede de Entrega de Conteúdos do Microsoft Azure
 
 Para obter a documentação detalhada sobre os serviços do Azure, consulte a [documentação do serviço do Azure](https://docs.microsoft.com/azure).
 
@@ -178,7 +178,7 @@ Os administradores podem acessar Azure PowerShell e CLI do Azure por meio de uma
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
-Uma assinatura é um agrupamento lógico de serviços do Azure que está vinculado a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um administrador de conta, que tem controle total sobre a assinatura e um administrador de serviços, que tem controle sobre todos os serviços na assinatura. Para obter informações sobre administradores de assinatura clássicos, consulte [Adicionar ou alterar administradores de assinatura do Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Além dos administradores, contas individuais podem receber controle detalhado dos recursos do Azure usando o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md).
+Uma assinatura é um agrupamento lógico de serviços do Azure que está vinculado a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um administrador de conta, que tem controle total sobre a assinatura e um administrador de serviços, que tem controle sobre todos os serviços na assinatura. Para obter informações sobre administradores de assinatura clássicos, consulte [Adicionar ou alterar administradores de assinatura do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Além dos administradores, contas individuais podem receber controle detalhado dos recursos do Azure usando o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecionar e habilitar uma assinatura do Azure
 
@@ -206,7 +206,7 @@ Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal
 
 Um componente importante do uso do Azure é a capacidade de exibir informações de cobrança. O portal do Azure fornece uma visão detalhada das informações de cobrança do Azure.
 
-Para obter mais informações, consulte [como baixar sua fatura de cobrança do Azure e dados de uso diário](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Para obter mais informações, consulte [como baixar sua fatura de cobrança do Azure e dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Obter informações de cobrança de APIs de cobrança
 
@@ -216,7 +216,7 @@ Além de exibir a cobrança no portal, você pode acessar as informações de co
 
 - Você pode usar a API do cartão de taxas do Azure para listar todos os recursos disponíveis, juntamente com os metadados e as informações de preços sobre cada um desses recursos.
 
-Para obter mais informações, veja [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md) (Obter informações sobre o consumo de recursos do Microsoft Azure).
+Para obter mais informações, veja [Gain insights into your Microsoft Azure resource consumption](../../cost-management-billing/manage/usage-rate-card-overview.md) (Obter informações sobre o consumo de recursos do Microsoft Azure).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo de previsão com a calculadora de preços
 
@@ -328,19 +328,19 @@ Você pode implantar máquinas virtuais do Azure usando o portal do Azure, usand
 
 Implantar uma máquina virtual usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode selecionar várias imagens diferentes do sistema operacional com configurações variadas. Todos os requisitos de armazenamento e rede são configurados durante a implantação. Para obter mais informações, consulte "criar uma máquina virtual no portal do Azure" para [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-Além de implantar uma máquina virtual do portal do Azure, você pode implantar um modelo de Azure Resource Manager do Portal. Isso implantará e configurará todos os recursos conforme definido no modelo. Para obter mais informações, consulte [implantar recursos com modelos e portal do Azure do Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Além de implantar uma máquina virtual do portal do Azure, você pode implantar um modelo de Azure Resource Manager do Portal. Isso implantará e configurará todos os recursos conforme definido no modelo. Para obter mais informações, consulte [implantar recursos com modelos e portal do Azure do Resource Manager](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Implantar uma máquina virtual do Azure usando o PowerShell permite a automação completa da implantação de todos os recursos de máquina virtual relacionados, incluindo armazenamento e rede. Para obter mais informações, consulte [criar uma VM do Windows usando o Resource Manager e o PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-Além de implantar os recursos de computação do Azure individualmente, você pode usar o módulo Azure PowerShell para implantar um modelo de Azure Resource Manager. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
+Além de implantar os recursos de computação do Azure individualmente, você pode usar o módulo Azure PowerShell para implantar um modelo de Azure Resource Manager. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>CLI (interface de linha de comando)
+#### <a name="command-line-interface-cli"></a>Interface de Linha de Comandos (CLI)
 
 Assim como no módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Quando você estiver usando o comando CLI do Azure **VM Quick-Create** , todos os recursos de máquina virtual relacionados (incluindo armazenamento e rede) e a própria máquina virtual serão implantados. Para obter mais informações, consulte [criar uma VM do Linux no Azure usando a CLI](../../virtual-machines/linux/quick-create-cli.md).
 
-Da mesma forma, você pode usar o CLI do Azure para implantar um modelo de Azure Resource Manager. Para obter mais informações, consulte [implantar recursos com modelos e CLI do Azure do Resource Manager](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+Da mesma forma, você pode usar o CLI do Azure para implantar um modelo de Azure Resource Manager. Para obter mais informações, consulte [implantar recursos com modelos e CLI do Azure do Resource Manager](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-virtual-machines"></a>Acesso e segurança para máquinas virtuais
 
@@ -370,19 +370,19 @@ Cada tipo de armazenamento tem um caso de uso diferente.
 
 O *blob* do Word é um acrônimo para *objeto binário grande*. Os BLOBs são arquivos não estruturados como aqueles que você armazena em seu computador. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos. O armazenamento de BLOBs do Azure também contém discos de dados de máquinas virtuais do Azure.
 
-O armazenamento do Azure dá suporte a três tipos de BLOBs:
+O Armazenamento do Azure suporta três tipos de blobs:
 
-- **Blobs de blocos** são usados para manter arquivos comuns de até 195 GB de tamanho (blocos de 4 MB × 50.000). O caso de uso primário para BLOBs de blocos é o armazenamento de arquivos que são lidos do início ao fim, como arquivos de mídia ou arquivos de imagem para sites. Elas são nomeadas blobs de blocos porque os arquivos com mais de 64 MB devem ser carregados como pequenos blocos. Esses blocos são então consolidados (ou confirmados) no blob final.
+- **Blobs de blocos** são usados para manter arquivos comuns de até 195 GB de tamanho (blocos de 4 MB × 50.000). A utilização principal para blobs de blocos é o armazenamento de ficheiros que são lidos do início ao fim, como ficheiros multimédia ou ficheiros de imagem para sites. Elas são nomeadas blobs de blocos porque os arquivos com mais de 64 MB devem ser carregados como pequenos blocos. Esses blocos são então consolidados (ou confirmados) no blob final.
 
-- Os **blobs de páginas** são usados para manter arquivos de acesso aleatório de até 1 TB de tamanho. Os blobs de páginas são usados principalmente como o armazenamento de backup para os VHDs que fornecem discos duráveis para máquinas virtuais do Azure, o serviço de computação IaaS no Azure. Eles são chamados de blobs de páginas porque fornecem acesso aleatório de leitura/gravação a páginas de 512 bytes.
+- Os **blobs de páginas** são usados para manter arquivos de acesso aleatório de até 1 TB de tamanho. Os blobs de páginas são usados principalmente como o armazenamento de backup para os VHDs que fornecem discos duráveis para máquinas virtuais do Azure, o serviço de computação IaaS no Azure. São denominados blobs de páginas pois dão um acesso aleatório de leitura/escrita para páginas de 512 bytes.
 
-- Os **blobs de acréscimo** consistem em blocos como BLOBs de blocos, mas são otimizados para operações de acréscimo. Eles são usados frequentemente para registrar informações de uma ou mais fontes no mesmo BLOB. Por exemplo, você pode gravar todo o log de rastreamento no mesmo blob de acréscimo para um aplicativo em execução em várias VMs. Um único blob de acréscimo pode ter até 195 GB.
+- Os **blobs de acréscimo** consistem em blocos como BLOBs de blocos, mas são otimizados para operações de acréscimo. Eles são usados frequentemente para registrar informações de uma ou mais fontes no mesmo BLOB. Por exemplo, você pode gravar todo o log de rastreamento no mesmo blob de acréscimo para um aplicativo em execução em várias VMs. Um único blob de acréscimo pode ter até 195 GB.
 
 Para obter mais informações, consulte Introdução [ao armazenamento de BLOBs do Azure usando o .net](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 #### <a name="file-storage"></a>Armazenamento de ficheiros
 
-O armazenamento de arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB (Server Message Block) padrão. O serviço dá suporte a SMB 2,1 e SMB 3,0. Com o armazenamento de arquivos do Azure, você pode migrar aplicativos que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações dispendiosas. Os aplicativos executados em máquinas virtuais do Azure, em serviços de nuvem ou em clientes locais, podem montar um compartilhamento de arquivos na nuvem. Isso é semelhante a como um aplicativo de desktop monta um compartilhamento SMB típico. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do File Storage em simultâneo.
+O armazenamento de arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB (Server Message Block) padrão. O serviço dá suporte a SMB 2,1 e SMB 3,0. Com o armazenamento de arquivos do Azure, você pode migrar aplicativos que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações dispendiosas. Os aplicativos executados em máquinas virtuais do Azure, em serviços de nuvem ou em clientes locais, podem montar um compartilhamento de arquivos na nuvem. Isso é semelhante a como um aplicativo de desktop monta um compartilhamento SMB típico. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do Armazenamento de ficheiros em simultâneo.
 
 Como um compartilhamento de armazenamento de arquivos é um compartilhamento de arquivos SMB padrão, os aplicativos em execução no Azure podem acessar dados no compartilhamento por meio de APIs de e/s do sistema de arquivos. Portanto, os desenvolvedores podem usar seu código e suas habilidades existentes para migrar os aplicativos existentes. Os profissionais de ti podem usar os cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de arquivos como parte da administração de aplicativos do Azure.
 
@@ -408,17 +408,17 @@ Há várias opções para implantar uma conta de armazenamento.
 
 #### <a name="portal"></a>Portal
 
-A implantação de uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um contêiner de BLOB ou compartilhamento de arquivos usando o Portal. Você pode criar entidades de armazenamento de tabela e fila programaticamente. Para obter mais informações, veja [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
+A implantação de uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um contêiner de BLOB ou compartilhamento de arquivos usando o Portal. Você pode criar entidades de armazenamento de tabela e fila programaticamente. Para obter mais informações, veja [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
-Além de implantar uma conta de armazenamento do portal do Azure, você pode implantar um modelo de Azure Resource Manager do Portal. Isso implantará e configurará todos os recursos conforme definido no modelo, incluindo qualquer conta de armazenamento. Para obter mais informações, consulte [implantar recursos com modelos e portal do Azure do Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Além de implantar uma conta de armazenamento do portal do Azure, você pode implantar um modelo de Azure Resource Manager do Portal. Isso implantará e configurará todos os recursos conforme definido no modelo, incluindo qualquer conta de armazenamento. Para obter mais informações, consulte [implantar recursos com modelos e portal do Azure do Resource Manager](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Implantar uma conta de armazenamento do Azure usando o PowerShell permite a automação de implantação completa da conta de armazenamento. Para obter mais informações, consulte [usando Azure PowerShell com o armazenamento do Azure](../../storage/common/storage-powershell-guide-full.md).
 
-Além de implantar os recursos do Azure individualmente, você pode usar o módulo Azure PowerShell para implantar um modelo de Azure Resource Manager. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
+Além de implantar os recursos do Azure individualmente, você pode usar o módulo Azure PowerShell para implantar um modelo de Azure Resource Manager. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>CLI (interface de linha de comando)
+#### <a name="command-line-interface-cli"></a>Interface de Linha de Comandos (CLI)
 
 Assim como no módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Você pode usar o comando CLI do Azure **criar conta de armazenamento** para criar uma conta de armazenamento. Para obter mais informações, consulte [usando o CLI do Azure com o armazenamento do Azure.](../../storage/common/storage-azure-cli.md)
 
@@ -474,7 +474,7 @@ Há várias opções para implantar uma rede virtual.
 - Modelos de Azure Resource Manager
 
 > **Quando usar**: a qualquer momento que você estiver trabalhando com VMs no Azure, você trabalhará com redes virtuais. Isso permite segmentar suas VMs em sub-redes públicas e privadas, de forma semelhante, de data centers locais semelhantes.
-> 
+>
 > **Introdução**: implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual no portal, poderá selecionar uma rede virtual existente ou criar uma nova. Comece e [crie uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais

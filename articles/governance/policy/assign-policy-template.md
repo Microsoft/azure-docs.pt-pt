@@ -3,12 +3,12 @@ title: 'Início rápido: nova atribuição de política com modelos'
 description: Neste guia de início rápido, você usa um modelo do Resource Manager para criar uma atribuição de política para identificar recursos sem conformidade.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: e22c14768622408fb3afb0e491d4179b6113e4ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b9b0024e5c15c78c6777b8657839791484d66b5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436455"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980512"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
 
@@ -56,7 +56,7 @@ Alguns recursos adicionais:
 - Para encontrar mais modelos de exemplos, consulte [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver a referência de modelo, vá para [referência de modelo do Azure](/azure/templates/microsoft.authorization/allversions).
 - Para saber como desenvolver modelos do Resource Manager, consulte a [documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Para aprender a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](../../azure-resource-manager/deploy-to-subscription.md).
+- Para aprender a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 

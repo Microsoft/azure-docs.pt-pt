@@ -2,22 +2,22 @@
 title: 'Início rápido: executar um trabalho do lote do Azure – API do Python'
 description: Execute rapidamente um trabalho de exemplo do lote do Azure e tarefas usando a biblioteca de cliente Python do lote. Conheça os principais conceitos do serviço de lote.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e87649e82bba295d8baaf06a71ace222ceeb0be
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390226"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029377"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a API Python
 
@@ -31,7 +31,7 @@ A aplicação carrega vários ficheiros de dados de entrada para o armazenamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python versão 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
 
 * Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
 
@@ -207,7 +207,7 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-### <a name="view-task-output"></a>Ver o resultado das tarefas
+### <a name="view-task-output"></a>Ver resultado das tarefas
 
 A aplicação monitoriza o estado da tarefa para se certificar de que as tarefas são concluídas. Em seguida, a aplicação apresenta o ficheiro `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, o resultado do comando da tarefa é escrito em `stdout.txt`:
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434585"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029173"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Início rápido: configurar o serviço de provisionamento de dispositivos no Hub IoT com o portal do Azure
 
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     * **Nome**: forneça um nome exclusivo para a nova instância do Serviço de Aprovisionamento de Dispositivos. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
     * **Subscrição**: escolha a subscrição que quer utilizar para criar a instância do Serviço de Aprovisionamento de Dispositivos.
-    * **Grupo de recursos**: este campo permite criar um novo grupo de recursos ou selecionar um já existente para conter a nova instância. Selecione o mesmo grupo de recursos que contém o hub Iot que criou acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, consulte [Manage Azure Resource Manager Resource groups](../azure-resource-manager/manage-resource-groups-portal.md).
+    * **Grupo de recursos**: este campo permite criar um novo grupo de recursos ou selecionar um já existente para conter a nova instância. Selecione o mesmo grupo de recursos que contém o hub Iot que criou acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, consulte [Manage Azure Resource Manager Resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
     * **Localização**: selecione a localização mais próxima dos seus dispositivos.
 
       ![Insira informações básicas sobre a instância do serviço de provisionamento de dispositivos na folha do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
@@ -57,7 +57,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Nesta seção, você adicionará uma configuração à instância do serviço de provisionamento de dispositivos. Esta configuração define o hub IoT para o qual os dispositivos serão aprovisionados.
 
-1. Selecione o botão **todos os recursos** no menu à esquerda da portal do Azure. Selecione a instância do Serviço Aprovisionamento de Dispositivos que criou na secção anterior.  
+1. Selecione o botão **todos os recursos** no menu à esquerda da portal do Azure. Selecione a instância do Serviço Aprovisionamento de Dispositivos que criou na secção anterior. 
+
+    Se o menu estiver configurado usando o **submenu** em vez do modo **encaixado** nas configurações do portal, você precisará clicar nas 3 linhas na parte superior esquerda para abrir o menu do portal à esquerda.  
 
 2. No menu do serviço de provisionamento de dispositivos, selecione **hubs IOT vinculados**. Pressione o botão **+ Adicionar** visto na parte superior. 
 

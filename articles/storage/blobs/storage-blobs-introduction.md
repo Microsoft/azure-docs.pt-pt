@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8071fe12b925384465c1e570465ebaa0100c53e9
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749801"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972461"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -41,7 +41,7 @@ Por exemplo, se sua conta de armazenamento for denominada *mystorageaccount*, o 
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md). Para saber mais sobre contas de armazenamento, confira [visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../common/storage-account-create.md). Para saber mais sobre contas de armazenamento, confira [visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="containers"></a>Contentores
 

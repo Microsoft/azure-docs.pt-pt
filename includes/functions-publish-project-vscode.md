@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843298"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021059"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -37,13 +37,13 @@ Esta seção pressupõe que você está criando um novo aplicativo de funções 
 
     Quando você pressiona ENTER, os seguintes recursos do Azure são criados em sua assinatura:
 
-    * **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** : Contém todos os recursos do Azure criados. O nome é baseado no nome do aplicativo de funções.
-    * **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)** : Uma conta de armazenamento padrão é criada com um nome exclusivo com base no nome do aplicativo de funções.
-    * **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
-    * **Aplicativo de funções**: Seu projeto é implantado e executado nesse novo aplicativo de funções.
+    * **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : contém todos os recursos do Azure criados. O nome é baseado no nome do aplicativo de funções.
+    * **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** : uma conta de armazenamento padrão é criada com um nome exclusivo com base no nome do aplicativo de funções.
+    * **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : um plano de consumo é criado na região oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
+    * **Aplicativo de funções**: seu projeto é implantado e executado nesse novo aplicativo de funções.
 
     Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. Selecione **Exibir saída** nesta notificação para exibir os resultados de criação e implantação, incluindo os recursos do Azure que você criou.
 
-1. De volta ao **Azure: ,** Expanda o novo aplicativo de funções em sua assinatura. Expanda **funções**, clique com o botão direito do mouse em **HttpTrigger**e escolha **Copiar URL da função**.
+1. De volta à área **Azure: Functions** , expanda o novo aplicativo de funções em sua assinatura. Expanda **funções**, clique com o botão direito do mouse em **HttpTrigger**e escolha **Copiar URL da função**.
 
     ![Copiar a URL da função para o novo gatilho HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5c7925c38cea3b341df216957e037df8a82b7ca5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c4a406961444845fef783c47942924b01b7aa646
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894728"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972406"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 
@@ -43,7 +43,7 @@ Pode começar por criar e configurar recursos utilizando uma ferramenta de confi
 
 ### <a name="models"></a>Modelo de implementação
 
-Existem atualmente dois modelos de implementação do Azure. Ao configurar um gateway de VPN, os passos seguidos dependem do modelo de implementação que utilizou para criar a rede virtual. Por exemplo, se tiver criado a VNet com o modelo de implementação clássica, utilize as diretrizes e as instruções do modelo de implementação clássica para criar e configurar as definições do gateway de VPN. Para mais informações sobre os modelos de implementação, consulte [Compreender o Gestor de Recursos e modelos de implementação clássicos](../azure-resource-manager/resource-manager-deployment-model.md).
+Existem atualmente dois modelos de implementação do Azure. Ao configurar um gateway de VPN, os passos seguidos dependem do modelo de implementação que utilizou para criar a rede virtual. Por exemplo, se tiver criado a VNet com o modelo de implementação clássica, utilize as diretrizes e as instruções do modelo de implementação clássica para criar e configurar as definições do gateway de VPN. Para mais informações sobre os modelos de implementação, consulte [Compreender o Gestor de Recursos e modelos de implementação clássicos](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="planningtable"></a>Tabela de planeamento
 

@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: enviar eventos de armazenamento de BLOBs para o ponto de extremidade da Web-Portal'
-description: 'Início rápido: Use a grade de eventos do Azure e portal do Azure para criar a conta de armazenamento de BLOBs e assinar seus eventos. Envie os eventos para um webhook.'
+description: 'Início rápido: Use a grade de eventos do Azure e portal do Azure para criar a conta de armazenamento de BLOBs e assinar seus eventos. Envie eventos para um Webhook.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -9,14 +9,14 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718066"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982187"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: rotear eventos de armazenamento de BLOB para o ponto de extremidade da Web com o portal do Azure
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Eventos de armazenamento de BLOBs de rota ponto final da web com o portal do Azure
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, irá utilizar o portal do Azure para criar uma conta de armazenamento de Blobs, subscrever eventos nesse armazenamento de blobs e acionar um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -26,7 +26,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 ![Ver resultados](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -38,7 +38,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
    ![Selecionar armazenamento](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Para subscrever eventos, tem de criar uma conta de armazenamento de Blobs ou uma conta de armazenamento de fins gerais v2. Para obter mais informações, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+1. Para subscrever eventos, tem de criar uma conta de armazenamento de Blobs ou uma conta de armazenamento de fins gerais v2. Para obter mais informações, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
    ![Passos de início](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

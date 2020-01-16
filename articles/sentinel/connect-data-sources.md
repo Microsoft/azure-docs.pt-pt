@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: a76f149b8ab9ca8515a7475cd7954b6d4862a92d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746888"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976112"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -105,7 +105,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 | AzureNetworkAnalytics_CL  | [](../network-watcher/traffic-analytics.md) [Análise de tráfego](../network-watcher/traffic-analytics.md) do esquema de análise de tráfego  | | |
 | CommonSecurityLog  | [Conectar CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Ligar o Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Conectar eventos de segurança do Windows](connect-windows-security-events.md)  | V | Para pastas de trabalho de protocolos inseguros, consulte [configuração de pasta de trabalho de protocolos não seguros](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [Conectar eventos de segurança do Windows](connect-windows-security-events.md)  | V | Para pastas de trabalho de protocolos inseguros, consulte [configuração de pasta de trabalho de protocolos não seguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | Syslog | [Conectar syslog](connect-syslog.md) | V | |
 | WAF (firewall do aplicativo Web da Microsoft)-(AzureDiagnostics) |[Conectar o Firewall do aplicativo Web da Microsoft](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Conectar o Symantec](connect-symantec.md) | V | |
