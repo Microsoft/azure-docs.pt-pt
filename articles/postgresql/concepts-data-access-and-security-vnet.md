@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768661"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965830"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usar pontos de extremidade de serviço de rede virtual e regras para o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -51,7 +51,7 @@ Uma regra de rede virtual informa o servidor do banco de dados do Azure para Pos
 
 Até que você execute uma ação, as VMs em suas sub-redes não podem se comunicar com o servidor do banco de dados do Azure para PostgreSQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A lógica para escolher a abordagem de regra de VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pelo firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>R. Permitir acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>R. Permitir o acesso aos serviços do Azure
 
 O painel segurança de conexão tem um botão **ligar/desligar** que é rotulado como **permitir o acesso aos serviços do Azure**. A configuração **on** permite a comunicação de todos os endereços IP do Azure e de todas as sub-redes do Azure. Esses IPs ou sub-redes do Azure podem não ser de propriedade de você. Essa configuração **on** provavelmente é mais aberta do que você deseja que o banco de dados do banco de dados do Azure para PostgreSQL seja. O recurso de regra de rede virtual oferece um controle granular muito mais detalhado.
 
@@ -118,7 +118,7 @@ Para o banco de dados do Azure para PostgreSQL, o recurso de regras de rede virt
 
 - Ativar pontos de extremidade de serviço de rede virtual no banco de dados do Azure para PostgreSQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do azure e SQL data warehouse do Azure.
 
-- O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+- Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
     - [VPN (rede virtual privada) site a site (S2S)][vpn-gateway-indexmd-608y]
@@ -147,7 +147,7 @@ Para obter artigos sobre a criação de regras de VNet, consulte:
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -161,4 +161,4 @@ Para obter artigos sobre a criação de regras de VNet, consulte:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

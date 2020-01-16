@@ -8,13 +8,13 @@ ms.custom: seo-lt-2019, OKR 11/2019
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
-ms.date: 11/14/2019
-ms.openlocfilehash: 445048531826861afb13c5fff6af407348aa9c2e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 01/14/2020
+ms.openlocfilehash: 9ee43533532f51f6f0d2aa9d0d4e8d3993ccadb4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940793"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027724"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Solucionar problemas de conectividade e outros erros com o Banco de Dados SQL do Microsoft Azure
 

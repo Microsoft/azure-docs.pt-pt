@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792399"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979368"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas em aplicativos lógicos do Azure com Enterprise Integration Pack
 
@@ -31,7 +31,7 @@ Para os limites relacionados a contas de integração e artefatos como esquemas,
   Para adicionar esse esquema à sua conta de integração, você pode vincular à sua conta de armazenamento de sua conta de integração. 
   Para esta tarefa, aqui estão os itens de que você precisa: 
 
-  * [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) em que você cria um contêiner de BLOB para seu esquema. Saiba como [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). 
+  * [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) em que você cria um contêiner de BLOB para seu esquema. Saiba como [criar uma conta de armazenamento](../storage/common/storage-account-create.md). 
 
   * Contêiner de BLOB para armazenar seu esquema. Saiba como [criar um contêiner de BLOBs](../storage/blobs/storage-quickstart-blobs-portal.md). 
   Você precisará do URI de conteúdo do contêiner mais tarde quando adicionar o esquema à sua conta de integração.

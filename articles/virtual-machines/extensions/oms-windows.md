@@ -3,7 +3,7 @@ title: Extensão de máquina virtual Azure Monitor para Windows
 description: Implante o agente de Log Analytics na máquina virtual do Windows usando uma extensão de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073666"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969955"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual Azure Monitor para Windows
 
@@ -36,7 +36,7 @@ Para obter detalhes sobre os sistemas operacionais Windows com suporte, consulte
 ### <a name="agent-and-vm-extension-version"></a>Versão de agente e a extensão de VM
 A tabela a seguir fornece um mapeamento da versão da extensão de VM do Windows Azure Monitor e do pacote de Log Analytics agente para cada versão. 
 
-| Log Analytics versão do pacote do agente do Windows | Azure Monitor versão da extensão de VM do Windows | Data de lançamento | Notas de Versão |
+| Log Analytics versão do pacote do agente do Windows | Azure Monitor versão da extensão de VM do Windows | Data de lançamento | Notas de Lançamento |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18011 | 1.0.18011 | Julho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Aumento de MaxExpressionDepth para 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Capacidade adicional de desabilitar as credenciais padrão ao fazer a conexão proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
@@ -87,13 +87,15 @@ O JSON a seguir mostra o esquema para a extensão do agente de Log Analytics. A 
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceid (por exemplo, *) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* workspaceid é chamado consumidorid na API do Log Analytics.
+
+> [Observação!] Para obter propriedades adicionais, consulte Azure [Connect Windows Calculations to Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
@@ -102,7 +104,7 @@ Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manage
 >[!NOTE]
 >O modelo não dá suporte à especificação de mais de uma ID de espaço de trabalho e da chave do espaço de trabalho quando você deseja configurar o agente para relatar para vários espaços de trabalho. Para configurar o agente para relatar para vários espaços de trabalho, consulte [adicionando ou removendo um espaço de trabalho](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou colocado no nível raiz ou superior de um modelo JSON do Gerenciador de recursos. O posicionamento do JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/child-resource-name-type.md). 
+O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou colocado no nível raiz ou superior de um modelo JSON do Gerenciador de recursos. O posicionamento do JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 O exemplo a seguir pressupõe que a extensão de Azure Monitor esteja aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 

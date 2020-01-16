@@ -2,7 +2,7 @@
 title: Variáveis de ambiente de tempo de execução de tarefa – lote do Azure | Microsoft Docs
 description: Orientação e referência da variável de ambiente do tempo de execução da tarefa para análise do lote do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177147"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027181"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução do lote do Azure
 
@@ -57,7 +57,7 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 | AZ_BATCH_JOB_PREP_DIR           | O caminho completo do [diretório da tarefa][files_dirs] de preparação do trabalho no nó. | Todas as tarefas, exceto tarefas de início e tarefa de preparação de trabalho. Disponível somente se o trabalho estiver configurado com uma tarefa de preparação de trabalho. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | O caminho completo do [diretório de trabalho da tarefa][files_dirs] de preparação do trabalho no nó. | Todas as tarefas, exceto tarefas de início e tarefa de preparação de trabalho. Disponível somente se o trabalho estiver configurado com uma tarefa de preparação de trabalho. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
 | AZ_BATCH_MASTER_NODE            | O endereço IP e a porta do nó de computação no qual a tarefa principal de uma [tarefa de várias instâncias][multi_instance] é executada. | Subtarefas e primárias de várias instâncias. | `10.0.0.4:6000` |
-| AZ_BATCH_NODE_ID                | A ID do nó ao qual a tarefa é atribuída. | Todas as tarefas. | TVM-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_ID                | A ID do nó ao qual a tarefa é atribuída. | Todas as tarefas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Se `true`, o nó atual será um nó dedicado. Se `false`, será um [nó de baixa prioridade](batch-low-pri-vms.md). | Todas as tarefas. | `true` |
 | AZ_BATCH_NODE_LIST              | A lista de nós alocados para uma [tarefa de várias instâncias][multi_instance] no formato `nodeIP;nodeIP`. | Subtarefas e primárias de várias instâncias. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_NODE_MOUNTS_DIR        | O caminho completo do local de [montagem do sistema de arquivos](virtual-file-mount.md) em nível de nó onde residem todos os diretórios de montagem. Os compartilhamentos de arquivos do Windows usam uma letra de unidade, portanto, para o Windows, a unidade de montagem faz parte de dispositivos e unidades.  |  Todas as tarefas, incluindo a tarefa inicial, têm acesso ao usuário, dado que o usuário está ciente das permissões de montagem para o diretório montado. | No Ubuntu, por exemplo, o local é: `/mnt/batch/tasks/fsmounts` |

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: dd1d930fa09e3e53a4ac67e513ba1bff77ee1376
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e44a27178434e7e5decbd30fda8febe0a710e7f0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373367"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978943"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Gerenciador de recursos, assinaturas diferentes
 
 Neste tutorial, você aprenderá a criar um emparelhamento de rede virtual entre redes virtuais criadas por meio do Resource Manager. As redes virtuais existem em assinaturas diferentes. O emparelhamento de duas redes virtuais permite que os recursos em diferentes redes virtuais se comuniquem entre si com a mesma largura de banda e latência como se os recursos estivessem na mesma rede virtual. Saiba mais sobre o [emparelhamento de rede virtual](virtual-network-peering-overview.md).
 
-As etapas para criar um emparelhamento de rede virtual são diferentes, dependendo se as redes virtuais estão na mesma ou em diferentes assinaturas e em qual [modelo de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) as redes virtuais são criadas. Saiba como criar um emparelhamento de rede virtual em outros cenários selecionando o cenário da tabela a seguir:
+As etapas para criar um emparelhamento de rede virtual são diferentes, dependendo se as redes virtuais estão na mesma ou em diferentes assinaturas e em qual [modelo de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) as redes virtuais são criadas. Saiba como criar um emparelhamento de rede virtual em outros cenários selecionando o cenário da tabela a seguir:
 
 |Modelo de implementação do Azure  | Subscrição do Azure  |
 |--------- |---------|

@@ -6,18 +6,18 @@ ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 7479b16f2e1f14d8ebe611bf3121005af342ccb9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ee1951de850e402721e0abb3e08a55b73f3eedfa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764938"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979362"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerenciar pontos de extremidade de serviço VNet do banco de dados do Azure para MySQL e regras de VNet usando o portal do Azure
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Para obter uma visão geral dos pontos de extremidade do serviço VNet do banco de dados do Azure para MySQL, incluindo limitações, consulte [pontos de extremidade do serviço vnet do banco de dados do Azure para MySQL Server](concepts-data-access-and-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para MySQL.
 
 > [!NOTE]
-> O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+> Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 > No caso de emparelhamento VNet, se o tráfego estiver fluindo por um gateway de VNet comum com pontos de extremidade de serviço e for supostamente fluir para o par, crie uma regra de ACL/VNet para permitir que as máquinas virtuais do Azure na VNet do gateway acessem o servidor de banco de dados do Azure para MySQL.
 
 
@@ -61,4 +61,4 @@ Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espa
 - Para obter ajuda para se conectar a um servidor de banco de dados do Azure para MySQL, consulte [bibliotecas de conexões para o banco de dados do Azure para MySQL](./concepts-connection-libraries.md)
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

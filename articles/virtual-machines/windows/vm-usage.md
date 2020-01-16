@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d574c5eef15c21d3d490bcfe682b87bae2856f1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2aa175d97787d82aae062a95ed519f35ff65816b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353725"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982263"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso da máquina virtual do Azure
-Analisando os dados de uso do Azure, as ideias de consumo poderosas podem ser obtidas – informações que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um detalhamento dos detalhes de consumo de computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [noções básicas sobre sua fatura](../../billing/billing-understand-your-bill.md).
+Analisando os dados de uso do Azure, as ideias de consumo poderosas podem ser obtidas – informações que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um detalhamento dos detalhes de consumo de computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [noções básicas sobre sua fatura](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Baixar os detalhes de uso
-Para começar, [Baixe os detalhes de uso](../../billing/billing-download-azure-invoice-daily-usage-date.md). A tabela a seguir fornece os valores de definição e exemplo de uso para máquinas virtuais implantadas por meio do Azure Resource Manager. Este documento não contém informações detalhadas para VMs implantadas por meio de nosso modelo clássico.
+Para começar, [Baixe os detalhes de uso](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). A tabela a seguir fornece os valores de definição e exemplo de uso para máquinas virtuais implantadas por meio do Azure Resource Manager. Este documento não contém informações detalhadas para VMs implantadas por meio de nosso modelo clássico.
 
 
 | Campos             | Significado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Valores de exemplo                                                                                                                                                                                                                                                                                                                                                   |
@@ -132,7 +132,7 @@ ComputeHR significa hora de computação que representa o evento de uso para o c
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Como fazer saber se eu sou cobrado pelo software Premium?
 Ao explorar qual imagem de VM melhor atende às suas necessidades, não deixe de conferir o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). A imagem tem a taxa de plano de software. Se você vir "gratuito" para a taxa, não haverá nenhum custo adicional para o software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Qual é a diferença entre Microsoft. ClassicCompute e Microsoft. Compute no serviço consumido?
-Microsoft. ClassicCompute representa os recursos clássicos implantados por meio do Service Manager do Azure. Se você implantar por meio do Gerenciador de recursos, o Microsoft. Compute será populado no serviço consumido. Saiba mais sobre os [modelos de implantação do Azure](../../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft. ClassicCompute representa os recursos clássicos implantados por meio do Service Manager do Azure. Se você implantar por meio do Gerenciador de recursos, o Microsoft. Compute será populado no serviço consumido. Saiba mais sobre os [modelos de implantação do Azure](../../azure-resource-manager/management/deployment-models.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Por que o campo InstanceID está em branco para uso da máquina virtual?
 Se você implantar por meio do modelo de implantação clássico, a cadeia de caracteres InstanceID não estará disponível.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Por que as marcas das minhas VMs não estão fluindo para os detalhes de uso?
@@ -143,5 +143,5 @@ No modelo clássico, a cobrança de recursos é agregada no nível do serviço d
 As VMs com capacidade de armazenamento Premium são cobradas com a mesma taxa que as VMs compatíveis com armazenamento não Premium. Somente os custos de armazenamento são diferentes. Visite a [página de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre seus detalhes de uso, confira [entender sua fatura por Microsoft Azure.](../../billing/billing-understand-your-bill.md)
+Para saber mais sobre seus detalhes de uso, confira [entender sua fatura por Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
 

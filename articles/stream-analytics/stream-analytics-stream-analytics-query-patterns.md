@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 54d1b640a4067cf65fc28501840b4926455ec259
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: aa8bd6e89dd47c4e972a860691d1bc3779ba5bc7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982319"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões comuns de consulta no Azure Stream Analytics
 
@@ -836,7 +836,7 @@ From
 
 A função definida pelo usuário computará o valor *bigint* do HexValue em todos os eventos consumidos.
 
-Para obter mais informações, consulte [JavaScript](/stream-analytics/stream-analytics-javascript-user-defined-functions) e [C#](/stream-analytics/stream-analytics-edge-csharp-udf).
+Para obter mais informações, consulte [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) e [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>Correspondência de padrão avançada com MATCH_RECOGNIZE
 

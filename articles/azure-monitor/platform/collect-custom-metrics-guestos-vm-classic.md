@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286151"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977626"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o banco de dados de métricas de Azure Monitor para uma máquina virtual do Windows (clássica)
 
@@ -29,7 +29,7 @@ O processo descrito neste artigo só funciona em máquinas virtuais clássicas q
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ser um [administrador de serviços ou coadministrador](../../billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
+- Você deve ser um [administrador de serviços ou coadministrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
 - Sua assinatura deve ser registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -60,7 +60,7 @@ Conceda a esse aplicativo as permissões de "editor de métricas de monitorament
 
 ## <a name="author-diagnostics-extension-configuration"></a>Configuração de extensão de diagnóstico de autor
 
-1. Prepare o arquivo de configuração da extensão de diagnóstico. Esse arquivo determina quais logs e contadores de desempenho a extensão de diagnóstico deve coletar para sua VM clássica. Veja a seguir um exemplo:
+1. Prepare o arquivo de configuração da extensão de diagnóstico. Esse arquivo determina quais logs e contadores de desempenho a extensão de diagnóstico deve coletar para sua VM clássica. Segue um exemplo:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

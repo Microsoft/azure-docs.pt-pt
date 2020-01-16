@@ -3,7 +3,7 @@ title: Compartilhamento de arquivos do Azure para pools do lote do Azure | Micro
 description: Como montar um compartilhamento de arquivos do Azure de nós de computação em um pool do Linux ou do Windows no lote do Azure.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: cd185035640bf0beaa54fa6a0f4d92a33837442b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d84fdd4635a7a9227e29fe3cd8c43a1fc4cbeb5b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093974"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029443"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do lote
 
@@ -31,7 +31,7 @@ O lote fornece suporte à API nativa para usar os blobs de armazenamento do Azur
 
 * Considere usar um compartilhamento de arquivos do Azure quando houver pools que executam um número relativamente baixo de tarefas paralelas. Examine os [destinos de desempenho e escala](../storage/files/storage-files-scale-targets.md) para determinar se os arquivos do Azure (que usam uma conta de armazenamento do Azure) devem ser usados, considerando o tamanho do pool esperado e o número de arquivos de ativo. 
 
-* Os compartilhamentos [](https://azure.microsoft.com/pricing/details/storage/files/) de arquivos do Azure são econômicos e podem ser configurados com a replicação de dados para outra região, portanto, são globalmente redundantes. 
+* Os compartilhamentos de arquivos do Azure são [econômicos](https://azure.microsoft.com/pricing/details/storage/files/) e podem ser configurados com a replicação de dados para outra região, portanto, são globalmente redundantes. 
 
 * Você pode montar um compartilhamento de arquivos do Azure simultaneamente de um computador local.
 
@@ -48,12 +48,12 @@ Esta seção fornece etapas e exemplos de código para montar e usar um comparti
 
 No lote, você precisa montar o compartilhamento cada vez que uma tarefa é executada em um nó do Windows. Atualmente, não é possível manter a conexão de rede entre as tarefas em nós do Windows.
 
-Por exemplo, inclua um `net use` comando para montar o compartilhamento de arquivos como parte de cada linha de comando de tarefa. Para montar o compartilhamento de arquivos, as seguintes credenciais são necessárias:
+Por exemplo, inclua um comando `net use` para montar o compartilhamento de arquivos como parte de cada linha de comando de tarefa. Para montar o compartilhamento de arquivos, as seguintes credenciais são necessárias:
 
-* **Nome de usuário**: StorageAccountName\\\<doAzure, por exemplo,*mystorageaccountname* do Azure\\\>
-* **Senha**: \<StorageAccountKeyWhichEnds in = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome de usuário**: azure\\\<StorageAccountName\>, por exemplo, Azure\\*mystorageaccountname*
+* **Senha**: \<StorageAccountKeyWhichEnds em = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
-O comando a seguir monta um compartilhamento de arquivos myfileshare na conta de armazenamento *mystorageaccountname* como a unidade *S:* :
+O comando a seguir monta um compartilhamento de arquivos *myfileshare* na conta de armazenamento *mystorageaccountname* como a unidade *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -63,14 +63,14 @@ Para simplificar, os exemplos aqui passam as credenciais diretamente no texto. N
 
 Para simplificar a operação de montagem, mantenha opcionalmente as credenciais nos nós. Em seguida, você pode montar o compartilhamento sem credenciais. Execute as duas etapas a seguir:
 
-1. Execute o `cmdkey` utilitário de linha de comando usando uma tarefa inicial na configuração do pool. Isso persiste as credenciais em cada nó do Windows. A linha de comando de tarefa inicial é semelhante a:
+1. Execute o utilitário de linha de comando `cmdkey` usando uma tarefa inicial na configuração do pool. Isso persiste as credenciais em cada nó do Windows. A linha de comando de tarefa inicial é semelhante a:
 
    ```
    cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
    ```
 
-2. Monte o compartilhamento em cada nó como parte de cada tarefa usando `net use`. Por exemplo, a linha de comando de tarefa a seguir monta o compartilhamento de arquivos como a unidade *S:* . Isso seria seguido por um comando ou script que faz referência ao compartilhamento. As credenciais armazenadas em cache são usadas na chamada `net use`para. Esta etapa pressupõe que você esteja usando a mesma identidade de usuário para as tarefas usadas na tarefa inicial no pool, o que não é apropriado para todos os cenários.
+2. Monte o compartilhamento em cada nó como parte de cada tarefa usando `net use`. Por exemplo, a linha de comando de tarefa a seguir monta o compartilhamento de arquivos como a unidade *S:* . Isso seria seguido por um comando ou script que faz referência ao compartilhamento. As credenciais armazenadas em cache são usadas na chamada para `net use`. Esta etapa pressupõe que você esteja usando a mesma identidade de usuário para as tarefas usadas na tarefa inicial no pool, o que não é apropriado para todos os cenários.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -101,7 +101,7 @@ pool.StartTask = new StartTask
 pool.Commit();
 ```
 
-Depois de armazenar as credenciais, use as linhas de comando da tarefa para montar o compartilhamento e fazer referência ao compartilhamento em operações de leitura ou gravação. Como um exemplo básico, a linha de comando da tarefa no trecho a seguir `dir` usa o comando para listar arquivos no compartilhamento de arquivos. Certifique-se de executar cada tarefa de trabalho usando a mesma [identidade de usuário](batch-user-accounts.md) usada para executar a tarefa inicial no pool. 
+Depois de armazenar as credenciais, use as linhas de comando da tarefa para montar o compartilhamento e fazer referência ao compartilhamento em operações de leitura ou gravação. Como um exemplo básico, a linha de comando da tarefa no trecho a seguir usa o comando `dir` para listar arquivos no compartilhamento de arquivos. Certifique-se de executar cada tarefa de trabalho usando a mesma [identidade de usuário](batch-user-accounts.md) usada para executar a tarefa inicial no pool. 
 
 ```csharp
 ...
@@ -119,18 +119,18 @@ tasks.Add(task);
 
 Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). O exemplo a seguir mostra como montar um compartilhamento de arquivos em um pool de nós de computação do Ubuntu 16, 4 LTS. Se você usar uma distribuição do Linux diferente, as etapas gerais serão semelhantes, mas use o Gerenciador de pacotes apropriado para a distribuição. Para obter detalhes e exemplos adicionais, consulte [usar os arquivos do Azure com o Linux](../storage/files/storage-how-to-use-files-linux.md).
 
-Primeiro, sob uma identidade de usuário administrador, instale `cifs-utils` o pacote e crie o ponto de montagem (por exemplo, */mnt/MyAzureFileShare*) no sistema de arquivos local. Uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é uma convenção comum criar isso `/mnt` na pasta. Não se esqueça de criar um ponto de montagem diretamente `/mnt` em (no Ubuntu) `/mnt/resource` ou (em outras distribuições).
+Primeiro, sob uma identidade de usuário administrador, instale o pacote `cifs-utils` e crie o ponto de montagem (por exemplo, */mnt/MyAzureFileShare*) no sistema de arquivos local. Uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é uma convenção comum criar isso na pasta `/mnt`. Não se esqueça de criar um ponto de montagem diretamente em `/mnt` (no Ubuntu) ou `/mnt/resource` (em outras distribuições).
 
 ```
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
-Em seguida, execute `mount` o comando para montar o compartilhamento de arquivos, fornecendo estas credenciais:
+Em seguida, execute o comando `mount` para montar o compartilhamento de arquivos, fornecendo estas credenciais:
 
-* **Nome**de usuário \<:\>StorageAccountName, por exemplo, *mystorageaccountname*
-* **Senha**: \<StorageAccountKeyWhichEnds in = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome de usuário**: \<StorageAccountName\>, por exemplo, *mystorageaccountname*
+* **Senha**: \<StorageAccountKeyWhichEnds em = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
-O comando a seguir monta um compartilhamento de arquivos myfileshare na conta de armazenamento *mystorageaccountname* em */mnt/MyAzureFileShare*: 
+O comando a seguir monta um compartilhamento de arquivos *myfileshare* na conta de armazenamento *mystorageaccountname* em */mnt/MyAzureFileShare*: 
 
 ```
 mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
@@ -169,7 +169,7 @@ pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(pool)
 ```
 
-Depois de montar o compartilhamento e definir um trabalho, use o compartilhamento em suas linhas de comando de tarefa. Por exemplo, o comando básico a seguir `ls` usa para listar arquivos no compartilhamento de arquivos.
+Depois de montar o compartilhamento e definir um trabalho, use o compartilhamento em suas linhas de comando de tarefa. Por exemplo, o comando básico a seguir usa `ls` para listar arquivos no compartilhamento de arquivos.
 
 ```python
 ...
@@ -181,7 +181,7 @@ batch_service_client.task.add(job_id, task)
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter outras opções de leitura e gravação de dados no lote, consulte [visão geral do recurso de lote](batch-api-basics.md) e [manter saída de tarefa e trabalho](batch-task-output.md).
 

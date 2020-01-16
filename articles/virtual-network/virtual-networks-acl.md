@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5e410dc4e7f47223430497825dc2a26e41c6af67
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647769"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979555"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controle de acesso de ponto de extremidade?
 
 > [!IMPORTANT]
-> O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: Gerenciador de recursos e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que a maioria das implantações novas usem o modelo de implantação do Gerenciador de recursos. 
+> O Azure tem dois [modelos de implantação](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: Gerenciador de recursos e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que a maioria das implantações novas usem o modelo de implantação do Gerenciador de recursos. 
 
 Uma ACL (lista de controle de acesso) de ponto de extremidade é um aprimoramento de segurança disponível para sua implantação do Azure. Uma ACL fornece a capacidade de permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Esse recurso de filtragem de pacotes fornece uma camada adicional de segurança. Você pode especificar ACLs de rede somente para pontos de extremidade. Você não pode especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. É recomendável usar NSGs (grupos de segurança de rede) em vez de ACLs, sempre que possível. Ao usar NSGs, a lista de controle de acesso do ponto de extremidade será substituída e não mais imposta. Para saber mais sobre o NSGs, consulte [visão geral do grupo de segurança de rede](security-overview.md)
 

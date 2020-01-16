@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705002"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975209"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um Azure Active Directory Domain Services domínio gerenciado usando um modelo do Resource Manager
 
@@ -95,7 +95,7 @@ Para criar uma VM do Windows Server e, em seguida, associá-la a um domínio ger
     | Tamanhos de VM                   | Especifique um tamanho de VM, como *Standard_DS2_v2*. |
     | Domínio para ingressar            | O nome DNS do domínio gerenciado AD DS do Azure, como *aadds.contoso.com*. |
     | Nome de usuário do domínio           | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
-    | Senha do domínio           | A senha da conta de usuário especificada na configuração anterior. |
+    | Palavra-passe de domínio           | A senha da conta de usuário especificada na configuração anterior. |
     | Caminho de UO opcional          | A UO personalizada na qual adicionar a VM. Se você não especificar um valor para esse parâmetro, a VM será adicionada à UO *computadores DC do AAD* padrão. |
     | Nome de usuário do administrador da VM         | Especifique uma conta de administrador local para criar na VM. |
     | Senha de administrador da VM         | Especifique uma senha de administrador local para a VM. Crie uma senha forte de administrador local para proteger contra ataques de força bruta de senha. |
@@ -143,6 +143,6 @@ Neste artigo, você usou a portal do Azure para configurar e implantar recursos 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/template-deployment-overview.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
+[template-overview]: ../azure-resource-manager/templates/overview.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

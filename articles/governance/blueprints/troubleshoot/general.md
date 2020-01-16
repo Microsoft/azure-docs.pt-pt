@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406616"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982478"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar erros usando plantas do Azure
 
@@ -18,7 +18,7 @@ Você pode encontrar erros ao criar ou atribuir plantas. Este artigo descreve v�
 
 Muitos erros serão o resultado da atribuição de um plano gráfico a um escopo. Quando uma atribuição falha, o plano gráfico fornece detalhes sobre a implantação com falha. Essas informações indicam o problema para que ele possa ser corrigido e a próxima implantação seja realizada com sucesso.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione **plantas atribuídas** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de plano gráfico para localizar a atribuição com falha. Você também pode classificar a tabela de atribuições pela coluna **estado de provisionamento** para ver todas as atribuições com falha agrupadas.
 
@@ -59,7 +59,7 @@ Passar um parâmetro Blueprint que usa uma função, como `[resourceGroup().tags
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função por meio de como um parâmetro, escape toda a cadeia de caracteres com `[` de modo que o parâmetro Blueprint seja semelhante a `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
+Para passar uma função por meio de como um parâmetro, escape toda a cadeia de caracteres com `[` de modo que o parâmetro Blueprint seja semelhante a `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

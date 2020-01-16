@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750971"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977576"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Coletar log de atividades do Azure com configurações herdadas
 O [log de atividades do Azure](platform-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. Até recentemente, você criou um perfil de log para enviar entradas do log de atividades a [um hub de eventos ou uma conta de armazenamento](activity-log-export.md) e usou um conector para coletá-las em um [espaço de trabalho log Analytics](activity-log-collect.md). Este artigo descreve a diferença entre os métodos, como trabalhar com configurações herdadas existentes e como limpar as configurações herdadas em preparação para configurações de diagnóstico.
@@ -28,7 +28,7 @@ O uso de configurações de diagnóstico tem as seguintes vantagens em relação
 - Filtrar coleção para coletar somente logs para categorias específicas.
 - Coletar todas as categorias de log de atividades. Algumas categorias não são coletadas usando o método herdado.
 - Latência mais rápida para a ingestão de logs. O método anterior tem aproximadamente 15 minutos de latência enquanto as configurações de diagnóstico adicionam apenas cerca de 1 minuto.
-  
+
 ### <a name="considerations"></a>Considerações
 Considere os seguintes detalhes da coleta de log de atividades usando configurações de diagnóstico antes de habilitar esse recurso.
 
@@ -44,7 +44,7 @@ As seguintes propriedades foram removidas:
 - ActivityStatus
 - ActivitySubstatus
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 As seguintes propriedades foram adicionadas:
 
@@ -57,10 +57,10 @@ As configurações herdadas para coletar o log de atividades continuarão a func
 
 1. No menu **Azure monitor** na portal do Azure, selecione log de **atividades**.
 3. Clique em **Definições de diagnóstico**.
-   
+
    ![Definições de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. Clique na faixa roxa para a experiência herdada. 
+
+4. Clique na faixa roxa para a experiência herdada.
 
     ![Experiência herdada](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ Você deve desabilitar a coleta existente da atividade antes de habilitá-la usa
 ### <a name="disable-log-profile"></a>Desabilitar perfil de log
 
 1. Use o procedimento descrito em [trabalhar com configurações herdadas](#work-with-legacy-settings) para abrir as configurações herdadas.
-2. Desabilite qualquer coleção atual para o armazenamento ou hubs de eventos. 
+2. Desabilite qualquer coleção atual para o armazenamento ou hubs de eventos.
 
 
 
@@ -93,5 +93,5 @@ A solução de monitoramento de Log Analytics do Azure inclui várias consultas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o log de atividades](../../azure-resource-manager/resource-group-audit.md)
+* [Saiba mais sobre o log de atividades](../../azure-resource-manager/management/view-activity-logs.md)
 * [Saiba mais sobre as configurações de diagnóstico](diagnostic-settings.md)

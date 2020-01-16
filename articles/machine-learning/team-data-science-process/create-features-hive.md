@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399359"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982049"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar características para dados num cluster do Hadoop com consultas do Hive
 Este documento mostra como criar características para dados armazenados num cluster do Azure HDInsight Hadoop com consultas do Hive. Estas consultas do Hive utilizam embedded Hive User-Defined funções (UDFs), os scripts para os quais são fornecidos.
@@ -30,7 +30,7 @@ Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://docs.micro
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem:
 
-* Criar uma conta de armazenamento do Azure. Se precisar de instruções, consulte [criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md)
+* Criar uma conta de armazenamento do Azure. Se precisar de instruções, consulte [criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md)
 * Aprovisionar um cluster do Hadoop personalizado com o serviço HDInsight.  Se precisar de instruções, consulte [personalizar o Azure HDInsight Hadoop Clusters do Advanced Analytics](customize-hadoop-cluster.md).
 * Os dados tem sido carregados para tabelas do Hive em clusters do Hadoop de HDInsight do Azure. Se não tiver, siga [criar e carregar dados para tabelas do Hive](move-hive-tables.md) para carregar dados para tabelas do Hive em primeiro lugar.
 * Ativar o acesso remoto para o cluster. Se precisar de instruções, consulte [aceder a cabeça nó de Cluster do Hadoop](customize-hadoop-cluster.md).
@@ -89,14 +89,14 @@ Hive vem com um conjunto de UDFs para processar os campos datetime. No ramo de r
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Esta consulta do Hive parte do princípio de que o  *\<campo datetime >* está no formato datetime padrão.
+Essa consulta de Hive pressupõe que o *campo\<datetime >* está no formato DateTime padrão.
 
 Se um campo datetime não estiver no formato predefinido, terá de converter o campo de datetime para o carimbo de data / hora Unix em primeiro lugar e, em seguida, converter o carimbo de data / hora Unix numa cadeia de datetime, que está no formato padrão. Quando a datetime em default é o formato, os utilizadores podem aplicar a datetime embedded UDFs para extrair recursos.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Nesta consulta, se o  *\<campo datetime >* com o padrão, como *26/03/2015 12:04:39*, o  *\<padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os utilizadores podem executar
+Nessa consulta, se o *campo\<datetime >* tiver o padrão como *03/26/2015 12:04:39*, o *padrão de\<do campo datetime > '* deverá ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os utilizadores podem executar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -130,32 +130,32 @@ Os campos que são utilizados nesta consulta são as coordenadas do GPS de local
         and dropoff_latitude between 30 and 90
         limit 10;
 
-As equações de matemáticas calcular a distância entre duas coordenadas do GPS podem ser encontradas no <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts do tipo de Movable</a> site, criado por Peter Lapisu. Nesse Javascript, a função `toRad()` simplesmente *lat_or_lon*pi/180, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou longitude. Uma vez que o ramo de registo não fornece a função `atan2`, mas fornece a função `atan`, o `atan2` função é implementada por `atan` função na consulta do Hive acima com a definição fornecida no <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+As equações de matemáticas calcular a distância entre duas coordenadas do GPS podem ser encontradas no <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts do tipo de Movable</a> site, criado por Peter Lapisu. Nesse JavaScript, a função `toRad()` é apenas *lat_or_lon*PI/180, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou longitude. Uma vez que o ramo de registo não fornece a função `atan2`, mas fornece a função `atan`, o `atan2` função é implementada por `atan` função na consulta do Hive acima com a definição fornecida no <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Criar área de trabalho](./media/create-features-hive/atan2new.png)
 
 Uma lista completa de Hive UDFs incorporados que podem ser encontradas no **funções incorporadas** secção no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Tópicos avançados: Otimizar os parâmetros de Hive para melhorar a velocidade de consulta
+## <a name="tuning"></a> Tópicos avançados: parâmetros de Hive otimizar para melhorar a velocidade de consulta
 As predefinições de parâmetro de cluster de Hive podem não ser adequadas para as consultas do Hive e os dados que as consultas estão a processar. Esta secção descreve alguns parâmetros que utilizadores podem sintonizar para melhorar o desempenho das consultas do Hive. Os utilizadores têm de adicionar o parâmetro ajustar consultas antes das consultas do processamento de dados.
 
-1. **Espaço de área dinâmica para dados de Java**: Para consultas que envolvem ingressar em grandes conjuntos de dados ou processar registos de longo **ficar sem espaço de área dinâmica para dados** é um dos erros comuns. Este erro pode ser evitado ao definir os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores pretendidos. Segue-se um exemplo:
+1. **Espaço de área dinâmica para dados de Java**: para consultas que envolvem ingressar em grandes conjuntos de dados ou processar registos de longo **ficar sem espaço de área dinâmica para dados** é um dos erros comuns. Este erro pode ser evitado ao definir os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores pretendidos. Segue-se um exemplo:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Este parâmetro aloca memória de 4GB de espaço de área dinâmica para dados de Java e também torna a classificação mais eficiente ao alocar mais memória para o mesmo. É uma boa idéia para brincar com essas alocações, se houver qualquer tarefa relacionados ao espaço de área dinâmica para dados de erros de falha.
 
-1. **Bloquear o DFS tamanho**: Este parâmetro define a menor unidade de dados que armazena o sistema de ficheiros. Por exemplo, se o tamanho do bloco DFS é 128 MB, em seguida, quaisquer dados e de tamanho menor e até 128 MB é armazenado num único bloco. Dados que é maiores do que 128 MB são alocados blocos extras. 
+1. **Bloquear o DFS tamanho**: este parâmetro define a menor unidade de dados que armazena o sistema de ficheiros. Por exemplo, se o tamanho do bloco DFS é 128 MB, em seguida, quaisquer dados e de tamanho menor e até 128 MB é armazenado num único bloco. Dados que é maiores do que 128 MB são alocados blocos extras. 
 2. Escolher um tamanho de pequeno bloco faz com que grandes sobrecargas no Hadoop, uma vez que o nó de nome tem de processar mais pedidos para localizar o bloco relevante relativas ao ficheiro. Uma configuração recomendada quando lidando com gigabytes (ou superior) os dados são:
 
         set dfs.block.size=128m;
 
-2. **Otimizando a operação de associação no Hive**: Enquanto as operações de associação do Framework de mapa/redução, normalmente ocorrem na fase de reduza, às vezes, enormes ganhos podem ser obtidos pelo agendamento associações na fase de mapa (também chamada de "mapjoins"). Para direcionar o Hive para fazer isso, sempre que possível, defina:
+2. **Otimizando a operação de associação no Hive**: enquanto as operações de associação do Framework de mapa/redução, normalmente ocorrem na fase de reduza, às vezes, os ganhos enorme podem ser alcançados ao agendamento associações na fase de mapa (também chamada de "mapjoins"). Para direcionar o Hive para fazer isso, sempre que possível, defina:
    
        set hive.auto.convert.join=true;
 
-3. **Especificar o número de mapeadores Hive**: Enquanto o Hadoop permite ao utilizador para definir o número de redutores, o número de mapeadores é, normalmente, não estar definido pelo utilizador. Um truque que permite algum grau de controle neste número tem de escolher as variáveis de Hadoop *mapred.min.split.size* e *mapred.max.split.size* como o tamanho do mapa de cada tarefa é determinada por:
+3. **Especificar o número de mapeadores Hive**: Hadoop enquanto permite que o usuário definir o número de redutores, o número de mapeadores é, normalmente, não estar definido pelo utilizador. Um truque que permite algum grau de controle neste número tem de escolher as variáveis de Hadoop *mapred.min.split.size* e *mapred.max.split.size* como o tamanho do mapa de cada tarefa é determinada por:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

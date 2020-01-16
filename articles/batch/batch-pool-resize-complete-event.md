@@ -2,7 +2,7 @@
 title: Evento de redimensionamento completo do pool do lote do Azure
 description: Referência para o evento de redimensionamento de pool do lote concluído. Veja um exemplo de um pool que aumentou de tamanho e foi concluído com êxito.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 44d7aaa60ee89a1ec6b0b98c38b83038fc4e70d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 0d4d07fe5762905633487cfd541b1c039ee1c841
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449776"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026657"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de conclusão de redimensionamento de conjunto
 

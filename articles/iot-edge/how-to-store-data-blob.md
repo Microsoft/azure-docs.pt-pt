@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3496e0942488a881dbb376d0e53228956e10a7f3
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 12c5bf66de966faf8dc31c7265fdfb0180a95323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729446"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970837"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazene dados na borda com o armazenamento de BLOBs do Azure no IoT Edge
 
@@ -174,8 +174,8 @@ Os exemplos de início rápido a seguir usam idiomas que também são suportados
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * As versões anteriores à V 2.1 do SDK do Python têm um problema conhecido em que o módulo não retorna o tempo de criação de BLOB. Devido a esse problema, alguns métodos como BLOBs de lista não funcionam. Como alternativa, defina explicitamente a versão da API no cliente de blob como ' 2017-04-17 '. Exemplo: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Exemplo de acréscimo de BLOB](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
-* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)
 * [PHP](../storage/blobs/storage-quickstart-blobs-php.md)

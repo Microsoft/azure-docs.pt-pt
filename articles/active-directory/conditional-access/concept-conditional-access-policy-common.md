@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5cfe6b790d5eb2877e46845317779c89cf33884
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424993"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978009"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional comuns
 
@@ -33,14 +33,16 @@ Mais informações sobre contas de acesso de emergência e por que elas são imp
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Políticas típicas implantadas por organizações
 
-* [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)
-* [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)
-* [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)
-* [Bloquear autenticação herdada](howto-conditional-access-policy-block-legacy.md)
+* [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)\*
+* [Exigir MFA para\* de gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)
+* [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)\*
+* [Bloquear\* de autenticação herdadas](howto-conditional-access-policy-block-legacy.md)
 * [Acesso condicional com base em risco (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Exigir local confiável para o registro de MFA](howto-conditional-access-policy-registration.md)
 * [Bloquear o acesso por local](howto-conditional-access-policy-location.md)
 * [Exigir dispositivo em conformidade](howto-conditional-access-policy-compliant-device.md)
+
+\* essas quatro políticas quando configuradas juntas, imitariam a funcionalidade habilitada por [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

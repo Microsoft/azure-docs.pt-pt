@@ -3,12 +3,12 @@ title: referência de host. JSON para Azure Functions 2. x
 description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d33b63e2eb733e2cea360d3c5f6096fca3521736
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769171"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978819"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
@@ -179,7 +179,7 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
-Para obter mais informações sobre instantâneos, consulte [depurar instantâneos em exceções em aplicativos .net](/azure-monitor/app/snapshot-debugger) e [solucionar problemas ao habilitar Application insights depurador de instantâneos ou exibir instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Para obter mais informações sobre instantâneos, consulte [depurar instantâneos em exceções em aplicativos .net](/azure/azure-monitor/app/snapshot-debugger) e [solucionar problemas ao habilitar Application insights depurador de instantâneos ou exibir instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
 |Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 

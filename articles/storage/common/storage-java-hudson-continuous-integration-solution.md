@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839175"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970199"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilizar o Armazenamento do Azure com uma solução Hudson de Integração Contínua
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 As informações a seguir mostram como usar o armazenamento de BLOBs como um repositório de artefatos de compilação criados por uma solução de CI (integração contínua) Hudson ou como uma fonte de arquivos que podem ser baixados para serem usados em um processo de compilação. Um dos cenários onde você acharia isso útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações são executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que você possa, por exemplo, compartilhe-os com outros membros da organização, seus clientes ou mantenha um arquivo morto.  Outro cenário é quando o trabalho de compilação em si requer outros arquivos, por exemplo, dependências para baixar como parte da entrada da compilação.
 
 Neste tutorial, você usará o plug-in do armazenamento do Azure para Hudson CI disponibilizado pela Microsoft.
@@ -53,7 +53,7 @@ Você precisará do seguinte para usar o serviço blob com sua solução Hudson 
      
       Embora uma solução típica do Hudson CI seja configurada para ser executada como um serviço, a execução da guerra de Hudson na linha de comando será suficiente para este tutorial.
 * Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <https://www.azure.com>.
-* Uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento, poderá criar uma usando as etapas em [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+* Uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento, poderá criar uma usando as etapas em [criar uma conta de armazenamento](../common/storage-account-create.md).
 * A familiaridade com a solução Hudson CI é recomendada, mas não é necessária, pois o conteúdo a seguir usará um exemplo básico para mostrar as etapas necessárias ao usar o serviço blob como um repositório para artefatos de compilação do Hudson CI.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Como usar o serviço blob com o Hudson CI
@@ -110,13 +110,13 @@ Para fins de instrução, primeiro precisaremos criar um trabalho que criará v�
     Abaixo da seção de **comando** em que você inseriu um script para **executar o comando de lote do Windows** é um link para as variáveis de ambiente reconhecidas pelo Hudson. Clique nesse link para aprender os nomes e descrições de variáveis de ambiente. As variáveis de ambiente que contêm caracteres especiais, como a variável de ambiente **BUILD_URL** , não são permitidas como um nome de contêiner ou caminho virtual comum.
 8. Clique em **tornar novo contêiner público por padrão** para este exemplo. (Se desejar usar um contêiner privado, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste artigo. Você pode saber mais sobre assinaturas de acesso compartilhado em [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).)
 9. Adicional Clique em **limpar contêiner antes de carregar** se desejar que o contêiner seja removido do conteúdo antes de os artefatos de compilação serem carregados (Deixe-o desmarcado se não quiser limpar o conteúdo do contêiner).
-10. Para obter **a lista de artefatos a serem carregados**, digite **Text/*. txt**.
+10. Para **lista de artefactos para carregar**, introduza **texto/*.txt**.
 11. Para o **caminho virtual comum para artefatos carregados**, insira **$ {Build\_ID}/$ {Build\_número}** .
 12. Clique em **salvar** para salvar as configurações.
 13. No painel do Hudson, clique em **Compilar agora** para executar **MyJob**. Examine a saída do console para obter o status. As mensagens de status para o armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação começar a carregar artefatos de compilação.
 14. Após a conclusão bem-sucedida do trabalho, você pode examinar os artefatos de compilação abrindo o blob público.
     
-    a. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+    a. Inicie sessão no [Portal do Azure](https://portal.azure.com).
     
     b. Clique em **armazenamento**.
     
@@ -126,7 +126,7 @@ Para fins de instrução, primeiro precisaremos criar um trabalho que criará v�
     
     e. Clique no contêiner chamado **myJob**, que é a versão em minúsculas do nome do trabalho que você atribuiu quando criou o trabalho do Hudson. Nomes de contêiner e nomes de BLOBs são minúsculos (e diferenciam maiúsculas de minúsculas) no armazenamento do Azure. Na lista de BLOBs para o contêiner chamado **myJob** , você deve ver **Hello. txt** e **Date. txt**. Copie a URL para qualquer um desses itens e abra-a no navegador. Você verá o arquivo de texto que foi carregado como um artefato de compilação.
 
-Somente uma ação de pós-compilação que carrega artefatos no armazenamento de BLOBs do Azure pode ser criada por trabalho. A ação de pós-compilação única para carregar artefatos no armazenamento de BLOBs do Azure pode especificar arquivos diferentes (incluindo curingas) e caminhos para arquivos dentro **da lista de artefatos a serem carregados** usando um ponto e vírgula como um separador. Por exemplo, se sua compilação do Hudson produz arquivos JAR e arquivos TXT na pasta **Build** do seu espaço de trabalho e você deseja carregar ambos para o armazenamento de BLOBs do Azure, use o seguinte para a **lista de artefatos para carregar** o valor: **Build/\*. jar; Build/\*. txt**. Você também pode usar a sintaxe de dois-pontos duplos para especificar um caminho a ser usado no nome do blob. Por exemplo, se você quiser que os JARs sejam carregados usando **binários** no caminho do blob e os arquivos txt para serem carregados usando **avisos** no caminho do blob, use o seguinte para a **lista de artefatos para carregar** o valor: **Build/\*. jar:: binários; compilar/\*. txt:: avisos**.
+Somente uma ação de pós-compilação que carrega artefatos no armazenamento de BLOBs do Azure pode ser criada por trabalho. A ação de pós-compilação única para carregar artefatos no armazenamento de BLOBs do Azure pode especificar arquivos diferentes (incluindo curingas) e caminhos para arquivos dentro **da lista de artefatos a serem carregados** usando um ponto e vírgula como um separador. Por exemplo, se criar seu Hudson produz ficheiros JAR e os ficheiros TXT em sua área de trabalho **crie** pasta e pretender carregar tanto para o armazenamento de Blobs do Azure, utilize o seguinte para o **lista de artefactos para carregar** valor: **criar /\*.JAR;compilação/\*.txt**. Você também pode usar a sintaxe de dois-pontos duplos para especificar um caminho a ser usado no nome do blob. Por exemplo, se pretender que o Intune para obter carregados usando **binários** no caminho do blob e os ficheiros TXT para obter carregados usando **avisos** no caminho do blob, utilize o seguinte para o **lista de artefactos para carregar** valor: **criar/\*.jar::binaries;compilação/\*.txt::notices**.
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Como criar uma etapa de compilação que é baixada do armazenamento de BLOBs do Azure
 As etapas a seguir mostram como configurar uma etapa de compilação para baixar itens do armazenamento de BLOBs do Azure. Isso seria útil se você quiser incluir itens em sua compilação, por exemplo, JARs que você mantém no armazenamento de BLOBs do Azure.

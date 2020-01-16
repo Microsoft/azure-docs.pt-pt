@@ -3,7 +3,7 @@ title: Alta disponibilidade e recuperação de desastres – lote do Azure | Mic
 description: Saiba como projetar seu aplicativo do lote para uma interrupção regional
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: lahugh
-ms.openlocfilehash: 11446f5f23d470234b5dba641dc16e0bf71d9b72
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: jushiman
+ms.openlocfilehash: f30d2d8e7d08277a5782c3fc39c10fcdff9463f2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094037"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029551"
 ---
 # <a name="design-your-application-for-high-availability"></a>Conceber a sua aplicação para elevada disponibilidade
 
@@ -47,7 +47,7 @@ Considere os seguintes pontos ao criar uma solução que pode fazer failover:
 - No aplicativo que chama o lote, o armazenamento e quaisquer outros serviços, facilmente comutando clientes ou a carga para a região diferente.
 - Uma prática recomendada para garantir que um failover será bem-sucedida é fazer a alternância com frequência para uma região alternativa como parte da operação normal. Por exemplo, com duas implantações em regiões separadas, alternando para a região alternativa todos os meses.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como criar contas do lote com o [portal do Azure](batch-account-create-portal.md), o [CLI do Azure](cli-samples.md), o [PowerShell](batch-powershell-cmdlets-get-started.md)ou a API de [Gerenciamento do lote](batch-management-dotnet.md).
 - As cotas padrão são associadas a uma conta do lote; [Este artigo](batch-quota-limit.md) detalha os valores de cota padrão e descreve como as cotas podem ser aumentadas.

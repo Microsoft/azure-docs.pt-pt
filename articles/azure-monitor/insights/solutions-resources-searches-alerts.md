@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401754"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977727"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionando Log Analytics pesquisas e alertas salvos à solução de gerenciamento (versão prévia)
 
@@ -23,7 +23,7 @@ ms.locfileid: "75401754"
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.
 
-As [soluções de gerenciamento](solutions.md) normalmente incluirão [pesquisas salvas](../../azure-monitor/log-query/log-query-overview.md) em log Analytics para analisar os dados coletados pela solução. Eles também podem definir [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico. Este artigo descreve como definir Log Analytics pesquisas e alertas salvos em um [modelo de gerenciamento de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que eles possam ser incluídos em soluções de [Gerenciamento](solutions-creating.md).
+As [soluções de gerenciamento](solutions.md) normalmente incluirão [pesquisas salvas](../../azure-monitor/log-query/log-query-overview.md) em log Analytics para analisar os dados coletados pela solução. Eles também podem definir [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico. Este artigo descreve como definir Log Analytics pesquisas e alertas salvos em um [modelo de gerenciamento de recursos](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) para que eles possam ser incluídos em soluções de [Gerenciamento](solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para soluções de gerenciamento e são descritos em [projetar e criar uma solução de gerenciamento no Azure](solutions-creating.md)

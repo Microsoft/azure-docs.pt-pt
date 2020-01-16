@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 82b406d6f2d9f9dc4464472108c8136c7b65c67a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406521"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977824"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar Application Insights recursos usando o PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "75406521"
 
 Este artigo mostra como automatizar a criação e a atualização de [Application insights](../../azure-monitor/app/app-insights-overview.md) recursos automaticamente usando o gerenciamento de recursos do Azure. Você pode, por exemplo, fazer isso como parte de um processo de compilação. Juntamente com o recurso de Application Insights básica, você pode criar [testes da Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md), configurar [alertas](../../azure-monitor/app/alerts.md), definir o [esquema de preços](pricing.md)e criar outros recursos do Azure.
 
-A chave para criar esses recursos são os modelos JSON para [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). O procedimento básico é: baixar as definições de JSON dos recursos existentes; parametrizar determinados valores, como nomes; em seguida, execute o modelo sempre que desejar criar um novo recurso. Você pode empacotar vários recursos juntos, para criá-los em um só lugar, por exemplo, um monitor de aplicativo com testes de disponibilidade, alertas e armazenamento para exportação contínua. Há algumas sutilezas para algumas das parametrizações, que explicaremos aqui.
+A chave para criar esses recursos são os modelos JSON para [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). O procedimento básico é: baixar as definições de JSON dos recursos existentes; parametrizar determinados valores, como nomes; em seguida, execute o modelo sempre que desejar criar um novo recurso. Você pode empacotar vários recursos juntos, para criá-los em um só lugar, por exemplo, um monitor de aplicativo com testes de disponibilidade, alertas e armazenamento para exportação contínua. Há algumas sutilezas para algumas das parametrizações, que explicaremos aqui.
 
 ## <a name="one-time-setup"></a>Configuração única
 Se você não usou o PowerShell com sua assinatura do Azure antes de:
@@ -394,7 +394,7 @@ Para automatizar a criação de qualquer outro recurso de qualquer tipo, crie um
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Parametrizar o modelo
-Agora você precisa substituir os nomes específicos por parâmetros. Para [Parametrizar um modelo](../../azure-resource-manager/templates/template-syntax.md), você escreve expressões usando um [conjunto de funções auxiliares](../../azure-resource-manager/resource-group-template-functions.md). 
+Agora você precisa substituir os nomes específicos por parâmetros. Para [Parametrizar um modelo](../../azure-resource-manager/templates/template-syntax.md), você escreve expressões usando um [conjunto de funções auxiliares](../../azure-resource-manager/templates/template-functions.md). 
 
 Não é possível parametrizar apenas parte de uma cadeia de caracteres, portanto, use `concat()` para criar cadeias.
 

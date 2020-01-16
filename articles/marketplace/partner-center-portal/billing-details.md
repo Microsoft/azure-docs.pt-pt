@@ -7,22 +7,22 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 0fda04bbfa632f429539ddc0ad90941cb645226b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934627"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976066"
 ---
-# <a name="commercial-marketplace-billing"></a>Cobrança do Marketplace comercial 
+# <a name="commercial-marketplace-billing"></a>Cobrança do Marketplace comercial
 
 Este artigo aborda os tópicos relacionados ao commerce para o Marketplace comercial:
 
-- [Opções de publicação do Marketplace](#marketplace-publishing-options) 
+- [Opções de publicação do Marketplace](#marketplace-publishing-options)
 - [Visão geral do Transact](#transact-general-overview)
 - [Modelos de cobrança de transação](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Opções de publicação do Marketplace 
+## <a name="marketplace-publishing-options"></a>Opções de publicação do Marketplace
 
 O Marketplace comercial oferece várias opções de publicação para Publicadores.
 
@@ -36,9 +36,9 @@ Além das opções de publicação de lista e de avaliação, a opção Transact
 
 ## <a name="transact-general-overview"></a>Visão geral do Transact
 
-Ao usar a opção Transact Publishing, a Microsoft permite a venda de software de terceiros e a implantação de alguns tipos de oferta na assinatura do Azure do cliente. O Publicador deve considerar a cobrança de taxas de infraestrutura e as próprias tarifas de licenciamento de software do editor, ao selecionar um modelo de cobrança e um tipo de oferta. 
+Ao usar a opção Transact Publishing, a Microsoft permite a venda de software de terceiros e a implantação de alguns tipos de oferta na assinatura do Azure do cliente. O Publicador deve considerar a cobrança de taxas de infraestrutura e as próprias tarifas de licenciamento de software do editor, ao selecionar um modelo de cobrança e um tipo de oferta.
 
-Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de oferta: máquinas virtuais, aplicativos do Azure e aplicativos SaaS. 
+Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de oferta: máquinas virtuais, aplicativos do Azure e aplicativos SaaS.
 
 ![Transact-lo no Azure Marketplace](./media/transact-amp.png)
 

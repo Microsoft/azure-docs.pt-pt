@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848600"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979466"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para redefinição de senha de autoatendimento
 
@@ -43,9 +43,9 @@ Os usuários de redefinição de senha de autoatendimento têm um link "Contate 
 
 O email de contato é enviado para os seguintes destinatários na seguinte ordem:
 
-1. Se a função **administrador de senha** for atribuída, os administradores com essa função serão notificados.
-2. Se não forem atribuídos administradores de senha, os administradores com a função de **administrador de usuários** serão notificados.
-3. Se nenhuma das funções anteriores for atribuída, os **administradores globais** serão notificados.
+1. Se a função **administrador de assistência técnica** ou a função de **administrador de senha** for atribuída, os administradores com essas funções serão notificados.
+1. Se não forem atribuídos administradores de assistência técnica ou administrador de senha, os administradores com a função de **administrador de usuários** serão notificados.
+1. Se nenhuma das funções anteriores for atribuída, os **administradores globais** serão notificados.
 
 Em todos os casos, um máximo de 100 destinatários é notificado.
 

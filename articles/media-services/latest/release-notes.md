@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771245"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979684"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão do Azure Media Services V3
 
@@ -158,7 +158,7 @@ Atualizações adicionadas que incluem melhorias de desempenho dos serviços de 
 ### <a name="new-presets"></a>Novas predefinições
 
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador interno.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições do codificador interno. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](cae-experimental.md). 
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições do codificador interno. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](content-aware-encoding.md). 
 
 ## <a name="march-2019"></a>Março de 2019
 

@@ -1,5 +1,5 @@
 ---
-title: Create a storage account
+title: Criar uma conta do Storage
 titleSuffix: Azure Storage
 description: Saiba como criar uma conta de armazenamento usando a portal do Azure, Azure PowerShell ou a CLI do Azure. Uma conta de armazenamento do Azure fornece um namespace exclusivo no Microsoft Azure para armazenar e acessar seus dados.
 services: storage
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486719"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975921"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -93,7 +93,7 @@ N/A
 
 ---
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Agora você está pronto para criar uma conta de armazenamento.
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de armazenamento e todos os outros recursos nesse grupo de recursos. Para obter mais informações sobre como excluir um grupo de recursos, consulte [excluir recursos e grupo](../../azure-resource-manager/resource-group-delete.md)de recursos.
+Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de armazenamento e todos os outros recursos nesse grupo de recursos. Para obter mais informações sobre como excluir um grupo de recursos, consulte [excluir recursos e grupo](../../azure-resource-manager/management/delete-resource-group.md)de recursos.
 
 > [!WARNING]
 > Não é possível restaurar uma conta do Storage eliminada ou obter os conteúdos que esta continha antes da eliminação. Certifique-se de que faz uma cópia de segurança de tudo o que pretende guardar antes de eliminar a conta. Isto também se aplica a quaisquer recursos na conta – depois de eliminar um blob, tabela, fila ou ficheiro, este é eliminado permanentemente.

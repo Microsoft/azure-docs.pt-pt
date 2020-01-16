@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: d0d7d9a4dd39428468d05ddf7297a424832d1020
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: e4c18f1148259d246445b94ac6117ebefa9470a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921205"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975381"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -27,7 +27,7 @@ Uma marca de serviço representa um grupo de prefixos de endereço IP de um dete
 
 Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags). Use marcas de serviço no lugar de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **ApiManagement**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. 
 
-Você pode usar as marcas de serviço para obter o isolamento de rede e proteger os recursos do Azure da Internet geral ao acessar os serviços do Azure que têm pontos de extremidade públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **AzureCloud** ou outras [marcas de serviço disponíveis]() de serviços específicos do Azure. 
+Você pode usar as marcas de serviço para obter o isolamento de rede e proteger os recursos do Azure da Internet geral ao acessar os serviços do Azure que têm pontos de extremidade públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **AzureCloud** ou outras [marcas de serviço disponíveis](#available-service-tags) de serviços específicos do Azure. 
 
 ## <a name="available-service-tags"></a>Marcas de serviço disponíveis
 A tabela a seguir inclui todas as marcas de serviço disponíveis para uso em regras de [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) .

@@ -1,18 +1,18 @@
 ---
 title: Práticas recomendadas-lote do Azure
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver sua solução de lote do Azure.
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535668"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026159"
 ---
 # <a name="azure-batch-best-practices"></a>Práticas recomendadas do lote do Azure
 
@@ -67,7 +67,7 @@ O tempo de vida do pool pode variar dependendo do método de alocação e das op
 
 As falhas de alocação de pool podem ocorrer a qualquer momento durante a primeira alocação ou redimensionamentos subsequentes. Isso pode ser devido à esgotamento de capacidade temporária em uma região ou falhas em outros serviços do Azure nos quais o lote depende. Sua cota principal não é uma garantia, mas sim um limite.
 
-### <a name="unplanned-downtime"></a>Tempo de inatividade não planejado
+### <a name="unplanned-downtime"></a>Período de indisponibilidade não planeado
 
 É possível que os pools do lote tenham eventos de tempo de inatividade no Azure. Isso é importante para ter em mente ao planejar e desenvolver seu cenário ou fluxo de trabalho para o lote.
 

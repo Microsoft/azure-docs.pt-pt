@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0f328651ac4422226071d2de12e9cbc787ef64be
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585213"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978261"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceções do Gerenciador de recursos do barramento de serviço
 
@@ -54,7 +54,7 @@ Assim como no HTTP, "código de erro 429" indica "muitas solicitações". Isso i
 
 | Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | Subcódigo = 50004. A solicitação foi encerrada porque o namespace *do namespace* está sendo limitado. | Essa condição de erro é pressionada quando o número de solicitações de entrada excede a limitação do recurso. | Aguarde alguns segundos e tente novamente. <br/> <br/> Saiba mais sobre as [cotas](service-bus-quotas.md) e os [limites de solicitação de Azure Resource Manager](../azure-resource-manager/resource-manager-request-limits.md)|
+| 429 | 50004 | Subcódigo = 50004. A solicitação foi encerrada porque o namespace *do namespace* está sendo limitado. | Essa condição de erro é pressionada quando o número de solicitações de entrada excede a limitação do recurso. | Aguarde alguns segundos e tente novamente. <br/> <br/> Saiba mais sobre as [cotas](service-bus-quotas.md) e os [limites de solicitação de Azure Resource Manager](../azure-resource-manager/management/request-limits-and-throttling.md)|
 | 429 | 40901 | Subcódigo = 40901. Outra operação conflitante está em andamento. | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação em andamento atual antes de tentar novamente. |
 | 429 | 40900 | Subcódigo = 40900. Houver. Você está solicitando uma operação que não é permitida no estado atual do recurso. | Essa condição pode ser atingida quando várias solicitações são feitas para executar as operações na mesma entidade (fila, tópico, assinatura ou regra) ao mesmo tempo. | Aguarde alguns segundos e tente novamente |
 | 429 | 40901 | A solicitação na entidade *' nome da entidade '* entrou em conflito com outra solicitação | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |

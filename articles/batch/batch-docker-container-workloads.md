@@ -2,20 +2,20 @@
 title: Cargas de trabalho do contêiner – lote do Azure | Microsoft Docs
 description: Saiba como executar aplicativos de imagens de contêiner no lote do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090741"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029719"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no lote do Azure
 
@@ -29,16 +29,16 @@ O uso de contêineres fornece uma maneira fácil de executar tarefas em lote sem
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Versões do SDK**: Os SDKs do lote dão suporte a imagens de contêiner a partir das seguintes versões:
+* **Versões do SDK**: os SDKs do lote dão suporte a imagens de contêiner a partir das seguintes versões:
     * API REST do lote versão 2017 -09-01.6.0
     * SDK do .NET do lote versão 8.0.0
     * SDK do Python do lote versão 4,0
     * SDK do Java do lote versão 3,0
     * SDK do node. js do lote versão 3,0
 
-* **Contas**: Em sua assinatura do Azure, você precisa criar uma conta do lote e, opcionalmente, uma conta de armazenamento do Azure.
+* **Contas**: em sua assinatura do Azure, você precisa criar uma conta do lote e, opcionalmente, uma conta de armazenamento do Azure.
 
-* **Uma imagem de VM com suporte**: Os contêineres têm suporte apenas em pools criados com a configuração de máquina virtual, de imagens detalhadas na seção a seguir, "imagens de máquina virtual com suporte". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
+* **Uma imagem de VM com suporte**: os contêineres têm suporte apenas em pools criados com a configuração de máquina virtual, de imagens detalhadas na seção a seguir, "imagens de máquina virtual com suporte". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limitações
 
@@ -128,9 +128,9 @@ new_pool = batch.models.PoolAddParameter(
 
 ### <a name="prefetch-images-for-container-configuration"></a>Imagens de pré-busca para configuração de contêiner
 
-Para realizar a pré-busca de imagens de contêiner no pool, adicione a lista de`container_image_names`imagens de contêiner (, em `ContainerConfiguration`Python) ao. 
+Para realizar a pré-busca de imagens de contêiner no pool, adicione a lista de imagens de contêiner (`container_image_names`, em Python) à `ContainerConfiguration`. 
 
-O exemplo de Python básico a seguir mostra como fazer uma pré-busca de uma imagem de contêiner do Ubuntu padrão do [Hub](https://hub.docker.com)do Docker.
+O exemplo de Python básico a seguir mostra como fazer uma pré-busca de uma imagem de contêiner do Ubuntu padrão do [Hub do Docker](https://hub.docker.com).
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -158,7 +158,7 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 
-O exemplo C# a seguir pressupõe que você deseja prefetch de uma imagem TensorFlow do [Hub](https://hub.docker.com)do Docker. Este exemplo inclui uma tarefa inicial que é executada no host da VM nos nós do pool. Você pode executar uma tarefa de inicialização no host, por exemplo, para montar um servidor de arquivos que pode ser acessado por meio dos contêineres.
+O exemplo C# a seguir pressupõe que você deseja prefetch de uma imagem TensorFlow do [Hub do Docker](https://hub.docker.com). Este exemplo inclui uma tarefa inicial que é executada no host da VM nos nós do pool. Você pode executar uma tarefa de inicialização no host, por exemplo, para montar um servidor de arquivos que pode ser acessado por meio dos contêineres.
 
 ```csharp
 
@@ -193,7 +193,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Imagens de pré-busca de um registro de contêiner privado
 
-Você também pode fazer prefetch de imagens de contêiner Autenticando em um servidor de registro de contêiner privado. No exemplo a seguir, os `ContainerConfiguration` objetos `VirtualMachineConfiguration` e buscam uma imagem TensorFlow privada de um registro de contêiner do Azure privado. A referência de imagem é a mesma do exemplo anterior.
+Você também pode fazer prefetch de imagens de contêiner Autenticando em um servidor de registro de contêiner privado. No exemplo a seguir, os objetos `ContainerConfiguration` e `VirtualMachineConfiguration` buscam uma imagem TensorFlow privada de um registro de contêiner do Azure privado. A referência de imagem é a mesma do exemplo anterior.
 
 ```csharp
 // Specify a container registry
@@ -227,7 +227,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Para executar uma tarefa de contêiner em um pool habilitado para contêiner, especifique as configurações específicas do contêiner. As configurações incluem a imagem a ser usada, o registro e as opções de execução do contêiner.
 
-* Use a `ContainerSettings` propriedade das classes de tarefa para definir configurações específicas de contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) . Observe que a `--rm` opção de contêiner não requer uma `--runtime` opção adicional, pois ela é encarregada pelo lote. 
+* Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas de contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) . Observe que a opção de contêiner `--rm` não requer uma opção de `--runtime` adicional, pois ela é encarregada pelo lote. 
 
 * Se você executar tarefas em imagens de contêiner, a tarefa de [nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e o [Gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, a tarefa de [início](/dotnet/api/microsoft.azure.batch.starttask), a tarefa de [preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)e a tarefa de [liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, elas podem ser executadas dentro de um contexto de contêiner ou diretamente no nó).
 
@@ -239,21 +239,21 @@ Assim como acontece com as tarefas de lote que não são de contêiner, você de
 
 Se a imagem de contêiner de uma tarefa de lote for configurada com um script de [ponto de entrada](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) , você poderá definir a linha de comando para usar o ponto de entrada padrão ou substituí-lo: 
 
-* Para usar o ponto de entrada padrão da imagem de contêiner, defina a linha de comando da tarefa `""`como a cadeia de caracteres vazia.
+* Para usar o ponto de entrada padrão da imagem de contêiner, defina a linha de comando da tarefa para a cadeia de caracteres vazia `""`.
 
-* Para substituir o ponto de entrada padrão, ou se a imagem não tiver um ponto de entrada, defina uma linha de comando apropriada para o `/app/myapp` contêiner `/bin/sh -c python myscript.py`, por exemplo, ou.
+* Para substituir o ponto de entrada padrão, ou se a imagem não tiver um ponto de entrada, defina uma linha de comando apropriada para o contêiner, por exemplo, `/app/myapp` ou `/bin/sh -c python myscript.py`.
 
-[ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) opcionais são argumentos adicionais que você fornece `docker create` ao comando que o lote usa para criar e executar o contêiner. Por exemplo, para definir um diretório de trabalho para o contêiner, defina `--workdir <directory>` a opção. Consulte a referência de [criação](https://docs.docker.com/engine/reference/commandline/create/) do Docker para obter opções adicionais.
+[ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) opcionais são argumentos adicionais que você fornece ao comando `docker create` que o lote usa para criar e executar o contêiner. Por exemplo, para definir um diretório de trabalho para o contêiner, defina a opção `--workdir <directory>`. Consulte a referência de [criação do Docker](https://docs.docker.com/engine/reference/commandline/create/) para obter opções adicionais.
 
 ### <a name="container-task-working-directory"></a>Diretório de trabalho da tarefa do contêiner
 
-Uma tarefa de contêiner de lote é executada em um diretório de trabalho no contêiner que é muito semelhante ao do diretório é configurado para uma tarefa regular (não contêiner). Observe que esse diretório de trabalho é diferente do [WorkDir](https://docs.docker.com/engine/reference/builder/#workdir) se estiver configurado na imagem ou do diretório de trabalho do contêiner padrão`C:\` (em um contêiner do Windows `/` ou em um contêiner do Linux). 
+Uma tarefa de contêiner de lote é executada em um diretório de trabalho no contêiner que é muito semelhante ao do diretório é configurado para uma tarefa regular (não contêiner). Observe que esse diretório de trabalho é diferente do [WorkDir](https://docs.docker.com/engine/reference/builder/#workdir) se estiver configurado na imagem ou do diretório de trabalho do contêiner padrão (`C:\` em um contêiner do Windows ou `/` em um contêiner do Linux). 
 
 Para uma tarefa de contêiner de lote:
 
-* Todos os diretórios recursivamente abaixo `AZ_BATCH_NODE_ROOT_DIR` do no nó do host (a raiz dos diretórios do lote do Azure) são mapeados para o contêiner
+* Todos os diretórios recursivamente abaixo da `AZ_BATCH_NODE_ROOT_DIR` no nó de host (a raiz dos diretórios do lote do Azure) são mapeados para o contêiner
 * Todas as variáveis de ambiente de tarefa são mapeadas para o contêiner
-* O diretório `AZ_BATCH_TASK_WORKING_DIR` de trabalho da tarefa no nó é definido da mesma forma que uma tarefa regular e é mapeado para o contêiner. 
+* O diretório de trabalho de tarefa `AZ_BATCH_TASK_WORKING_DIR` no nó é definido como para uma tarefa regular e mapeado para o contêiner. 
 
 Esses mapeamentos permitem que você trabalhe com tarefas de contêiner praticamente da mesma forma que as tarefas que não são do contêiner. Por exemplo, instale aplicativos usando pacotes de aplicativos, acesse arquivos de recursos do armazenamento do Azure, use configurações de ambiente de tarefas e mantenha arquivos de saída de tarefas depois que o contêiner for interrompido.
 
@@ -269,7 +269,7 @@ Se necessário, ajuste as configurações da tarefa de contêiner com base na im
 
 ## <a name="container-task-examples"></a>Exemplos de tarefas de contêiner
 
-O seguinte trecho do Python mostra uma linha de comando básica em execução em um contêiner criado com base em uma imagem fictícia extraída do Hub do Docker. Aqui, a `--rm` opção de contêiner remove o contêiner após a conclusão da tarefa e `--workdir` a opção define um diretório de trabalho. A linha de comando substitui o ponto de entrada do contêiner por um comando simples do shell que grava um arquivo pequeno no diretório de trabalho da tarefa no host. 
+O seguinte trecho do Python mostra uma linha de comando básica em execução em um contêiner criado com base em uma imagem fictícia extraída do Hub do Docker. Aqui, a opção `--rm` contêiner remove o contêiner após a conclusão da tarefa e a `--workdir` opção define um diretório de trabalho. A linha de comando substitui o ponto de entrada do contêiner por um comando simples do shell que grava um arquivo pequeno no diretório de trabalho da tarefa no host. 
 
 ```python
 task_id = 'sampletask'
@@ -302,11 +302,11 @@ CloudTask containerTask = new CloudTask (
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte também o [batch Shipyard](https://github.com/Azure/batch-shipyard) Toolkit para facilitar a implantação de cargas de trabalho de contêiner no lote do Azure por meio de [receitas Shipyards](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
-* Para obter mais informações sobre como instalar e usar o Docker CE no Linux [](https://docs.docker.com/engine/installation/) , consulte a documentação do Docker.
+* Para obter mais informações sobre como instalar e usar o Docker CE no Linux, consulte a documentação do [Docker](https://docs.docker.com/engine/installation/) .
 
 * Para obter mais informações sobre como usar imagens personalizadas, consulte [usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
 

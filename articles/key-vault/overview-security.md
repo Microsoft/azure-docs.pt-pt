@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884782"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981559"
 ---
 # <a name="azure-key-vault-security"></a>Segurança de Azure Key Vault
 
 Você precisa proteger chaves de criptografia e segredos como certificados, cadeias de conexão e senhas na nuvem para que você esteja usando Azure Key Vault. Como você está armazenando dados confidenciais e críticos para os negócios, você precisa tomar medidas para maximizar a segurança de seus cofres e os dados armazenados neles. Este artigo abordará alguns dos conceitos que você deve considerar ao projetar sua segurança de Azure Key Vault.
 
-## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
+## <a name="identity-and-access-management"></a>Gestão de identidades e acesso
 
 Quando você cria um cofre de chaves em uma assinatura do Azure, ele é automaticamente associado ao locatário do Azure AD da assinatura. Qualquer pessoa que tentar gerenciar ou recuperar conteúdo de um cofre deve ser autenticada pelo Azure AD.
 
@@ -45,13 +45,13 @@ O modelo de um único mecanismo de autenticação para ambos os planos tem vári
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gerenciando o acesso administrativo ao Key Vault
 
-Ao criar um cofre de chaves em um grupo de recursos, você gerencia o acesso usando o Azure AD. Você concede aos usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Você pode conceder acesso em um nível de escopo específico atribuindo as funções RBAC apropriadas. Para conceder acesso a um usuário para gerenciar cofres de chaves, você atribui uma `key vault Contributor` função predefinida para o usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função de RBAC:
+Ao criar um cofre de chaves em um grupo de recursos, você gerencia o acesso usando o Azure AD. Você concede aos usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Você pode conceder acesso em um nível de escopo específico atribuindo as funções RBAC apropriadas. Para conceder acesso a um usuário para gerenciar cofres de chaves, atribua uma função de `key vault Contributor` predefinida para o usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função de RBAC:
 
-- **Subscrição**: Uma função RBAC atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
-- **Grupo de recursos**: Uma função RBAC atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
-- **Recurso específico**: Uma função RBAC atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
+- **Assinatura**: uma função RBAC atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
+- **Grupo de recursos**: uma função RBAC atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
+- **Recurso específico**: uma função RBAC atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
 
-Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, [consulte RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md).
+Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Se um usuário tiver `Contributor` permissões para um plano de gerenciamento do cofre de chaves, o usuário poderá conceder a si mesmo o acesso ao plano de dados definindo uma política de acesso de Key Vault. Você deve controlar rigidamente quem tem `Contributor` acesso de função para seus cofres de chaves. Certifique-se de que apenas pessoas autorizadas possam acessar e gerenciar seus cofres de chaves, chaves, segredos e certificados.
@@ -87,15 +87,15 @@ Key Vault log salva informações sobre as atividades executadas em seu cofre. L
     - Assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
 - Pedidos não autenticados que resultam numa resposta 401. Exemplos são solicitações que não têm um token de portador, malformados ou expirados, ou que têm um token inválido.
 
-As informações de log podem ser acessadas em 10 minutos após a operação do cofre de chaves. Cabe a você gerenciar seus logs em sua conta de armazenamento. 
+As informações de log podem ser acessadas em 10 minutos após a operação do cofre de chaves. Cabe a você gerenciar seus logs em sua conta de armazenamento.
 
 - Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
 - Elimine os registos que já não pretende manter na sua conta de armazenamento.
 
-Para obter recomendações sobre o gerenciamento seguro de contas de armazenamento, examine o [Guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md)
+Para obter recomendações sobre o gerenciamento seguro de contas de armazenamento, examine o [Guia de segurança do armazenamento do Azure](../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>Próximos Passos
 
 - [Pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
-- [RBAC Funções internas](../role-based-access-control/built-in-roles.md)
+- [RBAC: funções internas](../role-based-access-control/built-in-roles.md)
 - [pontos de extremidade de serviço de rede virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)

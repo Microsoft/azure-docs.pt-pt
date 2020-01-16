@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430101"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978063"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -69,18 +69,25 @@ Leia também o [SAP Help portal for SAP lama](https://help.sap.com/viewer/p/SAP_
 * Se você entrar em hosts gerenciados, certifique-se de não bloquear os sistemas de arquivos de serem desmontados  
   Se você entrar em máquinas virtuais do Linux e alterar o diretório de trabalho para um diretório em um ponto de montagem, por exemplo,/usr/sap/AH1/ASCS00/exe, o volume não poderá ser desmontado e uma falha de reutilização ou despreparação.
 
+* Certifique-se de desabilitar CLOUD_NETCONFIG_MANAGE em máquinas virtuais SUSE SLES Linux. Para obter mais detalhes, consulte [SuSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+
 ## <a name="set-up-azure-connector-for-sap-lama"></a>Configurar o conector do Azure para SAP LaMa
 
-O conector do Azure é fornecido a partir do SAP LaMa 3,0 SP05. Recomendamos sempre instalar o pacote de suporte mais recente e o patch para o SAP LaMa 3,0. O conector do Azure usa uma entidade de serviço para autorizar contra Microsoft Azure. Siga estas etapas para criar uma entidade de serviço para o SAP Landscape Management (LaMa).
+O conector do Azure é fornecido a partir do SAP LaMa 3,0 SP05. Recomendamos sempre instalar o pacote de suporte mais recente e o patch para o SAP LaMa 3,0.
+
+O conector do Azure usa a API Azure Resource Manager para gerenciar os recursos do Azure. O SAP LaMa pode usar uma entidade de serviço ou uma identidade gerenciada para se autenticar nessa API. Se o LaMa do SAP estiver em execução em uma VM do Azure, é recomendável usar uma identidade gerenciada, conforme descrito no capítulo [usar uma identidade gerenciada para obter acesso à API do Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). Se você quiser usar uma entidade de serviço, siga as etapas no capítulo [usar uma entidade de serviço para obter acesso à API do Azure](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
+
+### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Usar uma entidade de serviço para obter acesso à API do Azure
+
+O conector do Azure pode usar uma entidade de serviço para autorizar contra Microsoft Azure. Siga estas etapas para criar uma entidade de serviço para o SAP Landscape Management (LaMa).
 
 1. Ir para https://portal.azure.com
 1. Abra o painel Azure Active Directory
 1. Clique em Registros de aplicativo
-1. Clique em Adicionar
-1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http:\//localhost) e clique em criar
-1. O URL de início de sessão não é utilizado e pode ser qualquer URL válido
-1. Selecione o novo aplicativo e clique em chaves na guia Configurações
-1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em salvar
+1. Clique em novo registro
+1. Insira um nome e clique em registrar
+1. Selecione o novo aplicativo e clique em certificados & segredos na guia Configurações
+1. Crie um novo segredo do cliente, insira uma descrição para uma nova chave, selecione quando o segredo deve exire e clique em salvar
 1. Anote o valor. Ele é usado como a senha para a entidade de serviço
 1. Anote o ID da aplicação. Ele é usado como o nome de usuário da entidade de serviço
 
@@ -93,20 +100,43 @@ O Principal de serviço não tem permissões para aceder aos seus recursos do Az
 1. Clique em Adicionar atribuição de função
 1. Selecione o colaborador da função
 1. Introduza o nome da aplicação que criou acima
-1. Clicar em Guardar
+1. Clique em Guardar.
 1. Repita a etapa de 3 a 8 para todos os grupos de recursos que você deseja usar no SAP LaMa
+
+### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Usar uma identidade gerenciada para obter acesso à API do Azure
+
+Para poder usar uma identidade gerenciada, sua instância do SAP LaMa deve ser executada em uma VM do Azure que tenha uma identidade de sistema ou de usuário atribuída. Para obter mais informações sobre identidades gerenciadas, leia [o que são identidades gerenciadas para recursos do Azure?](../../../active-directory/managed-identities-azure-resources/overview.md) e [Configure as identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+
+A identidade gerenciada não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder a ele permissões para acessá-los.
+
+1. Ir para https://portal.azure.com
+1. Abra a folha grupos de recursos
+1. Selecione o grupo de recursos que você deseja usar
+1. Clique em controle de acesso (IAM)
+1. Clique em Adicionar > Adicionar atribuição de função
+1. Selecione o colaborador da função
+1. Selecione ' máquina virtual ' para ' atribuir acesso a '
+1. Selecione a máquina virtual na qual sua instância do SAP LaMa está sendo executada
+1. Clique em Guardar.
+1. Repita as etapas para todos os grupos de recursos que você deseja usar no SAP LaMa
+
+Na configuração do conector do Azure para SAP LaMa, selecione ' usar identidade gerenciada ' para habilitar o uso da identidade gerenciada. Se você quiser usar uma identidade atribuída pelo sistema, deixe o campo nome de usuário vazio. Se você quiser usar uma identidade atribuída pelo usuário, insira a ID de identidade atribuída pelo usuário no campo nome de usuário.
+
+### <a name="create-a-new-connector-in-sap-lama"></a>Criar um novo conector no SAP LaMa
 
 Abra o site do SAP LaMa e navegue até infraestrutura. Acesse a guia gerenciadores de nuvem e clique em Adicionar. Selecione o Adaptador de Nuvem de Microsoft Azure e clique em Avançar. Introduza as seguintes informações:
 
 * Rótulo: escolha um nome para a instância do conector
-* Nome de usuário: ID do aplicativo da entidade de serviço
-* Senha: chave da entidade de serviço/senha
+* Nome de usuário: ID do aplicativo da entidade de serviço ou ID da identidade atribuída ao usuário da máquina virtual. Consulte [usando um sistema ou uma identidade atribuída pelo usuário] para obter mais informações
+* Senha: chave/senha da entidade de serviço. Você pode deixar esse campo vazio se usar um sistema ou uma identidade atribuída pelo usuário.
 * URL: manter https://management.azure.com/ padrão
 * Intervalo de monitoramento (segundos): deve ser pelo menos 300
+* Usar identidade gerenciada: o SAP LaMa pode usar um sistema ou uma identidade atribuída pelo usuário para se autenticar na API do Azure. Consulte [o capítulo usar uma identidade gerenciada para obter acesso à API do Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) neste guia.
 * ID da assinatura: ID da assinatura do Azure
 * ID de locatário Azure Active Directory: ID do locatário Active Directory
 * Host de proxy: nome de host do proxy se o SAP LaMa precisar de um proxy para se conectar à Internet
 * Porta do proxy: porta TCP do proxy
+* Alterar tipo de armazenamento para economizar custos: habilite essa configuração se o adaptador do Azure precisar alterar o tipo de armazenamento do Managed Disks para economizar custos quando os discos não estiverem em uso. Para discos de dados que são referenciados em uma configuração de instância do SAP, o adaptador alterará o tipo de disco para o armazenamento padrão durante uma instância despreparar e de volta para o tipo de armazenamento original durante uma preparação de instância. Se você parar uma máquina virtual no SAP LaMa, o adaptador alterará o tipo de armazenamento de todos os discos anexados, incluindo o disco do sistema operacional para o armazenamento padrão. Se você iniciar uma máquina virtual no SAP LaMa, o adaptador irá alterar o tipo de armazenamento de volta para o tipo de armazenamento original.
 
 Clique em configuração de teste para validar sua entrada. Você deve ver
 
@@ -264,7 +294,7 @@ O seja fornece NFS para Azure. No contexto do SAP LaMa, isso simplifica a criaç
 
 Leste da Austrália, EUA Central, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Europa Ocidental e oeste dos EUA 2.
 
-#### <a name="network-requirements"></a>Requisitos de rede
+#### <a name="network-requirements"></a>Requisitos de Rede
 
 O seja requer uma sub-rede delegada que deve fazer parte da mesma VNET que os servidores SAP. Aqui está um exemplo para essa configuração.
 Esta tela mostra a criação da VNET e a primeira sub-rede:
@@ -408,7 +438,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-as
 
 Execute SWPM e use *AS1-ASCs* para o *nome de host da instância ASCs*.
 
-#### <a name="install-sql-server"></a>Instalar SQL Server
+#### <a name="install-sql-server"></a>Instalar o SQL Server
 
 Você precisa adicionar o endereço IP do nome de host virtual do banco de dados a uma interface de rede. A maneira recomendada é usar sapacext. Se você montar o endereço IP usando o sapacext, certifique-se de remontar o endereço IP após uma reinicialização.
 

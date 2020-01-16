@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422846"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978891"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -28,7 +28,10 @@ A Microsoft está disponibilizando os padrões de segurança para todos. O objet
 
 ![Captura de tela da portal do Azure com a alternância para habilitar os padrões de segurança](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-As seguintes configurações de segurança serão ativadas em seu locatário. 
+> [!TIP]
+> Se seu locatário foi criado em ou após 22 de outubro de 2019, é possível que você esteja experimentando o novo comportamento seguro por padrão e já tenha os padrões de segurança habilitados em seu locatário. Em um esforço para proteger todos os nossos usuários, os padrões de segurança estão sendo distribuídos para todos os novos locatários criados.
+
+Mais detalhes sobre por que os padrões de segurança estão sendo disponibilizados podem ser encontrados na postagem do blog de Alex Weinert, [apresentando os padrões de segurança](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Registro de autenticação multifator unificado
 

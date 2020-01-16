@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 895a7a41c6ba8695e35d74760628c3cbaa34d3ea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b807908c9fb54ecf15de6d44a04760659196a31
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516581"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980976"
 ---
 # <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Logs de diagnóstico para o Firewall do aplicativo Web do Azure
 
@@ -24,13 +24,13 @@ Você pode monitorar os recursos de firewall do aplicativo Web usando logs. Voc�
 
 Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de gateways de aplicativo. Pode aceder a alguns destes registos através do portal. Todos os logs podem ser extraídos do armazenamento de BLOBs do Azure e exibidos em diferentes ferramentas, como [logs de Azure monitor](../../azure-monitor/insights/azure-networking-analytics.md), Excel e Power bi. Você pode saber mais sobre os diferentes tipos de logs na lista a seguir:
 
-* **Log de atividades**: você pode usar os [logs de atividades do Azure](../../azure-resource-manager/resource-group-audit.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações que são enviadas à sua assinatura do Azure e seu status. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
+* **Log de atividades**: você pode usar os [logs de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações que são enviadas à sua assinatura do Azure e seu status. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
 * **Log de acesso**: você pode usar esse log para exibir padrões de acesso do gateway de aplicativo e analisar informações importantes. Isso inclui o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. Um log de acesso é coletado a cada 300 segundos. Esse log contém um registro por instância do gateway de aplicativo. A instância do gateway de aplicativo é identificada pela propriedade instanceId.
 * **Log de desempenho**: você pode usar esse log para exibir como as instâncias do gateway de aplicativo estão sendo executadas. Esse log captura informações de desempenho para cada instância, incluindo total de solicitações atendidas, taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras. Um log de desempenho é coletado A cada 60 segundos. O log de desempenho está disponível apenas para a SKU v1. Para a SKU v2, use [métricas](../../application-gateway/application-gateway-metrics.md) para dados de desempenho.
 * **Log de firewall**: você pode usar esse log para exibir as solicitações que são registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o Firewall do aplicativo Web.
 
 > [!NOTE]
-> Os logs estão disponíveis somente para os recursos implantados no modelo de implantação Azure Resource Manager. Você não pode usar logs para recursos no modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte o artigo [entendendo a implantação do Resource Manager e a implantação clássica](../../azure-resource-manager/resource-manager-deployment-model.md) .
+> Os logs estão disponíveis somente para os recursos implantados no modelo de implantação Azure Resource Manager. Você não pode usar logs para recursos no modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte o artigo [entendendo a implantação do Resource Manager e a implantação clássica](../../azure-resource-manager/management/deployment-models.md) .
 
 Tem três opções para armazenar os registos:
 
@@ -55,8 +55,8 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Os logs de atividades não exigem uma conta de armazenamento separada. A utilização do armazenamento para registo do acesso e do desempenho incorre em encargos de serviços.
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Ativar o registo através do portal do Azure
@@ -81,7 +81,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
 ### <a name="activity-log"></a>Registo de atividades
 
-O Azure gera o log de atividades por padrão. Os logs são preservados por 90 dias no repositório de logs de eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir eventos e log de atividades](../../azure-resource-manager/resource-group-audit.md) .
+O Azure gera o log de atividades por padrão. Os logs são preservados por 90 dias no repositório de logs de eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir eventos e log de atividades](../../azure-resource-manager/management/view-activity-logs.md) .
 
 ### <a name="access-log"></a>Log de acesso
 
@@ -102,7 +102,7 @@ O log de acesso será gerado somente se você o tiver habilitado em cada instân
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |timeTaken| Período de tempo (em milissegundos) necessário para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo time-taken geralmente inclui a hora em que os pacotes de solicitação e resposta estão viajando pela rede. |
 |sslEnabled| Se a comunicação com os pools de back-end usava o SSL. Os valores válidos são on e off.|
-|hospedeira| O nome do host com o qual a solicitação foi enviada para o servidor de back-end. Se o nome de host de back-end estiver sendo substituído, este deverá refletir isso.|
+|anfitrião| O nome do host com o qual a solicitação foi enviada para o servidor de back-end. Se o nome de host de back-end estiver sendo substituído, este deverá refletir isso.|
 |originalHost| O nome do host com o qual a solicitação foi recebida pelo gateway de aplicativo do cliente.|
 ```json
 {
@@ -150,7 +150,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 |serverRouted| O servidor back-end para o qual o gateway de aplicativo roteia a solicitação.|
 |serverStatus| Código de status HTTP do servidor de back-end.|
 |serverResponseLatency| Latência da resposta do servidor de back-end.|
-|hospedeira| Endereço listado no cabeçalho do host da solicitação.|
+|anfitrião| Endereço listado no cabeçalho do host da solicitação.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -193,7 +193,7 @@ O log de desempenho será gerado somente se você o tiver habilitado em cada ins
 |requestCount     | Número de solicitações atendidas.        |
 |MOLAP | Latência média (em milissegundos) de solicitações da instância para o back-end que atende às solicitações. |
 |failedRequestCount| Número de solicitações com falha.|
-|taxa| Taxa de transferência média desde o último log, medida em bytes por segundo.|
+|Taxa de transferência| Taxa de transferência média desde o último log, medida em bytes por segundo.|
 
 ```json
 {
@@ -228,18 +228,18 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
 |clientIp     |   IP de origem para a solicitação.      |
 |clientPort     |  Porta de origem para a solicitação.       |
 |requestUri     | URL da solicitação recebida.       |
-|O rulesettype     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
+|ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão do conjunto de regras usada. Os valores disponíveis são 2.2.9 e 3,0.     |
 |ruleId     | ID da regra do evento de gatilho.        |
 |message     | Mensagem amigável para o evento de disparo. Mais detalhes são fornecidos na seção de detalhes.        |
 |action     |  Ação executada na solicitação. Os valores disponíveis são bloqueados e permitidos.      |
-|locais     | Site para o qual o log foi gerado. Atualmente, somente global é listado porque as regras são globais.|
-|Ver     | Detalhes do evento de disparo.        |
-|detalhes. mensagem     | Descrição da regra.        |
-|detalhes. dados     | Dados específicos encontrados na solicitação que corresponderam à regra.         |
+|site     | Site para o qual o log foi gerado. Atualmente, somente global é listado porque as regras são globais.|
+|details     | Detalhes do evento de disparo.        |
+|details.message     | Descrição da regra.        |
+|details.data     | Dados específicos encontrados na solicitação que corresponderam à regra.         |
 |detalhes. arquivo     | Arquivo de configuração que continha a regra.        |
 |detalhes. linha     | Número de linha no arquivo de configuração que disparou o evento.       |
-|Nome do host   | Nome do host ou endereço IP do gateway de aplicativo.    |
+|nome do host   | Nome do host ou endereço IP do gateway de aplicativo.    |
 |transactionId  | ID exclusiva para uma determinada transação que ajuda a agrupar várias violações de regra que ocorreram na mesma solicitação.   |
 |policyId   | ID exclusiva da política de firewall associada ao gateway de aplicativo, ao ouvinte ou ao caminho.   |
 |policyScope    | O local dos valores de política pode ser "global", "ouvinte" ou "local".   |
@@ -276,7 +276,7 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
       "policyScopeName": "httpListener1"
     }
   }
-} 
+}
 
 ```
 
@@ -284,7 +284,7 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
 
 Pode ver e analisar os dados de registo de atividades através de um dos seguintes métodos:
 
-* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../../azure-resource-manager/resource-group-audit.md).
+* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
 * **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Usando os [aplicativos de modelo de Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview), você pode analisar seus dados.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Exibir e analisar os logs de acesso, desempenho e firewall
@@ -295,8 +295,8 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 > [!TIP]
 > Se estiver familiarizado com os conceitos básicos do Visual Studio para alterar os valores de constantes e variáveis em C#, pode utilizar as [ferramentas de conversor de registo](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
-> 
-> 
+>
+>
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analisando logs de acesso por meio do GoAccess
 

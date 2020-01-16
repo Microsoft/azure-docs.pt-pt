@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103493"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981396"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM do Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -30,12 +30,12 @@ ms.locfileid: "70103493"
 ## <a name="top-issues"></a>Principais problemas
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
-Para outros problemas de implantação de VM e perguntas, consulte solucionar problemas de [implantação de máquina virtual do Windows no Azure](troubleshoot-deploy-vm-windows.md).
+Para outros problemas de implantação de VM e perguntas, consulte [solucionar problemas de implantação de máquina virtual do Windows no Azure](troubleshoot-deploy-vm-windows.md).
 
 ## <a name="collect-activity-logs"></a>Coletar logs de atividade
 Para iniciar a solução de problemas, colete os logs de atividade para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
-[Ver as operações de implementação](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Ver as operações de implementação](../../azure-resource-manager/templates/deployment-history.md)
 
 [Exibir logs de atividade para gerenciar recursos do Azure](../../resource-group-audit.md)
 
@@ -43,7 +43,7 @@ Para iniciar a solução de problemas, colete os logs de atividade para identifi
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**IAR** Se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
+**Y:** Se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
 
 **Erros de upload:**
 
@@ -63,9 +63,9 @@ Para resolver esses dois erros, use [Add-AzVhd para carregar o VHD original](htt
 
 **Resolução**
 
-Para resolver esses erros, exclua a imagem atual do portal e recapture [-a dos VHDs atuais](../windows/create-vm-specialized.md) com a mesma configuração que para o sistema operacional (generalizado/especializado).
+Para resolver esses erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](../windows/create-vm-specialized.md) com a mesma configuração que para o sistema operacional (generalizado/especializado).
 
-## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Imagem personalizada/de galeria/Marketplace; falha de alocação
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: imagem personalizada/de galeria/do Marketplace; falha de alocação
 Esse erro ocorre em situações em que a nova solicitação de VM é fixada em um cluster que não dá suporte ao tamanho da VM que está sendo solicitada ou não tem espaço livre disponível para acomodar a solicitação.
 
 **Causa 1:** O cluster não dá suporte ao tamanho de VM solicitado.
@@ -75,7 +75,7 @@ Esse erro ocorre em situações em que a nova solicitação de VM é fixada em u
 * Repita a solicitação usando um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina virtual Parar.*   > 
+    Clique **em grupos de recursos** > *seu grupo de recursos* > **recursos** > *seu conjunto de disponibilidade* > **máquinas virtuais** > *sua máquina virtual* > **parar**.
   * Depois que todas as VMs forem interrompidas, crie a nova VM no tamanho desejado.
   * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 
@@ -88,7 +88,7 @@ Esse erro ocorre em situações em que a nova solicitação de VM é fixada em u
   * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
   * Adicione a nova VM à mesma rede virtual.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [solucionar problemas de implantação do Resource Manager com a reinicialização ou redimensionamento de uma máquina virtual do Windows existente no Azure](restart-resize-error-troubleshooting.md).
 
 

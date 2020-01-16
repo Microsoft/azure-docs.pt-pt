@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745623"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977660"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor
 
 > [!WARNING]
-> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-subscription.md).
+> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-legacy.md).
 
 O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Este artigo descreve como coletar o log de atividades em um espaço de trabalho Log Analytics e como usar a [solução de monitoramento](../insights/solutions.md)de análise do log de atividades, que fornece consultas de log e exibições para a análise desses dados. 
 
@@ -32,7 +32,7 @@ Conectar o log de atividades a um espaço de trabalho Log Analytics fornece os s
 Um único espaço de trabalho pode ser conectado ao log de atividades para várias assinaturas no mesmo locatário do Azure. Para a coleta em vários locatários, consulte [coletar logs de atividades do Azure em um espaço de trabalho log Analytics entre assinaturas em locatários diferentes do Azure Active Directory](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
-> Você poderá receber um erro com o procedimento a seguir se os provedores de recursos Microsoft. OperationalInsights e Microsoft. OperationsManagement não estiverem registrados para sua assinatura. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/resource-manager-supported-services.md) para registrar esses provedores.
+> Você poderá receber um erro com o procedimento a seguir se os provedores de recursos Microsoft. OperationalInsights e Microsoft. OperationsManagement não estiverem registrados para sua assinatura. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) para registrar esses provedores.
 
 Use o procedimento a seguir para conectar o log de atividades ao seu espaço de trabalho do Log Analytics:
 

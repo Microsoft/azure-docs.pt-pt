@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: d92832d1eee995e8883dc6c8ed0f58c9755e40f8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 74d10c8fbe2f82d6148f5e13cb57c46dd645f76f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058411"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979548"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral do IP público em nível de instância (clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que você pode atribuir diretamente a uma instância de função de serviços de nuvem ou VM, em vez de ao serviço de nuvem em que a sua VM ou instância de função reside. Um ILPIP não assume o lugar do VIP (IP virtual) atribuído ao seu serviço de nuvem. Em vez disso, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação de VMs por meio do Resource Manager. Verifique se você entendeu como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação de VMs por meio do Resource Manager. Verifique se você entendeu como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
 ![Diferença entre ILPIP e VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-Como mostra a Figura 1, o serviço de nuvem é acessado usando um VIP, enquanto as VMs individuais normalmente são acessadas&gt;usando VIP:&lt;número da porta. Ao atribuir um ILPIP a uma VM específica, essa VM pode ser acessada diretamente usando esse endereço IP.
+Como mostra a Figura 1, o serviço de nuvem é acessado usando um VIP, enquanto as VMs individuais normalmente são acessadas usando VIP:&lt;número da porta&gt;. Ao atribuir um ILPIP a uma VM específica, essa VM pode ser acessada diretamente usando esse endereço IP.
 
-Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um FQDN (nome de domínio totalmente qualificado), em vez de usar o VIP real. O mesmo processo ocorre para um ILPIP, permitindo o acesso à VM ou à instância de função pelo FQDN em vez de ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice*e configurar uma função Web chamada *contosoweb* com duas instâncias e no. cscfg `domainNameLabel` for definido como *WebPublicIP*, o Azure registrará os seguintes registros a para o ocasiões
+Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um FQDN (nome de domínio totalmente qualificado), em vez de usar o VIP real. O mesmo processo ocorre para um ILPIP, permitindo o acesso à VM ou à instância de função pelo FQDN em vez de ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice*e configurar uma função Web chamada *contosoweb* com duas instâncias e no. cscfg `domainNameLabel` for definido como *WebPublicIP*, o Azure registrará os seguintes registros a para as instâncias:
 
 
 * WebPublicIP.0.contosoadservice.cloudapp.net
@@ -45,7 +45,7 @@ Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes
 > 
 
 ## <a name="why-would-i-request-an-ilpip"></a>Por que eu solicitaria um ILPIP?
-Se você quiser ser capaz de se conectar à sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o número&lt;&gt;de porta vip do serviço de nuvem, solicite um ILPIP para sua VM ou sua instância de função.
+Se você quiser ser capaz de se conectar à sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o VIP do serviço de nuvem:&lt;número da porta&gt;, solicite um ILPIP para sua VM ou sua instância de função.
 
 * **FTP ativo** -ao atribuir um ILPIP a uma VM, ele pode receber tráfego em qualquer porta. Os pontos de extremidade não são necessários para a VM receber o tráfego.  Consulte [visão geral do protocolo FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) para obter detalhes sobre o protocolo FTP.
 * **IP de saída** -o tráfego de saída proveniente da VM é mapeado para o ILPIP como a origem e o ILPIP identifica exclusivamente a VM para entidades externas.
@@ -140,7 +140,7 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -Publi
 Para adicionar um ILPIP a uma instância de função de serviços de nuvem, conclua as seguintes etapas:
 
 1. Baixe o arquivo. cscfg para o serviço de nuvem concluindo as etapas no artigo [como configurar os serviços de nuvem](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) .
-2. Atualize o arquivo. cscfg adicionando o `InstanceAddress` elemento. O exemplo a seguir adiciona um ILPIP chamado *MyPublicIP* a uma instância de função chamada *WebRole1*: 
+2. Atualize o arquivo. cscfg adicionando o elemento `InstanceAddress`. O exemplo a seguir adiciona um ILPIP chamado *MyPublicIP* a uma instância de função chamada *WebRole1*: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -182,6 +182,6 @@ Você também pode usar `nslookup` para consultar o registro a de um subdomínio
 nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
 ``` 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássico.
 * Saiba mais sobre [IPS reservados](virtual-networks-reserved-public-ip.md).

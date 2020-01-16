@@ -3,15 +3,15 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure dão suporte a marcas. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 493313cbb0b43b04d3c4dde82b5ca95dd7e9ac4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4eb163376f1a0b8d8194defed4445578975976f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479777"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982212"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
-Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de cobrança do Azure e nos dados de uso diário](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [tag-support. csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -1622,7 +1622,7 @@ Ir para um namespace do provedor de recursos:
 > | notifyResourceJobs | Não | Não |
 > | Fornecedores | Não | Não |
 > | resourceGroups | Sim | Não |
-> | subscrição | Não | Não |
+> | subscrições | Não | Não |
 > | locatários | Não | Não |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS

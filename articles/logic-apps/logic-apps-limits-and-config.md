@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: fe38e74d30f7eb4f0c025f14268f7d6ac7b7d88a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d34a0905973a8080ee53eeac878432db0c51128
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428674"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979061"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -62,13 +62,13 @@ Para alterar o limite padrão de duração da execução e retenção de armazen
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com). Na caixa de pesquisa do portal, localize e selecione **aplicativos lógicos**.
 
-1. Selecione e, em seguida, abra seu aplicativo lógico no designer do aplicativo lógico. 
+1. Selecione e, em seguida, abra seu aplicativo lógico no designer do aplicativo lógico.
 
 1. No menu do aplicativo lógico, selecione **configurações de fluxo de trabalho**.
 
 1. Em **Opções de tempo de execução**, na lista **retenção do histórico de execuções em dias** , selecione **personalizado**.
 
-1. Insira ou arraste o controle deslizante para o número de dias que você deseja. 
+1. Insira ou arraste o controle deslizante para o número de dias que você deseja.
 
    > [!NOTE]
    > Para aplicativos lógicos em vários locatários do Azure, o limite padrão de 90 dias é o mesmo que o limite máximo. Você só pode diminuir esse valor.
@@ -84,7 +84,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 | ---- | ----- | ----- |
 | Disparar simultaneidade | * Ilimitado quando o controle de simultaneidade está desativado <p><p>* 25 é o limite padrão quando o controle de simultaneidade é ativado, o que não pode ser desfeito depois que você ativa o controle. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é reduzido para 100 itens para [matrizes de delote](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusivamente, consulte [alterar o limite de simultaneidade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [instâncias de gatilho sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Máximo de execuções de espera | Quando o controle de simultaneidade é ativado, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade de gatilho). Você pode alterar o número máximo de até 100 inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem esperar para serem executadas quando seu aplicativo lógico já estiver executando o máximo de instâncias simultâneas. <p><p>Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Itens da matriz foreach | 100.000 | Esse limite descreve o número mais alto de itens de matriz que um loop "for each" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar a [ação de consulta](../connectors/connectors-native-query.md). |
+| Itens da matriz foreach | 100.000 | Esse limite descreve o número mais alto de itens de matriz que um loop "for each" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar a [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Simultaneidade foreach | 20 é o limite padrão quando o controle de simultaneidade é desativado. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite é o número mais alto de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [alterar "para cada" limite de simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "para cada" loops sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | Itens SplitOn | * 100.000 sem simultaneidade de gatilho <p><p>* 100 com simultaneidade de gatilho | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade ' Splitness ' que [divide ou delote itens de matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "foreach". Essa expressão faz referência à matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item de matriz. <p><p>**Observação**: quando a simultaneidade é ativada, o limite de divisão é reduzido para 100 itens. |
 | Iterações Until | 5000 | |
@@ -122,7 +122,8 @@ Estes são os limites de taxa de transferência para o SKU Premium:
 Para ultrapassar esses limites no processamento normal ou executar testes de carga que possam ultrapassar esses limites, [entre em contato com a equipe de aplicativos lógicos](mailto://logicappsemail@microsoft.com) para obter ajuda com seus requisitos.
 
 > [!NOTE]
-> A [SKU do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, pois essa SKU não tem nenhum SLA (contrato de nível de serviço) ou recursos para escalar verticalmente. Use esta SKU somente para testes, desenvolvimento e teste, não para produção ou teste de desempenho.
+> A [SKU do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, pois essa SKU não tem nenhum SLA (contrato de nível de serviço) ou recursos para escalar verticalmente.
+> Use esta SKU somente para testes, desenvolvimento e teste, não para produção ou teste de desempenho.
 
 <a name="gateway-limits"></a>
 
@@ -209,7 +210,8 @@ Custos adicionais se aplicam a contas de integração que você adiciona além d
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites de artefato por conta de integração
 
-Aqui estão os limites do número de artefatos para cada camada de conta de integração. Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como o preço e a cobrança funcionam para contas de integração, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Aqui estão os limites do número de artefatos para cada camada de conta de integração.
+Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como o preço e a cobrança funcionam para contas de integração, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Essa camada restringe a taxa de transferência e o uso e não tem nenhum SLA (contrato de nível de serviço).
@@ -261,9 +263,12 @@ Estes são os limites de tamanho de mensagem que se aplicam aos protocolos B2B:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Desabilitando ou excluindo aplicativos lógicos
 
-Quando você desabilita um aplicativo lógico, nenhuma execução nova é instanciada. Todas as execuções em andamento e pendentes continuam até que sejam concluídas, o que pode levar tempo para ser concluído.
+Quando você desabilita um aplicativo lógico, nenhuma execução nova é instanciada.
+Todas as execuções em andamento e pendentes continuam até que sejam concluídas, o que pode levar tempo para ser concluído.
 
-Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
+Quando elimina uma aplicação lógica, não são instanciadas novas execuções.
+Todas as execuções em curso e pendentes são canceladas.
+Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
 
 <a name="configuration"></a>
 
@@ -276,7 +281,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 
 * Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seu firewall com *todos* os endereços IP de [entrada](#inbound) *e* [saída](#outbound) que são usados pelo serviço de aplicativos lógicos, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob os cabeçalhos de **entrada** e **saída** nesta seção e são classificados por região.
 
-* Para dar suporte às chamadas feitas pelos [conectores gerenciados pela Microsoft](../connectors/apis-list.md) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob o título de **saída** nesta seção e são classificados por região. 
+* Para dar suporte às chamadas feitas pelos [conectores gerenciados pela Microsoft](../connectors/apis-list.md) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob o título de **saída** nesta seção e são classificados por região.
 
 * Para habilitar a comunicação para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 

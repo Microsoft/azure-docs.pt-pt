@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/26/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 340717242d642475217bbe87fd96be66ec9b2e2d
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554230"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979345"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de assinatura clássica do Azure
 
-A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, precisará usar uma função de administrador de assinatura clássica: administrador de serviços e coadministrador. Para obter mais informações, consulte [Azure Resource Manager vs. implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, precisará usar uma função de administrador de assinatura clássica: administrador de serviços e coadministrador. Para obter mais informações, consulte [Azure Resource Manager vs. implantação clássica](../azure-resource-manager/management/deployment-models.md).
 
 Este artigo descreve como adicionar ou alterar as funções de coadministrador e administrador de serviços e como exibir o administrador da conta.
 
@@ -89,7 +89,7 @@ Para obter informações que comparam usuários Membros e usuários convidados, 
 
 1. Adicione uma marca de seleção ao lado do coadministrador que você deseja remover.
 
-1. Clique em **remover**.
+1. Clique em **Remover**.
 
 1. Na caixa de mensagem exibida, clique em **Sim**.
 
@@ -152,11 +152,11 @@ Para obter mais informações sobre contas da Microsoft e contas do Azure AD, co
 
 ## <a name="view-the-account-administrator"></a>Exibir o administrador da conta
 
-O administrador da conta é o usuário que se inscreveu inicialmente para a assinatura do Azure e é responsável como o proprietário da cobrança da assinatura. Para alterar o administrador da conta de uma assinatura, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
+O administrador da conta é o usuário que se inscreveu inicialmente para a assinatura do Azure e é responsável como o proprietário da cobrança da assinatura. Para alterar o administrador da conta de uma assinatura, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 Siga estas etapas para exibir o administrador da conta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
@@ -170,4 +170,4 @@ Siga estas etapas para exibir o administrador da conta.
 
 * [Compreender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Manage access to Azure resources using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
-* [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+* [Adicionar ou alterar administradores de subscrição do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

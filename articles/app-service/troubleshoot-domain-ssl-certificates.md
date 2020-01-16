@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688348"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966982"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e certificado SSL no serviço Azure App
 
 Este artigo lista os problemas comuns que você pode encontrar ao configurar um domínio ou certificado SSL para seus aplicativos Web no serviço Azure App. Ele também descreve as possíveis causas e soluções para esses problemas.
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do MSDN e do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do MSDN e do Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -88,7 +88,7 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
     **Solução**: se o certificado for marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
-    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
     2. Vá para **certificados do serviço de aplicativo**e selecione o certificado.
     3. Selecione **configuração de certificado** > **etapa 2: verificar** > **verificação de domínio**. Esta etapa envia um aviso por email ao provedor de certificados do Azure para resolver o problema.
 
@@ -190,7 +190,7 @@ O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48
 
 Você pode forçar uma sincronização do certificado:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
 2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
 3. Quando a sincronização for concluída, você verá a seguinte notificação: "atualização bem-sucedida de todos os recursos com o certificado mais recente".
 
@@ -318,6 +318,6 @@ Você pode gerenciar seu domínio mesmo que não tenha um aplicativo Web do serv
 
 **Posso mover um aplicativo Web com um domínio personalizado para outra assinatura ou de Ambiente do Serviço de Aplicativo v1 para v2?**
 
-Sim, você pode mover seu aplicativo Web entre assinaturas. Siga as orientações em [como mover recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Há algumas limitações ao mover o aplicativo Web. Para obter mais informações, consulte [limitações para mover os recursos do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Sim, você pode mover seu aplicativo Web entre assinaturas. Siga as orientações em [como mover recursos no Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Há algumas limitações ao mover o aplicativo Web. Para obter mais informações, consulte [limitações para mover os recursos do serviço de aplicativo](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 Depois de mover o aplicativo Web, as associações de nome de host dos domínios dentro da configuração domínios personalizados devem permanecer as mesmas. Nenhuma etapa adicional é necessária para configurar as associações de nome de host.

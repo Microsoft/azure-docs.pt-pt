@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4a5ab0b0ae76f3c646df42953c1602c63a274824
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a466601bb68e9cec72408a590f2aec3d3dbfbf93
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457384"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968262"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de arquivos do Azure no Windows
 
@@ -185,7 +185,7 @@ Você pode ver um desempenho lento ao tentar transferir arquivos para o serviço
 -   Se você souber o tamanho final de um arquivo que está sendo estendido com gravações e o software não tiver problemas de compatibilidade quando a parte final não gravada no arquivo contiver zeros, defina o tamanho do arquivo com antecedência em vez de fazer com que cada gravação faça uma gravação de extensão.
 -   Use o método de cópia correto:
     -   Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre dois compartilhamentos de arquivos.
-    -   Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos em um computador local.
+    -   Use o [Robocopy](/azure/storage/files/storage-files-deployment-guide#robocopy) entre compartilhamentos de arquivos em um computador local.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Considerações sobre o Windows 8.1 ou o Windows Server 2012 R2
 

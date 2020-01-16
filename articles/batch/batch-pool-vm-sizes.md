@@ -3,7 +3,7 @@ title: Escolher tamanhos de VM para pools-Azure batch | Microsoft Docs
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools do lote do Azure
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 34ab09f7d8d47804992b8ef6864bfea60d1c9b4d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983757"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026602"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do lote do Azure
 
@@ -40,30 +40,30 @@ Os tamanhos de VM promocional ou de visualização não listados não são garan
 
 | Série de VM  | Tamanhos com suporte | Modo de alocação do pool de contas do lote<sup>1</sup> |
 |------------|---------|-----------------|
-| Série A básica | Todos os tamanhos *, exceto* Basic_A0 (a0) | Any |
-| Série A | Todos os tamanhos *, exceto* Standard_A0 | Any |
-| Série Av2 | Todos os tamanhos | Any |
-| Série B | Nenhum | Indisponível |
-| Série DC | Nenhum | Indisponível |
-| Dv2, série DSv2 | Todos os tamanhos | Any |
-| Dv3, série Dsv3 | Todos os tamanhos | Any |
-| Ev3, série Esv3 | Todos os tamanhos | Any |
-| Série Fsv2 | Todos os tamanhos | Any |
-| Série H | Todos os tamanhos | Any |
-| Série HB<sup>2</sup> | Todos os tamanhos | Any |
-| HC-série<sup>2</sup> | Todos os tamanhos | Any |
-| Série Ls | Todos os tamanhos | Any |
-| Série Lsv2 | Nenhum | Indisponível |
-| Série M | Standard_M64ms (somente baixa prioridade), Standard_M128s (somente baixa prioridade) | Any |
-| Série Mv2 | Nenhum | Indisponível |
-| Série NC | Todos os tamanhos | Any |
-| Série NCv2<sup>2</sup> | Todos os tamanhos | Any |
-| Série NCv3<sup>2</sup> | Todos os tamanhos | Any |
-| Série ND<sup>2</sup> | Todos os tamanhos | Any |
+| Série A básica | Todos os tamanhos *, exceto* Basic_A0 (a0) | Qualquer |
+| Série A | Todos os tamanhos *, exceto* Standard_A0 | Qualquer |
+| Série Av2 | Todos os tamanhos | Qualquer |
+| Série B | Nenhuma | Não disponível |
+| Série DC | Nenhuma | Não disponível |
+| Dv2, série DSv2 | Todos os tamanhos | Qualquer |
+| Dv3, série Dsv3 | Todos os tamanhos | Qualquer |
+| Ev3, série Esv3 | Todos os tamanhos | Qualquer |
+| Série Fsv2 | Todos os tamanhos | Qualquer |
+| Série H | Todos os tamanhos | Qualquer |
+| Série HB<sup>2</sup> | Todos os tamanhos | Qualquer |
+| HC-série<sup>2</sup> | Todos os tamanhos | Qualquer |
+| Série Ls | Todos os tamanhos | Qualquer |
+| Série Lsv2 | Nenhuma | Não disponível |
+| Série M | Standard_M64ms (somente baixa prioridade), Standard_M128s (somente baixa prioridade) | Qualquer |
+| Série Mv2 | Nenhuma | Não disponível |
+| Série NC | Todos os tamanhos | Qualquer |
+| Série NCv2<sup>2</sup> | Todos os tamanhos | Qualquer |
+| Série NCv3<sup>2</sup> | Todos os tamanhos | Qualquer |
+| Série ND<sup>2</sup> | Todos os tamanhos | Qualquer |
 | Série NDv2 | Todos os tamanhos | Modo de subscrição do utilizador |
-| Série NV | Todos os tamanhos | Any |
-| Série NVv3 | Nenhum | Indisponível |
-| SAP HANA | Nenhum | Indisponível |
+| Série NV | Todos os tamanhos | Qualquer |
+| Série NVv3 | Nenhuma | Não disponível |
+| SAP HANA | Nenhuma | Não disponível |
 
 <sup>1</sup> há suporte parcial para algumas séries VM mais recentes inicialmente. Essas séries de VMs podem ser alocadas por contas do lote com o **modo de alocação do pool** definido como assinatura do **usuário**. Consulte [gerenciar contas do lote](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) para obter mais informações sobre a configuração da conta do lote. Consulte [cotas e limites](batch-quota-limit.md) para saber como solicitar cota para essas séries de VMs com suporte parcial para contas do lote de **assinatura do usuário** .  
 
@@ -78,7 +78,7 @@ Os pools do lote na configuração do serviço de nuvem dão suporte a todos os 
 | Série A   | Extra pequeno       |
 | Série Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
-## <a name="size-considerations"></a>Considerações de tamanho
+## <a name="size-considerations"></a>Considerações sobre o tamanho
 
 * **Requisitos do aplicativo** -considere as características e os requisitos do aplicativo que será executado nos nós. Alguns aspetos, como se a aplicação tem vários threads e a quantidade de memória que consome, podem ajudar a determinar o tamanho de nó mais adequado e económico. Para [cargas de trabalho MPI](batch-mpi.md) de várias instâncias ou aplicativos CUDA, considere tamanhos especializados [de VM habilitados para](../virtual-machines/linux/sizes-gpu.md) o [HPC](../virtual-machines/linux/sizes-hpc.md) ou GPU, respectivamente. (Consulte [usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do lote](batch-pool-compute-intensive-sizes.md).)
 
@@ -88,7 +88,7 @@ Os pools do lote na configuração do serviço de nuvem dão suporte a todos os 
 
 * **Disponibilidade de região** – uma série ou tamanho de VM pode não estar disponível nas regiões em que você cria suas contas do lote. Para verificar se há um tamanho disponível, consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
-* **Cotas** -as [cotas](batch-quota-limit.md#resource-quotas) de núcleos em sua conta do lote podem limitar o número de nós de um determinado tamanho que você pode adicionar a um pool do lote. Para solicitar um aumento de cota, consulte [Este artigo](batch-quota-limit.md#increase-a-quota). 
+* **Cotas** -as [cotas de núcleos](batch-quota-limit.md#resource-quotas) em sua conta do lote podem limitar o número de nós de um determinado tamanho que você pode adicionar a um pool do lote. Para solicitar um aumento de cota, consulte [Este artigo](batch-quota-limit.md#increase-a-quota). 
 
 * **Configuração de pool** -em geral, você tem mais opções de tamanho de VM ao criar um pool na configuração de máquina virtual, em comparação com a configuração do serviço de nuvem.
 

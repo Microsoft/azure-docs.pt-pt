@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: 1bc63ac4dc3930ad0423baa98453bd927c295a72
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.date: 01/14/2020
+ms.openlocfilehash: 7ff504a466224594c0098bc9d80557d45e4197a6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945760"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027881"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorar o desempenho, a integridade e o uso do Data Explorer do Azure com métricas
 

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 77e23467551df8d72fd999049c490600eff11825
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763649"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024902"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,27 +156,35 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     > [!IMPORTANT]
     > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você deve usar o parâmetro `--is-linux`.
 
-1. Para criar o aplicativo de funções, use o comando a seguir. Substitua `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de `package.location` retornados anteriormente:
-
-    ```azurecli-interactive
-    az storage account create --name 
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
-    ```
-
-    > [!IMPORTANT]
-    > Neste ponto, o aplicativo de funções foi criado. No entanto, como você não forneceu a cadeia de conexão para o gatilho de BLOB ou credenciais para o registro de contêiner do Azure que contém a imagem, o aplicativo de funções não está ativo. Nas próximas etapas, você fornecerá a cadeia de conexão e as informações de autenticação para o registro de contêiner. 
-
-1. Crie a conta de armazenamento para usar como o gatilho e obtenha a cadeia de conexão.
+1. Crie a conta de armazenamento a ser usada para o armazenamento de trabalhos da Web e obtenha sua cadeia de conexão. Substitua `<webjobStorage>` pelo nome que você deseja usar.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
+    ```
+
+1. Para criar o aplicativo de funções, use o comando a seguir. Substitua `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de `package.location` retornados anteriormente. Substitua substituir `<webjobStorage>` pelo nome da conta de armazenamento da etapa anterior:
+
+    ```azurecli-interactive
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
+    ```
+
+    > [!IMPORTANT]
+    > Neste ponto, o aplicativo de funções foi criado. No entanto, como você não forneceu a cadeia de conexão para o gatilho de BLOB ou credenciais para o registro de contêiner do Azure que contém a imagem, o aplicativo de funções não está ativo. Nas próximas etapas, você fornecerá a cadeia de conexão e as informações de autenticação para o registro de contêiner. 
+
+1. Crie a conta de armazenamento a ser usada para o armazenamento do gatilho de BLOB e obtenha a cadeia de conexão. Substitua `<triggerStorage>` pelo nome que você deseja usar.
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registre essa cadeia de conexão para fornecer ao aplicativo de funções. Usaremos isso mais tarde quando solicitarmos `<triggerConnectionString>`
 
-1. Crie os contêineres para a entrada e a saída na conta de armazenamento. 
+1. Crie os contêineres para a entrada e a saída na conta de armazenamento. Substitua `<triggerConnectionString>` pela cadeia de conexão retornada anteriormente:
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -185,12 +193,17 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Você precisará recuperar a marca associada ao contêiner criado usando o seguinte comando:
+1. Para associar a cadeia de conexão do gatilho ao aplicativo de funções, use o comando a seguir. Substitua `<app-name>` pelo nome do aplicativo de funções. Substitua `<triggerConnectionString>` pela cadeia de conexão retornada anteriormente:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
+    ```
+1. Você precisará recuperar a marca associada ao contêiner criado usando o comando a seguir. Substitua `<username>` pelo nome de usuário retornado anteriormente do registro de contêiner:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    A marca mais recente mostrada será `imagetag`da abaixo.
+    Salve o valor retornado, ele será usado como o `imagetag` na próxima etapa.
 
 1. Para fornecer ao aplicativo de funções as credenciais necessárias para acessar o registro de contêiner, use o comando a seguir. Substitua `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagetag>` pelos valores da chamada AZ CLI na etapa anterior. Substitua `<username>` e `<password>` com as informações de logon do ACR recuperadas anteriormente:
 

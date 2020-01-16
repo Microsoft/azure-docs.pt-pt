@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 66e7c2160317d71ced7517e1ec19014c1475c915
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 082fede57814fa7649309b672c2eea0d0f14b3f6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764104"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965875"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerenciar o banco de dados do Azure para pontos de extremidade de serviço VNet MariaDB e regras de VNet usando o portal do Azure
 
 Os pontos finais e as regras dos serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual para o servidor do Azure Database for MariaDB. Para obter uma visão geral do banco de dados do Azure para pontos de extremidade de serviço VNet do MariaDB, incluindo limitações, consulte [pontos de extremidade do serviço vnet do banco de dados do Azure para MariaDB Server](concepts-data-access-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para MariaDB.
 
 > [!NOTE]
-> O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+> Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints"></a>Criar uma regra de VNet e habilitar pontos de extremidade de serviço
 
@@ -60,4 +60,4 @@ Os pontos finais e as regras dos serviços da Rede Virtual (VNet) expandem o esp
 - Da mesma forma, você pode [criar scripts para habilitar pontos de extremidade de serviço de vnet e crie uma regra de vnet para o banco de dados do Azure para MariaDB usando o CLI do Azure](howto-manage-vnet-cli.md).
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

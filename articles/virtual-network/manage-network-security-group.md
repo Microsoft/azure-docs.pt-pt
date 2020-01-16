@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
-ms.openlocfilehash: d6c948c7fdfe2c5dc89c3e284ada33c2f7b542db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fa933b820d8677e4d080b54ce5e6a5d506ea38fc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750679"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978935"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um grupo de segurança de rede
 
@@ -69,8 +69,8 @@ Na caixa de pesquisa na parte superior do portal, insira *grupos de segurança d
 3. Para saber mais sobre as configurações comuns do Azure listadas, consulte os seguintes artigos:
     *   [Registo de atividades](../azure-monitor/platform/platform-logs-overview.md)
     *   [Controle de acesso (IAM)](../role-based-access-control/overview.md)
-    *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Bloquea](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    *   [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    *   [Bloquea](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de automação](../azure-resource-manager/templates/export-template-portal.md)
 
 **Comandos**

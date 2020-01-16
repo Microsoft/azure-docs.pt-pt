@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9b744ed40e2b8c360117f638bab6d10e9ae2975
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f99859fb695281324148683fac24c9e7b8463ef5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888484"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977889"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Cosmos DB
 
@@ -40,7 +40,17 @@ Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo siste
 
 - Instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB 
+
+## <a name="enable"></a>Ativar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acesso
+
+
+### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB 
 
 Se ainda não tiver uma, crie uma conta do Cosmos DB. Pode ignorar este passo e utilizar uma conta do Cosmos DB existente. 
 
@@ -51,7 +61,7 @@ Se ainda não tiver uma, crie uma conta do Cosmos DB. Pode ignorar este passo e 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.  Selecione uma **Localização** em que o Cosmos DB esteja disponível.
 6. Clique em **Criar**.
 
-## <a name="create-a-collection"></a>Criar uma coleção 
+### <a name="create-a-collection"></a>Criar uma coleção 
 
 Em seguida, adicione uma coleção de dados à conta do Cosmos DB, que possa consultar em passos posteriores.
 
@@ -59,7 +69,8 @@ Em seguida, adicione uma coleção de dados à conta do Cosmos DB, que possa con
 2. No separador **Descrição Geral**, clique no botão **+/Adicionar Coleção**, e um painel “Adicionar Coleção” surge.
 3. Dê à a coleção um ID de base de dados, um ID de coleção, selecione uma capacidade de armazenamento, introduza uma chave de partição, introduza um valor de débito e clique em **OK**.  Neste tutorial, é suficiente utilizar a opção "Teste" como o ID de base de dados e o ID de coleção, selecionar uma capacidade de armazenamento fixa e o débito mais baixo (400 RU/s).  
 
-## <a name="grant-access"></a>Conceder acesso
+
+### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Conceder acesso às chaves de acesso da conta de Cosmos DB
 
 Esta seção mostra como conceder acesso de identidade gerenciada atribuído pelo sistema da VM do Windows para as chaves de acesso da conta do Cosmos DB. O Cosmos DB não suporta nativamente a autenticação do Azure AD. No entanto, pode utilizar uma identidade gerida atribuída pelo sistema para obter uma chave de acesso do Cosmos DB do Resource Manager e, em seguida, utilizar a chave para aceder ao Cosmos DB. Neste passo, pode conceder o acesso da identidade gerida atribuída pelo sistema da sua VM do Windows às chaves da conta do Cosmos DB.
 
@@ -69,11 +80,15 @@ Para conceder o acesso de identidade gerida atribuída pelo sistema da VM do Win
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
-## <a name="get-an-access-token"></a>Obter um token de acesso
+## <a name="access-data"></a>Aceder a dados
 
-Esta seção mostra como obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM do Windows para chamar Azure Resource Manager. No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente. 
+Esta seção mostra como chamar Azure Resource Manager usando um token de acesso para a identidade gerenciada atribuída pelo sistema da VM do Windows. No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente. 
 
-Será necessário instalar a versão mais recente do [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em sua VM do Windows.
+Você precisa instalar a versão mais recente do [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em sua VM do Windows.
+
+
+
+### <a name="get-an-access-token"></a>Obter um token de acesso
 
 1. No portal do Azure, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em seguida, na página **Descrição Geral**, clique em **Ligar** na parte superior. 
 2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
@@ -98,7 +113,7 @@ Será necessário instalar a versão mais recente do [CLI do Azure](https://docs
    $ArmToken = $content.access_token
    ```
 
-## <a name="get-access-keys"></a>Obter chaves de acesso 
+### <a name="get-access-keys"></a>Obter chaves de acesso 
 
 Esta seção mostra como obter chaves de acesso de Azure Resource Manager para fazer chamadas de Cosmos DB. Agora, utilize o PowerShell para chamar o Resource Manager com o token de acesso que obteve na secção anterior para obter a chave de acesso à conta do Cosmos DB. Assim que tivermos a chave de acesso, podemos fazer consultas no Cosmos DB. Certifique-se de que substitui os valores de parâmetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` pelos seus próprios valores. Substitua o valor `<ACCESS TOKEN>` pelo o token de acesso que obteve anteriormente.  Se pretender obter chaves de leitura/escrita, utilize o tipo de operação de chave `listKeys`.  Se pretender obter chaves só de leitura, utilize o tipo de operação de chave `readonlykeys`:
 
@@ -176,6 +191,13 @@ Este comando da CLI devolve os detalhes da coleção:
   }
 }
 ```
+
+
+## <a name="disable"></a>Desativar
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181888"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977883"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: como utilizar a identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure Data Lake Store
 
@@ -36,7 +36,15 @@ Este tutorial mostra-lhe como utilizar uma identidade gerida de sistema atribuí
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder acesso à VM ao Azure Data Lake Store
+
+
+## <a name="enable"></a>Ativar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acesso
 
 Agora, pode conceder o acesso à VM a ficheiros e pastas no Azure Data Lake Store.  Para este passo, pode utilizar um Data Lake Store existente ou criar um novo.  Para criar um novo Data Lake Store com o portal do Azure, siga este [Guia de início rápido do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Também existem inícios rápidos que utilizam a CLI do Azure e o Azure PowerShell na [Documentação do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
@@ -56,7 +64,7 @@ No seu Data Lake Store, crie uma nova pasta e conceda à identidade atribuída p
 
 A identidade gerida atribuída pelo sistema da VM pode agora realizar todas as operações nos ficheiros da pasta que criou.  Para obter mais informações sobre como gerir o acesso ao Data Lake Store, leia este artigo sobre [Controlo de Acesso no Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Obter um token de acesso com a identidade gerida atribuída pelo sistema da VM e utilizá-lo para chamar o sistema de ficheiros do Azure Data Lake Store
+## <a name="access-data"></a>Aceder a dados
 
 O Azure Data Lake Store suporta nativamente a autenticação do Azure AD, para que possa aceitar diretamente tokens de acesso obtidos através de identidades geridas para recursos do Azure.  Para autenticar para o sistema de ficheiros do Data Lake Store, envia um token de acesso emitido pelo Azure AD para o ponto final do sistema de ficheiros do Data Lake Store, num cabeçalho de autorização no formato "Bearer <ACCESS_TOKEN_VALUE>".  Para saber mais sobre o suporte do Data Lake Store para a autenticação do Azure AD, leia [Autenticação com o Data Lake Store através do Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
@@ -173,6 +181,12 @@ Neste tutorial, vai autenticar para a API REST do sistema de ficheiros do Data L
    ```
 
 Ao utilizar outras APIs do sistema de ficheiros do Data Lake Store pode anexar a ficheiros, transferir ficheiros, etc.
+
+
+## <a name="disable"></a>Desativar
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

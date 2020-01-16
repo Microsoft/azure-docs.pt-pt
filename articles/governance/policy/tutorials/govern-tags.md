@@ -3,16 +3,16 @@ title: 'Tutorial: gerenciar governança de marca'
 description: Neste tutorial, você usa o efeito modificar de Azure Policy para criar e impor um modelo de governança de marca em recursos novos e existentes.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482260"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965990"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: gerenciar o controle de marca com Azure Policy
 
-As [marcas](../../../azure-resource-manager/resource-group-using-tags.md) são uma parte crucial da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para o gerenciamento de marca](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), as marcas podem ser a base para aplicar suas políticas de negócios com Azure Policy ou [controlar os custos com o gerenciamento de custos](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+As [marcas](../../../azure-resource-manager/management/tag-resources.md) são uma parte crucial da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para o gerenciamento de marca](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), as marcas podem ser a base para aplicar suas políticas de negócios com Azure Policy ou [controlar os custos com o gerenciamento de custos](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Não importa como ou por que você usa marcas, é importante que você possa adicionar, alterar e remover rapidamente essas marcas nos recursos do Azure.
 
 O efeito de [modificação](../concepts/effects.md#modify) de Azure Policy foi projetado para auxiliar na governança de marcas, independentemente do estágio da governança de recursos em que você está. **Modificar** ajuda quando:
@@ -198,7 +198,7 @@ Como as políticas de [deployIfNotExists](../concepts/effects.md#deployifnotexis
 
 Se já está a trabalhar com os recursos neste tutorial, utilize os passos seguintes para eliminar quaisquer atribuições ou definições criadas acima:
 
-1. Selecione **definições** (ou **atribuições** se você estiver tentando excluir uma atribuição) em **criação** no lado esquerdo da página Azure Policy.
+1. Selecione **definições** (ou **atribuições** se estiver a tentar eliminar uma atribuição) sob **criação** no lado esquerdo da página política do Azure.
 
 1. Procure a nova definição de iniciativa ou de política (ou atribuição) que acabou de remover.
 
@@ -213,9 +213,9 @@ Neste tutorial, você aprendeu sobre as seguintes tarefas:
 > - Mapeado cada requisito para uma definição de política
 > - Agrupadas as políticas de marca em uma iniciativa
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as estruturas de definições de política, veja este artigo:
 
 > [!div class="nextstepaction"]
-> [Estrutura de definição do Azure Policy](../concepts/definition-structure.md)
+> [Azure Policy definition structure](../concepts/definition-structure.md) (Estrutura de definição do Azure Policy)

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 01/14/2020
 ms.author: chlandsi
-ms.openlocfilehash: 541fa3984eb5680a93be7ddef8f56f37922586e5
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75927899"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76038144"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,8 +53,7 @@ Ou você pode baixar este tutorial de início rápido como um notebook [Jupyter]
 > [!NOTE]
 > O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
-````Python
-
+```python
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
@@ -71,7 +70,6 @@ audio_input = speechsdk.AudioConfig(filename=audio_filename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 
 print("Recognizing first result...")
-
 
 # Starts speech recognition, and returns after a single utterance is recognized. The end of a
 # single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -91,8 +89,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
-
-````
+```
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de fala com Visual Studio Code
 
@@ -114,14 +111,14 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 1. Copie, Cole e salve o [código Python](#sample-code) no arquivo recém-criado.
 1. Insira as informações de assinatura do serviço de fala.
 1. Se selecionado, um intérprete do Python é exibido no lado esquerdo da barra de status na parte inferior da janela.
-   Caso contrário, traga uma lista de intérpretes de Python disponíveis. Abra a paleta de comandos (Ctrl + Shift + P) e digite **Python: selecionar intérprete**. Escolha um apropriado.
+   Caso contrário, traga uma lista de intérpretes de Python disponíveis. Abra a paleta de comandos <kbd>Ctrl + Shift + P</kbd> e insira **Python: selecionar intérprete**. Escolha um apropriado.
 1. Você pode instalar o pacote Python do SDK de fala de dentro do Visual Studio Code. Faça isso se ele ainda não estiver instalado para o intérprete do Python selecionado.
-   Para instalar o pacote do SDK de fala, abra um terminal. Ative a paleta de comandos novamente (Ctrl + Shift + P) e insira **terminal: criar novo terminal integrado**.
+   Para instalar o pacote do SDK de fala, abra um terminal. Ative a paleta de comandos novamente <kbd>Ctrl + Shift + P</kbd> e insira **terminal: criar novo terminal integrado**.
    No terminal que é aberto, insira o comando `python -m pip install azure-cognitiveservices-speech` ou o comando apropriado para seu sistema.
 1. Para executar o código de exemplo, clique com o botão direito do mouse em algum lugar dentro do editor. Selecione **Executar arquivo Python no terminal**.
    Os primeiros 15 segundos de entrada de fala do arquivo de áudio serão reconhecidos e registrados na janela do console.
 
-   ```text
+   ```console
    Recognizing first result...
    We recognized: What's the weather like?
    ```

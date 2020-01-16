@@ -4,12 +4,12 @@ description: Saiba como criar um modelo de Azure Resource Manager que implanta s
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 6d5b7b33bfb2645128a545bb371c70188a724c40
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920621"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978796"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions
 
@@ -372,7 +372,7 @@ Um aplicativo de funções em um plano Premium deve ter a propriedade `serverFar
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>Implantar no plano do serviço de aplicativo
 
@@ -419,7 +419,7 @@ Para executar seu aplicativo no Linux, você também deve definir o `kind` como 
 }
 ```
 
-### <a name="create-a-function-app"></a>Criar uma aplicação de função 
+### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
 Um aplicativo de funções em um plano do serviço de aplicativo deve ter a propriedade `serverFarmId` definida como a ID de recurso do plano criado anteriormente.
 
@@ -637,10 +637,10 @@ Um aplicativo de funções tem muitos recursos filho que você pode usar em sua 
 
 Você pode usar qualquer uma das seguintes maneiras para implantar seu modelo:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
+* [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
+* [API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão implantar no Azure
 

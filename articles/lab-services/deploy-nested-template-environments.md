@@ -1,6 +1,6 @@
 ---
-title: Implementar ambientes de modelo do Resource Manager aninhada no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como implementar modelos aninhados do Gestor de recursos do Azure para fornecer ambientes com o Azure DevTest Labs.
+title: Implantar ambientes de modelo aninhados do Resource Manager no Azure DevTest Labs | Microsoft Docs
+description: Saiba como implantar modelos de Azure Resource Manager aninhados para fornecer ambientes com Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: spelluru
-ms.openlocfilehash: eec0cde4a36449f85998bfb04d16f1d52c68bb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835289"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976542"
 ---
-# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar modelos aninhados do Gestor de recursos do Azure para ambientes de teste
-Uma implementação aninhada permite-lhe executar outros modelos de Azure Resource Manager a partir de um modelo do Resource Manager principal. Permite-lhe para decompor a sua implantação num conjunto de modelos de destinados e a finalidade específica. Ele fornece benefícios em termos de teste, reutilização e legibilidade. O artigo [utilizar modelos ligados durante a implantação de recursos do Azure](../azure-resource-manager/resource-group-linked-templates.md) fornece uma boa visão geral dessa solução com vários exemplos de código. Este artigo fornece um exemplo que é específico para o Azure DevTest Labs. 
+# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implantar modelos de Azure Resource Manager aninhados para ambientes de teste
+Uma implantação aninhada permite executar outros modelos de Azure Resource Manager de dentro de um modelo principal do Resource Manager. Ele permite decompor sua implantação em um conjunto de modelos de destino e específicos de finalidade. Ele fornece benefícios em termos de teste, reutilização e legibilidade. O artigo [usando modelos vinculados ao implantar recursos do Azure](../azure-resource-manager/templates/linked-templates.md) fornece uma boa visão geral dessa solução com vários exemplos de código. Este artigo fornece um exemplo específico para Azure DevTest Labs. 
 
 ## <a name="key-parameters"></a>Parâmetros de chave
-Embora possa criar seu próprio modelo do Resource Manager a partir do zero, recomendamos que utilize o [projeto do grupo de recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) no Visual Studio, que torna mais fácil desenvolver e depurar modelos. Quando adiciona um recurso de implementação aninhada para azuredeploy. JSON, o Visual Studio adiciona vários itens a fazer com que o modelo mais flexível. Esses itens incluem a subpasta com o ficheiro de modelo e parâmetros secundário, os nomes de variáveis dentro do arquivo de modelo principal e dois parâmetros para a localização de armazenamento para os novos ficheiros. O **artifactslocation** e **artifactslocationsastoken** são os parâmetros de chave que utiliza o DevTest Labs. 
+Embora você possa criar seu próprio modelo do Resource Manager do zero, é recomendável usar o [projeto do grupo de recursos do Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) no Visual Studio, o que torna mais fácil desenvolver e depurar modelos. Quando você adiciona um recurso de implantação aninhado a azuredeploy. JSON, o Visual Studio adiciona vários itens para tornar o modelo mais flexível. Esses itens incluem a subpasta com o modelo secundário e o arquivo de parâmetros, nomes de variáveis dentro do arquivo de modelo principal e dois parâmetros para o local de armazenamento para os novos arquivos. Os **_artifactsLocation** e **_artifactsLocationSasToken** são os principais parâmetros usados pelo DevTest Labs. 
 
-Se não estiver familiarizado com o funcionamento de laboratórios DevTest com ambientes, veja [criar ambientes multi-VM e recursos PaaS com modelos Azure Resource Manager](devtest-lab-create-environment-from-arm.md). Os modelos são armazenados no repositório associado ao laboratório no DevTest Labs. Quando cria um novo ambiente com esses modelos, os ficheiros são movidos para um contentor de armazenamento do Azure no laboratório. Para conseguir identificar e copie os ficheiros aninhados, o DevTest Labs identifica os parâmetros artifactslocation e artifactslocationsastoken e copia as subpastas até o contentor de armazenamento. Em seguida, ele automaticamente insere a localização e o token de assinatura de acesso partilhado (SaS) em parâmetros. 
+Se você não estiver familiarizado com o modo como os DevTest Labs funcionam com ambientes, consulte [criar ambientes de várias VMs e recursos de PaaS com modelos de Azure Resource Manager](devtest-lab-create-environment-from-arm.md). Seus modelos são armazenados no repositório vinculado ao laboratório no DevTest Labs. Quando você cria um novo ambiente com esses modelos, os arquivos são movidos para um contêiner de armazenamento do Azure no laboratório. Para poder identificar e copiar os arquivos aninhados, o DevTest Labs identifica os parâmetros _artifactsLocation e _artifactsLocationSasToken e copia as subpastas até o contêiner de armazenamento. Em seguida, ele insere automaticamente o local e o token SaS (assinatura de acesso compartilhado) em parâmetros. 
 
-## <a name="nested-deployment-example"></a>Exemplo de implementação aninhada
-Eis um exemplo simples de uma implementação aninhada:
+## <a name="nested-deployment-example"></a>Exemplo de implantação aninhada
+Veja um exemplo simples de uma implantação aninhada:
 
 ```json
 
@@ -66,17 +66,17 @@ Eis um exemplo simples de uma implementação aninhada:
 "outputs": {}
 ```
 
-A pasta no repositório que contém este modelo tem uma subpasta `nestedtemplates` com os arquivos **NestOne.json** e **NestOne.parameters.json**. Na **azuredeploy. JSON**, URI para o modelo é criado com a localização de artefactos, a pasta de modelos aninhados, aninhada de nome de ficheiro de modelo. Da mesma forma, o URI para os parâmetros é compilada com a localização de artefactos, a pasta de modelo aninhado e o ficheiro de parâmetros para o modelo aninhado. 
+A pasta no repositório que contém este modelo tem uma subpasta `nestedtemplates` com os arquivos **NestOne. JSON** e **NestOne. Parameters. JSON**. No **azuredeploy. JSON**, o URI para o modelo é criado usando o local dos artefatos, pasta de modelo aninhada, nome do arquivo de modelo aninhado. Da mesma forma, o URI para os parâmetros é criado usando o local de artefatos, a pasta de modelo aninhada e o arquivo de parâmetro para o modelo aninhado. 
 
-Segue-se a imagem da mesma estrutura de projeto no Visual Studio: 
+Aqui está a imagem da mesma estrutura de projeto no Visual Studio: 
 
 ![Estrutura do projeto no Visual Studio](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
 
-Pode adicionar pastas adicionais na pasta principal, mas não aprofundar mais do que um único nível. 
+Você pode adicionar mais pastas na pasta primária, mas não em um único nível. 
 
-## <a name="next-steps"></a>Passos Seguintes
-Veja os artigos seguintes para obter detalhes sobre os ambientes: 
+## <a name="next-steps"></a>Passos seguintes
+Consulte os seguintes artigos para obter detalhes sobre ambientes: 
 
 - [Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-- [Configurar e utilizar ambientes públicos no Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
-- [Ligar um ambiente a rede virtual do seu laboratório no Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Configurar e usar ambientes públicos no Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
+- [Conectar um ambiente à rede virtual do seu laboratório no Azure DevTest Labs](connect-environment-lab-virtual-network.md)

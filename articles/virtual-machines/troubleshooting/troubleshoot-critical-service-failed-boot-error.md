@@ -12,25 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058056"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981356"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "falha no serviço crítico" na tela azul ao inicializar uma VM do Azure
 Este artigo descreve o erro "serviço crítico com falha" que pode ocorrer quando você Inicializa uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas de solução de problemas para ajudar a resolver os problemas. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve como usar o modelo de implantação do Gerenciador de recursos, que é recomendável usar para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo descreve como usar o modelo de implantação do Gerenciador de recursos, que é recomendável usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma 
 
 Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em [diagnósticos de inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
 
-- "Seu PC encontrou um problema e precisa ser reiniciado. Você pode reiniciar o. Para obter mais informações sobre esse problema e as possíveis correções, visite https://windows.com/stopcode. Se você chamar uma pessoa de suporte, forneça estas informações: Código de parada: FALHA NO SERVIÇO CRÍTICO " 
-- "Seu PC encontrou um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações de erro e, em seguida, reiniciaremos para você. Se você quiser saber mais, poderá pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED"
+- "Seu PC encontrou um problema e precisa ser reiniciado. Você pode reiniciar o. Para obter mais informações sobre esse problema e as possíveis correções, visite https://windows.com/stopcode. Se você chamar uma pessoa de suporte, forneça estas informações: parar código: falha no serviço crítico " 
+- "Seu PC encontrou um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações de erro e, em seguida, reiniciaremos para você. Se você quiser saber mais, poderá pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED "
 
 ## <a name="cause"></a>Causa
 
@@ -103,16 +103,16 @@ Para habilitar os logs de despejo e o console serial, execute o script a seguir.
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  Reinicie a VM. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: Analisar os logs de despejo no modo de falha de despejo
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: analisar os logs de despejo no modo de falha de despejo
 
 Para analisar os logs de despejo, siga estas etapas:
 
 1. Anexe o disco do SO a uma VM de recuperação.
 2. No disco do sistema operacional que você anexou, navegue até **\Windows\System32\config**. Copie todos os arquivos como um backup, caso uma reversão seja necessária.
 3. Inicie o **Editor do registro** (regedit. exe).
-4. Selecione a chave **HKEY_LOCAL_MACHINE** . No menu, selecione **arquivo** > **Carregar Hive**.
+4. Selecione a chave de **HKEY_LOCAL_MACHINE** . No menu, selecione **arquivo** > **Carregar Hive**.
 5. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco do sistema operacional que você anexou. Para o nome do hive, insira **BROKENSYSTEM**. O novo hive do registro é exibido sob a chave **HKEY_LOCAL_MACHINE** .
-6. Navegue até **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e faça as seguintes alterações:
+6. Navegue até **HKEY_LOCAL_MACHINE \brokensystem\controlset00x\control\crashcontrol** e faça as seguintes alterações:
 
     Reinicialização = 0
 
@@ -137,7 +137,7 @@ Para analisar os logs de despejo, siga estas etapas:
 9. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](troubleshoot-recovery-disks-portal-windows.md).
 10. Inicialize a VM para ver se ela mostra a análise de despejo. Localize o arquivo que não pôde ser carregado. Você precisa substituir esse arquivo por um arquivo da VM de trabalho. 
 
-    O exemplo a seguir é de análise de despejo. Você pode ver que a **falha** está em filecript. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt. sys ".
+    O exemplo a seguir é de análise de despejo. Você pode ver que a **falha** está em filecript. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt. sys".
 
     ```
     kd> !analyze -v 

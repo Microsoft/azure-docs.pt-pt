@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de SQL Server bancos de dados em execução em VMs do Azure com o backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659258"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978777"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -52,7 +52,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Esta base de dados SQL não suporta o tipo de cópia de segurança pedido | Ocorre quando o modelo de recuperação de banco de dados não permite o tipo de backup solicitado. O erro pode ocorrer nas seguintes situações: <br/><ul><li>Um banco de dados que está usando um modelo de recuperação simples não permite o backup de log.</li><li>Backups diferenciais e de log não são permitidos para um banco de dados mestre.</li></ul>Para obter mais detalhes, consulte a documentação dos [modelos de recuperação do SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Se o backup de log falhar para o banco de dados no modelo de recuperação simples, tente uma destas opções:<ul><li>Se o banco de dados estiver no modo de recuperação simples, desabilite os backups de log.</li><li>Use a [documentação SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para alterar o modelo de recuperação de banco de dados para bulk-logged ou completo. </li><li> Se você não quiser alterar o modelo de recuperação e tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. Seus backups completos e diferenciais funcionarão por agendamento. Os backups de log serão ignorados, o que é esperado nesse caso.</li></ul>Se for um banco de dados mestre e tiver configurado o backup diferencial ou de log, use uma das seguintes etapas:<ul><li>Use o portal para alterar o agendamento da política de backup do banco de dados mestre para completo.</li><li>Se você tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. O backup completo funcionará por agendamento. Os backups diferenciais ou de log não acontecerão, o que é esperado nesse caso.</li></ul> |
-| A operação foi cancelada porque uma operação conflitante já estava em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre as limitações de backup e restauração](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que são executadas simultaneamente.| [Use o SQL Server Management Studio (SSMS) para monitorar os trabalhos de backup](manage-monitor-sql-database-backup.md). Depois que a operação conflitante falhar, reinicie a operação.|
+| A operação foi cancelada porque uma operação conflitante já estava em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre as limitações de backup e restauração](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) que são executadas simultaneamente.| [Use o SQL Server Management Studio (SSMS) para monitorar os trabalhos de backup](manage-monitor-sql-database-backup.md). Depois que a operação conflitante falhar, reinicie a operação.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 

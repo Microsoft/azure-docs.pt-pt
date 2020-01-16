@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: f4164966d1a9662a72d41fefcb7cfbb1b444d614
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888990"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971504"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre o Azure Databricks
 
@@ -107,7 +107,7 @@ Código de erro do Azure: mensagem de erro do MissingSubscriptionRegistration Az
 1. Selecione **assinaturas**, a assinatura que você está usando e, em seguida, **provedores de recursos**. 
 1. Na lista de provedores de recursos, em relação a **Microsoft. Compute**, selecione **registrar**. Você deve ter a função colaborador ou proprietário na assinatura para registrar o provedor de recursos.
 
-Para obter instruções mais detalhadas, consulte [provedores de recursos e tipos](../azure-resource-manager/resource-manager-supported-services.md).
+Para obter instruções mais detalhadas, consulte [provedores de recursos e tipos](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problema: Azure Databricks precisa de permissões para acessar recursos em sua organização que apenas um administrador pode conceder.
 

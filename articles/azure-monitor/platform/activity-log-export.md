@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b71f5590f120e15bd4ea027bcf6132795dac3cb6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750568"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969668"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 
 > [!WARNING]
-> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-subscription.md).
+> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-legacy.md).
 
 O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
 
@@ -28,12 +28,12 @@ O arquivamento do log de atividades em uma conta de armazenamento é útil se vo
 ## <a name="stream-activity-log-to-event-hub"></a>Transmitir log de atividades para o Hub de eventos
 Os [hubs de eventos do Azure](/azure/event-hubs/) são uma plataforma de streaming de dados e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Duas maneiras de usar o recurso de streaming para o log de atividades são:
 * **Transmitir para sistemas de registro em log e telemetria de**terceiros: ao longo do tempo, o streaming de hubs de eventos do Azure se tornará o mecanismo para canalizar seu log de atividades em soluções de Siem e do log Analytics de terceiros.
-* **Crie uma plataforma de registro em log e telemetria personalizada**: se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite ingerir o log de atividades com flexibilidade. 
+* **Crie uma plataforma de registro em log e telemetria personalizada**: se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite ingerir o log de atividades com flexibilidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando logs e métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
+Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando logs e métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
 
 A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 > [!NOTE]
@@ -65,7 +65,7 @@ Se as políticas de retenção forem definidas, mas o armazenamento de logs em u
 
 
 > [!IMPORTANT]
-> Você pode receber um erro ao criar um perfil de log se o provedor de recursos Microsoft. insights não estiver registrado. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/resource-manager-supported-services.md) para registrar este provedor.
+> Você pode receber um erro ao criar um perfil de log se o provedor de recursos Microsoft. insights não estiver registrado. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) para registrar este provedor.
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Criar perfil de log usando o portal do Azure
@@ -77,7 +77,7 @@ Crie ou edite um perfil de log com a opção **exportar para o Hub de eventos** 
     ![Botão Exportar no portal](media/activity-log-export/portal-export.png)
 
 3. Na folha que aparece, especifique o seguinte:
-   * Regiões com os eventos a serem exportados. Você deve selecionar todas as regiões para garantir que não perca eventos de chave, pois o log de atividades é um log global (não regional) e, portanto, a maioria dos eventos não tem uma região associada a eles. 
+   * Regiões com os eventos a serem exportados. Você deve selecionar todas as regiões para garantir que não perca eventos de chave, pois o log de atividades é um log global (não regional) e, portanto, a maioria dos eventos não tem uma região associada a eles.
    * Se você quiser gravar na conta de armazenamento:
        * A conta de armazenamento na qual você deseja salvar eventos.
        * O número de dias que você deseja manter esses eventos no armazenamento. Uma configuração de 0 dias mantém os logs para sempre.
@@ -167,5 +167,5 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o log de atividades](../../azure-resource-manager/resource-group-audit.md)
+* [Saiba mais sobre o log de atividades](../../azure-resource-manager/management/view-activity-logs.md)
 * [Coletar log de atividades em logs de Azure Monitor](activity-log-collect.md)

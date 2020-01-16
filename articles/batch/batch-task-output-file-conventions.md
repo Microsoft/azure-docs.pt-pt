@@ -3,7 +3,7 @@ title: Manter a saída de trabalho e tarefa no armazenamento do Azure com a bibl
 description: Saiba como usar a biblioteca de convenções de arquivo do lote do Azure para .NET para persistir a saída de trabalho e tarefa do lote para o armazenamento do Azure e exibir a saída persistente no portal do Azure.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,20 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: cf9372cfc89aca3285128c96c1b7e6756ba42cda
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302685"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026211"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalho e tarefa no armazenamento do Azure com a biblioteca de convenções de arquivo em lotes para .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Uma maneira de manter os dados da tarefa é usar a [biblioteca de convenções de arquivo do lote do Azure para .net][nuget_package]. A biblioteca de convenções de arquivo simplifica o processo de armazenar dados de saída de tarefa no armazenamento do Azure e recuperá-los. Você pode usar a biblioteca de convenções de arquivo no código de tarefa e de cliente &mdash; no código de tarefa para arquivos persistentes e no código do cliente para listá-los e recuperá-los. O código de tarefa também pode usar a biblioteca para recuperar a saída de tarefas de upstream, como em um cenário de [dependências de tarefas](batch-task-dependencies.md) .
+Uma maneira de manter os dados da tarefa é usar a [biblioteca de convenções de arquivo do lote do Azure para .net][nuget_package]. A biblioteca de convenções de arquivo simplifica o processo de armazenar dados de saída de tarefa no armazenamento do Azure e recuperá-los. Você pode usar a biblioteca de convenções de arquivo no código de tarefa e de cliente &mdash; no código de tarefa para persistir arquivos e no código do cliente para listá-los e recuperá-los. O código de tarefa também pode usar a biblioteca para recuperar a saída de tarefas de upstream, como em um cenário de [dependências de tarefas](batch-task-dependencies.md) .
 
 Para recuperar arquivos de saída com a biblioteca de convenções de arquivo, você pode localizar os arquivos de um determinado trabalho ou tarefa listando-os por ID e finalidade. Você não precisa saber os nomes ou locais dos arquivos. Por exemplo, você pode usar a biblioteca de convenções de arquivo para listar todos os arquivos intermediários de uma determinada tarefa ou obter um arquivo de visualização para um determinado trabalho.
 
@@ -109,7 +109,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-O parâmetro `kind` de [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage). O método [SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos persistentes. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.` também é possível definir categorias personalizadas de saída.
+O parâmetro `kind` do [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage). O método [SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos persistentes. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos: `TaskOutput`, `TaskPreview`, `TaskLog`e `TaskIntermediate.` você também pode definir categorias personalizadas de saída.
 
 Esses tipos de saída permitem que você especifique o tipo de saídas a serem listadas quando posteriormente você consulta o lote para as saídas persistentes de uma determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Dê-me a saída de *Visualização* para a tarefa *109*". Mais informações sobre a listagem e a recuperação de saídas são exibidas em recuperar saída posteriormente neste artigo.
 
@@ -161,9 +161,9 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-A seção comentada `Code to process data and produce output file(s)` é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter um código que baixa dados do armazenamento do Azure e executa a transformação ou o cálculo nele. A parte importante desse trecho de código é demonstrar como você pode encapsular esse códigos em um bloco `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
+A seção comentada `Code to process data and produce output file(s)` é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter um código que baixa dados do armazenamento do Azure e executa a transformação ou o cálculo nele. A parte importante desse trecho de código é demonstrar como você pode encapsular esse tipo em um bloco de `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
 
-O agente de nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. A chamada `Task.Delay` é necessária no final deste bloco `using` para garantir que o agente de nó tenha tempo para liberar o conteúdo padrão para o arquivo stdout. txt no nó. Sem esse atraso, é possível perder os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
+O agente de nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. A chamada de `Task.Delay` é necessária no final deste bloco de `using` para garantir que o agente de nó tenha tempo para liberar o conteúdo padrão para o arquivo stdout. txt no nó. Sem esse atraso, é possível perder os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
 
 > [!NOTE]
 > Quando você habilita o rastreamento de arquivos com o **SaveTrackedAsync**, apenas *anexações* ao arquivo rastreado são persistidas no armazenamento do Azure. Use esse método somente para controlar arquivos de log sem rotação ou outros arquivos que são gravados em operações de acréscimo no final do arquivo.

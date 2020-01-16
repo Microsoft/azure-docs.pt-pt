@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a80a54f3dc760d80f713db9857cbef0c580e66d6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621375"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976236"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usar serviços de PaaS (plataforma como serviço) no Azure DevTest Labs
 O PaaS tem suporte no DevTest Labs por meio do recurso de ambientes. Os ambientes no DevTest Labs têm suporte de modelos de Azure Resource Manager pré-configurados em um repositório git. Os ambientes podem conter recursos de PaaS e IaaS. Eles permitem que você crie sistemas complexos que podem incluir recursos do Azure, como máquinas virtuais, bancos de dados, redes virtuais e aplicativos Web, que são personalizados para trabalhar juntos. Esses modelos permitem implantação consistente e gerenciamento aprimorado de ambientes usando o controle do código-fonte. 
@@ -39,7 +39,7 @@ Em grandes organizações, as equipes de desenvolvimento normalmente fornecem am
 
 ## <a name="customizations"></a>Personalizações
 
-#### <a name="sandbox"></a>AppDomain 
+#### <a name="sandbox"></a>Sandbox 
 O proprietário do laboratório pode personalizar ambientes de laboratório para alterar a função do usuário do **leitor** para o **colaborador** dentro do grupo de recursos. Essa funcionalidade está na página **configurações do laboratório** , sob a **configuração e as políticas** do laboratório. Essa alteração na função permite que o usuário adicione ou remova recursos dentro desse ambiente. Se você quiser restringir ainda mais o acesso, use as políticas do Azure. Essa funcionalidade permite que você personalize os recursos ou a configuração sem o acesso no nível da assinatura.
 
 #### <a name="custom-tokens"></a>Tokens personalizados
@@ -53,14 +53,14 @@ Há algumas informações de laboratório personalizadas que estão fora do grup
 O artigo [conectando ambientes à rede virtual do laboratório](connect-environment-lab-virtual-network.md) descreve como modificar seu modelo do Resource Manager para usar o token `$(LabSubnetId)`. Quando um ambiente é criado, o token de `$(LabSubnetId)` é substituído pela primeira marca de sub-rede onde a opção **usar na criação de máquina virtual** é definida como **true**. Ele permite que nosso ambiente use redes criadas anteriormente. Se você quiser usar os mesmos modelos do Resource Manager em ambientes em teste como preparo e produção, use `$(LabSubnetId)` como um valor padrão em um parâmetro de modelo do Resource Manager. 
 
 #### <a name="environment-storage-account"></a>Conta de armazenamento do ambiente
-O DevTest Labs dá suporte ao uso de [modelos aninhados do Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). O artigo [[implantar modelos de Azure Resource Manager aninhados para ambientes de teste](deploy-nested-template-environments.md) explica como usar `_artifactsLocation` e `_artifactsLocationSasToken` tokens para criar um URI para um modelo do Resource Manager na mesma pasta que ou em uma pasta aninhada do modelo principal. Para obter mais informações sobre esses dois tokens, consulte a seção **artefatos de implantação** em [Azure Resource Manager – guia de práticas recomendadas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+O DevTest Labs dá suporte ao uso de [modelos aninhados do Resource Manager](../azure-resource-manager/templates/linked-templates.md). O artigo [[implantar modelos de Azure Resource Manager aninhados para ambientes de teste](deploy-nested-template-environments.md) explica como usar `_artifactsLocation` e `_artifactsLocationSasToken` tokens para criar um URI para um modelo do Resource Manager na mesma pasta que ou em uma pasta aninhada do modelo principal. Para obter mais informações sobre esses dois tokens, consulte a seção **artefatos de implantação** em [Azure Resource Manager – guia de práticas recomendadas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
-## <a name="user-experience"></a>Experiência do usuário
+## <a name="user-experience"></a>Experiência de Utilizador
 
 ## <a name="developer"></a>Programador
 Os desenvolvedores usam o mesmo fluxo de trabalho para a criação de uma VM para criar um ambiente específico. Eles selecionam o ambiente versus a imagem do computador e inserem as informações necessárias exigidas pelo modelo. Cada desenvolvedor que tem um ambiente permite a implantação de alterações e a depuração de loop interno aprimorada. O ambiente pode ser criado a qualquer momento usando o modelo mais recente.  Esse recurso permite que os ambientes sejam destruídos e recriados para ajudar a reduzir o tempo de inatividade da criação manual do sistema ou da recuperação do teste de falhas.  
 
-### <a name="testing"></a>Testar
+### <a name="testing"></a>Testes
 Os ambientes do DevTest Labs permitem testes independentes de código e configurações específicas de forma assíncrona. A prática comum é configurar o ambiente com o código da solicitação pull individual e iniciar qualquer teste automatizado. Depois que o teste automatizado for executado até a conclusão, qualquer teste manual poderá ser executado em relação ao ambiente específico. Normalmente, esse processo é feito como parte do pipeline de CI/CD. 
 
 ## <a name="management-experience"></a>Experiência de gerenciamento

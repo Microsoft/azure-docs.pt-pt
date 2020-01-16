@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf34abaf072b7b80f5831f15d86b12ad2780a920
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42fa4dfb3e373eac4167ea1fecbd84ff3a7cca0d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424861"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977999"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acesso condicional: bloquear o acesso por local
 
@@ -30,7 +30,7 @@ Com a condição de localização no acesso condicional, você pode controlar o 
 1. Dê um nome ao seu local.
 1. Escolha **intervalos de IP** se você souber os intervalos de endereços IPv4 acessíveis externamente que compõem esse local ou **países/regiões**.
    1. Forneça os **intervalos de IP** ou selecione os **países/regiões** para o local que você está especificando.
-      * Se você escolheu países/regiões, você pode opcionalmente optar por incluir áreas desconhecidas.
+      * Se você escolher países/regiões, você pode opcionalmente optar por incluir áreas desconhecidas.
 1. Escolha **Guardar**
 
 Mais informações sobre a condição de localização no acesso condicional podem ser encontradas no artigo, [qual é a condição de local em Azure Active Directory acesso condicional](location-condition.md)

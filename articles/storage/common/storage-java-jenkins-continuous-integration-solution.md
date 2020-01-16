@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839137"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970175"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Usando o armazenamento do Azure com uma solução de integração contínua Jenkins
 
@@ -49,7 +49,7 @@ Os benefícios de usar o serviço blob para hospedar seus artefatos de compilaç
      
       Embora uma solução típica de CI Jenkins seja configurada para ser executada como um serviço, executar o Jenkins War na linha de comando será suficiente para este tutorial.
 * Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <https://www.azure.com>.
-* Uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento, poderá criar uma usando as etapas em [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+* Uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento, poderá criar uma usando as etapas em [criar uma conta de armazenamento](../common/storage-account-create.md).
 * A familiaridade com a solução Jenkins CI é recomendada, mas não é necessária, pois o conteúdo a seguir usará um exemplo básico para mostrar as etapas necessárias ao usar o serviço blob como um repositório para artefatos de Build Jenkins CI.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Como usar o serviço blob com o Jenkins CI
@@ -104,7 +104,7 @@ Para fins de instrução, primeiro você precisa criar um trabalho que criará v
 12. Selecione **salvar** para salvar as configurações.
 13. No painel do Jenkins, selecione **Compilar agora** para executar o **MyJob**. Examine a saída do console para obter o status. As mensagens de status para o armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação começar a carregar artefatos de compilação.
 14. Após a conclusão bem-sucedida do trabalho, você pode examinar os artefatos de compilação abrindo o blob público.
-    1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
     2. Selecione **Armazenamento**.
     3. Selecione o nome da conta de armazenamento que você usou para Jenkins.
     4. Selecione **contêineres**.

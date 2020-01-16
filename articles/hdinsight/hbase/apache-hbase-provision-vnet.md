@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: c128f17a3d2c4f5461a04ae375e05336cc994b4b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552309"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972800"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters do Apache HBase no HDInsight na rede virtual do Azure
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Criar um cluster apache HBase na rede virtual
 
-Nesta seção, você cria um cluster apache HBase baseado em Linux com a conta de armazenamento do Azure dependente em uma rede virtual do Azure usando um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Para obter outros métodos de criação de cluster e entender as configurações, confira [Criar clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar um modelo para criar Apache Hadoop clusters no HDInsight, consulte [Criar clusters Apache Hadoop no hdinsight usando modelos de Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+Nesta seção, você cria um cluster apache HBase baseado em Linux com a conta de armazenamento do Azure dependente em uma rede virtual do Azure usando um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md). Para obter outros métodos de criação de cluster e entender as configurações, confira [Criar clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar um modelo para criar Apache Hadoop clusters no HDInsight, consulte [Criar clusters Apache Hadoop no hdinsight usando modelos de Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
 > Algumas propriedades são embutidas em código no modelo. Por exemplo:

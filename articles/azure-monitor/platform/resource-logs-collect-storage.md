@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750384"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980063"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arquivar logs de recursos do Azure para a conta de armazenamento
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve como coletar logs de plataforma para uma conta de armazenamento do Azure para reter dados para arquivamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisará [criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Você precisará [criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 
 > [!IMPORTANT]

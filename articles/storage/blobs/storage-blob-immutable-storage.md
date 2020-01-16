@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921224"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981847"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazene dados de blob críticos para os negócios com armazenamento imutável
 
@@ -156,7 +156,7 @@ A operação excluir contêiner falhará se pelo menos um blob existir no contê
 
 **O que acontecerá se eu tentar excluir uma conta de armazenamento com um contêiner que tenha uma política de retenção baseada em tempo ou uma retenção legal?**
 
-A exclusão da conta de armazenamento falhará se houver pelo menos um contêiner com um conjunto de contenção legal ou uma política baseada em tempo **bloqueada** . Um contêiner com uma política baseada em tempo desbloqueada não protege contra a exclusão da conta de armazenamento. Você deve remover todas as isenções legais e excluir todos os contêineres **bloqueados** antes de poder excluir a conta de armazenamento. Para obter informações sobre a exclusão de contêiner, consulte a pergunta anterior. Você também pode aplicar mais proteções de exclusão para sua conta de armazenamento com [bloqueios de Azure Resource Manager](../../azure-resource-manager/resource-group-lock-resources.md).
+A exclusão da conta de armazenamento falhará se houver pelo menos um contêiner com um conjunto de contenção legal ou uma política baseada em tempo **bloqueada** . Um contêiner com uma política baseada em tempo desbloqueada não protege contra a exclusão da conta de armazenamento. Você deve remover todas as isenções legais e excluir todos os contêineres **bloqueados** antes de poder excluir a conta de armazenamento. Para obter informações sobre a exclusão de contêiner, consulte a pergunta anterior. Você também pode aplicar mais proteções de exclusão para sua conta de armazenamento com [bloqueios de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).
 
 **Posso mover os dados entre diferentes camadas de BLOB (quente, esporádico, arquivo morto) quando o blob está no estado imutável?**
 
@@ -179,4 +179,4 @@ Sim, se os requisitos de conformidade permitirem que a exclusão reversível sej
 - [Definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](storage-blob-immutability-policies-manage.md)
 - [Definir regras para camada e exclusão automática de dados de blob com o gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)
 - [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../blobs/storage-blob-soft-delete.md)
-- [Proteger assinaturas, grupos de recursos e recursos com bloqueios de Azure Resource Manager](../../azure-resource-manager/resource-group-lock-resources.md).
+- [Proteger assinaturas, grupos de recursos e recursos com bloqueios de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

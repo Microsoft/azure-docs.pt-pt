@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: f05d75c337bb3fd4f34f1acd82a6a3b7f860f31f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 66850c3871981a537d36c3b2a3a664d8a2f2eee7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365670"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977706"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar uma área de trabalho do Log Analytics com a CLI 2.0 do Azure
 
@@ -22,7 +22,7 @@ A CLI 2.0 do Azure é utilizada para criar e gerir recursos do Azure a partir da
 * Computadores monitorizados pelo System Center Operations Manager no local  
 * Coleções de dispositivos do System Center Configuration Manager  
 * Dados de diagnóstico ou de registo do armazenamento do Azure  
- 
+
 Para outras origens, como as VMs do Azure e o Windows ou VMs do Linux no seu ambiente, consulte os seguintes tópicos:
 
 * [Recolher dados de máquinas virtuais do Azure](../learn/quick-collect-azurevm.md)
@@ -36,9 +36,9 @@ Se não tiver uma subscrição do Azure, crie [uma conta gratuita](https://azure
 Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Criar áreas de trabalho
-Crie um espaço de trabalho com [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para apenas solicitar-lhe o nome da área de trabalho e especifica um valor predefinido para os outros parâmetros que provavelmente seria usado como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento do Azure para acesso partilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+Crie um espaço de trabalho com [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para apenas solicitar-lhe o nome da área de trabalho e especifica um valor predefinido para os outros parâmetros que provavelmente seria usado como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento do Azure para acesso partilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** . 
+Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** .
 
 Os seguintes parâmetros de definir um valor predefinido:
 
@@ -46,7 +46,7 @@ Os seguintes parâmetros de definir um valor predefinido:
 * SKU - é predefinido para o escalão de preço por GB novo lançado no modelo de preços de Abril de 2018
 
 >[!WARNING]
->Se criar ou configurar uma área de trabalho do Log Analytics numa subscrição que tenha optado pelo modelo de preços de Abril de 2018 novo, o escalão de preço de Log Analytics só é válida é **PerGB2018**. 
+>Se criar ou configurar uma área de trabalho do Log Analytics numa subscrição que tenha optado pelo modelo de preços de Abril de 2018 novo, o escalão de preço de Log Analytics só é válida é **PerGB2018**.
 >
 
 ### <a name="create-and-deploy-template"></a>Criar e implementar modelo
@@ -107,7 +107,7 @@ Os seguintes parâmetros de definir um valor predefinido:
     }
     ```
 
-2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
+2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados.
 3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.   
 4. Está pronto para implementar este modelo. Use os comandos a seguir da pasta que contém o modelo. Quando for solicitado um nome de espaço de trabalho, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
 

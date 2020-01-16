@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303969"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982013"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Team Data Science Process em ação: Utilizar clusters do Hadoop de HDInsight do Azure
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
 Nestas instruções, utilizamos o [Team Data Science Process (TDSP)](overview.md) num cenário ponto-a-ponto. Utilizamos uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e os dados de engenharia da funcionalidade de publicamente disponíveis [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados e dimensionar os dados. Para lidar com classificação binária e várias classes e tarefas de previsão de regressão, desenvolvemos os modelos de dados com o Azure Machine Learning. 
 
 Para obter instruções que mostra como lidar com um conjunto de dados maior, veja [processo de ciência de dados de equipa - com o Azure HDInsight Clusters do Hadoop num conjunto de dados de 1 TB](hive-criteo-walkthrough.md).
@@ -50,18 +50,18 @@ A chave exclusiva para aderir a viagem\_dados e viagem\_Europeia é composta pel
 ## <a name="mltasks"></a>Exemplos de tarefas de predição
 Determine o tipo de previsões de indisponibilidade que deve escolher com base na análise de dados. Isto ajuda a esclarecer as tarefas que precisa incluir em seu processo. Seguem-se três exemplos de problemas de predição que abordamos nestas instruções. Eles se baseiam no *sugestão\_quantidade*:
 
-- **Classificação binária**: Prever se ou não uma dica foi paga por uma viagem. Ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é um exemplo negativo.
+- **Classificação binária**: prever se ou não uma dica foi paga por uma viagem. Ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é um exemplo negativo.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Classificação multiclasses**: Prever o intervalo de quantidades de sugestão pago para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco classes:
+- **Classificação multiclasses**: prever o intervalo de quantidades de sugestão pago para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco classes:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Tarefa de regressão**: Prever a quantidade de sugestão pago por uma viagem.  
+- **Tarefa de regressão**: prever a quantidade de sugestão pago por uma viagem.  
 
 ## <a name="setup"></a>Configurar um cluster do HDInsight Hadoop para análises avançadas
 > [!NOTE]
@@ -71,7 +71,7 @@ Determine o tipo de previsões de indisponibilidade que deve escolher com base n
 
 Pode configurar um ambiente do Azure para análise avançada que emprega um cluster do HDInsight em três passos:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): Esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight também residem aqui.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md): esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight também residem aqui.
 2. [Personalizar clusters do Hadoop de HDInsight do Azure para o processo de análise avançada e tecnologia](customize-hadoop-cluster.md). Este passo cria um cluster de Hadoop do HDInsight com 64 bits Anaconda Python 2.7 instalados em todos os nós. Existem dois passos importantes a serem lembrados ao personalizar o seu cluster do HDInsight.
    
    * Lembre-se de vincular a conta de armazenamento que criou no passo 1 com o seu cluster do HDInsight quando estiver a criar. Esta conta de armazenamento aceda aos dados que são processados dentro do cluster.
@@ -88,11 +88,11 @@ Para copiar o [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conju
 
 Aqui, descrevemos como utilizar o AzCopy para transferir os ficheiros que contêm dados. Para transferir e instalar o AzCopy, siga as instruções em [introdução ao utilitário de linha de comandos AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. A partir de uma janela de linha de comandos, execute os seguintes comandos do AzCopy, substituindo  *\<path_to_data_folder >* com o destino pretendido:
+1. Em uma janela de prompt de comando, execute os seguintes comandos AzCopy, substituindo *\<path_to_data_folder >* pelo destino desejado:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Quando a cópia estiver concluída, verá um total de 24 arquivos compactados na pasta de dados escolhido. Descompacte os ficheiros transferidos para o mesmo diretório no seu computador local. Tome nota da pasta onde residem os ficheiros descomprimidos. Esta pasta é referida como o *\<caminho\_para\_unzipped_data\_ficheiros\>* no que se segue.
+1. Quando a cópia estiver concluída, verá um total de 24 arquivos compactados na pasta de dados escolhido. Descompacte os ficheiros transferidos para o mesmo diretório no seu computador local. Tome nota da pasta onde residem os ficheiros descomprimidos. Essa pasta é chamada de caminho de *\<\_para\_unzipped_data\_arquivos\>* no que vem a seguir.
 
 ## <a name="upload"></a>Carregar os dados para o contentor predefinido do cluster HDInsight Hadoop
 > [!NOTE]
@@ -102,10 +102,10 @@ Aqui, descrevemos como utilizar o AzCopy para transferir os ficheiros que contê
 
 Nos seguintes comandos do AzCopy, substitua os seguintes parâmetros com os valores reais que especificou ao criar o cluster de Hadoop e descomprimir os ficheiros de dados.
 
-* ***\<path_to_data_folder >*** o diretório (juntamente com o caminho) na sua máquina que contém os ficheiros de dados descompactado.  
-* ***\<nome da conta de armazenamento de cluster do Hadoop >*** a conta de armazenamento associada com o seu cluster do HDInsight.
-* ***\<contentor predefinido do Hadoop cluster >*** o contentor predefinido utilizado pelo seu cluster. Tenha em atenção que o nome do contentor predefinido é, normalmente, o mesmo nome que o próprio cluster. Por exemplo, se o cluster for chamado "abc123.azurehdinsight.net", o contentor predefinido é abc123.
-* ***\<chave da conta de armazenamento >*** a chave para a conta de armazenamento utilizada pelo seu cluster.
+* ***\<path_to_data_folder >*** O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
+* ***\<nome da conta de armazenamento do cluster Hadoop >*** A conta de armazenamento associada ao cluster HDInsight.
+* ***\<contêiner padrão do cluster do Hadoop >*** O contêiner padrão usado pelo seu cluster. Tenha em atenção que o nome do contentor predefinido é, normalmente, o mesmo nome que o próprio cluster. Por exemplo, se o cluster for chamado "abc123.azurehdinsight.net", o contentor predefinido é abc123.
+* ***\<chave de conta de armazenamento >*** A chave para a conta de armazenamento usada pelo cluster.
 
 A partir de um prompt de comando ou uma janela do Windows PowerShell, execute os seguintes dois comandos do AzCopy.
 
@@ -435,7 +435,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute:
 
 Os resultados da consulta são escritos num ficheiro local, **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Exploração: Avaliar a qualidade dos dados ao procurar por registos de longitude ou latitude inválidos
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Exploração: Avaliar a qualidade dos dados ao verificar a existência de enviar registros de latitude ou longitude inválido
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -459,7 +459,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute:
 
 O *-S* argumento incluído neste comando suprime a impressão de ecrã de estado das tarefas do Hive mapa/redução. Isto é útil porque torna a tela de impressão da saída de consulta do Hive mais legível.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploração: Distribuições de classe binário de dicas de viagem
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploração: Distribuições de classe binário dicas de viagem
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -485,7 +485,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute:
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploração: Distribuições de classe na definição de várias classes
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploração: Distribuições na definição de várias classes de classe
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -508,7 +508,7 @@ Execute o seguinte comando a partir da consola da linha de comandos do Hadoop:
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploração: Computar a distância direta entre duas localizações de longitude-latitude
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploração: A distância direta entre duas localizações de longitude-latitude de computação
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -563,7 +563,7 @@ Para ver o conteúdo de um determinado arquivo, digamos **000000\_0**, utilize d
 > 
 > 
 
-Das principais vantagens de ter estes dados residem num blob do Azure é que podemos explorar os dados dentro de Machine Learning, utilizando o [importar dados] [ import-data] módulo.
+Uma vantagem importante de que esses dados residem em um blob do Azure é que podemos explorar os dados em Machine Learning, usando o módulo [importar dados][import-data] .
 
 ## <a name="#downsample"></a>Dimensionar dados e criar modelos de Machine Learning
 > [!NOTE]
@@ -571,12 +571,12 @@ Das principais vantagens de ter estes dados residem num blob do Azure é que pod
 > 
 > 
 
-Após a fase de análise de dados exploratório, podemos agora está prontos para dimensionar os dados para a criação de modelos de Machine Learning. Nesta secção, vamos mostrar como utilizar uma consulta do Hive para dimensionar os dados. Machine Learning, em seguida, acede-lo a partir da [importar dados] [ import-data] módulo.
+Após a fase de análise de dados exploratório, podemos agora está prontos para dimensionar os dados para a criação de modelos de Machine Learning. Nesta secção, vamos mostrar como utilizar uma consulta do Hive para dimensionar os dados. Machine Learning, em seguida, acessa-o no módulo [importar dados][import-data] .
 
 ### <a name="down-sampling-the-data"></a>Os dados de amostragem para baixo
 Existem dois passos deste procedimento. Em primeiro lugar, Junte-se a **nyctaxidb.trip** e **nyctaxidb.fare** tabelas em três chaves que estão presentes em todos os registos: **medallion**, **hack\_ licença**, e **recolha\_datetime**. Geramos uma etiqueta de classificação binária **colocado para**e uma etiqueta de classificação multiclasses **sugestão\_classe**.
 
-Para poder utilizar os dados de objeto de amostragem de baixo diretamente a partir da [importar dados] [ import-data] módulo no Machine Learning, deve armazenar os resultados da consulta anterior para uma tabela do Hive interna. O que se segue, podemos criar uma tabela de ramo de registo interna e preencher o seu conteúdo com os dados associados e a amostragem de baixo.
+Para poder usar os dados de amostra reduzidos diretamente do módulo [importar dados][import-data] no Machine Learning, você deve armazenar os resultados da consulta anterior em uma tabela interna do hive. O que se segue, podemos criar uma tabela de ramo de registo interna e preencher o seu conteúdo com os dados associados e a amostragem de baixo.
 
 A consulta aplica-se as funções padrão do Hive diretamente para gerar o seguinte a partir da **recolha\_datetime** campo:
 - Hora do dia
@@ -714,27 +714,27 @@ Para executar esta consulta de linha de comandos do diretório da Hive:
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Agora, temos uma tabela interna, **nyctaxidb.nyctaxi_downsampled_dataset**, que podem ser acedidos utilizando o [importar dados] [ import-data] módulo do Machine Learning. Além disso, podemos usar este conjunto de dados para a criação de modelos do Machine Learning.  
+Agora temos uma tabela interna, **nyctaxidb. nyctaxi_downsampled_dataset**, que pode ser acessada usando o módulo [importar dados][import-data] do Machine Learning. Além disso, podemos usar este conjunto de dados para a criação de modelos do Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Utilizar o módulo de dados de importação no Machine Learning para acessar os dados de objeto de amostragem para baixo
-Para emitir consultas do Hive no [importar dados] [ import-data] módulo do Machine Learning, precisa de acesso a um área de trabalho de aprendizagem automática. Também precisa de acesso às credenciais do cluster e a sua conta do storage associada.
+Para emitir consultas de Hive no módulo [importar dados][import-data] do Machine Learning, você precisa ter acesso a um espaço de trabalho do Machine Learning. Também precisa de acesso às credenciais do cluster e a sua conta do storage associada.
 
-Aqui estão alguns detalhes sobre o [importar dados] [ import-data] módulo e os parâmetros de entrada:
+Aqui estão alguns detalhes sobre o módulo [importar dados][import-data] e os parâmetros para entrada:
 
-**URI do servidor de HCatalog**: Se for o nome do cluster **abc123**, isso é simplesmente: https://abc123.azurehdinsight.net.
+**URI do servidor de HCatalog**: se for o nome do cluster **abc123**, isso é simplesmente: https://abc123.azurehdinsight.net.
 
 **Nome de conta de utilizador do Hadoop**: O nome de utilizador escolhido para o cluster (não o nome de utilizador de acesso remoto).
 
 **Palavra-passe de conta de utilizador Hadoop**: A palavra-passe escolhida para o cluster (e não a senha do acesso remoto).
 
-**Localização de dados de saída**: Isso é escolhido para ser o Azure.
+**Localização de dados de saída**: Isto é escolhido para ser o Azure.
 
-**Nome da conta de armazenamento do Azure**: Nome da conta de armazenamento predefinida associada ao cluster.
+**Nome da conta de armazenamento do Azure**: nome da conta de armazenamento predefinida associada ao cluster.
 
-**Nome do contentor do Azure**: Isso é o nome de contentor predefinido para o cluster e, normalmente é o mesmo que o nome do cluster. Para um cluster chamado **abc123**, isso é abc123.
+**Nome do contentor do Azure**: Este é o nome de contentor predefinido para o cluster e, normalmente é o mesmo que o nome do cluster. Para um cluster chamado **abc123**, isso é abc123.
 
 > [!IMPORTANT]
-> Qualquer tabela que Desejamos consultar com o [importar dados] [ import-data] módulo no Machine Learning tem de ser uma tabela interna.
+> Qualquer tabela que desejamos consultar usando o módulo [importar dados][import-data] no Machine Learning deve ser uma tabela interna.
 > 
 > 
 
@@ -746,7 +746,7 @@ Se a tabela é uma tabela interna e este é preenchido, seu conteúdo tiver de m
 
 Outra forma de determinar se uma tabela é uma tabela interna é utilizar o Explorador de armazenamento do Azure. Utilize-o para navegar para o nome de contentor predefinido do cluster e, em seguida, filtrar pelo nome da tabela. Se a tabela e o respetivo conteúdo aparecer, confirma que o que é uma tabela interna.
 
-Eis uma captura de ecrã da consulta do Hive e o [importar dados] [ import-data] módulo:
+Aqui está uma captura de tela da consulta do hive e do módulo [importar dados][import-data] :
 
 ![Captura de ecrã de consulta do Hive do módulo de importar dados](./media/hive-walkthrough/1eTYf52.png)
 
@@ -757,11 +757,11 @@ O conjunto de dados pode agora ser utilizado como ponto de partida para a criaç
 ### <a name="mlmodel"></a>Criar modelos de Machine Learning
 Agora, pode avançar para a criação de modelo e implementação de modelo na [Machine Learning](https://studio.azureml.net). Os dados estão prontos para nós utilizar como trabalhar com os problemas de predição identificados anteriormente:
 
-- **Classificação binária**: Para prever se é ou não uma dica foi paga por uma viagem.
+- **Classificação binária**: prever se é ou não uma dica foi paga por uma viagem.
 
-  **Aprendiz utilizado:** Regressão logística de duas classes
+  **Aprendiz utilizado:** regressão logística de duas classes
 
-  a. Para este problema, a etiqueta de destino (ou classe) é **colocado para**. O conjunto de dados original objeto de amostragem de baixo tem algumas colunas que são vazamentos de destino para esta experiência de classificação. Em particular, **sugestão\_classe**, **tip\_quantidade**, e **total\_quantidade** revelam informações sobre o destino da etiqueta que não está disponível em tempo de teste. Vamos remover essas colunas de consideração ao utilizar o [Select Columns in Dataset] [ select-columns] módulo.
+  a. Para este problema, a etiqueta de destino (ou classe) é **colocado para**. O conjunto de dados original objeto de amostragem de baixo tem algumas colunas que são vazamentos de destino para esta experiência de classificação. Em particular, **sugestão\_classe**, **tip\_quantidade**, e **total\_quantidade** revelam informações sobre o destino da etiqueta que não está disponível em tempo de teste. Nós removemos essas colunas de consideração usando o módulo [selecionar colunas no conjunto][select-columns] de módulos.
 
   O diagrama seguinte mostra nossos experimentação para prever se ou não uma dica foi paga por uma viagem de determinado:
 
@@ -777,13 +777,13 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   ![Gráfico de valor AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Classificação multiclasses**: Para prever o intervalo de quantidades de sugestão pagos para a viagem, utilizando as classes definidas anteriormente.
+- **Classificação multiclasses**: prever o intervalo de quantidades de sugestão pago para a viagem, utilizando as classes definidas anteriormente.
 
-  **Aprendiz utilizado:** Regressão logística várias classes
+  **Aprendiz utilizado:** várias classes regressão logística
 
-  a. Para este problema, é nosso rótulo de destino (ou classe) **sugestão\_classe**, que pode efetuar uma das cinco valores (0,1,2,3,4). Como é o caso de classificação binária, temos algumas colunas que são vazamentos de destino para esta fase experimental. Em particular, **tipados**, **sugestão\_quantidade**, e **total\_quantidade** revelar informações sobre a etiqueta de destino que não está disponível em o tempo de teste. Vamos remover estas colunas utilizando a [Select Columns in Dataset] [ select-columns] módulo.
+  a. Para este problema, é nosso rótulo de destino (ou classe) **sugestão\_classe**, que pode efetuar uma das cinco valores (0,1,2,3,4). Como é o caso de classificação binária, temos algumas colunas que são vazamentos de destino para esta fase experimental. Em particular, **tipados**, **sugestão\_quantidade**, e **total\_quantidade** revelar informações sobre a etiqueta de destino que não está disponível em o tempo de teste. Removemos essas colunas usando o módulo [selecionar colunas no conjunto][select-columns] de módulos.
 
-  O diagrama seguinte mostra a experimentação para prever no qual bin uma dica é provável que enquadram-se. Os contentores são: Classe 0: Sugestão = US $0, 1 de classe: Sugestão > US $0 e sugestão < = US $5, 2 de classe: Sugestão > US $5 e sugestão < = US $10, 3 de classe: Sugestão > US $10 e sugestão < = us $20 e 4 de classe: Sugestão > us $20.
+  O diagrama seguinte mostra a experimentação para prever no qual bin uma dica é provável que enquadram-se. Os contentores são: classe 0: tip = US $0, 1 de classe: Sugestão > US $0 e sugestão < = US $5, 2 de classe: Sugestão > US $5 e sugestão < = US $10, 3 de classe: Sugestão > US $10 e sugestão < = us $20 e 4 de classe: Sugestão > us $20.
 
   ![Diagrama da experimentação para prever bin sugestão](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -797,11 +797,11 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   Tenha em atenção que, enquanto as precisões de classe nas classes predominantes são muito bons, o modelo não faz um bom trabalho "learning" nas classes mais raros.
 
-- **Tarefa de regressão**: Para prever a quantidade de sugestão pagos por uma viagem.
+- **Tarefa de regressão**: para prever a quantidade de sugestão pago por uma viagem.
 
-  **Aprendiz utilizado:** árvore de decisões elevada
+  **Aprendiz utilizado:** Boosted árvore de decisão
 
-  a. Para este problema, a etiqueta de destino (ou classe) é **sugestão\_quantidade**. Neste caso são os vazamentos de destino: **tipados**, **sugestão\_classe**, e **total\_quantidade**. Todas essas variáveis revelam informações sobre a quantidade de sugestão que não está normalmente disponível em tempo de teste. Vamos remover estas colunas utilizando a [Select Columns in Dataset] [ select-columns] módulo.
+  a. Para este problema, a etiqueta de destino (ou classe) é **sugestão\_quantidade**. Neste caso são os vazamentos de destino: **tipados**, **sugestão\_classe**, e **total\_quantidade**. Todas essas variáveis revelam informações sobre a quantidade de sugestão que não está normalmente disponível em tempo de teste. Removemos essas colunas usando o módulo [selecionar colunas no conjunto][select-columns] de módulos.
 
   O diagrama seguinte mostra a experimentação para prever a quantidade de dica de determinado:
 

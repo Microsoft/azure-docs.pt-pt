@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 231441a97f5f76af0ab29171b649c31c7f1c8cc8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e628657f0c2519595ee0fd3c4f845e2e637f27e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430269"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975568"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -91,6 +91,6 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](../azure-resource-manager/resource-group-audit.md).
-- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../azure-resource-manager/resource-manager-deployment-operations.md).
+- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](../azure-resource-manager/management/view-activity-logs.md).
+- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../azure-resource-manager/templates/deployment-history.md).

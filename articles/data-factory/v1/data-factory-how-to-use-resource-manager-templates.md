@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 96adcfa4bbfc4ed0066ccfbdbe57f9840e8b07f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438813"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972868"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades de Azure Data Factory
 > [!NOTE]
@@ -32,7 +32,7 @@ Nesse caso, uma tarefa precisa ser repetida dentro do mesmo ambiente, mas com va
 Além disso, como a organização deseja implantar essas 10 fábricas de dados várias vezes em ambientes diferentes, os modelos podem usar essa **reusabilidade** utilizando arquivos de parâmetros separados para ambientes de desenvolvimento, teste e produção.
 
 ## <a name="templating-with-azure-resource-manager"></a>Templating com Azure Resource Manager
-Os [modelos de Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) são uma ótima maneira de obter templating em Azure data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como os modelos de Azure Resource Manager funcionam com todos/a maioria dos serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos de seus ativos do Azure. Consulte [criando modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para saber mais sobre os modelos do Resource Manager em geral.
+Os [modelos de Azure Resource Manager](../../azure-resource-manager/templates/overview.md) são uma ótima maneira de obter templating em Azure data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como os modelos de Azure Resource Manager funcionam com todos/a maioria dos serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos de seus ativos do Azure. Consulte [criando modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para saber mais sobre os modelos do Resource Manager em geral.
 
 ## <a name="tutorials"></a>Tutoriais
 Consulte os seguintes tutoriais para obter instruções passo a passo para criar Data Factory entidades usando modelos do Resource Manager:

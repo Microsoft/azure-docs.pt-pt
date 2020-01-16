@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 769a70cee4f5a1d5d5f77cdd4e55108e3ba40fa1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437199"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978699"
 ---
 # <a name="azure-event-hubs---use-firewall-rules"></a>Hubs de eventos do Azure – usar regras de firewall
 
@@ -152,5 +152,5 @@ Para obter acesso omezující aos Hubs de eventos para redes virtuais do Azure, 
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: event-hubs-service-endpoints.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359158"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969942"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -371,7 +371,7 @@ Você pode entrar em sua conta do Azure no modo de Azure Resource Manager execut
 Login-AzAccount
 ```
 
-Para saber mais sobre como usar Azure PowerShell com Azure Resource Manager, consulte [gerenciar recursos do Azure usando Azure PowerShell](../../azure-resource-manager/manage-resources-powershell.md).
+Para saber mais sobre como usar Azure PowerShell com Azure Resource Manager, consulte [gerenciar recursos do Azure usando Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md).
 
 Você pode implantar a extensão DSCForLinux executando:
 

@@ -7,28 +7,28 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5f05c6d82a00e78a4237019128db541eb63f20ba
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012244"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966807"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o gateway de Aplicativo Azure (clássico) usando o PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. Investigações personalizadas são úteis para aplicativos que têm uma página de verificação de integridade específica ou para aplicativos que não fornecem uma resposta bem-sucedida no aplicativo Web padrão.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como [executar estes passos com o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como [executar estes passos com o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
 Para criar um gateway de aplicação:
 
@@ -146,7 +146,7 @@ Os parâmetros de configuração são:
 | **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
 | **Host** e **caminho** | Caminho de URL completo que é invocado pelo gateway de aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/, a investigação personalizada poderá ser configurada para "http:\//contoso.com/path/custompath.htm" para verificações de investigação ter uma resposta HTTP bem-sucedida.|
 | **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
-| **Cedido** | Define o tempo limite de investigação para uma verificação de resposta HTTP.|
+| **Tempo limite** | Define o tempo limite de investigação para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como não *íntegra*.|
 
 O nome da investigação é referenciado no \<BackendHttpSettings\> configuração para atribuir qual pool de back-end usa configurações de investigação personalizadas.

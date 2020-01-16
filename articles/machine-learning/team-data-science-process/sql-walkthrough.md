@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669386"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976329"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -66,7 +66,7 @@ Neste tutorial, iremos demonstrar importação em massa paralela dos dados para 
 
 Para configurar o ambiente de ciência de dados do Azure:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md)
+1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
 2. [Criar uma área de trabalho do Azure Machine Learning](../studio/create-workspace.md)
 3. [Aprovisionar uma máquina de Virtual de ciência de dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e servidor IPython Notebook.
    
@@ -376,7 +376,7 @@ Da mesma forma podemos verificar a relação entre **taxa\_código** e **viagem\
 ![Desenhar #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Os dados em SQL de amostragem inferiores
-Ao preparar dados para a criação de modelos no [Azure Machine Learning Studio](https://studio.azureml.net), você pode decidir sobre a **consulta SQL a ser usada diretamente no módulo importar dados** ou manter os dados com engenharia e amostra em uma nova tabela, que pode ser usada na [importação ][import-data]Módulo de dados com um simples **Select * de < sua\_nova tabela de\_\_nome >** .
+Ao preparar dados para a criação de modelos no [Azure Machine Learning Studio](https://studio.azureml.net), você pode decidir sobre a **consulta SQL a ser usada diretamente no módulo importar dados** ou persistir os dados com engenharia e amostra em uma nova tabela, que pode ser usada no módulo [importar dados][import-data] com um simples **Select * de < sua\_nova tabela de\_\_nome >** .
 
 Nesta secção, irá criar uma nova tabela para armazenar os dados de amostras e engenharia. Um exemplo de uma consulta SQL direto para a criação de modelo é fornecido na [exploração de dados e a funcionalidade de engenharia no SQL Server](#dbexplore) secção.
 

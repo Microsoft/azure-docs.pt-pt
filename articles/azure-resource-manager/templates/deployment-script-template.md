@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jgao
-ms.openlocfilehash: 4dc28b8254c312836b2767c2efef52137e101777
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 6308f7832a898d97c455dc90265adea345aeb0cc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75839442"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981216"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (visualização)
 
@@ -57,7 +57,7 @@ Os benefícios do script de implantação:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell versão 2.7.0, 2.8.0 ou 3.0.0**. Você não precisa dessas versões para implantar modelos. Mas essas versões são necessárias para testar os scripts de implantação localmente. Consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps.md). Você pode usar uma imagem pré-configurada do Docker.  Consulte [Configurar ambiente de desenvolvimento](#configure-development-environment).
+- **Azure PowerShell versão 2.7.0, 2.8.0 ou 3.0.0**. Você não precisa dessas versões para implantar modelos. Mas essas versões são necessárias para testar os scripts de implantação localmente. Consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Você pode usar uma imagem pré-configurada do Docker.  Consulte [Configurar ambiente de desenvolvimento](#configure-development-environment).
 
 ## <a name="resource-schema"></a>Esquema de recursos
 
@@ -233,7 +233,7 @@ Para ver o recurso deploymentScripts no portal, selecione **Mostrar tipos oculto
 
 ## <a name="clean-up-deployment-script-resources"></a>Limpar recursos de script de implantação
 
-O script de implantação cria uma conta de armazenamento e uma instância de contêiner que são usadas para executar scripts de implantação e armazenar informações de depuração. Esses dois recursos são criados no mesmo grupo de recursos que os recursos provisionados e serão excluídos pelo serviço de script quando o script expirar. Você pode controlar o ciclo de vida desses recursos.  Até que eles sejam excluídos, você será cobrado por ambos os recursos. Para obter as informações de preço, consulte [preços de instâncias de contêiner](/pricing/details/container-instances/) e preços de [armazenamento do Azure](/pricing/details/storage/).
+O script de implantação cria uma conta de armazenamento e uma instância de contêiner que são usadas para executar scripts de implantação e armazenar informações de depuração. Esses dois recursos são criados no mesmo grupo de recursos que os recursos provisionados e serão excluídos pelo serviço de script quando o script expirar. Você pode controlar o ciclo de vida desses recursos.  Até que eles sejam excluídos, você será cobrado por ambos os recursos. Para obter as informações de preço, consulte [preços de instâncias de contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 O ciclo de vida desses recursos é controlado pelas seguintes propriedades no modelo:
 

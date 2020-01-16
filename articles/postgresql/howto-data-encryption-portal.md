@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c836139047b83220e571842b6f365ab568f81e93
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9c935ad8f77e2f8a6198a8ac095e0cc60c025a72
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941625"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028630"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-using-portal"></a>Criptografia de dados para um servidor único do banco de dado do Azure para PostgreSQL usando o portal
 

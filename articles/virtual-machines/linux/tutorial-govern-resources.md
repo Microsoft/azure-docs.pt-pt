@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 97003699f8dbaa028ff7d4739a4f0576a8790716
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749917"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970117"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Tutorial: Saiba mais sobre o gerenciamento de máquinas virtuais do Linux com o CLI do Azure
 
@@ -140,7 +140,7 @@ Após a conclusão da implementação, pode aplicar mais definições de gestão
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
-Os [bloqueios de recursos](../../azure-resource-manager/resource-group-lock-resources.md) impedem que os utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos. Ao contrário do controlo de acesso baseado em funções, os bloqueios de recursos aplicam uma restrição a todos os utilizadores e a todas as funções. Pode definir o nível do bloqueio para *CanNotDelete* ou *ReadOnly*.
+Os [bloqueios de recursos](../../azure-resource-manager/management/lock-resources.md) impedem que os utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos. Ao contrário do controlo de acesso baseado em funções, os bloqueios de recursos aplicam uma restrição a todos os utilizadores e a todas as funções. Pode definir o nível do bloqueio para *CanNotDelete* ou *ReadOnly*.
 
 Para criar ou eliminar bloqueios de gestão, tem de ter acesso a ações `Microsoft.Authorization/locks/*`. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
@@ -172,7 +172,7 @@ Verá um erro a indicar que a operação de eliminação não pode ser concluíd
 
 ## <a name="tag-resources"></a>Etiquetar recursos
 
-O utilizador aplica as [etiquetas](../../azure-resource-manager/resource-group-using-tags.md) aos recursos do Azure para os organizar por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
+O utilizador aplica as [etiquetas](../../azure-resource-manager/management/tag-resources.md) aos recursos do Azure para os organizar por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 

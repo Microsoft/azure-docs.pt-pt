@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 823a25f388860fa55962a717b9dfed22f5d9c103
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770526"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981680"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar em instâncias de contêiner do Azure do registro de contêiner do Azure
 
@@ -136,7 +136,7 @@ Você pode especificar as propriedades do seu registro de contêiner do Azure em
 
 Para obter configurações completas do grupo de contêineres, consulte a [referência de modelo do Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
 
-Para obter detalhes sobre como referenciar segredos de Azure Key Vault em um modelo do Resource Manager, consulte [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Para obter detalhes sobre como referenciar segredos de Azure Key Vault em um modelo do Resource Manager, consulte [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md).
 
 ## <a name="deploy-with-azure-portal"></a>Implantar com portal do Azure
 

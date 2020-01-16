@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
-ms.openlocfilehash: 222e8f014741f5d672dd50df68228efdb6c24bf3
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942291"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973685"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Excluir discos da replicação do PowerShell de VMs do Azure
 
@@ -96,7 +96,7 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
-# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication. 
+# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication.
 
 # Data disk 2
 $datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id

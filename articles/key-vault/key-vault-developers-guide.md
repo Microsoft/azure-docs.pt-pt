@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1bfd156f9fbdb69766e4588a342a695fbd79ca3a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7991fcec42a81a74ead1a00784e2cec59997da57
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595302"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981539"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor de Azure Key Vault
 
@@ -103,8 +103,8 @@ Os seguintes artigos e cenários fornecem diretrizes específicas para tarefas p
 - [Alterar a ID de locatário do cofre de chaves após a movimentação da assinatura](key-vault-subscription-move-fix.md) -quando você move sua assinatura do Azure do locatário a para o locatário b, seus cofres de chaves existentes são inacessíveis pelas entidades (usuários e aplicativos) no locatário b. corrija isso usando este guia.
 - [Acessando Key Vault por trás do firewall](key-vault-access-behind-firewall.md) -para acessar um cofre de chaves, seu aplicativo cliente do cofre de chaves precisa ser capaz de acessar vários pontos de extremidade para várias funcionalidades.
 - [Como gerar e transferir chaves protegidas por HSM para Azure Key Vault](key-vault-hsm-protected-keys.md) -isso o ajudará a planejar, gerar e transferir suas próprias chaves protegidas por HSM para usar com Azure Key Vault.
-- [Como passar valores seguros (como senhas) durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md) -quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, você pode armazenar esse valor como um segredo em um Azure Key Vault e fazer referência ao valor em outro gerenciador de recursos modelo.
-- [Como usar Key Vault para o gerenciamento extensível de chaves com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -a Conector do SQL Server para Azure Key Vault permite que o SQL Server e o SQL-in-a-VM aproveitem o serviço Azure Key Vault como um provedor EKM (gerenciamento extensível de chaves) para proteger seu link de chaves de criptografia para aplicativos; Transparent Data Encryption, criptografia de backup e criptografia em nível de coluna.
+- [Como passar valores seguros (como senhas) durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md) – quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, você pode armazenar esse valor como um segredo em um Azure Key Vault e fazer referência ao valor em outros modelos do Resource Manager.
+- [Como usar Key Vault para o gerenciamento extensível de chaves com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -a Conector do SQL Server para Azure Key Vault permite que o SQL Server e o SQL-in-a-VM aproveitem o serviço Azure Key Vault como um provedor EKM (gerenciamento extensível de chaves) para proteger suas chaves de criptografia para links de aplicativos; Transparent Data Encryption, criptografia de backup e criptografia em nível de coluna.
 - [Como implantar certificados em VMs de Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) -um aplicativo de nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado nesta VM hoje mesmo?
 - [Como configurar Key Vault com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md) – explica como configurar a rotação de chaves e a auditoria com Azure Key Vault.
 - [A implantação de um certificado de aplicativo Web do Azure por meio de Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fornece instruções passo a passo para implantar certificados armazenados no Key Vault como parte da oferta de [certificado do serviço de aplicativo](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) .
@@ -119,7 +119,7 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com K
 
 - [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) aproveita o recurso de [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados. A solução é integrada com Azure Key Vault para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves, garantindo que todos os dados nos discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 - [Azure data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) fornece a opção para a criptografia de dados armazenados na conta. Para o gerenciamento de chaves, Data Lake Store fornece dois modos para gerenciar suas chaves de criptografia mestras (MEKs), que são necessárias para descriptografar todos os dados armazenados no Data Lake Store. Você pode permitir que Data Lake Store gerenciar o MEKs para você ou optar por manter a propriedade do MEKs usando sua conta de Azure Key Vault. Você especifica o modo de gerenciamento de chaves ao criar uma conta de Data Lake Store.
-- A [proteção de informações do Azure](/azure/information-protection/plan-implement-tenant-key) permite que você Manager sua própria chave de locatário. Por exemplo, em vez de Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciar sua própria chave de locatário para obedecer a regulamentos específicos que se aplicam à sua organização. Gerenciar sua própria chave de locatário também é conhecido como trazer sua própria chave, ou BYOK.
+- A [proteção de informações do Azure](/azure/information-protection/plan-implement-tenant-key) permite que você Manager sua própria chave de locatário. Por exemplo, em vez de Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciar sua própria chave de locatário para obedecer a regulamentos específicos que se aplicam à sua organização. A gestão da sua própria chave de inquilino também é referida como Bring Your Own Key (Traga a Sua Própria Chave) ou BYOK.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Visões gerais e conceitos do Key Vault
 

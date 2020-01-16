@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029919"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usar o emulador azurite para desenvolvimento e teste do armazenamento local do Azure (versão prévia)
 
@@ -57,11 +57,11 @@ Há suporte para as seguintes configurações:
 
    * **Azurite: host de blob** -o ponto de extremidade de escuta do serviço BLOB. A configuração padrão é 127.0.0.1.
    * **Azurite: porta de blob** -a porta de escuta do serviço BLOB. A porta padrão é 10000.
-   * **Azurite: Depurar** -saída do log de depuração para o canal azurite. O valor padrão é **false**.
+   * **Azurite: Depurar** -saída do log de depuração para o canal azurite. O valor predefinido é **false**.
    * **Azurite: Location** -o caminho do local do espaço de trabalho. O padrão é a pasta de trabalho Visual Studio Code.
    * **Azurite: host de fila** -o ponto de extremidade de escuta serviço fila. A configuração padrão é 127.0.0.1.
    * **Azurite: porta da fila** -a porta de escuta do serviço fila. A porta padrão é 10001.
-   * **Azurite:** o modo silencioso-silencioso desabilita o log de acesso. O valor padrão é **false**.
+   * **Azurite:** o modo silencioso-silencioso desabilita o log de acesso. O valor predefinido é **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalar e executar o azurite usando o NPM
 
@@ -153,7 +153,7 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 Esse comando informa ao azurite para armazenar todos os dados em um diretório específico, **c:\azurite**. Se a opção **--Location** for omitida, ela usará o diretório de trabalho atual.
 
-## <a name="command-line-options"></a>Opções de linha de comando
+## <a name="command-line-options"></a>Opções da linha de comandos
 
 Esta seção detalha as opções de linha de comando disponíveis ao iniciar o azurite. Todas as opções de linha de comando são opcionais.
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>Modo livre
+
+**Opcional** Por padrão, azurite aplica o modo estrito para bloquear os cabeçalhos de solicitação e os parâmetros sem suporte. Desabilite o modo estrito usando a opção **--flexível** .
+
+```console
+azurite --loose
+```
+
+Observe a opção de atalho "L" maiúsculo:
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>Autorização para ferramentas e SDKs
 
 Conecte-se ao azurite de SDKs ou ferramentas do armazenamento do Azure, como [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), usando qualquer estratégia de autenticação. A autenticação é necessária. O azurite dá suporte à autorização com chaves compartilhadas e SAS (assinaturas de acesso compartilhado). O azurite também dá suporte ao acesso anônimo a contêineres públicos.
@@ -307,6 +321,33 @@ A maneira mais fácil de se conectar ao azurite de seu aplicativo é configurar 
 ```
 
 Para obter mais informações, consulte [Configurar cadeias de conexão de armazenamento do Azure](storage-configure-connection-string.md).
+
+### <a name="custom-storage-accounts-and-keys"></a>Chaves e contas de armazenamento personalizadas
+
+O azurite dá suporte a chaves e nomes de conta de armazenamento personalizados definindo a variável de ambiente `AZURITE_ACCOUNTS` no seguinte formato: `account1:key1[:key2];account2:key1[:key2];...`.
+
+Por exemplo, use uma conta de armazenamento personalizada que tenha uma chave:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+Ou use várias contas de armazenamento com duas chaves cada:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+O azurite atualiza nomes de conta e chaves personalizadas da variável de ambiente a cada minuto, por padrão. Com esse recurso, você pode girar dinamicamente a chave de conta ou adicionar novas contas de armazenamento sem reiniciar o azurite.
+
+> [!NOTE]
+> A conta de armazenamento de `devstoreaccount1` padrão é desabilitada quando você define contas de armazenamento personalizadas.
+
+> [!NOTE]
+> Atualize a cadeia de conexão de acordo ao usar chaves e nomes de conta personalizados.
+
+> [!NOTE]
+> Use a palavra-chave `export` para definir variáveis de ambiente em um ambiente Linux, use `set` no Windows.
 
 ### <a name="storage-explorer"></a>Explorador de Armazenamento
 
@@ -354,7 +395,7 @@ O azurite dá suporte à replicação com redundância geográfica com acesso de
 
 As contribuições e sugestões para azurite são boas-vindas. Vá para a página do [projeto azurite GitHub](https://github.com/Azure/Azurite/projects) ou problemas do [GitHub](https://github.com/Azure/Azurite/issues) para Marcos e itens de trabalho que estamos acompanhando para futuros recursos e correções de bugs. Os itens de trabalho detalhados também são acompanhados no GitHub.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use o emulador de armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento do Azure herdado, que está sendo substituído pelo azurite.
 * [Configurar cadeias de conexão do armazenamento do Azure](storage-configure-connection-string.md) explica como montar uma cadeia de conexão válida do armazenamento do Azure.

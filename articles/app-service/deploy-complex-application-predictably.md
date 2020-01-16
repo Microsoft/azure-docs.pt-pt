@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422139"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967385"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar os microserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microservices](https://en.wikipedia.org/wiki/Microservices) no [serviço Azure app](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível usando modelos de grupo de recursos JSON e scripts do PowerShell. 
@@ -252,10 +252,10 @@ Em DevOps, a capacidade de repetição e a previsibilidade são chaves para qual
 ## <a name="more-resources"></a>Mais recursos
 * [Idioma do modelo de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager funções de modelo](../azure-resource-manager/resource-group-template-functions.md)
-* [Implantar um aplicativo com Azure Resource Manager modelo](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure Resource Manager funções de modelo](../azure-resource-manager/templates/template-functions.md)
+* [Implantar um aplicativo com Azure Resource Manager modelo](../azure-resource-manager/templates/deploy-powershell.md)
 * [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Solucionando problemas de implantações de grupo de recursos no Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Solucionando problemas de implantações de grupo de recursos no Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

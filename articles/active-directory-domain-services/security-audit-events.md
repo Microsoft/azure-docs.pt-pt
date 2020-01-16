@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425378"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979933"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services
 
@@ -51,10 +51,10 @@ As seguintes categorias de evento de auditoria estão disponíveis:
 |:---|:---|
 |Segurança de logon da conta|4767, 4774, 4775, 4776, 4777|
 |Segurança de gerenciamento de conta|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Segurança de acompanhamento de detalhes|Nenhum|
+|Segurança de acompanhamento de detalhes|Nenhuma|
 |Segurança de acesso DS|5136, 5137, 5138, 5139, 5141|
 |Segurança de logoff de logon|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Segurança de acesso a objeto|Nenhum|
+|Segurança de acesso a objeto|Nenhuma|
 |Segurança de alteração de política|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Segurança de uso de privilégios|4985|
 |Segurança do sistema|4612, 4621|
@@ -70,8 +70,8 @@ A tabela a seguir descreve os cenários para cada tipo de recurso de destino.
 
 | Recurso de destino | Cenário |
 |:---|:---|
-|Storage do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM). Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Armazenamento do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).|
+|Hubs de Eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM). Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Espaço de trabalho Log Analytics do Azure| Esse destino deve ser usado quando a principal necessidade é analisar e revisar as auditorias seguras do portal do Azure diretamente. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um espaço de trabalho log Analytics no portal do Azure.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoria de segurança usando o portal do Azure
@@ -126,7 +126,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
 
 1. Crie o recurso de destino para os eventos de auditoria de segurança.
 
-    *  - de **armazenamento do Azure** [criar uma conta de armazenamento usando Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    *  - de **armazenamento do Azure** [criar uma conta de armazenamento usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
     * Os **hubs de eventos do Azure** - [criar um hub de eventos usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Talvez você também precise usar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de AD DS do Azure para o *namespace*do hub de eventos. A regra de autorização deve incluir os direitos **gerenciar**, **escutar**e **Enviar** .
 
         > [!IMPORTANT]
@@ -175,7 +175,7 @@ Os espaços de trabalho de análise de log permitem exibir e analisar os eventos
 * [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 * [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 * [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Criar e compartilhar painéis de dados de Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Criar e partilhar dashboards dos dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 As consultas de exemplo a seguir podem ser usadas para iniciar a análise de eventos de auditoria de segurança do Azure AD DS.
 

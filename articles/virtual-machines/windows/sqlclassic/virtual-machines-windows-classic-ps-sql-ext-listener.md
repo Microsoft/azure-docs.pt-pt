@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d2dce6875ec39810a81bb5ae454d953a7b7ab0a9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032710"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978186"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte externo para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "74032710"
 Este tópico mostra como configurar um ouvinte para um Always On grupo de disponibilidade que é acessível externamente na Internet. Isso é possibilitado pela associação do endereço **IP virtual público (VIP)** do serviço de nuvem com o ouvinte.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 
 Seu grupo de disponibilidade pode conter réplicas somente locais, somente Azure ou abranger localmente e o Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já [configurou um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas não configurou um ouvinte.
 

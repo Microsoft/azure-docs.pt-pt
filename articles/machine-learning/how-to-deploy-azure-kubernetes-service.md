@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 2d49501b5888368345736047217177142d2e88d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764053"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024945"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ Para obter mais informações, consulte o [AZ ml computetarget Create Ask](https
 
 **Tempo estimado:** Aproximadamente 5 minutos.
 
-Se você já tiver o cluster AKS em sua assinatura do Azure e ele for inferior à versão 1,15, você poderá usá-lo para implantar a imagem.
+Se você já tiver o cluster AKS em sua assinatura do Azure e for a versão 1,16 ou inferior, poderá usá-lo para implantar a imagem.
 
 > [!TIP]
 > O cluster AKS existente pode estar em uma região do Azure que não seja seu espaço de trabalho Azure Machine Learning.
@@ -187,7 +187,7 @@ Para obter mais informações, consulte a referência de [AKs AZ ml computetarge
 
 ## <a name="deploy-to-aks"></a>Implementar para AKS
 
-Para implantar um modelo no serviço kubernetes do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](service/how-to-deploy-and-where.md).
+Para implantar um modelo no serviço kubernetes do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ### <a name="using-the-sdk"></a>Utilizar o SDK
 
@@ -223,13 +223,13 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
+Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
 ### <a name="using-vs-code"></a>Utilizar o VS Code
 
 Para obter informações sobre como usar VS Code, consulte [implantar no AKs por meio da extensão vs Code](how-to-vscode-tools.md#deploy-and-manage-models).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > A implantação por meio do VS Code requer que o cluster AKS seja criado ou anexado ao seu espaço de trabalho com antecedência.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implantar modelos no AKS usando a distribuição controlada (versão prévia)
@@ -245,13 +245,13 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace 
+namespace_name= endpointnamespace
 # define the endpoint and version name
 endpoint_name = "mynewendpoint",
 version_name= "versiona",
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = true, 
+                                                              enable_app_insights = true,
                                                               tags = {'sckitlearn':'demo'},
                                                               decription = testing versions,
                                                               version_name = version_name,
@@ -262,34 +262,34 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Atualizar e adicionar versões a um ponto de extremidade
 
-Adicione outra versão ao ponto de extremidade e configure o percentual de tráfego de Pontuação indo para a versão. Há dois tipos de versões, um controle e uma versão de tratamento. Pode haver várias versões de tratamento para ajudar a comparar com uma única versão de controle. 
+Adicione outra versão ao ponto de extremidade e configure o percentual de tráfego de Pontuação indo para a versão. Há dois tipos de versões, um controle e uma versão de tratamento. Pode haver várias versões de tratamento para ajudar a comparar com uma única versão de controle.
 
  ```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
-version_name_add = "versionb" 
-endpoint.create_version(version_name = version_name_add, 
+version_name_add = "versionb"
+endpoint.create_version(version_name = version_name_add,
                         inference_config=inference_config,
-                        models=[model], 
-                        tags = {'modelVersion':'b'}, 
-                        description = "my second version", 
+                        models=[model],
+                        tags = {'modelVersion':'b'},
+                        description = "my second version",
                         traffic_percentile = 10)
 ```
 
-Atualize as versões existentes ou exclua-as em um ponto de extremidade. Você pode alterar o tipo padrão da versão, o tipo de controle e o percentual de tráfego. 
- 
+Atualize as versões existentes ou exclua-as em um ponto de extremidade. Você pode alterar o tipo padrão da versão, o tipo de controle e o percentual de tráfego.
+
  ```python
 from azureml.core.webservice import AksEndpoint
 
-# update the version's scoring traffic percentage and if it is a default or control type 
-endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
-                        description="my second version update", 
+# update the version's scoring traffic percentage and if it is a default or control type
+endpoint.update_version(version_name=endpoint.versions["versionb"].name,
+                        description="my second version update",
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
 
-# delete a version in an endpoint 
+# delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
 ```

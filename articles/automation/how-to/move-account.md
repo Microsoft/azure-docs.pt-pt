@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849586"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969834"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mover sua conta de automação do Azure para outra assinatura
 
-O Azure fornece a capacidade de mover alguns recursos para um novo grupo de recursos ou assinatura. Você pode mover recursos por meio do portal do Azure, do PowerShell, do CLI do Azure ou da API REST. Para saber mais sobre o processo, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/resource-group-move-resources.md).
+O Azure fornece a capacidade de mover alguns recursos para um novo grupo de recursos ou assinatura. Você pode mover recursos por meio do portal do Azure, do PowerShell, do CLI do Azure ou da API REST. Para saber mais sobre o processo, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 As contas de automação do Azure são um dos recursos que podem ser movidos. Neste artigo, você aprenderá as etapas para mover as contas de automação para outro recurso ou assinatura.
 
@@ -147,4 +147,4 @@ Quando a movimentação for concluída, verifique a seguinte lista de tarefas qu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como mover recursos no Azure, consulte [mover recursos no Azure](../../azure-resource-manager/move-support-resources.md).
+Para saber mais sobre como mover recursos no Azure, consulte [mover recursos no Azure](../../azure-resource-manager/management/move-support-resources.md).

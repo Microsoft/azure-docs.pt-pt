@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100364"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978148"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
 > [!div class="op_single_selector"]
-> * [Clássico UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Clássico PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Clássico: interface do usuário](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Clássico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Antes de começar, considere que agora você pode concluir essa tarefa no modelo do Azure Resource Manager. Recomendamos o modelo do Azure Resource Manager para novas implantações. Confira [SQL Server grupos de disponibilidade Always on em máquinas virtuais do Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Recomendamos que a maioria das implantações novas usem o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica.
+> Recomendamos que a maioria das implantações novas usem o modelo do Resource Manager. O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo cobre a utilização do modelo de implementação clássica.
 
 As VMs (máquinas virtuais) do Azure podem ajudar os administradores de banco de dados a reduzir o custo de um sistema de SQL Server de alta disponibilidade. Este tutorial mostra como implementar um grupo de disponibilidade usando SQL Server Always On de ponta a ponta dentro de um ambiente do Azure. No final do tutorial, sua solução de Always On SQL Server no Azure consistirá nos seguintes elementos:
 
@@ -158,7 +158,7 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
    * **Add-AzureDataDisk** adiciona o disco de dados que você usará para armazenar Active Directory dados, com a opção de cache definida como None.
    * **New-AzureVM** cria um novo serviço de nuvem e cria a nova VM do Azure no novo serviço de nuvem.
 
-7. Aguarde até que a nova VM seja totalmente provisionada e baixe o arquivo da área de trabalho remota em seu diretório de trabalho. Como a nova VM do Azure leva muito tempo para ser provisionada, o `while` loop continua a sondar a nova VM até que ela esteja pronta para uso.
+7. Aguarde até que a nova VM seja totalmente provisionada e baixe o arquivo da área de trabalho remota em seu diretório de trabalho. Como a nova VM do Azure leva muito tempo para ser provisionada, o loop de `while` continua a sondar a nova VM até que ela esteja pronta para uso.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -238,7 +238,7 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    O GUID especificado acima é o GUID para o tipo de objeto de computador. A conta **CORP\Install** precisa da permissão **ler todas as propriedades** e **criar objetos de computador** para criar os objetos do Active Direct para o cluster de failover. A permissão **ler todas as propriedades** já foi atribuída ao CORP\Install por padrão, portanto, você não precisa concedê-la explicitamente. Para obter mais informações sobre as permissões necessárias para criar o cluster de failover, [consulte Guia passo a passo do cluster de failover: Configurando contas](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)no Active Directory.
+    O GUID especificado acima é o GUID para o tipo de objeto de computador. A conta **CORP\Install** precisa da permissão **ler todas as propriedades** e **criar objetos de computador** para criar os objetos do Active Direct para o cluster de failover. A permissão **ler todas as propriedades** já foi atribuída ao CORP\Install por padrão, portanto, você não precisa concedê-la explicitamente. Para obter mais informações sobre as permissões necessárias para criar o cluster de failover, consulte [guia passo a passo do cluster de failover: Configurando contas no Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Agora que você concluiu a configuração de Active Directory e os objetos de usuário, criará duas VMs SQL Server e as unirá a esse domínio.
 
@@ -354,7 +354,7 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
    * **Set-AzureSubnet** coloca a VM na sub-rede posterior.
    * **Add-AzureEndpoint** adiciona pontos de extremidade de acesso para que os aplicativos cliente possam acessar essas instâncias de serviços de SQL Server na Internet. Portas diferentes são dadas a ContosoSQL1 e ContosoSQL2.
    * **New-AzureVM** cria a nova VM SQL Server no mesmo serviço de nuvem que ContosoQuorum. Você deve posicionar as VMs no mesmo serviço de nuvem se quiser que elas estejam no mesmo conjunto de disponibilidade.
-4. Aguarde até que cada VM seja totalmente provisionada e para cada VM baixar seu arquivo de área de trabalho remota para seu diretório de trabalho. O `for` loop percorre as três novas VMs e executa os comandos dentro das chaves de nível superior para cada uma delas.
+4. Aguarde até que cada VM seja totalmente provisionada e para cada VM baixar seu arquivo de área de trabalho remota para seu diretório de trabalho. O loop de `for` percorre as três novas VMs e executa os comandos dentro das chaves de nível superior para cada uma delas.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -379,15 +379,15 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
 ## <a name="initialize-the-failover-cluster-vms"></a>Inicializar as VMs do cluster de failover
 Nesta seção, você precisa modificar os três servidores que serão usados no cluster de failover e a instalação do SQL Server. Especificamente:
 
-* Todos os servidores: Você precisa instalar o recurso de clustering de **failover** .
-* Todos os servidores: Você precisa adicionar o **CORP\Install** como o **administrador**da máquina.
-* Somente ContosoSQL1 e ContosoSQL2: Você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
-* Somente ContosoSQL1 e ContosoSQL2: Você precisa adicionar **NT AUTHORITY\SYSTEM** como uma entrada com as seguintes permissões:
+* Todos os servidores: você precisa instalar o recurso de **clustering de failover** .
+* Todos os servidores: você precisa adicionar **CORP\Install** como o **administrador**do computador.
+* Somente ContosoSQL1 e ContosoSQL2: você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
+* Somente ContosoSQL1 e ContosoSQL2: você precisa adicionar **NT AUTHORITY\SYSTEM** como uma entrada com as seguintes permissões:
 
   * Alterar qualquer grupo de disponibilidade
   * Conectar SQL
   * Exibir estado do servidor
-* Somente ContosoSQL1 e ContosoSQL2: O protocolo **TCP** já está habilitado na VM SQL Server. No entanto, você ainda precisa abrir o firewall para acesso remoto de SQL Server.
+* Somente ContosoSQL1 e ContosoSQL2: o protocolo **TCP** já está habilitado na VM SQL Server. No entanto, você ainda precisa abrir o firewall para acesso remoto de SQL Server.
 
 Agora, você está pronto para começar. A partir do **ContosoQuorum**, siga as etapas abaixo:
 

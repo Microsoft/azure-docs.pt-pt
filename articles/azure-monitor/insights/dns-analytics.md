@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 6500020d9d1c7c735206efe8ebb08fd908eee10d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bca77db3452aecb31852c4c50e7754c7777fc458
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403254"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971268"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -100,7 +100,7 @@ O dashboard de solução mostra os seguintes painéis:
 
 ![Painel de segurança de DNS](./media/dns-analytics/dns-security-blade.png)
 
-Quando clica num IP de cliente na lista, pesquisa de registos é aberto e mostra os detalhes de pesquisa da respetiva consulta. No exemplo seguinte, a análise de DNS detetou que a comunicação foi efetuada com uma [Win32/ircbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
+Quando clica num IP de cliente na lista, pesquisa de registos é aberto e mostra os detalhes de pesquisa da respetiva consulta. No exemplo seguinte, a análise de DNS detetou que a comunicação foi efetuada com uma [Win32/ircbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Resultados de pesquisa de registo mostrando Win32/ircbot](./media/dns-analytics/ircbot.png)
 

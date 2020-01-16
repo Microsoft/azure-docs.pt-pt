@@ -15,22 +15,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 8fc04b4689ea8707ac2c605e3e4242a117773151
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2ba8a8cdc324f46e25f9665cfce0aa07fc948e88
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035636"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979027"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM do Linux para outra assinatura ou grupo de recursos
 Este artigo explica como mover uma VM (máquina virtual) do Linux entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas pode ser útil se você criou uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa.
 
 > [!IMPORTANT]
->Não é possível mover o Azure Managed Disks neste momento. 
+>Não é possível mover o Azure Managed Disks neste momento.
 >
->Novas IDs de recurso são criadas como parte da movimentação. Depois que a VM for movida, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recurso. 
-> 
-> 
+>Novas IDs de recurso são criadas como parte da movimentação. Depois que a VM for movida, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recurso.
+>
+>
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usar o CLI do Azure para mover uma VM
 
@@ -72,5 +72,4 @@ Quando for solicitado que você confirme que deseja mover os recursos especifica
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Você pode mover muitos tipos diferentes de recursos entre grupos de recursos e assinaturas. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../resource-group-move-resources.md).    
-
+Você pode mover muitos tipos diferentes de recursos entre grupos de recursos e assinaturas. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md).    

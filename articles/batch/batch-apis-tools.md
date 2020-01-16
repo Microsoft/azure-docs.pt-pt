@@ -2,19 +2,19 @@
 title: APIs e ferramentas para desenvolvedores – Azure batch | Microsoft Docs
 description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvolvimento de soluções com o serviço Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a353651fa045b146b257432c812c73bec9485566
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323782"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027356"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -37,7 +37,7 @@ Quando desenvolver soluções do Batch, irá utilizar as seguintes contas na sub
 
 As suas aplicações e serviços podem emitir chamadas diretas de API REST ou utilizar uma ou mais das bibliotecas de cliente seguintes para executar e gerir as cargas de trabalho do Azure Batch.
 
-| API | Referência da API | Transferência | Tutorial | Exemplos de código | Mais Informações |
+| API | Referência de API | Transferir | Tutorial | Exemplos de código | Mais Informações |
 | --- | --- | --- | --- | --- | --- |
 | **REST do Batch** |[docs.microsoft.com][batch_rest] |N/A |- |- | [Versões Suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **.NET do Batch** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de Versão](https://aka.ms/batch-net-dataplane-changelog) |
@@ -49,7 +49,7 @@ As suas aplicações e serviços podem emitir chamadas diretas de API REST ou ut
 
 As APIs do Azure Resource Manager para o Batch concedem acesso programático às contas do Batch. Ao utilizar estas APIs, pode gerir, através de programação, contas, quotas, pacotes de aplicações e outros recursos do Batch através do fornecedor Microsoft.Batch.  
 
-| API | Referência da API | Transferência | Tutorial | Exemplos de código |
+| API | Referência de API | Transferir | Tutorial | Exemplos de código |
 | --- | --- | --- | --- | --- |
 | **REST de Gestão de Lotes** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Gestão de Batch .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
@@ -60,24 +60,24 @@ As APIs do Azure Resource Manager para o Batch concedem acesso programático às
 
 Estas ferramentas da linha de comandos fornecem a mesma funcionalidade que o serviço de Batch e as APIs de Gestão do Batch: 
 
-* [Cmdlets do PowerShell do lote][batch_ps]: Os cmdlets do lote do Azure no módulo [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do lote com o PowerShell.
-* [CLI do Azure](/cli/azure): O CLI do Azure é um conjunto de ferramentas de plataforma cruzada que fornece comandos de Shell para interagir com muitos serviços do Azure, incluindo o serviço de lote e o serviço de gerenciamento de lote. Consulte [Manage Batch resources with Azure CLI](batch-cli-get-started.md)(Gerir recursos do Batch com a CLI do Azure), para obter mais informações sobre como utilizar a CLI do Azure com o Batch.
+* [Cmdlets do PowerShell do lote][batch_ps]: os cmdlets do lote do Azure no módulo [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do lote com o PowerShell.
+* [CLI do Azure](/cli/azure): a CLI do Azure é um conjunto de ferramentas para várias plataformas que fornece comandos shell para interagir com vários serviços do Azure, incluindo o serviço do Batch e o serviço de Gestão do Batch. Consulte [Manage Batch resources with Azure CLI](batch-cli-get-started.md)(Gerir recursos do Batch com a CLI do Azure), para obter mais informações sobre como utilizar a CLI do Azure com o Batch.
 
 ## <a name="other-tools-for-application-development"></a>Outras ferramentas para programação da aplicação
 
 Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e depurar as suas aplicações e serviços do Batch:
 
-* [Portal do Azure][portal]: Você pode criar, monitorar e excluir pools, trabalhos e tarefas do lote no portal do Azure. Pode ver as informações de estado para estes e outros recursos ao executar os trabalhos, e até mesmo transferir os ficheiros de nós de computação nos seus conjuntos. Por exemplo, pode transferir o `stderr.txt` de uma tarefa falhada, durante a resolução de problemas. Também pode transferir ficheiros de Ambiente de Trabalho Remoto (RDP) que pode utilizar para iniciar sessão em nós de computação.
-* [Azure batch Explorer][batch_labs]: Batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do lote do Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
-* [Shipyard do lote do Azure](https://github.com/Azure/batch-shipyard): O Shipyard do lote é uma ferramenta para ajudar a provisionar, executar e monitorar o processamento em lotes baseado em contêiner e cargas de trabalho do HPC no lote do Azure.
-* [Gerenciador de armazenamento do Azure][storage_explorer]: Embora não seja estritamente uma ferramenta de lote do Azure, a Gerenciador de Armazenamento é outra ferramenta valiosa a ter enquanto você está desenvolvendo e Depurando suas soluções de lote.
+* [Portal do Azure][portal]: você pode criar, monitorar e excluir pools, trabalhos e tarefas do lote no portal do Azure. Pode ver as informações de estado para estes e outros recursos ao executar os trabalhos, e até mesmo transferir os ficheiros de nós de computação nos seus conjuntos. Por exemplo, pode transferir o `stderr.txt` de uma tarefa falhada, durante a resolução de problemas. Também pode transferir ficheiros de Ambiente de Trabalho Remoto (RDP) que pode utilizar para iniciar sessão em nós de computação.
+* [Azure batch Explorer][batch_labs]: batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do lote do Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
+* [Shipyard do lote do Azure](https://github.com/Azure/batch-shipyard): o Shipyard do lote é uma ferramenta para ajudar a provisionar, executar e monitorar cargas de trabalho de HPC e processamento em lotes baseado em contêiner no lote do Azure.
+* [Gerenciador de armazenamento do Azure][storage_explorer]: embora não seja estritamente uma ferramenta de lote do Azure, a Gerenciador de armazenamento é outra ferramenta valiosa a ser desenvolvida durante o desenvolvimento e a depuração das soluções do lote.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - Para saber mais sobre o registo de eventos da aplicação do Batch, consulte [Log events for diagnostic evaluation and monitoring of Batch solutions](batch-diagnostics.md)(Registar eventos para avaliação de diagnóstico e monitorização de soluções do Batch). Para uma referência de eventos gerados pelo serviço do Batch, consulte [Batch Analytics](batch-analytics.md).
 - Para obter informações sobre as variáveis de ambiente para nós de computação, consulte [Azure Batch compute node environment variables](batch-compute-node-environment-variables.md)(Variáveis de ambiente de nó de computação do Azure Batch).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
 * [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f3fdf1b723158db873bc2635de34d878c464201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439428"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977319"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* *Conta de Armazenamento do Azure*. Utilize o armazenamento de blobs como arquivo de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, consulte [criar uma conta de armazenamento de uso geral](../storage/common/storage-quickstart-create-account.md).
+* *Conta de Armazenamento do Azure*. Utilize o armazenamento de blobs como arquivo de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, consulte [criar uma conta de armazenamento de uso geral](../storage/common/storage-account-create.md).
 * *Base de Dados SQL do Azure*. Pode utilizar a base de dados como arquivo de dados *sink*. Se você não tiver um banco de dados SQL do Azure, consulte [criar um banco de dados SQL do Azure](../sql-database/sql-database-single-database-get-started.md).
 * *Visual Studio*. As instruções neste artigo usam o Visual Studio 2019.
 * *[SDK do Azure para .net](/dotnet/azure/dotnet-tools)* .
@@ -84,7 +84,7 @@ Em seguida, crie uma tabela SQL do coletor:
     1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o SQL Server. Pesquise e selecione **servidores SQL**.
 
     2. Selecione o servidor.
-    
+
     3. No título de **segurança** do menu do SQL Server, selecione **firewalls e redes virtuais**.
 
     4. Na página **Firewall e redes virtuais** , em **permitir que serviços e recursos do Azure acessem este servidor**, selecione **ativado**.
@@ -154,7 +154,7 @@ Siga estas etapas para criar um cliente data factory.
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -265,7 +265,7 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Nesta seção, você criará dois conjuntos de valores: um para a origem, o outro para o coletor. 
+Nesta seção, você criará dois conjuntos de valores: um para a origem, o outro para o coletor.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Criar um conjunto de dados para o Blob do Azure de origem
 
@@ -283,8 +283,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 Adicione o código a seguir ao método de `Main` que cria um *conjunto de dados do Azure SQL Database*. Para obter informações sobre as propriedades e os detalhes com suporte, consulte [Propriedades do conjunto de dados do Azure SQL Database](connector-azure-sql-database.md#dataset-properties).
 
-Defina um conjunto de dados que representa os dados sink na Base de Dados SQL do Azure. Esse conjunto de dados refere-se ao serviço vinculado do banco de dados SQL do Azure que você criou na etapa anterior. Também especifica a tabela SQL que contém os dados copiados. 
+Defina um conjunto de dados que representa os dados sink na Base de Dados SQL do Azure. Esse conjunto de dados refere-se ao serviço vinculado do banco de dados SQL do Azure que você criou na etapa anterior. Também especifica a tabela SQL que contém os dados copiados.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -416,14 +416,14 @@ Agora, insira o código para verificar os Estados de execução do pipeline e ob
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -564,7 +564,7 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Aprendeu a: 
+O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
@@ -574,7 +574,7 @@ O pipeline neste exemplo copia dados de uma localização para outra localizaç�
 > * Iniciar uma execução de pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 
-Avance para o tutorial seguinte para saber como copiar dados do local para a cloud: 
+Avance para o tutorial seguinte para saber como copiar dados do local para a cloud:
 
 > [!div class="nextstepaction"]
 >[Copiar dados do local para a cloud](tutorial-hybrid-copy-powershell.md)

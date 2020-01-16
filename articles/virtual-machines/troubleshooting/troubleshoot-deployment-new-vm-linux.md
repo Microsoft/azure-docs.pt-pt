@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090029"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981407"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual do Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ Para outras questões e problemas de implementação de VM, veja [Resolver probl
 ## <a name="collect-activity-logs"></a>Coletar logs de atividade
 Para iniciar a solução de problemas, colete os logs de atividade para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
-[Ver as operações de implementação](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Ver as operações de implementação](../../azure-resource-manager/templates/deployment-history.md)
 
 [Exibir logs de atividade para gerenciar recursos do Azure](../../resource-group-audit.md)
 
@@ -42,7 +42,7 @@ Para iniciar a solução de problemas, colete os logs de atividade para identifi
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**IAR** Se o sistema operacional for Linux generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Linux especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
+**Y:** Se o sistema operacional for Linux generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Linux especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
 
 **Erros de upload:**
 
@@ -62,9 +62,9 @@ Para resolver esses dois erros, carregue o VHD original, disponível no local, c
 
 **Resolução:**
 
-Para resolver esses erros, exclua a imagem atual do portal e recapture [-a dos VHDs atuais](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma configuração que para o sistema operacional (generalizado/especializado).
+Para resolver esses erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma configuração que para o sistema operacional (generalizado/especializado).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Imagem personalizada/de galeria/Marketplace; falha de alocação
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: imagem personalizada/de galeria/do Marketplace; falha de alocação
 Esse erro ocorre em situações em que a nova solicitação de VM é fixada em um cluster que não dá suporte ao tamanho da VM que está sendo solicitada ou não tem espaço livre disponível para acomodar a solicitação.
 
 **Causa 1:** O cluster não dá suporte ao tamanho de VM solicitado.
@@ -74,7 +74,7 @@ Esse erro ocorre em situações em que a nova solicitação de VM é fixada em u
 * Repita a solicitação usando um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina virtual Parar.*   > 
+    Clique **em grupos de recursos** > *seu grupo de recursos* > **recursos** > *seu conjunto de disponibilidade* > **máquinas virtuais** > *sua máquina virtual* > **parar**.
   * Depois que todas as VMs forem interrompidas, crie a nova VM no tamanho desejado.
   * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 

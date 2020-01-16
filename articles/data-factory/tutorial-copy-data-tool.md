@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439417"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977341"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
 
@@ -39,7 +39,7 @@ Neste tutorial, vai executar os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: utilize o Armazenamento de blobs como arquivo de dados de _origem_. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Conta de armazenamento do Azure**: utilize o Armazenamento de blobs como arquivo de dados de _origem_. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 * **Base de Dados SQL do Azure**: utilize uma base de dados SQL como arquivo de dados _sink_. Se não tem uma base de dados SQL, veja as instruções apresentadas em [Criar uma base de dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
@@ -78,18 +78,18 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**:
-    
+
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
     O nome da fábrica de dados tem de ser _globalmente exclusivo_. Poderá receber a seguinte mensagem de erro:
-    
+
     ![Mensagem de erro de nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 
     Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_ **ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **subscrição** do Azure na qual quer criar a nova fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
-    
+
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos.
@@ -101,7 +101,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 1. Selecione **Criar**.
 
 1. Depois de concluída a criação, é apresentada a home page **Fábrica de Dados**.
-    
+
     ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
 1. Para iniciar a interface de utilizador (IU) do Azure Data Factory num separador à parte, selecione o mosaico **Criar e Monitorizar**.
 
@@ -125,7 +125,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
     ![Selecionar serviço ligado de origem](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. Na página **Escolher o ficheiro ou pasta de entrada**, complete os seguintes passos:
-    
+
     a. Clique em **Navegar** para navegar para a pasta **adfv2tutorial/input**, selecione o ficheiro **inputEmp.txt** e clique em **Escolher**.
 
     b. Clique em **Seguinte** para mover para o passo seguinte.

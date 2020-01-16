@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133329"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981600"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber e responder a notificações do cofre de chaves com a grade de eventos do Azure (versão prévia)
 
@@ -184,7 +184,7 @@ Verifique se sua assinatura da grade de eventos está configurada corretamente. 
 
 ### <a name="you-cant-create-an-event-subscription"></a>Não é possível criar uma assinatura de evento
 
-Registre novamente a grade de eventos e o provedor do cofre de chaves em seus provedores de recursos de assinatura do Azure. Consulte [provedores e tipos de recursos do Azure](../azure-resource-manager/resource-manager-supported-services.md).
+Registre novamente a grade de eventos e o provedor do cofre de chaves em seus provedores de recursos de assinatura do Azure. Consulte [provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -192,7 +192,7 @@ Parabéns! Se você seguiu corretamente todas essas etapas, agora você está pr
 
 Se você estiver usando um sistema baseado em sondagem para procurar alterações de status de segredos em seus cofres de chaves, agora você pode começar a usar esse recurso de notificação. Você também pode substituir o script de teste em seu runbook por código para renovar de forma programática seus segredos quando eles estiverem prestes a expirar.
 
-Saiba mais:
+Mais informações:
 
 
 - Visão geral: [monitoramento Key Vault com a grade de eventos do Azure (versão prévia)](event-grid-overview.md)

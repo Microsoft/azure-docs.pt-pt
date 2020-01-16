@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815e1a811d16e4c630e455e9c684c2b6b094a5d5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183410"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971920"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure 
 
@@ -29,13 +29,13 @@ ms.locfileid: "74183410"
 Este tutorial mostra-lhe como utilizar uma identidade gerida atribuída pelo sistema para uma máquina virtual (VM) do Linux para aceder ao Armazenamento do Azure. Saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Criar um contentor de blobs numa conta de armazenamento
 > * Conceder acesso à Identidade Gerida de VM do Linux a um contentor de Armazenamento do Azure
 > * Obter um token de acesso e utilizá-lo para chamar o Armazenamento do Azure
 
 > [!NOTE]
-> A autenticação do Azure Active Directory para o Armazenamento do Azure está em pré-visualização pública.
+> A autenticação do Active Directory do Azure para o Armazenamento do Azure está em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Para executar os exemplos de script da CLI neste tutorial, tem duas opções:
 - Utilizar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
 - [Instalar a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior), se preferir utilizar uma consola CLI local.
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
 
 Nesta secção, vai criar uma conta de armazenamento. 
 
@@ -77,7 +77,7 @@ Os ficheiros requerem armazenamento de blobs, por isso tem de criar um contentor
 
     ![Carregar ficheiro de texto](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder à VM o acesso a um contentor do Armazenamento do Azure 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder o acesso da VM a um contentor do Armazenamento do Microsoft Azure 
 
 Pode utilizar a identidade gerida da VM para obter os dados no blob de armazenamento do Azure.   
 
@@ -98,7 +98,7 @@ O Armazenamento do Azure suporta nativamente a autenticação do Azure AD, para 
 Para concluir os passos seguintes, precisa de trabalhar a partir da VM que criou anteriormente e é necessário um cliente SSH para ligar à mesma. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Linux e, em seguida, na página **Descrição Geral**, clique em **Ligar**. Copie a cadeia de ligação para ligar à sua VM.
-2. **Ligue** à VM com o cliente SSH que escolher. 
+2. Clique em **Ligar** para ligar à VM com o cliente SSH que escolheu. 
 3. Na janela de terminal, com o CURL, faça um pedido ao ponto final da Identidade Gerida local para obter um token de acesso para o Armazenamento do Azure.
     
     ```bash

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366435"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966744"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: implantação contínua em máquinas virtuais usando configuração de estado de automação e Chocolatey
 
@@ -40,7 +40,7 @@ A configuração de estado da automação do Azure estende esse recurso de autom
 Um recurso de DSC é um módulo de código que tem recursos específicos, como o gerenciamento de rede, Active Directory ou SQL Server. O recurso DSC de Chocolatey sabe como acessar um servidor NuGet (entre outros), baixar pacotes, instalar pacotes e assim por diante. Há muitos outros recursos de DSC no [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Esses módulos são instalados em seu servidor de pull de configuração de estado de automação do Azure (por você) para que possam ser usados por suas configurações.
 
-Os modelos do Resource Manager fornecem uma maneira declarativa de gerar sua infraestrutura – coisas como redes, sub-redes, segurança de rede e roteamento, balanceadores de carga, NICs, VMs e assim por diante. Aqui está um [artigo](../azure-resource-manager/resource-manager-deployment-model.md) que compara o modelo de implantação do Gerenciador de recursos (declarativo) com o modelo de implantação (ASM ou clássico) do gerenciamento de serviços do Azure e discute os principais provedores de recursos, computação, armazenamento e rede.
+Os modelos do Resource Manager fornecem uma maneira declarativa de gerar sua infraestrutura – coisas como redes, sub-redes, segurança de rede e roteamento, balanceadores de carga, NICs, VMs e assim por diante. Aqui está um [artigo](../azure-resource-manager/management/deployment-models.md) que compara o modelo de implantação do Gerenciador de recursos (declarativo) com o modelo de implantação (ASM ou clássico) do gerenciamento de serviços do Azure e discute os principais provedores de recursos, computação, armazenamento e rede.
 
 Um recurso importante de um modelo do Resource Manager é sua capacidade de instalar uma extensão de VM na VM à medida que ela é provisionada. Uma extensão de VM tem recursos específicos, como a execução de um script personalizado, a instalação de software antivírus ou a execução de um script de configuração DSC. Há muitos outros tipos de extensões de VM.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: a021c76eb973eba11e1dc1ee89f3d7f829a53f70
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e0214208212cd4526b64ccd762a7fc00d06853a6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073064"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969977"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Azure Monitor para Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Os logs de Azure Monitor fornecem recursos de monitoramento, alertas e correção de alertas em ativos locais e na nuvem. A extensão de máquina virtual do agente do Log Analytics para Linux é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas, configurações e opções de implantação com suporte para a extensão da máquina virtual Azure Monitor para Linux.
 
@@ -106,7 +106,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
@@ -117,7 +117,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a configuração pós-implantação, como a integração a logs de Azure Monitor. Um modelo do Resource Manager de exemplo que inclui a extensão de VM do agente de Log Analytics pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/child-resource-name-type.md). 
+A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 O exemplo a seguir supõe que a extensão de VM é aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 

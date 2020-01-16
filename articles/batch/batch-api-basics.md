@@ -3,7 +3,7 @@ title: Visão geral para desenvolvedores – Azure batch | Microsoft Docs
 description: Conheça as funcionalidades do serviço Batch e das respetivas APIs de um ponto de vista de programação.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6ea5ce71622e98b60d68c1680382dc63c767999d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350178"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029771"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -89,13 +89,13 @@ O Batch suporta os seguintes tipos de contas de Armazenamento do Azure:
 
 Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
-Pode associar uma conta de armazenamento à sua conta do Batch ao criar a conta do Batch, ou posteriormente. Considere os requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento GPv2 e BLOBs suportam [limites de escalabilidade e capacidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) mais elevados em comparação com a GPv1. (Contacte o Suporte do Azure para pedir um aumento de um limite de armazenamento.) Estas opções de conta podem melhorar o desempenho das soluções do Batch que contêm um grande número de tarefas paralelas que leem ou escrevem para a conta de armazenamento.
+Pode associar uma conta de armazenamento à sua conta do Batch ao criar a conta do Batch, ou posteriormente. Considere os requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento GPv2 e BLOBs suportam [limites de escalabilidade e capacidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) mais elevados em comparação com a GPv1. (Entre em contato com o suporte do Azure para solicitar um aumento em um limite de armazenamento.) Essas opções de conta podem melhorar o desempenho de soluções do lote que contêm um grande número de tarefas paralelas que lêem ou gravam na conta de armazenamento.
 
 ## <a name="compute-node"></a>Nó de computação
 
 Um nó de computação é uma máquina virtual (VM) ou uma VM de um serviço cloud do Azure dedicada ao processamento de uma parte da carga de trabalho da sua aplicação. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de ficheiros local que está alocado ao nó. Você pode criar pools de nós do Windows ou Linux usando os serviços de nuvem do Azure, imagens do [Marketplace de máquinas virtuais do Azure][vm_marketplace]ou imagens personalizadas que você prepara. Veja a secção [Conjunto](#pool), abaixo, para obter mais informações sobre estas opções.
 
-Os nós podem executar qualquer executável ou script que seja suportado pelo ambiente dos respetivos sistemas operativos. Os executáveis ou scripts \*incluem scripts. \*exe,. \*cmd,. bat e PowerShell para Windows – e binários, Shell e scripts do Python para Linux.
+Os nós podem executar qualquer executável ou script que seja suportado pelo ambiente dos respetivos sistemas operativos. Os executáveis ou scripts incluem \*. exe, \*. cmd, \*. bat e scripts do PowerShell para Windows – e binários, Shell e scripts do Python para Linux.
 
 Todos os nós de computação do Batch incluem também:
 
@@ -245,7 +245,7 @@ O agendamento de tarefas no âmbito dos conjuntos é independente. Entre conjunt
 
 ### <a name="scheduled-jobs"></a>Tarefas agendadas
 
-As agendas de [trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Uma agenda de tarefas especifica quando executar tarefas e inclui as especificações das tarefas a executar. Pode especificar a duração da agenda – quando e durante quanto tempo está em vigor – e com que frequência os trabalhos são criados durante o período agendado.
+As [agendas de trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Uma agenda de tarefas especifica quando executar tarefas e inclui as especificações das tarefas a executar. Pode especificar a duração da agenda – quando e durante quanto tempo está em vigor – e com que frequência os trabalhos são criados durante o período agendado.
 
 ## <a name="task"></a>Tarefa
 
@@ -322,8 +322,8 @@ A tarefa de gestor de trabalhos é iniciada antes de todas as outras tarefas. Pr
 
 O Batch fornece tarefas de preparação de trabalhos para a configuração de execução de trabalho prévia. As tarefas de libertação de trabalhos destinam-se a manutenção ou limpeza pós-trabalho.
 
-* **Tarefa de preparação do trabalho**: Uma tarefa de preparação de trabalho é executada em todos os nós de computação que estão agendados para executar tarefas, antes que qualquer uma das outras tarefas de trabalho seja executada. Pode utilizar uma tarefa de preparação de trabalhos para copiar dados partilhados por todas as tarefas, mas que são exclusivos do trabalho, por exemplo.
-* **Tarefa de liberação do trabalho**: Quando um trabalho é concluído, uma tarefa de liberação de trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Pode utilizar uma tarefa de libertação de trabalhos para eliminar dados copiados pela tarefa de preparação de trabalhos ou para comprimir e carregar dados de registos de diagnósticos, por exemplo.
+* **Tarefa de preparação de trabalho**: as tarefas de preparação de trabalhos são executadas em todos os nós de computação agendados para executar tarefas antes de qualquer uma das outras tarefas de trabalho serem executadas. Pode utilizar uma tarefa de preparação de trabalhos para copiar dados partilhados por todas as tarefas, mas que são exclusivos do trabalho, por exemplo.
+* **Tarefa de libertação de trabalhos**: quando um trabalho tiver sido concluído, é executada uma tarefa de libertação de trabalhos em cada nó no conjunto que executou, pelo menos, uma tarefa. Pode utilizar uma tarefa de libertação de trabalhos para eliminar dados copiados pela tarefa de preparação de trabalhos ou para comprimir e carregar dados de registos de diagnósticos, por exemplo.
 
 Quer a tarefa de preparação de trabalhos, quer a de libertação de trabalhos, permitem-lhe especificar uma linha de comandos a ser executada quando a tarefa é invocada. Oferecem funcionalidades como, por exemplo, transferência de ficheiros, execução elevada, variáveis de ambiente personalizadas, duração de execução máxima e tempo de retenção de ficheiros.
 
@@ -335,7 +335,7 @@ Um [tarefa de várias instâncias](batch-mpi.md) é uma tarefa que está configu
 
 Para ver um debate detalhado sobre a execução de trabalhos de MPI no Batch com a biblioteca .NET do Batch, veja [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch (Utilizar tarefas de várias instâncias para executar aplicações de Interface de Passagem de Mensagens (MPI) no Azure Batch)](batch-mpi.md).
 
-### <a name="task-dependencies"></a>Dependências de tarefas
+### <a name="task-dependencies"></a>Dependências de tarefa
 
 As [dependências de tarefas](batch-task-dependencies.md), como o nome indica, permitem-lhe especificar que uma tarefa depende da conclusão de outras tarefas antes de ser executada. Esta funcionalidade proporciona suporte para situações em que uma tarefa “a jusante” consome o resultado de uma tarefa “a montante” ou quando uma tarefa a montante efetua alguma inicialização que seja necessária para uma tarefa a jusante. Para utilizar esta funcionalidade, tem primeiro de ativar as dependências de tarefas na sua tarefa do Batch. Em seguida, para cada tarefa que depende de outra (ou de muitas outras), você especifica as tarefas das quais a tarefa depende.
 
@@ -353,7 +353,7 @@ Cada tarefa executada pelo serviço Batch tem acesso às variáveis de ambiente 
 
 Pode definir variáveis de ambiente personalizadas ao nível da tarefa ou do trabalho ao preencher a propriedade *definições de ambiente* dessas entidades. Por exemplo, consulte a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do lote) ou as propriedades [CloudTask. EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] no .net do lote.
 
-Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] ( .NET do lote). Os processos em execução num nó de computação podem aceder a estas e outras variáveis de ambiente no nó, por exemplo, com a sintaxe familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+O aplicativo ou serviço cliente pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [obter informações sobre uma tarefa][rest_get_task_info] (REST do lote) ou acessando a propriedade [CloudTask. EnvironmentSettings][net_cloudtask_env] (.net do lote). Os processos em execução num nó de computação podem aceder a estas e outras variáveis de ambiente no nó, por exemplo, com a sintaxe familiar `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux) .
 
 Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [variáveis de ambiente do nó de computação][msdn_env_vars].
 
@@ -361,29 +361,29 @@ Você pode encontrar uma lista completa de todas as variáveis de ambiente defin
 
 Cada tarefa tem um *diretório de trabalho* no qual cria zero ou mais ficheiros e diretórios. Este diretório de trabalho pode ser utilizado para armazenar o programa que é executado pela tarefa, os dados que processa e o resultado do processamento feito. Todos os ficheiros e diretórios de uma tarefa são propriedade do utilizador da tarefa.
 
-O serviço Batch expõe uma parte do sistema de ficheiros num nó como o *diretório de raiz*. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_ROOT_DIR` para aceder ao diretório de raiz. Para obter mais informações sobre como utilizar as variáveis de ambiente, veja [Definições de ambiente das tarefas](#environment-settings-for-tasks).
+O serviço Batch expõe uma parte do sistema de ficheiros num nó como o *diretório de raiz*. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_ROOT_DIR` para aceder ao diretório de raiz. Para obter mais informações sobre como utilizar variáveis de ambiente, consulte [Definições de ambiente para tarefas](#environment-settings-for-tasks).
 
 O diretório de raiz contém a seguinte estrutura de diretórios:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-* **aplicativos**: Contém informações sobre os detalhes dos pacotes de aplicativos instalados no nó de computação. As tarefas podem consultar a variável de ambiente `AZ_BATCH_APP_PACKAGE` para aceder a este diretório.
+* **aplicativos**: contém informações sobre os detalhes dos pacotes de aplicativos instalados no nó de computação. As tarefas podem consultar a variável de ambiente `AZ_BATCH_APP_PACKAGE` para aceder a este diretório.
 
-* **fsmounts**: O diretório contém todos os sistemas de arquivos montados em um nó de computação. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_MOUNTS_DIR` para aceder a este diretório. Para obter mais informações, consulte [montar um sistema de arquivos virtual em um pool do lote](virtual-file-mount.md).
+* **fsmounts**: o diretório contém todos os sistemas de arquivos montados em um nó de computação. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_MOUNTS_DIR` para aceder a este diretório. Para obter mais informações, consulte [montar um sistema de arquivos virtual em um pool do lote](virtual-file-mount.md).
 
-* **compartilhado**: Esse diretório fornece acesso de leitura/gravação a *todas* as tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` para aceder a este diretório.
+* **partilhado**: este diretório proporciona acesso de leitura/escrita a *todas* as tarefas executadas num nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` para aceder a este diretório.
 
-* **inicialização**: Esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os ficheiros que tenham sido transferidos para o nó pela tarefa de início são armazenados aqui. A tarefa de início pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` para aceder a este diretório.
+* **arranque**: este diretório é utilizado pelas tarefas de início como o diretório de trabalho. Todos os ficheiros que tenham sido transferidos para o nó pela tarefa de início são armazenados aqui. A tarefa de início pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` para aceder a este diretório.
 
-* **volátil**: Esse diretório é para fins internos. Não há garantia de que todos os arquivos nesse diretório ou que o diretório em si existam no futuro.
+* **volátil**: esse diretório é para fins internos. Não há garantia de que todos os arquivos nesse diretório ou que o diretório em si existam no futuro.
 
-* **WorkItems**: Esse diretório contém os diretórios para trabalhos e suas tarefas no nó de computação.
+* **WorkItems**: esse diretório contém os diretórios para trabalhos e suas tarefas no nó de computação.
 
-* **Tarefas**: No diretório **WorkItems** , um diretório é criado para cada tarefa executada no nó. Ele é acessado referenciando a variável de `AZ_BATCH_TASK_DIR` ambiente.
+* **Tarefas**: dentro do diretório **WorkItems** , um diretório é criado para cada tarefa executada no nó. Ele é acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR`.
 
     Dentro do diretório de cada tarefa, o serviço Batch cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`. Este diretório proporciona acesso de leitura/escrita à tarefa. A tarefa pode criar, ler, atualizar e eliminar ficheiros neste diretório. Este diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
 
-    `stdout.txt`e `stderr.txt`: Esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
+    `stdout.txt` e `stderr.txt`: estes ficheiros são escritos na pasta da tarefa durante a execução da mesma.
 
 > [!IMPORTANT]
 > Quando um nó é removido do conjunto, *todos* os ficheiros que estão armazenados no mesmo são removidos.
@@ -533,7 +533,7 @@ Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cli
     Esta ação coloca o nó offline de forma eficaz, para que não lhe sejam atribuídas mais tarefas, mas permite que o nó permaneça em execução e no conjunto. Isto permite-lhe investigar melhor a causa das falhas sem perder os dados da tarefa com falhas e sem que o nó cause mais falhas nas tarefas. Por exemplo, pode desativar o agendamento de tarefas no nó e, em seguida, [iniciar sessão remotamente](#connecting-to-compute-nodes) para examinar os registos de eventos do nó ou realizar outras ações de resolução de problemas. Depois de concluir sua investigação, você pode colocar o nó online novamente habilitando o agendamento de tarefas ([REST][rest_online] | [.net][net_online]) ou executar uma das outras ações discutidas anteriormente.
 
 > [!IMPORTANT]
-> Em cada ação descrita nesta secção -- reiniciar, recriar imagem, remover e desativar o agendamento de tarefas --, pode especificar a forma como as tarefas atualmente em execução no nó são processadas quando realizar a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, reenfileira-las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
+> Em cada ação descrita nesta secção -- reiniciar, recriar imagem, remover e desativar o agendamento de tarefas --, pode especificar a forma como as tarefas atualmente em execução no nó são processadas quando realizar a ação. Por exemplo, ao desabilitar o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se as tarefas em execução devem ser **encerradas** , **reenfileira** -las para agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
 >
 >
 

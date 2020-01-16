@@ -2,21 +2,21 @@
 title: Executar trabalhos de ponta a ponta usando modelos – lote do Azure | Microsoft Docs
 description: Crie pools do lote, trabalhos e tarefas com arquivos de modelo e o CLI do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095319"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029745"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos da CLI do lote do Azure e transferência de arquivos
 
@@ -24,7 +24,7 @@ Usando uma extensão do lote do Azure para o CLI do Azure, é possível executar
 
 Crie e use arquivos de modelo JSON com o CLI do Azure para criar pools, trabalhos e tarefas do lote. Use comandos de extensão da CLI para carregar facilmente os arquivos de entrada do trabalho para a conta de armazenamento associada à conta do lote e baixar os arquivos de saída do trabalho.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Uma extensão para a CLI do Azure permite que o lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Com apenas comandos da CLI, você pode criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos da CLI diretamente ou integre-os a scripts.
 
@@ -143,7 +143,7 @@ Se o arquivo de modelo foi nomeado _pool-ffmpeg. JSON_, invoque o modelo da segu
 az batch pool create --template pool-ffmpeg.json
 ```
 
-A CLI solicita que você forneça valores para os `poolId` parâmetros e. `nodeCount` Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo:
+A CLI solicita que você forneça valores para os parâmetros `poolId` e `nodeCount`. Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo:
 
 ```json
 {
@@ -260,7 +260,7 @@ Você pode carregar um modelo da CLI do lote para o aplicativo de área de traba
 
 Para carregar um modelo:
 
-1. Em batch Explorer, selecione**modelos locais**da **Galeria** > .
+1. Em Batch Explorer, selecione **galeria** > **modelos locais**.
 
 2. Selecione ou arraste e solte um modelo de pool ou trabalho local.
 

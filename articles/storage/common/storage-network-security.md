@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b9a5e388ce6749023cff223de2376d1360ca7574
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895686"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973481"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -224,7 +224,7 @@ Pode gerir regras de rede virtual para contas de armazenamento através do porta
 
     > [!TIP]
     > Para adicionar uma regra para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use uma ID de sub-rede totalmente qualificada no formato "/subscriptions/\<Subscription-ID\>/resourceGroups/\<resourcegroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-Name\>/Subnets/\<subnet-Name\>".
-    > 
+    >
     > Você pode usar o parâmetro de **assinatura** para recuperar a ID de sub-rede de uma VNet que pertence a outro locatário do Azure AD.
 
 1. Remova uma regra de rede para uma rede virtual e uma sub-rede.
@@ -391,7 +391,7 @@ A configuração **permitir serviços confiáveis da Microsoft...** também perm
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As tarefas de ACR podem acessar contas de armazenamento ao criar imagens de contêiner. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite o acesso a contas de armazenamento por meio do tempo de execução do ADF. |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). |
 | Armazém de Dados SQL do Azure       | Microsoft.Sql                          | Permite a importação e a exportação de dados de instâncias específicas do banco do dados SQL usando o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esta funcionalidade encontra-se em pré-visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft. Synapse/Workspaces          | Habilita o acesso a dados no armazenamento do Azure do Synapse Analytics. |
@@ -471,4 +471,4 @@ Pode gerir as exceções de regra de rede através do portal do Azure, o PowerSh
 
 Saiba mais sobre pontos finais de serviço de rede do Azure no [pontos finais de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-Aprofunde os seus conhecimentos sobre a segurança de armazenamento do Azure no [guia de segurança do armazenamento do Azure](storage-security-guide.md).
+Aprofunde os seus conhecimentos sobre a segurança de armazenamento do Azure no [guia de segurança do armazenamento do Azure](../blobs/security-recommendations.md).

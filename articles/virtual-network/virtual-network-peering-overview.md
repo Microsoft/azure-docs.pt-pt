@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646749"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980111"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -34,7 +34,7 @@ As vantagens da utilização do peering de redes virtuais, sejam locais ou globa
 * A capacidade de recursos em uma rede virtual se comunicarem com recursos em uma rede virtual diferente.
 * A capacidade de transferir dados entre redes virtuais entre as assinaturas do Azure, Azure Active Directory locatários, modelos de implantação e regiões do Azure.
 * A capacidade de emparelhar redes virtuais criadas por meio do Azure Resource Manager.
-* A capacidade de emparelhar uma rede virtual criada por meio do Resource Manager para uma criada por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).
+* A capacidade de emparelhar uma rede virtual criada por meio do Resource Manager para uma criada por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).
 * Sem períodos de indisponibilidade para recursos em qualquer rede virtual durante ou após a criação do peering.
 
 O tráfego de rede entre redes virtuais em modo de peering é privado. O tráfego entre as redes virtuais é mantido na rede principal da Microsoft. Não é necessária Internet pública, gateways ou encriptação na comunicação entre as redes virtuais.

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 40aa35e9f9d40a8a021797a0a2a4af9216d90618
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898173"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982391"
 ---
 # <a name="private-link-for-azure-database-for-mariadb-preview"></a>Link privado para o banco de dados do Azure para MariaDB (versão prévia)
 
@@ -28,7 +28,7 @@ Data ex-filtragem no banco de dados do Azure para MariaDB é quando um usuário 
 
 Considere um cenário com um usuário executando o MariaDB Workbench dentro de uma VM do Azure conectando-se a uma instância do banco de dados do Azure para MariaDB. Essa instância do MariaDB está no data center do oeste dos EUA. O exemplo a seguir mostra como limitar o acesso com pontos de extremidade públicos no banco de dados do Azure para MariaDB usando controles de acesso à rede.
 
-* Desabilite todo o tráfego de serviço do Azure para o banco de dados do Azure para MariaDB por meio do ponto de extremidade público, configurando permitir serviços do Azure para Certifique-se de que nenhum endereço IP ou intervalo tenha permissão para acessar o servidor por meio de [regras de firewall](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) ou pontos de extremidade de [serviço de rede virtual](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet).
+* Desabilite todo o tráfego de serviço do Azure para o banco de dados do Azure para MariaDB por meio do ponto de extremidade público, configurando permitir serviços do Azure para Certifique-se de que nenhum endereço IP ou intervalo tenha permissão para acessar o servidor por meio de [regras de firewall](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) ou pontos de extremidade de [serviço de rede virtual](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * Permita o tráfego somente para o banco de dados do Azure para MariaDB usando o endereço IP privado da VM. Para obter mais informações, consulte os artigos sobre as regras de [ponto de extremidade de serviço](concepts-data-access-security-vnet.md) e [Firewall VNet](howto-manage-vnet-portal.md).
 

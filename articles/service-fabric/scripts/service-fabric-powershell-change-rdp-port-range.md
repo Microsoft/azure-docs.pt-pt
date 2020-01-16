@@ -2,32 +2,28 @@
 title: Exemplo de Script do Azure PowerShell - Alterar o intervalo de portas RDP | Microsoft Docs
 description: Exemplo de Script do Azure PowerShell - Altera o intervalo de portas RDP de um cluster implementado.
 services: service-fabric
-documentationcenter: ''
-author: athinanthny
-manager: chackdan
-editor: ''
 tags: azure-service-management
-ms.assetid: ''
+author: athinanthny
+ms.author: atsenthi
 ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 4ca7b4085a3978dc3218480c5c8a42679d80de23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.custom: sfrev
+ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035655"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76025014"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Atualizar os valores de intervalos de portas RDP
 
-Este script de exemplo altera os valores de intervalos de portas RDP nas VMs do nó de cluster após o cluster ser implementado.  O Azure PowerShell é utilizado para que não haja ciclos das VMs correspondentes.  O script obtém o recurso `Microsoft.Network/loadBalancers` no grupo de recursos de cluster e atualiza os valores `inboundNatPools.frontendPortRangeStart` e `inboundNatPools.frontendPortRangeEnd`. Personalize os parâmetros conforme necessário.
+Este script de exemplo altera os valores de intervalos de portas RDP nas VMs do nó de cluster após o cluster ser implementado.  O Azure PowerShell é utilizado para que não haja ciclos das VMs correspondentes.  O script Obtém o recurso de `Microsoft.Network/loadBalancers` no grupo de recursos do cluster e atualiza os valores de `inboundNatPools.frontendPortRangeStart` e `inboundNatPools.frontendPortRangeEnd`. Personalize os parâmetros conforme necessário.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se necessário, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview). 
+Se necessário, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -42,7 +38,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtenha o recurso `Microsoft.Network/loadBalancers`. |
 |[Set-AzResource](/powershell/module/az.resources/set-azresource)|Atualiza o recurso `Microsoft.Network/loadBalancers`.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

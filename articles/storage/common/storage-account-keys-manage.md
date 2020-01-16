@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.openlocfilehash: 68d0ef14a7b5967d6a4535da85d32128c3a12a19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486732"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975792"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerenciar chaves de acesso da conta de armazenamento
 
@@ -56,4 +56,4 @@ Siga este processo para girar suas chaves de conta de armazenamento:
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da conta de armazenamento do Azure](storage-account-overview.md)
-- [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
+- [Criar uma conta de armazenamento](storage-account-create.md)

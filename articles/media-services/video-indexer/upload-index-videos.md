@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815393"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972615"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -40,6 +40,7 @@ Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo 
 - A URL fornecida no `videoURL` param precisa ser codificada.
 - A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL.
 - Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo.
+- Você pode carregar até 60 filmes por minuto.
 
 > [!Tip]
 > Recomenda-se a utilização da versão 4.6.2 do .NET Framework ou superior porque as versões .NET Framework mais antigas não têm como predefinição o TLS 1.2.
@@ -313,7 +314,7 @@ Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela ope
 
 |Código de estado|ErrorType (no corpo da resposta)|Descrição|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
+|409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|
 
 ## <a name="next-steps"></a>Passos seguintes

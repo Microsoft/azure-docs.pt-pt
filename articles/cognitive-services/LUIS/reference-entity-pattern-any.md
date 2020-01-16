@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695099"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979170"
 ---
-# <a name="patternany-entity"></a>Entidade Pattern.any 
+# <a name="patternany-entity"></a>Entidade Pattern.any
 
 Padrão. any é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina.  
 
@@ -25,13 +25,13 @@ Padrão. todas as entidades precisam ser marcadas nos exemplos de modelo de [pad
 
 **A entidade é uma boa opção quando:**
 
-* O final da entidade pode ser confundido com o texto restante do expressão. 
+* O final da entidade pode ser confundido com o texto restante do expressão.
 
 ## <a name="usage"></a>Utilização
 
-Dado um aplicativo cliente que pesquisa livros com base no título, o padrão. qualquer extração do título completo. Um modelo expressão usando o padrão. qualquer para essa pesquisa de catálogo é `Was {BookTitle} written by an American this year[?]`. 
+Dado um aplicativo cliente que pesquisa livros com base no título, o padrão. qualquer extração do título completo. Um modelo expressão usando o padrão. qualquer para essa pesquisa de catálogo é `Was {BookTitle} written by an American this year[?]`.
 
-Na tabela a seguir, cada linha tem duas versões do expressão. A principal expressão é como a LUIS inicialmente vê o expressão. Não fica claro onde o título do livro começa e termina. O expressão inferior usa um padrão. qualquer entidade para marcar o início e o fim da entidade. 
+Na tabela a seguir, cada linha tem duas versões do expressão. A principal expressão é como a LUIS inicialmente vê o expressão. Não fica claro onde o título do livro começa e termina. O expressão inferior usa um padrão. qualquer entidade para marcar o início e o fim da entidade.
 
 |Expressão com a entidade em negrito|
 |--|
@@ -45,7 +45,7 @@ Na tabela a seguir, cada linha tem duas versões do expressão. A principal expr
 
 ## <a name="example-json"></a>JSON de exemplo
 
-Considere a seguinte consulta:
+Considere a consulta seguinte:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
@@ -104,8 +104,8 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial](luis-tutorial-pattern-any.md), use o **padrão. qualquer** entidade para extrair dados de declarações em que o declarações está bem formatado e onde o final dos dados pode ser facilmente confundido com as palavras restantes do expressão.
+Neste [tutorial](luis-tutorial-pattern.md), use o **padrão. qualquer** entidade para extrair dados de declarações em que o declarações está bem formatado e onde o final dos dados pode ser facilmente confundido com as palavras restantes do expressão.

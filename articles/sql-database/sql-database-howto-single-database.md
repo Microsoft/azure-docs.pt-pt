@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811208"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027710"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no banco de dados SQL do Azure
 
 Nesta seção, você pode encontrar vários guias, scripts e explicações que podem ajudá-lo a gerenciar e configurar seu banco de dados individual no banco de dados SQL do Azure
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migração
 
 - [Migrar para o banco de dados SQL](sql-database-single-database-migrate.md) – saiba mais sobre o processo de migração e as ferramentas recomendadas para migração para uma instância gerenciada.
 - Saiba como [gerenciar o banco de dados SQL após a migração](sql-database-manage-after-migration.md).
@@ -42,7 +42,7 @@ Nesta seção, você pode encontrar vários guias, scripts e explicações que p
 - [Habilite notificações por email para ajuste automático](sql-database-automatic-tuning-email-notifications.md) para obter informações sobre as recomendações de ajuste.
 - [Aplique recomendações de desempenho](sql-database-advisor-portal.md) e Otimize seu banco de dados.
 - [Crie alertas](sql-database-insights-alerts-portal.md) para obter notificações do banco de dados SQL do Azure.
-- [Solucione problemas de conectividade](sql-database-troubleshoot-common-connection-issues.md) se você observar alguns problemas de conectividade entre os aplicativos e o banco de dados. Você também pode usar [Resource Health para problemas de conectividade](sql-database-resource-health.md).
+- [Solucione problemas de conectividade](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) se você observar alguns problemas de conectividade entre os aplicativos e o banco de dados. Você também pode usar [Resource Health para problemas de conectividade](sql-database-resource-health.md).
 - [Gerencie o espaço de arquivo](sql-database-file-space-management.md) para monitorar o uso de armazenamento em seu banco de dados.
 
 ## <a name="query-distributed-data"></a>Consultar dados distribuídos

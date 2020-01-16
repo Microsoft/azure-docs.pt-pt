@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee331435cbc7d0cb580b3ad5865030aba6d372ea
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888469"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977844"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: usar uma identidade gerenciada atribuída pelo usuário em uma VM do Windows para acessar o Azure Resource Manager
 
@@ -54,7 +54,16 @@ Saiba como:
 - Execute `Install-Module -Name PowerShellGet -AllowPrerelease` para obter a versão de pré-lançamento do módulo `PowerShellGet` (poderá precisar de `Exit` da sessão atual do PowerShell depois de executar este comando para instalar o módulo `Az.ManagedServiceIdentity`).
 - Execute `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` para instalar a versão de pré-lançamento do módulo `Az.ManagedServiceIdentity` para executar operações de identidade atribuída pelo utilizador neste artigo.
 
-## <a name="create-identity"></a>Criar identidade
+
+## <a name="enable"></a>Ativar
+
+Para um cenário com base em uma identidade atribuída pelo usuário, você precisa executar as seguintes etapas:
+
+- Criar uma identidade
+ 
+- Atribuir a identidade recém-criada
+
+### <a name="create-identity"></a>Criar identidade
 
 Esta seção mostra como criar uma identidade atribuída pelo usuário. Uma identidade atribuída pelo utilizador é criada como um recurso autónomo do Azure. Usando o [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity), o Azure cria uma identidade em seu locatário do Azure AD que pode ser atribuído a uma ou mais instâncias de serviço do Azure.
 
@@ -80,7 +89,7 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## <a name="assign-identity"></a>Atribuir identidade
+### <a name="assign-identity"></a>Atribuir identidade
 
 Esta seção mostra como atribuir a identidade atribuída pelo usuário a uma VM do Windows. Uma identidade atribuída pelo utilizador pode ser utilizada pelos clientes em vários recursos do Azure. Utilize os comandos seguintes para atribuir a identidade atribuída pelo utilizador a uma única VM. Utilize a propriedade `Id` devolvida no passo anterior para o parâmetro `-IdentityID`.
 
@@ -114,7 +123,9 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## <a name="get-an-access-token"></a>Obter um token de acesso 
+## <a name="access-data"></a>Aceder a dados
+
+### <a name="get-an-access-token"></a>Obter um token de acesso 
 
 No resto do tutorial, vai trabalhar a partir da VM que criámos anteriormente.
 
@@ -134,7 +145,7 @@ No resto do tutorial, vai trabalhar a partir da VM que criámos anteriormente.
     $ArmToken = $content.access_token
     ```
 
-## <a name="read-properties"></a>Propriedades de leitura
+### <a name="read-properties"></a>Propriedades de leitura
 
 Utilize o token de acesso obtido no passo anterior para aceder ao Azure Resource Manager e ler as propriedades do Grupo de Recursos ao qual concedeu o seu acesso de identidade atribuída pelo utilizador. Substitua `<SUBSCRIPTION ID>` pelo ID da subscrição do seu ambiente.
 

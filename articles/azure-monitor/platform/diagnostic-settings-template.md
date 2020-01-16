@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531008"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977562"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar configuração de diagnóstico no Azure usando um modelo do Resource Manager
-[As configurações de diagnóstico](diagnostic-settings.md) no Azure monitor especificam onde enviar [os logs de plataforma](platform-logs-overview.md) que são coletados pelos recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes e exemplos para usar um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes. 
+[As configurações de diagnóstico](diagnostic-settings.md) no Azure monitor especificam onde enviar [os logs de plataforma](platform-logs-overview.md) que são coletados pelos recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes e exemplos para usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes.
 
 > [!NOTE]
 > Como você não pode [criar uma configuração de diagnóstico](diagnostic-settings.md) para o log de atividades do Azure usando o PowerShell ou a CLI, como configurações de diagnóstico para outros recursos do Azure, crie um modelo do Resource Manager para o log de atividades usando as informações neste artigo e implante o modelo usando o PowerShell ou a CLI.
 
 ## <a name="deployment-methods"></a>Métodos de implantação
-Você pode implantar modelos do Resource Manager usando qualquer método válido, incluindo PowerShell e CLI. As configurações de diagnóstico para o log de atividades devem ser implantadas em uma assinatura usando `az deployment create` para CLI ou `New-AzDeployment` para o PowerShell. As configurações de diagnóstico para logs de recursos devem ser implantadas em um grupo de recursos usando `az group deployment create` para CLI ou `New-AzResourceGroupDeployment` para o PowerShell. 
+Você pode implantar modelos do Resource Manager usando qualquer método válido, incluindo PowerShell e CLI. As configurações de diagnóstico para o log de atividades devem ser implantadas em uma assinatura usando `az deployment create` para CLI ou `New-AzDeployment` para o PowerShell. As configurações de diagnóstico para logs de recursos devem ser implantadas em um grupo de recursos usando `az group deployment create` para CLI ou `New-AzResourceGroupDeployment` para o PowerShell.
 
-Consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) e [implantar recursos com modelos do resource Manager e CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md) para obter detalhes. 
+Consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) e [implantar recursos com modelos do resource Manager e CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md) para obter detalhes. 
 
 
 
@@ -33,7 +33,7 @@ Consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell]
 ## <a name="resource-logs"></a>Registos do recurso
 Para logs de recursos, adicione um recurso do tipo `<resource namespace>/providers/diagnosticSettings` ao modelo. A seção Propriedades segue o formato descrito em [configurações de diagnóstico – criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Forneça um `category` na seção `logs` para cada uma das categorias válidas para o recurso que você deseja coletar. Adicione a propriedade `metrics` para coletar métricas de recurso para os mesmos destinos se o [recurso der suporte a métricas](metrics-supported.md).
 
-Veja a seguir um modelo que coleta uma categoria de log de recursos para um recurso específico para um Log Analytics espaço de trabalho, uma conta de armazenamento e um hub de eventos. 
+Veja a seguir um modelo que coleta uma categoria de log de recursos para um recurso específico para um Log Analytics espaço de trabalho, uma conta de armazenamento e um hub de eventos.
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ Veja a seguir um modelo que coleta uma categoria de log de recursos para um recu
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896094"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981111"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificando vídeo e áudio com os serviços de mídia
 
-O termo codificação nos serviços de mídia se aplica ao processo de conversão de arquivos que contêm vídeo digital e/ou áudio de um formato padrão para outro, com a finalidade de (a) reduzir o tamanho dos arquivos e/ou (b) produzir um formato compatível com um ampla variedade de dispositivos e aplicativos. Esse processo também é conhecido como compactação de vídeo ou transcodificação. Consulte a [compactação de dados](https://en.wikipedia.org/wiki/Data_compression) e o [que é codificação e transcodificação?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) para obter mais informações sobre os conceitos.
+O termo codificação nos serviços de mídia se aplica ao processo de conversão de arquivos que contêm vídeo digital e/ou áudio de um formato padrão para outro, com a finalidade de (a) reduzir o tamanho dos arquivos e/ou (b) produzir um formato compatível com uma ampla variedade de dispositivos e aplicativos. Esse processo também é conhecido como compactação de vídeo ou transcodificação. Consulte a [compactação de dados](https://en.wikipedia.org/wiki/Data_compression) e o [que é codificação e transcodificação?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) para obter mais informações sobre os conceitos.
 
 Os vídeos normalmente são entregues a dispositivos e aplicativos por [download progressivo](https://en.wikipedia.org/wiki/Progressive_download) ou por meio de [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
@@ -95,7 +95,7 @@ Atualmente são suportadas as seguintes predefinições:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: produz um único arquivo MP4 contendo apenas áudio estéreo codificado a 192 kbps.
 - **EncoderNamedPreset. AdaptiveStreaming** (recomendado): para obter mais informações, consulte [gerando automaticamente uma escada de taxa de bits](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: expõe uma predefinição experimental para codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e as configurações apropriadas de taxa de bits e resolução para entrega por streaming adaptável. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [predefinição experimental para codificação com reconhecimento de conteúdo](cae-experimental.md).
+- **EncoderNamedPreset. ContentAwareEncodingExperimental**: expõe uma predefinição experimental para codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e as configurações apropriadas de taxa de bits e resolução para entrega por streaming adaptável. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [predefinição experimental para codificação com reconhecimento de conteúdo](content-aware-encoding.md).
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: produz um conjunto de oito arquivos MP4 alinhados a GOP, variando de 6000 kbps a 400 Kbps e áudio AAC estéreo. Resolução começa em 1080p e vai até 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: produz um conjunto de seis arquivos MP4 alinhados a GOP, variando de 3400 kbps a 400 Kbps e áudio AAC estéreo. Resolução é iniciada à 720p e vai até 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: produz um conjunto de cinco arquivos MP4 alinhados a GOP, variando de 1600 kbps a 400 Kbps e áudio AAC estéreo. Resolução é iniciada à 480p e vai até 360p.

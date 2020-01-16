@@ -5,16 +5,16 @@ services: batch
 ms.service: batch
 author: davefellows
 manager: gwallace
-ms.author: lahugh
+ms.author: jushiman
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: fa2d59b2a6d2dea72276ab38a5cb1ca7bfb579a4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a04f59983aca4b7db1a58ab4e8b8a2da47a52783
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323115"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026304"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
 
@@ -26,9 +26,9 @@ O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviço
 
 * **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
 
-* **Rede** -local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** local: Azure EXPRESSROUTE ou VPN. Azure: VNet do Azure.
 
-* Arquivos de entrada e saída de **armazenamento** : NFS ou CFS usando VMs do Azure, sincronizado com o armazenamento local por meio de Sincronização de Arquivos do Azure ou RSync. Como alternativa Avere vFXT os arquivos de entrada ou saída de dispositivos NAS locais usando o NFS.
+* Arquivos de entrada e saída de **armazenamento** : NFS ou CFS usando VMs do Azure, sincronizado com o armazenamento local por meio de sincronização de arquivos do Azure ou rsync. Como alternativa: avere vFXT para entrada ou saída de arquivos em dispositivos NAS locais usando NFS.
 
   ![Intermitência de nuvem-híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
@@ -38,9 +38,9 @@ O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviço
 
 * **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
 
-* **Rede** -local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** local: Azure EXPRESSROUTE ou VPN. Azure: VNet do Azure.
 
-* Arquivos de entrada e saída de **armazenamento** : Armazenamento de BLOBs, montado em recursos de computação por meio do Azure Blobfuse.
+* Arquivos de entrada e saída de **armazenamento** : armazenamento de BLOBs, montados em recursos de computação por meio do Azure Blobfuse.
 
   ![Intermitência de nuvem-híbrido com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -50,9 +50,9 @@ O diagrama a seguir mostra um cenário híbrido totalmente conectado para comput
 
 * **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
 
-* **Rede** -local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** local: Azure EXPRESSROUTE ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** -entre locais: Avere vFXT. Arquivamento opcional de arquivos locais por meio de Azure Data Box para armazenamento de BLOBs ou FXT avere local para aceleração de NAS.
+* **Armazenamento** -entre instalações: avere vFXT. Arquivamento opcional de arquivos locais por meio de Azure Data Box para armazenamento de BLOBs ou FXT avere local para aceleração de NAS.
 
   ![Intermitência de nuvem-computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954743"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977304"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta--usando Azure Functions e SendGrid, enviar email quando uma porta é aberta           
 
@@ -65,7 +65,7 @@ Agora você vê o formulário de inscrição SendGrid.
 
 Preencha o formulário de inscrição:
 
-   * **Grupo de recursos**: Crie um grupo de recursos para hospedar o serviço SendGrid ou use um existente. Consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Grupo de recursos**: Crie um grupo de recursos para hospedar o serviço SendGrid ou use um existente. Consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nome**: o nome do serviço SendGrid. Escolha um nome exclusivo, diferente de outros serviços que você possa ter.
 
@@ -105,7 +105,7 @@ O formulário de inscrição é exibido.
 
 Preencha os campos no formulário de inscrição.
 
-   * **Grupo de recursos**: Crie um grupo de recursos para hospedar o serviço SendGrid ou use um existente. Consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Grupo de recursos**: Crie um grupo de recursos para hospedar o serviço SendGrid ou use um existente. Consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nome do Hub IOT**: o nome do Hub IOT. Escolha um nome exclusivo, diferente de outros serviços que você possa ter.
 
@@ -122,7 +122,7 @@ Em seguida, carregue o código de exemplo em VS Code e provisione os serviços d
 ### <a name="start-vs-code"></a>Iniciar VS Code
 
 - Verifique se o DevKit **não** está conectado ao seu computador.
-- Iniciar VS Code.
+- Inicie o VS Code.
 - Conecte o DevKit ao seu computador.
 
 > [!NOTE]

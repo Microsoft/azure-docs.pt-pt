@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e7a5f9ba865ab555bde3125f40ee8675709bef40
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ca98723511cc7297b462747d4e1e12ca9bd38c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932713"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979023"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Visualização: controlar atualizações com controle de manutenção e Azure PowerShell
 
@@ -36,7 +36,7 @@ Com o controle de manutenção, você pode:
 ## <a name="limitations"></a>Limitações
 
 - As VMs devem estar em um [host dedicado](./linux/dedicated-hosts.md)ou ser criadas usando um [tamanho de VM isolado](./linux/isolation.md).
-- Após 35 dias, uma atualização será aplicada automaticamente e as restrições de disponibilidade não serão respeitadas.
+- Após 35 dias, uma atualização será aplicada automaticamente.
 - O usuário deve ter acesso ao **proprietário do recurso** .
 
 
@@ -109,7 +109,7 @@ New-AzConfigurationAssignment `
    -MaintenanceConfigurationId $config.Id
 ```
 
-### <a name="dedicate-host"></a>Host dedicado
+### <a name="dedicated-host"></a>Anfitrião dedicado
 
 Para aplicar uma configuração a um host dedicado, você também precisa incluir `-ResourceType hosts`, `-ResourceParentName` com o nome do grupo de hosts e `-ResourceParentType hostGroups`. 
 
@@ -129,7 +129,9 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Verificar se há atualizações pendentes
 
-Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) para ver se há atualizações pendentes. Use `-subscription` para especificar a assinatura do Azure da VM se ela for diferente da que você fez logon. 
+Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) para ver se há atualizações pendentes. Use `-subscription` para especificar a assinatura do Azure da VM se ela for diferente da que você fez logon.
+
+Se não houver nenhuma atualização, o comando retornará uma mensagem de erro: `Resource not found...StatusCode: 404`.
 
 ### <a name="isolated-vm"></a>VM isolada
 
@@ -185,6 +187,39 @@ New-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute
+```
+
+## <a name="check-update-status"></a>Verificar status da atualização
+Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para verificar o status de uma atualização. Os comandos mostrados abaixo mostram o status da atualização mais recente usando `default` para o parâmetro `-ApplyUpdateName`. Você pode substituir o nome da atualização (retornado pelo comando [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) para obter o status de uma atualização específica.
+
+Se não houver nenhuma atualização para mostrar, o comando retornará uma mensagem de erro: `Resource not found...StatusCode: 404`.
+
+### <a name="isolated-vm"></a>VM isolada
+
+Verifique se há atualizações para uma máquina virtual específica.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myVM `
+   -ResourceType VirtualMachines `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
+```
+
+### <a name="dedicated-host"></a>Anfitrião dedicado
+
+Verifique se há atualizações para um host dedicado.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
 ```
 
 ## <a name="remove-a-maintenance-configuration"></a>Remover uma configuração de manutenção

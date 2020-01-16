@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 275eb545b431085627658eb5d8ac0a065d0cb00e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867019"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968667"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -92,7 +92,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [implantar o modelo do Resource Manager privado com o token SAS e Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
+Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [implantar o modelo do Resource Manager privado com o token SAS e Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -107,7 +107,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [implantar o modelo do Resource Manager privado com o token SAS e CLI do Azure](../azure-resource-manager/secure-template-with-sas-token.md).
+Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) e [implantar o modelo do Resource Manager privado com o token SAS e CLI do Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -124,7 +124,7 @@ A maioria das operações de criação de recursos por meio de modelos é idempo
 Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 * Não implante o modelo mais de uma vez para os mesmos parâmetros. Ou exclua os recursos existentes antes de usar o modelo para recriá-los.
-  
+
 * Examine as políticas de acesso do Key Vault e use essas políticas para definir a propriedade `accessPolicies` do modelo. Para exibir as políticas de acesso, use o seguinte comando de CLI do Azure:
 
     ```azurecli-interactive
@@ -165,7 +165,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
           }
         },
         ```
-    
+
     * **Remova** a linha de `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` da seção `dependsOn` do espaço de trabalho. Além disso, **altere** a entrada `keyVault` na seção `properties` do espaço de trabalho para fazer referência ao parâmetro `keyVaultId`:
 
         ```json
@@ -193,7 +193,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
           }
         }
         ```
-      
+
     Após essas alterações, você pode especificar a ID do recurso de Key Vault existente ao executar o modelo. O modelo, em seguida, reutilizará o Key Vault definindo a propriedade `keyVault` do espaço de trabalho como sua ID.
 
     Para obter a ID do Key Vault, você pode fazer referência à saída da execução do modelo original ou usar o CLI do Azure. O comando a seguir é um exemplo de como usar o CLI do Azure para obter a ID de recurso de Key Vault:
@@ -210,5 +210,5 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implante recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Implante recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
+* [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

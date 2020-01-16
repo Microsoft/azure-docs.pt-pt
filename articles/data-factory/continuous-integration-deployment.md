@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 737cd9d306f01fa77dafa3d1a9a71495ff0a572e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940776"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977528"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -145,7 +145,7 @@ Se você tiver segredos para passar um modelo de Azure Resource Manager, recomen
 
 Há duas maneiras de lidar com os segredos:
 
--  Adicione os segredos ao arquivo de parâmetros. Para obter mais informações, consulte [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Adicione os segredos ao arquivo de parâmetros. Para obter mais informações, consulte [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md).
 
     Crie uma cópia do arquivo de parâmetros que é carregado para a ramificação de publicação. Defina os valores dos parâmetros que você deseja obter de Key Vault usando este formato:
 

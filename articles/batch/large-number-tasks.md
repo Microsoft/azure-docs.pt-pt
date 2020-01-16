@@ -3,7 +3,7 @@ title: Enviar um grande número de tarefas – Azure batch | Microsoft Docs
 description: Como enviar com eficiência um número muito grande de tarefas em um único trabalho do lote do Azure
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 29d5ca378f13e047773c4e036c5e43f944fd08e3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132748"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029523"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Enviar um grande número de tarefas para um trabalho em lotes
 

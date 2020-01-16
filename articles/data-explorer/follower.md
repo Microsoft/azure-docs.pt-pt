@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440969"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030060"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Anexar um banco de dados usando um modelo de Azure Resource Manager
 
-Nesta seção, você aprenderá a anexar um banco de dados usando um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Nesta seção, você aprenderá a criar um cluster de acompanhamento e a anexar um banco de dados a ele usando um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md). Se você já tiver um cluster, remova o `Microsoft.Kusto/clusters` recurso da lista de recursos abaixo.
 
 ```json
 {
@@ -159,7 +159,7 @@ Nesta seção, você aprenderá a anexar um banco de dados usando um [modelo de 
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the leader cluster to create."
+                "description": "The resource ID of the leader cluster."
             }
         },
         "defaultPrincipalsModificationKind": {
@@ -217,7 +217,7 @@ Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azur
 
 |**Definição**  |**Descrição**  |
 |---------|---------|
-|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento       |
+|Nome do cluster de acompanhamento     |  O nome do cluster de acompanhamento. Se o nome do cluster existir, remova o `Microsoft.Kusto/clusters` recurso da lista de recursos no modelo ARM. Caso contrário, um novo cluster será criado.     |
 |Nome das configurações do banco de dados anexado    |    O nome do objeto de configurações de banco de dados anexado. O nome deve ser exclusivo no nível do cluster.     |
 |Nome da Base de Dados     |      O nome do banco de dados a ser seguido. Se você quiser seguir todos os bancos de dados do líder, use ' * '.   |
 |ID de recurso de cluster de líder    |   A ID de recurso do cluster de líder.      |

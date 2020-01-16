@@ -4,12 +4,12 @@ description: Saiba como migrar VMs do Hyper-V locais para o Azure com migração
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: edbd52924a77c961cb923f48bba76a21b56489ff
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720230"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028979"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -122,7 +122,7 @@ Instale o arquivo de instalação baixado (AzureSiteRecoveryProvider. exe) em ca
     - Especifique o nome do proxy como **http://ip-address** ou **http://FQDN** . Não há suporte para servidores proxy HTTPS.
    
 
-6. Verifique se o provedor pode alcançar as [URLs necessárias](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access).
+6. Verifique se o provedor pode alcançar as [URLs necessárias](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts).
 7. Em **registro**, depois que o host for registrado, clique em **concluir**.
 
 ## <a name="replicate-hyper-v-vms"></a>Replicar VMs do Hyper-V
@@ -155,7 +155,7 @@ Com a descoberta concluída, você pode começar a replicação de VMs do Hyper-
 
     ![Configurações de destino](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-10. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+10. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **Tamanho da VM**: se você estiver usando recomendações de avaliação, a lista suspensa tamanho da VM conterá o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**. 
     - **Disco do so**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
@@ -194,7 +194,7 @@ Se esta for a primeira VM que você está replicando no projeto de migrações p
 Você pode acompanhar o status do trabalho nas notificações do Portal.
 
 Você pode monitorar o status de replicação clicando em **replicar servidores** no **Azure migrar: migração de servidor**.
-![](./media/tutorial-migrate-hyper-v/replicating-servers.png) de replicação do monitor
+![Monitorar a replicação](./media/tutorial-migrate-hyper-v/replicating-servers.png)
 
 
 

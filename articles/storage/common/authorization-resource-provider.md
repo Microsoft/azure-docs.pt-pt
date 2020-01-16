@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613878"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972353"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
 
-Azure Resource Manager é o serviço de implantação e gerenciamento do Azure. O provedor de recursos de armazenamento do Azure é um serviço baseado em Azure Resource Manager e que fornece acesso a recursos de gerenciamento para o armazenamento do Azure. Você pode usar o provedor de recursos de armazenamento do Azure para criar, atualizar, gerenciar e excluir recursos como contas de armazenamento, pontos de extremidade privados e chaves de acesso de conta. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview).
+O Azure Resource Manager é o serviço de implementação e gestão do Azure. O provedor de recursos de armazenamento do Azure é um serviço baseado em Azure Resource Manager e que fornece acesso a recursos de gerenciamento para o armazenamento do Azure. Você pode usar o provedor de recursos de armazenamento do Azure para criar, atualizar, gerenciar e excluir recursos como contas de armazenamento, pontos de extremidade privados e chaves de acesso de conta. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview).
 
 Você pode usar o provedor de recursos de armazenamento do Azure para executar ações como criar ou excluir uma conta de armazenamento ou obter uma lista de contas de armazenamento em uma assinatura. Para autorizar solicitações no provedor de recursos de armazenamento do Azure, use Azure Active Directory (Azure AD). Este artigo descreve como atribuir permissões a recursos de gerenciamento e aponta para exemplos que mostram como fazer solicitações no provedor de recursos de armazenamento do Azure.
 
@@ -72,7 +72,7 @@ Para obter exemplos de código que mostram como autorizar e chamar operações d
 
 Estes modelos representam duas formas distingas de implementar e gerir as suas soluções do Azure. A Microsoft recomenda usar o modelo de implantação Azure Resource Manager ao criar uma nova conta de armazenamento. Se possível, a Microsoft também recomenda que você recrie contas de armazenamento clássica existentes com o modelo do Resource Manager. Embora você possa criar uma conta de armazenamento usando o modelo de implantação clássico, o modelo clássico é menos flexível e, eventualmente, será preterido.
 
-Para obter mais informações sobre os modelos de implantação do Azure, consulte [Resource Manager e implantação clássica](../../azure-resource-manager/resource-manager-deployment-model.md).
+Para obter mais informações sobre os modelos de implantação do Azure, consulte [Resource Manager e implantação clássica](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

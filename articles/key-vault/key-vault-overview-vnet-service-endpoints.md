@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 6e85e33cf0488cf688303c590c2bbaf5d671d9b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467104"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980473"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para Azure Key Vault
 
@@ -63,15 +63,15 @@ Aqui está uma lista de serviços confiáveis que têm permissão para acessar u
 |Serviço confiável|Cenários de uso com suporte|
 | --- | --- |
 |Serviço de implantação de máquinas virtuais do Azure|[Implante certificados em VMs de Key Vault gerenciadas pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
-|Serviço de implantação de modelo do Azure Resource Manager|[Passe valores seguros durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Serviço de implantação de modelo do Azure Resource Manager|[Passe valores seguros durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md).|
 |Azure Disk Encryption o serviço de criptografia de volume|Permitir o acesso à chave do BitLocker (VM do Windows) ou à senha do DM (VM do Linux) e chave de criptografia de chave durante a implantação da máquina virtual. Isso habilita [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Permitir backup e restauração de chaves e segredos relevantes durante o backup de máquinas virtuais do Azure usando o [backup do Azure](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online & SharePoint Online|Permitir acesso à chave do cliente para o Azure Criptografia do Serviço de Armazenamento com a [chave do cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Permitir o acesso à chave de locatário da [proteção de informações do Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Serviço de Aplicações do Azure|[Implante o certificado do aplicativo Web do Azure por meio de Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
+|App Service do Azure|[Implante o certificado do aplicativo Web do Azure por meio de Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Base de Dados SQL do Azure|[Transparent Data Encryption com suporte de Bring your own Key para o banco de dados SQL do Azure e o data warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Armazenamento do Azure|[Criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
-|Azure Data Lake Store|[Criptografia de dados em Azure data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
+|Arquivo do Azure Data Lake|[Criptografia de dados em Azure data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 |Azure Databricks|[Serviço de análise baseado em Apache Spark rápido, fácil e colaborativo](../azure-databricks/what-is-azure-databricks.md)|
 |API Management do Azure|[Implantar certificados para o domínio personalizado de Key Vault usando o MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 |Azure Data Factory|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|

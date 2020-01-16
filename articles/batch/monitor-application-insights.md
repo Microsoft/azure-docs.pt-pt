@@ -2,7 +2,7 @@
 title: Monitorar lote com insights Aplicativo Azure | Microsoft Docs
 description: Saiba como instrumentar um aplicativo .NET do lote do Azure usando a biblioteca do Aplicativo Azure insights.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
-ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: c69ef0bf20e2ade15d2278d0fc2fabd75f39153b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322571"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029494"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do lote do Azure com o Application Insights
 
@@ -37,9 +37,9 @@ Um exemplo C# de solução com código para acompanhar este artigo está dispon�
 
 * [Application Insights recurso](../azure-monitor/app/create-new-resource.md )
   
-   * Use o portal do Azure para criar um *recurso*de Application insights. Selecione o  **tipo de aplicativo**geral.
+   * Use o portal do Azure para criar um *recurso*de Application insights. Selecione o **tipo de aplicativo**geral.
 
-   * Copie a [chave](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) de instrumentação do Portal. Ele é necessário mais adiante neste artigo.
+   * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do Portal. Ele é necessário mais adiante neste artigo.
   
   > [!NOTE]
   > Você pode ser [cobrado](https://azure.microsoft.com/pricing/details/application-insights/) pelos dados armazenados em Application insights. Isso inclui os dados de diagnóstico e monitoramento discutidos neste artigo.
@@ -47,7 +47,7 @@ Um exemplo C# de solução com código para acompanhar este artigo está dispon�
 
 ## <a name="add-application-insights-to-your-project"></a>Adicionar as Informações da Aplicação ao seu projeto
 
-O pacote NuGet **Microsoft. ApplicationInsights. WindowsServer** e suas dependências são necessários para seu projeto. Adicione ou restaure-os no projeto do seu aplicativo. Para instalar o pacote, use o `Install-Package` comando ou o Gerenciador de pacotes NuGet.
+O pacote NuGet **Microsoft. ApplicationInsights. WindowsServer** e suas dependências são necessários para seu projeto. Adicione ou restaure-os no projeto do seu aplicativo. Para instalar o pacote, use o comando `Install-Package` ou o Gerenciador de pacotes NuGet.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
@@ -63,10 +63,10 @@ Para instrumentar seu código, sua solução precisa criar um Application Insigh
 ```
 Além disso, adicione a chave de instrumentação no arquivo TopNWords.cs.
 
-O exemplo em TopNWords.cs usa as seguintes [chamadas](../azure-monitor/app/api-custom-events-metrics.md) de instrumentação da API Application insights:
-* `TrackMetric()`-Controla quanto tempo, em média, um nó de computação leva para baixar o arquivo de texto necessário.
-* `TrackTrace()`-Adiciona chamadas de depuração ao seu código.
-* `TrackEvent()`-Rastreia eventos interessantes a serem capturados.
+O exemplo em TopNWords.cs usa as seguintes [chamadas de instrumentação](../azure-monitor/app/api-custom-events-metrics.md) da API Application insights:
+* `TrackMetric()`-controla quanto tempo, em média, um nó de computação leva para baixar o arquivo de texto necessário.
+* `TrackTrace()`-adiciona chamadas de depuração ao seu código.
+* `TrackEvent()`-rastreia eventos interessantes a serem capturados.
 
 Este exemplo deixa a manipulação de exceções de propósito. Em vez disso, Application Insights relata automaticamente as exceções sem tratamento, o que melhora significativamente a experiência de depuração. 
 
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Auxiliar de inicialização de telemetria do lote do Azure
-Ao relatar a telemetria para um determinado servidor e instância, Application Insights usa a função de VM do Azure e o nome da VM para os valores padrão. No contexto do lote do Azure, o exemplo mostra como usar o nome do pool e o nome do nó de computação em vez disso. Use um [inicializador](../azure-monitor/app/api-filtering-sampling.md#add-properties) de telemetria para substituir os valores padrão. 
+Ao relatar a telemetria para um determinado servidor e instância, Application Insights usa a função de VM do Azure e o nome da VM para os valores padrão. No contexto do lote do Azure, o exemplo mostra como usar o nome do pool e o nome do nó de computação em vez disso. Use um [inicializador de telemetria](../azure-monitor/app/api-filtering-sampling.md#add-properties) para substituir os valores padrão. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -223,7 +223,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-O `FileToStage` método é uma função auxiliar no exemplo de código que permite que você carregue facilmente um arquivo do disco local para um blob de armazenamento do Azure. Cada arquivo é baixado posteriormente para um nó de computação e referenciado por uma tarefa.
+O método `FileToStage` é uma função auxiliar no exemplo de código que permite que você carregue facilmente um arquivo do disco local para um blob de armazenamento do Azure. Cada arquivo é baixado posteriormente para um nó de computação e referenciado por uma tarefa.
 
 Por fim, adicione as tarefas ao trabalho e inclua os binários de Application Insights necessários.
 ```csharp
@@ -288,13 +288,13 @@ As capturas de tela a seguir mostram como o Application Insights registra em log
 As métricas personalizadas também são uma ferramenta valiosa no Portal. Por exemplo, você pode exibir o tempo médio que cada nó de computação levou para baixar o arquivo de texto necessário que estava processando.
 
 Para criar um gráfico de exemplo:
-1. Em seu recurso de Application insights, clique em **Metrics Explorer** > **Adicionar gráfico**.
+1. Em seu recurso de Application Insights, clique em **Metrics Explorer** > **Adicionar gráfico**.
 2. Clique em **Editar** no gráfico que foi adicionado.
 2. Atualize os detalhes do gráfico da seguinte maneira:
    * Defina o **tipo de gráfico** como **grade**.
-   * Defina  a agregação como **média**.
+   * Defina a **agregação** como **média**.
    * Defina **Agrupar por** para **NodeId**.
-   * Em **métricas**, selecione  > **download de blob personalizado em segundos**.
+   * Em **métricas**, selecione **download de blob**de > **personalizado** em segundos.
    * Ajuste a **paleta de cores** de exibição à sua escolha. 
 
 ![Tempo de download do blob por nó](./media/monitor-application-insights/blobdownloadtime.png)

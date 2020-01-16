@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3baaab59031c4cfad036a7181318502d1969715
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942428"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029942"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – monitoramento de carga de trabalho Portal de Gerenciamento (versão prévia)
 Este artigo explica como monitorar a utilização de recursos do [grupo de carga de trabalho](sql-data-warehouse-workload-isolation.md#workload-groups) e a atividade de consulta. Para obter detalhes sobre como configurar o Metrics Explorer do Azure, consulte o artigo [introdução ao azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) .  Consulte a seção [utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) na documentação de monitoramento de SQL data warehouse do Azure para obter detalhes sobre como monitorar o consumo de recursos do sistema.
@@ -49,8 +49,11 @@ CREATE WORKLOAD CLASSIFIER wcCEOPriority
 WITH ( WORKLOAD_GROUP = 'wgPriority'
       ,MEMBERNAME = 'TheCEO');
 ```
-O gráfico abaixo é configurado da seguinte maneira: métrica 1: *percentual de recurso mínimo efetivo* (agregação média, `blue line`) métrica 2: *alocação de grupo de carga de trabalho por porcentagem do sistema* (média de agregação, `purple line`) filtro: [grupo de cargas de trabalho] = `wgPriority`
-![Underutilized-WG.  Nesse caso, o valor do parâmetro `MIN_PERCENTAGE_RESOURCE` pode ser reduzido para 10 ou 15 e permitir que outras cargas de trabalho no sistema consumam os recursos.
+O gráfico abaixo é configurado da seguinte maneira:<br>
+Métrica 1: *percentual de recurso mínimo efetivo* (agregação média, `blue line`)<br>
+Métrica 2: *alocação de grupo de carga de trabalho por porcentagem do sistema* (média de agregação, `purple line`)<br>
+Filtro: [grupo de cargas de trabalho] = `wgPriority`<br>
+![Underutilized-WG. png](media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) o gráfico mostra que, com o isolamento de carga de trabalho de 25%, somente 10% estão sendo usados em média.  Nesse caso, o valor do parâmetro `MIN_PERCENTAGE_RESOURCE` pode ser reduzido para 10 ou 15 e permitir que outras cargas de trabalho no sistema consumam os recursos.
 
 ### <a name="workload-group-bottleneck"></a>Afunilamento do grupo de carga de trabalho
 Considere o seguinte grupo de cargas de trabalho e a configuração de classificador em que um grupo de carga de trabalho chamado `wgDataAnalyst` é criado e o `membername` de *Webalistas* é mapeado para ele usando o classificador de carga de trabalho `wcDataAnalyst`  O grupo de carga de trabalho `wgDataAnalyst` tem 6% de isolamento de carga de trabalho configurado para ele (`MIN_PERCENTAGE_RESOURCE` = 6) e um limite de recursos de 9% (`CAP_PERCENTAGE_RESOURCE` = 9).  Cada consulta enviada pelo *analista* de dados recebe 3% dos recursos do sistema (`REQUEST_MIN_RESOURCE_GRANT_PERCENT` = 3).
@@ -65,8 +68,12 @@ CREATE WORKLOAD CLASSIFIER wcDataAnalyst
 WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
       ,MEMBERNAME = 'DataAnalyst');
 ```
-O gráfico abaixo é configurado da seguinte maneira: métrica 1: *porcentagem de recursos de Cap efetivo* (média de agregação, `blue line`) métrica 2: *alocação do grupo de cargas de trabalho por porcentagem máxima de recursos* (agregação média, `purple line`) métrica 3: grupo de cargas de *trabalho consultas em fila* (agregação de soma, `turquoise line`) filtro: [grupo de cargas de trabalho] = `wgDataAnalyst`
-![garrafa-pescoço-WG](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) o gráfico mostra que, com um limite de 9% nos recursos, o grupo de carga de trabalho é 90% * métrica de porcentagem de recurso*).  Há um enfileiramento constante de consultas, conforme mostrado na *métrica de consultas em fila do grupo de cargas de trabalho*.  Nesse caso, aumentar o `CAP_PERCENTAGE_RESOURCE` para um valor maior que 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentar o `CAP_PERCENTAGE_RESOURCE` pressupõe que há recursos suficientes disponíveis e não são isolados por outros grupos de carga de trabalho.  Verifique a Cap aumentada verificando a *métrica percentual de recurso Cap efetivo*.  Se mais taxa de transferência for desejada, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` para um valor maior que 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode permitir que as consultas sejam executadas mais rapidamente.
+O gráfico abaixo é configurado da seguinte maneira:<br>
+Métrica 1: *porcentagem de recursos de limite efetivo* (média de agregação, `blue line`)<br>
+Métrica 2: *alocação do grupo de cargas de trabalho por porcentagem máxima de recursos* (agregação média, `purple line`)<br>
+Métrica 3: *consultas em fila do grupo de cargas de trabalho* (agregação Sum, `turquoise line`)<br>
+Filtro: [grupo de cargas de trabalho] = `wgDataAnalyst`<br>
+![garrafa-pescoço-WG](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) o gráfico mostra que, com um limite de 9% nos recursos, o grupo de cargas de trabalho é 90% + utilizado (da *alocação do grupo de cargas de trabalho pela métrica de porcentagem máxima de recursos*).  Há um enfileiramento constante de consultas, conforme mostrado na *métrica de consultas em fila do grupo de cargas de trabalho*.  Nesse caso, aumentar o `CAP_PERCENTAGE_RESOURCE` para um valor maior que 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentar o `CAP_PERCENTAGE_RESOURCE` pressupõe que há recursos suficientes disponíveis e não são isolados por outros grupos de carga de trabalho.  Verifique a Cap aumentada verificando a *métrica percentual de recurso Cap efetivo*.  Se mais taxa de transferência for desejada, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` para um valor maior que 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode permitir que as consultas sejam executadas mais rapidamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 [Início rápido: configurar o isolamento de carga de trabalho usando o T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>

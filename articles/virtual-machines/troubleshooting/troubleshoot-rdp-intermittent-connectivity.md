@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: be563e39ed1bfa405830999a96d8630b6f8254bb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057978"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981340"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Área de Trabalho Remota desconexões frequentemente na VM do Azure
 
 Este artigo explica como solucionar problemas de desconexões frequentes para uma VM (máquina virtual) do Azure por meio de protocolo RDP RDP).
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de recursos. Recomendamos que você use esse modelo para novas implantações em vez de usar o modelo de implantação clássico.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de recursos. Recomendamos que você use esse modelo para novas implantações em vez de usar o modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -92,8 +92,8 @@ Para solucionar esse problema, use o controle serial ou [Repare a VM offline](#r
 1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Depois do disco do SO é anexado à VM de recuperação, certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
 3. No disco do sistema operacional que você anexou, navegue até a pasta **\Windows\System32\config** . Copie todos os arquivos desta pasta como um backup, caso uma reversão seja necessária.
-4. Inicie o editor do registro (regedit. exe).
-5. Selecione a chave **HKEY_LOCAL_MACHINE** . No menu, selecione **arquivo** > **Carregar Hive**:
+4. Inicie o Editor de registo (regedit.exe).
+5. Selecione a chave de **HKEY_LOCAL_MACHINE** . No menu, selecione **arquivo** > **Carregar Hive**:
 6. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco do sistema operacional que você anexou. Para o nome do hive, insira **BROKENSYSTEM**. O novo hive do registro é exibido sob a chave **HKEY_LOCAL_MACHINE** . Em seguida, carregue o hive do software **\windows\system32\config\SOFTWARE** na chave **HKEY_LOCAL_MACHINE** . Para o nome do software do hive, insira **BROKENSOFTWARE**. 
 7. Abra uma janela de prompt de comandos com privilégios elevados (**Executar como administrador**) e execute comandos nas etapas restantes para redefinir as configurações de RDP. 
 8. Reduza a camada de segurança de RDP para 0 para que as comunicações entre o servidor e o cliente usem a criptografia RDP nativa:
@@ -151,7 +151,7 @@ Para solucionar esse problema, use o controle serial ou [Repare a VM offline](#r
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
-16. Definir o controle de tempo ocioso da sessão RDP:     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
+16. Defina o controle de tempo ocioso da sessão RDP: REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp"/v ' fInheritMaxIdleTime '/t REG_DWORD/d 1/f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
 
@@ -166,7 +166,7 @@ Para solucionar esse problema, use o controle serial ou [Repare a VM offline](#r
 18. Reinicie a VM e tente se conectar a ela usando o RDP.
 
 ## <a name="need-help"></a>Precisa de ajuda? 
-Contacte o suporte. Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.
+Contacte o suporte. Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.
 
 
 

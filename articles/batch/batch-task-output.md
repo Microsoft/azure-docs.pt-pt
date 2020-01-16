@@ -2,7 +2,7 @@
 title: Manter resultados ou logs de trabalhos concluídos e tarefas em um repositório de dados – lote do Azure | Microsoft Docs
 description: Saiba mais sobre opções diferentes para persistir dados de saída de tarefas e trabalhos do lote. Você pode manter os dados no armazenamento do Azure ou em outro armazenamento de dados.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c5063955fc6e04c9cfec2407f8b1cc91c5b24d10
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026251"
 ---
 # <a name="persist-job-and-task-output"></a>Saída persistente de função e tarefa
 

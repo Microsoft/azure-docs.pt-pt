@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961416"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970506"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre o Azure governamental e as regiões públicas 
 
@@ -65,7 +65,7 @@ Configure uma rede de destino do [Azure](../virtual-network/quick-create-portal.
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurar uma conta de armazenamento do Azure
 
-Configure uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md).
+Configure uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md).
 
 - Site Recovery Replica computadores locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após a ocorrência do failover.
 - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
@@ -163,7 +163,7 @@ Selecione e verifique os recursos de destino.
 2. Especifique o modelo de implantação de destino.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-   ![Destino](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Visar](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -197,7 +197,7 @@ A política é associada automaticamente ao servidor de configuração. Por pred
    > [!WARNING]
    > Você precisa inserir o endereço IP da VM do Azure que pretende mover
 
-10. Em **propriedades** > **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
+10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será utilizada pelo servidor de processos para instalar automaticamente o serviço de Mobilidade na máquina.
 11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. 
 12. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois da tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
@@ -227,7 +227,7 @@ Para monitorar os servidores adicionados, você pode verificar a hora da última
 
 1. Navegue até o cofre, em **configurações** > **itens replicados**, clique na máquina virtual e, em seguida, clique em **failover**.
 2. Em **Ativação pós-falha**, selecione **Mais recente**. 
-3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**. 
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**. 
 4. Quando o trabalho for concluído, verifique se a VM aparece na região de destino do Azure conforme o esperado.
 5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isso conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
 

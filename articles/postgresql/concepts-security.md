@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: a1bd9b8cbcbc785425c2d1870dc555ff91f695f7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485084"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972594"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Segurança no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -37,6 +37,9 @@ As regras de firewall IP concedem acesso a servidores com base no endereço IP d
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 Os pontos de extremidade de serviço de rede virtual estendem sua conectividade de rede virtual no backbone do Azure. Usando regras de rede virtual, você pode habilitar seu banco de dados do Azure para o servidor PostgreSQL para permitir conexões de sub-redes selecionadas em uma rede virtual. Para obter mais informações, consulte [visão geral do ponto de extremidade do serviço de rede virtual](concepts-data-access-and-security-vnet.md).
 
+### <a name="private-ip"></a>IP privado
+O link privado permite que você se conecte ao banco de dados do Azure para PostgreSQL servidor único no Azure por meio de um ponto de extremidade privado. O link privado do Azure essencialmente traz os serviços do Azure dentro de sua VNet (rede virtual privada). Os recursos de PaaS podem ser acessados usando o endereço IP privado, assim como qualquer outro recurso na VNet. Para obter mais informações, consulte a [visão geral do link privado](concepts-data-access-and-security-private-link.md)
+
 
 ## <a name="access-management"></a>Gestão de acesso
 
@@ -52,6 +55,6 @@ Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access
 O [log de auditoria](concepts-audit.md) está disponível para acompanhar a atividade em seus bancos de dados. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)
 - Saiba mais sobre a [autenticação Azure Active Directory](concepts-aad-authentication.md) no banco de dados do Azure para PostgreSQL

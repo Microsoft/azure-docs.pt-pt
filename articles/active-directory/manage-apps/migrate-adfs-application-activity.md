@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420431"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978023"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usar o AD FS relatório de atividade do aplicativo (versão prévia) para migrar aplicativos para o Azure AD
 
@@ -63,7 +63,7 @@ O relatório de atividade do aplicativo AD FS está disponível no portal do Azu
 
 1. Na lista AD FS atividade do aplicativo, clique no status na coluna **status da migração** para abrir os detalhes da migração. Você verá um resumo dos testes de configuração aprovados, juntamente com quaisquer possíveis problemas de migração.
 
-   ![Detalhes da migração](media/migrate-adfs-application-activity/migration-details.png)
+   ![Detalhes de migração](media/migrate-adfs-application-activity/migration-details.png)
 
 2. Clique em uma mensagem para abrir detalhes adicionais da regra de migração. Para obter uma lista completa das propriedades testadas, consulte a tabela [AD FS testes de configuração de aplicativo](#ad-fs-application-configuration-tests) , abaixo.
 
@@ -122,8 +122,9 @@ A tabela a seguir lista todos os testes de regra de declaração que são execut
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | A instrução de emissão usa expressões regulares para transformar o valor da declaração a ser emitida. Para obter uma funcionalidade semelhante no Azure AD, você pode usar a transformação predefinida, como Extract (), Trim (), ToLower, entre outras. Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
+- [Vídeo: como usar o relatório de AD FS atividade para migrar um aplicativo](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Managing applications with Azure Active Directory](what-is-application-management.md) (Gerir aplicações com o Azure Active Directory)
 - [Gerir o acesso a aplicações](what-is-access-management.md)
 - [Azure AD Connect Federation](../hybrid/how-to-connect-fed-whatis.md) (Federação do Azure AD Connect)

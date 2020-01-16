@@ -2,7 +2,7 @@
 title: Manter saída de trabalho e tarefa no armazenamento do Azure com a API de serviço de lote – lote do Azure | Microsoft Docs
 description: Saiba como usar a API do serviço de lote para persistir a saída de trabalho e tarefa do lote para o armazenamento do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.service: batch
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e4a2af09b432961211a5f38ecd2d9dacd89d3868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d77da2a0298758dad3eff1a61aff45796bfb6c5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094446"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029628"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados da tarefa no armazenamento do Azure com a API do serviço de lote
 
@@ -51,7 +51,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obter uma assinatura de acesso compartilhado para o contêiner
 
-Depois de criar o contêiner, obtenha uma SAS (assinatura de acesso compartilhado) com acesso de gravação ao contêiner. Uma SAS fornece acesso delegado ao contêiner. A SAS concede acesso com um conjunto especificado de permissões e em um intervalo de tempo especificado. O serviço de lote precisa de uma SAS com permissões de gravação para gravar a saída da tarefa no contêiner. Para obter mais informações sobre SAS, consulte [usando \(assinaturas de acesso compartilhado SAS\) no armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Depois de criar o contêiner, obtenha uma SAS (assinatura de acesso compartilhado) com acesso de gravação ao contêiner. Uma SAS fornece acesso delegado ao contêiner. A SAS concede acesso com um conjunto especificado de permissões e em um intervalo de tempo especificado. O serviço de lote precisa de uma SAS com permissões de gravação para gravar a saída da tarefa no contêiner. Para obter mais informações sobre SAS, consulte [usando assinaturas de acesso compartilhado \(\) SAS no armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 Quando você obtém uma SAS usando as APIs de armazenamento do Azure, a API retorna uma cadeia de caracteres de token SAS. Essa cadeia de caracteres de token inclui todos os parâmetros da SAS, incluindo as permissões e o intervalo sobre o qual a SAS é válida. Para usar a SAS para acessar um contêiner no armazenamento do Azure, você precisa acrescentar a cadeia de caracteres do token SAS ao URI do recurso. O URI de recurso, junto com o token SAS anexado, fornece acesso autenticado ao armazenamento do Azure.
 
@@ -69,9 +69,9 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>Especificar os arquivos de saída para a saída da tarefa
 
-Para especificar arquivos de saída para uma tarefa, crie uma coleção [](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) de objetos OutputFile e atribua-o à propriedade [CloudTask. OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
+Para especificar arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e atribua-o à propriedade [CloudTask. OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
 
-O exemplo C# de código a seguir cria uma tarefa que grava números aleatórios em `output.txt`um arquivo chamado. O exemplo cria um arquivo de saída `output.txt` para ser gravado no contêiner. O exemplo também cria arquivos de saída para todos os arquivos de log que correspondam ao `std*.txt` padrão de `stderr.txt`arquivo (_por exemplo_, `stdout.txt` e). A URL do contêiner requer a SAS que foi criada anteriormente para o contêiner. O serviço de lote usa a SAS para autenticar o acesso ao contêiner:
+O exemplo C# de código a seguir cria uma tarefa que grava números aleatórios em um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` ser gravado no contêiner. O exemplo também cria arquivos de saída para todos os arquivos de log que correspondam ao padrão de arquivo `std*.txt` (_por exemplo_, `stdout.txt` e `stderr.txt`). A URL do contêiner requer a SAS que foi criada anteriormente para o contêiner. O serviço de lote usa a SAS para autenticar o acesso ao contêiner:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,11 +101,11 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Quando você especifica um arquivo de saída, você pode usar a propriedade [arquivo_de_saída. filepattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) para especificar um padrão de arquivo para correspondência. O padrão de arquivo pode corresponder a zero arquivos, um único arquivo ou um conjunto de arquivos que são criados pela tarefa.
 
-A Propriedade filepattern dá suporte a curingas de sistema `*` de arquivos padrão, como (para correspondências `**` não recursivas) e (para correspondências recursivas). Por exemplo, o exemplo de código acima Especifica o padrão de arquivo `std*.txt` para corresponder de forma não recursiva:
+A propriedade **filepattern** dá suporte a curingas de sistema de arquivos padrão, como `*` (para correspondências não recursivas) e `**` (para correspondências recursivas). Por exemplo, o exemplo de código acima Especifica o padrão de arquivo para corresponder `std*.txt` não recursivamente:
 
 `filePattern: @"..\std*.txt"`
 
-Para carregar um único arquivo, especifique um padrão de arquivo sem curingas. Por exemplo, o exemplo de código acima Especifica o padrão de arquivo `output.txt`a ser correspondido:
+Para carregar um único arquivo, especifique um padrão de arquivo sem curingas. Por exemplo, o exemplo de código acima Especifica o padrão de arquivo para corresponder `output.txt`:
 
 `filePattern: @"output.txt"`
 
@@ -125,14 +125,14 @@ As tarefas em um trabalho podem produzir arquivos com o mesmo nome. Por exemplo,
 
 A propriedade [OutputFileBlobContainerDestination. path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) especifica o blob de destino ou o diretório virtual para arquivos de saída. Você pode usar a propriedade **path** para nomear o BLOB ou o diretório virtual de forma que os arquivos de saída com o mesmo nome sejam nomeados exclusivamente no armazenamento do Azure. O uso da ID da tarefa no caminho é uma boa maneira de garantir nomes exclusivos e identificar facilmente os arquivos.
 
-Se a Propriedade filepattern for definida como uma expressão curinga, todos os arquivos que corresponderem ao padrão serão carregados no diretório virtual especificado pela propriedade **Path** . Por exemplo, se o contêiner for `mycontainer`, a ID da tarefa `mytask`for e o padrão do arquivo `..\std*.txt`for, os URIs absolutos para os arquivos de saída no armazenamento do Azure serão semelhantes a:
+Se a propriedade **filepattern** for definida como uma expressão curinga, todos os arquivos que corresponderem ao padrão serão carregados no diretório virtual especificado pela propriedade **Path** . Por exemplo, se o contêiner for `mycontainer`, a ID da tarefa for `mytask`e o padrão de arquivo for `..\std*.txt`, os URIs absolutos para os arquivos de saída no armazenamento do Azure serão semelhantes a:
 
 ```
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stderr.txt
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stdout.txt
 ```
 
-Se a Propriedade filepattern estiver definida para corresponder a um único nome de arquivo, o que significa que ela não contém nenhum caractere curinga, o valor da propriedade **Path** especificará o nome do blob totalmente qualificado. Se você antecipar conflitos de nomenclatura com um único arquivo de várias tarefas, inclua o nome do diretório virtual como parte do nome do arquivo para eliminar a ambiguidade desses arquivos. Por exemplo, defina a propriedade **path** para incluir a ID da tarefa, o caractere delimitador (normalmente uma barra "e") e o nome do arquivo:
+Se a propriedade **filepattern** estiver definida para corresponder a um único nome de arquivo, o que significa que ela não contém nenhum caractere curinga, o valor da propriedade **Path** especificará o nome do blob totalmente qualificado. Se você antecipar conflitos de nomenclatura com um único arquivo de várias tarefas, inclua o nome do diretório virtual como parte do nome do arquivo para eliminar a ambiguidade desses arquivos. Por exemplo, defina a propriedade **path** para incluir a ID da tarefa, o caractere delimitador (normalmente uma barra "e") e o nome do arquivo:
 
 `path: taskId + @"/output.txt"`
 
@@ -155,11 +155,11 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-Em cada upload de arquivo, o lote grava dois arquivos de log no nó `fileuploadout.txt` de `fileuploaderr.txt`computação e. Você pode examinar esses arquivos de log para saber mais sobre uma falha específica. Nos casos em que o carregamento do arquivo nunca foi tentado, por exemplo, porque a própria tarefa não pôde ser executada, esses arquivos de log não existirão.
+Em cada upload de arquivo, o lote grava dois arquivos de log no nó de computação, `fileuploadout.txt` e `fileuploaderr.txt`. Você pode examinar esses arquivos de log para saber mais sobre uma falha específica. Nos casos em que o carregamento do arquivo nunca foi tentado, por exemplo, porque a própria tarefa não pôde ser executada, esses arquivos de log não existirão.
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnosticar o desempenho do upload de arquivo
 
-O `fileuploadout.txt` progresso do upload dos logs de arquivo. Você pode examinar esse arquivo para saber mais sobre quanto tempo os carregamentos de arquivos estão levando. Tenha em mente que há muitos fatores que contribuem para carregar o desempenho, incluindo o tamanho do nó, outra atividade no nó no momento do carregamento, se o contêiner de destino está na mesma região que o pool do lote, quantos nós estão carregando para o Stora a conta GE ao mesmo tempo e assim por diante.
+O progresso do upload dos logs de arquivo `fileuploadout.txt`. Você pode examinar esse arquivo para saber mais sobre quanto tempo os carregamentos de arquivos estão levando. Tenha em mente que há muitos fatores que contribuem para carregar o desempenho, incluindo o tamanho do nó, outra atividade no nó no momento do carregamento, se o contêiner de destino está na mesma região que o pool do lote, quantos nós estão carregando para o Stora a conta GE ao mesmo tempo e assim por diante.
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Usar a API do serviço de lote com o padrão de convenções de arquivo em lotes
 
@@ -181,13 +181,13 @@ O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos
 
 1. Abra o projeto no **Visual Studio 2019**.
 2. Adicione suas **credenciais de conta** de armazenamento e lote a **AccountSettings. Settings** no projeto Microsoft. Azure. Batch. Samples. Common.
-3. **Criar** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
+3. **Compile** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
 4. Use o portal do Azure para carregar um [pacote de aplicativos](batch-application-packages.md) para **PersistOutputsTask**. Inclua o `PersistOutputsTask.exe` e seus assemblies dependentes no pacote. zip, defina a ID do aplicativo como "PersistOutputsTask" e a versão do pacote de aplicativos como "1,0".
-5. **Iniciar** (Execute) o projeto **PersistOutputs** .
+5. **Inicie** (Execute) o projeto **PersistOutputs** .
 6. Quando for solicitado a escolher a tecnologia de persistência a ser usada para executar o exemplo, digite **2** para executar o exemplo usando a API do serviço de lote para manter a saída da tarefa.
 7. Se desejar, execute o exemplo novamente, inserindo **3** para manter a saída com a API do serviço de lote e também para nomear o contêiner de destino e o caminho do blob de acordo com o padrão de convenções de arquivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre como manter a saída da tarefa com a biblioteca de convenções de arquivo para .NET, consulte [manter dados de trabalho e tarefa no armazenamento do Azure com a biblioteca de convenções de arquivo em lotes para .net](batch-task-output-file-conventions.md).
 - Para obter informações sobre outras abordagens para persistir dados de saída no lote do Azure, consulte [manter saída de trabalho e tarefa no armazenamento do Azure](batch-task-output.md).

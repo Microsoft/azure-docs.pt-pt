@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a5c2c101b934f07ab85082e726cb8e1341e5d0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888725"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971834"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault 
 
@@ -38,6 +38,13 @@ Saiba como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+
+## <a name="enable"></a>Ativar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
 
 ## <a name="grant-access"></a>Conceder acesso  
  
@@ -66,7 +73,7 @@ Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o s
 5. Deixe as datas de ativação e expiração claras e mantenha **Ativado** como **Sim**. 
 6. Clique em **Criar** para criar o segredo. 
  
-## <a name="get-an-access-token"></a>Obter um token de acesso  
+## <a name="access-data"></a>Aceder a dados  
 
 Esta seção mostra como obter um token de acesso usando a identidade da VM e usá-la para recuperar o segredo do Key Vault. Se não tiver o PowerShell 4.3.1 ou posterior instalado, terá de [transferir e instalar a versão mais recente](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -108,6 +115,13 @@ Primeiro, utilizamos a identidade gerida atribuída pelo sistema da VM para obte
     ```
     
 Depois de recuperar o segredo do Key Vault, pode utilizá-lo para autenticação num serviço que requeira um nome e uma palavra-passe. 
+
+
+## <a name="disable"></a>Desativar
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

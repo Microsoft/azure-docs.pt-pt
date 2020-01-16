@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763883"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981918"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -23,13 +23,13 @@ O banco de dados do Azure para PostgreSQL fornece recursos de continuidade de ne
 
 A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 
-| **Recursos** | **Básica** | **Uso Geral** | **Com otimização de memória** |
+| **Capacidade** | **Básica** | **Uso Geral** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Os servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Use o [bloqueio de recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md) para ajudar a evitar a exclusão acidental do seu servidor.
+> Os servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Use o [bloqueio de recursos do Azure](../azure-resource-manager/management/lock-resources.md) para ajudar a evitar a exclusão acidental do seu servidor.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de usuário ou aplicativo
 

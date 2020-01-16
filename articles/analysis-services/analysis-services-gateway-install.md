@@ -4,15 +4,15 @@ description: Saiba como instalar e configurar um gateway de dados local para se 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572842"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029891"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 
@@ -22,16 +22,16 @@ Para saber mais sobre o gateway e como ele é usado pelo Azure Analysis Services
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-**Requisitos mínimos:**
+**Requisitos Mínimos:**
 
-* Estrutura do .NET 4,5
-* versão de 64 bits do Windows 7/Windows Server 2008 R2 (ou posterior)
+* .NET 4.5 Framework
+* versão de 64 bits do Windows 8/Windows Server 2012 R2 (ou posterior)
 
-**Aconselhável**
+**Recomendado:**
 
-* CPU de 8 núcleos
+* CPU de 8 Núcleos
 * 8 GB de memória
-* versão de 64 bits do Windows 2012 R2 (ou posterior)
+* versão de 64 bits do Windows 8/Windows Server 2012 R2 (ou posterior)
 
 **Considerações importantes:**
 
@@ -107,7 +107,7 @@ Depois de instalar e registrar seu gateway, você precisará criar um recurso de
 
    * **Nome da instalação**: se a instalação do gateway ainda não estiver selecionada, selecione o gateway que você instalou no computador e registrado. 
 
-     Quando terminar, clique em **criar**.
+     Quando tiver terminado, clique em **criar**.
 
 ## <a name="connect-servers"></a>Conectar servidores ao recurso de gateway
 
@@ -127,7 +127,7 @@ Depois de instalar e registrar seu gateway, você precisará criar um recurso de
 
     ![Êxito ao conectar o servidor ao recurso de gateway](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-Já está. Se você precisar abrir portas ou executar qualquer solução de problemas, não deixe de conferir o [Gateway de dados local](analysis-services-gateway.md).
+E já está. Se você precisar abrir portas ou executar qualquer solução de problemas, não deixe de conferir o [Gateway de dados local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

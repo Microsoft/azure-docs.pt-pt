@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
-ms.openlocfilehash: b5b7b69f49efa6cc0d5f3e42fc8a3aca855bca9a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44371c78a4d02588eef21aae5a4bba3d033763d7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913006"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029985"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines preditivas usando Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -24,19 +24,19 @@ ms.locfileid: "74913006"
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite criar, testar e implantar soluções de análise preditiva. De um ponto de vista de alto nível, isso é feito em três etapas:
 
-1. **Crie um teste de treinamento**. Você faz essa etapa usando o Azure Machine Learning Studio. O Azure Machine Learning Studio é um ambiente de desenvolvimento Visual colaborativo que você usa para treinar e testar um modelo de análise preditiva usando dados de treinamento.
+1. **Crie um teste de treinamento**. Você faz essa etapa usando o Azure Machine Learning Studio (clássico). Azure Machine Learning Studio (clássico) é um ambiente de desenvolvimento Visual colaborativo que você usa para treinar e testar um modelo de análise preditiva usando dados de treinamento.
 2. **Converta-o em um experimento de previsão**. Depois que o modelo tiver sido treinado com os dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu experimento para pontuação.
 3. **Implante-o como um serviço Web**. Você pode publicar seu experimento de Pontuação como um serviço Web do Azure. Você pode enviar dados para seu modelo por meio deste ponto de extremidade de serviço Web e receber previsões de resultado do modelo.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning em conjunto
-Azure Data Factory permite que você crie facilmente pipelines que usam um serviço Web publicado [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) para análise preditiva. Usando a **atividade de execução em lote** em um pipeline Azure data Factory, você pode invocar um serviço web do Azure Machine Learning Studio para fazer previsões sobre os dados no lote.
+Azure Data Factory permite que você crie facilmente pipelines que usam um serviço Web publicado [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) para análise preditiva. Usando a **atividade de execução em lote** em um pipeline Azure data Factory, você pode invocar um serviço Web Azure Machine Learning Studio (clássico) para fazer previsões sobre os dados no lote.
 
-Ao longo do tempo, os modelos de previsão no Azure Machine Learning Studio pontuando experimentos precisam ser retreinados usando novos conjuntos de dados de entrada. Você pode treinar novamente um modelo de um pipeline Data Factory realizando as seguintes etapas:
+Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação Azure Machine Learning Studio (clássico) precisam ser retreinados usando novos conjuntos de dados de entrada. Você pode treinar novamente um modelo de um pipeline Data Factory realizando as seguintes etapas:
 
-1. Publique o teste de treinamento (sem experimentos de previsão) como um serviço Web. Você faz essa etapa no Azure Machine Learning Studio como fez para expor o experimento de previsão como um serviço Web no cenário anterior.
-2. Use a atividade de execução em lote do Azure Machine Learning Studio para invocar o serviço Web para o teste de treinamento. Basicamente, você pode usar a atividade de execução em lote do Azure Machine Learning Studio para invocar o serviço Web de treinamento e o serviço Web de pontuação.
+1. Publique o teste de treinamento (sem experimentos de previsão) como um serviço Web. Você faz essa etapa na Azure Machine Learning Studio (clássica) como fez para expor o experimento de previsão como um serviço Web no cenário anterior.
+2. Use a atividade de execução de lote Azure Machine Learning Studio (clássica) para invocar o serviço Web para o teste de treinamento. Basicamente, você pode usar a atividade de execução de lote Azure Machine Learning Studio (clássica) para invocar o serviço Web de treinamento e o serviço Web de pontuação.
 
-Depois de concluir o treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a atividade de **recurso de atualização do Azure Machine Learning Studio**. Veja [atualizando modelos usando o artigo atualizar atividade de recursos](update-machine-learning-models.md) para obter detalhes.
+Depois de fazer o novo treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)** . Veja [atualizando modelos usando o artigo atualizar atividade de recursos](update-machine-learning-models.md) para obter detalhes.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning serviço vinculado
 
@@ -131,14 +131,14 @@ O trecho JSON a seguir define uma atividade de execução de Azure Machine Learn
 | linkedServiceName | Serviços vinculados ao serviço vinculado do Azure Machine Learning. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) . | Sim      |
 | webServiceInputs  | Pares de chave, valor, mapeando os nomes de Azure Machine Learning entradas do serviço Web. A chave deve corresponder aos parâmetros de entrada definidos no serviço Web publicado Azure Machine Learning. Valor é um par de propriedades de serviços vinculados do armazenamento do Azure e FilePath que especificam os locais de blob de entrada. | Não       |
 | webServiceOutputs | Pares de chave, valor, mapeando os nomes de Azure Machine Learning saídas do serviço Web. A chave deve corresponder aos parâmetros de saída definidos no serviço Web publicado Azure Machine Learning. Value é um par de propriedades de serviços vinculados do armazenamento do Azure e FilePath que especificam os locais de blob de saída. | Não       |
-| globalParameters  | Pares de chave, valor a serem passados para o ponto de extremidade do serviço de execução de lote do Azure Machine Learning Studio. As chaves devem corresponder aos nomes dos parâmetros de serviço Web definidos no serviço Web publicado Azure Machine Learning Studio. Os valores são passados na propriedade Globalparameters da solicitação de execução em lote do Azure Machine Learning Studio | Não       |
+| globalParameters  | Pares de chave, valor a serem passados para o ponto de extremidade do serviço de execução em lote Azure Machine Learning Studio (clássico). As chaves devem corresponder aos nomes dos parâmetros de serviço Web definidos no serviço Web publicado Azure Machine Learning Studio (clássico). Os valores são passados na propriedade Globalparameters da solicitação de execução em lote Azure Machine Learning Studio (clássica) | Não       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário 1: experimentos usando entradas/saídas do serviço Web que se referem aos dados no armazenamento de BLOBs do Azure
 
-Nesse cenário, o serviço Web Azure Machine Learning faz previsões usando dados de um arquivo em um armazenamento de BLOBs do Azure e armazena os resultados da previsão no armazenamento de BLOBs. O JSON a seguir define um pipeline de Data Factory com uma atividade AzureMLBatchExecution. Os dados de entrada e saída no armazenamento de BLOBs do Azure são referenciados usando um par Vinculadoname e FilePath. No exemplo de serviço vinculado de entradas e saídas são diferentes, você pode usar diferentes serviços vinculados para cada uma de suas entradas/saídas para Data Factory ser capaz de pegar os arquivos corretos e enviar ao serviço Web Azure Machine Learning Studio.
+Nesse cenário, o serviço Web Azure Machine Learning faz previsões usando dados de um arquivo em um armazenamento de BLOBs do Azure e armazena os resultados da previsão no armazenamento de BLOBs. O JSON a seguir define um pipeline de Data Factory com uma atividade AzureMLBatchExecution. Os dados de entrada e saída no armazenamento de BLOBs do Azure são referenciados usando um par Vinculadoname e FilePath. No exemplo de serviço vinculado de entradas e saídas são diferentes, você pode usar diferentes serviços vinculados para cada uma de suas entradas/saídas para Data Factory ser capaz de pegar os arquivos corretos e enviar para o serviço Web Azure Machine Learning Studio (clássico).
 
 > [!IMPORTANT]
-> No experimento do Azure Machine Learning Studio, as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("entrada1", "entrada2") que você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webServiceOutputs e globalparameters devem corresponder exatamente aos nomes nos experimentos. Você pode exibir o conteúdo de solicitação de exemplo na página de ajuda de execução do lote para o ponto de extremidade do Azure Machine Learning Studio para verificar o mapeamento esperado.
+> No experimento Azure Machine Learning Studio (clássico), as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("entrada1", "entrada2") que você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webServiceOutputs e globalparameters devem corresponder exatamente aos nomes nos experimentos. Você pode exibir o conteúdo de solicitação de exemplo na página de ajuda de execução do lote para seu ponto de extremidade Azure Machine Learning Studio (clássico) para verificar o mapeamento esperado.
 >
 >
 
@@ -188,12 +188,12 @@ Nesse cenário, o serviço Web Azure Machine Learning faz previsões usando dado
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário 2: experimentos usando módulos de leitor/gravador para se referir a dados em vários armazenamentos
-Outro cenário comum na criação de experimentos Azure Machine Learning Studio é usar os módulos importar dados e dados de saída. O módulo importar dados é usado para carregar dados em um experimento e o módulo de dados de saída é para salvar dados de seus experimentos. Para obter detalhes sobre importar dados e módulos de dados de saída, consulte os tópicos [importar](https://msdn.microsoft.com/library/azure/dn905997.aspx) dados e [dados de saída](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
+Outro cenário comum ao criar experimentos de Azure Machine Learning Studio (clássico) é usar os módulos importar dados e dados de saída. O módulo importar dados é usado para carregar dados em um experimento e o módulo de dados de saída é para salvar dados de seus experimentos. Para obter detalhes sobre importar dados e módulos de dados de saída, consulte os tópicos [importar](https://msdn.microsoft.com/library/azure/dn905997.aspx) dados e [dados de saída](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
 
 Ao usar os módulos importar dados e dados de saída, é recomendável usar um parâmetro de serviço Web para cada propriedade desses módulos. Esses parâmetros da Web permitem que você configure os valores durante o tempo de execução. Por exemplo, você pode criar um experimento com um módulo importar dados que usa um banco de dado SQL do Azure: XXX.database.windows.net. Depois que o serviço Web tiver sido implantado, você deverá habilitar os consumidores do serviço Web para especificar outro SQL Server do Azure chamado `YYY.database.windows.net`. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
 
 > [!NOTE]
-> A entrada e saída do serviço Web são diferentes dos parâmetros do serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificadas para um serviço Web Azure Machine Learning Studio. Nesse cenário, você passa parâmetros para um serviço Web que correspondem às propriedades de módulos de dados de importação/saída.
+> A entrada e saída do serviço Web são diferentes dos parâmetros do serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificadas para um serviço Web Azure Machine Learning Studio (clássico). Nesse cenário, você passa parâmetros para um serviço Web que correspondem às propriedades de módulos de dados de importação/saída.
 >
 >
 
@@ -214,7 +214,7 @@ Vejamos um cenário para usar parâmetros de serviço Web. Você tem um serviço
 > Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, certifique-se de que os nomes que você especificar na atividade JSON correspondam àqueles expostos pelo serviço Web.
 >
 
-Depois de concluir o treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a atividade de **recurso de atualização do Azure Machine Learning Studio**. Veja [atualizando modelos usando o artigo atualizar atividade de recursos](update-machine-learning-models.md) para obter detalhes.
+Depois de fazer o novo treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)** . Veja [atualizando modelos usando o artigo atualizar atividade de recursos](update-machine-learning-models.md) para obter detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:

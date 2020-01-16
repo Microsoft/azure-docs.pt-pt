@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464990"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965348"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -42,7 +42,7 @@ Uma coisa a ser observada é que, em um cluster de failover de VM IaaS do Azure,
 Você também deve ter uma compreensão geral dessas tecnologias:
 
 - [Compartilhamento de arquivos premium do Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Grupos de recursos do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o [modo de gerenciamento leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para alterar do modo de extensão completo para leve, exclua o recurso de **máquina virtual do SQL** para as VMs correspondentes e registre-as com o provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso de **máquina virtual do SQL** usando o portal do Azure, **desmarque a caixa de seleção ao lado da máquina virtual correta**. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.

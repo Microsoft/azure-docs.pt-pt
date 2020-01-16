@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887546"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979858"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 [Application insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) quanto à disponibilidade, ao desempenho, às falhas e ao uso combinando dados de SDKs de Application Insights com dados de [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de seus serviços de nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -26,7 +26,7 @@ Antes de começar, você precisa:
 * Microsoft Azure Tools 2,9 ou posterior.
 * Developer Analytics Tools 7,10 ou posterior.
 
-## <a name="get-started-quickly"></a>Tenha uma introdução rápida
+## <a name="get-started-quickly"></a>Início rápido
 A forma mais rápida e fácil de monitorizar o seu serviço cloud com o Application Insights é escolher essa opção quando publica o seu serviço no Azure.
 
 ![Página de configurações de diagnóstico de exemplo](./media/cloudservices/azure-cloud-application-insights.png)
@@ -52,7 +52,7 @@ Na próxima seção, você aprenderá a adaptar seu próprio projeto de serviço
 ## <a name="plan-resources-and-resource-groups"></a>Planear recursos e grupos de recursos
 A telemetria do seu aplicativo é armazenada, analisada e exibida em um recurso do Azure do tipo Application Insights. 
 
-Cada recurso pertence a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, conceder acesso a membros da equipe e implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../../azure-resource-manager/resource-group-template-deploy.md) um serviço de nuvem do Azure e seu Application insights monitorar recursos em uma única operação.
+Cada recurso pertence a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, conceder acesso a membros da equipe e implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../../azure-resource-manager/templates/deploy-powershell.md) um serviço de nuvem do Azure e seu Application insights monitorar recursos em uma única operação.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
 Recomendamos que você crie um recurso separado para cada componente do seu aplicativo. Ou seja, você cria um recurso para cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas cria um [painel](../../azure-monitor/app/overview-dashboard.md) que reúne os gráficos de chave de todos os componentes, para que você possa compará-los e monitorá-los juntos em uma única exibição. 

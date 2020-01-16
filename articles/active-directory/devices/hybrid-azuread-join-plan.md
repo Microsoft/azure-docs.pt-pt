@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379323"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029851"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -55,7 +55,7 @@ O ingresso no Azure AD híbrido dá suporte a uma ampla variedade de dispositivo
 
 ### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
 
-- Windows 10
+- Windows 10
 - Windows Server 2016
 - Windows Server 2019
 
@@ -77,7 +77,7 @@ No momento, não há suporte para o ingresso do Azure AD híbrido se seu ambient
 
 Se seu ambiente usa VDI (Virtual Desktop Infrastructure), consulte [identidade do dispositivo e virtualização de área de trabalho](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-O ingresso no Azure AD híbrido tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com a junção híbrida do Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte. A partir da versão 10 1903 do WIndows, TPMs 1,2 não são usadas para o ingresso híbrido do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
+O ingresso no Azure AD híbrido tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com a junção híbrida do Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte. A partir da versão 10 1903 do Windows, TPMs 1,2 não são usadas para o ingresso híbrido do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
 
 O ingresso no Azure AD híbrido não tem suporte no Windows Server que executa a função de controlador de domínio (DC).
 
@@ -148,8 +148,8 @@ A tabela a seguir fornece detalhes sobre o suporte para esses UPNs locais do AD 
 
 | Tipo de UPN local do AD | Tipo de domínio | Versão do Windows 10 | Descrição |
 | ----- | ----- | ----- | ----- |
-| Podem | Federado | Da versão 1703 | Disponível em geral |
-| Não roteável | Federado | Da versão 1803 | Disponível em geral |
+| Podem | Federados | Da versão 1703 | Disponível em geral |
+| Não roteável | Federados | Da versão 1803 | Disponível em geral |
 | Podem | Gerido | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
 | Não roteável | Gerido | Não suportado | |
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da40b635b0fc094275d8d46b8c5ad6d3d90bea24
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 43ff230d4769a23c9007b3da29858d2105366f9f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101813"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978105"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatizado para SQL Server em máquinas virtuais do Azure (clássico)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "70101813"
 O backup automatizado configura automaticamente o [backup gerenciado para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados novos e existentes em uma VM do Azure em execução SQL Server 2014 Standard ou Enterprise. Isso permite que você configure backups de banco de dados regulares que utilizam o armazenamento de BLOBs do Azure durável. O backup automatizado depende da [extensão do agente IaaS SQL Server](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para exibir a versão do Resource Manager deste artigo, consulte [backup automatizado para SQL Server no Gerenciador de recursos de máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-automated-backup.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para exibir a versão do Resource Manager deste artigo, consulte [backup automatizado para SQL Server no Gerenciador de recursos de máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-automated-backup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o backup automatizado, considere os seguintes pré-requisitos:
@@ -106,10 +106,10 @@ Para desabilitar o backup automático, execute o mesmo script sem o parâmetro *
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O backup automatizado configura o backup gerenciado em VMs do Azure. Portanto, é importante [examinar a documentação do backup gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e as implicações.
 
-Você pode encontrar diretrizes adicionais de backup e restauração para SQL Server em VMs do Azure no tópico a seguir: [Backup e restauração para SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+Você pode encontrar diretrizes adicionais de backup e restauração para SQL Server em VMs do Azure no tópico a seguir: [backup e restauração para SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [SQL Server extensão do agente IaaS](../classic/sql-server-agent-extension.md).
 

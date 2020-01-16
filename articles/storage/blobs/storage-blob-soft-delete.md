@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978122"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972731"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para BLOBs de armazenamento do Azure
 
@@ -68,7 +68,7 @@ Quando **delete blob** é chamado em um blob de base (qualquer BLOB que não sej
 > [!NOTE]  
 > Quando um blob com exclusão reversível é substituído, um instantâneo com exclusão reversível do estado do blob antes da operação de gravação é gerado automaticamente. O novo BLOB herda a camada do blob substituído.
 
-A exclusão reversível não salva seus dados em casos de exclusões de contêiner ou conta, nem quando os metadados de BLOB e as propriedades de blob são substituídos. Para proteger uma conta de armazenamento contra exclusão errada, você pode configurar um bloqueio usando o Azure Resource Manager. Consulte o artigo Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md) para saber mais.
+A exclusão reversível não salva seus dados em casos de exclusões de contêiner ou conta, nem quando os metadados de BLOB e as propriedades de blob são substituídos. Para proteger uma conta de armazenamento contra exclusão errada, você pode configurar um bloqueio usando o Azure Resource Manager. Consulte o artigo Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md) para saber mais.
 
 A tabela a seguir detalha o comportamento esperado quando a exclusão reversível está ativada:
 
@@ -146,7 +146,7 @@ Para obter mais detalhes sobre os preços do armazenamento de BLOBs do Azure em 
 
 Quando você ativa a exclusão reversível inicialmente, é recomendável usar um período de retenção pequeno para entender melhor como o recurso afetará sua fatura.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
 As etapas a seguir mostram como começar a usar a exclusão reversível.
 
@@ -335,7 +335,7 @@ Sim, a exclusão reversível é configurável para contas de armazenamento exist
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se eu excluir uma conta ou contêiner inteiro com exclusão reversível ativada, todos os BLOBs associados serão salvos?
 
-Não, se você excluir uma conta ou um contêiner inteiro, todos os BLOBs associados serão excluídos permanentemente. Para obter mais informações sobre como proteger uma conta de armazenamento de exclusões acidentais, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md).
+Não, se você excluir uma conta ou um contêiner inteiro, todos os BLOBs associados serão excluídos permanentemente. Para obter mais informações sobre como proteger uma conta de armazenamento de exclusões acidentais, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Posso exibir as métricas de capacidade dos dados excluídos?
 
@@ -366,7 +366,7 @@ Uma máquina virtual do Azure grava em um disco não gerenciado usando chamadas 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-* [API REST de Serviço Blob](/rest/api/storageservices/blob-service-rest-api)
+* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST de Serviço Blob)
 * [Replicação do armazenamento do Azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Criando aplicativos altamente disponíveis usando o RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

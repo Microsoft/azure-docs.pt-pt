@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: eea6f6751f7e7f6ded1b1c7004115d101f1dcc94
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9f15c8230c2dad558e9a125ebe6874a7429f3488
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764342"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965912"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerenciar pontos de extremidade de serviço VNet do banco de dados do Azure para MariaDB usando o CLI do Azure
 
@@ -24,7 +24,7 @@ Para percorrer este guia de instruções, você precisa de:
 - Um [banco de dados do Azure para servidor MariaDB e banco de dados](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 > [!NOTE]
-> O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+> Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
 ## <a name="configure-vnet-service-endpoints"></a>Configurar pontos de extremidade de serviço de VNet
 Os comandos [AZ Network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) são usados para configurar redes virtuais.
@@ -133,4 +133,4 @@ az group delete --name myresourcegroup
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

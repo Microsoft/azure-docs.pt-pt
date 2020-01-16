@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c49df689ae859c93046c19af043aa2001dbb5481
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298892"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979633"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao armazenamento de tabelas do Azure e aos serviços conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O armazenamento de tabelas do Azure permite que você armazene grandes quantidades de dados estruturados. O serviço é um repositório de armazenamento NoSQL que aceita chamadas autenticadas de dentro e fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
@@ -32,7 +32,7 @@ Este tutorial mostra como escrever código ASP.NET para alguns cenários comuns 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md)
+* [Conta de armazenamento do Azure](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 

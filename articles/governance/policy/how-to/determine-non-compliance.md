@@ -3,12 +3,12 @@ title: Determinar as causas da não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873136"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972828"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -190,7 +190,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>histórico de alterações (versão prévia)
 
-Como parte de uma nova **Visualização pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _diferença visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades do Resource Manager são adicionadas, removidas ou alteradas.
+Como parte de uma nova **Visualização pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _diferença visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades do Resource Manager são adicionadas, removidas ou alteradas.
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 

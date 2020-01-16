@@ -3,7 +3,7 @@ title: Introdução à CLI do Azure para Batch | Microsoft Docs
 description: Obtenha uma introdução rápida aos comandos do Batch na CLI do Azure para gerir recursos do serviço Azure Batch
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd4a93b9829d69d9d0262428d23d2156d732c006
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6d625e092618d1190c3dcdf9997b1ce35211d75
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095413"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027295"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
@@ -161,16 +161,16 @@ Para obter um script de exemplo que mostra como utilizar uma cláusula OData, ve
 
 Para obter mais informações sobre como realizar consultas de lista eficazes com cláusulas OData, veja [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Consultar o serviço Batch eficazmente).
 
-## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
+## <a name="troubleshooting-tips"></a>Sugestões para a resolução de problemas
 
 As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 
 * Utilize `-h` para obter o **texto da ajuda** de qualquer comando da CLI
 * Utilize `-v` e `-vv` para apresentar a saída de comandos **detalhadas**. Se o sinalizador `-vv` for incluído, a CLI do Azure apresenta os pedidos e as respostas REST propriamente ditos. Estes parâmetros são úteis para apresentar a saída de erro completa.
-* Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Em seguida, você pode copiar e modificar essa saída para usar `--json-file` em um (consulte arquivos JSON anteriormente neste artigo).
+* Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Em seguida, você pode copiar e modificar essa saída para usar em um `--json-file` (consulte arquivos JSON anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 * Para obter mais informações sobre os recursos do Batch, veja [Descrição geral do Azure Batch para programadores](batch-api-basics.md).

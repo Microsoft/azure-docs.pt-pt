@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fb0a71a650a8c36d4da962adaf3f1f314c30d4c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764972"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979995"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Segurança na Base de Dados do Azure para MySQL
 
@@ -37,6 +37,8 @@ As regras de firewall IP concedem acesso a servidores com base no endereço IP d
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 Os pontos de extremidade de serviço de rede virtual estendem sua conectividade de rede virtual no backbone do Azure. Usando regras de rede virtual, você pode habilitar seu banco de dados do Azure para servidor MySQL para permitir conexões de sub-redes selecionadas em uma rede virtual. Para obter mais informações, consulte [visão geral do ponto de extremidade do serviço de rede virtual](concepts-data-access-and-security-vnet.md).
 
+### <a name="private-ip"></a>IP privado
+O link privado permite que você se conecte ao banco de dados do Azure para MySQL no Azure por meio de um ponto de extremidade privado. O link privado do Azure essencialmente traz os serviços do Azure dentro de sua VNet (rede virtual privada). Os recursos de PaaS podem ser acessados usando o endereço IP privado, assim como qualquer outro recurso na VNet. Para obter mais informações, consulte a [visão geral do link privado](concepts-data-access-security-private-link.md)
 
 ## <a name="access-management"></a>Gestão de acesso
 

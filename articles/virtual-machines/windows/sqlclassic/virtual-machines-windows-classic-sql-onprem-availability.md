@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978054"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estender grupos de disponibilidade de Always On locais para o Azure
 Always On grupos de disponibilidade fornecem alta disponibilidade para grupos de banco de dados adicionando réplicas secundárias. Essas réplicas permitem o failover de bancos de dados em caso de falha. Além disso, eles podem ser usados para descarregar cargas de trabalho de leitura ou tarefas de backup.
@@ -33,7 +33,7 @@ Este tutorial pressupõe que você tenha o seguinte:
 * Conectividade entre a rede local e a rede virtual do Azure. Para obter mais informações sobre como criar essa rede virtual, consulte [criar uma conexão site a site usando o portal do Azure (clássico)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 
 ## <a name="add-azure-replica-wizard"></a>Assistente para adicionar réplica do Azure
 Esta seção mostra como usar o assistente para **Adicionar réplica do Azure** para estender sua solução de grupo de disponibilidade Always on para incluir réplicas do Azure.
@@ -65,7 +65,7 @@ Esta seção mostra como usar o assistente para **Adicionar réplica do Azure** 
    | **Confirmar senha** |Confirme a senha da nova conta |
    | **Rede Virtual** |Especifique a rede virtual do Azure que a nova VM deve usar. Para obter mais informações sobre redes virtuais, consulte [visão geral da rede virtual](../../../virtual-network/virtual-networks-overview.md). |
    | **Sub-rede da rede virtual** |Especifique a sub-rede da rede virtual que a nova VM deve usar |
-   | **Controlador** |Confirme se o valor preenchido previamente para o domínio está correto |
+   | **Domínio** |Confirme se o valor preenchido previamente para o domínio está correto |
    | **Nome de usuário de domínio** |Especifique uma conta que esteja no grupo local de administradores nos nós do cluster local |
    | **Palavra-passe** |Especifique a senha para o nome de usuário de domínio |
 8. Clique em **OK** para validar as configurações de implantação.

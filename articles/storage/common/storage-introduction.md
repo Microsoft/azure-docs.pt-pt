@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084647"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970216"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -21,7 +21,7 @@ O Armazenamento do Azure é a solução de armazenamento da cloud da Microsoft p
 
 - **Durável e de elevada disponibilidade.** A redundância garante que os dados estão seguros em caso de falhas de hardware transitórias. Também pode optar por replicar dados em centros de dados ou regiões geográficas para obter proteção adicional contra catástrofes locais ou desastres naturais. Os dados replicados desta forma permanecem altamente disponíveis no caso de uma falha inesperada.
 - **Proteger.** Todos os dados escritos no Armazenamento do Azure são encriptado pelo serviço. O Armazenamento do Azure oferece-lhe controlo detalhado sobre quem tem acesso aos seus dados.
-- **Escalável.** O Armazenamento do Azure foi criado para ser extremamente dimensionável para satisfazer as necessidades de armazenamento e desempenho de dados das aplicações atuais. 
+- **Escalável.** O Armazenamento do Azure foi criado para ser extremamente dimensionável para satisfazer as necessidades de armazenamento e desempenho de dados das aplicações atuais.
 - **Gerido.** O Microsoft Azure lida com manutenção de hardware, atualizações e problemas críticos para você.
 - **Acessível.** Os dados no Armazenamento do Azure são acessíveis a partir de qualquer local no mundo através de HTTP ou HTTPS. A Microsoft fornece bibliotecas de cliente para o armazenamento do Azure em uma variedade de linguagens, incluindo .NET, Java, Node. js, Python, PHP, Ruby, Go e outros, bem como uma API REST madura. O Armazenamento do Azure suporta scripting no Azure PowerShell ou na CLI do Azure. E o portal do Azure e o Explorador de Armazenamento do Azure oferecem soluções visuais simples para trabalhar com os seus dados.  
 
@@ -31,14 +31,14 @@ O Armazenamento do Azure inclui estes serviços de dados:
 
 - [Blobs do Azure](../blobs/storage-blobs-introduction.md): um arquivo de objetos extremamente dimensionável para texto e dados binários.
 - [Ficheiros do Azure](../files/storage-files-introduction.md): partilhas de ficheiros geridos para a cloud ou implementações locais.
-- [Filas do Azure](../queues/storage-queues-introduction.md): arquivo de mensagens para mensagens fiáveis entre componentes da aplicação. 
+- [Filas do Azure](../queues/storage-queues-introduction.md): arquivo de mensagens para mensagens fiáveis entre componentes da aplicação.
 - [Tabelas do Azure](../tables/table-storage-overview.md): um arquivo do NoSQL para armazenamento sem esquemas de dados estruturados.
 
-Cada serviço é acedido através de uma conta de armazenamento. Para começar a utilizar, veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
+Cada serviço é acedido através de uma conta de armazenamento. Para começar a utilizar, veja [Criar uma conta de armazenamento](storage-account-create.md).
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
 
-O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar grandes quantidades de dados não estruturados, como dados de texto ou binários. 
+O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar grandes quantidades de dados não estruturados, como dados de texto ou binários.
 
 O armazenamento de blobs é ideal para:
 
@@ -78,13 +78,13 @@ Por exemplo, imaginemos que quer dar aos seus clientes a capacidade de carregar 
 
 Para obter mais informações sobre o serviço Filas do Azure, veja [Introdução ao serviço Filas do Azure](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Armazenamento de tabela
 
 O armazenamento de Tabelas do Azure faz agora parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Descrição Geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Para além do serviço de armazenamento de Tabelas do Azure já existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que disponibiliza tabelas otimizadas para débito, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, veja [API de Tabelas do Azure Cosmos DB](https://aka.ms/premiumtables).
 
 Para obter mais informações sobre o Armazenamento de tabelas, veja [Descrição geral do Armazenamento de tabelas do Azure](../tables/table-storage-overview.md).
 
-## <a name="disk-storage"></a>Armazenamento em disco
+## <a name="disk-storage"></a>Armazenamento de discos
 
 Um disco gerenciado do Azure é um VHD (disco rígido virtual). Você pode considerar isso como um disco físico em um servidor local, mas virtualizado. Os Azure Managed disks são armazenados como BLOBs de páginas, que são um objeto de armazenamento de e/s aleatório no Azure. Chamamos um disco gerenciado "Managed" porque ele é uma abstração em blobs de página, contêineres de BLOB e contas de armazenamento do Azure. Com os discos gerenciados, tudo o que você precisa fazer é provisionar o disco e o Azure cuida do restante.
 
@@ -108,7 +108,7 @@ Cada solicitação para o armazenamento do Azure deve ser autorizada. O armazena
 
 ## <a name="encryption"></a>Encriptação
 
-Estão disponíveis dois tipos básicos de encriptação para os serviços de Armazenamento. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
+Estão disponíveis dois tipos básicos de encriptação para os serviços de Armazenamento. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 
@@ -171,4 +171,4 @@ Para obter informações detalhadas sobre os preços do Armazenamento do Azure, 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a trabalhar rapidamente com o Armazenamento do Azure, veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
+Para começar a trabalhar rapidamente com o Armazenamento do Azure, veja [Criar uma conta de armazenamento](storage-account-create.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 4cd5fde2f47cca1b03efbc217d7764ac429d15fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aaceee65ae91a22dc658d185a874e2040b1e0f04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973939"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975658"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Usando a ferramenta de importação/exportação do Azure (modelo de implantação clássico)
 
@@ -25,10 +25,10 @@ Os artigos a seguir mostram como:
 
 - Instale e configure a ferramenta de importação/exportação.
 - Prepare seus discos rígidos para um trabalho em que você importe dados de suas unidades para o armazenamento de BLOBs do Azure.
-- Examine o status de um trabalho com arquivos de log de cópia. 
-- Reparar um trabalho de importação. 
-- Reparar um trabalho de exportação. 
-- Solucione problemas da ferramenta de importação/exportação do Azure, caso você tenha um problema durante o processo. 
+- Examine o status de um trabalho com arquivos de log de cópia.
+- Reparar um trabalho de importação.
+- Reparar um trabalho de exportação.
+- Solucione problemas da ferramenta de importação/exportação do Azure, caso você tenha um problema durante o processo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082498"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027806"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do banco de dados SQL e erros transitórios
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Solucionando problemas de erros transitórios de conexão para o banco de dados SQL
 
 Este artigo descreve como evitar, solucionar problemas, diagnosticar e atenuar erros de conexão e erros transitórios que o aplicativo cliente encontra quando interage com o banco de dados SQL do Azure. Saiba como configurar a lógica de repetição, criar a cadeia de conexão e ajustar outras configurações de conexão.
 
@@ -187,7 +187,7 @@ Normalmente, você precisa garantir que apenas a porta 1433 esteja aberta para c
 
 Por exemplo, quando o programa cliente está hospedado em um computador com Windows, você pode usar o Firewall do Windows no host para abrir a porta 1433.
 
-1. Abra o painel de controle.
+1. Abra o Painel de Controlo.
 2. Selecione **todos os itens do painel de controle** > **Firewall do Windows** > **Configurações avançadas** > **regras de saída** > **ações** > **nova regra**.
 
 Se o seu programa cliente estiver hospedado em uma VM (máquina virtual) do Azure, leia [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
@@ -215,7 +215,7 @@ Se você usar o ADO.NET 4,0 ou anterior, recomendamos que atualize para o ADO.NE
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>Diagnóstico
+## <a name="diagnostics"></a>Diagnósticos
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre como solucionar outros problemas comuns de conexão de banco de dados SQL, consulte [solucionar problemas de conexão com o banco de dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 - [Bibliotecas de conexão para o banco de dados SQL e SQL Server](sql-database-libraries.md)
 - [ADO.NET (pooling de conexão de SQL Server)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [ *Tentar* novamente é uma biblioteca de repetição de uso geral licenciada do Apache 2,0, escrita em Python,](https://pypi.python.org/pypi/retrying) para simplificar a tarefa de adicionar comportamento de nova tentativa a praticamente qualquer coisa.

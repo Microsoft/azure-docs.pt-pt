@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911987"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978344"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando o PowerShell
 
@@ -52,9 +52,9 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 1. Ao executar CLI do Azure localmente ou na Azure Cloud Shell, você precisa instalar o módulo AZ. Kusto em seu dispositivo:
-    
+
     ```azurepowershell-interactive
-     Install-Module -Name Az.Kusto  
+     Install-Module -Name Az.Kusto
     ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster de Data Explorer do Azure
