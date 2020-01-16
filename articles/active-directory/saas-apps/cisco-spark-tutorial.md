@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com o Cisco WebEx | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Cisco WebEx | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco WebEx.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 29cf5eebfb485837ee9656909323688384a4b890
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104433"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028607"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o Cisco WebEx
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Cisco WebEx
 
 Neste tutorial, você aprenderá a integrar o Cisco WebEx ao Azure Active Directory (Azure AD). Ao integrar o Cisco WebEx ao Azure AD, você pode:
 
@@ -93,19 +93,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 5. O aplicativo Cisco WebEx espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 6. Além de acima, o aplicativo Cisco WebEx espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------|--------- |
-    | UID | user.userprincipalname |
+    | uid | user.userprincipalname |
 
     a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -158,21 +158,29 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-cisco-webex"></a>Configurar o Cisco WebEx
 
-1. Entre no [Gerenciamento de colaboração de nuvem da Cisco](https://admin.ciscospark.com/) com suas credenciais de administrador completas.
+1. Para automatizar a configuração no Cisco WebEx, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-2. Selecione **configurações** e, na seção **autenticação** , clique em **Modificar**.
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar o Cisco WebEx** direcionará você para o aplicativo Cisco WebEx. A partir daí, forneça as credenciais de administrador para entrar no Cisco WebEx. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-8.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se você quiser configurar o Cisco WebEx manualmente, entre no [Gerenciamento de colaboração de nuvem da Cisco](https://admin.ciscospark.com/) com suas credenciais de administrador completas.
+
+4. Selecione **configurações** e, na seção **autenticação** , clique em **Modificar**.
 
     ![Configurar o início de sessão único](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
-3. Selecione **integrar um provedor de identidade de terceiros. Avançadas**  e vá para a próxima tela.
+5. Selecione **integrar um provedor de identidade de terceiros. (Avançado)** e vá para a próxima tela.
 
-4. Na página **importar metadados IDP** , arraste e solte o arquivo de metadados do Azure ad na página ou use a opção navegador de arquivos para localizar e carregar o arquivo de metadados do Azure AD. Em seguida, selecione **exigir certificado assinado por uma autoridade de certificação em metadados (mais seguro)** e clique em **Avançar**.
+6. Na página **importar metadados IDP** , arraste e solte o arquivo de metadados do Azure ad na página ou use a opção navegador de arquivos para localizar e carregar o arquivo de metadados do Azure AD. Em seguida, selecione **exigir certificado assinado por uma autoridade de certificação em metadados (mais seguro)** e clique em **Avançar**.
 
     ![Configurar o início de sessão único](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
-5. Selecione **testar conexão de SSO**e, quando uma nova guia do navegador for aberta, autentique-se com o Azure ad entrando.
+7. Selecione **testar conexão de SSO**e, quando uma nova guia do navegador for aberta, autentique-se com o Azure ad entrando.
 
-6. Retorne à guia navegador de **Gerenciamento de colaboração de nuvem da Cisco** . Se o teste tiver sido bem-sucedido, **selecione esse teste foi bem-sucedido. Habilite a opção** logon único e clique em **Avançar**.
+8. Retorne à guia navegador de **Gerenciamento de colaboração de nuvem da Cisco** . Se o teste tiver sido bem-sucedido, selecione **esse teste foi bem-sucedido. Habilite a opção logon único** e clique em **Avançar**.
 
 ### <a name="create-cisco-webex-test-user"></a>Criar usuário de teste do Cisco WebEx
 
@@ -194,7 +202,7 @@ Nesta seção, você criará um usuário chamado B. Simon no Cisco WebEx. Nesta 
 
     b. Na caixa de texto **sobrenome** , digite o sobrenome do usuário, como **Simon**.
 
-    c. Na caixa de texto **endereço de email** , digite o endereço de b.simon@contoso.comemail do usuário como.
+    c. Na caixa de texto **endereço de email** , digite o endereço de email do usuário, como b.simon@contoso.com.
 
 5. Clique no sinal de adição para adicionar B. Simon. Clique depois em **Seguinte**.
 

@@ -3,12 +3,12 @@ title: Bloquear imagens
 description: Defina atributos para uma imagem de contêiner ou repositório para que ele não possa ser excluído ou substituído em um registro de contêiner do Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442223"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972921"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloquear uma imagem de contêiner em um registro de contêiner do Azure
 
@@ -17,7 +17,7 @@ Em um registro de contêiner do Azure, você pode bloquear uma versão de imagem
 Este artigo requer que você execute o CLI do Azure no Azure Cloud Shell ou localmente (versão 2.0.55 ou posterior recomendada). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
 > [!IMPORTANT]
-> Este artigo não se aplica ao bloqueio de um registro inteiro, por exemplo, usando **configurações > bloqueios** no portal do Azure ou `az lock` comandos no CLI do Azure. O bloqueio de um recurso de registro não impede que você crie, atualize ou exclua dados em repositórios. O bloqueio de um registro afeta apenas as operações de gerenciamento, como adicionar ou excluir replicações, ou excluir o próprio registro. Mais informações em [Bloquear recursos para evitar alterações inesperadas](../azure-resource-manager/resource-group-lock-resources.md).
+> Este artigo não se aplica ao bloqueio de um registro inteiro, por exemplo, usando **configurações > bloqueios** no portal do Azure ou `az lock` comandos no CLI do Azure. O bloqueio de um recurso de registro não impede que você crie, atualize ou exclua dados em repositórios. O bloqueio de um registro afeta apenas as operações de gerenciamento, como adicionar ou excluir replicações, ou excluir o próprio registro. Mais informações em [Bloquear recursos para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Cenários
 

@@ -181,6 +181,8 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Armazenamento de Blobs do Azure
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Azure Container Instances
+          href: ../connectors/connectors-create-api-container-instances.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Funções do Azure

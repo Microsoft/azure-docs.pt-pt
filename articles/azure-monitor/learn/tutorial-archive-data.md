@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 86f042a451583759aa15e886b3261700335a5285
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748542"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979820"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
-Várias camadas do seu ambiente do Azure produzem dados de registos e de métricas que podem ser arquivados numa conta de Armazenamento do Azure. Poderá arquivá-los para preservar o histórico de dados de monitorização ao longo do tempo num arquivo não pesquisável e económico depois de o período de retenção. 
+Várias camadas do seu ambiente do Azure produzem dados de registos e de métricas que podem ser arquivados numa conta de Armazenamento do Azure. Poderá arquivá-los para preservar o histórico de dados de monitorização ao longo do tempo num arquivo não pesquisável e económico depois de o período de retenção.
 
-- As métricas da plataforma do Azure Monitor são mantidas durante 93 dias. 
-- Os registos de diagnóstico de recursos só são apresentados se forem encaminhados para o Log Analytics, onde têm um período de retenção configurável com um mínimo de 30 dias. 
+- As métricas da plataforma do Azure Monitor são mantidas durante 93 dias.
+- Os registos de diagnóstico de recursos só são apresentados se forem encaminhados para o Log Analytics, onde têm um período de retenção configurável com um mínimo de 30 dias.
 - As entradas de registo de atividades são mantidas durante 90 dias.  
 
 Este tutorial mostra o processo de configuração do seu ambiente do Azure para arquivar dados numa conta de armazenamento.
@@ -42,7 +42,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../../storage/common/storage-quickstart-create-account.md).
+Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Encaminhar registos da subscrição para a conta de armazenamento
 
@@ -144,9 +144,9 @@ Os dados de monitorização das suas máquinas virtuais estão agora a ser encam
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Ver os dados de monitorização na conta de armazenamento
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Se tiver seguido os passos anteriores, os dados começaram a fluir para a sua conta de armazenamento.
 
@@ -199,4 +199,3 @@ Para tirar mais proveito dos seus dados e obter informações adicionais, envie-
 
 > [!div class="nextstepaction"]
 > [Introdução ao Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

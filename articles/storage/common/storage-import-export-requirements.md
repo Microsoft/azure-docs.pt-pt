@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b6dffb46d8c0fd7201079de3e8509ece516d2f8f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821407"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978479"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -42,14 +42,14 @@ Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport
 O serviço importar/exportar do Azure suporta os seguintes tipos de contas de armazenamento:
 
 - Contas de armazenamento Standard Uso Geral v2 (recomendado para a maioria dos cenários)
-- Contas de Armazenamento de blobs
-- Uso Geral contas de armazenamento V1 (implantações clássicas ou Azure Resource Manager), 
+- Contas de Armazenamento de Blobs
+- Uso Geral contas de armazenamento V1 (implantações clássicas ou Azure Resource Manager),
 
 Para obter mais informações sobre contas de armazenamento, consulte [descrição geral de contas de armazenamento do Azure](storage-account-overview.md).
 
-Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-quickstart-create-account.md).
+Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-account-create.md).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > O serviço de exportação de importação do Azure não suporta contas de armazenamento onde o [pontos finais de serviço de rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) funcionalidade foi ativada. 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
@@ -57,13 +57,13 @@ Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta
 A seguinte lista de tipos de armazenamento é suportada com o serviço importar/exportar do Azure.
 
 
-|Tarefa  |Serviço de armazenamento |Suportado  |Não suportado  |
+|Tarefa  |Serviço de armazenamento |Suportadas  |Não suportado  |
 |---------|---------|---------|---------|
 |Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de ficheiros do Azure       | Blobs de página e Blobs de blocos suportados <br><br> Ficheiros suportados          |
 |Exportar     |   Armazenamento de Blobs do Azure       | Os blobs de blocos, blobs de páginas e blobs de acréscimo suportados         | Ficheiros do Azure não suportados
 
 
-## <a name="supported-hardware"></a>Hardware suportado 
+## <a name="supported-hardware"></a>Hardware suportado
 
 Para o serviço importar/exportar do Azure, terá de discos suportados para copiar dados.
 
@@ -72,9 +72,9 @@ Para o serviço importar/exportar do Azure, terá de discos suportados para copi
 A seguinte lista de discos é suportada para utilização com o serviço de importação/exportação.
 
 
-|Tipo de disco  |Tamanho  |Suportado |
+|Tipo de disco  |Tamanho  |Suportadas |
 |---------|---------|---------|
-|SSD    |   2,5"      |SATA III          | 
+|SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3.5"       |SATA II, SATA III         |
 
 Não há suporte para os seguintes tipos de disco:
@@ -88,7 +88,7 @@ Uma tarefa de importação/exportação única pode ter:
 
 Grande número de unidades de serem distribuído por várias tarefas e não sem limites no número de tarefas que podem ser criadas. Para tarefas de importação, apenas o primeiro volume de dados na unidade é processado. O volume de dados deve ser formatado com NTFS.
 
-Quando preparar unidades de disco rígido e copiar os dados usando a ferramenta de WAImportExport, pode utilizar adaptadores USB externas. Mais prontas para utilização USB 3.0 ou posteriores adaptadores devem funcionar. 
+Quando preparar unidades de disco rígido e copiar os dados usando a ferramenta de WAImportExport, pode utilizar adaptadores USB externas. Mais prontas para utilização USB 3.0 ou posteriores adaptadores devem funcionar.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -96,4 +96,3 @@ Quando preparar unidades de disco rígido e copiar os dados usando a ferramenta 
 * [Configurar a ferramenta de WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comandos AzCopy](storage-use-azcopy.md)
 * [Exemplo de importar exportar a API de REST do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
-

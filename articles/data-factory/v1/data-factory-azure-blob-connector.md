@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cb78be4456864e28c5559febf9733d7dc9a5029f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930196"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981673"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para o armazenamento de BLOBs do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -49,7 +49,7 @@ Você pode copiar dados dos seguintes repositórios de dados **para o armazename
 >
 > A atividade de cópia não exclui dados da origem depois que os dados são copiados com êxito para o destino. Se você precisar excluir dados de origem após uma cópia bem-sucedida, crie uma [atividade personalizada](data-factory-use-custom-activities.md) para excluir os dados e use a atividade no pipeline. Para obter um exemplo, consulte a [amostra excluir BLOB ou pasta no GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 Você pode criar um pipeline com uma atividade de cópia que move dados de/para um armazenamento de BLOBs do Azure usando diferentes ferramentas/APIs.
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Este artigo tem um [passo a passos](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) para criar um pipeline para copiar dados de um local de armazenamento de BLOBs do Azure para outro local de armazenamento de BLOBs do Azure. Para obter um tutorial sobre a criação de um pipeline para copiar dados de um armazenamento de BLOBs do Azure para o Azure SQL Database, consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md).
@@ -174,7 +174,7 @@ Esta secção descreve o comportamento resultante da operação de cópia para d
 Vejamos como copiar dados rapidamente de/para um armazenamento de BLOBs do Azure. Neste tutorial, os armazenamentos de dados de origem e destino do tipo: armazenamento de BLOBs do Azure. O pipeline neste tutorial copia dados de uma pasta para outra pasta no mesmo contêiner de BLOB. Isso é intencionalmente simples para mostrar as configurações ou propriedades ao usar o armazenamento de BLOBs como fonte ou coletor.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Crie uma **conta de armazenamento do Azure** de uso geral, se você ainda não tiver uma. Você usa o armazenamento de BLOBs como armazenamento de dados de **origem** e de **destino** neste passo a passos. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
+1. Crie uma **conta de armazenamento do Azure** de uso geral, se você ainda não tiver uma. Você usa o armazenamento de BLOBs como armazenamento de dados de **origem** e de **destino** neste passo a passos. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para obter os passos para criar uma.
 2. Crie um contêiner de blob chamado **adfblobconnector** na conta de armazenamento.
 4. Crie uma pasta chamada **Input** no contêiner **adfblobconnector** .
 5. Crie um arquivo chamado **EMP. txt** com o conteúdo a seguir e carregue-o na pasta de **entrada** usando ferramentas como [Gerenciador de armazenamento do Azure](https://azurestorageexplorer.codeplex.com/)
@@ -184,7 +184,7 @@ Vejamos como copiar dados rapidamente de/para um armazenamento de BLOBs do Azure
     ```
 
 ### <a name="create-the-data-factory"></a>Criar o data factory
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Clique em **criar um recurso** no canto superior esquerdo, clique em **inteligência + análise**e clique em **Data Factory**.
 3. No painel **novo data Factory** :  
     1. Digite **ADFBlobConnectorDF** para o **nome**. O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: `*Data factory name “ADFBlobConnectorDF” is not available`, altere o nome do data factory (por exemplo, yournameADFBlobConnectorDF) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
@@ -197,7 +197,7 @@ Vejamos como copiar dados rapidamente de/para um armazenamento de BLOBs do Azure
 
 ### <a name="copy-wizard"></a>Assistente de Cópia
 1. Na home page Data Factory, clique no bloco **copiar dados** para iniciar o **Assistente de copiar dados** em uma guia separada.  
-    
+
     > [!NOTE]
     > Se você vir que o navegador da Web está preso em "autorizando...", desabilite/desmarque a configuração **bloquear cookies de terceiros e dados do site** (ou) Mantenha-a habilitada e crie uma exceção para **login.microsoftonline.com** e tente iniciar o assistente novamente.
 2. Na página **Propriedades**:

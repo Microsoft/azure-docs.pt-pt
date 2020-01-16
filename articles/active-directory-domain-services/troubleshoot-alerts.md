@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703948"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979894"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
@@ -92,7 +92,7 @@ A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamen
 
 O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assinatura diferente. Se a assinatura do Azure à qual o domínio gerenciado do Azure AD DS foi associado for excluída, você deverá recriar uma assinatura do Azure e um domínio gerenciado do Azure AD DS.
 
-1. [Crie uma assinatura do Azure](../billing/billing-create-subscription.md).
+1. [Crie uma assinatura do Azure](../cost-management-billing/manage/create-subscription.md).
 1. [Exclua o domínio gerenciado AD DS do Azure](delete-aadds.md) do diretório do Azure ad existente.
 1. [Crie um domínio gerenciado AD DS do Azure de substituição](tutorial-create-instance.md).
 

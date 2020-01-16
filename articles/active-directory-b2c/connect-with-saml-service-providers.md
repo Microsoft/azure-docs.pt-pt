@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9bb324c3863a13e1f47e1b31f7656ab8c77a6f1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763152"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043525"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -177,7 +178,7 @@ Agora que seu locatário pode emitir asserções SAML, você precisa criar a pol
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Adicione o seguinte trecho XML logo antes do elemento `<RelyingParty>`. Esse XML substitui o número 7 da etapa de orquestração da jornada do usuário _SignUpOrSignIn_ . Se você personalizou o percurso do usuário adicionando ou removendo etapas de orquestração, verifique se o número (no elemento `order`) está alinhado com aquele especificado no percurso do usuário para a etapa do emissor do token.
+1. Adicione o seguinte trecho XML logo antes do elemento `<RelyingParty>`. Esse XML substitui o número 7 da etapa de orquestração da jornada do usuário _SignUpOrSignIn_ . Se você iniciou a partir de uma pasta diferente no pacote de início, ou personalizado o percurso do usuário adicionando ou removendo etapas de orquestração, verifique se o número (no elemento `order`) está alinhado com aquele especificado no percurso do usuário para a etapa do emissor do token (por exemplo, nas outras pastas do pacote de início, é a etapa 4 da `LocalAccounts`, 6 para `SocialAccounts` e 9 para `SocialAndLocalAccountsWithMfa`).
 
     ```XML
     <UserJourneys>

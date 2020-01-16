@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184308"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021246"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -24,28 +24,26 @@ ms.locfileid: "67184308"
     ![Crie o Gestor de Dispositivos do StorSimple](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. No painel **Gestor de Dispositivos do StorSimple**, siga os seguintes passos:
-   
+
    1. Forneça um **Nome do recurso** exclusivo para o serviço. Este é um nome amigável que pode ser utilizado para identificar o serviço. O nome pode ter entre 2 e 50 carateres que podem ser letras, números e hífenes. O nome tem de começar e terminar com uma letra ou um número.
 
    2. Escolha uma **Subscrição** na lista pendente. A subscrição está ligada à sua conta de faturação. Este campo não estará presente se tiver apenas uma subscrição.
 
    3. Para **Grupo de recursos**, **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Grupos de recursos do Azure).
-   
-   4. Forneça uma **Localização** para o serviço. Em geral, escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. Pode também querer ter em conta as seguintes considerações: 
-      
+
+   4. Forneça uma **Localização** para o serviço. Em geral, escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. Pode também querer ter em conta as seguintes considerações:
+
       * Se tiver cargas de trabalho existentes no Azure que também tenciona implementar com o dispositivo StorSimple, deve utilizar esse datacenter.
-      * O serviço Gestor de Dispositivos do StorSimple e o armazenamento do Azure podem estar em duas localizações diferentes. Se for esse o caso, terá de criar separadamente a conta do Gestor de Dispositivos do StorSimple e a conta de armazenamento do Azure. Para criar uma conta de armazenamento do Azure, vá para o serviço de Armazenamento do Azure no portal do Azure e siga os passos em [Create an Azure Storage account](../articles/storage/common/storage-quickstart-create-account.md) (Criar uma Conta de armazenamento do Azure). Uma vez criada esta conta, adicione-a ao Gestor de Dispositivos do StorSimple seguindo os passos em [Configure a new storage account for the service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service) (Configurar uma nova conta de armazenamento para o serviço).
+      * O serviço Gestor de Dispositivos do StorSimple e o armazenamento do Azure podem estar em duas localizações diferentes. Se for esse o caso, terá de criar separadamente a conta do Gestor de Dispositivos do StorSimple e a conta de armazenamento do Azure. Para criar uma conta de armazenamento do Azure, vá para o serviço de Armazenamento do Azure no portal do Azure e siga os passos em [Create an Azure Storage account](../articles/storage/common/storage-account-create.md) (Criar uma Conta de armazenamento do Azure). Uma vez criada esta conta, adicione-a ao Gestor de Dispositivos do StorSimple seguindo os passos em [Configure a new storage account for the service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service) (Configurar uma nova conta de armazenamento para o serviço).
 
    5. Selecione **Criar uma nova conta de armazenamento** para criar automaticamente uma conta de armazenamento com o serviço. Especifique um nome para esta conta de armazenamento. Se precisar de ter os seus dados numa localização diferente, desmarque esta caixa.
 
    6. Assinale **Afixar ao dashboard** se pretender uma ligação rápida para este serviço no seu dashboard.
-      
+
    7. Clique em **Criar** para criar o Gestor de Dispositivos do StorSimple.
 
        ![Crie o Gestor de Dispositivos do StorSimple](./media/storsimple-8000-create-new-service/createssdevman2.png)
-   
+
 A criação do serviço demora alguns minutos. Depois de o serviço ser criado com êxito, verá uma notificação e o novo painel de serviço é aberto.
-   
+
 ![Crie o Gestor de Dispositivos do StorSimple](./media/storsimple-8000-create-new-service/createssdevman5.png)
-
-

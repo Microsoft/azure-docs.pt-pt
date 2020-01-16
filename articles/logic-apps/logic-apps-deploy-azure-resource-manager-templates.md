@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 73c4c8839bd1d9e37f3dc4f0802ad5a648b1026b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 506c518e8bdd889c585feb92f2a6baee8ba0147c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793043"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979088"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implantar modelos de Azure Resource Manager para aplicativos lógicos do Azure
 
@@ -21,7 +21,7 @@ Depois de criar um modelo de Azure Resource Manager para seu aplicativo lógico,
 * [Visual Studio](#visual-studio)
 * [O Azure PowerShell](#powershell)
 * [CLI do Azure](#cli)
-* [API REST do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [API REST do Azure Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 * [Azure Pipelines DevOps do Azure](#azure-pipelines)
 
 <a name="portal"></a>
@@ -41,10 +41,10 @@ Por exemplo, as seguintes informações serão solicitadas depois que você entr
 * Um URI de teste
 * Aceitação dos termos e condições especificados
 
-Para obter mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
 * [Visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)
-* [Implantar recursos com modelos de Azure Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Implantar recursos com modelos de Azure Resource Manager e o portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
 
 <a name="visual-studio"></a>
 
@@ -62,7 +62,7 @@ Para implantar em um *grupo de recursos específico do Azure*, use o seguinte co
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para obter mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
@@ -77,9 +77,9 @@ Para implantar em um *grupo de recursos específico do Azure*, use o seguinte co
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para obter mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
-* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -90,8 +90,8 @@ Para implantar modelos de aplicativo lógico e gerenciar ambientes, as equipes n
 
 Para obter mais informações sobre integração contínua e implantação contínua (CI/CD) para modelos de Azure Resource Manager com Azure Pipelines, consulte estes tópicos e exemplos:
 
-* [Integrar modelos do Resource Manager com o Azure Pipelines](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
-* [Tutorial: integração contínua para modelos de Azure Resource Manager com Azure Pipelines](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [Integrar modelos do Resource Manager com o Azure Pipelines](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
+* [Tutorial: integração contínua para modelos de Azure Resource Manager com Azure Pipelines](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md)
 * [Exemplo: conectar-se a filas do barramento de serviço do Azure de aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: conectar-se a contas de armazenamento do Azure de aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: configurar uma ação de aplicativo de funções para aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
@@ -111,11 +111,11 @@ Aqui estão as etapas gerais de alto nível para usar Azure Pipelines:
 
 1. Adicione referências ao modelo de aplicativo lógico e aos arquivos de parâmetros de modelo.
 
-1. Continue a criar etapas no processo de liberação para qualquer outro ambiente, teste automatizado ou Aprovadores, conforme necessário.
+1. Continue a criar passos no processo de liberação para qualquer outro ambiente, teste automatizado ou aprovadores conforme necessário.
 
 <a name="authorize-oauth-connections"></a>
 
-## <a name="authorize-oauth-connections"></a>Autorizar conexões OAuth
+## <a name="authorize-oauth-connections"></a>Autorizar ligações de OAuth
 
 Após a implantação, seu aplicativo lógico funciona de ponta a ponta com parâmetros válidos. No entanto, você ainda deve autorizar quaisquer conexões OAuth para gerar tokens de acesso válidos para [autenticar suas credenciais](../active-directory/develop/authentication-scenarios.md). Aqui estão as maneiras como você pode autorizar conexões OAuth:
 

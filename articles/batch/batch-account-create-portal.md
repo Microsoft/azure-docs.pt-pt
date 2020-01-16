@@ -3,7 +3,7 @@ title: Criar uma conta no portal do Azure-lote do Azure | Microsoft Docs
 description: Saiba como criar uma conta do Azure Batch no portal do Azure a executar cargas de trabalho paralelas em grande escala na nuvem
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4eb6b0c64fc40dec48dc9103c67e8e4a0730d7e2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095721"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029805"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -31,7 +31,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Inicie sessão no [portal do Azure][azure_portal].
+1. Inicie sessão no [Portal do Azure][azure_portal].
 
 1. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**.
 
@@ -41,19 +41,19 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     ![Criar uma conta do Batch][account_portal]
 
-    a. **Subscrição**: A assinatura na qual criar a conta do lote. Se tiver apenas uma subscrição, está selecionada por predefinição.
+    a. **Subscrição**: a subscrição onde cria a conta do Batch. Se tiver apenas uma subscrição, está selecionada por predefinição.
 
-    b. **Grupo de recursos**: Selecione um grupo de recursos existente para sua nova conta do lote ou, opcionalmente, crie um novo.
+    b. **Grupo de recursos**: selecione um grupo de recursos existente para a sua nova conta do Batch ou, opcionalmente, para criar um novo.
 
-    c. **Nome da conta**: O nome escolhido deve ser exclusivo na região do Azure em que a conta é criada (consulte o **local** abaixo). O nome da conta pode conter apenas carateres em minúsculas ou números e deve ter 3 a 24 carateres de comprimento.
+    c. **Nome da conta**: o nome que escolher deve ser único na região do Azure na qual é criada a conta (veja a **Localização** abaixo). O nome da conta pode conter apenas carateres em minúsculas ou números e deve ter 3 a 24 carateres de comprimento.
 
-    d. **Local**: A região do Azure na qual criar a conta do lote. Apenas as regiões suportadas pela sua subscrição e grupo de recursos são apresentadas como opções.
+    d. **Localização**: a região do Azure na qual se cria a conta do Batch. Apenas as regiões suportadas pela sua subscrição e grupo de recursos são apresentadas como opções.
 
-    e. **Conta de armazenamento**: Uma conta de armazenamento do Azure opcional que você associa à sua conta do lote. Uma conta de armazenamento de uso geral V2 é recomendada para o melhor desempenho. Para todas as opções de conta de armazenamento no lote, consulte a [visão geral do recurso de lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou crie uma nova.
+    e. **Conta de armazenamento**: uma conta de armazenamento do Azure opcional que você associa à sua conta do lote. Uma conta de armazenamento de uso geral V2 é recomendada para o melhor desempenho. Para todas as opções de conta de armazenamento no lote, consulte a [visão geral do recurso de lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou crie uma nova.
 
-      ![Criar uma conta de armazenamento][storage_account]
+      ![Criar uma conta do Storage][storage_account]
 
-    f. **Modo de alocação do pool**: Na guia configurações **avançadas** , você pode especificar o modo de alocação de pool como **serviço de lote** ou assinatura de **usuário**. Para a maioria dos cenários, aceite o **serviço de lote**padrão.
+    f. **Modo de alocação de pool**: na guia configurações **avançadas** , você pode especificar o modo de alocação de pool como **serviço de lote** ou assinatura de **usuário**. Para a maioria dos cenários, aceite o **serviço de lote**padrão.
 
       ![Modo de alocação do pool do lote][pool_allocation]
 
@@ -65,7 +65,7 @@ Depois de a conta ter sido criada, selecione a mesma para aceder às respetivas 
 
 ![Página Conta do Batch no portal do Azure][account_blade]
 
-* **Nome da conta do lote, URL e chaves**: Ao desenvolver um aplicativo com as [APIs do lote](batch-apis-tools.md#azure-accounts-for-batch-development), você precisa de uma URL de conta e chave para acessar os recursos do lote. (O Batch também suporta a autenticação do Azure Active Directory.)
+* **Nome da conta, URL e chaves do Batch**: quando desenvolver uma aplicação com as [APIs do Batch](batch-apis-tools.md#azure-accounts-for-batch-development), necessita de uma chave e de um URL de conta para aceder aos recursos do Batch. (O Batch também suporta a autenticação do Azure Active Directory.)
 
     Para ver as informações de acesso da conta de Batch, selecione **Chaves**.
 
@@ -83,7 +83,7 @@ Se optar por criar uma conta do Batch no modo de subscrição de utilizador, exe
 
 Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador, tem de registar a sua subscrição no Batch. (Se anteriormente efetuou este procedimento, avance para a secção seguinte.)
 
-1. Inicie sessão no [portal do Azure][azure_portal].
+1. Inicie sessão no [Portal do Azure][azure_portal].
 
 1. Selecione **Todos os Serviços** > **Subscrições** e selecione a subscrição que pretende utilizar para a conta do Batch.
 
@@ -91,7 +91,7 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
     ![Registar fornecedor do Microsoft.Batch][register_provider]
 
-1. Na página **assinatura** , selecione**atribuições** > de função de **controle de acesso (iam)**  > **Adicionar atribuição de função**.
+1. Na página **assinatura** , selecione **controle de acesso (iam)**  > **atribuições de função** > **Adicionar atribuição de função**.
 
     ![Controlo de acesso da subscrição][subscription_access]
 
@@ -108,7 +108,7 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
 No modo de subscrição de utilizador, é necessário um cofre de chaves do Azure que pertence ao mesmo grupo de recursos que a conta do Batch a ser criada. Certifique-se de que o grupo de recursos está numa região onde o Batch está [disponível](https://azure.microsoft.com/regions/services/) e que a sua subscrição suporta.
 
-1. Na [portal do Azure][azure_portal], selecione **novo** > **Key Vault**de**segurança** > .
+1. Na [portal do Azure][azure_portal], selecione **novo** > **segurança** > **Key Vault**.
 
 1. Na página **Criar Key Vault**, introduza um nome para o cofre de chaves e crie um grupo de recursos na região em que quer a sua conta do Batch. Deixe as definições restantes nos valores predefinidos e selecione **Criar**.
 
@@ -136,7 +136,7 @@ Além do portal do Azure, também pode criar e gerir contas do Batch com ferrame
 * [CLI do Azure](batch-cli-get-started.md)
 * [Gestão de Batch .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo aborda os recursos do Batch principais como conjuntos, nós de computação e tarefas e fornece uma descrição geral das funcionalidades do serviço para cargas de trabalho de computação em grande escala.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196387"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028663"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para o Azure
 
@@ -95,18 +95,18 @@ Para se preparar para a avaliação do servidor físico, você precisa verificar
 
 ### <a name="verify-physical-server-settings"></a>Verificar as configurações do servidor físico
 
-1. Verifique [os requisitos do servidor físico](migrate-support-matrix-physical.md#assessment-physical-server-requirements) para avaliação do servidor.
-2. Verifique se as [portas necessárias](migrate-support-matrix-physical.md#assessment-port-requirements) estão abertas em servidores físicos.
+1. Verifique [os requisitos do servidor físico](migrate-support-matrix-physical.md#physical-server-requirements) para avaliação do servidor.
+2. Verifique se as [portas necessárias](migrate-support-matrix-physical.md#port-access) estão abertas em servidores físicos.
 
 
 ### <a name="verify-appliance-settings"></a>Verificar as configurações do dispositivo
 
 Antes de configurar o dispositivo migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
-1. [Verifique](migrate-support-matrix-physical.md#assessment-appliance-requirements) os requisitos do dispositivo.
-2. [Examine](migrate-support-matrix-physical.md#assessment-appliance-url-access) as URLs do Azure que o dispositivo precisará acessar.
-3. Examine os dados que o dispositivo coletará durante a descoberta e a avaliação.
-4. [Anote](migrate-support-matrix-physical.md#assessment-port-requirements) os requisitos de acesso da porta para o dispositivo.
+1. [Verifique](migrate-appliance.md#appliance---physical) os requisitos do dispositivo para servidores físicos.
+2. [Examine](migrate-appliance.md#url-access) as URLs do Azure que o dispositivo precisará acessar.
+3. [Examine](migrate-appliance.md#collected-data---vmware) se o dispositivo será coletado durante a descoberta e a avaliação.
+4. [Observação](migrate-support-matrix-physical.md#port-access) requisitos de acesso da porta avaliação do servidor físico.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configurar uma conta para descoberta de servidor físico
@@ -116,8 +116,17 @@ As migrações para Azure precisam de permissões para descobrir servidores loca
 - **Windows:** Configure uma conta de usuário local em todos os servidores Windows que você deseja incluir na descoberta. A conta de usuário precisa ser adicionada aos seguintes grupos:-usuários de gerenciamento remoto-usuários do monitor de desempenho-usuários de log de desempenho
 - **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
 
+## <a name="prepare-for-physical-server-migration"></a>Preparar para migração de servidor físico
 
-## <a name="next-steps"></a>Passos Seguintes
+Examine os requisitos para a migração de servidores físicos.
+
+- [Examine](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
+- Migrações para Azure: a migração de servidor usa um servidor de replicação para migração de servidor físico:
+    - [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do dispositivo de replicação e as [Opções](migrate-replication-appliance.md#mysql-installation) de instalação do MySQL no dispositivo.
+    - Examine os requisitos de acesso de [URL](migrate-replication-appliance.md#url-access) e [porta] (migrate-Replication-Appliance. MD # Port-Access) para o dispositivo de replicação.
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

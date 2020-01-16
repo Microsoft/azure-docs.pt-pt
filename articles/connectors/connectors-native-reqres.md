@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787000"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030139"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
 
@@ -23,7 +23,16 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
 > [!NOTE]
-> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída continuam a dar suporte a TLS 1,0, 1,1 e 1,2. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2.
+> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída continuam a dar suporte a TLS 1,0, 1,1 e 1,2. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2. Para chamadas de entrada, aqui estão os conjuntos de codificação com suporte:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +46,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 
 Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode receber *somente* solicitações HTTPS de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar esse gatilho, consulte o [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
 1. Depois que o designer de aplicativo lógico for aberto, na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de gatilhos, selecione o gatilho **quando uma solicitação HTTP é recebida** , que é a primeira etapa no fluxo de trabalho do aplicativo lógico.
 
@@ -180,8 +189,8 @@ Veja mais informações sobre as saídas do gatilho de solicitação:
 
 | Nome da propriedade JSON | Data type | Descrição |
 |--------------------|-----------|-------------|
-| `headers` | Object | Um objeto JSON que descreve os cabeçalhos da solicitação |
-| `body` | Object | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
+| `headers` | Objeto | Um objeto JSON que descreve os cabeçalhos da solicitação |
+| `body` | Objeto | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
 ||||
 
 <a name="add-response"></a>
