@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: bfae540af1c501c09ec026b97ac11e8a14b177a9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326551"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966929"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -29,7 +29,7 @@ Você pode monitorar Aplicativo Azure recursos de gateway das seguintes maneiras
 
 ## <a name="back-end-health"></a>Integridade de back-end
 
-O gateway de aplicativo fornece a capacidade de monitorar a integridade de membros individuais dos pools de back-end por meio do portal, do PowerShell e da CLI (interface de linha de comando). Você também pode encontrar um resumo de integridade agregado de pools de back-end por meio dos logs de diagnóstico de desempenho. 
+O gateway de aplicativo fornece a capacidade de monitorar a integridade de membros individuais dos pools de back-end por meio do portal, do PowerShell e da CLI (interface de linha de comando). Você também pode encontrar um resumo de integridade agregado de pools de back-end por meio dos logs de diagnóstico de desempenho.
 
 O relatório de integridade de back-end reflete a saída da investigação de integridade do gateway de aplicativo para as instâncias de back-end. Quando a investigação é bem-sucedida e o back-end pode receber tráfego, ele é considerado íntegro. Caso contrário, ele é considerado não íntegro.
 
@@ -39,7 +39,7 @@ O relatório de integridade de back-end reflete a saída da investigação de in
 
 ### <a name="view-back-end-health-through-the-portal"></a>Exibir a integridade do back-end por meio do portal
 
-No portal, a integridade do back-end é fornecida automaticamente. Em um gateway de aplicativo existente, selecione **monitoramento** > **integridade de back-end**. 
+No portal, a integridade do back-end é fornecida automaticamente. Em um gateway de aplicativo existente, selecione **monitoramento** > **integridade de back-end**.
 
 Cada membro no pool de back-ends é listado nesta página (seja uma NIC, um IP ou um FQDN). Nome do pool de back-end, porta, nome de configurações HTTP de back-end e status de integridade são mostrados. Os valores válidos para o status de integridade são **íntegros**, não **íntegros**e **desconhecidos**.
 
@@ -101,7 +101,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 * **Log de firewall**: você pode usar esse log para exibir as solicitações que são registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o Firewall do aplicativo Web.
 
 > [!NOTE]
-> Os logs estão disponíveis somente para os recursos implantados no modelo de implantação Azure Resource Manager. Você não pode usar logs para recursos no modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte o artigo [entendendo a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md) .
+> Os logs estão disponíveis somente para os recursos implantados no modelo de implantação Azure Resource Manager. Você não pode usar logs para recursos no modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte o artigo [entendendo a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/management/deployment-models.md) .
 
 Tem três opções para armazenar os registos:
 
@@ -126,8 +126,8 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Os logs de atividades não exigem uma conta de armazenamento separada. A utilização do armazenamento para registo do acesso e do desempenho incorre em encargos de serviços.
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Ativar o registo através do portal do Azure
@@ -173,7 +173,7 @@ O log de acesso será gerado somente se você o tiver habilitado em cada instân
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |timeTaken| Período de tempo (em milissegundos) necessário para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo time-taken geralmente inclui a hora em que os pacotes de solicitação e resposta estão viajando pela rede. |
 |sslEnabled| Se a comunicação com os pools de back-end usava o SSL. Os valores válidos são on e off.|
-|host| O nome do host com o qual a solicitação foi enviada para o servidor de back-end. Se o nome de host de back-end estiver sendo substituído, este deverá refletir isso.|
+|anfitrião| O nome do host com o qual a solicitação foi enviada para o servidor de back-end. Se o nome de host de back-end estiver sendo substituído, este deverá refletir isso.|
 |originalHost| O nome do host com o qual a solicitação foi recebida pelo gateway de aplicativo do cliente.|
 ```json
 {
@@ -221,7 +221,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 |serverRouted| O servidor back-end para o qual o gateway de aplicativo roteia a solicitação.|
 |serverStatus| Código de status HTTP do servidor de back-end.|
 |serverResponseLatency| Latência da resposta do servidor de back-end.|
-|host| Endereço listado no cabeçalho do host da solicitação.|
+|anfitrião| Endereço listado no cabeçalho do host da solicitação.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -304,7 +304,7 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
 |ruleId     | ID da regra do evento de gatilho.        |
 |message     | Mensagem amigável para o evento de disparo. Mais detalhes são fornecidos na seção de detalhes.        |
 |action     |  Ação executada na solicitação. Os valores disponíveis são MATCHED e blocked.      |
-|locais     | Site para o qual o log foi gerado. Atualmente, somente global é listado porque as regras são globais.|
+|site     | Site para o qual o log foi gerado. Atualmente, somente global é listado porque as regras são globais.|
 |details     | Detalhes do evento de disparo.        |
 |details.message     | Descrição da regra.        |
 |details.data     | Dados específicos encontrados na solicitação que corresponderam à regra.         |
@@ -336,10 +336,10 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
-    "hostname": "40.90.218.100", 
+    "hostname": "40.90.218.100",
     "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
-} 
+}
 
 ```
 
@@ -347,7 +347,7 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
 
 Pode ver e analisar os dados de registo de atividades através de um dos seguintes métodos:
 
-* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 * **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Usando os [aplicativos de modelo de Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview), você pode analisar seus dados.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Exibir e analisar os logs de acesso, desempenho e firewall
@@ -358,8 +358,8 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 > [!TIP]
 > Se estiver familiarizado com os conceitos básicos do Visual Studio para alterar os valores de constantes e variáveis em C#, pode utilizar as [ferramentas de conversor de registo](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
-> 
-> 
+>
+>
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analisando logs de acesso por meio do GoAccess
 

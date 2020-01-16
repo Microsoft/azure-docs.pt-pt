@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b6d9a394971e59abaeb48e058b05cd52da69626
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 84296631e35de759fbb971f5de2d918afa5d17f0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529733"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967576"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -425,12 +425,6 @@ Os usuários com essa função têm permissões globais no Microsoft Skype for B
 > [!NOTE]
 > Na API Microsoft Graph, no Azure AD API do Graph e no Azure AD PowerShell, essa função é identificada como "administrador de serviços do Lync". É "administrador do Skype for Business" na [portal do Azure](https://portal.azure.com/).
 
-### <a name="teams-administratorteams-service-administrator-permissions"></a>[Administrador de equipes](#teams-service-administrator-permissions)
-
-Os usuários nessa função podem gerenciar todos os aspectos da carga de trabalho do Microsoft Teams via Microsoft Teams & o centro de administração do Skype for Business e os respectivos módulos do PowerShell. Isso inclui, entre outras áreas, todas as ferramentas de gerenciamento relacionadas a telefonia, mensagens, reuniões e as próprias equipes. Essa função adicionalmente concede a capacidade de criar e gerenciar todos os grupos do Office 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço.
-> [!NOTE]
-> Na API Microsoft Graph, no Azure AD API do Graph e no Azure AD PowerShell, essa função é identificada como "administrador de serviços de equipes". É "administrador de equipes" na [portal do Azure](https://portal.azure.com).
-
 ### <a name="teams-communications-administratorteams-communications-administrator-permissions"></a>[Administrador de comunicações de equipes](#teams-communications-administrator-permissions)
 
 Os usuários nessa função podem gerenciar aspectos da carga de trabalho das equipes da Microsoft relacionadas à telefonia de & de voz. Isso inclui as ferramentas de gerenciamento para atribuição de número de telefone, políticas de voz e de reunião e acesso completo ao conjunto de ferramentas de análise de chamada.
@@ -442,6 +436,10 @@ Os usuários nessa função podem solucionar problemas de comunicação no Micro
 ### <a name="teams-communications-support-specialistteams-communications-support-specialist-permissions"></a>[Especialista de suporte de comunicações de equipes](#teams-communications-support-specialist-permissions)
 
 Os usuários nessa função podem solucionar problemas de comunicação no Microsoft Teams & Skype for Business usando as ferramentas de solução de problemas do usuário no centro de administração do Microsoft Teams & Skype for Business. Os usuários nessa função só podem exibir detalhes do usuário na chamada para o usuário específico que eles pesquisaram. Essa função não tem acesso para exibir, criar ou gerenciar tíquetes de suporte.
+
+### <a name="teams-service-administratorteams-service-administrator-permissions"></a>[Administrador de serviços de equipes](#teams-service-administrator-permissions)
+
+Os usuários nessa função podem gerenciar todos os aspectos da carga de trabalho do Microsoft Teams via Microsoft Teams & o centro de administração do Skype for Business e os respectivos módulos do PowerShell. Isso inclui, entre outras áreas, todas as ferramentas de gerenciamento relacionadas a telefonia, mensagens, reuniões e as próprias equipes. Essa função adicionalmente concede a capacidade de criar e gerenciar todos os grupos do Office 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço.
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[Administrador de Utilizadores](#user-administrator-permissions)
 

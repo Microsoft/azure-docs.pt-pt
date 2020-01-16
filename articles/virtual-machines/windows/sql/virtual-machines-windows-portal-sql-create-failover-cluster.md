@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792174"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965424"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server em máquinas virtuais do Azure
 
@@ -78,7 +78,7 @@ Uma coisa a ser observada é que, em um cluster de failover convidado da VM IaaS
 Você também deve ter uma compreensão geral dessas tecnologias:
 
 - [Soluções hiperconvergentes que usam Espaços de Armazenamento Diretos no Windows Server 2016](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Grupos de recursos do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o [modo de gerenciamento leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para alterar do modo de extensão completo para leve, exclua o recurso de **máquina virtual do SQL** para as VMs correspondentes e registre-as com o provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso de **máquina virtual do SQL** usando o portal do Azure, **desmarque a caixa de seleção ao lado da máquina virtual correta**. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.
@@ -166,7 +166,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
    1. Selecione a instância padrão.
    1. Remova todos os recursos em **serviços mecanismo de banco de Dadoss**. Não remova os **recursos compartilhados**. Você verá algo semelhante à captura de tela a seguir:
 
-      ![Selecionar recursos](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+      ![Selecionar Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selecione **Avançar**e, em seguida, selecione **remover**.
 
@@ -256,7 +256,7 @@ Para validar o cluster usando o PowerShell, execute o seguinte script de uma ses
 
 Depois de validar o cluster, crie o cluster de failover.
 
-### <a name="create-the-failover-cluster"></a>Criar o cluster de failover
+### <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
 Para criar o cluster de failover, você precisa de:
 - Os nomes das máquinas virtuais que se tornarão os nós de cluster.
@@ -397,7 +397,7 @@ Para criar o balanceador de carga:
 
 1. Selecione **OK** para criar o pool de back-end.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma investigação de integridade do balanceador de carga
+### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma pesquisa de estado de funcionamento do balanceador de carga
 
 1. Na folha balanceador de carga, selecione **investigações de integridade**.
 
@@ -471,7 +471,7 @@ Depois de definir a investigação de cluster, você poderá ver todos os parâm
 
 ## <a name="step-7-test-fci-failover"></a>Etapa 7: testar o failover do FCI
 
-Teste o failover do FCI para validar a funcionalidade do cluster. Execute as seguintes etapas:
+Teste o failover do FCI para validar a funcionalidade do cluster. Siga os passos seguintes:
 
 1. Conecte-se a um dos nós de cluster SQL Server FCI usando o RDP.
 

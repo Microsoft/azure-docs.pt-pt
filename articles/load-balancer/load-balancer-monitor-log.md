@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428838"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965927"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs de Azure Monitor para Load Balancer básica pública
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer visão geral](load-balancer-standard-overview.md) que expõe a telemetria por meio de métricas multidimensionais no Azure monitor.
 
 Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de balanceadores de carga básicos. Alguns desses logs podem ser acessados por meio do Portal. Os logs podem ser transmitidos para um hub de eventos ou um espaço de trabalho Log Analytics. Todos os logs podem ser extraídos do armazenamento de BLOBs do Azure e exibidos em diferentes ferramentas, como Excel e Power BI.  Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
@@ -32,9 +32,9 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 * **Logs de investigação de integridade:** Você pode usar esse log para exibir os problemas detectados por sua investigação de integridade, como o número de instâncias em seu pool de back-end que não estão recebendo solicitações do balanceador de carga devido a falhas de investigação de integridade. Esse log é gravado quando há uma alteração no status da investigação de integridade.
 
 > [!IMPORTANT]
-> Os logs de Azure Monitor atualmente só funcionam para balanceadores de carga básicos públicos. Os logs estão disponíveis somente para recursos implantados no modelo de implantação do Gerenciador de recursos. Você não pode usar logs para recursos no modelo de implantação clássico. Para obter mais informações sobre os modelos de implantação, consulte [noções básicas sobre a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Os logs de Azure Monitor atualmente só funcionam para balanceadores de carga básicos públicos. Os logs estão disponíveis somente para recursos implantados no modelo de implantação do Gerenciador de recursos. Você não pode usar logs para recursos no modelo de implantação clássico. Para obter mais informações sobre os modelos de implantação, consulte [noções básicas sobre a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="enable-logging"></a>Ativar o registo
+## <a name="enable-logging"></a>Ativar registo
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Habilite o log de investigação de integridade e de evento para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
 
@@ -57,7 +57,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com). Se você ainda n�
     1. Marque a caixa de seleção ao lado de **arquivar em uma conta de armazenamento**.
     2. Selecione **Configurar** para abrir o painel **selecionar uma conta de armazenamento** .
     3. Selecione a **assinatura** na qual sua conta de armazenamento foi criada na caixa de pull.
-    4. Selecione o nome da sua conta de armazenamento em **conta de armazenamento** na caixa de pull. 
+    4. Selecione o nome da sua conta de armazenamento em **conta de armazenamento** na caixa de pull.
     5. Selecione OK.
 
     ### <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
@@ -160,7 +160,7 @@ A saída JSON é mostrada no campo Propriedades as informações básicas para o
 
 Você pode exibir e analisar os dados do log de auditoria usando qualquer um dos seguintes métodos:
 
-* **Ferramentas do Azure:** Recupere informações dos logs de auditoria por meio de Azure PowerShell, a CLI (interface de linha de comando) do Azure, a API REST do Azure ou o portal do Azure. Instruções passo a passo para cada método são detalhadas no artigo operações de [auditoria com o Resource Manager](../azure-resource-manager/resource-group-audit.md) .
+* **Ferramentas do Azure:** Recupere informações dos logs de auditoria por meio de Azure PowerShell, a CLI (interface de linha de comando) do Azure, a API REST do Azure ou o portal do Azure. Instruções passo a passo para cada método são detalhadas no artigo operações de [auditoria com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power bi:** Se você ainda não tiver uma conta de [Power bi](https:// .microsoft.com/pricing) , poderá experimentá-la gratuitamente. Usando o [pacote de conteúdo dos logs de auditoria do Azure para Power bi](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), você pode analisar seus dados com painéis pré-configurados ou pode personalizar modos de exibição para atender às suas necessidades.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Exibir e analisar a investigação de integridade e o log de eventos
