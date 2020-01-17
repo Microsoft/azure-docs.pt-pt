@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27d219f46f82f4a74cb5dee0a6b11b673a4a3509
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847223"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155012"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatório para o gerenciamento de senhas do Azure AD
 
@@ -53,7 +53,7 @@ Na experiência de portal do Azure, melhoramos a maneira como você pode exibir 
 
 ### <a name="converged-registration-preview"></a>Registro convergido (versão prévia)
 
-Se você estiver participando da visualização pública do registro convergido, as informações sobre a atividade do usuário nos logs de auditoria serão encontradas nos **métodos de autenticação**do serviço.
+Se você estiver participando da visualização pública do registro convergido, as informações sobre a atividade do usuário nos logs de auditoria serão encontradas em **métodos de autenticação**de > de **segurança** .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 

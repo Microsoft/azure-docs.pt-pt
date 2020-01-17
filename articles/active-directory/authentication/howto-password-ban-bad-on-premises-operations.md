@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8602a9c5b69c47c2f663dab461394ef5e1a9bed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762863"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155054"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção por senha do Azure AD
 
@@ -28,7 +28,7 @@ Siga as orientações no artigo [Configurando a lista de senhas excluídas perso
 
 ## <a name="enable-password-protection"></a>Habilitar proteção por senha
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, **segurança**, métodos de**autenticação**e proteção por **senha**.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **métodos de autenticação** > de **segurança** > **proteção por senha**.
 1. Defina **habilitar proteção por senha no Windows Server Active Directory** como **Sim**
 1. Conforme mencionado no [Guia de implantação](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), é recomendável definir inicialmente o **modo** como **auditoria**
    * Depois de se sentir confortável com o recurso, você pode alternar o **modo** para **imposto**

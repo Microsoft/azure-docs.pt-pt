@@ -1,6 +1,6 @@
 ---
-title: Configurar sua visão geral dos métodos de verificação de dois fatores-Azure Active Directory | Microsoft Docs
-description: Visão geral sobre como configurar seus métodos de verificação de dois fatores para verificação de dois fatores.
+title: O que é a página de verificação adicional? -Azure AD
+description: Como acessar a página de verificação de segurança adicional para verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -8,30 +8,35 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/12/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83bba343ac73fd0df575ae1e8a83c589a0bc15ac
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7dfcc02928cc92aedd0eb0f966bea9804be5fdcc
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616180"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156255"
 ---
-# <a name="set-up-your-two-factor-verification-methods-overview"></a>Configurar a visão geral dos métodos de verificação de dois fatores
+# <a name="what-is-the-additional-verification-page"></a>O que é a página de verificação adicional?
 
-Sua organização ativou a verificação de dois fatores, o que significa que sua entrada de conta corporativa ou de estudante agora requer uma combinação de seu nome de usuário, sua senha e um dispositivo móvel ou telefone. Sua organização ativou essa verificação extra porque é mais segura do que apenas uma senha, contando com duas formas de autenticação: algo que você conhece e algo que você tem com você. A verificação de dois fatores pode ajudar a impedir que hackers mal-intencionados se fingim de ser você, porque mesmo que tenham sua senha, é provável que eles não tenham seu dispositivo também.
+Recebeu um e-mail de uma pessoa do departamento de TI ou do seu chefe a dizer que a organização acrescentou uma verificação de segurança adicional à sua conta. O que é que isso significa? Significa que a organização está a tomar medidas extra para garantir que os utilizadores são quem dizem ser quando iniciam sessão. Essa verificação extra, também conhecida como verificação de dois fatores, é feita por meio de uma combinação de seu nome de usuário, sua senha e um dispositivo móvel ou telefone.
+
+A verificação de dois fatores é mais segura do que apenas uma senha, pois depende de duas formas de autenticação: algo que você conhece e algo que você tem com você. O algo que os utilizadores sabem é a palavra-passe. O algo que têm é um telefone ou dispositivo que costumam utilizar. A verificação de dois fatores pode ajudar a impedir que hackers mal-intencionados se sobrepassem a você, porque mesmo que tenham sua senha, é provável que eles não tenham seu dispositivo também.
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Este artigo destina-se a usuários que tentam usar a verificação de dois fatores com uma conta corporativa ou de estudante (como, alain@contoso.com). Se você for um administrador procurando informações sobre como ativar a verificação de dois fatores para seus funcionários ou outros usuários, consulte a documentação de [autenticação Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Quem decide se você usa esse recurso?
 
 Dependendo de seu tipo de conta, sua organização pode decidir que você deve usar a verificação de dois fatores ou pode decidir por conta própria.
 
-- **Conta escolar ou profissional.** Se você estiver usando uma conta corporativa ou de estudante (por exemplo alain@contoso.com,), cabe à sua organização se você deve usar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Como sua organização decidiu que você deve usar esse recurso, não há como desativá-lo individualmente.
+- **Conta escolar ou profissional.** Se você estiver usando uma conta corporativa ou de estudante (por exemplo, alain@contoso.com), cabe à sua organização se você deve usar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Como sua organização decidiu que você deve usar esse recurso, não há como desativá-lo individualmente.
 
-- **Conta Microsoft pessoais.** Você pode optar por configurar a verificação de dois fatores para suas contas pessoais da Microsoft (por exemplo alain@outlook.com,). Se você estiver tendo problemas com a verificação de dois fatores e seus conta Microsoft pessoais, consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Como você escolhe se deseja usar esse recurso, você pode ativá-lo e desligá-lo sempre que desejar.
+- **Conta Microsoft pessoais.** Você pode optar por configurar a verificação de dois fatores para suas contas pessoais da Microsoft (por exemplo, alain@outlook.com). Se você estiver tendo problemas com a verificação de dois fatores e seus conta Microsoft pessoais, consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Como você escolhe se deseja usar esse recurso, você pode ativá-lo e desligá-lo sempre que desejar.
+
+    >[!Note]
+    >Se você estiver tendo problemas com a verificação de dois fatores e uma de suas contas pessoais da Microsoft (por exemplo, danielle@outlook.com), poderá tentar as sugestões sobre [como usar a verificação em duas etapas com seu conta Microsoft](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
 ## <a name="access-the-additional-security-verification-page"></a>Acessar a página de verificação de segurança adicional
 
@@ -45,7 +50,7 @@ Depois que sua organização ativar e configurar a verificação de dois fatores
 
     A página **verificação de segurança adicional** é exibida.
 
-2. Na página de **verificação de segurança adicional** , você deve decidir qual método de verificação de dois fatores usar para verificar se você é quem diz que está depois de entrar em sua conta corporativa ou de estudante. Você pode selecionar:
+2. Na página de **verificação de segurança adicional** , você deve decidir qual método de verificação de dois fatores usar para verificar se você é quem diz que está depois de entrar em sua conta corporativa ou de estudante. Pode selecionar:
 
     | Método de contacto | Descrição |
     | --- | --- |
@@ -53,7 +58,7 @@ Depois que sua organização ativar e configurar a verificação de dois fatores
     | Telefone de autenticação | <ul><li>**Chamada telefônica** coloca uma chamada de voz automática para o número de telefone que você fornecer. Responda à chamada e pressione a tecla tralha (#) no teclado do telefone para autenticar.</li><li>**Mensagem de texto** encerra uma mensagem de texto que contém um código de verificação. Após o prompt no texto, responda à mensagem de texto ou insira o código de verificação fornecido na interface de entrada.</li></ul> |
     | Telefone do escritório | Faz uma chamada de voz automática para o número de telefone que você fornece. Responda à chamada e pressione a tecla tralha (#) no teclado do telefone para autenticar. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de acessar a página de **verificação de segurança adicional** , você deve selecionar e configurar o método de verificação de dois fatores:
 

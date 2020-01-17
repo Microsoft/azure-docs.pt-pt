@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562179"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154827"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos locais funciona em dispositivos ingressados no Azure AD
 
@@ -24,12 +24,17 @@ Provavelmente não é uma surpresa que um dispositivo ingressado no Azure Active
 
 Este artigo explica como isso funciona.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+ Se as máquinas Unidas do Azure AD não estiverem conectadas à rede da sua organização, uma VPN ou outra infraestrutura de rede será necessária. O SSO local requer comunicação de linha de visão com seus controladores de domínio AD DS locais.
+
 ## <a name="how-it-works"></a>Como funciona 
 
 Como você precisa se lembrar apenas de um único nome de usuário e senha, o SSO simplifica o acesso aos seus recursos e melhora a segurança do seu ambiente. Com um dispositivo ingressado no Azure AD, os usuários já têm uma experiência de SSO para os aplicativos de nuvem em seu ambiente. Se o seu ambiente tiver um AD do Azure e um AD local, provavelmente você desejará expandir o escopo de sua experiência de SSO para seus aplicativos de LOB (linha de negócios) locais, compartilhamentos de arquivos e impressoras.  
 
 Os dispositivos ingressados no Azure AD não têm conhecimento sobre seu ambiente do AD local porque eles não são associados a ele. No entanto, você pode fornecer informações adicionais sobre seu AD local para esses dispositivos com Azure AD Connect.
-Um ambiente que tem ambos, um AD do Azure e um AD local, também é conhecido por um ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha Azure AD Connect implantado para sincronizar suas informações de identidade local para a nuvem. Como parte do processo de sincronização, Azure AD Connect sincroniza informações de domínio local para o Azure AD. Quando um usuário entra em um dispositivo ingressado no Azure AD em um ambiente híbrido:
+
+Um ambiente que tem ambos, um AD do Azure e um AD local, também é conhecido por um ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha Azure AD Connect implantado para sincronizar suas informações de identidade local para a nuvem. Como parte do processo de sincronização, Azure AD Connect sincroniza informações de usuário local para o Azure AD. Quando um usuário entra em um dispositivo ingressado no Azure AD em um ambiente híbrido:
 
 1. O Azure AD envia o nome do domínio local para o qual o usuário é membro de volta para o dispositivo. 
 1. O serviço de autoridade de segurança local (LSA) habilita a autenticação Kerberos no dispositivo.
@@ -44,7 +49,7 @@ Todos os aplicativos configurados para **autenticação integrada do Windows** o
 
 O Windows Hello para empresas requer configuração adicional para habilitar o SSO local de um dispositivo ingressado no Azure AD. Para obter mais informações, consulte [configurar dispositivos ingressados no Azure ad para logon único local usando o Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
-## <a name="what-you-get"></a>O que obtém
+## <a name="what-you-get"></a>O que recebe
 
 Com o SSO, em um dispositivo ingressado no Azure AD, você pode: 
 

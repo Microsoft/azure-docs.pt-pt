@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 1923e26ba0ada7dcf5b8b333150b7cd5b775398b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922430"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121204"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph associações para Azure Functions
 
@@ -207,9 +207,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório-o nome da variável usada no código de função para o token de autenticação. Consulte [usando uma associação de entrada de token de autenticação do código](#token-input-code).|
-|**tipo**||Obrigatório-deve ser definido como `token`.|
-|**direção**||Obrigatório-deve ser definido como `in`.|
+|**name**| n/d |Obrigatório-o nome da variável usada no código de função para o token de autenticação. Consulte [usando uma associação de entrada de token de autenticação do código](#token-input-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `token`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `in`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |
@@ -342,9 +342,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório-o nome da variável usada no código de função para a tabela do Excel. Consulte [usando uma associação de entrada de tabela do Excel do código](#excel-input-code).|
-|**tipo**||Obrigatório-deve ser definido como `excel`.|
-|**direção**||Obrigatório-deve ser definido como `in`.|
+|**name**| n/d |Obrigatório-o nome da variável usada no código de função para a tabela do Excel. Consulte [usando uma associação de entrada de tabela do Excel do código](#excel-input-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `excel`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `in`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |
@@ -504,9 +504,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório-o nome da variável usada no código de função para o token de autenticação. Consulte [usando uma associação de saída de tabela do Excel do código](#excel-output-code).|
-|**tipo**||Obrigatório-deve ser definido como `excel`.|
-|**direção**||Obrigatório-deve ser definido como `out`.|
+|**name**| n/d |Obrigatório-o nome da variável usada no código de função para o token de autenticação. Consulte [usando uma associação de saída de tabela do Excel do código](#excel-output-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `excel`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `out`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**UserId** |**userId** |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |
@@ -650,9 +650,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório-o nome da variável usada no código de função para o arquivo. Consulte [usando uma associação de entrada de arquivo do onedrive do código](#onedrive-input-code).|
-|**tipo**||Obrigatório-deve ser definido como `onedrive`.|
-|**direção**||Obrigatório-deve ser definido como `in`.|
+|**name**| n/d |Obrigatório-o nome da variável usada no código de função para o arquivo. Consulte [usando uma associação de entrada de arquivo do onedrive do código](#onedrive-input-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `onedrive`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `in`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |
@@ -798,9 +798,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório-o nome da variável usada no código de função para o arquivo. Consulte [usando uma associação de saída de arquivo do onedrive do código](#onedrive-output-code).|
-|**tipo**||Obrigatório-deve ser definido como `onedrive`.|
-|**direção**||Obrigatório-deve ser definido como `out`.|
+|**name**| n/d |Obrigatório-o nome da variável usada no código de função para o arquivo. Consulte [usando uma associação de saída de arquivo do onedrive do código](#onedrive-output-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `onedrive`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `out`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**UserId** |**userId** |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |
@@ -949,9 +949,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
-|**tipo**||Obrigatório-deve ser definido como `outlook`.|
-|**direção**||Obrigatório-deve ser definido como `out`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `outlook`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `out`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |
@@ -1092,9 +1092,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
-|**tipo**||Obrigatório-deve ser definido como `graphWebhook`.|
-|**direção**||Obrigatório-deve ser definido como `trigger`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `graphWebhook`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `trigger`.|
 |**resourceType**|**ResourceType**|Obrigatório-o recurso de grafo para o qual essa função deve responder a WebHooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code>-alterações feitas nas mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>-alterações feitas em itens raiz do OneDrive.</li><li><code>#Microsoft.Graph.Contact</code>-alterações feitas em contatos pessoais no Outlook.</li><li><code>#Microsoft.Graph.Event</code>-alterações feitas nos itens do calendário do Outlook.</li></ul>|
 
 > [!Note]
@@ -1244,9 +1244,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
-|**tipo**||Obrigatório-deve ser definido como `graphWebhookSubscription`.|
-|**direção**||Obrigatório-deve ser definido como `in`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `graphWebhookSubscription`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `in`.|
 |**filter**|**Sem**| Se definido como `userFromRequest`, a associação só recuperará as assinaturas pertencentes ao usuário que está chamando (válido somente com o [gatilho http]).| 
 
 ### <a name="webhook-input---usage"></a>Entrada de webhook-uso
@@ -1385,9 +1385,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**||Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
-|**tipo**||Obrigatório-deve ser definido como `graphWebhookSubscription`.|
-|**direção**||Obrigatório-deve ser definido como `out`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para a mensagem de email. Consulte [usando uma associação de saída de mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório-deve ser definido como `graphWebhookSubscription`.|
+|**direção**| n/d |Obrigatório-deve ser definido como `out`.|
 |**identity**|**Identidade**|Obrigatório-a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code>-somente válido com [gatilho http]. Usa a identidade do usuário que está chamando.</li><li><code>userFromId</code>-usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code>-usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code>-usa a identidade do aplicativo de funções.</li></ul>|
 |**userId**|**UserId**  |Necessário se e somente se a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se e somente se a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de funções. |

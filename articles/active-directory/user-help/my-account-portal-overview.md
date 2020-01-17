@@ -1,6 +1,6 @@
 ---
-title: Visão geral do portal de minha conta-Azure Active Directory | Microsoft Docs
-description: Uma visão geral de alto nível e links para obter mais informações sobre o portal da minha conta e seus recursos.
+title: O que é o portal A Minha Conta? -Azure AD
+description: Como acessar o portal da minha conta e seus recursos, incluindo a configuração e o gerenciamento de suas informações de segurança, dispositivos, senha, organizações, privacidade e minhas entradas.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,46 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/28/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d831add42f60df2688b5c846d556f5dea8cef556
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 58e73061406bc1be3f224e5726bdfca5a7553be1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586657"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156138"
 ---
-# <a name="my-account-portal-overview"></a>Visão geral do portal de minha conta
+# <a name="what-is-the-my-account-portal"></a>O que é o portal A Minha Conta?
 
 O portal **minha conta** ajuda você a gerenciar sua conta corporativa ou de estudante Configurando e gerenciando suas informações de segurança, gerenciando suas organizações e dispositivos conectados, exibindo como sua organização usa seus dados.
-
->[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-![Meu Portal de contas, página de visão geral](media/my-account-portal/my-account-portal-overview.png)
-
-## <a name="go-to-the-my-account-portal"></a>Vá para o portal minha conta
 
 Você pode acessar o portal **minha conta** (https://myprofile.microsoft.com), da versão atual de qualquer um dos seguintes navegadores:
 
 - Chrome
 - Microsoft Edge
 - Safari
-- Janelas
+- Firefox
 - Internet Explorer 11
 
-## <a name="my-account-portal-articles"></a>Artigos do portal de minha conta
+![Meu Portal de contas, página de visão geral](media/my-account-portal/my-account-portal-overview.png)
 
-Para obter informações detalhadas e instruções sobre o que está disponível no portal **minha conta** , consulte os seguintes artigos:
+>[!Important]
+>Este artigo destina-se a usuários que estão tentando acessar o portal minha conta para atualizar suas informações de segurança, informações de dispositivo, senha, organizações conectadas, privacidade ou informações de entrada anteriores. Se você for um administrador procurando informações sobre como ativar a autenticação e outros recursos do Azure Active Directory (AD do Azure) para seus funcionários e outros usos, consulte a [documentação do Azure ad para administradores](https://docs.microsoft.com/azure/active-directory/).
 
-|Artigo |Descrição |
-|------|------------|
-| [Adicionar suas informações de segurança](user-help-security-info-overview.md) | Vários artigos com instruções sobre como configurar o aplicativo Microsoft Authenticator, mensagens de texto ou chamadas telefônicas como seu método de verificação. Também inclui artigos sobre como adicionar um endereço de email ou perguntas de segurança predefinidas para que você possa redefinir sua própria senha esquecida, se necessário.|
-| [Exibir ou desabilitar seus dispositivos conectados](my-account-portal-devices-page.md) | Instruções sobre como exibir ou desabilitar todos os dispositivos que você conectou à sua conta corporativa ou de estudante.|
-| [Alterar a senha da sua conta corporativa ou de estudante](my-account-change-password-page.md) | Instruções sobre como alterar a senha para sua conta corporativa ou de estudante. |
-| [Exibir ou deixar suas organizações conectadas](my-account-portal-organizations-page.md) | Instruções sobre como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante.|
-| [Ver as suas informações relacionadas com a privacidade](my-account-portal-privacy-page.md) | Instruções sobre como exibir quais serviços online estão conectados à sua conta corporativa ou de estudante, juntamente com a instrução de termos de uso da sua organização.|
-| [Exibir sua atividade de entrada recente](my-account-portal-sign-ins-page.md) | Instruções sobre como exibir a atividade de entrada para sua conta corporativa ou de estudante. |
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="related-office-content"></a>Conteúdo relacionado do Office
+- Selecione para exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md)
+
+- Exibir ou gerenciar seus [dispositivos](my-account-portal-devices-page.md) conectados
+
+- Exibir e gerenciar suas [organizações](my-account-portal-organizations-page.md)
+
+- Exibir sua [atividade de entrada](my-account-portal-sign-ins-page.md)
+
+- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md)
+
+## <a name="related-microsoft-office-content"></a>Conteúdo de Microsoft Office relacionado
 
 - [Entre para gerenciar seu produto do Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762812"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155456"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -46,7 +46,7 @@ Azure Machine Learning fornece todos os desenvolvedores de ferramentas e cientis
 
 + Scripts r ou notebooks nos quais você usa o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escrever seu próprio código ou usar os módulos do R no designer.
 
-+ [Extensão de Visual Studio Code](how-to-vscode-tools.md)
++ [Extensão de Visual Studio Code](tutorial-setup-vscode-extension.md)
 
 + [CLI do Machine Learning](reference-azure-machine-learning-cli.md)
 
@@ -85,7 +85,7 @@ Quando você tem o modelo correto, pode usá-lo facilmente em um serviço Web, e
 
 Em seguida, você pode gerenciar seus modelos implantados usando o [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk), [Azure Machine Learning Studio](https://ml.azure.com)ou a [CLI do Machine Learning](reference-azure-machine-learning-cli.md).
 
-Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-consume-web-service.md) ou de [forma assíncrona](how-to-run-batch-predictions.md) em grandes quantidades de dados.
+Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-consume-web-service.md) ou de [forma assíncrona](how-to-use-parallel-run-step.md) em grandes quantidades de dados.
 
 E com [pipelines](concept-ml-pipelines.md)avançados de aprendizado de máquina, você pode colaborar em cada etapa de preparação de dados, treinamento de modelo e avaliação, por meio da implantação. Os pipelines permitem que você:
 

@@ -1,6 +1,6 @@
 ---
 title: Comparar serviços de mensagens do Azure
-description: Descreve os três serviços de mensagens do Azure – grade de eventos do Azure, hubs de eventos e barramento de serviço. Recomenda que serviço utilizar para diferentes cenários.
+description: Descreve os três serviços do Azure mensagens - Azure Event Grid, Hubs de eventos e do Service Bus. Recomenda que serviço utilizar para diferentes cenários.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790308"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122207"
 ---
-# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os serviços de mensagens do Azure – grade de eventos, hubs de eventos e barramento de serviço
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços mensagens do Azure - Event Grid, Hubs de eventos e do Service Bus
 
 O Azure oferece três serviços que ajudam a entregar mensagens de eventos numa solução. Esses serviços são:
 
@@ -47,7 +47,7 @@ Uma mensagem são dados não processados produzidos por um serviço e que vão s
 | Serviço | Finalidade | Tipo | Quando utilizar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programação reativa | Distribuição de eventos (discretos) | Reagir a alterações de estado |
-| Hubs de Eventos | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
+| Event Hubs | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
 | Service Bus | Mensagens empresariais de alto valor | Mensagem | Processamento de encomendas e de transações financeiras |
 
 ### <a name="event-grid"></a>Event Grid
@@ -56,7 +56,7 @@ O Event Grid é um backplane de eventos que permite a programação reativa e or
 
 O Event Grid está profundamente integrado nos serviços do Azure e pode ser integrado em serviços de terceiros. Ao eliminar a necessidade de consultas constantes, simplifica o consumo de eventos e reduz os custos. Encaminha, de forma eficiente e fiável, os eventos de recursos do Azure e não Azure. Distribui os eventos para pontos finais de subscritor registado. A mensagem do evento tem as informações que sã precisas para reagir a alterações em serviços e aplicações. O Event Grid não é um pipeline de dados e não entrega o objeto propriamente dito que foi atualizado.
 
-A grade de eventos dá suporte a mensagens mortas para eventos que não são entregues a um ponto de extremidade.
+Event Grid suporta mensagens não entregues para os eventos que não são entregues a um ponto de extremidade.
 
 Tem as seguintes características:
 
@@ -65,7 +65,7 @@ Tem as seguintes características:
 * sem servidor
 * pelo menos uma entrega
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Event Hubs
 
 Os Hubs de Eventos do Azure são um pipeline de macrodados. Facilita a captura, retenção e reprodução de dados de transmissão de telemetria e eventos. Os dados podem ter várias origens em simultâneo. Os Hubs de Eventos permitem que os dados de telemetria e eventos sejam disponibilizados a diversos serviços de análises e infraestruturas de processamento de transmissões em fluxo. Está disponível como fluxos de dados ou lotes de eventos integrados. Este serviço proporciona uma solução única que permite a obtenção de dados rápida para processamento em tempo real, bem como a reprodução repetida dos dados não processados armazenados. Pode capturar os dados de transmissão em fluxo num ficheiro para processamento e análise.
 
@@ -90,7 +90,7 @@ Tem as seguintes características:
 
 ## <a name="use-the-services-together"></a>Utilizar os serviços em conjunto
 
-Em alguns casos, pode utilizar os serviços lado a lado para dar resposta a funções distintas. Por exemplo, um site de comércio eletrónico pode utilizar o Service Bus para processar a encomenda, os Hubs de Eventos para capturar a telemetria do site e o Evento Grid para responder a eventos, como, por exemplo, o envio de um artigo.
+Em alguns casos, pode utilizar os serviços lado a lado para dar resposta a funções distintas. Por exemplo, um site de comércio eletrônico pode usar o barramento de serviço para processar a ordem, os hubs de eventos para capturar a telemetria do site e a grade de eventos para responder a eventos como um item foi enviado.
 
 Noutros casos, pode utilizá-los ao mesmo tempo para formar um pipeline de eventos e dados. O Event Grid é utilizado para responder aos eventos dos outros serviços. Para obter um exemplo de como utilizar o Event Grid com os Hubs de Eventos para migrar dados para um armazém de dados, veja [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) (Transmitir macrodados em fluxo para um armazém de dados). A imagem abaixo mostra o fluxo de trabalho da transmissão dos dados em fluxo.
 

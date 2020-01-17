@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/15/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c78ac615d2a93865721152442461d40925dc088d
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: def954395c0f4f83afe28443ba63c89c41e07eba
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922593"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156748"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -90,11 +90,10 @@ Isso habilita os seguintes cenários:
 
 Todos os eventos são integrados com o Azure Monitor, permitindo que você arquive logs em uma conta de armazenamento, transmita eventos para o Hub de eventos ou envie-os para Azure Monitor logs.
 
-## <a name="pci-soc-and-iso-compliant"></a>Compatível com PCI, SOC e ISO
+## <a name="compliance-certifications"></a>Certificações de conformidade
 
-O Firewall do Azure é o setor de cartão de pagamento (PCI), os controles de organização de serviço (SOC) e o Organização Internacional de Normalização (ISO) em conformidade. Atualmente, ele dá suporte a SOC 1 tipo 2, SOC 2 tipo 2, SOC 3, PCI DSS e ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+O Firewall do Azure é o setor de cartão de pagamento (PCI), os controles de organização de serviço (SOC) e o Organização Internacional de Normalização (ISO) em conformidade. Para obter mais informações, consulte [certificações de conformidade do firewall do Azure](compliance-certifications.md).
 
-Para obter mais informações, consulte o [Guia de conformidade da Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

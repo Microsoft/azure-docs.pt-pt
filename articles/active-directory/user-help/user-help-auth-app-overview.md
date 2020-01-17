@@ -1,5 +1,5 @@
 ---
-title: Descrição geral da aplicação Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: O que é a aplicação Microsoft Authenticator? -O azure Active Directory | Documentos da Microsoft
 description: Saiba mais sobre o aplicativo Microsoft Authenticator, incluindo o que ele é, como ele funciona e quais informações estão incluídas nesta seção do conteúdo.
 services: active-directory
 author: eross-msft
@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 468005094ab8a9c42d7eacdfefa990565a3297f3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382347"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155813"
 ---
-# <a name="what-is-the-microsoft-authenticator-app"></a>O que é o aplicativo Microsoft Authenticator?
-
->[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+# <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 
 O aplicativo Microsoft Authenticator ajuda você a entrar em suas contas se usar a verificação de dois fatores. A verificação de dois fatores ajuda você a acessar suas contas com mais segurança, especialmente ao mesmo tempo em que exibe informações confidenciais. Como as senhas podem ser esquecidas, roubadas ou comprometidas, a verificação de dois fatores é uma etapa de segurança adicional que ajuda a proteger sua conta, dificultando a interrupção de outras pessoas.
 
@@ -37,18 +34,16 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 > [!Important]
 > O aplicativo Microsoft Authenticator funciona com qualquer conta que usa a verificação de dois fatores e dá suporte aos padrões TOTP (senha de uso único) com base no tempo.
 >
-> Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa aparecer no aplicativo, a conta não está realmente configurada para atuar como um método de verificação até que você conclua o processo de registro. Para obter mais informações, consulte [adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
-> 
-> Se você estiver tendo problemas para entrar em sua conta, consulte [quando não é possível entrar em seu conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda. Obtenha mais informações sobre o que fazer ao receber a mensagem ["esse conta Microsoft não existe"](https://support.microsoft.com/help/13811) ao tentar entrar no seu conta Microsoft.
+>Este artigo destina-se a usuários tentando baixar e usar o aplicativo Microsoft Authenticator como um método de verificação de segurança. Se você for um administrador procurando informações sobre como ativar a entrada sem senha usando o aplicativo autenticador para seus funcionários e outros usos, consulte Habilitar a entrada sem [senha com o aplicativo Microsoft Authenticator (versão prévia)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
 
 ## <a name="terminology"></a>Terminologia
 
-| Termo|Descrição|
+| Duração|Descrição|
 | ----|-----------|
 | Verificação de dois fatores | Um processo de verificação que exige que você use especificamente apenas duas partes de informações de verificação, como uma senha e um PIN. O aplicativo Microsoft Authenticator dá suporte à verificação padrão de dois fatores e à entrada sem senha. |
-| Multi-factor authentication (MFA) | Toda a verificação de dois fatores é a autenticação multifator, exigindo que você use *pelo menos* duas partes de informações de verificação, com base nos requisitos da sua organização. |
+| Multi-Factor Authentication (MFA) | Toda a verificação de dois fatores é a autenticação multifator, exigindo que você use *pelo menos* duas partes de informações de verificação, com base nos requisitos da sua organização. |
 | Conta Microsoft (também denominada, MSA) | Você cria suas próprias contas pessoais, para obter acesso aos seus produtos e serviços de nuvem da Microsoft orientados ao consumidor, como Outlook, OneDrive, Xbox LIVE ou Office 365. Sua conta Microsoft é criada e armazenada no sistema de contas de identidades de consumidor de Microsoft que é executado pela Microsoft. |
-| Conta escolar ou profissional | Sua organização cria sua conta corporativa ou de estudante ( alain@contoso.comcomo) para permitir que você acesse recursos internos e potencialmente restritos, como Microsoft Azure, Windows Intune e Office 365. |
+| Conta escolar ou profissional | Sua organização cria sua conta corporativa ou de estudante (como alain@contoso.com) para permitir que você acesse recursos internos e potencialmente restritos, como Microsoft Azure, Windows Intune e Office 365. |
 | Código de verificação | O código de seis dígitos que aparece no aplicativo autenticador, em cada conta adicionada. O código de verificação é alterado a cada 30 segundos, impedindo que alguém use um código várias vezes. Isso também é conhecido como uma senha de uso único (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Como a verificação de dois fatores funciona com o aplicativo
@@ -69,13 +64,13 @@ Se você usar um PIN para concluir o processo de autenticação, poderá configu
 
 Dependendo de seu tipo de conta, sua organização pode decidir que você deve usar a verificação de dois fatores ou pode decidir por conta própria.
 
-- **Conta escolar ou profissional.** Se você estiver usando uma conta corporativa ou de estudante (por exemplo alain@contoso.com,), cabe à sua organização se você deve usar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Para obter mais informações sobre como adicionar sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator, consulte [adicionar suas contas corporativas ou de estudante](user-help-auth-app-add-work-school-account.md).
+- **Conta escolar ou profissional.** Se você estiver usando uma conta corporativa ou de estudante (por exemplo, alain@contoso.com), cabe à sua organização se você deve usar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Para obter mais informações sobre como adicionar sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator, consulte [adicionar suas contas corporativas ou de estudante](user-help-auth-app-add-work-school-account.md).
 
-- **Conta Microsoft pessoais.** Você pode optar por configurar a verificação de dois fatores para suas contas pessoais da Microsoft (por exemplo alain@outlook.com,). Para obter mais informações sobre como adicionar seus conta Microsoft pessoais, consulte [adicionar suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).
+- **Conta Microsoft pessoais.** Você pode optar por configurar a verificação de dois fatores para suas contas pessoais da Microsoft (por exemplo, alain@outlook.com). Para obter mais informações sobre como adicionar seus conta Microsoft pessoais, consulte [adicionar suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).
 
-- **Não conta Microsoft.** Você pode optar por configurar a verificação de dois fatores para suas contas que não são da Microsoft (por alain@gmail.comexemplo,). Suas contas que não são da Microsoft podem não usar o termo de verificação de dois fatores, mas você deve ser capaz de encontrar o recurso dentro das configurações de **segurança** ou de **entrada** . O aplicativo Microsoft Authenticator funciona com qualquer conta que dê suporte aos padrões TOTP. Para obter mais informações sobre como adicionar suas contas que não são da Microsoft, consulte [adicionar suas contas que não são da Microsoft](user-help-auth-app-add-non-ms-account.md).
+- **Não conta Microsoft.** Você pode optar por configurar a verificação de dois fatores para suas contas que não são da Microsoft (por exemplo, alain@gmail.com). Suas contas que não são da Microsoft podem não usar o termo de verificação de dois fatores, mas você deve ser capaz de encontrar o recurso dentro das configurações de **segurança** ou de **entrada** . O aplicativo Microsoft Authenticator funciona com qualquer conta que dê suporte aos padrões TOTP. Para obter mais informações sobre como adicionar suas contas que não são da Microsoft, consulte [adicionar suas contas que não são da Microsoft](user-help-auth-app-add-non-ms-account.md).
 
-## <a name="in-this-section"></a>Nesta seção
+## <a name="in-this-section"></a>Nesta secção
 
 | Artigo | Descrição |
 | ------ | ------------ |

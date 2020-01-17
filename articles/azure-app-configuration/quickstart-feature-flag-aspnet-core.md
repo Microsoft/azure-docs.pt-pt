@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 1b36bc1b1f28c687450acad4cc61fa5442cff082
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e91de93c34189cf5506ebf93689a5a9b5c567394
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184991"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121401"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -38,7 +38,7 @@ As bibliotecas de gerenciamento de recursos do .NET Core estendem a estrutura co
 
 6. Selecione **Gerenciador de recursos** >  **+ Adicionar** para adicionar os seguintes sinalizadores de recurso:
 
-    | Chave | State |
+    | Chave | Estado |
     |---|---|
     | Beta | Desativado |
 
@@ -84,8 +84,8 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 1. Adicione referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` e aos pacotes NuGet `Microsoft.FeatureManagement.AspNetCore` executando os seguintes comandos:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. Execute o seguinte comando para restaurar os pacotes para seu projeto:
@@ -107,12 +107,6 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     Você usa o Gerenciador de segredo somente para testar o aplicativo Web localmente. Ao implantar o aplicativo no [serviço Azure app](https://azure.microsoft.com/services/app-service), por exemplo, você usa uma configuração de aplicativo denominada **cadeias de conexão** no serviço de aplicativo em vez de usar o Gerenciador de segredo para armazenar a cadeia de conexão.
 
     Você pode acessar esse segredo com a API de configuração do aplicativo. Dois-pontos (:) funciona no nome da configuração com a API de configuração de aplicativo em todas as plataformas com suporte. Consulte [configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
-
-1. Abra *Program.cs*e adicione uma referência ao provedor de configuração do aplicativo .NET Core:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    ```
 
 1. Atualize o método de `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration()`.
     
@@ -282,11 +276,11 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 1. Selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
-    | Chave | State |
+    | Chave | Estado |
     |---|---|
     | Beta | Ativado |
 
@@ -300,7 +294,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou para gerenciar recursos em um aplicativo Web ASP.NET Core por meio das [bibliotecas de gerenciamento de recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 

@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045635"
+ms.locfileid: "76121085"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Link privado para o banco de dados SQL do Azure e data warehouse (visualização)
 
@@ -43,8 +43,6 @@ Com o link privado, os clientes agora podem configurar controles de acesso à re
 Quando os clientes se conectam ao ponto de extremidade público de computadores locais, seu endereço IP precisa ser adicionado ao firewall baseado em IP usando uma [regra de firewall de nível de servidor](sql-database-server-level-firewall-rule.md). Embora esse modelo funcione bem para permitir o acesso a computadores individuais para cargas de trabalho de desenvolvimento ou teste, é difícil gerenciar em um ambiente de produção.
 
 Com o link privado, os clientes podem habilitar o acesso entre instalações ao ponto de extremidade privado usando o [ExpressRoute](../expressroute/expressroute-introduction.md), o emparelhamento privado ou o túnel de VPN. Os clientes podem então desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP para permitir qualquer endereço IP.
-
-Com o link privado, os clientes podem habilitar o acesso entre instalações ao ponto de extremidade privado usando o túnel de VPN ou o emparelhamento privado do ER (Express Route). Em seguida, eles podem desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o link privado para o banco de dados SQL do Azure 
 

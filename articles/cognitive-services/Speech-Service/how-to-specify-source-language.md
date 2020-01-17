@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4f4dd3c1e23855a8a1a69dac72c232779206f1d
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109949"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121714"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Especificar o idioma de origem de fala para texto
 
@@ -26,23 +26,28 @@ Neste artigo, você aprenderá a especificar o idioma de origem para uma entrada
 
 ## <a name="how-to-specify-source-language-in-c"></a>Como especificar o idioma de origem noC#
 
-A primeira etapa é criar um `SpeechConfig`:
+Neste exemplo, o idioma de origem é fornecido explicitamente como um parâmetro usando `SpeechRecognizer` construção.
 
 ```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-Em seguida, especifique o idioma de origem do seu áudio com `SpeechRecognitionLanguage`:
+Neste exemplo, o idioma de origem é fornecido usando `SourceLanguageConfig`. Em seguida, a `sourceLanguageConfig` é passada como um parâmetro para `SpeechRecognizer` construção.
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "de-DE";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-Se você estiver usando um modelo personalizado para reconhecimento, poderá especificar o ponto de extremidade com `EndpointId`:
+Neste exemplo, o idioma de origem e o ponto de extremidade personalizado são fornecidos usando `SourceLanguageConfig`. Em seguida, a `sourceLanguageConfig` é passada como um parâmetro para `SpeechRecognizer` construção.
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint ID for your custom model.";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
+
+>[!Note]
+> os métodos `SpeechRecognitionLanguage` e `EndpointId` definidos são preteridos da classe `SpeechConfig` C#no. O uso desses métodos é desencorajado e não deve ser usado ao construir um `SpeechRecognizer`.
 
 ::: zone-end
 

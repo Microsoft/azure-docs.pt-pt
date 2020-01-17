@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ef70c211c395556a4c15ff06e65098e8aaac32ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971095"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120269"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor configuração de chave gerenciada pelo cliente 
 
@@ -378,8 +378,6 @@ Se você atualizar sua chave em Key Vault e não atualizar os novos detalhes do 
 
 - A criptografia CMK se aplica a dados recentemente incluídos após a configuração do CMK. Dados que foram ingeridos antes da configuração do CMK, permanecem criptografados com a chave da Microsoft. Você pode consultar dados antes e depois da configuração diretamente.
 
-- O recurso CMK é regional – seu Azure Key Vault, o recurso de *cluster* e os espaços de trabalho associados devem estar na mesma região, mas podem estar em assinaturas diferentes.
-
 - Quando o espaço de trabalho está associado a um recurso de *cluster* , ele não pode ser desassociado do recurso de *cluster* , pois os dados são criptografados com sua chave e não podem ser acessados sem o Kek no Azure Key Vault.
 
 - O Azure Key Vault deve ser configurado como recuperável. Essas propriedades não são habilitadas por padrão e devem ser configuradas usando a CLI e o PowerShell:
@@ -391,9 +389,9 @@ Se você atualizar sua chave em Key Vault e não atualizar os novos detalhes do 
 
 - A movimentação de recursos de *cluster* para outro grupo de recursos ou assinatura não tem suporte no momento.
 
-- A associação de espaço de trabalho ao recurso de *cluster* falhará se o recurso de *cluster* estiver em um locatário diferente.
+- Seu Azure Key Vault, recurso de *cluster* e espaços de trabalho associados devem estar na mesma região e no mesmo locatário do Azure Active Directory (AD do Azure), mas podem estar em assinaturas diferentes.
 
--   A associação de espaço de trabalho ao recurso de *cluster* falhará se estiver associada a outro recurso de *cluster*
+- A associação de espaço de trabalho ao recurso de *cluster* falhará se estiver associada a outro recurso de *cluster*
 
 ## <a name="troubleshooting-and-management"></a>Solução de problemas e gerenciamento
 
@@ -557,7 +555,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",
