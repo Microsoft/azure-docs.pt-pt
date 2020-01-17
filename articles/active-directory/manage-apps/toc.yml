@@ -139,8 +139,8 @@
               href: configure-linked-sign-on.md
         - name: Atribuir utilizadores e gerir o acesso às aplicações
           items:
-            - name: Configurar o consentimento do utilizador
-              href: configure-user-consent.md
+            - name: Gerir e avaliar pedidos de consentimento
+              href: manage-consent-requests.md
             - name: Conceder consentimento de administrador ao nível do inquilino
               href: grant-admin-consent.md
             - name: Configurar o fluxo de trabalho de consentimento do administrador (pré-visualização)

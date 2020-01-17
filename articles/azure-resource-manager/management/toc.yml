@@ -8,6 +8,8 @@
   items:
     - name: Subscrição e limites do serviço
       href: azure-subscription-service-limits.md
+    - name: Regras de nome de recurso
+      href: resource-name-rules.md
     - name: Implementação clássica e Resource Manager
       href: deployment-models.md
     - name: Atributos de segurança comuns do Azure

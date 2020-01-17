@@ -50,6 +50,8 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
+    - name: Componentes e limitações
+      href: concepts-limitations.md
     - name: Monitorização do estado de funcionamento
       items:
         - name: Sondas do estado de funcionamento

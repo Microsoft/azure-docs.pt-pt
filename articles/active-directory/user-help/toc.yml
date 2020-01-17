@@ -2,44 +2,36 @@
   href: index.yml
 - name: Ajuda de verificação em dois passos
   items:
-    - name: Descrição geral
-      href: user-help-two-step-verification-overview.md
-    - name: Configurar os métodos de verificação de dois fatores
-      items:
-        - name: Descrição geral
-          href: multi-factor-authentication-end-user-first-time.md
-        - name: Configurar uma aplicação de autenticação
-          href: multi-factor-authentication-setup-auth-app.md
-        - name: Configurar um dispositivo móvel
-          href: multi-factor-authentication-setup-phone-number.md
-        - name: Configurar um telefone do escritório
-          href: multi-factor-authentication-setup-office-phone.md
+    - name: O que é a página Verificação adicional?
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configurar uma aplicação de autenticação
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Configurar um dispositivo móvel
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Configurar um telefone do escritório
+      href: multi-factor-authentication-setup-office-phone.md
     - name: Gerir as suas definições
       href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Obter ajuda
-      href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Gerir as palavras-passe de aplicação
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Como iniciar a sessão
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Obter ajuda
+      href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Ajuda na reposição da palavra-passe
   items:
-    - name: Descrição geral
-      href: user-help-password-reset-overview.md
     - name: Inscreva-se para a reposição de palavra-passe
       href: active-directory-passwords-reset-register.md
     - name: Repor a palavra-passe
       href: active-directory-passwords-update-your-own-password.md
 - name: Ajuda da aplicação do Microsoft Authenticator
   items:
-    - name: Descrição geral
+    - name: O que é a aplicação Microsoft Authenticator?
       href: user-help-auth-app-overview.md
     - name: Transferir e instalar a aplicação
       href: user-help-auth-app-download-install.md
     - name: Adicionar contas
       items:
-        - name: Descrição geral
-          href: user-help-auth-app-add-account-overview.md
         - name: Adicionar uma conta escolar ou profissional
           href: user-help-auth-app-add-work-school-account.md
         - name: Adicionar uma conta Microsoft pessoal
@@ -56,10 +48,10 @@
       href: user-help-auth-app-faq.md
 - name: Ajuda do portal A Minha Conta
   items:
-    - name: Descrição geral
+    - name: O que é o portal A Minha Conta?
       href: my-account-portal-overview.md
     - name: Gerir as suas informações de segurança
-      href: user-help-security-info-overview.md
+      href: security-info-setup-signin.md
     - name: Gerir os seus dispositivos ligados
       href: my-account-portal-devices-page.md
     - name: Alterar a palavra-passe
@@ -72,14 +64,10 @@
       href: my-account-portal-sign-ins-page.md
 - name: Ajuda de informações de segurança (pré-visualização)
   items:
-    - name: Descrição geral
-      href: user-help-security-info-overview.md
     - name: Adicionar informações de segurança durante o início de sessão
       href: security-info-setup-signin.md
     - name: Adicionar ou atualizar os métodos das informações de segurança
       items:
-        - name: Descrição geral
-          href: security-info-add-update-methods-overview.md
         - name: Configurar uma aplicação de autenticação
           href: security-info-setup-auth-app.md
         - name: Configurar mensagens de texto
@@ -98,8 +86,6 @@
       href: user-help-sign-in.md?toc=./toc.json
 - name: Ajuda a gerir dispositivos
   items:
-    - name: Descrição geral
-      href: user-help-device-mgmt-overview.md
     - name: Associar o seu dispositivo de trabalho
       href: user-help-join-device-on-network.md
     - name: Registar o seu dispositivo pessoal para o trabalho
@@ -108,8 +94,6 @@
       href: user-help-device-remediation.md
 - name: Ajuda do portal das Minhas Aplicações
   items:
-    - name: Descrição geral
-      href: my-apps-portal-end-user-overview.md
     - name: Aceder e utilizar o portal As Minhas Aplicações
       href: my-apps-portal-end-user-access.md
     - name: Atualizar as suas informações de perfil e de conta
@@ -122,8 +106,6 @@
       href: my-apps-portal-end-user-troubleshoot.md
 - name: Ajuda do portal As Minhas Aplicações (pré-visualização)
   items:
-    - name: Descrição geral
-      href: my-applications-portal-overview.md
     - name: Aceder e utilizar o portal As Minhas Aplicações
       href: my-applications-portal-access.md
     - name: Aceder e utilizar áreas de trabalho

@@ -54,6 +54,8 @@
       href: spring-cloud-service-registration.md
     - name: Analisar os registos de aplicações e as Métricas
       href: diagnostic-services.md
+    - name: Transmissão em fluxo de registos do Azure Spring Cloud para disponibilidade instantânea
+      href: spring-cloud-howto-log-streaming.md
     - name: Automatizar o pipeline CI/CD no Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
     - name: Utilizar o armazenamento persistente no Azure Spring Cloud

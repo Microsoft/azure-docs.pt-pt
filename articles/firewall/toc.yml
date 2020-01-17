@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: Etiquetas de serviço
       href: service-tags.md
+    - name: Certificações de conformidade
+      href: compliance-certifications.md
 - name: Guias de procedimentos
   items:
     - name: Implementar com o Azure PowerShell

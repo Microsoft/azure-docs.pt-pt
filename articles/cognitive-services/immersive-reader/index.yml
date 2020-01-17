@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 08/29/2019
-  ms.openlocfilehash: 1d246396e8d6a5595cff6100ac0cae1032ce2af4
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.openlocfilehash: fefffb8e5ab5ab31208ca34e2ea85c174f442d18
+  ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945523"
+  ms.lasthandoff: 01/16/2020
+  ms.locfileid: "76045334"
 landingContent:
 - title: Sobre a Leitura Avançada
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
     links:
     - text: Python
       url: tutorial-python.md
+    - text: Utilizar vários recursos de Leitura Avançada
+      url: tutorial-multiple-resources.md
 - title: Explorar a Leitura Avançada
   linkLists:
   - linkListType: how-to-guide

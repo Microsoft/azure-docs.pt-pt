@@ -310,15 +310,9 @@
         - name: Consumir em tempo real
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Executar predições em lote
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions.md
         - name: Predições em lote de estruturador
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
-        - name: Depurar e resolver problemas de predições de lote
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-batch-predictions.md
     - name: Monitorizar modelos
       items:
         - name: Recolher e avaliar dados do modelo
@@ -343,6 +337,12 @@
         - name: 'Estruturador: Preparar novamente com pipelines publicados'
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Utilizar passo de execução paralela
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: Depurar e resolver problemas de execução paralela
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
     - name: Gerir quotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
