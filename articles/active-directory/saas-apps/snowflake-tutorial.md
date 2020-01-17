@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fda662d7de66bfb56feba8f405bd0e52c4cf3e76
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972562"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: integração do Azure Active Directory com o floco de neve
 
@@ -116,6 +116,8 @@ Para configurar o logon único do Azure AD com o floco de neve, execute as segui
     ![Informações de logon único de domínio e URLs do floco de neve](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    
+    Na caixa de texto **URL de logout** , digite uma URL usando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do floco de neve](https://support.snowflake.net/s/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.

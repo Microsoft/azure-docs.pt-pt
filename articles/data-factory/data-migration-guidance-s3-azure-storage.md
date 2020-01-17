@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927481"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122649"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure 
 
@@ -47,7 +47,7 @@ A figura acima ilustra como você pode obter grandes velocidades de movimentaç�
 
 Dentro de uma única execução da atividade de cópia, o ADF tem um mecanismo de repetição interno para que possa lidar com um certo nível de falhas transitórias nos armazenamentos de dados ou na rede subjacente. 
 
-Ao fazer cópias binárias de S3 para BLOB e de S3 para ADLS Gen2, o ADF executa automaticamente o ponto de verificação.  Se uma execução de atividade de cópia tiver falhado ou atingido o tempo limite, em uma nova tentativa subsequente (certifique-se de repetir a contagem > 1), a cópia será retomada do último ponto de falha em vez de começar do início. 
+Ao fazer cópias binárias de S3 para BLOB e de S3 para ADLS Gen2, o ADF executa automaticamente o ponto de verificação.  Se uma execução da atividade de cópia tiver falhado ou expirar, em uma nova tentativa subsequente, a cópia será retomada do último ponto de falha em vez de começar do início. 
 
 ## <a name="network-security"></a>Segurança da rede 
 
@@ -86,7 +86,7 @@ Migrar dados por link privado:
 
 ### <a name="initial-snapshot-data-migration"></a>Migração de dados de instantâneo inicial 
 
-A partição de dados é recomendada especialmente ao migrar mais de 10 TB de dados.  Para particionar os dados, aproveite a configuração ' prefix ' para filtrar as pastas e os arquivos no Amazon S3 por nome e, em seguida, cada trabalho de cópia do ADF pode copiar uma partição de cada vez.  Você pode executar vários trabalhos de cópia do ADF simultaneamente para obter uma melhor taxa de transferência. 
+A partição de dados é recomendada especialmente ao migrar mais de 100 TB de dados.  Para particionar os dados, aproveite a configuração ' prefix ' para filtrar as pastas e os arquivos no Amazon S3 por nome e, em seguida, cada trabalho de cópia do ADF pode copiar uma partição de cada vez.  Você pode executar vários trabalhos de cópia do ADF simultaneamente para obter uma melhor taxa de transferência. 
 
 Se qualquer um dos trabalhos de cópia falhar devido a um problema transitório de rede ou de armazenamento de dados, você poderá executar novamente o trabalho de cópia com falha para recarregar essa partição específica novamente do AWS S3.  Todos os outros trabalhos de cópia que carregam outras partições não serão afetados. 
 

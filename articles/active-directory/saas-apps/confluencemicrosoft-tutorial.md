@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com o SSO do SAML para o Confluence da Microsoft | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o SSO do SAML para o Confluence da Microsoft | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SSO do SAML para o Confluence da Microsoft.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e6ea52474f3b352fabf19050f20012438e9d0c19
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960084"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120613"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o SSO do SAML para o Confluence da Microsoft
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o SSO do SAML para o Confluence da Microsoft
 
 Neste tutorial, você aprenderá a integrar o SSO do SAML para o Confluence da Microsoft com o Azure Active Directory (Azure AD). Ao integrar o SSO do SAML para o Confluence da Microsoft ao Azure AD, você pode:
 
@@ -63,25 +63,9 @@ Para começar, você precisa dos seguintes itens:
 
 A partir de agora, há suporte para as seguintes versões do Confluence:
 
-- Confluence 5,0 a 5,10
-- Confluence 6.0.1
-- Confluence 6.1.1
-- Confluence 6.2.1
-- Confluence 6.3.4
-- Confluence 6.4.0
-- Confluence 6.5.0
-- Confluence 6.6.2
-- Confluence 6.7.0
-- Confluence 6.8.1
-- Confluence 6.9.0
-- Confluence 6.10.0
-- Confluence 6.10.3
-- Confluence 6.11.0
-- Confluence 6.12.0
-- Confluence 6.13.5
-- Confluence 6.15.3
-- Confluence 6.15.4
-- Confluence 6.15.8
+- Confluence: 5,0 a 5,10
+- Confluence: 6.0.1 a 6.15.9
+- Confluence: 7.0.1 para 7.1.0
 
 > [!NOTE]
 > Observe que nosso plug-in Confluence também funciona no Ubuntu versão 16, 4

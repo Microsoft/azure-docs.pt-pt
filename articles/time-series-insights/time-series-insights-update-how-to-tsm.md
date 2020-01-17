@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497734"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152362"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na visualização Azure Time Series Insights
 
@@ -64,9 +64,9 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 ### <a name="delete-an-instance"></a>Excluir uma instância
 
-1. Selecione o tipo e selecione o ícone **excluir** ou **perder lixeira**.
+1. Selecione a instância e selecione o ícone **excluir** ou **perder lixeira**.
 
-   [![excluir um tipo selecionando excluir.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [![excluir uma instância selecionando excluir.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
 1. Confirme a exclusão selecionando **excluir**.
 

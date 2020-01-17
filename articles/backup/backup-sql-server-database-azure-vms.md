@@ -4,12 +4,12 @@ description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: fc0c3127594fe3ca90b0a66ce548f471c55f4e5f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611394"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156476"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a:
 
 Antes de fazer backup de um banco de dados SQL Server, verifique os seguintes critérios:
 
-1. Identifique ou crie um [cofre dos serviços de recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região ou localidade que a VM que hospeda a instância de SQL Server.
+1. Identifique ou crie um [cofre dos serviços de recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região e assinatura que a VM que hospeda a instância de SQL Server.
 2. Verifique se a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Certifique-se de que os bancos de dados do SQL Server seguem as [diretrizes de nomenclatura para o backup do Azure](#database-naming-guidelines-for-azure-backup).
 4. Verifique se você não tem outras soluções de backup habilitadas para o banco de dados. Desabilite todos os outros backups de SQL Server antes de fazer backup do banco de dados.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928600"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120546"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de aplicativos móveis para Azure Functions 
 
@@ -38,7 +38,7 @@ A associação de entrada dos aplicativos móveis carrega um registro de um pont
 Veja o exemplo de idioma específico:
 
 * [Script do c# (.csx)](#input---c-script-example)
-* JavaScript
+* Javascript
 
 ### <a name="input---c-script-example"></a>Exemplo de C# script de entrada
 
@@ -136,9 +136,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo**|| Deve ser definido como "mobiletable"|
-| **direção**||Deve ser definido como "in"|
-| **name**|| Nome do parâmetro de entrada na assinatura de função.|
+| **tipo**| n/d | Deve ser definido como "mobiletable"|
+| **direção**| n/d |Deve ser definido como "in"|
+| **name**| n/d | Nome do parâmetro de entrada na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
 | **id**| **Id** | O identificador do registro a ser recuperado. Pode ser estático ou baseado no gatilho que invoca a função. Por exemplo, se você usar um gatilho de fila para sua função, `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
 |**ligação**|**ligação**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias em seu aplicativo móvel. Crie uma configuração de aplicativo em seu aplicativo de funções que contenha a URL do aplicativo móvel e, em seguida, especifique o nome da configuração do aplicativo na propriedade `connection` em sua associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
@@ -294,9 +294,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo**|| Deve ser definido como "mobiletable"|
-| **direção**||Deve ser definido como "out"|
-| **name**|| Nome do parâmetro de saída na assinatura de função.|
+| **tipo**| n/d | Deve ser definido como "mobiletable"|
+| **direção**| n/d |Deve ser definido como "out"|
+| **name**| n/d | Nome do parâmetro de saída na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
 |**ligação**|**MobileAppUriSetting**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias em seu aplicativo móvel. Crie uma configuração de aplicativo em seu aplicativo de funções que contenha a URL do aplicativo móvel e, em seguida, especifique o nome da configuração do aplicativo na propriedade `connection` em sua associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|O nome de uma configuração de aplicativo que tem a chave de API do aplicativo móvel. Forneça a chave de API se você [implementar uma chave de API no back-end do aplicativo móvel do node. js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave de API no back-end do aplicativo móvel do .net](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma configuração de aplicativo em seu aplicativo de funções que contém a chave de API e, em seguida, adicione a propriedade `apiKey` em sua associação de entrada com o nome da configuração do aplicativo. |

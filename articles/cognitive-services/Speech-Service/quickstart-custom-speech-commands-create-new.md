@@ -3,19 +3,19 @@ title: 'Início rápido: criar um comando personalizado (versão prévia) – se
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você cria e testa um aplicativo de comandos personalizados hospedado.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446896"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155592"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 
@@ -24,7 +24,7 @@ O aplicativo reconhecerá um expressão como "ligar a TV" e responderá com uma 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura de fala. 
+- Uma assinatura de fala.
 
 Se você não tiver uma assinatura de fala, poderá criar uma navegando até o [Speech Studio](https://speech.microsoft.com/) e selecionando **criar um recurso de fala**.
 
@@ -73,7 +73,7 @@ Sua exibição agora deve ser uma visão geral do aplicativo de comandos persona
 
 ## <a name="update-luis-resources-optional"></a>Atualizar recursos do LUIS (opcional)
 
-Você pode atualizar o conjunto de recursos de criação na janela novo projeto e definir um recurso de previsão usado para reconhecer entradas durante o tempo de execução. 
+Você pode atualizar o conjunto de recursos de criação na janela novo projeto e definir um recurso de previsão usado para reconhecer entradas durante o tempo de execução.
 
 > [!NOTE]
 > Você precisará definir um recurso de previsão antes que seu aplicativo solicite previsões além das 1.000 solicitações fornecidas pelo recurso de criação.

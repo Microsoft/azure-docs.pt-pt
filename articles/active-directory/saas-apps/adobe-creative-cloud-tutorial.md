@@ -16,14 +16,17 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815cffab118f6900c1c9d42a7e44821f8af62532
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 25dd638c15fecbef787e4ceabea9ae7cb4359582
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081976"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Adobe Creative Cloud
+
+> [!NOTE]
+> Este artigo descreve a configuração personalizada baseada em SAML do console de administração do Adobe para Azure Active Directory (AD do Azure). Para configurações novas da marca, recomendamos que você use o [conector do AD do Azure](https://helpx.adobe.com/enterprise/using/sso-setup-azure.html). O Azure AD Connector pode ser configurado em minutos e reduz o processo de declaração de domínio, configuração de logon único e sincronização de usuário.
 
 Neste tutorial, você aprenderá a integrar o Adobe Creative Cloud com o Azure Active Directory (AD do Azure). Ao integrar o Adobe Creative Cloud ao Azure AD, você pode:
 
@@ -96,20 +99,20 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Adobe Creative Cloud aplicativo espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 1. Além de acima, Adobe Creative Cloud aplicativo espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
 
     | Nome | Atributo de origem|
     |----- | --------- |
     | FirstName | user.givenname |
-    | LastName | User. sobrenome |
-    | Email | user.mail |
+    | Apelido | User. sobrenome |
+    | E-mail | user.mail |
 
     > [!NOTE]
     > Os usuários precisam ter uma licença válida do Office 365 ExO para que o valor de declaração de email seja preenchido na resposta SAML.
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **dados de Federação**e, em seguida, selecione **baixar** para baixar o arquivo de metadados XML e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
@@ -149,31 +152,26 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-adobe-creative-cloud-sso"></a>Configurar Adobe Creative Cloud SSO
 
-1. Em uma janela diferente do navegador da Web, entre no [console do administrador do Adobe](https://adminconsole.adobe.com) como administrador.
+1. Em uma janela diferente do navegador da Web, entre no [console do administrador do Adobe](https://adminconsole.adobe.com) como um administrador do sistema.
 
-2. Vá para **configurações** na barra de navegação superior e escolha **identidade**. A lista de domínios é aberta. Clique em **Configurar** link em seu domínio. Em seguida, execute as etapas a seguir na seção **configuração de logon único necessária** . Para obter mais informações, consulte [configurar um domínio](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+1. Vá para **configurações** na barra de navegação superior e escolha **identidade**. A lista de diretórios é aberta. Selecione o diretório federado desejado.
 
-    ![Definições](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Definições")
+1. Na página **detalhes do diretório** , selecione **Configurar**.
 
-    a. Clique em **procurar** para carregar o certificado baixado do Azure ad para o **certificado IDP**.
-
-    b. Na caixa de texto **emissor IDP** , Cole o valor do **identificador do Azure ad** que você copiou do portal do Azure.
-
-    c. Na caixa de texto **URL de logon do IDP** , Cole o valor da URL de **logon** que você copiou do portal do Azure.
-
-    d. Selecione **http-redirecionar** como **Associação IDP**.
-
-    e. Selecione **endereço de email** como **configuração de logon do usuário**.
-
-    f. Clique em **guardar** botão.
-
-3. Agora, o painel apresentará o arquivo XML **"baixar metadados"** . Ele contém a URL do EntityDescriptor da Adobe e a URL do AssertionConsumerService. Abra o arquivo e configure-os no aplicativo do Azure AD.
+1. Copie a ID da entidade e a URL do ACS (URL do serviço do consumidor de asserção ou URL de resposta). Insira as URLs nos campos apropriados na portal do Azure.
 
     ![Configurar o logon único no lado do aplicativo](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
-    a. Use o valor EntityDescriptor Adobe fornecido para o **identificador** na caixa de diálogo **definir configurações do aplicativo** .
+    a. Use o valor ID da entidade Adobe fornecido para o **identificador** na caixa de diálogo **definir configurações do aplicativo** .
 
-    b. Use o valor AssertionConsumerService Adobe fornecido para a **URL de resposta** na caixa de diálogo **definir configurações do aplicativo** .
+    b. Use o valor da URL do ACS (URL do serviço do consumidor de asserção) que a Adobe forneceu para a **URL de resposta** na caixa de diálogo **definir configurações do aplicativo** .
+
+1. Próximo à parte inferior da página, carregue o arquivo **XML de dados de Federação** que você baixou do portal do Azure. 
+
+    ![Arquivo XML de dados de Federação](https://helpx.adobe.com/content/dam/help/en/enterprise/kb/configure-microsoft-azure-with-adobe-sso/jcr_content/main-pars/procedure/proc_par/step_228106403/step_par/image_copy/saml_signinig_certificate.png "XML de metadados do IdP")
+
+1. Selecione **Guardar**.
+
 
 ### <a name="create-adobe-creative-cloud-test-user"></a>Criar Adobe Creative Cloud usuário de teste
 
@@ -206,7 +204,7 @@ Ao clicar no bloco Adobe Creative Cloud no painel de acesso, você deverá ser c
 
 - [Experimente o Adobe Creative Cloud com o Azure AD](https://aad.portal.azure.com/)
 
-- [Configurar um domínio (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+- [Configurar uma identidade (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-identity.html)
   
 - [Configurar o Azure para uso com o Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 

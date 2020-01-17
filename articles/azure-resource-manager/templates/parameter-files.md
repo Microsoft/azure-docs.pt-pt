@@ -3,12 +3,12 @@ title: Criar ficheiro de parâmetros
 description: Criar arquivo de parâmetro para passar valores durante a implantação de um modelo de Azure Resource Manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c315c86cdd04a01a883667f20325936fb789d2f5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb52d9c5ebcb0820362e5de3d6b24b0b18d742e9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484366"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155626"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar arquivo de parâmetro do Resource Manager
 
@@ -20,16 +20,16 @@ O arquivo de parâmetro tem o seguinte formato:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "<first-parameter-name>": {
-            "value": "<first-value>"
-        },
-        "<second-parameter-name>": {
-            "value": "<second-value>"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "<first-parameter-name>": {
+      "value": "<first-value>"
+    },
+    "<second-parameter-name>": {
+      "value": "<second-value>"
     }
+  }
 }
 ```
 
@@ -39,21 +39,21 @@ O arquivo de parâmetro a seguir inclui um valor de texto sem formatação e um 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "<first-parameter-name>": {
-            "value": "<first-value>"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "<first-parameter-name>": {
+      "value": "<first-value>"
+    },
+    "<second-parameter-name>": {
+      "reference": {
+        "keyVault": {
+          "id": "<resource-id-key-vault>"
         },
-        "<second-parameter-name>": {
-            "reference": {
-                "keyVault": {
-                    "id": "<resource-id-key-vault>"
-                },
-                "secretName": "<secret-name>"
-            }
-        }
+        "secretName": "<secret-name>"
+      }
     }
+  }
 }
 ```
 
@@ -65,20 +65,20 @@ Para descobrir como definir os valores de parâmetro, abra o modelo que você es
 
 ```json
 "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ]
-    }
+  "storagePrefix": {
+    "type": "string",
+    "maxLength": 11
+  },
+  "storageAccountType": {
+    "type": "string",
+    "defaultValue": "Standard_LRS",
+    "allowedValues": [
+    "Standard_LRS",
+    "Standard_GRS",
+    "Standard_ZRS",
+    "Premium_LRS"
+    ]
+  }
 }
 ```
 
@@ -86,14 +86,14 @@ O primeiro detalhe a ser observado é o nome de cada parâmetro. Os valores em s
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-        },
-        "storageAccountType": {
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+    },
+    "storageAccountType": {
     }
+  }
 }
 ```
 
@@ -101,16 +101,16 @@ Observe o tipo do parâmetro. Os valores em seu arquivo de parâmetro devem ter 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "value": ""
-        },
-        "storageAccountType": {
-            "value": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": ""
+    },
+    "storageAccountType": {
+      "value": ""
     }
+  }
 }
 ```
 
@@ -118,16 +118,16 @@ Em seguida, procure um valor padrão. Se um parâmetro tiver um valor padrão, v
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "value": "" // This value must be provided.
-        },
-        "storageAccountType": {
-            "value": "" // This value is optional. Template will use default value if not provided.
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": "" // This value must be provided.
+    },
+    "storageAccountType": {
+      "value": "" // This value is optional. Template will use default value if not provided.
     }
+  }
 }
 ```
 
@@ -135,16 +135,16 @@ Por fim, examine os valores permitidos e as restrições como comprimento máxim
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "value": "storage"
-        },
-        "storageAccountType": {
-            "value": "Standard_ZRS"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": "storage"
+    },
+    "storageAccountType": {
+      "value": "Standard_ZRS"
     }
+  }
 }
 ```
 
@@ -154,30 +154,30 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "exampleString": {
-            "value": "test string"
-        },
-        "exampleInt": {
-            "value": 4
-        },
-        "exampleBool": {
-            "value": true
-        },
-        "exampleArray": {
-            "value": [
-                "value 1",
-                "value 2"
-            ]
-        },
-        "exampleObject": {
-            "value": {
-                "property1": "value1",
-                "property2": "value2"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "exampleString": {
+      "value": "test string"
+    },
+    "exampleInt": {
+      "value": 4
+    },
+    "exampleBool": {
+      "value": true
+    },
+    "exampleArray": {
+      "value": [
+        "value 1",
+        "value 2"
+      ]
+    },
+    "exampleObject": {
+      "value": {
+        "property1": "value1",
+        "property2": "value2"
+      }
+    }
    }
 }
 ```

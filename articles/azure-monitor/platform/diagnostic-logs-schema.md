@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750953"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120150"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços, esquemas e categorias com suporte para logs de recursos do Azure
 
@@ -86,6 +86,9 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 | Gateways de Rede Virtual | Esquema não disponível. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
+
+Algumas categorias só podem ter suporte para tipos específicos de recursos. Essa é uma lista de todas as que estão disponíveis em algum formato.  Por exemplo, as categorias Microsoft. SQL/servidores/bancos de dados não estão disponíveis para todos os tipos de bancos de dados. Para obter mais informações, consulte [informações sobre o log de diagnóstico do banco de dados SQL](../../sql-database/sql-database-metrics-diag-logging.md). 
+
 |Tipo de Recurso|Categoria|Nome de exibição da categoria|
 |---|---|---|
 |Microsoft. AAD/DomainServices|SystemSecurity|SystemSecurity|

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848396"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155151"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -85,18 +85,18 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
 ### <a name="configuring-a-named-location"></a>Configurando um local nomeado
 
 1. Abrir **Azure Active Directory** no portal do Azure
-2. Clique em **acesso condicional**
-3. Clique em **locais nomeados**
-4. Clique em **novo local**
+2. Selecionar **segurança**
+3. Em **gerenciar**, escolha **locais nomeados**
+4. Selecionar **novo local**
 5. No campo **nome** , forneça um nome significativo
-6. Selecione se você está definindo o local usando intervalos de IP ou países/regiões
-   1. Se estiver usando intervalos de IP
-      1. Decida se deseja marcar o local como confiável. Iniciar sessão a partir de uma localização fidedigna reduz o risco de início de sessão de um utilizador. Marque esta localização como confiável se você souber que os intervalos de IP inseridos são estabelecidos e confiáveis em sua organização.
+6. Selecione se você está definindo o local usando *intervalos de IP* ou *países/regiões*
+   1. Se estiver usando *intervalos de IP*
+      1. Decida se deseja *Marcar como local confiável*. Iniciar sessão a partir de uma localização fidedigna reduz o risco de início de sessão de um utilizador. Marque esta localização como confiável se você souber que os intervalos de IP inseridos são estabelecidos e confiáveis em sua organização.
       2. Especificar os intervalos de IP
-   2. Se estiver usando países/regiões
+   2. Se estiver usando *países/regiões*
       1. Expanda o menu suspenso e selecione os países ou regiões que você deseja definir para esse local nomeado.
-      2. Decida se as áreas desconhecidas devem ser incluídas. Áreas desconhecidas são endereços IP que não podem ser mapeados para um país/região.
-7. Clique em **Criar**.
+      2. Decida se as *áreas desconhecidas*devem ser incluídas. Áreas desconhecidas são endereços IP que não podem ser mapeados para um país/região.
+7. Selecione **Criar**
 
 ## <a name="plan-authentication-methods"></a>Planejar métodos de autenticação
 
@@ -221,7 +221,7 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue até **Azure Active Directory**, **acesso condicional**.
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione **nova política**.
    ![criar uma política de acesso condicional para habilitar a MFA para portal do Azure usuários no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Forneça um nome significativo para sua política.

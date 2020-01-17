@@ -3,12 +3,12 @@ title: Definir ordem de implantação para recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd988670b5fa6a0e602b50d9c25dd6dad6b3b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485094"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121969"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implantação de recursos em modelos de Azure Resource Manager
 
@@ -25,9 +25,9 @@ O exemplo a seguir mostra um conjunto de dimensionamento de máquinas virtuais q
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "apiVersion": "2016-03-30",
   "name": "[variables('namingInfix')]",
   "location": "[variables('location')]",
-  "apiVersion": "2016-03-30",
   "tags": {
     "displayName": "VMScaleSet"
   },
@@ -65,12 +65,12 @@ O exemplo a seguir mostra um SQL Server e um banco de dados SQL. Observe que uma
 "resources": [
   {
     "name": "[variables('sqlserverName')]",
+    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
     "location": "[resourceGroup().location]",
     "tags": {
       "displayName": "SqlServer"
     },
-    "apiVersion": "2014-04-01-preview",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
@@ -78,15 +78,15 @@ O exemplo a seguir mostra um SQL Server e um banco de dados SQL. Observe que uma
     "resources": [
       {
         "name": "[parameters('databaseName')]",
+        "apiVersion": "2014-04-01-preview",
         "type": "databases",
         "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "Database"
-        },
-        "apiVersion": "2014-04-01-preview",
         "dependsOn": [
           "[variables('sqlserverName')]"
         ],
+        "tags": {
+          "displayName": "Database"
+        },
         "properties": {
           "edition": "[parameters('edition')]",
           "collation": "[parameters('collation')]",
@@ -120,15 +120,15 @@ No exemplo a seguir, um ponto de extremidade CDN depende explicitamente do perfi
 ```json
 {
     "name": "[variables('endpointName')]",
+    "apiVersion": "2016-04-02",
     "type": "endpoints",
     "location": "[resourceGroup().location]",
-    "apiVersion": "2016-04-02",
     "dependsOn": [
-            "[variables('profileName')]"
+      "[variables('profileName')]"
     ],
     "properties": {
-        "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
-        ...
+      "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
+      ...
     }
 ```
 
@@ -152,6 +152,6 @@ Para obter informações sobre como avaliar a ordem de implantação e resolver 
 * Para percorrer um tutorial, consulte [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](template-tutorial-create-templates-with-dependent-resources.md).
 * Para obter recomendações ao definir dependências, consulte [Azure Resource Manager modelo de práticas recomendadas](template-best-practices.md).
 * Para saber mais sobre como solucionar problemas de dependências durante a implantação, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para saber mais sobre como criar modelos de Azure Resource Manager, consulte Criando [modelos](template-syntax.md). 
+* Para saber mais sobre como criar modelos de Azure Resource Manager, consulte Criando [modelos](template-syntax.md).
 * Para obter uma lista das funções disponíveis em um modelo, consulte [funções de modelo](template-functions.md).
 

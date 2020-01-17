@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771926"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122377"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -125,7 +125,7 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
     + Correção para carregar RunConfigurations de caminhos relativos.
     + Ao chamar `keep_columns` ou `drop_columns` que resulta em uma coluna da série temporal sendo removida, os recursos correspondentes também serão descartados para o conjunto de resultados.
   + **azureml-interpretar**
-    + versão atualizada da interpretação-Community para 0.2.0
+    + Versão atualizada da interpretação-Community para 0.2.0
   + **azureml-pipeline-steps**
     + Valores com suporte documentados para `runconfig_pipeline_params` para as etapas de pipeline do Azure Machine Learning.
   + **azureml-pipeline-core**
@@ -220,7 +220,7 @@ O SDK do Azure Machine Learning para R usa o pacote `reticulate` para associar a
 
 Os principais recursos do SDK incluem:
 
-+   Gerencie recursos de nuvem para monitorar, registrar em log e organizar seus experimentos de aprendizado de máquina.
++   Gerir recursos de cloud para monitorizar, registar e organizar as experimentações de machine learning.
 +   Treine modelos usando recursos de nuvem, incluindo treinamento de modelo com aceleração de GPU.
 +   Implante seus modelos como WebServices em ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure).
 
@@ -1488,7 +1488,7 @@ Computação do Azure Machine Learning podem ser criado em Python, através do p
 + Pipelines de ML
   + Exemplos de transferência de blocos de notas novo e atualizados para começar a trabalhar com pipelines, controlo de âmbito do batch e estilo: https://aka.ms/aml-pipeline-notebooks
   + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md)
-  + Saiba como [predições de batch com pipelines de execução](how-to-run-batch-predictions.md)
+  + Saiba como [predições de batch com pipelines de execução](how-to-use-parallel-run-step.md)
 + Destino de computação Azure Machine Learning
   + Os [blocos de anotações de exemplo](https://aka.ms/aml-notebooks) agora são atualizados para usar a nova computação gerenciada.
   + [Saiba mais sobre este computação](how-to-set-up-training-targets.md#amlcompute)

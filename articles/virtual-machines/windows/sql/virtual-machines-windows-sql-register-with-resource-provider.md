@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690787"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122445"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -419,11 +419,11 @@ Não. O registro com o provedor de recursos de VM do SQL não está disponível 
 
 **Posso registrar uma VM com o provedor de recursos da VM do SQL antes que o SQL Server seja instalado?**
 
-Não. Uma VM deve ter pelo menos uma instância de SQL Server para ser registrada com êxito com o provedor de recursos de VM do SQL. Se não houver nenhuma instância de SQL Server na VM, o novo recurso Microsoft. SqlVirtualMachine estará em um estado de falha.
+Não. Uma VM deve ter pelo menos uma instância de SQL Server (Mecanismo de Banco de Dados) para registrar com êxito com o provedor de recursos de VM do SQL. Se não houver nenhuma instância de SQL Server na VM, o novo recurso Microsoft. SqlVirtualMachine estará em um estado de falha.
 
 **Posso registrar uma VM com o provedor de recursos de VM do SQL se houver várias instâncias de SQL Server?**
 
-Sim. O provedor de recursos da VM do SQL registrará apenas uma instância do SQL Server. O provedor de recursos da VM do SQL registrará a instância de SQL Server padrão no caso de várias instâncias. Se não houver nenhuma instância padrão, haverá suporte apenas para o registro no modo leve. Para atualizar do modo de gerenciamento leve para o completo, a instância de SQL Server padrão deve existir ou a VM deve ter apenas uma instância nomeada SQL Server.
+Sim. O provedor de recursos da VM do SQL registrará apenas uma instância do SQL Server (Mecanismo de Banco de Dados). O provedor de recursos da VM do SQL registrará a instância de SQL Server padrão no caso de várias instâncias. Se não houver nenhuma instância padrão, haverá suporte apenas para o registro no modo leve. Para atualizar do modo de gerenciamento leve para o completo, a instância de SQL Server padrão deve existir ou a VM deve ter apenas uma instância nomeada SQL Server.
 
 **Posso registrar uma instância de cluster de failover SQL Server com o provedor de recursos de VM do SQL?**
 

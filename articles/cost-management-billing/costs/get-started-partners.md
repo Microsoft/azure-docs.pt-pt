@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b337c1d57d253f55f3171e1de78a81b6de13ba31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75988412"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157175"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
 
@@ -213,7 +213,7 @@ Os campos de dados a seguir são encontrados em arquivos de detalhes de uso e AP
 | Localização | Local normalizado do recurso. | N/A |
 | effectivePrice | O preço unitário efetivo do serviço, em moeda de preços. Exclusivo para um produto, uma família de serviços, um medidor e uma oferta. Usado com preços na folha de preços da conta de cobrança. Quando há preços em camadas ou uma quantidade incluída, ele mostra o preço combinado do consumo. | O preço unitário após os ajustes serem feitos. |
 | Quantidade | Quantidade medida comprada ou consumida. O valor do medidor usado durante o período de cobrança. | Número de unidades. Verifique se ele corresponde às informações em seu sistema de cobrança durante a reconciliação. |
-| unitOfMeasure | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB, horas e 10, mil. |
+| unitOfMeasure | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB, horas e 10.000 s. |
 | pricingCurrency | A moeda que define o preço unitário. | A moeda na lista de preços.|
 | billingCurrency | A moeda que define o custo cobrado. | A moeda da região geográfica do cliente. |
 | chargeType | Define o tipo de encargo que o custo representa no gerenciamento de custos do Azure, como compra e reembolso. | O tipo de encargo ou ajuste. Não disponível para a atividade atual. |
@@ -257,7 +257,7 @@ Você também pode agrupar e filtrar pela propriedade **PartnerEarnedCreditAppli
 
 ## <a name="export-cost-data-to-azure-storage"></a>Exportar dados de custo para o armazenamento do Azure
 
-Os parceiros com acesso a escopos de cobrança em um locatário de parceiro podem exportar seus dados de custo e de uso para um blob de armazenamento do Azure. O blob deve estar em uma assinatura no locatário do parceiro que não seja uma assinatura de serviço compartilhada ou uma assinatura do cliente. Para habilitar a exportação de dados de custo, recomendamos que você configure uma assinatura paga conforme o uso independente no locatário do parceiro para hospedar os dados de custo exportados. A conta de armazenamento de exportação é criada no blob de armazenamento do Azure hospedado na assinatura paga conforme o uso. Com base no escopo em que o parceiro cria a exportação, os dados associados são exportados para a conta de armazenamento automaticamente em um recorrente.
+Os parceiros com acesso a escopos de cobrança em um locatário de parceiro podem exportar seus dados de custo e de uso para um blob de armazenamento do Azure. O blob deve estar em uma assinatura no locatário do parceiro que não seja uma assinatura de serviço compartilhada ou uma assinatura do cliente. Para habilitar a exportação de dados de custo, recomendamos que você configure uma assinatura paga conforme o uso independente no locatário do parceiro para hospedar os dados de custo exportados. A conta de armazenamento de exportação é criada no blob de armazenamento do Azure hospedado na assinatura paga conforme o uso. Com base no escopo em que o parceiro cria a exportação, os dados associados são exportados para a conta de armazenamento automaticamente de forma recorrente.
 
 Os usuários com acesso RBAC à assinatura também podem exportar os dados de custo para um blob de armazenamento do Azure hospedado em qualquer assinatura no locatário do cliente.
 
@@ -265,7 +265,11 @@ Os usuários com acesso RBAC à assinatura também podem exportar os dados de cu
 
 No portal do Azure, entre no locatário do parceiro ou no locatário do cliente e selecione **Gerenciamento de custos + cobrança**. Selecione um escopo apropriado, por exemplo uma conta de cobrança e, em seguida, selecione **análise de custo**. Quando a página for carregada, selecione **Exportar**. Selecione **Exibir todas as exportações** em agendar exportação.
 
+![Selecionar exportar e exibir todas as exportações](./media/get-started-partners/export01.png)
+
 Em seguida, selecione **Adicionar** e digite o nome e selecione um tipo de exportação. Selecione a guia **armazenamento** e insira as informações necessárias.
+
+![Adicionar nova exportação e selecionar a guia armazenamento](./media/get-started-partners/export02.png)
 
 Ao criar uma exportação no locatário do parceiro, selecione a assinatura paga conforme o uso no locatário do parceiro. Crie uma conta de armazenamento do Azure usando essa assinatura.
 
@@ -274,6 +278,8 @@ Para usuários do RBAC no locatário do cliente, selecione uma assinatura no loc
 Examine o conteúdo e, em seguida, selecione **criar** para agendar uma exportação.
 
 Para verificar os dados na lista exportar, selecione o nome da conta de armazenamento. Na página conta de armazenamento, selecione **contêineres** e, em seguida, selecione o contêiner. Navegue até a pasta correspondente e selecione o arquivo CSV. Selecione **baixar** para obter o arquivo CSV e abri-lo. Os dados exportados exportados se assemelham a dados de custo semelhantes aos detalhes de uso do portal do Azure.
+
+![Exemplo de dados exportados](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>APIs REST de gerenciamento de custos
 

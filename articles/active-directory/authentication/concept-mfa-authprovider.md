@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ac23bbb0465be2f15e0a35bb4fd7c331e83988
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848719"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155134"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usar um provedor de autenticação multifator do Azure
 
@@ -48,11 +48,11 @@ Se o fornecedor do MFA não estiver associado a um inquilino do Azure AD ou asso
 > [!CAUTION]
 > Não há nenhuma confirmação ao excluir um provedor de autenticação. Selecionar **excluir** é um processo permanente.
 
-Os provedores de autenticação podem ser encontrados no **portal do Azure** > **Azure Active Directory** > **provedores**de > **MFA** . Clique em provedores listados para ver detalhes e configurações associadas a esse provedor.
+Os provedores de autenticação podem ser encontrados no **portal do Azure** > **Azure Active Directory** > **segurança** > **provedores**de > **MFA** . Clique em provedores listados para ver detalhes e configurações associadas a esse provedor.
 
 Antes de remover um provedor de autenticação, anote todas as configurações personalizadas definidas em seu provedor. Decida quais configurações precisam ser migradas para as configurações gerais do MFA de seu provedor e conclua a migração dessas configurações. 
 
-Os servidores do Azure MFA vinculados aos provedores deverão ser reativados usando as credenciais geradas em **portal do Azure** > **Azure Active Directory** > **as configurações do servidor** > **MFA** . Antes de reativar, os seguintes arquivos devem ser excluídos do diretório `\Program Files\Multi-Factor Authentication Server\Data\` nos servidores do Azure MFA em seu ambiente:
+Os servidores do Azure MFA vinculados aos provedores deverão ser reativados usando as credenciais geradas em **portal do Azure** > **Azure Active Directory** > **segurança** > **MFA** > **configurações do servidor**. Antes de reativar, os seguintes arquivos devem ser excluídos do diretório `\Program Files\Multi-Factor Authentication Server\Data\` nos servidores do Azure MFA em seu ambiente:
 
 - cacerts
 - certificado
@@ -64,7 +64,7 @@ Os servidores do Azure MFA vinculados aos provedores deverão ser reativados usa
 
 ![Excluir um provedor de autenticação da portal do Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-Depois de confirmar que todas as configurações foram migradas, você pode navegar até o **portal do Azure** > **Azure Active Directory** > os **provedores** de > do **MFA** e selecionar as reticências **...** e selecionar **excluir**.
+Depois de confirmar que todas as configurações foram migradas, você pode navegar até o **portal do Azure** > **Azure Active Directory** > **segurança** > os **provedores** de > do **MFA** e selecionar as reticências **...** e selecionar **excluir**.
 
 > [!WARNING]
 > A exclusão de um provedor de autenticação excluirá todas as informações de relatório associadas a esse provedor. Talvez você queira salvar os relatórios de atividade antes de excluir seu provedor.

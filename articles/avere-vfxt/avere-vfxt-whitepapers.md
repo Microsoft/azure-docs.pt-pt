@@ -1,21 +1,21 @@
 ---
-title: White papers e estudos de caso – avere vFTX for Azure
+title: White papers e estudos de caso – avere vFXT for Azure
 description: Links para White papers baixáveis, estudos de caso e outros artigos que ilustram avere vFXT para o Azure e como ele pode ser usado.
 ms.service: avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
-ms.date: 02/13/2019
-ms.openlocfilehash: a85b939eb222fa459d33ba4eb79b4937baf9056f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/06/2020
+ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414280"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152974"
 ---
-# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Documentos do Azure vFTX para Azure White papers e outros recursos
+# <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Documentos do Azure vFXT para Azure White papers e outros recursos
 
-Os recursos nesta tabela incluem estudos de caso, White papers de tecnologia, infográficos e outros artigos que podem ajudá-lo a entender como o avere vFXT for Azure se encaixa em seu fluxo de trabalho.
+Este artigo lista estudos de caso, White papers de tecnologia, infográficos e outros recursos que podem ajudá-lo a entender como o avere vFXT for Azure se encaixa em seu fluxo de trabalho.
 
 ## <a name="deploy-agisoft-photoscan-on-azure"></a>Implantar o Agisoft fotoscan no Azure
 
@@ -34,12 +34,6 @@ Este resumo de duas páginas tem informações e diagramas básicos que explicam
 **Link:** [Infográfico: criando uma nuvem híbrida para cargas de trabalho baseadas em arquivo](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/)
 
 Este gráfico mostra componentes e layouts para usar o avere vFXT para Azure para adicionar infraestrutura de nuvem ao seu sistema existente. Use o avere vFXT para o Azure para aumentar a capacidade de computação com sua infraestrutura local existente ou mover dados e computar para a nuvem de forma temporária ou permanente.
-
-## <a name="cloud-bursting"></a>Intermitência de nuvem
-
-**Link:** [nuvem de intermitência para alto desempenho, nas escalonável](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf)
-
- Este resumo da solução de intermitência de nuvem mostra como você pode tornar os dados disponíveis rapidamente para recursos de computação em nuvem sem interrupções usando o avere vFXT para Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

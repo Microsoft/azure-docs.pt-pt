@@ -9,23 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8b46dbc0cc3c61396acdc7d21517c13d4650bf3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160802"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156289"
 ---
-# <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
+# <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
-Caso se tenha esquecido da sua palavra-passe, nunca tiver recebido nenhuma por parte do suporte da sua empresa ou tiver perdido acesso à mesma, pode utilizar as suas informações de segurança e o seu dispositivo móvel para repor a palavra-passe.
+Se você esqueceu sua senha corporativa ou de estudante, nunca recebeu uma senha da sua organização ou foi bloqueada por sua conta, você pode usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha corporativa ou de estudante. O administrador deve ativar esse recurso para que você possa configurar suas informações e redefinir sua própria senha.
 
->[!NOTE]
->Se você souber sua senha e quiser apenas alterá-la, poderá ir para as etapas [alterar sua senha](#how-to-change-your-password) neste artigo.<br><br>
->Se você estiver tentando voltar a uma conta pessoal como Xbox, hotmail.com ou outlook.com, tente as sugestões no artigo [quando não puder entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .
+Se você souber sua senha, mas quiser alterá-la, consulte as seções [alterar as etapas de senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) deste artigo.
+
+>[!Important]
+>Este artigo destina-se a usuários tentando usar redefinir uma senha de conta corporativa ou de estudante esquecida ou desconhecida. Se você for um administrador que procura informações sobre como ativar a redefinição de senha de autoatendimento para seus funcionários ou outros usuários, consulte [implantar a redefinição de senha de autoatendimento do Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante
 
@@ -58,7 +59,7 @@ Se você não puder acessar sua conta do Azure Active Directory (AD do Azure), i
     1. Selecione **Enviar email para meu email alternativo**e, em seguida, selecione **email**.
 
     2. Digite o código de verificação do email na caixa e, em seguida, selecione **Avançar**.
-    
+
     3. Digite e confirme sua nova senha e, em seguida, selecione **concluir**.
 
 - **Redefina sua senha usando uma mensagem de texto.** Envia uma mensagem de texto para o número de telefone que você configurou anteriormente nas informações de segurança. Se o administrador tiver ativado a experiência de informações de segurança, você poderá encontrar mais informações sobre como configurar mensagens de texto no artigo [configurar informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md) . Se você ainda não estiver usando informações de segurança, poderá encontrar mais informações sobre como configurar mensagens de texto no artigo [configurar minha conta para a verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) .
@@ -100,7 +101,7 @@ Se você não puder acessar sua conta do Azure Active Directory (AD do Azure), i
   3. Digite e confirme sua nova senha e, em seguida, selecione **concluir**.
 
   4. Depois de receber a mensagem informando que sua senha foi redefinida, você pode entrar em sua conta usando sua nova senha.
-        
+
      Se você ainda não consegue acessar sua conta, entre em contato com o administrador da sua organização para obter mais ajuda.
 
 Depois de redefinir sua senha, você pode receber um email de confirmação proveniente de uma conta como "Microsoft em nome de \<*your_organization*>". Se você receber um email semelhante, mas não redefiniu sua senha recentemente, deverá entrar em contato com o administrador da sua organização imediatamente.
@@ -160,13 +161,10 @@ Aqui estão alguns casos de erro comuns e suas soluções:
 |Quando tento alterar minha senha, recebo um erro. |Sua senha tem uma palavra, frase ou padrão que torna sua senha facilmente adivinhada.| Tente novamente usando uma senha mais forte.|
 |Depois de inserir minha ID de usuário, vou para uma página que diz "entre em contato com seu administrador".|A Microsoft determinou que a senha da sua conta de usuário é gerenciada pelo administrador em um ambiente local. Como resultado, você não pode redefinir sua senha no link "não é possível acessar sua conta". |Contate o administrador para obter mais ajuda.|
 |Depois de inserir minha ID de usuário, recebo um erro dizendo "sua conta não está habilitada para redefinição de senha".|O administrador não configurou sua conta para que você possa redefinir sua própria senha.|O administrador não ativou a redefinição de senha para sua organização no link "não é possível acessar sua conta" ou não licenciou o uso do recurso.<br><br> Para redefinir sua senha, você deve selecionar o link "entre em contato com um administrador" para enviar um email ao administrador da sua empresa e informar que deseja redefinir sua senha.|
-|Depois de inserir minha ID de usuário, recebo um erro dizendo "não foi possível verificar sua conta".|O processo de entrada não pôde verificar as informações da sua conta.|Há dois motivos pelos quais você pode estar vendo essa mensagem.<br><br>1. o administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se registrar para a redefinição de senha, consulte um dos artigos a seguir, com base em seu método de verificação: [configurar informações de segurança para usar um aplicativo autenticador (versão prévia)](security-info-setup-auth-app.md), [configurar informações de segurança para usar uma chamada telefônica (versão prévia)](security-info-setup-phone-number.md), [configurar informações de segurança a serem usadas mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configure as informações de segurança para usar o email (versão prévia)](security-info-setup-email.md)ou [Configure as informações de segurança para usar perguntas de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. o administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o link "entre em contato com um administrador" para enviar um email ao administrador, solicitando que o Redefina sua senha.|
+|Depois de inserir minha ID de usuário, recebo um erro dizendo "não foi possível verificar sua conta".|O processo de entrada não pôde verificar as informações da sua conta.|Há dois motivos pelos quais você pode estar vendo essa mensagem.<br><br>1. o administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, consulte um dos artigos a seguir, com base em seu método de verificação: [configurar informações de segurança para usar um aplicativo autenticador (versão prévia)](security-info-setup-auth-app.md), [configurar informações de segurança para usar uma chamada telefônica (versão prévia)](security-info-setup-phone-number.md), [configurar informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [configurar informações de segurança para usar email (](security-info-setup-email.md)versão prévia) ou [configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md)<br><br>2. o administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o link "entre em contato com um administrador" para enviar um email ao administrador, solicitando que o Redefina sua senha.|
 
 ## <a name="next-steps"></a>Passos seguintes
+
 - Saiba mais sobre informações de segurança no artigo [visão geral de informações de segurança (versão prévia)](user-help-security-info-overview.md) .
 
-- Saiba mais sobre a verificação em duas etapas no artigo [visão geral da verificação em duas etapas](user-help-two-step-verification-overview.md) . 
-
-- Redefinir sua senha se você a tiver perdido ou esquecido, no [portal de redefinição de senha](https://passwordreset.microsoftonline.com/)
-
-- Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .
+- Se você estiver tentando voltar a uma conta pessoal como Xbox, hotmail.com ou outlook.com, tente as sugestões no [artigo quando não puder entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

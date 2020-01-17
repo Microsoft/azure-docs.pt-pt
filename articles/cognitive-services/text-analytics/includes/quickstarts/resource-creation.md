@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: b6b0b7b857e109997afb441aa60972c6da61f54b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9623398e51260d88df3d8fd88e3affaf7f906a64
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446228"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159599"
 ---
 Comece a usar o API de Análise de Texto com uma das opções abaixo.
 
@@ -20,10 +20,10 @@ Comece a usar o API de Análise de Texto com uma das opções abaixo.
     * Essa é uma ótima opção se você quiser experimentar a API de Análise de Texto, mas não tem uma assinatura do Azure.
     
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="criar um recurso de Análise de Texto"  target="_blank">criar um recurso <span class="docon docon-navigate-external x-hidden-focus"></span> análise de texto</a>
-    * Disponível por meio do portal do Azure até que você exclua o recurso.
+    * Disponível até que você exclua o recurso.
     * Use o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para uma camada paga para produção.
      
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="criar um recurso para vários serviços" target="_blank">criar um recurso <span class="docon docon-navigate-external x-hidden-focus"></span> de vários serviços</a>
-    * Disponível por meio do portal do Azure até que você exclua o recurso.  
-    * Use a mesma chave e ponto de extremidade para seus aplicativos em vários serviços cognitivas.
+    * Disponível até que você exclua o recurso.  
+    * Use a mesma chave e ponto de extremidade para acessar vários serviços cognitivas.
     

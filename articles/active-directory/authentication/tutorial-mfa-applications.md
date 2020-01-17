@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 68474738aabde1b14752aa33789d7e40c3831908
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846407"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154844"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir a implementação de um piloto do Multi-Factor Authentication do Azure
 
@@ -36,10 +36,10 @@ Neste tutorial, você irá orientá-lo na configuração de uma política de ace
 ## <a name="enable-azure-multi-factor-authentication"></a>Ativar a Multi-Factor Authentication do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador Global.
-1. Navegue até **Azure Active Directory**, **acesso condicional**
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**
 1. Selecione **Nova política**
 1. Nomeie a sua política **Piloto de MFA**
-1. Sob **utilizadores e grupos**, selecione o botão de opção **Selecionar utilizadores e grupos**
+1. Em **usuários e grupos**, selecione o botão de opção **Selecionar usuários e grupos**
     * Selecione o grupo piloto criado como parte da secção de pré-requisitos deste artigo
     * Clique em **Concluído**
 1. Sob **Aplicações na cloud**, selecione o botão de opção **Selecionar aplicações**
@@ -69,8 +69,8 @@ Para provar que sua política de acesso condicional funciona, você testa o logo
 
 Se decidir que já não quer utilizar a funcionalidade que configurou como parte deste tutorial, faça a alteração seguinte.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**, **acesso condicional**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione a política de acesso condicional que você criou.
 1. Clique em **Eliminar**.
 

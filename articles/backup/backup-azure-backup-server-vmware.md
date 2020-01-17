@@ -3,12 +3,12 @@ title: Fazer backup de VMs VMware com Servidor de Backup do Azure
 description: Neste artigo, saiba como usar Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173363"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152872"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer backup de VMs VMware com Servidor de Backup do Azure
 
@@ -24,7 +24,7 @@ Este artigo explica como:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Verifique se você está executando uma versão do vCenter/ESXi com suporte para as versões 6,5, 6,0 e 5,5 do backup.
+- Verifique se você está executando uma versão do vCenter/ESXi com suporte para backup. Consulte a matriz de suporte [aqui](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Verifique se você configurou Servidor de Backup do Azure. Se você ainda não fez [isso, faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Você deve estar executando Servidor de Backup do Azure com as atualizações mais recentes.
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Criar uma conexão segura com o vCenter Server
@@ -96,9 +96,11 @@ Se você tiver limites de segurança em sua organização e não quiser usar o p
 
 1. Copie e cole o texto a seguir em um arquivo. txt.
 
-       ```text
-      Editor do registro do Windows versão 5, 0 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = DWORD: 00000001
-       ```
+```text
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+"IgnoreCertificateValidation"=dword:00000001
+```
 
 2. Salve o arquivo no computador Servidor de Backup do Azure com o nome **DisableSecureAuthentication. reg**.
 
@@ -128,26 +130,41 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
 ### <a name="role-permissions"></a>Permissões de função
 
-**6.5/6.0** | **5,5**
---- | ---
-Datastore.AllocateSpace | Datastore.AllocateSpace
-Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField |
-Host.Local.CreateVM | Rede. atribuir
-Rede. atribuir |
-Resource. AssignVMToPool |
-VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
-VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
-VirtualMachine.Config.HostUSBDevice |
-VirtualMachine.Config.QueryUnownedFiles |
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
-VirtualMachine. Inventory. Create| VirtualMachine. Inventory. Create
-VirtualMachine.Provisioning.DiskRandomAccess |
-VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
-VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
+| **Privilégios para o vCenter 6,5 e a conta de usuário acima**        | **Privilégios para a conta de usuário do vCenter 6,0**               | **Privilégios para a conta de usuário do vCenter 5,5** |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                      |                                                           |                                             |
+| Armazenamento de Datastore. procurar repositório de armazenamento                                   | Datastore.AllocateSpace                                   | Rede. atribuir                              |
+| Armazenamento de Datastore. operações de arquivo de nível baixo                          | Global. gerenciar atributos personalizados                           | Datastore.AllocateSpace                     |
+| Cluster de repositório de armazenamento. Configurar um cluster datatstore             | Global. definir atributo personalizado                               | VirtualMachine.Config.ChangeTracking        |
+| Métodos global. Disable                                       | Operações de host. local. Criar máquina virtual              | VirtualMachine.State.RemoveSnapshot         |
+| Métodos global. Enable                                        | Rede. Atribuir rede                                   | VirtualMachine.State.CreateSnapshot         |
+| Global. licenses                                              | Kit. Atribuir máquina virtual ao pool de recursos         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Evento global. log                                             | Máquina virtual. Configuração. Adicionar novo disco                | VirtualMachine.Interact.PowerOff            |
+| Global. gerenciar atributos personalizados                              | Máquina virtual. Configuração. avançado                    | VirtualMachine. Inventory. Create             |
+| Global. definir atributo personalizado                                  | Máquina virtual. Configuração. controle de alterações de disco        | VirtualMachine.Config.AddNewDisk            |
+| Rede. atribuir rede                                       | Máquina virtual. Dispositivo USB de configuração. host             | VirtualMachine.Config.HostUSBDevice         |
+| Kit. Atribuir máquina virtual ao pool de recursos            | Máquina virtual. Configuração. consulta de arquivos sem proprietário         | VirtualMachine.Config.AdvancedConfig        |
+| Máquina virtual. Configuração. Adicionar novo disco                   | Máquina virtual. Configuração de colocação de. Swapfile          | VirtualMachine.Config.SwapPlacement         |
+| Máquina virtual. Configuração. avançado                       | Máquina virtual. Interação. desligar                     | Global.ManageCustomFields                   |
+| Máquina virtual. Configuração. controle de alterações de disco           | Máquina virtual. Levantamento. Criar novo                     |                                             |
+| Máquina virtual. Configuração. concessão de disco                     | Máquina virtual. Provisionamento. permitir acesso ao disco            |                                             |
+| Máquina virtual. Configuração. estender disco virtual            | Máquina virtual. Provisionamento. Permitir acesso ao disco somente leitura |                                             |
+| Máquina virtual. Operações de convidado. modificações de operação de convidado | Máquina virtual. Gerenciamento de instantâneo. Criar instantâneo       |                                             |
+| Máquina virtual. Operações de convidado. execução do programa de operação de convidado | Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo       |                                             |
+| Máquina virtual. Operações de convidado. consultas de operação de convidado     |                                                           |                                             |
+| Máquina virtual. Inter. Conexão do dispositivo              |                                                           |                                             |
+| Máquina virtual. Inter. Gerenciamento do sistema operacional convidado pela API do VIX |                                                           |                                             |
+| Máquina virtual. Inventário. registro                          |                                                           |                                             |
+| Máquina virtual. Inventário. remoção                            |                                                           |                                             |
+| Máquina virtual. Provisionamento. permitir acesso ao disco              |                                                           |                                             |
+| Máquina virtual. Provisionamento. permitir acesso ao disco somente leitura    |                                                           |                                             |
+| Máquina virtual. Provisionamento. permitir download da máquina virtual |                                                           |                                             |
+| Máquina virtual. Gerenciamento de instantâneo. Criar instantâneo        |                                                           |                                             |
+| Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo         |                                                           |                                             |
+| Máquina virtual. Gerenciamento de instantâneo. Reverter para instantâneo      |                                                           |                                             |
+| vApp. Adicionar máquina virtual                                     |                                                           |                                             |
+| vApp. atribuir pool de recursos                                    |                                                           |                                             |
+| vApp. cancelar registro                                              |                                                           |                                             |
 
 ## <a name="create-a-vmware-account"></a>Criar uma conta do VMware
 
@@ -227,7 +244,7 @@ Adicione o vCenter Server ao Servidor de Backup do Azure.
 
     ![Especificar credencial](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Clique em **Adicionar** para adicionar o servidor VMware à lista servidores. Em seguida, clique em **Seguinte**.
+6. Clique em **Adicionar** para adicionar o servidor VMware à lista servidores. Clique depois em **Seguinte**.
 
     ![Adicionar servidor VMWare e credencial](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -255,14 +272,14 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
 
 1. Na página **Selecionar tipo de grupo de proteção** , selecione **servidores** e clique em **Avançar**. A página **selecionar membros do grupo** é exibida.
 
-1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Em seguida, clique em **Seguinte**.
+1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Clique depois em **Seguinte**.
 
     - Quando você seleciona uma pasta, ou as VMs ou pastas dentro dessa pasta também são selecionadas para backup. Você pode desmarcar as pastas ou VMs das quais você não deseja fazer backup.
 1. Se uma VM ou pasta já estiver sendo submetida a backup, você não poderá selecioná-la. Isso garante que os pontos de recuperação duplicados não sejam criados para uma VM.
 
     ![Selecionar membros do grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Na página **selecionar método de proteção de dados** , insira um nome para o grupo de proteção e as configurações de proteção. Para fazer backup no Azure, defina a proteção de curto prazo em **disco** e habilite a proteção online. Em seguida, clique em **Seguinte**.
+1. Na página **selecionar método de proteção de dados** , insira um nome para o grupo de proteção e as configurações de proteção. Para fazer backup no Azure, defina a proteção de curto prazo em **disco** e habilite a proteção online. Clique depois em **Seguinte**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -273,7 +290,7 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
        - Backups de curto prazo são backups completos e não incrementais.
        - Clique em **Modificar** para alterar os horários/datas em que ocorrem os backups de curto prazo.
 
-         ![Especificar objetivos de curto prazo](./media/backup-azure-backup-server-vmware/short-term-goals.png)
+         ![Especificar objetivos a curto prazo](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
 1. Em **examinar alocação de disco**, examine o espaço em disco fornecido para os backups de VM. para as VMs.
 
@@ -293,17 +310,17 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
 
     ![Escolher método de criação de réplica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Em seguida, clique em **Seguinte**.
+1. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Clique depois em **Seguinte**.
       - Você pode executar verificações de consistência quando os dados da réplica se tornarem inconsistentes ou em uma agenda definida.
       - Se você não quiser configurar verificações de consistência automáticas, poderá executar uma verificação manual. Para fazer isso, clique com o botão direito do mouse no grupo de proteção > **executar a verificação de consistência**.
 
-1. Na página **especificar dados de proteção online** , selecione as VMs ou as pastas de VM que você deseja fazer backup. Você pode selecionar os membros individualmente ou clicar em **selecionar tudo** para escolher todos os membros. Em seguida, clique em **Seguinte**.
+1. Na página **especificar dados de proteção online** , selecione as VMs ou as pastas de VM que você deseja fazer backup. Você pode selecionar os membros individualmente ou clicar em **selecionar tudo** para escolher todos os membros. Clique depois em **Seguinte**.
 
     ![Especificar dados de proteção online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Na página **especificar agendamento de backup online** , especifique com que frequência você deseja fazer backup de dados do armazenamento local para o Azure.
 
-    - Os pontos de recuperação de nuvem para os dados serão gerados de acordo com o agendamento. Em seguida, clique em **Seguinte**.
+    - Os pontos de recuperação de nuvem para os dados serão gerados de acordo com o agendamento. Clique depois em **Seguinte**.
     - Depois que o ponto de recuperação é gerado, ele é transferido para o cofre dos serviços de recuperação no Azure.
 
     ![Especificar agendamento de backup online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -324,31 +341,31 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
 Para fazer backup do vSphere 6,7, faça o seguinte:
 
 - Habilitar o TLS 1,2 no servidor DPM
-  >[!Note]
-  >O VMWare 6,7 em diante habilitou o TLS como protocolo de comunicação.
+
+>[!NOTE]
+>O VMWare 6,7 em diante tinha o TLS habilitado como protocolo de comunicação.
 
 - Defina as chaves do registro da seguinte maneira:
 
-       ```text
+```text
+Windows Registry Editor Version 5.00
 
-        Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-       ```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

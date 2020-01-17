@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: baf3d0e0e40cb9089ac91c51dd40c079232a973b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 766cfa38108faa0dbaa16a3d2596a4b34689553c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989764"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121102"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Utilizar APIs de Faturação do Azure para obter informações sobre a sua utilização do Azure de forma programática
 Utilize as APIs de Faturação do Azure para extrair dados de utilização e de recursos para as suas ferramentas preferidas de análise de dados. As APIs de Utilização de Recursos do Azure e de RateCard podem ajudá-lo a prever e gerir os seus custos com precisão. As APIs são implementadas como um Fornecedor de Recursos e fazem parte da família de APIs expostas pelo Azure Resource Manager.  
@@ -42,13 +42,13 @@ Utilize a [API Utilização de Recursos](/previous-versions/azure/reference/mt21
 * **Agregações por hora ou dia** – os Chamadores podem especificar se querem os dados da utilização do Azure em registos por hora ou em registos por dia. A predefinição é por dia.
 * **Metadados de instância (inclui etiquetas de recursos)** – obtenha detalhes ao nível da instância, como o URI do recurso totalmente qualificado (/subscriptions/{subscription-id}/..), as informações do grupo de recursos e as etiquetas de recursos. Estes metadados ajudam a alocar, de forma determinística e programática, a utilização por etiquetas, para os casos de utilização como a cobrança cruzada.
 * **Metadados de recursos** – os detalhes dos recursos como o nome do medidor, a categoria do medidor, a subcategoria do medidor, a unidade e a região permitem que o chamador tenha uma melhor compreensão do que foi consumido. Também estamos a trabalhar para alinhar a terminologia de metadados de recursos entre o portal do Azure, o CSV de utilização do Azure, o CSV de faturação do EA e outras experiências destinadas ao público, de modo a permitir que correlacione os dados entre experiências.
-* **Utilização para diferentes tipos de oferta** – os dados de utilização estão disponíveis para tipos de oferta como Pay as you go, MSDN, Alocação monetária, Crédito monetário e EA, exceto [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
+* **Utilização para diferentes tipos de oferta** – os dados de utilização estão disponíveis para tipos de oferta como Pay as you go, MSDN, Alocação monetária, Crédito monetário e EA, exceto [CSP](https://docs.microsoft.com/partner-center).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>API RateCard de Recursos do Azure (Pré-visualização)
 Utilize a [API RateCard de Recursos do Azure](/previous-versions/azure/reference/mt219005(v=azure.100)) para obter a lista dos recursos do Azure disponíveis e as informações de preços estimados de cada um. A API inclui:
 
 * **Controlo de Acesso Baseado em Funções do Azure** – configure as políticas de acesso no [portal do Azure](https://portal.azure.com) ou através dos [cmdlets do Azure PowerShell](/powershell/azure/overview) para especificar que utilizadores ou aplicações podem ter acesso aos dados do RateCard. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
-* **Suporte para ofertas Pay as you go, MSDN, Alocação monetária e Crédito monetário (EA e [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) não são suportados)** – esta API fornece informações de tarifas ao nível de oferta do Azure.  O chamador desta API deve transmitir as informações da oferta para obter os detalhes dos recursos e as tarifas. Atualmente, não é possível fornecer as tarifas do EA porque as ofertas do EA têm tarifas personalizadas em cada inscrição.
+* **Suporte para ofertas Pay as you go, MSDN, Alocação monetária e Crédito monetário (EA e [CSP](https://docs.microsoft.com/partner-center) não são suportados)** – esta API fornece informações de tarifas ao nível de oferta do Azure.  O chamador desta API deve transmitir as informações da oferta para obter os detalhes dos recursos e as tarifas. Atualmente, não é possível fornecer as tarifas do EA porque as ofertas do EA têm tarifas personalizadas em cada inscrição.
 
 ## <a name="scenarios"></a>Cenários
 Aqui estão alguns dos cenários possíveis com a combinação da API de Utilização e da API RateCard:

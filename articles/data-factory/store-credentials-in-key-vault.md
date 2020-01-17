@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: 32c4b9b8e6268aa648e3414b337e8b2b908589e8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928725"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122615"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial em Azure Key Vault
 
@@ -31,8 +31,8 @@ Esse recurso depende da identidade gerenciada data factory. Saiba como ele funci
 
 Para fazer referência a uma credencial armazenada no Azure Key Vault, você precisa:
 
-1. **Recupere data Factory identidade gerenciada** copiando o valor de "ID do aplicativo de identidade gerenciada" gerado junto com sua fábrica. Se você usar a interface do usuário de criação do ADF, a ID do aplicativo de identidade gerenciada será mostrada na janela de criação do serviço vinculado Azure Key Vault; Você também pode recuperá-lo de portal do Azure, consulte [recuperar data Factory identidade gerenciada](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Conceda o acesso de identidade gerenciada à sua Azure Key Vault.** Em seu cofre de chaves-políticas de acesso de >-> Adicionar New-> Pesquise essa ID de aplicativo de identidade gerenciada para conceder permissão **Get** no menu suspenso permissões secretas. Ele permite que essa fábrica designada acesse o segredo no Key Vault.
+1. **Recupere data Factory identidade gerenciada** copiando o valor de "ID de objeto de identidade gerenciada" gerado junto com sua fábrica. Se você usar a interface do usuário de criação do ADF, a ID de objeto de identidade gerenciada será mostrada na janela de criação do serviço vinculado Azure Key Vault; Você também pode recuperá-lo de portal do Azure, consulte [recuperar data Factory identidade gerenciada](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Conceda o acesso de identidade gerenciada à sua Azure Key Vault.** No cofre de chaves-políticas de acesso de >-> Adicionar New-> Pesquise essa identidade gerenciada para conceder permissão **Get** no menu suspenso permissões secretas. Ele permite que essa fábrica designada acesse o segredo no Key Vault.
 3. **Crie um serviço vinculado apontando para seu Azure Key Vault.** Consulte [Azure Key Vault serviço vinculado](#azure-key-vault-linked-service).
 4. **Crie um serviço vinculado do repositório de dados, dentro do qual fazer referência ao segredo correspondente armazenado no cofre de chaves.** Consulte o [segredo de referência armazenado no cofre de chaves](#reference-secret-stored-in-key-vault).
 

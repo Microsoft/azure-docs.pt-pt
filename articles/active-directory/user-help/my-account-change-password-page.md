@@ -12,25 +12,23 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3981c152ba836a01daca16cd486623a9a26d86f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231877"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156238"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Alterar a senha de sua conta corporativa ou de estudante do portal minha conta
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante da página Alterar senha
 
-Na página **alterar senha** do portal **minha conta** , você pode atualizar sua senha de conta corporativa ou de estudante. Isso só funcionará se você souber sua senha existente e se não estiver bloqueada para sua conta.
+A página **alterar senha** do portal **minha conta** ajuda a atualizar uma senha existente para sua conta corporativa ou de estudante, supondo que você se lembre da senha e que você não está bloqueado em sua conta. Se você não se lembrar da sua senha, se você tiver bloqueado sua conta ou se nunca tiver uma senha de sua organização, poderá usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha.
 
-Se você não se lembrar da sua senha, se você tiver sido bloqueado de sua conta ou se você nunca tiver uma senha de sua equipe de suporte da empresa, poderá usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+>[!Important]
+>Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando entrar em uma conta pessoal, como para Xbox, hotmail ou Outlook.com, tente as sugestões no artigo [quando não conseguir entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) . Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha de autoatendimento para seus funcionários ou outros usuários, consulte [autoatendimento de redefinição de senha](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 
->[!Note]
->Se você estiver tentando voltar a uma conta pessoal como para Xbox, hotmail.com ou outlook.com, tente as sugestões no artigo [quando não conseguir entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .
+## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma senha da página Alterar senha
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>Para alterar sua senha do portal minha conta
-
-1. Entre em sua conta corporativa ou de estudante, usando sua senha existente e, em seguida, vá para a página https://myprofile.microsoft.com/.
+1. Entre em sua conta corporativa ou de estudante, usando sua senha existente e vá para a página **minha conta** (https://myprofile.microsoft.com/).
 
 2. Selecione **senha** no painel de navegação esquerdo ou selecione o link **alterar senha** do bloco de **senha** .
 
@@ -40,11 +38,11 @@ Se você não se lembrar da sua senha, se você tiver sido bloqueado de sua cont
 
     ![Página Alterar senha, mostrando campos de senha](media/my-account-portal/my-account-portal-change-password-page.png)
 
-4. Selecione **Enviar**.
+4. Selecione **submeter**.
 
     Sua senha será alterada e você será solicitado a entrar em sua conta corporativa ou de estudante novamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de alterar sua senha, você pode:
 

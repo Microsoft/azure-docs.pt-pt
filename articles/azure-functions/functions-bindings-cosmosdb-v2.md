@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921118"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121289"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB associações para Azure Functions 2. x
 
@@ -255,9 +255,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** || Tem de ser definido como `cosmosDBTrigger`. |
-|**direção** || Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
-|**name** || O nome da variável no código de função que representa a lista de documentos com as alterações. |
+|**tipo** | n/d | Tem de ser definido como `cosmosDBTrigger`. |
+|**direção** | n/d | Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**name** | n/d | O nome da variável no código de função que representa a lista de documentos com as alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta do Azure Cosmos DB a ser monitorizada. |
 |**databaseName**|**DatabaseName**  | O nome da base de dados do Azure Cosmos DB com a coleção a ser monitorizada. |
 |**collectionName** |**CollectionName** | O nome da coleção a ser monitorizado. |
@@ -1737,9 +1737,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || Tem de ser definido como `cosmosDB`.        |
-|**direção**     || Tem de ser definido como `in`.         |
-|**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
+|**tipo**     | n/d | Tem de ser definido como `cosmosDB`.        |
+|**direção**     | n/d | Tem de ser definido como `in`.         |
+|**name**     | n/d | Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |A base de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | O ID do documento a obter. Esta propriedade suporta [expressões de enlace](./functions-bindings-expressions-patterns.md). Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir individualmente, toda a coleção é recuperada. |
@@ -2366,9 +2366,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || Tem de ser definido como `cosmosDB`.        |
-|**direção**     || Tem de ser definido como `out`.         |
-|**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
+|**tipo**     | n/d | Tem de ser definido como `cosmosDB`.        |
+|**direção**     | n/d | Tem de ser definido como `out`.         |
+|**name**     | n/d | Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção em que o documento é criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Um valor booleano para indicar se a coleção é criada quando não existe. A predefinição é *false* porque novas coleções são criadas com débito reservado, que tem custos implicações. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).  |

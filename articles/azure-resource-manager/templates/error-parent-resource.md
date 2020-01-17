@@ -3,12 +3,12 @@ title: Erros de recurso pai
 description: Descreve como resolver erros ao trabalhar com um recurso pai em um modelo de Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 9fcf12db7375e6d19ef9e77ea4dcaf13130175b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484535"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154045"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolver erros de recursos pai
 
@@ -34,7 +34,7 @@ Quando um recurso é filho para outro recurso, o recurso pai deve existir antes 
   ...
 ```
 
-Se você implantar o servidor e o banco de dados no mesmo modelo, mas não especificar uma dependência no servidor, a implantação do banco de dados poderá ser iniciada antes da implantação do servidor. 
+Se você implantar o servidor e o banco de dados no mesmo modelo, mas não especificar uma dependência no servidor, a implantação do banco de dados poderá ser iniciada antes da implantação do servidor.
 
 Se o recurso pai já existir e não estiver implantado no mesmo modelo, você receberá esse erro quando o Gerenciador de recursos não puder associar o recurso filho ao pai. Esse erro pode ocorrer quando o recurso filho não está no formato correto ou o recurso filho é implantado em um grupo de recursos diferente do grupo de recursos para o recurso pai.
 
@@ -44,7 +44,7 @@ Para resolver esse erro quando os recursos pai e filho são implantados no mesmo
 
 ```json
 "dependsOn": [
-    "[variables('databaseServerName')]"
+  "[variables('databaseServerName')]"
 ]
 ```
 
@@ -52,29 +52,29 @@ Para resolver esse erro quando o recurso pai foi implantado anteriormente em um 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlServerName": {
-            "type": "string"
-        },
-        "databaseName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "apiVersion": "2014-04-01",
-            "type": "Microsoft.Sql/servers/databases",
-            "location": "[resourceGroup().location]",
-            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
-            "properties": {
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "edition": "Basic"
-            }
-        }
-    ],
-    "outputs": {}
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "edition": "Basic"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c102e7ffde7faab5d864c1d9acaafe141664ebf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434916"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119555"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>Mantenha-se conectado com o Azure IoT Central (recursos de visualização)
 
@@ -21,7 +21,7 @@ ms.locfileid: "75434916"
 
 Este artigo fornece uma visão geral do modo como o Azure IoT Central ajuda a manter seus dispositivos conectados e íntegros.
 
-Com qualquer solução de IoT projetada para operar em escala, uma abordagem bem estruturada para o gerenciamento de dispositivos é importante. Não é suficiente apenas para que os dispositivos "conectados" ao pudessem, você precisa de uma abordagem para manter os dispositivos conectados e íntegros à medida que sua solução evolui, cresce e envelhece. O Azure IoT Central fornece os recursos necessários para garantir que os dispositivos em sua solução de IoT sejam bem cuidados por todo o ciclo de vida do aplicativo.
+Com qualquer solução de IoT projetada para operar em escala, uma abordagem bem estruturada para o gerenciamento de dispositivos é importante. Não é suficiente apenas para colocar os dispositivos "conectados" à nuvem, você precisa de uma abordagem para manter os dispositivos conectados e íntegros à medida que sua solução evolui, cresce e envelhece. O Azure IoT Central fornece os recursos necessários para garantir que os dispositivos em sua solução de IoT sejam bem cuidados por todo o ciclo de vida do aplicativo.
 
 ## <a name="dashboards"></a>Dashboards 
 Os [painéis](howto-manage-devices.md#import-devices) internos fornecem uma área de superfície personalizável para monitorar a integridade e a telemetria do dispositivo. Comece com um painel predefinido de um [modelo de aplicativo](howto-use-app-templates.md) ou crie seus próprios painéis adaptados às necessidades do seu aplicativo. Os painéis podem ser compartilhados com todos os usuários em seu aplicativo ou mantidos particulares.

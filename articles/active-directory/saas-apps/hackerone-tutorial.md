@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: effd0593384190eb1a1cf261305dd61818c3d0b0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768338"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120821"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: integração do Azure Active Directory com o HackerOne
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o HackerOne, execute as seguintes
 
     ![Informações de logon único de domínio e URLs do HackerOne](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , insira o seguinte: `https://hackerone.com/users/saml/auth`
+    a. Na caixa de texto **URL de logon** , insira o seguinte: `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
     b. Na caixa de texto **identificador (ID da entidade)** , insira o seguinte: `hackerone.com`
 
@@ -155,7 +155,13 @@ Para configurar o logon único do Azure AD com o HackerOne, execute as seguintes
 
     a. Clique em **Executar teste**.
 
-    b. Se o valor do campo **status** for igual ao **último status do teste: criado**, entre em contato com a [equipe de suporte do HackerOne](mailto:support@hackerone.com) para solicitar uma revisão da sua configuração.
+6. Quando o teste for concluído com êxito e o campo **status** mostrar o **status do último teste: êxito**, selecione o botão de **verificação de solicitação** para enviar ao HackerOne para aprovação.
+
+    ![Enviar ao HackerOne para aprovação](./media/hackerone-tutorial/tutorial-hackerone-006.png)
+
+7. Depois que o HackerOne aprovar as configurações, você poderá selecionar o botão **migrar usuários** para exigir a autenticação SSO para todos os usuários.
+
+    ![Ativar SAML](./media/hackerone-tutorial/tutorial-hackerone-007.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -174,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
     a. No campo **nome** , insira **brendafernandes**.
-  
+
     b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 

@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9cd2d712dfcc6d3f01cbdb1f4886dd64a6d299d4
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233222"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156221"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Gerenciar dispositivos conectados à sua conta corporativa ou de estudante na página dispositivos
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados na página dispositivos
 
-Na página **dispositivos** do portal **minha conta** , você pode:
+A página **dispositivos** do portal **minha conta** ajuda você a gerenciar os dispositivos conectados à sua conta corporativa ou de estudante. Na página **dispositivos** , você pode:
 
 - Exiba seus dispositivos conectados à conta corporativa ou de estudante.
 
 - Desabilite todos os dispositivos que você não possui mais, que foram perdidos ou que foram roubados.
 
+>[!Important]
+>Este artigo destina-se a usuários que tentam atualizar as informações do dispositivo conectadas a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre o gerenciamento de dispositivos para seus funcionários e outros usos, consulte a [documentação de identidades de dispositivo](https://docs.microsoft.com/azure/active-directory/devices/index).
+
 ## <a name="view-your-connected-devices"></a>Exibir seus dispositivos conectados
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página **minha conta** (https://myprofile.microsoft.com/).
 
 2. Selecione **dispositivos** no painel de navegação esquerdo ou selecione o link **gerenciar dispositivos** no bloco **dispositivos** .
 
@@ -62,7 +65,7 @@ Se você estiver bloqueado em seu dispositivo ou tiver um erro fatal, poderá ir
 
 2. Selecione **Exibir chaves do BitLocker** para o dispositivo bloqueado e anote a chave do BitLocker para seu dispositivo bloqueado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de exibir os dispositivos conectados, você pode:
 
@@ -73,3 +76,13 @@ Depois de exibir os dispositivos conectados, você pode:
 - Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
 - Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
+
+## <a name="related-office-content"></a>Conteúdo relacionado do Office
+
+- [Entre para gerenciar seu produto do Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Ir para a página **minha conta** do Office](https://portal.office.com/account/#home)
+
+- [Ir para a página de **minhas instalações** do Office](https://portal.office.com/account/#installs)
+
+- [Ir para a página de **assinaturas** do Office](https://portal.office.com/account/#subscriptions)

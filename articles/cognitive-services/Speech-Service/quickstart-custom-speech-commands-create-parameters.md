@@ -3,19 +3,19 @@ title: 'Início rápido: criar um comando personalizado com parâmetros (versão
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você adicionará parâmetros a um aplicativo de comandos personalizados.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: fc859625be0706dd130cf7714d0fabf196740e91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 994ac88f78dfe5a5b0ee6fef3fa97d66d53c911b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381006"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156697"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Início rápido: criar um comando personalizado com parâmetros (versão prévia)
 
@@ -40,7 +40,7 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    | É global          | desmarcada           | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
    | Obrigatório           | check             | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | "-Ativado ou desativado?"      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
-   | Tipo               | String              | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
+   | Tipo               | Cadeia              | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
    | Configuração      | Lista de cadeias de caracteres         | Para cadeias de caracteres, uma lista String limita as entradas a um conjunto de valores possíveis                                      |
    | Valores da lista de cadeia de caracteres | ativado, desativado             | Para um parâmetro de lista de cadeia de caracteres, o conjunto de valores possíveis e seus sinônimos                                |
 
@@ -52,7 +52,7 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    | É global          | desmarcada             | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
    | Obrigatório           | check               | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | "-Qual dispositivo?"     | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
-   | Tipo               | String                | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
+   | Tipo               | Cadeia                | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
    | Configuração      | Lista de cadeias de caracteres           | Para cadeias de caracteres, uma lista String limita as entradas a um conjunto de valores possíveis                                      |
    | Valores da lista de cadeia de caracteres | TV, ventilador               | Para um parâmetro de lista de cadeia de caracteres, o conjunto de valores possíveis e seus sinônimos                                |
    | Sinônimos (TV)      | televisão, conte     | Sinônimos opcionais para cada valor possível de um parâmetro de lista de cadeias de caracteres                                      |

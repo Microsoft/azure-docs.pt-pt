@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064338"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119657"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -37,13 +37,13 @@ O exemplo a seguir mostra o identificador de definição de conteúdo e a defini
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
 ```
 
-Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail** contém o identificador de definição de conteúdo **ContentDefinitionReferenceId** definido como`api.localaccountsignup`
+Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail** contém o identificador de definição de conteúdo **ContentDefinitionReferenceId** definido como `api.localaccountsignup`
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -61,9 +61,9 @@ Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail
 
 O elemento **ContentDefinition** contém o seguinte atributo:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador para uma definição de conteúdo. O valor é um especificado na seção **IDs de definição de conteúdo** mais adiante nesta página. |
+| Id | Sim | Um identificador para uma definição de conteúdo. O valor é um especificado na seção **IDs de definição de conteúdo** mais adiante nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
@@ -79,7 +79,7 @@ O elemento **ContentDefinition** contém os seguintes elementos:
 
 O elemento **DataUri** é usado para especificar o identificador de página. Azure AD B2C usa o identificador de página para carregar e iniciar elementos de interface do usuário e JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`.  A tabela a seguir lista os identificadores de página que você pode usar.
 
-| Value |   Descrição |
+| Valor |   Descrição |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. |
@@ -99,9 +99,9 @@ O elemento **LocalizedResourcesReferences** contém os seguintes elementos:
 
 O elemento **LocalizedResourcesReferences** contém os seguintes atributos:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Idioma | Sim | Uma cadeia de caracteres que contém um idioma com suporte para a política por RFC 5646-marcas para identificar idiomas. |
+| Linguagem | Sim | Uma cadeia de caracteres que contém um idioma com suporte para a política por RFC 5646-marcas para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources** . |
 
 O exemplo a seguir mostra uma definição de conteúdo de inscrição ou entrada:
@@ -141,7 +141,7 @@ Para saber como adicionar suporte à localização para suas definições de con
 
 O atributo ID do elemento **ContentDefinition** especifica o tipo de página relacionado à definição de conteúdo. O elemento define o contexto que um modelo HTML5/CSS personalizado irá aplicar. A tabela a seguir descreve o conjunto de IDs de definição de conteúdo que é reconhecido pela estrutura de experiência de identidade e os tipos de página relacionados a eles. Você pode criar suas próprias definições de conteúdo com uma ID arbitrária.
 
-| id | Modelo predefinido | Descrição |
+| ID | Modelo padrão | Descrição |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro** – exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção do provedor de identidade** – lista os provedores de identidade que os usuários podem escolher durante a entrada. As opções geralmente são provedores de identidade empresarial, provedores de identidade social, como Facebook e Google +, ou contas locais. |

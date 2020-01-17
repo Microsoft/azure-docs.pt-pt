@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82bbdd7f209b2ce22225628416a07524c62f1484
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279012"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156170"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configurar um endereço de email como seu método de verificação
 
 Você pode seguir estas etapas para adicionar o método de redefinição de senha. Depois de configurar isso na primeira vez, você pode retornar à página informações de **segurança** para adicionar, atualizar ou excluir suas informações de segurança.
 
-Depois de configurar o método de redefinição de senha, você também deve configurar o método de verificação de dois fatores, usando um [aplicativo autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md)ou uma [chamada telefônica](security-info-setup-phone-number.md).
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>Se você não vir uma opção de email, é possível que sua organização não permita que você use essa opção para seu método de redefinição de senha. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais ajuda.
+
+## <a name="security-vs-password-reset-verification"></a>Segurança vs. verificação de redefinição de senha
+
+Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Utilizado para |
+| ------ | -------- |
+| Aplicativo autenticador | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Mensagens de texto | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Chamadas telefônicas | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Chave de segurança | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Conta de email | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurar seu endereço de email na página de informações de segurança
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772589"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122343"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -48,7 +48,7 @@ O registro de modelo permite armazenar e fazer a versão de seus modelos na nuve
 > [!TIP]
 > Um modelo registrado é um contêiner lógico para um ou mais arquivos que compõem seu modelo. Por exemplo, se você tiver um modelo armazenado em vários arquivos, poderá registrá-los como um único modelo em seu espaço de trabalho do Azure Machine Learning. Após o registro, você pode baixar ou implantar o modelo registrado e receber todos os arquivos que foram registrados.
 
-Os modelos registrados são identificados por nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Marcas de metadados adicionais podem ser fornecidas durante o registro. Essas marcas são usadas durante a pesquisa de um modelo. Azure Machine Learning dá suporte a qualquer modelo que possa ser carregado usando Python 3.5.2 ou superior.
+Os modelos registados são identificados por nome e versão. Sempre que registar um modelo com o mesmo nome de um modelo já existente, o registo aumenta a versão. Marcas de metadados adicionais podem ser fornecidas durante o registro. Essas marcas são usadas durante a pesquisa de um modelo. Azure Machine Learning dá suporte a qualquer modelo que possa ser carregado usando Python 3.5.2 ou superior.
 
 > [!TIP]
 > Você também pode registrar modelos treinados fora do Azure Machine Learning.
@@ -90,7 +90,7 @@ Você também fornece a configuração da plataforma de implantação de destino
 Quando a imagem é criada, os componentes exigidos pelo Azure Machine Learning também são adicionados. Por exemplo, os ativos necessários para executar o serviço Web e interagir com IoT Edge.
 
 #### <a name="batch-scoring"></a>Pontuação em lote
-A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais informações, consulte [previsões de lote em Big data](how-to-run-batch-predictions.md).
+A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais informações, consulte [previsões de lote em Big data](how-to-use-parallel-run-step.md).
 
 #### <a name="real-time-web-services"></a>Serviços Web em tempo real
 

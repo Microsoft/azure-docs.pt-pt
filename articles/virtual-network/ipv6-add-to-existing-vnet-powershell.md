@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965243"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119844"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Atualizar um aplicativo IPv4 para IPv6 na rede virtual do Azure-PowerShell (versão prévia)
 
@@ -26,7 +26,7 @@ Este artigo mostra como adicionar conectividade IPv6 a um aplicativo IPv4 existe
 - Espaço de endereço IPv6 para a rede virtual e sub-rede
 - um Standard Load Balancer com as configurações de front-end IPv4 e IPV6
 - VMs com NICs que têm uma configuração de IPv4 + IPv6
-- IPv o IP público para que o balanceador de carga tenha conectividade IPv6 para a Internet
+- IP público IPv6 para que o balanceador de carga tenha conectividade IPv6 voltada para a Internet
 
 > [!Important]
 > O suporte a IPv6 para a rede virtual do Azure está atualmente em visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
@@ -108,7 +108,7 @@ $lb | Add-AzLoadBalancerBackendAddressPoolConfig -Name "LbBackEndPool_v6"
 $lb | Set-AzLoadBalancer
 ```
 
-## <a name="configure-load-balancer-rules"></a>Configurar regras do balanceador de carga
+## <a name="configure-load-balancer-rules"></a>Configurar as regras do balanceador de carga
 Recupere a configuração do pool de back-end e do balanceador de carga existente e adicione novas regras de balanceamento de carga usando [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/Add-AzLoadBalancerRuleConfig).
 
 ```azurepowershell

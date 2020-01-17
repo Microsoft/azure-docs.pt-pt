@@ -4,20 +4,20 @@ description: Como adicionar dados a um novo volume de armazenamento para uso com
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480599"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153723"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Movendo dados para o cluster vFXT-ingestão de dados paralelos
 
-Depois de criar um novo cluster vFXT, sua primeira tarefa pode ser mover dados para seu novo volume de armazenamento. No entanto, se o método habitual de mover dados estiver emitindo um comando de cópia simples de um cliente, você provavelmente verá um desempenho de cópia lento. A cópia de thread único não é uma boa opção para copiar dados para o armazenamento de back-end do cluster avere vFXT.
+Depois de criar um novo cluster vFXT, sua primeira tarefa pode ser mover dados para um novo volume de armazenamento no Azure. No entanto, se o método habitual de mover dados estiver emitindo um comando de cópia simples de um cliente, você provavelmente verá um desempenho de cópia lento. A cópia de thread único não é uma boa opção para copiar dados para o armazenamento de back-end do cluster avere vFXT.
 
-Como o cluster avere vFXT é um cache de vários clientes escalonáveis, a maneira mais rápida e eficiente de copiar dados para ele é com vários clientes. Essa técnica paralelize a ingestão dos arquivos e objetos.
+Como o avere vFXT para o cluster do Azure é um cache de vários clientes escalonáveis, a maneira mais rápida e eficiente de copiar dados para ele é com vários clientes. Essa técnica paralelize a ingestão dos arquivos e objetos.
 
 ![Diagrama mostrando a movimentação de dados multithreads com vários clientes: na parte superior esquerda, um ícone para o armazenamento de hardware local tem várias setas provenientes dele. As setas apontam para quatro computadores cliente. De cada computador cliente, três setas apontam para o avere vFXT. Do avere vFXT, várias setas apontam para o armazenamento de BLOBs.](media/avere-vfxt-parallel-ingest.png)
 
@@ -49,7 +49,7 @@ Ao criar uma estratégia para copiar dados em paralelo, você deve entender as c
 * Quando os arquivos são pequenos, a métrica de interesse é de arquivos por segundo.
 * Quando os arquivos são grandes (10MiBi ou superior), a métrica de interesse é de bytes por segundo.
 
-Cada processo de cópia tem uma taxa de produtividade e uma taxa de transferência de arquivos, que pode ser medida por cronometrar o comprimento do comando de cópia e fatorar o tamanho do arquivo e a contagem de arquivos. Explicar como medir as tarifas está fora do escopo deste documento, mas é imperativo entender se você estará lidando com arquivos pequenos ou grandes.
+Cada processo de cópia tem uma taxa de produtividade e uma taxa de transferência de arquivos, que pode ser medida por cronometrar o comprimento do comando de cópia e fatorar o tamanho do arquivo e a contagem de arquivos. Explicar como medir as tarifas está fora do escopo deste documento, mas é importante entender se você estará lidando com arquivos pequenos ou grandes.
 
 ## <a name="manual-copy-example"></a>Exemplo de cópia manual
 
@@ -278,7 +278,7 @@ Esse método é um método simples e econômico para conjuntos de data até o n�
 
 ## <a name="use-the-msrsync-utility"></a>Usar o utilitário msrsync
 
-A ferramenta de ``msrsync`` também pode ser usada para mover dados para um Filer de núcleo de back-end para o cluster avere. Essa ferramenta foi projetada para otimizar o uso da largura de banda executando vários processos paralelos de ``rsync``. Ele está disponível no GitHub em <https://github.com/jbd/msrsync>.
+A ferramenta de ``msrsync`` também pode ser usada para mover dados para um Filer principal de back-end para o cluster avere. Essa ferramenta foi projetada para otimizar o uso da largura de banda executando vários processos paralelos de ``rsync``. Ele está disponível no GitHub em <https://github.com/jbd/msrsync>.
 
 ``msrsync`` divide o diretório de origem em "buckets" separados e, em seguida, executa os processos de ``rsync`` individuais em cada Bucket.
 

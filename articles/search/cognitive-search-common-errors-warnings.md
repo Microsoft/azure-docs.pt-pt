@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763169"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152261"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -171,6 +171,18 @@ Em todos esses casos, consulte [tipos de dados com suporte](https://docs.microso
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Erro: não foi possível processar o documento dentro do tempo de execução máximo do indexador
 
 Esse erro ocorre quando o indexador não pode concluir o processamento de um único documento da fonte de dados dentro do tempo de execução permitido. O [tempo máximo de execução](search-limits-quotas-capacity.md#indexer-limits) é menor quando habilidades são usados. Quando esse erro ocorrer, se você tiver maxFailedItems definido com um valor diferente de 0, o indexador ignorará o documento em execuções futuras para que a indexação possa progredir. Se você não puder ignorar nenhum documento, ou se estiver vendo esse erro de forma consistente, considere a possibilidade de dividir documentos em documentos menores para que o progresso parcial possa ser feito dentro de uma única execução do indexador.
+
+<a name="could-not-project-document"/>
+
+## <a name="error-could-not-project-document"></a>Erro: não foi possível projetar o documento
+
+Esse erro ocorre quando o indexador está tentando [projetar dados em um repositório de conhecimento](knowledge-store-projection-overview.md) e houve uma falha em nossa tentativa de fazer isso.  Essa falha pode ser consistente e corrigível ou pode ser uma falha transitória com o coletor de saída de projeção que talvez seja necessário aguardar e tentar novamente para resolver.  Aqui estão um conjunto de Estados de falha conhecidos e possíveis resoluções.
+
+| Razão | Detalhes/exemplo | Resolução |
+| --- | --- | --- |
+| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner `'containerName'` |O contêiner especificado não existe. | O indexador verificará se o contêiner especificado foi criado anteriormente e o criará, se necessário, mas ele só executará essa verificação uma vez por execução de indexer. Esse erro significa que algo excluiu o contêiner após esta etapa.  Para resolver esse erro, tente: Deixe as informações da conta de armazenamento sozinhas, aguarde até que o indexador seja concluído e execute novamente o indexador. |
+| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner `'containerName'` |Não é possível gravar dados na conexão de transporte: uma conexão existente foi fechada forçosamente pelo host remoto. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
+| Não foi possível atualizar `'projectionRow'` de linha na tabela `'tableName'` | O servidor está ocupado. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 

@@ -1,7 +1,7 @@
 ---
 title: Referência do SDK do leitor de imersão
 titleSuffix: Azure Cognitive Services
-description: O SDK do leitor de imersão é uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo Web.
+description: O SDK do leitor de imersão contém uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945282"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156408"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do SDK do leitor de imersão
 
-O SDK do leitor de imersão é uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo Web.
+O SDK do leitor de imersão contém uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo.
 
 ## <a name="functions"></a>Funções
 
@@ -36,7 +36,7 @@ O SDK expõe as funções:
 Inicia o leitor de imersão dentro de um `iframe` em seu aplicativo Web.
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### <a name="parameters"></a>Parâmetros
@@ -50,7 +50,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>Devolução
 
-Retorna um `Promise<HTMLDivElement>`, que resolve quando o leitor de imersão é carregado. O `Promise` é resolvido para um elemento `div` cujo filho é um elemento `iframe` que contém a página do leitor de imersão.
+Retorna um `Promise<LaunchResponse>`, que resolve quando o leitor de imersão é carregado. O `Promise` é resolvido para um objeto [`LaunchResponse`](#launchresponse) .
 
 ### <a name="exceptions"></a>Exceções
 
@@ -109,6 +109,17 @@ Um único bloco de dados, que será passado para o conteúdo do leitor de imers�
 }
 ```
 
+### <a name="launchresponse"></a>LaunchResponse
+
+Contém a resposta da chamada para `ImmersiveReader.launchAsync`.
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
 ### <a name="cookiepolicy-enum"></a>CookiePolicy enum
 
 Uma enumeração usada para definir a política para o uso do cookie do leitor de imersão. Consulte [Opções](#options).
@@ -127,6 +138,7 @@ enum CookiePolicy { Disable, Enable }
 | application/vnd. openxmlformats-officeDocument. WordprocessingML. Document | Documento de formato Microsoft Word. docx.
 
 ### <a name="html-support"></a>Suporte a HTML
+
 | HTML | Conteúdo com suporte |
 | --------- | ----------- |
 | Estilos de fonte | Negrito, itálico, sublinhado, código, tachado, sobrescrito, subscrito |
@@ -186,7 +198,7 @@ Contém informações sobre o erro.
 
 ## <a name="launching-the-immersive-reader"></a>Iniciando o leitor de imersão
 
-O SDK fornece o estilo padrão para o botão iniciar o leitor de imersão. Use o atributo de classe `immersive-reader-button` para habilitar esse estilo.
+O SDK fornece o estilo padrão para o botão iniciar o leitor de imersão. Use o atributo de classe `immersive-reader-button` para habilitar esse estilo. Consulte [Este artigo](./how-to-customize-launch-button.md) para obter mais detalhes.
 
 ```html
 <div class='immersive-reader-button'></div>

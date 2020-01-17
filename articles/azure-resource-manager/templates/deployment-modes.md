@@ -3,12 +3,12 @@ title: Modos de implementação
 description: Descreve como especificar se deseja usar um modo de implantação completo ou incremental com Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/23/2019
-ms.openlocfilehash: f5a6f6416240ce512167e779c086d2665771c3f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484756"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152396"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager modos de implantação
 
@@ -26,16 +26,16 @@ Tenha cuidado ao usar o modo completo com [loops de cópia](create-multiple-inst
 
 Se você implantar em [mais de um grupo de recursos em um modelo](cross-resource-group-deployment.md), os recursos no grupo de recursos especificado na operação de implantação poderão ser excluídos. Os recursos nos grupos de recursos secundários não são excluídos.
 
-Há algumas diferenças em como os tipos de recursos lidam com exclusões de modo completo. Os recursos pai são excluídos automaticamente quando não estão em um modelo implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído. 
+Há algumas diferenças em como os tipos de recursos lidam com exclusões de modo completo. Os recursos pai são excluídos automaticamente quando não estão em um modelo implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído.
 
-Por exemplo, se o grupo de recursos contiver uma zona DNS (tipo de recurso Microsoft. Network/dnsZones) e um registro CNAME (tipo de recurso Microsoft. Network/dnsZones/CNAME), a zona DNS será o recurso pai do registro CNAME. Se você implantar o com o modo completo e não incluir a zona DNS em seu modelo, a zona DNS e o registro CNAME serão excluídos. Se você incluir a zona DNS em seu modelo, mas não incluir o registro CNAME, o CNAME não será excluído. 
+Por exemplo, se o grupo de recursos contiver uma zona DNS (tipo de recurso Microsoft. Network/dnsZones) e um registro CNAME (tipo de recurso Microsoft. Network/dnsZones/CNAME), a zona DNS será o recurso pai do registro CNAME. Se você implantar o com o modo completo e não incluir a zona DNS em seu modelo, a zona DNS e o registro CNAME serão excluídos. Se você incluir a zona DNS em seu modelo, mas não incluir o registro CNAME, o CNAME não será excluído.
 
 Para obter uma lista de como os tipos de recursos lidam com a exclusão, consulte [exclusão de recursos do Azure para implantações de modo completo](complete-mode-deletion.md).
 
 Se o grupo de recursos estiver [bloqueado](../management/lock-resources.md), o modo completo não excluirá os recursos.
 
 > [!NOTE]
-> Somente modelos de nível raiz dão suporte ao modo de implantação completo. Para [modelos vinculados ou aninhados](linked-templates.md), você deve usar o modo incremental. 
+> Somente modelos de nível raiz dão suporte ao modo de implantação completo. Para [modelos vinculados ou aninhados](linked-templates.md), você deve usar o modo incremental.
 >
 > [Implantações de nível de assinatura](deploy-to-subscription.md) não dão suporte ao modo completo.
 >
@@ -105,9 +105,9 @@ O exemplo a seguir mostra um modelo vinculado definido para o modo de implantaç
 ```json
 "resources": [
   {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
           <nested-template-or-external-template>

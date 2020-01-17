@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278969"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156153"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como seu método de verificação
 
@@ -30,7 +30,20 @@ Se você for solicitado a configurar isso imediatamente depois de entrar em sua 
 > [!Note]
 > As informações de segurança não dão suporte ao uso de extensões de telefone. Mesmo que você adicione o formato apropriado, + 1 4255551234X12345, as extensões serão removidas antes de a chamada ser colocada.
 >
-> Se você não vir uma opção de telefone, é possível que sua organização não permita que você use um número de telefone para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
+> Se você não vir uma opção de telefone, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Verificação de segurança versus autenticação de redefinição de senha
+
+Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Utilizado para |
+| ------ | -------- |
+| Aplicativo autenticador | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Mensagens de texto | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Chamadas telefônicas | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Chave de segurança | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Conta de email | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurar chamadas telefônicas na página informações de segurança
 

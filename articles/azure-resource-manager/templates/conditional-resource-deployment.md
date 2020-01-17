@@ -3,12 +3,12 @@ title: Implantação condicional com modelos
 description: Descreve como implantar condicionalmente um recurso em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 8ffff0794357ed772bcaea9dce1f93fc7601295a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4ee733e81f3a923f268f33f5826387059923bcb
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485120"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122003"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Implantação condicional em modelos do Resource Manager
 
@@ -20,16 +20,16 @@ Você pode usar a implantação condicional para criar um novo recurso ou usar u
 
 ```json
 {
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[parameters('location')]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
+  "condition": "[equals(parameters('newOrExisting'),'new')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "2017-06-01",
+  "name": "[variables('storageAccountName')]",
+  "location": "[parameters('location')]",
+  "sku": {
+    "name": "[variables('storageAccountType')]"
+  },
+  "kind": "Storage",
+  "properties": {}
 }
 ```
 
@@ -43,31 +43,31 @@ Você pode passar um valor de parâmetro que indica se uma condição é permiti
 
 ```json
 {
-    "type": "Microsoft.Sql/servers",
-    "name": "[parameters('serverName')]",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('location')]",
-    "properties": {
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "version": "12.0"
-    },
-    "resources": [
-        {
-            "condition": "[parameters('allowAzureIPs')]",
-            "type": "firewallRules",
-            "name": "AllowAllWindowsAzureIps",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-            ],
-            "properties": {
-                "endIpAddress": "0.0.0.0",
-                "startIpAddress": "0.0.0.0"
-            }
-        }
-    ]
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2015-05-01-preview",
+  "name": "[parameters('serverName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "administratorLogin": "[parameters('administratorLogin')]",
+    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+    "version": "12.0"
+  },
+  "resources": [
+    {
+      "condition": "[parameters('allowAzureIPs')]",
+      "type": "firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "AllowAllWindowsAzureIps",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "endIpAddress": "0.0.0.0",
+        "startIpAddress": "0.0.0.0"
+      }
+    }
+  ]
 }
 ```
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1560b5d60ae3c6de3ecb6d50859e24ebb7bc2d28
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753998"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156918"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 - Um modelo. Se você não tiver um modelo treinado, poderá usar os arquivos de modelo e de dependência fornecidos neste [tutorial](https://aka.ms/azml-deploy-cloud).
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="connect-to-your-workspace"></a>Ligar à sua área de trabalho
 
@@ -59,7 +59,7 @@ O código a seguir mostra como se conectar a um espaço de trabalho Azure Machin
 
 + **Usando VS Code**
 
-   Ao usar VS Code, você seleciona o espaço de trabalho usando uma interface gráfica. Para obter mais informações, consulte [implantar e gerenciar modelos](how-to-vscode-tools.md#deploy-and-manage-models) na documentação de extensão de vs Code.
+   Ao usar VS Code, você seleciona o espaço de trabalho usando uma interface gráfica. Para obter mais informações, consulte [implantar e gerenciar modelos](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) na documentação de extensão de vs Code.
 
 ## <a id="registermodel"></a>Registrar seu modelo
 
@@ -115,7 +115,7 @@ Os trechos de código nesta seção demonstram como registrar um modelo de uma e
 
 + **Usando VS Code**
 
-  Registre modelos usando qualquer arquivo ou pasta de modelo usando a extensão [vs Code](how-to-vscode-tools.md#deploy-and-manage-models) .
+  Registre modelos usando qualquer arquivo ou pasta de modelo usando a extensão [vs Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) .
 
 ### <a name="register-a-model-from-a-local-file"></a>Registrar um modelo de um arquivo local
 
@@ -185,7 +185,7 @@ Para implementar o modelo, irá precisar dos seguintes itens:
     >
     > * O SDK do Azure Machine Learning não fornece uma maneira para serviços Web ou implantações de IoT Edge para acessar seu armazenamento de dados ou conjuntos de dados. Se o modelo implantado precisar acessar dados armazenados fora da implantação, como dados em uma conta de armazenamento do Azure, você deverá desenvolver uma solução de código personalizada usando o SDK relevante. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
     >
-    >   Uma alternativa que pode funcionar para seu cenário é a [previsão de lote](how-to-run-batch-predictions.md), que fornece acesso a armazenamentos de dados durante a pontuação.
+    >   Uma alternativa que pode funcionar para seu cenário é a [previsão de lote](how-to-use-parallel-run-step.md), que fornece acesso a armazenamentos de dados durante a pontuação.
 
 * **As dependências**, como os scripts auxiliares ou pacotes do Python/Conda, necessárias para executar o modelo ou script de entrada.
 

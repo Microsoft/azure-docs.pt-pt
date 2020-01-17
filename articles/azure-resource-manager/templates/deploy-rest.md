@@ -3,16 +3,16 @@ title: Implantar recursos com a API REST e o modelo
 description: Use Azure Resource Manager e a API REST do Gerenciador de recursos para implantar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: 3a3447746b3e7cbdfeeddd296ce78068e120a134
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152515"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
 
-Este artigo explica como usar a API REST do Gerenciador de recursos com modelos do Resource Manager para implantar seus recursos no Azure.  
+Este artigo explica como usar a API REST do Gerenciador de recursos com modelos do Resource Manager para implantar seus recursos no Azure.
 
 Você pode incluir seu modelo no corpo da solicitação ou vincular a um arquivo. Ao usar um arquivo, ele pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando o modelo estiver em uma conta de armazenamento, você poderá restringir o acesso ao modelo e fornecer um token de SAS (assinatura de acesso compartilhado) durante a implantação.
 
@@ -67,7 +67,7 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
 
 1. Valide sua implantação antes de executá-la executando a operação [validar um modelo de implantação](/rest/api/resources/deployments/validate) . Ao testar a implantação, forneça parâmetros exatamente como você faria ao executar a implantação (mostrada na próxima etapa).
 
-1. Para implantar um modelo, forneça sua ID de assinatura, o nome do grupo de recursos, o nome da implantação no URI de solicitação. 
+1. Para implantar um modelo, forneça sua ID de assinatura, o nome do grupo de recursos, o nome da implantação no URI de solicitação.
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
@@ -116,7 +116,7 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
 
     Você pode configurar sua conta de armazenamento para usar um token SAS (assinatura de acesso compartilhado). Para obter mais informações, consulte [delegando acesso com uma assinatura de acesso compartilhado](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-    Se você precisar fornecer um valor confidencial para um parâmetro (como uma senha), adicione esse valor a um cofre de chaves. Recupere o cofre de chaves durante a implantação, conforme mostrado no exemplo anterior. Para obter mais informações, consulte [transmitir valores seguros durante a implantação](key-vault-parameter.md). 
+    Se você precisar fornecer um valor confidencial para um parâmetro (como uma senha), adicione esse valor a um cofre de chaves. Recupere o cofre de chaves durante a implantação, conforme mostrado no exemplo anterior. Para obter mais informações, consulte [transmitir valores seguros durante a implantação](key-vault-parameter.md).
 
 1. Em vez de vincular a arquivos para o modelo e parâmetros, você pode incluí-los no corpo da solicitação. O exemplo a seguir mostra o corpo da solicitação com o modelo e o parâmetro embutido:
 
@@ -155,8 +155,8 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-02-01",
+            "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {
               "name": "[parameters('storageAccountType')]"

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3680de5d8e0e761047e1263c2679da87b1fa2d0b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769460"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121238"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure para Azure Functions
 
@@ -249,7 +249,7 @@ Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use os segui
   }
   ```
 
-  Você pode definir a propriedade `Connection` para especificar a conta de armazenamento a ser usada, conforme mostrado no exemplo a seguir:
+  Você pode definir a propriedade `Connection` para especificar a configuração do aplicativo que contém a cadeia de conexão da conta de armazenamento a ser usada, conforme mostrado no exemplo a seguir:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -312,7 +312,7 @@ Em C# e C# script, acesse os dados da mensagem usando um parâmetro de método c
 
 Se você tentar associar a `CloudQueueMessage` e receber uma mensagem de erro, verifique se você tem uma referência para [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
-No JavaScript, use `context.bindings.<name>` para acessar a carga do item de fila. Se a carga for JSON, ela será desserializada em um objeto.
+No JavaScript, use `context.bindings.<name>` para acessar a carga do item de fila. Se a carga for JSON, ela será desserializada em um objeto. Essa carga também é passada como o segundo parâmetro para a função.
 
 ## <a name="trigger---message-metadata"></a>Acionador - metadados de mensagem
 
@@ -320,7 +320,7 @@ O gatilho de fila fornece várias [Propriedades de metadados](./functions-bindin
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Carga da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila como uma cadeia de caracteres, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade `name` em *Function. JSON*.|
+|`QueueTrigger`|`string`|Carga da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` terá o mesmo valor que a variável nomeada pela propriedade `name` em *Function. JSON*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi removida da fila.|
 |`ExpirationTime`|`DateTimeOffset`|A hora em que a mensagem expira.|
 |`Id`|`string`|ID da mensagem da fila.|
@@ -411,7 +411,7 @@ Aqui está o *Function* ficheiro:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -472,7 +472,7 @@ Aqui está o *Function* ficheiro:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -506,7 +506,7 @@ module.exports = function(context) {
 
 ### <a name="output---java-example"></a>Saída - exemplo de Java
 
- O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando disparada por uma solicitação HTTP.
+ O exemplo a seguir mostra uma função Java que cria uma mensagem de fila quando disparada por uma solicitação HTTP.
 
 ```java
 @FunctionName("httpToQueue")
@@ -514,7 +514,7 @@ module.exports = function(context) {
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
        result.setValue(message + " has been added.");
        return message;
  }

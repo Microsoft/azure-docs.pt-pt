@@ -4,20 +4,22 @@ description: Como gerenciar o cluster avere – adicionar ou remover nós, reini
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415289"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153484"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerir o cluster do Avere vFXT
 
-Depois de criar o cluster, talvez seja necessário adicionar nós de cluster ou parar ou reinicializar o cluster. E quando seu projeto for concluído, você precisará saber como parar e remover o cluster permanentemente.
+Em algum momento do ciclo de vida de seu avere vFXT para o cluster do Azure, talvez seja necessário adicionar nós de cluster ou iniciar ou reinicializar o cluster. Quando seu projeto for concluído, você precisará saber como parar o cluster e removê-lo permanentemente.
 
-Dependendo da tarefa de gerenciamento de cluster, talvez seja necessário usar o painel de controle avere, o script de criação do cluster de linha de comando do vfxt.py ou o portal do Azure para fazer isso.
+Este artigo explica como adicionar ou remover nós de cluster e outras operações básicas de cluster. Se você precisar alterar as configurações de cluster ou monitorar seu trabalho, use o [painel de controle avere](avere-vfxt-cluster-gui.md).
+
+Dependendo da tarefa de gerenciamento, talvez seja necessário usar uma das três ferramentas diferentes: painel de controle avere, script de gerenciamento de cluster de linha de comando vfxt.py e o portal do Azure.
 
 Esta tabela fornece uma visão geral de quais ferramentas podem ser usadas para cada tarefa.
 
@@ -38,7 +40,7 @@ As instruções detalhadas para cada ferramenta estão incluídas abaixo.
 
 Quando você desliga ou interrompe qualquer VM do Azure, ele pára de incorrer em encargos de computação, mas você ainda deve pagar pelo armazenamento. Se você desligar um nó vFXT ou todo o cluster vFXT e não pretender reiniciá-lo, deverá usar o portal do Azure para excluir as VMs relacionadas.
 
-No portal do Azure, um nó *parado* (que pode ser reiniciado) mostra o status **parado** no portal do Azure; um nó *excluído* mostra o status **parado (desalocado)** e não gera mais cobranças de armazenamento ou de computação.
+No portal do Azure, um nó *parado* (que pode ser reiniciado) mostra o status **parado** no portal do Azure. Um nó *excluído* mostra o status **parado (desalocado)** e não gera mais cobranças de armazenamento ou de computação.
 
 Antes de excluir a VM, verifique se todos os dados alterados foram gravados do cache para o armazenamento de back-end usando as opções painel de controle avere ou vfxt.py para parar ou desligar o cluster.
 
@@ -50,7 +52,7 @@ O painel de controle avere pode ser usado para essas tarefas:
 * Remover um nó do cluster
 * Parar ou reinicializar o cluster inteiro
 
-O painel de controle avere prioriza a integridade dos dados, portanto, ele tenta gravar quaisquer dados alterados no armazenamento de back-end antes de uma operação possivelmente destrutiva. Isso o torna uma opção mais segura do que o portal do avere.
+O painel de controle avere prioriza a integridade dos dados, portanto, ele tenta gravar quaisquer dados alterados no armazenamento de back-end antes de uma operação possivelmente destrutiva. Isso o torna uma opção mais segura do que a portal do Azure.
 
 Acesse o painel de controle do avere em um navegador da Web. Siga as instruções em [acessar o cluster vFXT](avere-vfxt-cluster-gui.md) se precisar de ajuda.
 
@@ -69,7 +71,7 @@ Leia os [nós do cluster > FXT](<https://azure.github.io/Avere/legacy/ops_guide/
 
 A página Configurações de **manutenção do sistema** tem comandos para reiniciar os serviços de cluster, reinicializar o cluster ou desligar o cluster com segurança. Leia [administração > manutenção do sistema](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (no guia de configurações do cluster avere) para obter detalhes.
 
-Quando um cluster está sendo desligado, ele posta mensagens de estado na guia **painel** primeiro. Após alguns instantes, a sessão do painel de controle avere deixará de responder, o que significa que o cluster foi desligado.
+Quando um cluster começa a desligar, ele posta mensagens de estado na guia **painel** . Após alguns instantes, as mensagens param e, eventualmente, a sessão do painel de controle avere para de responder, o que significa que o cluster foi desligado.
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Gerenciar o cluster com o vfxt.py
 
@@ -83,7 +85,7 @@ O script vfxt.py pode ser usado para essas tarefas de gerenciamento de cluster:
 * Parar ou iniciar um cluster  
 * Destruir um cluster
 
-Como o painel de controle do avere, as operações do vfxt.py tentam garantir que os dados alterados sejam armazenados permanentemente no armazenamento de back-end antes de desligar ou destruir o cluster ou nó. Isso o torna uma opção mais segura do que o portal do avere.
+Como o painel de controle do avere, as operações do vfxt.py tentam garantir que os dados alterados sejam armazenados permanentemente no armazenamento de back-end antes de desligar ou destruir o cluster ou nó. Isso o torna uma opção mais segura do que a portal do Azure.
 
 Um guia de uso completo do vfxt.py está disponível no GitHub: [Gerenciamento de cluster de nuvem com vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
@@ -95,7 +97,7 @@ O cluster deve estar em execução para usar este comando.
 
 Forneça os seguintes valores:
 
-* Nome do grupo de recursos para o cluster e também para recursos de rede e armazenamento se eles não forem iguais aos do cluster
+* Nome do grupo de recursos para o cluster e também para recursos de rede e armazenamento se eles não estiverem no mesmo grupo de recursos que o cluster
 * Local do cluster
 * Rede e sub-rede do cluster
 * Função de acesso de nó de cluster (use a função interna [operador avere](../role-based-access-control/built-in-roles.md#avere-operator))
@@ -139,7 +141,7 @@ Como o cluster é interrompido, você deve passar identificadores de instância 
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-A opção ``--quick-destroy`` pode ser usada se você não quiser gravar dados alterados do cache de cluster.
+A opção ``--quick-destroy`` pode ser usada se você não quiser salvar os dados alterados do cache de cluster.
 
 Leia o [Guia de uso do vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) para obter informações adicionais.
 
@@ -195,7 +197,7 @@ Além de excluir os nós de cluster, considere remover estes componentes:
 * Discos de dados associados a nós de cluster
 * Interfaces de rede e IPs públicos associados a componentes de cluster
 * Redes virtuais
-* Contas de armazenamento (**somente** se não contiverem dados importantes)
+* Contêineres de armazenamento e contas de armazenamento (**somente** se eles não contiverem dados importantes)
 * Conjunto de disponibilidade
 
 ![Portal do Azure lista "todos os recursos" mostrando os recursos criados para um cluster de teste](media/avere-vfxt-all-resources-list.png)

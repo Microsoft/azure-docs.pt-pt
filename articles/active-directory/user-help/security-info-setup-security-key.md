@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278953"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156085"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar uma chave de segurança como seu método de verificação
 
@@ -25,8 +25,21 @@ Você pode usar as chaves de segurança como um método de entrada sem senha den
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>[!Note]
+> Se você não vir a opção chave de segurança, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Verificação de segurança versus autenticação de redefinição de senha
+
+Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Utilizado para |
+| ------ | -------- |
+| Aplicativo autenticador | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Mensagens de texto | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Chamadas telefônicas | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Chave de segurança | Verificação de dois fatores e autenticação de redefinição de senha. |
+| Conta de email | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
 
 ## <a name="what-is-a-security-key"></a>O que é uma chave de segurança?
 
@@ -148,7 +161,7 @@ Você pode criar um novo PIN de chave de segurança para sua chave de segurança
 
 Para registrar uma chave de segurança, você deve ter pelo menos um método de verificação de segurança adicional registrado. Consulte a [seção visão geral](security-info-add-update-methods-overview.md) para obter mais informações. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre métodos de verificação com senha, leia o [Microsoft Azure ad começa a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o artigo o [que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md) e os artigos de [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 

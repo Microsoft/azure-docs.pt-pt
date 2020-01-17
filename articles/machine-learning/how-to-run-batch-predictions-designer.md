@@ -11,19 +11,19 @@ ms.author: trbye
 author: trevorbye
 ms.date: 11/19/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 8d80282044adfa723940aa6f68efc1e719e713c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1e346d2542193ec1880ad0a56bd6afa1b0a46890
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533168"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122632"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões de lote usando Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste "como", você aprende a usar o designer para treinar um modelo e configurar um pipeline de previsão do lote e um serviço Web. A previsão de lote permite a pontuação contínua e sob demanda de modelos treinados em conjuntos de dados grandes, opcionalmente configurada como um serviço Web que pode ser disparado de qualquer biblioteca HTTP. 
 
-Para configurar os serviços de Pontuação de lote usando o SDK, consulte o artigo [como](how-to-run-batch-predictions.md).
+Para configurar os serviços de Pontuação de lote usando o SDK, consulte o artigo [como](how-to-use-parallel-run-step.md).
 
 Neste "como", você aprende as seguintes tarefas:
 

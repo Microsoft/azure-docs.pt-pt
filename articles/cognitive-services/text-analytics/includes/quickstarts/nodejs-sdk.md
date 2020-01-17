@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: eaaa6ea7c5986a71f298119b5074ae32504ab73b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e19b0a8fee13695d9bbbcf6962ccf7f307754268
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446290"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159076"
 ---
 <a name="HOLTop"></a>
 
@@ -50,7 +50,7 @@ Crie variáveis para a chave de assinatura e o ponto de extremidade do Azure do 
 
 ```javascript
 const subscription_key = '<paste-your-text-analytics-key-here>';
-const endpoint = `<paste-your-text-analytics-endpoint-here>`;
+const endpoint = '<paste-your-text-analytics-endpoint-here>';
 ```
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente

@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928453"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121782"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -155,17 +155,19 @@ Você pode recuperar a identidade gerenciada de portal do Azure ou de forma prog
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar identidade gerenciada usando portal do Azure
 
-Você pode encontrar as informações de identidade gerenciada em portal do Azure-> suas propriedades de data factory >:
+Você pode encontrar as informações de identidade gerenciadas de portal do Azure-> suas propriedades de data factory >.
 
 - ID de objeto de identidade gerenciada
 - Locatário de identidade gerenciada
-- **ID do aplicativo de identidade gerenciada** > copiar este valor
+- ID do aplicativo de identidade gerenciada
 
-![Recuperar identidade gerenciada](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+As informações de identidade gerenciadas também aparecerão quando você criar um serviço vinculado que dá suporte à autenticação de identidade gerenciada, como blob do Azure, Azure Data Lake Storage, Azure Key Vault, etc.
+
+Ao conceder permissão, use ID de objeto ou nome de data factory (como nome de identidade gerenciada) para localizar essa identidade.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recuperar identidade gerenciada usando o PowerShell
 
-A ID da entidade de identidade gerenciada e a ID do locatário serão retornadas quando você obter uma data factory específica da seguinte maneira:
+A ID da entidade de identidade gerenciada e a ID do locatário serão retornadas quando você obter uma data factory específica da seguinte maneira. Use o **PrincipalId** para conceder acesso:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copie a ID da entidade de segurança e execute abaixo Azure Active Directory comando com ID de entidade de segurança como parâmetro para obter a **ApplicationId**, que você usa para conceder acesso:
+Você pode obter a ID do aplicativo copiando a ID da entidade de segurança acima e, em seguida, executando abaixo Azure Active Directory comando com ID de entidade de segurança como parâmetro.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184182"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159505"
 ---
 ## <a name="os-config"></a>Adicionar endereços IP ao sistema operativo de uma VM
 
-Ligue-se e iniciar sessão a uma VM que criou com vários endereços IP privados. Tem de adicionar manualmente todos os endereços IP privados (incluindo o principal) que adicionou à VM. Conclua os passos que seguem para o seu sistema de operativo da VM.
+Conecte-se e entre em uma VM que você criou com vários endereços IP privados. Tem de adicionar manualmente todos os endereços IP privados (incluindo o principal) que adicionou à VM. Conclua as etapas a seguir para o sistema operacional da VM.
 
 ### <a name="windows"></a>Windows
 
 1. A partir de uma linha de comandos, escreva *ipconfig /all*.  Apenas verá o endereço IP privado *Principal* (através de DHCP).
 2. Escreva *ncpa.cpl* na linha de comandos para abrir a janela **Ligações de rede**.
-3. Abra as propriedades do adaptador adequado: **Conexão de área local**.
+3. Abra as propriedades do adaptador adequado: **Ligação de Área Local**.
 4. Faça duplo clique em protocolo IP versão 4 (IPv4).
 5. Selecione **Utilizar o seguinte endereço IP** e introduza os seguinte valores:
 
-    * **Endereço IP**: Introduza o *primário* endereço IP privado
-    * **Máscara de sub-rede**: Definidos com base na sua sub-rede. Por exemplo, se a sub-rede for uma sub-rede /24, a máscara de sub-rede será 255.255.255.0.
+    * **Endereço IP**: Introduza o endereço IP privado *Principal*
+    * **Máscara de sub-rede**: Conjunto baseado na sua sub-rede. Por exemplo, se a sub-rede for uma sub-rede /24, a máscara de sub-rede será 255.255.255.0.
     * **Gateway predefinido**: O primeiro endereço IP na sub-rede. Se a sua sub-rede for 10.0.0.0/24, o endereço IP do gateway será 10.0.0.1.
-    * Selecione **utilizar os seguintes endereços de servidor DNS** e introduza os seguintes valores:
+    * Selecione **usar os seguintes endereços de servidor DNS** e insira os seguintes valores:
         * **Servidor DNS preferencial**: Se não estiver a utilizar o seu próprio servidor DNS, introduza 168.63.129.16.  Se estiver a utilizar o seu próprio servidor DNS, introduza o endereço IP do seu servidor.
-    * Selecione o **avançadas** botão e adicione mais endereços IP. Adicione cada um dos endereços IP privados secundários, que adicionou à interface de rede do Azure num passo anterior, a interface de rede do Windows que é atribuída o endereço IP primário atribuído à interface de rede do Azure.
+    * Selecione o botão **avançado** e adicione endereços IP adicionais. Adicione cada um dos endereços IP privados secundários que você adicionou ao adaptador de rede do Azure em uma etapa anterior, à interface de rede do Windows que é atribuída ao endereço IP primário atribuído à interface de rede do Azure.
 
-        Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure no sistema de operativo da máquina virtual. Ao definir manualmente o endereço IP no sistema operativo, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído para o Azure [interface de rede](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), ou pode perder a conectividade para a máquina virtual. Saiba mais sobre [endereço IP privado](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) definições. Nunca deve atribuir um endereço IP público do Azure no sistema operativo.
+        Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure no sistema de operativo da máquina virtual. Quando você definir manualmente o endereço IP no sistema operacional, verifique se ele é o mesmo endereço que o endereço IP privado atribuído ao [adaptador de rede](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)do Azure ou se você pode perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) . Você nunca deve atribuir um endereço IP público do Azure dentro do sistema operacional.
 
     * Clique em **OK** para fechar as definições de TCP/IP e, em seguida, novamente em **OK** para fechar as definições do adaptador. A ligação RDP é restabelecida.
 
 6. A partir de uma linha de comandos, escreva *ipconfig /all*. Todos os endereços IP adicionados por si são apresentados e o DHCP é desativado.
-7. Configure o Windows para utilizar o endereço IP privado da configuração de IP principal no Azure como o endereço IP primário para Windows. Ver [acesso de Internet não da VM do Windows Azure que tem vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para obter detalhes. 
+7. Configure o Windows para usar o endereço IP privado da configuração de IP primário no Azure como o endereço IP primário para o Windows. Consulte [sem acesso à Internet da VM do Windows do Azure que tem vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para obter detalhes. 
 
 ### <a name="validation-windows"></a>Validação (Windows)
 
@@ -49,10 +49,72 @@ Para se certificar de que pode estabelecer uma ligação à Internet a partir da
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Para configurações de IP secundárias, apenas pode enviar ping para a Internet se a configuração tem um endereço IP público associado ao mesmo. Para configurações de IP primárias, um endereço IP público não é necessário para enviar um ping à Internet.
+>Para configurações de IP secundário, você só poderá executar ping na Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primário, um endereço IP público não é necessário para executar o ping na Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-Recomendamos olhar para a versão mais recente a documentação para a distribuição de Linux. 
+
+É recomendável observar a documentação mais recente para sua distribuição do Linux. 
+
+1. Abra uma janela de terminal.
+2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
+
+   ```bash
+   sudo -i
+   ```
+
+3. Atualize o ficheiro de configuração da interface de rede (assumindo “eth0”).
+
+   * Mantenha o item de linha existente para dhcp. O endereço IP principal continua configurado como estava anteriormente.
+   * Adicione uma configuração para um endereço IP estático adicional com os seguintes comandos:
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     Deverá ver um ficheiro .cfg.
+4. Abra o ficheiro. Deverá ver as linhas seguintes no final do ficheiro:
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. Adicione as seguintes linhas a seguir às linhas existentes neste ficheiro:
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. Guarde o ficheiro com o comando seguinte:
+
+   ```bash
+   :wq
+   ```
+
+7. Reponha a interface de rede com o seguinte comando:
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > Execute ifdown e ifup na mesma linha se estiver a utilizar uma ligação remota.
+   >
+
+8. Certifique-se de que o endereço IP é adicionado à interface de rede com o seguinte comando:
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   Deverá ver o endereço IP que adicionou como parte da lista.
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+
+O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o gerenciamento de rede do so. É recomendável observar a documentação mais recente para sua distribuição do Linux. 
 
 1. Abra uma janela de terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
@@ -61,47 +123,43 @@ Recomendamos olhar para a versão mais recente a documentação para a distribui
     sudo -i
     ```
 
-3. Atualize o ficheiro de configuração da interface de rede (assumindo “eth0”).
-
-   * Mantenha o item de linha existente para dhcp. O endereço IP principal continua configurado como estava anteriormente.
-   * Adicione uma configuração para um endereço IP estático adicional com os seguintes comandos:
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     Deverá ver um ficheiro .cfg.
-4. Abra o ficheiro. Deverá ver as linhas seguintes no final do ficheiro:
+3. Crie um arquivo para a segunda interface e abra-o em um editor de texto:
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. Adicione as seguintes linhas a seguir às linhas existentes neste ficheiro:
+4. Adicione as seguintes linhas ao arquivo, substituindo `10.0.0.6/24` pelo seu IP/máscara de rede:
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. Guarde o ficheiro com o comando seguinte:
+5. Guarde o ficheiro com o comando seguinte:
 
     ```bash
     :wq
     ```
 
-7. Reponha a interface de rede com o seguinte comando:
+6. Teste as alterações usando o [netplan tente](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) confirmar a sintaxe:
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > Execute ifdown e ifup na mesma linha se estiver a utilizar uma ligação remota.
-    >
+> [!NOTE]
+> `netplan try` aplicará as alterações temporariamente e reverterá as alterações após 120 segundos. Se houver uma perda de conectividade, aguarde 120 segundos e, em seguida, reconecte-se. Nesse momento, as alterações serão revertidas.
+
+7. Supondo que não haja problemas com `netplan try`, aplique as alterações de configuração:
+
+    ```bash
+    netplan apply
+    ```
 
 8. Certifique-se de que o endereço IP é adicionado à interface de rede com o seguinte comando:
 
@@ -109,8 +167,25 @@ Recomendamos olhar para a versão mais recente a documentação para a distribui
     ip addr list eth0
     ```
 
-    Deverá ver o endereço IP que adicionou como parte da lista.
+    Deverá ver o endereço IP que adicionou como parte da lista. Exemplo:
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS e outros)
 
 1. Abra uma janela de terminal.
@@ -179,7 +254,7 @@ Para se certificar de que pode estabelecer uma ligação à Internet a partir da
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Para configurações de IP secundárias, apenas pode enviar ping para a Internet se a configuração tem um endereço IP público associado ao mesmo. Para configurações de IP primárias, um endereço IP público não é necessário para enviar um ping à Internet.
+>Para configurações de IP secundário, você só poderá executar ping na Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primário, um endereço IP público não é necessário para executar o ping na Internet.
 
 Para VMs de Linux, ao tentar validar a conectividade de saída a partir de um NIC secundário, poderá ter de adicionar rotas adequadas. Existem várias formas de efetuar este procedimento. Consulte a documentação adequada para a distribuição de Linux. O método seguinte é adequado para realizar este procedimento:
 

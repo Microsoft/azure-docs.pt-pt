@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: f5e36095c506918298404758523642073dfd19c7
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864731"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156731"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados usando o Azure Data Factory e o compartilhamento de dados do Azure
 
@@ -99,7 +99,7 @@ Para ativar a depuração, clique no controle deslizante de **depuração do flu
 
 ![Portal](media/lab-data-flow-data-share/configure10.png)
 
-## <a name="ingest-data-from-azure-sql-db-into-adls-gen2-using-the-copy-activity"></a>Ingerir dados do BD SQL do Azure para ADLS Gen2 usando a atividade de cópia
+## <a name="ingest-data-using-the-copy-activity"></a>Ingerir dados usando a atividade de cópia
 
 Nesta seção, você criará um pipeline com uma atividade de cópia que ingere uma tabela de um BD SQL do Azure em uma conta de armazenamento ADLS Gen2. Você aprenderá como adicionar um pipeline, configurar um conjunto de um e depurar um pipeline por meio da UX do ADF. O padrão de configuração usado nesta seção pode ser aplicado à cópia de um armazenamento de dados relacional para um armazenamento de dados baseado em arquivo.
 

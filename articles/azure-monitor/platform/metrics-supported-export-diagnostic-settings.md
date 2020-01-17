@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479036"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152957"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma Azure Monitor exportáveis por meio de configurações de diagnóstico
 
@@ -689,10 +689,10 @@ Sim | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Encaminhamen
 Sim | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Encaminhamento: latência de mensagem para a Fila do Service Bus | Milissegundos | Média
 Sim | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Roteamento: latência de mensagem para o tópico do barramento de serviço | Milissegundos | Média
 Sim | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Roteamento: latência de mensagem para armazenamento | Milissegundos | Média
-Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Roteamento: mensagens de telemetria eliminadas | Contagem | Total
+Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Roteamento: mensagens de telemetria eliminadas  | Contagem | Total
 Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Roteamento: mensagens entregues ao fallback | Contagem | Total
 Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Roteamento: mensagens de telemetria incompatíveis | Contagem | Total
-Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Roteamento: mensagens de telemetria órfãs | Contagem | Total
+Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Roteamento: mensagens de telemetria órfãs  | Contagem | Total
 Sim | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Roteamento: mensagens de telemetria entregues | Contagem | Total
 Sim | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Tentativas de envio de mensagem de telemetria | Contagem | Total
 Sim | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Número de erros de limitação | Contagem | Total

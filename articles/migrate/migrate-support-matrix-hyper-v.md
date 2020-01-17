@@ -3,12 +3,12 @@ title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação do Hyper-V com migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 20bdbb16d2f0610f6519424141b09190eae3cc42
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1a036e2f22bb1fd9dac65a3cc643224ecbea3c69
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028780"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154810"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -67,6 +67,19 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 **Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexões de saída nas portas 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 **Host/cluster do Hyper-V** | Conexões de entrada nas portas WinRM 5985 (HTTP) e 5986 (HTTPS) para efetuar pull da configuração e dos metadados de desempenho das VMs do Hyper-V usando uma sessão modelo CIM (CIM).
 
+## <a name="agent-based-dependency-visualization"></a>Visualização de dependência baseada em agente
+
+A [visualização de dependência](concepts-dependency-visualization.md) ajuda a Visualizar dependências entre computadores que você deseja avaliar e migrar. Para visualização baseada em agente, requisitos e limitações são resumidos na tabela a seguir
+
+
+**Requisito** | **Detalhes**
+--- | ---
+**Implementação** | Antes de implantar a visualização de dependência, você deve ter um projeto de migrações para Azure em vigor, com a ferramenta migrações para Azure: Server Assessment adicionada ao projeto. Você implanta a visualização de dependência depois de configurar um dispositivo de migrações para Azure para descobrir seus computadores locais.<br/><br/> A visualização de dependência não está disponível no Azure governamental.
+**Mapa do Serviço** | A visualização de dependência baseada em agente usa a solução [mapa do serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Para implantar, você associa um espaço de trabalho de Log Analytics novo ou existente a um projeto de migrações para Azure.
+**Área de trabalho do Log Analytics** | O espaço de trabalho deve estar na mesma assinatura que o projeto de migrações para Azure.<br/><br/> As migrações para Azure dão suporte a espaços de trabalho que residem nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental.<br/><br/>  O espaço de trabalho deve estar em uma região na qual [mapa do serviço tem suporte](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> O espaço de trabalho para um projeto de migrações para Azure não pode ser modificado após ser adicionado.
+**Cobranças** | A solução Mapa do Serviço não incorrerá em cobranças pelos primeiros 180 dias (a partir do dia em que você associou o espaço de trabalho Log Analytics com o projeto de migrações para Azure).<br/><br/> Após 180 dias, os encargos de Log Analytics padrão serão aplicados.<br/><br/> Usar qualquer solução que não seja Mapa do Serviço no espaço de trabalho Log Analytics associado incorrerá em encargos de Log Analytics padrão.<br/><br/> Se você excluir o projeto de migrações para Azure, o espaço de trabalho não será excluído com ele. Depois de excluir o projeto, o Mapa do Serviço não é gratuito e cada nó será cobrado de acordo com a camada paga do espaço de trabalho Log Analytics.
+**Representantes** | A visualização de dependência baseada em agente requer que dois agentes sejam instalados em cada computador que você deseja analisar.<br/><br/> - [MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [agente de dependência](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+**Ligação à Internet** | Se os computadores não estiverem conectados à Internet, você precisará instalar o Log Analytics gateway neles.
 
 
 ## <a name="next-steps"></a>Passos seguintes

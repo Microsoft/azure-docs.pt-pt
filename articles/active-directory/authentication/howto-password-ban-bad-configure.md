@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb47b9df51803c76662b5fb4ca1fe23740e7af9a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847920"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155065"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurando a lista personalizada de senhas banidas
 
@@ -26,7 +26,7 @@ Muitas organizações acham que seus usuários criam senhas usando palavras loca
 
 A configuração da lista de senhas excluídas personalizada requer uma licença Azure Active Directory Premium P1 ou P2. Para obter informações mais detalhadas sobre Azure Active Directory licenciamento, consulte a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, métodos de **autenticação**e proteção por **senha**.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **métodos de autenticação** > de **segurança** > **proteção por senha**.
 1. Defina a opção **impor lista personalizada**para **Sim**.
 1. Adicionar cadeias de caracteres à **lista personalizada de senhas banidas**, uma cadeia de texto por linha
    * A lista de senhas excluídas personalizada pode conter até 1000 termos.

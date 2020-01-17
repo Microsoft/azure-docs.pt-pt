@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 74b013c9953974371957cc4d88439d20770d78a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 750ccbfa885b4679dfa61240b49ea9ec86a46d51
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231434"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120646"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis no .NET
 
@@ -74,7 +74,7 @@ A função `Run` contém o texto clichê necessário para usar a sintaxe baseada
 
 ### <a name="class-requirements"></a>Requisitos de classe
  
-As classes de entidade são POCOs (objetos antigos do CLR) que não exigem superclasses, interfaces ou atributos especiais. Porém
+As classes de entidade são POCOs (objetos antigos do CLR) que não exigem superclasses, interfaces ou atributos especiais. No entanto,
 
 - A classe deve ser constructible (consulte a [construção da entidade](#entity-construction)).
 - A classe deve ser serializável em JSON (consulte [serialização de entidade](#entity-serialization)).
@@ -363,7 +363,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     {
         ctx.SetState(...);
     }
-    ctx.DispatchAsync<Counter>();
+    return ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -507,7 +507,7 @@ Por fim, os membros a seguir são usados para sinalizar outras entidades ou inic
 * `SignalEntity(EntityId, operation, input)`: envia uma mensagem unidirecional para uma entidade.
 * `CreateNewOrchestration(orchestratorFunctionName, input)`: inicia uma nova orquestração.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os conceitos de entidade](durable-functions-entities.md)

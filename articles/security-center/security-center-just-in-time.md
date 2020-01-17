@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e3289ae5dbc2b0db410b3316834ae38a1f6b8523
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 782a23ba95519438dd369d3f69f52f7526461821
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974158"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156765"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando just-in-time
 
@@ -48,9 +48,8 @@ Quando um usuário solicita acesso a uma VM, a central de segurança verifica se
 
 | Para permitir que um usuário: | Permissões a serem definidas|
 | --- | --- |
-| Configurar ou editar uma política JIT para uma VM | *Atribua estas ações à função:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> No escopo de uma assinatura ou grupo de recursos ou VM: <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
-| ||
-|Solicitar acesso JIT a uma VM | *Atribua estas ações ao usuário:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
+| Configurar ou editar uma política JIT para uma VM | *Atribua estas ações à função:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No escopo de uma assinatura ou grupo de recursos ou VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|Solicitar acesso JIT a uma VM | *Atribua estas ações ao usuário:*  <ul><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>No escopo de uma assinatura ou grupo de recursos associado à VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  No escopo de uma assinatura ou grupo de recursos ou VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 
 
 ## <a name="configure-jit-on-a-vm"></a>Configurar o JIT em uma VM

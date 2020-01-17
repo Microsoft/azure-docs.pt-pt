@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mimckitt
-ms.openlocfilehash: 6adb800b0c56866aa76f98fc078fdc3d8f1ffbff
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 75b06145ce5328f02cf384753745ef4866c63c64
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941429"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155405"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
 Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso no Azure. As versões do RHEL abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores para preparação abordados neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de qualificação para participar do programa de acesso à nuvem do Red Hat, consulte o [site de acesso à nuvem do Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [executando o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar a criação de imagens RHEL, consulte o [Construtor de imagens do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -32,7 +32,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 **Notas de instalação do RHEL**
 
 * O Azure não oferece suporte ao formato VHDX. O Azure dá suporte apenas ao VHD fixo. Você pode usar o Gerenciador do Hyper-V para converter o disco em formato VHD ou pode usar o cmdlet Convert-VHD. Se você usar VirtualBox, selecione **tamanho fixo** em oposição à opção padrão alocada dinamicamente ao criar o disco.
-* O Azure dá suporte apenas a máquinas virtuais de geração 1. Você pode converter uma máquina virtual de geração 1 do VHDX para o formato de arquivo VHD e de expandir dinamicamente para um disco de tamanho fixo. Não é possível alterar a geração de uma máquina virtual. Para obter mais informações, consulte [devo criar uma máquina virtual de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* O Azure dá suporte a máquinas virtuais Gen1 (inicialização do BIOS) & Gen2 (inicialização UEFI).
 * O tamanho máximo permitido para o VHD é 1.023 GB.
 * O LVM (Gerenciador de volumes lógicos) tem suporte e pode ser usado no disco do sistema operacional ou nos discos de dados nas máquinas virtuais do Azure. No entanto, em geral, é recomendável usar partições padrão no disco do sistema operacional em vez de LVM. Essa prática evitará conflitos de nome LVM com máquinas virtuais clonadas, especialmente se você precisar anexar um disco do sistema operacional a outra máquina virtual idêntica para solução de problemas. Consulte também a documentação do [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e do [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 * É necessário suporte de kernel para montar sistemas de arquivos de formato de disco universal (UDF). Na primeira inicialização no Azure, a mídia formatada por UDF anexada ao convidado passa a configuração de provisionamento para a máquina virtual do Linux. O agente Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a máquina virtual.

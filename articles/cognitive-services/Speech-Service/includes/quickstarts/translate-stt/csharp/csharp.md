@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 071a4e78eaa61a164f190a3b9d4badeee71a784f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c41f33409894823f8ff2730ff38870629678e390
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980471"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159298"
 ---
 **Escolha seu ambiente de destino**
 
@@ -23,5 +23,7 @@ ms.locfileid: "74980471"
 [!INCLUDE [dotnet](./dotnet.md)]
 #### <a name="net-coretabdotnetcore"></a>[.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](./dotnetcore.md)]
+#### <a name="uwptabuwp"></a>[UWP](#tab/uwp)
+[!INCLUDE [uwp](./uwp.md)]
 
 * * *

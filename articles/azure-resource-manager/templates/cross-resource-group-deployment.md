@@ -3,12 +3,12 @@ title: Grupo de recursos implantar recursos & de assinatura cruzada
 description: Mostra como direcionar mais de uma assinatura do Azure e um grupo de recursos durante a implantação.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 87cf28a1cb47621539d53d80f59670103ce36aee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477957"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154215"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos
 
@@ -27,14 +27,14 @@ Para especificar um grupo de recursos e uma assinatura diferentes, use:
 
 ```json
 "resources": [
-    {
-        "apiVersion": "2017-05-10",
-        "name": "nestedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "resourceGroup": "[parameters('secondResourceGroup')]",
-        "subscriptionId": "[parameters('secondSubscriptionID')]",
-        ...
-    }
+  {
+    "apiVersion": "2017-05-10",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "resourceGroup": "[parameters('secondResourceGroup')]",
+    "subscriptionId": "[parameters('secondSubscriptionID')]",
+    ...
+  }
 ]
 ```
 
@@ -44,74 +44,74 @@ O exemplo a seguir implanta duas contas de armazenamento. A primeira conta de ar
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "type": "string",
-            "maxLength": 11
-        },
-        "secondResourceGroup": {
-            "type": "string"
-        },
-        "secondSubscriptionID": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "secondStorageLocation": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "maxLength": 11
     },
-    "variables": {
-        "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-        "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
+    "secondResourceGroup": {
+      "type": "string"
     },
-    "resources": [
-        {
+    "secondSubscriptionID": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "secondStorageLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
+    "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2017-06-01",
+      "name": "[variables('firstStorageName')]",
+      "location": "[resourceGroup().location]",
+      "sku":{
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "nestedTemplate",
+      "resourceGroup": "[parameters('secondResourceGroup')]",
+      "subscriptionId": "[parameters('secondSubscriptionID')]",
+      "properties": {
+      "mode": "Incremental",
+      "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+          {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('firstStorageName')]",
             "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
+            "name": "[variables('secondStorageName')]",
+            "location": "[parameters('secondStorageLocation')]",
             "sku":{
-                "name": "Standard_LRS"
+              "name": "Standard_LRS"
             },
             "kind": "Storage",
             "properties": {
             }
-        },
-        {
-            "apiVersion": "2017-05-10",
-            "name": "nestedTemplate",
-            "type": "Microsoft.Resources/deployments",
-            "resourceGroup": "[parameters('secondResourceGroup')]",
-            "subscriptionId": "[parameters('secondSubscriptionID')]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Storage/storageAccounts",
-                            "name": "[variables('secondStorageName')]",
-                            "apiVersion": "2017-06-01",
-                            "location": "[parameters('secondStorageLocation')]",
-                            "sku":{
-                                "name": "Standard_LRS"
-                            },
-                            "kind": "Storage",
-                            "properties": {
-                            }
-                        }
-                    ]
-                },
-                "parameters": {}
-            }
-        }
-    ]
+          }
+          ]
+      },
+      "parameters": {}
+      }
+    }
+  ]
 }
 ```
 
@@ -223,95 +223,95 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "defaultScopeTemplate",
-            "apiVersion": "2017-05-10",
-            "resourceGroup": "inlineGroup",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                    ],
-                    "outputs": {
-                        "resourceGroupOutput": {
-                            "type": "string",
-                            "value": "[resourceGroup().name]"
-                        }
-                    }
-                },
-                "parameters": {}
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "innerScopeTemplate",
-            "apiVersion": "2017-05-10",
-            "resourceGroup": "inlineGroup",
-            "properties": {
-                "expressionEvaluationOptions": {
-                    "scope": "inner"
-                },
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                    ],
-                    "outputs": {
-                        "resourceGroupOutput": {
-                            "type": "string",
-                            "value": "[resourceGroup().name]"
-                        }
-                    }
-                },
-                "parameters": {}
-            }
-        },
-        {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
-            "type": "Microsoft.Resources/deployments",
-            "resourceGroup": "linkedGroup",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "contentVersion": "1.0.0.0",
-                    "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
-                },
-                "parameters": {}
-            }
-        }
-    ],
-    "outputs": {
-        "parentRG": {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "defaultScopeTemplate",
+      "resourceGroup": "inlineGroup",
+      "properties": {
+      "mode": "Incremental",
+      "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+          ],
+          "outputs": {
+          "resourceGroupOutput": {
             "type": "string",
-            "value": "[concat('Parent resource group is ', resourceGroup().name)]"
-        },
-        "defaultScopeRG": {
+            "value": "[resourceGroup().name]"
+          }
+          }
+      },
+      "parameters": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "innerScopeTemplate",
+      "resourceGroup": "inlineGroup",
+      "properties": {
+      "expressionEvaluationOptions": {
+          "scope": "inner"
+      },
+      "mode": "Incremental",
+      "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+          ],
+          "outputs": {
+          "resourceGroupOutput": {
             "type": "string",
-            "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
-        },
-        "innerScopeRG": {
-            "type": "string",
-            "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
-        },
-        "linkedRG": {
-            "type": "string",
-            "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
-        }
+            "value": "[resourceGroup().name]"
+          }
+          }
+      },
+      "parameters": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "linkedTemplate",
+      "resourceGroup": "linkedGroup",
+      "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+          "contentVersion": "1.0.0.0",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
+      },
+      "parameters": {}
+      }
     }
+  ],
+  "outputs": {
+    "parentRG": {
+      "type": "string",
+      "value": "[concat('Parent resource group is ', resourceGroup().name)]"
+    },
+    "defaultScopeRG": {
+      "type": "string",
+      "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
+    },
+    "innerScopeRG": {
+      "type": "string",
+      "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
+    },
+    "linkedRG": {
+      "type": "string",
+      "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
+    }
+  }
 }
 ```
 
@@ -350,7 +350,7 @@ az group create --name linkedGroup --location southcentralus
 az group deployment create \
   --name ExampleDeployment \
   --resource-group parentGroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
 A saída do exemplo anterior é:

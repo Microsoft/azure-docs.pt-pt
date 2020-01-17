@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 2a15ad41850fdf574262c396bf70e43b3b08399c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 13ac51fc4cefa4d66cf9d8310dce80704454bd93
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989686"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122156"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introdução à conta de faturação do Contrato de Parceiro da Microsoft
 
@@ -71,7 +71,7 @@ Para ativar a política:
 
 ## <a name="resellers"></a>Revendedores
 
-Os fornecedores indiretos no [modelo de duas camadas](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) do CSP podem selecionar um revendedor quando criam as subscrições para os clientes no portal do Azure. Após a criação, podem ver a lista das subscrições, filtradas por revendedor, e analisar o custo de um cliente por revendedores na análise de custos do Azure.
+Os fornecedores indiretos no [modelo de duas camadas](https://docs.microsoft.com/partner-center) do CSP podem selecionar um revendedor quando criam as subscrições para os clientes no portal do Azure. Após a criação, podem ver a lista das subscrições, filtradas por revendedor, e analisar o custo de um cliente por revendedores na análise de custos do Azure.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
