@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 10/29/2019
-  ms.openlocfilehash: 4324451c27342b96bedcfb420fe7ff1134624bde
-  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.date: 01/16/2020
+  ms.openlocfilehash: 340805afe7d21488c6ccd93a2f262d0ed94db88e
+  ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/09/2020
-  ms.locfileid: "75771364"
+  ms.lasthandoff: 01/16/2020
+  ms.locfileid: "76156799"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
@@ -98,7 +98,7 @@ landingContent:
     - text: Predição em tempo real
       url: how-to-consume-web-service.md
     - text: Predição de lote
-      url: how-to-run-batch-predictions.md
+      url: how-to-use-parallel-run-step.md
     - text: Exemplos ponto a ponto (GitHub)
       url: https://github.com/microsoft/MLOps
 - title: Ir para documentos de referência
