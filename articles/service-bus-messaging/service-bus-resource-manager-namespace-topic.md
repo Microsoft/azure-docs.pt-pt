@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar assinatura de tópico de namespace do barramento de serviço do Azure usando Azure Resource Manager modelo'
+title: Criar um tópico de namespace do barramento de serviço do Azure usando um modelo
 description: 'Início rápido: criar um namespace do barramento de serviço com tópico e assinatura usando Azure Resource Manager modelo'
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 661edf94fd0c505968fc78a367ceda6a93afe401
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98ca0f95f5b2aab9651b97442f1f38651767f1df
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426878"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264497"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Início rápido: criar um namespace do barramento de serviço com tópico e assinatura usando um modelo de Azure Resource Manager
 

@@ -1,5 +1,5 @@
 ---
-title: Como usar hubs de notificação com Java
+title: Como usar os hubs de notificação do Azure com Java
 description: Saiba como usar os hubs de notificação do Azure de um back-end do Java.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213201"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263868"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como usar hubs de notificação do Java
 
@@ -41,7 +41,7 @@ Atualmente, o SDK dá suporte a:
 * Envios regulares
 * Envios agendados
 * Operações assíncronas via Java NIO
-* Plataformas com suporte: APNS (iOS), FCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem serviços do Google)
+* Plataformas com suporte: APNS (iOS), FCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem Google Services)
 
 ## <a name="sdk-usage"></a>Uso do SDK
 
@@ -188,7 +188,7 @@ A API de instalação é um mecanismo alternativo para o gerenciamento de regist
 
 A instalação contém tudo o que você precisa: canal de push (token de dispositivo), marcas, modelos, blocos secundários (para WNS e APNS). Você não precisa chamar o serviço para obter mais ID – apenas gere o GUID ou qualquer outro identificador, mantenha-o no dispositivo e envie-o ao seu back-end junto com o canal de push (token do dispositivo).
 
-No back-end, você deve fazer apenas uma chamada para `CreateOrUpdateInstallation`; ele é totalmente idempotente, portanto, sinta-se à vontade para tentar novamente, se necessário.
+No back-end, você deve fazer apenas uma única chamada para `CreateOrUpdateInstallation`; Ele é totalmente idempotente, então sinta-se à vontade para tentar novamente, se necessário.
 
 Como exemplo para o Amazon Kindle Fire:
 
@@ -221,7 +221,7 @@ Excluir instalação:
     hub.deleteInstallation(installation.getInstallationId());
     ```
 
-`CreateOrUpdate`, `Patch` `Get`e `Delete` são eventualmente consistentes com o. A operação solicitada apenas vai para a fila do sistema durante a chamada e é executada em segundo plano. Get não é projetado para o cenário de tempo de execução principal, mas apenas para fins de depuração e solução de problemas, ele é rigidamente limitado pelo serviço.
+`CreateOrUpdate`, `Patch`e `Delete` são eventualmente consistentes com `Get`. A operação solicitada apenas vai para a fila do sistema durante a chamada e é executada em segundo plano. Get não é projetado para o cenário de tempo de execução principal, mas apenas para fins de depuração e solução de problemas, ele é rigidamente limitado pelo serviço.
 
 O fluxo de envio para instalações é o mesmo para registros. Para direcionar a notificação para a instalação específica – basta usar a marca "InstallationID: {Desired-ID}". Para esse caso, o código é:
 
@@ -294,7 +294,7 @@ Talvez seja necessário executar a operação em massa em relação aos registro
 
 **URI com assinatura SAS:**
 
- Essa URL é a URL de um arquivo de BLOB ou contêiner de BLOB, além de um conjunto de parâmetros, como permissões e tempo de expiração, além da assinatura de todas essas coisas feitas usando a chave de SAS da conta. O SDK do Java do armazenamento do Azure tem recursos avançados, incluindo a criação desses URIs. Como alternativa simples, dê uma olhada na `ImportExportE2E` classe de teste (do local do GitHub) que tem implementação básica e compacta do algoritmo de assinatura.
+ Essa URL é a URL de um arquivo de BLOB ou contêiner de BLOB, além de um conjunto de parâmetros, como permissões e tempo de expiração, além da assinatura de todas essas coisas feitas usando a chave de SAS da conta. O SDK do Java do armazenamento do Azure tem recursos avançados, incluindo a criação desses URIs. Como alternativa simples, dê uma olhada na classe de teste `ImportExportE2E` (do local do GitHub) que tem implementação básica e compacta do algoritmo de assinatura.
 
 ### <a name="send-notifications"></a>Enviar notificações
 
@@ -372,9 +372,9 @@ O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns méto
 
 Executar o código Java agora deve produzir uma notificação que aparece em seu dispositivo de destino.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este tópico mostrou como criar um cliente REST Java simples para os hubs de notificação. A partir daqui, você pode:
+Este tópico mostrou como criar um cliente REST Java simples para os hubs de notificação. A partir daqui, pode:
 
 * Baixe o [SDK Java]completo, que contém todo o código do SDK.
 * Jogue com os exemplos:

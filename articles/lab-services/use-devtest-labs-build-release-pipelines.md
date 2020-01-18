@@ -1,5 +1,5 @@
 ---
-title: Usar o DevTest Labs em pipelines de Build e versão do Azure Pipelines | Microsoft Docs
+title: Utilizar o DevTest Labs nos pipelines de compilação e versão dos Pipelines do Azure
 description: Saiba como usar Azure DevTest Labs em pipelines de Build e versão do Azure Pipelines.
 services: devtest-lab, lab-services
 documentationcenter: na
@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774542"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169228"
 ---
-# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usar o DevTest Labs em pipelines de Build e versão do Azure Pipelines
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utilizar o DevTest Labs nos pipelines de compilação e versão dos Pipelines do Azure
 Este artigo fornece informações sobre como os DevTest Labs podem ser usados em pipelines de Build e versão Azure Pipelines. 
 
 ## <a name="overall-flow"></a>Fluxo geral
@@ -35,7 +35,7 @@ Depois que a compilação for concluída com êxito, o **pipeline de lançamento
 
 Uma das instalações necessárias é que todas as informações necessárias para recriar o ecossistema testado estão disponíveis nos artefatos de compilação, incluindo a configuração dos recursos do Azure. Como os recursos do Azure incorrem em um custo quando usados, as empresas desejam controlar ou controlar o uso desses recursos. Em algumas situações, Azure Resource Manager modelos usados para criar e configurar os recursos podem ser gerenciados por outro departamento como ele. E esses modelos podem ser armazenados em um repositório diferente. Ele leva a uma situação interessante em que uma compilação será criada e testada, e o código e a configuração precisarão ser armazenados nos artefatos de compilação para recriar corretamente o sistema em produção. 
 
-Usando o DevTest Labs durante a fase de compilação/teste, você pode adicionar Azure Resource Manager modelos e arquivos de suporte às fontes de compilação, de modo que durante a fase de lançamento, a configuração exata usada para testar é implantada na produção. A tarefa **criar ambiente de Azure DevTest Labs** com a configuração apropriada salvará os modelos do Resource Manager nos artefatos de compilação. Para este exemplo, você usará o código do [tutorial: Crie um aplicativo Web .NET Core e do banco de dados SQL](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)no serviço Azure app para implantar e testar o aplicativo Web no Azure.
+Usando o DevTest Labs durante a fase de compilação/teste, você pode adicionar Azure Resource Manager modelos e arquivos de suporte às fontes de compilação, de modo que durante a fase de lançamento, a configuração exata usada para testar é implantada na produção. A tarefa **criar ambiente de Azure DevTest Labs** com a configuração apropriada salvará os modelos do Resource Manager nos artefatos de compilação. Para este exemplo, você usará o código do [tutorial: criar um aplicativo Web do .NET Core e do banco de dados SQL no serviço Azure app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)para implantar e testar o aplicativo Web no Azure.
 
 ![Fluxo geral](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -49,7 +49,7 @@ Há alguns itens que precisam ser criados antecipadamente:
 O pipeline de compilação criará um ambiente do DevTest Labs e implantará o código para teste.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurar um pipeline de compilação
-Em Azure pipelines, crie um pipeline de compilação usando o código do [tutorial: Crie um aplicativo Web .NET Core e do banco de dados SQL](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)no serviço Azure app. Use o modelo **ASP.NET Core** , que preencherá a tarefa necessária para compilar, testar e publicar o código.
+Em Azure Pipelines, crie um pipeline de compilação usando o código do [tutorial: criar um aplicativo Web .NET Core e do banco de dados SQL no serviço Azure app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use o modelo **ASP.NET Core** , que preencherá a tarefa necessária para compilar, testar e publicar o código.
 
 ![Selecione o modelo ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -86,7 +86,7 @@ A terceira tarefa é a tarefa de **implantação do serviço Azure app** . O tip
 ![Tarefa de implantação do serviço de aplicativo](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
 ## <a name="set-up-release-pipeline"></a>Configurar o pipeline de liberação
-Você cria um pipeline de liberação com duas tarefas: **Implantação do Azure: Criar ou atualizar o grupo** de recursos e **implantar o serviço de Azure app**. 
+Você cria um pipeline de liberação com duas tarefas: **implantação do Azure: criar ou atualizar o grupo de recursos** e **implantar Azure app serviço**. 
 
 Para a primeira tarefa, especifique o nome e o local do grupo de recursos. O local do modelo é um artefato vinculado. Se o modelo do Resource Manager incluir modelos vinculados, uma implantação de grupo de recursos personalizada precisará ser implementada. O modelo está no artefato de soltar publicado. Substitua os parâmetros do modelo do modelo do Resource Manager. Você pode deixar as configurações restantes com valores padrão. 
 
@@ -95,7 +95,7 @@ Para a segunda tarefa **implantar Azure app serviço**, especifique a assinatura
 ## <a name="test-run"></a>Execução de teste
 Agora que ambos os pipelines estão configurados, enfileirar manualmente uma compilação e vê-la funcionar. A próxima etapa é definir o gatilho apropriado para a compilação e conectar a compilação ao pipeline de lançamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Integre o Azure DevTest Labs em seu Azure Pipelines pipeline de integração e entrega contínua](devtest-lab-integrate-ci-cd-vsts.md)

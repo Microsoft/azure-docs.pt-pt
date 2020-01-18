@@ -1,24 +1,65 @@
 ---
 title: Notas de versão – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Veja um log em execução de versões de recursos, melhorias, correções de bugs e problemas conhecidos do serviço de fala.
+description: Um log em execução de versões de recursos do Speech Service, melhorias, correções de bugs e problemas conhecidos.
 services: cognitive-services
-author: BrianMouncer
+author: oscholz
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: brianem
+ms.date: 01/15/2020
+ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 73f1739b09111052abd985920efe3ef944a89ca9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380359"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264225"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-190-2020-january-release"></a>SDK de fala 1.9.0:2020 – versão de janeiro
+
+**Novos recursos**
+
+- Conversa com vários dispositivos: Conecte vários dispositivos em uma conversa baseada em texto ou em fala e, opcionalmente, traduza as mensagens enviadas entre elas. Saiba mais neste [artigo](multi-device-conversation.md). 
+- Suporte de reconhecimento de palavra-chave adicionado ao pacote Android. aar e adicionado suporte para tipos x86 e x64. 
+- os métodos `SendMessage` e `SetMessageProperty` adicionados ao objeto `Connection` no Objective-C. Consulte a documentação [aqui](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- A C++ API TTS agora dá suporte a `std::wstring` como entrada de texto de síntese, removendo a necessidade de converter um wstring em cadeia de caracteres antes de passá-lo para o SDK. Veja os detalhes [aqui](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
+- A [ID de idioma](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) e a configuração de idioma de C# [origem](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) agora estão disponíveis no.
+
+
+**Alterações recentes**
+
+- o `OpenSSL` foi atualizado para a versão 1.1.1 b e é vinculado estaticamente à biblioteca principal do SDK de fala para Linux. Isso poderá causar uma interrupção se a sua caixa de entrada `OpenSSL` não tiver sido instalada no diretório `/usr/lib/ssl` no sistema. Consulte [nossa documentação](how-to-configure-openssl-linux.md) em documentos do SDK de fala para contornar o problema.
+- Alteramos o tipo de dados retornado por C# `WordLevelTimingResult.Offset` de `int` para `long` para permitir o acesso a `WordLevelTimingResults` quando os dados de fala são maiores que 2 minutos.
+
+
+**Correções de erros**
+
+- Consulte a atualização do `OpenSSL` em alterações significativas acima. Corrigimos uma falha intermitente e um problema de desempenho (contenção de bloqueio sob alta carga) no Linux e no Java. 
+- Foram feitas melhorias no fechamento do objeto Java em cenários de alta simultaneidade.
+- Reestruturado nosso pacote NuGet. Removemos as três cópias de `Microsoft.CognitiveServices.Speech.core.dll` e `Microsoft.CognitiveServices.Speech.extension.kws.dll` em pastas lib, tornando o pacote NuGet menor e mais rápido para baixar e adicionamos os cabeçalhos necessários para compilar C++ alguns aplicativos nativos.
+- Corrigimos amostras de início rápido [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). Eles estavam saindo sem a exibição da exceção "microfone não encontrado" no Linux, MacOS, Windows.
+- Correção de falha do SDK com longos resultados de reconhecimento de fala em determinados caminhos de código como [Este exemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
+- Corrigido o erro de implantação do SDK no ambiente de aplicativo Web do Azure para resolver [esse problema do cliente](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
+- Foi corrigido um erro de TTS ao usar a marca de vários `<voice>` ou a marca de `<audio>` para resolver [esse problema do cliente](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
+- Foi corrigido um erro de TTS 401 quando o SDK é recuperado de suspenso.
+
+
+**Amostras**
+
+- Exemplo adicional de reconhecimento de palavra-chave para Android [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
+- Adição de exemplo de TTS para o cenário de servidor [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp). 
+- Foram adicionados inícios rápidos de conversa com C++ vários C# dispositivos no e no .NET [aqui](multi-device-conversation.md).
+
+
+**Outras alterações**
+
+- Tamanho otimizado da biblioteca principal do SDK no Android.
+- O SDK no 1.9.0 e em diante dá suporte aos tipos `int` e `string` no campo versão da assinatura de voz para o Assinante de conversa.
 
 ## <a name="speech-sdk-180-2019-november-release"></a>SDK de fala 1.8.0:2019 – versão de novembro
 

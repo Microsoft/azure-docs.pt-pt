@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7822045d4b3ce1feb1bfb43fbf1c2fc5a9a1c7fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425631"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263375"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico RESTful em uma política personalizada de Azure Active Directory B2C
 
@@ -125,10 +125,10 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. |
 | AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`, `Bearer`ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com autenticação básica HTTP. Somente os usuários verificados, incluindo Azure AD B2C, podem acessar sua API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. O valor `Bearer` indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. |
-| SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header`ou `QueryString`. O valor de `Body` é a declaração de entrada que é enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada que é enviada no corpo da solicitação em um formato de valor de chave separado de e comercial ' & '. O valor de `Header` é a declaração de entrada que é enviada no cabeçalho da solicitação. O valor de `QueryString` é a declaração de entrada que é enviada na cadeia de caracteres de consulta de solicitação. |
+| SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header`ou `QueryString`. O valor de `Body` é a declaração de entrada que é enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada que é enviada no corpo da solicitação em um formato de valor de chave separado de e comercial ' & '. O valor de `Header` é a declaração de entrada que é enviada no cabeçalho da solicitação. O valor de `QueryString` é a declaração de entrada que é enviada na cadeia de caracteres de consulta de solicitação. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: obter</li><li>`QueryString`: obter</li></ul> |
 | ClaimsFormat | Não | Especifica o formato para as declarações de saída. Valores possíveis: `Body` (padrão), `Form`, `Header`ou `QueryString`. O valor de `Body` é a declaração de saída que é enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de saída que é enviada no corpo da solicitação em um formato de valor de chave separado de e comercial ' & '. O valor de `Header` é a declaração de saída que é enviada no cabeçalho da solicitação. O valor de `QueryString` é a declaração de saída enviada na cadeia de caracteres de consulta de solicitação. |
 | ClaimUsedForRequestPayload| Não | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
-| DebugMode | Não | Executa o perfil técnico no modo de depuração. No modo de depuração, a API REST pode retornar mais informações. Consulte a seção retornando mensagem de erro. |
+| DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true`ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-error-message) . |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
@@ -215,7 +215,7 @@ Se o tipo de autenticação for definido como `Bearer`, o elemento **Cryptograph
 
 ## <a name="returning-error-message"></a>Retornando mensagem de erro
 
-Sua API REST pode precisar retornar uma mensagem de erro, como ' o usuário não foi encontrado no sistema de CRM '. Em caso de erro, a API REST deve retornar uma mensagem de erro HTTP 409 (código de status de resposta de conflito) com os seguintes atributos:
+Sua API REST pode precisar retornar uma mensagem de erro, como ' o usuário não foi encontrado no sistema de CRM '. Se ocorrer um erro, a API REST deverá retornar uma mensagem de erro HTTP 409 (código de status de resposta de conflito) com os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |

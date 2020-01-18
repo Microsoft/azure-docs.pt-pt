@@ -1,6 +1,6 @@
 ---
-title: Carregar o ficheiro VHD para o Azure DevTest Labs com o Explorador de armazenamento do Microsoft Azure | Documentos da Microsoft
-description: Carregar o ficheiro VHD para a conta de armazenamento do laboratório com o Explorador de armazenamento do Microsoft Azure
+title: Carregar arquivo VHD para Azure DevTest Labs usando Gerenciador de Armazenamento
+description: Carregar o arquivo VHD na conta de armazenamento do laboratório usando Gerenciador de Armazenamento do Microsoft Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,70 +12,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 3c187d104334fe75ec9e0ce41a3fdc14b508dfb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623428"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170377"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o ficheiro VHD para a conta de armazenamento do laboratório com o Explorador de armazenamento do Microsoft Azure
+# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o arquivo VHD na conta de armazenamento do laboratório usando Gerenciador de Armazenamento do Microsoft Azure
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-No Azure DevTest Labs, ficheiros VHD podem ser utilizados para criar imagens personalizadas, que são utilizadas para aprovisionar máquinas virtuais. Este artigo ilustra como usar [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar um ficheiro VHD para a conta de armazenamento do laboratório. Depois de carregar o ficheiro VHD, o [próximos passos secção](#next-steps) apresenta uma lista de alguns artigos que mostram como criar uma imagem personalizada a partir do ficheiro VHD carregado. Para obter mais informações acerca dos discos e VHDs no Azure, consulte [introdução aos discos geridos](../virtual-machines/linux/managed-disks-overview.md)
+No Azure DevTest Labs, os arquivos VHD podem ser usados para criar imagens personalizadas, que são usadas para provisionar máquinas virtuais. Este artigo ilustra como usar [Gerenciador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar um arquivo VHD na conta de armazenamento de um laboratório. Depois de carregar o arquivo VHD, a [seção próximas etapas](#next-steps) lista alguns artigos que ilustram como criar uma imagem personalizada a partir do arquivo VHD carregado. Para obter mais informações sobre discos e VHDs no Azure, consulte [introdução aos Managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
-Os seguintes passos guiá-lo por meio de carregar um ficheiro VHD para utilizar o DevTest Labs [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+As etapas a seguir orientam você pelo carregamento de um arquivo VHD para DevTest Labs usando o [Gerenciador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Transfira e instale a versão mais recente do Microsoft Azure Storage Explorer](https://www.storageexplorer.com).
+1. [Baixe e instale a versão mais recente do Gerenciador de armazenamento do Microsoft Azure](https://www.storageexplorer.com).
 
-1. Obter o nome da conta de armazenamento do laboratório com o portal do Azure:
+1. Obtenha o nome da conta de armazenamento do laboratório usando o portal do Azure:
 
-    1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
+    1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
     
-    1. Na lista de laboratórios, selecione o laboratório pretendido.  
+    1. Na lista de laboratórios, selecione o laboratório desejado.  
     
-    1. No painel do laboratório, selecione **configuração**. 
+    1. Na folha do laboratório, selecione **configuração**. 
     
-    1. O laboratório **Configuration** painel, selecione **imagens personalizadas (VHDs)** .
+    1. Na folha **configuração** do laboratório, selecione **imagens personalizadas (VHDs)** .
     
-    1. Sobre o **imagens personalizadas** painel, selecione **+ adicionar**. 
+    1. Na folha **imagens personalizadas** , selecione **+ Adicionar**. 
     
-    1. Sobre o **Custom image** painel, selecione **VHD**.
+    1. Na folha **imagem personalizada** , selecione **VHD**.
     
-    1. Sobre o **VHD** painel, selecione **carregar um VHD com o PowerShell**.
+    1. Na folha **VHD** , selecione **carregar um VHD usando o PowerShell**.
     
-        ![Carregar o VHD com o PowerShell][0]
+        ![Carregar VHD usando o PowerShell][0]
     
-    1. O **carregue uma imagem com o PowerShell** painel apresenta uma chamada para o **Add-AzureVhd** cmdlet. O primeiro parâmetro (*destino*) contém o nome da conta de armazenamento para o laboratório no seguinte formato:
+    1. A folha **carregar uma imagem usando o PowerShell** exibe uma chamada para o cmdlet **Add-AzureVhd** . O primeiro parâmetro (*destino*) contém o nome da conta de armazenamento para o laboratório no seguinte formato:
     
         `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
 
-    1. Tome nota do nome de conta de armazenamento à medida que é utilizada em passos posteriores.
+    1. Anote o nome da conta de armazenamento conforme ele é usado em etapas posteriores.
     
-1. Ligar a uma conta de subscrição do Azure utilizando o Explorador de armazenamento.
+1. Conecte-se a uma conta de assinatura do Azure usando Gerenciador de Armazenamento.
 
     > [!TIP] 
     > 
-    > Explorador de armazenamento suporta várias opções de ligação. Esta secção ilustra a ligar a uma conta de armazenamento associada à subscrição do Azure. Para ver as outras opções de ligação suportadas pelo Explorador de armazenamento, consulte o artigo [introdução ao Explorador de armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+    > Gerenciador de Armazenamento dá suporte a várias opções de conexão. Esta seção ilustra a conexão a uma conta de armazenamento associada à sua assinatura do Azure. Para ver as outras opções de conexão com suporte pelo Gerenciador de Armazenamento, consulte o artigo [introdução ao Gerenciador de armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md).
  
     1. Abra o Explorador de Armazenamento.
     
-    1. No Explorador de armazenamento, selecione **definições de conta do Azure**. 
+    1. Em Gerenciador de Armazenamento, selecione **configurações de conta do Azure**. 
     
         ![Definições de conta do Azure][1]
     
-    1. O painel esquerdo apresenta as contas da Microsoft que tenha sessão iniciada. Para ligar a outra conta, selecione **Adicionar uma conta** e siga as caixas de diálogo para iniciar sessão com uma conta Microsoft que esteja associada a, pelo menos, uma subscrição Azure ativa.
+    1. O painel esquerdo exibe as contas da Microsoft nas quais você fez logon. Para ligar a outra conta, selecione **Adicionar uma conta** e siga as caixas de diálogo para iniciar sessão com uma conta Microsoft que esteja associada a, pelo menos, uma subscrição Azure ativa.
     
         ![Adicionar uma conta][2]
     
-    1. Quando inicia sessão com êxito numa conta Microsoft, o painel esquerdo será preenchido com as subscrições do Azure associadas a essa conta. Selecione as subscrições do Azure com as quais pretende trabalhar e, em seguida, selecione **Aplicar**. (Selecionar **todas as subscrições** alterna a seleção de todas ou nenhuma das subscrições Azure listadas.)
+    1. Quando inicia sessão com êxito numa conta Microsoft, o painel esquerdo será preenchido com as subscrições do Azure associadas a essa conta. Selecione as subscrições do Azure com as quais pretende trabalhar e, em seguida, selecione **Aplicar**. (A seleção de **todas as assinaturas** alterna a seleção de todas ou nenhuma das assinaturas do Azure listadas.)
     
         ![Selecionar subscrições do Azure][3]
     
@@ -85,46 +85,46 @@ Os seguintes passos guiá-lo por meio de carregar um ficheiro VHD para utilizar 
 
 1. Localize a conta de armazenamento do laboratório:
 
-    1. No painel esquerdo do Explorador de armazenamento, localize e expanda o nó para a subscrição do Azure que possui o laboratório.
+    1. No painel Gerenciador de Armazenamento esquerdo, localize e expanda o nó da assinatura do Azure que possui o laboratório.
     
-    1. No nó da subscrição, expanda **contas de armazenamento**.
+    1. No nó da assinatura, expanda **contas de armazenamento**.
 
-    1. Expanda o nó de conta de armazenamento do laboratório para revelar nós para **contentores de BLOBs**, **partilhas de ficheiros**, **filas**, e **tabelas**.
+    1. Expanda o nó da conta de armazenamento do laboratório para revelar nós para **contêineres de blob**, **compartilhamentos de arquivos**, **filas**e **tabelas**.
     
-    1. Expanda a **contentores de BLOBs** nó.
+    1. Expanda o nó **contêineres de blob** .
     
-    1. Selecione o contentor de blob de carregamentos para exibir seu conteúdo no painel da direita.
+    1. Selecione o contêiner de blob de carregamentos para exibir seu conteúdo no painel direito.
         
-        ![Carregar o diretório][5]
+        ![Carregar diretório][5]
 
-1. Carregar o ficheiro VHD com o Explorador de armazenamento:
+1. Carregue o arquivo VHD usando Gerenciador de Armazenamento:
 
-    1. No painel da direita Explorador de armazenamento, deverá ver uma lista dos blobs no **carrega** contentor de BLOBs da conta de armazenamento do laboratório. Na barra de ferramentas do editor para BLOBs, selecione **carregar** 
+    1. No painel Gerenciador de Armazenamento direito, você deve ver uma lista dos BLOBs no contêiner de blob de **carregamentos** da conta de armazenamento do laboratório. Na barra de ferramentas do editor de BLOB, selecione **carregar** 
         
         ![Botão Carregar][6]
     
-    1. Do **carregue** menu pendente, selecione **carregar ficheiros...** .
+    1. No menu suspenso **carregar** , selecione **carregar arquivos...** .
     
-    1. Sobre o **carregar ficheiros** caixa de diálogo, selecione as reticências.
+    1. Na caixa de diálogo **carregar arquivos** , selecione as reticências.
         
         ![Selecionar ficheiro][8]  
 
-    1. Sobre o **selecionar ficheiros para carregar** caixa de diálogo, procure o ficheiro VHD pretendido, selecione-o e, em seguida, selecione **aberto**.
+    1. Na caixa de diálogo **selecionar arquivos para carregar** , navegue até o arquivo VHD desejado, selecione-o e, em seguida, selecione **abrir**.
     
-    1. Quando devolvidos para o **carregar ficheiros** caixa de diálogo, alteração **tipo de Blob** para **BLOBs de páginas**.
+    1. Quando retornado para a caixa de diálogo **carregar arquivos** , altere o **tipo de blob** para **blob de páginas**.
     
     1. Selecione **Upload**.
 
         ![Selecionar ficheiro][9]  
     
-    1. O Explorador de armazenamento **registo de atividades** painel mostra o status do download (juntamente com ligações para cancelar o carregamento). O processo de carregamento de um ficheiro VHD pode ser demorado, dependendo do tamanho do ficheiro VHD e sua velocidade da ligação. 
+    1. O painel **log de atividades** Gerenciador de armazenamento mostra o status de download (juntamente com links para cancelar o carregamento). O processo de carregar um arquivo VHD pode ser demorado dependendo do tamanho do arquivo VHD e da velocidade de conexão. 
 
-        ![Estado do ficheiro de carregamento][10]  
+        ![Status do arquivo de upload][10]  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma imagem personalizada no Azure DevTest Labs, de um ficheiro VHD com o portal do Azure](devtest-lab-create-template.md)
-- [Criar uma imagem personalizada no Azure DevTest Labs, de um ficheiro VHD com o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+- [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o portal do Azure](devtest-lab-create-template.md)
+- [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 
 [0]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-using-psh.png
 [1]: ./media/devtest-lab-upload-vhd-using-storage-explorer/settings-icon.png

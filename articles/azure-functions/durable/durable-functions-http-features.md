@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433289"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262865"
 ---
 # <a name="http-features"></a>Recursos de HTTP
 
@@ -41,21 +41,21 @@ Consulte o [artigo APIs http](durable-functions-http-api.md) para obter uma desc
 
 A [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar conteúdos de resposta http convenientes. Por exemplo, ele pode criar uma resposta que contém links para APIs de gerenciamento para uma instância de orquestração específica. Os exemplos a seguir mostram uma função HTTP-Trigger que demonstra como usar essa API para uma nova instância de orquestração:
 
-#### <a name="precompiled-c"></a>Pré-compiladoC#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-#### <a name="c-script"></a>Script C#
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript com funções 2,0 ou posteriores somente
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>Function.json
+**function.json**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+---
 
 Iniciar uma função de orquestrador usando as funções HTTP-Trigger mostradas anteriormente pode ser feito usando qualquer cliente HTTP. O comando de rotação a seguir inicia uma função de orquestrador chamada `DoWork`:
 
@@ -112,10 +112,9 @@ Conforme descrito nas [restrições de código da função de orquestrador](dura
 
 A partir do Durable Functions 2,0, as orquestrações podem consumir nativamente APIs HTTP usando a [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger).
 
-> [!NOTE]
-> A capacidade de chamar pontos de extremidade HTTP diretamente de funções de orquestrador ainda não está disponível em JavaScript.
+O código de exemplo a seguir mostra uma função de orquestrador que faz uma solicitação HTTP de saída:
 
-O código de exemplo a seguir C# mostra uma função de orquestrador fazendo uma solicitação HTTP de saída usando a API do .NET **CallHttpAsync** :
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,6 +133,23 @@ public static async Task CheckSiteAvailable(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const url = context.df.getInput();
+    const response = context.df.callHttp("GET", url)
+
+    if (response.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+---
 
 Usando a ação "chamar HTTP", você pode executar as seguintes ações em suas funções de orquestrador:
 
@@ -156,6 +172,8 @@ Durable Functions nativamente dá suporte a chamadas para APIs que aceitam token
 
 O código a seguir é um exemplo de uma função de orquestrador do .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual usando a [API REST de Azure Resource Manager máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -164,6 +182,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -178,6 +197,32 @@ public static async Task RunOrchestrator(
     }
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        tokenSource);
+
+    return restartResponse;
+});
+```
+
+---
 
 No exemplo anterior, o parâmetro `tokenSource` está configurado para adquirir tokens do Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI de recurso `https://management.core.windows.net`. O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Presume-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo de recursos especificado `myRG`.
 

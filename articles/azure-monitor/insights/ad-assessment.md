@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406138"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167836"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente de Active Directory com a solução de verificação de integridade Active Directory no Azure Monitor
 
@@ -166,6 +166,17 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 2. Se você decidir posteriormente que deseja ver as recomendações ignoradas, remova todos os arquivos IgnoreRecommendations. txt ou remova o as recommendationids deles.
 
 ## <a name="ad-health-check-solutions-faq"></a>Perguntas frequentes sobre soluções de verificação de integridade do AD
+
+*Quais verificações são executadas pela solução de Avaliação do AD?*
+
+* A consulta a seguir mostra uma descrição de todas as verificações realizadas no momento:
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+Os resultados podem ser exportados para o Excel para examinar detalhadamente.
 
 *Com que frequência uma verificação de integridade é executada?*
 

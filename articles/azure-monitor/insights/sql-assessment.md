@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401042"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168898"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
 
@@ -196,6 +196,19 @@ Se você tiver recomendações que deseja ignorar, poderá criar um arquivo de t
 3. Se você decidir posteriormente que deseja ver as recomendações ignoradas, remova todos os arquivos IgnoreRecommendations. txt ou remova o as recommendationids deles.
 
 ## <a name="sql-health-check-solution-faq"></a>Perguntas frequentes da solução de verificação da integridade do SQL
+
+*Quais verificações são executadas pela solução de Avaliação do SQL?*
+
+* A consulta a seguir mostra uma descrição de todas as verificações realizadas no momento:
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+Os resultados podem ser exportados para o Excel para examinar detalhadamente.
+
+
 *Com que frequência uma verificação de integridade é executada?*
 
 * A verificação é executada a cada sete dias.

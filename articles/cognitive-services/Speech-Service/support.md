@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928651"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169514"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -37,7 +37,7 @@ Notícias sobre serviços cognitivas são coletadas no [blog de serviços cognit
 
 As [notas de versão](https://aka.ms/csspeech/whatsnew) são atualizadas assim que uma nova versão estiver disponível. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
-## <a name="search"></a>Procurar
+## <a name="search"></a>Search
 
 Você pode encontrar a resposta que precisa na documentação, nos exemplos ou nas respostas para [Stack Overflow](https://www.stackoverflow.com) perguntas ou nos exemplos.
 
@@ -51,23 +51,12 @@ Para obter resultados mais rápidos, decodifique sua pesquisa para Stack Overflo
 
 Onde *{seus termos de pesquisa}* são suas palavras-chave de pesquisa.
 
-## <a name="create-an-azure-support-request"></a>Criar uma solicitação de suporte do Azure
+## <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
 * [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [portal do Azure para o governo do Estados Unidos](https://portal.azure.us)
-
-## <a name="post-a-question-to-stack-overflow"></a>Poste uma pergunta para Stack Overflow
-
-Stack Overflow é o canal preferido para perguntas relacionadas ao desenvolvimento. É onde os membros da Comunidade e os membros da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
-
-Se você não conseguir encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow usando marcas [\[\]de fala \[de\]da Microsoft ](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
-
-> [!TIP]
-> As postagens a seguir de Stack Overflow contêm dicas sobre como formar perguntas e adicionar código-fonte. Seguir essas diretrizes pode ajudar a aumentar as chances de que os membros da Comunidade avaliem e respondam rapidamente à sua pergunta:  
-> * [Como fazer fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
-> * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
@@ -108,6 +97,16 @@ Qual versão do SDK você está usando.
  - Se você relatar um erro para uma interação de serviço específica, relate a SessionId e a hora (incluindo o fuso horário) dos incidentes relatados. A SessionId é relatada em todos os eventos/retornos de chamada recebidos.
  - Qualquer outra informação adicional
 
+## <a name="post-a-question-to-stack-overflow"></a>Poste uma pergunta para Stack Overflow
+
+Stack Overflow é o canal preferido para perguntas relacionadas ao desenvolvimento. É onde os membros da Comunidade e os membros da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
+
+Se você não conseguir encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow usando marcas [\[\]de fala \[de\]da Microsoft ](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+
+> [!TIP]
+> As postagens a seguir de Stack Overflow contêm dicas sobre como formar perguntas e adicionar código-fonte. Seguir essas diretrizes pode ajudar a aumentar as chances de que os membros da Comunidade avaliem e respondam rapidamente à sua pergunta:  
+> * [Como fazer fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
+> * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>Fórum do UserVoice
 

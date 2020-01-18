@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790085"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167352"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
-A funcionalidade de réplica de leitura permite replicar dados de um servidor de Base de Dados do Azure para MySQL para um servidor só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+A funcionalidade de réplica de leitura permite replicar dados de uma Base de Dados do Azure para servidor MySQL para um servidor só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Réplicas são novos servidores que você gerencia de forma semelhante ao banco de dados do Azure regular para servidores MySQL. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e armazenamento em GB/mês.
 
@@ -83,7 +83,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 No prompt, digite a senha da conta de usuário.
 
-## <a name="monitor-replication"></a>Monitorar a replicação
+## <a name="monitor-replication"></a>Monitorizar a replicação
 
 O banco de dados do Azure para MySQL fornece a métrica **atraso de replicação em segundos** no Azure monitor. Essa métrica está disponível somente para réplicas.
 
@@ -132,7 +132,7 @@ Se você parar a replicação entre um servidor mestre e uma réplica de leitura
 
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 
-Quando um servidor mestre é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas se tornam servidores autônomos. O próprio servidor mestre é excluído.
+Quando um servidor mestre é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas se tornam servidores autônomos automaticamente e podem aceitar leituras e gravações. O próprio servidor mestre é excluído.
 
 ### <a name="user-accounts"></a>Contas de utilizador
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: ea4ce07a813d338c2342de7dea554e11b146c27f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 64a9e11cec7164fb4421dd018238de9f0670382b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122394"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263732"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcrição de conversa em tempo real (visualização)
 
@@ -137,7 +137,7 @@ public class MyConversationTranscriber
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             var meetingId = Guid.NewGuid().ToString();
-            using (var conversation = new Conversation(config, meetingId))
+            using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
                 using (var conversationTranscriber = new ConversationTranscriber    (audioInput))

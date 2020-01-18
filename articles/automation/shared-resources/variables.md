@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac2c276f051155d7ba18ee91e4ca27acb0b35192
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849433"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167993"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ativos de variável na automação do Azure
 
@@ -28,7 +28,7 @@ Ativos de variável são valores que estão disponíveis para todos os runbooks 
 
 Como as variáveis de automação são persistidas, elas estarão disponíveis mesmo se o runbook ou a configuração DSC falhar. Esse comportamento permite que um valor seja definido por um runbook que é usado por outro, ou é usado pelo mesmo runbook ou configuração DSC na próxima vez em que for executado.
 
-Quando uma variável é criada, você pode especificar que ela seja armazenada criptografada. As variáveis criptografadas são armazenadas com segurança na automação do Azure e seu valor não pode ser recuperado do cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) que é fornecido como parte do módulo Azure PowerShell. A única maneira de recuperar um valor criptografado é da atividade **Get-AutomationVariable** em um runbook ou configuração DSC. Se você quiser alterar uma variável criptografada para não criptografado, será possível excluir e recriar a variável como não criptografada.
+Quando uma variável é criada, você pode especificar que ela seja armazenada criptografada. As variáveis criptografadas são armazenadas com segurança na automação do Azure e seu valor não pode ser recuperado do cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) que é fornecido como parte do módulo Azure PowerShell. A única maneira de recuperar um valor criptografado é da atividade **Get-AutomationVariable** em um runbook ou configuração DSC. Se você quiser alterar uma variável criptografada para não criptografado, deverá excluir e recriar a variável como não criptografada.
 
 >[!NOTE]
 >Os ativos seguros na automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é armazenada em um Key Vault gerenciado pelo sistema. Antes de armazenar um ativo seguro, a chave é carregada de Key Vault e, em seguida, usada para criptografar o ativo. Esse processo é gerenciado pela automação do Azure.
@@ -41,7 +41,7 @@ Você pode armazenar vários valores em uma única variável criando uma matriz 
 
 Veja a seguir uma lista de tipos de variáveis disponíveis na automação:
 
-* String
+* Cadeia
 * Número inteiro
 * DateTime
 * Booleano

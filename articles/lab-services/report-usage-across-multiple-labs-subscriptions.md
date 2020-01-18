@@ -1,5 +1,5 @@
 ---
-title: Relatório de Azure DevTest Labs uso em vários laboratórios e assinaturas – Azure | Microsoft Docs
+title: Azure DevTest Labs o uso em vários laboratórios e assinaturas
 description: Saiba como relatar o uso de Azure DevTest Labs em vários laboratórios e assinaturas.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 01/16/2020
 ms.author: takamath
-ms.openlocfilehash: 0d930263233056d8fa74ffe6ccb176ee39429121
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 912f510f6380c0ba1eb92b7c485091801123558e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829232"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169188"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Relatório de Azure DevTest Labs uso em vários laboratórios e assinaturas
 
@@ -35,7 +35,7 @@ Esta seção discute como exportar o uso de recursos para um único laboratório
 Antes de poder exportar o uso de recursos do DevTest Labs, você precisa configurar uma conta de armazenamento do Azure para permitir que os diferentes arquivos que contêm os dados de uso sejam armazenados. Há duas maneiras comuns de executar a exportação de dados:
 
 * [API REST do DevTest Labs](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* O módulo AZ. Resource do PowerShell [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação `exportResourceUsage`de, a ID de recurso do laboratório e os parâmetros necessários. 
+* O módulo AZ. Resource do PowerShell [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação de `exportResourceUsage`, a ID de recurso do laboratório e os parâmetros necessários. 
 
     O artigo [exportar ou excluir dados pessoais](personal-data-delete-export.md) contém um exemplo de script do PowerShell com informações detalhadas sobre os dados exportados. 
 
@@ -92,5 +92,5 @@ Quando o sistema estiver configurado e os dados estiverem mudando para o armazen
     Os usuários estão selecionando tamanhos de VM de alto desempenho (mais caros)?
 -   Quais imagens do Marketplace estão sendo usadas?
 
-    As imagens personalizadas são a base de VM mais comum, caso um repositório de imagens comum seja criado como a [Galeria de imagens](../virtual-machines/windows/shared-image-galleries.md) compartilhadas ou a [fábrica de imagens](image-factory-create.md).
+    As imagens personalizadas são a base de VM mais comum, caso um repositório de imagens comum seja criado como a [Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md) ou a [fábrica de imagens](image-factory-create.md).
 -   Quais imagens personalizadas estão sendo usadas ou não são usadas?

@@ -1,7 +1,7 @@
 ---
-title: Usar o atributo HeadPose
+title: Utilizar o atributo HeadPose
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar o atributo HeadPose para girar automaticamente o retângulo da face ou detetar gestos principais numa transmissão de vídeo.
+description: Saiba como usar o atributo HeadPose para girar automaticamente o retângulo de face ou detectar gestos de cabeçalho em um feed de vídeo.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,26 +9,26 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058573"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169793"
 ---
-# <a name="use-the-headpose-attribute"></a>Usar o atributo HeadPose
+# <a name="use-the-headpose-attribute"></a>Utilizar o atributo HeadPose
 
-Neste guia, verá como pode utilizar o atributo HeadPose de um rosto detetado para permitir alguns cenários importantes.
+Neste guia, você verá como você pode usar o atributo HeadPose de uma face detectada para habilitar alguns cenários importantes.
 
-## <a name="rotate-the-face-rectangle"></a>Rodar o retângulo de rostos
+## <a name="rotate-the-face-rectangle"></a>Girar o retângulo facial
 
-O retângulo de rostos, devolvido com todos os rostos detetados, marca a localização e tamanho de rosto na imagem. Por predefinição, o retângulo é sempre alinhado com a imagem (são de suas laterais vertical e horizontal); Isso pode ser ineficaz para inclinado rostos de delimitação de quadros. Em situações em que deseja programaticamente recortar rostos numa imagem, é melhor poder girar o retângulo para cortar.
+O retângulo de face, retornado com cada face detectada, marca o local e o tamanho da face na imagem. Por padrão, o retângulo é sempre alinhado com a imagem (seus lados são vertical e horizontal); Isso pode ser ineficiente para rostos angulares de enquadramento. Em situações em que você deseja cortar programaticamente faces em uma imagem, é melhor poder girar o retângulo para cortar.
 
-O [WPF de Face de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) aplicação de exemplo utiliza o atributo HeadPose para girar seus retângulos detetado.
+O aplicativo de exemplo [WPF de serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) usa o atributo HeadPose para girar seus retângulos de face detectados.
 
 ### <a name="explore-the-sample-code"></a>Explore o código de exemplo
 
-Por meio de programação, pode girar o retângulo de rostos, utilizando o atributo HeadPose. Se especificar este atributo ao detetar rostos (consulte [como detetar rostos](HowtoDetectFacesinImage.md)), poderá consultá-los mais tarde. O método seguinte a partir da [WPF de Face de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) aplicação utiliza uma lista de **DetectedFace** objetos e devolve uma lista de **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** objetos. **Face** aqui é uma classe personalizada que armazena enfrenta dados, incluindo as coordenadas do retângulo atualizado. Novos valores são calculados para **top**, **esquerdo**, **largura**, e **altura**e um novo campo **FaceAngle**Especifica a rotação.
+Você pode girar o retângulo de face programaticamente usando o atributo HeadPose. Se você especificar esse atributo ao detectar faces (consulte [como detectar rostos](HowtoDetectFacesinImage.md)), você poderá consultá-lo mais tarde. O método a seguir do aplicativo de [face de serviços cognitivas do WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) usa uma lista de objetos **DetectedFace** e retorna uma lista de objetos **[face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . **Face** aqui é uma classe personalizada que armazena dados de face, incluindo as coordenadas de retângulo atualizadas. Os novos valores são calculados para **superior**, **esquerdo**, **largura**e **altura**, e um novo campo **FaceAngle** especifica a rotação.
 
 ```csharp
 /// <summary>
@@ -106,9 +106,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-### <a name="display-the-updated-rectangle"></a>Apresentar o retângulo atualizado
+### <a name="display-the-updated-rectangle"></a>Exibir o retângulo atualizado
 
-A partir daqui, pode utilizar o retornado **Face** objetos no seu ecrã. As seguintes linhas de [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) Mostrar como o novo rectangle é composto a partir destes dados:
+A partir daqui, você pode usar os objetos de **face** retornados em sua exibição. As linhas a seguir de [FaceDetectionPage. XAML](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) mostram como o novo retângulo é renderizado a partir desses dados:
 
 ```xaml
  <DataTemplate>
@@ -120,17 +120,17 @@ A partir daqui, pode utilizar o retornado **Face** objetos no seu ecrã. As segu
 </DataTemplate>
 ```
 
-## <a name="detect-head-gestures"></a>Detetar gestos principais
+## <a name="detect-head-gestures"></a>Detectar gestos de cabeçalho
 
-Pode detectar principais gestos, como nodding e head abanar através da monitorização de alterações de HeadPose em tempo real. Pode utilizar esta funcionalidade como um detetor de liveness personalizado.
+Você pode detectar gestos de cabeça, como nodding e aperto de cabeça, acompanhando as alterações de HeadPose em tempo real. Você pode usar esse recurso como um detector de vida útil personalizado.
 
-Deteção de liveness é a tarefa de determinar que um assunto é uma pessoa real e não uma representação de imagem ou vídeo. Detetor de gesto principal pode servir como uma forma de ajudar a verificar liveness, especialmente em vez de uma representação de imagem de uma pessoa.
+A detecção de tempo de vida é a tarefa de determinar que um assunto é uma pessoa real, e não uma representação de imagem ou de vídeo. Um detector de gestos de cabeçalho pode servir como uma maneira de ajudar a verificar a vida, especialmente em oposição a uma representação de imagem de uma pessoa.
 
 > [!CAUTION]
-> Para detectar gestos principais em tempo real, terá de chamar a API Face a uma taxa elevada (mais do que uma vez por segundo). Se tiver uma subscrição gratuita-escalão (f0), isso não é possível. Se tiver uma subscrição de escalão pago, certificar-se de que já calculado os custos de API rápida de fazer chamadas para head gestos de deteção.
+> Para detectar gestos de cabeçalho em tempo real, você precisará chamar o API de Detecção Facial a uma taxa alta (mais de uma vez por segundo). Se você tiver uma assinatura de camada livre (F0), isso não será possível. Se você tiver uma assinatura de camada paga, certifique-se de ter calculado os custos de fazer chamadas de API rápidas para detecção de gestos de cabeçalho.
 
-Consulte a [exemplo de HeadPose de API de rostos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) no GitHub para um exemplo de cabeça gestos de deteção.
+Consulte a [amostra de HeadPose facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) no GitHub para obter um exemplo de funcionamento da detecção de gestos de cabeçalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [WPF de Face de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) aplicação no GitHub para um exemplo de retângulos girado. Em alternativa, consulte a [exemplo de HeadPose de API de rostos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) aplicação, que controla o atributo HeadPose em tempo real para detetar movimentos principais.
+Consulte o aplicativo do [WPF de serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) no GitHub para obter um exemplo de trabalho de retângulos de face girados. Ou então, consulte o aplicativo de [exemplo HeadPose facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) , que controla o atributo HeadPose em tempo real para detectar os movimentos de cabeça.

@@ -1,5 +1,5 @@
 ---
-title: Como excluir e exportar dados pessoais do Azure DevTest Labs | Microsoft Docs
+title: Como excluir e exportar dados pessoais do Azure DevTest Labs
 description: Saiba como excluir e exportar dados pessoais do serviço do Azure DevLast Labs para dar suporte às suas obrigações no Regulamento Geral sobre a Proteção de Dados (GDPR).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371166"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169686"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou excluir dados pessoais do Azure DevTest Labs
 Este artigo fornece etapas para excluir e exportar dados pessoais do serviço de Azure DevTest Labs. 
@@ -75,7 +75,7 @@ Como um usuário do laboratório, você pode solicitar uma exportação dos dado
     ![Selecionar bloco de BLOBs](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Selecione o contêiner chamado **labresourceusage** na lista de contêineres.
 
-    ![Selecionar contentor de blob](./media/personal-data-delete-export/select-blob-container.png)
+    ![Selecionar contêiner de BLOB](./media/personal-data-delete-export/select-blob-container.png)
 6. Selecione a **pasta** nomeada após o laboratório. Você encontra arquivos **CSV** para **discos** e **máquinas virtuais** em seu laboratório nesta pasta. Você pode baixar esses arquivos CSV, filtrar o conteúdo para o usuário do laboratório que solicita um acesso e compartilhá-lo com eles.
 
     ![Baixar arquivo CSV](./media/personal-data-delete-export/download-csv-file.png)
@@ -173,7 +173,7 @@ O **VirtualMachines. csv** contém as seguintes colunas de dados:
 | CreatedTime | A data e hora em que a VM foi criada. |
 | DeletedDate | A data e hora em que a VM foi excluída. Se estiver vazio, a exclusão ainda não ocorreu. |
 | ResourceOwner | Proprietário da VM. Se o valor estiver vazio, será uma VM declarável ou criada por uma entidade de serviço. |
-| PricingTier | Tipo de preço da VM |
+| pricingTier | Tipo de preço da VM |
 | ResourceStatus | Estado de disponibilidade da VM. Ativo, se ainda existir ou inativo, se a VM tiver sido excluída. |
 | ComputeResourceId | Identificador de recurso de computação de máquina virtual totalmente qualificado. |
 | Declarável | Definir como true se a VM for uma VM declarável | 
@@ -192,7 +192,7 @@ As colunas de dados contidas em **disks. csv** estão listadas abaixo:
 | ----------- | ----------- | 
 | SubscriptionId | ID da assinatura que contém o laboratório |
 | LabUId | GUID do laboratório |
-| LabName | Nome do laboratório | 
+| LabName | nome do laboratório | 
 | LabResourceId | ID de recurso totalmente qualificado para o laboratório | 
 | ResourceGroupName | Nome do grupo de recursos que contém o laboratório | 
 | ResourceId | ID de recurso totalmente qualificado para a VM. |
@@ -203,7 +203,7 @@ As colunas de dados contidas em **disks. csv** estão listadas abaixo:
 | ResourceStatus | Status do recurso. Ativo, se o recurso existir. Inativo, quando excluído. |
 | DiskBlobName | Nome do blob para o disco de dados. |
 | DiskSizeGB | O tamanho do disco de dados. |
-| Disco | Tipo de disco de dados. 0 para Standard, 1 para Premium. |
+| DiskType | Tipo de disco de dados. 0 para Standard, 1 para Premium. |
 | LeasedByVmId | ID de recurso da VM à qual o disco de dados foi anexado. |
 
 

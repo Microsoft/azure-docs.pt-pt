@@ -1,7 +1,7 @@
 ---
-title: 'Exemplo: Adicionar faces a um API de Detecção Facial de pessoas'
+title: 'Exemplo: Adicionar faces a um tipo de pessoa'
 titleSuffix: Azure Cognitive Services
-description: Este guia demonstra como adicionar um grande número de pessoas e rostos a um objeto Person com os serviços cognitivas do Azure API de Detecção Facial.
+description: Este guia demonstra como adicionar um grande número de pessoas e rostos a um objeto Person com o serviço de face de serviços cognitivas do Azure.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 891614caddf729acb58bc363df977031ad62fb07
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156714"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169834"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Adicionar faces a um Person
 
-Este guia demonstra como adicionar um grande número de pessoas e rostos a um objeto Person. A mesma estratégia também se aplica aos objetos LargePersonGroup, Facelist e LargeFaceList. Este exemplo é escrito no C# usando os serviços cognitivas do Azure API de detecção facial biblioteca de cliente .net.
+Este guia demonstra como adicionar um grande número de pessoas e rostos a um objeto Person. A mesma estratégia também se aplica aos objetos LargePersonGroup, Facelist e LargeFaceList. Este exemplo é escrito no C# usando a biblioteca de cliente .net de face dos serviços cognitivas do Azure.
 
 ## <a name="step-1-initialization"></a>Passo 1: inicialização
 

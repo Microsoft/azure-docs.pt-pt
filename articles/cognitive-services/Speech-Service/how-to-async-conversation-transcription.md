@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: amishu
-ms.openlocfilehash: f34ce66d126a47e186cd1196fb5c92d670def445
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d20cdb2f37c3da357ca112045a0d2845bbb6df98
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806172"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260026"
 ---
 # <a name="asynchronous-conversation-transcription-preview"></a>Transcrição de conversa assíncrona (versão prévia)
 
@@ -51,7 +51,8 @@ speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyCha
 String conversationId = UUID.randomUUID().toString();
 
 // Create a Conversation
-Conversation conversation = new Conversation(speechConfig, conversationId);
+Future<Conversation> conversationFuture = Conversation.createConversationAsync(speechConfig, conversationId);
+Conversation conversation = conversationFuture.get();
 
 // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices
 // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback

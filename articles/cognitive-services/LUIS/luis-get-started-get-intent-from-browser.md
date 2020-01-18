@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495226"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165752"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Início rápido: obter a intenção com um navegador
 
@@ -26,13 +26,13 @@ Para compreender o que devolve um ponto final de predição do LUIS, veja um res
 
 Para consultar um aplicativo público, você precisa de:
 
-* Sua própria chave de Reconhecimento vocal (LUIS). Se você ainda não tiver uma assinatura para criar uma chave, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/). A chave de criação do LUIS não funcionará. 
+* Sua própria Reconhecimento vocal (LUIS) a criação ou a chave de previsão que pode ser obtida no [portal do Luis (versão prévia)](https://preview.luis.ai/). Se você ainda não tiver uma assinatura para criar uma chave, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/). 
 * A ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## <a name="use-the-browser-to-see-predictions"></a>Use o navegador para ver previsões
 
 1. Abra um browser. 
-1. Use as URLs completas abaixo, substituindo `YOUR-KEY` pela sua própria chave LUIS. As solicitações são solicitações GET e incluem a autorização, com sua chave LUIS, como um parâmetro de cadeia de caracteres de consulta.
+1. Use as URLs completas abaixo, substituindo `YOUR-KEY` pela sua própria LUIS de criação ou chave de previsão. As solicitações são solicitações GET e incluem a autorização, com a LUIS de criação ou a chave de previsão, como um parâmetro de cadeia de caracteres de consulta.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitação de previsão v3](#tab/V3-1-1)
     

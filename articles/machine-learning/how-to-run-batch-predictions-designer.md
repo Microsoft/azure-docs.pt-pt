@@ -5,106 +5,142 @@ description: Saiba como treinar um modelo e configurar um pipeline de previsão 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.reviewer: trbye
-ms.author: trbye
-author: trevorbye
-ms.date: 11/19/2019
+ms.topic: how-to
+ms.author: peterlu
+author: peterclu
+ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 1e346d2542193ec1880ad0a56bd6afa1b0a46890
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 7a4801e46477165232e7f03184152b6c277c05b6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122632"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167325"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões de lote usando Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste "como", você aprende a usar o designer para treinar um modelo e configurar um pipeline de previsão do lote e um serviço Web. A previsão de lote permite a pontuação contínua e sob demanda de modelos treinados em conjuntos de dados grandes, opcionalmente configurada como um serviço Web que pode ser disparado de qualquer biblioteca HTTP. 
+Neste artigo, você aprenderá a usar o designer para criar um pipeline de previsão do lote. A previsão de lote permite pontuar continuamente conjuntos de grandes volumes sob demanda usando um serviço Web que pode ser disparado de qualquer biblioteca HTTP.
 
-Para configurar os serviços de Pontuação de lote usando o SDK, consulte o artigo [como](how-to-use-parallel-run-step.md).
-
-Neste "como", você aprende as seguintes tarefas:
+Neste "como", você aprenderá a executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um experimento de ML básico em um pipeline
-> * Criar um pipeline de inferência de lote parametrizado
-> * Gerenciar e executar pipelines manualmente ou de um ponto de extremidade REST
+> * Criar e publicar um pipeline de inferência de lote
+> * Consumir um ponto de extremidade de pipeline
+> * Gerenciar versões de ponto de extremidade
+
+Para saber como configurar os serviços de Pontuação de lote usando o SDK, consulte a [instruções](how-to-run-batch-predictions.md)que acompanham o.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-
-1. Crie um [espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
-
-1. Entre no [Azure Machine Learning Studio](https://ml.azure.com/).
-
-Este "como" pressupõe o conhecimento básico da criação de um pipeline simples no designer. Para obter uma introdução guiada ao designer, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
-
-## <a name="create-a-pipeline"></a>Criar um pipeline
-
-Para criar um pipeline de inferência de lote, primeiro você precisa de um experimento de aprendizado de máquina. Para criar um, navegue até a guia **Designer** em seu espaço de trabalho e crie um novo pipeline selecionando a opção de **módulos predefinidos fácil de usar** .
-
-![Página inicial do designer](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-1.png)
-
-Veja a seguir um modelo de aprendizado de máquina simples para fins de demonstração. Os dados são um DataSet registrado criado a partir dos dados de diabetes do Azure Open DataSets. Consulte a [seção de instruções](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) para registrar conjuntos de registros de conjuntos de de Azure abertos. Os dados são divididos em conjuntos de treinamento e validação, e uma árvore de decisão aumentada é treinada e pontuada. O pipeline deve ser executado pelo menos uma vez para poder criar um pipeline inferência. Clique no botão **executar** para executar o pipeline.
-
-![Criar experimento simples](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-2.png)
+Este "como" pressupõe que você já tenha um pipeline de treinamento. Para obter uma introdução guiada ao designer, conclua [a parte um do tutorial do designer](tutorial-designer-automobile-price-train-score.md). 
 
 ## <a name="create-a-batch-inference-pipeline"></a>Criar um pipeline de inferência de lote
 
-Agora que o pipeline foi executado, há uma nova opção disponível ao lado de **executar** e **publicar** chamado **pipeline de inferência de criação**. Clique na lista suspensa e selecione **pipeline de inferência de lote**.
+Seu pipeline de treinamento deve ser executado pelo menos uma vez para poder criar um pipeline inferência.
 
-![Criar pipeline de inferência de lote](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-5.png)
+1. Vá para a guia **Designer** em seu espaço de trabalho.
 
-O resultado é um pipeline de inferência de lote padrão. Isso inclui um nó para a configuração do experimento do seu pipeline original, um nó para dados brutos para pontuação e um nó para pontuar os dados brutos em relação ao seu pipeline original.
+1. Selecione o pipeline de treinamento que treina o modelo que deseja usar para fazer a previsão.
 
-![Pipeline de inferência de lote padrão](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-6.png)
+1. **Execute** o pipeline.
 
-Você pode adicionar outros nós para alterar o comportamento do processo de inferência do lote. Neste exemplo, você adiciona um nó para amostragem aleatória dos dados de entrada antes da pontuação. Crie uma **partição e** um nó de exemplo e coloque-o entre os dados brutos e os nós de pontuação. Em seguida, clique no nó **partição e exemplo** para obter acesso às configurações e aos parâmetros.
+    ![Executar o pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-![Novo nó](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-7.png)
+Agora que o pipeline de treinamento foi executado, você pode criar um pipeline de inferência de lote.
 
-A *taxa de parâmetro de amostragem* controla a porcentagem do conjunto de dados original do qual obter um exemplo aleatório. Esse é um parâmetro que será útil para ser ajustado com frequência, portanto, você o habilita como um parâmetro de pipeline. Os parâmetros de pipeline podem ser alterados em tempo de execução e podem ser especificados em um objeto de carga ao executar novamente o pipeline de um ponto de extremidade REST. 
+1. Ao lado de **executar**, selecione o novo **pipeline de inferência de criação**de lista suspensa.
 
-Para habilitar esse campo como um parâmetro de pipeline, clique nas reticências acima do campo e, em seguida, clique em **Adicionar ao parâmetro de pipeline**. 
+1. Selecione **pipeline de inferência de lote**.
 
-![Configurações de exemplo](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-8.png)
+    ![Criar pipeline de inferência de lote](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    
+O resultado é um pipeline de inferência de lote padrão. 
 
-Em seguida, dê ao parâmetro um nome e um valor padrão. O nome será usado para identificar o parâmetro e especificá-lo em uma chamada REST.
+### <a name="add-a-pipeline-parameter"></a>Adicionar um parâmetro de pipeline
 
-![Parâmetro do pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-9.png)
+Para criar previsões sobre novos dados, você pode conectar-se manualmente a um DataSet diferente nesta exibição de rascunho do pipeline ou criar um parâmetro para seu conjunto de dados. Os parâmetros permitem alterar o comportamento do processo de inferência do lote em tempo de execução.
 
-## <a name="deploy-batch-inferencing-pipeline"></a>Implantar pipeline inferência do lote
+Nesta seção, você cria um parâmetro de conjunto de um para especificar um conjunto de diferentes para fazer previsões.
 
-Agora você está pronto para implantar o pipeline. Clique no botão **implantar** , que abre a interface para configurar um ponto de extremidade. Clique na lista suspensa e selecione **novo PipelineEndpoint**.
+1. Selecione o módulo DataSet.
 
-![Implantação de pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-10.png)
+1. Um painel será exibido à direita da tela. Na parte inferior do painel, selecione **definir como parâmetro de pipeline**.
+   
+    Insira um nome para o parâmetro ou aceite o valor padrão.
 
-Dê ao ponto de extremidade um nome e uma descrição opcional. Próximo à parte inferior, você verá o parâmetro `sample-rate` configurado com um valor padrão de 0,8. Quando estiver pronto, clique em **implantar**.
+## <a name="publish-your-batch-inferencing-pipeline"></a>Publicar o pipeline inferência do lote
 
-![Ponto de extremidade de instalação](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-11.png)
+Agora você está pronto para implantar o pipeline do inferência. Isso implantará o pipeline e o tornará disponível para outras pessoas usarem.
 
-## <a name="manage-endpoints"></a>Gerir pontos finais 
+1. Selecione o botão **Publicar**.
 
-Depois que a implantação for concluída, vá para a guia **pontos** de extremidade e clique no nome do ponto que você acabou de criar.
+1. Na caixa de diálogo exibida, expanda a lista suspensa para **PipelineEndpoint**e selecione **novo PipelineEndpoint**.
 
-![Link do ponto de extremidade](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-12.png)
+1. Forneça um nome de ponto de extremidade e uma descrição opcional.
 
-Esta tela mostra todos os pipelines publicados sob o ponto de extremidade específico. Clique em seu pipeline do inferência.
+    Próximo à parte inferior da caixa de diálogo, você pode ver o parâmetro configurado com um valor padrão da ID do conjunto de resultados usado durante o treinamento.
 
-![Pipeline de inferência](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-13.png)
+1. Selecione **Publicar**.
 
-A página detalhes do pipeline mostra o histórico de execução detalhado e informações de cadeia de conexão para seu pipeline. Clique no botão **executar** para criar uma execução manual do pipeline.
+![Publicar um pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
-![Detalhes do pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-14.png)
 
-Na instalação de executar, você pode fornecer uma descrição para a execução e alterar o valor de qualquer parâmetro de pipeline. Desta vez, execute novamente o pipeline inferência com uma taxa de amostragem de 0,9. Clique em **executar** para executar o pipeline.
+## <a name="consume-an-endpoint"></a>Consumir um ponto de extremidade
 
-![Execução de pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-15.png)
+Agora, você tem um pipeline publicado com um parâmetro DataSet. O pipeline usará o modelo treinado criado no pipeline de treinamento para pontuar o conjunto de um que você fornece como um parâmetro.
 
-A guia **consumir** contém o ponto de extremidade REST para executar novamente seu pipeline. Para fazer uma chamada REST, você precisará de um cabeçalho de autenticação do tipo portador OAuth 2,0. Consulte a seguinte [seção do tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para obter mais detalhes sobre como configurar a autenticação para seu espaço de trabalho e fazer uma chamada REST com parâmetros.
+### <a name="submit-a-pipeline-run"></a>Enviar uma execução de pipeline 
+
+Nesta seção, você irá configurar uma execução de pipeline manual e alterar o parâmetro de pipeline para pontuar novos dados. 
+
+1. Após a conclusão da implantação, vá para a seção **pontos de extremidade** .
+
+1. Selecione **pontos de extremidade do pipeline**.
+
+1. Selecione o nome do ponto de extremidade que você criou.
+
+![Link do ponto de extremidade](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
+
+1. Selecione **pipelines publicados**.
+
+    Esta tela mostra todos os pipelines publicados publicados nesse ponto de extremidade.
+
+1. Selecione o pipeline que você publicou.
+
+    A página detalhes do pipeline mostra um histórico de execução detalhado e informações de cadeia de conexão para seu pipeline. 
+    
+1. Selecione **executar** para criar uma execução manual do pipeline.
+
+    ![Detalhes do pipeline](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
+    
+1. Altere o parâmetro para usar um conjunto de um diferente.
+    
+1. Selecione **executar** para executar o pipeline.
+
+### <a name="use-the-rest-endpoint"></a>Usar o ponto de extremidade REST
+
+Você pode encontrar informações sobre como consumir pontos de extremidade de pipeline e o pipeline publicado na seção **pontos de extremidade** .
+
+Você pode encontrar o ponto de extremidade REST de um ponto de extremidade de pipeline no painel de visão geral de execução. Ao chamar o ponto de extremidade, você está consumindo seu pipeline publicado padrão.
+
+Você também pode consumir um pipeline publicado na página **pipelines publicados** . Selecione um pipeline publicado e localize o ponto de extremidade REST. 
+
+![Detalhes do ponto de extremidade REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+
+Para fazer uma chamada REST, você precisará de um cabeçalho de autenticação do tipo portador OAuth 2,0. Consulte a seguinte [seção do tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para obter mais detalhes sobre como configurar a autenticação para seu espaço de trabalho e fazer uma chamada REST com parâmetros.
+
+## <a name="versioning-endpoints"></a>Pontos de extremidade de controle de versão
+
+O Designer atribui uma versão a cada pipeline subsequente que você publica em um ponto de extremidade. Você pode especificar a versão do pipeline que deseja executar como um parâmetro em sua chamada REST. Se você não especificar um número de versão, o designer usará o pipeline padrão.
+
+Ao publicar um pipeline, você pode optar por torná-lo o novo pipeline padrão para esse ponto de extremidade.
+
+![Definir pipeline padrão](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+
+Você também pode definir um novo pipeline padrão na guia **pipelines publicados** do seu ponto de extremidade.
+
+![Definir pipeline padrão](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

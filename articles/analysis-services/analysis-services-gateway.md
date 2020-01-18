@@ -4,19 +4,21 @@ description: Um gateway local será necessário se o servidor de Analysis Servic
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768559"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263443"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
-O gateway de dados local fornece transferência segura de dados entre fontes de dados locais e seus servidores de Azure Analysis Services na nuvem. Além de trabalhar com vários servidores de Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com aplicativos lógicos do Azure, Power BI, Power apps e automação de energia. Você pode associar vários serviços na mesma assinatura e na mesma região com um único gateway. Embora o gateway que você instalar seja o mesmo em todos esses serviços, Azure Analysis Services e aplicativos lógicos têm algumas etapas adicionais.
+O gateway de dados local fornece transferência segura de dados entre fontes de dados locais e seus servidores de Azure Analysis Services na nuvem. Além de trabalhar com vários servidores de Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com aplicativos lógicos do Azure, Power BI, Power apps e automação de energia. Embora o gateway que você instalar seja o mesmo em todos esses serviços, Azure Analysis Services e aplicativos lógicos têm algumas etapas adicionais.
+
+As informações fornecidas aqui são específicas de como Azure Analysis Services funciona com o gateway de dados local. Para saber mais sobre o gateway em geral e como ele funciona com outros serviços, consulte [o que é um gateway de dados local?](/data-integration/gateway/service-gateway-onprem).
 
 Por Azure Analysis Services, obter a configuração com o gateway na primeira vez é um processo de quatro partes:
 
@@ -24,9 +26,11 @@ Por Azure Analysis Services, obter a configuração com o gateway na primeira ve
 
 - **Registrar seu gateway** -nesta etapa, você especifica um nome e uma chave de recuperação para seu gateway e seleciona uma região, registrando seu gateway com o serviço de nuvem do gateway. O recurso de gateway pode ser registrado em qualquer região, mas é recomendável que ele esteja na mesma região que seus servidores de Analysis Services. 
 
-- **Criar um recurso de gateway no Azure** – nesta etapa, você cria um recurso de gateway em sua assinatura do Azure.
+- **Criar um recurso de gateway no Azure** – nesta etapa, você cria um recurso de gateway em um Azure.
 
-- **Conecte seus servidores ao recurso de gateway** -depois de ter um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos, desde que eles estejam na mesma assinatura e na mesma região.
+- **Conecte seus servidores ao recurso de gateway** -depois de ter um recurso de gateway, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos, desde que eles estejam na mesma região.
+
+
 
 ## <a name="how-it-works"> </a>Como funciona
 O gateway que você instala em um computador da sua organização é executado como um serviço **do Windows, gateway de dados local**. Este serviço local é registado com o Serviço Cloud do Gateway através do Azure Service Bus. Em seguida, você cria um recurso de gateway de dados local para sua assinatura do Azure. Seus servidores de Azure Analysis Services são então conectados ao recurso de gateway do Azure. Quando os modelos em seu servidor precisam se conectar às suas fontes de dados locais para consultas ou processamentos, uma consulta e um fluxo de dados atravessam o recurso de gateway, o barramento de serviço do Azure, o serviço do gateway de dados local e suas fontes de dados. 

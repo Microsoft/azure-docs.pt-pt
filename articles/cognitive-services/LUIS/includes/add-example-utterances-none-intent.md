@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: e4147fbb27c8538f801f6c49f8b535a283faf50f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c81aaa02af0895e6c3a851fe15273d85de9b55bc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325919"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262758"
 ---
 O aplicativo cliente precisa saber se um expressão não é significativo ou apropriado para o aplicativo. A intenção **None** é adicionada a cada aplicativo como parte do processo de criação para determinar se um expressão não deve ser respondido pelo aplicativo cliente.
 
@@ -30,7 +30,6 @@ Se você deixar a intenção **nenhum** vazia, um expressão que deve ser previs
     |`None` exemplo declarações|
     |--|
     |`Barking dogs are annoying`|
-    |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
     Esses exemplos não devem usar palavras que você espera em seu domínio de assunto, como `pizza`, `cheese`, `crust``pickup` `deliver`.

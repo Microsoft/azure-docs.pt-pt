@@ -4,15 +4,15 @@ description: Replicar servidores Azure Analysis Services com escala horizontal. 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572594"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167948"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 
@@ -36,7 +36,7 @@ Ao configurar a expansão na primeira vez, os bancos de dados de modelo em seu s
 
 Embora uma sincronização automática seja executada somente quando você escala horizontalmente um servidor pela primeira vez, você também pode executar uma sincronização manual. A sincronização garante que os dados em réplicas no pool de consulta correspondam ao servidor primário. Ao processar (atualizar) modelos no servidor primário, uma sincronização deve ser executada *após* a conclusão das operações de processamento. Esta sincronização copia os dados atualizados dos arquivos do servidor primário no armazenamento de BLOBs para o segundo conjunto de arquivos. As réplicas no pool de consultas são então alimentadas com dados atualizados do segundo conjunto de arquivos no armazenamento de BLOBs. 
 
-Ao executar uma operação de expansão subsequente, por exemplo, aumentar o número de réplicas no pool de consultas de duas a cinco, as novas réplicas são alimentadas com dados do segundo conjunto de arquivos no armazenamento de BLOBs. Não há sincronização. Se, em seguida, você executar uma sincronização depois de escalar horizontalmente, as novas réplicas no pool de consultas seriam alimentadas duas vezes-uma hidratação redundante. Ao executar uma operação de expansão subsequente, é importante ter em mente:
+Ao executar uma operação de expansão subsequente, por exemplo, aumentar o número de réplicas no pool de consultas de duas a cinco, as novas réplicas são alimentadas com dados do segundo conjunto de arquivos no armazenamento de BLOBs. Não há sincronização. Se você executar uma sincronização depois de escalar horizontalmente, as novas réplicas no pool de consultas seriam alimentadas duas vezes-uma hidratação redundante. Ao executar uma operação de expansão subsequente, é importante ter em mente:
 
 * Execute uma sincronização *antes da operação de expansão* para evitar hidratação redundantes das réplicas adicionadas. A sincronização simultânea e as operações de expansão em execução ao mesmo tempo não são permitidas.
 
@@ -44,9 +44,29 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentar o nú
 
 * A sincronização é permitida mesmo quando não há réplicas no pool de consultas. Se você estiver expandindo de zero para uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute a sincronização primeiro sem réplicas no pool de consultas e, em seguida, expanda horizontalmente. A sincronização antes de escalar horizontalmente evita hidratação redundantes das réplicas adicionadas recentemente.
 
-* Ao excluir um banco de dados modelo do servidor primário, ele não é excluído automaticamente das réplicas no pool de consultas. Você deve executar uma operação de sincronização usando o comando do PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) que remove os arquivos do banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados modelo nas réplicas no pool de consultas. Para determinar se um banco de dados modelo existe em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que a configuração **separar o servidor de processamento da consulta do pool** seja **Sim**. Em seguida, use o SSMS para se conectar ao servidor primário usando o qualificador `:rw` para ver se o banco de dados existe. Em seguida, conecte-se às réplicas no pool de consulta conectando-se sem o qualificador `:rw` para ver se o mesmo banco de dados também existe. Se o banco de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
+* Ao excluir um banco de dados modelo do servidor primário, ele não é excluído automaticamente das réplicas no pool de consultas. Você deve executar uma operação de sincronização usando o comando do PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) , que remove os arquivos do banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados modelo nas réplicas no pool de consultas. Para determinar se um banco de dados modelo existe em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que a configuração **separar o servidor de processamento da consulta do pool** seja **Sim**. Em seguida, use o SSMS para se conectar ao servidor primário usando o qualificador `:rw` para ver se o banco de dados existe. Em seguida, conecte-se às réplicas no pool de consulta conectando-se sem o qualificador `:rw` para ver se o mesmo banco de dados também existe. Se o banco de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
 
 * Ao renomear um banco de dados no servidor primário, há uma etapa adicional necessária para garantir que o banco de dados seja sincronizado corretamente com as réplicas. Após a renomeação, execute uma sincronização usando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o parâmetro `-Database` com o nome antigo do banco de dados. Essa sincronização remove o banco de dados e os arquivos com o nome antigo de qualquer réplica. Em seguida, execute outra sincronização especificando o parâmetro `-Database` com o novo nome do banco de dados. A segunda sincronização copia o banco de dados nomeado recentemente para o segundo conjunto de arquivos e hidratam quaisquer réplicas. Essas sincronizações não podem ser executadas usando o comando sincronizar modelo no Portal.
+
+### <a name="synchronization-mode"></a>Modo de sincronização
+
+Por padrão, as réplicas de consulta são alimentadas de forma completa, não incrementalmente. Reidratação acontece em estágios. Eles são desanexados e anexados dois de cada vez (supondo que haja pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida online para consultas em um determinado momento. Em alguns casos, os clientes podem precisar se reconectar a uma das réplicas online enquanto esse processo está ocorrendo. Usando a configuração **ReplicaSyncMode** , agora você pode especificar que a sincronização da réplica de consulta ocorra em paralelo. A sincronização paralela oferece os seguintes benefícios: 
+
+- Redução significativa no tempo de sincronização. 
+- Os dados entre réplicas têm maior probabilidade de serem consistentes durante o processo de sincronização. 
+- Como os bancos de dados são mantidos online em todas as réplicas durante o processo de sincronização, os clientes não precisam se reconectar. 
+- O cache na memória é atualizado incrementalmente com apenas os dados alterados, o que pode ser mais rápido do que totalmente reidratar o modelo. 
+
+#### <a name="setting-replicasyncmode"></a>Configurando ReplicaSyncMode
+
+Use o SSMS para definir ReplicaSyncMode em Propriedades avançadas. Os valores possíveis são: 
+
+- `1` (padrão): reidratação de banco de dados de réplica completo em estágios (incremental). 
+- `2`: sincronização otimizada em paralelo. 
+
+![Configuração de RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+
+Ao definir **ReplicaSyncMode = 2**, dependendo da quantidade do cache que precisa ser atualizada, a memória adicional pode ser consumida pelas réplicas de consulta. Para manter o banco de dados online e disponível para consultas, dependendo da quantidade de data alterada, a operação pode exigir até o *dobro da memória* na réplica, pois os segmentos antigo e novo são mantidos na memória simultaneamente. Os nós de réplica têm a mesma alocação de memória que o nó primário e normalmente há memória extra no nó primário para operações de atualização, portanto, talvez seja improvável que as réplicas esgotassem memória insuficiente. Além disso, o cenário comum é que o banco de dados é atualizado incrementalmente no nó primário e, portanto, o requisito para o dobro da memória deve ser incomum. Se a operação de sincronização encontrar um erro de memória insuficiente, ela tentará novamente usando a técnica padrão (anexar/desanexar dois de cada vez). 
 
 ### <a name="separate-processing-from-query-pool"></a>Processamento separado do pool de consultas
 
@@ -56,7 +76,7 @@ Para obter o desempenho máximo para operações de processamento e consulta, vo
 
 Para determinar se a escala horizontal para o servidor é necessária, monitore o servidor em portal do Azure usando métricas. Se seu QPU regularmente maximizar, isso significa que o número de consultas em seus modelos está excedendo o limite de QPU para seu plano. A métrica de comprimento da fila de trabalhos do pool de consultas também aumenta quando o número de consultas na fila do pool de threads de consulta excede o QPU disponível. 
 
-Outra boa métrica a ser observada é a média de QPU por ServerResourceType. Essa métrica compara o QPU médio para o servidor primário com o do pool de consulta. 
+Outra boa métrica a ser observada é a média de QPU por ServerResourceType. Essa métrica compara QPU média para o servidor primário com o pool de consulta. 
 
 ![Métricas de expansão de consulta](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
@@ -82,7 +102,7 @@ Para saber mais, consulte as [métricas do servidor de Monitorização](analysis
 
 Ao configurar a expansão para um servidor na primeira vez, os modelos em seu servidor primário são sincronizados automaticamente com réplicas no pool de consultas. A sincronização automática ocorre apenas uma vez, quando você configura primeiro a expansão para uma ou mais réplicas. Alterações subsequentes no número de réplicas no mesmo servidor *não dispararão outra sincronização automática*. A sincronização automática não ocorrerá novamente mesmo que você defina o servidor como zero réplicas e, em seguida, redimensione horizontalmente para qualquer número de réplicas. 
 
-## <a name="synchronize"></a>Novamente 
+## <a name="synchronize"></a>Synchronize 
 
 As operações de sincronização devem ser executadas manualmente ou usando a API REST.
 

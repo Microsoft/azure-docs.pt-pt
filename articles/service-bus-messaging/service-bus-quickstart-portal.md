@@ -1,22 +1,22 @@
 ---
-title: Início rápido – usar o portal do Azure para criar uma fila do barramento de serviço | Microsoft Docs
+title: Usar o portal do Azure para criar uma fila do barramento de serviço
 description: Neste guia de início rápido, você aprende a criar uma fila do barramento de serviço usando o portal do Azure. Em seguida, você usa um aplicativo cliente de exemplo para enviar mensagens e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242384"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260842"
 ---
-# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Usar portal do Azure para criar uma fila do barramento de serviço
-Este guia de início rápido descreve como enviar e receber mensagens de e para uma fila do barramento de serviço, usando o [portal do Azure][Azure portal] para criar um namespace de mensagens e uma fila dentro desse namespace e para obter as credenciais de autorização nesse namespace. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: usar portal do Azure para criar uma fila do barramento de serviço
+Este guia de início rápido descreve como enviar e receber mensagens de e para uma fila do barramento de serviço, usando o [portal do Azure][Azure portal] para criar um namespace de mensagens e uma fila dentro desse namespace e para obter as credenciais de autorização nesse namespace. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila através da [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, confirme que tem instalada:
 > - [Node. js usando o pacote do Azure/Service-Bus](service-bus-nodejs-how-to-use-queues-new-package.md)
 > - [Node. js usando o pacote Azure-SB](service-bus-nodejs-how-to-use-queues.md)
 > - [PHP](service-bus-php-how-to-use-queues.md)
-> - [python](service-bus-python-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
 > - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
@@ -82,7 +82,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-A cadeia de conexão e o nome da fila são `Main()` passados para o método como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+A cadeia de conexão e o nome da fila são passados para o método `Main()` como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -119,7 +119,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync () cria um cliente de fila com os argumentos de linha de comando, chama um manipulador de `RegisterOnMessageHandlerAndReceiveMessages()`mensagens de recebimento chamado e envia o conjunto de mensagens:
+O método MainAsync () cria um cliente de fila com os argumentos de linha de comando, chama um manipulador de mensagens de recebimento chamado `RegisterOnMessageHandlerAndReceiveMessages()`e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)

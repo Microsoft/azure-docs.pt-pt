@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: usar o recurso de grande escala-API de Detecção Facial'
+title: 'Exemplo: usar o rosto de recurso em grande escala'
 titleSuffix: Azure Cognitive Services
 description: Este guia é um artigo sobre como escalar verticalmente de objetos Person e Facelist existentes para objetos LargePersonGroup e LargeFaceList.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743722"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169770"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemplo: usar o recurso de grande escala
 
@@ -23,14 +23,14 @@ Este guia é um artigo avançado sobre como escalar verticalmente de objetos Per
 
 LargePersonGroup e LargeFaceList são coletivamente chamados de operações em larga escala. LargePersonGroup pode conter até 1 milhão pessoas, cada uma com um máximo de 248 faces. LargeFaceList pode conter até 1 milhão rostos. As operações em grande escala são semelhantes às de Person e face convencionais, mas têm algumas diferenças devido à nova arquitetura. 
 
-Os exemplos são gravados C# no usando os serviços cognitivas do Azure API de detecção facial biblioteca de cliente.
+Os exemplos são gravados C# no usando a biblioteca de cliente facial dos serviços cognitivas do Azure.
 
 > [!NOTE]
 > Para habilitar o desempenho de pesquisa facial para identificação e FindSimilar em grande escala, apresente uma operação de treinamento para pré-processar o LargeFaceList e o LargePersonGroup. O tempo de treinamento varia de segundos a cerca de meia hora com base na capacidade real. Durante o período de treinamento, é possível executar a identificação e o FindSimilar se um operando de treinamento bem-sucedido tiver sido feito antes. A desvantagem é que as novas pessoas e rostos adicionadas não aparecem no resultado até que uma nova migração após a conclusão do treinamento em larga escala seja concluída.
 
 ## <a name="step-1-initialize-the-client-object"></a>Etapa 1: inicializar o objeto do cliente
 
-Quando você usa a biblioteca de cliente API de Detecção Facial, a chave de assinatura e o ponto de extremidade de assinatura são passados por meio do construtor da classe FaceClient. Por exemplo:
+Quando você usa a biblioteca de cliente facial, a chave de assinatura e o ponto de extremidade de assinatura são passados por meio do construtor da classe FaceClient. Por exemplo:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -63,12 +63,12 @@ Adicione todas as faces e pessoas do Person ao novo LargePersonGroup. Para obter
 
 | APIs de FaceList | APIs de LargeFaceList |
 |:---:|:---:|
-| Criar | Criar |
+| Create | Create |
 | Eliminar | Eliminar |
-| Get | Get |
+| Obter | Obter |
 | Lista | Lista |
 | Atualizar | Atualizar |
-| - | Preparar |
+| - | Formação |
 | - | Obter Estado do Treino |
 
 A tabela anterior é uma comparação das operações ao nível da lista entre FaceList e LargeFaceList. Como é mostrado, o LargeFaceList vem com novas operações, treina e Obtém o status de treinamento, quando comparado com a Facelist. Treinar o LargeFaceList é uma pré-condição da operação [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) . O treinamento não é necessário para a Facelist. O trecho a seguir é uma função auxiliar para aguardar o treinamento de um LargeFaceList:
@@ -201,7 +201,7 @@ Embora a operação treinar acelera o [FindSimilar](https://westus.dev.cognitive
 |:---:|:---:|
 | 1,000 | 1-2 s |
 | 10,000 | 5-10 s |
-| 100 000 | mínimo de 1-2 |
+| 100.000 | mínimo de 1-2 |
 | 1 000 000 | mínimo de 10-30 |
 
 Para utilizar melhor o recurso de grande escala, recomendamos as estratégias a seguir.

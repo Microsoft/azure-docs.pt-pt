@@ -1,17 +1,17 @@
 ---
-title: Introdução ao suporte do Jupyter notebooks interno no Azure Cosmos DB
+title: Introdução ao suporte do Jupyter notebooks interno no Azure Cosmos DB (versão prévia)
 description: Saiba como você pode usar o suporte interno do Jupyter notebooks no Azure Cosmos DB para executar consultas interativamente.
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 09/22/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 8026140a07ce8ed03a7bec57f03a1ca1708f85ac
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5c6d7ae458c30d462c599042e254f4243daf474c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756966"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260876"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Suporte interno a notebooks Jupyter no Azure Cosmos DB
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: efb4e4f68935898c083c1dbca6a6c64512544095
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936212"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263477"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -58,7 +58,7 @@ Para poder criar uma conexão, você precisa adicionar a solução Conector ITSM
 3. Na seção **espaço de trabalho do OMS** , selecione o espaço de trabalho log Analytics do Azure onde você deseja instalar a solução.
    >[!NOTE]
    > * Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de espaços de trabalho Log Analytics.
-   > * O Conector ITSM só pode ser instalado nos espaços de trabalho do Log Analytics nas seguintes regiões: leste dos EUA, Europa Ocidental, Sudeste Asiático, sudeste da Austrália, Oeste EUA Central, leste do Japão, sul do Reino Unido, Índia central, Canadá central.
+   > * O Conector ITSM só pode ser instalado em espaços de trabalho do Log Analytics nas seguintes regiões: leste dos EUA, Europa Ocidental, Sudeste Asiático, sudeste da Austrália, Oeste EUA Central, leste do Japão, sul do Reino Unido, Índia central, Canadá central, oeste da dos EUA 2, Sul EUA Central.
 
 4. Na seção **configurações do espaço de trabalho do OMS** , selecione o resourcegroup no qual você deseja criar o recurso de solução.
 
@@ -118,7 +118,7 @@ Utilize o seguinte procedimento:
 1. Em portal do Azure, clique em **monitorar**.
 2. No painel esquerdo, clique em **grupos de ação**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ações](media/itsmc-overview/action-groups.png)
 
 3. Forneça o **nome** e o **curtoname** para o seu grupo de ação. Selecione o **grupo de recursos** e a **assinatura** em que você deseja criar o grupo de ações.
 
@@ -152,7 +152,7 @@ O painel também fornece informações sobre o status do conector que pode ser u
 
 Você também pode visualizar os incidentes sincronizados em relação aos computadores afetados, dentro da solução Mapa do Serviço.
 
-Mapa do Serviço descobre automaticamente os componentes do aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba seus servidores como você imagina, como sistemas interconectados que fornecem serviços críticos. Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
+Mapa do Serviço descobre automaticamente os componentes do aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores, como os concebe: sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, processos e portas em qualquer arquitetura com ligação TCP, e não requer qualquer configuração para além da instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
 
 Se você estiver usando a solução Mapa do Serviço, poderá exibir os itens da central de serviços criados nas soluções de ITSM, conforme mostrado no exemplo a seguir:
 
@@ -161,7 +161,7 @@ Se você estiver usando a solução Mapa do Serviço, poderá exibir os itens da
 Mais informações: [mapa do serviço](../../azure-monitor/insights/service-map.md)
 
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
 ### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
 Incidentes e solicitações de alteração são sincronizados de seu produto ITSM para seu espaço de trabalho Log Analytics com base na configuração da conexão.
@@ -183,12 +183,12 @@ ServiceDeskWorkItemType_s="Incident"
 - Urgência
 - Impacto
 - Prioridade
-- Escalonamento
+- Escalamento
 - Criado por
-- Resolvido por
+- Resolvido Por
 - Fechado por
 - Origem
-- Atribuído a
+- Atribuído A
 - Categoria
 - Título
 - Descrição
@@ -209,18 +209,18 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Criado por
 - Fechado por
 - Origem
-- Atribuído a
+- Atribuído A
 - Título
 - Tipo
 - Categoria
 - Estado
-- Escalonamento
+- Escalamento
 - Status de conflito
 - Urgência
 - Prioridade
 - Risco
 - Impacto
-- Atribuído a
+- Atribuído A
 - Data de criação
 - Data de fecho
 - Data da última modificação
@@ -247,9 +247,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Source_s| Tipo de contato |
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
-| Title_s|  Descrição resumida |
+| Title_s|  Breve descrição |
 | Description_s|  Notas |
-| CreatedDate_t|  Feito |
+| CreatedDate_t|  Aberto |
 | ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |
@@ -262,7 +262,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
-| Title_s|  Descrição resumida |
+| Title_s|  Breve descrição |
 | Type_s|  Tipo |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
@@ -271,13 +271,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
-| ClosedDate_t | Data de fechamento |
+| ClosedDate_t | Data de fecho |
 | PlannedStartDate_t  |     Data de início planejada |
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
-| WorkEndDate_t | Data de término real|
+| WorkEndDate_t | Data de fim real|
 | Description_s | Descrição |
-| Computador  | Item de configuração |
+| Computador  | Item de Configuração |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Solucionar problemas de conexões de ITSM

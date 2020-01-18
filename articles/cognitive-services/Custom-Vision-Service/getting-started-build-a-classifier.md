@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b664a586398e297a00ea9cd8fe68dc65e6ade5c8
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978684"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170015"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início rápido: como criar um classificador com Visão Personalizada
 
@@ -110,6 +110,8 @@ Após a conclusão do treinamento, o desempenho do modelo será estimado e exibi
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
 Cada vez que você treina o classificador, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . Você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
+
+Consulte [usar seu modelo com a API de previsão](./use-prediction-api.md) para saber como acessar seus modelos treinados programaticamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -122,10 +122,18 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-nine
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
 metadata:
-  ms.openlocfilehash: abef923eff9b7b4d6ecba4983d8bfcf02bba9daa
-  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+  ms.openlocfilehash: fbb9b149c3fd0d514f23649221b101133932d2ae
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 01/17/2020
-  ms.locfileid: "76169056"
+  ms.locfileid: "76264666"

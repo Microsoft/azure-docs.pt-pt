@@ -1,17 +1,17 @@
 ---
-title: Usar comandos e recursos de bloco de anotações internos no Azure Cosmos DB
+title: Usar comandos e recursos de bloco de anotações internos no Azure Cosmos DB (versão prévia)
 description: Saiba como usar comandos e recursos internos para realizar operações comuns usando blocos de anotações internos do Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: dech
-ms.openlocfilehash: f5ab1491c8561c90b06374a0a58f160cbcdd1cad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2066701a88e03feb29bd1689f36460765f1c638d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444662"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264717"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Usar comandos e recursos de bloco de anotações internos no Azure Cosmos DB
 

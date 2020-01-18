@@ -9,16 +9,16 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: badfec71ad44fd9eebc748f716301ad6731883cf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770361"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165821"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: biblioteca de cliente facial para Python
 
-Introdução à biblioteca de cliente facial para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de API de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
+Introdução à biblioteca de cliente facial para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de face fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
 Use a biblioteca de cliente facial para Python para:
 
@@ -290,5 +290,5 @@ Neste guia de início rápido, você aprendeu a usar a biblioteca de face para o
 > [!div class="nextstepaction"]
 > [Referência de API de Detecção Facial (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
-* [O que é o API de Detecção Facial?](../overview.md)
+* [O que é o serviço de face?](../overview.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

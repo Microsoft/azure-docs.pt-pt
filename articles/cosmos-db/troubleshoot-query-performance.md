@@ -8,12 +8,12 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: c004031ec40bedcf83d77d08a34ce1d0e28fecd8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157032"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264276"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
@@ -39,13 +39,11 @@ Você pode fazer referência à seção abaixo para entender as otimizações de
 
 #### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>A contagem de documentos recuperados é significativamente maior que a contagem de documentos de saída
 
-- [Verifique se a política de indexação inclui os caminhos necessários](#ensure-that-the-indexing-policy-includes-necessary-paths)
+- [Incluir caminhos necessários na política de indexação](#include-necessary-paths-in-the-indexing-policy)
 
 - [Entender quais funções do sistema utilizam o índice](#understand-which-system-functions-utilize-the-index)
 
-- [Otimizar consultas com um filtro e uma cláusula ORDER BY](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
-
-- [Otimizar consultas que usam DISTINCT](#optimize-queries-that-use-distinct)
+- [Consultas com um filtro e uma cláusula ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
 
 - [Otimizar expressões de junção usando uma subconsulta](#optimize-join-expressions-by-using-a-subquery)
 
@@ -55,23 +53,23 @@ Você pode fazer referência à seção abaixo para entender as otimizações de
 
 - [Evitar consultas entre partições](#avoid-cross-partition-queries)
 
-- [Otimizar consultas que têm um filtro em várias propriedades](#optimize-queries-that-have-a-filter-on-multiple-properties)
+- [Filtros em várias propriedades](#filters-on-multiple-properties)
 
-- [Otimizar consultas com um filtro e uma cláusula ORDER BY](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [Consultas com um filtro e uma cláusula ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>A cobrança de RU da consulta é aceitável, mas a latência ainda é muito alta
 
-- [Melhorando a proximidade entre seu aplicativo e Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+- [Melhorar a proximidade](#improve-proximity)
 
-- [Aumentando a taxa de transferência provisionada](#increasing-provisioned-throughput)
+- [Aumentar a taxa de transferência provisionada](#increase-provisioned-throughput)
 
-- [Aumentando MaxConcurrency](#increasing-maxconcurrency)
+- [Aumentar MaxConcurrency](#increase-maxconcurrency)
 
-- [Aumentando MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+- [Aumentar MaxBufferedItemCount](#increase-maxbuffereditemcount)
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-significantly-exceeds-output-document-count"></a>Otimizações para consultas em que a contagem de documentos recuperados excede significativamente a contagem de documentos de saída:
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Consultas em que a contagem de documentos recuperados excede a contagem de documentos de saída
 
  A contagem de documentos recuperados é o número de documentos que a consulta precisava carregar. A contagem de documentos de saída é o número de documentos que foram necessários para os resultados da consulta. Se a contagem de documentos recuperados for significativamente maior que a contagem de documentos de saída, então, havia pelo menos uma parte da consulta que não pôde utilizar o índice e necessário fazer uma verificação.
 
@@ -113,7 +111,7 @@ Client Side Metrics
 
 A contagem de documentos recuperados (60.951) é significativamente maior que a contagem de documentos de saída (7) para que essa consulta seja necessária para fazer uma verificação. Nesse caso, a função de sistema [Upper ()](sql-query-upper.md) não utiliza o índice.
 
-## <a name="ensure-that-the-indexing-policy-includes-necessary-paths"></a>Verifique se a política de indexação inclui os caminhos necessários
+## <a name="include-necessary-paths-in-the-indexing-policy"></a>Incluir caminhos necessários na política de indexação
 
 Sua política de indexação deve abranger todas as propriedades incluídas em cláusulas `WHERE`, cláusulas `ORDER BY`, `JOIN`e a maioria das funções do sistema. O caminho especificado na política de índice deve corresponder (diferencia maiúsculas de minúsculas) à propriedade nos documentos JSON.
 
@@ -191,7 +189,7 @@ Algumas funções comuns do sistema que não usam o índice e que devem carregar
 
 Outras partes da consulta ainda podem utilizar o índice, apesar das funções do sistema não usarem o índice.
 
-## <a name="optimize-queries-with-both-a-filter-and-an-order-by-clause"></a>Otimizar consultas com um filtro e uma cláusula ORDER BY
+## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>Consultas com um filtro e uma cláusula ORDER BY
 
 Embora as consultas com um filtro e uma cláusula `ORDER BY` normalmente utilizem um índice de intervalo, elas serão mais eficientes se puderem ser servidas de um índice composto. Além de modificar a política de indexação, você deve adicionar todas as propriedades no índice composto à cláusula `ORDER BY`. Essa modificação de consulta garantirá que ela utilize o índice composto.  Você pode observar o impacto executando uma consulta no conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
 
@@ -261,33 +259,6 @@ Política de indexação atualizada:
 
 **Encargo de ru:** 8,86 ru
 
-## <a name="optimize-queries-that-use-distinct"></a>Otimizar consultas que usam DISTINCT
-
-Será mais eficiente localizar o conjunto de `DISTINCT` de resultados se os resultados duplicados forem consecutivos. Adicionar uma cláusula `ORDER BY` à consulta e um índice composto garantirá que os resultados duplicados sejam consecutivos. Se você precisar `ORDER BY` várias propriedades, adicione um índice composto. Você pode observar o impacto executando uma consulta no conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
-
-### <a name="original"></a>Original
-
-Consulta:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c
-```
-
-**Encargo de ru:** 32,39 ru
-
-### <a name="optimized"></a>Otimizado
-
-Consulta atualizada:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c 
-ORDER BY c.foodGroup
-```
-
-**Encargo de ru:** 3,38 ru
-
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Otimizar expressões de junção usando uma subconsulta
 Subconsultas de vários valores podem otimizar `JOIN` expressões enviando predicados após cada expressão Select-many em vez de todas as junções cruzadas na cláusula `WHERE`.
 
@@ -323,7 +294,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Suponha que apenas um item na matriz de marcas corresponda ao filtro e que haja cinco itens para nutrients e atende a matrizes. As expressões de `JOIN` serão expandidas para 1 x 1 x 5 x 5 = 25 itens, em vez de 1.000 itens na primeira consulta.
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Otimizações para consultas em que a contagem de documentos recuperados é aproximadamente igual à contagem de documentos de saída:
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas em que a contagem de documentos recuperados é igual à contagem de documentos de saída
 
 Se a contagem de documentos recuperados for aproximadamente igual à contagem de documentos de saída, isso significará que a consulta não precisou verificar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave TOP, a contagem de documentos recuperados pode exceder a contagem de documentos de saída em 1. Isso não deve causar preocupação.
 
@@ -359,7 +330,7 @@ SELECT * FROM c
 WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
-## <a name="optimize-queries-that-have-a-filter-on-multiple-properties"></a>Otimizar consultas que têm um filtro em várias propriedades
+## <a name="filters-on-multiple-properties"></a>Filtros em várias propriedades
 
 Embora as consultas com filtros em várias propriedades normalmente utilizem um índice de intervalo, elas serão mais eficientes se puderem ser servidas de um índice composto. Para pequenas quantidades de dados, essa otimização não terá um impacto significativo. No entanto, pode-se provar útil para grandes quantidades de dados. Você só pode otimizar, no máximo, um filtro de não igualdade por índice composto. Se sua consulta tiver vários filtros de não igualdade, você deverá escolher um deles que utilizará o índice composto. O restante continuará a utilizar índices de intervalo. O filtro de não igualdade deve ser definido por último no índice composto. [Saiba mais sobre índices compostos](index-policy.md#composite-indexes)
 
@@ -402,23 +373,23 @@ Aqui está o índice composto relevante:
 }
 ```
 
-## <a name="common-optimizations-that-reduce-query-latency-no-impact-on-ru-charge"></a>Otimizações comuns que reduzem a latência de consulta (sem impacto na carga de RU):
+## <a name="optimizations-that-reduce-query-latency"></a>Otimizações que reduzem a latência de consulta:
 
 Em muitos casos, a carga de RU pode ser aceitável, mas a latência de consulta ainda é muito alta. As seções abaixo fornecem uma visão geral das dicas para reduzir a latência da consulta. Se você executar a mesma consulta várias vezes no mesmo conjunto de mesmos, ela terá a mesma cobrança de RU a cada vez. No entanto, a latência de consulta pode variar entre as execuções de consulta.
 
-## <a name="improving-proximity-between-your-app-and-azure-cosmos-db"></a>Melhorando a proximidade entre seu aplicativo e Azure Cosmos DB
+## <a name="improve-proximity"></a>Melhorar a proximidade
 
 As consultas executadas a partir de uma região diferente da conta de Azure Cosmos DB terão uma latência maior do que se fossem executadas dentro da mesma região. Por exemplo, se você estiver executando código em seu computador desktop, deverá esperar que a latência seja de dezenas ou centenas (ou mais) milissegundos maiores do que se a consulta vier de uma máquina virtual na mesma região do Azure que Azure Cosmos DB. É simples [distribuir dados em Azure Cosmos DB globalmente](distribute-data-globally.md) para garantir que você possa trazer seus dados mais perto do seu aplicativo.
 
-## <a name="increasing-provisioned-throughput"></a>Aumentando a taxa de transferência provisionada
+## <a name="increase-provisioned-throughput"></a>Aumentar a taxa de transferência provisionada
 
 Em Azure Cosmos DB, sua taxa de transferência provisionada é medida em unidades de solicitação (RU). Vamos imaginar que você tenha uma consulta que consuma 5 RU de taxa de transferência. Por exemplo, se você provisionar 1.000 RU, poderá executar essa consulta 200 vezes por segundo. Se você tentou executar a consulta quando não havia taxa de transferência suficiente disponível, Azure Cosmos DB retornaria um erro HTTP 429. Qualquer um dos principais SDK da API do núcleo (SQL) tentará automaticamente essa consulta depois de aguardar um breve período. As solicitações limitadas demoram mais tempo, portanto, aumentar a taxa de transferência provisionada pode melhorar a latência da consulta. Você pode observar o [número total de solicitações limitadas de solicitações](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) na folha métricas do portal do Azure.
 
-## <a name="increasing-maxconcurrency"></a>Aumentando MaxConcurrency
+## <a name="increase-maxconcurrency"></a>Aumentar MaxConcurrency
 
 As consultas paralelas funcionam consultando várias partições em paralelo. No entanto, os dados de uma coleção particionada individual são buscados em série em relação à consulta. Portanto, ajustar o MaxConcurrency para o número de partições tem a chance máxima de alcançar a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir MaxConcurrency (ou MaxDegreesOfParallelism em versões mais antigas do SDK) para um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau máximo de paralelismo.
 
-## <a name="increasing-maxbuffereditemcount"></a>Aumentando MaxBufferedItemCount
+## <a name="increase-maxbuffereditemcount"></a>Aumentar MaxBufferedItemCount
 
 As consultas são projetadas para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. Definir o MaxBufferedItemCount limita o número de resultados previamente buscados. Ao definir esse valor como o número esperado de resultados retornados (ou um número mais alto), a consulta pode receber o máximo benefício da busca prévia. Definir esse valor como-1 permite que o sistema decida automaticamente o número de itens para armazenar em buffer.
 

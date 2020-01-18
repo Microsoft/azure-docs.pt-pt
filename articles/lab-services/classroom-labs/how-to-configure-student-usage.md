@@ -1,5 +1,5 @@
 ---
-title: Definir configurações de uso em laboratórios de sala de aula de Azure Lab Services | Microsoft Docs
+title: Definir configurações de uso em laboratórios de sala de aula do Azure Lab Services
 description: Saiba como configurar o número de usuários para o laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais.
 services: lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584214"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169215"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 Este artigo descreve como adicionar usuários ao laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais. 
@@ -60,7 +60,7 @@ Você também pode adicionar usuários carregando um arquivo CSV com endereços 
 ## <a name="send-invitations-to-users"></a>Enviar convites para usuários
 Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
 
-Se o **acesso restrito** estiver habilitado para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
+Se o **acesso restrito** estiver habilitado para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Por predefinição, esta opção encontra-se ativada. 
 
 ### <a name="invite-all-users"></a>Convidar todos os usuários
 1. Alterne para a exibição **usuários** se você ainda não estiver na página e selecione **convidar tudo** na barra de ferramentas. 
@@ -125,7 +125,7 @@ Você pode definir cotas por usuário usando as seguintes etapas:
 ## <a name="set-additional-quota-for-a-specific-user"></a>Definir cota adicional para um usuário específico
 Você pode especificar uma cota adicional para um usuário. Essa cota é além do conjunto de cotas comum para todos os usuários na seção anterior. Por exemplo, se você (como instrutor) definir a cota para todos os usuários como 10 horas e definir uma cota adicional de 5 horas para usuários específicos, os usuários receberão 15 (10 + 5) horas de cota. Se você alterar a cota comum posteriormente para, digamos, 15, o usuário receberá 20 (15 + 5) horas de cota. Lembre-se de que essa cota geral está fora do horário agendado. O tempo que o aluno gasta em uma VM de laboratório durante o horário da agenda não conta contra essa cota. 
 
-Para fazer isso, siga estas etapas:
+Para o fazer, siga estes passos:
 
 1. Selecione um usuário (aluno) na lista de usuários na página **usuários** .
 2. Em seguida, selecione **ajustar cota** na barra de ferramentas. 

@@ -33,7 +33,7 @@
         - name: Load balancer
           items:
             - name: O que é o Balanceador de Carga?
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Balanceador de Carga Standard e Zonas de Disponibilidade
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Criar um Balanceador de Carga público com redundância de zona

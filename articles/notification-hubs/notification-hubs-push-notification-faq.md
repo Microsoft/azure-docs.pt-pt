@@ -1,6 +1,6 @@
 ---
-title: 'Hubs de notificação do Azure: perguntas frequentes (FAQs) | Microsoft Docs'
-description: Perguntas frequentes sobre como projetar/implementar soluções em hubs de notificação
+title: Perguntas frequentes sobre os hubs de notificação do Azure | Microsoft Docs
+description: Perguntas frequentes sobre como projetar e implementar soluções nos hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066882"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263834"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os hubs de notificação do Azure: perguntas frequentes
 
@@ -153,7 +153,7 @@ Todas as conexões, do remetente para os hubs de notificação do Azure para o P
 
 Para enviar cargas confidenciais, é recomendável usar um padrão de push seguro. O remetente entrega uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página do [tutorial de push seguro de hubs de notificação] .
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
 

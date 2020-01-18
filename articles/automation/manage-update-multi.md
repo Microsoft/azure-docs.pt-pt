@@ -3,14 +3,14 @@ title: Gerir atualizações para várias máquinas virtuais do Azure
 description: Este artigo descreve como gerenciar atualizações para máquinas virtuais do Azure e não Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417834"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168035"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -147,6 +147,13 @@ No painel **nova implantação de atualização** , especifique as seguintes inf
   - Atualizações
 
 - **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como a inclusão é tratada, consulte [agendar uma implantação de atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhum patch ou pacote será instalado, pois todos eles serão excluídos. Os patches excluídos ainda aparecem como ausentes no computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente que foi excluído, o pacote não será instalado.
+
+> [!NOTE]
+> Você não pode especificar atualizações que foram substituídas para inclusão na implantação da atualização.
+>
 
 - **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Você também pode especificar uma hora diferente.
 

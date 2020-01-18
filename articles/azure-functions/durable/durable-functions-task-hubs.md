@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 38c7da8a1de57ed5acf3248fc6a71431de0bd1e2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232795"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262491"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas em Durable Functions (Azure Functions)
 
@@ -96,9 +96,9 @@ O nome do hub de tarefas será definido como o valor da configuração do aplica
 }
 ```
 
-O código a seguir é um C# exemplo pré-compilado de como escrever uma função que usa a associação de [cliente de orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um hub de tarefas que está configurado como uma configuração de aplicativo:
+O código a seguir demonstra como escrever uma função que usa a [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um hub de tarefas que está configurado como uma configuração de aplicativo:
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +121,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > O exemplo C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-### <a name="javascript"></a>Javascript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 A propriedade Hub de tarefas no arquivo `function.json` é definida por meio da configuração do aplicativo:
 
@@ -133,6 +133,8 @@ A propriedade Hub de tarefas no arquivo `function.json` é definida por meio da 
     "direction": "in"
 }
 ```
+
+---
 
 Os nomes de Hub de tarefas devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, um nome de Hub de tarefas padrão será usado conforme mostrado na tabela a seguir:
 

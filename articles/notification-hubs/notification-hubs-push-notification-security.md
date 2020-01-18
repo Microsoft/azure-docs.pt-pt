@@ -1,6 +1,6 @@
 ---
-title: Segurança dos hubs de notificação
-description: Este tópico explica a segurança para os hubs de notificação do Azure.
+title: Modelo de segurança dos hubs de notificação
+description: Saiba mais sobre o modelo de segurança para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273626"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263766"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este tópico descreve o modelo de segurança dos hubs de notificação do Azure.
 
@@ -46,7 +46,7 @@ A chave com acesso de **escuta** permite que um aplicativo cliente se registre e
 
 ## <a name="security-claims"></a>Declarações de segurança
 
-Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **Ouça**, **envie**e **gerencie**.
+Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **escutar**, **Enviar**e **gerenciar**.
 
 | Afirmação   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |

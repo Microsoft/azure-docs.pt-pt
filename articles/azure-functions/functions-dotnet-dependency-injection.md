@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769205"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260088"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET Azure Functions
 
@@ -153,12 +153,22 @@ Os valores definidos nas [configurações do aplicativo](./functions-how-to-use-
 
 Você pode extrair valores da instância de `IConfiguration` para um tipo personalizado. Copiar os valores das configurações do aplicativo para um tipo personalizado torna fácil testar seus serviços, tornando esses valores injetados. As configurações lidas na instância de configuração devem ser pares de chave/valor simples.
 
-Considere a seguinte classe que inclui uma propriedade chamada consistente com uma configuração de aplicativo.
+Considere a seguinte classe que inclui uma propriedade chamada consistente com uma configuração de aplicativo:
 
 ```csharp
 public class MyOptions
 {
     public string MyCustomSetting { get; set; }
+}
+```
+
+E um arquivo de `local.settings.json` que pode estruturar a configuração personalizada da seguinte maneira:
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyOptions:MyCustomSetting": "Foobar"
+  }
 }
 ```
 
@@ -168,7 +178,7 @@ De dentro do método `Startup.Configure`, você pode extrair valores da instânc
 builder.Services.AddOptions<MyOptions>()
                 .Configure<IConfiguration>((settings, configuration) =>
                                            {
-                                                configuration.Bind(settings);
+                                                configuration.GetSection("MyOptions").Bind(settings);
                                            });
 ```
 

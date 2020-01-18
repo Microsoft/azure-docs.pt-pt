@@ -1,7 +1,7 @@
 ---
-title: Como especificar um modelo de reconhecimento-API de Detecção Facial
+title: Como especificar um modelo de reconhecimento-face
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como escolher o modelo de reconhecimento a ser usado com o aplicativo API de Detecção Facial do Azure.
+description: Este artigo mostrará como escolher qual modelo de reconhecimento usar com seu aplicativo de face do Azure.
 services: cognitive-services
 author: longli0
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771024"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166463"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 
-Este guia mostra como especificar um modelo de reconhecimento facial para detecção de face, identificação e pesquisa de similaridade usando o API de Detecção Facial do Azure.
+Este guia mostra como especificar um modelo de reconhecimento facial para detecção de face, identificação e pesquisa de similaridade usando o serviço de face do Azure.
 
-O API de Detecção Facial usa modelos de aprendizado de máquina para executar operações em faces humanas em imagens. Continuamos a melhorar a precisão de nossos modelos com base nos comentários e nos avanços dos clientes em pesquisa, e fornecemos esses aprimoramentos como atualizações de modelo. Os desenvolvedores têm a opção de especificar qual versão do modelo de reconhecimento facial gostaria de usar; Eles podem escolher o modelo que melhor se adapta ao seu caso de uso.
+O serviço de face usa modelos de aprendizado de máquina para executar operações em faces humanas em imagens. Continuamos a melhorar a precisão de nossos modelos com base nos comentários e nos avanços dos clientes em pesquisa, e fornecemos esses aprimoramentos como atualizações de modelo. Os desenvolvedores têm a opção de especificar qual versão do modelo de reconhecimento facial gostaria de usar; Eles podem escolher o modelo que melhor se adapta ao seu caso de uso.
 
 Se você for um novo usuário, recomendamos o uso do modelo mais recente. Continue lendo para saber como especificá-lo em diferentes operações de face enquanto evita conflitos de modelo. Se você for um usuário avançado e não tiver certeza se deve mudar para o modelo mais recente, pule para a seção [avaliar modelos diferentes](#evaluate-different-models) para avaliar o novo modelo e comparar os resultados usando seu conjunto de dados atual.
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>Identificar faces com o modelo especificado
 
-O API de Detecção Facial pode extrair dados de face de uma imagem e associá-los a um objeto **Person** (por meio da chamada [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API, por exemplo), e vários objetos **Person** podem ser armazenados juntos em um **Person**. Em seguida, uma nova face pode ser comparada com um grupo de **pessoas** (com a chamada de [Rosto – Identificar] ) e a pessoa correspondente dentro dele pode ser identificada.
+O serviço de face pode extrair dados de face de uma imagem e associá-los a um objeto **Person** (por meio da chamada [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API, por exemplo), e vários objetos **Person** podem ser armazenados juntos em um **Person**. Em seguida, uma nova face pode ser comparada com um grupo de **pessoas** (com a chamada de [Rosto – Identificar] ) e a pessoa correspondente dentro dele pode ser identificada.
 
 Um grupo de **pessoas** deve ter um modelo de reconhecimento exclusivo para todas as **pessoas**s e você pode especificar isso usando o parâmetro `recognitionModel` ao criar o grupo ([PersonGroup – Criar] ou [LargePersonGroup – Criar]). Se você não especificar esse parâmetro, o modelo de `recognition_01` original será usado. Um grupo sempre usará o modelo de reconhecimento com o qual foi criado, e novas faces serão associadas a esse modelo quando forem adicionadas a ele; Isso não pode ser alterado após a criação de um grupo. Para ver a qual modelo um grupo de **pessoas** está configurado, use a API [Pessoa-obter] com o parâmetro _returnRecognitionModel_ definido como **true**.
 

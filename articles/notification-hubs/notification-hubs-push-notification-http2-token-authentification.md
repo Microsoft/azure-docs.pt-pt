@@ -1,6 +1,6 @@
 ---
 title: Autenticação baseada em token (HTTP/2) para APNS nos hubs de notificação do Azure | Microsoft Docs
-description: Este tópico explica como usar a nova autenticação de token para APNS
+description: Saiba como usar a nova autenticação de token para APNS.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111906"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263817"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este artigo explica como usar o novo protocolo HTTP/2 do APNS com autenticação baseada em token.
 
@@ -79,7 +79,7 @@ As credenciais baseadas em token são compostas dos seguintes campos:
 * **ID da equipe**: também chamado de "prefixo" ou "prefixo do aplicativo". Este é o identificador para a organização no portal do desenvolvedor da Apple; por exemplo, `S4V3D7CHJR`.
 * **ID do pacote**: também chamado de "ID do aplicativo". Este é o identificador do pacote para o aplicativo; por exemplo, `com.microsoft.nhubsample2019`. Observe que você pode usar uma chave para muitos aplicativos. Esse valor é mapeado para o cabeçalho HTTP `apns-topic` ao enviar uma notificação e é usado para direcionar o aplicativo específico.
 * **Token**: também chamado de "chave" ou "chave privada". Isso é obtido do arquivo. P8 gerado no portal do desenvolvedor da Apple. A chave deve ter o APNS habilitado (que está selecionado no portal do desenvolvedor da Apple ao gerar a chave). O valor deve ter o cabeçalho/rodapé PEM extraído dele ao fornecê-lo ao portal/API do NH.
-* **Ponto de extremidade**: é uma alternância na folha do portal de hubs de notificação e um campo de cadeia de caracteres na API. Os valores válidos são `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`. Os hubs de notificação usam esse valor para o ambiente de produção ou área restrita, para enviar notificações. Isso deve corresponder ao direito de `aps-environment` no aplicativo, caso contrário, os tokens de dispositivo APNS gerados não corresponderão ao ambiente e as notificações falharão ao enviar.
+* **Ponto de extremidade**: é uma alternância na folha do portal de hubs de notificação e um campo de cadeia de caracteres na API. Os valores válidos são `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`: Os hubs de notificação usam esse valor para o ambiente de produção ou área restrita, para enviar notificações. Isso deve corresponder ao direito de `aps-environment` no aplicativo, caso contrário, os tokens de dispositivo APNS gerados não corresponderão ao ambiente e as notificações falharão ao enviar.
 
 Aqui está um exemplo de código que ilustra o uso correto:
 

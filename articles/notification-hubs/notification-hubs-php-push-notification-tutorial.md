@@ -1,5 +1,5 @@
 ---
-title: Como usar hubs de notificação com PHP
+title: Como usar os hubs de notificação do Azure com PHP
 description: Saiba como usar os hubs de notificação do Azure de um back-end do PHP.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4df48475af4b140e4446dde9069eafcc95d9d3b2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213182"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263851"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Como usar hubs de notificação do PHP
 
@@ -36,7 +36,7 @@ Neste tópico, mostraremos como:
 
 ## <a name="client-interface"></a>Interface do cliente
 
-A interface principal do cliente pode fornecer os mesmos métodos que estão disponíveis no [SDK dos hubs de notificação do .net](https://msdn.microsoft.com/library/jj933431.aspx), que permite que você traduza diretamente todos os tutoriais e exemplos disponíveis atualmente neste site e contribuído pela Comunidade no IP.
+A interface principal do cliente pode fornecer os mesmos métodos que estão disponíveis no [SDK dos hubs de notificação do .net](https://msdn.microsoft.com/library/jj933431.aspx), que permite que você traduza diretamente todos os tutoriais e exemplos disponíveis atualmente neste site e contribuído pela Comunidade na Internet.
 
 Você pode encontrar todo o código disponível no [exemplo de wrapper do PHP REST].
 
@@ -106,7 +106,7 @@ Aqui está a classe principal que implementa o cliente, cujo Construtor analisa 
 
 Consulte a documentação do Azure para obter informações sobre como [criar um token de segurança SAS](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
 
-Adicione o `generateSasToken` método `NotificationHub` à classe para criar o token com base no URI da solicitação atual e as credenciais extraídas da cadeia de conexão.
+Adicione o método `generateSasToken` à classe `NotificationHub` para criar o token com base no URI da solicitação atual e as credenciais extraídas da cadeia de conexão.
 
     ```php
     private function generateSasToken($uri) {
@@ -155,7 +155,7 @@ Essa classe é um contêiner para um corpo de notificação nativa ou um conjunt
 
 Consulte a [documentação de APIs REST dos hubs de notificação](https://msdn.microsoft.com/library/dn495827.aspx) e os formatos específicos das plataformas de notificação para todas as opções disponíveis.
 
-Munido dessa classe, agora podemos escrever os métodos de notificação de envio dentro da `NotificationHub` classe:
+Munido dessa classe, agora podemos escrever os métodos de notificação de envio dentro da classe `NotificationHub`:
 
     ```php
     public function sendNotification($notification, $tagsOrTagExpression="") {
@@ -216,7 +216,7 @@ Munido dessa classe, agora podemos escrever os métodos de notificação de envi
     } 
     ```
 
-Os métodos acima enviam uma solicitação HTTP post para `/messages` o ponto de extremidade do hub de notificação, com o corpo e os cabeçalhos corretos para enviar a notificação.
+Os métodos acima enviam uma solicitação HTTP POST para o ponto de extremidade `/messages` do hub de notificação, com o corpo e os cabeçalhos corretos para enviar a notificação.
 
 ## <a name="complete-tutorial"></a>Concluir o tutorial
 
@@ -282,7 +282,7 @@ Executar o código PHP deve produzir agora uma notificação que aparece em seu 
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Neste tópico, mostramos como criar um cliente REST Java simples para os hubs de notificação. A partir daqui, você pode:
+Neste tópico, mostramos como criar um cliente REST Java simples para os hubs de notificação. A partir daqui, pode:
 
 * Baixe a [Exemplo de wrapper do PHP REST]completa, que contém todo o código acima.
 * Continue aprendendo sobre o recurso de marcação de hubs de notificação no [tutorial de últimas notícias]

@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas para melhorar o desempenho usando o barramento de serviço do Azure | Microsoft Docs
+title: Práticas recomendadas para melhorar o desempenho usando o barramento de serviço do Azure
 description: Descreve como usar o barramento de serviço para otimizar o desempenho ao trocar mensagens orientadas.
 services: service-bus-messaging
 documentationcenter: na
@@ -8,14 +8,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 3d2d26e8cb8a3b1ee7720424aea701ca063ecc9f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 683a28ca3cdabd5a7ffbf6e9ffdc3ed0c58d3247
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596464"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264700"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens do barramento de serviço
 
@@ -29,7 +29,7 @@ Essas seções introduzem vários conceitos que o barramento de serviço usa par
 
 O barramento de serviço permite que os clientes enviem e recebam mensagens por meio de um dos três protocolos:
 
-1. Advanced Message Queuing Protocol (AMQP)
+1. Avançadas Message Queuing Protocol (AMQP)
 2. Protocolo de mensagens do barramento de serviço (SBMP)
 3. HTTP
 
@@ -156,9 +156,9 @@ Se a carga esperada não puder ser tratada por uma única fila ou tópico, você
 
 ## <a name="development-and-testing-features"></a>Recursos de desenvolvimento e teste
 
-O barramento de serviço tem um recurso, usado especificamente para desenvolvimento, que **nunca deve ser usado em configurações de produção**: [TopicDescription. EnableFilteringMessagesBeforePublishing][].
+O barramento de serviço tem um recurso, usado especificamente para desenvolvimento, que **nunca deve ser usado em configurações de produção**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
-Quando novas regras ou filtros são adicionados ao tópico, você pode usar [TopicDescription. EnableFilteringMessagesBeforePublishing][] para verificar se a nova expressão de filtro está funcionando conforme o esperado.
+Quando novas regras ou filtros são adicionados ao tópico, você pode usar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para verificar se a nova expressão de filtro está funcionando conforme o esperado.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -255,4 +255,4 @@ Para maximizar a taxa de transferência, tente as seguintes etapas:
 [ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription. EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing

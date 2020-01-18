@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma instrução de suporte interno a um laboratório no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como publicar uma declaração de suporte interno para um laboratório no Azure DevTest Labs
+title: Adicionar uma instrução de suporte interno a um laboratório no Azure DevTest Labs
+description: Saiba como postar uma declaração de suporte interna em um laboratório no Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,62 +12,62 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 591dcec36dc62143901d3b49db24196e84d58c29
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562343"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170359"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma instrução de suporte interno a um laboratório no Azure DevTest Labs
 
-Os laboratórios DevTest do Azure permite-lhe personalizar o seu laboratório com uma declaração de suporte interno que fornece aos utilizadores obter informações sobre o laboratório. Por exemplo, pode fornecer informações de contacto para que um utilizador sabe como contactar o suporte interno quando precisarem de ajuda com a resolução de problemas ou aceder aos recursos no laboratório. Também pode fornecer ligações para sites internos ou FAQs sobre a sua equipa pode aceder antes de contactar o suporte.
+Azure DevTest Labs permite que você personalize seu laboratório com uma declaração de suporte interna que fornece aos usuários informações de suporte sobre o laboratório. Por exemplo, você pode fornecer informações de contato para que um usuário saiba como acessar o suporte interno quando precisar de ajuda com a solução de problemas ou o acesso a recursos no laboratório. Você também pode fornecer links para sites internos ou perguntas frequentes que sua equipe pode acessar antes de entrar em contato com o suporte.
 
-Destina-se uma declaração de suporte interno para permitir que publique informações de laboratório que normalmente não é alterado com muita frequência. Para notificar os utilizadores sobre as informações de laboratório que é mais por natureza – como recentes atualizações de políticas de laboratório – consulte o artigo [anúncio de mensagem num laboratório](devtest-lab-announcements.md).
+Uma declaração de suporte interna destina-se a permitir que você poste informações de laboratório que normalmente não são alteradas com muita frequência. Para notificar os usuários sobre as informações de laboratório que são mais temporárias por natureza, como atualizações recentes para políticas de laboratório, consulte [postar comunicado em um laboratório](devtest-lab-announcements.md).
 
-Pode facilmente desativar ou editar uma declaração de suporte, depois de já não é aplicável.
+Você pode facilmente desabilitar ou editar uma instrução de suporte depois que ela não for mais aplicável.
 
-## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Passos para adicionar uma declaração de suporte a um laboratório existente
+## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Etapas para adicionar uma instrução de suporte a um laboratório existente
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. (Seu laboratório já pode ser mostrado no Dashboard sob **todos os recursos**).
-1. Na lista de laboratórios, selecione o laboratório em que pretende adicionar uma declaração de suporte.  
-1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.  
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista. (Seu laboratório já pode ser mostrado no painel em **todos os recursos**).
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja adicionar uma instrução de suporte.  
+1. Na área **visão geral** do laboratório, selecione **configuração e políticas**.  
 
-    ![Botão de configuração e políticas](./media/devtest-lab-internal-support-message/devtestlab-config-and-policies.png)
+    ![Botão configuração e políticas](./media/devtest-lab-internal-support-message/devtestlab-config-and-policies.png)
 
-1. À esquerda sob **configurações**, selecione **suporte interno**.
-
-    ![Botão de suporte interno](./media/devtest-lab-internal-support-message/devtestlab-internal-support.png)
-
-1. Para criar uma mensagem de suporte interno para os utilizadores neste laboratório, defina Enabled como **Sim**.
-
-1. Na **mensagem de suporte** , insira a declaração de suporte interno que pretende apresentar aos seus utilizadores de laboratório. A mensagem de suporte aceita Markdown. Como introduzir o texto da mensagem, pode ver o **pré-visualização** área na parte inferior do ecrã para ver como a mensagem é apresentada aos utilizadores.
-
-    ![Ecrã de suporte interno para criar a mensagem.](./media/devtest-lab-internal-support-message/devtestlab-add-support-statement.png)
-
-
-1. Selecione **guardar** assim que a sua declaração de suporte está pronta para ser publicado.
-
-Quando já não pretende mostrar esta mensagem de suporte aos utilizadores de laboratório, volte para o **suporte interno** página e defina **ativado** para **não**.
-
-## <a name="steps-for-users-to-view-the-support-message"></a>Passos para os utilizadores ver a mensagem de suporte
-
-1. Partir do [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
-
-1. O laboratório **descrição geral** área, selecione **suporte interno**.  
+1. À esquerda em **configurações**, selecione **suporte interno**.
 
     ![Botão de suporte interno](./media/devtest-lab-internal-support-message/devtestlab-internal-support.png)
 
+1. Para criar uma mensagem de suporte interno para os usuários neste laboratório, defina habilitado como **Sim**.
 
-1. Se uma mensagem de suporte é publicada, o utilizador pode vê-lo a partir do painel de suporte interno.
+1. No campo **mensagem de suporte** , insira a instrução de suporte interna que você deseja apresentar aos usuários do laboratório. A mensagem de suporte aceita a redução. Ao inserir o texto da mensagem, você pode exibir a área de **Visualização** na parte inferior da tela para ver como a mensagem aparece para os usuários.
 
-    ![Painel de suporte interno que mostra a mensagem de suporte publicada](./media/devtest-lab-internal-support-message/devtestlab-view-suport-statement.png)
+    ![Tela de suporte interno para criar a mensagem.](./media/devtest-lab-internal-support-message/devtestlab-add-support-statement.png)
+
+
+1. Selecione **salvar** quando sua declaração de suporte estiver pronta para ser postada.
+
+Quando você não quiser mais mostrar essa mensagem de suporte aos usuários do laboratório, retorne à página de **suporte interna** e defina **habilitado** como **não**.
+
+## <a name="steps-for-users-to-view-the-support-message"></a>Etapas para os usuários exibirem a mensagem de suporte
+
+1. No [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
+
+1. Na área **visão geral** do laboratório, selecione **suporte interno**.  
+
+    ![Botão de suporte interno](./media/devtest-lab-internal-support-message/devtestlab-internal-support.png)
+
+
+1. Se uma mensagem de suporte for postada, o usuário poderá exibi-la no painel de suporte interno.
+
+    ![Painel de suporte interno mostrando mensagem de suporte postada](./media/devtest-lab-internal-support-message/devtestlab-view-suport-statement.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-* Declarações de suporte interno são normalmente utilizadas para fornecer informações de suporte que não que mudam frequentemente. Também pode saber como [publicar um anúncio a um laboratório](devtest-lab-announcements.md) para informar os utilizadores de temporária as alterações ou atualizações para o laboratório.
-* [Definir políticas e agendas](devtest-lab-set-lab-policy.md) fornece informações sobre como pode aplicar outras restrições e convenções em sua assinatura ao utilizar políticas personalizadas.
+## <a name="next-steps"></a>Passos seguintes
+* As instruções de suporte interno normalmente são usadas para fornecer informações de suporte que não são alteradas com frequência. Você também pode aprender a [postar um comunicado em um laboratório](devtest-lab-announcements.md) para informar os usuários sobre alterações temporárias ou atualizações no laboratório.
+* [Definir políticas e agendas](devtest-lab-set-lab-policy.md) fornece informações sobre como você pode aplicar outras restrições e convenções em sua assinatura usando políticas personalizadas.

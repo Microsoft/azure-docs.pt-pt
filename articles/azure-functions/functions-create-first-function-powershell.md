@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 934f3f69d46362e4bef4e713bcee23e9a3e24eb6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8cc89805ce53c141ff2c012fccb3c01ff2e9db49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769358"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167908"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Criar sua primeira função do PowerShell no Azure
 
@@ -20,9 +20,6 @@ Este artigo de início rápido orienta como criar sua primeira função do Power
 ![Azure Functions código em um projeto Visual Studio Code](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
 
 Use a [Extensão das Funções do Azure para o Visual Studio Code] para criar uma função do PowerShell localmente e, em seguida, implantá-la em um novo aplicativo de funções no Azure. A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
-
-> [!NOTE]  
-> O suporte do PowerShell para a extensão de [Azure Functions][extensão das funções do azure para o visual studio code] está atualmente desabilitado por padrão. Habilitar o suporte do PowerShell é uma das etapas neste artigo.
 
 As etapas a seguir são compatíveis com sistemas operacionais macOS, Windows e Linux.
 

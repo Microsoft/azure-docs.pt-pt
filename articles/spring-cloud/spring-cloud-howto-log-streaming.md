@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: fa2e7af51ff681da0bfdac928cc08bf75126a3b8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156425"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264004"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Transmitir logs de aplicativo do Spring Cloud do Azure em tempo real
 O Azure Spring Cloud permite o streaming de log no CLI do Azure para obter os logs do console do aplicativo em tempo real para solução de problemas. Você também pode [analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md).
@@ -47,16 +47,29 @@ Isso retornará logs:
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>Log final do aplicativo com várias instâncias
-Se existirem várias instâncias para o aplicativo chamado `auth-service`, você poderá exibir o log da instância usando a opção `-i/--instance`. Por exemplo, você pode transmitir o log de uma instância de um aplicativo especificando o nome do aplicativo e o nome da instância:
+Se existirem várias instâncias para o aplicativo chamado `auth-service`, você poderá exibir o log da instância usando a opção `-i/--instance`. 
+
+Primeiro, você pode obter os nomes de instância do aplicativo com o comando a seguir.
+
+```
+az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
+```
+Com resultados:
+
+```
+Name                                         Status    DiscoveryStatus
+-------------------------------------------  --------  -----------------
+auth-service-default-12-75cc4577fc-pw7hb  Running   UP
+auth-service-default-12-75cc4577fc-8nt4m  Running   UP
+auth-service-default-12-75cc4577fc-n25mh  Running   UP
+``` 
+Em seguida, você pode transmitir logs de uma instância de aplicativo com a opção `-i/--instance` opção:
 
 ```
 az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
-Você também pode obter as instâncias de aplicativo do portal do Azure. 
-1. Navegue até seu grupo de recursos e selecione sua instância do Azure Spring Cloud.
-1. Na visão geral da instância do Azure Spring Cloud, selecione **aplicativos** no painel de navegação esquerdo.
-1. Selecione seu aplicativo e clique em **instâncias do aplicativo** no painel de navegação à esquerda. 
-1. As instâncias do aplicativo serão exibidas.
+
+Você também pode obter detalhes das instâncias do aplicativo do portal do Azure.  Depois de selecionar **aplicativos** no painel de navegação esquerdo do serviço de nuvem do Azure Spring, selecione **instâncias do aplicativo**.
 
 ### <a name="continuously-stream-new-logs"></a>Transmitir continuamente novos logs
 Por padrão, `az spring-cloud ap log tail` imprime somente os logs existentes transmitidos para o console do aplicativo e, em seguida, são encerrados. Se você quiser transmitir novos logs, adicione-f (--follow):  

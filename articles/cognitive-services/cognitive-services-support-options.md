@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533701"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169086"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Opções de suporte e ajuda dos serviços cognitivas do Azure
 
@@ -28,7 +28,7 @@ Você está apenas começando a explorar a funcionalidade dos serviços cognitiv
 > * Se você encontrar um problema com um dos exemplos no GitHub, gere um problema do *GitHub* .
 > * Procure uma solução no *Fórum UserVoice*.
 
-## <a name="create-an-azure-support-request"></a>Criar uma solicitação de suporte do Azure
+## <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
 <div class='icon is-large'>
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
@@ -73,7 +73,7 @@ Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias pa
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Visão Personalizada                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Face                          | https://cognitive.uservoice.com/forums/430315-face |
-| Isolada                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Formulário                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Imersiva                     | https://feedback.azure.com/forums/34192--general-feedback |
 | Compreensão de Idiomas (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizador                  | https://cognitive.uservoice.com/forums/921562-personalizer |
@@ -91,8 +91,8 @@ Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias pa
 
 As notas de versão são atualizadas conforme novas versões são disponibilizadas. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
- - [Serviço de Visão Personalizada](custom-vision-service/release-notes.md)
- - [API Face](face/releasenotes.md)
+ - [Visão Personalizada](custom-vision-service/release-notes.md)
+ - [Face](face/releasenotes.md)
  - [Language Understanding (LUIS)](luis/whats-new.md)
  - [Serviços de Voz](speech-service/releasenotes.md)
  - [SDK de serviços de fala](speech-service/devices-sdk-release-notes.md)
@@ -106,7 +106,7 @@ As notas de versão são atualizadas conforme novas versões são disponibilizad
 
 Notícias sobre serviços cognitivas são compartilhadas no [blog do Azure](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
-## <a name="search"></a>Procurar
+## <a name="search"></a>Search
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>

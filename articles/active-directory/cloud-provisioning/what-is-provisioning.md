@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166fb9320672e63b8c53717133dc61aa93f57a62
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868648"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167614"
 ---
-# <a name="what-is-identity-provisioning"></a>O que é provisionamento de identidade?
+# <a name="what-is-identity-provisioning"></a>O que é o aprovisionamento de identidades?
 
 Hoje, as empresas e as empresas estão se tornando cada vez mais uma combinação de aplicativos locais e na nuvem.  Os usuários exigem acesso a aplicativos locais e na nuvem. É necessário ter uma única identidade entre esses vários aplicativos (local, bem como nuvem).
 
@@ -50,9 +50,7 @@ O cenário mais comum seria, quando um novo funcionário ingressar na sua empres
 
 ![provisionamento de nuvem](media/what-is-provisioning/cloud3.png)
 
-O provisionamento de aplicativos envolve o provisionamento de usuários e funções nos aplicativos aos quais o usuário precisa acessar.  
-
-O cenário mais comum seria, quando um usuário do Azure AD é provisionado no O365 ou Salesforce.
+No Azure Active Directory (AD do Azure), o termo **[provisionamento de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refere-se à criação automática de identidades de usuário e funções nos aplicativos de nuvem aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e muito mais.
 
 ## <a name="directory-provisioning"></a>Provisionamento de diretório
 

@@ -1,6 +1,6 @@
 ---
-title: Modelos
-description: Este tópico explica os modelos dos hubs de notificação do Azure.
+title: Modelos de hubs de notificação do Azure
+description: Saiba mais sobre como usar modelos para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212982"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263749"
 ---
 # <a name="templates"></a>Modelos
 
@@ -139,13 +139,13 @@ A tabela a seguir mostra o idioma permitido nos modelos:
 | $ (prop, n)       | Como acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $ (title, 20) corta o conteúdo da propriedade Title com 20 caracteres. |
 | . (prop, n)       | Como acima, mas o texto é sufixado com três pontos à medida que é recortado. O tamanho total da cadeia de caracteres recortada e o sufixo não excedem n caracteres. . (título, 20) com uma propriedade de entrada de "esta é a linha de título" resulta neste **é o título...** |
 | % (prop)          | Semelhante a $ (Name), exceto que a saída é codificada por URI. |
-| # (prop)          | Usado em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente da mesma forma que $ (prop) especificada anteriormente, exceto quando usada em modelos JSON (por exemplo, modelos da Apple). Nesse caso, se essa função não estiver circundada por "{", "}" (por exemplo, "myjsonproperty": "# (Name)") e for avaliada como um número no formato JavaScript, por exemplo, RegExp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)) (\.&#91;0-9&#93;+)? ((e&#124;) (+&#124;-)? &#91;0-9&#93;+)?, o JSON de saída é um número.<br><br>Por exemplo, ' Emblema: ' # (Name) ' torna-se ' crachá ': 40 (e não ' 40 '). |
+| # (prop)          | Usado em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente da mesma forma que $ (prop) especificada anteriormente, exceto quando usada em modelos JSON (por exemplo, modelos da Apple). Nesse caso, se essa função não estiver entre "{", "}" (por exemplo, "myjsonproperty": "# (Name)") e for avaliada como um número no formato JavaScript,&#124;por exemplo, RegExp: (0 (&#91;1-9&#93;&#91;0-9&#93;*)) (\.&#91;0-9&#93;+)? ((e&#124;) (+&#124;-)? &#91;0-9&#93;+)?, o JSON de saída é um número.<br><br>Por exemplo, ' Emblema: ' # (Name) ' torna-se ' crachá ': 40 (e não ' 40 '). |
 | ' texto ' ou "texto" | Um literal. Os literais contêm texto arbitrário entre aspas simples ou duplas. |
 | expr1 + expr2    | O operador de concatenação que está unindo duas expressões em uma única cadeia de caracteres. |
 
 As expressões podem ser qualquer um dos formulários anteriores.
 
-Ao usar a concatenação, a expressão inteira deve ser cercada por `{}`. Por exemplo, `{$(prop) + ‘ - ’ + $(prop2)}`.
+Ao usar a concatenação, a expressão inteira deve estar entre `{}`. Por exemplo, `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Por exemplo, o modelo a seguir não é um modelo XML válido:
 
@@ -170,3 +170,7 @@ Conforme explicado anteriormente, ao usar a concatenação, as expressões devem
   </visual>
 </tile>
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+[Saiba mais sobre os hubs de notificação do Azure](notification-hubs-push-notification-overview.md)

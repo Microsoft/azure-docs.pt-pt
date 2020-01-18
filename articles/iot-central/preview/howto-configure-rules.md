@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895752"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260134"
 ---
 # <a name="configure-rules-preview-features"></a>Configurar regras (recursos de visualização)
 
@@ -33,7 +33,7 @@ Use a seção dispositivos de destino para selecionar em que tipo de dispositivo
 
 As condições são as regras disparadas. Atualmente, quando você adiciona várias condições a uma regra, elas são logicamente e juntas. Em outras palavras, todas as condições devem ser atendidas para que a regra seja avaliada como verdadeira.  
 
-Na captura de tela a seguir, as condições verificam quando a temperatura é maior que 90 e a umidade é menor que 10. Quando ambas as instruções são true, a regra é avaliada como true e dispara uma ação.
+Na captura de tela a seguir, as condições verificam quando a temperatura é maior que 70&deg; F e a umidade é menor que 10. Quando ambas as instruções são true, a regra é avaliada como true e dispara uma ação.
 
 ![Condições](media/howto-configure-rules/conditions.png)
 

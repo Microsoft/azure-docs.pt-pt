@@ -2,19 +2,21 @@
 title: Modos de implementação
 description: Descreve como especificar se deseja usar um modo de implantação completo ou incremental com Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/17/2020
+ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152396"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261029"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager modos de implantação
 
-Ao implantar seus recursos, você especifica que a implantação é uma atualização incremental ou uma atualização completa.  A diferença entre esses dois modos é como o Resource Manager lida com os recursos existentes no grupo de recursos que não estão no modelo. O modo padrão é incremental.
+Ao implantar seus recursos, você especifica que a implantação é uma atualização incremental ou uma atualização completa. A diferença entre esses dois modos é como o Resource Manager lida com os recursos existentes no grupo de recursos que não estão no modelo.
 
 Para ambos os modos, o Resource Manager tenta criar todos os recursos especificados no modelo. Se o recurso já existir no grupo de recursos e suas configurações estiverem inalteradas, nenhuma operação será executada para esse recurso. Se você alterar os valores de propriedade de um recurso, o recurso será atualizado com esses novos valores. Se você tentar atualizar o local ou o tipo de um recurso existente, a implantação falhará com um erro. Em vez disso, implante um novo recurso com o local ou tipo de que você precisa.
+
+O modo padrão é incremental.
 
 ## <a name="complete-mode"></a>Modo completo
 
@@ -46,7 +48,8 @@ Se o grupo de recursos estiver [bloqueado](../management/lock-resources.md), o m
 
 No modo incremental, o Gerenciador de recursos deixa os recursos **inalterados** que existem no grupo de recursos, mas não são especificados no modelo. Os recursos no modelo **são adicionados** ao grupo de recursos.
 
-É importante observar que o modo incremental se aplica a todo o recurso, não a propriedades individuais em um recurso existente. Ao reimplantar um recurso existente no modo incremental, todas as propriedades são reaplicadas. As **Propriedades não são adicionadas incrementalmente**. Um mal-entendido comum é considerar que as propriedades que não são especificadas no modelo permanecem inalteradas. Se você não especificar determinadas propriedades, o Resource Manager interpretará a implantação como substituindo esses valores. As propriedades que não estão incluídas no modelo são redefinidas para os valores padrão definidos pelo provedor de recursos. Especifique todos os valores não padrão para o recurso, não apenas aqueles que você está atualizando. A definição de recurso no modelo sempre contém o estado final do recurso. Ele não pode representar uma atualização parcial para um recurso existente.
+> [!NOTE]
+> Ao reimplantar um recurso existente no modo incremental, todas as propriedades são reaplicadas. As **Propriedades não são adicionadas incrementalmente**. Um mal-entendido comum é considerar que as propriedades que não são especificadas no modelo permanecem inalteradas. Se você não especificar determinadas propriedades, o Resource Manager interpretará a implantação como substituindo esses valores. As propriedades que não estão incluídas no modelo são redefinidas para os valores padrão. Especifique todos os valores não padrão para o recurso, não apenas aqueles que você está atualizando. A definição de recurso no modelo sempre contém o estado final do recurso. Ele não pode representar uma atualização parcial para um recurso existente.
 
 ## <a name="example-result"></a>Resultado de exemplo
 

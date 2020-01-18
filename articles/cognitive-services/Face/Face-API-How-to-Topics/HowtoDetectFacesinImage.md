@@ -1,5 +1,5 @@
 ---
-title: Detectar rostos em uma imagem-API de Detecção Facial
+title: Detectar faces em um rosto de imagem
 titleSuffix: Azure Cognitive Services
 description: Este guia demonstra como usar a detecção facial para extrair atributos como gênero, idade ou pose de uma determinada imagem.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744278"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169881"
 ---
 # <a name="get-face-detection-data"></a>Obter dados de detecção facial
 
-Este guia demonstra como usar a detecção facial para extrair atributos como gênero, idade ou pose de uma determinada imagem. Os trechos de código neste guia são escritos no C# usando os serviços cognitivas do Azure API de detecção facial biblioteca de cliente. A mesma funcionalidade está disponível por meio da [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Este guia demonstra como usar a detecção facial para extrair atributos como gênero, idade ou pose de uma determinada imagem. Os trechos de código neste guia são escritos no C# usando a biblioteca de cliente facial dos serviços cognitivas do Azure. A mesma funcionalidade está disponível por meio da [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 Este guia mostra como:
 
@@ -27,7 +27,7 @@ Este guia mostra como:
 - Obtenha os locais de vários pontos de referência de face, como Pupils, nariz e boca, em uma imagem.
 - Adivinhe o gênero, a idade, a emoção e outros atributos de uma face detectada.
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 Este guia pressupõe que você já construiu um objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) , chamado `faceClient`, com uma chave de assinatura facial e uma URL de ponto de extremidade. A partir daqui, você pode usar o recurso de detecção facial chamando o [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que é usado neste guia ou [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obter instruções sobre como configurar esse recurso, siga um dos guias de início rápido.
 

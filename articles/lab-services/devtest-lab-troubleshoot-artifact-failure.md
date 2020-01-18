@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar falhas de artefato em uma máquina virtual Azure DevTest Labs | Microsoft Docs
+title: Diagnosticar falhas de artefato em uma máquina virtual Azure DevTest Labs
 description: Saiba como solucionar problemas de falhas de artefato no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 50cb3138b8d79c4d60c94513d931996d667d9c01
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991371"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170319"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefato no laboratório 
 Depois de criar um artefato, você pode verificar se ele teve êxito ou falhou. Os logs de artefato no Azure DevTest Labs fornecem informações que você pode usar para diagnosticar uma falha de artefato. Você tem algumas opções para exibir as informações de log de artefato para uma VM do Windows:
@@ -46,13 +46,13 @@ Depois de criar um artefato, você pode verificar se ele teve êxito ou falhou. 
 ## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Solucionar problemas de falhas de artefato de dentro da máquina virtual
 
 1. Entre na VM que contém o artefato que você deseja diagnosticar.
-2. Acesse C:\Packages\Plugins\Microsoft.COMPUTE.CustomScriptExtension\\*1,9*\Status, em que *1,9* é o número de versão da extensão de script personalizado do Azure.
+2. Acesse C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1,9*\Status, em que *1,9* é o número de versão da extensão de script personalizado do Azure.
 
    ![O arquivo de status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
 3. Abra o arquivo de **status** .
 
-Para obter instruções sobre como localizar os arquivos de log em uma VM do **Linux** , consulte o seguinte artigo: [Usar a extensão de script personalizado do Azure versão 2 com máquinas virtuais do Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+Para obter instruções sobre como localizar os arquivos de log em uma VM do **Linux** , consulte o seguinte artigo: [usar a extensão de script personalizado do Azure versão 2 com máquinas virtuais do Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
 
 
 ## <a name="related-blog-posts"></a>Postagens de blog relacionadas

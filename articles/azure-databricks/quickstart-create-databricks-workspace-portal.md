@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 452efd5c790244ff035f06673342a36522db9580
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e212c95a827b01485d4bdfdc557e459a92162c88
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889019"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263217"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -54,11 +54,8 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
     |**Escalão de Preço**     |  Escolha entre **Standard**, **Premium**ou **avaliação**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
-    |**Rede Virtual**     |  Escolha implantar um espaço de trabalho Azure Databricks em sua própria rede virtual (VNet). Para obter mais informações, consulte [implantar Azure Databricks em sua rede virtual do Azure (injeção de VNet)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Selecione **Criar**.
-
-4. A criação da área de trabalho demora alguns minutos. Durante a criação do espaço de trabalho, você pode exibir o status da implantação em **notificações**.
+4. Selecione **revisar + criar**e **criar**. A criação da área de trabalho demora alguns minutos. Durante a criação do espaço de trabalho, você pode exibir o status da implantação em **notificações**.
 
     ![Bloco de implantação do databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Bloco de implantação do databricks")
 

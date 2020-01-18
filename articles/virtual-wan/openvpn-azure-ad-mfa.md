@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/16/2020
 ms.author: alzam
-ms.openlocfilehash: 9329ac33a771c829b8d67670bc07d9a353c58ff1
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb60e80189da89b3f634c14582be606307536e6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930584"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166625"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Habilitar a MFA (autenticação multifator) do Azure para usuários VPN
 
@@ -22,27 +22,7 @@ Se desejar que os usuários sejam solicitados a fornecer um segundo fator de aut
 
 O pré-requisito para essa configuração é um locatário do Azure AD configurado usando as etapas em [configurar um locatário](openvpn-azure-ad-tenant.md).
 
-## <a name="mfa"></a>Abrir a página MFA
-
-1. Inicie sessão no Portal do Azure.
-2. Navegue até **Azure Active Directory-> todos os usuários**.
-3. Selecione **autenticação multifator** para abrir a página autenticação multifator.
-
-   ![Iniciar sessão](./media/openvpn-azure-ad-mfa/mfa1.jpg)
-
-## <a name="users"></a>Selecionar usuários
-
-1. Na página **autenticação multifator** , selecione os usuários para os quais você deseja habilitar a MFA.
-2. Selecione **Ativar**.
-
-   ![Selecione](./media/openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>Habilitar autenticação
-
-1. Navegue até **Azure Active Directory-> aplicativos empresariais-> todos os aplicativos**.
-2. Na página **aplicativos empresariais – todos os aplicativos** , selecione **VPN do Azure**.
-
-   ![ID do diretório](./media/openvpn-azure-ad-mfa/user1.jpg)
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## <a name="enablesign"></a>Definir configurações de entrada
 

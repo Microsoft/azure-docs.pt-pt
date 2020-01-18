@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887922"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169165"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -76,7 +76,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 ### <a name="multi-service"></a>Vários serviços
 
-| Serviço                    | quase                      |
+| Serviço                    | Variante                      |
 |----------------------------|---------------------------|
 | Vários serviços. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter mais detalhes.            | `CognitiveServices`     |
 
@@ -86,35 +86,35 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 ### <a name="vision"></a>Visão
 
-| Serviço                    | quase                      |
+| Serviço                    | Variante                      |
 |----------------------------|---------------------------|
 | Imagem Digitalizada            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
 | Visão Personalizada-treinamento   | `CustomVision.Training`   |
-| API Face                   | `Face`                    |
+| Face                       | `Face`                    |
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Search
 
-| Serviço            | quase                  |
+| Serviço            | Variante                  |
 |--------------------|-----------------------|
 | Sugestão Automática do Bing   | `Bing.Autosuggest.v7` |
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
 | Pesquisa de Entidades do Bing | `Bing.EntitySearch`   |
 | Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
+| Verificação de Ortografia do Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Voz
 
-| Serviço            | quase                 |
+| Serviço            | Variante                 |
 |--------------------|----------------------|
 | Serviços de Voz    | `SpeechServices`     |
-| Reconhecimento de Voz | `SpeakerRecognition` |
+| Reconhecimento de voz | `SpeakerRecognition` |
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
-| Serviço            | quase                |
+| Serviço            | Variante                |
 |--------------------|---------------------|
 | Compreensão do formulário | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -124,7 +124,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 ### <a name="decision"></a>Decisão
 
-| Serviço           | quase               |
+| Serviço           | Variante               |
 |-------------------|--------------------|
 | Detetor de Anomalias  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -198,7 +198,7 @@ Para remover o grupo de recursos e seus recursos associados, use o comando AZ Gr
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 * [Autenticar solicitações para serviços cognitivas do Azure](authentication.md)
 * [O que são os serviços cognitivas do Azure?](Welcome.md)

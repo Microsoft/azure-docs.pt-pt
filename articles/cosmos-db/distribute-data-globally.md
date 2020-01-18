@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 4f17fc7df5aef449c3b0f6dd8d02ae58df959070
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384886"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264310"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Distribuição de dados globais com Azure Cosmos DB-visão geral
 
@@ -58,4 +58,4 @@ Leia mais sobre a distribuição global nos seguintes artigos:
 * [Escolha o nível de consistência certo para a sua aplicação](consistency-levels-choosing.md)
 * [Níveis de consistência entre as APIs do Azure Cosmos DB](consistency-levels-across-apis.md)
 * [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
-* [Como implementar a sincronização personalizada para otimizar para maior disponibilidade e desempenho](how-to-custom-synchronization.md)
+

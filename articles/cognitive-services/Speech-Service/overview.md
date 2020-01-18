@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ee8b32634c92b873e82f540f04b53429de93d808
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: df0ce5efefe86ed3b7e2e8ccf5a2bd9011e168e6
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611099"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261437"
 ---
 # <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
 
@@ -29,11 +29,12 @@ Esses recursos compõem o serviço de fala. Use os links nesta tabela para saber
 | Serviço | Funcionalidade | Descrição | SDK | REST |
 | ------- | ------- | ----------- | --- | ---- |
 | [Conversão de fala em texto](speech-to-text.md) | Conversão de voz em texto | A fala a texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com [reconhecimento vocal (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar tentativas de usuário de fala transcrita e agir em comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-|         | [Transcrição do lote](batch-transcription.md) | A transcrição em lote permite a transcrição de fala em texto assíncrona de grandes volumes de dados. Esse é um serviço baseado em REST, que usa o mesmo ponto de extremidade como personalização e gerenciamento de modelos. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
-|         | [Transcrição de conversa](conversation-transcription-service.md) | Habilita o reconhecimento de fala em tempo real, a identificação do orador e o diarization. É perfeito para transcrever reuniões presenciais com a capacidade de diferenciar os alto-falantes. | Sim | Não |
-|         | [Criar modelos de Fala Personalizada](#customize-your-speech-experience) | Se estiver usando a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
-| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em voz | Conversão de texto em fala converte o texto de entrada em fala sintetizada por humanos usando a [linguagem de marcação de síntese de fala (SSML)](text-to-speech.md#core-features). Escolha entre vozes padrão e vozes neurais (consulte [suporte a idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-|         | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Transcrição do lote](batch-transcription.md) | A transcrição em lote permite a transcrição de fala em texto assíncrona de grandes volumes de dados. Esse é um serviço baseado em REST, que usa o mesmo ponto de extremidade como personalização e gerenciamento de modelos. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
+| | [Conversa com vários dispositivos](multi-device-conversation.md) | Conecte vários dispositivos ou clientes em uma conversa para enviar mensagens baseadas em fala ou texto, com suporte fácil para transcrição e tradução| Sim | Não |
+| | [Transcrição de conversa](conversation-transcription-service.md) | Habilita o reconhecimento de fala em tempo real, a identificação do orador e o diarization. É perfeito para transcrever reuniões presenciais com a capacidade de diferenciar os alto-falantes. | Sim | Não |
+| | [Criar modelos de Fala Personalizada](#customize-your-speech-experience) | Se estiver usando a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
+| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em voz | Conversão de texto em fala converte o texto de entrada em fala sintetizada por humanos usando a [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Escolha entre vozes padrão e vozes neurais (consulte [suporte a idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Voz](speech-translation.md) | Tradução de voz | A conversão de fala permite tradução de fala em tempo real em vários idiomas para seus aplicativos, ferramentas e dispositivos. Use este serviço para tradução de fala a fala e conversão de fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam o serviço de fala capacitam os desenvolvedores a criarem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados (versão prévia) integrado para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
 

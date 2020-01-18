@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: Adicionar um utilizador externo a um laboratório no Azure DevTest Labs | Documentos da Microsoft'
-description: Este script do PowerShell adiciona um utilizador externo a um laboratório no Azure DevTest Labs.
+title: PowerShell-adicionar um usuário externo a um laboratório no Azure DevTest Labs
+description: Esse script do PowerShell adiciona um usuário externo a um laboratório no Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,25 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da5cc4a3809b1867e8aa2c3b21e88c2f30ae3d4d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160608"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169670"
 ---
-# <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Utilize o PowerShell para adicionar um utilizador externo a um laboratório no Azure DevTest Labs
+# <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para adicionar um usuário externo a um laboratório no Azure DevTest Labs
 
-Este script do PowerShell de exemplo adiciona um utilizador externo a um laboratório no Azure DevTest Labs. 
+Este script do PowerShell de exemplo adiciona um usuário externo a um laboratório no Azure DevTest Labs. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Um laboratório**. O script requer que tenha um laboratório existente. 
+* **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,11 +40,11 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Repete o objeto de utilizador do Active Directory do Azure. |
-| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Atribui a função especificada para o principal especificado, no âmbito especificado. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Repete o objeto de usuário do Azure Active Directory. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Atribui a função especificada à entidade especificada, no escopo especificado. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos do script do PowerShell do Azure Lab Services adicionais podem ser encontrados no [exemplos do PowerShell do Azure Lab Services](../samples-powershell.md).
+Exemplos adicionais de script Azure Lab Services PowerShell podem ser encontrados nos [exemplos do Azure Lab Services PowerShell](../samples-powershell.md).

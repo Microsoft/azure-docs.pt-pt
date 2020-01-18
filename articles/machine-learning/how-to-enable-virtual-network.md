@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b647af11e47952656011a06268d4b0f384126ae9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934405"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263715"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,6 +80,22 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
 > A conta de armazenamento padrão é provisionada automaticamente quando você cria um espaço de trabalho.
 >
 > Para contas de armazenamento não padrão, o parâmetro `storage_account` na [função`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID de recurso do Azure.
+
+## <a name="use-azure-data-lake-storage-gen-2"></a>Usar Azure Data Lake Storage Gen 2
+
+O Azure Data Lake Storage Gen 2 é um conjunto de recursos para Big Data Analytics, criado com base no armazenamento de BLOBs do Azure. Ele pode ser usado para armazenar dados usados para treinar modelos com Azure Machine Learning. 
+
+Para usar Data Lake Storage Gen 2 dentro da rede virtual do seu espaço de trabalho Azure Machine Learning, use as seguintes etapas:
+
+1. Crie uma conta Azure Data Lake Storage Gen 2. Para obter mais informações, consulte [criar uma conta de armazenamento Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Use as etapas 2-4 na seção anterior, [use uma conta de armazenamento para seu espaço de trabalho](#use-a-storage-account-for-your-workspace), para colocar a conta na rede virtual.
+
+Ao usar Azure Machine Learning com Data Lake Storage Gen 2 dentro de uma rede virtual, use as seguintes diretrizes:
+
+* Se você usar o __SDK para criar um conjunto de um__e o sistema que executa o código __não estiver na rede virtual__, use o parâmetro `validate=False`. Esse parâmetro ignora a validação, o que falhará se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para obter mais informações, consulte o método [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
+
+* Ao usar Azure Machine Learning instância de computação ou cluster de computação para treinar um modelo usando o conjunto de um, ele deve estar na mesma rede virtual que a conta de armazenamento.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Usar uma instância do Key Vault com seu espaço de trabalho
 

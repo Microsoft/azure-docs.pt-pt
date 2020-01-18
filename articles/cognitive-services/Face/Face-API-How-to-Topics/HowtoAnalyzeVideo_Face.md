@@ -1,7 +1,7 @@
 ---
-title: 'Exemplo: Análise de vídeo em tempo real-API de Detecção Facial'
+title: 'Exemplo: análise de vídeo em tempo real-face'
 titleSuffix: Azure Cognitive Services
-description: Utilize a API Face para efetuar uma análise quase em tempo real em fotogramas obtidos a partir de uma transmissão de fluxo de vídeo em direto.
+description: Use o serviço de face para executar a análise quase em tempo real em quadros tirados de um fluxo de vídeo ao vivo.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114334"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169890"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como Analisar Vídeos em Tempo Real
 
-Este guia demonstrará como efetuar uma análise quase em tempo real de fotogramas obtidos de uma transmissão de fluxo de vídeo em direto. Os componentes básicos num sistema desse tipo são:
+Este guia demonstrará como efetuar uma análise quase em tempo real em fotogramas obtidos a partir de uma transmissão de fluxo de vídeo em direto. Os componentes básicos num sistema desse tipo são:
 
 - Obter fotogramas de uma origem de vídeo
 - Selecionar os fotogramas a analisar
@@ -73,7 +73,7 @@ Este código inicia cada análise numa Tarefa separada, que pode ser executada e
 
 ### <a name="a-producer-consumer-design"></a>Um Design de Produtor e Consumidor
 
-No nosso sistema final de "produtor e consumidor", temos um thread de produtor com um aspeto semelhante ao nosso ciclo infinito anterior. No entanto, em vez de consumir resultados de análise assim que estiverem disponíveis, o produtor coloca simplesmente as tarefas numa fila para as controlar.
+No nosso sistema final de "produtor e consumidor", temos um thread de produtor com um aspeto semelhante ao nosso ciclo infinito anterior. No entanto, em vez de consumir resultados de análise assim que estiverem disponíveis, o produtor coloca simplesmente as tarefas numa fila para controlar as mesmas.
 
 ```csharp
 // Queue that will contain the API call tasks. 
@@ -142,7 +142,7 @@ Para colocar seu aplicativo em funcionamento o mais rápido possível, você usa
 
 A biblioteca contém a classe FrameGrabber, que implementa o sistema produtor-consumidor discutido acima para processar quadros de vídeo de uma webcam. O usuário pode especificar a forma exata da chamada à API e a classe usa eventos para permitir que o código de chamada saiba quando um novo quadro é adquirido ou que um novo resultado de análise está disponível.
 
-Para ilustrar algumas das possibilidades, existem duas aplicações de exemplo que utilizam a biblioteca. O primeiro é um aplicativo de console simples e uma versão simplificada dele é reproduzida abaixo. Obtém os fotogramas da câmara Web predefinida e envia-os para a API Face para deteção facial.
+Para ilustrar algumas das possibilidades, existem duas aplicações de exemplo que utilizam a biblioteca. O primeiro é um aplicativo de console simples e uma versão simplificada dele é reproduzida abaixo. Ele captura quadros da webcam padrão e os envia para o serviço de face para detecção facial.
 
 ```csharp
 using System;
@@ -159,7 +159,7 @@ namespace VideoFrameConsoleApplication
             // Create grabber, with analysis type Face[]. 
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
-            // Create Face API Client. Insert your Face API key here.
+            // Create Face Client. Insert your Face API key here.
             private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials("<subscription key>"),
             new System.Net.Http.DelegatingHandler[] { });
@@ -203,13 +203,12 @@ Para começar a utilizar este exemplo, siga estes passos:
 
 1. Obtenha as chaves de API para as APIs de Visão a partir de [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Para a análise de fotogramas de vídeo, as APIs aplicáveis são:
     - [API de Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [API de Emoções](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
     - [API Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
 2. Clonar o repositório de GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Abra o exemplo no Visual Studio 2015 e compile e execute os aplicativos de exemplo:
-    - Para BasicConsoleSample, a chave de API de Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para BasicConsoleSample, a chave de face é embutida em código diretamente em [BasicConsoleSample/Program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, as chaves devem ser introduzidas no painel Definições da aplicação. Estas permanecerão nas sessões como dados de utilizador.
         
 
@@ -221,6 +220,6 @@ Neste guia, você aprendeu a executar a análise quase em tempo real em fluxos d
 
 Sinta-se à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, para obter comentários mais amplos sobre a API, em nosso [site UserVoice](https://cognitive.uservoice.com/).
 
-## <a name="related-topics"></a>Tópicos Relacionados
+## <a name="related-topics"></a>Tópicos relacionados
 - [Como Identificar Rostos na Imagem](HowtoIdentifyFacesinImage.md)
 - [Como Detetar Rostos na Imagem](HowtoDetectFacesinImage.md)

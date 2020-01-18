@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972615"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169364"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -25,9 +25,12 @@ Ao carregar vídeos com Video Indexer API, você tem as seguintes opções de ca
 * enviar o arquivo de vídeo como uma matriz de bytes no corpo da solicitação,
 * Use o ativo dos serviços de mídia do Azure existente fornecendo a [ID do ativo](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (com suporte somente em contas pagas).
 
-O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar os seus vídeos com base num URL. O exemplo de código neste artigo inclui o código comentado que mostra como carregar a matriz de bytes. <br/>O artigo também aborda alguns dos parâmetros que pode definir na API para alterar o processo e o resultado da API.
+Depois que o vídeo for carregado, Video Indexer (opcionalmente) codificará o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção pago, você cria uma conta de Video Indexer que está [conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
-Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção pago, você cria uma conta de Video Indexer que está [conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
+O artigo mostra como carregar e indexar vídeos com estas opções:
+
+* [O site Video Indexer](#website) 
+* [As APIs de Video Indexer](#apis)
 
 ## <a name="uploading-considerations-and-limitations"></a>Considerações sobre o carregamento e limitações
  
@@ -40,6 +43,10 @@ Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo 
 - A URL fornecida no `videoURL` param precisa ser codificada.
 - A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL.
 - Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo.
+- A URL precisa estar acessível (por exemplo, uma URL pública). 
+
+    Se for uma URL privada, o token de acesso precisará ser fornecido na solicitação.
+- A URL deve apontar para um arquivo de mídia válido e não para uma página da Web, como um link para a página de `www.youtube.com`.
 - Você pode carregar até 60 filmes por minuto.
 
 > [!Tip]
@@ -47,15 +54,39 @@ Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo 
 >
 > Se tiver de utilizar versões do .NET Framework mais antigas, adicione uma linha ao seu código antes de fazer a chamada à API REST:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-## <a name="configurations-and-params"></a>Configurações e parâmetros
+## <a name="supported-file-formats-for-video-indexer"></a>Formatos de arquivo com suporte para Video Indexer
+
+Consulte o artigo [formatos de contêiner/arquivo de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com Video indexer.
+
+## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>carregar e indexar um vídeo usando o site do Video Indexer
+
+> [!NOTE]
+> Um nome do vídeo não deve ter mais de 80 caracteres.
+
+1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/).
+2. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
+
+    ![Carregar](./media/video-indexer-get-started/video-indexer-upload.png)
+
+    Após carregar o seu vídeo, o Video Indexer iniciará a indexação e análise do vídeo.
+
+    ![Carregado](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+
+    Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
+
+## <a name="a-idapisupload-and-index-with-api"></a><a id="apis"/>carregar e indexar com a API
+
+Use o [carregar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API de vídeo para carregar e indexar vídeos com base em uma URL. O exemplo de código a seguir inclui o código comentado que mostra como carregar a matriz de bytes. 
+
+### <a name="configurations-and-params"></a>Configurações e parâmetros
 
 Esta secção descreve alguns dos parâmetros opcionais e quando deve defini-los.
 
-### <a name="externalid"></a>externalID 
+#### <a name="externalid"></a>externalID 
 
 Este parâmetro permite-lhe especificar um ID que será associado ao vídeo. O ID pode ser aplicado à integração de sistemas externa de "Gestão de Conteúdo de Vídeo" (VCM). Os vídeos localizados no portal do Video Indexer podem ser procurados com o ID externo especificado.
 
-### <a name="callbackurl"></a>callbackUrl
+#### <a name="callbackurl"></a>callbackUrl
 
 Uma URL que é usada para notificar o cliente (usando uma solicitação POST) sobre os seguintes eventos:
 
@@ -79,12 +110,12 @@ Uma URL que é usada para notificar o cliente (usando uma solicitação POST) so
         
     - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>Notas
+##### <a name="notes"></a>Notas
 
 - Video Indexer retorna quaisquer parâmetros existentes fornecidos na URL original.
 - A URL fornecida deve ser codificada.
 
-### <a name="indexingpreset"></a>indexingPreset
+#### <a name="indexingpreset"></a>indexingPreset
 
 Utilize este parâmetro se as gravações não processadas ou externas contiverem ruído de fundo. Este parâmetro é utilizado para configurar o processo de indexação. Pode especificar os seguintes valores:
 
@@ -95,13 +126,13 @@ Utilize este parâmetro se as gravações não processadas ou externas contivere
 
 O preço varia consoante a opção de indexação selecionada.  
 
-### <a name="priority"></a>prioridade
+#### <a name="priority"></a>prioridade
 
 Os vídeos são indexados por Video Indexer de acordo com sua prioridade. Use o parâmetro **Priority** para especificar a prioridade do índice. Os valores a seguir são válidos: **baixo**, **normal** (padrão) e **alto**.
 
 O parâmetro **Priority** só tem suporte para contas pagas.
 
-### <a name="streamingpreset"></a>streamingPreset
+#### <a name="streamingpreset"></a>streamingPreset
 
 Assim que o seu vídeo for carregado, o Video Indexer codifica opcionalmente o vídeo. Em seguida, indexa e analisa o vídeo. Quando o Video Indexer terminar de analisar, irá receber uma notificação com o ID do vídeo.  
 
@@ -111,17 +142,17 @@ Para executar as tarefas de indexação e codificação, a [conta dos Serviços 
 
 Se quiser indexar o seu vídeo mas não quiser codificá-lo, defina o parâmetro `streamingPreset` para `NoStreaming`.
 
-### <a name="videourl"></a>videoUrl
+#### <a name="videourl"></a>videoUrl
 
 Um URL do ficheiro de vídeo/áudio a ser indexado. O URL tem de apontar para um ficheiro de multimédia (não são suportadas páginas HTML). O ficheiro pode ser protegido por um token de acesso fornecido como parte do URI e o ponto final que entrega o ficheiro tem de estar protegido pelo TLS 1.2 ou superior. O URL tem de ser codificado. 
 
 Se o parâmetro `videoUrl` não for especificado, o Video Indexer espera que transmita o ficheiro como um conteúdo de corpo de formulário/com várias partes.
 
-## <a name="code-sample"></a>Exemplo de código
+### <a name="code-sample"></a>Exemplo de código
 
 O seguinte fragmento de código C# demonstra a utilização de todas as APIs do Video Indexer em conjunto.
 
-### <a name="instructions-for-running-this-code-sample"></a>Instruções para executar este exemplo de código
+#### <a name="instructions-for-running-this-code-sample"></a>Instruções para executar este exemplo de código
 
 Depois de copiar esse código em sua plataforma de desenvolvimento, você precisará fornecer dois parâmetros: chave de autenticação do gerenciamento de API e URL de vídeo.
 
@@ -308,7 +339,8 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
-## <a name="common-errors"></a>Erros comuns
+
+### <a name="common-errors"></a>Erros comuns
 
 Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela operação de Carregamento.
 

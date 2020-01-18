@@ -8,14 +8,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 9ac8d95dda392bd3f2a438389f5f6aa434b8a2fa
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e5ef189f5ce7b0cb53e5070fcc88630c72239503
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772147"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260728"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606355"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264836"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula em Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Ele também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -102,6 +102,9 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 | GPU pequena (computação) | 6 | 56 GB | Esse tamanho é mais adequado para aplicativos com uso intensivo de computação e rede, como inteligência artificial e aplicativos de aprendizado profundo. | 
 | GPU média (visualização) | 12 | 112 GB | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. | 
 
+> [!NOTE]
+> Azure Lab Services instala e configura automaticamente os drivers de GPU necessários para você quando você cria um laboratório com imagens de GPU.  
+
 ## <a name="view-all-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
 1. Navegue até [Azure Lab Services portal](https://labs.azure.com).
 2. Selecione **entrar**. Selecione ou insira uma **ID de usuário** que seja membro da função de **criador de laboratório** na conta de laboratório e digite a senha. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
@@ -113,7 +116,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 ## <a name="delete-a-classroom-lab"></a>Excluir um laboratório de sala de aula
 1. No bloco do laboratório, selecione três pontos (...) no canto e, em seguida, selecione **excluir**. 
 
-    ![Botão excluir](../media/how-to-manage-classroom-labs/delete-button.png)
+    ![Botão de eliminar](../media/how-to-manage-classroom-labs/delete-button.png)
 3. Na caixa de diálogo **excluir laboratório** , selecione **excluir** para continuar com a exclusão. 
 
 ## <a name="switch-to-another-classroom-lab"></a>Alternar para outro laboratório de sala de aula

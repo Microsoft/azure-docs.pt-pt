@@ -1,5 +1,5 @@
 ---
-title: Implantar ambientes de modelo aninhados do Resource Manager no Azure DevTest Labs | Microsoft Docs
+title: Implantar ambientes de modelo aninhados no Azure DevTest Labs
 description: Saiba como implantar modelos de Azure Resource Manager aninhados para fornecer ambientes com Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976542"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168828"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implantar modelos de Azure Resource Manager aninhados para ambientes de teste
 Uma implantação aninhada permite executar outros modelos de Azure Resource Manager de dentro de um modelo principal do Resource Manager. Ele permite decompor sua implantação em um conjunto de modelos de destino e específicos de finalidade. Ele fornece benefícios em termos de teste, reutilização e legibilidade. O artigo [usando modelos vinculados ao implantar recursos do Azure](../azure-resource-manager/templates/linked-templates.md) fornece uma boa visão geral dessa solução com vários exemplos de código. Este artigo fornece um exemplo específico para Azure DevTest Labs. 

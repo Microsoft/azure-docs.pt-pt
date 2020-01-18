@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/14/2020
+ms.date: 01/16/2020
 ms.author: ramkris
-ms.openlocfilehash: b5d4f490f7710824b8382091a1e814f6847766fa
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945545"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169405"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor em massa do .NET: informações de download 
 
@@ -72,6 +72,10 @@ ms.locfileid: "75945545"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
 
 * Adicionado .NET Standard 2,0 como uma das estruturas de destino com suporte para fazer com que a biblioteca de executores em massa funcione com aplicativos .NET Core.
+
+### <a name="a-name188188"></a><a name="1.8.8"/>1.8.8
+
+* Correção de um problema em MongoBulkExecutor que estava aumentando o tamanho do documento inesperadamente, adicionando o preenchimento e, em alguns casos, passando o limite de tamanho máximo do documento.
 
 ### <a name="a-name187187"></a><a name="1.8.7"/>1.8.7
 

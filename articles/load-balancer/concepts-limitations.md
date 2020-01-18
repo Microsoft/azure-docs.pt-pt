@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2019
 ms.author: allensu
-ms.openlocfilehash: 93fce95ad73f5e93afdbb794af3279a35243e2e2
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046255"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263545"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Load Balancer
 O Azure Load Balancer contém vários componentes principais para a operação.  Esses componentes podem ser configurados em sua assinatura por meio do portal do Azure, CLI do Azure ou Azure PowerShell.  
@@ -31,7 +31,8 @@ O Azure Load Balancer contém vários componentes principais para a operação. 
     - **[Endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)**
     - **[Endereço IP privado](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)**
 
-* **Pool de back-end**: o grupo de máquinas virtuais ou instâncias no conjunto de dimensionamento de máquinas virtuais que vai atender à solicitação de entrada. Para dimensionar de forma econômica para atender a grandes volumes de tráfego de entrada, as diretrizes de computação geralmente recomendam adicionar mais instâncias ao pool de back-end. O balanceador de carga reconfigura-se instantaneamente por meio da reconfiguração automática quando você dimensiona as instâncias para cima ou para baixo. Adicionar ou remover VMs do pool de back-end reconfigura o balanceador de carga sem operações adicionais no recurso de balanceador de carga.
+* **Pool de back-end**: o grupo de máquinas virtuais ou instâncias no conjunto de dimensionamento de máquinas virtuais que vai atender à solicitação de entrada. Para dimensionar de forma econômica para atender a grandes volumes de tráfego de entrada, as diretrizes de computação geralmente recomendam adicionar mais instâncias ao pool de back-end. Load Balancer reconfigura-se instantaneamente por meio da reconfiguração automática quando você dimensiona as instâncias para cima ou para baixo. Adicionar ou remover VMs do pool de back-end reconfigura o Load Balancer sem operações adicionais. O escopo do pool de back-end é qualquer máquina virtual na rede virtual. Um pool de back-end pode ter até 1000 instâncias de back-end ou configurações de IP.
+Os balanceadores de carga básicos têm escopo limitado (conjunto de disponibilidade) só podem escalar verticalmente até 300 configurações de IP. Para obter mais informações sobre limites, consulte [limites de Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Ao considerar como projetar seu pool de back-end, você pode criar o número mínimo de recursos de pool de back-end individuais para otimizar ainda mais a duração das operações de gerenciamento. Não há nenhuma diferença no desempenho ou na escala do plano de dados.
 * **Investigações de integridade**: uma **[investigação de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** é usada para determinar a integridade das instâncias no pool de back-end. Você pode definir o limite não íntegro para suas investigações de integridade. Quando uma sonda não consegue responder, o Balanceador de Carga deixa de enviar ligações novas para as instâncias em mau estado de funcionamento. Uma falha de investigação não afeta as conexões existentes. 
     
     A conexão continua até que o aplicativo: 
@@ -42,14 +43,15 @@ O Azure Load Balancer contém vários componentes principais para a operação. 
     Load Balancer fornece tipos diferentes de investigação de integridade para pontos de extremidade:
     - TCP
     - HTTP
-    - HTTPS
+    - HTTPS (investigação HTTP com wrapper TLS)
      
+     O Load Balancer básico não oferece suporte a investigações de HTTPS. Além disso, os Load Balancer básicos terminarão todas as conexões TCP (incluindo as conexões estabelecidas). 
     Para obter mais informações, consulte [tipos de investigação](load-balancer-custom-probe-overview.md#types).
 
 * **Regras de balanceamento de carga**: as regras de balanceamento de carga são aquelas que dizem ao Load Balancer o que precisa ser feito quando. 
 * **Regras de NAT de entrada**: uma regra NAT de entrada encaminha o tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. O **[encaminhamento de porta](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** é feito pela mesma distribuição baseada em hash que o balanceamento de carga. Cenários comuns para esse recurso são protocolo RDP (RDP) ou Secure Shell (SSH) sessões para instâncias de VM individuais dentro de uma rede virtual do Azure. Você pode mapear vários pontos de extremidade internos para portas no mesmo endereço IP de front-end. Você pode usar os endereços IP de front-end para administrar remotamente suas VMs sem uma caixa de salto adicional.
-* **Regras de saída**: uma **[regra de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais ou instâncias identificadas pelo pool de back-end a serem convertidas no front-end.
-
+* **Regras de saída**: uma **[regra de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais ou instâncias identificadas pelo pool de back-end de seu Standard Load Balancer a serem convertidas no front-end.
+O Load Balancer básico não oferece suporte a regras de saída.
 ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
 
 ## <a name = "load-balancer-concepts"></a>Conceitos de Load Balancer
@@ -81,12 +83,45 @@ A imagem seguinte apresenta a distribuição baseada em hashes:
   * As cargas de aplicativo são transparentes para Load Balancer. Qualquer aplicativo UDP ou TCP pode ter suporte.
   * Como Load Balancer não interage com a carga de TCP e fornece o descarregamento de TLS, você pode criar cenários criptografados de ponta a ponta. O uso de Load Balancer ganha grande escala horizontal para aplicativos TLS, encerrando a conexão TLS na própria VM. Por exemplo, a capacidade de criação de chaves de sessão TLS é limitada apenas pelo tipo e pelo número de VMs que você adiciona ao pool de back-ends.
 
-* **Conexões de saída (SNAT)** : todos os fluxos de saída de endereços IP privados dentro de sua rede virtual para endereços IP públicos na Internet podem ser convertidos em um endereço IP de front-end da Load Balancer. Quando um front-end público está vinculado a uma VM de back-end por meio de uma regra de balanceamento de carga, o Azure converte as conexões de saída para o endereço IP público de front-end. Essa configuração tem as seguintes vantagens:
+* **Conexões de saída**: todos os fluxos de saída de endereços IP privados dentro de sua rede virtual para endereços IP públicos na Internet podem ser convertidos em um endereço IP de front-end da Load Balancer. Quando um front-end público está vinculado a uma VM de back-end por meio de uma regra de balanceamento de carga, o Azure converte as conexões de saída para o endereço IP de front-end público. Essa configuração tem as seguintes vantagens:
   * Atualização fácil e recuperação de desastre de serviços, pois o front-end pode ser mapeado dinamicamente para outra instância do serviço.
   * Gerenciamento de ACL (lista de controle de acesso) mais fácil. As ACLs expressas como IPs de front-end não mudam à medida que os serviços são expandidos ou reduzidos ou reimplantados. A tradução de conexões de saída para um número menor de endereços IP do que computadores reduz a carga da implementação de listas de destinatários seguros.
-Para obter mais informações, consulte [conexões de saída no Azure](load-balancer-outbound-connections.md).
-O Standard Load Balancer tem recursos adicionais específicos do SKU além desses conceitos básicos, conforme descrito abaixo.
 
+  O Standard Load Balancer utiliza um [algoritmo SNAT robusto, escalonável e previsível](load-balancer-outbound-connections.md#snat). Estes são os principais princípios a serem lembrados ao trabalhar com Standard Load Balancer:
+
+    - regras de balanceamento de carga inferem como o SNAT é programado. As regras de balanceamento de carga são específicas de protocolo. SNAT é específico de protocolo e a configuração deve refletir isso em vez de criar um efeito colateral.
+
+    - **Vários front-ends** Quando vários front-ends estão disponíveis, todos os front-ends são usados e cada front-end multiplica o número de portas SNAT disponíveis. Se você quiser mais portas SNAT porque está esperando ou já está tendo uma alta demanda de conexões de saída, também poderá adicionar o inventário de porta SNAT incremental Configurando front-ends adicionais, regras e pools de back-end para a mesma máquina virtual os.
+
+    - **Controlar qual front-end é usado para saída** Você pode escolher e controlar se não desejar que um front-end específico seja usado para conexões de saída. Se você quiser restringir as conexões de saída para serem originadas apenas de um endereço IP de front-end específico, você pode opcionalmente desabilitar o SNAT de saída na regra que expressa o mapeamento de saída.
+
+    - Os cenários de saída de **conectividade de saída de controle** são explícitos e a conectividade de saída não existe até que tenha sido especificado. Standard Load Balancer existe no contexto da rede virtual.  Uma rede virtual é uma rede isolada e privada.  A menos que haja uma associação com um endereço IP público, a conectividade pública não é permitida.  Você pode acessar os [pontos de extremidade do serviço VNet](../virtual-network/virtual-network-service-endpoints-overview.md) porque eles estão dentro de e local em sua rede virtual.  Se você quiser estabelecer a conectividade de saída para um destino fora da sua rede virtual, terá duas opções:
+        - atribuir um endereço IP público de SKU padrão como um endereço IP público em nível de instância para o recurso de máquina virtual ou
+        - Coloque o recurso de máquina virtual no pool de back-end de um Standard Load Balancer público.
+
+        Ambos permitirão a conectividade de saída da rede virtual para fora da rede virtual. 
+
+        Se você tiver _apenas_ um Standard Load balancer interno associado ao pool de back-end no qual o recurso de máquina virtual está localizado, sua máquina virtual só poderá acessar os recursos de rede virtual e os [pontos de extremidade de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md).  Você pode seguir as etapas descritas no parágrafo anterior para criar a conectividade de saída.
+
+        A conectividade de saída de um recurso de máquina virtual não associado a SKUs padrão permanece como antes.
+
+        Examine a [discussão detalhada de conexões de saída](load-balancer-outbound-connections.md).
+
+* **Zonas de disponibilidade**: Standard Load Balancer dá suporte a recursos adicionais em regiões em que zonas de disponibilidade estão disponíveis. Esses recursos são incrementais para todos os Standard Load Balancer fornece.  Zonas de Disponibilidade configurações estão disponíveis para os dois tipos, público e Standard Load Balancer interno.
+ Um front-end com redundância de zona sobreviver à falha de zona e é servido pela infraestrutura dedicada em todas as zonas simultaneamente. 
+Além disso, você pode garantir um front-end para uma zona específica. Um front-end zonal compartilha destino com a respectiva zona e é servido apenas pela infraestrutura dedicada em uma única zona.
+O balanceamento de carga entre zonas está disponível para o pool de back-end e qualquer recurso de máquina virtual em uma rede virtual pode fazer parte de um pool de back-end.
+O Load Balancer básico não oferece suporte a zonas.
+Examine a [discussão detalhada de recursos relacionados ao zonas de disponibilidade](load-balancer-standard-availability-zones.md) e [zonas de disponibilidade visão geral](../availability-zones/az-overview.md) para obter mais informações.
+
+* **Portas de alta disponibilidade**: você pode configurar regras de balanceamento de carga para tornar seu aplicativo em escala e ser altamente confiável. Quando você usa uma regra de balanceamento de carga de portas de alta disponibilidade, Standard Load Balancer fornecerá o balanceamento de carga por fluxo em cada porta efêmera de um endereço IP de front-end interno de Standard Load Balancer.  O recurso é útil para outros cenários em que é impraticável ou indesejável especificar portas individuais. Uma regra de balanceamento de carga de portas de alta disponibilidade permite criar cenários ativo-passivo ou ativo-ativo n + 1 para soluções de virtualização de rede e qualquer aplicativo, o que exige grandes intervalos de portas de entrada.  Uma investigação de integridade pode ser usada para determinar quais back-ends devem receber novos fluxos.  Você pode usar um grupo de segurança de rede para emular um cenário de intervalo de portas. O Load Balancer básico não oferece suporte a portas de alta disponibilidade.
+Examinar a [discussão detalhada de portas de alta disponibilidade](load-balancer-ha-ports-overview.md)
+>[!IMPORTANT]
+> Se você estiver planejando usar uma solução de virtualização de rede, consulte seu fornecedor para obter orientação sobre se o produto foi testado com portas de alta disponibilidade e siga suas diretrizes específicas para a implementação. 
+
+* **Vários front-ends**: o Load Balancer dá suporte a várias regras com vários front-ends.  Standard Load Balancer expande isso para cenários de saída.  Os cenários de saída são essencialmente o inverso de uma regra de balanceamento de carga de entrada.  A regra de balanceamento de carga de entrada também cria um associado para conexões de saída. Standard Load Balancer usa todos os front-ends associados a um recurso de máquina virtual por meio de uma regra de balanceamento de carga.  Além disso, um parâmetro na regra de balanceamento de carga e permite suprimir uma regra de balanceamento de carga para fins de conectividade de saída, o que permite a seleção de front-ends específicos, incluindo nenhum.
+
+Para comparação, o Load Balancer básico seleciona um único front-end aleatoriamente e não há capacidade de controlar qual deles foi selecionado.
 ## <a name="load-balancer-types"></a>Tipos de Load Balancer
 
 ### <a name = "publicloadbalancer"></a>Balanceador de Carga Público
@@ -135,16 +170,21 @@ As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionam
 
 Para obter mais informações, consulte [limites do balanceador de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Relativamente aos detalhes do Balanceador de Carga Standard, veja a [descrição geral](load-balancer-standard-overview.md), os [preços](https://aka.ms/lbpricing) e o [SLA](https://aka.ms/lbsla).
 
-
 ## <a name = "limitations"></a>Limitações
 
-* Load Balancer fornece balanceamento de carga e encaminhamento de porta para protocolos TCP ou UDP específicos. As regras de balanceamento de carga e as regras de NAT de entrada dão suporte a TCP e UDP, mas não a outros protocolos IP, incluindo ICMP.
+- Os SKUs não são mutáveis. Você não pode alterar a SKU de um recurso existente.
+- Um recurso de máquina virtual autônoma, recurso de conjunto de disponibilidade ou recurso de conjunto de dimensionamento de máquinas virtuais pode referenciar um SKU, nunca ambos.
+- Uma regra de Load Balancer não pode abranger duas redes virtuais.  Os front-ends e suas instâncias de back-end relacionadas devem estar localizados na mesma rede virtual.  
+- [As operações de movimentação de assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md) não têm suporte para os recursos de IP público e Standard lb.
+- As funções de Web Worker sem uma VNet e outros serviços de plataforma da Microsoft podem ser acessíveis de instâncias por trás de apenas um Standard Load Balancer interno. Você não deve confiar nele como o próprio serviço ou a plataforma subjacente pode ser alterada sem aviso prévio. Você deve sempre supor que precisará criar a [conectividade de saída](load-balancer-outbound-connections.md) explicitamente, se desejado, ao usar apenas um Standard Load balancer interno.
+
+- Load Balancer fornece balanceamento de carga e encaminhamento de porta para protocolos TCP ou UDP específicos. As regras de balanceamento de carga e as regras de NAT de entrada dão suporte a TCP e UDP, mas não a outros protocolos IP, incluindo ICMP.
 
   Load Balancer não termina, responde ou interage com a carga de um fluxo UDP ou TCP. Não é um proxy. A validação bem-sucedida da conectividade com um front-end deve ocorrer em banda com o mesmo protocolo usado em um balanceamento de carga ou em uma regra NAT de entrada. Pelo menos uma de suas máquinas virtuais deve gerar uma resposta para um cliente ver uma resposta de um front-end.
 
   Não receber uma resposta em banda do front-end de Load Balancer indica que nenhuma máquina virtual pode responder. Nada pode interagir com um front-end Load Balancer sem uma máquina virtual capaz de responder. Esse princípio também se aplica a conexões de saída em que a porta disfarçar SNAT só tem suporte para TCP e UDP. Todos os outros protocolos IP, incluindo ICMP, falham. Atribua um endereço IP público em nível de instância para atenuar esse problema. Para obter mais informações, consulte [Understanding SNAT and Pat](load-balancer-outbound-connections.md#snat).
 
-* Os balanceadores de carga internos não convertem conexões originadas de saída para o front-end de um Load Balancer interno porque ambos estão no espaço de endereço IP privado. Os balanceadores de carga públicos fornecem [conexões de saída](load-balancer-outbound-connections.md) de endereços IP privados dentro da rede virtual para endereços IP públicos. Para balanceadores de carga internos, essa abordagem evita o esgotamento potencial da porta SNAT dentro de um espaço de endereço IP interno exclusivo, em que a conversão não é necessária.
+- Os balanceadores de carga internos não convertem conexões originadas de saída para o front-end de um Load Balancer interno porque ambos estão no espaço de endereço IP privado. Os balanceadores de carga públicos fornecem [conexões de saída](load-balancer-outbound-connections.md) de endereços IP privados dentro da rede virtual para endereços IP públicos. Para balanceadores de carga internos, essa abordagem evita o esgotamento potencial da porta SNAT dentro de um espaço de endereço IP interno exclusivo, em que a conversão não é necessária.
 
   Um efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar um fluxo para front-end do Load Balancer interno em seu pool _e_ for mapeado de volta para ele mesmo, as duas pernas do fluxo não corresponderão. Como eles não correspondem, o fluxo falha. O fluxo terá sucesso se o fluxo não for mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end.
 
@@ -154,8 +194,18 @@ Para obter mais informações, consulte [limites do balanceador de carga](https:
 
   Você pode combinar um Load Balancer interno com qualquer proxy de terceiros ou usar o [Gateway de aplicativo](../application-gateway/application-gateway-introduction.md) interno para cenários de proxy com http/https. Embora você possa usar um Load Balancer público para atenuar esse problema, o cenário resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat). Evite essa segunda abordagem, a menos que seja cuidadosamente gerenciada.
 
-* Em geral, os fragmentos de IP de encaminhamento não têm suporte em regras de balanceamento de carga. A fragmentação de IP de pacotes UDP e TCP não tem suporte em regras de balanceamento de carga. As portas de alta disponibilidade regras de balanceamento de carga podem ser usadas para encaminhar os fragmentos IP existentes. Para obter mais informações, consulte [visão geral de portas de alta disponibilidade](load-balancer-ha-ports-overview.md).
+- Em geral, os fragmentos de IP de encaminhamento não têm suporte em regras de balanceamento de carga. A fragmentação de IP de pacotes UDP e TCP não tem suporte em regras de balanceamento de carga. As portas de alta disponibilidade regras de balanceamento de carga podem ser usadas para encaminhar os fragmentos IP existentes. Para obter mais informações, consulte [visão geral de portas de alta disponibilidade](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [criar um Standard Load Balancer público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um Load Balancer: criar um, criar VMs com uma extensão personalizada do IIS instalada e balancear a carga do aplicativo Web entre as VMs.
+- Consulte [criar um Standard Load Balancer público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um Load Balancer: criar um, criar VMs com uma extensão personalizada do IIS instalada e balancear a carga do aplicativo Web entre as VMs.
+- Saiba mais sobre [Azure Load Balancer](load-balancer-overview.md).
+- Saiba mais sobre como usar [Standard Load Balancer e zonas de disponibilidade](load-balancer-standard-availability-zones.md).
+- Saiba mais sobre [investigações de integridade](load-balancer-custom-probe-overview.md).
+- Saiba mais sobre o [diagnóstico de Standard Load Balancer](load-balancer-standard-diagnostics.md).
+- Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
+- Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).
+- Saiba mais sobre a [redefinição de TCP em ociosidade](load-balancer-tcp-reset.md).
+- Saiba mais sobre [Standard Load Balancer com regras de balanceamento de carga de portas de alta disponibilidade](load-balancer-ha-ports-overview.md).
+- Saiba mais sobre como usar [Load Balancer com vários front-ends](load-balancer-multivip-overview.md).
+- Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).

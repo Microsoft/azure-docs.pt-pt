@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db5174ed6f008be0fed1fdf3c2c83d33277c3b4e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213073"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263800"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar hubs de notificação do Python
 
@@ -32,7 +32,7 @@ Você pode acessar todos os recursos de hubs de notificação de um back-end Jav
 > [!NOTE]
 > Este é um exemplo de implementação de referência para implementar o envio de notificação em Python e não é o SDK do Python Hub de notificações oficialmente suportado. O exemplo foi criado usando o Python 3,4.
 
-Este artigo mostra como:
+Este artigo mostra-lhe como:
 
 - Crie um cliente REST para recursos de hubs de notificação no Python.
 - Envie notificações usando a interface do Python para as APIs REST do hub de notificação.
@@ -103,7 +103,7 @@ class NotificationHub:
 ### <a name="create-security-token"></a>Criar token de segurança
 
 Os detalhes da criação do token de segurança estão disponíveis [aqui](https://msdn.microsoft.com/library/dn495627.aspx).
-Adicione os seguintes métodos à `NotificationHub` classe para criar o token com base no URI da solicitação atual e as credenciais extraídas da cadeia de conexão.
+Adicione os métodos a seguir à classe `NotificationHub` para criar o token com base no URI da solicitação atual e as credenciais extraídas da cadeia de conexão.
 
 ```python
 @staticmethod
@@ -165,7 +165,7 @@ Essa classe é um contêiner para um corpo de notificação nativo ou um conjunt
 
 Consulte a [documentação de APIs REST dos hubs de notificação](https://msdn.microsoft.com/library/dn495827.aspx) e os formatos específicos das plataformas de notificação para todas as opções disponíveis.
 
-Agora, com essa classe, escreva os métodos de notificação de envio `NotificationHub` dentro da classe.
+Agora, com essa classe, escreva os métodos de notificação de envio dentro da classe `NotificationHub`.
 
 ```python
 def make_http_request(self, url, payload, headers):
@@ -311,7 +311,7 @@ Inicialize o cliente dos hubs de notificação (substitua a cadeia de conexão e
 hub = NotificationHub("myConnectionString", "myNotificationHubName")
 ```
 
-Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino. Este exemplo também adiciona métodos de nível superior para habilitar o envio de notificações com base na plataforma, por exemplo, send_windows_notification para Windows; send_apple_notification (para Apple) etc.
+Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino. Esse exemplo também adiciona métodos de nível superior para habilitar o envio de notificações com base na plataforma, por exemplo, send_windows_notification para o Windows; send_apple_notification (para Apple) etc.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store e Windows Phone 8,1 (não Silverlight)
 
@@ -378,7 +378,7 @@ Executar seu código Python deve produzir uma notificação que aparece em seu d
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="enabling-the-debug-property"></a>Habilitando `debug` a propriedade
+### <a name="enabling-the-debug-property"></a>Habilitando a propriedade `debug`
 
 Ao habilitar o sinalizador de depuração durante a inicialização do NotificationHub, você verá um despejo de solicitação e resposta HTTP detalhado, bem como NotificationOutcome semelhante ao seguinte, em que você pode entender quais cabeçalhos HTTP são passados na solicitação e qual resposta HTTP foi recebido do hub de notificação:
 
@@ -447,7 +447,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Este artigo mostrou como criar um cliente REST do Python para os hubs de notificação. A partir daqui, você pode:
+Este artigo mostrou como criar um cliente REST do Python para os hubs de notificação. A partir daqui, pode:
 
 - Baixe o [exemplo de wrapper do Python REST]completo, que contém todo o código deste artigo.
 - Continue aprendendo sobre o recurso de marcação de hubs de notificação no [tutorial de últimas notícias]

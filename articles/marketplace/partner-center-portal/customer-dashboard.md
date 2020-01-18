@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480570"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264021"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Painel do cliente na análise do Marketplace comercial
 
@@ -72,7 +72,7 @@ O gráfico de **tendências do cliente** exibe uma contagem de todos os clientes
 
 O gráfico de **pedidos/uso de clientes** tem três guias, "pedidos", "uso normalizado" e "uso bruto". O **principal percentual do cliente** é exibido ao longo do eixo x, conforme determinado pelo número de pedidos. O eixo y exibe a contagem de pedidos do cliente. O eixo y secundário (grafo de linha) exibe a porcentagem cumulativa do número total de pedidos. Você pode exibir detalhes passando o mouse sobre pontos ao longo do gráfico de linhas.
 
-Por exemplo, consulte o gráfico abaixo para obter o uso normalizado: o percentual de 30 principais de clientes está contribuindo para 87% do uso normalizado de forma cumulativa. O percentual de 30% dos clientes está contribuindo apenas com 1.57 M horas de uso.
+Por exemplo, consulte o gráfico abaixo para obter o uso normalizado: o percentual de 30 principais de clientes está contribuindo para 87% do uso normalizado de forma cumulativa. O percentual de 30 de clientes está contribuindo apenas 1.570.000 horas de uso.
 
 ### <a name="customers-by-skus"></a>Clientes por SKUs
 

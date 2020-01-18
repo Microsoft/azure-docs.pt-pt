@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757437"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169594"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a Ferramenta de revisão
 
@@ -90,14 +90,14 @@ Você pode excluir marcas personalizadas selecionando o ícone de Lixeira ao lad
 
 A guia **conectores** permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
 
-O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector de API de Detecção Facial, por exemplo, será necessário obter uma chave de assinatura [API de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
+O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector facial, por exemplo, será necessário obter uma chave de assinatura [facial](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
 
 A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectores:
 
-- API de Emoções
-- API Face
+- Emoções
+- Face
 - Serviço de nuvem PhotoDNA
-- API de Análise de Texto
+- Análise de Texto
 
 ### <a name="add-a-connector"></a>Adicionar um conector
 

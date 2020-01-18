@@ -9,16 +9,16 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 269f2c9a2cf8578438971e8ad75fec1379a21c19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e305a5634aa0c065342e1873c413039eb734b972
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448191"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165878"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Início rápido: biblioteca de cliente facial para .NET
 
-Introdução à biblioteca de cliente facial para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de API de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
+Introdução à biblioteca de cliente facial para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de face fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
 Use a biblioteca de cliente facial para .NET para:
 
@@ -317,5 +317,5 @@ Neste guia de início rápido, você aprendeu a usar a biblioteca facial para .N
 > [!div class="nextstepaction"]
 > [Referência de API de Detecção Facial (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
 
-* [O que é o API de Detecção Facial?](../overview.md)
+* [O que é o serviço de face?](../overview.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs).

@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar máquinas virtuais no DevTest Labs com o CLI do Azure | Microsoft Docs
+title: Criar e gerenciar máquinas virtuais no DevTest Labs com CLI do Azure
 description: Saiba como usar Azure DevTest Labs para criar e gerenciar máquinas virtuais com CLI do Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d3cd104e36cb407e9b1b833335869cac2c69d0ec
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773110"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167057"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Criar e gerenciar máquinas virtuais com o DevTest Labs usando o CLI do Azure
 Este guia de início rápido orientará você na criação, no início, na conexão, na atualização e na limpeza de um computador de desenvolvimento em seu laboratório. 
@@ -30,7 +30,7 @@ Antes de começar:
 * [Instale o CLI do Azure](/cli/azure/install-azure-cli). Para começar, execute AZ login para criar uma conexão com o Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Criar e verificar a máquina virtual 
-Antes de executar comandos relacionados ao DevTest Labs, defina o contexto do Azure apropriado usando `az account set` o comando:
+Antes de executar comandos relacionados ao DevTest Labs, defina o contexto do Azure apropriado usando o comando `az account set`:
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
@@ -61,7 +61,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 Você também pode criar máquinas virtuais com base em fórmulas definindo o parâmetro de **tipo de imagem** como **fórmula**. Se você precisar escolher uma rede virtual específica para sua máquina virtual, use os parâmetros **vnet-Name** e **subnet** . Para obter mais informações, consulte [AZ Lab VM Create](/cli/azure/lab/vm#az-lab-vm-create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Verifique se a VM está disponível.
-Use o `az lab vm show` comando para verificar se a VM está disponível antes de iniciar e conectar-se a ela. 
+Use o comando `az lab vm show` para verificar se a VM está disponível antes de iniciar e conectar-se a ela. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -127,13 +127,13 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 
 Para listar os artefatos disponíveis em uma VM em um laboratório, execute os comandos a seguir.
 
-**Cloud Shell-PowerShell**: Observe o uso de acento grave (\`) antes de $ em $Expand (ou seja, ' $Expand):
+**Cloud Shell-PowerShell**: Observe o uso da marca de seleção (\`) antes da $Expand $ in (ou seja, ' $Expand):
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
 
-**Cloud shell-bash**: Observe o uso do caractere de barra\\() na frente de $ no comando. 
+**Cloud shell-bash**: Observe o uso do caractere de barra (\\) na frente de $ no comando. 
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"

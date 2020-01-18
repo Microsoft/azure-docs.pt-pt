@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433326"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263001"
 ---
 # <a name="entity-functions"></a>Funções de entidade
 
@@ -53,7 +53,9 @@ Atualmente, as duas APIs distintas para definir entidades são:
 
 A **sintaxe baseada em função**, em que as entidades são representadas como funções e as operações são expedidas explicitamente pelo aplicativo. Essa sintaxe funciona bem para entidades com estado simples, poucas operações ou um conjunto dinâmico de operações como em estruturas de aplicativo. Essa sintaxe pode ser entediante de ser mantida porque não detecta erros de tipo no momento da compilação.
 
-**Sintaxe baseada em classe**, em que as entidades e as operações são representadas por classes e métodos. Essa sintaxe produz um código mais fácil de ler e permite que as operações sejam invocadas de forma segura de tipo. A sintaxe baseada em classe é uma camada fina sobre a sintaxe baseada em função; portanto, ambas as variantes podem ser usadas de maneira intercambiável no mesmo aplicativo.
+**Sintaxe baseada em classe (somente .net)** , em que as entidades e as operações são representadas por classes e métodos. Essa sintaxe produz um código mais fácil de ler e permite que as operações sejam invocadas de forma segura de tipo. A sintaxe baseada em classe é uma camada fina sobre a sintaxe baseada em função; portanto, ambas as variantes podem ser usadas de maneira intercambiável no mesmo aplicativo.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Exemplo: sintaxe baseada em função-C#
 
@@ -107,11 +109,13 @@ O estado dessa entidade é um objeto do tipo `Counter`, que contém um campo que
 
 Para obter mais informações sobre a sintaxe baseada em classe e como usá-la, consulte [definindo classes de entidade](durable-functions-dotnet-entities.md#defining-entity-classes).
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ### <a name="example-javascript-entity"></a>Exemplo: entidade JavaScript
 
 As entidades duráveis estão disponíveis em JavaScript, começando com a versão **1.3.0** do pacote do `durable-functions` NPM. O código a seguir é a entidade `Counter` implementada como uma função durável escrita em JavaScript.
 
-**function.json**
+**Contador/função. JSON**
 ```json
 {
   "bindings": [
@@ -125,7 +129,7 @@ As entidades duráveis estão disponíveis em JavaScript, começando com a vers�
 }
 ```
 
-**index.js**
+**Counter/index. js**
 ```javascript
 const df = require("durable-functions");
 
@@ -146,6 +150,8 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+---
+
 ## <a name="access-entities"></a>Acessar entidades
 
 As entidades podem ser acessadas usando uma comunicação unidirecional ou bidirecional. A terminologia a seguir distingue as duas formas de comunicação: 
@@ -161,12 +167,14 @@ As entidades podem ser acessadas de dentro de funções de cliente, de dentro de
 
 Os exemplos a seguir ilustram essas várias maneiras de acessar entidades.
 
-> [!NOTE]
-> Para simplificar, os exemplos a seguir mostram a sintaxe com rigidez de tipos para acessar entidades. Em geral, é recomendável que você [acesse entidades por meio de interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) porque ele fornece mais verificação de tipo.
-
 ### <a name="example-client-signals-an-entity"></a>Exemplo: o cliente sinaliza uma entidade
 
 Para acessar entidades de uma função comum do Azure, que também é conhecida como uma função de cliente, use a [Associação de cliente de entidade](durable-functions-bindings.md#entity-client). O exemplo a seguir mostra uma função disparada por fila sinalizando uma entidade usando essa associação.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+> [!NOTE]
+> Para simplificar, os exemplos a seguir mostram a sintaxe com rigidez de tipos para acessar entidades. Em geral, é recomendável que você [acesse entidades por meio de interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) porque ele fornece mais verificação de tipo.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -181,6 +189,8 @@ public static Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -191,11 +201,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 O *sinal* de termo significa que a invocação de API de entidade é unidirecional e assíncrona. Não é possível que uma função de cliente saiba quando a entidade processou a operação. Além disso, a função cliente não pode observar quaisquer valores de resultado ou exceções. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Exemplo: o cliente lê um estado de entidade
 
 As funções de cliente também podem consultar o estado de uma entidade, conforme mostrado no exemplo a seguir:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -209,6 +223,8 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -220,11 +236,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 As consultas de estado de entidade são enviadas para o armazenamento de controle durável e retornam o estado persistido mais recentemente da entidade. Esse estado é sempre um estado "confirmado", ou seja, ele nunca é um estado intermediário temporário assumido no meio da execução de uma operação. No entanto, é possível que esse Estado seja obsoleto em comparação com o estado na memória da entidade. Somente orquestrações podem ler o estado na memória da entidade, conforme descrito na seção a seguir.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exemplo: os sinais de orquestração e chamadas de uma entidade
 
 As funções de orquestrador podem acessar entidades usando APIs na [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger). O código de exemplo a seguir mostra uma função de orquestrador chamando e sinalizando uma entidade `Counter`.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -243,6 +263,8 @@ public static async Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -257,6 +279,8 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > Atualmente, o JavaScript não dá suporte à sinalização de uma entidade de um orquestrador. Em vez disso, utilize `callEntity`.
 
+---
+
 Somente orquestrações são capazes de chamar entidades e obter uma resposta, que pode ser um valor de retorno ou uma exceção. As funções de cliente que usam a [Associação de cliente](durable-functions-bindings.md#entity-client) só podem sinalizar entidades.
 
 > [!NOTE]
@@ -266,6 +290,8 @@ Somente orquestrações são capazes de chamar entidades e obter uma resposta, q
 
 Uma função de entidade pode enviar sinais para outras entidades, ou até mesmo, enquanto executa uma operação.
 Por exemplo, podemos modificar o exemplo de entidade de `Counter` anterior para que ele envie um sinal de "marco atingido" para alguma entidade de monitor quando o contador atingir o valor 100.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -280,6 +306,8 @@ Por exemplo, podemos modificar o exemplo de entidade de `Counter` anterior para 
         break;
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
     case "add":
         const amount = context.df.getInput();
@@ -291,7 +319,9 @@ Por exemplo, podemos modificar o exemplo de entidade de `Counter` anterior para 
         break;
 ```
 
-## <a name="entity-coordination"></a>Coordenação de entidades
+---
+
+## <a name="entity-coordination"></a>Coordenação de entidades (somente no momento no .NET)
 
 Pode haver ocasiões em que você precisa coordenar operações em várias entidades. Por exemplo, em um aplicativo bancário, você pode ter entidades que representem contas bancárias individuais. Ao transferir fundos de uma conta para outra, você deve garantir que a conta de origem tenha fundos suficientes. Você também deve garantir que as atualizações para as contas de origem e de destino sejam feitas de forma transacionalmente consistente.
 

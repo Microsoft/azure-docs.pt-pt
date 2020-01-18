@@ -1,5 +1,5 @@
 ---
-title: Criar recursos do barramento de serviço do Azure usando modelos do Resource Manager | Microsoft Docs
+title: Criar recursos do barramento de serviço do Azure usando modelos
 description: Usar modelos de Azure Resource Manager para automatizar a criação de recursos do barramento de serviço
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d473cf2a79fb86028797205ee7885b51169b10bf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9bc784ee57b9bde393408cbefa9a197aebc59b08
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978240"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264463"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do barramento de serviço usando modelos de Azure Resource Manager
 

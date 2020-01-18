@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966952"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169939"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usar seu modelo com a API de previsão
 
@@ -109,9 +109,9 @@ Neste guia, você usará uma imagem local, portanto, copie a URL em **se você t
     ```
 
 1. Altere as seguintes informações:
-   * Defina o `namespace` campo como o nome do seu projeto.
-   * Substitua o espaço `<Your prediction key>` reservado pelo valor de chave que você recuperou anteriormente.
-   * Substitua o espaço `<Your prediction URL>` reservado pela URL que você recuperou anteriormente.
+   * Defina o campo `namespace` como o nome do seu projeto.
+   * Substitua o espaço reservado `<Your prediction key>` pelo valor de chave que você recuperou anteriormente.
+   * Substitua o espaço reservado `<Your prediction URL>` pela URL que você recuperou anteriormente.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
@@ -130,12 +130,12 @@ Ao executar o aplicativo, você será solicitado a inserir um caminho para um ar
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você aprendeu como enviar imagens para o classificador/detector de imagem personalizada e receber uma resposta programaticamente C# com o SDK. Em seguida, saiba como concluir cenários de ponta a ponta com C#o ou comece a usar um SDK de linguagem diferente.
 
 * [Início rápido: SDK do .NET](csharp-tutorial.md)
-* [Quickstart: SDK do Python](python-tutorial.md)
-* [Quickstart: SDK do Java](java-tutorial.md)
-* [Quickstart: SDK do node](node-tutorial.md)
-* [Quickstart: SDK do Go](go-tutorial.md)
+* [Início rápido: SDK do Python](python-tutorial.md)
+* [Início rápido: SDK do Java](java-tutorial.md)
+* [Início rápido: node SDK](node-tutorial.md)
+* [Início rápido: SDK go](go-tutorial.md)

@@ -1,5 +1,5 @@
 ---
-title: Criar ambientes de várias VMs e recursos de PaaS com modelos de Azure Resource Manager | Microsoft Docs
+title: Criar ambientes de várias VMs e recursos de PaaS com modelos
 description: Saiba como criar ambientes de várias VMs e recursos de PaaS no Azure DevTest Labs de um modelo de Azure Resource Manager
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 900973a7370bbed61953f8d1ee83d56670fad756
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1385b20847cf90c212a13591389dfb6cda08432a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981556"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169640"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMs e recursos de PaaS com modelos de Azure Resource Manager
 

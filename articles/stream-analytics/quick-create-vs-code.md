@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d95a3334fe5a7767446c92f8f8668e4da09fca42
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659598"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169856"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code (visualização)
 
@@ -179,9 +179,11 @@ Siga as instruções em [consultas de teste localmente com dados de exemplo](vis
    |IotHubNamespace|MyASAIoTHub|Escolha ou insira o nome do seu hub IoT. Os nomes de Hub IoT são detectados automaticamente se eles são criados na mesma assinatura.|
    |SharedAccessPolicyName|iothubowner| |
 
-   Você pode usar o recurso CodeLens para ajudá-lo a inserir uma cadeia de caracteres, selecionar em uma lista suspensa ou alterar o texto diretamente no arquivo. A captura de tela a seguir mostra a **seleção de suas assinaturas** como um exemplo.
+   Você pode usar o recurso CodeLens para ajudá-lo a inserir uma cadeia de caracteres, selecionar em uma lista suspensa ou alterar o texto diretamente no arquivo. A captura de tela a seguir mostra a **seleção de suas assinaturas** como um exemplo. As credenciais são listadas automaticamente e salvas no Gerenciador de credenciais local.
 
    ![Configurar entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+   ![Configurar o valor de entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
 
 ## <a name="preview-input"></a>Visualizar entrada
 

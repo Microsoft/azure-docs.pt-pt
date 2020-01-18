@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: API Face com C#'
+title: 'Tutorial: serviço de face conectada'
 titleSuffix: Azure Cognitive Services
-description: Crie um aplicativo do Windows que usa os serviços cognitivas API de Detecção Facial para detectar recursos de rostos em uma imagem.
+description: Crie um aplicativo do Windows que usa o serviço de face de serviços cognitivas para detectar recursos de rostos em uma imagem.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0fe92fc7f19c3c899bcccfa9f9cc18029af049c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970300"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170230"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ligar à API Face dos Serviços Cognitivos ao utilizar os Serviços Ligados no Visual Studio
+# <a name="connect-to-the-face-service-by-using-connected-services-in-visual-studio"></a>Conectar-se ao serviço de face usando serviços conectados no Visual Studio
 
-Ao utilizar a API Face dos Serviços Cognitivos, pode detetar, analisar, organizar e identificar rostos em fotografias.
+Usando o serviço de face do Azure, você pode detectar, analisar, organizar e marcar faces em fotos.
 
-Este artigo e os respetivos artigos complementares fornecem detalhes para utilizar a funcionalidade Serviço Ligado do Visual Studio para a API Face dos Serviços Cognitivos. A funcionalidade está disponível no Visual Studio 2017 15.7 e posterior, com a extensão de Serviços Cognitivos instalada.
+Este artigo e seus artigos complementares fornecem detalhes sobre como usar o recurso de serviço conectado do Visual Studio para o serviço de face. A funcionalidade está disponível no Visual Studio 2017 15.7 e posterior, com a extensão de Serviços Cognitivos instalada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Criar um projeto e adicionar suporte para a API Face dos Serviços Cognitivos
+## <a name="create-a-project-and-add-support-for-face"></a>Criar um projeto e adicionar suporte para face
 
 1. Crie um novo projeto Web do ASP.NET Core. Utilize o modelo de projeto Empty (Vazio). 
 
@@ -47,16 +47,16 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
    ![Selecione a sua subscrição](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Selecione a subscrição que pretende utilizar e, em seguida, selecione um nome para a API Face ou selecione a ligação Edit (Editar) para modificar o nome gerado automaticamente, selecione o grupo de recursos e o Pricing Tier (Escalão de Preço).
+1. Selecione a assinatura que você deseja usar e, em seguida, escolha um nome para o serviço de face ou escolha o link editar para modificar o nome gerado automaticamente, escolha o grupo de recursos e o tipo de preço.
 
    ![Editar detalhes do serviço ligado](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    Siga a ligação para obter detalhes sobre os escalões de preço.
 
 1. Selecione Add (Adicionar) para adicionar suporte para o Connected Service (Serviço Ligado).
-   O Visual Studio modifica o seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para suportar uma ligação à API Face.
+   O Visual Studio modifica seu projeto para adicionar os pacotes NuGet, as entradas do arquivo de configuração e outras alterações para dar suporte a uma conexão com o serviço de face.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Utilizar a API Face para detetar características de rostos numa imagem
+## <a name="use-the-face-service-to-detect-attributes-of-faces-in-an-image"></a>Usar o serviço de face para detectar atributos de rostos em uma imagem
 
 1. Adicione as seguintes instruções using a Startup.cs.
  
@@ -79,15 +79,15 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
       }
    ```
 
-1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API Face](https://azure.microsoft.com/services/cognitive-services/face/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta imagens e escolha **adicionar** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções:
+1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, você pode usar uma das imagens na [página de rosto](https://azure.microsoft.com/services/cognitive-services/face/) do portal do Azure. Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta imagens e escolha **adicionar** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções:
  
    ![pasta de imagens com o ficheiro de imagem](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
 1. Clique com o botão direito do rato no ficheiro de imagem, selecione Properties (Propriedades) e, em seguida, selecione **Copy if newer** (Copiar se for mais recente).
 
-   ![Copy if newer (Copiar se for mais recente)](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
+   ![Copiar se for mais recente](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Substitua o método Configure (Configuração) pelo código seguinte para aceder à API Face e testar uma imagem. Altere a cadeia imagePath para o caminho correto e o nome de ficheiro para a sua imagem de rosto.
+1. Substitua o método configure pelo código a seguir para acessar o serviço de face e testar uma imagem. Altere a cadeia imagePath para o caminho correto e o nome de ficheiro para a sua imagem de rosto.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -231,13 +231,13 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
         }
    ```
 
-1. Execute a aplicação Web e veja o que a API Face encontrou na imagem.
+1. Execute o aplicativo Web e veja o que o serviço de face encontrou na imagem.
  
-   ![Imagem e resultados formatados da API Face](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Imagem de serviço de face e resultados formatados](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
+Quando já não necessitar, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
 1. Selecione **Eliminar grupo de recursos**.
@@ -245,4 +245,4 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Obtenha mais informações sobre a API Face ao ler a [Documentação da API Face](Overview.md).
+Saiba mais sobre o serviço facial lendo a [documentação do rosto](Overview.md).

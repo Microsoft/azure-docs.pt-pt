@@ -3,12 +3,12 @@ title: Service Fabric do Azure – usando referências de keyvault de aplicativo
 description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultReference para segredos do aplicativo.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463032"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167131"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
@@ -61,6 +61,7 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
 
     > [!NOTE] 
     > É recomendável usar um certificado de criptografia separado para o CSS. Você pode adicioná-lo na seção "CentralSecretService".
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+Para que as alterações entrem em vigor, você também precisará alterar a política de atualização para especificar uma reinicialização forçada do tempo de execução de Service Fabric em cada nó à medida que a atualização progride por meio do cluster. Essa reinicialização garante que o serviço de sistema habilitado recentemente seja iniciado e em execução em cada nó. No trecho de código abaixo, forceRestart é a configuração essencial; Use seus valores existentes para o restante das configurações.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Conceder permissão de acesso de identidade gerenciada do aplicativo para o keyvault
 
     Referencie este [documento](how-to-grant-access-other-resources.md) para ver como conceder acesso de identidade gerenciada ao keyvault. Observe também que se você estiver usando a identidade gerenciada atribuída pelo sistema, a identidade gerenciada será criada somente após a implantação do aplicativo.

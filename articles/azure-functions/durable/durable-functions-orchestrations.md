@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545715"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261556"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações duráveis
 
@@ -55,7 +55,9 @@ Quando uma função de orquestração recebe mais trabalho a fazer (por exemplo,
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
-O comportamento de fornecimento de eventos do Framework de tarefa durável está intimamente acoplado ao código da função de orquestrador que você escreve. Suponha que você tenha uma função de orquestrador de encadeamento de atividades, como C# a seguinte função de orquestrador:
+O comportamento de fornecimento de eventos do Framework de tarefa durável está intimamente acoplado ao código da função de orquestrador que você escreve. Suponha que você tenha uma função de orquestrador de encadeamento de atividades, como a seguinte função de orquestrador:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Se você estiver codificando em JavaScript, sua função de orquestrador de encadeamento de atividades poderá ser parecida com o seguinte código de exemplo:
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 Em cada instrução `await`C#() ou `yield` (JavaScript), a estrutura de tarefa durável verifica o estado de execução da função em algum back-end de armazenamento durável (normalmente, armazenamento de tabelas do Azure). Esse estado é o que é conhecido como o *histórico de orquestração*.
 
@@ -109,21 +113,21 @@ Após a conclusão, o histórico da função mostrado anteriormente é semelhant
 | PartitionKey (InstanceId)                     | EventType             | Carimbo de data/hora               | Input | Nome             | Resultado                                                    | Estado |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | nulo  | E1_HelloSequence |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362 Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670 Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670 Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201 Z |       |                  | "" Hello Tokyo! "" "                                        |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232 Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | "" Hello Tokyo! "" "                                        |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435 Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435 Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763 Z |       |                  | "" Olá, Seattle! ""                                      |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | "" Olá, Seattle! ""                                      |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857 Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857 Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857 Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919 Z |       |                  | "" Hello London! "" "                                       |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032 Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044 Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" "Olá Tokyo!" "," "Olá, Seattle!" "," "Olá, Londres!" "]" | Concluído           |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" Hello London! "" "                                       |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[" "Olá Tokyo!" "," "Olá, Seattle!" "," "Olá, Londres!" "]" | Concluído           |
 
 Algumas observações sobre os valores da coluna:
 
@@ -182,7 +186,7 @@ As funções de orquestrador também podem adicionar políticas de repetição p
 
 Para obter mais informações e exemplos, consulte o artigo [tratamento de erros](durable-functions-error-handling.md) .
 
-### <a name="critical-sections-durable-functions-2x"></a>Seções críticas (Durable Functions 2. x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Seções críticas (Durable Functions 2. x, atualmente somente no .NET)
 
 As instâncias de orquestração são de thread único, portanto, não é necessário se preocupar com as condições *de corrida em* uma orquestração. No entanto, as condições de corrida são possíveis quando as orquestrações interagem com sistemas externos. Para reduzir as condições de corrida ao interagir com sistemas externos, as funções de orquestrador podem definir *seções críticas* usando um método `LockAsync` no .net.
 
@@ -212,7 +216,9 @@ O recurso de seção crítica também é útil para coordenar alterações em en
 
 As funções de orquestrador não são permitidas para fazer e/s, conforme descrito em [restrições de código de função de orquestrador](durable-functions-code-constraints.md). A solução alternativa típica para essa limitação é encapsular qualquer código que precise fazer e/s em uma função de atividade. Orquestrações que interagem com sistemas externos frequentemente usam funções de atividade para fazer chamadas HTTP e retornar o resultado para a orquestração.
 
-Para simplificar esse padrão comum, as funções de orquestrador podem usar o método `CallHttpAsync` no .NET para invocar APIs HTTP diretamente. Além de oferecer suporte aos padrões básicos de solicitação/resposta, o `CallHttpAsync` dá suporte à manipulação automática de padrões de sondagem HTTP 202 assíncronos comuns e também dá suporte à autenticação com serviços externos usando [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Para simplificar esse padrão comum, as funções de orquestrador podem usar o método `CallHttpAsync` para invocar APIs HTTP diretamente.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+Além de dar suporte a padrões básicos de solicitação/resposta, o método dá suporte à manipulação automática de padrões de sondagem HTTP 202 assíncronos comuns e também dá suporte à autenticação com serviços externos usando [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).
+
 Para obter mais informações e exemplos detalhados, consulte o artigo [recursos http](durable-functions-http-features.md) .
 
 > [!NOTE]
@@ -251,9 +263,11 @@ Para obter mais informações e exemplos detalhados, consulte o artigo [recursos
 
 ### <a name="passing-multiple-parameters"></a>Passando vários parâmetros
 
-Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação é passar uma matriz de objetos ou usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) no .net.
+Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação é passar uma matriz de objetos ou objetos compostos.
 
-O exemplo a seguir está usando novos recursos do [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionados com [ C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+No .NET, você também pode usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) . O exemplo a seguir está usando novos recursos do [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionados com [ C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>Atividade
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

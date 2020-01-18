@@ -1,6 +1,6 @@
 ---
-title: Expressões de marcação e de roteamento
-description: Este tópico explica o roteamento e as expressões de marca para os hubs de notificação do Azure.
+title: Expressões de marcação e de roteamento nos hubs de notificação do Azure
+description: Saiba como rotear e marcar expressões para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 254517cc1d9cc042387b63147b2a3fd9bdeece5e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972018"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263783"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de marcação e de roteamento
 

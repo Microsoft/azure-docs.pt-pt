@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529614"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166776"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -27,7 +27,7 @@ Use este módulo para carregar dados em um pipeline de Machine Learning dos serv
 > Depois de registrar um conjunto de registros, você pode encontrá-lo nos **conjuntos** de -> categoria **meus conjuntos de valores** na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
 >
 
-Primeiro, escolha a origem da qual você está lendo e conclua as configurações adicionais. O módulo **importar dados** dá suporte à leitura de dados das seguintes fontes:
+O módulo **importar dados** dá suporte à leitura de dados das seguintes fontes:
 
 - URL via HTTP
 - Armazenamentos em nuvem do Azure por meio de [**repositórios de armazenamento**](../how-to-access-data.md))

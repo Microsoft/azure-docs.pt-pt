@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: detectar e exibir dados de face em uma imagem usando o SDK do .NET'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você criará um aplicativo do Windows que usa o API de Detecção Facial para detectar e enquadrar rostos em uma imagem.
+description: Neste tutorial, você criará um aplicativo do Windows que usa o serviço de face para detectar e estruturar rostos em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977969"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165926"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: criar um aplicativo WPF (Windows Presentation Framework) para exibir dados de face em uma imagem
 
-Neste tutorial, você aprenderá a usar o API de Detecção Facial do Azure, por meio do SDK do cliente .NET, para detectar rostos em uma imagem e, em seguida, apresentar os dados na interface do usuário. Você criará um aplicativo do WPF que detecta faces, desenha um quadro em cada face e exibe uma descrição da face na barra de status. 
+Neste tutorial, você aprenderá a usar o serviço de face do Azure, por meio do SDK do cliente .NET, para detectar rostos em uma imagem e, em seguida, apresentar os dados na interface do usuário. Você criará um aplicativo do WPF que detecta faces, desenha um quadro em cada face e exibe uma descrição da face na barra de status. 
 
 Este tutorial mostrar-lhe como:
 
 > [!div class="checklist"]
 > - Criar uma aplicação WPF
-> - Instalar a biblioteca de cliente do API de Detecção Facial
+> - Instalar a biblioteca de cliente facial
 > - Utilizar a biblioteca de cliente para detetar rostos numa imagem
 > - Desenhar uma moldura em torno de cada rosto detetado
 > - Exibir uma descrição da face realçada na barra de status
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
+- Uma chave de assinatura facial. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de face e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio

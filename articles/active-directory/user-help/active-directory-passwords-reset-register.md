@@ -12,13 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada3e9ae115f1e9cec03cd940b6bfdbe32897122
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156306"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261845"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 

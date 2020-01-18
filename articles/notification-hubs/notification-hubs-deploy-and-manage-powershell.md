@@ -1,5 +1,5 @@
 ---
-title: Implementar e Gerir Hubs de Notificação com o PowerShell
+title: Implantar e gerenciar hubs de notificação usando o PowerShell
 description: Como criar e gerenciar hubs de notificação usando o PowerShell para automação
 services: notification-hubs
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5af920249000cabbc63f0c9ab453738450875172
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213413"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264649"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implantar e gerenciar hubs de notificação usando o PowerShell
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este artigo mostra como usar criar e gerenciar hubs de notificação do Azure usando o PowerShell. As tarefas comuns de automação a seguir são mostradas neste artigo.
 
@@ -39,7 +39,7 @@ Não há suporte para o gerenciamento de hubs de notificações diretamente pelo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. O Azure é uma plataforma baseada na subscrição. Para obter mais informações sobre como obter uma subscrição, veja [opções de compra], [Ofertas de membros], ou [Avaliação gratuita].
-- Um computador com Azure PowerShell. Para obter instruções, consulte [instalar e configurar o Azure PowerShell].
+- Um computador com Azure PowerShell. Para obter instruções, consulte [Instale e configure o Azure PowerShell].
 - Uma compreensão geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Incluindo uma referência ao assembly .NET para o barramento de serviço
@@ -50,7 +50,7 @@ Primeiro, verifique se o seu script pode localizar o assembly **Microsoft. Azure
 
 1. Determina o caminho no qual ele foi invocado.
 2. Percorre o caminho até encontrar uma pasta chamada `packages`. Essa pasta é criada quando você instala pacotes NuGet para projetos do Visual Studio.
-3. Pesquisa recursivamente a `packages` pasta em busca de um `Microsoft.Azure.NotificationHubs.dll`assembly denominado.
+3. Pesquisa recursivamente a pasta `packages` em busca de um assembly chamado `Microsoft.Azure.NotificationHubs.dll`.
 4. Faz referência ao assembly para que os tipos estejam disponíveis para uso posterior.
 
 Veja como essas etapas são implementadas em um script do PowerShell:
@@ -74,11 +74,11 @@ catch [System.Exception]
 }
 ```
 
-## <a name="create-the-namespacemanager-class"></a>Criar a `NamespaceManager` classe
+## <a name="create-the-namespacemanager-class"></a>Criar a classe de `NamespaceManager`
 
 Para provisionar hubs de notificação, crie uma instância da classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) do SDK.
 
-Você pode usar o cmdlet [Get-AzureSBAuthorizationRule] incluído com Azure PowerShell para recuperar uma regra de autorização que é usada para fornecer uma cadeia de conexão. Uma referência à `NamespaceManager` instância é armazenada `$NamespaceManager` na variável. `$NamespaceManager`é usado para provisionar um hub de notificação.
+Você pode usar o cmdlet [Get-AzureSBAuthorizationRule] incluído com Azure PowerShell para recuperar uma regra de autorização que é usada para fornecer uma cadeia de conexão. Uma referência à instância de `NamespaceManager` é armazenada na variável `$NamespaceManager`. `$NamespaceManager` é usado para provisionar um hub de notificação.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -94,15 +94,15 @@ Para aprovisionar um novo hub de notificação, utilize o [.NET API dos Hubs de 
 
 Nesta parte do script, você configura quatro variáveis locais.
 
-1. `$Namespace`: Defina isso para o nome do namespace no qual você deseja criar um hub de notificação.
-2. `$Path`: Defina esse caminho para o nome do novo hub de notificação.  Por exemplo, "MyHub".
+1. `$Namespace`: Defina isso como o nome do namespace no qual você deseja criar um hub de notificação.
+2. `$Path`: defina esse caminho para o nome do novo hub de notificação.  Por exemplo, "MyHub".
 3. `$WnsPackageSid`: Defina isso para o SID do pacote para seu aplicativo do Windows no [centro de desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
 4. `$WnsSecretkey`: Defina isso para a chave secreta para seu aplicativo do Windows no [centro de desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
 
 Essas variáveis são usadas para se conectar ao namespace e criar um novo hub de notificação configurado para manipular notificações do Windows Notification Services (WNS) com credenciais WNS para um aplicativo do Windows. Para obter informações sobre como obter o SID do pacote e a chave secreta, consulte o tutorial [introdução com hubs de notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
-- O trecho de script usa `NamespaceManager` o objeto para verificar se o Hub de notificação identificado por `$Path` existe.
-- Se não existir, o script criará `NotificationHubDescription` com credenciais WNS e a passará para o método de `NamespaceManager` classe `CreateNotificationHub` .
+- O trecho de script usa o objeto `NamespaceManager` para verificar se o Hub de notificação identificado pelo `$Path` existe.
+- Se não existir, o script criará `NotificationHubDescription` com credenciais WNS e a passará para o método de `CreateNotificationHub` classe `NamespaceManager`.
 
 ``` powershell
 $Namespace = "<Enter your namespace>"
@@ -159,7 +159,7 @@ Alguns scripts prontos também estão disponíveis para download:
 [Opções de compra]: https://azure.microsoft.com/pricing/purchase-options/
 [Ofertas de membros]: https://azure.microsoft.com/pricing/member-offers/
 [Avaliação gratuita]: https://azure.microsoft.com/pricing/free-trial/
-[instalar e configurar o Azure PowerShell]: /powershell/azureps-cmdlets-docs.
+[Instale e configure o Azure PowerShell]: /powershell/azureps-cmdlets-docs.
 [.NET API dos Hubs de notificação de]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace

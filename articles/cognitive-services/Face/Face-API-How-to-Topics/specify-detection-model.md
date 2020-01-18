@@ -1,7 +1,7 @@
 ---
-title: Como especificar um modelo de detecção-API de Detecção Facial
+title: Como especificar um modelo de detecção-face
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como escolher qual modelo de detecção facial usar com seu aplicativo de API de Detecção Facial do Azure.
+description: Este artigo mostrará como escolher qual modelo de detecção facial usar com seu aplicativo de face do Azure.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 4306a918d56240bfe038100124b3c2b94964cebc
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5b524ca6156dab7c0d1e38ad320b721f40a49ef
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306672"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169763"
 ---
 # <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção facial
 
-Este guia mostra como especificar um modelo de detecção facial para o API de Detecção Facial do Azure.
+Este guia mostra como especificar um modelo de detecção facial para o serviço de face do Azure.
 
-O API de Detecção Facial usa modelos de aprendizado de máquina para executar operações em faces humanas em imagens. Continuamos a melhorar a precisão de nossos modelos com base nos comentários e nos avanços dos clientes em pesquisa, e fornecemos esses aprimoramentos como atualizações de modelo. Os desenvolvedores têm a opção de especificar qual versão do modelo de detecção facial desejam usar; Eles podem escolher o modelo que melhor se adapta ao seu caso de uso.
+O serviço de face usa modelos de aprendizado de máquina para executar operações em faces humanas em imagens. Continuamos a melhorar a precisão de nossos modelos com base nos comentários e nos avanços dos clientes em pesquisa, e fornecemos esses aprimoramentos como atualizações de modelo. Os desenvolvedores têm a opção de especificar qual versão do modelo de detecção facial desejam usar; Eles podem escolher o modelo que melhor se adapta ao seu caso de uso.
 
-Continue lendo para saber como especificar o modelo de detecção facial em determinadas operações de face. O API de Detecção Facial usa a detecção facial sempre que converte uma imagem de uma face em alguma outra forma de dados.
+Continue lendo para saber como especificar o modelo de detecção facial em determinadas operações de face. O serviço de face usa a detecção facial sempre que converte uma imagem de uma face em alguma outra forma de dados.
 
 Se você não tiver certeza se deve usar o modelo mais recente, pule para a seção [avaliar modelos diferentes](#evaluate-different-models) para avaliar o novo modelo e comparar os resultados usando o conjunto de dados atual.
 
@@ -38,7 +38,7 @@ Você deve estar familiarizado com o conceito de detecção de face de ia. Se n�
 
 A detecção facial localiza os locais de caixa delimitadora de faces humanas e identifica seus pontos de referência visuais. Ele extrai os recursos da face e os armazena para uso posterior em operações de [reconhecimento](../concepts/face-recognition.md) .
 
-Ao usar a API de [Detecção facial] , você pode atribuir a versão do modelo com `detectionModel` o parâmetro. Os valores disponíveis são:
+Ao usar a API de [Detecção facial] , você pode atribuir a versão do modelo com o parâmetro `detectionModel`. Os valores disponíveis são:
 
 * `detection_01`
 * `detection_02`
@@ -47,7 +47,7 @@ Uma URL de solicitação para a API REST de [detecção facial] terá a seguinte
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
-Se você estiver usando a biblioteca de cliente, poderá atribuir o valor para `detectionModel` passando uma cadeia de caracteres apropriada. Se você deixá-lo sem atribuição, a API usará a versão de modelo`detection_01`padrão (). Consulte o exemplo de código a seguir para a biblioteca de cliente .NET.
+Se você estiver usando a biblioteca de cliente, poderá atribuir o valor para `detectionModel` passando uma cadeia de caracteres apropriada. Se você deixá-lo sem atribuição, a API usará a versão do modelo padrão (`detection_01`). Consulte o exemplo de código a seguir para a biblioteca de cliente .NET.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
@@ -56,7 +56,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, rec
 
 ## <a name="add-face-to-person-with-specified-model"></a>Adicionar face à pessoa com o modelo especificado
 
-O API de Detecção Facial pode extrair dados de face de uma imagem e associá-los a um objeto **Person** por meio da API de [face da pessoa-adicionar facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) . Nesta chamada à API, você pode especificar o modelo de detecção da mesma maneira que na [Detecção facial].
+O serviço de face pode extrair dados de face de uma imagem e associá-los a um objeto **Person** por meio da API de [face da pessoa-adicionar facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) . Nesta chamada à API, você pode especificar o modelo de detecção da mesma maneira que na [Detecção facial].
 
 Consulte o exemplo de código a seguir para a biblioteca de cliente .NET.
 
@@ -71,7 +71,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Esse código cria um **Person** com ID `mypersongroupid` e adiciona uma **pessoa** a ele. Em seguida, ele adiciona uma face a essa pessoa `detection_02` usando o modelo. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01`.
+Esse código cria um **Person** com ID `mypersongroupid` e adiciona uma **pessoa** a ele. Em seguida, ele adiciona uma face a essa **pessoa** usando o modelo de `detection_02`. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01`.
 
 > [!NOTE]
 > Você não precisa usar o mesmo modelo de detecção para todas as faces em um objeto **Person** e não precisa usar o mesmo modelo de detecção ao detectar novas faces para comparar com um objeto **Person** (na API de [Rosto – Identificar] , por exemplo).
@@ -87,7 +87,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Esse código cria uma **facelist** chamada `My face collection` e adiciona uma face a ela com o `detection_02` modelo. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01`.
+Esse código cria uma **facelist** chamada `My face collection` e adiciona uma face a ela com o modelo de `detection_02`. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01`.
 
 > [!NOTE]
 > Você não precisa usar o mesmo modelo de detecção para todas as faces em um objeto de **facelist** e não precisa usar o mesmo modelo de detecção ao detectar novas faces para comparar com um objeto de **facelist** .
@@ -103,7 +103,7 @@ Os diferentes modelos de detecção facial são otimizados para tarefas diferent
 |Retorna os atributos de face (pose de cabeçalho, idade, emoção e assim por diante) se eles forem especificados na chamada de detecção. |  Não retorna atributos de face.     |
 |Retorna os pontos de referência de face se eles forem especificados na chamada de detecção.   | Não retorna pontos de referência de face.  |
 
-A melhor maneira de comparar o desempenho dos `detection_01` modelos e `detection_02` é usá-los em um conjunto de exemplo. É recomendável chamar a API de [detecção facial] em uma variedade de imagens, especialmente imagens de muitas faces ou de faces que são difíceis de ver, usando cada modelo de detecção. Preste atenção ao número de faces que cada modelo retorna.
+A melhor maneira de comparar o desempenho dos modelos `detection_01` e `detection_02` é usá-los em um conjunto de exemplo. É recomendável chamar a API de [detecção facial] em uma variedade de imagens, especialmente imagens de muitas faces ou de faces que são difíceis de ver, usando cada modelo de detecção. Preste atenção ao número de faces que cada modelo retorna.
 
 ## <a name="next-steps"></a>Passos seguintes
 
