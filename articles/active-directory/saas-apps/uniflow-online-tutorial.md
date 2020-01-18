@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eb369047574ef76dd31996fd16399380ea027c8
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f26af813fcd4032aabce2305ac8845307d1fca65
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74823306"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262134"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o uniFLOW online
 
 Neste tutorial, você aprenderá a integrar o uniFLOW online ao Azure Active Directory (Azure AD). Ao integrar o uniFLOW online ao Azure AD, você pode:
 
 * Controle no Azure AD quem tem acesso ao uniFLOW online.
-* Habilite seus usuários a serem conectados automaticamente ao uniFLOW online com suas contas do Azure AD.
+* Habilite seus usuários para entrar no uniFLOW online com suas contas do Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,7 +38,7 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 Para começar, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* assinatura habilitada para SSO (logon único) do uniFLOW online.
+* locatário do uniFLOW online.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -64,11 +64,10 @@ Configure e teste o SSO do Azure AD com o uniFLOW online usando um usuário de t
 Para configurar e testar o SSO do Azure AD com o uniFLOW online, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+   1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+   1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 1. **[Configurar o SSO online do uniFLOW](#configure-uniflow-online-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do UniFLOW online](#create-uniflow-online-test-user)** – para ter um equivalente de B. Simon no uniFLOW online que esteja vinculado à representação do usuário no Azure AD.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+    * **[Entre no UniFLOW online usando o usuário de teste criado](#sign-in-to-uniflow-online-using-the-created-test-user)** – para testar a entrada do usuário no lado do aplicativo.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
@@ -86,24 +85,24 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     | | |
     |-|-|
-    | `https://<tenant_domain_name>.eu.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.us.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.sg.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.jp.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.au.uniFLOWonline.com`|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com`|
+    | `https://<tenant_domain_name>.us.uniflowonline.com`|
+    | `https://<tenant_domain_name>.sg.uniflowonline.com`|
+    | `https://<tenant_domain_name>.jp.uniflowonline.com`|
+    | `https://<tenant_domain_name>.au.uniflowonline.com`|
 
     b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:
 
     | | |
     |-|-|
-    | `https://<tenant_domain_name>.eu.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.us.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.sg.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.jp.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.au.uniFLOWonline.com`|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com`|
+    | `https://<tenant_domain_name>.us.uniflowonline.com`|
+    | `https://<tenant_domain_name>.sg.uniflowonline.com`|
+    | `https://<tenant_domain_name>.jp.uniflowonline.com`|
+    | `https://<tenant_domain_name>.au.uniflowonline.com`|
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do UniFLOW online](mailto:support@nt-ware.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do UniFLOW online](mailto:support@nt-ware.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure ou consulte a URL de resposta exibida no locatário online do uniFLOW.
 
 1. o aplicativo uniFLOW online espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -115,6 +114,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | -----------| --------------- |
     | displayName | user.displayname |
     | apelido | User. onpremisessamaccountname |
+
+   > [!NOTE]
+   > O atributo `user.onpremisessamaccountname` conterá um valor somente se os usuários do Azure AD forem sincronizados de um Active Directory do Windows local.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
@@ -138,17 +140,20 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 1. Na lista de aplicativos, selecione **UniFLOW online**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. Na página Visão geral do aplicativo, vá para a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+   ![O link Adicionar usuário](common/add-assign-user.png)
 
 1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+
+> [!NOTE]
+> Para permitir que todos os usuários acessem o aplicativo sem atribuição manual, vá para a seção **gerenciar** e selecione **Propriedades**. Em seguida, altere o parâmetro **necessário de atribuição de usuário** para **não**.
 
 ## <a name="configure-uniflow-online-sso"></a>Configurar SSO do uniFLOW online
 
@@ -185,7 +190,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     a. Insira o nome de exibição ex: *AZUREAD SSO*.
 
-    b. Selecione a opção **da URL** para os **metadados de Federação do ADGS**.
+    b. Selecione a opção **da URL** para os **metadados de Federação do ADFS**.
 
     c. Na caixa de texto **URL de metadados de Federação** , Cole o valor da URL de metadados de Federação do **aplicativo** copiado do portal do Azure.
 
@@ -195,31 +200,13 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     f. Clique em **Guardar**.
 
-### <a name="create-uniflow-online-test-user"></a>Criar usuário de teste do uniFLOW online
+### <a name="sign-in-to-uniflow-online-using-the-created-test-user"></a>Entre no uniFLOW online usando o usuário de teste criado
 
-1. Em uma janela diferente do navegador da Web, entre no site do uniFLOW online como administrador.
+1. Em uma janela diferente do navegador da Web, vá para a URL do uniFLOW online para seu locatário.
 
-1. No painel de navegação à esquerda, selecione a guia **usuário** .
+1. Selecione o provedor de identidade criado anteriormente para entrar por meio de sua instância do Azure AD.
 
-    ![Configuração online do uniFLOW](./media/uniflow-online-tutorial/configure1.png)
-
-1. Clique em **Adicionar usuário**.
-
-    ![Configuração online do uniFLOW](./media/uniflow-online-tutorial/user1.png)
-
-1. Clique em **criar usuário manualmente**.
-
-    ![Configuração online do uniFLOW](./media/uniflow-online-tutorial/user2.png)
-
-1. Na guia **criar usuário manualmente** , forneça os valores necessários de acordo com os requisitos da sua organização.
-
-    ![Configuração online do uniFLOW](./media/uniflow-online-tutorial/user3.png)
-
-## <a name="test-sso"></a>Testar SSO
-
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Ao clicar no bloco do uniFLOW online no painel de acesso, você deverá entrar automaticamente no uniFLOW online para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Entre usando o usuário de teste.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab407ffbc0e22a2f65436741ce5c7019ac7fc540
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533455"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261369"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: treinar modelos de classificação de imagem com dados do MNIST e scikit-aprender a usar Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,7 +105,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-or-attach-an-existing-compute-target"></a>Criar ou anexar um destino de computação existente
 
-Usando Azure Machine Learning computação, um serviço gerenciado, os cientistas de dados podem treinar modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure. Exemplos incluem VMs com suporte a GPU. Neste tutorial, você criará Azure Machine Learning computação como seu ambiente de treinamento. O código a seguir criará os clusters de computadores para você se eles ainda não existirem no seu espaço de trabalho.
+Usando Azure Machine Learning computação, um serviço gerenciado, os cientistas de dados podem treinar modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure. Exemplos incluem VMs com suporte a GPU. Neste tutorial, você criará Azure Machine Learning computação como seu ambiente de treinamento. Você enviará o código do Python para ser executado nessa VM posteriormente no tutorial. 
+
+O código a seguir criará os clusters de computadores para você se eles ainda não existirem no seu espaço de trabalho.
 
  **A criação do destino de computação leva cerca de cinco minutos.** Se o recurso de computação já estiver no espaço de trabalho, o código o usará e ignorará o processo de criação.
 
@@ -146,7 +148,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-Tem agora os pacotes e os recursos de computação necessários para preparar um modelo na cloud.
+Tem agora os pacotes e os recursos de computação necessários para preparar um modelo na cloud. 
 
 ## <a name="explore-data"></a>Explorar dados
 
@@ -215,7 +217,7 @@ Agora, tem uma ideia do aspeto destas imagens e do resultado previsto da prediç
 
 ## <a name="train-on-a-remote-cluster"></a>Preparar num cluster remoto
 
-Para esta tarefa, submeta o trabalho para o cluster de preparação remoto que configurou anteriormente.  Para submeter um trabalho, tem de:
+Para essa tarefa, você envia o trabalho para ser executado no cluster de treinamento remoto que você configurou anteriormente.  Para submeter um trabalho, tem de:
 * Criar um diretório
 * Criar um script de preparação
 * Criar um objeto de Calculadora

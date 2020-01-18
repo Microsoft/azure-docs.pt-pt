@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/02/2019
+ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468460"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264734"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -47,13 +47,15 @@ Se você quiser usar Azure PowerShell em vez disso para concluir este procedimen
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Existem três requisitos chave para este cenário funcionar corretamente:
+Uma rede híbrida usa o modelo de Arquitetura Hub e spoke para rotear o tráfego entre o Azure VNets e redes locais. A arquitetura Hub e spoke tem os seguintes requisitos:
 
-- Uma rota definida pelo usuário (UDR) na sub-rede do spoke que aponta para o endereço IP do firewall do Azure como o gateway padrão. A propagação de rotas BGP tem de ser **Desativada** nesta tabela de rotas.
-- Um UDR na sub-rede de gateway de Hub deve apontar para o endereço IP do firewall como o próximo salto para as redes spoke.
+- Defina **AllowGatewayTransit** ao emparelhar vnet-Hub para vnet-spoke. Em uma arquitetura de rede hub e spoke, um trânsito de Gateway permite que as redes virtuais spoke compartilhem o gateway de VPN no Hub, em vez de implantar gateways de VPN em todas as redes virtuais spoke. 
 
-   Nenhum UDR é necessário na sub-rede do firewall do Azure, pois ele aprende as rotas do BGP.
-- Certifique-se de que define **AllowGatewayTransit** no peering de VNet-Hub para VNet-Spoke e que utiliza **UseRemoteGateways** no peering de VNet-Spoke para VNet-Hub.
+   Além disso, as rotas para as redes virtuais conectadas ao gateway ou redes locais serão propagadas automaticamente para as tabelas de roteamento das redes virtuais emparelhadas usando o trânsito do gateway. Para obter mais informações, consulte [Configurar o gateway de VPN de trânsito para o emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+
+- Defina **UseRemoteGateways** quando você emparelhar vnet com o Hub vnet. Se **UseRemoteGateways** for definido e **AllowGatewayTransit** no emparelhamento remoto também for definido, a rede virtual spoke usará gateways da rede virtual remota para trânsito.
+- Para rotear o tráfego de sub-rede do spoke por meio do firewall do Hub, você precisa de uma UDR (rota definida pelo usuário) que aponte para o firewall com a opção de **desativação de propagação de rota BGP** . A opção **desabilitar propagação de rota BGP** impede a distribuição de rota para as sub-redes spoke. Isso impede que as rotas aprendidas entrem em conflito com seu UDR.
+- Configure um UDR na sub-rede de gateway do Hub que aponta para o endereço IP do firewall como o próximo salto para as redes do spoke. Nenhum UDR é necessário na sub-rede do firewall do Azure, pois ele aprende as rotas do BGP.
 
 Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber como estas rotas são criadas.
 
@@ -261,7 +263,7 @@ Crie a conexão de rede virtual local para o Hub. Esta etapa é semelhante à an
 
 Após cerca de cinco minutos ou mais, o status de ambas as conexões deve estar **conectado**.
 
-![Conexões de gateway](media/tutorial-hybrid-portal/gateway-connections.png)
+![Ligações de gateway](media/tutorial-hybrid-portal/gateway-connections.png)
 
 ## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Emparelhar as redes virtuais Hub e spoke
 
@@ -398,7 +400,7 @@ Essa é uma máquina virtual que você usa para se conectar usando Área de Trab
 2. Em **popular**, selecione **Windows Server 2016 datacenter**.
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** -selecione existente e, em seguida, selecione **FW-híbrido-teste**.
-    - **Nome da máquina Virtual** - *VM-local*.
+    - **Nome da máquina virtual** *VM-local.*  - 
     - **Região** -mesma região que você está acostumado anteriormente.
     - **Nome de usuário**: *azureuser*.
     - **Senha**: *Azure123456!* .

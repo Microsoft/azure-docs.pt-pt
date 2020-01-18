@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787900918035dc8b14d3a173496ab1a23b0f93bb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 2768dedf80ab567582322bba4b4190b31400284f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813085"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167484"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a junção de Azure Active Directory híbrida para domínios gerenciados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
 Como um usuário em sua organização, um dispositivo é uma identidade principal que você deseja proteger. Você pode usar a identidade de um dispositivo para proteger seus recursos a qualquer momento e de qualquer local. Você pode realizar essa meta colocando as identidades do dispositivo e gerenciando-as no Azure Active Directory (AD do Azure) usando um dos seguintes métodos:
 
@@ -64,7 +64,7 @@ O ingresso no Azure AD híbrido exige que os dispositivos tenham acesso aos segu
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com`(Se você usar ou planeja usar o SSO contínuo)
+- `https://autologon.microsoftazuread-sso.com` (se você usar ou planeja usar o SSO contínuo)
 
 Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomenda [implementar o Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para habilitar computadores com Windows 10 para o registro de dispositivos com o Azure AD. Se você encontrar problemas ao configurar e gerenciar o WPAD, consulte [solucionar problemas de detecção automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
@@ -96,7 +96,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
 1. Na página **visão geral** , selecione **Avançar**.
 
-   ![Descrição geral](./media/hybrid-azuread-join-managed-domains/13.png)
+   ![Visão geral](./media/hybrid-azuread-join-managed-domains/13.png)
 
 1. Na página **Ligar ao Azure AD**, introduza as credenciais de um administrador global do inquilino do Azure AD.  
 
@@ -104,7 +104,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
 1. Na página **Opções do dispositivo** , selecione **Configurar ingresso no Azure ad híbrido**e, em seguida, selecione **Avançar**.
 
-   ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
+   ![Opções de dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
 
 1. Na página **SCP** , para cada floresta em que você deseja Azure ad Connect para configurar o SCP, conclua as etapas a seguir e, em seguida, selecione **Avançar**:
 
@@ -120,7 +120,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
 1. Na página **pronto para configurar** , selecione **Configurar**.
 
-   ![Pronto para configurar](./media/hybrid-azuread-join-managed-domains/19.png)
+   ![Preparado para configurar](./media/hybrid-azuread-join-managed-domains/19.png)
 
 1. Na página **configuração concluída** , selecione **sair**.
 
@@ -133,6 +133,9 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
 - Configurar as definições de intranet local para o registo de dispositivos
 - Configurar SSO contínuo
 - Instalar o Microsoft Workplace Join para computadores com nível inferior do Windows
+
+> [!NOTE]
+> O suporte do Windows 7 terminou em 14 de janeiro de 2020. Para obter mais informações, o [suporte para o Windows 7 foi encerrado](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar as definições de intranet local para o registo de dispositivos
 
@@ -151,7 +154,7 @@ Para concluir com êxito a junção híbrida do Azure AD de seus dispositivos de
 
 Para registrar dispositivos de nível inferior do Windows, as organizações devem instalar [o Microsoft Workplace Join para computadores que não são do Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). O Microsoft Workplace Join para computadores que não são do Windows 10 está disponível no centro de download da Microsoft.
 
-Você pode implantar o pacote usando um sistema de distribuição de software como [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). O pacote oferece suporte às opções de instalação silenciosa padrão `quiet` com o parâmetro. A ramificação atual do Configuration Manager oferece benefícios em relação às versões anteriores, como a capacidade de controlar os registros concluídos.
+Você pode implantar o pacote usando um sistema de distribuição de software como [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. A ramificação atual do Configuration Manager oferece benefícios em relação às versões anteriores, como a capacidade de controlar os registros concluídos.
 
 O instalador cria uma tarefa agendada no sistema que é executado no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa une silenciosamente o dispositivo ao Azure AD usando as credenciais do usuário após a autenticação com o Azure AD.
 
@@ -167,7 +170,7 @@ Quando você usa o cmdlet **Get-MSolDevice** para verificar os detalhes do servi
 
 **Para verificar os detalhes do serviço**:
 
-1. Abra o Windows PowerShell como administrador.
+1. Abra o Windows PowerShell Como um administrador.
 1. Insira `Connect-MsolService` para se conectar ao seu locatário do Azure.  
 1. Introduza `get-msoldevice -deviceId <deviceId>`.
 1. Certifique-se de que **Ativado** está definido como **Verdadeiro**.
@@ -179,6 +182,6 @@ Se você tiver problemas com a conclusão da junção híbrida do Azure AD para 
 - [Solucionar problemas de ingresso no Azure AD híbrido para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
 - [Solucionar problemas de ingresso no Azure AD híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [gerenciar identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md).

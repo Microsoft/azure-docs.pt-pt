@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1f5c837f1912df407960fca41387eb84986381e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 530f32a994f448247dd5f06a21336eb052193cbb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423158"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167568"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -154,6 +154,9 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
 
 - Configurar as definições de intranet local para o registo de dispositivos
 - Instalar o Microsoft Workplace Join para computadores com nível inferior do Windows
+
+> [!NOTE]
+> O suporte do Windows 7 terminou em 14 de janeiro de 2020. Para obter mais informações, o [suporte para o Windows 7 foi encerrado](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar as definições de intranet local para o registo de dispositivos
 

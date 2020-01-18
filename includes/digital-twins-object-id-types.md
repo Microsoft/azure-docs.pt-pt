@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/15/2020
 ms.custom: include file
-ms.openlocfilehash: e46041a33c12b3fcb40e5a04de11108471e59855
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: cb43c8b8c952d8db6cf450a7015c22c85e7fe4b5
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307235"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268302"
 ---
 O `objectIdType` (ou o **tipo de identificador de objeto**) refere-se ao tipo de identidade que é fornecido a uma função. Além dos tipos `DeviceId` e `UserDefinedFunctionId`, os tipos de identificadores de objetos correspondem às propriedades de objetos Azure Active Directory.
 

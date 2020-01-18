@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 01/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3252b7b257fda96b3d711c5f47ec7c6eb7ee36cb
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969722"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Workplace by Facebook
 
@@ -48,8 +47,8 @@ Para começar, você precisa dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * Workplace by Facebook dá suporte ao SSO iniciado pelo **SP**
-* Local de trabalho por Facebook dá suporte ao  **[provisionamento e desprovisionamento automáticos de usuário (recomendado)](workplacebyfacebook-provisioning-tutorial.md)**
 * O Workplace by Facebook dá suporte ao **provisionamento just-in-time**
+* Workplace by Facebook dá suporte ao  **[provisionamento automático de usuário](workplacebyfacebook-provisioning-tutorial.md)**
 * O aplicativo móvel do workplace by Facebook agora pode ser configurado com o Azure AD para habilitar o SSO. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Adicionando o Workplace by Facebook por meio da Galeria
@@ -92,8 +91,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
 
-    > [!NOTE] 
-    > Esses valores não são o real. Atualize esses valores com a URL de entrada e o identificador reais. Consulte a página autenticação do painel da empresa do workplace para obter os valores corretos para sua comunidade de local de trabalho.
+    c. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
+
+    > [!NOTE]
+    > Esses valores não são o real. Atualize esses valores com a URL de logon, o identificador e a URL de resposta reais. Consulte a página autenticação do painel da empresa do workplace para obter os valores corretos para sua comunidade de local de trabalho. isso é explicado posteriormente no tutorial.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -172,13 +173,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     f. Copie a **URL do destinatário** para sua instância e cole-a na caixa de texto **URL de logon** na seção **configuração básica do SAML** em portal do Azure.
 
-    g. Role até a parte inferior da seção e clique no botão **testar SSO** . Isso resulta em uma janela pop-up que aparece com a página de logon do Azure AD apresentada. Insira suas credenciais em normalmente para autenticar.
+    g. Copie a **URL do ACS (serviço de consumidor de asserção)** para sua instância e cole-a na caixa de texto **URL de resposta** na seção **configuração básica do SAML** em portal do Azure.
+
+    h. Role até a parte inferior da seção e clique no botão **testar SSO** . Isso resulta em uma janela pop-up que aparece com a página de logon do Azure AD apresentada. Insira suas credenciais em normalmente para autenticar.
 
     **Solução de problemas:** Verifique se o endereço de email retornado do Azure AD é o mesmo da conta do local de trabalho com a qual você está conectado.
 
-    h. Depois que o teste tiver sido concluído com êxito, role até a parte inferior da página e clique no botão **salvar** .
+    i. Depois que o teste tiver sido concluído com êxito, role até a parte inferior da página e clique no botão **salvar** .
 
-    i. Todos os usuários que usam o local de trabalho agora serão apresentados com a página de logon do Azure AD para autenticação.
+    j. Todos os usuários que usam o local de trabalho agora serão apresentados com a página de logon do Azure AD para autenticação.
 
 1. **Redirecionamento de logout SAML (opcional)**  -
 

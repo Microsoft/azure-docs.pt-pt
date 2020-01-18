@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5751ed33673ca859ba1aed54cfc7c2e7ecc8e495
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ff3409fad12e54be5ac00ead3ca44c1f24bb0af8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124046"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268227"
 ---
-Os ultra discos do Azure oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs (máquinas virtuais) IaaS do Azure. Essa nova oferta fornece a parte superior do desempenho de linha nos mesmos níveis de disponibilidade que nossas ofertas de discos existentes. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar suas VMs. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho com transações pesadas.
+Os ultra discos do Azure oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs (máquinas virtuais) IaaS do Azure. Essa nova oferta fornece a parte superior do desempenho de linha nos mesmos níveis de disponibilidade que nossas ofertas de discos existentes. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar suas VMs. Os discos Ultra são indicados para cargas de trabalho com utilização intensa de dados, como o SAP HANA, base de dados de escalão superior e cargas de trabalho com bastantes transações.
 
 ## <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
 
@@ -29,8 +29,10 @@ CLI:
 
 ```bash
 $subscription = "<yourSubID>"
-$region = "<yourLocation>, example value is southeastasia"
-$vmSize = "<yourVMSize>, example value is Standard_E64s_v3"
+# example value is southeastasia
+$region = "<yourLocation>"
+# example value is Standard_E64s_v3
+$vmSize = "<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
@@ -77,7 +79,7 @@ Esta seção aborda a implantação de uma máquina virtual equipada com um ultr
 - Certifique-se de escolher um [tamanho de VM e uma região com suporte](#ga-scope-and-limitations).
 - Selecione **zona de disponibilidade** em **Opções de disponibilidade**.
 - Preencha as entradas restantes com seleções de sua escolha.
-- Selecione **discos**.
+- Selecione os **Discos**.
 
 ![Create-ultra-Disk-Enabled-VM. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
 

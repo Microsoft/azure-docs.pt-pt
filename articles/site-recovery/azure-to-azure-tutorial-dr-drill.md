@@ -2,21 +2,17 @@
 title: Executar uma análise de recuperação de desastre de VM do Azure com Azure Site Recovery
 description: Saiba como executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure usando o serviço de Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/14/2019
-ms.author: raynew
+ms.date: 01/16/2020
 ms.custom: mvc
-ms.openlocfilehash: 817a220e36ac250b1d5a5aa90d0bddbfb155cc26
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091323"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166181"
 ---
-# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure 
+# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento e disponíveis durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
@@ -27,34 +23,34 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 > * Executar uma ativação pós-falha de teste para uma única VM
 
 > [!NOTE]
-> Este tutorial ajuda você a executar uma análise de recuperação de desastre com etapas mínimas; caso você queira saber mais sobre os vários aspectos associados à execução de uma análise de DR, incluindo considerações de rede, automação ou solução de problemas, consulte os documentos em "como" para as VMs do Azure.
+> Este tutorial ajuda você a executar uma análise de recuperação de desastre com etapas mínimas. Para saber mais sobre as várias funções relacionadas à realização de uma análise de recuperação de desastres, consulte a documentação de [replicação](azure-to-azure-how-to-enable-replication.md), [rede](azure-to-azure-about-networking.md), [automação](azure-to-azure-powershell.md)ou [solução de problemas](azure-to-azure-troubleshoot-errors.md)de VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Antes de executar uma ativação pós-falha de teste, recomendamos que verifique as propriedades da VM para garantir que funciona tudo conforme o esperado.  Aceda às propriedades da VM nos **Itens replicados**. O painel **Informações Básicas** mostra informações sobre estados e definições de computadores.
-- **Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste**, e não a rede predefinida que foi configurada quando ativou a replicação.
-- Dependendo das configurações de rede de origem para cada NIC, opcionalmente, você pode especificar a **sub-rede, o endereço IP, o IP público, o grupo de segurança de rede ou o Load balancer interno** para anexar a cada NIC em configurações de failover de teste em computação & rede antes de realizar a análise de Dr.
+Verifique os seguintes itens antes de fazer este tutorial:
 
+- Antes de executar um failover de teste, recomendamos que você verifique as propriedades da VM para certificar-se de que ela esteja configurada para recuperação de desastre. Acesse as **Propriedades** da **VM** > **recuperação de desastre** > para exibir as propriedades de replicação e failover.
+- **Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste**, e não a rede predefinida que foi configurada quando ativou a replicação.
+- Dependendo das configurações de rede de origem para cada NIC, você pode especificar a **sub-rede**, o **endereço IP privado**, o **IP público**, o **grupo de segurança de rede**ou o **balanceador de carga** para anexar a cada NIC em configurações de failover de teste em **computação e rede** antes de fazer uma análise de recuperação de desastre.
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
-1. Em **Definições** > **Itens Replicados**, clique na VM **+Testar Ativação Pós-falha**.
+Este exemplo mostra como usar um cofre de serviços de recuperação para fazer um failover de teste de VM.
 
-2. Em **Ativação Pós-falha**, selecione um ponto de recuperação para utilizar na ativação pós-falha:
-
-    - **Mais recente**: processa todos os dados em site Recovery e fornece o RTO mais baixo (objetivo de tempo de recuperação).
-    - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
+1. Selecione um cofre e vá para **itens protegidos** > **itens replicados** e selecione uma VM.
+1. Em **failover de teste**, selecione um ponto de recuperação a ser usado para o failover:
+   - **Mais recente**: processa todos os dados em site Recovery e fornece o RTO mais baixo (objetivo de tempo de recuperação).
+   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. O carimbo de data/hora é apresentado. Com essa opção, nenhum tempo é gasto processando dados, portanto, ele fornece um RTO baixo.
    - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
    - **Personalizado**: failover para um ponto de recuperação específico. O personalizado só está disponível quando você faz failover de uma única VM e não para failover com um plano de recuperação.
+1. Selecione a rede virtual do Azure de destino à qual as VMs do Azure na região secundária serão conectadas após o failover.
 
-3. Selecione a rede virtual de destino à qual as VMs do Azure na região secundária serão ligadas, após a ativação pós-falha ocorrer.
+   > [!NOTE]
+   > Se as configurações de failover de teste forem pré-configuradas para o item replicado, o menu suspenso para selecionar uma rede virtual do Azure não será visível.
 
-    > [!NOTE]
-    > A lista suspensa para selecionar a rede virtual do Azure não estará visível se as configurações de failover de teste estiverem pré-configuradas para o item replicado.
-
-4. Para iniciar a ativação pós-falha, clique em **OK**. Para acompanhar o progresso, clique em VM para abrir as respetivas propriedades. Também pode clicar na tarefa **Ativação Pós-falha de Teste** no nome do cofre > **Definições** > **Tarefas** > **Tarefas do Site Recovery**.
-5. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.
-6. Para eliminar as VMs que foram criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** no item replicado ou no plano de recuperação. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
+1. Para iniciar o failover, selecione **OK**. Para acompanhar o progresso do cofre, acesse **monitoramento** > **trabalhos de site Recovery** e selecione o trabalho de failover de **teste** .
+1. Depois que o failover for concluído, a VM do Azure de réplica aparecerá nas **máquinas virtuais**do portal do Azure. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.
+1. Para excluir as VMs que foram criadas durante o failover de teste, selecione **limpar failover de teste** no item replicado ou no plano de recuperação. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
 
 ## <a name="next-steps"></a>Passos seguintes
 

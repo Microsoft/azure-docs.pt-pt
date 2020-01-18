@@ -1,44 +1,44 @@
 ---
-title: Tutorial - instalar o descompactar, montar, o cabo dispositivo físico do Edge de caixa de dados do Azure | Documentos da Microsoft
-description: O segundo tutorial sobre como instalar o Edge de caixa de dados do Azure envolve como descompactar, bastidor e instalar os cabos do dispositivo físico.
+title: Tutorial para instalar-Unpack, rack, cabo Azure Data Box Edge dispositivo físico | Microsoft Docs
+description: O segundo tutorial sobre a instalação de Azure Data Box Edge envolve como desempacotar, colocar em rack e conectar o dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476938"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263953"
 ---
-# <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Edge de caixa de dados do Azure
+# <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: instalar o Azure Data Box Edge
 
-Este tutorial descreve como instalar um dispositivo físico do Data Box Edge. O procedimento de instalação envolve desempacotar, montagem de rack e cabos do dispositivo. 
+Este tutorial descreve como instalar um dispositivo físico do Data Box Edge. O procedimento de instalação envolve desempacotamento, montagem em rack e cabeamento do dispositivo. 
 
-A instalação pode demorar cerca de duas horas a concluir.
+A instalação pode levar cerca de duas horas para ser concluída.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo
-> * Montar em Bastidor o dispositivo
+> * Montar o dispositivo no rack
 > * Ligar o dispositivo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Pré-requisitos para instalar um dispositivo físico da seguinte forma:
+Os pré-requisitos para instalar um dispositivo físico da seguinte maneira:
 
 ### <a name="for-the-data-box-edge-resource"></a>Para o recurso do Data Box Edge
 
 Antes de começar, certifique-se de que:
 
-* Concluiu todos os passos [preparar a implementação de borda de caixa de dados do Azure](data-box-edge-deploy-prep.md).
-    * Acabou de criar um recurso de borda de caixa de dados para implementar o dispositivo.
+* Você concluiu todas as etapas em [preparar para implantar Azure data Box Edge](data-box-edge-deploy-prep.md).
+    * Você criou um recurso de Data Box Edge para implantar seu dispositivo.
     * Gerou a chave de ativação para ativar o dispositivo com o recurso do Data Box Edge.
 
  
@@ -46,21 +46,21 @@ Antes de começar, certifique-se de que:
 
 Antes de implementar um dispositivo:
 
-- Certifique-se de que o dispositivo com segurança assenta numa superfície plana, estável e nível de trabalho.
+- Certifique-se de que o dispositivo fique com segurança em uma superfície de trabalho plana, estável e nivelada.
 - Verifique se o local onde quer configurar o dispositivo tem:
-    - Padrão alternada a partir de uma origem independente
+    - Alimentação AC padrão de uma fonte independente
 
         -OU-
-    - Uma unidade de distribuição de energia (PDU) de rack com uma alimentação ininterrupta (UPS)
-    - Um slot de 1U disponíveis no rack no qual pretende montar o dispositivo
+    - Uma PDU (unidade de distribuição de energia) de rack com uma fonte de alimentação ininterrupta (UPS)
+    - Um slot de 1U disponível no rack no qual você pretende montar o dispositivo
 
 ### <a name="for-the-network-in-the-datacenter"></a>Para a rede no datacenter
 
 Antes de começar:
 
-- Reveja os requisitos de rede para a implementação de borda de caixa de dados e configurar a rede de centro de dados pelos requisitos. Para obter mais informações, veja [Requisitos de rede do Data Box Edge](data-box-edge-system-requirements.md#networking-port-requirements).
+- Examine os requisitos de rede para implantar Data Box Edge e configure a rede do datacenter de acordo com os requisitos. Para obter mais informações, veja [Requisitos de rede do Data Box Edge](data-box-edge-system-requirements.md#networking-port-requirements).
 
-- Certifique-se de que a largura de banda de Internet mínima é 20 Mbps para funcionar ideal do dispositivo.
+- Certifique-se de que a largura de banda mínima da Internet seja de 20 Mbps para o funcionamento ideal do dispositivo.
 
 
 ## <a name="unpack-the-device"></a>Desembalar o dispositivo
@@ -68,19 +68,19 @@ Antes de começar:
 Este dispositivo é enviado numa única caixa. Conclua os passos seguintes para desembalar o dispositivo. 
 
 1. Coloque a caixa numa superfície plana e uniforme.
-2. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, não abri-lo. Contacte o Suporte da Microsoft para ajudar a avaliar se o dispositivo está funcional.
+2. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou o empacotamento estiver seriamente danificado, não o abra. Contacte o Suporte da Microsoft para ajudar a avaliar se o dispositivo está funcional.
 3. Desembale a caixa. Depois de desembalar a caixa, certifique-se de que tem:
-    - Um dispositivo de limite de caixa de dados de bastidor único
+    - Um único compartimento Data Box Edge dispositivo
     - Dois cabos de alimentação
-    - Assembly do um rail kit
-    - Um livreto de segurança, ambientais e normas de informações
+    - Assembly de kit de um trilho
+    - Um livreto de segurança, ambiente e informações regulatórias
 
-Se não tiver recebido todos os itens listados aqui, contacte o suporte de dados caixa Edge. O passo seguinte consiste em rack montar o seu dispositivo.
+Se você não recebeu todos os itens listados aqui, entre em contato com o suporte Data Box Edge. A próxima etapa é montar o dispositivo em rack.
 
 
 ## <a name="rack-the-device"></a>Montar o dispositivo em bastidor
 
-O dispositivo tem de ser instalado num bastidor de 19 polegadas padrão. Utilize o procedimento seguinte para rack montar o seu dispositivo no bastidor 19 polegadas padrão.
+O dispositivo deve ser instalado em um rack padrão de 19 polegadas. Use o procedimento a seguir para montar o dispositivo em rack em um rack padrão de 19 polegadas.
 
 > [!IMPORTANT]
 > Os dispositivos Data Box Edge têm de ser montados em bastidor para um funcionamento correto.
@@ -88,143 +88,132 @@ O dispositivo tem de ser instalado num bastidor de 19 polegadas padrão. Utilize
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Antes de começar, leia as instruções de segurança no seu livreto de segurança, ambientais e informações de regulamentação. Este livreto foi lançado com o dispositivo.
-- Começa a instalar os rails no espaço alocado que está mais próximo da parte inferior do bastidor de rack.
-- Para a configuração de montagem do tooled rail:
-    -  Precisa fornecer oito screws: #10-32, #12 a 24, #M5 ou #M6. O diâmetro principal dos screws tem de ser inferior a 10 mm (0.4").
-    -  É necessário um screwdriver colocado para fixa.
+- Antes de começar, leia as instruções de segurança em seu livreto de segurança, ambiente e informações regulatórias. Este livreto foi enviado com o dispositivo.
+- Comece a instalar os trilhos no espaço alocado mais próximo à parte inferior do compartimento do rack.
+- Para a configuração de montagem do trilho de ferramentas:
+    -  Você precisa fornecer oito parafusos: #10-32, #12-24, #M5 ou #M6. O diâmetro de cabeça dos parafusos deve ser inferior a 10 mm (0,4 ").
+    -  Você precisa de uma chave de fenda com gorjetas planas.
 
-### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit rail
+### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit do trilho
 
-Localize os componentes para instalar o assembly do rail kit:
-1. II de ReadyRails Dell dois A7 deslizante assemblies do rail
-2. Dois straps hook e loop
+Localize os componentes para instalar o assembly do kit do trilho:
+1. Dois assemblies de trilho deslizante do Dell ReadyRails II a7
+2. Duas pulseiras de gancho e loop
 
-    ![Identificar o conteúdo do kit de rail](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identificar conteúdo do kit do trilho](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instalar e remover a ferramenta sem rails (buraco quadrado ou buraco redondo racks)
-
-> [!TIP]
-> Esta opção é a ferramenta sem porque ele não requer ferramentas para instalar e remover os rails para o quadrado unthreaded ou arredondar buracos nos racks.
-
-1. Posicionar as partes de fim de left e right rail rotuladas **FRONT** com acesso à inward e orientar a cada peça final para os buracos no lado do front-de flanges o bastidor vertical de usuários.
-2. Alinhe cada peça final os buracos na parte inferior e superior dos espaços de U pretendidos.
-3. Interagir com o back-end do rail até ele totalmente o flange vertical rack e os cliques de bloqueio temporário no lugar certo. Repita estes passos para posicionar e a parte front-end no flange bastidor vertical de usuários.
-4. Para remover os rails, extrair o botão de versão do bloqueio temporário no ponto de médio de peça final e unseat cada rail.
-
-    ![Instalar e remover a ferramenta sem rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
-
-### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalar e remover rails tooled (Threaded buraco racks)
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instalar e remover trilhos sem ferramentas (orifício quadrado ou racks de orifícios redondos)
 
 > [!TIP]
-> Esta opção é tooled porque é necessária uma ferramenta (_um screwdriver colocado para fixa_) instalar e remover os rails nos threads buracos redondo nos racks.
+> Essa opção é sem ferramentas porque não requer ferramentas para instalar e remover os trilhos no quadrado não-thread ou nos orifícios arredondados nos racks.
 
-1. Remova os pins de frente e traseiro montar Retos usando um screwdriver colocado para fixa.
-2. Extrair e girar os subassemblies de bloqueio temporário do rail para removê-los dos colchetes de montagem.
-3. Anexe à esquerda e direita montar rails para as flanges de front-rack vertical através de dois pares de screws.
-4. Deslize o lado esquerda e direita de cópia de parênteses Retos reencaminhar contra os flanges rear vertical rack e anexe-os através de dois pares de screws.
+1. Posicione as peças de extremidade do trilho esquerda e direita rotuladas na **frente** para dentro e Oriente cada peça final para colocar nos orifícios no lado frontal dos flanges verticais do rack.
+2. Alinhe cada parte final nos orifícios inferior e superior dos espaços em U desejados.
+3. Envolva o back-end do trilho até que ele se encaixe totalmente no flange vertical do rack e que os cliques da trava estejam no lugar. Repita essas etapas para posicionar e colocar a peça de front-end no flange vertical do rack.
+4. Para remover os trilhos, puxe o botão de liberação de trava no ponto médio de extremidade e desencaixe cada trilho.
 
-    ![Instalar e remover tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Instalar e remover trilhos sem ferramentas](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-### <a name="install-the-system-in-a-rack"></a>Instalar o sistema num bastidor
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalar e remover trilhos de ferramentas (racks de orifícios segmentados)
 
-1. Extrair os rails slide interna fora do rack até que eles bloquear no lugar certo.
-2. Localize o standoff rear rail em cada lado do sistema e reduzi-los para o traseiro J ranhuras nos assemblies de slide. Roda para baixo o sistema até que todos os standoffs de rail são sentados nas ranhuras-J.
-3. Enviar por push o sistema inward até que o alavancas de bloqueio, clique no lugar certo.
-4. Prima os botões de bloqueio de lançamento de slide on rails e slide o sistema em rack.
+> [!TIP]
+> Essa opção é orientada porque requer uma ferramenta (_uma chave de fenda com gorjetas planas_) para instalar e remover os trilhos nos orifícios de round-Threading nos racks.
 
-    ![Instalar o sistema num bastidor](./media/data-box-edge-deploy-install/installing-system-rack.png)
+1. Remova os PINs dos colchetes de montagem frontal e traseira usando uma chave de fenda com gorjetas planas.
+2. Puxe e gire os subconjuntos de travas do trilho para removê-los dos colchetes de montagem.
+3. Anexe os trilhos de montagem esquerdo e direito aos flangeos do rack vertical frontal usando dois pares de parafusos.
+4. Deslize os colchetes à esquerda e à direita para frente nos flanges verticais do rack traseiro e anexe-os usando dois pares de parafusos.
 
-### <a name="remove-the-system-from-the-rack"></a>Remover o sistema de bastidor
+    ![Instalar e remover trilhos com ferramentas](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
-1. Localize as alavancas de bloqueio nos lados dos rails internas.
-2. Desbloquear cada alavanca por girando-o até sua posição de versão.
-3. Entender os lados do sistema firmemente e recebê-los para frente até que o standoffs da grade são na frente da J-ranhuras. Leve o sistema de cima e para fora do rack e coloque-o numa superfície de nível.
+### <a name="install-the-system-in-a-rack"></a>Instalar o sistema em um rack
 
-    ![Remover o sistema de bastidor](./media/data-box-edge-deploy-install/removing-system-rack.png)
+1. Puxe os trilhos do slide interno para fora do rack até que eles travem no local.
+2. Localize o ressalto do trilho traseiro em cada lado do sistema e abaixe-o nos slots J traseiros nos assemblies do slide. Gire o sistema para baixo até que todos os espaçadores do trilho estejam encaixados nos slots J.
+3. Pressione o sistema para dentro até que as alavancas de bloqueio cliquem no lugar.
+4. Pressione os botões de bloqueio de liberação de slides em ambos os trilhos e deslize o sistema para o rack.
 
-### <a name="engage-and-release-the-slam-latch"></a>Se envolver e liberar o bloqueio temporário mais
+    ![Instalar o sistema em um rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### <a name="remove-the-system-from-the-rack"></a>Remover o sistema do rack
+
+1. Localize as alavancas de bloqueio nos lados dos trilhos internos.
+2. Desbloqueie cada alavanca girando-a para sua posição de liberação.
+3. Segure os lados do sistema firmemente e empurre-os para frente até que os espaçadores do trilho estejam na frente dos J-slots. Levante o sistema para cima e para fora do rack e coloque-o em uma superfície de nível.
+
+    ![Remover o sistema do rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### <a name="engage-and-release-the-slam-latch"></a>Envolver e liberar a trava térrea
 
 > [!NOTE]
-> Para sistemas não equipados com mais travas, proteger o sistema usando screws, conforme descrito no passo 3 deste procedimento.
+> Para sistemas não equipados com travas térrea, proteja o sistema usando parafusos, conforme descrito na etapa 3 deste procedimento.
 
-1. Com acesso à frente, localize o bloqueio temporário mais em ambos os lados do sistema.
-2. As travas envolver-se automaticamente à medida que o sistema é enviada para o bastidor e são lançadas ao extrair a cópia de segurança nas travas.
-3. Para proteger o sistema de remessa no rack ou de outros ambientes instáveis, localize o screw de montagem disco rígido em cada bloqueio temporário e reforçar a cada screw com um #2 Phillips screwdriver.
+1. Voltado para a frente, localize a trava térrea em qualquer lado do sistema.
+2. As travas se encontram automaticamente à medida que o sistema é colocado no rack e são liberados com o pull das travas.
+3. Para proteger o sistema para envio no rack ou para outros ambientes instável, localize o parafuso de montagem rígida em cada trava e aperte cada parafuso com uma chave de fenda Phillips #2.
 
-    ![Interaja com e sem bloqueios temporários de mais de versão](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Envolver e liberar trava térrea](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### <a name="route-the-cables"></a>Encaminhar os cabos
-
-> [!NOTE]
->  Se não o solicitar o cabo de gestão Arm (CMA) opcional, usar o gancho de duas e fazer um loop straps fornecidos no kit do rail para encaminhar os cabos remissivo seu sistema.
-
-1. Localize os colchetes CMA externos nos lados interior de ambos os flanges rack.
-2. Agrupar os cabos moderadamente, colocá-los limpar dos conectores do sistema para as laterais esquerda e direita.
-3. Os straps hook e o loop por meio de ranhuras nos colchetes CMA externas de cada lado do sistema para proteger os pacotes de cabo de thread.
-
-
-    ![Encaminhar os cabos](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Ligar o dispositivo
 
-Os procedimentos seguintes explicam como ligar o seu dispositivo do Edge de caixa de dados para poder e a rede.
+Encaminhe os cabos e conecte o dispositivo. Os procedimentos a seguir explicam como conectar seu dispositivo de Data Box Edge para energia e rede.
 
-Antes de começar a cablagem o seu dispositivo, precisa do seguinte:
+Antes de iniciar o cabeamento do dispositivo, você precisará do seguinte:
 
-- O dispositivo físico do Edge de caixa de dados, descompactado e rack montado.
+- Seu Data Box Edge dispositivo físico, desempacotado e montado em rack.
 - Dois cabos de alimentação.
 - Pelo menos um cabo de rede de 1 GbE RJ-45 para ligar à interface de gestão. Existem duas interfaces de rede de 1 GbE, uma de gestão e uma de dados, no dispositivo.
-- Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Interface de rede de dados, pelo menos, um dentre porta 2, porta 3, 4 de porta, porta 5 ou 6 da porta tem de estar ligado à Internet (com uma conectividade para o Azure).  
-- Acesso para duas unidades de distribuição de energia (recomendado).
+- Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Pelo menos uma interface de rede de dados entre a porta 2, a porta 3, a porta 4, a porta 5 ou a porta 6 precisa estar conectada à Internet (com conectividade com o Azure).  
+- Acesso a duas unidades de distribuição de energia (recomendado).
 
 > [!NOTE]
-> - Se estiver a ligar apenas uma interface de rede de dados, recomendamos que utilize uma interface de rede de 25/10 GbE, como a porta 3, 4 de porta, porta 5 ou 6 de porta para enviar dados para o Azure. 
+> - Se você estiver conectando apenas uma interface de rede de dados, recomendamos que você use uma interface de rede de 25/10 GbE, como a porta 3, a porta 4, a porta 5 ou a porta 6 para enviar dados para o Azure. 
 > - Para obter um melhor desempenho e lidar com grandes volumes de dados, considere ligar todas as portas de dados.
-> - O dispositivo de limite de caixa de dados deve estar ligado à rede do datacenter, para que ele pode ingerir dados de servidores de origem de dados.
+> - O dispositivo Data Box Edge deve estar conectado à rede do datacenter para que ele possa ingerir dados de servidores de fonte de dados.
 
-No seu dispositivo do Edge de caixa de dados:
+Em seu dispositivo de Data Box Edge:
 
 - O painel frontal tem unidades de disco e um botão de energia.
 
-    - Há 10 blocos de disco no início do seu dispositivo.
-    - Ranhura 0 tem uma unidade SATA de 240 GB utilizada como um disco de sistema operativo. Ranhura 1 está vazia e blocos de 2 a 9 são que nvme SSD utilizados como discos de dados.
-- O plano de fundo inclui unidades de fonte de alimentação de energia redundantes (PSUs).
-- O plano de fundo possui seis interfaces de rede:
+    - Há 10 slots de disco na frente do seu dispositivo.
+    - O slot 0 tem uma unidade SATA de 240 GB usada como um disco do sistema operacional. O slot 1 está vazio e os slots de 2 a 9 são SSDs de NVMe usados como discos de dados.
+- O plano de fundo inclui unidades de fonte de alimentação redundantes (PSUs).
+- O plano de fundo tem seis interfaces de rede:
 
     - Duas interfaces de 1 Gbps.
-    - Interfaces de 25 quatro Gbps que também podem servir como interfaces de 10 Gbps.
-    - Um controlador de gestão de placas base (BMC).
+    - Interfaces 4 25-Gbps que também podem servir como interfaces de 10 Gbps.
+    - Um Baseboard Management Controller (BMC).
 
-- O plano de fundo tem duas placas de rede correspondente para as 6 portas:
+- O plano de fundo tem duas placas de rede correspondentes às 6 portas:
 
     - QLogic FastLinQ 41264
     - QLogic FastLinQ 41262
 
-Para obter uma lista completa de transcetores para essas placas de rede, comutadores e cabos suportados, aceda a [Cavium FastlinQ 41000 série interoperabilidade matriz](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+Para obter uma lista completa de cabos, comutadores e transceptores com suporte para essas placas de rede, acesse a [matriz de interoperabilidade do Cavium FastlinQ 41000 Series](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
-Siga os passos seguintes para instalar os cabos do dispositivo para poder e a rede.
+Execute as etapas a seguir para conectar o dispositivo à energia e à rede.
 
-1. Identifica as várias portas no plano de fundo do seu dispositivo.
+1. Identifique as várias portas no plano de fundo do seu dispositivo.
 
-    ![Plano de fundo de um dispositivo cabled](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    ![Plano traseiro de um dispositivo cabeado](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-2. Localize os blocos de disco e o botão de energia na frente do dispositivo.
+2. Localize os slots de disco e o botão de energia na frente do dispositivo.
 
-    ![Plano de front-de um dispositivo](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+    ![Plano frontal de um dispositivo](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
 
 3. Ligue os cabos de alimentação a cada uma das PSUs no bastidor. Para garantir uma elevada disponibilidade, instale e ligue as PSUs a diferentes fontes de alimentação.
 4. Ligue os cabos de alimentação às unidades de distribuição de energia (PDUs) em bastidor. Certifique-se de que as duas PSUs utilizam fontes de alimentação separadas.
-5. Prima o botão de energia para ativar o dispositivo.
-6. Ligue-se a interface de rede de 1 GbE 1 de porta para o computador que é utilizado para configurar o dispositivo físico. A PORTA 1 é a interface de gestão dedicada.
+5. Pressione o botão de energia para ligar o dispositivo.
+6. Conecte a porta 1 da interface de rede de 1 GbE ao computador que é usado para configurar o dispositivo físico. A PORTA 1 é a interface de gestão dedicada.
 7. Ligue uma ou mais das PORTAS 2, 3, 4, 5 ou 6 à rede/Internet do datacenter.
 
     - Se ligar a PORTA 2, utilize o cabo de rede RJ-45.
-    - Para as interfaces de rede de 10/25 GbE, utilize os cabos SFP + cobre.
+    - Para as interfaces de rede de 10/25 GbE, use os cabos de cobre +.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu sobre tópicos de borda de caixa de dados, como:
+Neste tutorial, você aprendeu sobre tópicos de Data Box Edge como:
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo
@@ -234,4 +223,4 @@ Neste tutorial, aprendeu sobre tópicos de borda de caixa de dados, como:
 Avance para o próximo tutorial para aprender a ligar, configurar e ativar o seu dispositivo.
 
 > [!div class="nextstepaction"]
-> [Ligar e configurar dados de caixa de borda](./data-box-edge-deploy-connect-setup-activate.md)
+> [Conectar e configurar Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)

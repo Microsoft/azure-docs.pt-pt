@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: edaa3f7c17ff5fb6bc79f67b7028a7ba72347367
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467470"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268219"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Há três cenários que podem levar à máquina virtual no Azure ser afetada: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -69,9 +69,15 @@ Os [discos geridos](../articles/virtual-machines/windows/managed-disks-overview.
 ![FDs Managed disks](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
-> O número de domínios de falhas para os conjuntos de disponibilidade geridos varia consoante a região, dois ou três por região. A tabela seguinte mostra o número por região
+> O número de domínios de falhas para os conjuntos de disponibilidade geridos varia consoante a região, dois ou três por região. Você pode ver o domínio de falha para cada região executando os scripts a seguir.
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.Name -eq 'Aligned'}
+```
+
+```azurecli-interactive 
+az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
+```
 
 > Observação: em determinadas circunstâncias, pode acontecer que 2 VMs que fazem parte do mesmo Availabilityset compartilhem o mesmo FaultDomain. Isso pode ser confirmado entrando em seu Availabilityset e marcando a coluna "domínio de falha".
 > Esse comportamento pode ser observado quando a seguinte sequência ocorreu durante a implantação das VMs:

@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2cb9f7824f0dab583ffe5ca770e175c071930cb9
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420644"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168064"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para suas VMs do Azure
 
@@ -156,6 +156,10 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 > [!NOTE]
 > É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhum patch ou pacote será instalado, pois todos eles serão excluídos. Os patches excluídos ainda aparecem como ausentes no computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente que foi excluído, o pacote não será instalado.
+
+> [!NOTE]
+> Você não pode especificar atualizações que foram substituídas para inclusão na implantação da atualização.
+>
 
 * **Definições da agenda**: o painel **Definições da Agenda** abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 
