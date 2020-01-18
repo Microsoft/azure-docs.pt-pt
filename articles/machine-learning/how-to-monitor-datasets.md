@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 524a831c63e2a034766b874cc45bb039e3185b50
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536879"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264768"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -315,6 +315,7 @@ Limitações e problemas conhecidos:
 * Limitação de 200 recursos, a menos que uma lista de recursos não seja especificada (todos os recursos usados).
 * O tamanho da computação deve ser grande o suficiente para lidar com os dados. 
 * Certifique-se de que o conjunto de dados tenha os dados dentro da data de início e de término de uma determinada execução do monitor.
+* Os monitores de conjunto de registros só funcionarão em conjuntos de valores que contenham 50 linhas ou mais. 
 
 Colunas ou recursos, no conjunto de linhas, são classificados como categóricos ou numéricos com base nas condições na tabela a seguir. Se o recurso não atender a essas condições-por exemplo, uma coluna do tipo cadeia de caracteres com > 100 valores exclusivos-o recurso será descartado de nosso algoritmo de descompasso de dados, mas ainda terá o perfil criado. 
 

@@ -4,15 +4,15 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045844"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264089"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -29,7 +29,10 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
     * [Trecho de código JavaScript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Você só precisa usar um dos métodos abaixo para adicionar o SDK Application Insights JavaScript ao seu aplicativo. Se você usar a configuração baseada em NPM, não use a configuração baseada em trechos de código. O mesmo vale para o cenário inverso ao usar a abordagem baseada em trechos de código, não use também a configuração baseada em NPM. 
+> > Use apenas um método para adicionar o SDK do JavaScript ao seu aplicativo. Se você usar a configuração do NPM, não use o trecho e vice-versa.
+
+> [!NOTE]
+> A instalação do NPM instala o SDK do JavaScript como uma dependência do seu projeto, habilitando o IntelliSense, enquanto o trecho de código busca o SDK em tempo de execução. Ambos oferecem suporte aos mesmos recursos. No entanto, os desenvolvedores que desejam mais eventos e configurações personalizados geralmente optam pela configuração do NPM, enquanto os usuários buscam a habilitação rápida da aceitação da Web Analytics pronta para o trecho.
 
 ### <a name="npm-based-setup"></a>configuração baseada em NPM
 
@@ -261,4 +264,3 @@ A Application Insights SDK do JavaScript é de software livre para exibir o cód
 * [Controlar a utilização](usage-overview.md)
 * [Métricas e eventos personalizados](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-

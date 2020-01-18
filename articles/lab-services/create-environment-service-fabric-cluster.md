@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente com um Cluster Service Fabric no Azure DevTest Labs | Microsoft Docs
+title: Criar um ambiente de Cluster Service Fabric no Azure DevTest Labs
 description: Saiba como criar um ambiente com um cluster de Service Fabric autônomo e iniciar e parar o cluster usando agendamentos.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 01/16/2020
 ms.author: enewman
-ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325262"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170344"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Criar um ambiente com cluster de Service Fabric autônomo no Azure DevTest Labs
 Este artigo fornece informações sobre como criar um ambiente com um cluster de Service Fabric autônomo no Azure DevTest Labs. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O DevTest Labs pode criar ambientes de teste independentes, conforme definido pelos modelos de gerenciamento de recursos do Azure. Esses ambientes contêm recursos de IaaS, como máquinas virtuais e recursos de PaaS, como Service Fabric. O DevTest Labs permite que você gerencie máquinas virtuais em um ambiente fornecendo comandos para controlar as máquinas virtuais. Esses comandos oferecem a capacidade de iniciar ou parar uma máquina virtual em um agendamento. Da mesma forma, os DevTest Labs também podem ajudá-lo a gerenciar clusters Service Fabric em um ambiente. Você pode iniciar ou parar um Cluster Service Fabric em um ambiente manualmente ou por meio de uma agenda.
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
-Service Fabric clusters são criados usando ambientes no DevTest Labs. Cada ambiente é definido por um modelo de Azure Resource Manager em um repositório git. O [repositório do git público](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) para DevTest Labs contém o modelo do Resource Manager para criar um Cluster Service Fabric na pasta do [cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) do Outfabric. 
+Service Fabric clusters são criados usando ambientes no DevTest Labs. Cada ambiente é definido por um modelo de Azure Resource Manager em um repositório git. O [repositório do git público](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) para DevTest Labs contém o modelo do Resource Manager para criar um Cluster Service Fabric na pasta do [cluster do Outfabric](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) . 
 
-1. Primeiro, crie um laboratório no Azure DevTest Labs usando as instruções no seguinte artigo: [Crie um laboratório](devtest-lab-create-lab.md). Observe que a opção **ambientes públicos** está **ativada** por padrão. 
+1. Primeiro, crie um laboratório no Azure DevTest Labs usando as instruções no seguinte artigo: [criar um laboratório](devtest-lab-create-lab.md). Observe que a opção **ambientes públicos** está **ativada** por padrão. 
 2. Confirme se o provedor de Service Fabric está registrado para sua assinatura seguindo estas etapas:
     1. Selecione **assinaturas** no menu de navegação esquerdo e selecione sua **assinatura**
     2. Na página **assinatura** , selecione **provedores de recursos** na seção **configurações** no menu à esquerda. 
@@ -87,7 +87,7 @@ Há outra maneira de iniciar ou parar o cluster.
     ![Iniciar ou parar comandos na página do Cluster Service Fabric](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
 
 ## <a name="configure-auto-startup-and-auto-shutdown-schedule"></a>Configurar a inicialização automática e a agenda de desligamento automático
-Service Fabric clusters também podem ser iniciados ou interrompidos em um agendamento. Essa experiência é semelhante à experiência para máquinas virtuais em um laboratório. Para economizar dinheiro, por padrão, cada cluster criado em um laboratório é desligado automaticamente no momento definido pela [política](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy)de desligamento do laboratório. Você pode substituir especificando se o cluster deve ser desligado ou especificando a hora em que o cluster é desligado. 
+Service Fabric clusters também podem ser iniciados ou interrompidos em um agendamento. Essa experiência é semelhante à experiência para máquinas virtuais em um laboratório. Para economizar dinheiro, por padrão, cada cluster criado em um laboratório é desligado automaticamente no momento definido pela [política de desligamento](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy)do laboratório. Você pode substituir especificando se o cluster deve ser desligado ou especificando a hora em que o cluster é desligado. 
 
 ![Agendas existentes para início automático e desligamento automático](./media/create-environment-service-fabric-cluster/existing-schedules.png)
 
@@ -109,7 +109,7 @@ Para alterar as configurações de desligamento, execute as seguintes etapas:
     1. Especifique a **hora** de desligamento.
     2. Especifique o **fuso horário** para a hora. 
     3. Especifique se você deseja que o DevTest Labs envie **notificações** antes do desligamento automático. 
-    4. Se você selecionou **Sim** para a opção de notificação, ESPECIFIQUE a **URL** do webhook e/ou o **endereço de email** para enviar notificações. 
+    4. Se você selecionou **Sim** para a opção de notificação, ESPECIFIQUE a **URL do webhook** e/ou o **endereço de email** para enviar notificações. 
     5. Selecione **Guardar** na barra de ferramentas.
 
         ![Página de desligamento automático](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
@@ -127,7 +127,7 @@ A página de Cluster Service Fabric que você viu nas etapas anteriores é espec
 
     ![home page de Cluster Service Fabric](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos para obter detalhes sobre ambientes: 
 
 - [Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md)

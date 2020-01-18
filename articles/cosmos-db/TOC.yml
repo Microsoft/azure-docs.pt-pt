@@ -851,8 +851,6 @@
         - name: Gerir os níveis de consistência
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: Implementar sincronização personalizada
-          href: how-to-custom-synchronization.md
         - name: Configurar políticas de resolução de conflitos
           href: how-to-manage-conflicts.md
     - name: Débito aprovisionado
