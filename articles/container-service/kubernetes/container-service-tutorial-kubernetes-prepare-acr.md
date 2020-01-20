@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Tutorial do Azure Container Service - preparar o ACR
+title: PRETERIDO Tutorial do serviço de contêiner do Azure – preparar ACR
 description: Tutorial do Azure Container Service – Prepara ACR
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbd718b62246e820bfa01353080815b62912bd00
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641182"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274134"
 ---
-# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(PRETERIDO) Implementar e utilizar o Azure Container Registry
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>PRETERIDO Implantar e usar o registro de contêiner do Azure
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Implementar e utilizar o Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: implantar e usar o registro de contêiner do Azure](../../aks/tutorial-kubernetes-prepare-acr.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -157,7 +155,7 @@ v1
 
 Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância privada do Azure Container Registry. Esta imagem é implementada do ACR para um cluster do Kubernetes em tutoriais posteriores.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, um Azure Container Registry foi preparado para utilização num cluster do AKS Kubernetes. Foram efetuados os seguintes passos:
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
-ms.openlocfilehash: 2beb1d3e4468ff96f629dd6ec7015376a7f3a904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 75b6dd1b2d76d12087270e155551402d1bcd4965
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75987265"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274032"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreenda a faturação do Contrato Enterprise do Azure
 
@@ -127,7 +127,7 @@ Entre no [Enterprise Portal](https://ea.azure.com) e, em seguida, selecione **re
 
 ![Captura de tela que mostra a opção M + C no Resumo de uso.](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-O total do **Azure Marketplace** deve corresponder à **Venda Total** na fatura do marketplace. Para obter mais informações sobre os custos com base na utilização, aceda a **Transferir Utilização**. Em **Custos do Marketplace**, selecione **Transferir**. Este relatório não inclui impostos e não mostra compras únicas.  
+O total do **Azure Marketplace** deve corresponder à **Venda Total** na fatura do marketplace. Para obter mais informações sobre os custos com base na utilização, aceda a **Transferir Utilização**. Em **Custos do Marketplace**, selecione **Transferir**. O preço do Marketplace inclui um imposto, conforme determinado pelo editor. Os clientes não receberão uma fatura separada do Publicador para coletar impostos sobre a transação.
 
 ![Captura de tela que mostra a opção de download em encargos do Marketplace.](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 
