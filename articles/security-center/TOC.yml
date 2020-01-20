@@ -173,8 +173,6 @@
           href: security-center-investigation.md
         - name: Gerir dados de utilizadores de investigação
           href: security-center-investigation-user-data.md
-        - name: Playbooks de Logic Apps
-          href: security-center-playbooks.md
         - name: Planeamento e operações
           href: security-center-planning-and-operations-guide.md
 - name: Referência
