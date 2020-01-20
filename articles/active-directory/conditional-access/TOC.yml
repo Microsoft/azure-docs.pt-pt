@@ -4,7 +4,7 @@
   items:
     - name: O que é o Acesso Condicional?
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Exigir o MFA para aplicações específicas
       href: app-based-mfa.md
@@ -19,6 +19,8 @@
       href: concept-conditional-access-policy-common.md
     - name: Componentes da Política de Acesso Condicional
       href: concept-conditional-access-policies.md
+    - name: Aplicações na cloud e ações
+      href: concept-conditional-access-cloud-apps.md
     - name: Condições
       href: conditions.md
     - name: Condições de localização

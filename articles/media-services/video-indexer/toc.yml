@@ -4,7 +4,7 @@
   items:
     - name: O que é o Video Indexer?
       href: video-indexer-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Introdução
@@ -45,7 +45,7 @@
       href: connect-to-azure.md
     - name: Gerir conta ligada ao Azure
       href: manage-account-connected-to-azure.md
-    - name: Utilizar a API para carregar e indexar vídeos
+    - name: Carregar e indexar vídeos
       href: upload-index-videos.md
     - name: Examinar a saída do Video Indexer
       href: video-indexer-output-json-v2.md

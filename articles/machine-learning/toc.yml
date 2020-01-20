@@ -56,6 +56,12 @@
           href: tutorial-1st-r-experiment.md
     - name: CLI de Aprendizagem automática
       href: tutorial-train-deploy-model-cli.md
+    - name: Visual Studio Code
+      items:
+        - name: Configurar a extensão do Azure Machine Learning
+          href: tutorial-setup-vscode-extension.md
+        - name: Preparar e implementar um modelo de classificação de imagens do TensorFlow
+          href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Amostras
   items:
     - name: Jupyter Notebooks
@@ -151,9 +157,6 @@
         - name: Definir diretórios de entrada e de saída
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Utilizar a extensão do VS Code
-          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
-          href: how-to-vscode-tools.md
         - name: Depuração interativa
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
@@ -171,6 +174,9 @@
         - name: Preparar com conjuntos de dados
           displayName: 'data, dataset, mount'
           href: how-to-train-with-datasets.md
+        - name: Importar dados no estruturador
+          displayName: 'designer, data, import, dataset, datastore'
+          href: how-to-designer-import-data.md
         - name: Detetar desfasamento em conjuntos de dados
           displayName: 'data, dataset'
           href: how-to-monitor-datasets.md
@@ -397,3 +403,6 @@
     - name: O que aconteceu ao Workbench
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md
+    - name: Funcionalidades de acessibilidade do estruturador
+      displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
+      href: designer-accessibility.md

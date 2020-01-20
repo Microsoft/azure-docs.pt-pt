@@ -63,6 +63,8 @@
           href: container-instances-encrypt-data.md
         - name: Implementar em anfitriões dedicados
           href: container-instances-dedicated-hosts.md
+        - name: Utilizar o conector do Logic Apps
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: Cenários de contentor
       items:
         - name: Definir política de reinício para tarefas de execução única

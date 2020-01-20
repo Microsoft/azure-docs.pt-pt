@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação de Face
-summary: A API Face baseada na cloud fornece aos programadores acesso a algoritmos de rosto avançados. Os algoritmos do Microsoft Face ativam a deteção de atributos e o reconhecimento de rostos. Saiba como analisar conteúdo de formas diferentes com inícios rápidos, tutoriais e exemplos.
+summary: O serviço Face com base na cloud fornece aos programadores acesso a algoritmos faciais avançados. Os algoritmos do Microsoft Face ativam a deteção de atributos e o reconhecimento de rostos. Saiba como analisar conteúdo de formas diferentes com inícios rápidos, tutoriais e exemplos.
 metadata:
-  title: Documentação da API Face – Inícios Rápidos, Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: A API Face baseada na cloud fornece aos programadores acesso a algoritmos de rosto avançados. Os algoritmos do Microsoft Face ativam a deteção de atributos e o reconhecimento de rostos. Saiba como analisar conteúdo de formas diferentes com inícios rápidos, tutoriais e exemplos.
+  title: Documentação da Face - Inícios Rápidos, Tutoriais, Referência da API - Serviços Cognitivos do Azure | Microsoft Docs
+  description: O serviço Face com base na cloud fornece aos programadores acesso a algoritmos faciais avançados. Os algoritmos do Microsoft Face ativam a deteção de atributos e o reconhecimento de rostos. Saiba como analisar conteúdo de formas diferentes com inícios rápidos, tutoriais e exemplos.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,18 +11,18 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 438fe3ff0e48eba21acea596f8cbed4498aaca18
-  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+  ms.openlocfilehash: 6a078d8504ea988d44ff5d4bce190c72da28452f
+  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/16/2019
-  ms.locfileid: "74132701"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76166397"
 landingContent:
-- title: Acerca da API Face
+- title: Acerca do serviço Face
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o API Face?
+    - text: O que é o serviço Face?
       url: Overview.md
 - title: Detetar rostos
   linkLists:

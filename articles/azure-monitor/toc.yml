@@ -6,6 +6,8 @@
       href: overview.md
     - name: Alterações de terminologia
       href: terminology.md
+    - name: FAQ
+      href: faq.md
 - name: Guias de Início Rápido
   items:
     - name: Monitorizar o recurso do Azure
@@ -113,14 +115,6 @@
       href: visualizations.md
     - name: Integrações de parceiros
       href: platform/partners.md
-    - name: FAQ
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: Guias de procedimentos
   items:
     - name: Gerir o Azure Monitor
@@ -162,6 +156,8 @@
       items:
         - name: Descrição geral do Application Insights
           href: app/app-insights-overview.md
+        - name: FAQ
+          href: app/troubleshoot-faq.md
         - name: Monitorização baseada em código
           items:
             - name: Núcleo de ASP.NET
@@ -535,6 +531,8 @@
           items:
             - name: Descrição geral dos agentes
               href: platform/agents-overview.md
+            - name: FAQ
+              href: 'faq.md#agents'
             - name: Extensão do Diagnóstico do Azure
               items:
                 - name: Descrição geral
@@ -633,7 +631,7 @@
             - name: FAQ sobre Disponibilidade Geral
               href: insights/vminsights-ga-release-faq.md
             - name: FAQ
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: Ativar monitorização
               items:
                 - name: Ativar descrição geral da monitorização
@@ -679,7 +677,7 @@
             - name: Descrição geral
               href: insights/container-insights-overview.md
             - name: FAQ
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: Ativar monitorização
               items:
                 - name: Ativar descrição geral da monitorização
