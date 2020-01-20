@@ -3,15 +3,15 @@ title: Tutorial-configurar a instância do servidor de configuração no Azure S
 description: Neste tutorial, você aprenderá a configurar uma instância do servidor de configuração do Spring Cloud para sua nuvem do Azure Spring na portal do Azure
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708805"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277535"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: configurar uma instância de servidor de configuração do Spring Cloud para seu serviço
 
@@ -124,7 +124,7 @@ Todas as propriedades configuráveis usadas para configurar repositórios git co
 
 Agora que os arquivos de configuração foram salvos em um repositório, você precisa conectar o Azure Spring Cloud a ele.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Acesse sua página de **visão geral** do Azure Spring Cloud.
 

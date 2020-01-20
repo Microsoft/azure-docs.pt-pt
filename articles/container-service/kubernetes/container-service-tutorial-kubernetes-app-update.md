@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Tutorial do Azure Container Service – atualizar aplicação
+title: PRETERIDO Tutorial do serviço de contêiner do Azure – atualizar aplicativo
 description: Tutorial do Azure Container Service – Atualizar Aplicação
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4b893f185ba7e205ffebd7d939b8a2aa20a3e13
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576718"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275550"
 ---
-# <a name="deprecated-update-an-application-in-kubernetes"></a>(PRETERIDO) Atualizar uma aplicação no Kubernetes
+# <a name="deprecated-update-an-application-in-kubernetes"></a>PRETERIDO Atualizar um aplicativo no kubernetes
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Atualizar uma aplicação no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
+> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: atualizar um aplicativo no AKs (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-app-update.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -160,7 +158,7 @@ Procure o endereço IP para ver a aplicação atualizada.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, atualiza uma aplicação e implementa esta atualização num cluster de Kubernetes. Foram realizadas as seguintes tarefas:
 

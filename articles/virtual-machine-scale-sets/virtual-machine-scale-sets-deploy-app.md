@@ -1,26 +1,19 @@
 ---
-title: Implantar um aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Implantar um aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como implantar aplicativos em instâncias de máquina virtual do Linux e do Windows em um conjunto de dimensionamento
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960731"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278112"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar seu aplicativo em conjuntos de dimensionamento de máquinas virtuais
 
@@ -33,14 +26,14 @@ Quando você usa uma das imagens da plataforma do Azure para criar as instância
 Para reduzir o gerenciamento de configuração e o tempo para provisionar uma VM, você pode criar uma imagem de VM personalizada que esteja pronta para executar seu aplicativo assim que uma instância for provisionada no conjunto de dimensionamento. Para obter mais informações sobre como criar e usar uma imagem de VM personalizada com um conjunto de dimensionamento, consulte os seguintes tutoriais:
 
 - [CLI do Azure](tutorial-use-custom-image-cli.md)
-- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+- [O Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Instalar um aplicativo com a extensão de script personalizado
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão. Para obter mais informações sobre como instalar um aplicativo com uma extensão de script personalizado, consulte os seguintes tutoriais:
 
 - [CLI do Azure](tutorial-install-apps-cli.md)
-- [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [O Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Modelo do Azure Resource Manager](tutorial-install-apps-template.md)
 
 

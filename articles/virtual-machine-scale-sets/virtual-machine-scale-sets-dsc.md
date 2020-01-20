@@ -1,27 +1,20 @@
 ---
 title: Usando a configuração de estado desejado com conjuntos de dimensionamento de máquinas virtuais
 description: Usando conjuntos de dimensionamento de máquinas virtuais com a extensão de configuração de estado desejado do Azure para configurar máquinas virtuais.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: zjalexander
-manager: jeconnoc
-editor: ''
 tags: azure-service-management,azure-resource-manager
-keywords: ''
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
-ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: d3d064bc1d9c0a72b10ca27515d8325e7ca7fef9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a93a8a9c27be5a1736a50e6c4c4b830980b7d974
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359303"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278081"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Usando conjuntos de dimensionamento de máquinas virtuais com a extensão DSC do Azure
 Os [conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-overview.md) podem ser usados com o manipulador de extensão [DSC (configuração de estado desejado) do Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Os conjuntos de dimensionamento de máquinas virtuais fornecem uma maneira de implantar e gerenciar um grande número de máquinas virtuais e podem reduzir e reduzir de forma elástica em resposta à carga. A DSC é usada para configurar as VMs à medida que elas ficam online para que estejam executando o software de produção.

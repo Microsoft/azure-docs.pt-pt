@@ -1,26 +1,20 @@
 ---
-title: Visão geral de Zonas DNS e registros-DNS do Azure | Microsoft Docs
+title: Visão geral de Zonas DNS e registros-DNS do Azure
 description: Visão geral do suporte para hospedar zonas e registros DNS no Microsoft Azure DNS.
-services: dns
-documentationcenter: na
 author: asudbring
-manager: jeconnoc
-editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 460a1696497918ba525560507a16b0a321bd0e18
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980534"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276207"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 

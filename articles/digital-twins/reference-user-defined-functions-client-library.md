@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 41baacd4485e6702ec29057f5d539724b74e353b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bd6095daca51ddca0cfb4b34ca86e763df9a3d02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383251"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276820"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Referência da biblioteca de cliente de funções definidas pelo usuário
 
@@ -32,7 +32,7 @@ Dado um identificador de espaço, essa função recupera o espaço do grafo.
 
 | Parâmetro  | Tipo                | Descrição  |
 | ---------- | ------------------- | ------------ |
-| *sessão*  | `guid` | Identificador de espaço |
+| *id*  | `guid` | Identificador de espaço |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒ `sensor`
 
@@ -42,7 +42,7 @@ Dado um identificador de sensor, essa função recupera o sensor do grafo.
 
 | Parâmetro  | Tipo                | Descrição  |
 | ---------- | ------------------- | ------------ |
-| *sessão*  | `guid` | Identificador do sensor |
+| *id*  | `guid` | Identificador do sensor |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒ `device`
 
@@ -52,7 +52,7 @@ Dado um identificador de dispositivo, essa função recupera o dispositivo do gr
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sessão* | `guid` | Identificador do dispositivo |
+| *id* | `guid` | Identificador do dispositivo |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getsensorvalue (sensorid, dataType) ⇒ `value`
 
@@ -62,10 +62,10 @@ Dado um identificador de sensor e seu tipo de dados, essa função recupera o va
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorid*  | `guid` | Identificador do sensor |
-| *Tipo de dados*  | `string` | Tipo de dados do sensor |
+| *sensorId*  | `guid` | Identificador do sensor |
+| *dataType*  | `string` | Tipo de dados do sensor |
 
-### <a name="getspacevaluespaceid-valuename--value"></a>getspacevalue (spaceid, valorname) ⇒ `value`
+### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒ `value`
 
 Dado um identificador de espaço e o nome do valor, essa função recupera o valor atual dessa propriedade de espaço.
 
@@ -73,7 +73,7 @@ Dado um identificador de espaço e o nome do valor, essa função recupera o val
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid*  | `guid` | Identificador de espaço |
+| *spaceId*  | `guid` | Identificador de espaço |
 | *valueName* | `string` | Nome da propriedade de espaço |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorid, dataType) ⇒ `value[]`
@@ -84,8 +84,8 @@ Dado um identificador de sensor e seu tipo de dados, essa função recupera os v
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorid* | `guid` | Identificador do sensor |
-| *Tipo de dados* | `string` | Tipo de dados do sensor |
+| *sensorId* | `guid` | Identificador do sensor |
+| *dataType* | `string` | Tipo de dados do sensor |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceid, dataType) ⇒ `value[]`
 
@@ -95,7 +95,7 @@ Dado um identificador de espaço e o nome do valor, essa função recupera os va
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid* | `guid` | Identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 | *valueName* | `string` | Nome da propriedade de espaço |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces (spaceid) ⇒ `space[]`
@@ -106,7 +106,7 @@ Dado um identificador de espaço, essa função recupera os espaços filho para 
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid* | `guid` | Identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors (spaceid) ⇒ `sensor[]`
 
@@ -116,7 +116,7 @@ Dado um identificador de espaço, essa função recupera os sensores filho para 
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid* | `guid` | Identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices (spaceid) ⇒ `device[]`
 
@@ -126,7 +126,7 @@ Dado um identificador de espaço, essa função recupera os dispositivos filho p
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid* | `guid` | Identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors (DeviceID) ⇒ `sensor[]`
 
@@ -148,7 +148,7 @@ Dado um identificador de espaço, essa função recupera seu espaço pai.
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | Identificador de espaço |
 
-### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace (childSensorId) ⇒ `space`
+### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
 Dado um identificador de sensor, essa função recupera seu espaço pai.
 
@@ -168,7 +168,7 @@ Dado um identificador de dispositivo, essa função recupera seu espaço pai.
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Identificador do dispositivo |
 
-### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice (childSensorId) ⇒ `space`
+### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
 Dado um identificador de sensor, essa função recupera seu dispositivo pai.
 
@@ -186,7 +186,7 @@ Dado um identificador de espaço, essa função recupera a propriedade e seu val
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid* | `guid` | Identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 | *propertyName* | `string` | Nome da propriedade de espaço |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorid, propertyName) ⇒ `extendedProperty`
@@ -197,7 +197,7 @@ Dado um identificador de sensor, essa função recupera a propriedade e seu valo
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorid* | `guid` | Identificador do sensor |
+| *sensorId* | `guid` | Identificador do sensor |
 | *propertyName* | `string` | Nome da Propriedade do sensor |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (DeviceID, propertyName) ⇒ `extendedProperty`
@@ -219,8 +219,8 @@ Essa função define um valor no objeto sensor com o tipo de dados fornecido.
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorid* | `guid` | Identificador do sensor |
-| *Tipo de dados*  | `string` | Tipo de dados do sensor |
+| *sensorId* | `guid` | Identificador do sensor |
+| *dataType*  | `string` | Tipo de dados do sensor |
 | *valor*  | `string` | Valor |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
@@ -231,8 +231,8 @@ Essa função define um valor no objeto Space com o tipo de dados fornecido.
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *spaceid* | `guid` | Identificador de espaço |
-| *Tipo de dados* | `string` | Data type |
+| *spaceId* | `guid` | Identificador de espaço |
+| *dataType* | `string` | Data type |
 | *valor* | `string` | Valor |
 
 ### <a name="logmessage"></a>log (mensagem)
@@ -243,7 +243,7 @@ Essa função registra a seguinte mensagem na função definida pelo usuário.
 
 | Parâmetro  | Tipo                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *Mensagem* | `string` | Mensagem a ser registrada |
+| *message* | `string` | Mensagem a ser registrada |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, payload)
 

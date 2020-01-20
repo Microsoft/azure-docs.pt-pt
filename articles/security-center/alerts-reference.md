@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: d936f9f30f79b3be6035d668211a15533cb3fa85
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cfb77548217cf173438ab0407320cbdff8db092e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157224"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276994"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -128,7 +128,7 @@ Tipos de alertas incluídos nesta tabela:
 |**Injeção de código descoberta**|A injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Essa técnica é usada por malware para acessar dados, enquanto se oculta com êxito para evitar que sejam encontradas e removidas.<br>Este alerta indica que está presente nas informações de falha de sistema um módulo injetado. Para diferenciar entre módulos injetados mal-intencionados e não mal-intencionados, a central de segurança verifica se o módulo injetado está em conformidade com um perfil de comportamento suspeito.|-|
 |**Segmento de código suspeito detectado**|Indica que um segmento de código foi alocado usando métodos não padrão, como injeção reflexiva e cancelamento de processo. O alerta fornece características adicionais do segmento de código que foram processados para fornecer contexto para os recursos e comportamentos do segmento de código relatado.|-|
 |**Shellcode descoberto**|Shellcode é o payload executado depois de o software maligno explorar uma vulnerabilidade de software.<br>Esse alerta indica que a análise de despejo de memória detectou código executável que exibe o comportamento normalmente executado por cargas mal-intencionadas. Embora o software não mal-intencionado também possa executar esse comportamento, não é típico das práticas normais de desenvolvimento de software.|-|
-|**Técnica de ataque de não-arquivo detectada**|A memória do processo especificado contém um kit de ferramentas de ataque de não-arquivo: meterpreter. Os kits de programas de ataque sem arquivo normalmente não têm uma presença no sistema de arquivos, dificultando a detecção por software antivírus tradicional.|DefenseEvasion/execução|
+|**Técnica de ataque de não-arquivo detectada**|A memória do processo especificado contém um kit de ferramentas de ataque sem arquivo: [nome do kit de ferramentas]. Os kits de programas de ataque sem arquivo normalmente não têm uma presença no sistema de arquivos, dificultando a detecção por software antivírus tradicional.|DefenseEvasion/execução|
 ||<a name="alerts-linux"></a><h3>Computadores Linux</h3> [Mais detalhes e observações](security-center-alerts-iaas.md#linux-)||
 |**Processo visto acessando o arquivo de chaves autorizadas SSH de maneira incomum**|Um arquivo de chaves autorizadas SSH foi acessado em um método semelhante a campanhas de malware conhecidas. Esse acesso pode indicar que um invasor está tentando obter acesso persistente a um computador.|-|
 |**Tentativa de persistência detectada**|A análise de dados do host detectou que um script de inicialização para o modo de usuário único foi instalado.<br>Como é raro que qualquer processo legítimo seja necessário para ser executado nesse modo, isso pode indicar que um invasor adicionou um processo mal-intencionado a cada nível de execução para garantir a persistência. |Persistência|

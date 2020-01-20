@@ -1,17 +1,17 @@
 ---
 title: Configurar um ambiente de preparo no Azure Spring Cloud | Microsoft Docs
 description: Saiba como usar a implantação azul-verde com o Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: jeconnoc
-ms.openlocfilehash: cd1573a3d896f3d2d5cb53130d8fac86be43beb6
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.author: brendm
+ms.openlocfilehash: 4adeb5593f86bdf3f8a4ea5f844c31a8314e0f15
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152084"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276923"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurar um ambiente de preparo no Azure Spring Cloud
 

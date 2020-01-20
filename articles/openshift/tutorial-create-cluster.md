@@ -1,19 +1,17 @@
 ---
-title: Tutorial – criar um cluster do Azure Red Hat OpenShift | Microsoft Docs
+title: Tutorial-criar um cluster do Azure Red Hat OpenShift
 description: Saiba como criar um cluster Microsoft Azure Red Hat OpenShift usando o CLI do Azure
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 813d3115d8df7227bde89a73a73bcae270f09bbb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e6aecccc19572ee980feb4d816fae1f2b0101b7
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771347"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274893"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: criar um cluster do Azure Red Hat OpenShift
 

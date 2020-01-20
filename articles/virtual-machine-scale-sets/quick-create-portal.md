@@ -1,9 +1,7 @@
 ---
 title: Início rápido-criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 description: Comece com suas implantações aprendendo a criar rapidamente uma escala de máquina virtual portal do Azure.
-services: virtual-machine-scale-sets.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc5c7b9f26d74f32c9f6042e3a1deddc57171860
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351148"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274241"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 

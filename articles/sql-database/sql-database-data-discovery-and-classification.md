@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 7161c5554fe2d4993f3bd30ad82d675a71927f23
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552554"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279190"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 
@@ -98,7 +98,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
    - Para exibir a lista de classificações de coluna recomendadas, clique no painel recomendações na parte inferior da janela:
 
-      ![Classificar os seus dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+      ![Classificar os dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
    - Examine a lista de recomendações – para aceitar uma recomendação para uma coluna específica, marque a caixa de seleção na coluna à esquerda da linha relevante. Você também pode marcar *todas as recomendações* como aceitas marcando a caixa de seleção no cabeçalho da tabela de recomendações.
 
@@ -184,6 +184,7 @@ Você pode usar o PowerShell para gerenciar classificações e recomendações p
 
 - Saiba mais sobre a [segurança de dados avançada](sql-database-advanced-data-security.md).
 - Considere a configuração da auditoria do banco de dados [SQL do Azure](sql-database-auditing.md) para monitorar e auditar o acesso aos sua classificação confidenciais.
+- Para uma apresentação do YouTube que inclui a descoberta de dados & classificação, consulte [descobrindo, classificando, rotulando & protegendo dados SQL | Dados expostos](https://www.youtube.com/watch?v=itVi9bkJUNc).
 
 <!--Anchors-->
 [What is data discovery & classification]: #subheading-1

@@ -1,30 +1,28 @@
 ---
-title: Partilhar imagens da galeria em inquilinos no Azure | Documentos da Microsoft
-description: Saiba como partilhar imagens de VM em inquilinos do Azure, galerias de imagem partilhada a utilizar.
-services: virtual-machine-scale-sets
+title: Compartilhar imagens da Galeria entre locatários no Azure
+description: Saiba como compartilhar imagens de VM entre locatários do Azure usando galerias de imagens compartilhadas.
 author: cynthn
-manager: jeconnoc
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: cbaaac629fd013602eed75cc7dc357f13a62e3b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a29999102ad8a10d8965145b31a7d804675e0e57
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160129"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276340"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens de VM de galeria em inquilinos do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
-## <a name="create-a-scale-set-using-azure-cli"></a>Criar conjunto de dimensionamento com a CLI do Azure
+## <a name="create-a-scale-set-using-azure-cli"></a>Criar um conjunto de dimensionamento usando CLI do Azure
 
-Inicie sessão no principal de serviço para o inquilino com o appID, a chave da aplicação e o ID do inquilino 1 de 1. Pode usar `az account show --query "tenantId"` para obter IDs de inquilino se for necessário.
+Conecte a entidade de serviço para o locatário 1 usando a appID, a chave do aplicativo e a ID do locatário 1. Você pode usar `az account show --query "tenantId"` para obter as IDs de locatário, se necessário.
 
 ```azurecli-interactive
 az account clear
@@ -32,14 +30,14 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-Inicie sessão no principal de serviço para o inquilino com o appID, a chave da aplicação e o ID do inquilino 2 de 2:
+Conecte a entidade de serviço para o locatário 2 usando a appID, a chave do aplicativo e a ID do locatário 2:
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
 az account get-access-token
 ```
 
-Crie o conjunto de dimensionamento. Substitua as informações no exemplo pelos seus próprios.
+Crie o conjunto de dimensionamento. Substitua as informações no exemplo pelo seu próprio.
 
 ```azurecli-interactive
 az vmss create \
@@ -50,6 +48,6 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Caso se depare com quaisquer problemas, pode [resolver problemas de galerias de imagem partilhada](troubleshooting-shared-images.md).
+Se você tiver problemas, poderá [solucionar problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).

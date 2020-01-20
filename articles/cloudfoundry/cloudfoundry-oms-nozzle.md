@@ -3,21 +3,20 @@ title: Implantar o bocal do Azure Log Analytics para monitoramento de Cloud Foun
 description: Orientações passo a passo sobre como implantar o Cloud Foundry bocal agregador para o Log Analytics do Azure. Use o bocal para monitorar as métricas de desempenho e integridade do sistema Cloud Foundry.
 services: virtual-machines-linux
 author: ningk
-manager: jeconnoc
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286633"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277362"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o bocal do Azure Log Analytics para monitoramento do sistema Cloud Foundry
 
@@ -205,7 +204,7 @@ Você pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o bocal recebe um alerta de consumidor lento do agregador, ele envia o **valuemetric slowconsumeralert** ao para logs de Azure monitor. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número Delta de eventos perdidos atingir um limite, isso significará que o bocal pode ter um problema em execução. |
 
-## <a name="scale"></a>Escala
+## <a name="scale"></a>Escalabilidade
 
 Você pode dimensionar o bocal e o agregador.
 

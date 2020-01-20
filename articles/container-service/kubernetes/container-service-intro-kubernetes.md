@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Introdução ao Azure Container Service para Kubernetes
+title: PRETERIDO Introdução ao serviço de contêiner do Azure para kubernetes
 description: O Azure Container Service para Kubernetes permite a implementação e gestão fácil de aplicações baseadas em contentores no Azure.
-services: container-service
 author: gabrtv
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ef7255a087dd5dc26532316deab337f9eff715
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712564"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271577"
 ---
-# <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(PRETERIDO) Introdução ao Azure Container Service para Kubernetes
+# <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>PRETERIDO Introdução ao serviço de contêiner do Azure para kubernetes
 
 > [!TIP]
-> Para a versão atualizada, o que este artigo utiliza o serviço Kubernetes do Azure, veja [descrição geral do Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
+> Para obter a versão atualizada deste artigo que usa o serviço kubernetes do Azure, consulte [visão geral do AKS (serviço kubernetes do Azure)](../../aks/intro-kubernetes.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -62,6 +60,6 @@ Ferramentas para Programar e Implementar Aplicações no Kubernetes (Azure OpenD
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore o [Kubernetes Quickstart](container-service-kubernetes-walkthrough.md) (Início Rápido do Kubernetes) para começar a explorar o Azure Container Service.

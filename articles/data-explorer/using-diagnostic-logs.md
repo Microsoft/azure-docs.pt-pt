@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173804"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277431"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Monitorar operações de ingestão de Data Explorer do Azure usando logs de diagnóstico (versão prévia)
 
@@ -25,7 +25,7 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configurar logs de diagnóstico para um cluster de Data Explorer do Azure
 
@@ -52,7 +52,7 @@ Os registos de diagnóstico estão desativados por predefinição. Para habilita
     1. Selecione o **nome** para a configuração de diagnóstico.
     1. Selecione um ou mais destinos: uma conta de armazenamento, um hub de eventos ou um Log Analytics.
     1. Selecione os logs a serem coletados: `SucceededIngestion` ou `FailedIngestion`.
-    1. Selecione as [métricas](using-metrics.md) a serem coletadas (opcional).   
+    1. Selecione as [métricas](using-metrics.md#supported-azure-data-explorer-metrics) a serem coletadas (opcional).  
     1. Selecione **salvar** para salvar as novas configurações e métricas dos logs de diagnóstico.
     1. Crie uma **nova solicitação de suporte** no portal do Azure para solicitar a ativação de logs de diagnóstico.
 
@@ -104,7 +104,7 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 |---                |---
 |com êxito        |Tempo de conclusão de ingestão
 |operationId        |ID da operação de ingestão do Data Explorer do Azure
-|database           |Nome do banco de dados de destino
+|base de dados           |Nome do banco de dados de destino
 |table              |Nome da tabela de destino
 |ingestionSourceId  |ID da fonte de dados de ingestão
 |ingestionSourcePath|Caminho da fonte de dados de ingestão ou URI do blob
@@ -145,7 +145,7 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 |---                |---
 |com falha           |Tempo de conclusão de ingestão
 |operationId        |ID da operação de ingestão do Data Explorer do Azure
-|database           |Nome do banco de dados de destino
+|base de dados           |Nome do banco de dados de destino
 |table              |Nome da tabela de destino
 |ingestionSourceId  |ID da fonte de dados de ingestão
 |ingestionSourcePath|Caminho da fonte de dados de ingestão ou URI do blob

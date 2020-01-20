@@ -1,17 +1,17 @@
 ---
 title: Como usar o armazenamento persistente no Azure Spring Cloud | Microsoft Docs
 description: Como usar o armazenamento persistente no Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 68f893c694369d95dd82b9e5af3d08d67be78884
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: brendm
+ms.openlocfilehash: 0e49d59386b19aa8da46b8c8e6acfe50e2124541
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461659"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278541"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Utilizar o armazenamento persistente no Azure Spring Cloud
 

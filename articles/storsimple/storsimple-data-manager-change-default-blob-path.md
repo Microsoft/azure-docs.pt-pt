@@ -1,87 +1,79 @@
 ---
-title: Caminho do blob de alteração da predefinição | Documentos da Microsoft
-description: Saiba como configurar uma função do Azure para mudar o nome de um caminho de ficheiro blob
-services: storsimple
-documentationcenter: NA
+title: Alterar o caminho do blob do padrão
+description: Saiba como configurar uma função do Azure para renomear um caminho de arquivo de BLOB
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723805"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270618"
 ---
-# <a name="change-a-blob-path-from-the-default-path"></a>Alterar um caminho de blob do caminho predefinido
+# <a name="change-a-blob-path-from-the-default-path"></a>Alterar um caminho de blob do caminho padrão
 
-Quando o serviço do StorSimple Data Manager transforma os dados, por padrão ele coloca os blobs transformados num contentor de armazenamento como especificado durante a criação do repositório de destino. Como os blobs chegam nesta localização, pode querer mover nestes blobs para uma localização alternativa. Este artigo descreve como configurar uma função do Azure para mudar o nome de um caminho de ficheiro de BLOBs predefinido e, por conseguinte, mover os blobs para uma localização diferente.
+Quando o serviço de Gerenciador de Dados do StorSimple transforma os dados, por padrão ele coloca os BLOBs transformados em um contêiner de armazenamento conforme especificado durante a criação do repositório de destino. À medida que os BLOBs chegam nesse local, convém mover esses BLOBs para um local alternativo. Este artigo descreve como configurar uma função do Azure para renomear um caminho de arquivo de blob padrão e, portanto, mover os BLOBs para um local diferente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que tem uma definição de tarefa corretamente configurada no seu serviço do StorSimple Data Manager.
+Verifique se você tem uma definição de trabalho configurada corretamente em seu serviço de Gerenciador de Dados do StorSimple.
 
 ## <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Para criar uma função do Azure, execute os seguintes passos:
+Para criar uma função do Azure, execute as seguintes etapas:
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com/).
 
-2. Clique em **+ criar um recurso**. Na **pesquisa** , escreva **Function App** e pressione **Enter**. Selecione e clique em **aplicação de funções** na lista de aplicações apresentada.
+2. Clique em **+ criar um recurso**. Na caixa de **pesquisa** , digite **aplicativo de funções** e pressione **Enter**. Selecione e clique em **aplicativo de funções** na lista de aplicativos exibida.
 
-    ![Escreva "Aplicação de funções" na caixa de pesquisa](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
+    ![Digite "Aplicativo de funções" na caixa de pesquisa](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
 3. Clique em **Criar**.
 
-    ![O botão de "Criar" da janela de aplicação de função](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
+    ![O botão "criar" da janela de Aplicativo de funções](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
-4. Sobre o **aplicação de funções** painel de configuração, execute os seguintes passos:
+4. Na folha configuração do **aplicativo de funções** , execute as seguintes etapas:
 
-    1. Fornecer um exclusivo **nome da aplicação**.
-    2. Na lista pendente, selecione o **subscrição**. Esta subscrição deve ser o mesmo que o associado ao seu serviço do StorSimple Data Manager.
+    1. Forneça um **nome de aplicativo**exclusivo.
+    2. Na lista suspensa, selecione a **assinatura**. Essa assinatura deve ser a mesma associada ao seu serviço de Gerenciador de Dados do StorSimple.
     3. Selecione **criar novo** grupo de recursos.
-    4. Para o **plano de alojamento** lista pendente, selecione **plano de consumo**.
-    5. Especifique uma localização onde a função é executada. Pretende que a mesma região onde o serviço Gestor de dados do StorSimple e a conta de armazenamento associada a definição de tarefa, estão localizados.
-    6. Selecione uma conta de armazenamento existente ou crie uma nova. Uma conta de armazenamento é utilizada internamente para a função.
+    4. Para a lista suspensa **plano de hospedagem** , selecione **plano de consumo**.
+    5. Especifique um local onde sua função é executada. Você deseja a mesma região em que o serviço de Gerenciador de Dados do StorSimple e a conta de armazenamento associada à definição de trabalho estão localizados.
+    6. Selecione uma conta de armazenamento existente ou crie uma nova. Uma conta de armazenamento é usada internamente para a função.
 
-        ![Introduza novos dados de configuração de aplicação de funções](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
+        ![Inserir novos dados de configuração de Aplicativo de funções](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. Clique em **Criar**. A aplicação de funções é criada.
+    7. Clique em **Criar**. O aplicativo de funções é criado.
      
-        ![Aplicação de funções criada](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
+        ![Aplicativo de funções criado](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
 5. Selecione **funções**e clique em **+ nova função**.
 
     ![Clique em + nova função](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. Selecione **C#** para o idioma. Na matriz de mosaicos de modelo, selecione **C#** no **QueueTrigger CSharp** mosaico.
+6. Selecione **C#** para o idioma. Na matriz de blocos de modelo, selecione **C#** no bloco **QueueTrigger-Csharp** .
 
-7. Na **acionador de fila**:
+7. No **gatilho de fila**:
 
-    1. Introduza um **nome** para a função.
-    2. Na **nome da fila** , escreva o nome de definição de tarefa de transformação de dados.
-    3. Sob **ligação de conta de armazenamento**, clique em **novo**. Na lista de contas de armazenamento, selecione a conta associada à sua definição de tarefa. Anote o nome da ligação (realçado). É necessário o nome mais tarde na função do Azure.
+    1. Insira um **nome** para a função.
+    2. Na caixa **nome da fila** , digite o nome da definição do trabalho de transformação de dados.
+    3. Em **conexão da conta de armazenamento**, clique em **novo**. Na lista de contas de armazenamento, selecione a conta associada à sua definição de trabalho. Anote o nome da conexão (realçado). O nome é necessário posteriormente na função do Azure.
 
-        ![Criar um novo C# função](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
+        ![Criar uma nova C# função](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
-    4. Clique em **Criar**. O **função** é criado.
+    4. Clique em **Criar**. A **função** é criada.
 
      
-10. Na janela de função, execute _. csx_ ficheiro.
+10. Na janela da função, execute o arquivo _. CSX_ .
 
-    ![Criar um novo C# função](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Criar uma nova C# função](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Realize os seguintes passos.
 
-    1. Cole o seguinte código:
+    1. Cole o código a seguir:
 
         ```
         using System;
@@ -183,25 +175,25 @@ Para criar uma função do Azure, execute os seguintes passos:
 
         ```
 
-    2. Substitua **STORAGE_CONNECTIONNAME** na linha 11 com a sua ligação de conta de armazenamento (consulte o passo 7 c).
+    2. Substitua **STORAGE_CONNECTIONNAME** na linha 11 pela conexão da conta de armazenamento (consulte a etapa 7c).
 
-        ![Nome de ligação de armazenamento de cópia](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
+        ![Copiar nome da conexão de armazenamento](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
-    3. **Guardar** a função.
+    3. **Salve** a função.
 
-        ![Guardar a função](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
+        ![Salvar função](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-12. Para concluir a função, adicione mais um arquivo efetuando os seguintes passos:
+12. Para concluir a função, adicione mais um arquivo executando as seguintes etapas:
 
-    1. Clique em **ver ficheiros**.
+    1. Clique em **Exibir arquivos**.
 
-       ![O link "Exibir arquivos"](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
+       ![O link "exibir arquivos"](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
     2. Clique em **+ Adicionar**.
         
-        ![O link "Exibir arquivos"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![O link "exibir arquivos"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Tipo **Project**e, em seguida, prima **Enter**. Na **Project** de ficheiros, cole o seguinte código:
+    3. Digite **Project. JSON**e pressione **Enter**. No arquivo **Project. JSON** , Cole o seguinte código:
 
         ```
         {
@@ -219,10 +211,10 @@ Para criar uma função do Azure, execute os seguintes passos:
     
     4. Clique em **Guardar**.
 
-        ![O link "Exibir arquivos"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![O link "exibir arquivos"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
-Criou uma função do Azure. Esta função é acionada sempre que um blob novo é gerado pela tarefa de transformação de dados.
+Você criou uma função do Azure. Essa função é disparada cada vez que um novo BLOB é gerado pelo trabalho de transformação de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Use o StorSimple Data Manager interface de Usuário para transformar os seus dados](storsimple-data-manager-ui.md)
+[Use Gerenciador de Dados do StorSimple interface do usuário para transformar seus dados](storsimple-data-manager-ui.md)

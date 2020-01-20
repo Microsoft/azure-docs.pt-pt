@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Início rápido – cluster de Kubernetes do Azure para Linux
+title: PRETERIDO Início rápido-cluster kubernetes do Azure para Linux
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Linux no Azure Container Service com a CLI do Azure.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335040"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273507"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(PRETERIDO) Implementar cluster do Kubernetes para contentores do Linux
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>PRETERIDO Implantar o cluster kubernetes para contêineres do Linux
 
 > [!TIP]
-> Para a versão atualizada neste guia de introdução que utiliza o Azure Kubernetes Service, consulte [início rápido: Implementar um cluster do Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough.md).
+> Para obter a versão atualizada deste guia de início rápido que usa o serviço kubernetes do Azure, consulte [início rápido: implantar um cluster do AKS (serviço kubernetes do Azure)](../../aks/kubernetes-walkthrough.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -218,7 +216,7 @@ Neste início rápido, foram utilizadas imagens de contentores pré-criadas para
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. 
 

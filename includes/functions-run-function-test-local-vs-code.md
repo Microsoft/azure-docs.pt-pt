@@ -2,18 +2,17 @@
 title: incluir ficheiro
 description: incluir ficheiro
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 05/31/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d47caaf9dbca14364771e0d8ba1e7f6ce16ef2d6
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ebcbe7e8af7e01a9b7e75282be4e4f4ceb80b806
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174648"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279416"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 

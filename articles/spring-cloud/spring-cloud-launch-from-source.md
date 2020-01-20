@@ -1,17 +1,17 @@
 ---
 title: Início rápido – iniciar seu aplicativo Spring Cloud a partir do código-fonte
 description: Neste guia de início rápido, saiba como iniciar seu aplicativo de nuvem Spring do Azure diretamente do seu código-fonte
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
-ms.author: jeconnoc
-ms.openlocfilehash: f9d7fa5df1f7568aa357abf8b5864344d768cf75
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: 8edadbf946a28239ae4d28d56b3dccd77b451a71
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891757"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277163"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Início rápido: iniciar seu aplicativo Spring Cloud a partir do código-fonte
 

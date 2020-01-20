@@ -1,22 +1,20 @@
 ---
-title: (PRETERIDO) Tutorial do Azure Container Service – gerir DC/OS
+title: PRETERIDO Tutorial do serviço de contêiner do Azure – gerenciar DC/so
 description: Tutorial do Azure Container Service – Gerir DC/OS
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456673"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278344"
 ---
-# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(PRETERIDO) Tutorial do Azure Container Service – gerir DC/OS
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>PRETERIDO Tutorial do serviço de contêiner do Azure – gerenciar DC/so
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -262,7 +260,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre a tarefa de gestão básica do DC/OS, incluindo o seguinte. 
 

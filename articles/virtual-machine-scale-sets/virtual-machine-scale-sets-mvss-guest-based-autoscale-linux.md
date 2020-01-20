@@ -1,38 +1,30 @@
 ---
-title: Utilizar o dimensionamento automático do Azure com as métricas de convidado num modelo de conjunto de dimensionamento do Linux | Documentos da Microsoft
-description: Saiba como Dimensionar automaticamente com as métricas de convidado num modelo de conjunto de dimensionamento de Máquina Virtual do Linux
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Usar o dimensionamento automático do Azure com métricas de convidado em um modelo de conjunto de dimensionamento Linux
+description: Saiba como usar o dimensionamento automático usando métricas de convidado em um modelo de conjunto de dimensionamento de máquinas virtuais do Linux
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: na
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8cd665ffd82547c4f554eb4a515a8da7dc5b3f5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88f839b281e4d345b012a7e6acff3770dc536045
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868996"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271957"
 ---
-# <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Dimensionamento automático através de métricas de convidado num modelo de conjunto de dimensionamento do Linux
+# <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Dimensionamento automático usando métricas de convidado em um modelo de conjunto de dimensionamento Linux
 
-Existem dois tipos abrangentes de métricas no Azure, que são recolhidos das VMs e conjuntos de dimensionamento: Métricas de anfitrião e as métricas de convidado. Num alto nível, se gostaria de utilizar o padrão CPU, disco e métricas de rede, em seguida, métricas de anfitrião são uma boa opção. Se, no entanto, terá uma seleção maior de métricas, em seguida, as métricas de convidado devem ser de analisar.
+Há dois tipos amplos de métricas no Azure que são coletadas de VMs e conjuntos de dimensionamento: métricas de host e métricas de convidado. Em um alto nível, se você quiser usar as métricas de CPU, disco e rede padrão, as métricas de host serão uma boa opção. No entanto, se você precisar de uma seleção maior de métricas, as métricas de convidado devem ser examinadas.
 
-Métricas de anfitrião não necessitam de configuração adicional porque eles são coletados pelo anfitrião de VM, ao passo que as métricas de convidado exigem a instalação do [extensão do Windows Azure Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md) ou o [extensão de diagnóstico do Linux do Azure ](../virtual-machines/linux/diagnostic-extension.md) na VM do convidado. Uma das razões comuns para utilizar as métricas de convidado em vez de métricas de anfitrião é que as métricas de convidado oferecem uma seleção maior de métricas de métricas de anfitrião. Um exemplo desse tipo é métricas de consumo de memória, que só estão disponíveis por meio de métricas de convidado. As métricas de anfitrião suportados estão listadas [aqui](../azure-monitor/platform/metrics-supported.md), e as métricas de convidado usadas são listadas [aqui](../azure-monitor/platform/autoscale-common-metrics.md). Este artigo mostra como modificar o [modelo de conjunto de dimensionamento básico de viável](virtual-machine-scale-sets-mvss-start.md) utilizar regras de dimensionamento automático com base em métricas de convidado para conjuntos de dimensionamento do Linux.
+As métricas do host não exigem configuração adicional porque são coletadas pela VM do host, enquanto as métricas de convidado exigem que você instale a [extensão do Windows diagnóstico do Azure](../virtual-machines/windows/extensions-diagnostics-template.md) ou a [extensão de diagnóstico do Azure do Linux](../virtual-machines/linux/diagnostic-extension.md) na VM convidada. Um motivo comum para usar métricas de convidado em vez de métricas de host é que as métricas de convidado fornecem uma seleção maior de métricas do que as métricas de host. Um exemplo é a métrica de consumo de memória, que só está disponível por meio de métricas de convidado. As métricas de host com suporte são listadas [aqui](../azure-monitor/platform/metrics-supported.md)e as métricas de convidado comumente usadas são listadas [aqui](../azure-monitor/platform/autoscale-common-metrics.md). Este artigo mostra como modificar o [modelo básico do conjunto de dimensionamento viável](virtual-machine-scale-sets-mvss-start.md) para usar regras de dimensionamento automático com base em métricas de convidado para conjuntos de dimensionamento do Linux.
 
-## <a name="change-the-template-definition"></a>Altere a definição do modelo
+## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
-Num [artigo anterior](virtual-machine-scale-sets-mvss-start.md) que criamos um modelo de conjunto de dimensionamento básico. Iremos agora utilizar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto com o dimensionamento automático de baseada em métrica convidado de dimensionamento do Linux.
+Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) , criamos um modelo de conjunto de dimensionamento básico. Agora, usaremos esse modelo anterior e o modificaremos para criar um modelo que implanta um conjunto de dimensionamento do Linux com dimensionamento automático baseado em métrica de convidado.
 
-Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken`. O agente de diagnóstico armazena dados de métricos num [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nesta conta de armazenamento. A partir do agente de diagnóstico do Linux versão 3.0, com uma chave de acesso de armazenamento já não é suportada. Em alternativa, utilize um [Token de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken`. O agente de diagnóstico armazena dados de métrica em uma [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nesta conta de armazenamento. A partir do agente de diagnóstico do Linux versão 3,0, não há mais suporte para o uso de uma chave de acesso de armazenamento. Em vez disso, use um [token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -48,7 +40,7 @@ Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasTok
    },
 ```
 
-Em seguida, modifique o conjunto de dimensionamento `extensionProfile` para incluir a extensão de diagnóstico. Nesta configuração, especifique o ID de recurso de conjunto de dimensionamento para recolher métricas, bem como a conta de armazenamento e o SAS token para utilizar para armazenar as métricas. Especifique a frequência com que as métricas são agregadas (no caso, a cada minuto) e as métricas para controlar (neste caso, percentagem memória utilizada). Para obter informações detalhadas sobre esta configuração e as métricas que não seja a percentagem de memória utilizada, consulte [esta documentação](../virtual-machines/linux/diagnostic-extension.md).
+Em seguida, modifique o conjunto de dimensionamento `extensionProfile` para incluir a extensão de diagnóstico. Nessa configuração, especifique a ID de recurso do conjunto de dimensionamento para coletar métricas, bem como a conta de armazenamento e o token SAS a serem usados para armazenar as métricas. Especifique com que frequência as métricas são agregadas (neste caso, a cada minuto) e quais métricas rastrear (nesse caso, porcentagem de memória usada). Para obter informações mais detalhadas sobre essa configuração e métricas diferentes da porcentagem de memória usada, consulte [esta documentação](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -111,7 +103,7 @@ Em seguida, modifique o conjunto de dimensionamento `extensionProfile` para incl
        }
 ```
 
-Por fim, adicione um `autoscaleSettings` recursos para configurar o dimensionamento automático com base nessas métricas. Este recurso tem um `dependsOn` cláusula que faça referência a escala definida para garantir que o conjunto de dimensionamento existe antes de tentar para dimensionar automaticamente. Se optar por uma métrica diferente para dimensionamento automático no, tem de utilizar o `counterSpecifier` da configuração de extensão de diagnóstico, como o `metricName` na configuração do dimensionamento automático. Para obter mais informações sobre a configuração de dimensionamento automático, consulte a [melhores práticas de dimensionamento automático](../azure-monitor/platform/autoscale-best-practices.md) e o [documentação de referência da API de REST do Azure Monitor](/rest/api/monitor/autoscalesettings).
+Por fim, adicione um recurso de `autoscaleSettings` para configurar o dimensionamento automático com base nessas métricas. Esse recurso tem uma cláusula `dependsOn` que faz referência ao conjunto de dimensionamento para garantir que o conjunto de dimensionamento exista antes de tentar fazer o dimensionamento automático. Se você escolher uma métrica diferente para o dimensionamento automático, use o `counterSpecifier` da configuração da extensão de diagnóstico como o `metricName` na configuração de dimensionamento automático. Para obter mais informações sobre configuração de dimensionamento automático, consulte as [práticas recomendadas de dimensionamento automático](../azure-monitor/platform/autoscale-best-practices.md) e a [documentação de referência da API REST do Azure monitor](/rest/api/monitor/autoscalesettings).
 
 ```diff
 +    },
@@ -187,6 +179,6 @@ Por fim, adicione um `autoscaleSettings` recursos para configurar o dimensioname
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

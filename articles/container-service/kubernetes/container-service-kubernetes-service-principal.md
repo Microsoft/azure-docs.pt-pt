@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Principal de serviço para o cluster de Kubernetes do Azure
+title: PRETERIDO Entidade de serviço para o cluster kubernetes do Azure
 description: Criar e gerir um principal de serviço do Azure Active Directory para um cluster de Kubernetes no Azure Container Service
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609105"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274371"
 ---
-# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(PRETERIDO) Configurar um principal de serviço do Azure AD para um cluster de Kubernetes no Container Service
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>PRETERIDO Configurar uma entidade de serviço do Azure AD para um cluster kubernetes no serviço de contêiner
 
 > [!TIP]
-> Para a versão atualizada, o que este artigo utiliza o serviço Kubernetes do Azure, veja [com o Azure Kubernetes Service (AKS) de principais de serviço](../../aks/kubernetes-service-principal.md).
+> Para a versão atualizada, este artigo que usa o serviço kubernetes do Azure, consulte [entidades de serviço com o serviço kubernetes do Azure (AKs)](../../aks/kubernetes-service-principal.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -33,11 +31,11 @@ Este artigo mostra as diferentes opções para configurar um principal de servi�
 
 Pode utilizar um principal de serviço do Azure AD existente que cumpre os seguintes requisitos ou criar um novo.
 
-* **Âmbito**: Grupo de recursos
+* **Âmbito**: grupo de recursos
 
-* **Função**: Contribuinte
+* **Função**: contribuidor
 
-* **Segredo do cliente**: Tem de ser uma palavra-passe. Atualmente, não pode utilizar um principal de serviço configurado para autenticação de certificados.
+* **Segredo do cliente**: tem de ser uma palavra-passe. Atualmente, não pode utilizar um principal de serviço configurado para autenticação de certificados.
 
 > [!IMPORTANT]
 > Para criar um principal de serviço, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Para ver se tem as permissões necessárias, [verifique no Portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -80,7 +78,7 @@ O exemplo seguinte mostra uma forma de passar os parâmetros com a CLI do Azure.
 
 1. [Transfira](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) o ficheiro de parâmetros do modelo `azuredeploy.parameters.json` a partir do GitHub.
 
-2. Para especificar o principal de serviço, introduza os valores para `servicePrincipalClientId` e `servicePrincipalClientSecret` no ficheiro. (Também tem de fornecer os seus próprios valores para `dnsNamePrefix` e `sshRSAPublicKey`. Este último é a chave pública SSH para aceder ao cluster.) Guarde o ficheiro.
+2. Para especificar o principal de serviço, introduza os valores para `servicePrincipalClientId` e `servicePrincipalClientSecret` no ficheiro. (Também tem de fornecer os seus próprios valores para `dnsNamePrefix` e `sshRSAPublicKey`. O último é a chave pública SSH para acessar o cluster.) Salve o arquivo.
 
     ![Passar parâmetros do principal de serviço](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +95,7 @@ O exemplo seguinte mostra uma forma de passar os parâmetros com a CLI do Azure.
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opção 2: Gerar um principal de serviço ao criar o cluster com `az acs create`
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opção 2: gerar um principal de serviço ao criar o cluster com `az acs create`
 
 Se executar o comando [`az acs create`](/cli/azure/acs#az-acs-create) para criar o cluster de Kubernetes, tem a opção de gerar automaticamente um principal de serviço.
 
@@ -168,7 +166,7 @@ Saída:
 
 Em seguida, atualize `/etc/kubernetes/azure.json` com as novas credenciais em todos os nós do cluster e reinicie os nós.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Kubernetes](container-service-kubernetes-walkthrough.md) no cluster de serviço do contentor.
 

@@ -1,22 +1,20 @@
 ---
 title: incluir ficheiro
 description: incluir ficheiro
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 4d0a61bf7f4ee9e441a49e21ce6535dc3bff0edc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9c51ce726545d1c64d69c86c36fc69ea43c3b882
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608321"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279412"
 ---
-Especifica quantos invocações de função são agregados quando [calcular métricas para o Application Insights](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator). 
+Especifica quantas invocações de função são agregadas ao [calcular métricas para Application insights](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator). 
 
 ```json
 {
@@ -29,7 +27,7 @@ Especifica quantos invocações de função são agregados quando [calcular mét
 
 |Propriedade |Predefinição  | Descrição |
 |---------|---------|---------| 
-|batchSize|1000|Número máximo de pedidos a agregar.| 
-|flushTimeout|00:00:30|Tempo máximo de período a agregar.| 
+|batchSize|1000|Número máximo de solicitações a serem agregadas.| 
+|flushTimeout|00:00:30|Período de tempo máximo para agregação.| 
 
-Invocações de função são agregadas quando o primeiro dos dois limites são atingidos.
+As invocações de função são agregadas quando o primeiro dos dois limites são atingidos.

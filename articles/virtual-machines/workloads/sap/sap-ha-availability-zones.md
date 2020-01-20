@@ -4,7 +4,7 @@ description: Arquitetura e cenários de alta disponibilidade para SAP NetWeaver 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f5186f456003c341af41fc6067f3b5c08acb2b4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 698c198f58ead88b01b1c4b8b2e1fd9da4198c93
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078894"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277468"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
 O [zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) é um dos recursos de alta disponibilidade que o Azure fornece. O uso de Zonas de Disponibilidade melhora a disponibilidade geral das cargas de trabalho do SAP no Azure. Esse recurso já está disponível em algumas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -57,7 +57,7 @@ Quando você implanta VMs do Azure em Zonas de Disponibilidade e estabelece solu
 
 - Você deve usar o [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) ao implantar no zonas de disponibilidade do Azure. 
 - O mapeamento de enumerações de zona para as zonas físicas é corrigido em uma base de assinatura do Azure. Se você estiver usando assinaturas diferentes para implantar seus sistemas SAP, precisará definir as zonas ideais para cada assinatura.
-- Você não pode implantar conjuntos de disponibilidade do Azure em uma zona de disponibilidade do Azure, a menos que use o [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). A maneira como você pode implantar a camada do DBMS do SAP e os serviços centrais entre as zonas e, ao mesmo tempo, implantar a camada de aplicativo SAP usando conjuntos de disponibilidade e ainda atingir a proximidade das VMs está documentada no artigo [posicionamento de proximidade do Azure Grupos para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md). Se não estiver aproveitando os grupos de posicionamento de proximidade do Azure, você precisará escolher um ou outro como uma estrutura de implantação para máquinas virtuais.
+- Você não pode implantar conjuntos de disponibilidade do Azure em uma zona de disponibilidade do Azure, a menos que use o [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). A maneira como você pode implantar a camada do DBMS do SAP e os serviços centrais entre as zonas e, ao mesmo tempo, implantar a camada de aplicativo SAP usando conjuntos de disponibilidade e ainda atingir a proximidade das VMs está documentada no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md). Se não estiver aproveitando os grupos de posicionamento de proximidade do Azure, você precisará escolher um ou outro como uma estrutura de implantação para máquinas virtuais.
 - Você não pode usar um [Load Balancer básico do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para criar soluções de cluster de failover com base no clustering de failover do Windows Server ou no pacemaker do Linux. Em vez disso, você precisa usar o [SKU Standard Load Balancer do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
@@ -75,6 +75,8 @@ Para determinar a latência entre as diferentes zonas, você precisa:
 - Implante a SKU da VM que você deseja usar para a instância do DBMS em todas as três zonas. Verifique se a [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitada quando você faz essa medição.
 - Quando você encontrar as duas zonas com a menor latência de rede, implante outras três VMs da SKU de VM que você deseja usar como a VM da camada de aplicativo entre as três Zonas de Disponibilidade. Meça a latência de rede em relação às duas VMs DBMS nas duas zonas DBMS que você selecionou. 
 - Use **niping** como uma ferramenta de medição. Essa ferramenta, do SAP, é descrita nas notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Concentre-se nos comandos documentados para medições de latência. Como o **ping** não funciona nos caminhos de código de rede acelerada do Azure, não recomendamos que você o use.
+
+Você não precisa executar esses testes manualmente. Você pode encontrar um teste de [latência de zona de disponibilidade](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) de procedimento do PowerShell que automatiza os testes de latência descritos. 
 
 Com base em suas medições e na disponibilidade de suas SKUs de VM no Zonas de Disponibilidade, você precisa tomar algumas decisões:
 
@@ -103,7 +105,7 @@ Um esquema simplificado de uma implantação ativa/ativa em duas zonas poderia s
 As seguintes considerações se aplicam a essa configuração:
 
 - Não usando o [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), você trata o zonas de disponibilidade do Azure como domínios de falha e atualização para todas as VMs porque os conjuntos de disponibilidade não podem ser implantados no zonas de disponibilidade do Azure.
-- Se você quiser combinar implantações zonais para a camada DBMS e os serviços centrais, mas quiser usar os conjuntos de disponibilidade do Azure para a camada de aplicativo, será necessário usar os grupos de proximidade do Azure, conforme descrito no artigo [grupos de posicionamento de proximidade do Azure para o ideal latência de rede com aplicativos SAP](sap-proximity-placement-scenarios.md).
+- Se você quiser combinar implantações zonais para a camada DBMS e os serviços centrais, mas quiser usar os conjuntos de disponibilidade do Azure para a camada de aplicativo, você precisará usar os grupos de proximidade do Azure, conforme descrito no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 - Para os balanceadores de carga dos clusters de failover dos serviços centrais do SAP e da camada DBMS, você precisa usar o [Azure Load BALANCER SKU padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). O Load Balancer básico não funcionará entre zonas.
 - A rede virtual do Azure que você implantou para hospedar o sistema SAP, junto com suas sub-redes, é ampliada entre as zonas. Você não precisa de redes virtuais separadas para cada zona.
 - Para todas as máquinas virtuais implantadas, você precisa usar o [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos não gerenciados para implantações zonais.
@@ -174,7 +176,7 @@ As seguintes considerações se aplicam a essa configuração:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Aqui estão algumas próximas etapas para a implantação em Zonas de Disponibilidade do Azure:
 
 - [Cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)

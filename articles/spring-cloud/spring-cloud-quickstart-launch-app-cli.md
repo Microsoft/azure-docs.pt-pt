@@ -1,17 +1,17 @@
 ---
 title: 'Início rápido: iniciar um aplicativo Spring Java usando o CLI do Azure'
 description: Neste guia de início rápido, você implanta um aplicativo de exemplo para o Azure Spring Cloud no CLI do Azure.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 41801fce41cd79898e9ebd12f9ca970f17b017bb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: 44b2f39cb1467e3459ee326bf81381830510d6b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891704"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278935"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Início rápido: iniciar um aplicativo Spring Java usando o CLI do Azure
 

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3fdc007caaa4cb79f6083599a5bc176bc022fb03
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561220"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278598"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
@@ -34,13 +34,13 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 ## <a name="configure-data-retention"></a>Configurar a retenção de dados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Localize seu ambiente de Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
 1. No título **configurações** , selecione **configuração de armazenamento**.
 
-    [![selecionar configurações e, em seguida, configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [![em configurações, selecione configuração de armazenamento](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 1. Selecione o **tempo de retenção de dados (em dias)** para configurar a retenção usando a barra deslizante ou digite um número na caixa de texto.
 
@@ -48,7 +48,7 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou **Pausar** comportamento de entrada.
 
-    [retenção de dados ![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![pausar a entrada-aceitar e salvar.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
 
 1. Examine a documentação para entender os possíveis riscos de perda de dados. Selecione **salvar** para configurar as alterações.
 

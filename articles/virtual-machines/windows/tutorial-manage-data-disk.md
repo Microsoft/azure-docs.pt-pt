@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: b288091172c71be82e70d90eb8817b2130f2cbef
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780271"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277315"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -44,7 +44,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 Quando uma máquina virtual do Azure é criada, dois discos são automaticamente expostos à máquina virtual. 
 
-**Disco do sistema operativo** - os discos do sistema operativo podem ter o tamanho máximo de 4 terabytes e alojam o sistema operativo das VMs.  O disco do SO é atribuído a uma letra de unidade de *C:* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. O disco do SO **não deve** alojar aplicações ou dados. Para aplicações e dados, utilize um disco de dados, que se encontra detalhado posteriormente neste artigo.
+**Disco do sistema operativo** - os discos do sistema operativo podem ter o tamanho máximo de 4 terabytes e alojam o sistema operativo das VMs. Se você criar uma nova VM (máquina virtual) de uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/) , normalmente 127 GB (mas algumas imagens têm tamanhos de disco de sistema operacional menores). O disco do SO é atribuído a uma letra de unidade de *C:* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. O disco do SO **não deve** alojar aplicações ou dados. Para aplicações e dados, utilize um disco de dados, que se encontra detalhado posteriormente neste artigo.
 
 **Disco temporário** - os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião da VM do Azure. Os discos temporários são de elevado desempenho e servem para operações como o processamento de dados temporários. No entanto, se a VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo [tamanho da VM](sizes.md). Os discos temporários estão atribuídos a uma letra de unidade de *D:* por predefinição.
 

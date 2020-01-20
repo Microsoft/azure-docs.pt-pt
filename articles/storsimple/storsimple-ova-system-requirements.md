@@ -1,31 +1,24 @@
 ---
-title: Microsoft Azure StorSimple os requisitos de sistema da matriz virtual | Microsoft Docs
+title: Microsoft Azure StorSimple os requisitos de sistema da matriz virtual
 description: Saiba mais sobre os requisitos de software e rede para sua matriz virtual StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516690"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273772"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este artigo descreve os requisitos de sistema importantes para sua Microsoft Azure StorSimple matriz virtual e para os clientes de armazenamento que acessam a matriz. Recomendamos que você revise as informações cuidadosamente antes de implantar o sistema StorSimple e, em seguida, reveja-as conforme necessário durante a implantação e a operação subsequente.
 
@@ -58,7 +51,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web c
 | Memória mínima (RAM) |8 GB <br> Para um servidor de arquivos, 8 GB para menos de 2 milhões arquivos e 16 GB para 2-4 milhões de arquivos|
 | Espaço em disco<sup>1</sup> |Disco do so-80 GB <br></br>Disco de dados-500 GB a 8 TB |
 | Número mínimo de interface (s) de rede |1 |
-| Largura de banda de Internet<sup>2</sup> |Largura de banda mínima necessária: 5 Mbps <br> Largura de banda recomendada: 100 Mbps <br> A velocidade da transferência de dados é dimensionada com a largura de banda da Internet. Por exemplo, 100 GB de dados leva 2 dias para serem transferidos a 5 Mbps, o que pode levar a falhas de backup porque os backups diários não seriam concluídos em um dia. Com uma largura de banda de 100 Mbps, 100 GB de dados podem ser transferidos em 2,5 horas.   |
+| Largura de banda de Internet<sup>2</sup> |Largura de banda mínima necessária: 5 Mbps <br> Largura de banda recomendada: 100 Mbps <br> A velocidade da transferência de dados é dimensionada com a largura de banda da Internet. Por exemplo, 100 GB de dados leva 2 dias para serem transferidos a 5 Mbps, o que pode levar a falhas de backup porque os backups diários não seriam concluídos em um dia. Com uma largura de banda de 100 Mbps, 100 GB de dados podem ser transferidos em 2,5 horas.   |
 
 <sup>1</sup> -provisionamento dinâmico
 
@@ -94,7 +87,7 @@ Os seguintes requisitos de software são para os clientes SMB que acessam o Stor
 Somente o armazenamento de blobs de blocos do Azure tem suporte. Não há suporte para BLOBs de páginas. Mais informações [sobre blobs de blocos e blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de rede
-A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego de iSCSI, SMB, de nuvem ou de gerenciamento. Nesta *tabela, entrada* ou *entrada* refere-se à direção da qual as solicitações de entrada do cliente acessam seu dispositivo. *Out* ou *Outbound* refere-se à direção na qual o dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, de saída para a Internet.
+A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego de iSCSI, SMB, de nuvem ou de gerenciamento. *Nesta tabela, entrada* ou *entrada* refere-se à direção da qual as solicitações de entrada do cliente acessam seu dispositivo. *Out* ou *Outbound* refere-se à direção na qual o dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, de saída para a Internet.
 
 | **N º da porta<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Necessário** | **Notas** |
 | --- | --- | --- | --- | --- |
@@ -127,7 +120,7 @@ Recomendamos que você defina suas regras de firewall para o tráfego de saída,
 
 | Padrão de URL | Componente/funcionalidade |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Azure Service Bus<br>Serviço de Autenticação|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Azure Service Bus<br>Serviço de autenticação|
 | `http://*.backup.windowsazure.com` |Registo de dispositivo |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificado |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitoramento e contas de armazenamento do Azure |
@@ -136,5 +129,5 @@ Recomendamos que você defina suas regras de firewall para o tráfego de saída,
 | `https://*.partners.extranet.microsoft.com/*` |Pacote de suporte |
 | `https://*.data.microsoft.com` |Serviço de telemetria no Windows, consulte a [atualização para a telemetria de experiência e diagnóstico do cliente](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Preparar o portal para implantar o StorSimple virtual array](storsimple-virtual-array-deploy1-portal-prep.md)

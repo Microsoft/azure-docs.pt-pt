@@ -1,31 +1,24 @@
 ---
-title: Instalar o dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs
+title: Instalar Microsoft Azure StorSimple dispositivo 8100
 description: Descreve como desempacotar, montar em rack e cabear o dispositivo StorSimple 8100 antes de implantar e configurar o software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963589"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277088"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear seu dispositivo StorSimple 8100
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Seu Microsoft Azure StorSimple 8100 é um único compartimento, dispositivo montado em rack. Este tutorial explica como desempacotar, montar em rack e conectar o hardware do dispositivo StorSimple 8100 antes de configurar e implantar o dispositivo StorSimple.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Desempacotar seu dispositivo StorSimple 8100
@@ -34,7 +27,7 @@ As etapas a seguir fornecem instruções claras e detalhadas sobre como desempac
 ### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar seu dispositivo
 Antes de desempacotar o dispositivo, examine as informações a seguir.
 
-![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
+![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 1. Verifique se você tem duas pessoas disponíveis para gerenciar o peso do compartimento se você o estiver manipulando manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 2. Coloque a caixa numa superfície plana e uniforme.
@@ -49,7 +42,7 @@ Em seguida, conclua as etapas a seguir para desempacotar seu dispositivo.
    
     **Exibição desempacotada do seu dispositivo de armazenamento**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Caixa de embalagem |
    |   2 |Espuma inferior |
@@ -90,7 +83,7 @@ O dispositivo deve ser instalado em um rack padrão de 19 polegadas que tem as p
 2. Verifique se o site onde você pretende configurar tem energia CA padrão de uma fonte independente ou uma unidade de distribuição de energia (PDU) de rack com uma fonte de alimentação ininterrupta (UPS).
 3. Verifique se um slot 2U está disponível no rack no qual você pretende montar o dispositivo.
 
-![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
+![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 Verifique se você tem duas pessoas disponíveis para gerenciar o peso se estiver manipulando a configuração do dispositivo manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 
@@ -111,7 +104,7 @@ Um conjunto de trilhos de montagem é fornecido para uso com o gabinete de rack 
 
     **Anexando slides do trilho interno aos lados do compartimento**
    
-    Etiqueta | Descrição
+    Label | Descrição
     ----- | -----------
     1     | Botão M 3x4-parafusos de cabeça
     2     | Slides do chassi
@@ -125,7 +118,7 @@ Um conjunto de trilhos de montagem é fornecido para uso com o gabinete de rack 
    
     **Anexando assemblies do trilho externo ao rack**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Parafuso fixação MSS |
    |   2 |Parafuso do rack frontal do buraco quadrado |
@@ -151,7 +144,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -191,7 +184,7 @@ Para dar suporte a esse failover de controlador redundante, você precisará con
    
     **Parte traseira do dispositivo mostrando portas de dados**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   0,1,4,5 |interfaces de rede de 1 GbE |
    |   2,3 |interfaces de rede de 10 GbE |
@@ -202,13 +195,13 @@ Para dar suporte a esse failover de controlador redundante, você precisará con
 
     **Cabeamento de rede para seu dispositivo**
 
-   |Etiqueta | Descrição |
+   |Label | Descrição |
    |----- | ----------- |
    | A    | LAN com acesso à Internet |
    | B    | Controlador 0 |
-   | C    | PCM 0 |
+   | C    | PCM 0 |
    | D    | Controlador 1 |
-   | E    | PCM 1 |
+   | E    | PCM 1 |
    | F, G | Anfitriões |
    | 0-5  | Interfaces de rede |
 
@@ -235,15 +228,15 @@ Para obter mais informações, consulte as **interfaces de rede** sob os [requis
 Execute as etapas a seguir para cabear a porta serial.
 
 #### <a name="to-cable-for-serial-connection"></a>Para cabo para conexão serial
-1. Seu dispositivo tem uma porta serial em cada controlador que é identificado por um ícone de chave inglesa. Consulte a ilustração na seção cabeamento de [rede](#network-cabling) para localizar as portas seriais no plano posterior do seu dispositivo.
+1. Seu dispositivo tem uma porta serial em cada controlador que é identificado por um ícone de chave inglesa. Consulte a ilustração na seção [cabeamento de rede](#network-cabling) para localizar as portas seriais no plano posterior do seu dispositivo.
 2. Identifique o controlador ativo no backplane do seu dispositivo. Um LED azul piscando indica que o controlador está ativo.
 3. Use os cabos de série fornecidos (se necessário, o conversor serial USB para seu laptop) e conecte seu console ou computador (com emulação de terminal ao dispositivo) à porta serial do controlador ativo.
 4. Instale os drivers Serial USB (fornecidos com o dispositivo) em seu computador.
-5. Configure a conexão serial da seguinte maneira: 115.200 baud, 8 bits de dados, 1 bit de parada, sem paridade e controle de fluxo definidos como nenhum.
+5. Configure a conexão serial da seguinte maneira: 115.200 baud, 8 bits de dados, 1 bit de parada, sem paridade e controle de fluxo definido como nenhum.
 6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu do console serial deve aparecer.
 
 > [!NOTE]
-> **Gerenciamento de luzes**: Quando o dispositivo for instalado em um datacenter remoto ou em uma sala de computadores com acesso limitado, verifique se as conexões de série para ambos os controladores estão sempre conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções de rede ou falhas inesperadas.
+> **Gerenciamento de luzes**: quando o dispositivo é instalado em um datacenter remoto ou em uma sala de computadores com acesso limitado, verifique se as conexões de série para ambos os controladores estão sempre conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções de rede ou falhas inesperadas.
 > 
 > 
 

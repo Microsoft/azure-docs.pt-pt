@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805710"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277601"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP
 Os aplicativos SAP baseados na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência de rede entre a camada de aplicativo SAP e a camada de banco de dados SAP. Essa sensibilidade é o resultado da maior parte da lógica de negócios em execução na camada de aplicativo. Como a camada de aplicativo SAP executa a lógica de negócios, ela emite consultas para a camada de banco de dados em uma alta frequência, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza dessas consultas é simples. Geralmente, eles podem ser executados na camada de banco de dados em 500 microssegundos ou menos.
@@ -156,7 +156,7 @@ O resultado dessa implantação é:
 > Como você implanta uma VM do DBMS em uma zona e a segunda VM do DBMS em outra zona para criar uma configuração de alta disponibilidade, você precisará de um grupo de posicionamento de proximidade diferente para cada uma das zonas. O mesmo é verdadeiro para qualquer conjunto de disponibilidade que você usar.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Mover um sistema existente para grupos de posicionamento de proximidade
-Se você já tiver sistemas SAP implantados, talvez queira otimizar a latência de rede de alguns dos seus sistemas críticos e localizar a camada de aplicativo e a camada de DBMS no mesmo datacenter. Durante a visualização pública dos grupos de posicionamento de proximidade, você precisa excluir as VMs e criar novas para mover o sistema para os grupos de posicionamento de proximidade. No momento, você não pode apenas desligar as VMs e atribuí-las aos grupos de posicionamento de proximidade.
+Se você já tiver sistemas SAP implantados, talvez queira otimizar a latência de rede de alguns dos seus sistemas críticos e localizar a camada de aplicativo e a camada de DBMS no mesmo datacenter. Para mover as VMs de um conjunto de disponibilidade do Azure completo para um grupo de posicionamento de proximidade existente que já está no escopo, você precisa desligar todas as VMs do conjunto de disponibilidade e atribuir o conjunto de disponibilidade ao grupo de posicionamento de proximidade existente por meio de portal do Azure, PowerShell ou CLI. Se você quiser mover uma VM que não faz parte de um conjunto de disponibilidade para um grupo de posicionamento de proximidade existente, bastará desligar a VM e atribuí-la a um grupo de posicionamento de proximidade existente. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

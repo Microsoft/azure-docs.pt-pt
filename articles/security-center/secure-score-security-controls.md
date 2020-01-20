@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 8f0b7b1225d78c7626c5be3e68c3dcd2dd557aa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0287a8011eb10120e273fb063c98ccd3c1a85782
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158159"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278025"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>A pontuação segura aprimorada (visualização) 
 
-Este artigo apresenta a pontuação segura aprimorada (atualmente em visualização), os controles de segurança que o acompanham e as vantagens que eles trazem.
+Este artigo apresenta a pontuação segura aprimorada (atualmente em visualização), os controles de segurança que o acompanham e as vantagens que eles trazem. Ele também explica como sua pontuação é calculada.
 
 ## <a name="introduction-to-secure-score"></a>Introdução à pontuação segura
 
@@ -32,11 +32,11 @@ A central de segurança avalia continuamente seus recursos, suas assinaturas e a
 
 A pontuação segura *aprimorada* (atualmente em visualização) é **focada na superfície de ataque** e traz três benefícios:
 
-- Controles de segurança-as recomendações de segurança agora estão agrupadas em conjuntos lógicos que refletem melhor suas superfícies de ataque vulneráveis. Para obter mais informações, consulte [como a pontuação segura é calculada](secure-score-security-controls.md#how-the-secure-score-is-calculated) abaixo.
+- **Controles de segurança** -as recomendações de segurança agora estão agrupadas em conjuntos lógicos que refletem melhor suas superfícies de ataque vulneráveis. Para obter mais informações, consulte [como a pontuação segura é calculada](secure-score-security-controls.md#how-the-secure-score-is-calculated) abaixo.
 
-- A pontuação geral reflete melhor os pontos de postura geral que foram concedidos no nível de recomendação. Com esse aprimoramento, sua pontuação só melhorará quando você corrigir *todas* as recomendações para um único recurso dentro de um controle. Isso significa que sua pontuação só melhora quando a segurança de um recurso melhora. 
+- **A pontuação geral reflete melhor os pontos de postura geral que** foram concedidos no nível de recomendação. Com esse aprimoramento, sua pontuação só melhorará quando você corrigir *todas* as recomendações para um único recurso dentro de um controle. Isso significa que sua pontuação só melhora quando a segurança de um recurso melhora. 
 
-- O status de segurança de superfícies de ataque individuais é mais visível – mostrando a pontuação por controle de segurança, a página de Pontuação segura se torna o local onde você pode obter uma visão granular de como a sua organização está protegendo cada superfície de ataque individual.
+- O **status de segurança de superfícies de ataque individuais é mais visível** – mostrando a pontuação por controle de segurança, a página de Pontuação segura se torna o local onde você pode obter uma visão granular de como a sua organização está protegendo cada superfície de ataque individual.
 
 A pontuação segura avançada é mostrada como uma porcentagem, conforme mostrado na seguinte captura de tela:
 
@@ -63,7 +63,7 @@ Por exemplo, o controle de segurança chamado "aplicar atualizações do sistema
 
 [![o controle de segurança "aplicar atualizações do sistema"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
-O valor do controle de segurança "aplicar atualizações do sistema" na captura de tela acima mostra "2% (1 ponto)". Isso significa que, se você corrigir todas as recomendações nesse controle, sua pontuação aumentará em 2% (que, nesse caso, é um ponto). Para simplificar, os valores na coluna "aumento potencial" da lista de recomendações são arredondados para números inteiros. As dicas de ferramenta mostram os valores precisos:
+O potencial para o controle de segurança "aplicar atualizações do sistema" na captura de tela acima mostra "2% (1 ponto)". Isso significa que, se você corrigir todas as recomendações nesse controle, sua pontuação aumentará em 2% (nesse caso, um ponto). Para simplificar, os valores na coluna "aumento potencial" da lista de recomendações são arredondados para números inteiros. As dicas de ferramenta mostram os valores precisos:
 
 * **Possível aumento** -os pontos restantes disponíveis para você dentro do controle. Para obter esses pontos adicionados à sua pontuação segura, corrija todas as recomendações do controle. No exemplo acima, o ponto mostrado para o controle é, na verdade, 0,96 pontos.
 * **Pontuação atual** -a pontuação atual para este controle. Cada controle contribui para a pontuação total. Neste exemplo, o controle está contribuindo com 5, 4 pontos para o total. 

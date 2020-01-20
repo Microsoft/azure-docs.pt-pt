@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f43f7424cddae8659301be0ddc4842412a62952
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993547"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270863"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -86,7 +86,7 @@ As subscrições do Visual Studio e do Microsoft Partner Network têm associadou
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Transferir a propriedade da faturação das subscrições do Contrato Enterprise (EA)
 
-O Administrador da Empresa pode transferir a propriedade das subscrições entre contas que pertençam a uma inscrição. Para obter mais informações, veja [Transferir Propriedade da Conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
+O Administrador da Empresa pode transferir a propriedade das subscrições entre contas que pertençam a uma inscrição. Para obter mais informações, consulte [alterar o proprietário da conta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) no portal de ea.
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Próximos passos após aceitar a propriedade da faturação
 
@@ -96,7 +96,7 @@ Se aceitou a propriedade de faturação de uma subscrição do Azure, recomendam
 1. Atualize as credenciais associadas aos serviços desta subscrição, incluindo:
    1. Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão para o Azure](../../cloud-services/cloud-services-certs-create.md)
    1. As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
-   1. As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
+   1. Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 1. Se estiver a trabalhar com um parceiro, considere atualizar a ID do parceiro nesta subscrição. Pode atualizar a ID do parceiro no [portal do Azure](https://portal.azure.com). Para obter mais informações, veja [Ligar uma ID de parceiro às suas contas do Azure](link-partner-id.md)
 
 <a id="supported"></a>
@@ -115,9 +115,9 @@ A transferência de subscrição no portal do Azure está disponível para os ti
 - [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
-- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
+- [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [por meio do portal de ea](#EA).
+\*[Através do EA Portal](#EA).
 
 \*\*Só é suportado para contas criadas durante a inscrição no site do Azure.
 
@@ -186,7 +186,7 @@ Mesmo que as atribuições de [Controlo de Acesso Baseado em Funções (RBAC)](.
 
 * Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
 * As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
-* As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
+* Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 
 Se o destinatário precisar de restringir o acesso aos seus recursos, deverá considerar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
 

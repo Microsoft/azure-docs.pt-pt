@@ -1,26 +1,19 @@
 ---
 title: Trabalhando com grandes conjuntos de dimensionamento de máquinas virtuais do Azure
 description: O que você precisa saber sobre grandes conjuntos de dimensionamento de máquinas virtuais do Azure para usá-los em seu aplicativo.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: rajsqr
-manager: jeconnoc
-editor: ''
+author: cynthn
+ms.author: cynthn
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 839d889783a7ef3bcd602c37a4975ddeea4e2a16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 618b677ee836327e8ed4ab7798ab35d92b364c98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459337"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272531"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 

@@ -1,17 +1,17 @@
 ---
 title: Planos de serviço e cotas para o Azure Spring Cloud
 description: Saiba mais sobre cotas de serviço e planos de serviço para o Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a5352b371c5754672e668e53eb5e4211de9c46cc
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: 8a7ba3c3b9c19b2084b6892b55ac417da38ab047
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891497"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278896"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Cotas e planos de serviço para o Azure Spring Cloud
 

@@ -1,28 +1,19 @@
 ---
-title: Usar imagens de VM compartilhadas para criar um conjunto de dimensionamento no Azure | Microsoft Docs
+title: Usar imagens de VM compartilhadas para criar um conjunto de dimensionamento no Azure
 description: Saiba como usar o Azure PowerShell para criar imagens de VM compartilhadas a serem usadas para implantar conjuntos de dimensionamento de máquinas virtuais no Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.custom: ''
-ms.openlocfilehash: 13c870ec87fa914f74bcfc4297dbe2fcc0bea282
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b60a00828cfed8ef5d47704de2b2d7ede309ed6d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875616"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276303"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Criar e usar imagens compartilhadas para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -34,7 +25,7 @@ A galeria é um recurso de nível superior que fornece RBAC (controle de acesso 
 
 O recurso da Galeria de imagens compartilhadas tem vários tipos de recursos. Usaremos ou compilaremos esses artigos neste artigo:
 
-| Resource | Descrição|
+| Recurso | Descrição|
 |----------|------------|
 | **Imagem gerenciada** | Essa é uma imagem básica que pode ser usada sozinha ou usada para criar uma **versão de imagem** em uma galeria de imagens. As imagens gerenciadas são criadas a partir de VMs generalizadas. Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para fazer várias VMs e agora pode ser usado para criar versões de imagens compartilhadas. |
 | **Galeria de imagens** | Como o Azure Marketplace, uma **Galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |
@@ -49,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os passos abaixo detalham como tornar uma VM existente numa imagem personalizada reutilizável que pode utilizar para criar novas instâncias da VM.
 
-Para concluir o exemplo neste artigo, você deve ter uma imagem gerenciada existente. Você pode seguir [o tutorial: Crie e use uma imagem personalizada para conjuntos de dimensionamento de máquinas](tutorial-use-custom-image-powershell.md) virtuais com Azure PowerShell para criar um, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
+Para concluir o exemplo neste artigo, você deve ter uma imagem gerenciada existente. Você pode seguir [o tutorial: criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com Azure PowerShell](tutorial-use-custom-image-powershell.md) para criar um, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
 
 Ao trabalhar no artigo, substitua os nomes do grupo de recursos e da VM quando necessário.
 
@@ -166,7 +157,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você também pode criar recursos da Galeria de imagens compartilhadas usando modelos. Há vários modelos de início rápido do Azure disponíveis: 
 
@@ -175,4 +166,4 @@ Você também pode criar recursos da Galeria de imagens compartilhadas usando mo
 - [Criar uma versão de imagem em uma galeria de imagens compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM com base na versão da imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, consulte a [visão geral](shared-image-galleries.md). Se você tiver problemas, consulte a [solução de problemas de galerias de imagens](troubleshooting-shared-images.md)compartilhadas.
+Para obter mais informações sobre galerias de imagens compartilhadas, consulte a [visão geral](shared-image-galleries.md). Se você tiver problemas, consulte a [solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).

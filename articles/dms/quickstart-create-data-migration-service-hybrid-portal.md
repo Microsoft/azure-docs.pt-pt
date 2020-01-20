@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708296"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274817"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Início rápido: criar uma instância do modo híbrido com portal do Azure & serviço de migração de banco de dados do Azure
 
@@ -73,7 +73,7 @@ Registre o provedor de recursos Microsoft. datamigration antes de criar sua prim
     - Escolha a **Localização** que esteja mais próxima do seu servidor de origem ou de destino.
     - Para **modo de serviço**, selecione **híbrido (versão prévia)** .
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Criar serviço de migração-noções básicas](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Selecione **Rever + criar**.
 
@@ -186,7 +186,7 @@ Esse script destina-se a uma rápida criação de protótipos quando o usuário 
 > [!IMPORTANT]
 > Esse script pressupõe que haja uma instância existente do serviço de migração de banco de dados do Azure no modo híbrido e que a conta do Azure usada tenha permissões para criar AdApps no locatário e para modificar o RBAC na assinatura.
 
-Basta preencher os parâmetros na parte superior do script e, em seguida, executar o script de uma instância de administrador do PowerShell.
+Preencha os parâmetros na parte superior do script e, em seguida, execute o script de uma instância de administrador do PowerShell.
 
 ## <a name="next-steps"></a>Passos seguintes
 

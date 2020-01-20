@@ -1,31 +1,24 @@
 ---
-title: Instalar o dispositivo Microsoft Azure StorSimple 8600 | Microsoft Docs
+title: Instalar Microsoft Azure StorSimple dispositivo 8600
 description: Descreve como desempacotar, montar em rack e cabear o dispositivo StorSimple 8600 antes de implantar e configurar o software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965271"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277119"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear seu dispositivo StorSimple 8600
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Seu Microsoft Azure StorSimple 8600 é um dispositivo de compartimento duplo e consiste em um compartimento primário e um EBOD. Este tutorial explica como desempacotar, montar em rack e conectar o hardware do dispositivo StorSimple 8600 antes de configurar o software StorSimple.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Desempacotar seu dispositivo StorSimple 8600
@@ -34,7 +27,7 @@ As etapas a seguir fornecem instruções claras e detalhadas sobre como desempac
 ### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar seu dispositivo
 Antes de desempacotar o dispositivo, examine as informações a seguir.
 
-![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
+![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 1. Verifique se você tem duas pessoas disponíveis para gerenciar o peso do dispositivo se você o estiver manipulando manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 2. Coloque a caixa numa superfície plana e uniforme.
@@ -49,7 +42,7 @@ Em seguida, conclua as etapas a seguir para desempacotar seu dispositivo.
    
     **Exibição desempacotada do seu dispositivo de armazenamento**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Caixa de embalagem |
    |   2 |Cabos SAS (na bandeja de acessórios e cabos) |
@@ -92,7 +85,7 @@ Os compartimentos devem ser instalados em um rack padrão de 19 polegadas que te
 2. Verifique se o site onde você pretende configurar tem energia CA padrão de uma fonte independente ou uma unidade de distribuição de energia (PDU) de rack com uma fonte de alimentação ininterrupta (UPS).
 3. Verifique se um slot de 4U (2 X 2U) está disponível no rack no qual você pretende montar os compartimentos.
 
-![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
+![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
  Verifique se você tem duas pessoas disponíveis para gerenciar o peso se estiver manipulando a configuração do dispositivo manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 
@@ -113,7 +106,7 @@ Um conjunto de trilhos de montagem será fornecido para uso com o gabinete de ra
    
     **Anexando slides do trilho aos lados do compartimento**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |  1 |Botão M 3x4-parafusos de cabeça |
    |  2 |Slides do chassi |
@@ -126,7 +119,7 @@ Um conjunto de trilhos de montagem será fornecido para uso com o gabinete de ra
    
     **Anexando assemblies do trilho ao rack**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Parafuso fixação MSS |
    |   2 |Parafuso do rack frontal do buraco quadrado |
@@ -152,7 +145,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -205,7 +198,7 @@ Para dar suporte a esse failover de controlador redundante, você precisa conect
    
     **Parte traseira do dispositivo mostrando as portas de dados**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   0,1,4,5 |interfaces de rede de 1 GbE |
    |   2,3 |interfaces de rede de 10 GbE |
@@ -216,15 +209,15 @@ Para dar suporte a esse failover de controlador redundante, você precisa conect
 
 **Cabeamento de rede para seu dispositivo**
 
-| Etiqueta | Descrição |
+| Label | Descrição |
 | --- | --- |
 | A |LAN com acesso à Internet |
 | B |Controlador 0 |
-| C |PCM 0 |
+| C |PCM 0 |
 | D |Controlador 1 |
-| E |PCM 1 |
-| S |Controlador EBOD 0 |
-| O |Controlador EBOD 1 |
+| E |PCM 1 |
+| F |Controlador EBOD 0 |
+| G |Controlador EBOD 1 |
 | H, I |Hosts (por exemplo, servidores de arquivos) |
 | 0-5 |Interfaces de rede |
 | 6 |Compartimento principal |

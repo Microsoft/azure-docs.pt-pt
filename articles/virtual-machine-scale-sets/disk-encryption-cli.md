@@ -1,20 +1,19 @@
 ---
 title: Criptografar discos para conjuntos de dimensionamento do Azure com CLI do Azure
 description: Saiba como usar Azure PowerShell para criptografar instâncias de VM e discos anexados em um conjunto de dimensionamento de máquinas virtuais do Windows
-services: virtual-machine-scale-sets
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2577eef95cad3405eb42af22e4c57511a660c1a6
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530813"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279081"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografar o sistema operacional e OS discos de dados anexados em um conjunto de dimensionamento de máquinas virtuais com o CLI do Azure
 
@@ -164,7 +163,7 @@ Quando as instâncias de VM são criptografadas, o código de status relata *cri
 ]
 ```
 
-## <a name="disable-encryption"></a>Desabilitar criptografia
+## <a name="disable-encryption"></a>Desativar a encriptação
 
 Se você não deseja mais usar discos de instâncias de VM criptografadas, você pode desabilitar a criptografia com [AZ vmss Encryption Disable](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) da seguinte maneira:
 
@@ -176,4 +175,4 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 - Neste artigo, você usou a CLI do Azure para criptografar um conjunto de dimensionamento de máquinas virtuais. Você também pode usar modelos de [Azure PowerShell](disk-encryption-powershell.md) ou [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
 - Se desejar ter Azure Disk Encryption aplicado depois que outra extensão for provisionada, você poderá usar o [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md). 
-- Um exemplo de arquivo em lotes de ponta a ponta para criptografia de disco de dados do conjunto de dimensionamento do Linux pode ser encontrado [aqui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Este exemplo cria um grupo de recursos, um conjunto de dimensionamento do Linux, monta um disco de dados de 5 GB e criptografa o conjunto de dimensionamento de máquinas virtuais.
+- Um exemplo de arquivo em lotes de ponta a ponta para criptografia de disco de dados do conjunto de dimensionamento do Linux pode ser encontrado [aqui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Este exemplo cria um grupo de recursos, o conjunto de dimensionamento do Linux, monta um disco de dados de 5 GB e encripta o conjunto de dimensionamento de máquina virtual.

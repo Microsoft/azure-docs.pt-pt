@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de convidado
 description: Saiba como criar uma política de configuração de convidado Azure Policy para VMs Windows ou Linux com Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 7a6c6bb68302d41cd750c59062432a40cf01e8bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867326"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278464"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
@@ -176,42 +176,6 @@ Parâmetros do cmdlet `New-GuestConfigurationPackage`:
 
 O pacote completo deve ser armazenado em um local que possa ser acessado pelas máquinas virtuais gerenciadas. Os exemplos incluem repositórios do GitHub, um repositório do Azure ou um armazenamento do Azure. Se preferir não tornar o pacote público, você pode incluir um [token SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) na URL.
 Você também pode implementar o [ponto de extremidade de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para computadores em uma rede privada, embora essa configuração se aplique somente ao acesso ao pacote e não à comunicação com o serviço.
-
-### <a name="working-with-secrets-in-guest-configuration-packages"></a>Trabalhando com segredos em pacotes de configuração de convidado
-
-Na configuração de convidado Azure Policy, a maneira ideal de gerenciar segredos usados em tempo de execução é armazená-los em Azure Key Vault. Esse design é implementado dentro de recursos personalizados de DSC.
-
-1. Crie uma identidade gerenciada atribuída pelo usuário no Azure.
-
-   A identidade é usada por computadores para acessar segredos armazenados no Key Vault. Para obter etapas detalhadas, consulte [criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
-
-1. Crie uma instância de Key Vault.
-
-   Para obter etapas detalhadas, consulte [definir e recuperar um segredo-PowerShell](../../../key-vault/quick-create-powershell.md).
-   Atribua permissões à instância para conceder ao acesso de identidade atribuído pelo usuário os segredos armazenados no Key Vault. Para obter etapas detalhadas, consulte [definir e recuperar um segredo-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
-
-1. Atribua a identidade atribuída pelo usuário ao seu computador.
-
-   Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   Atribua essa identidade usando Azure Resource Manager por meio de Azure Policy em escala. Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando um modelo](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
-
-1. Use a ID do cliente gerada acima em seu recurso personalizado para acessar Key Vault usando o token disponível no computador.
-
-   O `client_id` e a URL para a instância de Key Vault podem ser passados para o recurso como [Propriedades](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) , de modo que o recurso não precisará ser atualizado para vários ambientes ou se os valores precisarem ser alterados.
-
-O exemplo de código a seguir pode ser usado em um recurso personalizado para recuperar segredos de Key Vault usando uma identidade atribuída pelo usuário. O valor retornado da solicitação para Key Vault é texto sem formatação. Como prática recomendada, armazene-o em um objeto de credencial.
-
-```azurepowershell-interactive
-# the following values should be input as properties
-$client_id = 'e3a78c9b-4dd2-46e1-8bfa-88c0574697ce'
-$keyvault_url = 'https://keyvaultname.vault.azure.net/secrets/mysecret'
-
-$access_token = ((Invoke-WebRequest -Uri "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=$client_id&resource=https%3A%2F%2Fvault.azure.net" -Method GET -Headers @{Metadata='true'}).Content | ConvertFrom-Json).access_token
-
-$value = ((Invoke-WebRequest -Uri $($keyvault_url+'?api-version=2016-10-01') -Method GET -Headers @{Authorization="Bearer $access_token"}).content | convertfrom-json).value |  ConvertTo-SecureString -asplaintext -force
-
-$credential = New-Object System.Management.Automation.PSCredential('secret',$value)
-```
 
 ## <a name="test-a-guest-configuration-package"></a>Testar um pacote de configuração de convidado
 

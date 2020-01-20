@@ -1,29 +1,21 @@
 ---
-title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com o Azure PowerShell | Microsoft Docs
+title: Tutorial – dimensionamento automático de um conjunto de dimensionamento com Azure PowerShell
 description: Saiba como dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell à medida que a CPU exige aumentos e diminuições
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677598"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278415"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -72,18 +64,18 @@ Vamos criar uma regra com [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.
 
 Os parâmetros seguintes são utilizados para esta regra:
 
-| Parâmetro               | Explicação                                                                                                         | Value          |
+| Parâmetro               | Explicação                                                                                                         | Valor          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
-| *-TimeGrain*            | Frequência com que as métricas são recolhidas para análise.                                                                   | 1 minuto       |
+| *-TimeGrain*            | Frequência com que as métricas são recolhidas para análise.                                                                   | um minuto       |
 | *-MetricStatistic*      | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
-| *-TimeWindow*           | A quantidade de tempo monitorizado antes de os valores de métrica e limiar serem comparados.                                   | 5 minutos      |
+| *-TimeWindow*           | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados.                                   | 5 minutos      |
 | *-Operator*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior Que   |
 | *-Threshold*            | O valor que faz com que a regra de dimensionamento automático acione uma ação.                                                      | 70%            |
 | *-ScaleActionDirection* | Define se o conjunto de dimensionamento deve aumentar ou reduzir verticalmente quando a regra se aplicar.                                             | Aumentar       |
-| *–ScaleActionScaleType* | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Contagem de Alterações   |
+| *-ScaleActionScaleType* | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Alterar Contagem   |
 | *-ScaleActionValue*     | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 3              |
-| *-ScaleActionCooldown*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente, para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
+| *-ScaleActionCooldown*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
 
 O exemplo seguinte cria um objeto com o nome *myRuleScaleOut* que contém esta regra para aumentar verticalmente. *- MetricResourceId* utiliza as variáveis definidas anteriormente para o ID de subscrição, o nome do grupo de recursos e o nome do conjunto de dimensionamento:
 
@@ -97,13 +89,13 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
 
 
-## <a name="create-a-rule-to-autoscale-in"></a>Criar uma regra para dimensionamento automático para reduzir horizontalmente
+## <a name="create-a-rule-to-autoscale-in"></a>Criar uma regra para dimensionamento automático, para reduzir horizontalmente
 À noite ou ao fim de semana, a exigência da aplicação pode diminuir. Se esta diminuição de carga for consistente durante um certo período de tempo, pode configurar regras de dimensionamento automático para diminuir o número de instâncias de VM no conjunto de dimensionamento. Esta ação de dimensionamento para reduzir horizontalmente reduz o custo de execução do conjunto de dimensionamento, uma vez que apenas executa o número de instâncias necessário para satisfazer a exigência atual.
 
 Crie outra regra com [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) que diminui o número de instâncias de VM num conjunto de dimensionamento quando a carga média da CPU passa a ser inferior a 30% durante um período de 5 minutos. Quando a regra é acionada, o número de instâncias de VM é diminuído em um. O exemplo seguinte cria um objeto com o nome *myRuleScaleDown* que contém esta regra para aumentar verticalmente. *- MetricResourceId* utiliza as variáveis definidas anteriormente para o ID de subscrição, o nome do grupo de recursos e o nome do conjunto de dimensionamento:
@@ -119,7 +111,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 
@@ -172,9 +164,9 @@ myRDPRule.0 Tcp             50001        3389
 myRDPRule.1 Tcp             50002        3389
 ```
 
-O *Nome* da regra está alinhado com o nome da instância de VM, conforme mostrado num comando [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) anterior. Por exemplo, para ligar à instância de VM *0*, utilize *myRDPRule.0* e ligue à porta *50001*. Para ligar à instância de VM *1*, utilize o valor de *myRDPRule.1* e ligue à porta *50002*.
+O *Nome* da regra está alinhado com o nome da instância da VM, conforme mostrado num comando [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) anterior. Por exemplo, para ligar à instância de VM *0*, utilize *myRDPRule.0* e ligue à porta *50001*. Para ligar à instância de VM *1*, utilize o valor de *myRDPRule.1* e ligue à porta *50002*.
 
-Veja o endereço IP público do balanceador de carga com [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Veja endereço IP público do balanceador de carga com [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
@@ -188,7 +180,7 @@ IpAddress
 52.168.121.216
 ```
 
-Crie uma ligação remota à primeira instância de VM. Especifique o seu endereço IP público e o número da porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento (por padrão, nos comandos de exemplo, eles são *azureuser* e *\@P ssw0rd!* ). Se utiliza o Azure Cloud Shell, efetue este passo a partir de uma linha de comandos do PowerShell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *0*:
+Crie uma ligação remota à sua primeira instância da VM. Especifique o seu endereço IP público e o número da porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento (por padrão, nos comandos de exemplo, eles são *azureuser* e *P\@ssw0rd!* ). Se utiliza o Azure Cloud Shell, efetue este passo a partir de um pedido local do Power Shell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -254,7 +246,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]

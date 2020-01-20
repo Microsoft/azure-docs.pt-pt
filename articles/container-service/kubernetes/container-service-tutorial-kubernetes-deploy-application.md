@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Tutorial do Azure Container Service – implementar aplicação
+title: PRETERIDO Tutorial do serviço de contêiner do Azure – implantar aplicativo
 description: Tutorial do Azure Container Service – Implementar Aplicação
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e10fd982c19e45be8c5da4ffc7f7248276352c1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309236"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275497"
 ---
-# <a name="deprecated-run-applications-in-kubernetes"></a>(PRETERIDO) Executar aplicações no Kubernetes
+# <a name="deprecated-run-applications-in-kubernetes"></a>PRETERIDO Executar aplicativos no kubernetes
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Executar aplicações no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: executar aplicativos no AKs (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-deploy-application.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -107,7 +105,7 @@ Para ver a aplicação, navegue para o endereço IP externo.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, a aplicação do Azure vote foi implementada num cluster de Kubernetes do Azure Container Service. As tarefas concluídas incluem:  
 

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: cc16a40b0ea53d433a5a6c592f3b9ea364ef9089
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725835"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271597"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Proteger clusters de Data Explorer do Azure no Azure
 
@@ -24,7 +24,7 @@ Um desafio comum ao criar aplicativos em nuvem é o gerenciamento de credenciais
 
 O recurso identidades gerenciadas do Azure Active Directory (Azure AD) para recursos do Azure resolve esse problema. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. Para obter mais informações sobre esse serviço, consulte a página Visão geral [de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) .
 
-## <a name="data-encryption"></a>Encriptação de Dados
+## <a name="data-encryption"></a>Encriptação de dados
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 

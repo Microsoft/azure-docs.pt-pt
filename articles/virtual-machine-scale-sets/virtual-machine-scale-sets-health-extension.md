@@ -1,26 +1,18 @@
 ---
-title: Usar extensão de integridade do aplicativo com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Usar extensão de integridade do aplicativo com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como usar a extensão de integridade do aplicativo para monitorar a integridade de seus aplicativos implantados em conjuntos de dimensionamento de máquinas virtuais.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: e074d76f9ed095725d99bddc9eb21925f4b3697c
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114472"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275884"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Usando a extensão de integridade do aplicativo com conjuntos de dimensionamento de máquinas virtuais
 Monitorar a integridade do aplicativo é um sinal importante para gerenciar e atualizar sua implantação. Os conjuntos de dimensionamento de máquinas virtuais do Azure oferecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , incluindo [atualizações automáticas de imagem do sistema operacional](virtual-machine-scale-sets-automatic-upgrade.md), que dependem do monitoramento de integridade das instâncias individuais para atualizar sua implantação.
@@ -66,17 +58,17 @@ O JSON a seguir mostra o esquema para a extensão de integridade do aplicativo. 
 | Nome | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | string |
-| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | string |
+| publicador | `Microsoft.ManagedServices` | string |
+| tipo | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Definições
 
-| Name | Valor / exemplo | Tipo de Dados
+| Nome | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
 | protocol | `http` ou `tcp` | string |
-| port | Opcional quando o protocolo `http`é, obrigatório quando o protocolo é`tcp` | int |
-| requestPath | Obrigatório quando o protocolo `http`é, não é permitido quando o protocolo é`tcp` | string |
+| porta | Opcional quando o protocolo é `http`, obrigatório quando o protocolo é `tcp` | int |
+| requestPath | Obrigatório quando o protocolo é `http`, não é permitido quando o protocolo está `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implantar a extensão de integridade do aplicativo
 Há várias maneiras de implantar a extensão de integridade do aplicativo em seus conjuntos de dimensionamento, conforme detalhado nos exemplos abaixo.
@@ -111,7 +103,7 @@ Use `PATCH` para editar uma extensão já implantada.
 
 Use o cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) para adicionar a extensão de integridade do aplicativo à definição do modelo do conjunto de dimensionamento.
 
-O exemplo a seguir adiciona a extensão de integridade do `extensionProfile` aplicativo ao no modelo do conjunto de dimensionamento de um conjunto de dimensionamento baseado no Windows. O exemplo usa o novo módulo AZ PowerShell.
+O exemplo a seguir adiciona a extensão de integridade do aplicativo ao `extensionProfile` no modelo do conjunto de dimensionamento de um conjunto de dimensionamento baseado no Windows. O exemplo usa o novo módulo AZ PowerShell.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -145,7 +137,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 Use [AZ vmss Extension Set](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de integridade do aplicativo à definição do modelo do conjunto de dimensionamento.
 
@@ -184,5 +176,5 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 
 Os logs também capturam periodicamente o status de integridade do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [implantar seu aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais.

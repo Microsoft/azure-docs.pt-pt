@@ -1,22 +1,20 @@
 ---
-title: (PRETERIDO) Início rápido – cluster do Kubernetes do Azure para Windows
+title: PRETERIDO Início rápido-cluster kubernetes do Azure para Windows
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Windows no Azure Container Service com a CLI do Azure.
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148799"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277649"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(PRETERIDO) Implementar cluster do Kubernetes para contentores do Windows
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>PRETERIDO Implantar o cluster kubernetes para contêineres do Windows
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -162,7 +160,7 @@ Para expor o pod ao mundo com um endereço IP público, introduza o seguinte com
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Com este comando, o Kubernetes cria um serviço e uma regra de Balanceador de carga do Azure com um endereço IP público para o serviço. 
+Com esse comando, o kubernetes cria um serviço e uma regra do Azure Load Balancer com um endereço IP público para o serviço. 
 
 Execute o seguinte comando para ver o estado do serviço.
 
@@ -191,7 +189,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou um cluster do Kubernetes, ligado a `kubectl`, e implementou um pod com um contentor IIS. Para saber mais sobre o Azure Container Service, continue o tutorial do Kubernetes.
 

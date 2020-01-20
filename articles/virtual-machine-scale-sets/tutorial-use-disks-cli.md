@@ -1,29 +1,21 @@
 ---
-title: Tutorial – Criar e utilizar discos para conjuntos de dimensionamento com a CLI do Azure | Microsoft Docs
+title: Tutorial – criar e usar discos para conjuntos de dimensionamento com CLI do Azure
 description: Saiba como utilizar a CLI do Azure para criar e utilizar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329461"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278237"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com o conjunto com a CLI do Azure de dimensionamento de máquina virtual
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
@@ -48,7 +40,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 **Disco temporário** – os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião do Azure da instância de VM. São discos de elevado desempenho e podem ser utilizados para operações como o processamento de dados temporários. No entanto, se a instância de VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo tamanho da instância de VM. Os discos temporários estão identificados como */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
-| Type | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
+| Tipo | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
 |----|----|----|
 | [Fins gerais](../virtual-machines/linux/sizes-general.md) | Séries A, B e D | 1600 |
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
@@ -59,10 +51,10 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
-Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados duradouro e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU de VM, podem ser expostos dois discos de dados.
+Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU de VM, podem ser expostos dois discos de dados.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de dados máximos por VM
-| Type | Tamanhos comuns | Discos de dados máximos por VM |
+| Tipo | Tamanhos comuns | Discos de dados máximos por VM |
 |----|----|----|
 | [Fins gerais](../virtual-machines/linux/sizes-general.md) | Séries A, B e D | 64 |
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md) | Série F | 64 |
@@ -79,20 +71,20 @@ O Azure oferece dois tipos de disco.
 O Armazenamento Standard está protegido por HDDs e fornece armazenamento e desempenho económicos. Os discos Standard são ideais para uma carga de trabalho de desenvolvimento e teste económica.
 
 ### <a name="premium-disk"></a>Disco Premium
-Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. Estes discos são recomendados para VMs que executam cargas de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
+Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. Estes discos são recomendados para VMs que executam cargas de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando seleciona um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 |Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
-| IOPs Máx por disco | 120 | 240 | 500 | 2\.300 | 5\.000 | 7\.500 | 7\.500 |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
+| IOPs Máx por disco | 120 | 240 | 500 | 2300 | 5000 | 7\.500 | 7\.500 |
 Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, consulte [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md).
 
 
-## <a name="create-and-attach-disks"></a>Criar e anexar discos
-Pode criar e anexar discos quando criar um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
+## <a name="create-and-attach-disks"></a>Criar e expor discos
+Pode criar e anexar discos quando cria um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos durante a criação do conjunto de dimensionamento
 Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus*.
@@ -278,7 +270,7 @@ São apresentadas informações sobre o tamanho do disco, a camada de armazename
 ```
 
 
-## <a name="detach-a-disk"></a>Desligar um disco
+## <a name="detach-a-disk"></a>Desanexar um disco
 Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [az vmss show](/cli/azure/vmss) na secção anterior. O exemplo seguinte desanexa o LUN *2* do conjunto de dimensionamento:
 
 ```azurecli-interactive
@@ -297,7 +289,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a criar e a utilizar discos com conjuntos de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]

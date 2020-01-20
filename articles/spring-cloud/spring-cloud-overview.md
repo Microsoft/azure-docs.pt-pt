@@ -1,17 +1,17 @@
 ---
 title: Introdução ao Azure Spring Cloud
 description: Conheça os recursos e os benefícios do Azure Spring Cloud para implantar e gerenciar aplicativos Spring em Java no Azure.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: overview
 ms.date: 11/4/2019
-ms.author: jeconnoc
-ms.openlocfilehash: d05ce8f94862d737b3514bd1116e431bcba5dedd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: brendm
+ms.openlocfilehash: 87b7ac1e9de2087de6e0b9d72fb445ca515a2e32
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891687"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277137"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
 

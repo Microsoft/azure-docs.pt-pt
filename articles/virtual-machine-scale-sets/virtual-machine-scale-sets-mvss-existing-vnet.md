@@ -1,38 +1,31 @@
 ---
-title: Fazer referência a uma rede virtual existente no modelo de conjunto de dimensionamento do Azure | Documentos da Microsoft
-description: Saiba como adicionar uma rede virtual a um modelo de conjunto de dimensionamento de Máquina Virtual do Azure existente
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Fazer referência a uma rede virtual existente em um modelo do conjunto de dimensionamento do Azure
+description: Saiba como adicionar uma rede virtual a um modelo existente do conjunto de dimensionamento de máquinas virtuais do Azure
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8b75b9898eb767866c0843594a82570cfb65d122
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e725e75b8b19fd8b3295226639b5e5aeb3736e34
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868961"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275540"
 ---
-# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual existente num modelo de conjunto de dimensionamento do Azure
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual existente em um modelo de conjunto de dimensionamento do Azure
 
-Este artigo mostra como modificar o [modelo de conjunto de dimensionamento básico](virtual-machine-scale-sets-mvss-start.md) para implementar numa rede virtual existente, em vez de criar um novo.
+Este artigo mostra como modificar o [modelo de conjunto de dimensionamento básico](virtual-machine-scale-sets-mvss-start.md) para implantar em uma rede virtual existente em vez de criar um novo.
 
-## <a name="change-the-template-definition"></a>Altere a definição do modelo
+## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
-Num [artigo anterior](virtual-machine-scale-sets-mvss-start.md) que criamos um modelo de conjunto de dimensionamento básico. Iremos agora utilizar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto de dimensionamento numa rede virtual existente. 
+Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) , criamos um modelo de conjunto de dimensionamento básico. Agora, usaremos esse modelo anterior e o modificaremos para criar um modelo que implanta um conjunto de dimensionamento em uma rede virtual existente. 
 
-Primeiro, adicione um `subnetId` parâmetro. Esta cadeia é passada para a configuração de conjunto de dimensionamento, permitindo que o conjunto de dimensionamento para identificar a sub-rede previamente criada para implementar máquinas virtuais em. Esta cadeia tem de ser do formulário: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+Primeiro, adicione um parâmetro `subnetId`. Essa cadeia de caracteres é passada para a configuração do conjunto de dimensionamento, permitindo que o conjunto de dimensionamento identifique a sub-rede criada previamente na qual implantar máquinas virtuais. Essa cadeia de caracteres deve estar no formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
-Por exemplo, para implementar o dimensionamento conjunto numa rede virtual existente com o nome `myvnet`, sub-rede `mysubnet`, grupo de recursos `myrg`e subscrição `00000000-0000-0000-0000-000000000000`, o subnetId seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Por exemplo, para implantar o conjunto de dimensionamento em uma rede virtual existente com o nome `myvnet`, `mysubnet`de sub-rede, `myrg`de grupo de recursos e `00000000-0000-0000-0000-000000000000`de assinatura, a subnetid seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -45,7 +38,7 @@ Por exemplo, para implementar o dimensionamento conjunto numa rede virtual exist
    },
 ```
 
-Em seguida, elimine o recurso de rede virtual do `resources` matriz, à medida que utilize uma rede virtual existente e não precisa de implementar um novo.
+Em seguida, exclua o recurso de rede virtual da matriz `resources`, pois você usa uma rede virtual existente e não precisa implantar uma nova.
 
 ```diff
    "variables": {},
@@ -73,7 +66,7 @@ Em seguida, elimine o recurso de rede virtual do `resources` matriz, à medida q
 -    },
 ```
 
-A rede virtual já existe antes do modelo é implementado, pelo que é necessário especificar uma cláusula de dependsOn do conjunto de dimensionamento para a rede virtual. Elimine as seguintes linhas:
+A rede virtual já existe antes de o modelo ser implantado, portanto, não é necessário especificar uma cláusula depending do conjunto de dimensionamento para a rede virtual. Exclua as seguintes linhas:
 
 ```diff
      {
@@ -89,7 +82,7 @@ A rede virtual já existe antes do modelo é implementado, pelo que é necessár
          "capacity": 2
 ```
 
-Finalmente, passar o `subnetId` parâmetro definido pelo utilizador (em vez de usar `resourceId` para obter o ID de uma vnet na mesma implementação, que é o que o básico conjunto de dimensionamento viável modelo faz).
+Por fim, passe o parâmetro `subnetId` definido pelo usuário (em vez de usar `resourceId` para obter a ID de uma vnet na mesma implantação, que é o que o modelo básico do conjunto de dimensionamento viável).
 
 ```diff
                        "name": "myIpConfig",
@@ -105,6 +98,6 @@ Finalmente, passar o `subnetId` parâmetro definido pelo utilizador (em vez de u
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

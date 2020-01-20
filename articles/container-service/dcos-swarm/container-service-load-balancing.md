@@ -1,22 +1,20 @@
 ---
-title: (PRETERIDO) Contentores de balanceamento de carga num cluster DC/OS do Azure
+title: PRETERIDO Contêineres de balanceamento de carga no cluster de DC/so do Azure
 description: Balanceamento de carga entre múltiplos contentores num cluster DC/OS do Azure Container Service.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148900"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277839"
 ---
-# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Contentores de balanceamento de carga num cluster DC/OS do Azure Container Service
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>PRETERIDO Balancear carga de contêineres em um cluster DC/OS do serviço de contêiner do Azure
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -97,7 +95,7 @@ Em seguida, crie um ficheiro com o nome *hello-web.json* e copie os seguintes co
 }
 ```
 
-Utilize a CLI de DC/OS para executar a aplicação. Por predefinição o Marathon implementa a aplicação no cluster privado. Isto significa que a implementação acima só é acessível através do seu balanceador de carga, o que é normalmente o comportamento pretendido.
+Utilize a CLI de DC/OS para executar a aplicação. Por padrão, o Marathon implanta o aplicativo no cluster privado. Isto significa que a implementação acima só é acessível através do seu balanceador de carga, o que é normalmente o comportamento pretendido.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json
@@ -113,7 +111,7 @@ Por predefinição, o Balanceador de Carga do Azure expõe as portas 80, 8080 e 
 
 Se utilizar uma porta diferente, terá de adicionar uma regra round-robin e uma sonda no balanceador de carga para a porta que utilizou. Pode fazê-lo a partir da [CLI do Azure](../../azure-resource-manager/xplat-cli-azure-resource-manager.md), com os comandos `azure network lb rule create` e `azure network lb probe create`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer o balanceamento de carga no ACS com os balanceadores de carga Marathon e do Azure, incluindo as seguintes ações:
 

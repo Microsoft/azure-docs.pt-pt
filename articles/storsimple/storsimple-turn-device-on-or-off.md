@@ -1,177 +1,170 @@
 ---
-title: Ativar ou desativar o seu dispositivo da série StorSimple 8000 | Documentos da Microsoft
-description: Explica como ativar um novo dispositivo StorSimple, ativar um dispositivo que foi encerrado ou perdido de energia e desativar um dispositivo em execução.
-services: storsimple
-documentationcenter: ''
+title: Ativar ou desativar seu dispositivo StorSimple série 8000
+description: Explica como ativar um novo dispositivo StorSimple, ativar um dispositivo que foi desligado ou com energia perdida e desativar um dispositivo em execução.
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a45c0d32e35b5d321670bf25334a2976b93e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693667"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276888"
 ---
-# <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar o seu dispositivo da série StorSimple 8000
+# <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
 
-## <a name="overview"></a>Descrição geral
-Encerrar um dispositivo do Microsoft Azure StorSimple não é necessário como parte da operação de normais do sistema. No entanto, terá de ativar um novo dispositivo ou um dispositivo que tinham que ser desligado. Em geral, um encerramento é necessária em casos em que tem substituir a falha de hardware, fisicamente mover uma unidade ou tirar um dispositivo fora de serviço. Este tutorial descreve o procedimento necessário para ativar e desligar o dispositivo StorSimple em cenários diferentes.
+## <a name="overview"></a>Visão geral
+Não é necessário desligar um dispositivo Microsoft Azure StorSimple como parte da operação normal do sistema. No entanto, talvez seja necessário ativar um novo dispositivo ou um dispositivo que precise ser desligado. Geralmente, um desligamento é necessário em casos em que você deve substituir o hardware com falha, mover fisicamente uma unidade ou retirar um dispositivo do serviço. Este tutorial descreve o procedimento necessário para ligar e desligar seu dispositivo StorSimple em cenários diferentes.
 
 ## <a name="turn-on-a-new-device"></a>Ativar um novo dispositivo
-Os passos para ativar um dispositivo StorSimple pela primeira vez, ser diferente dependendo se o dispositivo está um 8100 ou um modelo 8600. O 8100 tem um bastidor principal único, ao passo que o 8600 é um dispositivo de bastidor dupla com um bastidor principal e um bastidor EBOD. Os passos detalhados para ambos os modelos são abordados nas seções a seguir.
+As etapas para ativar um dispositivo StorSimple pela primeira vez são diferentes, dependendo se o dispositivo for um modelo 8100 ou 8600. O 8100 tem um único compartimento principal, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento principal e um compartimento EBOD. As etapas detalhadas para ambos os modelos são abordadas nas seções a seguir.
 
-* [Novo dispositivo com apenas uma deteção de compartimento primário](#new-device-with-primary-enclosure-only)
-* [Novo dispositivo com deteção de compartimento EBOD](#new-device-with-ebod-enclosure)
+* [Novo dispositivo com somente o compartimento primário](#new-device-with-primary-enclosure-only)
+* [Novo dispositivo com compartimento EBOD](#new-device-with-ebod-enclosure)
 
-### <a name="new-device-with-primary-enclosure-only"></a>Novo dispositivo com apenas uma deteção de compartimento primário
-O modelo de StorSimple 8100 é um dispositivo de bastidor único. O dispositivo inclui com redundância de energia e refrigeração módulos (PCMs). Ambos os PCMs tem de estar instalados e ligados a diferentes origens de dados para garantir a elevada disponibilidade.
+### <a name="new-device-with-primary-enclosure-only"></a>Novo dispositivo com somente o compartimento primário
+O modelo StorSimple 8100 é um dispositivo de compartimento único. Seu dispositivo inclui módulos de energia e resfriamento redundantes (PCMs). Ambos os PCMs devem ser instalados e conectados a diferentes fontes de alimentação para garantir a alta disponibilidade.
 
-Execute os seguintes passos para instalar os cabos do dispositivo para poder.
+Execute as etapas a seguir para conectar o dispositivo à energia.
 
 [!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 > [!NOTE]
-> Para concluir a configuração dispositivo e cabeamento instruções, aceda a [instalar o seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md). Certifique-se de que siga as instruções exatamente.
+> Para obter instruções completas de instalação e cabeamento do dispositivo, vá para [instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md). Certifique-se de seguir as instruções exatamente.
 > 
 > 
 
-### <a name="new-device-with-ebod-enclosure"></a>Novo dispositivo com deteção de compartimento EBOD
-O modelo de StorSimple 8600 tem um bastidor principal e um bastidor EBOD. Isto requer que as unidades ser instalou os cabos em conjunto para conectividade Serial Attached SCSI (SAS) e de energia.
+### <a name="new-device-with-ebod-enclosure"></a>Novo dispositivo com compartimento EBOD
+O modelo StorSimple 8600 tem um compartimento principal e um compartimento EBOD. Isso exige que as unidades sejam cabeadas para conectividade e energia SAS (Serial Attached SCSI).
 
-Ao configurar este dispositivo pela primeira vez, execute os passos para cablagem de SAS primeiro e, em seguida, conclua os passos para cablagem de energia.
+Ao configurar este dispositivo pela primeira vez, execute as etapas para cabeamento SAS primeiro e, em seguida, conclua as etapas para cabeamento de energia.
 
 [!INCLUDE [storsimple-sas-cable-8600](../../includes/storsimple-sas-cable-8600.md)]
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 > [!NOTE]
-> Para concluir a configuração dispositivo e cabeamento instruções, aceda a [instalar o seu dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md). Certifique-se de que siga as instruções exatamente.
+> Para obter instruções completas de instalação e cabeamento do dispositivo, vá para [instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md). Certifique-se de seguir as instruções exatamente.
 
-## <a name="turn-on-a-device-after-shutdown"></a>Ligue um dispositivo após encerramento
-Os passos para ativar um dispositivo StorSimple depois que ele foi encerrado são diferentes, dependendo se o dispositivo está um 8100 ou um modelo 8600. O 8100 tem um bastidor principal único, ao passo que o 8600 é um dispositivo de bastidor dupla com um bastidor principal e um bastidor EBOD.
+## <a name="turn-on-a-device-after-shutdown"></a>Ativar um dispositivo após o desligamento
+As etapas para ativar um dispositivo StorSimple após sua desligamento são diferentes dependendo se o dispositivo for um modelo 8100 ou 8600. O 8100 tem um único compartimento principal, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento principal e um compartimento EBOD.
 
-* [Dispositivo com apenas o bastidor principal](#device-with-primary-enclosure-only)
-* [Dispositivo com deteção de compartimento EBOD](#device-with-ebod-enclosure)
+* [Dispositivo somente com o compartimento primário](#device-with-primary-enclosure-only)
+* [Dispositivo com compartimento EBOD](#device-with-ebod-enclosure)
 
-### <a name="device-with-primary-enclosure-only"></a>Dispositivo com apenas o bastidor principal
-Após um encerramento, utilize o procedimento seguinte para ativar um dispositivos do StorSimple com um bastidor principal e não bastidor EBOD.
+### <a name="device-with-primary-enclosure-only"></a>Dispositivo somente com o compartimento primário
+Após um desligamento, use o procedimento a seguir para ativar um dispositivo StorSimple com um compartimento primário e nenhum compartimento EBOD.
 
-#### <a name="to-turn-on-a-device-with-a-primary-enclosure-only"></a>Para ativar um dispositivos com apenas um bastidor principal
-1. Certifique-se de que o poder muda em quer poder e módulos de refrigeração (PCMs) estão na posição OFF. Se os comutadores não estiverem na posição OFF, em seguida, flip-los para a posição de OFF e aguardar que as luzes desativar.
-2. Ative o dispositivo ao mudar as as opções de energia em ambos os PCMs para a posição de ON. Deve ativar o dispositivo.
+#### <a name="to-turn-on-a-device-with-a-primary-enclosure-only"></a>Para ativar um dispositivo somente com um compartimento primário
+1. Verifique se os interruptores de energia em ambos os módulos de energia e resfriamento (PCMs) estão na posição desligado. Se as opções não estiverem na posição desligado, vire-as para a posição desativado e aguarde até que as luzes sejam desligadas.
+2. Ligue o dispositivo invertendo os interruptores de energia em ambos os PCMs para a posição ligado. O dispositivo deve ser ligado.
 3. Verifique o seguinte para verificar se o dispositivo está totalmente em:
    
-   1. O LEDs OK em ambos os módulos do PCM são verdes.
-   2. O estado LEDs em ambos os controladores são um verde sólido.
-   3. O LED azul em um dos controladores está intermitente, que indica que o controlador está ativo.
+   1. Os LEDs OK em ambos os módulos PCM estão verdes.
+   2. Os LEDs de status em ambos os controladores estão verdes estáveis.
+   3. O LED azul em um dos controladores está piscando, o que indica que o controlador está ativo.
       
-      Se alguma dessas condições não forem cumpridas, o dispositivo não está em bom estado. Tente [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+      Se qualquer uma dessas condições não for atendida, o dispositivo não estará íntegro. [Entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="device-with-ebod-enclosure"></a>Dispositivo com deteção de compartimento EBOD
-Após um encerramento, utilize o procedimento seguinte para ativar um dispositivos do StorSimple com um bastidor principal e um bastidor EBOD. Executa cada passo na sequência exatamente como descrito. Falha ao fazer isso pode resultar em perda de dados.
+### <a name="device-with-ebod-enclosure"></a>Dispositivo com compartimento EBOD
+Após um desligamento, use o procedimento a seguir para ativar um dispositivo StorSimple com um compartimento primário e um compartimento EBOD. Execute cada etapa na sequência exatamente conforme descrito. Não fazer isso pode resultar em perda de dados.
 
-#### <a name="to-turn-on-a-device-with-a-primary-and-an-ebod-enclosure"></a>Para ativar um dispositivos com um site primário e um bastidor EBOD
-1. Certifique-se de que o bastidor EBOD está ligado ao bastidor principal. Para obter mais informações, consulte [instalar o seu dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
-2. Certifique-se de que o poder e a refrigeração módulos (PCMs) no EBOD e inclusões primários são na posição OFF. Se os comutadores não estiverem na posição OFF, em seguida, flip-los para a posição de OFF e aguardar que as luzes desativar.
-3. Ative o bastidor EBOD primeiro por mudar as as opções de energia em ambos os PCMs para a posição de ON. O LEDs PCM deve estar verdes. Um controlador EBOD LED verde esta unidade indica que o bastidor EBOD é na.
-4. Ative o bastidor principal por mudar as as opções de energia em ambos os PCMs para a posição de ON. Todo o sistema deverá estar agora no.
-5. Certifique-se de que a SAS LEDs são verdes, o que garante que a ligação entre o bastidor EBOD e o bastidor principal é boa.
+#### <a name="to-turn-on-a-device-with-a-primary-and-an-ebod-enclosure"></a>Para ativar um dispositivo com um compartimento primário e um EBOD
+1. Verifique se o compartimento EBOD está conectado ao compartimento principal. Para obter mais informações, consulte [instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+2. Verifique se os módulos de energia e resfriamento (PCMs) nos compartimentos primário e EBOD estão na posição desligado. Se as opções não estiverem na posição desligado, vire-as para a posição desativado e aguarde até que as luzes sejam desligadas.
+3. Ligue o compartimento EBOD primeiro invertendo os interruptores de energia em ambos os PCMs para a posição ligado. Os LEDs do PCM devem estar verdes. Um LED do controlador EBOD verde nessa unidade indica que o compartimento EBOD está ativado.
+4. Ative o compartimento primário invertendo os interruptores de energia em ambos os PCMs para a posição ligado. Agora, o sistema inteiro deve estar ativado.
+5. Verifique se os LEDs de SAS estão verdes, o que garante que a conexão entre o compartimento EBOD e o compartimento principal seja boa.
 
-## <a name="turn-on-a-device-after-a-power-loss"></a>Ligue um dispositivo após uma queda de energia
-Uma queda de energia ou uma interrupção, pode encerrar um dispositivo StorSimple. A queda de energia pode ser efetuadas em um das fontes de alimentação ou ambas as fontes de alimentação. Os passos de recuperação são diferentes, dependendo do dispositivo é um modelo 8100 ou um 8600. O 8100 tem um bastidor principal único, ao passo que o 8600 é um dispositivo de bastidor dupla com um bastidor principal e um bastidor EBOD. Esta secção descreve o procedimento de recuperação para cada cenário.
+## <a name="turn-on-a-device-after-a-power-loss"></a>Ativar um dispositivo após uma perda de energia
+Uma queda de energia ou interrupção pode desligar um dispositivo StorSimple. A interrupção de energia pode ocorrer em uma das fontes de alimentação ou em ambas as fontes de alimentação. As etapas de recuperação são diferentes dependendo se o dispositivo é um modelo 8100 ou 8600. O 8100 tem um único compartimento principal, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento principal e um compartimento EBOD. Esta seção descreve o procedimento de recuperação para cada cenário.
 
-* [Dispositivo com apenas o bastidor principal](#8100)
-* [Dispositivo com deteção de compartimento EBOD](#8600)
+* [Dispositivo somente com o compartimento primário](#8100)
+* [Dispositivo com compartimento EBOD](#8600)
 
-### <a name="device-with-primary-enclosure-only-a-name8100"></a>Dispositivo com apenas o bastidor principal <a name="8100">
-O sistema poderá continuar sua operação normal, se houver perda de energia a uma das suas fontes de alimentação. No entanto, para garantir a elevada disponibilidade do dispositivo, restaure a energia para a fonte de alimentação logo que possível.
+### <a name="device-with-primary-enclosure-only-a-name8100"></a>Dispositivo com somente o compartimento primário <a name="8100">
+O sistema pode continuar sua operação normal se houver perda de energia para uma de suas fontes de alimentação. No entanto, para garantir a alta disponibilidade do dispositivo, restaure a energia para a fonte de alimentação assim que possível.
 
-Se houver uma queda de energia ou uma interrupção de energia em ambas as fontes de alimentação, o sistema será encerrado de maneira ordenada e controlada. Quando a energia é restaurada, o sistema irá ligar automaticamente.
+Se houver uma queda de energia ou interrupção de energia em ambas as fontes de alimentação, o sistema será desligado de maneira ordenada e controlada. Quando a energia for restaurada, o sistema será ativado automaticamente.
 
-### <a name="device-with-ebod-enclosure-a-name8600"></a>Dispositivo com deteção de compartimento EBOD <a name="8600">
-#### <a name="power-loss-on-one-power-supply"></a>Fornecer a perda de energia no poder de um
-O sistema poderá continuar sua operação normal, se houver perda de energia a uma das suas fontes de alimentação no bastidor principal ou o bastidor EBOD. No entanto, para garantir a elevada disponibilidade do dispositivo, tente restaure a energia para a fonte de alimentação logo que possível.
+### <a name="device-with-ebod-enclosure-a-name8600"></a>Dispositivo com <a name="8600"> de compartimento do EBOD
+#### <a name="power-loss-on-one-power-supply"></a>Perda de energia em uma fonte de alimentação
+O sistema pode continuar sua operação normal se houver perda de energia para uma de suas fontes de alimentação no compartimento primário ou no compartimento EBOD. No entanto, para garantir a alta disponibilidade do dispositivo, restaure a energia para a fonte de alimentação assim que possível.
 
-#### <a name="power-loss-on-both-power-supplies-on-primary-and-ebod-enclosures"></a>Perda de energia em ambas as fontes de alimentação no principal e as inclusões EBOD
-Se houver uma queda de energia ou uma interrupção de energia em ambas as fontes de alimentação, o bastidor EBOD irá encerrar imediatamente e o bastidor principal será desligado de uma forma ordenada e controlada. Quando power é restaurado, a aplicação será iniciada automaticamente.
+#### <a name="power-loss-on-both-power-supplies-on-primary-and-ebod-enclosures"></a>Perda de energia em ambas as fontes de alimentação nos compartimentos primário e EBOD
+Se houver uma queda de energia ou interrupção de energia em ambas as fontes de alimentação, o compartimento EBOD será desligado imediatamente e o compartimento primário será desligado de maneira ordenada e controlada. Quando a energia for restaurada, o dispositivo será iniciado automaticamente.
 
-Se o poder é desativado manualmente, em seguida, tire os seguintes passos para restaurar a energia para o sistema.
+Se a energia for desligada manualmente, execute as etapas a seguir para restaurar a energia para o sistema.
 
-1. Ative o bastidor EBOD.
-2. Após a inclusão EBOD no, ative o bastidor principal.
+1. Ative o compartimento EBOD.
+2. Depois que o compartimento EBOD estiver ativado, ative o compartimento primário.
 
-### <a name="power-loss-on-both-power-supplies-on-ebod-enclosure"></a>Perda de energia em ambas as fontes de alimentação no bastidor EBOD
-Ao configurar os cabos, certifique-se de que nunca está ligado a EBOD sozinho para uma PDU separada. Se o bastidor principal e de EBOD falharem ao mesmo tempo, o sistema será recuperada.
+### <a name="power-loss-on-both-power-supplies-on-ebod-enclosure"></a>Perda de energia em ambas as fontes de alimentação no compartimento EBOD
+Ao configurar seus cabos, você deve garantir que o EBOD nunca esteja conectado sozinha a um PDU separado. Se o EBOD e o compartimento primário falharem ao mesmo tempo, o sistema será recuperado.
 
-Se apenas a inclusão EBOD falha em ambas as fontes de alimentação, não vai recuperar automaticamente o sistema de segurança. Siga os passos seguintes para ativar o sistema e restaurá-lo para um bom estado de funcionamento:
+Se apenas o compartimento EBOD falhar em ambas as fontes de alimentação, o sistema não será recuperado automaticamente. Execute as seguintes etapas para ligar o sistema e restaurá-lo para um estado íntegro:
 
-1. Se o bastidor principal estiver ativado, optar por desativar a energia e refrigeração módulos (PCMs).
-2. Aguarde alguns minutos para que o sistema encerrar.
-3. Ative o bastidor EBOD.
-4. Após a inclusão EBOD no, ative o bastidor principal.
+1. Se o compartimento primário estiver ativado, desative os módulos de energia e resfriamento (PCMs).
+2. Aguarde alguns minutos para o sistema desligar.
+3. Ative o compartimento EBOD.
+4. Depois que o compartimento EBOD estiver ativado, ative o compartimento primário.
 
-## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Ativar um dispositivo após a primária e a ligação de bastidor EBOD se perder
-Se a ligação for perdida entre o controlador em modo de espera e o controlador EBOD correspondente, o dispositivo continua a funcionar. Se a ligação entre o controlador ativo do sistema e o controlador EBOD correspondente for perdida, deve ocorrer a ativação pós-falha e o dispositivo deve continuar a funcionar normalmente.
+## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Ativar um dispositivo após a conexão do compartimento primário e do EBOD ser perdida
+Se a conexão for perdida entre o controlador em espera e o controlador EBOD correspondente, o dispositivo continuará a funcionar. Se a conexão entre o controlador ativo do sistema e o controlador EBOD correspondente for perdida, o failover deverá ocorrer e o dispositivo deverá continuar funcionando normalmente.
 
-Quando os dois cabos Serial Attached SCSI (SAS) são removidos ou a ligação entre o bastidor EBOD e o bastidor principal é severed, o dispositivo deixa de funcionar. Neste momento, execute os seguintes passos.
+Quando os cabos de SCSI anexado em série (SAS) são removidos ou a conexão entre o compartimento EBOD e o compartimento principal é severa, o dispositivo para de funcionar. Neste ponto, execute as etapas a seguir.
 
-### <a name="to-turn-on-the-device-after-connection-is-lost"></a>Para ativar o dispositivo após a ligação foi perdida
-1. Aceda a parte de trás do dispositivo.
-2. Se a ligação de cabo SAS entre o bastidor EBOD e o bastidor principal for interrompida, todos os lane SAS LEDs na caixa EBOD estará desativada.
-3. Encerre energia e refrigeração módulos (PCMs) sobre a inclusão EBOD e o bastidor principal.
-4. Aguarde até que todas as luzes na parte de trás de ambas as caixas de desativar o limite de tempo.
-5. Reinserir os cabos SAS e certifique-se de que existe uma boa ligação entre o bastidor EBOD e o bastidor principal.
-6. Ative o bastidor EBOD primeiro por mudar as ambas as opções PCM para a posição de ON.
-7. Certifique-se de que o bastidor EBOD está ativada, verificando que o LED verde está ON.
-8. Ative o bastidor principal.
-9. Certifique-se de que o bastidor principal está ativada, verificando que o LED de controlador verde está ON.
-10. Certifique-se de que a ligação de bastidor EBOD com o bastidor principal é boa, verificando que o lane SAS LEDs (quatro por controlador de EBOD) são Diante de todos os.
-
-> [!IMPORTANT]
-> Se os cabos SAS estão com defeito ou a ligação entre o bastidor EBOD e o bastidor principal é não bom, quando ativar o sistema, ele irá entrar em modo de recuperação. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) se isso acontecer.
-
-
-## <a name="turn-off-a-running-device"></a>Desativar um dispositivo em execução
-Um dispositivo StorSimple em execução poderá ter de ser encerradas se esta for a ser movida, retirado de serviço, ou tem um componente com funcionamento incorreto, que tem de ser substituído. Os passos são diferentes, dependendo se o dispositivo StorSimple é um 8100 ou de um modelo 8600. O 8100 tem um bastidor principal único, ao passo que o 8600 é um dispositivo de bastidor dupla com um bastidor principal e um bastidor EBOD. Esta seção detalha os passos para encerrar um dispositivo em execução.
-
-* [Dispositivo com o bastidor principal](#8100a)
-* [Dispositivo com deteção de compartimento EBOD](#8600a)
-
-### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo com o bastidor principal <a name="8100a">
-Para encerrar o dispositivo de maneira ordenada e controlada, pode fazê-lo através do portal do Azure ou através do Windows PowerShell para StorSimple. 
+### <a name="to-turn-on-the-device-after-connection-is-lost"></a>Para ligar o dispositivo após a conexão ser perdida
+1. Acesse a parte traseira do dispositivo.
+2. Se a conexão de cabo SAS entre o compartimento EBOD e o compartimento primário for interrompida, todos os LEDs de rota SAS no compartimento EBOD serão desativados.
+3. Desligue os módulos de energia e resfriamento (PCMs) no compartimento EBOD e no compartimento principal.
+4. Aguarde até que todas as luzes na parte posterior de ambos os compartimentos sejam desligadas.
+5. Reinsira os cabos SAS e verifique se há uma boa conexão entre o compartimento EBOD e o compartimento principal.
+6. Ative o compartimento EBOD primeiro invertendo ambos os comutadores PCM para a posição ligado.
+7. Verifique se o compartimento EBOD está ligado verificando se o LED verde está aceso.
+8. Ative o compartimento primário.
+9. Verifique se o compartimento primário está ligado verificando se o LED verde do controlador está ligado.
+10. Verifique se a conexão do compartimento EBOD com o compartimento principal é boa verificando se os LEDs da pista SAS (quatro por controlador EBOD) estão todos ATIVAdos.
 
 > [!IMPORTANT]
-> Não encerre um dispositivo em execução ao utilizar o botão de energia na parte de trás do dispositivo.
-> 
-> Antes de encerrar o dispositivo, certifique-se de que todos os componentes de dispositivo estão em bom Estados. No portal do Azure, navegue até **dispositivos** > **Monitor** > **estado de funcionamento do Hardware**e certifique-se de que o estado de todos os componentes está verde. Isso é verdade apenas para um sistema bom estado de funcionamento. Se o sistema está a ser desligado para substituir um componente com funcionamento incorreto, verá um falha (vermelho) ou degradação de estado (amarelo) para o componente respectivo no **estado do Hardware**.
-> 
-> 
+> Se os cabos SAS estiverem com defeito ou se a conexão entre o compartimento EBOD e o compartimento primário não for boa, quando você ligar o sistema, ele entrará no modo de recuperação. [Entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se isso acontecer.
 
-Depois de acessar o Windows PowerShell para StorSimple ou o portal do Azure, siga os passos em [encerrar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com deteção de compartimento EBOD <a name="8600a">
+## <a name="turn-off-a-running-device"></a>Desligar um dispositivo em execução
+Um dispositivo StorSimple em execução pode precisar ser desligado se estiver sendo movido, retirado do serviço ou tiver um componente com mau funcionamento que precisa ser substituído. As etapas são diferentes dependendo se o dispositivo StorSimple é um modelo 8100 ou 8600. O 8100 tem um único compartimento principal, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento principal e um compartimento EBOD. Esta seção detalha as etapas para desligar um dispositivo em execução.
+
+* [Dispositivo com compartimento primário](#8100a)
+* [Dispositivo com compartimento EBOD](#8600a)
+
+### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo com o compartimento primário <a name="8100a">
+Para desligar o dispositivo de maneira ordenada e controlada, você pode fazer isso por meio da portal do Azure ou por meio do Windows PowerShell para StorSimple. 
+
 > [!IMPORTANT]
-> Antes de encerrar o bastidor principal e a inclusão EBOD, certifique-se de que todos os componentes de dispositivo estão em bom Estados. No portal do Azure, navegue até **dispositivos** > **Monitor** > **estado de funcionamento do Hardware**e certifique-se de que todos os componentes estão em bom Estados.
+> Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
+> 
+> Antes de desligar o dispositivo, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos** > **Monitor** > **integridade do hardware**e verifique se o status de todos os componentes está verde. Isso é verdadeiro apenas para um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **status de hardware**.
+> 
+> 
+
+Depois de acessar o Windows PowerShell para StorSimple ou o portal do Azure, siga as etapas em [desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
+
+### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com <a name="8600a"> de compartimento do EBOD
+> [!IMPORTANT]
+> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos** > **Monitor** > **integridade do hardware**e verifique se todos os componentes estão íntegros.
 
 
-#### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para encerrar um dispositivo em execução com deteção de compartimento EBOD
-1. Siga todos os passos listados na [encerrar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device) para o bastidor principal.
-2. Depois do bastidor principal é encerrado, encerre o EBOD ao inversão desativar comutadores de energia e refrigeração módulo PCM ().
-3. Para verificar que o EBOD foi encerrado, verifique que todas as luzes atrás do bastidor EBOD estão desativadas.
+#### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo em execução com o compartimento EBOD
+1. Siga todas as etapas listadas em [desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device) para o compartimento primário.
+2. Depois que o compartimento primário for desligado, desligue o EBOD invertendo os comutadores de PCM (módulo de energia e resfriamento).
+3. Para verificar se o EBOD foi desligado, verifique se todas as luzes na parte posterior do compartimento EBOD estão desligadas.
 
 > [!NOTE]
-> Não devem ser removidos os cabos SAS que são utilizados para ligar o bastidor EBOD ao bastidor principal até depois do sistema é desligado.
+> Os cabos SAS que são usados para conectar o compartimento EBOD ao compartimento primário não devem ser removidos até que o sistema seja desligado.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) se encontrar problemas ao ligar ou desligar um dispositivo StorSimple.
+## <a name="next-steps"></a>Passos seguintes
+[Contate a suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) se você encontrar problemas ao ligar ou desligar um dispositivo StorSimple.
 

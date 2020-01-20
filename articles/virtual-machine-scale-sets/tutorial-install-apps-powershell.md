@@ -1,29 +1,21 @@
 ---
-title: Tutorial - Instalar aplicações num conjunto de dimensionamento com o Azure PowerShell | Microsoft Docs
+title: Tutorial-instalar aplicativos em um conjunto de dimensionamento com Azure PowerShell
 description: Saiba como utilizar o Azure PowerShell para instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6877ba6240806f3213cadc66fdc74d89b2e9ba31
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5e1b21b1d00defdb090a35c067fa533a482c828d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877978"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271504"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com Azure PowerShell
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
 
@@ -65,7 +57,7 @@ New-AzVmss `
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
 
-## <a name="create-custom-script-extension-definition"></a>Criar a definição da Extensão de Script Personalizado
+## <a name="create-custom-script-extension-definition"></a>Criar definição da Extensão de Script Personalizado
 O Azure PowerShell utiliza uma tabela hash para armazenar o ficheiro a transferir e o comando a executar. No exemplo seguinte, é utilizado um script de exemplo do GitHub. Em primeiro lugar, crie este objeto de configuração da seguinte forma:
 
 ```azurepowershell-interactive
@@ -148,7 +140,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver seu servidor Web em ação, obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir exibe o endereço IP criado no grupo de recursos MyResource Group:
+Para ver seu servidor Web em ação, obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir exibe o endereço IP criado no grupo de recursos *MyResource* Group:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
@@ -158,7 +150,7 @@ Introduza o endereço IP público do balanceador de carga num browser. O balance
 
 ![Página Web de base no IIS](media/tutorial-install-apps-powershell/running-iis.png)
 
-Deixe o browser aberto para que possa ver uma versão atualizada no próximo passo.
+Deixe o seu browser aberto para que possa ver uma versão atualizada no próximo passo.
 
 
 ## <a name="update-app-deployment"></a>Atualizar a implementação da aplicação
@@ -201,7 +193,7 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a instalar e atualizar automaticamente aplicações no seu conjunto de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]

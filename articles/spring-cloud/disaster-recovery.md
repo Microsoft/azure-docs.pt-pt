@@ -1,17 +1,17 @@
 ---
 title: Recuperação de desastre geográfica do Azure Spring Cloud | Microsoft Docs
 description: Saiba como proteger seu aplicativo Spring Cloud de interrupções regionais
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 54289e808461e6374dee57763ef7ba0d0429c54c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607835"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279144"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastres na nuvem do Azure Spring
 
@@ -19,7 +19,7 @@ Este artigo explica algumas estratégias que você pode usar para proteger seus 
 
 ## <a name="plan-your-application-deployment"></a>Planejar a implantação do aplicativo
 
-Os aplicativos de nuvem Spring do Azure são executados em uma região específica.  O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém pelo menos uma região do Azure. Uma região do Azure é uma área em uma geografia, que contém um ou mais data centers.  Cada região do Azure é emparelhada com outra região na mesma geografia, juntos criando um par regional. O Azure serializa atualizações de plataforma (manutenção planejada) entre pares regionais, garantindo que apenas uma região em cada par seja atualizada de cada vez. No caso de uma interrupção que afete várias regiões, pelo menos uma região em cada par será priorizada para recuperação.
+Os aplicativos de nuvem Spring do Azure são executados em uma região específica.  O Azure funciona em várias geografias em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém pelo menos uma região do Azure. Uma região do Azure é uma área em uma geografia, que contém um ou mais data centers.  Cada região do Azure é emparelhada com outra região na mesma geografia, juntos criando um par regional. O Azure serializa atualizações de plataforma (manutenção planejada) entre pares regionais, garantindo que apenas uma região em cada par seja atualizada de cada vez. No caso de uma interrupção que afete várias regiões, pelo menos uma região em cada par será priorizada para recuperação.
 
 Garantir a alta disponibilidade e a proteção contra desastres exige que você implante seus aplicativos Spring Cloud em várias regiões.  O Azure fornece uma lista de [regiões emparelhadas](../best-practices-availability-paired-regions.md) para que você possa planejar suas implantações de nuvem Spring em pares regionais.  Recomendamos que você considere três fatores principais ao projetar sua arquitetura de micro serviço: disponibilidade de região, regiões emparelhadas do Azure e disponibilidade de serviço.
 

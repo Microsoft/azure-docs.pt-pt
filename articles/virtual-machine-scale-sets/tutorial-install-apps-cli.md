@@ -1,29 +1,21 @@
 ---
-title: Tutorial - Instalar aplicações num conjunto de dimensionamento com a CLI do Azure | Microsoft Docs
+title: Tutorial-instalar aplicativos em um conjunto de dimensionamento com CLI do Azure
 description: Saiba como utilizar a CLI do Azure para instalar aplicações nos conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1f26444a2ab5407d3e98996f6826443b107e76a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188408"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271398"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquina virtual com a CLI do Azure
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
@@ -132,7 +124,7 @@ Deixe o seu browser aberto para que possa ver uma versão atualizada no próximo
 ## <a name="update-app-deployment"></a>Atualizar a implementação da aplicação
 Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de dimensionamento foi criado num passo anterior, o `--upgrade-policy-mode` foi definido como *automático*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
 
-Na shell atual, crie um ficheiro com o nome *customConfigv2.json* e cole a seguinte configuração. Esta definição executa uma versão *v2* atualizada do script de instalação de aplicações:
+Na shell atual, crie um ficheiro com o nome *customConfigv2.json* e cole a seguinte configuração. Esta definição executa uma versão *v2* atualizada do script de instalação da aplicação:
 
 ```json
 {
@@ -166,7 +158,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a instalar e atualizar automaticamente aplicações no seu conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]

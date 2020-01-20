@@ -1,26 +1,19 @@
 ---
 title: Saiba mais sobre modelos do conjunto de dimensionamento de máquinas virtuais
 description: Saiba como criar um modelo de conjunto de dimensionamento básico para conjuntos de dimensionamento de máquinas virtuais do Azure por meio de várias etapas simples.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24db9b2d39771c481a8c43e2b55f12cef381b4d6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980169"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271894"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos do conjunto de dimensionamento de máquinas virtuais
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento básico e como modificar esse modelo para atender a vários cenários. Todos os exemplos vêm deste [repositório GitHub](https://github.com/gatneil/mvss).

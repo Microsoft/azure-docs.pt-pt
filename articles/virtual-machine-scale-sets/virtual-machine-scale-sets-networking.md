@@ -1,26 +1,19 @@
 ---
 title: Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de dimensionamento de máquinas virtuais do Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 390da9179280a1ab8898d1ccea4df81e3b98805a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fc95cae925e0961bb2f21397ebecb4db09117e11
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647582"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271820"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 

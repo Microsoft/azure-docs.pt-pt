@@ -1,60 +1,58 @@
 ---
-title: (PRETERIDO) Monitorizar o cluster do DC/OS do Azure - Dynatrace
-description: Monitorize um cluster de DC/OS do Azure Container Service com o Dynatrace. Implemente o Dynatrace OneAgent através do dashboard de DC/OS.
-services: container-service
+title: PRETERIDO Monitorar o cluster de DC/so do Azure-dynaTrace
+description: Monitore um cluster DC/OS do serviço de contêiner do Azure com dynaTrace. Implante o dynaTrace OneAgent usando o painel do DC/so.
 author: MartinGoodwell
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119862"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277752"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(PRETERIDO) Monitorizar um cluster DC/OS do Azure Container Service com o Dynatrace SaaS/gerida
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>PRETERIDO Monitorar um cluster DC/OS do serviço de contêiner do Azure com o dynaTrace SaaS/gerenciado
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Neste artigo, mostramos como implementar o [Dynatrace](https://www.dynatrace.com/) OneAgent para monitorizar todos os nós de agente no seu cluster do Azure Container Service. Precisa de uma conta com o Dynatrace SaaS/gerida para esta configuração. 
+Neste artigo, mostraremos como implantar o [dynaTrace](https://www.dynatrace.com/) OneAgent para monitorar todos os nós de agente em seu cluster do serviço de contêiner do Azure. Você precisa de uma conta com dynaTrace SaaS/gerenciado para essa configuração. 
 
-## <a name="dynatrace-saasmanaged"></a>A Dynatrace SaaS/geridos
-A Dynatrace é uma solução de monitorização de nativas da cloud para o contentor altamente dinâmico e ambientes de cluster. Permite-lhe otimizar ainda mais as suas implementações de contentores e as alocações de memória, utilizando dados de utilização em tempo real. Ele é capaz de indicar automaticamente problemas de aplicação e infraestrutura, fornecendo automatizada de linha de base, a correlação de problema e a deteção de causa raiz.
+## <a name="dynatrace-saasmanaged"></a>SaaS/gerenciado dynaTrace
+O dynaTrace é uma solução de monitoramento nativa de nuvem para ambientes de cluster e de contêiner altamente dinâmicos. Ele permite otimizar melhor suas implantações de contêineres e alocações de memória usando dados de uso em tempo real. Ele é capaz de identificar automaticamente os problemas de aplicativos e de infraestrutura ao fornecer a linha de base automatizada, a correlação de problemas e a detecção de causa raiz.
 
-A figura seguinte mostra a interface do Usuário de Dynatrace:
+A figura a seguir mostra a interface do usuário do amDynatrace:
 
-![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
+![Interface do usuário do amDynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-[Implementar](container-service-deployment.md) e [ligar](./../container-service-connect.md) para um cluster configurado pelo Azure Container Service. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ https://www.dynatrace.com/trial/ ](https://www.dynatrace.com/trial/) para configurar uma conta de Dynatrace SaaS.  
+[Implante](container-service-deployment.md) e [Conecte-se](./../container-service-connect.md) a um cluster configurado pelo serviço de contêiner do Azure. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Vá para [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) para configurar uma conta SaaS dynaTrace.  
 
-## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurar uma implementação de Dynatrace com o Marathon
-Estes passos mostram como configurar e implementar aplicações de Dynatrace no seu cluster com o Marathon.
+## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurar uma implantação do dynaTrace com o Marathon
+Estas etapas mostram como configurar e implantar aplicativos dynaTrace em seu cluster com o Marathon.
 
-1. Aceder à IU do DC/OS através de [ http://localhost:80/ ](http://localhost:80/). Uma vez na IU do DC/OS, navegue para o **universo** separador e procure **Dynatrace**.
+1. Acesse sua interface do usuário do DC/OS via [http://localhost:80/](http://localhost:80/). Uma vez na interface do usuário do DC/so, navegue até a guia **universo** e procure **dynaTrace**.
 
-    ![Dynatrace no DC/OS Universe](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
+    ![DynaTrace no universo DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 
-2. Para concluir a configuração, tem uma conta de SaaS a Dynatrace ou uma conta de avaliação gratuita. Depois de iniciar sessão para o dashboard de Dynatrace, selecione **implementar a Dynatrace**.
+2. Para concluir a configuração, você precisa de uma conta dynaTrace SaaS ou uma conta de avaliação gratuita. Depois de fazer logon no painel do dynaTrace, selecione **implantar dynaTrace**.
 
-    ![A Dynatrace conjunto a integração de PaaS](./media/container-service-monitoring-dynatrace/setup-paas.png)
+    ![DynaTrace configurar integração de PaaS](./media/container-service-monitoring-dynatrace/setup-paas.png)
 
-3. Na página, selecione **configurar a integração de PaaS**. 
+3. Na página, selecione **Configurar integração de PaaS**. 
 
-    ![Token de API de Dynatrace](./media/container-service-monitoring-dynatrace/api-token.png) 
+    ![Token de API dynaTrace](./media/container-service-monitoring-dynatrace/api-token.png) 
 
-4. Introduza o seu token de API para a configuração de Dynatrace OneAgent no DC/OS Universe. 
+4. Insira seu token de API na configuração do dynaTrace OneAgent no universo DC/OS. 
 
-    ![Configuração de Dynatrace OneAgent no DC/OS Universe](./media/container-service-monitoring-dynatrace/dynatrace-config.png)
+    ![Configuração do dynaTrace OneAgent no universo DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-config.png)
 
-5. Defina as instâncias para o número de nós que pretende executar. Configurar um número maior também funciona, mas o DC/OS vai continuar a tentar encontrar novas instâncias até esse número, na verdade, é alcançado. Se preferir, pode também definir esta opção para um valor como 1000000. Neste caso, sempre que um novo nó é adicionado ao cluster, o Dynatrace implementa automaticamente um agente nesse novo nó, ao preço de DC/OS, constantemente tentando implantar instâncias adicionais.
+5. Defina as instâncias para o número de nós que você pretende executar. A definição de um número mais alto também funciona, mas o DC/OS continuará tentando encontrar novas instâncias até que esse número seja realmente atingido. Se preferir, você também pode definir isso com um valor como 1 milhão. Nesse caso, sempre que um novo nó é adicionado ao cluster, o dynaTrace implanta automaticamente um agente para esse novo nó, no preço do DC/so, constantemente tentando implantar instâncias adicionais.
 
-    ![Configuração de Dynatrace no DC/OS Universe-instâncias](./media/container-service-monitoring-dynatrace/dynatrace-config2.png)
+    ![Configuração do dynaTrace no universo do DC/so – instâncias](./media/container-service-monitoring-dynatrace/dynatrace-config2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de instalar o pacote, navegue de volta para o dashboard de Dynatrace. Pode explorar as métricas de utilização diferentes para os contentores no cluster. 
+Depois de instalar o pacote, navegue de volta para o painel do dynaTrace. Você pode explorar as diferentes métricas de uso para os contêineres no cluster. 

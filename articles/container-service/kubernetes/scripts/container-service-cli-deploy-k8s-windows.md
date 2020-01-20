@@ -1,29 +1,23 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Windows Kubernetes | Microsoft Docs
+title: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Windows Kubernetes
 description: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Windows Kubernetes
-services: container-service
-documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
-editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Contentores, Microsserviços, Kubernetes, DC/OS, Azure
 ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 1f24f036858f9c77ed6b07af27617d3e3706bba2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc940f09a98eb4ee42290dcfd11d0800f6c3b9e4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901975"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270675"
 ---
-# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(PRETERIDO) Criar um Cluster de Kubernetes Windows do Azure Container Service
+# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>PRETERIDO Criar um cluster do Windows kubernetes do serviço de contêiner do Azure
 
 [!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -65,7 +59,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Cria e cluster ACS. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

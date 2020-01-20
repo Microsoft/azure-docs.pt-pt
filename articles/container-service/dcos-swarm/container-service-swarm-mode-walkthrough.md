@@ -1,22 +1,20 @@
 ---
-title: (PRETERIDO) Início rápido – cluster Azure Docker CE para Linux
+title: PRETERIDO Início rápido-cluster do Docker CE do Azure para Linux
 description: Aprenda rapidamente a criar um cluster Docker CE para contentores do Linux no Azure Container Service com a CLI do Azure.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721800"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274884"
 ---
-# <a name="deprecated-deploy-docker-ce-cluster"></a>(PRETERIDO) Implementar o cluster Docker CE
+# <a name="deprecated-deploy-docker-ce-cluster"></a>PRETERIDO Implantar o cluster do Docker CE
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -32,7 +30,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* no *westus2* localização.
+O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *westus2* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -55,7 +53,7 @@ Saída:
 
 ## <a name="create-docker-swarm-cluster"></a>Criar um cluster do Docker Swarm
 
-Crie um cluster Docker CE no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). Para informações sobre a região availaiblity do Docker CE, consulte [regiões de ACS para o Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Crie um cluster Docker CE no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). Para obter informações sobre a região availaiblity do Docker CE, consulte [regiões do ACS para Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 O exemplo seguinte cria um cluster com o nome *mySwarmCluster* com um nó principal do Linux e três nós de agente do Linux.
 
@@ -106,7 +104,6 @@ Crie um ficheiro com o nome `azure-vote.yaml` e copie o seguinte conteúdo para 
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:
@@ -167,11 +164,11 @@ Neste início rápido, foram utilizadas imagens de contentor pré-criadas para c
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou um cluster do Docker Swarm e implementou uma aplicação de vários contentores no mesmo.
 
-Para saber mais sobre como integrar o Docker swarm no Azure DevOps, avance para o CI/CD com Docker Swarm e do Azure DevOps.
+Para saber mais sobre como integrar o Docker Swarm com o Azure DevOps, vá para o CI/CD com o Docker Swarm e o Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD com Docker Swarm e de DevOps do Azure](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD com Docker Swarm e DevOps do Azure](./container-service-docker-swarm-setup-ci-cd.md)

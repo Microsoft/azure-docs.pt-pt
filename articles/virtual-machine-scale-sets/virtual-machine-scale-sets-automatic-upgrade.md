@@ -1,26 +1,18 @@
 ---
-title: Atualizações automáticas de imagem do sistema operacional com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Atualizações automáticas de imagem do sistema operacional com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como atualizar automaticamente a imagem do sistema operacional em instâncias de VM em um conjunto de dimensionamento
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: vashan
-ms.openlocfilehash: 95a313b3c6995d55b86561c685641b447edae127
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240930"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278164"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Conjunto de dimensionamento de máquinas virtuais do Azure atualizações automáticas de imagem de so
 
@@ -60,15 +52,15 @@ Atualmente, há suporte para os seguintes SKUs (e mais são adicionados periodic
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
-| Wave não autorizado (OpenLogic)  | CentOS        | 7,5                |
+| Wave não autorizado (OpenLogic)  | CentOS        | 7.5                |
 | CoreOS                  | CoreOS        | Estável             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2016-datacenter-com-contêineres |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
 | Microsoft Corporation   | WindowsServer | 2019-datacenter |
 | Microsoft Corporation   | WindowsServer | 2019-datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2019-datacenter-com-contêineres |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
 | Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-com-containers-smalldisk |
 
 
@@ -78,7 +70,7 @@ Atualmente, há suporte para os seguintes SKUs (e mais são adicionados periodic
 - Use investigações de integridade do aplicativo ou [extensão de integridade do aplicativo](virtual-machine-scale-sets-health-extension.md) para conjuntos de dimensionamento não Service Fabric.
 - Use a API de computação versão 2018-10-01 ou superior.
 - Verifique se os recursos externos especificados no modelo do conjunto de dimensionamento estão disponíveis e atualizados. Os exemplos incluem o URI de SAS para carga de inicialização em Propriedades de extensão de VM, carga na conta de armazenamento, referência a segredos no modelo e muito mais.
-- Para conjuntos de dimensionamento usando máquinas virtuais do Windows, começando com a API de computação versão 2019-03-01, a propriedade *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* deve ser definida como *false* no modelo de conjunto de dimensionamento defini. A propriedade acima habilita atualizações na VM em que "Windows Update" aplica patches do sistema operacional sem substituir o disco do sistema operacional. Com as atualizações automáticas de imagem do sistema operacional habilitadas no conjunto de dimensionamento, uma atualização adicional por meio de "Windows Update" não é necessária.
+- Para conjuntos de dimensionamento usando máquinas virtuais do Windows, começando com a API de computação versão 2019-03-01, a propriedade *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* deve ser definida como *false* na definição do modelo do conjunto de dimensionamento. A propriedade acima habilita atualizações na VM em que "Windows Update" aplica patches do sistema operacional sem substituir o disco do sistema operacional. Com as atualizações automáticas de imagem do sistema operacional habilitadas no conjunto de dimensionamento, uma atualização adicional por meio de "Windows Update" não é necessária.
 
 ### <a name="service-fabric-requirements"></a>Requisitos de Service Fabric
 

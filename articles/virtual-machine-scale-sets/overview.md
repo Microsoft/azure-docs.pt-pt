@@ -1,27 +1,19 @@
 ---
-title: Descrição geral dos conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Visão geral dos conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba mais informações sobre os conjuntos de dimensionamento de máquinas virtuais e como dimensionar automaticamente as suas aplicações
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679393"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273697"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou a uma agenda definida. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -53,7 +45,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Diferenças entre máquinas virtuais e conjuntos de dimensionamento
 Os conjuntos de dimensionamento são criados a partir de máquinas virtuais. Nos conjuntos de dimensionamento, as camadas de gestão e automatização são fornecidas para executar e dimensionar as suas aplicações. Em alternativa, pode criar e gerir manualmente VMs individuais ou integrar as ferramentas existentes para criar um nível de automatização semelhante. A seguinte tabela descreve as vantagens dos conjuntos de dimensionamento em comparação com a gestão manual de múltiplas instâncias de VMs.
 
-| Cenário                           | Grupo manual de VMs                                                                    | Conjunto de dimensionamento da máquina virtual |
+| Cenário                           | Grupo manual de VMs                                                                    | Conjuntos de dimensionamento de máquinas virtuais |
 |------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
 | Adicionar mais instâncias de VMs        | Processo manual para criar, configurar e garantir a conformidade                             | Criar automaticamente a partir da configuração central |
 | Distribuição e balanceamento de tráfego | Processo manual para criar e configurar o Gateway de Aplicação ou balanceador de carga do Azure      | Pode criar e integrar automaticamente no Gateway de Aplicação ou balanceador de carga do Azure |

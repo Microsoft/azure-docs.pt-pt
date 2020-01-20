@@ -1,26 +1,19 @@
 ---
 title: Discos de dados anexados de conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como usar discos de dados anexados com conjuntos de dimensionamento de máquinas virtuais por meio de contornos de casos de uso específicos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 6b6c752c1b86061f43af912405e610d466f17e37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7fd4d89fcc66fb4110029be45ad94e21faea0e0
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465005"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278178"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjunto de dimensionamento de máquinas virtuais do Azure e discos de dados anexados
 Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure suportam instâncias de VM com discos de dados anexados. Pode anexar os discos de dados quando o conjunto de dimensionamento é criado ou a um conjunto de dimensionamento existente.

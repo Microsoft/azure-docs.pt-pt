@@ -1,22 +1,20 @@
 ---
-title: (PRETERIDO) Azure Container Service início rápido - implementar Cluster DC/OS
+title: PRETERIDO Início rápido do serviço de contêiner do Azure – implantar cluster DC/OS
 description: Guia de Introdução do Azure Container Service - Implementar Cluster do DC/OS
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457061"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278506"
 ---
-# <a name="deprecated-deploy-a-dcos-cluster"></a>(PRETERIDO) Implementar um cluster DC/OS
+# <a name="deprecated-deploy-a-dcos-cluster"></a>PRETERIDO Implantar um cluster de DC/so
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -165,7 +163,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de introdução, implementou um cluster DC/OS e executou um contentor de Docker simples no cluster. Para saber mais sobre o Azure Container Service, continue o tutorial do ACS.
 

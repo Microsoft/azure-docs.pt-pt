@@ -1,29 +1,27 @@
 ---
-title: (PRETERIDO) Tutorial do Azure Container Service – implementar Cluster
+title: PRETERIDO Tutorial do serviço de contêiner do Azure – implantar cluster
 description: Tutorial do Azure Container Service – Implementar Cluster
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58fef0357a903f2ab1d238bbab7b2d9dca673eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cb21bff2834751843061910184499f37bde834e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576174"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275443"
 ---
-# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(PRETERIDO) Implementar um cluster de Kubernetes no Azure Container Service
+# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>PRETERIDO Implantar um cluster kubernetes no serviço de contêiner do Azure
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Implementar um cluster do Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-cluster.md).
+> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: implantar um cluster do AKS (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-O Kubernetes dispõe de uma plataforma distribuída para aplicações em contentores. Com o Azure Container Service, o aprovisionamento de um cluster Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte 3 de 7, é implementado num cluster de Kubernetes do Azure Container Service. Os passos concluídos incluem:
+O Kubernetes fornece uma plataforma distribuída para aplicações em contentores. Com o Azure Container Service, o aprovisionamento de um cluster Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte 3 de 7, é implementado num cluster de Kubernetes do Azure Container Service. Os passos concluídos incluem:
 
 > [!div class="checklist"]
 > * Implementar um cluster do Kubernetes ACS
@@ -90,7 +88,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 
 Ao concluir o tutorial, tem um cluster de ACS Kubernetes pronto para cargas de trabalho. Nos tutoriais subsequentes, é implementada uma aplicação com vários contentores neste cluster, ampliada, atualizada e monitorizada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, foi implementado um cluster de Kubernetes do Azure Container Service. Foram efetuados os seguintes passos:
 

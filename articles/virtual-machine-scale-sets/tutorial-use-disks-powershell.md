@@ -1,29 +1,21 @@
 ---
-title: Tutorial – Criar e utilizar discos para conjuntos de dimensionamento com o Azure PowerShell | Microsoft Docs
+title: Tutorial – criar e usar discos para conjuntos de dimensionamento com Azure PowerShell
 description: Saiba como utilizar o Azure PowerShell para criar e utilizar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728588"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278263"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e utilizar discos com o dimensionamento de máquinas virtuais definido com o Azure PowerShell
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e utilizar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
 
@@ -49,7 +41,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 **Disco temporário** – os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião do Azure da instância de VM. São discos de elevado desempenho e podem ser utilizados para operações como o processamento de dados temporários. No entanto, se a instância de VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo tamanho da instância de VM. Os discos temporários estão identificados como */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
-| Type | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
+| Tipo | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
 |----|----|----|
 | [Fins gerais](../virtual-machines/windows/sizes-general.md) | Séries A, B e D | 1600 |
 | [Com otimização de computação](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
@@ -60,10 +52,10 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
-Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados duradouro e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU de VM, podem ser expostos dois discos de dados.
+Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU de VM, podem ser expostos dois discos de dados.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de dados máximos por VM
-| Type | Tamanhos comuns | Discos de dados máximos por VM |
+| Tipo | Tamanhos comuns | Discos de dados máximos por VM |
 |----|----|----|
 | [Fins gerais](../virtual-machines/windows/sizes-general.md) | Séries A, B e D | 64 |
 | [Com otimização de computação](../virtual-machines/windows/sizes-compute.md) | Série F | 64 |
@@ -80,23 +72,23 @@ O Azure oferece dois tipos de disco.
 O Armazenamento Standard está protegido por HDDs e fornece armazenamento e desempenho económicos. Os discos Standard são ideais para uma carga de trabalho de desenvolvimento e teste económica.
 
 ### <a name="premium-disk"></a>Disco Premium
-Os discos Premium são apoiados por discos de elevado desempenho baseado em SSD e de baixa latência. Estes discos são recomendados para VMs que executam cargas de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
+Os discos Premium são apoiados por discos de elevado desempenho baseado em SSD e de baixa latência. Estes discos são recomendados para VMs que executam cargas de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando seleciona um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 |Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
-| IOPs Máx por disco | 120 | 240 | 500 | 2,300 | 5\.000 | 7\.500 | 7,500 |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
+| IOPs Máx por disco | 120 | 240 | 500 | 2300 | 5000 | 7\.500 | 7\.500 |
 Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, veja [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md).
 
 
-## <a name="create-and-attach-disks"></a>Criar e anexar discos
-Pode criar e anexar discos quando criar um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
+## <a name="create-and-attach-disks"></a>Criar e expor discos
+Pode criar e anexar discos quando cria um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos durante a criação do conjunto de dimensionamento
-Criar um conjunto com de dimensionamento de máquina virtual [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando lhe for pedido, forneça um nome de utilizador e palavra-passe para as instâncias de VM. Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985.
+Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando lhe for pedido, forneça um nome de utilizador e palavra-passe para as instâncias de VM. Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985.
 
 São criados dois discos com o parâmetro `-DataDiskSizeGb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
@@ -116,7 +108,7 @@ New-AzVmss `
 A criação e configuração de todas as instâncias de VM e recursos do conjunto de dimensionamento demora alguns minutos.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Anexar um disco a um conjunto de dimensionamento existente
-Também pode anexar discos a um conjunto de dimensionamento existente. Utilize o conjunto de dimensionamento criado no passo anterior para adicionar outro disco com [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). O exemplo seguinte anexa um disco de *128* GB adicional a um conjunto de dimensionamento existente:
+Também pode anexar discos a um conjunto de dimensionamento existente. Use o conjunto de dimensionamento criado na etapa anterior para adicionar outro disco com [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). O exemplo seguinte anexa um disco de *128* GB adicional a um conjunto de dimensionamento existente:
 
 ```azurepowershell-interactive
 # Get scale set object
@@ -145,7 +137,7 @@ Os discos criados e anexados às instâncias de VM do conjunto de dimensionament
 Para automatizar o processo em múltiplas instâncias de VM num conjunto de dimensionamento, pode utilizar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/windows/extensions-customscript.md).
 
 
-O exemplo seguinte executa um script a partir de um repositório de exemplo do GitHub em cada instância VM com [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) que prepara todos os discos de dados não processados anexados:
+O exemplo a seguir executa um script de um repositório de exemplo do GitHub em cada instância de VM com [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) que prepara todos os discos de dados anexados brutos:
 
 
 ```azurepowershell-interactive
@@ -177,7 +169,7 @@ Update-AzVmss `
 
 Para confirmar que os discos foram preparados corretamente, execute o protocolo RDP numa das instâncias de VM. 
 
-Primeiro, obtenha o objeto de Balanceador de carga com [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Em seguida, veja as regras NAT de entrada com [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). As regras NAT listam a *FrontendPort* para cada instância de VM escutada por RDP. Por fim, obtenha o endereço IP público do Balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+Primeiro, obtenha o objeto do balanceador de carga com [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Em seguida, exiba as regras de NAT de entrada com [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). As regras NAT listam a *FrontendPort* para cada instância de VM escutada por RDP. Por fim, obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
 
 
 ```azurepowershell-interactive
@@ -191,7 +183,7 @@ Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Pr
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
-Para ligar à VM, especifique o seu próprio endereço IP público e número de porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando lhe for pedido, introduza as credenciais utilizadas quando criou o conjunto de dimensionamento. Se utiliza o Azure Cloud Shell, efetue este passo a partir de uma linha de comandos do PowerShell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *1*:
+Para ligar à VM, especifique o seu próprio endereço IP público e número de porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando lhe for pedido, introduza as credenciais utilizadas quando criou o conjunto de dimensionamento. Se utiliza o Azure Cloud Shell, efetue este passo a partir de um pedido local do Power Shell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância da VM *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -249,7 +241,7 @@ Feche a sessão da ligação de ambiente de trabalho remoto à instância de VM.
 
 
 ## <a name="list-attached-disks"></a>Listar os discos anexados
-Para ver informações sobre os discos anexados a um conjunto de dimensionamento, utilize [Get-AzVmss](/powershell/module/az.compute/get-azvmss) da seguinte forma:
+Para exibir informações sobre discos anexados a um conjunto de dimensionamento, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) da seguinte maneira:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
@@ -282,8 +274,8 @@ DataDisks[2]                            :
 ```
 
 
-## <a name="detach-a-disk"></a>Desligar um disco
-Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [Get-AzVmss](/powershell/module/az.compute/get-azvmss) na secção anterior. O exemplo seguinte desanexa o LUN *3* do conjunto de dimensionamento:
+## <a name="detach-a-disk"></a>Desanexar um disco
+Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, use [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) e ESPECIFIQUE o LUN do disco. Os LUNs são mostrados na saída de [Get-AzVmss](/powershell/module/az.compute/get-azvmss) na seção anterior. O exemplo seguinte desanexa o LUN *3* do conjunto de dimensionamento:
 
 ```azurepowershell-interactive
 # Get scale set object
@@ -305,14 +297,14 @@ Update-AzVmss `
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu dimensionamento conjunto e discos, elimine o grupo de recursos e todos os respetivos recursos com [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
+Para remover seu conjunto de dimensionamento e discos, exclua o grupo de recursos e todos os seus recursos com [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a criar e utilizar discos com conjuntos de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]

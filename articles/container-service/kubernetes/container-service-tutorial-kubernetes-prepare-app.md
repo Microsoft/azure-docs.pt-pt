@@ -1,25 +1,23 @@
 ---
-title: (PRETERIDO) Tutorial do Azure Container Service - preparar aplicação
+title: PRETERIDO Tutorial do serviço de contêiner do Azure – preparar o aplicativo
 description: Tutorial do Azure Container Service - Preparar Aplicação
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217096"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275431"
 ---
-# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(PRETERIDO) Criar imagens de contentor a ser utilizado com o Azure Container Service
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>PRETERIDO Criar imagens de contêiner a serem usadas com o serviço de contêiner do Azure
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Preparar um aplicativo para o Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: preparar um aplicativo para o AKs (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -125,7 +123,7 @@ docker-compose down
 
 Após a conclusão, tem uma imagem de contentor que contém a aplicação Azure Vote.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas para a aplicação. Foram efetuados os seguintes passos:
 

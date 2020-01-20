@@ -1,66 +1,58 @@
 ---
-title: Utilizar o sequenciamento de extensão com conjuntos de dimensionamento de máquina virtual do Azure | Documentos da Microsoft
-description: Aprenda a sequência de aprovisionamento de extensão quando implementar várias extensões em conjuntos de dimensionamento de máquina virtual.
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Usar o sequenciamento de extensão com conjuntos de dimensionamento de máquinas virtuais do Azure
+description: Saiba como sequenciar o provisionamento de extensão ao implantar várias extensões em conjuntos de dimensionamento de máquinas virtuais.
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620177"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278057"
 ---
-# <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Define o aprovisionamento de extensão de sequência no dimensionamento de máquinas virtuais
-Extensões de máquina virtual do Azure fornecem capacidades, como a configuração de pós-implementação e gestão, monitorização, segurança e muito mais. Implementações de produção, normalmente, utilizem uma combinação de várias extensões configurado para as instâncias VM para alcançar resultados desejados.
+# <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Provisionamento de extensão de sequência em conjuntos de dimensionamento de máquinas virtuais
+As extensões de máquina virtual do Azure fornecem recursos como configuração e gerenciamento de pós-implantação, monitoramento, segurança e muito mais. As implantações de produção normalmente usam uma combinação de várias extensões configuradas para as instâncias de VM para obter os resultados desejados.
 
-Se utilizar várias extensões numa máquina virtual, é importante certificar-se de que extensões que requerem os mesmos recursos de sistema operacional não estão tentando adquirir estes recursos ao mesmo tempo. Algumas extensões também dependem de outras extensões para fornecer as configurações necessárias, tais como definições de ambiente e segredos. Sem a encomenda correto e sequenciamento in-loco, implementações de extensão dependentes podem falhar.
+Ao usar várias extensões em uma máquina virtual, é importante garantir que as extensões que exigem os mesmos recursos do sistema operacional não estejam tentando adquirir esses recursos ao mesmo tempo. Algumas extensões também dependem de outras extensões para fornecer as configurações necessárias, como configurações de ambiente e segredos. Sem a ordenação correta e o sequenciamento em vigor, as implantações de extensão dependentes podem falhar.
 
-Este artigo detalha como é possível sequenciar extensões para ser configurado para as instâncias VM em conjuntos de dimensionamento de máquina virtual.
+Este artigo fornece detalhes sobre como você pode sequenciar extensões a serem configuradas para as instâncias de VM em conjuntos de dimensionamento de máquinas virtuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que esteja familiarizado com:
--   Máquina virtual do Azure [extensões](../virtual-machines/extensions/overview.md)
--   [Modificar](virtual-machine-scale-sets-upgrade-scale-set.md) conjuntos de dimensionamento de máquina virtual
+Este artigo pressupõe que você esteja familiarizado com:
+-   [Extensões](../virtual-machines/extensions/overview.md) de máquina virtual do Azure
+-   [Modificando](virtual-machine-scale-sets-upgrade-scale-set.md) conjuntos de dimensionamento de máquinas virtuais
 
-## <a name="when-to-use-extension-sequencing"></a>Quando utilizar o sequenciamento de extensão
-Sequenciação de extensões em não define obrigatório para dimensionamento e, a menos que especificado, as extensões podem ser provisionadas numa instância de conjunto de dimensionamento por qualquer ordem.
+## <a name="when-to-use-extension-sequencing"></a>Quando usar o sequenciamento de extensão
+Extensões de sequenciamento não são obrigatórias para conjuntos de dimensionamento e, a menos que especificado, as extensões podem ser provisionadas em uma instância de conjunto de dimensionamento em qualquer ordem.
 
-Por exemplo, se seu modelo de conjunto de dimensionamento tem duas extensões – ExtensionA e ExtensionB – especificado no modelo, em seguida, qualquer uma das seguintes sequências de aprovisionamento pode ocorrer:
--   ExtensionA -> ExtensionB
--   ExtensionB -> ExtensionA
+Por exemplo, se o modelo do conjunto de dimensionamento tiver duas extensões – Extensiona e ExtensionB – especificado no modelo, qualquer uma das seguintes sequências de provisionamento poderá ocorrer:
+-   Extensãoa-> ExtensionB
+-   Extensão ExtensionB->a
 
-Se seu aplicativo exigir uma extensão para sempre aprovisionar antes da extensão B, em seguida, deve usar sequenciamento de extensão, conforme descrito neste artigo. Com o sequenciamento de extensão, apenas uma sequência agora irá ocorrer:
--   ExtensionA - > ExtensionB
+Se seu aplicativo exigir que a extensão a seja sempre provisionada antes da extensão B, você deverá usar o sequenciamento de extensão, conforme descrito neste artigo. Com o sequenciamento de extensão, apenas uma sequência ocorrerá agora:
+-   Extensãoa-> ExtensionB
 
-Nenhuma extensão não especificado numa sequência definida de aprovisionamento pode ser aprovisionado em qualquer altura, incluindo antes, depois ou durante uma sequência definida. Sequenciamento de extensão especifica apenas o que será aprovisionada uma extensão específica após a outra extensão específica. Ela não afeta o aprovisionamento de qualquer outra extensão definida no modelo.
+Todas as extensões não especificadas em uma sequência de provisionamento definida podem ser provisionadas a qualquer momento, incluindo antes, depois ou durante uma sequência definida. O sequenciamento de extensão especifica apenas que uma extensão específica será provisionada após outra extensão específica. Ele não afeta o provisionamento de qualquer outra extensão definida no modelo.
 
-Por exemplo, se seu modelo de conjunto de dimensionamento tem três extensões – extensão, extensão B e C de extensão – especificado no modelo, e C de extensão estiver definido para ser aprovisionado após uma extensão, em seguida, qualquer uma das seguintes sequências de aprovisionamento pode ocorrer:
--   ExtensionA -> ExtensionC -> ExtensionB
--   ExtensionB -> ExtensionA -> ExtensionC
--   ExtensionA -> ExtensionB -> ExtensionC
+Por exemplo, se o modelo do conjunto de dimensionamento tiver três extensões – extensão A, extensão B e extensão C – especificado no modelo e a extensão C for definida para ser provisionada após A extensão A, uma das seguintes sequências de provisionamento poderá ocorrer:
+-   Extensãoa-> ExtensionC-> ExtensionB
+-   Extensão ExtensionB-> > ExtensionC
+-   Extensãoa-> ExtensionB-> ExtensionC
 
-Se precisa garantir que nenhuma outra extensão é aprovisionado, enquanto a sequência de extensão definidos está em execução, recomendamos que todas as extensões no seu modelo de conjunto de dimensionamento a sequenciar. No exemplo acima, a extensão B pode ser definida a ser aprovisionado após C de extensão, de modo a que pode ocorrer apenas uma sequência:
--   ExtensionA -> ExtensionC -> ExtensionB
+Se você precisar garantir que nenhuma outra extensão seja provisionada enquanto a sequência de extensão definida estiver em execução, é recomendável sequenciar todas as extensões em seu modelo de conjunto de dimensionamento. No exemplo acima, a extensão B pode ser configurada para ser provisionada após a extensão C, de modo que apenas uma sequência possa ocorrer:
+-   Extensãoa-> ExtensionC-> ExtensionB
 
 
-## <a name="how-to-use-extension-sequencing"></a>Como utilizar o sequenciamento de extensão
-Para o aprovisionamento de extensão de sequência, tem de atualizar a definição da extensão no modelo de conjunto de dimensionamento para incluir a propriedade "provisionAfterExtensions", que aceita uma matriz de nomes de extensão. As extensões mencionadas no valor de matriz de propriedade tem de ser totalmente definidas no modelo de conjunto de dimensionamento.
+## <a name="how-to-use-extension-sequencing"></a>Como usar o sequenciamento de extensão
+Para o provisionamento de extensão de sequência, você deve atualizar a definição de extensão no modelo de conjunto de dimensionamento para incluir a propriedade "provisionAfterExtensions", que aceita uma matriz de nomes de extensão. As extensões mencionadas no valor da matriz de propriedades devem ser totalmente definidas no modelo do conjunto de dimensionamento.
 
-### <a name="template-deployment"></a>Implementação do modelo
-O exemplo seguinte define um modelo em que o conjunto de dimensionamento tem três extensões – ExtensionA ExtensionB e ExtensionC –, de modo a que as extensões são aprovisionadas na ordem:
--   ExtensionA -> ExtensionB -> ExtensionC
+### <a name="template-deployment"></a>Implantação de modelo
+O exemplo a seguir define um modelo em que o conjunto de dimensionamento tem três extensões – Extensiona, ExtensionB e ExtensionC – de forma que as extensões sejam provisionadas na ordem:
+-   Extensãoa-> ExtensionB-> ExtensionC
 
 ```json
 "virtualMachineProfile": {
@@ -107,7 +99,7 @@ O exemplo seguinte define um modelo em que o conjunto de dimensionamento tem tr�
 }
 ```
 
-Uma vez que a propriedade "provisionAfterExtensions" aceita uma matriz de nomes de extensão, o exemplo acima pode ser modificado, de modo que ExtensionC é aprovisionado após ExtensionA e ExtensionB, mas não ordenação é necessário entre ExtensionA e ExtensionB. O modelo seguinte pode ser utilizado para alcançar este cenário:
+Como a propriedade "provisionAfterExtensions" aceita uma matriz de nomes de extensão, o exemplo acima pode ser modificado de modo que ExtensionC seja provisionado após a extensão e ExtensionB, mas nenhuma ordem é necessária entre a extensão e a ExtensionB. O modelo a seguir pode ser usado para obter esse cenário:
 
 ```json
 "virtualMachineProfile": {
@@ -152,7 +144,7 @@ Uma vez que a propriedade "provisionAfterExtensions" aceita uma matriz de nomes 
 ```
 
 ### <a name="rest-api"></a>API REST
-O exemplo seguinte adiciona uma nova extensão com o nome ExtensionC a um modelo de conjunto de dimensionamento. ExtensionC tem dependências em ExtensionA e ExtensionB, que já foram definidos no modelo de conjunto de dimensionamento.
+O exemplo a seguir adiciona uma nova extensão chamada ExtensionC a um modelo de conjunto de dimensionamento. ExtensionC tem dependências na Extensãoa e ExtensionB, que já foram definidas no modelo do conjunto de dimensionamento.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/ExtensionC?api-version=2018-10-01`
@@ -174,7 +166,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 }
 ```
 
-Se ExtensionC estava definido anteriormente no conjunto de dimensionamento de modelo e agora pretende adicionar as respetivas dependências, pode executar um `PATCH` para editar as propriedades da extensão já implementado.
+Se ExtensionC tiver sido definido anteriormente no modelo do conjunto de dimensionamento e agora você quiser adicionar suas dependências, você poderá executar um `PATCH` para editar as propriedades da extensão já implantada.
 
 ```
 PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/ExtensionC?api-version=2018-10-01`
@@ -189,12 +181,12 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
   }                  
 }
 ```
-As alterações às instâncias do conjunto de dimensionamento existente são aplicadas na próxima [atualizar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+As alterações nas instâncias existentes do conjunto de dimensionamento são aplicadas na próxima [atualização](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilize o [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) definição de modelo do conjunto de cmdlet para adicionar a extensão de estado de funcionamento da aplicação à escala. Sequenciamento de extensão requer a utilização do PowerShell de Az 1.2.0 ou superior.
+Use o cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) para adicionar a extensão de integridade do aplicativo à definição do modelo do conjunto de dimensionamento. O sequenciamento de extensão requer o uso de AZ PowerShell 1.2.0 ou superior.
 
-O exemplo seguinte adiciona o [extensão de estado de funcionamento do aplicativo](virtual-machine-scale-sets-health-extension.md) para o `extensionProfile` num conjunto de dimensionamento modelo de um conjunto de dimensionamento baseados no Windows. A extensão de estado de funcionamento da aplicação será aprovisionada após o aprovisionamento a [extensão de Script personalizado](../virtual-machines/extensions/custom-script-windows.md), já definido no conjunto de dimensionamento.
+O exemplo a seguir adiciona a [extensão de integridade do aplicativo](virtual-machine-scale-sets-health-extension.md) ao `extensionProfile` em um modelo de conjunto de dimensionamento de um conjunto de dimensionamento baseado no Windows. A extensão de integridade do aplicativo será provisionada após o provisionamento da [extensão de script personalizado](../virtual-machines/extensions/custom-script-windows.md), já definida no conjunto de dimensionamento.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -228,10 +220,10 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -VirtualMachineScaleSet $vmScaleSet
 ```
 
-### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Uso [conjunto de extensão az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de estado de funcionamento do aplicativo para o conjunto de dimensionamento da definição do modelo. Sequenciamento de extensão requer a utilização da CLI do Azure 2.0.55 ou superior.
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Use [AZ vmss Extension Set](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de integridade do aplicativo à definição do modelo do conjunto de dimensionamento. O sequenciamento de extensão requer o uso de CLI do Azure 2.0.55 ou superior.
 
-O exemplo seguinte adiciona o [extensão de estado de funcionamento do aplicativo](virtual-machine-scale-sets-health-extension.md) à escala definida no modelo de um conjunto de dimensionamento baseados no Windows. A extensão de estado de funcionamento da aplicação será aprovisionada após o aprovisionamento a [extensão de Script personalizado](../virtual-machines/extensions/custom-script-windows.md), já definido no conjunto de dimensionamento.
+O exemplo a seguir adiciona a [extensão de integridade do aplicativo](virtual-machine-scale-sets-health-extension.md) ao modelo do conjunto de dimensionamento de um conjunto de dimensionamento baseado no Windows. A extensão de integridade do aplicativo será provisionada após o provisionamento da [extensão de script personalizado](../virtual-machines/extensions/custom-script-windows.md), já definida no conjunto de dimensionamento.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -247,13 +239,13 @@ az vmss extension set \
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-### <a name="not-able-to-add-extension-with-dependencies"></a>Não é possível adicionar a extensão com dependências?
-1. Certifique-se de que as extensões especificadas no provisionAfterExtensions são definidas no modelo de conjunto de dimensionamento.
-2. Certifique-se de que não há nenhuma dependência circular que está a ser introduzida. Por exemplo, não é permitida a seguinte sequência: ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
-3. Certifique-se de que quaisquer extensões assumir dependências, ter uma propriedade de "definições" em "Propriedades" de extensão. Por exemplo, se ExtentionB tem de ser aprovisionada após ExtensionA, em seguida, ExtensionA tem de ter o campo de "definições" em ExtensionA "Propriedades". Pode especificar uma propriedade de "definições" vazia se a extensão não impõe quaisquer definições necessárias.
+### <a name="not-able-to-add-extension-with-dependencies"></a>Não é possível adicionar extensão com dependências?
+1. Verifique se as extensões especificadas em provisionAfterExtensions estão definidas no modelo do conjunto de dimensionamento.
+2. Certifique-se de que não há nenhuma dependência circular sendo introduzida. Por exemplo, a sequência a seguir não é permitida: Extensiona-> ExtensionB-> ExtensionC-> Extensãoa
+3. Verifique se as extensões nas quais você assume dependências têm uma propriedade "Settings" sob a extensão "Properties". Por exemplo, se ExtentionB precisa ser provisionado após a Extensãoa, a Extensãoa deve ter o campo "configurações" sob a extensão "Propriedades". Você pode especificar uma propriedade "Settings" vazia se a extensão não exigir nenhuma configuração necessária.
 
-### <a name="not-able-to-remove-extensions"></a>Não é possível remover as extensões?
-Certifique-se de que as extensões que está a ser removidas não estão listadas na provisionAfterExtensions para quaisquer outras extensões.
+### <a name="not-able-to-remove-extensions"></a>Não é possível remover extensões?
+Verifique se as extensões que estão sendo removidas não estão listadas em provisionAfterExtensions para quaisquer outras extensões.
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba como [implementar a sua aplicação](virtual-machine-scale-sets-deploy-app.md) conjuntos de dimensionamento de máquina virtual.
+## <a name="next-steps"></a>Passos seguintes
+Saiba como [implantar seu aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais.

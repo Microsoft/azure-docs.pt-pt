@@ -1,24 +1,19 @@
 ---
-title: Opções de disponibilidade para conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Opções de disponibilidade para conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba mais sobre os recursos de disponibilidade para executar conjuntos de dimensionamento de máquinas virtuais do Windows no Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
+ms.author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/05/2019
-ms.author: cynthn
-ms.openlocfilehash: 7e9cd023bf53720ba98d6ef43b7deb87c1b19816
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a0939bae3a06dd566ca519dd8a52105f6625fc59
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664456"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277879"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade para máquinas virtuais no Azure
 

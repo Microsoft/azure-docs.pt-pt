@@ -1,31 +1,23 @@
 ---
-title: Disponibilidade de região do StorSimple | Microsoft Docs
+title: Disponibilidade de região do StorSimple
 description: Explica as regiões do Azure nas quais os vários modelos de dispositivo StorSimple estão disponíveis.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965129"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275117"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Os data centers do Azure operam em várias regiões geográficas em todo o mundo para atender às demandas de desempenho, requisitos e preferências do cliente em relação ao local dos dados. Uma geografia do Azure é uma área definida do mundo que contém pelo menos uma região do Azure. Uma região do Azure é uma área dentro de uma geografia, que contém um ou mais data centers.
 
@@ -73,8 +65,8 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
 | 1  | Austrália             | 16 | RAE de Hong Kong      | 31 | Nova Zelândia         | 46 | África do Sul               |
 | 2  | Áustria               | 17 | Hungria            | 32 | Nigéria             | 47 | Coreia do Sul                |
-| 3  | Barém               | 18 | Islândia            | 33 | Noruega              | 48 | Espanha                      |
-| 4  | Bélgica               | 19 | Índia              | 34 | Perú                | 49 | Sri Lanca                  |
+| 3  | Bahrain               | 18 | Islândia            | 33 | Noruega              | 48 | Espanha                      |
+| 4  | Bélgica               | 19 | Índia              | 34 | Peru                | 49 | Sri Lanka                  |
 | 5  | Brasil                | 20 | Indonésia          | 35 | Filipinas         | 50 | Suécia                     |
 | 6  | Canadá                | 21 | Irlanda            | 36 | Polónia              | 51 | Suíça                |
 | 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
@@ -98,13 +90,13 @@ A Microsoft pode enviar hardware físico e fornecer substituição de peças de 
 
 Se estiver usando um dispositivo de nuvem StorSimple 8010 ou 8020, o dispositivo terá suporte e estará disponível em todas as regiões em que há suporte para a VM subjacente. O 8010 usa uma VM _Standard_A3_ que tem suporte em todas as regiões do Azure.
 
-O 8020 usa o armazenamento Premium e a VM _Standard_DS3_ para criar um dispositivo de nuvem. O 8020 tem suporte em regiões do Azure que dão suporte ao armazenamento Premium e às VMs do Azure _Standard_DS3_ . Utilize [esta lista](https://azure.microsoft.com/regions/services/) para ver se ambas as **Máquinas Virtuais > série DS** e o **Armazenamento > Armazenamento em Disco** estão disponíveis na sua região.
+O 8020 usa o armazenamento Premium e _Standard_DS3_ VM para criar um dispositivo de nuvem. Há suporte para o 8020 em regiões do Azure que dão suporte ao armazenamento Premium e _Standard_DS3_ VMs do Azure. Utilize [esta lista](https://azure.microsoft.com/regions/services/) para ver se ambas as **Máquinas Virtuais > série DS** e o **Armazenamento > Armazenamento em Disco** estão disponíveis na sua região.
 
 ### <a name="storsimple-virtual-array-model-1200"></a>StorSimple virtual array (modelo 1200)
 
 Se estiver usando uma matriz virtual do StorSimple da série 1200, a imagem do disco virtual terá suporte em todas as regiões do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [preços de vários modelos do StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * Saiba mais sobre como [gerenciar sua conta de armazenamento do StorSimple](storsimple-8000-manage-storage-accounts.md).

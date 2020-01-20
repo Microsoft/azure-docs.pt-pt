@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7987555dfd435aae1f580c73795a5617c192490a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: ac37c0e1f1f7d769a881c5965744b29d40468486
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725705"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276673"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Configurar chaves gerenciadas pelo cliente usando oC#
 

@@ -1,26 +1,18 @@
 ---
-title: Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como habilitar a notificação de término para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705928"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271741"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure (versão prévia)
 As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução de visualização adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.

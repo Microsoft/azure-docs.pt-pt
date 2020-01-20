@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264089"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276784"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -29,7 +29,7 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
     * [Trecho de código JavaScript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> > Use apenas um método para adicionar o SDK do JavaScript ao seu aplicativo. Se você usar a configuração do NPM, não use o trecho e vice-versa.
+> Use apenas um método para adicionar o SDK do JavaScript ao seu aplicativo. Se você usar a configuração do NPM, não use o trecho e vice-versa.
 
 > [!NOTE]
 > A instalação do NPM instala o SDK do JavaScript como uma dependência do seu projeto, habilitando o IntelliSense, enquanto o trecho de código busca o SDK em tempo de execução. Ambos oferecem suporte aos mesmos recursos. No entanto, os desenvolvedores que desejam mais eventos e configurações personalizados geralmente optam pela configuração do NPM, enquanto os usuários buscam a habilitação rápida da aceitação da Web Analytics pronta para o trecho.

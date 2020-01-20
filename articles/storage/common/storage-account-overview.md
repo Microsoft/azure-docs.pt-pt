@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975696"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274540"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -64,17 +64,15 @@ Você deve usar contas de uso geral v2 na maioria dos casos. Você pode usar con
 
 ### <a name="blockblobstorage-accounts"></a>Contas do BlockBlobStorage
 
-Uma conta do BlockBlobStorage é uma conta de armazenamento especializada que você usa para armazenar dados de objeto não estruturado como BLOBs de blocos. Você também pode usar uma conta do BlockBlobStorage para criar blobs de blocos Premium. Esse tipo de conta de armazenamento dá suporte a blobs de bloco e blobs de acréscimo, mas não a blobs de páginas, tabelas ou filas.
+Uma conta do BlockBlobStorage é uma conta de armazenamento especializada no nível de desempenho premium para armazenar dados de objeto não estruturado como BLOBs de blocos ou BLOBs de acréscimo. Em comparação com contas de uso geral V2 e BlobStorage, as contas BlockBlobStorage fornecem latência baixa, consistente e taxas de transações mais altas.
 
-Em comparação com contas de uso geral V2 e BlobStorage, as contas BlockBlobStorage fornecem latência baixa e consistente e taxas de transações mais altas.
-
-As contas do BlockBlobStorage atualmente não dão suporte a camadas para camadas de acesso frequente, esporádica ou de arquivamento.
+As contas do BlockBlobStorage atualmente não dão suporte a camadas para camadas de acesso frequente, esporádica ou de arquivamento. Esse tipo de conta de armazenamento não dá suporte a blobs de página, tabelas ou filas.
 
 ### <a name="filestorage-accounts"></a>Contas de armazenamento de
 
 Uma conta de armazenamento de arquivo é uma conta de armazenamento especializada usada para armazenar e criar compartilhamentos de arquivos premium. Esse tipo de conta de armazenamento dá suporte a arquivos, mas não a blobs de blocos, blobs de acréscimo, blobs de páginas, tabelas ou filas.
 
-As contas de armazenamento de fileoferecem características dedicadas de desempenho exclusivas, como a intermitência de IOPS. Para obter mais informações sobre essas características, consulte a seção [níveis de desempenho de compartilhamento de arquivos](../files/storage-files-planning.md#file-share-performance-tiers) do guia de planejamento de arquivos.
+As contas de armazenamento de fileoferecem características de desempenho exclusivas, como a intermitência de IOPS. Para obter mais informações sobre essas características, consulte a seção [níveis de desempenho de compartilhamento de arquivos](../files/storage-files-planning.md#file-share-performance-tiers) do guia de planejamento de arquivos.
 
 ## <a name="naming-storage-accounts"></a>Nomeando contas de armazenamento
 
@@ -85,12 +83,20 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 
 ## <a name="performance-tiers"></a>Escalões de desempenho
 
+Dependendo do tipo de conta de armazenamento que você criar, você pode escolher entre as camadas de desempenho Standard e Premium.
+
+### <a name="general-purpose-storage-accounts"></a>Contas de armazenamento para fins gerais
+
 As contas de armazenamento de uso geral podem ser configuradas para qualquer um dos seguintes níveis de desempenho:
 
 - Um nível de desempenho padrão para armazenar blobs, arquivos, tabelas, filas e discos de máquina virtual do Azure. Para obter mais informações sobre metas de escalabilidade para contas de armazenamento padrão, consulte [metas de escalabilidade para contas de armazenamento padrão](scalability-targets-standard-account.md).
-- Um nível de desempenho premium para armazenar apenas discos de máquina virtual não gerenciados. A Microsoft recomenda o uso de discos gerenciados com máquinas virtuais do Azure em vez de discos não gerenciados. Para obter mais informações sobre metas de escalabilidade para o nível de desempenho premium, consulte [metas de escalabilidade para contas de armazenamento de blobs de páginas Premium](../blobs/scalability-targets-premium-page-blobs.md).
+- Um nível de desempenho premium para armazenar discos de máquina virtual não gerenciados. A Microsoft recomenda o uso de discos gerenciados com máquinas virtuais do Azure em vez de discos não gerenciados. Para obter mais informações sobre metas de escalabilidade para o nível de desempenho premium, consulte [metas de escalabilidade para contas de armazenamento de blobs de páginas Premium](../blobs/scalability-targets-premium-page-blobs.md).
+
+### <a name="blockblobstorage-storage-accounts"></a>Contas de armazenamento BlockBlobStorage
 
 As contas de armazenamento BlockBlobStorage fornecem um nível de desempenho premium para armazenar blobs de bloco e blobs de acréscimo. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de blocos Premium](../blobs/scalability-targets-premium-block-blobs.md).
+
+### <a name="filestorage-storage-accounts"></a>Contas de armazenamento de armazenamento em
 
 As contas de armazenamento de armazenamento de arquivo fornecem um nível de desempenho premium para compartilhamentos de arquivos do Azure. Para obter mais informações, consulte [escalabilidade e metas de desempenho dos arquivos do Azure](../files/storage-files-scale-targets.md).
 
@@ -102,7 +108,7 @@ As camadas de acesso disponíveis são:
 
 - A camada de acesso **quente** . Essa camada é otimizada para acesso frequente de objetos na conta de armazenamento. O acesso a dados na camada quente é mais econômico, enquanto os custos de armazenamento são mais altos. As novas contas de armazenamento são criadas na camada quente por padrão.
 - A camada de acesso **fria** . Essa camada é otimizada para armazenar grandes quantidades de dados acessados com pouca frequência e armazenados por pelo menos 30 dias. O armazenamento de dados na camada fria é mais econômico, mas acessar esses dados pode ser mais caro do que acessar dados na camada quente.
-- A camada de **arquivo morto** . Essa camada está disponível somente para BLOBs de blocos individuais. A camada de arquivamento é otimizada para dados que podem tolerar várias horas de latência de recuperação e que permanecerão na camada de arquivo por pelo menos 180 dias. A camada de arquivamento é a opção mais econômica para armazenar dados. No entanto, acessar esses dados é mais caro do que acessar dados em camadas quentes ou frias.
+- A camada de **arquivo morto** . Essa camada está disponível apenas para BLOBs de blocos individuais e blobs de acréscimo. A camada de arquivamento é otimizada para dados que podem tolerar várias horas de latência de recuperação e que permanecerão na camada de arquivo por pelo menos 180 dias. A camada de arquivamento é a opção mais econômica para armazenar dados. No entanto, acessar esses dados é mais caro do que acessar dados em camadas quentes ou frias.
 
 Se houver uma alteração no padrão de uso de seus dados, você poderá alternar entre essas camadas de acesso a qualquer momento. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 

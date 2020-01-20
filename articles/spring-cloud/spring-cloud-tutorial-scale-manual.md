@@ -3,15 +3,15 @@ title: 'Tutorial: dimensionar um aplicativo no Azure Spring Cloud | Microsoft Do
 description: Neste tutorial, você aprenderá a dimensionar um aplicativo com o Azure Spring Cloud no portal do Azure
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: eaf7e7ec39555e5b933020835f3bb96429e3aa81
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461430"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277481"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Dimensionar um aplicativo no Azure Spring Cloud
 

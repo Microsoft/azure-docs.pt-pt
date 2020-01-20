@@ -1,26 +1,21 @@
 ---
-title: Dimensionar verticalmente os conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Dimensionar verticalmente os conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Como dimensionar verticalmente uma máquina virtual em resposta a alertas de monitoramento com a automação do Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: 87d2b19f6143f567782778e35c8511f233d8b0e8
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958151"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274441"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
 
@@ -93,7 +88,7 @@ Você pode configurar o dimensionamento vertical para ser disparado com base em 
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Criar uma conta de automação do Azure com capacidade de execução
-A primeira coisa que você precisa fazer é criar uma conta de automação do Azure que hospede os runbooks usados para dimensionar as instâncias do conjunto de dimensionamento de máquinas virtuais. Recentemente, a [automação do Azure](https://azure.microsoft.com/services/automation/) introduziu o recurso "conta Executar como" que torna a configuração da entidade de serviço para executar automaticamente os runbooks em nome de um usuário. Para obter mais informações, consulte:
+A primeira coisa que você precisa fazer é criar uma conta de automação do Azure que hospede os runbooks usados para dimensionar as instâncias do conjunto de dimensionamento de máquinas virtuais. Recentemente, a [automação do Azure](https://azure.microsoft.com/services/automation/) introduziu o recurso "conta Executar como" que torna a configuração da entidade de serviço para executar automaticamente os runbooks em nome de um usuário. Para obter mais informações, veja:
 
 * [Autenticar Runbooks com a conta Run As do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -109,7 +104,7 @@ Escolha a opção procurar na galeria no menu Runbooks:
 
 Os runbooks que precisam ser importados são mostrados. Selecione o runbook com base em se você deseja o dimensionamento vertical com ou sem o reprovisionamento:
 
-![Galeria de Runbooks][gallery]
+![Galeria de runbooks][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao seu runbook
 
@@ -124,7 +119,7 @@ Depois de importar os runbooks, adicione um webhook ao runbook para que ele poss
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adicionar um alerta ao conjunto de dimensionamento de máquinas virtuais
 
-Abaixo está um script do PowerShell que mostra como adicionar um alerta a um conjunto de dimensionamento de máquinas virtuais. Consulte o seguinte artigo para obter o nome da métrica na qual o alerta será acionado: [Azure monitor métricas comuns de dimensionamento](../azure-monitor/platform/autoscale-common-metrics.md)automático.
+Abaixo está um script do PowerShell que mostra como adicionar um alerta a um conjunto de dimensionamento de máquinas virtuais. Consulte o seguinte artigo para obter o nome da métrica para acionar o alerta: [Azure monitor métricas comuns de dimensionamento](../azure-monitor/platform/autoscale-common-metrics.md)automático.
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com

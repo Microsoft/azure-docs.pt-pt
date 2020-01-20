@@ -1,20 +1,19 @@
 ---
-title: Criptografar discos para conjuntos de dimensionamento do Azure com Azure PowerShell | Microsoft Docs
+title: Criptografar discos para conjuntos de dimensionamento do Azure com Azure PowerShell
 description: Saiba como usar Azure PowerShell para criptografar instâncias de VM e discos anexados em um conjunto de dimensionamento de máquinas virtuais do Windows
-services: virtual-machine-scale-sets
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c228dd3f2e408c97e684a2cc1490903ac7a2eb0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: bd7f92c104e06896f4b3c8bb2adef45983cf5d4d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530826"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278992"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Criptografar o sistema operacional e OS discos de dados anexados em um conjunto de dimensionamento de máquinas virtuais com Azure PowerShell
 
@@ -57,7 +56,7 @@ Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias d
 $cred = Get-Credential
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como para permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como para permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
 
 ```azurepowershell-interactive
 $vmssName="myScaleSet"
@@ -84,7 +83,7 @@ $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vau
 $keyVaultResourceId=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
 
 Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
-    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
+    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType "All"
 ```
 
 Quando solicitado, digite *y* para continuar o processo de criptografia de disco nas instâncias de VM do conjunto de dimensionamento.
@@ -100,7 +99,7 @@ $keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $vaultName -Name $keyEncryp
 
 Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId `
-    -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
+    -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $keyVaultResourceId -VolumeType "All"
 ```
 
 > [!NOTE]
@@ -138,7 +137,7 @@ EncryptionEnabled            : True
 EncryptionExtensionInstalled : True
 ```
 
-## <a name="disable-encryption"></a>Desabilitar criptografia
+## <a name="disable-encryption"></a>Desativar a encriptação
 
 Se você não deseja mais usar discos de instâncias de VM criptografadas, você pode desabilitar a criptografia com [Disable-AzVmssDiskEncryption](/powershell/module/az.compute/Disable-AzVmssDiskEncryption) da seguinte maneira:
 

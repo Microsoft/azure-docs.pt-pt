@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b4a2617bec145cf735058bc13c01bf8ebdfe6550
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201740"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275506"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de Segurança no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar os playbooks de segurança no Centro de Segurança do Azure para responder a problemas relacionados com segurança.
+
+> [!NOTE]
+> O recurso de guias estratégicos de segurança foi renomeado para automação do fluxo de trabalho. Verifique a página de [automação do fluxo de trabalho (versão prévia)](https://docs.microsoft.com/azure/security-center/workflow-automation) para obter informações de conteúdo atualizadas. Esse conteúdo arquivado temporário está disponível para clientes que demonstraram isso anteriormente e serão removidos gradualmente. Qualquer recurso na versão prévia é guiado pelos [termos de uso complementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## <a name="what-is-security-playbook-in-security-center"></a>O que é o playbook de segurança do Centro de Segurança?
 O playbook de segurança é uma coleção de procedimentos que podem ser executados no Centro de Segurança quando um alerta selecionado aciona um determinado playbook. Pode ajudar a automatizar e orquestrar as suas respostas a alertas de segurança específicos que o Centro de Segurança detete. Os Playbooks de Segurança do Centro de Segurança baseiam-se no [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que pode utilizar os modelos disponibilizados na categoria de segurança nos modelos do Logic Apps, os quais podem ser modificados consoante as suas necessidades, ou pode criar playbooks novos com o [fluxo de trabalho do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) e o Centro de Segurança como o acionador.
@@ -73,7 +76,7 @@ Pode executar um playbook de segurança no Centro de Segurança se quiser orques
 
 5. Na página Playbooks, selecione o playbook que quer executar e clique no botão **Executar**. Se quiser ver o playbook antes do acionamento, pode clicar no mesmo, o que abre o estruturador.
 
-    ![Manuais de procedimentos](./media/security-center-playbooks/security-center-playbooks-fig13.png)
+    ![Playbooks](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 
 ### <a name="history"></a>Histórico
 
@@ -95,7 +98,7 @@ Pode alterar playbooks existentes no Centro de Segurança para adicionar ações
 > Para obter mais informações sobre como utilizar o Azure Logic Apps para criar o seu próprio playbook, leia [Criar o seu primeiro fluxo de trabalho de aplicação lógica para automatizar processos entre aplicações na cloud e serviços cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Neste documento, aprendeu a utilizar os playbooks no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.

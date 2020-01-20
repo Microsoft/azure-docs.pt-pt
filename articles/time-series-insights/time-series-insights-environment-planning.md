@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: a46627851eb8bbefaf9290691cd6e3fbda2110f3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046201"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278655"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje seu ambiente Azure Time Series Insights GA
 
@@ -68,7 +68,7 @@ Você pode ajustar a retenção e alternar entre os dois modos na página de con
 
 1. Na caixa **tempo de retenção de dados (em dias)** , insira um valor entre 1 e 400.
 
-   [![configurar a retenção](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+   [![configurar a retenção](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 > [!TIP]
 > Para saber mais sobre como implementar uma política de retenção de dados apropriada, leia [como configurar a retenção](./time-series-insights-how-to-configure-retention.md).

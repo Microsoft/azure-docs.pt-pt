@@ -1,29 +1,21 @@
 ---
-title: Tutorial - Criar e gerir um conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Tutorial – criar e gerenciar um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como utilizar a CLI do Azure para criar um conjunto de dimensionamento de máquinas virtuais, juntamente com algumas tarefas de gestão comuns, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2bddb4ef1401dd45b5aa9418f6e1890df0879ae
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188548"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277228"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerir um conjunto de dimensionamento com a CLI do Azure
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
@@ -65,7 +57,7 @@ az vmss create \
 A criação e configuração de todas as instâncias de VM e recursos do conjunto de dimensionamento demora alguns minutos. Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga.
 
 
-## <a name="view-the-vm-instances-in-a-scale-set"></a>Ver as instâncias de VM num conjunto de dimensionamento
+## <a name="view-the-vm-instances-in-a-scale-set"></a>Ver as instâncias da VM num conjunto de dimensionamento
 Para ver uma lista de instâncias de VM num conjunto de dimensionamento, utilize [az vmss list-instances](/cli/azure/vmss) da seguinte forma:
 
 ```azurecli-interactive
@@ -75,7 +67,7 @@ az vmss list-instances \
   --output table
 ```
 
-O seguinte resultado de exemplo mostra duas instâncias de VM no conjunto de dimensionamento:
+O seguinte resultado de exemplo mostra duas instâncias da VM no conjunto de dimensionamento:
 
 ```bash
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -106,7 +98,7 @@ az vmss list-instance-connection-info \
   --name myScaleSet
 ```
 
-O seguinte resultado de exemplo mostra o nome de instância, o endereço IP público do balanceador de carga e o número de porta para o qual as regras de NAT encaminham tráfego:
+O seguinte resultado de exemplo mostra o nome de instância, o endereço IP público do balanceador de carga e o número de porta para o qual as regras NAT encaminham o tráfego:
 
 ```bash
 {
@@ -121,7 +113,7 @@ SSH para a sua primeira instância de VM. Especifique o seu número de porta e e
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Após iniciar sessão na instância de VM, pode efetuar algumas alterações de configuração manuais, conforme necessário. Por enquanto, encerre a sessão SSH como habitualmente:
+Após iniciar sessão na instância da VM, pode fazer algumas alterações de configuração manuais, conforme necessário. Por enquanto, encerre a sessão SSH como habitualmente:
 
 ```bash
 exit
@@ -192,7 +184,7 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela seguinte categoriza tamanhos de VM comuns em casos de utilização.
 
-| Type                     | Tamanhos comuns           |    Descrição       |
+| Tipo                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -302,7 +294,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a executar algumas tarefas básicas de criação e gestão de conjuntos de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]

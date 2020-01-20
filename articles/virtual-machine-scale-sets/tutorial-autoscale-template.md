@@ -1,29 +1,21 @@
 ---
-title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com os modelos do Azure | Microsoft Docs
+title: Tutorial – dimensionamento automático de um conjunto de dimensionamento com modelos do Azure
 description: Saiba como utilizar os modelos do Azure Resource Manager para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais, à medida que a CPU exige aumentos e diminuições
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7e0a99a7ba2c00b2ebe5ea8c77d527765ead67
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188076"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271417"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento com um modelo do Azure
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
@@ -65,7 +57,7 @@ Defina um perfil de dimensionamento automático num modelo do Azure com o fornec
 
 
 ## <a name="define-a-rule-to-autoscale-out"></a>Definir uma regra para dimensionamento automático para aumentar horizontalmente
-Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no conjunto de dimensionamento também aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Controla as métricas a monitorizar, como a CPU ou o disco, quando a carga da aplicação tem de cumprir um determinado limiar, e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
+Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no conjunto de dimensionamento também aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Controla as métricas a monitorizar, como a CPU ou o disco, quando a carga da aplicação tem de cumprir um determinado limiar e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
 No exemplo seguinte, é definida uma regra que aumenta o número de instâncias de VM num conjunto de dimensionamento quando a carga média da CPU é superior a 70% durante um período de 5 minutos. Quando a regra for acionada, o número de instâncias de VM é aumentado em três.
 
@@ -74,15 +66,15 @@ Os parâmetros seguintes são utilizados para esta regra:
 | Parâmetro         | Explicação                                                                                                         | Valor           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU  |
-| *timeGrain*       | Frequência com que as métricas são recolhidas para análise.                                                                   | 1 minuto        |
+| *timeGrain*       | Frequência com que as métricas são recolhidas para análise.                                                                   | um minuto        |
 | *timeAggregation* | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média         |
-| *timeWindow*      | A quantidade de tempo monitorizado antes de os valores de métrica e limiar serem comparados.                                   | 5 minutos       |
+| *timeWindow*      | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados.                                   | 5 minutos       |
 | *operador*        | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior Que    |
 | *limiar*       | O valor que faz com que a regra de dimensionamento automático acione uma ação.                                                      | 70%             |
 | *direção*       | Define se o conjunto de dimensionamento deve aumentar e reduzir verticalmente quando a regra se aplicar.                                              | Aumentar        |
 | *tipo*            | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Alterar Contagem    |
 | *valor*           | Quantas instâncias de VM devem ser aumentadas ou reduzidas horizontalmente quando a regra se aplicar.                                             | 3               |
-| *tempo de arrefecimento*        | A quantidade de tempo de espera antes de a regra ser aplicada novamente, para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos       |
+| *tempo de arrefecimento*        | A quantidade de tempo de espera antes de a regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos       |
 
 A regra seguinte seria adicionada à secção de perfil do fornecedor de recursos *Microsoft.insights/autoscalesettings* da secção anterior:
 
@@ -187,14 +179,14 @@ SSH para a sua primeira instância de VM. Especifique o seu endereço IP públic
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10* funções de trabalho de **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
+Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10* funcionários de **estresse** que geram carga de CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
 
 ```azurecli-interactive
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando **stress** mostrar um resultado semelhante ao *stress: info: hogs de [2688] dispatching: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a *Enter* tecla para regressar à linha de comandos.
+Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
 
 Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top**:
 
@@ -222,7 +214,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Novamente, quando **stress** mostrar um resultado semelhante ao *stress: info: hogs de [2713] dispatching: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a *Enter* tecla para regressar à linha de comandos.
+Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
 
 Feche a ligação à segunda instância de VM. O **stress** continua a ser executado na instância de VM.
 
@@ -271,7 +263,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]
