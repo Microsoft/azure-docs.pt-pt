@@ -92,9 +92,9 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado localmente, 
 
    ![Sincronizar usuário](./media/howto-data-in-replication/syncuser.png)
  
-   Clique no painel **funções administrativas** e selecione escravo de **replicação** na lista de **privilégios globais**. Em seguida, clique em **aplicar** para criar a função de replicação.
+   Clique no painel **funções administrativas** e selecione subordinado de **replicação** na lista de **privilégios globais**. Em seguida, clique em **aplicar** para criar a função de replicação.
 
-   ![Escravo de replicação](./media/howto-data-in-replication/replicationslave.png)
+   ![Subordinado de replicação](./media/howto-data-in-replication/replicationslave.png)
 
 
 4. Definir o servidor mestre como modo somente leitura

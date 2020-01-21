@@ -100,9 +100,9 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
    ![Sincronizar usuário](./media/howto-data-in-replication/syncuser.png)
  
-   Selecione o painel **funções administrativas** e, em seguida, na lista de **privilégios globais**, selecione **replicação escravo**. Selecione **aplicar** para criar a função de replicação.
+   Selecione o painel **funções administrativas** e, em seguida, na lista de **privilégios globais**, selecione **replicação subordinada**. Selecione **aplicar** para criar a função de replicação.
 
-   ![Escravo de replicação](./media/howto-data-in-replication/replicationslave.png)
+   ![Subordinado de replicação](./media/howto-data-in-replication/replicationslave.png)
 
 
 4. Defina o servidor mestre como modo somente leitura.
