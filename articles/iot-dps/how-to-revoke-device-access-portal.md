@@ -24,9 +24,9 @@ O registro no serviço de provisionamento de dispositivos permite que um disposi
 > [!NOTE] 
 > Lembre-se da política de repetição de dispositivos para os quais você revoga o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita pode tentar se registrar continuamente no serviço de provisionamento. Essa situação consome recursos de serviço e possivelmente afeta o desempenho.
 
-## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Dispositivos de lista negra usando uma entrada de registro individual
+## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Dispositivos de lista de bloqueios usando uma entrada de registro individual
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X. 509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista negra, você pode desabilitar ou excluir sua entrada de registro. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X. 509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista de bloqueios, você pode desabilitar ou excluir sua entrada de registro. 
 
 Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando sua entrada de registro: 
 
@@ -54,11 +54,11 @@ Para adicionar o dispositivo à lista de bloqueios permanentemente excluindo sua
 
 Depois de concluir o procedimento, você deverá ver sua entrada removida da lista de registros individuais.  
 
-## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista negra de um certificado de autoridade de certificação X. 509 intermediário ou raiz usando um grupo de registro
+## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista de bloqueios de um certificado de autoridade de certificação X. 509 intermediário ou raiz usando um grupo de registro
 
-Os certificados X. 509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a confiança será interrompida. O certificado deve estar na lista negra para impedir que o serviço de provisionamento de dispositivos provisione dispositivos downstream em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X. 509 e como eles são usados com o serviço de provisionamento, consulte [certificados x. 509](./concepts-security.md#x509-certificates). 
+Os certificados X. 509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a confiança será interrompida. O certificado deve estar na lista de bloqueios para impedir que o serviço de provisionamento de dispositivos provisione dispositivos downstream em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X. 509 e como eles são usados com o serviço de provisionamento, consulte [certificados x. 509](./concepts-security.md#x509-certificates). 
 
-Um grupo de registro é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X. 509 assinados pela mesma AC intermediária ou raiz. A entrada do grupo de registros é configurada com o certificado X. 509 associado à AC intermediária ou raiz. A entrada também é configurada com quaisquer valores de configuração, como conexão de estado de conexões e Hub IoT, que são compartilhados por dispositivos com esse certificado em sua cadeia de certificados. Para adicionar o certificado à lista negra, você pode desabilitar ou excluir seu grupo de registro.
+Um grupo de registro é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X. 509 assinados pela mesma AC intermediária ou raiz. A entrada do grupo de registros é configurada com o certificado X. 509 associado à AC intermediária ou raiz. A entrada também é configurada com quaisquer valores de configuração, como conexão de estado de conexões e Hub IoT, que são compartilhados por dispositivos com esse certificado em sua cadeia de certificados. Para adicionar o certificado à lista de bloqueios, você pode desabilitar ou excluir seu grupo de registro.
 
 Para adicionar temporariamente o certificado à lista de bloqueios desabilitando seu grupo de registro: 
 
@@ -71,7 +71,7 @@ Para adicionar temporariamente o certificado à lista de bloqueios desabilitando
    ![Desabilitar a entrada do grupo de registros no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-Para colocar o certificado em lista negra permanentemente excluindo seu grupo de registro:
+Para colocar o certificado em lista de bloqueios permanentemente excluindo seu grupo de registro:
 
 1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
 2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
@@ -90,7 +90,7 @@ Depois de concluir o procedimento, você deverá ver sua entrada removida da lis
 
 Os dispositivos que implementam o mecanismo de atestado X. 509 usam a cadeia de certificados do dispositivo e a chave privada para autenticação. Quando um dispositivo se conecta e autentica com o serviço de provisionamento de dispositivos, o serviço primeiro procura um registro individual que corresponda às credenciais do dispositivo. Em seguida, o serviço pesquisa grupos de registro para determinar se o dispositivo pode ser provisionado. Se o serviço encontrar um registro individual desabilitado para o dispositivo, ele impedirá que o dispositivo se conecte. O serviço impede a conexão mesmo se um grupo de registro habilitado para uma AC intermediária ou raiz na cadeia de certificados do dispositivo existir. 
 
-Para lista negra de um dispositivo individual em um grupo de registro, siga estas etapas:
+Para lista de bloqueios de um dispositivo individual em um grupo de registro, siga estas etapas:
 
 1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
 2. Na lista de recursos, selecione o serviço de provisionamento que contém o grupo de registros para o dispositivo em que você deseja adicionar a listagem negra.
@@ -98,9 +98,9 @@ Para lista negra de um dispositivo individual em um grupo de registro, siga esta
 4. Selecione o botão **adicionar registro individual** na parte superior. 
 5. Na página **adicionar registro** , selecione **X. 509** como o **mecanismo** de atestado para o dispositivo.
 
-    Carregue o certificado do dispositivo e insira a ID do dispositivo a ser listada na lista negra. Para o certificado, use o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa o certificado de entidade final assinada para autenticação.
+    Carregue o certificado do dispositivo e insira a ID do dispositivo a ser listada na lista de bloqueios. Para o certificado, use o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa o certificado de entidade final assinada para autenticação.
 
-    ![Definir propriedades de dispositivo para o dispositivo na lista negra](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+    ![Definir propriedades de dispositivo para o dispositivo na lista de bloqueios](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
 
 6. Role até a parte inferior da página **adicionar registro** e selecione **desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **salvar**. 
 

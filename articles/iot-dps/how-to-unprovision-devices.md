@@ -57,7 +57,7 @@ Para ver uma lista de dispositivos que foram provisionados por meio de um grupo 
 Com grupos de registro, há dois cenários a serem considerados:
 
 - Para desprovisionar todos os dispositivos que foram provisionados por meio de um grupo de registro:
-  1. Desabilite o grupo de registros para lista negra do certificado de autenticação. 
+  1. Desabilite o grupo de registros para lista de bloqueios do certificado de autenticação. 
   2. Use a lista de dispositivos provisionados para esse grupo de registro para desabilitar ou excluir cada dispositivo do registro de identidade de seu respectivo Hub IoT. 
   3. Depois de desabilitar ou excluir todos os dispositivos de seus respectivos hubs IoT, você pode opcionalmente excluir o grupo de registros. No entanto, lembre-se de que, se você excluir o grupo de registro e houver um grupo de registro habilitado para um certificado de autenticação mais alto na cadeia de certificados de um ou mais dos dispositivos, esses dispositivos poderão se registrar novamente. 
 

@@ -51,7 +51,7 @@ Quando um dispositivo é inicialmente provisionado por meio do provisionamento a
 
 Depois que um novo certificado de folha for revertido para o dispositivo, ele não poderá mais se conectar ao Hub IoT porque ele está usando um novo certificado para se conectar. O Hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de conexão do dispositivo será um erro de conexão "não autorizado". Para resolver esse erro, você deve atualizar a entrada de registro para o dispositivo a fim de considerar o novo certificado de folha do dispositivo. Em seguida, o serviço de provisionamento pode atualizar as informações de registro do dispositivo do Hub IoT conforme necessário quando o dispositivo é reprovisionado. 
 
-Uma possível exceção a essa falha de conexão seria um cenário em que você criou um [grupo de registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver distribuindo os certificados raiz ou intermediários na cadeia de certificados de confiança do dispositivo, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se esse cenário surgir como uma reação a uma violação de segurança, você deverá, pelo menos, adicionar à lista negra os certificados de dispositivo específicos no grupo que serão considerados violados. Para obter mais informações, consulte [dispositivos específicos da lista negra em um grupo de registro](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Uma possível exceção a essa falha de conexão seria um cenário em que você criou um [grupo de registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver distribuindo os certificados raiz ou intermediários na cadeia de certificados de confiança do dispositivo, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se esse cenário surgir como uma reação a uma violação de segurança, você deverá, pelo menos, adicionar à lista de bloqueios os certificados de dispositivo específicos no grupo que serão considerados violados. Para obter mais informações, consulte [dispositivos específicos da lista de bloqueios em um grupo de registro](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 A atualização de entradas de registro para certificados acumulados é realizada na página **gerenciar registros** . Para acessar essa página, siga estas etapas:
 
@@ -197,9 +197,9 @@ Outra maneira é que os certificados antigos e novos sejam válidos para uma sob
 Depois que o reprovisionamento for concluído, os dispositivos poderão se conectar ao Hub IoT usando seus novos certificados.
 
 
-## <a name="blacklist-certificates"></a>Certificados de lista negra
+## <a name="blacklist-certificates"></a>Certificados de lista de bloqueios
 
-Em resposta a uma violação de segurança, talvez seja necessário adicionar um certificado de dispositivo à lista negra. Para adicionar um certificado de dispositivo à lista negra, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte lista negra de dispositivos no artigo [gerenciar cancelamento de registro](how-to-revoke-device-access-portal.md) .
+Em resposta a uma violação de segurança, talvez seja necessário adicionar um certificado de dispositivo à lista de bloqueios. Para adicionar um certificado de dispositivo à lista de bloqueios, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte lista de bloqueios de dispositivos no artigo [gerenciar cancelamento de registro](how-to-revoke-device-access-portal.md) .
 
 Depois que um certificado é incluído como parte de uma entrada de registro desabilitada, qualquer tentativa de registro com um hub IoT usando esses certificados falhará mesmo que ele esteja habilitado como parte de outra entrada de registro.
  
