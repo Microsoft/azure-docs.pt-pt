@@ -4,17 +4,19 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021273"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280611"
 ---
 O Azure Data Explorer criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para usar na criptografia de dados. As chaves gerenciadas pelo cliente devem ser armazenadas em um [Azure Key Vault](/azure/key-vault/key-vault-overview). Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar uma API de Azure Key Vault para gerar chaves. O cluster Data Explorer do Azure e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter uma explicação detalhada sobre chaves gerenciadas pelo cliente, consulte [chaves gerenciadas pelo cliente com Azure Key Vault](/azure/storage/common/storage-service-encryption). Este artigo mostra como configurar chaves gerenciadas pelo cliente.
 
-> [!Note]
-> Para configurar chaves gerenciadas pelo cliente com o Azure Data Explorer, você deve [definir duas propriedades no cofre de chaves](/azure/key-vault/key-vault-ovw-soft-delete): **exclusão reversível** e **não limpar**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) ou o [CLI do Azure](/azure/key-vault/key-vault-soft-delete-cli). Somente chaves RSA e tamanho de chave 2048 têm suporte.
+Para configurar chaves gerenciadas pelo cliente com o Azure Data Explorer, você deve [definir duas propriedades no cofre de chaves](/azure/key-vault/key-vault-ovw-soft-delete): **exclusão reversível** e **não limpar**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) ou o [CLI do Azure](/azure/key-vault/key-vault-soft-delete-cli). Somente chaves RSA e tamanho de chave 2048 têm suporte.
+
+> [!NOTE]
+> Não há suporte para a criptografia de dados usando chaves gerenciadas pelo cliente em [clusters de líderes e de acompanhamento](/azure/data-explorer/follower). 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>Atribuir uma identidade ao cluster
 

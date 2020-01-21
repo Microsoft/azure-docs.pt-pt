@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454662"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280820"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
 
-Este artigo descreve como configurar o mapeamento de dependência sem agente nas migrações para Azure: avaliação do servidor. Esse recurso está atualmente disponível em versão prévia para máquinas VMware descobertas usando um dispositivo de migrações para Azure. 
+Este artigo descreve como configurar o mapeamento de dependência sem agente nas migrações para Azure: avaliação do servidor. 
 
 > [!IMPORTANT]
 > A visualização de dependência sem agente está atualmente em versão prévia para VMs VMware do Azure descobertas usando um dispositivo de migrações para Azure.
@@ -54,17 +54,8 @@ A visualização de dependência sem agente não exige a instalação de agentes
 - Atualmente, a análise de dependência sem agente está disponível apenas para máquinas VMware.
 - Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment.
 - Verifique se você descobriu suas máquinas VMware nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. [Saiba mais](migrate-appliance.md).
-- Verifique se as VMs VMware têm suporte para a visualização de dependência sem agente, conforme resumido na tabela a seguir.
+- [Examine os requisitos](migrate-support-matrix-vmware.md#agentless-dependency-visualization) para configurar a visualização de dependência sem agente.
 
-
-### <a name="supported-operating-systems"></a>Sistemas operativos suportados
-
-Os sistemas operacionais com suporte para a visualização de dependência sem agente são os seguintes.
-
-**Tipo** | **Sistemas operativos suportados**
---- | ---
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits)
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14, 4, 16, 4 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## <a name="create-a-user-account-for-discovery"></a>Criar uma conta de usuário para descoberta

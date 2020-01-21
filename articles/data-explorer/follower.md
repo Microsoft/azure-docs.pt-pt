@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277024"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281347"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
 
@@ -383,6 +383,7 @@ O administrador de banco de dados de acompanhamento pode modificar a [política 
 
 * O acompanhamento e os clusters de líderes devem estar na mesma região.
 * A [ingestão de streaming](/azure/data-explorer/ingest-data-streaming) não pode ser usada em um banco de dados que está sendo seguido.
+* Não há suporte para a criptografia de dados usando [chaves gerenciadas pelo cliente](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) em clusters de líderes e de acompanhamento. 
 * Você não pode excluir um banco de dados que está anexado a um cluster diferente antes de desanexá-lo.
 * Não é possível excluir um cluster que tenha um banco de dados anexado a um cluster diferente antes de desanexá-lo.
 * Não é possível parar um cluster que tenha bancos de dados de acompanhamento ou de líder anexados. 

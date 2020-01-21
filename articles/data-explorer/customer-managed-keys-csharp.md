@@ -7,18 +7,18 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: ac37c0e1f1f7d769a881c5965744b29d40468486
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 16c108790dd696e98a1264691254c9e99dac6cd3
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276673"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280612"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Configurar chaves gerenciadas pelo cliente usando oC#
 
 > [!div class="op_single_selector"]
-> * [C#](create-cluster-database-csharp.md)
-> * [Modelo do Azure Resource Manager](create-cluster-database-resource-manager.md)
+> * [C#](customer-managed-keys-csharp.md)
+> * [Modelo do Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 

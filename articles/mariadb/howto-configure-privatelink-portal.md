@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 4e05de1fc1bfb880767d113e88d5c49082fc146c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 76e9526ab39cbccd45a48d2cd24e05867c953774
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976090"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280837"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB (versão prévia) usando o portal
 
@@ -122,7 +122,7 @@ Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB 
 9. Quando você vir a mensagem validação aprovada, selecione **criar**. 
 10. Quando você vir a mensagem validação aprovada, selecione criar. 
 
-## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
+## <a name="create-a-private-endpoint"></a>Criar um ponto final privado
 
 Nesta seção, você criará um ponto de extremidade privado para o servidor MariaDB. 
 
@@ -163,7 +163,7 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
     | Subrede | Selecione *mysubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com a zona DNS privada |Selecione **Sim**. |
-    |Zona de DNS privado |Selecione *(novo) privatelink. Database. Azure. com* |
+    |Zona de DNS privado |Selecione *(novo) privatelink. MariaDB. Database. Azure. com* |
     |||
 
 1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração. 
@@ -201,14 +201,14 @@ Depois de criar o **myVm**, conecte-se a ele da Internet da seguinte maneira:
 
 1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
-2. Insira `nslookup mydemomserver.mariadb.privatelink.database.azure.com`. 
+2. Insira `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 
     Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemoMariaDBserver.mariadb.privatelink.database.azure.com
+    Name:    mydemoMariaDBserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -219,7 +219,7 @@ Depois de criar o **myVm**, conecte-se a ele da Internet da seguinte maneira:
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoserver.MariaDB.privatelink.database.azure.com* |
+    | Server name| Select *mydemoserver.privatelink.mariadb.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
     |Password |Enter a password provided during the MariaDB server creation. |
     |SSL|Select **Required**.|

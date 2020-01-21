@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 37f408ba633abdd95824b2e94253251eacf1f7f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ab02f0522ab52870d24f667ff91665e8aa0a4eb
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980835"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281330"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL (versão prévia) usando a CLI
 
@@ -97,9 +97,9 @@ az network private-endpoint create \
 Crie uma zona de DNS privado para o domínio do servidor MySQL e crie um link de associação com a rede virtual. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
-   --name  "privatelink.database.azure.com" 
+   --name  "privatelink.mysql.database.azure.com" 
 az network private-dns link vnet create --resource-group myResourceGroup \ 
-   --zone-name  "privatelink.database.azure.com"\ 
+   --zone-name  "privatelink.mysql.database.azure.com"\ 
    --name MyDNSLink \ 
    --virtual-network myVirtualNetwork \ 
    --registration-enabled false 
@@ -113,8 +113,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
  
 #Create DNS records 
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
@@ -146,14 +146,14 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
-2. Introduza  `nslookup mydemomysqlserver.mysql.privatelink.database.azure.com`. 
+2. Introduza  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`. 
 
     Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
+    Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -164,7 +164,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
     | Setting | Value |
     | ------- | ----- |
     | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.mysql.privatelink.database.azure.com* |
+    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
     | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
     | Password | Enter a password provided during the MySQL server creation. |
     ||

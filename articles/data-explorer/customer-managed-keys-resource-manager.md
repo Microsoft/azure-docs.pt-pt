@@ -7,18 +7,18 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: bff8c50cdece803e030c0975a9b14ac5739baaf7
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: d0f7085342f972f227fc549c423672296697d7de
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725809"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281262"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-resource-manager-template"></a>Configurar chaves gerenciadas pelo cliente usando o modelo de Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [C#](create-cluster-database-csharp.md)
-> * [Modelo do Azure Resource Manager](create-cluster-database-resource-manager.md)
+> * [C#](customer-managed-keys-csharp.md)
+> * [Modelo do Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 

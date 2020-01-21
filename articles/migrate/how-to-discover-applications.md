@@ -3,12 +3,12 @@ title: Descobrir aplicativos, funções e recursos em servidores locais com as m
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029069"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280769"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -17,18 +17,18 @@ Este artigo descreve como descobrir aplicativos, funções e recursos em servido
 Descobrir o inventário de aplicativos e funções/recursos em execução em suas máquinas locais ajuda você a identificar e planejar um caminho de migração para o Azure adaptado para suas cargas de trabalho.
 
 > [!NOTE]
-> Atualmente, o app Discovery tem suporte apenas para VMs VMware e é limitado apenas à descoberta. Ainda não oferecemos a avaliação baseada em aplicativo.  Atualmente, a avaliação do servidor avalia as VMs VMware locais, as VMs do Hyper-V e os servidores físicos no nível do computador, para migrações de comparação e deslocamento.
+> Atualmente, o app Discovery tem suporte apenas para VMs VMware e é limitado apenas à descoberta. Ainda não oferecemos a avaliação baseada em aplicativo. Avaliação baseada em máquina para VMs VMware locais, VMs Hyper-V e servidores físicos.
 
 Descoberta de aplicativos usando migrações para Azure: a avaliação do servidor é sem agente. Nada precisa ser instalado em máquinas e VMs. A avaliação do servidor usa o dispositivo de migrações para Azure para executar a descoberta junto com as credenciais de convidado do computador. O dispositivo acessa remotamente as máquinas VMware usando APIs do VMware.
 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-1. Examine as [limitações de suporte](migrate-support-matrix-vmware.md#application-discovery) para a descoberta em nível de aplicativo.
-2. Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
-3. Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment.
+1. Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
+2. Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment a um projeto.
 4. Verifique os [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para descobrir e avaliar VMs VMware com o dispositivo de migrações para Azure.
-4. Verifique os [requisitos](migrate-appliance.md) para implantar o dispositivo de migrações para Azure.
+5. Verifique os [requisitos](migrate-appliance.md) para implantar o dispositivo de migrações para Azure.
+6. [Verifique o suporte e os requisitos](/migrate-support-matrix-vmware.md#application-discovery) para a descoberta de aplicativos.
 
 ## <a name="prepare-for-app-discovery"></a>Preparar para a descoberta de aplicativos
 

@@ -1,5 +1,5 @@
 ---
-title: Localizar o ponto de extremidade e a chave do recurso de Análise de Texto
+title: Localizar o ponto de extremidade do recurso de Análise de Texto e a biblioteca de cliente da chave-v3
 titleSuffix: Azure Cognitive Services
 description: Saiba como criar um recurso de Análise de Texto de serviços cognitivas.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/14/2019
 ms.author: aahi
-ms.openlocfilehash: b56bb8dfdce58de60f82693b511f7923b80fc37a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: d432e2c9ccf0563e18d7f3958a030dd7ce32f4d0
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76159466"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281187"
 ---
 > [!IMPORTANT]
 > Vá para o recurso que você criou para localizar a chave e o ponto de extremidade. Eles estarão localizados na página de **início rápido** do recurso, em **Gerenciamento de recursos**.

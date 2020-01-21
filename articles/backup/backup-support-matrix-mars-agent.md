@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893982"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281279"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -104,6 +104,8 @@ Para obter mais informações, consulte [supported mAbs and DPM Operating System
 
 ## <a name="backup-limits"></a>Limites de backup
 
+### <a name="size-limits"></a>Limites de tamanho
+
 O backup do Azure limita o tamanho de uma fonte de dados de arquivo ou pasta cujo backup pode ser feito. Os itens que você faz backup de um único volume não podem exceder os tamanhos resumidos nesta tabela:
 
 **Sistema operativo** | **Limite de tamanho**
@@ -113,6 +115,10 @@ Windows Server 2008 R2 SP1 |1\.700 GB
 Windows Server 2008 SP2| 1\.700 GB
 Windows 8 ou posterior| 54 400 GB
 Windows 7| 1\.700 GB
+
+### <a name="other-limitations"></a>Outras limitações
+
+- O MARS não oferece suporte à proteção de vários computadores com o mesmo nome para um único cofre.
 
 ## <a name="supported-file-types-for-backup"></a>Tipos de arquivo com suporte para backup
 
