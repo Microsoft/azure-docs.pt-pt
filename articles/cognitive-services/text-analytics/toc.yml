@@ -9,13 +9,15 @@
       href: text-analytics-user-scenarios.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Biblioteca de cliente
       items:
-        - name: Analisar Texto com a biblioteca de cliente
+        - name: Analisar texto com a v3.0 - Pré-visualização
           href: quickstarts/text-analytics-sdk.md
+        - name: Analisar texto com a v2
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: API REST
       items:
         - name: Utilizar o Java
