@@ -88,6 +88,8 @@
       href: templates-cloud-consistency.md
     - name: Modos de implementação
       href: deployment-modes.md
+    - name: Eliminação completa de modo
+      href: complete-mode-deletion.md
     - name: Gestor de Implementação
       items:
         - name: Descrição geral
@@ -237,12 +239,6 @@
           href: template-functions-resource.md
         - name: Funções de cadeia
           href: template-functions-string.md
-    - name: Capacidades de recursos
-      items:
-        - name: Eliminação completa de modo
-          href: complete-mode-deletion.md
-        - name: Tipos de recursos extensão
-          href: extension-resource-types.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
