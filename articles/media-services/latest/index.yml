@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação dos Serviços de Multimédia do Azure v3
+title: Saiba mais sobre a plataforma com base na cloud dos Serviços de Multimédia do Azure v3
 summary: Saiba como codificar e criar pacotes de conteúdos, transmitir vídeos em fluxo a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 metadata:
   title: Documentação dos Serviços de Multimédia do Azure v3
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 10/07/2019
-  ms.openlocfilehash: b55677aba5f99d4960d51d3a717175d47db026e2
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 70eab66c3bd2d8536e415c9ac7c62161f3710c0c
+  ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72244229"
+  ms.lasthandoff: 01/22/2020
+  ms.locfileid: "76314679"
 landingContent:
 - title: Sobre os Serviços de Multimédia
   linkLists:

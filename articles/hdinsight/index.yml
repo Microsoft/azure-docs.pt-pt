@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: cd85a1409e3f8098a3a7104f7d2454bb61de24b7
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: f0fc6b86e44db0b8aeaea54db8155549ceda90bc
+  ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75435359"
+  ms.lasthandoff: 01/22/2020
+  ms.locfileid: "76312639"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:
@@ -116,6 +116,8 @@ landingContent:
       url: ./kafka/apache-kafka-get-started.md
   - linkListType: concept
     links:
+    - text: Proxy REST do Kafka
+      url: ./kafka/rest-proxy.md
     - text: Migrar do 3.6 para o 4.0
       url: ./kafka/migrate-versions.md
     - text: Otimizar o desempenho do Apache Kafka

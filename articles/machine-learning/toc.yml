@@ -93,6 +93,8 @@
       href: concept-designer.md
     - name: Referência rápida para algoritmos
       href: /azure/machine-learning/algorithm-cheat-sheet
+    - name: Como selecionar algoritmos
+      href: /azure/machine-learning/how-to-select-algorithms
     - name: Aprendizagem automática automatizada
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
