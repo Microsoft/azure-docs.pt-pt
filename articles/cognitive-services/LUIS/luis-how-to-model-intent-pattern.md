@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448018"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311721"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
 Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
@@ -42,7 +42,7 @@ Se você quiser adicionar um padrão para uma entidade, a maneira _mais fácil_ 
     > [!div class="mx-imgBorder"]
     > ![captura de tela de confirmando o exemplo expressão como um padrão de modelo na página de detalhes da intenção.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
 
-1. Se você precisar editar o modelo, como a seleção de texto como opcional, com os colchetes `[]` (quadrado), será necessário tornar essa edição de formulário a página **padrões** .
+1. Se você precisar editar o modelo, como a seleção de texto como opcional, com os colchetes `[]` (quadrado), será necessário fazer essa edição na página **padrões** .
 
 1. Na barra de navegação, selecione **treinar** para treinar o aplicativo com o novo padrão.
 

@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 568e7c9772676fbe413642bd39bb53a1a1126ccf
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1cd7b3db92de339b7614a4271f9e6793cdf8f2ad
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262423"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292914"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428542"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312265"
 ---
 # <a name="evaluate-recommender"></a>Avaliar Recomendador
 
-Este artigo descreve como usar o módulo avaliar Recomendador no Azure Machine Learning designer (versão prévia). O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Usando esse módulo, você pode avaliar diferentes tipos de recomendações:  
+Este artigo descreve como usar o módulo avaliar Recomendador no Azure Machine Learning designer. O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Usando esse módulo, você pode avaliar diferentes tipos de recomendações:  
   
 -   Classificações previstas para um usuário e um item    
 -   Itens recomendados para um usuário  

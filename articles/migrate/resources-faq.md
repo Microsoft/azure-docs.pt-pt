@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: 8bfa9237d365636c0bdaa3af06c5af23b683231d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563547"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289463"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -53,7 +53,7 @@ A avaliação do servidor é uma ferramenta de planejamento de migração. O Sit
 
 ## <a name="which-geographies-are-supported"></a>Quais regiões têm suporte?
 
-Examine as geografias com suporte para migrações do Azure para [VM VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e para [VMs do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+Examine as geografias com suporte para migrações do Azure para [VM VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) e para [VMs do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v).
 
 ## <a name="how-do-i-get-started"></a>Como começo?
 

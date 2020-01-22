@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b6a019fbea2ebfed67db4f7c2a9b0f8085438aa8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214576"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311653"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de resultados que contém pontuações geradas de um modelo e o módulo **avaliar modelo** computa um conjunto de métricas de avaliação padrão do setor.
   
@@ -61,14 +61,11 @@ Esse recurso é útil porque você pode comparar facilmente os resultados de doi
 
 1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](score-model.md) à entrada do **modelo de avaliação**. 
 2. Conecte a saída do módulo modelo de Pontuação para o segundo modelo à entrada do lado direito do **modelo de avaliação**.
-3. Clique com o botão direito do mouse em **avaliar modelo**e selecione **executar selecionado** para gerar as pontuações de avaliação.
+3. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 
-Depois de executar o **modelo**de avaliação, clique com o botão direito do mouse no módulo e selecione **resultados da avaliação** para ver os resultados. Pode:
-
-+ Salvar os resultados como um conjunto de um, para uma análise mais fácil com outras ferramentas
-+ Gerar uma visualização no designer
+Depois de executar o **modelo de avaliação**, clique com o botão direito do mouse no módulo e selecione **Visualizar resultados da avaliação** para ver os resultados.
 
 Se você conectar conjuntos de dados a ambas as entradas do **modelo de avaliação**, os resultados conterão métricas para ambos os conjuntos ou ambos os modelos.
 O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas para o conjunto de dados ou modelo anexado na porta correta.  
@@ -123,6 +120,6 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
 - O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
   
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -2,13 +2,13 @@
 title: Tipos de recursos extensão
 description: Lista os tipos de recursos do Azure são usados para estender os recursos de outros tipos de recursos.
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: af60bd648e41532cca364272fb0ded01c0c18239
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/20/2020
+ms.openlocfilehash: 47a98bca4912a1c59c8b2d9bad458769c6bf4ebf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484678"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293271"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que estendem funcionalidades de outros recursos
 
@@ -23,12 +23,14 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. AlertsManagement/alertsSummary
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
+- Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft. Authorization/Locks
 - Microsoft. Authorization/Permissions
 - Microsoft. Authorization/policyAssignments
 - Microsoft. Authorization/policyDefinitions
 - Microsoft. Authorization/policySetDefinitions
 - Microsoft. Authorization/roleAssignments
+- Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
 - Microsoft. billing/billingPeriods
 - Microsoft. billing/billingPermissions
@@ -82,6 +84,7 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. insights/automatedExportSettings
 - Microsoft. insights/linha de base
 - Microsoft. insights/calculatebaseline
+- Microsoft. insights/dataCollectionRuleAssociations
 - Microsoft. insights/diagnosticSettings
 - Microsoft. insights/diagnosticSettingsCategories
 - Microsoft. insights/EventTypes
@@ -94,6 +97,8 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. insights/metricbaselines
 - Microsoft. insights/métricas
 - Microsoft. insights/minhas pastas de trabalho
+- Microsoft. insights/topologia
+- Microsoft. insights/transações
 - Microsoft. insights/vmInsightsOnboardingStatuses
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
@@ -109,6 +114,7 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft. Recoveryservices/backupProtectedItems
+- Microsoft. Recoveryservices/replicationEligibilityResults  
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses
 - Microsoft. ResourceHealth/childResources

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dd2cd89e8edb4e636bf46d2a8125a0f1d00f2f3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428396"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312248"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar hiperparâmetros do modelo
 
-Este artigo descreve como usar o módulo ajustar hiperparâmetros de modelo no designer de Azure Machine Learning (versão prévia). O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
+Este artigo descreve como usar o módulo ajustar hiperparâmetros de modelo no designer de Azure Machine Learning. O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
 
 O *parâmetro* de termos e *hiperparâmetro* podem ser confusos. Os *parâmetros* do modelo são o que você definiu no painel Propriedades. Basicamente, esse módulo executa uma *varredura de parâmetro* sobre as configurações de parâmetro especificadas. Ele aprende um conjunto ideal de _hiperparâmetros_, que podem ser diferentes para cada árvore de decisão, conjunto de informações ou método de regressão específico. O processo de encontrar a configuração ideal às vezes é chamado de *ajuste*. 
 
@@ -81,11 +81,11 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 Quando o treinamento for concluído:
 
-+ Para exibir um conjunto de métricas de precisão para o melhor modelo, clique com o botão direito do mouse no módulo, selecione **resultados da varredura**e, em seguida, selecione **Visualizar**.
++ Para exibir um conjunto de métricas de precisão para o melhor modelo, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
 
     A saída inclui todas as métricas de precisão que se aplicam ao tipo de modelo, mas a métrica que você selecionou para classificação determina qual modelo é considerado "melhor".
 
-+ Para usar o modelo para pontuação em outros pipelines sem precisar repetir o processo de ajuste, clique com o botão direito do mouse na saída do modelo e selecione **salvar como modelo treinado**. 
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
 
 ## <a name="technical-notes"></a>Notas técnicas

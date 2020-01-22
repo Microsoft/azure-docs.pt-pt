@@ -17,34 +17,34 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a07a28837abf2fb6df3dd0583309ec1f3d278a58
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423815"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293492"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Aplicativo de desktop que chama APIs da Web – mover para produção
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de área de trabalho que chama APIs da Web: mover para produção
 
-Este artigo fornece detalhes para mover seu aplicativo de área de trabalho que chama APIs da Web para produção.
+Neste artigo, você aprende a mover seu aplicativo de área de trabalho que chama APIs da Web para produção.
 
-## <a name="handling-errors-in-desktop-applications"></a>Tratamento de erros em aplicativos de área de trabalho
+## <a name="handle-errors-in-desktop-applications"></a>Tratar erros em aplicativos de área de trabalho
 
-Nos fluxos diferentes, você aprendeu como lidar com os erros dos fluxos silenciosos (conforme mostrado nos trechos de código). Você também viu que há casos em que a interação é necessária (consentimento incremental e acesso condicional).
+Nos fluxos diferentes, você aprendeu como lidar com os erros dos fluxos silenciosos, conforme mostrado nos trechos de código. Você também viu que há casos em que a interação é necessária, como no consentimento incremental e no acesso condicional.
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Como fazer o consentimento do usuário antecipadamente para vários recursos
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>Ter o consentimento do usuário antecipado para vários recursos
 
 > [!NOTE]
 > A obtenção de consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure Active Directory (Azure AD) B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
 
-O ponto de extremidade da plataforma Microsoft Identity (v 2.0) não permite que você obtenha um token para vários recursos de uma vez. Portanto, o parâmetro `scopes` pode conter apenas escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o parâmetro `extraScopesToConsent`.
+Você não pode obter um token para vários recursos de uma vez com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). O parâmetro `scopes` pode conter escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o parâmetro `extraScopesToConsent`.
 
-Por exemplo, se você tiver dois recursos, que têm dois escopos cada:
+Por exemplo, você pode ter dois recursos que têm dois escopos cada:
 
-- `https://mytenant.onmicrosoft.com/customerapi`-com 2 escopos `customer.read` e `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-com 2 escopos `vendor.read` e `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` com os escopos `customer.read` e `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` com os escopos `vendor.read` e `vendor.write`
 
-Você deve usar o modificador `.WithAdditionalPromptToConsent` que tem o parâmetro `extraScopesToConsent`.
+Neste exemplo, use o modificador `.WithAdditionalPromptToConsent` que tem o parâmetro `extraScopesToConsent`.
 
 Por exemplo:
 
@@ -99,17 +99,17 @@ interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
 ```
 
-Essa chamada obterá um token de acesso para a primeira API Web.
+Essa chamada Obtém um token de acesso para a primeira API Web.
 
-Quando você precisar chamar a segunda API da Web, poderá chamar `AcquireTokenSilent` API:
+Quando você precisar chamar a segunda API da Web, chame a API `AcquireTokenSilent`.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>A conta pessoal da Microsoft requer o reconsentimento a cada vez que o aplicativo é executado
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>A conta pessoal da Microsoft requer o reconsentimento sempre que o aplicativo é executado
 
-Para usuários de contas pessoais da Microsoft, solicitar o consentimento em cada chamada de cliente nativo (aplicativo móvel/Desktop) para autorizar é o comportamento pretendido. A identidade nativa do cliente é inerentemente insegura (ao contrário do aplicativo cliente confidencial que troca um segredo com a plataforma de identidade da Microsoft para provar sua identidade). A plataforma de identidade da Microsoft optou por mitigar essa insegurança para os serviços do consumidor solicitando o consentimento do usuário, sempre que o aplicativo for autorizado.
+Para usuários de contas pessoais da Microsoft, solicitar o consentimento de cada chamada de cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade nativa do cliente é inerentemente insegura, o que é contrário da identidade confidencial do aplicativo cliente. Os aplicativos cliente confidenciais trocam um segredo com a plataforma de identidade da Microsoft para provar sua identidade. A plataforma de identidade da Microsoft optou por mitigar essa insegurança para os serviços do consumidor solicitando o consentimento do usuário sempre que o aplicativo for autorizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300450"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293560"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copiar em massa de um banco de dados para o Azure Data Explorer usando o modelo de Azure Data Factory 
 
 O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado. Ele oferece análise em tempo real sobre grandes volumes de dados que transmitem de várias fontes, como aplicativos, sites e dispositivos IoT. 
 
-Azure Data Factory é um serviço de integração de dados baseado em nuvem e totalmente gerenciado. Você pode usá-lo para preencher o banco de dados do Data Explorer do Azure com o seu sistema existente. E pode ajudá-lo a economizar tempo quando estiver criando soluções de análise. 
+Para copiar dados de um banco de dado no servidor Oracle, Netezza, Teradata ou SQL Server para o Azure Data Explorer, você precisa carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados têm que ser particionados em cada tabela para que você possa carregar linhas com vários threads em paralelo a partir de uma única tabela. Este artigo descreve um modelo a ser usado nesses cenários.
 
 Os [modelos de Azure data Factory](/azure/data-factory/solution-templates-introduction) são pipelines de data Factory predefinidos. Esses modelos podem ajudá-lo a começar rapidamente com Data Factory e reduzir o tempo de desenvolvimento em projetos de integração de dados. 
 
@@ -79,7 +79,7 @@ Se o seu ControlTableDataset estiver em um formato diferente, crie um ControlTab
 
     c. Na lista suspensa **AzureDataExplorerTable** , selecione a tabela de data Explorer do Azure. Se o conjunto de um não existir, [crie o serviço vinculado do Azure data Explorer](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) para adicionar o conjunto de um.
 
-    d. Selecione **usar este modelo**.
+    d. Selecione **Utilizar este modelo**.
 
     ![O painel "cópia em massa do banco de dados para o Azure Data Explorer"](media/data-factory-template/configure-bulk-copy-adx-template.png)
 

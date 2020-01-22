@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/08/2019
+ms.date: 01/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a424c142fbfcbfe5e4c1802f3ba61da655f77f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896036"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291520"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -53,7 +53,7 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
         - As VMs do Azure com suporte SAP HANA e as [instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) são listadas no [site do SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
         - [Matriz de disponibilidade de produto SAP](https://support.sap.com/en/).
         - Notas SAP para outros produtos específicos do SAP.     
-    - Recomendamos designs de três camadas estritos para sistemas de produção SAP. Não recomendamos a combinação de ASCS e servidores de aplicativos em uma VM. O uso de configurações de cluster de vários SID para serviços centrais do SAP tem suporte em sistemas operacionais convidados do Windows no Azure. Mas essa configuração não tem suporte para serviços centrais do SAP em sistemas operacionais Linux no Azure. Você pode encontrar a documentação para o cenário do sistema operacional convidado do Windows nestes artigos:
+    - Recomendamos designs de três camadas estritos para sistemas de produção SAP. Não recomendamos a combinação de ASCS e/ou DBMS e/ou servidores de aplicativos em uma VM. O uso de configurações de cluster de vários SID para serviços centrais do SAP tem suporte em sistemas operacionais convidados do Windows no Azure. Mas essa configuração não tem suporte para serviços centrais do SAP em sistemas operacionais Linux no Azure. Você pode encontrar a documentação para o cenário do sistema operacional convidado do Windows nestes artigos:
         - [Alta disponibilidade da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
         - [Alta disponibilidade da instância do SAP ASCS/SCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
     - Arquitetura de alta disponibilidade e recuperação de desastres.
@@ -135,7 +135,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Se você não precisar de alta disponibilidade para os serviços centrais do SAP e o DBMS, poderá implantar essas VMs no mesmo conjunto de disponibilidade que a camada de aplicativo SAP.
         - Se você proteger os serviços SAP central e a camada do DBMS para alta disponibilidade usando a replicação passiva, coloque os dois nós para os serviços centrais do SAP em um conjunto de disponibilidade separado e os dois nós DBMS em outro conjunto de disponibilidade.
         - Se você implantar o no Zonas de Disponibilidade do Azure, não poderá usar conjuntos de disponibilidade. Mas você precisa se certificar de implantar os nós de serviços centrais ativos e passivos em duas Zonas de Disponibilidade diferentes. Use Zonas de Disponibilidade que tenham a menor latência entre eles.
-          Tenha em mente que você precisa usar o [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) para o caso de uso do estabelecimento de clusters de failover do Windows ou do pacemaker para o DBMS e a camada de serviços centrais do SAP em zonas de disponibilidade. Você não pode usar [Load Balancer básicas](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para implantações zonais.
+          Tenha em mente que você precisa usar o [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) para o caso de uso do estabelecimento de clusters de failover do Windows ou do pacemaker para o DBMS e a camada de serviços centrais do SAP em zonas de disponibilidade. Você não pode usar [Load Balancer básicas](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para implantações zonais.
    5. Configurações de tempo limite.
         - Verifique os rastreamentos de desenvolvedor do SAP NetWeaver das instâncias do SAP para garantir que não haja quebras de conexão entre o servidor de enfileiramento e os processos de trabalho do SAP. Você pode evitar essas quebras de conexão definindo estes dois parâmetros de registro:
             - HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. Para obter mais informações, consulte [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).

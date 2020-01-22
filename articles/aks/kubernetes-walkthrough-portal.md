@@ -5,15 +5,15 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 5/31/2019
+ms.date: 01/21/2020
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0269a6c710fe16271e333a1e9414208b278a93d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472713"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310208"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
@@ -33,7 +33,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Para criar um cluster do AKS, execute os passos seguintes:
 
-1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
 2. Selecione **contêineres** >  **serviço kubernetes**.
 
@@ -95,7 +95,7 @@ Um arquivo de manifesto kubernetes define um estado desejado para o cluster, com
 > [!TIP]
 > Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em cenários mais reais, você pode usar [Azure dev Spaces][azure-dev-spaces] para iterar e depurar rapidamente seu código diretamente no cluster AKs. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
-No Cloud Shell, use `nano` ou `vi` para criar um arquivo chamado `azure-vote.yaml` e copie na seguinte definição de YAML:
+No Cloud Shell, use o comando `nano azure-vote.yaml` ou `vi azure-vote.yaml` para criar um arquivo chamado `azure-vote.yaml`. Em seguida, copie na seguinte definição de YAML:
 
 ```yaml
 apiVersion: apps/v1

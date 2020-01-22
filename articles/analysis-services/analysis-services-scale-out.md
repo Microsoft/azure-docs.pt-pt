@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167948"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310191"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 
@@ -50,7 +50,7 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentar o nú
 
 ### <a name="synchronization-mode"></a>Modo de sincronização
 
-Por padrão, as réplicas de consulta são alimentadas de forma completa, não incrementalmente. Reidratação acontece em estágios. Eles são desanexados e anexados dois de cada vez (supondo que haja pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida online para consultas em um determinado momento. Em alguns casos, os clientes podem precisar se reconectar a uma das réplicas online enquanto esse processo está ocorrendo. Usando a configuração **ReplicaSyncMode** , agora você pode especificar que a sincronização da réplica de consulta ocorra em paralelo. A sincronização paralela oferece os seguintes benefícios: 
+Por padrão, as réplicas de consulta são alimentadas de forma completa, não incrementalmente. Reidratação acontece em estágios. Eles são desanexados e anexados dois de cada vez (supondo que haja pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida online para consultas em um determinado momento. Em alguns casos, os clientes podem precisar se reconectar a uma das réplicas online enquanto esse processo está ocorrendo. Usando a configuração de **ReplicaSyncMode** (em visualização), agora você pode especificar que a sincronização de réplica de consulta ocorra em paralelo. A sincronização paralela oferece os seguintes benefícios: 
 
 - Redução significativa no tempo de sincronização. 
 - Os dados entre réplicas têm maior probabilidade de serem consistentes durante o processo de sincronização. 

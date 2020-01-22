@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
-ms.openlocfilehash: c06a7551a5c0f14be94ed14072b81c189e359aa8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/21/2020
+ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75542001"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290330"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conectar computadores Linux ao Azure Monitor
 
@@ -74,9 +74,10 @@ Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave
 
 O agente de Log Analytics para Linux é fornecido em um pacote de script de Shell de extração automática e instalável. Esse pacote contém pacotes Debian e RPM para cada um dos componentes do agente e pode ser instalado diretamente ou extraído para recuperar os pacotes individuais. Um pacote é fornecido para x64 e outro para arquiteturas x86. 
 
-Para VMs do Azure, recomendamos que você instale o agente neles usando a [extensão de VM log Analytics do Azure](../../virtual-machines/extensions/oms-linux.md) para Linux. 
+> [!NOTE]
+> Para VMs do Azure, recomendamos que você instale o agente neles usando a [extensão de VM log Analytics do Azure](../../virtual-machines/extensions/oms-linux.md) para Linux. 
 
-1. Transfira o pacote apropriado (x86 ou x64) para sua VM do Linux ou computador físico usando o SCP/SFTP.
+1. [Baixe](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) e transfira o pacote apropriado (x64 ou x86) para sua VM do Linux ou computador físico, usando o SCP/SFTP.
 
 2. Instale o pacote usando o argumento `--install`. Para carregar um espaço de trabalho do Log Analytics durante a instalação, forneça os parâmetros `-w <WorkspaceID>` e `-s <workspaceKey>` copiados anteriormente.
 

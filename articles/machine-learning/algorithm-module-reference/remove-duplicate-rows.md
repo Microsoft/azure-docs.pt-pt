@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91434a5392f37a297e474fedf00fac6b1e4d8362
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497703"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314169"
 ---
 # <a name="remove-duplicate-rows-module"></a>Remover o módulo de linhas duplicadas
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para remover duplicatas potenciais de um conjunto de uma.
 
@@ -26,11 +26,11 @@ Por exemplo, suponha que seus dados sejam semelhantes ao seguinte e representem 
 
 | PatientID | Iniciais| Género|Idade|Verdade|
 |----|----|----|----|----|
-|1|F.M.| M| 53| Janeiro|
-|2| F.A.M.| M| 53| Janeiro|
-|3| F.A.M.| M| 24| Janeiro|
-|3| F.M.| M| 24| Fevereiro|
-|4| F.M.| M| 23| Fevereiro|
+|1|F.M.| M| 53| Jan|
+|2| F.A.M.| M| 53| Jan|
+|3| F.A.M.| M| 24| Jan|
+|3| F.M.| M| 24| Fev|
+|4| F.M.| M| 23| Fev|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
 |6| F.A.M.| M| NaN| |
@@ -71,7 +71,7 @@ Quando você executa o módulo, ele cria um conjunto de registros candidato e re
 
 5. Executar o pipeline.
 
-6. Para examinar os resultados, clique com o botão direito do mouse no módulo, selecione **conjunto de resultados**e clique em **Visualizar**. 
+6. Para examinar os resultados, clique com o botão direito do mouse no módulo e selecione **Visualizar**. 
 
 > [!TIP]
 > Se os resultados forem difíceis de entender ou se você quiser excluir algumas colunas da consideração, poderá remover colunas usando o módulo [selecionar colunas no conjunto de conjuntos](./select-columns-in-dataset.md) de linhas de base.

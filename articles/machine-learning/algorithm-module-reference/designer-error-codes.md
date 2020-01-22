@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
-ms.openlocfilehash: d491a67a44a2cb01e4968c4d31d20dee4b75a60a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980286"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311670"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (versão prévia)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
-Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Azure Machine Learning (versão prévia) para ajudá-lo a solucionar problemas de pipelines do Machine Learning.
+Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Azure Machine Learning para ajudá-lo a solucionar problemas de pipelines do Machine Learning.
 
 Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:  
 

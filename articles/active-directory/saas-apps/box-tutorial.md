@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ecd4ad3e2e3da9dce3a5bab36137ce65807b6a9a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964179"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293730"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o box
 
@@ -47,6 +46,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * Box dá suporte ao SSO iniciado pelo **SP**
 * Box dá suporte ao [provisionamento e desprovisionamento **automatizados** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recomendado)
 * Box dá suporte ao provisionamento **de usuário just in time**
+* Depois de configurar a caixa, você pode impor controles de sessão, que protegem vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. Os controles de sessão se estendem do acesso condicional. [Saiba como impor o controle de sessão com Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-box-from-the-gallery"></a>Adicionando o box da Galeria
 
@@ -154,3 +154,7 @@ Ao clicar no bloco do box no painel de acesso, você deverá ser conectado autom
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Caixa de tentativa com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-box)
+
+- [Como proteger o box com controles e visibilidade avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

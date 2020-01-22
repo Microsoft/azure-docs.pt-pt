@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ca35af997834a897572555e752597026b5159712
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428593"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314458"
 ---
 # <a name="clip-values"></a>Valores de Clip
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Use o módulo valores de clipe para identificar e, opcionalmente, substituir valores de dados que estão acima ou abaixo de um limite especificado com uma média, uma constante ou outro valor substituto.  
 
@@ -86,7 +86,7 @@ Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas
   
 1.  Executar o pipeline.  
   
-    Clique com o botão direito do mouse na saída do módulo **valores de clipe** e selecione **Visualizar** para examinar os valores e verifique se a operação de recorte atende às suas expectativas.  
+    Clique com o botão direito do mouse no módulo **valores de clipe** e selecione **Visualizar** ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas **saídas de porta**para examinar os valores e verificar se a operação de recorte atende às suas expectativas.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exemplos de recorte usando percentils
 

@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f0c2f4c48875ca2e13a026c2c8ded8f217a97a08
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867549"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293764"
 ---
 # <a name="what-is-azure-private-link-preview"></a>O que é a Ligação Privada do Azure? (Pré-visualização)
 O link privado do Azure permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure, Azure Cosmos DB e banco de dados SQL) e os serviços hospedados de cliente/parceiro do Azure por meio de um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você também pode criar seu próprio [serviço de vínculo privado](private-link-service-overview.md) em sua rede virtual (VNet) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o link privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de Propriedade do cliente e de parceiros compartilhados.
@@ -49,6 +50,7 @@ O link privado do Azure oferece os seguintes benefícios:
 |  |  Banco de dados do Azure para PostgreSQL-servidor único         | Todas as regiões públicas      |   Pré-visualização      |
 |  |  Base de Dados do Azure para MySQL         | Todas as regiões públicas      |   Pré-visualização      |
 |  |  Azure Database for MariaDB         | Todas as regiões públicas      |   Pré-visualização      |
+|  |  Pesquisa Cognitiva do Azure | Oeste dos EUA 2, Oeste EUA Central, leste dos EUA, Sul EUA Central, leste da Austrália, sudeste da Austrália | Pré-visualização <br/> [Saiba mais](/azure/search/service-create-private-endpoint) |
 
 Para obter as notificações mais atualizadas, verifique a [página atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

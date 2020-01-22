@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432386"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310871"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas de habilitação ou exibição de Application Insights Profiler
 
@@ -47,6 +47,7 @@ O criador de perfil grava mensagens de rastreamento e eventos personalizados em 
 * Se seu aplicativo Web for um aplicativo ASP.NET Core, ele deverá estar executando pelo menos ASP.NET Core 2,0.
 * Se os dados que você está tentando exibir forem mais antigos do que duas semanas, tente limitar o filtro de tempo e tente novamente. Os rastreamentos são excluídos após sete dias.
 * Verifique se os proxies ou um firewall não bloqueou o acesso ao https://gateway.azureserviceprofiler.net.
+* O criador de perfil não tem suporte em planos de serviço de aplicativo gratuitos ou compartilhados. Se você estiver usando um desses planos, tente escalar verticalmente para um dos planos básicos e o criador de perfil deve começar a funcionar.
 
 ### <a id="double-counting"></a>Contagem dupla em threads paralelos
 

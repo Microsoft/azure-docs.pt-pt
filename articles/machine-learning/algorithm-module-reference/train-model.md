@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b62e03184453c4daea8615ee2bea39c936de5c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490380"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313982"
 ---
-# <a name="train-model-module"></a>Módulo treinar modelo
+# <a name="train-model-module"></a>Módulo do modelo de formação
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para treinar um modelo de classificação ou regressão. O treinamento ocorre depois que você define um modelo e define seus parâmetros e requer dados marcados. Você também pode usar **treinar modelo** para treinar novamente um modelo existente com novos dados. 
 
@@ -68,10 +68,9 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
 
 Depois que o modelo for treinado:
 
-+ Para exibir os parâmetros de modelo e os pesos de recursos, clique com o botão direito do mouse na saída e selecione **Visualizar**.
-+ Para usar o modelo em outros pipelines, clique com o botão direito do mouse no modelo e selecione **salvar modelo**. Digite um nome para o modelo. 
 
-    Isso salva o modelo como um instantâneo que não é atualizado por execuções repetidas do pipeline.
++ Para usar o modelo em outros pipelines, selecione o módulo e selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito. Você pode acessar modelos salvos na paleta de módulo em **conjuntos**de os.
+
 + Para usar o modelo na previsão de novos valores, conecte-o ao módulo [modelo de Pontuação](./score-model.md) , junto com os novos dados de entrada.
 
 

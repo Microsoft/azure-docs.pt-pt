@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 680cf04e79a9cb6d5748723dad3cb37cf3c76468
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428550"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314220"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
-Este artigo descreve como usar o módulo modelo de validação cruzada no designer de Azure Machine Learning (versão prévia). A *validação cruzada* é uma técnica usada com frequência no aprendizado de máquina para avaliar a variabilidade de um conjunto de dados e a confiabilidade de qualquer modelo treinado por meio desse dado.  
+Este artigo descreve como usar o módulo modelo de validação cruzada no designer de Azure Machine Learning. A *validação cruzada* é uma técnica usada com frequência no aprendizado de máquina para avaliar a variabilidade de um conjunto de dados e a confiabilidade de qualquer modelo treinado por meio desse dado.  
 
 O módulo modelo de validação cruzada usa como entrada um conjunto de dados rotulado, junto com um modelo de classificação ou regressão não treinado. Ele divide o conjunto de valores em alguns subconjuntos (*dobras*), cria um modelo em cada dobra e retorna um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, você pode interpretar a qualidade do conjunto de dados. Em seguida, você pode entender se o modelo é suscetível a variações nos dados.  
 
@@ -76,7 +76,7 @@ Nesse cenário, você treina e testa o modelo usando o modelo de validação cru
 
 7. Consulte a seção [resultados](#results) para obter uma descrição dos relatórios.
 
-    Para obter uma cópia do modelo para reutilização posterior, clique com o botão direito do mouse na saída do módulo que contém o algoritmo (por exemplo, a **máquina de ponto de Bayes de duas classes**). Em seguida, selecione **salvar como modelo treinado**.
+    Para obter uma cópia do modelo para reutilização posterior, alterne para a guia **saídas** no painel direito do módulo que contém o algoritmo (por exemplo, a máquina do **ponto de Bayes de duas classes**). Em seguida, selecione o ícone **registrar conjunto de registros** para salvar uma cópia do modelo treinado na árvore de módulos.
 
 ## <a name="results"></a>Resultados
 
@@ -86,7 +86,7 @@ Depois que todas as iterações forem concluídas, o modelo de validação cruza
 
 A primeira saída do módulo fornece os dados de origem para cada linha, junto com alguns valores previstos e probabilidades relacionadas. 
 
-Para exibir esses resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **resultados pontuados**e, em seguida, selecione **Visualizar**.
+Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **Visualizar resultados pontuados**.
 
 | Nome da nova coluna      | Descrição                              |
 | -------------------- | ---------------------------------------- |
@@ -100,7 +100,7 @@ O segundo relatório é agrupado por dobras. Lembre-se de que durante a execuç�
 
 Neste relatório, as dobras são listadas por valor de índice, em ordem crescente.  Para fazer a ordem em qualquer outra coluna, você pode salvar os resultados como um conjunto de um.
 
-Para exibir esses resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **resultados da avaliação por dobra**e, em seguida, selecione **Visualizar**.
+Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **Visualizar resultados da avaliação por dobra**.
 
 
 |Nome da coluna| Descrição|

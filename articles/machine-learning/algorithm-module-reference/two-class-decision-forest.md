@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3df66c80ab96bbcb9a58f91989cfd63b1e13a67f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485948"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312401"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão de duas classes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de aprendizado de máquina com base no algoritmo florestas de decisão.  
 
@@ -87,17 +87,12 @@ Para obter mais informações, consulte [florestas de decisão](https://go.micro
 9. Anexe um DataSet rotulado e um dos módulos de [treinamento](module-reference.md):  
   
     -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](./train-model.md) .  
-  
     
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 
-+ Para ver a árvore que foi criada em cada iteração, clique com o botão direito do mouse na saída do módulo [modelo de treinamento](./train-model.md) e selecione **Visualizar**.
-  
-    Clique em cada árvore para fazer uma busca detalhada nas divisões e ver as regras para cada nó.
-
-+ Para salvar um instantâneo do modelo, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar modelo**. O modelo salvo não é atualizado em execuções sucessivas do pipeline.
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
 + Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 

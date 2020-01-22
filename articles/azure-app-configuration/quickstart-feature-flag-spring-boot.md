@@ -3,8 +3,7 @@ title: Início rápido para adição de sinalizadores de recurso ao Spring boot-
 description: Um guia de início rápido para adicionar sinalizadores de recursos a aplicativos Spring boot e gerenciá-los na configuração do Azure App
 services: azure-app-configuration
 documentationcenter: ''
-author: mrm9084
-manager: zhenlwa
+author: lisaguthrie
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,20 +11,20 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
-ms.date: 09/26/2019
-ms.author: mametcal
-ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: 3e82354116969b01743700485b5c2dd75b4887e4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184953"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310072"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo Spring boot
 
 Neste guia de início rápido, você incorpora Azure App configuração em um aplicativo Web Spring boot para criar uma implementação de ponta a ponta do gerenciamento de recursos. Você pode usar o serviço de configuração de aplicativo para armazenar centralmente todos os sinalizadores de recursos e controlar seus Estados.
 
-As bibliotecas de gerenciamento de recursos do Spring boot estendem a estrutura com suporte abrangente ao sinalizador de recursos. Essas bibliotecas **não** têm uma dependência em nenhuma Libries do Azure. Eles se integram perfeitamente com a configuração do aplicativo por meio de seu provedor de configuração do Spring boot.
+As bibliotecas de gerenciamento de recursos do Spring boot estendem a estrutura com suporte abrangente ao sinalizador de recursos. Essas bibliotecas **não** têm uma dependência em nenhuma biblioteca do Azure. Eles se integram perfeitamente com a configuração do aplicativo por meio de seu provedor de configuração do Spring boot.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +38,7 @@ As bibliotecas de gerenciamento de recursos do Spring boot estendem a estrutura 
 
 6. Selecione **Gerenciador de recursos** >  **+ criar** para adicionar os seguintes sinalizadores de recurso:
 
-    | Chave | State |
+    | Chave | Estado |
     |---|---|
     | Beta | Desativado |
 
@@ -54,7 +53,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
    - Gere um projeto **Maven** com **Java**.
    - Especifique uma versão do **Spring boot** que seja igual ou maior que 2,0.
    - Especifique os nomes de **grupo** e **artefato** para seu aplicativo.
-   - Adicione a dependência **da Web** .
+   - Adicione a dependência **da Web Spring** .
 
 3. Depois de especificar as opções anteriores, selecione **gerar projeto**. Quando solicitado, baixe o projeto para um caminho no computador local.
 
@@ -68,12 +67,12 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0</version>
     </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,27 +85,46 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Abra `bootstrap.properties` que está sob o diretório de recursos do seu aplicativo e adicione as linhas a seguir ao arquivo. Adicione as informações de configuração do aplicativo.
+1. Abra _bootstrap. Properties_ no diretório _Resources_ do seu aplicativo. Se _bootstrap. Properties_ não existir, crie-a. Adicione a seguinte linha ao arquivo.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-2. No portal de configuração de aplicativo para seu repositório de configuração, acesse chaves de acesso. Selecione a guia chaves somente leitura. Nesta guia, copie o valor de uma das cadeias de conexão e adicione-a como uma nova variável de ambiente com o nome de variável de `APP_CONFIGURATION_CONNECTION_STRING`.
+1. No portal de configuração de aplicativo para seu repositório de configuração, acesse chaves de acesso. Selecione a guia chaves somente leitura. Nesta guia, copie o valor de uma das cadeias de conexão e adicione-a como uma nova variável de ambiente com o nome de variável de `APP_CONFIGURATION_CONNECTION_STRING`.
 
-3. Abra o arquivo Java do aplicativo principal e adicione `@EnableConfigurationProperties` para habilitar esse recurso.
+1. Abra o arquivo Java do aplicativo principal e adicione `@EnableConfigurationProperties` para habilitar esse recurso.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
 
-4. Crie um novo arquivo Java chamado *HelloController. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
+1. Crie um novo arquivo Java chamado *MessageProperties. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
+
+    ```java
+    @ConfigurationProperties(prefix = "config")
+    public class MessageProperties {
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
+    ```
+
+1. Crie um novo arquivo Java chamado *HelloController. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
 
     ```java
     @Controller
@@ -127,7 +145,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
     }
     ```
 
-5. Crie um novo arquivo HTML chamado *Welcome. html* no diretório modelos do seu aplicativo. Adicione as seguintes linhas:
+1. Crie um novo arquivo HTML chamado *Welcome. html* no diretório modelos do seu aplicativo. Adicione as seguintes linhas:
 
     ```html
     <!DOCTYPE html>
@@ -184,7 +202,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
     ```
 
-6. Crie uma nova pasta chamada CSS em estática e dentro dela um novo arquivo CSS chamado *Main. css*. Adicione as seguintes linhas:
+1. Crie uma nova pasta chamada CSS em estática e dentro dela um novo arquivo CSS chamado *Main. css*. Adicione as seguintes linhas:
 
     ```css
     html {
@@ -232,7 +250,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 3. No portal de configuração do aplicativo, selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
-    | Chave | State |
+    | Chave | Estado |
     |---|---|
     | Beta | Ativado |
 
@@ -244,7 +262,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou para gerenciar recursos em um aplicativo Web Spring boot por meio das [bibliotecas de gerenciamento de recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 

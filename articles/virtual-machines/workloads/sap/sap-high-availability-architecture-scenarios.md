@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638209"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291486"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura e cenários de alta disponibilidade para o SAP NetWeaver
 
@@ -294,7 +294,7 @@ O Azure está em processo de distribuir os conceitos de [zonas de disponibilidad
 Usando Zonas de Disponibilidade, há algumas coisas a serem consideradas. A lista de considerações como:
 
 - Não é possível implantar conjuntos de disponibilidade do Azure em uma zona de disponibilidade. Você precisa escolher uma zona de disponibilidade ou um conjunto de disponibilidade como quadro de implantação para uma VM.
-- Você não pode usar o [Load Balancer básico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) para criar soluções de cluster de failover com base nos serviços de cluster de failover do Windows ou no pacemaker do Linux. Em vez disso, você precisa usar o [SKU Standard Load Balancer do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Você não pode usar o [Load Balancer básico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para criar soluções de cluster de failover com base nos serviços de cluster de failover do Windows ou no pacemaker do Linux. Em vez disso, você precisa usar o [SKU Standard Load Balancer do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - Zonas de Disponibilidade do Azure não estão concedendo garantias de determinada distância entre as diferentes zonas dentro de uma região
 - A latência de rede entre diferentes Zonas de Disponibilidade do Azure dentro das diferentes regiões do Azure pode ser diferente da região do Azure para a região. Haverá casos em que você, como cliente, pode executar razoavelmente a camada de aplicativo SAP implantada em diferentes zonas, uma vez que a latência de rede de uma zona para a VM do DBMS ativo ainda é aceitável de um impacto no processo de negócios. Enquanto que haverá cenários de clientes em que a latência entre a VM do DBMS ativo em uma zona e uma instância do aplicativo SAP em uma VM em outra zona pode ser muito invasiva e não aceitável para os processos de negócios do SAP. Como resultado, as arquiteturas de implantação precisam ser diferentes com uma arquitetura ativa/ativa para o aplicativo ou a arquitetura ativa/passiva se a latência for muito alta.
 - O uso do [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) é obrigatório para a implantação no zonas de disponibilidade do Azure 

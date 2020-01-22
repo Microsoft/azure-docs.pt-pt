@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828301724dae58437f7818668cd0be879ae2ac70
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497965"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314186"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
 
@@ -38,7 +38,7 @@ As árvores de decisão têm essas vantagens:
 
 Esse modelo de regressão consiste em um Ensemble de árvores de decisão. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana como uma previsão. Uma agregação é executada sobre o Ensemble de árvores para encontrar uma distribuição gaussiana mais próxima da distribuição combinada para todas as árvores no modelo.
 
-Para obter mais informações sobre a estrutura teórica para este algoritmo e sua implementação, consulte este artigo: [florestas de decisão: uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado de diversa e aprendizado Semisupervisionado ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Para obter mais informações sobre a estrutura teórica para este algoritmo e sua implementação, consulte este artigo: [florestas de decisão: uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado de diversa e aprendizado Semisupervisionado](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Como configurar o modelo de regressão de floresta de decisão
 
@@ -88,11 +88,7 @@ Para obter mais informações sobre a estrutura teórica para este algoritmo e s
 
 Após a conclusão do treinamento:
 
-+ Para ver a árvore que foi criada em cada iteração, clique com o botão direito do mouse na saída do módulo de treinamento e selecione **Visualizar**.
-
-+ Para ver as regras para cada nó, clique em cada árvore e faça uma busca detalhada nas divisões.
-
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do módulo de treinamento e selecione **salvar como modelo treinado**. Essa cópia do modelo não é atualizada em execuções sucessivas do pipeline. 
++ Para salvar um instantâneo do modelo treinado, selecione o módulo de treinamento e, em seguida, alterne para a guia **saídas** no painel direito. Clique no ícone **registrar modelo**.  Você pode encontrar o modelo salvo como um módulo na árvore de módulo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213921"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311483"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: clustering K-means
 
-Este artigo descreve como usar o módulo de *clustering k-* means no designer de Azure Machine Learning (versão prévia) para criar um modelo de clustering k-means não treinado. 
+Este artigo descreve como usar o módulo de *clustering k-* means no designer de Azure Machine Learning para criar um modelo de clustering k-means não treinado. 
  
 K-means é um dos mais simples e mais conhecidos algoritmos de aprendizado não *supervisionados* . Você pode usar o algoritmo para uma variedade de tarefas de aprendizado de máquina, como: 
 
@@ -115,9 +115,9 @@ Depois de concluir a configuração e o treinamento do modelo, você tem um mode
 
 Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
 
-1. Clique com o botão direito do mouse no módulo **treinar modelo de clustering** .
+1. Selecione o módulo **treinar modelo de clustering** e abra o painel direito.
 
-2. Selecione **modelo treinado**e, em seguida, selecione **salvar como modelo treinado**.
+2. Selecione a guia **saídas** . Selecione o ícone **registrar conjunto de registros** para salvar uma cópia do modelo treinado.
 
 O modelo salvo representa os dados de treinamento no momento em que você salvou o modelo. Se você atualizar mais tarde os dados de treinamento usados no pipeline, ele não atualizará o modelo salvo. 
 
@@ -127,7 +127,7 @@ Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md
 
 1. Clique com o botão direito do mouse no módulo **treinar modelo de clustering** .
 
-2. Selecione **os resultados DataSet**e, em seguida, selecione **Visualizar**.
+2. Selecione **Visualizar**.
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Dicas para gerar o melhor modelo de clustering  
 

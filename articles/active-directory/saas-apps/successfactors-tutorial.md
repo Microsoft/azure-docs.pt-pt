@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com SuccessFactors | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o SuccessFactors | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SuccessFactors.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38d40a2f72e73dde0f99ebbc9701e02c8d03738b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d49915271580b5665981bf7e212f3d5712c86456
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989496"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292984"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com SuccessFactors
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o SuccessFactors
 
 Neste tutorial, você aprenderá a integrar o SuccessFactors com o Azure Active Directory (Azure AD). Ao integrar o SuccessFactors ao Azure AD, você pode:
 
@@ -44,7 +43,8 @@ Para começar, você precisa dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O SuccessFactors dá suporte ao SSO iniciado por **SP**
+* O SuccessFactors dá suporte ao SSO iniciado por **SP** .
+* Depois de configurar o SuccessFactors, você pode impor controles de sessão, que protegem vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. Os controles de sessão se estendem do acesso condicional. [Saiba como impor o controle de sessão com Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-successfactors-from-the-gallery"></a>Adicionando o SuccessFactors da Galeria
 
@@ -168,7 +168,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 2. Visite **segurança do aplicativo** e recurso nativo para **logon único**.
 
-3. Coloque qualquer valor no **token** de redefinição e clique em **salvar token** para habilitar o SSO do SAML.
+3. Coloque qualquer valor no **token de redefinição** e clique em **salvar token** para habilitar o SSO do SAML.
 
     ![Configurando o logon único no lado do aplicativo][11]
 
@@ -222,7 +222,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     a. Visite **configurações da empresa**(perto da parte inferior).
 
-    b. Marque a caixa de seleção próximo **habilitar nome de usuário que diferencia maiúsculas**de minúsculas.
+    b. Marque a caixa de seleção próximo **habilitar nome de usuário que diferencia maiúsculas de minúsculas**.
 
     c. Clique em **Guardar**.
 
@@ -250,6 +250,10 @@ Ao clicar no bloco do SuccessFactors no painel de acesso, você deverá ser cone
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o SuccessFactors com o Azure AD](https://aad.portal.azure.com)
+
+- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o SuccessFactors com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

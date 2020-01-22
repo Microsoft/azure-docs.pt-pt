@@ -8,12 +8,12 @@ ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: d59cca4b5c956134516aa2c8066894aa14e5d33d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453107"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291962"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Crie componentes de back-end móveis com serviços de computação
 Cada aplicativo móvel precisa de um back-end responsável pelo armazenamento de dados, pela lógica de negócios e pela segurança. O gerenciamento da infraestrutura para hospedar e executar o código de back-end exige que você dimensione, provisione e dimensione vários servidores. Você também precisa gerenciar atualizações do sistema operacional e o hardware envolvido e aplicar patches de segurança. Em seguida, você precisa monitorar todos esses componentes de infraestrutura para desempenho, disponibilidade e tolerância a falhas. 
@@ -36,7 +36,7 @@ Use os seguintes serviços para habilitar recursos de computação sem servidor 
 - Orientado a eventos e escalonável onde você pode usar gatilhos e associações para definir quando uma função é invocada e para quais dados ele se conecta.
 - Traga suas próprias dependências porque o Functions oferece suporte a NuGet e NPM, para que você possa usar suas bibliotecas favoritas.
 - Segurança integrada para que você possa proteger funções disparadas por HTTP com provedores OAuth, como Azure Active Directory, Facebook, Google, Twitter e conta da Microsoft.
-- Integração simplificada com diferentes [Serviços do Azure](/azure/azure-functions/functions-overview#integrations) e ofertas de SaaS (software como serviço).
+- Integração simplificada com diferentes [Serviços do Azure](/azure/azure-functions/functions-overview) e ofertas de SaaS (software como serviço).
 - Desenvolvimento flexível para que você possa codificar suas funções diretamente no portal do Azure ou configurar a integração contínua e implantar seu código por meio do GitHub, Azure DevOps Services e outras ferramentas de desenvolvimento com suporte.
 - O tempo de execução do Functions é de software livre e está disponível no [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 - Experiência de desenvolvimento aprimorada em que você pode codificar, testar e depurar localmente usando seu editor preferido ou uma interface da Web fácil de usar com monitoramento com ferramentas integradas e recursos internos de DevOps.

@@ -3,12 +3,12 @@ title: Fazer backup e restaurar arquivos do Azure com o PowerShell
 description: Neste artigo, saiba como fazer backup e restaurar os arquivos do Azure usando o serviço de backup do Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224165"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294053"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -28,7 +28,7 @@ Este artigo explica como:
 ## <a name="before-you-start"></a>Antes de começar
 
 * [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre os cofres dos serviços de recuperação.
-* Leia sobre os recursos de visualização para [fazer backup de compartilhamentos de arquivos do Azure](backup-azure-files.md).
+* Leia sobre os recursos de visualização para [fazer backup de compartilhamentos de arquivos do Azure](backup-afs.md).
 * Examine a hierarquia de objetos do PowerShell para serviços de recuperação.
 
 ## <a name="recovery-services-object-hierarchy"></a>Hierarquia de objetos dos serviços de recuperação
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre como](backup-azure-files.md) fazer backup de arquivos do Azure no portal do Azure.
+[Saiba mais sobre como](backup-afs.md) fazer backup de arquivos do Azure no portal do Azure.

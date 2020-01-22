@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643647"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289089"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: perguntas frequentes (FAQ)
 
@@ -27,7 +27,7 @@ Há dois motivos comuns para o motivo pelo qual a extensão do Azure AD não est
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar Azure AD B2C recursos em meu locatário do Azure AD existente baseado em funcionários?
 
-O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário Azure AD B2C representa uma coleção de identidades a ser usada com aplicativos de terceira parte confiável. Com as políticas personalizadas, Azure AD B2C pode federar o Azure AD, permitindo a autenticação de funcionários em uma organização.
+O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário Azure AD B2C representa uma coleção de identidades a ser usada com aplicativos de terceira parte confiável. Ao adicionar o **novo provedor de OpenID Connect** em **Azure ad B2C > provedores de identidade** ou com políticas personalizadas, Azure ad B2C pode federar o AD do Azure, permitindo a autenticação de funcionários em uma organização.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Posso usar Azure AD B2C para fornecer logon social (Facebook e Google +) no Office 365?
 
@@ -77,8 +77,8 @@ Você pode usar o [recurso de identidade visual da empresa](../active-directory/
 A assinatura de email contém o nome do locatário de Azure AD B2C que você forneceu quando criou o locatário do Azure AD B2C pela primeira vez. Você pode alterar o nome usando estas instruções:
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global.
-1. Abra a folha **Azure Active Directory** .
-1. Clique na guia **Propriedades** .
+1. Abra o painel **Azure Active Directory**.
+1. Clique nas **propriedades** separador.
 1. Altere o campo **nome** .
 1. Clique em **Guardar** no início da página.
 
@@ -150,7 +150,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
-1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
+1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
@@ -170,7 +170,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
-1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
+1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.

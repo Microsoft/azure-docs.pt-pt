@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6a77fa8c6c48c9c3d4f2eba3ba56ac9114707a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122993"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290704"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerenciamento de consentimento para aplicativos e avaliação de solicitações de consentimento
 
@@ -42,7 +42,7 @@ Após o consentimento do usuário final ser desabilitado ou restrito, há vária
 
 3. Se sua organização tiver a licença apropriada:
 
-    * Use [recursos adicionais de auditoria de aplicativo OAuth no Microsoft Cloud app Security](https://docs.microsoft.com/azure/cloud-app-security/investigate-risky-oauth).
+    * Use [recursos adicionais de auditoria de aplicativo OAuth no Microsoft Cloud app Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
     * Use [Azure monitor pastas de trabalho para monitorar as permissões e a](../reports-monitoring/howto-use-azure-monitor-workbooks.md) atividade relacionada ao consentimento. A pasta de trabalho de *informações de consentimento* fornece uma exibição de aplicativos por número de solicitações de consentimento com falha. Isso pode ser útil para priorizar os aplicativos para que os administradores examinem e decidam se desejam conceder a eles o consentimento do administrador.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Considerações adicionais para reduzir o conflito

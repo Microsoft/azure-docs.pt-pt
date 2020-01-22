@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894611"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294257"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -49,6 +49,10 @@ As seções a seguir listam os sistemas operacionais de servidor com suporte nos
 |Windows Server 2008 R2|✔|✔|
 
 Para saber mais sobre os recursos com suporte para os sistemas operacionais Windows listados acima, consulte [recursos com suporte do servidor/máquina virtual](security-center-services.md#vm-server-features).
+
+### Sistemas operacionais Windows<a name="os-windows (non-server)"></a>
+
+A central de segurança do Azure integra-se aos serviços do Azure para monitorar e proteger suas máquinas virtuais baseadas no Windows.
 
 ### Sistemas operacionais Linux<a name="os-linux"></a>
 

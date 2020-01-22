@@ -1,28 +1,28 @@
 ---
-title: Tutorial – Atualizar variedade de inventário de comércio a retalho utilizando canais de publicação/subscrição e filtros de tópico com o portal do Azure | Microsoft Docs
+title: Atualizar o inventário usando portal do Azure e tópicos/assinaturas
 description: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição e como adicionar e utilizar regras de filtro utilizando .NET
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5424a07f8ecd7eab962a4f865fac91741810e4b1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991927"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310123"
 ---
-# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar inventário com o portal do Azure e tópicos/subscrições
+# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições
 
-O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens mediadas, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. Este tutorial mostra como utilizar tópicos e subscrições do Service Bus num cenário de inventário de comércio a retalho, com canais de publicação/subscrição utilizando o portal do Azure e .NET.
+O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. Este tutorial mostra como utilizar tópicos e subscrições do Service Bus num cenário de inventário de comércio a retalho, com canais de publicação/subscrição utilizando o portal do Azure e .NET.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
 > * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas
@@ -67,7 +67,7 @@ Para executar o código, faça o seguinte:
 
 2. Navegue para a pasta `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters` de exemplo.
 
-3. Obter a cadeia de ligação que copiou para o bloco de notas na obter a secção de credenciais de gestão deste tutorial. Também necessita do nome do tópico criado na secção anterior.
+3. Obtenha a cadeia de conexão que você copiou para o bloco de notas na seção obter as credenciais de gerenciamento deste tutorial. Também necessita do nome do tópico criado na secção anterior.
 
 4. Na linha de comandos, escreva o seguinte comando:
 
@@ -395,14 +395,14 @@ private async Task ReceiveMessages(string subscription)
 ```
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprovisionou recursos utilizando o portal do Azure e enviou e recebeu mensagens de um tópico do Service Bus e respetivas subscrições. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
 > * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas

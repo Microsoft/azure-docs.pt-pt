@@ -11,24 +11,24 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a4f4306023b37c3b1cba46acd11ec5c0a489d0d6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822577"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293849"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de dados avançada para o banco de dado SQL do Azure
 
-A segurança de dados avançada é um pacote unificado para recursos avançados de segurança do SQL. Ele inclui a funcionalidade para descobrir e classificar dados confidenciais, identificandor e reduzir possíveis vulnerabilidades de banco de dado e detectar atividades anormais que podem indicar uma ameaça ao seu banco de dados. Oferece uma localização única para ativar e gerir estas capacidades.
+A segurança de dados avançada é um pacote unificado para recursos avançados de segurança do SQL. Inclui a funcionalidade para detetar e classificar dados confidenciais, analisar e mitigar potenciais vulnerabilidades da sua base de dados e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O ADS (Advanced Data Security) fornece um conjunto de recursos avançados de segurança do SQL, incluindo a descoberta de dados & classificação, avaliação de vulnerabilidade e proteção avançada contra ameaças.
 
 - A [classificação de & de descoberta de dados](sql-database-data-discovery-and-classification.md) fornece recursos incorporados ao banco de dado SQL do Azure para descobrir, classificar, rotular & proteger os dados confidenciais em seus bancos. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
-- A [avaliação de vulnerabilidades](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, acompanhar e ajudá-lo a corrigir possíveis vulnerabilidades no banco de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
-- A [proteção avançada contra ameaças](sql-database-threat-detection-overview.md) detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seu banco de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Alertas de proteção avançada contra ameaças fornecem detalhes da atividade suspeita e recomendam a ação de como investigar e mitigar a ameaça.
+- A [Avaliação da vulnerabilidade](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode detetar, controlar e ajudar a corrigir potenciais vulnerabilidades da base de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
+- A [Advanced Threat Protection](sql-database-threat-detection-overview.md) deteta atividades anómalas indicadoras de tentativas potencialmente perigosas e invulgares de acesso ou exploração da sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Os alertas do Advanced Threat Protection fornecem detalhes sobre a atividade suspeita e recomendam ações de investigação e mitigação da ameaça.
 
 Habilite anúncios do SQL uma vez para habilitar todos esses recursos incluídos. Com um clique, você pode habilitar anúncios para todos os bancos de dados em seu servidor de banco de dados SQL ou instância gerenciada. Habilitar ou gerenciar as configurações de anúncios requer que pertençam à função do [Gerenciador de segurança do SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) , função de administrador do banco de dados SQL ou função de administrador do SQL Server. 
 
@@ -40,7 +40,7 @@ As etapas a seguir o ajudarão a começar a usar o ADS.
 
 ## <a name="1-enable-ads"></a>1. habilitar anúncios
 
-Habilite anúncios navegando até **segurança de dados avançada** no título de **segurança** do servidor do banco de dados SQL ou da instância gerenciada. Para habilitar anúncios para todos os bancos de dados no servidor de banco de dados ou instância gerenciada, clique em **habilitar segurança de dados avançada no servidor**.
+Habilite anúncios navegando até **segurança de dados avançada** no título de **segurança** do servidor de banco de dados SQL ou instância gerenciada. Para habilitar anúncios para todos os bancos de dados no servidor de banco de dados ou instância gerenciada, clique em **habilitar segurança de dados avançada no servidor**.
 
 > [!NOTE]
 > Uma conta de armazenamento é criada e configurada automaticamente para armazenar os resultados da verificação de **avaliação de vulnerabilidade** . Se você já tiver habilitado o ADS para outro servidor no mesmo grupo de recursos e região, a conta de armazenamento existente será usada.
@@ -58,7 +58,7 @@ Clique no cartão de **classificação & de descoberta de dados** para ver as co
 
 Para exibir e gerenciar as configurações do ADS, navegue até **segurança de dados avançada** no título de **segurança** do servidor do banco de dados SQL ou da instância gerenciada. Nessa página, você pode habilitar ou desabilitar anúncios e modificar as configurações de avaliação de vulnerabilidade e proteção avançada contra ameaças para todo o servidor do banco de dados SQL ou instância gerenciada.
 
-![Configurações do servidor](./media/sql-advanced-protection/server_settings.png) 
+![Definições do servidor](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. gerenciar configurações de anúncios para um banco de dados SQL
 

@@ -4,14 +4,14 @@ description: Perguntas frequentes sobre Service Fabric, incluindo recursos, caso
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614643"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293526"
 ---
-# <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre Service Fabric
+# <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
 
 Há muitas perguntas frequentes sobre o que Service Fabric pode fazer e como ele deve ser usado. Este documento aborda muitas dessas perguntas comuns e suas respostas.
 
@@ -183,4 +183,4 @@ Siga o [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os [conceitos principais de Service Fabric](service-fabric-technical-overview.md) e [as práticas recomendadas](service-fabric-best-practices-overview.md) conceitos de malha Ice] (Service-Fabric-Technical-Overview.MD) e [as práticas recomendadas](service-fabric-best-practices-overview.md)
+Saiba mais sobre os [principais conceitos de Service Fabric](service-fabric-technical-overview.md) e [as práticas recomendadas](service-fabric-best-practices-overview.md)

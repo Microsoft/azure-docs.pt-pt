@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d44e85b069a38f48ad4ad06814db5fbcb58c9dc6
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 10e218098c1831f213db25b87ef2c9ebfdd9e749
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665220"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293883"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: desenvolver um módulo C IoT Edge para dispositivos Windows
 
@@ -110,33 +110,37 @@ O manifesto de implantação compartilha as credenciais para o registro de cont�
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
+   
+3. Abra o arquivo **. env** na sua solução de módulo. (Ele fica oculto por padrão na Gerenciador de Soluções, portanto, talvez seja necessário selecionar o botão **Mostrar todos os arquivos** para exibi-lo.) O arquivo. env deve conter as mesmas variáveis de nome de usuário e senha que você viu no arquivo Deployment. Template. JSON. 
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+4. Adicione os valores de **nome de usuário** e **senha** do seu registro de contêiner do Azure. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+5. Salve as alterações no arquivo. env.
 
-5. Save your changes to the .env file.
+### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-### Update the module with custom code
-
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+O código de módulo padrão recebe mensagens em uma fila de entrada e as passa por uma fila de saída. Vamos adicionar um código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las ao Hub IoT. Atualize o módulo para que ele analise os dados de temperatura em cada mensagem e só envie a mensagem para o Hub IoT se a temperatura exceder um determinado limite. 
 
 
-1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. Os dados do sensor neste cenário estão no formato JSON. Para filtrar mensagens no formato JSON, importe uma biblioteca JSON para C. Este tutorial utiliza o Parson.
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
+   1. Baixe o [repositório GitHub do Parson](https://github.com/kgabis/parson). Copie os arquivos **Parson. c** e **Parson. h** para o projeto **CModule** .
 
-   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. No Visual Studio, abra o arquivo **CMakeLists. txt** na pasta do projeto CModule. Na parte superior do ficheiro, importe os ficheiros do Parson como uma biblioteca chamada **my_parson**.
 
       ```
-      add_library(my_parson        parson.c        parson.h    )
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
       ```
 
-   3. Add `my_parson` to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
+   3. Adicione `my_parson` à lista de bibliotecas na seção **target_link_libraries** do arquivo CMakeLists. txt.
 
-   4. Save the **CMakeLists.txt** file.
+   4. Guarde o ficheiro **CMakeLists.txt**.
 
-   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Abra **CModule** > **Main. c**. Na parte inferior da lista de instruções include, adicione uma nova para incluir `parson.h` para suporte a JSON:
 
       ```c
       #include "parson.h"

@@ -1,5 +1,5 @@
 ---
-title: Usar recursos de acessibilidade no designer (versão prévia)
+title: Usar recursos de acessibilidade no designer
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre os atalhos de teclado e os recursos de acessibilidade do leitor de tela disponíveis no designer.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 9c899ae16d16fc76f0ea8d24169451556cf24025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158016"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314237"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Usar um teclado para usar o designer de Azure Machine Learning (versão prévia)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Usar um teclado para usar o designer de Azure Machine Learning
 
 Saiba como usar um teclado e um leitor de tela para usar Azure Machine Learning designer. Para obter uma lista de atalhos de teclado que funcionam em qualquer lugar na portal do Azure, consulte [atalhos de teclado no portal do Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 

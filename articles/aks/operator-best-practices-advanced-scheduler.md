@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472609"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293662"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos avançados do Agendador no serviço de kubernetes do Azure (AKS)
 
@@ -44,7 +44,7 @@ Quando você implanta um pod em um cluster AKS, o kubernetes só agenda pods em 
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e o `effect: NoSchedule` para tolerar o o o seu que é aplicado ao nó na etapa anterior:
+Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e `effect: NoSchedule` para tolerar o o o o seu que é aplicado ao nó na etapa anterior:
 
 ```yaml
 kind: Pod
@@ -106,7 +106,7 @@ Vejamos um exemplo de nós com uma grande quantidade de memória. Esses nós pod
 kubectl label node aks-nodepool1 hardware:highmem
 ```
 
-Em seguida, uma especificação Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
+Uma especificação de Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
 
 ```yaml
 kind: Pod

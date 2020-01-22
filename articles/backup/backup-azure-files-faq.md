@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivos do Azure com o serviço de backup do Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892578"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294002"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -36,7 +36,7 @@ Ao tentar criar cópias de segurança, selecionar uma Conta de Armazenamento par
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Posso alterar o cofre no qual faço backup dos meus compartilhamentos de arquivos?
 
-Sim. No entanto, terá de [Parar a Proteção](backup-azure-files.md#stop-protecting-an-azure-file-share) no Cofre ligado, [Anular o registo](troubleshoot-azure-files.md#configuring-backup) dessa Conta de Armazenamento e, em seguida, protegê-la noutro Cofre.
+Sim. No entanto, você precisará [interromper a proteção em um compartilhamento de arquivos](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, [cancelar o registro](troubleshoot-azure-files.md#configuring-backup) dessa conta de armazenamento e, em seguida, protegê-la de um cofre diferente.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>Em que áreas geográficas posso fazer backup de compartilhamentos de arquivos do Azure?
 

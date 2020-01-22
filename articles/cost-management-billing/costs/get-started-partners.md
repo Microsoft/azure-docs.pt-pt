@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b3e2b6fbfb11c0ee89e56cd29fa3bf606c336235
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278543"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293917"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
 
@@ -120,7 +120,7 @@ Independentemente da política, os parceiros também podem exibir os custos se t
 
 Os parceiros usam as informações a seguir para habilitar a política para exibir os encargos de uso do Azure para seus clientes.
 
-No portal do Azure, entre no locatário do parceiro e selecione gerenciamento de **custos + cobrança**. Selecione uma conta de cobrança e, em seguida, selecione **clientes**. A lista de clientes está associada à conta de cobrança.
+No portal do Azure, entre no locatário do parceiro e selecione gerenciamento de **custos + cobrança**. Selecione a conta de cobrança relevante do Microsoft Partner Agreement e, em seguida, selecione **clientes**. A lista de clientes está associada à conta de cobrança.
 
 Na lista de clientes, selecione o cliente que você deseja permitir para exibir os custos.
 
@@ -137,7 +137,7 @@ Quando a política de custo é definida como **Sim**, os usuários de assinatura
 
 Quando a política de visibilidade de custo é habilitada, todos os serviços que têm uso de assinatura mostram os custos em tarifas pagas conforme o uso. O uso de reserva é exibido com encargos zero para custos reais e amortizados. As compras e os direitos não estão associados a uma assinatura específica. Portanto, as compras não são exibidas no escopo da assinatura.
 
-Para exibir os custos do locatário do cliente, abra gerenciamento de custos + cobrança e, em seguida, selecione contas de cobrança. Na lista de contas de cobrança, selecione uma conta de cobrança.
+Para exibir os custos do locatário do cliente, abra **Gerenciamento de custos + cobrança** e selecione a conta de cobrança relevante do Microsoft Partner Agreement.
 
 ![Selecionar uma conta de cobrança](./media/get-started-partners/select-billing-account.png)
 
@@ -263,7 +263,7 @@ Os usuários com acesso RBAC à assinatura também podem exportar os dados de cu
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Criar uma exportação em um locatário de parceiro ou locatário de cliente
 
-No portal do Azure, entre no locatário do parceiro ou no locatário do cliente e selecione **Gerenciamento de custos + cobrança**. Selecione um escopo apropriado, por exemplo uma conta de cobrança e, em seguida, selecione **análise de custo**. Quando a página for carregada, selecione **Exportar**. Selecione **Exibir todas as exportações** em agendar exportação.
+No portal do Azure, entre no locatário do parceiro ou no locatário do cliente e selecione **Gerenciamento de custos + cobrança**. Selecione um escopo apropriado, por exemplo, uma conta de cobrança do contrato de parceiro da Microsoft e selecione **análise de custo**. Quando a página for carregada, selecione **Exportar**. Selecione **Exibir todas as exportações** em agendar exportação.
 
 ![Selecionar exportar e exibir todas as exportações](./media/get-started-partners/export01.png)
 

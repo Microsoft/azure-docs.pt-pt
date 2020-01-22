@@ -1,6 +1,6 @@
 ---
-title: Escalabilidade, os Hubs de eventos do Azure | Documentos da Microsoft
-description: Fornece informações sobre como dimensionar os Hubs de eventos do Azure.
+title: Escalabilidade-hubs de eventos do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como dimensionar os hubs de eventos do Azure usando partições e unidades de produtividade.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,22 +14,22 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827689"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309528"
 ---
-# <a name="scaling-with-event-hubs"></a>Dimensionar com os Hubs de eventos
+# <a name="scaling-with-event-hubs"></a>Dimensionamento com hubs de eventos
 
-Existem dois fatores que influenciam o dimensionamento com os Hubs de eventos.
+Há dois fatores que influenciam o dimensionamento com os hubs de eventos.
 *   Unidades de débito
 *   Partições
 
 ## <a name="throughput-units"></a>Unidades de débito
 
-A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma taxa de transferência única permite-lhe:
+A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma única taxa de transferência permite que você:
 
 * Entrada: Até 1 MB por segundo ou 1000 eventos por segundo (o que acontecer primeiro).
 * Saída: Até 2 MB por segundo ou 4096 eventos por segundo.
@@ -45,7 +45,7 @@ O **ampliação automática** funcionalidade dos Hubs de eventos de dimensioname
 
 O serviço de Hubs de eventos aumenta o débito, quando a carga aumenta acima do limiar mínimo, sem quaisquer pedidos a falhar com erros de ServerBusy. 
 
-Para obter mais informações sobre a funcionalidade de ampliação automática, consulte [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md).
+Para obter mais informações sobre o recurso de inflar automaticamente, consulte [dimensionar automaticamente unidades de produtividade](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partições
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -57,7 +57,7 @@ Pode utilizar uma [chave de partição](event-hubs-programming-guide.md#partitio
 O publicador de eventos apenas tem conhecimento da respetiva chave de partição, não da partição onde os eventos são publicados. Este desacoplamento da chave e da partição faz com que o remetente não tenha necessidade de saber muito sobre o processamento a jusante. Uma identidade por dispositivo ou utilizador exclusivo faz com que uma chave de partição seja segura, mas outros atributos como a geografia também podem ser utilizados para agrupar os eventos relacionados numa única partição.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 - [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md)

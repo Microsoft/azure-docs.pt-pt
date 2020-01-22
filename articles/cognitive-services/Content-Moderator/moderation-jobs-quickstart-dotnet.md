@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935967"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294342"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definir e usar trabalhos de moderação (.NET)
 
@@ -36,7 +36,7 @@ Depois de concluir os passos anteriores, pode ficar com duas chaves do Content M
 
 Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são precisos passos adicionais.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são necessários passos adicionais.
 
 ## <a name="define-a-custom-moderation-workflow"></a>Definir um fluxo de trabalho de moderação personalizado
 
@@ -124,7 +124,7 @@ public static class Clients
 Adicione as seguintes constantes e campos estáticos à classe **Programa** em Program.cs.
 
 > [!NOTE]
-> Defina a constante TeamName com o nome que utilizou quando criou a sua subscrição do Content Moderator. Pode obter o TeamName do [site do Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Defina a constante TeamName com o nome que utilizou quando criou a sua subscrição do Content Moderator. Você recupera o teamname no site da Content Moderator.
 > Depois de iniciar sessão, selecione **Credenciais** no menu **Definições** (ícone de roda dentada).
 >
 > O nome da sua equipa é o valor do campo **Id** na secção **API**.
@@ -316,4 +316,4 @@ Verá uma resposta semelhante ao seguinte exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Obtenha o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.
+Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

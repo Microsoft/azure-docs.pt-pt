@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045385"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293815"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -35,7 +35,7 @@ Ao implementar alta disponibilidade para soluções SAP por meio de clustering, 
 
 O balanceador de carga do Azure padrão oferece algumas vantagens em relação ao balanceador de carga básico. Por exemplo, ele funciona em zonas de disponibilidade do Azure, tem recursos de monitoramento e de registro melhores para facilitar a solução de problemas, latência reduzida. O recurso "portas de HA" abrange todas as portas, ou seja, não é mais necessário listar todas as portas individuais.  
 
-Há algumas diferenças importantes entre o SKU básico e o padrão do Azure Load Balancer. Uma delas é a manipulação do tráfego de saída para o ponto de extremidade público. Para comparação completa de balanceador de carga do SKU básico versus Standard, consulte [Load Balancer a comparação de SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+Há algumas diferenças importantes entre o SKU básico e o padrão do Azure Load Balancer. Uma delas é a manipulação do tráfego de saída para o ponto de extremidade público. Para comparação completa de balanceador de carga do SKU básico versus Standard, consulte [Load Balancer a comparação de SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 Quando as VMs sem endereços IP públicos são colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não há nenhuma conectividade de saída para pontos de extremidade públicos, a menos que a configuração adicional seja feita.  
 
@@ -71,7 +71,7 @@ Leia os seguintes documentos primeiro:
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Standard Load Balancer adicionais externos do Azure para conexões de saída à Internet
 
-Uma opção para obter a conectividade de saída para pontos de extremidade públicos, sem permitir a conectividade de entrada para a VM do ponto de extremidade público, é criar um segundo balanceador de carga com o endereço IP público, adicionar as VMs ao pool de back-end do segundo balanceador de carga e definir somente [regras de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
+Uma opção para obter a conectividade de saída para pontos de extremidade públicos, sem permitir a conectividade de entrada para a VM do ponto de extremidade público, é criar um segundo balanceador de carga com o endereço IP público, adicionar as VMs ao pool de back-end do segundo balanceador de carga e definir apenas [regras de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
 Use [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para controlar os pontos de extremidade públicos que são acessíveis para chamadas de saída da VM.  
 Para obter mais informações, consulte Cenário 2 no documento [conexões de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios).  
 A configuração teria a seguinte aparência:  
@@ -89,7 +89,7 @@ A configuração teria a seguinte aparência:
 
 ### <a name="deployment-steps"></a>Passos da implementação
 
-1. Criar Load Balancer  
+1. Criar Balanceador de carga  
    1. No [portal do Azure](https://portal.azure.com) , clique em todos os recursos, adicionar e procure **Load Balancer**  
    1. Clique em **Criar**. 
    1. Nome do Load Balancer **MyPublicILB**  

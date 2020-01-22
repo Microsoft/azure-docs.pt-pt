@@ -8,20 +8,35 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 1cd9ca07aab1953d114caf748ca99170fae6b876
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122377"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293203"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
+
+## <a name="2020-01-21"></a>2020-01-21
+
+### <a name="azure-machine-learning-designer-generally-available-ga"></a>Designer de Azure Machine Learning disponível para o público geral (GA)
+
+O designer agora está disponível para o público geral.
+
++ **Novos recursos**
+    + Adicionada a opção `Regenerate Output` Module para forçar o designer a ignorar os resultados armazenados em cache.
+    + Foram adicionadas novas exibições aos detalhes da execução do pipeline:
+        + Exibição de lista de pipeline.
+        + Exibição de log no navegador.
+    + Rótulos adicionados às portas de entrada e saída do módulo.
+    + Opção de pipeline de `Set as Default` adicionada na [guia pontos de extremidade](how-to-run-batch-predictions-designer.md#versioning-endpoints).
+    + Foram adicionados atalhos de teclado e [recursos de acessibilidade](designer-accessibility.md)do leitor de tela.
 
 ## <a name="2020-01-06"></a>2020-01-06
 

@@ -14,12 +14,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0aa868d5ed57e27a89f2791f617dcdda74e766b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7e910faaf9875b6791135c8721090fa801a7e08
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167456"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294189"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
@@ -85,6 +85,12 @@ Essa lista mostra as declarações que estão na maioria id_tokens por padrão (
 |`unique_name` | Cadeia | Fornece um valor legível por humanos que identifica o requerente do token. Esse valor é exclusivo em qualquer momento determinado, mas como emails e outros identificadores podem ser reutilizados, esse valor pode reaparecer em outras contas e, portanto, deve ser usado somente para fins de exibição. Somente emitido em v 1.0 `id_tokens`. |
 |`uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Deve ser ignorado. |
 |`ver` | Cadeia de caracteres, 1,0 ou 2,0 | Indica a versão do id_token. |
+
+
+> [!NOTE]
+> Os id_token v1 e v2 têm diferenças na quantidade de informações que serão executadas como visto nos exemplos acima. A versão especifica basicamente o ponto de extremidade da plataforma do Azure AD de onde ele foi emitido. A [implementação do Azure ad OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) evoluiu durante os anos. Atualmente, temos dois pontos de extremidade oAuth diferentes para aplicativos AzureAD. Você pode usar qualquer um dos novos pontos de extremidade que são categorizados como v2 ou o antigo que é considerado v1. Os pontos de extremidade OAuth para ambos são diferentes. O ponto de extremidade V2 é o mais recente em que estamos tentando migrar todos os recursos do ponto de extremidade v1 e recomendamos que novos desenvolvedores usem o ponto de extremidade v2. 
+> - V1: Azure Active Directory pontos de extremidade: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2: pontos de extremidade da plataforma Microsoft Identity: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Validando um id_token
 

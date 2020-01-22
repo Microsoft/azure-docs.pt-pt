@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155660"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290653"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -55,7 +55,7 @@ Capacidades do Gestor de recursos do Azure serão sempre introduzidas para o glo
 
 1. Assim que tiver um clone local do repositório, ligue para o destino do Azure Resource Manager com o PowerShell.
 
-1. Importe o módulo psm1 e execute o cmdlet Test-AzureRmureRmTemplateFunctions:
+1. Importe o módulo de psm1 e execute o cmdlet Test-AzureRmTemplateFunctions:
 
    ```powershell
    # Import the module

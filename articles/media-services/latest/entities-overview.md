@@ -1,5 +1,5 @@
 ---
-title: Filtragem, ordenação e paginação de entidades de serviços de mídia
+title: Filtragem, ordenação e paginação de entidades dos serviços de mídia v3
 titleSuffix: Azure Media Services
 description: Saiba mais sobre filtragem, ordenação e paginação de entidades dos serviços de mídia do Azure.
 services: media-services
@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186256"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311704"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, ordenação e paginação de entidades de serviços de mídia
 
@@ -45,7 +45,7 @@ Operadores de intervalo:
 - `ge`: testar se um campo é *maior ou igual a* um valor constante.
 - `le`: testar se um campo é *menor ou igual a* um valor constante.
 
-## <a name="filter"></a>Filtro
+## <a name="filter"></a>Filtrar
 
 Use `$filter` para fornecer um parâmetro de filtro OData para localizar somente os objetos nos quais você está interessado.
 
@@ -156,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 A tabela a seguir mostra como você pode aplicar as opções de filtragem e ordenação a diferentes entidades:
 
-|Nome da entidade|Nome da propriedade|Filtro|Encomenda|
+|Nome da entidade|Nome da propriedade|Filtrar|Encomenda|
 |---|---|---|---|
 |[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|nome|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||
@@ -169,16 +169,16 @@ A tabela a seguir mostra como você pode aplicar as opções de filtragem e orde
 ||properties.policyId|`eq`, `ne`||
 |[Tarefas](https://docs.microsoft.com/rest/api/media/jobs)| nome  | `eq`            | `asc` e `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
-||Properties.created      | `gt`, `ge`, `lt``le`| `asc` e `desc`|
-||properties.lastModified | `gt`, `ge`, `lt``le` | `asc` e `desc`| 
+||Properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
 |[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 |[Políticas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 |[Transformações](https://docs.microsoft.com/rest/api/media/transforms)| nome | `eq`            | `asc` e `desc`|
-|| Properties.created      | `gt`, `ge`, `lt``le`| `asc` e `desc`|
-|| properties.lastModified | `gt`, `ge`, `lt``le`| `asc` e `desc`|
+|| Properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 
 ## <a name="next-steps"></a>Passos seguintes
 

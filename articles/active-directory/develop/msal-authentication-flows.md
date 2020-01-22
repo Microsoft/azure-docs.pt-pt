@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917204"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291589"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -32,21 +32,21 @@ Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL
 | [Código de autorização](#authorization-code) | Usado em aplicativos que são instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Isso permite que você adicione entrada e acesso à API aos seus aplicativos móveis e de área de trabalho. | [Aplicativos de desktop](scenario-desktop-overview.md), [aplicativos móveis](scenario-mobile-overview.md), [aplicativos Web](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | Um aplicativo invoca um serviço ou uma API Web que, por sua vez, precisa chamar outro serviço ou API da Web. A ideia é propagar a identidade do usuário delegado e as permissões por meio da cadeia de solicitação. | [APIs da Web](scenario-web-api-call-api-overview.md) |
 | [Credenciais de cliente](#client-credentials) | Permite que você acesse recursos hospedados pela Web usando a identidade de um aplicativo. Normalmente usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. | [Aplicativos de daemon](scenario-daemon-overview.md) |
-| [Código do dispositivo](#device-code) | Permite que os usuários entrem em dispositivos com restrição de entrada, como uma TV inteligente, um dispositivo IoT ou uma impressora. | [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Código do dispositivo](#device-code) | Permite que os usuários entrem em dispositivos com restrição de entrada, como uma TV inteligente, um dispositivo IoT ou uma impressora. | [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Autenticação Integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite que os aplicativos em computadores ingressados no domínio ou no Azure Active Directory (Azure AD) adquiram um token silenciosamente (sem qualquer interação com a interface do usuário).| [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nome de usuário/senha](scenario-desktop-acquire-token.md#username--password) | Permite que um aplicativo Conecte o usuário manipulando sua senha diretamente. Esse fluxo não é recomendado. | [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#username--password) |
+| [Nome de usuário/senha](scenario-desktop-acquire-token.md#username-and-password) | Permite que um aplicativo Conecte o usuário manipulando sua senha diretamente. Esse fluxo não é recomendado. | [Aplicativos móveis/desktop](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
  
 Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
  
-|Flow | Requer | id_token | Token de acesso | token de atualização | código de autorização | 
+|Flow | Requer | id_token | token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Fluxo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Resgate de token de atualização](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token de atualização | x | x | x| |
-|[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | Token de acesso| x| x| x| |
+|[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | token de acesso| x| x| x| |
 |[Fluxo de código do dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
  
@@ -164,7 +164,7 @@ No diagrama anterior:
   - Para qualquer conta corporativa e de estudante (`https://login.microsoftonline.com/organizations/`).
 - As contas pessoais da Microsoft ainda não têm suporte no ponto de extremidade v 2.0 do Azure AD (não é possível usar os locatários `/common` ou `/consumers`).
 
-## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows.
+## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
 
 O MSAL dá suporte à autenticação integrada do Windows (IWA) para aplicativos móveis ou de área de trabalho que são executados em um computador Windows ingressado no domínio ou no Azure AD. Usando o IWA, esses aplicativos podem adquirir um token silenciosamente (sem nenhuma interação da interface do usuário). 
 

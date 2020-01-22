@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989803"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290245"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
 
@@ -37,7 +37,7 @@ A tabela a seguir ilustra os custos para a sua máquina virtual após a compra d
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
-Um desconto de reserva é "*use-it-or-lose-it*" (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
+Um desconto de reserva é “*use-it-or-lose-it*” (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
 
 Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão *perdidas*.
 
@@ -47,7 +47,7 @@ Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a out
 
 ![Captura de ecrã de uma reserva aplicada e duas instâncias de máquina virtual correspondentes](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. Qualquer utilização acima da linha de reserva é cobrada à tarifa normal pay as you go. Não é cobrado por nenhuma utilização abaixo da linha de reservas, pois já foi pago como parte da compra de reserva.
+1. Qualquer utilização acima da linha de reserva é cobrada à tarifa normal pay as you go. Você não será cobrado por nenhum uso abaixo da linha de reservas, pois já foi pago como parte da compra de reserva.
 2. Na hora 1, a instância 1 é executada por 0,75 horas e a instância 2 é executada por 0,5 horas. A utilização total para a hora 1 é de 1,25 horas. É cobrado tarifas pay as you go relativamente às 0,25 horas restantes.
 3. Para a hora 2 e a hora 3, ambas as instâncias foram executadas por 1 hora. Uma instância é coberta pela reserva e a outra é cobrada de acordo à tarifa pay as you go.
 4. Para a hora 4, a instância 1 é executada por 0,5 horas e a instância 2 é executada por 1 hora. A instância 1 é totalmente coberta pela reserva e 0,5 horas da instância 2 é coberta. É-lhe cobrada a tarifa pay as you go pela 0,5 hora restante.

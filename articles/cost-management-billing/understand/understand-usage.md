@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994002"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290143"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no ficheiro de utilização e de custos do Azure
 
@@ -90,11 +90,11 @@ PublisherType | Tudo | Tipo de Publicador (valores: **Azure**, **AWS**, **Market
 Quantidade | Tudo | O número de unidades compradas ou consumidas.
 ReservationId | EA, MCA | Identificador exclusivo da instância da reserva comprada.
 ReservationName | EA, MCA | Nome da instância da reserva comprada.
-ResourceGroup | Tudo | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual se encontra o recurso.
+ResourceGroup | Tudo | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual se encontra o recurso. Nem todos os encargos são provenientes de recursos implantados em grupos de recursos. Os encargos que não têm um grupo de recursos serão mostrados como nulo/vazio, **outros**ou **não aplicáveis**.
 ResourceId<sup>1</sup> | Tudo | Identificador exclusivo do recurso [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
 ResourceLocation | Tudo | Localização do datacenter onde o recurso está em execução. Veja Localização.
-ResourceName | EA, PAYG | Nome do recurso.
-ResourceType | MCA | Tipo da instância do recurso.
+ResourceName | EA, PAYG | Nome do recurso. Nem todos os encargos são provenientes de recursos implantados. Os encargos que não têm um tipo de recurso serão mostrados como nulo/vazio, **outros**ou **não aplicáveis**.
+ResourceType | MCA | Tipo da instância do recurso. Nem todos os encargos são provenientes de recursos implantados. Os encargos que não têm um tipo de recurso serão mostrados como nulo/vazio, **outros**ou **não aplicáveis**.
 ServiceFamily | MCA | Família de serviços à qual o serviço pertence.
 ServiceInfo1 | Tudo | Metadados específicos do serviço.
 ServiceInfo2 | Tudo | Campo legado com metadados opcionais e específicos do serviço.
@@ -104,7 +104,7 @@ SubscriptionId<sup>1</sup> | Tudo | Identificador exclusivo da subscrição do A
 SubscriptionName | Tudo | Nome da subscrição do Azure.
 Tags<sup>1</sup> | Tudo | Etiquetas atribuídas ao recurso. Não inclui etiquetas de grupos de recursos. Podem ser utilizada para agrupar ou distribuir encargos para estorno interno. Para obter mais informações, veja [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizar os recursos do Azure com etiquetas).
 Duração | Tudo | Apresenta o termo da validade da oferta. Por exemplo: no caso de instâncias reservadas, ele exibe 12 meses como o termo. Para compras pontuais ou compras periódicas, o Termo é 1 mês (SaaS, Suporte do Marketplace). Não é aplicável ao consumo do Azure.
-UnitOfMeasure | Tudo | Unidade de medida da faturação do serviço. Por exemplo, os serviços de computação são faturados à hora.
+UnitOfMeasure | Tudo | A unidade de medida da faturação do serviço. Por exemplo, os serviços de computação são faturados à hora.
 UnitPrice | EA, PAYG | O preço unitário do encargo.
 
 _<sup> **1**</sup> Campos utilizados para criar um ID exclusivo para um único registo de custos._
@@ -122,9 +122,9 @@ IncludedQuantity | N/A
 InstanceId | ResourceId
 Tarifa | EffectivePrice
 Unidade | UnitOfMeasure
-UsageDate | Data
-UsageEnd | Data
-UsageStart | Data
+UsageDate | Date
+UsageEnd | Date
+UsageStart | Date
 
 
 ## <a name="ensure-charges-are-correct"></a>Confirmar que os custos estão corretos

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280820"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288965"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
 
@@ -87,10 +87,10 @@ Escolha os computadores nos quais você deseja habilitar a descoberta de depend�
 
 1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
-3. Clique em **Iniciar descoberta de dependência**.
-3. Na página **Iniciar descoberta de dependências** , escolha o dispositivo que está descobrindo os computadores relevantes.
+3. Clique em **adicionar servidores**.
+3. Na página **adicionar servidores** , escolha o dispositivo que está descobrindo os computadores relevantes.
 4. Na lista computador, selecione os computadores.
-5. Clique em **Iniciar descoberta de dependência**.
+5. Clique em **adicionar servidores**.
 
     ![Iniciar descoberta de dependência](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -123,10 +123,10 @@ Escolha os computadores nos quais você deseja parar a descoberta de dependênci
 
 1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
-3. Clique em **parar descoberta de dependência**.
-3. Na página **parar descoberta de dependências** , escolha o **dispositivo** que está descobrindo as VMs nas quais você procura parar a descoberta de dependência.
+3. Clique em **remover servidores**.
+3. Na página **remover servidores** , escolha o **dispositivo** que está descobrindo as VMs nas quais você procura parar a descoberta de dependência.
 4. Na lista computador, selecione os computadores.
-5. Clique em **parar descoberta de dependência**
+5. Clique em **remover servidores**.
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b707971f0b150bce63b4dd0ffa4e55dc3b3d6bac
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492645"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313965"
 ---
 # <a name="split-data-module"></a>Módulo dividir dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para dividir um conjunto de módulos em dois conjuntos distintos.
 
@@ -44,7 +44,7 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     - **Divisão de expressão relativa**: Use essa opção sempre que desejar aplicar uma condição a uma coluna de número. O número pode ser um campo de data/hora, uma coluna que contém valores de idade ou moeda, ou até mesmo uma porcentagem. Por exemplo, talvez você queira dividir seu conjunto de dados dependendo do custo dos itens, agrupar pessoas por intervalos de idade ou separar dados por uma data de calendário.
 
-### <a name="split-rows"></a>Dividir linhas
+### <a name="split-rows"></a>Split Rows
 
 1.  Adicione o módulo [dividir dados](./split-data.md) ao seu pipeline no designer, e conecte o DataSet que você deseja dividir.
   

@@ -1,7 +1,7 @@
 ---
-title: Treinar novamente os modelos usando o designer de Azure Machine Learning (versão prévia)
+title: Treinar novamente os modelos usando o designer de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar novamente modelos com pipelines publicados no designer de Azure Machine Learning (versão prévia).
+description: Saiba como treinar novamente modelos com pipelines publicados no Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 12/15/2019
-ms.openlocfilehash: 734acd712eb954e66a9c0b037d10b7b1fd626c6a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732166"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311874"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Treinar novamente modelos com o designer de Azure Machine Learning (versão prévia)
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Readaptação de modelos com o Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste "como", você aprenderá a usar Azure Machine Learning designer para treinar novamente um modelo de aprendizado de máquina. Descubra como usar pipelines publicados para automatizar fluxos de trabalho de aprendizado de máquina para readaptação.

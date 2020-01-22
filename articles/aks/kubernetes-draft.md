@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 07e267af307fedd9b896e08919b7026a3a1c2bac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732023"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292967"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Início rápido: desenvolver no serviço de kubernetes do Azure (AKS) com o rascunho
 
 O rascunho é uma ferramenta de código-fonte aberto que ajuda a empacotar e executar contêineres de aplicativos em um cluster kubernetes. Com o rascunho, você pode reimplantar rapidamente um aplicativo para kubernetes à medida que as alterações de código ocorrem sem precisar confirmar suas alterações para o controle de versão. Para obter mais informações sobre o rascunho, consulte a [documentação de rascunho no GitHub][draft-documentation].
 
-Este artigo mostra como usar o pacote de rascunho e executar um aplicativo no AKS.
+Este artigo mostra como usar o rascunho para empacotar e executar um aplicativo no AKS.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

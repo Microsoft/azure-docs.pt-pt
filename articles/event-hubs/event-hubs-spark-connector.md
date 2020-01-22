@@ -1,6 +1,6 @@
 ---
 title: Integrar com o Apache Spark - Hubs de eventos do Azure | Documentos da Microsoft
-description: Integrar com o Apache Spark para ativar a transmissão em fluxo estruturada com os Hubs de eventos
+description: Este artigo mostra como integrar com o Apache Spark para habilitar o streaming estruturado com os hubs de eventos.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c4fd74e9123e1310be297a15090433d365d24cf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343397"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311687"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integração do Apache Spark com os Hubs de eventos do Azure
 
@@ -86,7 +86,7 @@ df.write
   .save() 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como configurar um fluxo dimensionável, tolerante a falhas utilizando o conector de Hubs de eventos para o Apache Spark. Saiba mais sobre como utilizar os Hubs de eventos com transmissão em fluxo estruturada e Spark Streaming seguindo estes links:
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f9815dac9e61eec51230911094f35a33a64e541c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166776"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311517"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para carregar dados em um pipeline de Machine Learning dos serviços de dados de nuvem existentes. 
 
@@ -78,7 +78,7 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
 Quando a importação for concluída, clique no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com êxito.
 
-Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, clique com o botão direito do mouse na saída e selecione **salvar como DataSet**. Escolha um nome para o conjunto de um. O DataSet salvo preserva os dados no momento do salvamento, e os dados não são atualizados quando o pipeline é executado novamente, mesmo se o conjunto do dados no pipeline for alterado. Isso pode ser útil para tirar instantâneos de dados.
+Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito do módulo. Escolha um nome para o conjunto de um. O DataSet salvo preserva os dados no momento de salvá-los, o DataSet não é atualizado quando o pipeline é executado novamente, mesmo que o conjunto de dados no pipeline seja alterado. Isso pode ser útil para tirar instantâneos de dados.
 
 Depois de importar os dados, talvez sejam necessários alguns preparativos adicionais para modelagem e análise:
 

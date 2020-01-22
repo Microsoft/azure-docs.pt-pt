@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c984b38498085567441fb0c4f965602d437589e5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232613"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311500"
 ---
 # <a name="join-data"></a>Associar dados
 
-Este artigo descreve como usar o módulo **unir dados** no designer de Azure Machine Learning (versão prévia) para mesclar dois DataSets usando uma operação de junção de estilo de banco de dados.  
+Este artigo descreve como usar o módulo **ingressar dados** no designer de Azure Machine Learning para mesclar dois DataSets usando uma operação de junção de estilo de banco de dado.  
 
 ## <a name="how-to-configure-join-data"></a>Como configurar dados de junção
 
@@ -62,10 +62,10 @@ Para executar uma junção em dois conjuntos de valores, eles devem estar relaci
     * Selecione esta opção para exibir as chaves de ambas as tabelas de entrada.
     * Anular seleção para retornar apenas as colunas de chave da entrada à esquerda.
 
-1. Execute o pipeline ou selecione o módulo ingressar dados e selecionou a **execução selecionada** para executar a junção.
+1. Executar o pipeline.
 
-1. Para exibir os resultados, clique com o botão direito do mouse no conjunto de dados > **resultados da** **junção** > **Visualizar**.
+1. Para exibir os resultados, clique com o botão direito do mouse nos **dados de junção** e selecione **Visualizar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

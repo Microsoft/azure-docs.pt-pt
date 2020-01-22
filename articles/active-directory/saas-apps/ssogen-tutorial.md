@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/03/2020
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841c2b7067427b703d2aa7647e0c0c3ef2287c6e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 74b56e30eb8851913f91cbee377204a575311375
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775678"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293679"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com SSOGEN-Azure AD SSO gateway para Oracle E-Business Suite-EBS, PeopleSoft e JDE
 
@@ -43,7 +43,8 @@ Para começar, você precisa dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* SSOGEN-Azure AD SSO gateway para Oracle E-Business Suite-EBS, PeopleSoft e JDE dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* SSOGEN-Azure AD SSO gateway para Oracle E-Business Suite-EBS, PeopleSoft e JDE dá suporte ao **SP e** ao SSO iniciado pelo IDP.
+* Depois de configurar o SSOGEN-Azure AD SSO gateway para Oracle E-Business Suite-EBS, PeopleSoft e JDE, você pode impor controles de sessão, que protegem vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. Os controles de sessão se estendem do acesso condicional. [Saiba como impor o controle de sessão com Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
@@ -161,3 +162,7 @@ Ao clicar no bloco SSOGEN-Azure AD SSO gateway para Oracle E-Business Suite-EBS,
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o SSOGEN-gateway de SSO do Azure AD para Oracle E-Business Suite-EBS, PeopleSoft e JDE com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o SSOGEN-Azure AD SSO gateway para Oracle E-Business Suite-EBS, PeopleSoft e JDE com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

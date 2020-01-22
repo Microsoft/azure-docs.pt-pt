@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d738bfb8bcd11c8da4c39d873c7f298b8c49af98
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e813a16416343954ea92813cb53bbd81f1977320
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167198"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290126"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização do OAuth 2,0 em Azure Active Directory B2C
 
@@ -54,12 +54,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-|vários| Necessário | Nome do seu locatário de Azure AD B2C|
-| regras | Necessário | O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
-| client_id |Necessário |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
-| response_type |Necessário |O tipo de resposta, que deve incluir `code` para o fluxo do código de autorização. |
-| redirect_uri |Necessário |O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação são enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL. |
-| scope |Necessário |Uma lista de escopos separados por espaços. Um único valor de escopo indica a Azure Active Directory (Azure AD) as permissões que estão sendo solicitadas. O uso da ID do cliente como o escopo indica que seu aplicativo precisa de um token de acesso que possa ser usado em relação ao seu próprio serviço ou API Web, representado pela mesma ID do cliente.  O escopo de `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso de vida longa aos recursos. Você também pode usar o escopo de `openid` para solicitar um token de ID de Azure AD B2C. |
+|vários| Obrigatório | Nome do seu locatário de Azure AD B2C|
+| regras | Obrigatório | O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
+| client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
+| response_type |Obrigatório |O tipo de resposta, que deve incluir `code` para o fluxo do código de autorização. |
+| redirect_uri |Obrigatório |O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação são enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL. |
+| scope |Obrigatório |Uma lista de escopos separados por espaços. Um único valor de escopo indica a Azure Active Directory (Azure AD) as permissões que estão sendo solicitadas. O uso da ID do cliente como o escopo indica que seu aplicativo precisa de um token de acesso que possa ser usado em relação ao seu próprio serviço ou API Web, representado pela mesma ID do cliente.  O escopo de `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso de vida longa aos recursos. Você também pode usar o escopo de `openid` para solicitar um token de ID de Azure AD B2C. |
 | response_mode |Recomendado |O método que você usa para enviar o código de autorização resultante de volta para seu aplicativo. Pode ser `query`, `form_post`ou `fragment`. |
 | state |Recomendado |Um valor incluído na solicitação que pode ser uma cadeia de caracteres de qualquer conteúdo que você deseja usar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para evitar ataques de solicitação entre sites forjado. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página em que o usuário estava ou o fluxo do usuário que estava sendo executado. |
 | aviso |Opcional |O tipo de interação do usuário que é necessário. Atualmente, o único valor válido é `login`, o que força o usuário a inserir suas credenciais nessa solicitação. O logon único não entrará em vigor. |
@@ -92,7 +92,7 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
+| erro |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudá-lo a identificar a causa raiz de um erro de autenticação. |
 | state |Consulte a descrição completa na tabela anterior. Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de `state` na solicitação e na resposta são idênticos. |
 
@@ -102,8 +102,8 @@ Agora que você adquiriu um código de autorização, pode resgatar o `code` de 
 Você também pode solicitar um token de acesso para a própria API Web de back-end do seu aplicativo por convenção de usar a ID do cliente do aplicativo como o escopo solicitado (o que resultará em um token de acesso com essa ID de cliente como o "público"):
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -112,14 +112,14 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-|vários| Necessário | Nome do seu locatário de Azure AD B2C|
-|regras| Necessário| O fluxo do usuário que foi usado para adquirir o código de autorização. Você não pode usar um fluxo de usuário diferente nesta solicitação. |
-| client_id |Necessário |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com).|
+|vários| Obrigatório | Nome do seu locatário de Azure AD B2C|
+|regras| Obrigatório| O fluxo do usuário que foi usado para adquirir o código de autorização. Você não pode usar um fluxo de usuário diferente nesta solicitação. |
+| client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com).|
 | client_secret | Sim, em aplicativos Web | O segredo do aplicativo que foi gerado no [portal do Azure](https://portal.azure.com/). Os segredos do cliente são usados nesse fluxo para cenários de aplicativos Web, em que o cliente pode armazenar com segurança um segredo do cliente. Para cenários de aplicativo nativo (cliente público), os segredos do cliente não podem ser armazenados com segurança e, portanto, não são usados nesta chamada. Se você usar um segredo do cliente, altere-o periodicamente. |
-| grant_type |Necessário |O tipo de concessão. Para o fluxo do código de autorização, o tipo de concessão deve ser `authorization_code`. |
+| grant_type |Obrigatório |O tipo de concessão. Para o fluxo do código de autorização, o tipo de concessão deve ser `authorization_code`. |
 | scope |Recomendado |Uma lista de escopos separados por espaços. Um único valor de escopo indica ao Azure AD as permissões que estão sendo solicitadas. O uso da ID do cliente como o escopo indica que seu aplicativo precisa de um token de acesso que possa ser usado em relação ao seu próprio serviço ou API Web, representado pela mesma ID do cliente.  O escopo de `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso de vida longa aos recursos.  Você também pode usar o escopo de `openid` para solicitar um token de ID de Azure AD B2C. |
-| code |Necessário |O código de autorização que você adquiriu no primeiro segmento do fluxo. |
-| redirect_uri |Necessário |O URI de redirecionamento do aplicativo em que você recebeu o código de autorização. |
+| code |Obrigatório |O código de autorização que você adquiriu no primeiro segmento do fluxo. |
+| redirect_uri |Obrigatório |O URI de redirecionamento do aplicativo em que você recebeu o código de autorização. |
 
 Uma resposta de token bem-sucedida tem esta aparência:
 
@@ -153,7 +153,7 @@ As respostas de erro têm a seguinte aparência:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
+| erro |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudá-lo a identificar a causa raiz de um erro de autenticação. |
 
 ## <a name="3-use-the-token"></a>3. usar o token
@@ -169,8 +169,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Tokens de acesso e tokens de ID são de curta duração. Depois que eles expirarem, você deverá atualizá-los para continuar a acessar os recursos. Para fazer isso, envie outra solicitação POST para o ponto de extremidade `/token`. Desta vez, forneça o `refresh_token` em vez do `code`:
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -178,14 +178,14 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-|vários| Necessário | Nome do seu locatário de Azure AD B2C|
-|regras |Necessário |O fluxo do usuário que foi usado para adquirir o token de atualização original. Você não pode usar um fluxo de usuário diferente nesta solicitação. |
-| client_id |Necessário |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
+|vários| Obrigatório | Nome do seu locatário de Azure AD B2C|
+|regras |Obrigatório |O fluxo do usuário que foi usado para adquirir o token de atualização original. Você não pode usar um fluxo de usuário diferente nesta solicitação. |
+| client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
 | client_secret | Sim, em aplicativos Web | O segredo do aplicativo que foi gerado no [portal do Azure](https://portal.azure.com/). Os segredos do cliente são usados nesse fluxo para cenários de aplicativos Web, em que o cliente pode armazenar com segurança um segredo do cliente. Para cenários de aplicativo nativo (cliente público), os segredos do cliente não podem ser armazenados com segurança e, portanto, não são usados nesta chamada. Se você usar um segredo do cliente, altere-o periodicamente. |
-| grant_type |Necessário |O tipo de concessão. Para esse segmento do fluxo de código de autorização, o tipo de concessão deve ser `refresh_token`. |
+| grant_type |Obrigatório |O tipo de concessão. Para esse segmento do fluxo de código de autorização, o tipo de concessão deve ser `refresh_token`. |
 | scope |Recomendado |Uma lista de escopos separados por espaços. Um único valor de escopo indica ao Azure AD as permissões que estão sendo solicitadas. O uso da ID do cliente como o escopo indica que seu aplicativo precisa de um token de acesso que possa ser usado em relação ao seu próprio serviço ou API Web, representado pela mesma ID do cliente.  O escopo de `offline_access` indica que seu aplicativo precisará de um token de atualização para acesso de vida longa aos recursos.  Você também pode usar o escopo de `openid` para solicitar um token de ID de Azure AD B2C. |
 | redirect_uri |Opcional |O URI de redirecionamento do aplicativo em que você recebeu o código de autorização. |
-| refresh_token |Necessário |O token de atualização original que você adquiriu no segundo segmento do fluxo. |
+| refresh_token |Obrigatório |O token de atualização original que você adquiriu no segundo segmento do fluxo. |
 
 Uma resposta de token bem-sucedida tem esta aparência:
 
@@ -219,7 +219,7 @@ As respostas de erro têm a seguinte aparência:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de código de erro que você pode usar para classificar tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
+| erro |Uma cadeia de caracteres de código de erro que você pode usar para classificar tipos de erros que ocorrem. Você também pode usar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudá-lo a identificar a causa raiz de um erro de autenticação. |
 
 ## <a name="use-your-own-azure-ad-b2c-directory"></a>Usar seu próprio diretório de Azure AD B2C

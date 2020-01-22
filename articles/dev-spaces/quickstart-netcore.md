@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este guia de início rápido mostra como usar Azure Dev Spaces e Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no serviço kubernetes do Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 0025f395c89a8a9f2eff4204ed0859cda0fa86fc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fe2bb61ccfc7285dc5f4a5c21f3c62abfecca343
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867513"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290602"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Início rápido: Depurar e iterar em kubernetes: Visual Studio Code e .NET Core-Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Neste guia, vai aprender a:
 - Desenvolver o código em contêineres iterativamente usando Visual Studio Code.
 - Depure o código em seu espaço de desenvolvimento de Visual Studio Code.
 
-Azure Dev Spaces também permite depurar e iterar usando:
+Azure Dev Spaces também permite que você depure e itere usando:
 - [Java e Visual Studio Code](quickstart-java.md)
 - [Node. js e Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core e Visual Studio](quickstart-netcore-visualstudio.md)
@@ -96,13 +96,13 @@ Este comando prepara seu projeto para ser executado no Azure Dev Spaces gerando 
 > [!TIP]
 > O [gráfico Dockerfile e Helm](how-dev-spaces-works.md#prepare-your-code) para seu projeto é usado pelo Azure dev Spaces para compilar e executar seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é compilado e executado.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Compilar e executar código no kubernetes por meio do Visual Studio
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Compilar e executar código no kubernetes da Visual Studio Code
 
 Clique no ícone de *depuração* à esquerda e clique em *inicialização do .NET Core (AZDS)* na parte superior.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
-Esse comando cria e executa seu serviço no Azure Dev Spaces no modo de depuração. A janela do *terminal* na parte inferior mostra a saída da compilação e as URLs para o serviço que está executando Azure dev Spaces. O *console de depuração* mostra a saída do log.
+Esse comando cria e executa seu serviço no Azure Dev Spaces no modo de depuração. A janela do *terminal* na parte inferior mostra a saída da compilação e as URLs para o serviço em execução no Azure dev Spaces. O *console de depuração* mostra a saída do log.
 
 > [!Note]
 > Se você não vir nenhum comando Azure Dev Spaces na *paleta de comandos*, certifique-se de ter instalado a [extensão de Visual Studio Code para Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verifique também se você abriu o diretório *dev-Spaces/Samples/dotnetcore/getfront-Started/WebFrontEnd* no Visual Studio Code.

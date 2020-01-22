@@ -1,139 +1,138 @@
 ---
-title: Mover a computação de mainframe para máquinas de virtuais do Azure
-description: Comparação de recursos de maneira favorável à capacidade de mainframe de computação no Azure para que possa migrar e modernizar aplicativos de z14 da IBM.
+title: Mover a computação do mainframe para máquinas virtuais do Azure
+description: Os recursos de computação do Azure se comparam com capacidade de mainframe para que você possa migrar e modernizar os aplicativos IBM Z14.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190320"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288936"
 ---
-# <a name="move-mainframe-compute-to-azure"></a>Mover a computação de mainframe para o Azure
+# <a name="move-mainframe-compute-to-azure"></a>Mover a computação do mainframe para o Azure
 
-Mainframes tem uma reputação por elevada fiabilidade e disponibilidade e continuam a ser o backbone de confiança de muitas empresas. Eles muitas vezes estiverem definidos ter escalabilidade quase ilimitada e também a capacidade de computação. No entanto, algumas empresas têm outgrown a capacidade dos maior mainframes disponíveis. Se isso parece como, o Azure oferece economias de agilidade, alcance e infraestrutura.
+Os mainframes têm uma reputação de alta confiabilidade e disponibilidade e continuam a ser o backbone confiável de muitas empresas. Muitas vezes, eles são considerados uma escalabilidade e capacidade de computação quase ilimitadas. No entanto, algumas empresas aumentaram a capacidade dos maiores mainframes disponíveis. Se isso parece você, o Azure oferece agilidade, alcance e economia de infraestrutura.
 
-Para executar cargas de trabalho de mainframe no Microsoft Azure, precisa saber como seu mainframe computação compare capacidades para o Azure. Com base num mainframe de z14 IBM (o modelo mais atual até ao presente momento), este artigo mostra-lhe como obter resultados comparáveis no Azure.
+Para executar cargas de trabalho de mainframe no Microsoft Azure, você precisa saber como os recursos de computação do mainframe se comparam ao Azure. Com base em um mainframe IBM Z14 (o modelo mais atual a partir deste documento), este artigo mostra como obter resultados comparáveis no Azure.
 
-Para começar a utilizar, considere os ambientes de lado a lado. A figura a seguir compara um ambiente de mainframe para a execução de aplicações para um ambiente de alojamento do Azure.
+Para começar, considere os ambientes lado a lado. A figura a seguir compara um ambiente de mainframe para executar aplicativos em um ambiente de hospedagem do Azure.
 
-![Serviços do Azure e uma oferta de ambientes de emulação comparável de suporte e simplifica a migração](media/mainframe-compute-azure.png)
+![Os serviços do Azure e os ambientes de emulação oferecem suporte comparável e simplificam a migração](media/mainframe-compute-azure.png)
 
-O poder dos mainframes, muitas vezes, é utilizado para transações online (OLTP) sistemas que lidar com milhões de atualizações para milhares de usuários de processamento. Esses aplicativos, muitas vezes, utilizam o software para processamento de transações, manipulação de tela e entrada de formulário. Eles podem usar um sistema de controle de informações do cliente (CICS), o sistema de gerenciamento de informações (IMS) ou o pacote de Interface de transação (TIP).
+O poder dos mainframes é geralmente usado para sistemas OLTP (processamento de transações online) que lidam com milhões de atualizações para milhares de usuários. Esses aplicativos geralmente usam software para processamento de transações, manipulação de tela e entrada de formulário. Eles podem usar um CICS (sistema de controle de informações do cliente), IMS (sistema de gerenciamento de informações) ou TIP (pacote de interface de transação).
 
-Conforme mostrado na figura, um emulador do TPM no Azure pode processar cargas de trabalho CICS e IMS. Um emulador de sistema do batch no Azure executa a função de linguagem de controle de tarefa (JCL). Dados de mainframe são migrados para bases de dados do Azure, como a base de dados do Azure SQL. Serviços do Azure ou outro software alojadas em máquinas de virtuais do Azure pode ser utilizado para gestão do sistema.
+Como mostra a figura, um emulador TPM no Azure pode lidar com cargas de trabalho CICS e IMS. Um emulador de sistema do lote no Azure executa a função de JCL (linguagem de controle de trabalho). Os dados de mainframe são migrados para bancos de dado do Azure, como o banco de dados SQL do Azure. Os serviços do Azure ou outros softwares hospedados em máquinas virtuais do Azure podem ser usados para gerenciamento do sistema.
 
-## <a name="mainframe-compute-at-a-glance"></a>Computação de mainframe rapidamente
+## <a name="mainframe-compute-at-a-glance"></a>Computação em mainframe em um relance
 
-No z14 mainframe, os processadores são organizados em até quatro *gavetas de*. R *gaveta* é simplesmente um cluster de processadores e chipsets. Cada gaveta pode ter seis chips de processador central Active Directory (CP) e cada CP tem 10 chips de controlador (SC) do sistema. Na terminologia do Intel x86, existem seis soquetes por gaveta, 10 núcleos por socket e gavetas de quatro. Esta arquitetura fornece o equivalente aproximado de 24 sockets e 240 núcleos, máximo, para um z14.
+No mainframe Z14, os processadores são organizados em até quatro *empates*. Uma *gaveta* é simplesmente um cluster de processadores e chipsets. Cada gaveta pode ter seis chips de CP (processador central) ativos e cada CP tem 10 chips do SC (controlador do sistema). Na terminologia do Intel x86, há seis soquetes por gaveta, 10 núcleos por soquete e quatro empates. Essa arquitetura fornece o equivalente aproximado de 24 soquetes e 240 núcleos, máximo, para um Z14.
 
-O fast z14 CP tem uma velocidade de relógio 5.2 GHz. Normalmente, um z14 é entregue com todos os CPs na caixa. Eles estiverem ativados, conforme necessário. Um cliente normalmente é cobrado por, pelo menos, quatro horas de tempo de computação por mês, apesar da utilização real.
+O Fast Z14 CP tem uma velocidade de clock de 5,2 GHz. Normalmente, um Z14 é entregue com todo o CPs na caixa. Eles são ativados conforme necessário. Um cliente geralmente é cobrado por pelo menos quatro horas de tempo de computação por mês, apesar do uso real.
 
 Um processador de mainframe pode ser configurado como um dos seguintes tipos:
 
-- Processador de finalidade (GP) geral
-- Processador de informações integrada (zIIP) do sistema z
-- Instalação integrada para o processador de Linux (IFL)
-- Processador de assistência de sistema (SAP)
-- Processador de acoplamento instalações ICF () integrado
+- Processador Uso Geral (GP)
+- Sistema z Integrated Information Processor (zIIP)
+- Recurso integrado para o processador Linux (IFL)
+- Processador de assistência do sistema (SAP)
+- Processador de instalação integrada de acoplamento (ICF)
 
-## <a name="scaling-mainframe-compute-up-and-out"></a>Computação de mainframe dimensionamento verticalmente e horizontalmente
+## <a name="scaling-mainframe-compute-up-and-out"></a>Dimensionamento da computação do mainframe para cima e para fora
 
-IBM mainframes oferecem a capacidade de dimensionar até 240 núcleos (o tamanho z14 atual para um único sistema). Além disso, IBM mainframes, podem aumentar horizontalmente por meio de um recurso chamado o acoplamento instalações (CF). O CF permite que vários sistemas de mainframe acessar os mesmos dados em simultâneo. Usando o CF, os processadores de mainframe de grupos de tecnologia de Sysplex paralela do mainframe em clusters. Quando este guia foi escrito, a funcionalidade de Sysplex paralela suportada 32 agrupamentos de 64 processadores. Até 2.048 processadores pode ser agrupado dessa maneira para ampliar a capacidade de computação.
+Os mainframes IBM oferecem a capacidade de escalar verticalmente até 240 núcleos (o tamanho atual do Z14 para um único sistema). Além disso, os mainframes IBM podem escalar horizontalmente por meio de um recurso chamado CF (Associação de acoplamento). O CF permite que vários sistemas de mainframe acessem os mesmos dados simultaneamente. Usando o CF, a tecnologia de sysplex paralelo de mainframe agrupa processadores de mainframe em clusters. Quando este guia foi escrito, o recurso sysplex paralelo suportava 32 agrupamentos de processadores 64 cada um. Até 2.048 processadores podem ser agrupados dessa maneira para escalar horizontalmente a capacidade de computação.
 
-Um CF permite que os clusters de cálculo partilhar dados com acesso direto. É utilizado para o bloqueio de informações, informações de cache e a lista de recursos de dados partilhados. Um Sysplex paralela usando um ou mais CFs pode ser considerado um "partilhado tudo" cluster de cálculo de escalamento horizontal. Para obter mais informações sobre estas funcionalidades, consulte [Sysplex paralela no IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) no site da IBM.
+Um CF permite que os clusters de computação compartilhem dados com acesso direto. Ele é usado para informações de bloqueio, informações de cache e a lista de recursos de dados compartilhados. Um sysplex paralelo usando um ou mais CFs pode ser considerado como um cluster de cálculo de expansão de tudo "compartilhado tudo". Para obter mais informações sobre esses recursos, consulte [sysplex paralelo no IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) no site da IBM.
 
-Aplicativos podem usar esses recursos para fornecer desempenho de escalamento horizontal e elevada disponibilidade. Para obter mais informações sobre como CICS pode utilizar o Sysplex paralela com CF, transfira o [IBM CICS e o recurso de acoplamento: Além do básico](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
+Os aplicativos podem usar esses recursos para fornecer alta disponibilidade e desempenho de expansão. Para obter informações sobre como o CICS pode usar o sysplex paralelo com o CF, baixe o [IBM CICS e o recurso de acoplamento: além das noções básicas de](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) Redbook.
 
-## <a name="azure-compute-at-a-glance"></a>Computação do Azure rapidamente
+## <a name="azure-compute-at-a-glance"></a>Computação do Azure em um relance
 
-Algumas pessoas acham por engano que servidores baseados em Intel não são tão poderosos quanto mainframes. No entanto, os novos sistemas de núcleo com muitas, baseado em Intel têm como muito a capacidade como mainframes de computação. Esta secção descreve as opções de (IaaS) de infraestrutura-como-serviço do Azure para computação e armazenamento. Azure fornece também a plataforma-como-serviço (PaaS) opções, mas este artigo incide sobre as opções de IaaS que fornecem a capacidade de mainframe comparável.
+Algumas pessoas consideram erroneamente que os servidores baseados em Intel não são tão poderosos quanto os mainframes. No entanto, os novos sistemas com base em núcleo e processadores Intel têm tanto capacidade de computação quanto mainframes. Esta seção descreve as opções de IaaS (infraestrutura como serviço) do Azure para computação e armazenamento. O Azure fornece também opções de plataforma como serviço (PaaS), mas este artigo se concentra nas opções de IaaS que fornecem capacidade de mainframe comparável.
 
-Máquinas virtuais do Azure fornecem o poder de computação numa variedade de tipos e tamanhos. No Azure, uma CPU virtual (Vcpus) equivale aproximadamente a um núcleo no seu próprio mainframe.
+As máquinas virtuais do Azure fornecem poder computacional em uma variedade de tamanhos e tipos. No Azure, uma vCPU (CPU virtual) quase equivale a um núcleo em um mainframe.
 
-Atualmente, os tamanhos de intervalo de Máquina Virtual do Azure fornece a partir de 1 a 128 vCPUs. Tipos de máquina virtual (VM) são otimizados para cargas de trabalho específicas. Por exemplo, a lista seguinte mostra os tipos VM (atuais até ao presente momento) e respetivas utilizações recomendadas:
+Atualmente, o intervalo de tamanhos de máquina virtual do Azure fornece de 1 a 128 vCPUs. Os tipos de VM (máquina virtual) são otimizados para cargas de trabalho específicas. Por exemplo, a lista a seguir mostra os tipos de VM (atuais no momento da elaboração deste artigo) e seus usos recomendados:
 
-| Tamanho     | Tipo e uma descrição                                                                 |
+| Tamanho     | Tipo e descrição                                                                 |
 |----------|--------------------------------------------------------------------------------------|
-| Série D | Fins gerais com 64 Vcpus e até velocidade de relógio de 3.5 GHz                           |
+| Série D | Uso geral com 64 vCPU e velocidade de clock de até 3,5 GHz                           |
 | Série E | Memória otimizada com até 64 vCPUs                                                 |
-| Série F | Computação otimizada com até 64 vCPUs e velocidade de clock 3..7 GHz                       |
-| Série H | Otimizado para aplicações de computação de alto desempenho (HPC)                          |
-| Série L | Armazenamento otimizado para aplicações de alto débito, apoiadas por bases de dados como NoSQL |
-| Série M | Maior computação e memória otimizada VMs com até 128 vCPUs                        |
+| Série F | Computação otimizada com até 64 vCPUs e 3.. 7 GHz, velocidade de clock                       |
+| Série H | Otimizado para aplicativos HPC (computação de alto desempenho)                          |
+| Série L | Armazenamento otimizado para aplicativos de alta taxa de transferência apoiados por bancos de dados como NoSQL |
+| Série M | Maiores VMs de computação e de memória otimizadas com até 128 vCPUs                        |
 
-Para obter detalhes sobre as VMs disponíveis, consulte [séries de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
+Para obter detalhes sobre as VMs disponíveis, consulte [série de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
-Um mainframe z14 pode ter até 240 núcleos. No entanto, z14 mainframes quase nunca usar todos os núcleos para um único aplicativo ou a carga de trabalho. Em vez disso, um mainframe segrega as cargas de trabalho em partições lógicas (LPARs) e as classificações de ter os LPARs — MIPS (milhões de instruções por segundo) ou MSU (milhões de serviço de unidade). Ao determinar o tamanho da VM comparável necessário para executar uma carga de trabalho de mainframe no Azure, classificação de fator na MIPS (ou MSU).
+Um mainframe Z14 pode ter até 240 núcleos. No entanto, os mainframes Z14 quase nunca usam todos os núcleos para um único aplicativo ou carga de trabalho. Em vez disso, um mainframe separa as cargas de trabalho em partições lógicas (LPARs) e os LPARs têm classificações – MIPS (milhões de instruções por segundo) ou MSU (milhão de unidades de serviço). Ao determinar o tamanho de VM comparável necessário para executar uma carga de trabalho de mainframe no Azure, fator na classificação MIPS (ou MSU).
 
-Seguem-se as estimativas de gerais:
+Veja a seguir as estimativas gerais:
 
 -   150 MIPS por vCPU
 
--   1000 MIPS por processador
+-   1\.000 MIPS por processador
 
-Para determinar o tamanho VM correto para uma determinada carga de trabalho num LPAR, primeiro Otimize a VM para a carga de trabalho. Em seguida, determine o número de vCPUs necessário. Uma estimativa conservador é 150 MIPS por vCPU. Com base nesta estimativa, por exemplo, uma VM de série F com 16 vCPUs poderia facilmente suportar uma carga de trabalho IBM Db2 proveniente de um LPAR com MIPS 2.400.
+Para determinar o tamanho correto da VM para uma determinada carga de trabalho em um LPAR, primeiro Otimize a VM para a carga de trabalho. Em seguida, determine o número de vCPUs necessário. Uma estimativa conservadora é 150 MIPS por vCPU. Com base nessa estimativa, por exemplo, uma VM da série F com 16 vCPUs poderia facilmente dar suporte a uma carga de trabalho do IBM DB2 proveniente de um LPAR com 2.400 MIPS.
 
-## <a name="azure-compute-scale-up"></a>Aumentar verticalmente de computação do Azure
+## <a name="azure-compute-scale-up"></a>Expansão de computação do Azure
 
-As VMs de série M podem Dimensionar até 128 vCPUs (no momento que este artigo foi escrito). Utilizar a estimativa conservador de 150 MIPS por vCPU,-se a VM de série M equivale a cerca de 19,000 MIPS. A regra geral para estimar MIPS para um mainframe é MIPS 1000 por processador. Um mainframe z14 pode ter até 24 processadores e fornecem cerca de 24.000 MIPS para um sistema de mainframe único.
+As VMs da série M podem ser escaladas verticalmente para 128 vCPUs (no momento em que este artigo foi escrito). Usando a estimativa conservadora de 150 MIPS por vCPU, a VM da série M equivale a cerca de 19.000 MIPS. A regra geral para estimar MIPS para um mainframe é 1.000 MIPS por processador. Um mainframe Z14 pode ter até 24 processadores e fornecer cerca de 24.000 MIPS para um único sistema de mainframe.
 
-O mainframe z14 único maior tem aproximadamente 5.000 MIPS mais do que a VM maior disponível no Azure. Ainda é importante comparar a forma como as cargas de trabalho são implementadas. Se um sistema de mainframe tiver um aplicativo e uma base de dados relacional, normalmente estiver implementados no mesmo mainframe físico — cada um em seu próprio LPAR. A mesma solução no Azure é frequentemente implementada com uma VM para o aplicativo e uma VM separada, convenientemente tamanho da base de dados.
+O maior mainframe Z14 único tem aproximadamente 5.000 MIPS mais do que a maior VM disponível no Azure. Ainda é importante comparar como as cargas de trabalho são implantadas. Se um sistema de mainframe tiver um aplicativo e um banco de dados relacional, eles normalmente serão implantados no mesmo mainframe físico, cada um em seu próprio LPAR. A mesma solução no Azure é geralmente implantada usando uma VM para o aplicativo e uma VM de tamanho adequado e separada para o banco de dados.
 
-Por exemplo, se o aplicativo oferece suporte a um sistema de vCPU M64 e um vCPU M96 é utilizado para a base de dados, aproximadamente 150 vCPUs são necessários — ou cerca de 24.000 MIPS, como mostra a figura seguinte.
+Por exemplo, se um sistema m64 vCPU dá suporte ao aplicativo e um M96 vCPU é usado para o banco de dados, aproximadamente 150 vCPUs são necessários — ou cerca de 24.000 MIPS, como mostra a figura a seguir.
 
-![Comparar implementações de carga de trabalho de 24.000 MIPS](media/mainframe-compute-mips.png)
+![Comparando implantações de carga de trabalho de 24.000 MIPS](media/mainframe-compute-mips.png)
 
-A abordagem é migrar LPARs às VMs individuais. Em seguida, Azure facilmente se aumentar verticalmente para o tamanho necessário para a maioria dos aplicativos que estão implementadas num sistema de mainframe único.
+A abordagem é migrar LPARs para VMs individuais. Em seguida, o Azure é facilmente dimensionado para o tamanho necessário para a maioria dos aplicativos implantados em um único sistema de mainframe.
 
-## <a name="azure-compute-scale-out"></a>Escalamento de computação do Azure
+## <a name="azure-compute-scale-out"></a>Expansão de computação do Azure
 
-Uma das vantagens de uma solução com base no Azure é a capacidade de aumentar horizontalmente. Capacidade disponível para uma aplicação de computação de torna dimensionamento quase ilimitada. O Azure suporta vários métodos para aumentar horizontalmente o poder de computação:
+Uma das vantagens de uma solução baseada no Azure é a capacidade de escalar horizontalmente. O dimensionamento torna a capacidade de computação quase ilimitada disponível para um aplicativo. O Azure dá suporte a vários métodos para escalar horizontalmente a potência de computação:
 
-- **O balanceamento de carga num cluster.** Neste cenário, uma aplicação pode utilizar um [Balanceador de carga](/azure/load-balancer/load-balancer-overview) ou do resource manager para distribuir a carga de trabalho entre várias VMs num cluster. Se mais de computação seja necessária capacidade, VMs adicionais são adicionadas ao cluster.
+- **Balanceamento de carga em um cluster.** Nesse cenário, um aplicativo pode usar um [balanceador de carga](/azure/load-balancer/load-balancer-overview) ou Gerenciador de recursos para distribuir a carga de trabalho entre várias VMs em um cluster. Se mais capacidade de computação for necessária, as VMs adicionais serão adicionadas ao cluster.
 
-- **Conjuntos de dimensionamento de máquina virtual.** Neste cenário de expansão, uma aplicação poder Dimensionar adicional [recursos de computação](/azure/virtual-machine-scale-sets/overview) com base na utilização VM. Quando atingir a pedido, o número de VMs num conjunto de dimensionamento também pode ser reduzidos, garantindo uma utilização eficiente da capacidade de computação.
+- **Conjuntos de dimensionamento de máquinas virtuais.** Nesse cenário de intermitência, um aplicativo pode ser dimensionado para [recursos de computação](/azure/virtual-machine-scale-sets/overview) adicionais com base no uso da VM. Quando a demanda cai, o número de VMs em um conjunto de dimensionamento também pode ficar inativo, garantindo o uso eficiente da capacidade de computação.
 
-- **PaaS dimensionamento.** Recursos de computação de dimensionamento de ofertas de PaaS do Azure. Por exemplo, [do Azure Service Fabric](/azure/service-fabric/service-fabric-overview) aloca recursos de computação para satisfazer o aumento do volume de pedidos.
+- **Dimensionamento de PaaS.** As ofertas de PaaS do Azure dimensionam os recursos de computação. Por exemplo, o [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) aloca recursos de computação para atender a aumentos no volume de solicitações.
 
-- **Clusters do Kubernetes.** As aplicações no Azure podem utilizar [clusters do Kubernetes](/azure/aks/concepts-clusters-workloads) para serviços de computação para os recursos especificados. O Azure Kubernetes Service (AKS) é um serviço gerido que orquestra nós do Kubernetes, conjuntos e clusters no Azure.
+- **Clusters kubernetes.** Os aplicativos no Azure podem usar [clusters kubernetes](/azure/aks/concepts-clusters-workloads) para serviços de computação para recursos especificados. O AKS (serviço kubernetes do Azure) é um serviço gerenciado que orquestra nós, pools e clusters do kubernetes no Azure.
 
-Para escolher o método correto para dimensionar recursos de computação, é importante compreender como o Azure e mainframes diferem. A chave é como — ou se — os dados são partilhados por recursos de computação. No Azure, os dados (por predefinição) não é geralmente partilhados por várias VMs. Se a partilha de dados é exigido pelo cluster de cálculo de várias VMs no Escalamento horizontal, os dados partilhados tem de residir num recurso que oferece suporte a essa funcionalidade. No Azure, partilha de dados envolve armazenamento como a secção seguinte explica.
+Para escolher o método certo para expandir os recursos de computação, é importante entender como o Azure e os mainframes diferem. A chave é como (ou se) os dados são compartilhados por recursos de computação. No Azure, os dados (por padrão) normalmente não são compartilhados por várias VMs. Se o compartilhamento de dados for exigido por várias VMs em um cluster de cálculo de expansão, os dados compartilhados deverão residir em um recurso que dá suporte a essa funcionalidade. No Azure, o compartilhamento de dados envolve o armazenamento conforme a seção a seguir aborda.
 
 ## <a name="azure-compute-optimization"></a>Otimização de computação do Azure
 
-Pode otimizar a cada escalão de processamento numa arquitetura do Azure. Utilize o tipo mais adequado das VMs e recursos para cada ambiente. A figura seguinte mostra um padrão de potencial para a implementação de VMs no Azure para oferecer suporte a uma aplicação de CICS que utiliza o Db2. No site primário, produção, as VMs de pré-produção e de testes são implementadas com elevada disponibilidade. O site secundário destina-se a cópia de segurança e recuperação após desastre.
+Você pode otimizar cada camada de processamento em uma arquitetura do Azure. Use o tipo mais adequado de VMs e recursos para cada ambiente. A figura a seguir mostra um padrão potencial para implantar VMs no Azure para dar suporte a um aplicativo CICS que usa DB2. No site primário, a produção, a pré-produção e as VMs de teste são implantadas com alta disponibilidade. O site secundário é para backup e recuperação de desastres.
 
-Cada camada também pode fornecer desastre adequado dos serviços de recuperação. Por exemplo, VMs de base de dados e de produção podem requerer uma recuperação de acesso frequente ou pouco frequente, enquanto o desenvolvimento e testes VMs suportam uma recuperação fria.
+Cada camada também pode fornecer serviços de recuperação de desastre apropriados. Por exemplo, as VMs de produção e de banco de dados podem exigir uma recuperação quente ou quente, enquanto as VMs de desenvolvimento e teste dão suporte a uma recuperação fria.
 
-![Implementação de elevada disponibilidade que suporta a recuperação após desastre](media/mainframe-compute-dr.png)
+![Implantação altamente disponível que dá suporte à recuperação de desastre](media/mainframe-compute-dr.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Mainframe realojamento em máquinas de virtuais do Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Hospedagem de mainframe em máquinas virtuais do Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Mover o armazenamento de mainframe para o Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Recursos da IBM
 
-- [Sysplex paralela no IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS e o recurso de acoplamento: Além do básico](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Criação de usuários necessários para uma instalação da funcionalidade de pureScale de Db2](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt - criar instância de comando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale solução de banco de dados agrupadas](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Sysplex paralelo no IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
+- [IBM CICS e o recurso de acoplamento: além dos conceitos básicos](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [Criando usuários necessários para uma instalação de recurso do DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt-comando de criação de instância](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [Solução de banco de dados clusterizado DB2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Cloud do Microsoft Azure Government para aplicações de mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
-- [A Microsoft e FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
+- [Microsoft Azure Governamental nuvem para aplicativos de mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+- [Microsoft e FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### <a name="more-migration-resources"></a>Mais recursos de migração
 
-- [Alliance de modernização de plataforma: IBM Db2 no Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Datacenter Virtual do Azure Lift- and -Shift guia](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Guia de comparação de precisão e deslocamento do data center virtual do Azure](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

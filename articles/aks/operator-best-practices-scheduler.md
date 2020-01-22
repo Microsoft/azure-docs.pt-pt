@@ -1,47 +1,47 @@
 ---
-title: Práticas recomendadas do operador – recursos de agendador básica dos serviços de Kubernetes no Azure (AKS)
-description: Conheça as práticas recomendadas de operador de cluster para a utilização de recursos do agendador básica, tais como quotas de recursos e pod orçamentos de interrupção no Azure Kubernetes Service (AKS)
+title: Práticas recomendadas do operador-recursos básicos do Agendador nos serviços Kubernetess do Azure (AKS)
+description: Conheça as práticas recomendadas do operador de cluster para usar recursos básicos do Agendador, como cotas de recursos e orçamentos de interrupção de Pod no serviço de kubernetes do Azure (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614627"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293611"
 ---
-# <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do agendador básica no Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos básicos do Agendador no serviço de kubernetes do Azure (AKS)
 
-Como gerir clusters no Azure Kubernetes Service (AKS), precisa, muitas vezes isolar cargas de trabalho e as equipes. O agendador de Kubernetes fornece funcionalidades que permitem-lhe controlar a distribuição de recursos de computação ou limitar o impacto de eventos de manutenção.
+Ao gerenciar clusters no AKS (serviço kubernetes do Azure), muitas vezes você precisa isolar equipes e cargas de trabalho. O Agendador kubernetes fornece recursos que permitem controlar a distribuição de recursos de computação ou limitar o impacto dos eventos de manutenção.
 
-Este artigo de melhores práticas se concentra em Kubernetes básica funcionalidades de agendamento para operadores de cluster. Neste artigo, vai aprender a:
+Este artigo de práticas recomendadas se concentra em recursos básicos de agendamento de kubernetes para operadores de cluster. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Utilizar quotas de recursos para fornecer uma quantidade fixa de recursos para as equipes ou cargas de trabalho
-> * Limitar o impacto da manutenção agendada com orçamentos de interrupção de pod
-> * Verificação de ausentes solicitações de recursos de pod e limites usando o `kube-advisor` ferramenta
+> * Use cotas de recursos para fornecer uma quantidade fixa de recursos para equipes ou cargas de trabalho
+> * Limitar o impacto da manutenção agendada usando orçamentos de interrupção de Pod
+> * Verificar se há solicitações e limites de recursos Pod ausentes usando a ferramenta de `kube-advisor`
 
-## <a name="enforce-resource-quotas"></a>Enforce resource quotas
+## <a name="enforce-resource-quotas"></a>Impor cotas de recursos
 
-**Melhores diretrizes de práticas** -planear e a aplicar quotas de recursos ao nível do espaço de nomes. Se não definem o pods solicitações de recursos e limites, rejeite a implementação. Monitorizar a utilização de recursos e ajustar as quotas conforme necessário.
+**Diretrizes de práticas recomendadas** -planeje e aplique cotas de recursos no nível de namespace. Se os pods não definirem limites e solicitações de recursos, rejeite a implantação. Monitore o uso de recursos e ajuste as cotas conforme necessário.
 
-Pedidos de recursos e os limites são colocados na especificação pod. Estes limites são utilizados pelo agendador do Kubernetes no momento da implementação para encontrar um nó disponível no cluster. Estes limites e pedidos de funcionam ao nível do pod individuais. Para obter mais informações sobre como definir esses valores, consulte [solicitações de recursos de pod de definir e limites][resource-limits]
+As solicitações de recursos e os limites são colocados na especificação de Pod. Esses limites são usados pelo Agendador kubernetes no momento da implantação para encontrar um nó disponível no cluster. Esses limites e solicitações funcionam no nível de Pod individual. Para obter mais informações sobre como definir esses valores, consulte [definir limites e solicitações de recursos Pod][resource-limits]
 
-Para fornecer uma forma de reservar e limitar os recursos numa equipe de desenvolvimento ou projeto, deve usar *quotas de recursos*. Estas quotas estão definidas num espaço de nomes e podem ser utilizadas para definir as quotas com base no facto seguinte:
+Para fornecer uma maneira de reservar e limitar recursos em uma equipe de desenvolvimento ou projeto, você deve usar *cotas de recursos*. Essas cotas são definidas em um namespace e podem ser usadas para definir cotas da seguinte maneira:
 
-* **Recursos de computação**, tais como CPU e memória ou GPUs.
-* **Recursos de armazenamento**, inclui o número total de volumes ou a quantidade de espaço em disco para uma classe de armazenamento fornecida.
-* **Contagem de objectos**, como o número máximo de segredos, serviços ou tarefas podem ser criados.
+* **Recursos de computação**, como CPU e memória, ou GPUs.
+* **Recursos de armazenamento**, inclui o número total de volumes ou a quantidade de espaço em disco para uma determinada classe de armazenamento.
+* A **contagem de objetos**, como o número máximo de segredos, serviços ou trabalhos, pode ser criada.
 
-Kubernetes não sobreconsolidar recursos. Assim que o total cumulativo de pedidos de recursos ou limites passa a quota atribuída, sem implementações adicionais são com êxito.
+Kubernetes não compromete os recursos. Depois que o total cumulativo de solicitações ou limites de recursos passar a cota atribuída, nenhuma implantação adicional será bem-sucedida.
 
-Ao definir quotas de recursos, todos os pods criados no espaço de nomes tem de fornecer limites ou pedidos nas suas especificações de pod. Se eles não fornecem estes valores, pode rejeitar a implementação. Em vez disso, pode [configurar pedidos de padrão e limites para um espaço de nomes][configure-default-quotas].
+Quando você define cotas de recursos, todos os pods criados no namespace devem fornecer limites ou solicitações em suas especificações de Pod. Se eles não fornecerem esses valores, você poderá rejeitar a implantação. Em vez disso, você pode [configurar as solicitações e os limites padrão para um namespace][configure-default-quotas].
 
-O manifesto YAML de exemplo seguinte com o nome *dev-aplicação-equipe-quotas.yaml* define um limite restritivo de um total de *10* CPUs, *20Gi* de memória, e *10*pods:
+O manifesto YAML de exemplo a seguir chamado *dev-app-Team-cotas. YAML* define um limite rígido de um total de *10* CPUs, *20Gi* de memória e *10* pods:
 
 ```yaml
 apiVersion: v1
@@ -55,32 +55,32 @@ spec:
     pods: "10"
 ```
 
-Esta quota de recursos pode ser aplicada ao especificar o espaço de nomes, tal como *dev-apps*:
+Essa cota de recursos pode ser aplicada especificando o namespace, como *dev-apps*:
 
 ```console
 kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 ```
 
-Trabalhar com os seus desenvolvedores de aplicativos e os proprietários para compreender suas necessidades e aplicar as quotas de recursos adequados.
+Trabalhe com seus desenvolvedores e proprietários de aplicativos para entender suas necessidades e aplicar as cotas de recursos apropriadas.
 
-Para obter mais informações sobre objetos de recursos disponíveis, âmbitos e as prioridades, consulte [quotas de recursos no Kubernetes][k8s-resource-quotas].
+Para obter mais informações sobre objetos de recursos, escopos e prioridades disponíveis, consulte [cotas de recursos em kubernetes][k8s-resource-quotas].
 
-## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Planear a disponibilidade com orçamentos de interrupção de pod
+## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Planejar a disponibilidade usando orçamentos de interrupção de Pod
 
-**Melhores diretrizes de práticas** - para manter a disponibilidade de aplicações, definir orçamentos de interrupção de Pod (PDBs) para se certificar de que um número mínimo de pods está disponível no cluster.
+**Diretrizes de práticas recomendadas** -para manter a disponibilidade de aplicativos, defina PDBs (orçamentos de interrupção de Pod) para garantir que um número mínimo de pods esteja disponível no cluster.
 
-Existem dois eventos disruptivos que fazer com que os pods ser removido:
+Há dois eventos de interrupção que fazem com que pods sejam removidos:
 
-* *As interrupções involuntários* são eventos além do controlo típico do operador de cluster ou proprietário da aplicação.
-  * Essas interrupções involuntários incluem uma falha de hardware na máquina física, um entre em pânico do kernel ou a eliminação de um nó de VM
-* *As interrupções voluntárias* são eventos que solicitou pela operadora de rede de cluster ou proprietário da aplicação.
-  * Essas interrupções voluntárias incluem atualizações de cluster, um modelo de implementação atualizada ou eliminar acidentalmente um pod.
+* *Interrupções involuntárias* são eventos além do controle típico do proprietário do aplicativo ou do operador de cluster.
+  * Essas interrupções involuntárias incluem uma falha de hardware no computador físico, um pane no kernel ou a exclusão de uma VM do nó
+* As *interrupções voluntárias* são eventos solicitados pelo proprietário do aplicativo ou operador do cluster.
+  * Essas interrupções voluntárias incluem atualizações de cluster, um modelo de implantação atualizado ou a exclusão acidental de um pod.
 
-As interrupções involuntários podem ser atenuadas utilizando várias réplicas dos seus pods numa implementação. Execução de vários nós do cluster do AKS também ajuda a com essas interrupções involuntários. Para as interrupções voluntárias, Kubernetes fornece *pod orçamentos de interrupção* que permitem que o operador de cluster, definir uma contagem mínima disponível ou máximo disponível de recursos. Estes orçamentos de interrupção de pod permitem-lhe planear a forma como as implementações ou conjuntos de réplicas respondem quando ocorre um evento de interrupção voluntária.
+As interrupções involuntárias podem ser atenuadas usando várias réplicas de seu pods em uma implantação. A execução de vários nós no cluster AKS também ajuda com essas interrupções involuntárias. Para interrupções voluntárias, o kubernetes fornece *orçamentos de interrupção de Pod* que permitem que o operador de cluster defina uma contagem mínima de recursos disponível ou máximo indisponível. Esses orçamentos de interrupção de Pod permitem planejar como as implantações ou conjuntos de réplicas respondem quando ocorre um evento de interrupção voluntário.
 
-Se um cluster está a ser atualizado ou um modelo de implementação atualizado, o agendador de Kubernetes torna-se de que adicionais pods são agendadas noutros nós antes de continuarem com os eventos de interrupção voluntária. O agendador aguarda antes de um nó é reiniciado, até que o número definido de pods é agendado com êxito nos outros nós do cluster.
+Se um cluster for atualizado ou um modelo de implantação for atualizado, o Agendador kubernetes garantirá que os pods adicionais sejam agendados em outros nós antes que os eventos de interrupção voluntários possam continuar. O Agendador aguarda antes de um nó ser reinicializado até que o número definido de pods seja agendado com êxito em outros nós no cluster.
 
-Vamos examinar um exemplo de uma réplica definido com cinco pods com o NGINX. Os pods na réplica definido como atribuídos ao rótulo `app: nginx-frontend`. Durante um evento de interrupção voluntária, como uma atualização de cluster e pretender certificar-se de que, pelo menos, três pods continuam a ser executado. A seguinte YAML de manifesto para um *PodDisruptionBudget* objeto define estes requisitos:
+Vejamos um exemplo de um conjunto de réplicas com cinco pods que executam NGINX. O pods no conjunto de réplicas recebe o rótulo `app: nginx-frontend`. Durante um evento de interrupção voluntário, como uma atualização de cluster, você deseja garantir que pelo menos três pods continuem em execução. O seguinte manifesto YAML para um objeto *PodDisruptionBudget* define estes requisitos:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -94,9 +94,9 @@ spec:
       app: nginx-frontend
 ```
 
-Também pode definir como uma percentagem *60%* , que permite-lhe compensar automaticamente para a réplica de definir a aumentar o número de pods.
+Você também pode definir uma porcentagem, como *60%* , que permite compensar automaticamente o conjunto de réplicas aumentando o número de pods.
 
-Pode definir um número máximo de instâncias indisponíveis num conjunto de réplicas. Novamente, também pode ser definida uma percentagem para os pods indisponíveis máximos. O manifesto YAML do orçamento de interrupção de pod seguinte define o que não mais do que dois pods na réplica do conjunto não estar disponível:
+Você pode definir um número máximo de instâncias não disponíveis em um conjunto de réplicas. Novamente, um percentual para o pods máximo indisponível também pode ser definido. O manifesto de YAML do orçamento de interrupção do pod a seguir define que não há mais do que dois pods no conjunto de réplicas disponíveis:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -110,32 +110,32 @@ spec:
       app: nginx-frontend
 ```
 
-Assim que o seu orçamento de interrupção de pod é definido, criá-la no cluster do AKS tal como acontece com qualquer outro objeto de Kubernetes:
+Depois que o orçamento de interrupção do pod for definido, você o criará no cluster AKS como com qualquer outro objeto kubernetes:
 
 ```console
 kubectl apply -f nginx-pdb.yaml
 ```
 
-Trabalhar com os seus desenvolvedores de aplicativos e os proprietários para compreender suas necessidades e aplicar os orçamentos de interrupção de pod apropriado.
+Trabalhe com seus desenvolvedores e proprietários de aplicativos para entender suas necessidades e aplicar os orçamentos de interrupção de Pod apropriados.
 
-Para obter mais informações sobre como utilizar os orçamentos de interrupção de pod, consulte [especifiquem um orçamento de interrupção para a sua aplicação][k8s-pdbs].
+Para obter mais informações sobre como usar orçamentos de interrupção de Pod, consulte [especificar um orçamento de interrupção para seu aplicativo][k8s-pdbs].
 
-## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificar regularmente a existência de problemas de cluster com o Assistente do kube
+## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificar regularmente problemas de cluster com o Kube-Advisor
 
-**Melhores diretrizes de práticas** -regularmente executam a versão mais recente do `kube-advisor` ferramenta de código-fonte aberto para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster do AKS existente, execute `kube-advisor` primeiro para encontrar os pods que não têm pedidos de recursos e os limites definidos.
+**Diretrizes de práticas recomendadas** -execute regularmente a versão mais recente do `kube-advisor` ferramenta de software livre para detectar problemas no cluster. Se você aplicar cotas de recursos em um cluster AKS existente, execute `kube-advisor` primeiro para localizar pods que não têm limites e solicitações de recursos definidos.
 
-O [kube advisor][kube-advisor] ferramenta é um projeto de código-fonte aberto associado do AKS que verifica a existência de um cluster do Kubernetes, relatórios de problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
+A ferramenta [Kube-Advisor][kube-advisor] é um projeto de código-fonte aberto AKs associado que examina um cluster kubernetes e relata os problemas encontrados. Uma verificação útil é identificar os pods que não têm solicitações de recursos e limites em vigor.
 
-A ferramenta de aconselhamento do kube pode reportar pedido de recurso e limites em falta em aplicativos de PodSpecs para Windows, bem como as aplicações do Linux, mas a própria ferramenta kube advisor deverá ser programada num pod do Linux. Pode agendar um pod para serem executadas num conjunto de nós com um através do sistema operacional específico uma [Seletor de nó][k8s-node-selector] na configuração o pod.
+A ferramenta Kube-Advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta Kube-Advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
-Num cluster do AKS que hospeda várias equipes de desenvolvimento e aplicações, pode ser difícil de controlar os pods sem esses recursos solicitam e nos limites do conjunto. Como melhor prática, executar regularmente `kube-advisor` nos seus clusters do AKS, especialmente se não atribuir quotas de recursos para espaços de nomes.
+Em um cluster AKS que hospeda várias equipes de desenvolvimento e aplicativos, pode ser difícil rastrear pods sem essas solicitações de recursos e limites definidos. Como prática recomendada, execute regularmente `kube-advisor` em seus clusters AKS, especialmente se você não atribuir cotas de recursos a namespaces.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo concentra-se nas funcionalidades básicas do agendador de Kubernetes. Para obter mais informações sobre as operações de cluster no AKS, consulte as seguintes práticas recomendadas:
+Este artigo se concentrou nos recursos básicos do Agendador de kubernetes. Para obter mais informações sobre as operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 
-* [Isolamento de vários inquilinos e de cluster][aks-best-practices-cluster-isolation]
-* [Funcionalidades avançadas de scheduler de Kubernetes][aks-best-practices-advanced-scheduler]
+* [Multilocação e isolamento de cluster][aks-best-practices-cluster-isolation]
+* [Recursos do Agendador do kubernetes avançado][aks-best-practices-advanced-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

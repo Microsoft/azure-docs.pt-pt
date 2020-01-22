@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028736"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289446"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Avaliar VMs do VMware usando a avaliação do servidor de migrações para Azure
 
@@ -176,7 +176,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 1. Selecione **validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
-Para a descoberta de aplicativos, funções e recursos, e para visualizar dependências das VMs, você pode fornecer credenciais de VM que tenham acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre as permissões de acesso necessárias.
+Para a descoberta de aplicativos, funções e recursos, e para visualizar dependências das VMs, você pode fornecer credenciais de VM que tenham acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sobre as permissões de acesso necessárias.
 
 > [!NOTE]
 > Essa entrada é opcional, mas você precisará dela se quiser habilitar a descoberta de aplicativos e a visualização de dependência sem agente.
@@ -210,7 +210,7 @@ Esse procedimento é necessário para a migração de servidor sem agente.
 1.  Selecione sua instância do vCenter Server no menu suspenso.
 1.  Selecione **criar função**.
 1.  Insira um nome para a nova função (como <em>Azure_Migrate</em>).
-1.  Atribua [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) à função definida recentemente.
+1.  Atribua [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) à função definida recentemente.
 1.  Selecione **OK**.
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3. atribuir permissões em objetos do vCenter
@@ -219,7 +219,7 @@ Há duas abordagens para atribuir permissões em objetos de inventário no vCent
 
 Para a avaliação do servidor, você deve aplicar a função **somente leitura** à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai serão incluídos: host, pasta de hosts, cluster e pasta de clusters na hierarquia até o datacenter. Essas permissões serão propagadas para objetos filho na hierarquia.
 
-Da mesma forma, para migração de servidor, você deve aplicar uma função definida pelo usuário com [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) para a conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas. Essa função pode ser nomeada <em>_Migrate do Azure</em>.
+Da mesma forma, para migração de servidor, você deve aplicar uma função definida pelo usuário com [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) para a conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas. Essa função pode ser nomeada <em>_Migrate do Azure</em>.
 
 ![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e4e09ca77de00b7f189db2cbbcaca2e090dd7e72
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428516"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311636"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
-Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no designer de Azure Machine Learning (versão prévia). Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
+Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no Azure Machine Learning designer. Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
 
 Em geral, a *seleção de recursos* refere-se ao processo de aplicação de testes estatísticos a entradas, dado uma saída especificada. O objetivo é determinar quais colunas são mais previsíveis na saída. O módulo seleção de recursos baseada em filtro fornece vários algoritmos de seleção de recursos para escolher. O módulo inclui métodos de correlação, como os valores de correlação Pearson e qui-quadrado. 
 
@@ -97,9 +97,9 @@ Você escolhe uma métrica estatística padrão. O módulo computa a correlaçã
 
 Após a conclusão do processamento:
 
-+ Para ver uma lista completa das colunas de recursos que foram analisadas e suas pontuações, clique com o botão direito do mouse no módulo. Selecione **recursos**e, em seguida, selecione **Visualizar**.  
++ Para ver uma lista completa das colunas de recursos analisadas e suas pontuações, clique com o botão direito do mouse no módulo e selecione **Visualizar**.  
 
-+ Para exibir o conjunto de um que é gerado com base nos critérios de seleção de recursos, clique com o botão direito do mouse no módulo. Selecione **DataSet**e, em seguida, selecione **Visualizar**. 
++ Para exibir o conjunto de módulos com base em seus critérios de seleção de recursos, clique com o botão direito do mouse no módulo e selecione **Visualizar**. 
 
 Se o conjunto de um contiver menos colunas do que o esperado, verifique as configurações do módulo. Verifique também os tipos de dados das colunas fornecidas como entrada. Por exemplo, se você definir o **número de recursos desejados** como 1, o conjunto de resultados de saída conterá apenas duas colunas: a coluna de rótulo e a coluna de recurso com mais alta classificação.
 

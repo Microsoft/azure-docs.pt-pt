@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 421f1f733e64daaa4d87ce3c5af5126a48a8ffa5
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170891"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314033"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importar seus dados para o designer de Azure Machine Learning (versão prévia)
+# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importar seus dados para o designer de Azure Machine Learning
 
 Neste artigo, você aprenderá a importar seus próprios dados no designer para criar soluções personalizadas. Há duas maneiras de importar dados para o designer: 
 

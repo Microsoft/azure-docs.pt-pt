@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5c663bb507656dad6f073b9906fdbf104714c8f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c1e34bb418f9be2e26afc117343f1fa50bd8566
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450814"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76309074"
 ---
 Estas perguntas frequentes se aplicam a conexões P2S que usam o modelo de implantação clássico.
 
@@ -36,7 +36,7 @@ Não. O suporte é limitado apenas às versões listadas do sistema operacional 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade do cliente VPN podem existir em minha configuração de ponto a site?
 
 A quantidade de pontos de extremidade do cliente VPN depende do seu protocolo e SKU do gateway.
-[! INCLUIR taxa de transferência agregada por SKU]
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Posso utilizar AC de raiz de PKI interna para a conetividade Ponto a Site?
 

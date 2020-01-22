@@ -3,7 +3,7 @@ title: Compartilhar portal do Azure dashboards usando o RBAC | Microsoft Docs
 description: Este artigo explica como compartilhar um painel no portal do Azure usando o controle de acesso baseado em função.
 services: azure-portal
 documentationcenter: ''
-author: mblythe
+author: mgblythe
 manager: mtillman
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mblythe
-ms.openlocfilehash: da983a6a3c86be87f1a24b67252a40adac2fa59d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ce94a35ebcbf5d8cf3d176f05ac75ea5da5d8d99
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75641392"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310752"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções
 

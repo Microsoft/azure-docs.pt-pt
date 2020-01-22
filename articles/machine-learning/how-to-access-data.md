@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: ae04bf5268bb9973098735183842f7393e9d679b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4de8b032bd284ce0a2d6d8fd168b9ea3dd4937d3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121765"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289055"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Atualmente, os armazenamentos de dados dão suporte ao armazenamento de informa�
 | Tipo de&nbsp;de armazenamento | Tipo de&nbsp;de autenticação | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [CLI do Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST do Azure&nbsp;Machine&nbsp;Learning&nbsp;](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
 [Armazenamento de&nbsp;blob do Azure&nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chave de conta <br> Token de SAS | ✓ | ✓ | ✓ |✓
-[Compartilhamento de&nbsp;de arquivos do&nbsp;do Azure]((https://docs.microsoft.com/azure/storage/files/storage-files-introduction))| Chave de conta <br> Token de SAS | ✓ | ✓ | ✓ |✓
+[Compartilhamento de&nbsp;de arquivos do&nbsp;do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chave de conta <br> Token de SAS | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Principal de serviço| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Principal de serviço| ✓ | ✓ | ✓ |✓
 Banco de dados SQL&nbsp;do Azure&nbsp;| Autenticação do SQL <br>Principal de serviço| ✓ | ✓ | ✓ |✓
@@ -271,7 +271,7 @@ Para situações em que o SDK não fornece acesso aos armazenamentos de dados, v
 
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Mover dados para soluções de armazenamento do Azure com suporte
 
-Azure Machine Learning dá suporte ao acesso a dados do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure e banco de dados do Azure para PostgreSQL. Se você estiver usando um armazenamento sem suporte, recomendamos que você mova seus dados para soluções de armazenamento do Azure com suporte usando [Azure data Factory e essas etapas]((https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool)). Mover dados para o armazenamento com suporte pode ajudá-lo a salvar os custos de egresso de dados durante experimentos de aprendizado de máquina. 
+Azure Machine Learning dá suporte ao acesso a dados do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure e banco de dados do Azure para PostgreSQL. Se você estiver usando um armazenamento sem suporte, recomendamos que você mova seus dados para soluções de armazenamento do Azure com suporte usando [Azure data Factory e essas etapas](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Mover dados para o armazenamento com suporte pode ajudá-lo a salvar os custos de egresso de dados durante experimentos de aprendizado de máquina. 
 
 Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores predefinidos sem custo adicional. Esses conectores incluem serviços de dados do Azure, fontes de dados locais, Amazon S3 e redshift e Google BigQuery.
 

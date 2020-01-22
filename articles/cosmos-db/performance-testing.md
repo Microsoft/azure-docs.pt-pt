@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616771"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313761"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Desempenho e dimensionamento testes com o Azure Cosmos DB
 
@@ -37,16 +37,16 @@ Se estiver à procura de opções de configuração do lado do cliente melhorar 
 ## <a name="run-the-performance-testing-application"></a>Executar o aplicativo de teste de desempenho
 A forma mais rápida para começar a utilizar é compilar e executar o exemplo de .NET, conforme descrito nos passos seguintes. Também pode rever o código-fonte e implementar configurações semelhantes no seus próprios aplicativos de cliente.
 
-**Etapa 1:** Baixe o projeto do [Azure Cosmos DB exemplo de teste de desempenho](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)ou faça fork do repositório github.
+**Passo 1:** transfira o projeto de [exemplo o teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), ou bifurcar o repositório do GitHub.
 
-**Etapa 2:** Modifique as configurações para EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) em app. config.
+**Passo 2:** modificar as definições para EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) no App. config.
 
 > [!NOTE]
 > Antes de aprovisionar coleções com um débito elevado, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar os custos por coleção. O Azure Cosmos DB cobra o armazenamento e débito de forma independente numa base horária. Você pode economizar custos excluindo ou reduzindo a taxa de transferência de seus contêineres de Cosmos do Azure após o teste.
 > 
 > 
 
-**Etapa 3:** Compile e execute o aplicativo de console na linha de comando. Deverá ver um resultado semelhante ao seguinte:
+**Passo 3:** compilar e executar a aplicação de consola da linha de comando. Deverá ver um resultado semelhante ao seguinte:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,11 +89,11 @@ A forma mais rápida para começar a utilizar é compilar e executar o exemplo d
     Press any key to exit...
 
 
-**Etapa 4 (se necessário):** A taxa de transferência relatada (RU/s) da ferramenta deve ser igual ou superior à taxa de transferência provisionada da coleção ou de um conjunto de coleções. Se não for, aumentando a DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se o débito da sua aplicação de cliente plateaus, inicie várias instâncias da aplicação em máquinas de cliente adicionais. Se precisar de ajuda com este passo, envie um e-mail askcosmosdb@microsoft.com ou enviar um pedido de suporte do [portal do Azure](https://portal.azure.com).
+**Passo 4 (se necessário):** o débito comunicado (RU/s) a partir da ferramenta deve ser igual ou maior do que o débito aprovisionado da coleção ou um conjunto de coleções. Se não for, aumentando a DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se o débito da sua aplicação de cliente plateaus, inicie várias instâncias da aplicação em máquinas de cliente adicionais. Se você precisar de ajuda com esta etapa, um tíquete de suporte do [portal do Azure](https://portal.azure.com).
 
 Depois de ter a aplicação em execução, pode experimentar diferentes [políticas de indexação](index-policy.md) e [níveis de consistência](consistency-levels.md) para compreender seu impacto no débito e latência. Também pode rever o código-fonte e implementar configurações semelhantes para seus próprios pacotes de testes ou aplicações de produção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, vimos como pode executar o desempenho e dimensionamento testes com o Azure Cosmos DB ao utilizar uma aplicação de consola .NET. Para obter mais informações, veja os artigos seguintes:
 
 * [Desempenho do Cosmos DB do Azure, teste de exemplo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)

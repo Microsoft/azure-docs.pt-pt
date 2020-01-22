@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982445"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311347"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de os Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ Esse código cria um objeto estimador genérico, `est`, que especifica
 
 * Um diretório de script para seus scripts. Todos os ficheiros neste diretório são carregados para os nós do cluster, para execução.
 * O script de treinamento, *train_titanic. py*.
-* O conjunto de dados de entrada para treinamento, `titanic`.
+* O conjunto de dados de entrada para treinamento, `titanic`. `as_named_input()` é necessário para que o conjunto de dados de entrada possa ser referenciado pelo nome atribuído em seu script de treinamento. 
 * O destino de computação para o experimento.
 * A definição de ambiente para o experimento.
 
@@ -126,7 +126,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configurar o estimador
 
-Em vez de passar o conjunto de dados por meio do parâmetro `inputs` no estimador, você também pode passar o DataSet por meio de `script_params` e obter o caminho de dados (ponto de montagem) em seu script de treinamento por meio de argumentos. Dessa forma, você pode acessar seus dados e usar um script de treinamento existente.
+Além de passar o conjunto de dados por meio do parâmetro `inputs` no estimador, você também pode passar o DataSet por meio de `script_params` e obter o caminho de dados (ponto de montagem) em seu script de treinamento por meio de argumentos. Dessa forma, você pode manter seu script de treinamento independente do azureml-SDK. Em outras palavras, você poderá usar o mesmo script de treinamento para depuração local e treinamento remoto em qualquer plataforma de nuvem.
 
 Um objeto de estimador [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para enviar a execução para experimentos de scikit-learn. Saiba mais sobre o treinamento com o [estimador do SKlearn](how-to-train-scikit-learn.md).
 

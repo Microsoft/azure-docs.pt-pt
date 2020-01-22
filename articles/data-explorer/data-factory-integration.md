@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819137"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293628"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrar Data Explorer do Azure com Azure Data Factory
 
@@ -44,6 +44,14 @@ Para obter um passo a passo detalhado da atividade de comando, consulte [usar Az
 ### <a name="copy-in-bulk-from-a-database-template"></a>Copiar em massa de um modelo de banco de dados
 
 A [cópia em massa de um banco de dados para o Azure data Explorer usando o modelo de Azure data Factory](data-factory-template.md) é um pipeline de Azure data Factory predefinido. O modelo é usado para criar vários pipelines por banco de dados ou por tabela para uma cópia mais rápida. 
+
+### <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento 
+
+[Fluxos de dados de mapeamento de Azure data Factory](/azure/data-factory/concepts-data-flow-overview) são transformações de dados projetadas visualmente que permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código Para criar um fluxo de dados e ingerir dados para o Azure Data Explorer, use o seguinte método:
+
+1. Crie o [fluxo de dados de mapeamento](/azure/data-factory/data-flow-create).
+1. [Exporte os dados para o blob do Azure](/azure/data-factory/data-flow-sink). 
+1. Defina a [grade de eventos](/azure/data-explorer/ingest-data-event-grid) ou a atividade de cópia do [ADF](/azure/data-explorer/data-factory-load-data) para ingerir os dados para o Azure data Explorer.
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Selecione entre as atividades de comando copiar e Data Explorer do Azure ao copiar dados 
 

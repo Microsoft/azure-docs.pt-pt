@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com concur | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o concur | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o concur.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de806e764b4a73414604fe6ea64b03aa96666f5f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0cfe569fde8f290c9272520630c2e903e770f223
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988409"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293713"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com concur
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o concur
 
 Neste tutorial, você aprenderá a integrar o concur com o Azure Active Directory (Azure AD). Ao integrar o concur ao Azure AD, você pode:
 
@@ -46,6 +45,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O concur dá suporte ao SSO iniciado por **SP**
 * O concur dá suporte ao provisionamento **de usuário just in time**
+* Depois de configurar o concur, você pode impor controles de sessão, que protegem vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. Os controles de sessão se estendem do acesso condicional. [Saiba como impor o controle de sessão com Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-concur-from-the-gallery"></a>Adicionando o concur da Galeria
 
@@ -83,9 +83,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:`https://<customer-domain>.concursolutions.com`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<customer-domain>.concursolutions.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do concur](https://www.concur.co.in/contact) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -155,3 +155,6 @@ Ao clicar no bloco do concur no painel de acesso, você deverá ser conectado au
 
 - [Experimente o concur com o Azure AD](https://aad.portal.azure.com)
 
+- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o concur com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -10,16 +10,16 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305856"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289803"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
-A migração de cargas de trabalho de ambientes de mainframe para a nuvem permite modernizar sua infraestrutura e, muitas vezes, economizar em custos. Muitas cargas de trabalho podem ser transferidas para o Azure somente com alterações de código secundárias, como atualizar os nomes de bancos de dados.
+A migração de cargas de trabalho de ambientes de mainframe para a nuvem permite modernizar sua infraestrutura e, muitas vezes, economizar em custos. Muitas cargas de trabalho podem ser transferidas para o Azure apenas com pequenas alterações de código, tais como a atualização dos nomes das bases de dados.
 
 Em geral, o termo *mainframe* significa um sistema de computador grande. Especificamente, a grande maioria atualmente em uso são os servidores IBM System Z ou OS sistemas compatíveis com IBM plug-and-compatible que executam MVS, DOS, VSE, OS/390 ou Z/OS.
 
@@ -90,7 +90,7 @@ Com o IaaS do Azure, como uma VM, as funções específicas do sistema fornecem 
 
 ### <a name="scalability"></a>Escalabilidade
 
-Os mainframes normalmente aumentam, enquanto os ambientes de nuvem são expandidos. O Azure oferece uma variedade de tamanhos do [Linux](/azure/virtual-machines/linux/sizes) e do [Windows](/azure/virtual-machines/windows/sizes) para atender às suas necessidades. A nuvem também é dimensionada para cima ou para baixo para corresponder às especificações exatas do usuário. A capacidade de computação, o armazenamento [](/azure/architecture/best-practices/auto-scaling) e os serviços são dimensionados sob demanda em um modelo de cobrança baseado em uso.
+Os mainframes normalmente aumentam, enquanto os ambientes de nuvem são expandidos. O Azure oferece uma variedade de tamanhos do [Linux](/azure/virtual-machines/linux/sizes) e do [Windows](/azure/virtual-machines/windows/sizes) para atender às suas necessidades. A nuvem também é dimensionada para cima ou para baixo para corresponder às especificações exatas do usuário. A capacidade de computação, o armazenamento e os serviços são [dimensionados](/azure/architecture/best-practices/auto-scaling) sob demanda em um modelo de cobrança baseado em uso.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -110,15 +110,15 @@ O Azure governamental ganhou uma autoridade provisória para operar (P-ATO) para
 
 Para começar, baixe [Microsoft Azure governamental Cloud para aplicativos de mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Peça aos nossos [parceiros](partner-workloads.md) para ajudá-lo a migrar ou rehospedar seus aplicativos de mainframe. Para obter diretrizes detalhadas sobre como escolher uma solução de parceiro, consulte o site da Aliança de modernização de [plataforma](https://www.platformmodernization.org/pages/mainframe.aspx) .
+Peça aos nossos [parceiros](partner-workloads.md) para ajudá-lo a migrar ou rehospedar seus aplicativos de mainframe. 
 
 Veja também:
 
 - [White papers sobre tópicos de mainframe](mainframe-white-papers.md)
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Resolução de problemas](/azure/virtual-machines/troubleshooting/)
+- [Resolução de Problemas](/azure/virtual-machines/troubleshooting/)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

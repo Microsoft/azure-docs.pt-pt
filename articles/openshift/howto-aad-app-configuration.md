@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 285456c87835344aba083c68a7876ecc78d9e45e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270563"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288966"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para o Azure Red Hat OpenShift
 
@@ -90,8 +90,8 @@ Para obter detalhes sobre como criar um novo aplicativo do Azure AD, consulte [r
 ## <a name="add-api-permissions"></a>Adicionar permissões de API
 
 1. Na seção **gerenciar** , clique em **permissões de API**.
-2. Clique em **adicionar permissão** e selecione **Azure Active Directory grafo** e, em seguida, **permissões delegadas**
-3. Expanda **usuário** na lista abaixo e verifique se **User. Read** está habilitado.
+2. Clique em **adicionar permissão** e selecione **Azure Active Directory grafo** e, em seguida, **permissões delegadas**. 
+3. Expanda **usuário** na lista abaixo e habilite a permissão **User. Read** . Se o **User. Read** estiver habilitado por padrão, certifique-se de que é o usuário de permissão **Azure Active Directory Graph** **. Read**, *não* o **Microsoft Graph** permissão **User. Read**.
 4. Role para cima e selecione **permissões de aplicativo**.
 5. Expanda **diretório** na lista abaixo e habilite o **diretório. ReadAll**
 6. Clique em **adicionar permissões** para aceitar as alterações.

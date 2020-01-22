@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed3e5c543f96876d9b6078f1bd47839a0a0396a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227503"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: integração do Azure Active Directory com o MCM
 
@@ -53,7 +53,7 @@ Para configurar a integração do MCM ao Azure AD, você precisará adicionar o 
 
 **Para adicionar o MCM da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -61,7 +61,7 @@ Para configurar a integração do MCM ao Azure AD, você precisará adicionar o 
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
@@ -76,12 +76,12 @@ Para que o logon único funcione, é necessário estabelecer uma relação de v�
 
 Para configurar e testar o logon único do Azure AD com o MCM, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o logon único do MCM](#configure-mcm-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 5. **[Criar usuário de teste do MCM](#create-mcm-test-user)** – para ter um equivalente de Brenda Simon no MCM que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -97,7 +97,7 @@ Para configurar o logon único do Azure AD com o MCM, execute as seguintes etapa
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
     ![Editar configuração básica de SAML](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o MCM, execute as seguintes etapa
     b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do MCM](https://mcmtechnology.com/support/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do MCM](https://mcmtechnology.com/support) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
 
@@ -128,17 +128,17 @@ Para configurar o logon único do Azure AD com o MCM, execute as seguintes etapa
 
 ### <a name="configure-mcm-single-sign-on"></a>Configurar o logon único do MCM
 
-Para configurar o logon único no lado do **MCM** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [MCM](https://mcmtechnology.com/support/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do **MCM** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [MCM](https://mcmtechnology.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
     ![Botão novo usuário](common/new-user.png)
 
@@ -175,7 +175,7 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
 6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
@@ -183,7 +183,7 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
 ### <a name="create-mcm-test-user"></a>Criar usuário de teste do MCM
 
-Nesta seção, você criará um usuário chamado Brenda Simon no MCM. Trabalhe com a [equipe de suporte do MCM](https://mcmtechnology.com/support/) para adicionar os usuários na plataforma do MCM. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado Brenda Simon no MCM. Trabalhe com a [equipe de suporte do MCM](https://mcmtechnology.com/support) para adicionar os usuários na plataforma do MCM. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 >[!NOTE]
 >Você pode usar qualquer outra ferramenta de criação de conta de usuário MCM ou APIs fornecidas pelo MCM para provisionar contas de usuário do Azure AD.
@@ -196,7 +196,7 @@ Ao clicar no bloco do MCM no painel de acesso, você deverá ser conectado autom
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

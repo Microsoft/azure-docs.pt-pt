@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e4bc440d59f41988a52b8b7b808b74f95acdf46
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466053"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314271"
 ---
 # <a name="normalize-data-module"></a>Módulo normalizar dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para transformar um conjunto de um DataSet por meio de *normalização*.
 
@@ -98,11 +98,11 @@ Você pode aplicar apenas um método de normalização por vez usando esse módu
 
 O módulo **normalizar dados** gera duas saídas:
 
-- Para exibir os valores transformados, clique com o botão direito do mouse no módulo, selecione conjunto de valores **transformados**e clique em **Visualizar**.
+- Para exibir os valores transformados, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
 
     Por padrão, os valores são transformados em vigor. Se você quiser comparar os valores transformados com os valores originais, use o módulo [adicionar colunas](./add-columns.md) para recombinar os conjuntos de os e exibir as colunas lado a lado.
 
-- Para salvar a transformação para que você possa aplicar o mesmo método de normalização a outro conjunto de outros, clique com o botão direito do mouse no módulo, selecione **função de transformação**e clique em **salvar como transformação**.
+- Para salvar a transformação para que você possa aplicar o mesmo método de normalização a outro conjunto de um, selecione o módulo e selecione **registrar conjunto de registros** na guia **saídas** no painel direito.
 
     Em seguida, você pode carregar as transformações salvas no grupo **transformações** do painel de navegação esquerdo e aplicá-las a um conjunto de um DataSet com o mesmo esquema usando a [transformação./Apply](apply-transformation.md).  
 

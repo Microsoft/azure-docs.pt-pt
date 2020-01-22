@@ -1,6 +1,6 @@
 ---
 title: Como usar hubs de notificação com Python
-description: Saiba como usar os hubs de notificação do Azure de um back-end do Python.
+description: Saiba como usar os hubs de notificação do Azure de um aplicativo Python.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db5174ed6f008be0fed1fdf3c2c83d33277c3b4e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263800"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313832"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar hubs de notificação do Python
 
