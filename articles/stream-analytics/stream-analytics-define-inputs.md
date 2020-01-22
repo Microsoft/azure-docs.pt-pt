@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/17/2020
+ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646851"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314798"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -55,6 +55,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** página no portal
 | **Nome do Hub de eventos** | O nome do hub de eventos para utilizar como entrada. |
 | **Nome de política do Hub de eventos** | A política de acesso partilhado que fornece acesso ao Hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. Esta opção é preenchida automaticamente, a menos que selecionar a opção para fornecer as definições do Hub de eventos manualmente.|
 | **Grupo de consumidores do Hub de eventos** (recomendado) | É altamente recomendado a utilizar um grupo de consumidores distintos para cada tarefa do Stream Analytics. Esta cadeia identifica o grupo de consumidor a utilizar para ingestão de dados do hub de eventos. Se não for especificado nenhum grupo de consumidores, a tarefa do Stream Analytics utiliza o grupo de consumidores $Default.  |
+| **Chave de partição** | Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON se alinha com a especificação e não inclui o 0 na frente para números decimais. |
 | **Codificação** | UTF-8 atualmente é o único formato de codificação suportado. |
 | **Tipo de compressão de evento** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, tais como None (predefinição), GZip e Deflate. |
@@ -104,6 +105,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** página no portal
 | **Nome da política de acesso partilhado** | A política de acesso partilhado que fornece acesso ao IoT Hub. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. |
 | **Chave de política de acesso partilhado** | A chave de acesso partilhado utilizada para autorizar o acesso ao IoT Hub.  Esta opção é preenchida automaticamente no, a menos que selecionar a opção para fornecer o Iot Hub as definições manualmente. |
 | **Grupo de consumidores** | É altamente recomendado que utilize um grupo de consumidores diferentes para cada tarefa do Stream Analytics. O grupo de consumidores é utilizado para ingerir dados a partir do IoT Hub. Stream Analytics utiliza o grupo de consumidores $Default, a menos que especifique de outra forma.  |
+| **Chave de partição** | Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON se alinha com a especificação e não inclui o 0 na frente para números decimais. |
 | **Codificação** | UTF-8 atualmente é o único formato de codificação suportado. |
 | **Tipo de compressão de evento** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, tais como None (predefinição), GZip e Deflate. |
@@ -157,6 +159,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** página no portal
 | **Padrão do caminho** (opcional) | O caminho de ficheiro utilizado para localizar os blobs no contentor especificado. Se você quiser ler BLOBs da raiz do contêiner, não defina um padrão de caminho. No caminho, pode especificar uma ou mais instâncias das seguintes três variáveis: `{date}`, `{time}`, ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` caráter não é um valor permitido para o prefixo do caminho. Só é válida <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blobs do Azure</a> são permitidos. Não inclua nomes de contêiner ou nomes de arquivo. |
 | **Formato de data** (opcional) | Se usar a variável de data no caminho, o formato de data em que os ficheiros estão organizados. Exemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Se usar a variável de tempo no caminho, o formato de hora em que os ficheiros estão organizados. Atualmente o único valor suportado é `HH` durante horas. |
+| **Chave de partição** | Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON se alinha com a especificação e não inclui o 0 na frente para números decimais. |
 | **Codificação** | Para CSV e JSON, UTF-8 é atualmente o único formato de codificação suportado. |
 | **Compressão** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, tais como None (predefinição), GZip e Deflate. |

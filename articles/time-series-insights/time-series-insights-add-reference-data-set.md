@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863500"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314895"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para seu ambiente de Time Series Insights usando o portal do Azure
 
@@ -38,7 +38,9 @@ Os dados de referência não estão ingressados retroativamente. Assim, somente 
 
 1. Localize seu ambiente de Azure Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
-1. Selecione a página **visão geral** . Localize a **URL do time Series insights Explorer** e abra o link.  
+1. Selecione a página **visão geral** . Expanda a seção **Essentials** próxima à parte superior da página para localizar a **URL do time Series insights Explorer** e abrir o link.  
+
+   [![seção expandir noções básicas](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    Exiba o Gerenciador de seu ambiente de Time Series Insights.
 

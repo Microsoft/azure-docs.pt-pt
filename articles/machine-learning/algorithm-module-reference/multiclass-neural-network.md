@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b3d79438797f47dfcc178640af60f5207b4f7650
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466043"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314645"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo de rede neural multiclasse
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de rede neural que possa ser usado para prever um destino que tenha vários valores. 
 
@@ -56,7 +56,7 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
         - A camada de saída é totalmente conectada à camada oculta.
         - A camada oculta é totalmente conectada à camada de entrada.
         - O número de nós na camada de entrada é determinado pelo número de recursos nos dados de treinamento.
-        - O número de nós na camada oculta pode ser definido pelo usuário. O padrão é 100.
+        - O número de nós na camada oculta pode ser definido pelo usuário. A predefinição é 100.
         - O número de nós na camada de saída depende do número de classes.
   
    
@@ -86,10 +86,7 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
 
 Após a conclusão do treinamento:
 
-- Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento e outros parâmetros da rede neural, clique com o botão direito do mouse na saída do [modelo de trem](./train-model.md) e selecione **Visualizar**.  
-
-- Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo pipeline.
-
+- Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
 ## <a name="next-steps"></a>Passos seguintes
 

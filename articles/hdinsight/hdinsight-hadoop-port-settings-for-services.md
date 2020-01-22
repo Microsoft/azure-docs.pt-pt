@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 46c2cd49258b8eb6813caaf50e9895990ce67287
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529559"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314696"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços de Apache Hadoop no HDInsight
 
@@ -53,6 +53,7 @@ Os itens a seguir estão disponíveis para tipos de cluster específicos:
 | Livy |443 |HTTPS |Spark |API REST do Spark. Consulte [enviar trabalhos de Apache Spark remotamente usando o Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Servidor Spark thrift |443 |HTTPS |Spark |Servidor Spark Thrift usado para enviar consultas de Hive. Consulte [usar o beeline com o Apache Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface do usuário da Web do Storm. Consulte [implantar e gerenciar topologias de Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Proxy REST do Kafka |443 |HTTPS |Kafka |API REST do Kafka. Confira [interagir com clusters Apache Kafka no Azure HDInsight usando um proxy REST](kafka/rest-proxy.md) |
 
 ### <a name="authentication"></a>Autenticação
 
@@ -157,6 +158,7 @@ Exemplos:
 | --- | --- | --- | --- | --- |
 | Orienta |Nós de trabalho |9092 |[Protocolo de transmissão Kafka](https://kafka.apache.org/protocol.html) |Usado para comunicação do cliente |
 | &nbsp; |Nós do Zookeeper |2181 |&nbsp; |A porta que os clientes usam para se conectar ao Zookeeper |
+| Proxy REST | Nós de gerenciamento do Kafka |9400 |HTTPS |[Especificação REST do Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Portas do Spark
 

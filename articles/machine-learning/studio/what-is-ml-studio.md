@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3be29dc222e0e9b98ed51d8f921fb9926b018ca
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528356"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314080"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>O que é Machine Learning Studio (clássico)?
 
@@ -38,13 +38,13 @@ Não há nenhuma programação necessária, conecte visualmente conjuntos de val
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Como Machine Learning Studio (clássico) difere da Azure Machine Learning?
 
-[Azure Machine Learning](../overview-what-is-azure-ml.md) fornece SDKs **-e-** o designer de Azure Machine Learning (versão prévia), para preparar dados rapidamente, treinar e implantar modelos de aprendizado de máquina. O designer fornece uma experiência de arrastar e soltar semelhante ao Studio (clássico). No entanto, diferentemente da plataforma de computação proprietária do estúdio (clássico), o designer usa seus próprios recursos de computação e é totalmente integrado ao Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) fornece SDKs **-e-** o designer de Azure Machine Learning, para preparar dados rapidamente, treinar e implantar modelos de aprendizado de máquina. O designer fornece uma experiência de arrastar e soltar semelhante ao Studio (clássico). No entanto, diferentemente da plataforma de computação proprietária do estúdio (clássico), o designer usa seus próprios recursos de computação e é totalmente integrado ao Azure Machine Learning.
 
 Aqui está uma comparação rápida:
 
 || Machine Learning Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
-| Arrastar e soltar interface | Sim | Sim- [Designer de Azure Machine Learning (versão prévia)](../concept-designer.md) |
+| Arrastar e soltar interface | Sim | Sim- [Designer de Azure Machine Learning](../concept-designer.md) |
 | Experimentação | Escalonável (limite de dados de treinamento de 10 GB) | Dimensionar com destino de computação |
 | Módulos para interface do tipo "arrastar e soltar" | Muitas | Conjunto inicial de [módulos](../algorithm-module-reference/module-reference.md) populares|
 |Treinamento de destinos de computação| Destino de computação proprietário, somente suporte de CPU| Dá suporte a Azure Machine Learning computação (GPU ou CPU) e VMs de notebook.<br/>([Outros cálculos com suporte no SDK](../concept-compute-target.md#train))|

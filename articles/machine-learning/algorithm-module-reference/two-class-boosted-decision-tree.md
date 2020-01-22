@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7590cab00670c92e8a5b90006778542ec44bf83f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1cbbc3f0c78954b92c1265795ba365be9dc0e38c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490168"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315087"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada de duas classes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada. 
 
@@ -63,15 +63,14 @@ Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././trai
 9. Treine o modelo.
   
     + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](./train-model.md) .  
-  
    
 ## <a name="results"></a>Resultados
 
-Após a conclusão do treinamento do modelo, clique com o botão direito do mouse na saída do [modelo de treinamento](./train-model.md) para exibir os resultados:
+Após a conclusão do treinamento:
 
-+ Para ver a árvore que foi criada em cada iteração, selecione **Visualizar**. 
-+ Para fazer uma busca detalhada nas divisões e ver as regras para cada nó, clique em cada árvore.
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
++ Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
 ## <a name="next-steps"></a>Passos seguintes
 

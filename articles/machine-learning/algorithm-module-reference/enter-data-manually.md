@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 509b82596ce4819152fcd8d0bc202df186a20095
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497941"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314849"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um pequeno conjunto de pequena digitando valores. O conjunto de linhas pode ter várias colunas.
   
@@ -97,9 +97,9 @@ Esse módulo pode ser útil em cenários como estes:
   
      Se você criar linhas com valores ausentes, você sempre poderá filtrá-los mais tarde.  
   
-5.  Clique com o botão direito do mouse no módulo e selecione **executar selecionado** para analisar os dados e carregá-los em seu espaço de trabalho como um conjunto.  
+5.  Conecte a porta de saída a outros módulos e execute o pipeline.  
   
-     Para exibir o conjunto de resultados, clique na porta de saída e selecione **Visualizar**.  
+     Para exibir o conjunto de um, clique com o botão direito do mouse no módulo e selecione **Visualizar**.  
 ## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

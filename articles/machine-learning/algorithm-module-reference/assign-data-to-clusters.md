@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214557"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314509"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: atribuir dados a clusters
 
-Este artigo descreve como usar o módulo *atribuir dados a clusters* no designer de Azure Machine Learning (versão prévia). O módulo gera previsões por meio de um modelo de clustering que foi treinado com o algoritmo de *clustering K-* means.
+Este artigo descreve como usar o módulo *atribuir dados a clusters* no designer de Azure Machine Learning. O módulo gera previsões por meio de um modelo de clustering que foi treinado com o algoritmo de *clustering K-* means.
 
 O módulo atribuir dados a clusters retorna um DataSet que contém as atribuições prováveis para cada novo ponto de dados. 
 
@@ -47,5 +47,5 @@ O módulo atribuir dados a clusters retorna um DataSet que contém as atribuiç�
   
 ### <a name="results"></a>Resultados
 
-+  Para exibir os valores no conjunto de linhas, clique com o botão direito do mouse no módulo, selecione **resultado conjuntos de resultados**e, em seguida, selecione **Visualizar**.
++  Para exibir os valores no conjunto de um, clique com o botão direito do mouse no módulo e selecione **Visualizar**. Ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas saídas de **porta** para visualizar o resultado.
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4271a180a0f00ae921de9b8deb9a3e5123f9b519
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493887"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314492"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um Ensemble de árvores de regressão usando o aumento. O *aumento* significa que cada árvore depende de árvores anteriores. O algoritmo aprende ajustando o resíduo das árvores que o precedem. Portanto, o aumento em uma árvore de decisão Ensemble tende a melhorar a precisão com um pequeno risco de menos cobertura.  
   
@@ -29,8 +29,6 @@ Esse método de regressão é um método de aprendizado supervisionado e, portan
 
 Depois de definir o modelo, treine-o usando o [modelo de treinamento](./train-model.md).
 
-> [!TIP]
-> Deseja saber mais sobre as árvores que foram criadas? Depois que o modelo tiver sido treinado, clique com o botão direito do mouse na saída do módulo [modelo de treinamento](./train-model.md) e selecione **Visualizar** para ver a árvore que foi criada em cada iteração. Você pode fazer uma busca detalhada nas divisões de cada árvore e ver as regras para cada nó.  
   
 ## <a name="more-about-boosted-regression-trees"></a>Mais sobre árvores de regressão aumentadas  
 
@@ -91,13 +89,9 @@ O método de aumento de gradiente também pode ser usado para problemas de class
 
 Após a conclusão do treinamento:
 
-+ Para ver a árvore que foi criada em cada iteração, clique com o botão direito do mouse na saída do módulo [modelo de treinamento](train-model.md) e selecione **Visualizar**.
-  
-     Clique em cada árvore para fazer uma busca detalhada nas divisões e ver as regras para cada nó.  
-
 + Para usar o modelo de pontuação, conecte-o ao [modelo de Pontuação](./score-model.md)para prever valores para novos exemplos de entrada.
 
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** do módulo de treinamento e selecione **salvar como**. A cópia do modelo treinado que você salva não é atualizada em execuções sucessivas do pipeline.
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do **modelo treinado** e clique no ícone **registrar conjunto de registros** . A cópia do modelo treinado será salva como um módulo na árvore de módulo e não será atualizada em execuções sucessivas do pipeline.
 
 ## <a name="next-steps"></a>Passos seguintes
 

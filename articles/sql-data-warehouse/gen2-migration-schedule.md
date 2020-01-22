@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f793fd68c83f90b87182647eef47a07eb452f45
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693030"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314781"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar seu data warehouse para o Gen2
 
@@ -33,41 +33,12 @@ A tabela a seguir resume por região quando a camada de computação Gen2 inferi
 
 | **Região** | **Gen2 inferior disponíveis** | **Início de atualizações automáticas** |
 |:--- |:--- |:--- |
-| Leste da Austrália |Disponível |Concluir |
-| Sudeste da Austrália |Disponível |Concluir |
-| Sul do Brasil |Disponível |Concluir |
-| Canadá Central |Disponível |Concluir |
 | Leste do Canadá |1º de junho de 2020 |1º de julho de 2020 |
-| EUA Central |Disponível |Concluir |
 | Norte da China |\* |\* |
-| Leste da China 2 |Disponível |Concluir |
 | China Norte |\* |\* |
-| Norte da China 2 |Disponível |Concluir |
-| Ásia Oriental |Disponível |Concluir |
-| EUA Leste |Disponível |Concluir |
-| EUA Leste 2 |Disponível |Concluir |
-| França Central |Disponível |Em andamento |
-| Alemanha Central |\* |\* |
-| Alemanha Oeste-Central |1º de setembro de 2019|1 de outubro de 2019 |
-| Índia Central |Disponível |Concluir |
-| Índia do Sul |Disponível |Concluir |
-| Oeste da Índia |1º de julho de 2019 |Em andamento |
-| Leste do Japão |Disponível |Concluir |
-| Oeste do Japão |Disponível |Concluir |
-| Coreia do Sul Central |Disponível |Concluir |
-| Coreia do Sul |Disponível |Concluir |
-| E.U.A. Centro-Norte |Disponível |Concluir |
-| Europa do Norte |Disponível |Concluir |
-| Norte da África do Sul |12 de julho de 2019 |Concluir |
-| EUA Centro-Sul |Disponível |Concluir |
-| Sudeste Asiático |Disponível |Concluir |
-| Norte dos E.A.U. |20 de julho de 2019 |Concluir |
-| Sul do Reino Unido |Disponível |Em andamento |
-| Reino Unido Oeste |Disponível |Em andamento |
-| EUA Centro-Oeste |1º de novembro de 2019 |1º de dezembro de 2019|
-| Europa Ocidental |Disponível |Concluir |
-| Oeste dos E.U.A. |Disponível |Concluir |
-| EUA Oeste 2 |Disponível |Concluir |
+| Nordeste da Alemanha |\* |\* |
+| Alemanha Oeste-Central |Disponível |1 de maio de 2020 |
+| Oeste da Índia |Disponível |1 de maio de 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 

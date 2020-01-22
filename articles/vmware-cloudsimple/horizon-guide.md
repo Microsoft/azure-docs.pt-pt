@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206544"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314713"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Usar o site de nuvem privada do CloudSimple para hospedar uma infraestrutura de área de trabalho virtual usando o VMware horizonte
 
@@ -47,7 +47,7 @@ As seções a seguir descrevem como implantar uma solução de VDI usando o hori
 ### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimar o tamanho do seu ambiente de desktop
 
 * Verifique se sua configuração identificada está dentro dos limites operacionais do VMware.
-* Estime os recursos necessários em seu site de recuperação de desastre para proteger seu ambiente local.
+* Estime os recursos necessários para todas as suas áreas de trabalho e seus componentes de gerenciamento de horizonte.
 
 ### <a name="create-a-private-cloud-for-your-environment"></a>Criar uma nuvem privada para seu ambiente
 

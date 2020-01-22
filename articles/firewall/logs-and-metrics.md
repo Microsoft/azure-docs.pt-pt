@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/22/2020
 ms.author: victorh
-ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974511"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315036"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Registos e métricas do Azure Firewall
 
@@ -103,17 +103,19 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
 
     Unidade: bytes
 
-- **Estado de integridade do firewall** – indica a integridade do firewall.
+- **Estado de integridade do firewall** – indica a integridade do firewall com base na disponibilidade da porta SNAT.
 
     Unidade: porcentagem
 
    Essa métrica tem duas dimensões:
-  - **Status**: os valores possíveis estão *íntegros*, *degradados*, não *íntegros*.
-  - **Motivo**: indica o motivo do status correspondente do firewall. Por exemplo, ele pode indicar *portas SNAT* se o status do firewall for degradado ou não íntegro.
+  - Status: os valores possíveis estão *íntegros*, *degradados*, não *íntegros*.
+  - Motivo: indica o motivo do status correspondente do firewall. 
 
+     Se as portas SNAT forem usadas > 95%, elas serão consideradas esgotadas e a integridade será 50% com status =**degradado** e motivo =**porta SNAT**. O firewall mantém o tráfego de processamento e as conexões existentes não são afetadas. No entanto, novas conexões podem não ser estabelecidas de forma intermitente.
 
+     Se as portas SNAT forem usadas < 95%, o firewall será considerado íntegro e a integridade será mostrada como 100%.
 
-
+     Se nenhum uso de portas SNAT for relatado, a integridade será mostrada como 0%. 
 
 - **Utilização da porta SNAT** -a porcentagem de portas SNAT que foram utilizadas pelo firewall.
 
