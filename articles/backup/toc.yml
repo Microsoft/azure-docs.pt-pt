@@ -148,10 +148,28 @@
           href: backup-mabs-sharepoint-azure-stack.md
         - name: Proteger base de dados do SQL Server
           href: backup-mabs-sql-azure-stack.md
-    - name: Partilhas de Ficheiros do Azure
+    - name: Cópia de segurança da partilha de Ficheiros do Azure
       items:
-        - name: Fazer uma cópia de segurança das partilhas de Ficheiros do Azure
-          href: backup-azure-files.md
+        - name: No portal do Azure
+          items:
+            - name: Fazer uma cópia de segurança das partilhas de Ficheiros do Azure
+              href: backup-afs.md
+            - name: Restaurar as partilhas de Ficheiros do Azure
+              href: restore-afs.md
+            - name: Gerir cópias de segurança de partilha de Ficheiros do Azure
+              href: manage-afs-backup.md
+        - name: Com a CLI do Azure
+          items:
+            - name: Fazer cópias de segurança das partilhas de Ficheiros do Azure com a CLI
+              href: backup-afs-cli.md
+            - name: Restaurar as partilhas de Ficheiros do Azure com a CLI
+              href: restore-afs-cli.md
+            - name: Gerir as cópias de segurança da partilha de Ficheiros do Azure com a CLI
+              href: manage-afs-backup-cli.md
+        - name: Com o PowerShell
+          items:
+            - name: Cópia de segurança da partilha de Ficheiros do Azure com o PowerShell
+              href: backup-azure-afs-automation.md
     - name: Fazer uma cópia de segurança de VMs do Azure
       items:
         - name: Acerca das cópias de segurança de VMs do Azure
@@ -222,8 +240,6 @@
           href: backup-dpm-automation.md
         - name: Windows Server no portal do Azure
           href: backup-client-automation.md
-        - name: Partilhas de Ficheiros do Azure no portal do Azure
-          href: backup-azure-afs-automation.md
         - name: SQL nas cópias de segurança de VMs do Azure
           href: backup-azure-sql-automation.md
     - name: Utilize a API REST do Azure Backup

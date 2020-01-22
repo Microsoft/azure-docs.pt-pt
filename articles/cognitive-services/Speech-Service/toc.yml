@@ -33,7 +33,7 @@
           href: how-to-custom-speech.md
         - name: Melhorar a precisão com Listas de Expressões
           href: how-to-phrase-lists.md
-        - name: Melhorar a precisão com Modelos de Inquilinos
+        - name: Melhorar a precisão com modelos de inquilinos
           href: tutorial-tenant-model.md
         - name: Selecionar um dispositivo de entrada de microfone específico
           href: how-to-select-audio-input-devices.md
@@ -182,7 +182,7 @@
               displayName: 'release notes,updates,what''s new,what is new,changes'
         - name: Serviço LUIS
           items:
-            - name: Recursos para Programadores do LUIS
+            - name: Recursos para programadores do LUIS
               href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
 - name: Tradução de voz
   expanded: false
@@ -201,7 +201,7 @@
           href: quickstarts/translate-speech-to-speech.md
     - name: Tutoriais
       items:
-        - name: 'Criar uma aplicação do Flask para traduzir e sintetizar texto, REST'
+        - name: Criar uma aplicação do Flask para traduzir e sintetizar texto com APIs REST
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: Referência
       items:
@@ -303,7 +303,7 @@
           href: voice-assistants.md
     - name: Criar o seu assistente
       items:
-        - name: Comandos Personalizados (Pré-visualização)
+        - name: Comandos Personalizados (pré-visualização)
           href: custom-commands.md
         - name: Direct Line Speech
           href: direct-line-speech.md
@@ -315,19 +315,19 @@
           href: quickstart-voice-assistant-java-jre.md
         - name: Java (Android)
           href: quickstart-voice-assistant-java-android.md
-        - name: Criar um Comando Personalizado (Pré-visualização)
+        - name: Criar um Comando Personalizado (pré-visualização)
           href: quickstart-custom-speech-commands-create-new.md
-        - name: Criar um Comando Personalizado com parâmetros (Pré-visualização)
+        - name: Criar um Comando Personalizado com parâmetros (pré-visualização)
           href: quickstart-custom-speech-commands-create-parameters.md
-        - name: Utilizar Comandos Personalizados com Voz Personalizada (Pré-visualização)
+        - name: Utilizar Comandos Personalizados com Voz Personalizada (pré-visualização)
           href: quickstart-custom-speech-commands-select-custom-voice.md
-        - name: Utilizar Comandos Personalizados com o SDK de Voz (Pré-visualização)
+        - name: Utilizar Comandos Personalizados com o SDK de Voz (pré-visualização)
           href: quickstart-custom-speech-commands-speech-sdk.md
     - name: Guias de procedimentos
       items:
         - name: Preencher Comandos Personalizados com o SDK de Voz
           href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: Adicionar validação de parâmetros a Comandos Personalizados
+        - name: Adicionar a validação de parâmetros a um Comando Personalizado
           href: how-to-custom-speech-commands-validations.md
         - name: Adicionar uma confirmação a um Comando Personalizado
           href: how-to-custom-speech-commands-confirmations.md
@@ -360,7 +360,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Implementar um modelo personalizado
               href: how-to-custom-speech-deploy-model.md
-            - name: Guiar a Criação das transcrições etiquetas por humanos
+            - name: criar transcrições humanas
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Modelos de inquilinos
           items:
@@ -380,7 +380,7 @@
               href: concepts-disclosure-guidelines.md
             - name: Padrões de conceção de divulgação
               href: concepts-disclosure-patterns.md
-            - name: Código de Conduta
+            - name: Código de conduta
               href: 'https://aka.ms/custom-neural-code-of-conduct'
         - name: Portal de Voz Personalizada
           items:
@@ -395,13 +395,13 @@
               href: record-custom-voice-samples.md
         - name: Criação de Conteúdo de Áudio
           items:
-            - name: 'Procedimentos: Criação de Conteúdo de Áudio'
+            - name: Criação de Conteúdo de Áudio
               href: how-to-audio-content-creation.md
     - name: Diretrizes de nomenclatura de palavras-chave personalizadas
       href: speech-devices-sdk-kws-guidelines.md
     - name: Deteção de palavras-chave personalizadas
       href: speech-devices-sdk-create-kws.md
-- name: Serviço de Voz
+- name: Serviço de voz
   expanded: false
   items:
     - name: Cenários
@@ -411,9 +411,9 @@
           displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
     - name: Guias de procedimentos
       items:
-        - name: Experimente o Serviço de Voz gratuitamente
+        - name: Experimente o serviço de Voz gratuitamente
           href: get-started.md
-        - name: Criar Recurso de Serviço de Voz
+        - name: Criar recurso de serviço de Voz
           href: 'get-started.md#create-a-speech-resource-in-azure'
         - name: Contentores
           expanded: false
@@ -440,9 +440,9 @@
       items:
         - name: APIs REST
           items:
-            - name: API REST de transcrição em lote e personalização
+            - name: API REST de transcrição e personalização em lote
               href: 'https://westus.cris.ai/swagger/ui/index'
-            - name: API REST de Transcrição de Conversas
+            - name: API REST de transcrição de conversas
               href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
             - name: API REST de conversão de voz em texto
               href: rest-speech-to-text.md
@@ -468,11 +468,11 @@
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
     - name: Guias de procedimentos
       items:
-        - name: Como ativar o registo
+        - name: Ativar registo
           href: how-to-use-logging.md
-        - name: Como controlar a utilização da memória
+        - name: Controlar a utilização da memória
           href: how-to-track-speech-sdk-memory-usage.md
-        - name: Como configurar o OpenSSL para Linux
+        - name: Configurar o OpenSSL para Linux
           href: how-to-configure-openssl-linux.md
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
     - name: Amostras
@@ -552,7 +552,7 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Mapa do Azure
+    - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidade e cookies
       href: 'https://privacy.microsoft.com/privacystatement'
