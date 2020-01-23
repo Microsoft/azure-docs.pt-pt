@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888398"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543057"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de eventos ao vivo
 
@@ -28,7 +28,7 @@ Nos serviços de mídia do Azure, um [evento ao vivo](https://docs.microsoft.com
 
 A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** -um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. Os fluxos ingeridos passam pelo evento ao vivo sem nenhum processamento adicional. 
+* **LiveEventEncodingType. None** -um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. Os fluxos ingeridos passam pelo evento ao vivo sem nenhum processamento adicional. Também conhecido como evento de passagem ao vivo.
 * **LiveEventEncodingType. Standard** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits (os detalhes são seguidos posteriormente no artigo).
 * **LiveEventEncodingType. Premium1080p** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. A predefinição de default1080p especifica o conjunto de saída de pares de resolução/taxa de bits (os detalhes são seguidos posteriormente no artigo). 
 
@@ -52,6 +52,7 @@ A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são
 | Preço|Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia "vídeo ao vivo"|Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia "vídeo ao vivo"|
 | Tempo de execução máximo| 24 horas x 365 dias, linear ao vivo | 24 horas x 365 dias, linear ao vivo (versão prévia)|
 | Capacidade de passar por dados de legendas CEA 608/708 inseridos|Sim|Sim|
+| Capacidade de ativar a transcrição dinâmica|Sim|Sim|
 | Suporte para inserção de slates|Não|Não|
 | Suporte para sinalização de anúncios via API| Não|Não|
 | Suporte para sinalização de anúncios via mensagens em banda SCTE-35|Sim|Sim|

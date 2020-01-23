@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 517940ab4a3e004d99faf6ca2bedb43c93dba8c5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407029"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514192"
 ---
 ::: zone target="docs"
 

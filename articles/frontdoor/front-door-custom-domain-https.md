@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907848"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512866"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado de porta frontal
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
 Este tutorial mostra como ativar o protocolo HTTPS num domínio personalizado associado ao Front Door na secção de sistemas anfitrião de front-end. A utilização do protocolo HTTPS no seu domínio personalizado (por exemplo, https:\//www.contoso.com) garante que os seus dados confidenciais são entregues em segurança através de encriptação TLS/SSL quando são enviados pela Internet. Quando o browser está ligado a um site por HTTPS, valida o certificado de segurança do site e verifica que este é emitido por uma autoridade de certificação legítima. Este processo oferece segurança e protege as suas aplicações Web de ataques.
 
@@ -27,11 +27,11 @@ O Azure Front Door Service suporta HTTPS num nome de anfitrião predefinido do F
 
 Alguns dos principais atributos da funcionalidade HTTPS personalizada são:
 
-- Sem custo adicional: Não há custos para a aquisição ou renovação de certificados e nenhum custo adicional para o tráfego HTTPS. 
+- Sem custos adicionais: não há custos para a aquisição ou renovação de certificados nem para o tráfego HTTPS. 
 
-- Habilitação simples: O provisionamento com um clique está disponível na [portal do Azure](https://portal.azure.com). Também pode utilizar a API REST ou outras ferramentas de programador para ativar a funcionalidade.
+- Ativação simples: está disponível no [portal do Azure](https://portal.azure.com) o aprovisionamento de um clique. Também pode utilizar a API REST ou outras ferramentas de programador para ativar a funcionalidade.
 
-- O gerenciamento de certificados completo está disponível: Todas as compras e gerenciamento de certificados são tratados para você. Os certificados são aprovisionados e renovados automaticamente antes de expirarem, o que elimina os riscos de interrupção do serviço devido à expiração dos mesmos.
+- Está disponível a gestão de certificados completa: todas as atividades de aprovisionamento e gestão de certificados são feitas por si. Os certificados são aprovisionados e renovados automaticamente antes de expirarem, o que elimina os riscos de interrupção do serviço devido à expiração dos mesmos.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -46,14 +46,14 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Door com, pelo menos, um domínio personalizado carregado. Para obter mais informações, [consulte Tutorial: Adicione um domínio personalizado à sua porta](front-door-custom-domain.md)frontal.
+Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Door com, pelo menos, um domínio personalizado carregado. Para obter mais informações, veja [Tutorial: Adicionar um domínio personalizado ao Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
 Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado do Front Door, tem de utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pelo Azure Front Door Service ou utilizar o seu próprio certificado.
 
 
-### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (padrão): Usar um certificado gerenciado pela porta frontal
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (predefinição): utilizar um certificado gerido pelo Front Door
 
 Quando utiliza um certificado gerido pelo Azure Front Door Service, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. O Azure Front Door Service processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o sistema anfitrião de font-end predefinido do Front Door (`{hostname}.azurefd.net`), não é necessária mais nenhuma ação. O Front Door vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
 
@@ -70,18 +70,18 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 5. Avance para [Validar o domínio](#validate-the-domain).
 
 
-### <a name="option-2-use-your-own-certificate"></a>Opção 2: Utilize o seu próprio certificado
+### <a name="option-2-use-your-own-certificate"></a>Opção 2: utilizar o seu próprio certificado
 
 Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. O Azure Front Door Service utiliza este mecanismo seguro para obter o certificado e requer alguns passos adicionais. Ao criar o certificado SSL, tem de criá-lo com uma autoridade de certificação permitida (AC). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de ACs permitidas, veja [Autoridades de certificação permitidas para ativar o HTTPS personalizado no Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
-1. Azure Key Vault: Você deve ter uma conta de Azure Key Vault em execução na mesma assinatura que a porta de sua frente para a qual você deseja habilitar o HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
+1. Azure Key Vault: tem de ter uma conta do Azure Key Vault em execução na mesma subscrição que o Front Door para o qual pretende ativar HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
 
 > [!WARNING]
 > O serviço de porta frontal do Azure atualmente dá suporte apenas a contas Key Vault na mesma assinatura que a configuração de porta frontal. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
 
-2. Azure Key Vault certificados: Se você já tiver um certificado, poderá carregá-lo diretamente em sua conta do Azure Key Vault ou pode criar um novo certificado diretamente por meio de Azure Key Vault de uma das CAs de parceiro que Azure Key Vault integra com o. Carregue seu certificado como um objeto de **certificado** , em vez de um **segredo**.
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na conta do Azure Key Vault ou pode criar um novo diretamente através do Azure Key Vault a partir de uma das CAs do parceiro com o qual o Azure Key Vault está integrado. Carregue seu certificado como um objeto de **certificado** , em vez de um **segredo**.
 
 > [!IMPORTANT]
 > Você deve carregar o certificado no formato PFX **sem** proteção por senha.
@@ -91,7 +91,7 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 Registe o principal de serviço do Azure Front Door Service como uma aplicação no Azure Active Directory através do PowerShell.
 
 > [!NOTE]
-> Essa ação só precisa ser executada **uma vez** por locatário.
+> Essa ação requer permissões de administrador global e precisa ser executada apenas **uma vez** por locatário.
 
 1. Caso seja necessário, instale o [Azure PowerShell](/powershell/azure/install-az-ps) no PowerShell no seu computador local.
 
@@ -147,9 +147,9 @@ Se utilizar o seu próprio certificado, a validação de domínio não é necess
 
 O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu domínio personalizado e *Valor* é o nome de anfitrião .azurefd.net predefinido do Front Door:
 
-| Name            | Tipo  | Value                 |
+| Nome            | Tipo  | Valor                 |
 |-----------------|-------|-----------------------|
-| < www. contoso. com > | CNAME | contoso.azurefd.net |
+| <www.contoso.com> | CNAME | contoso.azurefd.net |
 
 Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
@@ -171,12 +171,12 @@ Depois de ativar o HTTPS no domínio personalizado, a CA do DigiCert valida a pr
 DigiCert também envia um e-mail de verificação para endereços de e-mail adicionais. Se as informações do registo em WHOIS forem privadas, confirme que pode aprovar diretamente a partir de um dos endereços seguintes:
 
 admin@&lt;o-seu-nome-de-domínio.com&gt;  
-administrator@&lt;your-domain-name.com&gt;  
-webmaster@&lt;your-domain-name.com&gt;  
-hostmaster@&lt;your-domain-name.com&gt;  
+administrador@&lt;o-seu-nome-de-domínio.com&gt;  
+webmaster@&lt;o-seu-nome-de-domínio.com&gt;  
+hostmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
-Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se você estiver usando um filtro de spam, admin@digicert.com adicione à sua lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
+Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se você estiver usando um filtro de spam, adicione admin@digicert.com à sua lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
 
 Quando clica na ligação de aprovação, é direcionado para um formulário de aprovação online. Siga as instruções do formulário; tem duas opções de verificação:
 

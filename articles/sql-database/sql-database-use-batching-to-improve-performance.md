@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822426"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545029"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo do banco de dados SQL
 
@@ -91,13 +91,13 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-As transações estão realmente sendo usadas em ambos os exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](https://msdn.microsoft.com/library/ms186259.aspx), os registros de log são liberados para o disco quando a transação é confirmada. Portanto, ao incluir mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote para as gravações no log de transações do servidor.
+As transações estão realmente sendo usadas em ambos os exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), os registros de log são liberados para o disco quando a transação é confirmada. Portanto, ao incluir mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote para as gravações no log de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais com e sem transações. Para obter mais perspectiva, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados que residem dentro do mesmo Microsoft Azure datacenter (oeste dos EUA). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais com e sem transações.
 
 **Local para o Azure**:
 
-| Operações | Nenhuma transação (MS) | Transação (MS) |
+| Operations | Nenhuma transação (MS) | Transação (MS) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -106,7 +106,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executara
 
 **Azure para Azure (mesmo datacenter)** :
 
-| Operações | Nenhuma transação (MS) | Transação (MS) |
+| Operations | Nenhuma transação (MS) | Transação (MS) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -193,7 +193,7 @@ Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equi
 
 A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (MS) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (MS) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ Há alguns casos em que a cópia em massa é preferida em relação a parâmetro
 
 Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (MS) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (MS) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -278,7 +278,7 @@ Este exemplo destina-se a mostrar o conceito básico. Um cenário mais realista 
 
 Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
-| Operações | Parâmetros com valor de tabela (MS) | INSERÇÃO de instrução única (MS) |
+| Operations | Parâmetros com valor de tabela (MS) | INSERÇÃO de instrução única (MS) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -321,11 +321,11 @@ Dependendo da sua arquitetura, o envio em lote pode envolver uma compensação e
 
 Devido a essa compensação, avalie o tipo de operações em lote. Lote mais agressivamente (lotes maiores e janelas de tempo maior) com dados menos críticos.
 
-### <a name="batch-size"></a>Tamanho do lote
+### <a name="batch-size"></a>Tamanho do batch
 
 Em nossos testes, normalmente não havia vantagem em dividir grandes lotes em partes menores. Na verdade, essa subdivisão geralmente resultou em um desempenho mais lento do que o envio de um único lote grande. Por exemplo, considere um cenário em que você deseja inserir 1000 linhas. A tabela a seguir mostra quanto tempo leva para usar parâmetros com valor de tabela para inserir 1000 linhas quando divididas em lotes menores.
 
-| Tamanho do lote | Iterações | Parâmetros com valor de tabela (MS) |
+| Tamanho do batch | Iterations | Parâmetros com valor de tabela (MS) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |

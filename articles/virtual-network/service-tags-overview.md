@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: e4c18f1148259d246445b94ac6117ebefa9470a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975381"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543040"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -51,7 +51,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureAdvancedThreatProtection** | Proteção avançada contra ameaças do Azure. | Saída | Não | Não |
 | **AzureBackup** |Backup do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas de **armazenamento** e **AzureActiveDirectory** . | Saída | Não | Sim |
 | **AzureBotService** | Serviço de bot do Azure. | Saída | Não | Não |
-| **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). | Saída | Sim | Sim |
+| **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Sim | Sim |
 | **AzureCognitiveSearch** | Pesquisa Cognitiva do Azure (se estiver usando indexadores com um qualificable). | Ambos | Não | Não |
 | **AzureConnectors** | Conectores de aplicativos lógicos do Azure para conexões de investigação/back-end. | Entrada | Sim | Sim |
 | **AzureContainerRegistry** | Registro de contêiner do Azure. | Saída | Sim | Sim |

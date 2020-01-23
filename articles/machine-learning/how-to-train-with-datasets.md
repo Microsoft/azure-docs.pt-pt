@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311347"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543312"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de os Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,8 +105,11 @@ experiment_run.wait_for_completion(show_output=True)
 Se você desejar disponibilizar seus arquivos de dados no destino de computação para treinamento, use [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) para montar ou baixar arquivos referenciados por ele.
 
 ### <a name="mount-vs-download"></a>Montar v.s. Transferir
-Ao montar um conjunto de um DataSet, você anexa os arquivos referenciados pelo conjunto de um diretório (ponto de montagem) e os disponibiliza no destino de computação. A montagem tem suporte para computações baseadas em Linux, incluindo Azure Machine Learning computação, máquinas virtuais e HDInsight. Se o tamanho dos seus dados exceder o tamanho do disco de computação ou se você estiver carregando apenas parte do DataSet em seu script, a montagem será recomendada. Como o download de um conjunto de dados maior do que o tamanho do disco falhará, e a montagem carregará apenas a parte do dado usada pelo seu script no momento do processamento. Quando você baixa um conjunto de um DataSet, todos os arquivos referenciados pelo conjunto de um serão baixados para o destino de computação. O download tem suporte para todos os tipos de computação. Se o seu script processar todos os arquivos referenciados pelo conjunto de dados e o disco de computação puder se ajustar ao seu conjunto de dados completo, o download será recomendado para evitar a sobrecarga de streaming dos serviços de armazenamento.
+Ao montar um conjunto de um DataSet, você anexa os arquivos referenciados pelo conjunto de um diretório (ponto de montagem) e os disponibiliza no destino de computação. A montagem tem suporte para computações baseadas em Linux, incluindo Azure Machine Learning computação, máquinas virtuais e HDInsight. Se o tamanho dos seus dados exceder o tamanho do disco de computação ou se você estiver carregando apenas parte do DataSet em seu script, a montagem será recomendada. Como o download de um conjunto de dados maior do que o tamanho do disco falhará, e a montagem carregará apenas a parte do dado usada pelo seu script no momento do processamento. 
 
+Quando você baixa um conjunto de um DataSet, todos os arquivos referenciados pelo conjunto de um serão baixados para o destino de computação. O download tem suporte para todos os tipos de computação. Se o seu script processar todos os arquivos referenciados pelo conjunto de dados e o disco de computação puder se ajustar ao seu conjunto de dados completo, o download será recomendado para evitar a sobrecarga de streaming dos serviços de armazenamento.
+
+Há suporte para a montagem ou o download de arquivos de qualquer formato para conjuntos de dados criados a partir do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2 do Azure SQL e banco de dados do Azure para PostgreSQL. 
 
 ### <a name="create-a-filedataset"></a>Criar um filedataset
 

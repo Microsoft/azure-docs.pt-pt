@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944433"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547256"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 
@@ -57,6 +57,29 @@ Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.mic
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+## <a name="permanent-workspace-delete"></a>Exclusão de espaço de trabalho permanente
+O método de exclusão reversível pode não se ajustar em alguns cenários, como desenvolvimento e teste, onde você precisa repetir uma implantação com as mesmas configurações e o nome do espaço de trabalho. Nesses casos, você pode excluir permanentemente seu espaço de trabalho e "substituir" o período de exclusão reversível. A operação de exclusão de espaço de trabalho permanente libera o nome do local de trabalho e você pode criar um novo espaço de trabalho usando o mesmo nome.
+
+
+> [!IMPORTANT]
+> Tenha cuidado ao excluir permanentemente seu espaço de trabalho, pois a operação é irreversível, e seu espaço de trabalho e seus dados não serão recuperáveis.
+
+No momento, a exclusão de espaço de trabalho permanente pode ser executada via API REST.
+
+> [!NOTE]
+> Qualquer solicitação de API deve incluir um token de autorização de portador no cabeçalho da solicitação.
+>
+> Você pode adquirir o token usando:
+> - [Registos das aplicações](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - Navegue até portal do Azure usando o console do desenvolvedor (F12) no navegador. Examine uma das instâncias do **lote?** para a cadeia de caracteres de autenticação em **cabeçalhos de solicitação**. Isso estará na autorização de padrão *: portador <token>* . Copie e adicione isso à sua chamada à API, conforme mostrado nos exemplos.
+> - Navegue até o site de documentação REST do Azure. Pressione **Experimente** em qualquer API, copie o token de portador e adicione-o à sua chamada à API.
+Para excluir permanentemente seu espaço de trabalho, use os [espaços de trabalho – excluir]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) chamada à API REST com uma marca de força:
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
 
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
 

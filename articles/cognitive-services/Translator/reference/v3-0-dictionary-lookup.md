@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd725d41f75bdfb1048b5bee7e8224679dbece4c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837257"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548956"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API de Tradução de Texto 3,0: pesquisa de dicionário
 
@@ -33,45 +33,21 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
-<table width="100%">
-  <th width="20%">Parâmetro de consulta</th>
-  <th>Descrição</th>
-  <tr>
-    <td>versão da API</td>
-    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0`.</td>
-  </tr>
-  <tr>
-    <td>De</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
-  </tr>
-  <tr>
-    <td>para</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
-  </tr>
-</table>
+| Parâmetro de consulta  | Descrição |
+| ------ | ----------- |
+| api-version <img width=200/>   | **Parâmetro obrigatório**.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0` |
+| de | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo de `dictionary`. |
+| para   | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](v3-0-languages.md) incluídos no escopo de `dictionary`. |
+
 
 Os cabeçalhos de solicitação incluem:
 
-<table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
-  <tr>
-    <td>Cabeçalho (s) de autenticação</td>
-    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
-  </tr>
-  <tr>
-    <td>Tipo de conteúdo</td>
-    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Comprimento do conteúdo</td>
-    <td>*Cabeçalho de solicitação necessário*.<br/>O comprimento do corpo da solicitação.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
-  </tr>
-</table> 
+| Cabeçalhos  | Descrição |
+| ------ | ----------- |
+| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação necessário**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>. |
+| Content-Type | **Cabeçalho de solicitação necessário**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
+| Content-Length   | **Cabeçalho de solicitação necessário**.<br/>O comprimento do corpo da solicitação. |
+| X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`. |
 
 ## <a name="request-body"></a>Corpo do pedido
 
@@ -83,7 +59,7 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 ]
 ```
 
-As seguintes limitações se aplicam:
+As seguintes limitações aplicam-se:
 
 * A matriz pode ter no máximo 10 elementos.
 * O valor de texto de um elemento de matriz não pode exceder 100 caracteres, incluindo espaços.
@@ -104,7 +80,7 @@ Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia d
 
     * `posTag`: uma cadeia de caracteres que associa esse termo a uma marca de parte de fala.
 
-        | Nome da marca | Descrição  |
+        | nome da marca | Descrição  |
         |----------|--------------|
         | AJUSTE      | Adjetivos   |
         | AVÇD      | Advérbios      |
@@ -115,7 +91,7 @@ Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia d
         | PREP     | Preposições |
         | PRON     | Pronomes     |
         | VERBO     | Verbos        |
-        | OUTROS    | Outros        |
+        | OTHER    | Outros        |
 
         Como uma observação de implementação, essas marcas foram determinadas pela marcação de parte da fala do lado Inglês e, em seguida, por meio da marca mais frequente para cada par de origem/destino. Portanto, se as pessoas traduzirem com frequência uma palavra em espanhol para uma marca de parte de fala diferente em inglês, as marcas podem acabar tendo errado (em relação à palavra espanhol).
 

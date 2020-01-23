@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991436"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543890"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -66,15 +66,15 @@ Use as etapas a seguir para implantar um módulo de segurança da central de seg
     >[!Note] 
     >Se você selecionou **implantar em escala**, adicione o nome do dispositivo e os detalhes antes de continuar para a guia **Adicionar módulos** nas instruções a seguir.     
 
-Há três etapas para criar uma implantação de IoT Edge para a central de segurança do Azure para IoT. As seções a seguir percorrem cada uma delas. 
+Conclua cada etapa para concluir sua implantação de IoT Edge para a central de segurança do Azure para IoT. 
 
-#### <a name="step-1-add-modules"></a>Etapa 1: Adicionar módulos
+#### <a name="step-1-modules"></a>Etapa 1: módulos
 
-1. Na guia **Adicionar módulos** , na área **módulos de implantação** , clique na opção **Configurar** para **AzureSecurityCenterforIoT**. 
-   
-1. Altere o **nome** para **azureiotsecurity**.
-1. Altere o **URI da imagem** para **MCR.Microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
-1. Verifique se o valor das **Opções de criação do contêiner** está definido como:      
+1. Selecione o módulo **AzureSecurityCenterforIoT** .
+1. Na guia **configurações do módulo** , altere o **nome** para **azureiotsecurity**.
+1. Na guia **variáveis de ambiente** , adicione uma variável, se necessário (por exemplo, nível de depuração).
+1. Na guia **Opções de criação do contêiner** , adicione a seguinte configuração:
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
         }
     }    
     ```
-1. Verifique se **definir propriedades desejadas do módulo Set** está selecionado e altere o objeto de configuração para:
+    
+1. Na guia **configurações de configuração do módulo** , adicione a seguinte configuração:
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Clique em **Guardar**.
-1. Role até a parte inferior da guia e selecione **definir configurações avançadas de tempo de execução do Edge**. 
-   
-1. Altere a **imagem** em **Hub de borda** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. Selecione **Atualizar**.
 
-1. Verifique se a **opção criar opções** está definida como: 
+#### <a name="step-2-runtime-settings"></a>Etapa 2: configurações de tempo de execução
+
+1. Selecione **configurações de tempo de execução**.
+1. Em **Hub do Edge**, altere a **imagem** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. Verifique se a **opção criar opções** está definida com a seguinte configuração: 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
        }
     }
     ```
-1. Clique em **Guardar**.
+    
+1. Selecione **Guardar**.
    
-1. Clique em **Seguinte**.
+1. Selecione **Seguinte**.
 
-#### <a name="step-2-specify-routes"></a>Etapa 2: especificar rotas 
+#### <a name="step-3-specify-routes"></a>Etapa 3: especificar rotas 
 
-1. Na guia **especificar rotas** , verifique se você tem uma rota (explícita ou implícita) que encaminhará as mensagens do módulo **azureiotsecurity** para **$upstream** de acordo com os exemplos a seguir, somente clique em **Avançar**. 
+1. Na guia **especificar rotas** , verifique se você tem uma rota (explícita ou implícita) que encaminhará as mensagens do módulo **azureiotsecurity** para **$upstream** de acordo com os exemplos a seguir. Somente quando a rota estiver em vigor, selecione **Avançar**.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   Roteiros de exemplo:
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Etapa 3: examinar a implantação
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- Na guia **examinar implantação** , examine as informações de implantação e, em seguida, selecione **Enviar** para concluir a implantação.
+1. Selecione **Seguinte**.
+
+#### <a name="step-4-review-deployment"></a>Etapa 4: examinar a implantação
+
+- Na guia **examinar implantação** , examine as informações de implantação e, em seguida, selecione **criar** para concluir a implantação.
 
 ## <a name="diagnostic-steps"></a>Etapas de diagnóstico
 

@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979113"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548820"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar Apache Hadoop cluster com contas de armazenamento de transferência segura no Azure HDInsight
 
 A funcionalidade [Transferência segura necessária](../storage/common/storage-require-secure-transfer.md) melhora a segurança da sua conta da Armazenamento do Azure ao impor todos os pedidos à sua conta através de uma ligação segura. Esta funcionalidade e o esquema wasbs só são suportados pelo clusters do HDInsight versão 3.6 ou mais recente.
+
+**Habilitar a transferência de armazenamento seguro depois de criar um cluster pode resultar em erros ao usar sua conta de armazenamento e não é recomendado. É melhor criar um novo cluster com a propriedade habilitada.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este artigo, você deve ter:
 
 * Assinatura do Azure: para criar uma conta de avaliação gratuita de um mês, navegue até [Azure.Microsoft.com/Free](https://azure.microsoft.com/free).
-* Uma conta de armazenamento do Azure com transferência segura habilitada. Para obter instruções, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) e [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). Habilitar a transferência de armazenamento seguro depois de criar um cluster requer etapas adicionais não abordadas neste artigo.
+* Uma conta de armazenamento do Azure com transferência segura habilitada. Para obter instruções, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) e [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). 
 * Um contêiner de BLOBs na conta de armazenamento.
 
 ## <a name="create-cluster"></a>Criar cluster

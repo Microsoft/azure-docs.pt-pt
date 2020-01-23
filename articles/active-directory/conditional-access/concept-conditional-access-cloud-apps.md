@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb291f33d2b757ca381e1d675ddc386c78a55d52
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9afc25c906ecd3b7807e6bf3e0763ac1673ebd99
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170839"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544060"
 ---
 # <a name="conditional-access-cloud-apps-and-actions"></a>Acesso condicional: aplicativos de nuvem e ações
 
@@ -79,7 +79,6 @@ Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévi
 
    - Microsoft Flow
    - Microsoft Forms
-   - Portal do Microsoft Office 365
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
@@ -89,6 +88,7 @@ Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévi
    - Office 365 Yammer
    - Office Delve
    - Office Online
+   - Office.com
    - OneDrive
    - PowerApps
    - Skype para Empresas Online

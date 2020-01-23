@@ -7,14 +7,14 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 01/23/2020
 ms.author: kfollis
-ms.openlocfilehash: 35d70d37b881c610d1a38a312d79f39c351c65a5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897419"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547664"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar um pedido de suporte do Azure
 
@@ -23,7 +23,8 @@ ms.locfileid: "75897419"
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no [portal do Azure](https://portal.azure.com).
 
 > [!NOTE]
-> A URL de portal do Azure é específica para a nuvem do Azure onde sua organização está implantada. 
+> A URL de portal do Azure é específica para a nuvem do Azure onde sua organização está implantada.
+>
 >* Portal do Azure para uso comercial é: [https://portal.azure.com](https://portal.azure.com)
 >* Portal do Azure para a Alemanha é: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >* Portal do Azure para o Estados Unidos governamental é: [https://portal.azure.us](https://portal.azure.us)
@@ -38,7 +39,7 @@ Com base nos comentários dos clientes, atualizamos a experiência de solicitaç
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode obter **ajuda + suporte** no portal do Azure. Ele está disponível no cabeçalho global ou no menu de recursos de um serviço. Antes de poder arquivar uma solicitação de suporte, você deve ter as permissões apropriadas.
+Você pode obter **ajuda + suporte** no portal do Azure. Ele está disponível no menu portal do Azure, no cabeçalho global ou no menu de recursos de um serviço. Antes de poder arquivar uma solicitação de suporte, você deve ter as permissões apropriadas.
 
 ### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
@@ -52,7 +53,7 @@ Para iniciar uma solicitação de suporte de qualquer lugar no portal do Azure:
 
    ![Ajuda e Suporte](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-2. Selecione **+ nova solicitação de suporte**. Siga os prompts para nos fornecer informações sobre o problema. Vamos sugerir algumas soluções possíveis, coletar detalhes sobre o problema e ajudá-lo a enviar e acompanhar a solicitação de suporte.
+2. Selecione **Novo pedido de suporte**. Siga os prompts para nos fornecer informações sobre o problema. Vamos sugerir algumas soluções possíveis, coletar detalhes sobre o problema e ajudá-lo a enviar e acompanhar a solicitação de suporte.
 
    ![Novo pedido de suporte](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
@@ -74,12 +75,12 @@ Vamos orientá-lo em algumas etapas para coletar informações sobre o problema 
 
 A primeira etapa do processo de solicitação de suporte coleta informações básicas sobre seu problema e seu plano de suporte.
 
-Na guia **noções básicas** de **nova solicitação de suporte**, use os seletores para começar a nos informar sobre o problema. Primeiro, você identificará algumas categorias gerais para o tipo de problema e escolherá a assinatura relacionada. Selecionar o serviço (por exemplo, "máquina virtual que executa o Windows") e o recurso (o nome da sua máquina virtual) é a próxima etapa para obter ajuda. Descreva brevemente o problema em suas próprias palavras e **selecione tipo de problema** para obter mais informações específicas.
+Na guia **noções básicas** de **nova solicitação de suporte**, use os seletores para começar a nos informar sobre o problema. Primeiro, você identificará algumas categorias gerais para o tipo de problema e escolherá a assinatura relacionada. Selecione o serviço, por exemplo, **máquina virtual que executa o Windows**. Selecione o recurso, como o nome da sua máquina virtual. Descreva o problema em suas próprias palavras e **selecione tipo de problema** para obter mais informações específicas.
 
 ![Painel Básico](./media/how-to-create-azure-support-request/basics2lower.png)
 
 > [!NOTE]
-> O Azure fornece suporte ilimitado para gerenciamento de assinatura (itens como cobrança, ajustes de cota e transferências de conta). Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre os planos de suporte](https://azure.microsoft.com/support/plans).
+> O Azure fornece suporte ilimitado para gerenciamento de assinatura, que inclui cobrança, ajustes de cota e transferências de conta. Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre os planos de suporte](https://azure.microsoft.com/support/plans).
 >
 >
 
@@ -89,11 +90,11 @@ Depois de coletar informações básicas, mostramos a você as soluções que vo
 
 ### <a name="details"></a>Detalhes
 
-Em seguida, coletamos detalhes adicionais sobre o problema. Fornecer informações completas e detalhadas nesta etapa nos ajuda a rotear sua solicitação de suporte para o agente correto e permite que eles comecem a diagnosticar o problema.
+Em seguida, coletamos detalhes adicionais sobre o problema. Fornecer informações completas e detalhadas nesta etapa nos ajuda a rotear sua solicitação de suporte para o agente correto.
 
-É uma boa ideia nos informar quando o problema foi iniciado e as etapas para reproduzi-lo. Você também pode optar por carregar um arquivo, como um arquivo de log ou uma saída do diagnóstico.
+Se possível, diga-nos quando o problema foi iniciado e as etapas para reproduzi-lo. Você pode carregar um arquivo, como um arquivo de log ou uma saída do diagnóstico.
 
-Depois de ter todas as informações sobre o problema que você está tendo, você pode escolher como obter suporte. Na seção **método de suporte** da guia **detalhes** , selecione a gravidade do impacto. Forneça seu método de contato preferencial, um bom momento para entrar em contato com você e o idioma de suporte.
+Depois de ter todas as informações sobre o problema, escolha como obter suporte. Na seção **método de suporte** de **detalhes**, selecione a gravidade do impacto. Forneça seu método de contato preferencial, um bom momento para entrar em contato com você e o idioma de suporte.
 
 Em seguida, preencha a seção **informações de contato** para que saibamos como contatá-lo.
 
@@ -101,7 +102,7 @@ Em seguida, preencha a seção **informações de contato** para que saibamos co
 
 Conclua todas as informações necessárias em cada guia e selecione **revisar + criar**. Verifique os detalhes que você enviará para dar suporte. Volte para qualquer guia para fazer uma alteração, se necessário. Quando estiver satisfeito, a solicitação de suporte será concluída, selecione **criar**.
 
-Um agente de suporte entrará em contato com você usando o método que você indicou. Consulte o [escopo de suporte e a capacidade de resposta](https://azure.microsoft.com/support/plans/response/) para obter informações sobre o tempo de resposta inicial.
+Um agente de suporte entrará em contato com você usando o método que você indicou. Para obter informações sobre o tempo de resposta inicial, consulte [escopo de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
 
 ## <a name="all-support-requests"></a>Todas as solicitações de suporte
 
@@ -109,11 +110,11 @@ Você pode exibir os detalhes e o status das solicitações de suporte acessando
 
 ![Todas as solicitações de suporte](./media/how-to-create-azure-support-request/allrequestslower.png)
 
-Nessa página, você pode filtrar as solicitações de suporte por assinatura, data de criação (UTC) e status. Além disso, você pode classificar e procurar por solicitações de suporte nesta página.
+Nessa página, você pode filtrar as solicitações de suporte por **assinatura**, data de **criação** (UTC) e **status**. Além disso, você pode classificar e procurar por solicitações de suporte nesta página.
 
 Selecione uma solicitação de suporte para exibir detalhes, incluindo gravidade e o tempo esperado que levará para que um agente de suporte responda.
 
-Se você quiser alterar a severidade da solicitação, selecione **impacto comercial**. Uma lista de severidades disponíveis para atribuir é mostrada.
+Se você quiser alterar a severidade da solicitação, selecione **impacto comercial**. Escolha em uma lista de severidades a atribuir.
 
 > [!NOTE]
 > O nível de severidade máximo depende do seu plano de suporte. [Saiba mais sobre os planos de suporte](https://azure.microsoft.com/support/plans).
@@ -124,6 +125,7 @@ Para saber mais sobre as opções de suporte de auto-ajuda no Azure, Assista a e
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
 ## <a name="next-steps"></a>Passos seguintes
+
 * [Envie-nos seus comentários e sugestões](https://feedback.azure.com/forums/266794-support-feedback)
 * Entre em contato conosco no [Twitter](https://twitter.com/azuresupport)
 * Obtenha ajuda de seus colegas nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure)

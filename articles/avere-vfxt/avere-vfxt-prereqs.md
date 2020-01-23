@@ -4,14 +4,14 @@ description: Pré-requisitos para avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152991"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547511"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -23,10 +23,10 @@ Comece criando uma nova assinatura do Azure. Use uma assinatura separada para ca
 
 Para criar uma nova assinatura do Azure no portal do Azure:
 
-* Navegue até a [folha assinaturas](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-* Clique no botão **+ Adicionar** na parte superior
-* Entrar, se solicitado
-* Selecione uma oferta e percorra as etapas para criar uma nova assinatura
+1. Navegue até a [folha assinaturas](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Clique no botão **+ Adicionar** na parte superior
+1. Entrar, se solicitado
+1. Selecione uma oferta e percorra as etapas para criar uma nova assinatura
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurar permissões de proprietário da assinatura
 
@@ -104,6 +104,6 @@ Crie o ponto de extremidade do serviço de armazenamento no portal do Azure.
 
    ![portal do Azure captura de tela com anotações para as etapas de criação do ponto de extremidade de serviço](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-step-create-the-vfxt-cluster"></a>Próxima etapa: criar o cluster vFXT
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de concluir esses pré-requisitos, você poderá criar o cluster. Leia [implantar o cluster vFXT](avere-vfxt-deploy.md) para obter instruções.

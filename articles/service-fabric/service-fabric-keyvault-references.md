@@ -3,12 +3,12 @@ title: Service Fabric do Azure – usando referências de keyvault de aplicativo
 description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultReference para segredos do aplicativo.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167131"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545488"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
@@ -22,7 +22,7 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
 
 - CSS (repositório de segredos central).
 
-    O repositório de segredos central (CSS) é o cache de segredos locais criptografados do Service Fabric, KeyVaultReference uma vez que o fetche é armazenado em cache em CSS.
+    O repositório de segredos central (CSS) é o cache de segredos locais criptografados do Service Fabric. O CSS é um cache de repositório de segredo local que mantém dados confidenciais, como senha, tokens e chaves, criptografados na memória. KeyVaultReference, depois de buscados, são armazenados em cache em CSS.
 
     Adicione o abaixo à sua configuração de cluster em `fabricSettings` para habilitar todos os recursos necessários para o suporte do KeyVaultReference.
 

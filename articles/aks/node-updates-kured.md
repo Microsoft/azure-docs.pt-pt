@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 580d1316c2bfc6514a148ed6fba78a8e77bd880e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c9e7c23806d4a0a0e2c0b36122d9eb087c986556
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614912"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549177"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel a nós do Linux no serviço kubernetes do Azure (AKS)
 
@@ -23,7 +23,7 @@ O processo para manter os nós do Windows Server (atualmente em visualização n
 Este artigo mostra como usar o kured de código-fonte aberto [(KUbernetes reboot daemon)][kured] para observar os nós do Linux que exigem uma reinicialização e, em seguida, manipular automaticamente o reagendamento da execução do processo de reinicialização e do nó.
 
 > [!NOTE]
-> `Kured`é um projeto de código-fonte aberto por Weaveworks. O suporte para esse projeto no AKS é fornecido em uma base de melhor esforço. O suporte adicional pode ser encontrado no canal de margem de atraso #weave-Community.
+> `Kured` é um projeto de código-fonte aberto por Weaveworks. O suporte para esse projeto no AKS é fornecido em uma base de melhor esforço. O suporte adicional pode ser encontrado no canal de margem de atraso #weave-Community.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -39,7 +39,7 @@ Em um cluster AKS, seus nós do kubernetes são executados como VMs (máquinas v
 
 Algumas atualizações de segurança, como atualizações de kernel, exigem uma reinicialização do nó para finalizar o processo. Um nó do Linux que requer uma reinicialização cria um arquivo chamado */var/run/reboot-Required*. Esse processo de reinicialização não ocorre automaticamente.
 
-Você pode usar seus próprios fluxos de trabalho e processos para lidar com reinicializações de nó `kured` ou usar para orquestrar o processo. Com `kured`o, [][DaemonSet] um daemonset é implantado e executa um pod em cada nó do Linux no cluster. Esses pods no Daemonset observam a existência do arquivo */var/run/reboot-Required* e, em seguida, inicia um processo para reinicializar os nós.
+Você pode usar seus próprios fluxos de trabalho e processos para lidar com reinicializações de nó ou usar `kured` para orquestrar o processo. Com o `kured`, um [daemonset][DaemonSet] é implantado que executa um pod em cada nó do Linux no cluster. Esses pods no Daemonset observam a existência do arquivo */var/run/reboot-Required* e, em seguida, iniciam um processo para reinicializar os nós.
 
 ### <a name="node-upgrades"></a>Atualizações de nó
 
@@ -54,23 +54,23 @@ Não é possível permanecer na mesma versão do kubernetes durante um evento de
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Implantar kured em um cluster AKS
 
-Para implantar o `kured` daemonset, aplique o seguinte manifesto YAML de exemplo a partir de sua página de projeto do github. Esse manifesto cria uma função e uma função de cluster, associações e uma conta de serviço e, em seguida, implanta o `kured` daemonset usando a versão 1.1.0 que dá suporte a clusters AKs 1,9 ou posterior.
+Para implantar o `kured` Daemonset, aplique o seguinte manifesto YAML de exemplo a partir de sua página de projeto do GitHub. Esse manifesto cria uma função e uma função de cluster, associações e uma conta de serviço e, em seguida, implanta o Daemonset usando `kured` versão 1.1.0 que dá suporte a clusters AKS 1,9 ou posterior.
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
 ```
 
-Você também pode configurar parâmetros adicionais para `kured`o, como integração com Prometheus ou margem de atraso. Para obter mais informações sobre parâmetros de configuração adicionais, consulte os [documentos de instalação do kured][kured-install].
+Você também pode configurar parâmetros adicionais para `kured`, como integração com Prometheus ou margem de atraso. Para obter mais informações sobre parâmetros de configuração adicionais, consulte os [documentos de instalação do kured][kured-install].
 
 ## <a name="update-cluster-nodes"></a>Atualizar nós de cluster
 
-Por padrão, os nós do Linux no AKS verificam se há atualizações todas as noites. Se você não quiser esperar, poderá executar manualmente uma atualização para verificar se `kured` o é executado corretamente. Primeiro, siga as etapas para executar o [SSH em um dos nós do AKS][aks-ssh]. Depois de ter uma conexão SSH com o nó do Linux, verifique se há atualizações e aplique-as da seguinte maneira:
+Por padrão, os nós do Linux no AKS verificam se há atualizações todas as noites. Se você não quiser esperar, poderá executar manualmente uma atualização para verificar se `kured` executado corretamente. Primeiro, siga as etapas para executar o [SSH em um dos nós do AKS][aks-ssh]. Depois de ter uma conexão SSH com o nó do Linux, verifique se há atualizações e aplique-as da seguinte maneira:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Se foram aplicadas atualizações que exigem uma reinicialização de nó, um arquivo será gravado em */var/run/reboot-Required*. `Kured`verifica se há nós que exigem uma reinicialização a cada 60 minutos por padrão.
+Se foram aplicadas atualizações que exigem uma reinicialização de nó, um arquivo será gravado em */var/run/reboot-Required*. o `Kured` verifica se há nós que exigem uma reinicialização a cada 60 minutos por padrão.
 
 ## <a name="monitor-and-review-reboot-process"></a>Monitorar e examinar o processo de reinicialização
 
@@ -83,7 +83,7 @@ NAME                       STATUS                     ROLES     AGE       VERSIO
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Depois que o processo de atualização for concluído, você poderá exibir o status dos nós usando o comando [kubectl Get][kubectl-get-nodes] Nodes `--output wide` com o parâmetro. Essa saída adicional permite que você veja uma diferença na *versão kernel* dos nós subjacentes, conforme mostrado na saída de exemplo a seguir. O *AKs-nodepool1-28993262-0* foi atualizado em uma etapa anterior e mostra a versão *do kernel 4.15.0-1039-Azure*. O nó *AKs-nodepool1-28993262-1* que não foi atualizado mostra a versão *do kernel 4.15.0-1037-Azure*.
+Depois que o processo de atualização for concluído, você poderá exibir o status dos nós usando o comando [kubectl Get Nodes][kubectl-get-nodes] com o parâmetro `--output wide`. Essa saída adicional permite que você veja uma diferença na *versão kernel* dos nós subjacentes, conforme mostrado na saída de exemplo a seguir. O *AKs-nodepool1-28993262-0* foi atualizado em uma etapa anterior e mostra a versão *do kernel 4.15.0-1039-Azure*. O nó *AKs-nodepool1-28993262-1* que não foi atualizado mostra a versão *do kernel 4.15.0-1037-Azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -93,7 +93,7 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo detalha como usar `kured` o para reinicializar os nós do Linux automaticamente como parte do processo de atualização de segurança. Para atualizar para a versão mais recente do kubernetes, você pode [atualizar o cluster do AKS][aks-upgrade].
+Este artigo detalha como usar `kured` para reinicializar os nós do Linux automaticamente como parte do processo de atualização de segurança. Para atualizar para a versão mais recente do kubernetes, você pode [atualizar o cluster do AKS][aks-upgrade].
 
 Para clusters AKS que usam nós do Windows Server, consulte [atualizar um pool de nós em AKs][nodepool-upgrade].
 

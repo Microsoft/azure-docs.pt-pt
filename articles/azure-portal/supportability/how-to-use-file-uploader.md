@@ -6,16 +6,17 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 01/23/2020
 ms.author: genli
-ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897003"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548973"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes do utilitário de upload de novo arquivo de solicitação de suporte Microsoft Azure
+
 Quando você [cria uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), a opção de carregamento de arquivo pode ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que você ache relevantes para o incidente.  
 
 > [!NOTE]
@@ -25,12 +26,13 @@ Quando você [cria uma solicitação de suporte](https://portal.azure.com/#creat
 
 Siga estas diretrizes ao usar a opção de carregamento de arquivo:
 
-* Todos os arquivos devem ter uma extensão de nome de arquivo, como. docx ou. xlsx. Consulte a tabela para obter a lista de extensões de nome de arquivo permitidas.
+* Todos os arquivos devem ter uma extensão de nome de arquivo, como *. docx* ou *. xlsx*. Consulte a tabela para obter as extensões de nome de arquivo permitidas.
 * O nome do arquivo não deve ter mais de 110 caracteres.
 * Não é possível carregar mais de um arquivo.
 * Os arquivos não podem ser maiores que 4 MB.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabela das extensões de nome de arquivo permitidas
+
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | . dat  | .hwl        | .odx  | . rar     | .tdb       | .xlam   |

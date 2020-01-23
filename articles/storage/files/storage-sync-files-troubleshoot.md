@@ -4,15 +4,15 @@ description: Solucionar problemas comuns com o Sincronização de Arquivos do Az
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514634"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545046"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -48,6 +48,19 @@ letra_da_unidade: \ Não está acessível.
 Parâmetro incorreto.
 
 Para resolver, instale as atualizações mais recentes do Windows Server 2012 R2 e reinicie o servidor.
+
+<a id="server-registration-missing-subscriptions"></a>**O registro do servidor não lista todas as assinaturas do Azure**  
+Ao registrar um servidor usando o ServerRegistration. exe, as assinaturas estão ausentes quando você clica na lista suspensa assinatura do Azure.
+
+Esse problema ocorre porque o ServerRegistration. exe não oferece suporte a ambientes de multilocatário no momento. Esse problema será corrigido em uma atualização futura do agente de Sincronização de Arquivos do Azure.
+
+Para solucionar esse problema, use os seguintes comandos do PowerShell para registrar o servidor:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
 
 <a id="server-registration-prerequisites"></a>**O registro do servidor exibe a seguinte mensagem: "pré-requisitos estão ausentes"**  
 Essa mensagem será exibida se o módulo do PowerShell AZ ou AzureRM não estiver instalado no PowerShell 5,1. 
@@ -311,6 +324,7 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport. ps1
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | O arquivo não pode ser sincronizado devido a um erro inesperado. | Se o erro persistir por vários dias, abra um caso de suporte. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | O arquivo não pode ser sincronizado porque está em uso. O ficheiro será sincronizado quando já não estiver em utilização. | Nenhuma ação necessária. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | O arquivo foi alterado durante a sincronização, portanto, ele precisa ser sincronizado novamente. | Nenhuma ação necessária. |
+| 0x80070017 | -2147024873 | ERROR_CRC | O arquivo não pode ser sincronizado devido a um erro de CRC. Esse erro poderá ocorrer se um arquivo em camadas não tiver sido rechamado antes da exclusão de um ponto de extremidade do servidor ou se o arquivo estiver corrompido. | Para resolver esse problema, consulte [arquivos em camadas não podem ser acessados no servidor após a exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) para remover arquivos em camadas que estão órfãos. Se o erro continuar ocorrendo após a remoção de arquivos em camadas órfãs, execute [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) no volume. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | O arquivo não pode ser sincronizado porque o número máximo de arquivos de conflito foi atingido. O Sincronização de Arquivos do Azure dá suporte a arquivos de conflito 100 por arquivo. Para saber mais sobre conflitos de arquivo, consulte Sincronização de Arquivos do Azure [perguntas frequentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Para resolver esse problema, reduza o número de arquivos de conflito. O arquivo será sincronizado assim que o número de arquivos de conflito for menor que 100. |
 
 #### <a name="handling-unsupported-characters"></a>Manipulando caracteres sem suporte
@@ -442,6 +456,17 @@ Esse erro ocorre porque o agente de Sincronização de Arquivos do Azure não es
 
 1. [Verifique se a conta de armazenamento existe.](#troubleshoot-storage-account)
 2. [Verificar se as definições da rede virtual e da firewall na conta de armazenamento estão configuradas corretamente (se ativadas)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364014"></a>**Falha na sincronização devido à conta de armazenamento bloqueada.**  
+
+| | |
+|-|-|
+| **RESULTADO** | 0x80c83092 |
+| **HRESULT (Decimal)** | -2134364014 |
+| **Cadeia de caracteres de erro** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **Correção necessária** | Sim |
+
+Esse erro ocorre porque a conta de armazenamento tem um bloqueio de [recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)somente leitura. Para resolver esse problema, remova o bloqueio de recurso somente leitura na conta de armazenamento. 
 
 <a id="-1906441138"></a>**Falha na sincronização devido a um problema com o banco de dados de sincronização.**  
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6c14f78fd3cefa5ec41a686ca385639eb3fcb67
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913723"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549279"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -40,7 +40,7 @@ Os volumes tradicionais para armazenar e recuperar dados são criados como recur
 
 No kubernetes, os volumes podem representar mais do que apenas um disco tradicional, onde as informações podem ser armazenadas e recuperadas. Os volumes kubernetes também podem ser usados como uma maneira de injetar dados em um pod para uso pelos contêineres. Os tipos de volume adicionais comuns no kubernetes incluem:
 
-- *emptyDir* -esse volume é comumente usado como espaço temporário para um pod. Todos os contêineres dentro de um pod podem acessar os dados no volume. Os dados gravados nesse tipo de volume persistem apenas durante o ciclo de vida do pod – quando o pod é excluído, o volume é excluído. Esse volume normalmente usa o armazenamento em disco do nó local subjacente, embora também possa existir somente na memória do nó.
+- *emptyDir* -esse volume é comumente usado como espaço temporário para um pod. Todos os contêineres dentro de um pod podem acessar os dados no volume. Os dados gravados nesse tipo de volume persistem apenas durante o ciclo de vida do pod – quando o pod é excluído, o volume é excluído. Esse volume normalmente usa o armazenamento em disco do nó local subjacente, embora ele também possa existir apenas na memória do nó.
 - *segredo* – esse volume é usado para injetar dados confidenciais em pods, como senhas. Primeiro, você cria um segredo usando a API kubernetes. Quando você define o Pod ou a implantação, um segredo específico pode ser solicitado. Os segredos são fornecidos apenas para nós que têm um pod agendado que o exige, e o segredo é armazenado em *tmpfs*, não gravado no disco. Quando o último pod em um nó que requer um segredo é excluído, o segredo é excluído do tmpfs do nó. Os segredos são armazenados em um namespace específico e só podem ser acessados por pods dentro do mesmo namespace.
 - *configMap* -esse tipo de volume é usado para injetar Propriedades de pares chave-valor em pods, como informações de configuração do aplicativo. Em vez de definir informações de configuração de aplicativo em uma imagem de contêiner, você pode defini-la como um recurso kubernetes que pode ser facilmente atualizado e aplicado a novas instâncias de pods à medida que são implantadas. Como usar um segredo, você primeiro cria um ConfigMap usando a API kubernetes. Esse ConfigMap pode ser solicitado quando você define um pod ou uma implantação. ConfigMaps são armazenados em um namespace específico e só podem ser acessados por pods dentro do mesmo namespace.
 

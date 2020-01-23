@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ac99b95e3cece09c5bdeb0986a11a999603707e6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314509"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548531"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: atribuir dados a clusters
 
-Este artigo descreve como usar o módulo *atribuir dados a clusters* no designer de Azure Machine Learning. O módulo gera previsões por meio de um modelo de clustering que foi treinado com o algoritmo de *clustering K-* means.
+Este artigo descreve como usar o módulo *atribuir dados a clusters* no designer de Azure Machine Learning (versão prévia). O módulo gera previsões por meio de um modelo de clustering que foi treinado com o algoritmo de *clustering K-* means.
 
 O módulo atribuir dados a clusters retorna um DataSet que contém as atribuições prováveis para cada novo ponto de dados. 
 

@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153601"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547528"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
-Este procedimento orienta você pelo uso do assistente de implantação disponível no Azure Marketplace. O assistente implanta automaticamente o cluster usando um modelo de Azure Resource Manager. Depois de inserir os parâmetros no formulário e clicar em **criar**, o Azure concluirá automaticamente estas etapas:
+Este procedimento orienta você pelo uso do assistente de implantação disponível no Azure Marketplace. O assistente implanta automaticamente o cluster usando um modelo de Azure Resource Manager. Depois de inserir os parâmetros no formulário e clicar em **criar**, o Azure concluirá automaticamente estas tarefas:
 
 * Cria o controlador de cluster, que é uma VM básica que contém o software necessário para implantar e gerenciar o cluster.
 * Configura o grupo de recursos e a infraestrutura de rede virtual, incluindo a criação de novos elementos.
@@ -28,10 +28,10 @@ Depois de seguir as instruções neste documento, você terá uma rede virtual, 
 
 Antes de usar o modelo de criação, verifique se você resolveu estes pré-requisitos:  
 
-1. [Nova assinatura](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Permissões de proprietário da assinatura](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Cota para o cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Ponto de extremidade do serviço de armazenamento (se necessário)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – necessário para implantações que usam uma rede virtual existente e criar armazenamento de BLOBs
+* [Nova assinatura](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [Permissões de proprietário da assinatura](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [Cota para o cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Ponto de extremidade do serviço de armazenamento (se necessário)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – necessário para implantações que usam uma rede virtual existente e criar armazenamento de BLOBs
 
 Para obter mais informações sobre etapas de implantação de cluster e planejamento, leia [planejar o sistema avere vFXT e a](avere-vfxt-deploy-plan.md) [visão geral da implantação](avere-vfxt-deploy-overview.md).
 

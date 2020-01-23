@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: cc5c7b9f26d74f32c9f6042e3a1deddc57171860
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274241"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543142"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -31,7 +31,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 O Azure [Load Balancer](../load-balancer/load-balancer-overview.md) distribui o tráfego de entrada entre instâncias de máquina virtual íntegras. 
 
-Primeiro, crie um Load Balancer básico público usando o Portal. O nome e endereço IP público que criou são automaticamente configurados como front-end de Balanceador de carga.
+Primeiro, crie um Standard Load Balancer público usando o Portal. O nome e endereço IP público que criou são automaticamente configurados como front-end de Balanceador de carga.
 
 1. Na caixa de pesquisa, digite **balanceador de carga**. Em **Marketplace** nos resultados da pesquisa, escolha **balanceador de carga**.
 1. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as seguintes informações:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/09/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e52a859c86ff451293ac6ff795c7fe427a383b9d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 459d75bec3d4b4d0cf9057e0c6de238e7f165bfb
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835301"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548990"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: usar scripts de implantação para criar um certificado autoassinado (versão prévia)
 
@@ -267,7 +267,7 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
     * **scriptContent**: especifique o conteúdo do script. Para executar um script externo, use **primaryScriptURI** em vez disso. Para obter mais informações, consulte [usar script externo](./deployment-script-template.md#use-external-scripts).
         A declaração de **$DeploymentScriptOutputs** só é necessária ao testar o script em um computador local. Declarar a variável permite que o script seja executado em um computador local e em um recurso deploymentScript sem precisar fazer alterações. O valor atribuído a $DeploymentScriptOutputs está disponível como saídas nas implantações. Para obter mais informações, consulte [trabalhar com saídas de scripts de implantação](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: Especifique a preferência em quando excluir os recursos de script de implantação.  O valor padrão é **sempre**, o que significa que os recursos de script de implantação são excluídos, apesar do estado do terminal (êxito, falha, cancelado). Neste tutorial, **OnSuccess** é usado para que você tenha a oportunidade de exibir os resultados da execução do script.
-    * **retentionInterval**: especifique o intervalo para o qual o serviço retém os recursos de script depois que ele atinge um estado de terminal. Os recursos serão excluídos quando essa duração expirar. A duração é baseada no padrão ISO 8601. Este tutorial usa P1D, que significa um dia.  Essa propriedade é usada quando **retentionInterval** está definido como **ontermination**. Esta propriedade não está habilitada no momento.
+    * **retentionInterval**: especifique o intervalo para o qual o serviço retém os recursos de script depois que ele atinge um estado de terminal. Os recursos serão excluídos quando essa duração expirar. A duração é baseada no padrão ISO 8601. Este tutorial usa P1D, que significa um dia.  Essa propriedade é usada quando **cleanupPreference** está definido como **ontermination**. Esta propriedade não está habilitada no momento.
 
     O script de implantação usa três parâmetros: nome do Key Vault, nome do certificado e nome da entidade.  Ele cria um certificado e, em seguida, adiciona o certificado ao cofre de chaves.
 

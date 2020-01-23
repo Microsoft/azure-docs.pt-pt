@@ -8,22 +8,22 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a222f72e705184c5a7ba6701cfda41073c7eba57
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457271"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548752"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
-IoT Edge certificados são usados para os módulos e dispositivos IoT downstream para verificar a identidade e a legitimidade do módulo de tempo de execução de [IOT Edge Hub](iot-edge-runtime.md#iot-edge-hub) ao qual se conectam. Estas verificações ativar uma ligação segura TLS (transport layer security) entre o tempo de execução, os módulos e os dispositivos de IoT. Como o IoT Hub em si, IoT Edge requer segura e encriptada ligação a partir do IoT downstream (ou folha) dispositivos e os módulos do IoT Edge. Para estabelecer uma conexão TLS segura, o módulo Hub IoT Edge apresenta uma cadeia de certificados de servidor para conectar clientes para que eles verifiquem sua identidade.
+IoT Edge certificados são usados pelos módulos e dispositivos IoT downstream para verificar a identidade e a legitimidade do módulo [IOT Edge](iot-edge-runtime.md#iot-edge-hub) tempo de execução do Hub. Estas verificações ativar uma ligação segura TLS (transport layer security) entre o tempo de execução, os módulos e os dispositivos de IoT. Como o IoT Hub em si, IoT Edge requer segura e encriptada ligação a partir do IoT downstream (ou folha) dispositivos e os módulos do IoT Edge. Para estabelecer uma conexão TLS segura, o módulo Hub IoT Edge apresenta uma cadeia de certificados de servidor para conectar clientes para que eles verifiquem sua identidade.
 
 Este artigo explica como IoT Edge certificados podem funcionar em cenários de produção, desenvolvimento e teste. Embora os scripts sejam diferente (Powershell vs. bash), os conceitos são os mesmos entre o Linux e Windows.
 
 ## <a name="iot-edge-certificates"></a>Certificados do IoT Edge
 
-Normalmente, os fabricantes não são os usuários finais de um dispositivo IoT Edge. Às vezes, a única relação entre os dois é quando o usuário final, ou operador, adquire um dispositivo genérico feito pelo fabricante. Em outras ocasiões, o fabricante trabalha sob contrato para criar um dispositivo personalizado em nome do operador. O design de certificado do IoT Edge tenta considerar os dois cenários.
+Normalmente, os fabricantes não são os usuários finais de um dispositivo IoT Edge. Às vezes, a única relação entre os dois é quando o usuário final, ou operador, adquire um dispositivo genérico feito pelo fabricante. Em outras ocasiões, o fabricante trabalha sob contrato para criar um dispositivo personalizado para o operador. O design de certificado do IoT Edge tenta considerar os dois cenários.
 
 A figura seguinte ilustra a utilização do IoT Edge de certificados. Pode haver zero, um ou muitos certificados de assinatura intermediários entre o certificado de autoridade de certificação raiz e o certificado de autoridade de certificação do dispositivo, dependendo do número de entidades envolvidas. Aqui, mostramos um caso.
 
@@ -51,7 +51,7 @@ De qualquer forma, o fabricante utiliza um certificado de AC intermediária no f
 
 ### <a name="device-ca-certificate"></a>Certificado de acesso condicional de dispositivo
 
-O certificado de AC do dispositivo é gerado a partir do e assinado pelo certificado de AC intermediário final do processo. Esse certificado é instalado no próprio dispositivo IoT Edge, preferencialmente no armazenamento seguro, como um módulo de segurança de hardware (HSM). Além disso, um certificado de AC de dispositivo identifica exclusivamente um dispositivo IoT Edge. O certificado de autoridade de certificação do dispositivo pode assinar outros certificados. 
+O certificado de AC do dispositivo é gerado a partir do e assinado pelo certificado de AC intermediário final do processo. Esse certificado é instalado no próprio dispositivo IoT Edge, preferencialmente no armazenamento seguro, como um módulo de segurança de hardware (HSM). Além disso, um certificado de AC de dispositivo identifica exclusivamente um dispositivo IoT Edge. O certificado de autoridade de certificação do dispositivo pode assinar outros certificados.
 
 ### <a name="iot-edge-workload-ca"></a>Carga de trabalho do IoT Edge AC
 
@@ -59,7 +59,7 @@ O [IOT Edge Security Manager](iot-edge-security-manager.md) gera o certificado d
 
 ### <a name="iot-edge-hub-server-certificate"></a>IoT Edge certificado do servidor Hub
 
-O certificado do servidor Hub IoT Edge é o certificado real apresentado aos dispositivos folha e módulos para verificação de identidade durante o estabelecimento da conexão TLS exigida pelo IoT Edge. Este certificado apresenta a cadeia completa de certificados de assinatura utilizados para gerá-lo até o certificado de AC de raiz, que o dispositivo de IoT de folha tem de confiar. Quando gerado pelo Gerenciador de segurança IoT Edge, o CN (nome comum) desse certificado de IoT Edge Hub é definido como a propriedade ' hostname ' no arquivo config. YAML após a conversão em minúsculas. Esta é uma fonte comum de confusão com o IoT Edge.
+O certificado do servidor Hub IoT Edge é o certificado real apresentado aos dispositivos folha e módulos para verificação de identidade durante o estabelecimento da conexão TLS exigida pelo IoT Edge. Este certificado apresenta a cadeia completa de certificados de assinatura utilizados para gerá-lo até o certificado de AC de raiz, que o dispositivo de IoT de folha tem de confiar. Quando gerado pelo Gerenciador de segurança IoT Edge, o CN (nome comum) desse certificado de IoT Edge Hub é definido como a propriedade ' hostname ' no arquivo config. YAML após a conversão em minúsculas. Essa configuração é uma fonte comum de confusão com IoT Edge.
 
 ## <a name="production-implications"></a>Implicações de produção
 
@@ -94,9 +94,9 @@ Pode ver a hierarquia de profundidade de certificado representada na captura de 
 | Certificado de AC de raiz         | Teste de certificado de AC do Hub de IoT do Azure apenas                                                                           |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------|
 | Certificado de AC intermediária | Apenas o teste de certificado intermédio Hub IoT do Azure                                                                 |
-| Certificado de acesso condicional de dispositivo       | iotgateway.CA ("iotgateway" foi passado como o < nome de anfitrião de gateway > para os scripts de conveniência)      |
+| Certificado de acesso condicional de dispositivo       | iotgateway.CA ("iotgateway" foi passado como o < nome de anfitrião de gateway > para os scripts de conveniência)   |
 | Certificado de AC da carga de trabalho     | AC de carga de trabalho de iotedge                                                                                       |
-| IoT Edge certificado do servidor Hub | iotedgegw.local (corresponde ao nome "anfitrião" de config.yaml)                                                |
+| IoT Edge certificado do servidor Hub | iotedgegw.local (corresponde ao nome "anfitrião" de config.yaml)                                            |
 
 ## <a name="next-steps"></a>Passos seguintes
 

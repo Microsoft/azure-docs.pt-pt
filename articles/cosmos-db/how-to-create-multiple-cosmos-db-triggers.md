@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: efb0a9229d6061d4df8d67ba8455801d9d2a2964
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445343"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548888"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos Azure Functions para Cosmos DB
 
@@ -38,7 +38,7 @@ O objetivo deste artigo é orientá-lo a realizar a segunda opção.
 
 ## <a name="configuring-a-shared-leases-container"></a>Configurando um contêiner de concessões compartilhadas
 
-Para configurar o contêiner de concessões compartilhadas, a única configuração extra que você precisa fazer em seus gatilhos é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) `LeaseCollectionPrefix` se C# você estiver usando ou `leaseCollectionPrefix` [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) se estiver usando JavaScript. O valor do atributo deve ser um descritor lógico do que esse gatilho específico.
+Para configurar o contêiner de concessões compartilhadas, a única configuração extra que você precisa fazer em seus gatilhos é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---attributes-and-annotations) `LeaseCollectionPrefix` se C# você estiver usando ou `leaseCollectionPrefix` [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) se estiver usando JavaScript. O valor do atributo deve ser um descritor lógico do que esse gatilho específico.
 
 Por exemplo, se você tiver três gatilhos: um que envia emails, um que faz uma agregação para criar uma exibição materializada e outro que envia as alterações para outro armazenamento, para análise posterior, você pode atribuir o `LeaseCollectionPrefix` de "emails" para o primeiro, "materializado" para o segundo e "análise" para o terceiro.
 
@@ -109,5 +109,5 @@ E para JavaScript, você pode aplicar a configuração no arquivo de `function.j
 ## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a configuração completa para o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
-* Verifique a lista estendida [de amostras](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) de todos os idiomas.
+* Verifique a lista estendida [de amostras](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) de todos os idiomas.
 * Visite as receitas sem servidor com Azure Cosmos DB e Azure Functions [repositório GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) para obter mais exemplos.

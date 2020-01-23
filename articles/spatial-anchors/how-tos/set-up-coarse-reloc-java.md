@@ -1,6 +1,6 @@
 ---
 title: Relocalidade alta no Java
-description: Explicação detalhada de como criar e localizar âncoras usando sensores no dispositivo em Java.
+description: Explicação detalhada de como criar e localizar âncoras usando a relocalização de alta utilização em Java.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2aafaed67e68b5842767de32893eddd829b43164
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a13b3e838bd3083741eb903f39f3f7683f39ee4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277216"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545225"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-java"></a>Como criar e localizar âncoras usando sensores no dispositivo em Java
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-java"></a>Como criar e localizar âncoras usando a relocalação de alta utilização em Java
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
-> * [Java Android](set-up-coarse-reloc-java.md)
+> * [Android Java](set-up-coarse-reloc-java.md)
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 

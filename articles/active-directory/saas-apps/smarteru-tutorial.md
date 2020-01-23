@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 61d7a2a7e4a60794710d602dab6b54e894bfc475
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232028"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549296"
 ---
+> [!NOTE]
+> O processo de integração do SmarterU com o Azure Active Directory também é documentado e mantido no [sistema de ajuda do SmarterU](https://help.smarteru.com/ID2053086).
+
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: integração do Azure Active Directory com o SmarterU
 
 Neste tutorial, você aprenderá a integrar o SmarterU com o Azure Active Directory (Azure AD).
@@ -53,7 +56,7 @@ Para configurar a integração do SmarterU ao Azure AD, você precisará adicion
 
 **Para adicionar o SmarterU da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +79,12 @@ Para que o logon único funcione, é necessário estabelecer uma relação de v�
 
 Para configurar e testar o logon único do Azure AD com o SmarterU, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o logon único do SmarterU](#configure-smarteru-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 5. **[Criar usuário de teste do SmarterU](#create-smarteru-test-user)** – para ter um equivalente de Brenda Simon no SmarterU que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -97,7 +100,7 @@ Para configurar o logon único do Azure AD com o SmarterU, execute as seguintes 
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
     ![Editar configuração básica de SAML](common/edit-urls.png)
 
@@ -127,7 +130,7 @@ Para configurar o logon único do Azure AD com o SmarterU, execute as seguintes 
 
 1. Na barra de ferramentas na parte superior, clique em **configurações de conta**.
 
-    ![Configurações da conta](./media/smarteru-tutorial/accountsettings.png)
+    ![Account Settings](./media/smarteru-tutorial/accountsettings.png)
 
 1. Na página configuração da conta, execute as seguintes etapas:
 
@@ -151,11 +154,11 @@ Para configurar o logon único do Azure AD com o SmarterU, execute as seguintes 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
     ![Botão novo usuário](common/new-user.png)
 
@@ -192,7 +195,7 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
 6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
@@ -210,7 +213,7 @@ Para permitir que os usuários do Azure AD entrem no SmarterU, eles devem ser pr
 
 1. Na seção usuário, execute as seguintes etapas:
 
-    ![Novo usuário](./media/smarteru-tutorial/adduser.png)  
+    ![Novo Utilizador](./media/smarteru-tutorial/adduser.png)  
 
     a. Clique em **+ usuário**.
 
@@ -231,7 +234,7 @@ Ao clicar no bloco do SmarterU no painel de acesso, você deverá ser conectado 
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

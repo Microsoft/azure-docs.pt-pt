@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2377cc2e0824911217fbc2783fdf8e86fd7b9405
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442923"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549211"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança do cluster e atualizações no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Este artigo se concentra em como proteger o seu cluster do AKS. Saiba como:
 > * Utilizar o Azure Active Directory e controlos de acesso baseado em funções para proteger o acesso ao servidor de API
 > * Contentores seguros de acesso a recursos de nó
 > * Atualizar um cluster do AKS para a versão mais recente do Kubernetes
-> * Manter a atualização de nós até à data e automaticamente aplicar patches de segurança
+> * Manter os nós atualizados e aplicar automaticamente os patches de segurança
 
 Você também pode ler as práticas recomendadas para [Gerenciamento de imagens de contêiner][best-practices-container-image-management] e segurança de [Pod][best-practices-pod-security].
 

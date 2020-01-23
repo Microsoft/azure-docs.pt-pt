@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992312"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547579"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do EA Portal do Azure
 
@@ -117,82 +117,74 @@ De momento, a Oferta Dev/Test não é aplicável aos clientes Azure Gov.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferir uma conta corporativa para uma nova inscrição
 
-Uma transferência de conta move um proprietário de conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Isso é executado quando você tem vários registros ativos e deseja apenas mover os proprietários de conta selecionados.
+Uma transferência de conta move um proprietário de conta de uma inscrição para outra. Todas as subscrições relacionadas do proprietário da conta serão movidas para a inscrição de destino. Esta transferência é feita quando tem várias inscrições ativas e quer mover apenas os proprietários de conta selecionados.
 
 Tenha os seguintes pontos em mente ao transferir uma conta corporativa para uma nova inscrição:
 
 - Apenas as contas especificadas no pedido são transferidas. Se todas as contas forem escolhidas, serão todas transferidas.
 - A inscrição de origem retém o estado como Ativo ou Expandido. Pode continuar com a inscrição até que expire.
 
-### <a name="effective-transfer-date"></a>Data de transferência efetiva
-
-Você pode efetuar uma transferência de conta para a frente até a data de início do registro de destino ou a data de início da conta, o que tiver uma data de início posterior. Após a transferência da conta, todas as informações de utilização na conta antes da data de transferência efetiva permanecem na inscrição de que está a transferir. As informações de uso após a data de transferência serão movidas para o registro de destino.
-
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Ao pedir uma transferência de conta, forneça as seguintes informações:
 
-- O número do registro de destino, o nome da conta e o email do proprietário da conta a ser transferido
+- O número da inscrição de destino, o nome da conta e o e-mail do proprietário da conta a transferir
 - Relativamente à inscrição de origem, o número de inscrição e a conta a ser transferida
-- Para a data de efetivação da transferência de conta, ela pode ser regressiva até a data de início do registro de destino ou a data de início da conta, o que tiver uma data de início posterior
 
 Outros pontos a ter em mente antes de uma transferência de conta:
 
 - É necessária a aprovação de um administrador de EA para a inscrição de origem e de destino
 - Se uma transferência de conta não atender aos seus requisitos, considere uma transferência de inscrição.
 - A transferência de conta transfere todos os serviços e subscrições relacionados com as contas específicas.
-- Depois que a transferência for concluída, a conta transferida aparecerá inativa no registro de origem e aparecerá ativa sob o registro de destino.
+- Uma vez concluída a transferência, a conta transferida aparece inativa na inscrição de origem e ativa na inscrição de destino.
 - A conta mostra a data de fim que corresponde à data de transferência efetiva na inscrição de origem e aparece como data de início na inscrição de destino.
 - Qualquer utilização ocorrida para a conta antes da data de transferência efetiva permanece na inscrição de origem.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferir inscrição corporativa para uma nova
 
-Uma transferência de registro é considerada quando:
+Considera-se uma transferência de inscrição quando:
 
-- O termo de compromisso de um registro atual chegou a um fim.
-- Um registro está no status expirado/estendido e um novo contrato é negociado.
-- Se você tiver vários registros e desejar consolidar todas as contas e cobrança em um único registro.
+- O termo de alocação de uma inscrição atual tiver terminado.
+- Uma inscrição se encontra no estado expirado/alargado e é negociado um novo contrato.
+- Tiver várias inscrições e desejar consolidar todas as contas e faturação numa única inscrição.
 
 Quando pede a transferência de uma inscrição corporativa inteira para uma inscrição, ocorrem as seguintes ações:
 
-- Todos os serviços do Azure, assinaturas, contas, departamentos e toda a estrutura de registro, incluindo todos os administradores do departamento EA, são transferidos para um novo registro de destino.
+- Todos os serviços, subscrições, contas, departamentos e toda a estrutura de inscrição, incluindo todos os administradores de departamento do EA, são transferidos para uma nova inscrição.
 - O estado da inscrição é definido para _Transferida_. A inscrição transferida está disponível apenas para fins de relatório de histórico de utilização.
 - Não pode adicionar funções ou subscrições a uma inscrição transferida. O estado Transferida impede a utilização adicional em relação à inscrição.
 - Qualquer saldo de alocação monetária restante no contrato é perdido, incluindo os termos futuros.
 -   Se a inscrição da qual esta a transferir possuir compras de RIs, a taxa das compras de RIs permanecerá na inscrição de origem. No entanto, os benefícios das RIs serão transferidos para utilização na nova inscrição.
 -   A taxa de compra única do marketplace e todas as taxas fixas mensais já incorridas na antiga inscrição não serão transferidas para a nova inscrição. As taxas do marketplace baseadas no consumo serão transferidas.
--   Após a transferência de uma inscrição retroativa, as taxas únicas das compras permanecerão na inscrição de origem.
 
 ### <a name="effective-transfer-date"></a>Data de transferência efetiva
 
-O dia de transferência efetivo pode ser em ou após a data de início do registro de destino.
+O dia da transferência efetiva pode ser na data de início da inscrição de destino ou numa data posterior.
 
 A utilização da inscrição de origem é cobrada como alocação monetária ou utilização excedida. A utilização que ocorre após a data de transferência efetiva é transferida para a nova inscrição e cobrada em conformidade.
-
-Uma transferência de versão anterior tem suporte até a data de início do registro de destino. Fornecer a data de transferência escolhida não afeta o uso de uma fatura excedente que já foi emitida.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Ao pedir uma transferência de inscrição, forneça as seguintes informações:
 
-- Para o registro de origem, o número de registro.
+- Relativamente à inscrição de origem, o número de inscrição.
 - Relativamente à inscrição de destino, o número de inscrição para o qual transferir.
 - Relativamente à data efetiva da transferência de inscrição, pode ser uma data na ou após a data de início da inscrição de destino. A data escolhida não pode afetar a utilização de nenhuma fatura de utilização excedida já emitida.
 
 Outros pontos a ter em mente antes de uma transferência de inscrição:
 
-- É necessária a aprovação dos administradores EA de destino e de registro de origem.
+- É necessária a aprovação dos Administradores EA da inscrição de origem e de destino.
 - Se uma transferência de inscrição não atender aos seus requisitos, considere uma transferência de conta.
-- O status do registro de origem será atualizado para transferido e só estará disponível para fins de relatório de uso histórico.
+- O estado da inscrição de origem será atualizado para transferido e só estará disponível para fins de relatório de histórico de utilização.
 
 ### <a name="monetary-commitment"></a>Alocação monetária
 
 A alocação monetária não é transferível entre inscrições. Os saldos de alocação monetária são associados contratualmente à inscrição em que foi pedida. A alocação monetária não é transferida como parte do processo de transferência de inscrição ou conta.
 
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço afetado para transferências de conta e registro
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço é afetado pelas transferências de inscrições e de contas
 
-Não há tempo de inatividade durante uma transferência de conta ou de registro. Pode ser concluída no mesmo dia do pedido se todas as informações necessárias forem fornecidas.
+Não há tempo de inatividade durante a transferência da inscrição ou da conta. Pode ser concluída no mesmo dia do pedido se todas as informações necessárias forem fornecidas.
 
 ## <a name="change-account-owner"></a>Alterar o proprietário da conta
 

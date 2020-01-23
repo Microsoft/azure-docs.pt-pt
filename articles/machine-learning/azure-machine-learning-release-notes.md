@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1cd9ca07aab1953d114caf748ca99170fae6b876
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293203"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546355"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -25,18 +25,39 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
 
 ## <a name="2020-01-21"></a>2020-01-21
 
-### <a name="azure-machine-learning-designer-generally-available-ga"></a>Designer de Azure Machine Learning disponível para o público geral (GA)
-
-O designer agora está disponível para o público geral.
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Azure Machine Learning SDK para Python v 1.0.85
 
 + **Novos recursos**
-    + Adicionada a opção `Regenerate Output` Module para forçar o designer a ignorar os resultados armazenados em cache.
-    + Foram adicionadas novas exibições aos detalhes da execução do pipeline:
-        + Exibição de lista de pipeline.
-        + Exibição de log no navegador.
-    + Rótulos adicionados às portas de entrada e saída do módulo.
-    + Opção de pipeline de `Set as Default` adicionada na [guia pontos de extremidade](how-to-run-batch-predictions-designer.md#versioning-endpoints).
-    + Foram adicionados atalhos de teclado e [recursos de acessibilidade](designer-accessibility.md)do leitor de tela.
+  + **azureml-core**
+    + Obtenha o uso principal atual e a limitação de cota para recursos de AmlCompute em um determinado espaço de trabalho e assinatura
+  
+  + **azureml-contrib-pipeline-etapas**
+    + Habilitar o usuário a passar o conjunto de resultados de tabela como resultado intermediário da etapa anterior para parallelrunstep
+
++ **Correções de bugs e melhorias**
+  + **azureml-automl-tempo de execução**
+    + Removida a necessidade de y_query coluna na solicitação para o serviço de previsão implantado. 
+    + O ' y_query ' foi removido da seção de solicitação de serviço de bloco de anotações de suco de Dominick de laranja.
+    + Correção do bug que impede a previsão nos modelos implantados, operando em conjuntos de dados com colunas de data e hora.
+    + O coeficiente de correlação de Matthews foi adicionado como uma métrica de classificação, para classificação binária e multiclasse.
+  + **azureml-contrib-interpret**
+    + Os explicadores de texto removidos do azureml-contrib-interprete como explicações de texto foram movidos para o repositório de texto de interpretação que será liberado em breve.
+  + **azureml-core**
+    + Conjunto de conjuntos: os usos do conjunto de arquivos não dependem mais do numpy e do pandas para serem instalados no Python env.
+    + Foi alterado LocalWebservice. wait_for_deployment () para verificar o status do contêiner do Docker local antes de tentar executar ping no ponto de extremidade de integridade, reduzindo muito o tempo necessário para relatar uma implantação com falha.
+    + Correção da inicialização de uma propriedade interna usada em LocalWebservice. reload () quando o objeto de serviço é criado a partir de uma implantação existente usando o Construtor LocalWebservice ().
+    + Mensagem de erro editada para fins de esclarecimento.
+    + Adicionado um novo método chamado get_access_token () a AksWebservice que retornará o objeto AksServiceAccessToken, que contém o token de acesso, atualize após o carimbo de data/hora, expiração em carimbo de data/hora e tipo de token. 
+    + O método existente de get_token () preterido em AksWebservice como o novo método retorna todas as informações retornadas por esse método.
+    + Saída modificada do comando AZ ml Service Get-Access-token. Token renomeado para accessToken e refreshBy para refreshAfter. Propriedades expiryOn e TokenType adicionadas.
+    + Get_active_runs fixo
+  + **azureml-explain-model**
+    + atualizado o shap para 0.33.0 e interprete-Community para 0,4. *
+  + **azureml-interpretar**
+    + atualizado o shap para 0.33.0 e interprete-Community para 0,4. *
+  + **azureml-Train-automl-Runtime**
+    + O coeficiente de correlação de Matthews foi adicionado como uma métrica de classificação, para classificação binária e multiclasse.
+    + Substituir o sinalizador de pré-processamento do código e substituído por personalização-personalização está ativado por padrão
 
 ## <a name="2020-01-06"></a>2020-01-06
 
@@ -44,6 +65,7 @@ O designer agora está disponível para o público geral.
 
 + **Novos recursos**
   + Conjunto de dados: Adicione duas opções `on_error` e `out_of_range_datetime` para `to_pandas_dataframe` falhe quando os dados tiverem valores de erro em vez de preenchê-los com `None`.
+  + Espaço de trabalho: adicionou o sinalizador de `hbi_workspace` para espaços de trabalho com dados confidenciais que habilitam a criptografia adicional e desabilita o diagnóstico avançado em espaços de trabalho. Também adicionamos suporte para trazer suas próprias chaves para a instância de Cosmos DB associada, especificando os parâmetros `cmk_keyvault` e `resource_cmk_uri` ao criar um espaço de trabalho, que cria uma instância de Cosmos DB em sua assinatura ao provisionar seu espaço de trabalho. [Leia mais aqui.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **Correções de bugs e melhorias**
   + **azureml-automl-tempo de execução**
@@ -64,7 +86,6 @@ O designer agora está disponível para o público geral.
   + **azureml-Train-automl-Client**
     + Alinhamento corrigido na saída do console para execuções de automl
     + Corrigido um bug em que a versão incorreta do pandas pode ser instalada em amlcompute remotas.
-
 
 ## <a name="2019-12-23"></a>2019-12-23
 

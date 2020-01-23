@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 4f2e1a6f18a83d1e6c691f3fbcb0d85c7afd1575
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 7dd22a6803f5248298afddffaee9c4b83891f5f1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795097"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547919"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o serviço kubernetes do Azure
 
@@ -174,6 +174,21 @@ data:
               10.0.0.1 example.org
               fallthrough
           }
+```
+
+## <a name="enable-logging-for-dns-query-debugging"></a>Habilitar o log para depuração de consulta DNS 
+
+Para habilitar o log de consultas DNS, aplique a seguinte configuração em seu ConfigMap coredns-personalizado:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  log.override: |
+        log
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

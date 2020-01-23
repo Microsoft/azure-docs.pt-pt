@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 778e65a0076db374cd82fd8b94eb552cb77857f7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c8ce9a874ea81d3e48db1f46c13dece13dabbed6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310888"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544808"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gerenciar dados de referência do GA para um ambiente de Azure Time Series Insights usandoC#
 
@@ -33,7 +33,7 @@ Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
 
    | Nome da tecla | Tipo |
    | --- | --- |
-   | uuid | Cadeia | 
+   | uuid | String | 
 
 1. Configure seu ambiente de Azure Time Series Insights para Azure Active Directory conforme descrito em [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` como o **URI de redirecionamento**.
 
@@ -171,8 +171,8 @@ namespace CsharpTsiMsalGaSample
              if (response.IsSuccessStatusCode)
              {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                var r = JsonConvert.DeserializeObject<object>(jsonString);
-                Console.WriteLine("HTTP JSON Response Body: {0}", r);
+                var jsonStringTransferObject = JsonConvert.DeserializeObject<object>(jsonString);
+                Console.WriteLine("HTTP JSON Response Body: {0}", jsonStringTransferObject);
                 Console.WriteLine("");
                 return response;
              }

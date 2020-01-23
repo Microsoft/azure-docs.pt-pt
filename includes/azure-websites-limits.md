@@ -4,14 +4,14 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: a05229f22e1682d73b627e3b4644ba64e653335f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 17d6947efcbaf8a01aeca70bf7a88dcc7b65cd0a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414610"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548230"
 ---
-| Resource | Gratuito | Partilhado | Básica | Standard | Premium (v2) | Isolado </th> |
+| Recurso | Gratuito | Partilhado | Basic | Padrão | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicativos Web, móveis ou de API](https://azure.microsoft.com/services/app-service/) por [Azure app plano de serviço](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [Plano do Serviço de Aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -21,10 +21,10 @@ ms.locfileid: "74414610"
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a>|
 | Tempo de CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |
 | Memória (1 hora) |1\.024 MB por plano do serviço de aplicativo |1\.024 MB por aplicativo |N/A |N/A |N/A |N/A |
-| Largura de banda |165 MB |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |
+| Largura de Banda |165 MB |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |Ilimitado, [tarifas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) se aplicam |
 | Arquitetura da aplicação |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
-| Conexões IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 64,000 |
+| Conexões IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 16,000 |
 | Conexões de [depurador](../articles/app-service/troubleshoot-dotnet-visual-studio.md) simultâneas por aplicativo |1 |1 |1 |5 |5 |5 |
 | Certificados do serviço de aplicativo por assinatura<sup>9</sup>| Não suportado | Não suportado |10 |10 |10 |10 |
 | Domínios personalizados por aplicativo</a> |0 (somente subdomínio azurewebsites.net)|500 |500 |500 |500 |500 |

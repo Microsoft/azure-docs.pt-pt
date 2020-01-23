@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 82426c0093550864b421d7acc35780c4173895a8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a794a9ed35cbbdd36c2cf136b8afc208c3ea0692
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824737"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549019"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início rápido: criar um aplicativo Python usando uma conta de API do SQL Azure Cosmos DB
 
@@ -31,7 +31,7 @@ ms.locfileid: "73824737"
 
 Este início rápido demonstra como criar uma conta [API SQL](sql-api-introduction.md) do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o SDK de Python para a [API SQL](sql-api-sdk-python.md).
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode criar e consultar rapidamente documentos, chave/valor, colunas largas e bancos de dados de gráficos. Todas essas operações se beneficiam da distribuição e da escala de Azure Cosmos DB.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Você pode criar e consultar rapidamente documentos, chave/valor, colunas largas e bancos de dados de gráficos. Todas essas operações se beneficiam da distribuição e da escala de Azure Cosmos DB.
 
 Este guia de início rápido usa a versão 4 do [SDK do Python](https://pypi.org/project/azure-cosmos/#history).
 
@@ -47,9 +47,28 @@ Este guia de início rápido usa a versão 4 do [SDK do Python](https://pypi.org
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-container"></a>Adicionar um contêiner
+## <a name="add-a-container"></a>Adicionar um contentor
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+Agora você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
+
+1. Selecione **Data Explorer** > **Novo Contentor**. 
+    
+    A área **Adicionar contêiner** é exibida na extrema direita, talvez seja necessário rolar para a direita para vê-la.
+
+    ![O Data Explorer no portal do Azure, painel Adicionar Contentor](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+
+2. Na página **Adicionar contêiner** , insira as configurações para o novo contêiner.
+
+    |Definição|Valor sugerido|Descrição
+    |---|---|---|
+    |**ID da Base de Dados**|Tarefas|Insira *ToDoList* como o nome do novo banco de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita. Marque a opção **provisionar taxa de transferência do banco de dados** , que permite que você compartilhe a taxa de transferência provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custos. |
+    |**Débito**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
+    |**ID do Contentor**|Itens|Insira os *itens* como o nome do novo contêiner. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
+    |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */Category* como a chave de partição.|
+    
+    Além das configurações anteriores, você pode opcionalmente adicionar **chaves exclusivas** para o contêiner. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chave exclusiva ao criar um contêiner, você garante a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
+    
+    Selecione **OK**. O Data Explorer mostra a base de dados e o contentor novos.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 

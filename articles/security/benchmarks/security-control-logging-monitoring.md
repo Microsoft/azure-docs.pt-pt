@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930020"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545505"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controle de segurança: registro em log e monitoramento
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6,2, 6,3 | Cliente |
 
-Se o recurso de computação pertence à Microsoft, a Microsoft é responsável por monitorá-lo. Se o recurso de computação pertence à sua organização, é sua responsabilidade monitorá-lo. Você pode usar a central de segurança do Azure para monitorar o sistema operacional. Os dados coletados pela central de segurança do sistema operacional incluem o tipo e a versão do so, sistema operacional (logs de eventos do Windows), processos em execução, nome da máquina, endereços IP e usuário conectado. O agente de Log Analytics também coleta arquivos de despejo de memória.
+Se o recurso de computação pertence à Microsoft, a Microsoft é responsável por monitorá-lo. Se o recurso de computação pertence à sua organização, é sua responsabilidade monitorá-lo. Você pode usar a central de segurança do Azure para monitorar o sistema operacional. Os dados coletados pela central de segurança do sistema operacional incluem o tipo e a versão do so, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O agente de Log Analytics também coleta arquivos de despejo de memória.
 
 Como coletar logs de host interno da máquina virtual do Azure com o Azure Monitor:
 

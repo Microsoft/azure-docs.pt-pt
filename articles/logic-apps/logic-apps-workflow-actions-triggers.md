@@ -6,17 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 2cef965f8ba23e31444d8dd8e36cdfc51afa15f6
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513257"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543482"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de ação e gatilho em aplicativos lógicos do Azure
 
-Esta referência descreve os tipos gerais usados para identificar gatilhos e ações na definição de fluxo de trabalho subjacente do aplicativo lógico, que é descrita e validada pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
-Para localizar gatilhos e ações de conectores específicos que você pode usar em seus aplicativos lógicos, consulte a lista na [visão geral dos conectores](https://docs.microsoft.com/connectors/).
+Esta referência descreve os tipos gerais usados para identificar gatilhos e ações na definição de fluxo de trabalho subjacente do aplicativo lógico, que é descrita e validada pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md). Para localizar gatilhos e ações de conectores específicos que você pode usar em seus aplicativos lógicos, consulte a lista na [visão geral dos conectores](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -26,7 +25,7 @@ Cada fluxo de trabalho inclui um gatilho, que define as chamadas que instanciam 
 
 * Um gatilho de *sondagem* , que verifica o ponto de extremidade de um serviço em intervalos regulares
 
-* Um gatilho de *Push* , que cria uma assinatura para um ponto de extremidade e fornece uma *URL de retorno de chamada* para que o ponto de extremidade possa notificar o gatilho quando o evento especificado ocorrer ou se os dados estiverem disponíveis. Em seguida, o gatilho aguarda a resposta do ponto de extremidade antes de disparar. 
+* Um gatilho de *Push* , que cria uma assinatura para um ponto de extremidade e fornece uma *URL de retorno de chamada* para que o ponto de extremidade possa notificar o gatilho quando o evento especificado ocorrer ou se os dados estiverem disponíveis. Em seguida, o gatilho aguarda a resposta do ponto de extremidade antes de disparar.
 
 Os gatilhos têm esses elementos de nível superior, embora alguns sejam opcionais:  
   
@@ -127,15 +126,15 @@ Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciada
 
 *Necessário*
 
-| Valor | Tipo | Descrição | 
-|-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | O nome do gatilho | 
-| <*nome da conexão*> | String | O nome da conexão com a API gerenciada que o fluxo de trabalho usa | 
-| <*tipo de método*> | String | O método HTTP para se comunicar com a API gerenciada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*api-operation*> | String | A operação de API para chamar | 
-| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "segundo", "minuto", "hora", "dia", "semana", "mês" | 
-| <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1 a 12000 horas </br>-Minuto: 1 a 72000 minutos </br>-Segundo: 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
-|||| 
+| Valor | Tipo | Descrição |
+|-------|------|-------------|
+| <*APIConnection_trigger_name*> | String | O nome do gatilho |
+| <*nome da conexão*> | String | O nome da conexão com a API gerenciada que o fluxo de trabalho usa |
+| <*tipo de método*> | String | O método HTTP para se comunicar com a API gerenciada: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*api-operation*> | String | A operação de API para chamar |
+| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "segundo", "minuto", "hora", "dia", "semana", "mês" |
+| <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1 a 12000 horas </br>-Minuto: 1 a 72000 minutos </br>-Segundo: 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. |
+||||
 
 *Opcional*
 
@@ -143,7 +142,7 @@ Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciada
 |-------|------|-------------| 
 | <*de repetição-comportamento*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API. Por exemplo, o objeto `"queries": { "api-version": "2018-01-01" }` adiciona `?api-version=2018-01-01` à chamada. | 
-| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas com base na propriedade `runtimeConfiguration.concurrency.runs`, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para gatilhos que retornam matrizes, essa expressão faz referência à matriz a ser usada para que você possa criar e executar uma instância de fluxo de trabalho para cada item de matriz, em vez de usar um loop "for each". <p>Por exemplo, essa expressão representa um item na matriz retornada dentro do conteúdo do corpo do gatilho: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Você pode alterar o comportamento padrão definindo a propriedade `operationOptions`. Para obter mais informações, consulte [Opções de operação](#operation-options). |
@@ -160,7 +159,7 @@ Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciada
 
 *Exemplo*
 
-Essa definição de gatilho verifica o email todos os dias dentro da caixa de entrada de uma conta do Outlook do Office 365: 
+Essa definição de gatilho verifica o email todos os dias dentro da caixa de entrada de uma conta do Outlook do Office 365:
 
 ```json
 "When_a_new_email_arrives": {
@@ -233,7 +232,7 @@ Esse gatilho envia uma solicitação de assinatura para um ponto de extremidade 
 |-------|------|-------------| 
 | <*de repetição-comportamento*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API <p>Por exemplo, o objeto `"queries": { "api-version": "2018-01-01" }` adiciona `?api-version=2018-01-01` à chamada. | 
-| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas com base na propriedade `runtimeConfiguration.concurrency.runs`, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para gatilhos que retornam matrizes, essa expressão faz referência à matriz a ser usada para que você possa criar e executar uma instância de fluxo de trabalho para cada item de matriz, em vez de usar um loop "for each". <p>Por exemplo, essa expressão representa um item na matriz retornada dentro do conteúdo do corpo do gatilho: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Você pode alterar o comportamento padrão definindo a propriedade `operationOptions`. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
@@ -319,7 +318,7 @@ Esse gatilho envia uma solicitação para o ponto de extremidade HTTP ou HTTPS e
 | `body` | <*body-content*> | Objeto JSON | O conteúdo da mensagem a ser enviada como carga com a solicitação |
 | `authentication` | <a *autenticação-tipo-e-valores de propriedade*> | Objeto JSON | O modelo de autenticação que a solicitação usa para autenticar solicitações de saída. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Além do Agendador, há suporte para a propriedade `authority`. Quando não especificado, o valor padrão é `https://management.azure.com/`, mas você pode usar um valor diferente. |
 | `retryPolicy` > `type` | <*de repetição-comportamento*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
-| `runs` | <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). |
+| `runs` | <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). |
 | `maximumWaitingRuns` | <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas com base na propriedade `runtimeConfiguration.concurrency.runs`, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). |
 | `operationOptions` | <*operation-option*> | String | Você pode alterar o comportamento padrão definindo a propriedade `operationOptions`. Para obter mais informações, consulte [Opções de operação](#operation-options). |
 |||||
@@ -361,8 +360,7 @@ Para funcionar bem com seu aplicativo lógico, o ponto de extremidade deve estar
 
 Esse gatilho torna seu aplicativo lógico chamável criando um ponto de extremidade que pode registrar uma assinatura chamando a URL de ponto de extremidade especificada. Quando você cria esse gatilho em seu fluxo de trabalho, uma solicitação de saída faz a chamada para registrar a assinatura. Dessa forma, o gatilho pode iniciar a escuta de eventos. Quando uma operação torna esse gatilho inválido, uma solicitação de saída faz automaticamente a chamada para cancelar a assinatura. Para obter mais informações, consulte as [assinaturas do ponto de extremidade](#subscribe-unsubscribe).
 
-Você também pode especificar [limites assíncronos](#asynchronous-limits) em um gatilho **HTTPWebhook** .
-O comportamento do gatilho depende das seções que você usa ou omite. 
+Você também pode especificar [limites assíncronos](#asynchronous-limits) em um gatilho **HTTPWebhook** . O comportamento do gatilho depende das seções que você usa ou omite.
 
 ```json
 "HTTP_Webhook": {
@@ -414,7 +412,7 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os objeto
 | <*body-content*> | String | Qualquer conteúdo de mensagem para enviar na solicitação de assinatura ou cancelamento | 
 | *tipo de autenticação* <> | Objeto JSON | O modelo de autenticação que a solicitação usa para autenticar solicitações de saída. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*de repetição-comportamento*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas com base na propriedade `runtimeConfiguration.concurrency.runs`, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | 
 | <*operation-option*> | String | Você pode alterar o comportamento padrão definindo a propriedade `operationOptions`. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
@@ -462,7 +460,7 @@ Esse gatilho cria uma assinatura para o ponto de extremidade especificado, forne
 
 ### <a name="recurrence-trigger"></a>Acionador de periodicidade  
 
-Esse gatilho é executado com base na agenda de recorrência especificada e fornece uma maneira fácil de criar um fluxo de trabalho em execução regularmente. 
+Esse gatilho é executado com base na agenda de recorrência especificada e fornece uma maneira fácil de criar um fluxo de trabalho em execução regularmente.
 
 ```json
 "Recurrence": {
@@ -508,7 +506,7 @@ Esse gatilho é executado com base na agenda de recorrência especificada e forn
 | <*uma ou mais marcas de hora*> | Matriz de inteiro ou de inteiro | Se você especificar "Day" ou "Week" para `frequency`, poderá especificar um ou mais inteiros de 0 a 23, separados por vírgulas, como as horas do dia em que você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", obterá 10 A.M., 12 PM e 2 PM como as marcas de hora. | 
 | <*one-or-more-minute-marks*> | Matriz de inteiro ou de inteiro | Se você especificar "Day" ou "Week" para `frequency`, poderá especificar um ou mais números inteiros de 0 a 59, separados por vírgulas, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minuto e usar o exemplo anterior para horas do dia, você recebe 10:30, 12:30 PM e 2:30 PM. | 
 | weekDays | Matriz de cadeia de caracteres ou cadeia de caracteres | Se você especificar "semana" para `frequency`, poderá especificar um ou mais dias, separados por vírgulas, quando desejar executar o fluxo de trabalho: "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado" e "domingo" | 
-| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas com base na propriedade `runtimeConfiguration.concurrency.runs`, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | 
 | <*operation-option*> | String | Você pode alterar o comportamento padrão definindo a propriedade `operationOptions`. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
@@ -569,7 +567,7 @@ Para obter mais informações e exemplos para esse gatilho, consulte [criar e ag
 
 ### <a name="request-trigger"></a>Gatilho de solicitação
 
-Esse gatilho torna seu aplicativo lógico chamável criando um ponto de extremidade que pode aceitar solicitações de entrada. Para esse gatilho, forneça um esquema JSON que descreve e valida a carga ou as entradas que o gatilho recebe da solicitação de entrada. O esquema também torna as propriedades de gatilho mais fáceis de fazer referência a partir de ações posteriores no fluxo de trabalho. 
+Esse gatilho torna seu aplicativo lógico chamável criando um ponto de extremidade que pode aceitar solicitações de entrada. Para esse gatilho, forneça um esquema JSON que descreve e valida a carga ou as entradas que o gatilho recebe da solicitação de entrada. O esquema também torna as propriedades de gatilho mais fáceis de fazer referência a partir de ações posteriores no fluxo de trabalho.
 
 Para chamar esse gatilho, você deve usar a API `listCallbackUrl`, que é descrita na [API REST do serviço de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Para saber como usar esse gatilho como um ponto de extremidade HTTP, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidades http](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -615,14 +613,14 @@ Para chamar esse gatilho, você deve usar a API `listCallbackUrl`, que é descri
 | <*tipo de método*> | String | O método que as solicitações de entrada devem usar para chamar seu aplicativo lógico: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | O caminho relativo para o parâmetro que a URL do ponto de extremidade pode aceitar | 
 | <*obrigatório-propriedades*> | Matriz | Uma ou mais propriedades que exigem valores | 
-| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas com base na propriedade `runtimeConfiguration.concurrency.runs`, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | 
 | <*operation-option*> | String | Você pode alterar o comportamento padrão definindo a propriedade `operationOptions`. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 *Exemplo*
 
-Esse gatilho especifica que uma solicitação de entrada deve usar o método HTTP POST para chamar o gatilho e inclui um esquema que valida a entrada da solicitação de entrada: 
+Esse gatilho especifica que uma solicitação de entrada deve usar o método HTTP POST para chamar o gatilho e inclui um esquema que valida a entrada da solicitação de entrada:
 
 ```json
 "manual": {
@@ -674,7 +672,7 @@ Por exemplo, você pode especificar que um gatilho seja acionado somente quando 
 }
 ```
 
-Por padrão, um gatilho é acionado somente depois de obter uma resposta "200 OK". Quando uma expressão referencia o código de status de um gatilho, o comportamento padrão do gatilho é substituído. Portanto, se você quiser que o gatilho seja acionado para mais de um código de status, como o código de status "200" e "201", você deve incluir essa expressão como sua condição: 
+Por padrão, um gatilho é acionado somente depois de obter uma resposta "200 OK". Quando uma expressão referencia o código de status de um gatilho, o comportamento padrão do gatilho é substituído. Portanto, se você quiser que o gatilho seja acionado para mais de um código de status, como o código de status "200" e "201", você deve incluir essa expressão como sua condição:
 
 `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
@@ -682,15 +680,14 @@ Por padrão, um gatilho é acionado somente depois de obter uma resposta "200 OK
 
 ## <a name="trigger-multiple-runs"></a>Disparar várias execuções
 
-Se o gatilho retornar uma matriz para o aplicativo lógico processar, às vezes um loop "for each" pode demorar muito para processar cada item da matriz. Em vez disso, você pode usar a propriedade **splitize** em seu gatilho para *deslote* da matriz. O desenvio em lote divide os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item de matriz. Essa abordagem é útil, por exemplo, quando você deseja sondar um ponto de extremidade que possa retornar vários novos itens entre intervalos de sondagem.
-Para o número máximo de itens de matriz que a **divisão** pode processar em uma única execução de aplicativo lógico, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+Se o gatilho retornar uma matriz para o aplicativo lógico processar, às vezes um loop "for each" pode demorar muito para processar cada item da matriz. Em vez disso, você pode usar a propriedade **splitize** em seu gatilho para *deslote* da matriz. O desenvio em lote divide os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item de matriz. Essa abordagem é útil, por exemplo, quando você deseja sondar um ponto de extremidade que possa retornar vários novos itens entre intervalos de sondagem. Para o número máximo de itens de matriz que a **divisão** pode processar em uma única execução de aplicativo lógico, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > Não é possível usar a **divisão** com um padrão de resposta síncrona. Qualquer fluxo de trabalho que usa a **divisão** e inclui uma ação de resposta é executado de forma assíncrona e envia imediatamente uma resposta `202 ACCEPTED`.
 >
 > Quando a simultaneidade do gatilho está habilitada, o [limite de divisão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) é reduzido significativamente. Se o número de itens exceder esse limite, o recurso de divisão será desabilitado.
  
-Se o arquivo Swagger do gatilho descrever uma carga que é uma matriz, a propriedade de **divisão** será adicionada automaticamente ao gatilho. Caso contrário, adicione essa propriedade dentro da carga de resposta que tem a matriz que você deseja deslotear. 
+Se o arquivo Swagger do gatilho descrever uma carga que é uma matriz, a propriedade de **divisão** será adicionada automaticamente ao gatilho. Caso contrário, adicione essa propriedade dentro da carga de resposta que tem a matriz que você deseja deslotear.
 
 *Exemplo*
 
@@ -711,7 +708,7 @@ Suponha que você tenha uma API que retorne esta resposta:
    ]
 }
 ```
- 
+
 Seu aplicativo lógico precisa apenas do conteúdo da matriz em `Rows`, para que você possa criar um gatilho como este exemplo:
 
 ``` json
@@ -758,9 +755,7 @@ Sua definição de fluxo de trabalho agora pode usar `@triggerBody().name` para 
 
 ## <a name="actions-overview"></a>Visão geral das ações
 
-Os aplicativos lógicos do Azure fornecem vários tipos de ação, cada um com entradas diferentes que definem o comportamento exclusivo de uma ação. 
-
-As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
+Os aplicativos lógicos do Azure fornecem vários tipos de ação, cada um com entradas diferentes que definem o comportamento exclusivo de uma ação. As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 ```json
 "<action-name>": {
@@ -1000,8 +995,7 @@ Você também pode especificar limites em uma ação **ApiConnectionWebhook** da
 
 ### <a name="compose-action"></a>Ação de composição
 
-Essa ação cria uma única saída de várias entradas, incluindo expressões. Tanto a saída quanto as entradas podem ter qualquer tipo ao qual os aplicativos lógicos do Azure dão suporte nativo, como matrizes, objetos JSON, XML e binário.
-Em seguida, você pode usar a saída da ação em outras ações. 
+Essa ação cria uma única saída de várias entradas, incluindo expressões. Tanto a saída quanto as entradas podem ter qualquer tipo ao qual os aplicativos lógicos do Azure dão suporte nativo, como matrizes, objetos JSON, XML e binário. Em seguida, você pode usar a saída da ação em outras ações. 
 
 ```json
 "Compose": {
@@ -1310,7 +1304,7 @@ Essa definição de ação Obtém os valores da variável usando a função `var
 
 ### <a name="parse-json-action"></a>Analisar ação JSON
 
-Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSON. Em vez disso, você pode acessar essas propriedades em seu aplicativo lógico usando os tokens. Por exemplo, quando você deseja usar a saída JSON de serviços como o barramento de serviço do Azure e Azure Cosmos DB, você pode incluir essa ação em seu aplicativo lógico para que você possa referenciar mais facilmente os dados nessa saída. 
+Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSON. Em vez disso, você pode acessar essas propriedades em seu aplicativo lógico usando os tokens. Por exemplo, quando você deseja usar a saída JSON de serviços como o barramento de serviço do Azure e Azure Cosmos DB, você pode incluir essa ação em seu aplicativo lógico para que você possa referenciar mais facilmente os dados nessa saída.
 
 ```json
 "Parse_JSON": {
@@ -1333,7 +1327,7 @@ Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 
 *Exemplo*
 
-Essa definição de ação cria esses tokens que você pode usar em seu fluxo de trabalho, mas somente em ações que são executadas após a ação **analisar JSON** : 
+Essa definição de ação cria esses tokens que você pode usar em seu fluxo de trabalho, mas somente em ações que são executadas após a ação **analisar JSON** :
 
 `FirstName`, `LastName`e `Email`
 
@@ -1525,7 +1519,7 @@ Ao contrário de outras ações, a ação de **resposta** tem restrições espec
 
 ### <a name="select-action"></a>Selecionar ação
 
-Essa ação cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. A matriz de saída e a matriz de origem sempre têm o mesmo número de itens. Embora não seja possível alterar o número de objetos na matriz de saída, você pode adicionar ou remover propriedades e seus valores entre esses objetos. A propriedade `select` especifica pelo menos um par chave-valor que define o mapa para transformar itens na matriz de origem. Um par chave-valor representa uma propriedade e seu valor em todos os objetos na matriz de saída. 
+Essa ação cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. A matriz de saída e a matriz de origem sempre têm o mesmo número de itens. Embora não seja possível alterar o número de objetos na matriz de saída, você pode adicionar ou remover propriedades e seus valores entre esses objetos. A propriedade `select` especifica pelo menos um par chave-valor que define o mapa para transformar itens na matriz de origem. Um par chave-valor representa uma propriedade e seu valor em todos os objetos na matriz de saída.
 
 ```json
 "Select": {
@@ -1554,7 +1548,7 @@ A ação **selecionar** cria uma matriz como saída, portanto, qualquer ação q
 
 *Exemplo*
 
-Essa definição de ação cria uma matriz de objeto JSON a partir de uma matriz de inteiros. A ação itera através da matriz de origem, obtém cada valor inteiro usando a expressão `@item()` e atribui cada valor à propriedade "`number`" em cada objeto JSON: 
+Essa definição de ação cria uma matriz de objeto JSON a partir de uma matriz de inteiros. A ação itera através da matriz de origem, obtém cada valor inteiro usando a expressão `@item()` e atribui cada valor à propriedade "`number`" em cada objeto JSON:
 
 ```json
 "Select": {
@@ -1659,11 +1653,11 @@ Para especificar ou personalizar cabeçalhos e valores de coluna, use a matriz d
 
 *Exemplo 1*
 
-Suponha que você tenha uma variável "myItemArray" criada anteriormente que contenha atualmente esta matriz: 
+Suponha que você tenha uma variável "myItemArray" criada anteriormente que contenha atualmente esta matriz:
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-Essa definição de ação cria uma tabela CSV a partir da variável "myItemArray". A expressão usada pela propriedade `from` Obtém a matriz de "myItemArray" usando a função `variables()`: 
+Essa definição de ação cria uma tabela CSV a partir da variável "myItemArray". A expressão usada pela propriedade `from` Obtém a matriz de "myItemArray" usando a função `variables()`:
 
 ```json
 "Create_CSV_table": {
@@ -1686,7 +1680,7 @@ ID,Product_Name
 
 *Exemplo 2*
 
-Essa definição de ação cria uma tabela HTML a partir da variável "myItemArray". A expressão usada pela propriedade `from` Obtém a matriz de "myItemArray" usando a função `variables()`: 
+Essa definição de ação cria uma tabela HTML a partir da variável "myItemArray". A expressão usada pela propriedade `from` Obtém a matriz de "myItemArray" usando a função `variables()`:
 
 ```json
 "Create_HTML_table": {
@@ -1736,7 +1730,7 @@ Esta é a tabela HTML que esta ação cria:
 
 ### <a name="terminate-action"></a>Ação terminar
 
-Essa ação interrompe a execução de uma instância de fluxo de trabalho, cancela as ações em andamento, ignora as ações restantes e retorna o status especificado. Por exemplo, você pode usar a ação **terminar** quando seu aplicativo lógico precisar sair completamente de um estado de erro. Essa ação não afeta as ações já concluídas e não pode aparecer dentro de loops **foreach** e **until** , incluindo loops sequenciais. 
+Essa ação interrompe a execução de uma instância de fluxo de trabalho, cancela as ações em andamento, ignora as ações restantes e retorna o status especificado. Por exemplo, você pode usar a ação **terminar** quando seu aplicativo lógico precisar sair completamente de um estado de erro. Essa ação não afeta as ações já concluídas e não pode aparecer dentro de loops **foreach** e **until** , incluindo loops sequenciais.
 
 ```json
 "Terminate": {
@@ -1789,9 +1783,9 @@ Essa definição de ação interrompe uma execução de fluxo de trabalho, defin
 
 <a name="wait-action"></a>
 
-### <a name="wait-action"></a>Ação de espera  
+### <a name="wait-action"></a>Ação de espera
 
-Essa ação pausa a execução do fluxo de trabalho para o intervalo especificado ou até a hora especificada, mas não ambos. 
+Essa ação pausa a execução do fluxo de trabalho para o intervalo especificado ou até a hora especificada, mas não ambos.
 
 *Intervalo especificado*
 
@@ -1876,7 +1870,7 @@ O mecanismo de aplicativos lógicos verifica o acesso ao gatilho que você desej
 
 * A mesma assinatura do Azure que seu aplicativo lógico pai
 
-* Para usar as saídas do aplicativo lógico aninhado em seu aplicativo lógico pai, o aplicativo lógico aninhado deve ter uma ação de [resposta](#response-action) 
+* Para usar as saídas do aplicativo lógico aninhado em seu aplicativo lógico pai, o aplicativo lógico aninhado deve ter uma ação de [resposta](#response-action)
 
 ```json
 "<nested-logic-app-name>": {
@@ -1920,7 +1914,7 @@ As saídas dessa ação variam de acordo com a ação de resposta do aplicativo 
 
 *Exemplo*
 
-Depois que a ação "Start_search" for concluída com êxito, essa definição de ação de fluxo de trabalho chamará outro aplicativo lógico chamado "Get_product_information", que passa nas entradas especificadas: 
+Depois que a ação "Start_search" for concluída com êxito, essa definição de ação de fluxo de trabalho chamará outro aplicativo lógico chamado "Get_product_information", que passa nas entradas especificadas:
 
 ```json
 "actions": {
@@ -1985,7 +1979,7 @@ Essa ação de loop itera por meio de uma matriz e executa ações em cada item 
 
 | Valor | Tipo | Descrição | 
 |-------|------|-------------| 
-| <*count*> | Número inteiro | Por padrão, as iterações de loop "for each" são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar a simultaneidade de loop "for each"](#change-for-each-concurrency). | 
+| <*count*> | Número inteiro | Por padrão, as iterações de loop "for each" são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar a simultaneidade de loop "for each"](#change-for-each-concurrency). | 
 | <*operation-option*> | String | Para executar um loop "for each" sequencialmente, em vez de em paralelo, defina <*opção Operation-option*> como `Sequential` ou <*count*> como `1`, mas não ambos. Para obter mais informações, consulte [executar loops "for each" sequencialmente](#sequential-for-each). | 
 |||| 
 
@@ -2316,7 +2310,7 @@ Essa ação de loop contém ações que são executadas até que a condição es
 
 *Exemplo*
 
-Essa definição de ação de loop envia uma solicitação HTTP para a URL especificada até que uma dessas condições seja atendida: 
+Essa definição de ação de loop envia uma solicitação HTTP para a URL especificada até que uma dessas condições seja atendida:
 
 * A solicitação Obtém uma resposta com o código de status "200 OK".
 * O loop executou 60 vezes.
@@ -2364,7 +2358,7 @@ Para dar suporte a essas chamadas, a expressão `@listCallbackUrl()` retorna uma
 
 ## <a name="change-asynchronous-duration"></a>Alterar duração assíncrona
 
-Para gatilhos e ações, você pode limitar a duração do padrão assíncrono a um intervalo de tempo específico adicionando a propriedade `limit.timeout`. Dessa forma, se a ação não tiver terminado quando o intervalo se sobrepuser, o status da ação será marcado como `Cancelled` com o código de `ActionTimedOut`. A propriedade `timeout` usa o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+Para gatilhos e ações, você pode limitar a duração do padrão assíncrono a um intervalo de tempo específico adicionando a propriedade `limit.timeout`. Dessa forma, se a ação não tiver terminado quando o intervalo se sobrepuser, o status da ação será marcado como `Cancelled` com o código de `ActionTimedOut`. A propriedade `timeout` usa o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2381,13 +2375,13 @@ Para gatilhos e ações, você pode limitar a duração do padrão assíncrono a
 
 ## <a name="runtime-configuration-settings"></a>Definições de configuração de tempo de execução
 
-Você pode alterar o comportamento de tempo de execução padrão para gatilhos e ações com essas `runtimeConfiguration` Propriedades no gatilho ou na definição de ação.
+Você pode alterar o comportamento de tempo de execução padrão para gatilhos e ações adicionando essas propriedades `runtimeConfiguration` ao gatilho ou à definição de ação.
 
 | Propriedade | Tipo | Descrição | Gatilho ou ação | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo ou em paralelo. Esse valor pode ajudar a limitar o número de solicitações que os sistemas de back-end recebem. <p>Definir a propriedade `runs` como `1` funciona da mesma maneira que definir a propriedade `operationOptions` como `SingleInstance`. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar a simultaneidade de gatilho](#change-trigger-concurrency) ou [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os gatilhos | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem esperar para serem executadas quando o fluxo de trabalho já estiver executando o máximo de instâncias simultâneas. Você pode alterar o limite de simultaneidade na propriedade `concurrency.runs`. <p>Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | Todos os gatilhos | 
-| `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p>Definir a propriedade `repetitions` como `1` funciona da mesma maneira que definir a propriedade `operationOptions` como `SingleInstance`. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar "para cada" simultaneidade](#change-for-each-concurrency) ou [executar "loop for each" em sequência](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.concurrency.runs` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo (simultaneamente ou em paralelo). O ajuste desse valor pode ajudar a limitar o número de solicitações que os sistemas de back-end recebem. <p>Definir a propriedade `runs` como `1` funciona da mesma maneira que definir a propriedade `operationOptions` como `SingleInstance`. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar a simultaneidade de gatilho](#change-trigger-concurrency) ou [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os gatilhos | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que devem aguardar para serem executadas quando seu aplicativo lógico já estiver executando o máximo de instâncias simultâneas. <p>Para alterar o limite padrão, consulte [alterar o limite de execuções em espera](#change-waiting-runs). | Todos os gatilhos | 
+| `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de iterações de loop "for each" que podem ser executadas ao mesmo tempo (simultaneamente ou em paralelo). <p>Definir a propriedade `repetitions` como `1` funciona da mesma maneira que definir a propriedade `operationOptions` como `SingleInstance`. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar "para cada" simultaneidade](#change-for-each-concurrency) ou [executar "loop for each" em sequência](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Número inteiro | Para ações específicas que dão suporte e têm a paginação ativada, esse valor especifica o número *mínimo* de resultados a serem recuperados. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou resultados usando paginação](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Ação: variadas |
 | `runtimeConfiguration.secureData.properties` | Matriz | Em muitos gatilhos e ações, essas configurações ocultam entradas, saídas ou ambos do histórico de execução do aplicativo lógico. <p>Para proteger esses dados, consulte [ocultar entradas e saídas do histórico de execuções](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Maioria dos gatilhos e ações |
 | `runtimeConfiguration.staticResult` | Objeto JSON | Para ações que dão suporte e têm a configuração de [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) ativada, o objeto `staticResult` tem estes atributos: <p>- `name`, que faz referência ao nome de definição de resultado estático da ação atual, que aparece dentro do atributo `staticResults` no atributo `definition` do fluxo de trabalho do aplicativo lógico. Para obter mais informações, consulte [resultados estáticos-referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica se os resultados estáticos são `Enabled` ou não para a ação atual. <p>Para ativar os resultados estáticos, consulte [testar aplicativos lógicos com dados fictícios Configurando resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md) | Ação: variadas |
@@ -2411,7 +2405,7 @@ Você pode alterar o comportamento padrão para gatilhos e ações com a proprie
 
 ### <a name="change-trigger-concurrency"></a>Alterar simultaneidade do gatilho
 
-Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo (simultaneamente ou em paralelo) até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de gatilho é acionada antes da conclusão da execução da instância do fluxo de trabalho anterior. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem. 
+Por padrão, todas as instâncias de fluxo de trabalho do aplicativo lógico são executadas ao mesmo tempo (simultaneamente ou em paralelo). Esse comportamento significa que cada instância de gatilho é acionada antes da execução da instância de fluxo de trabalho ativa anteriormente. No entanto, o número de instâncias em execução simultânea tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Quando o número de instâncias de fluxo de trabalho em execução simultânea atinge esse limite, todas as outras novas instâncias devem aguardar para serem executadas. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem.
 
 Para alterar o limite padrão, você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por meio do designer adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.runs` na definição de gatilho subjacente e vice-versa. Essa propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. Aqui estão algumas considerações sobre quando você deseja habilitar o controle de simultaneidade:
 
@@ -2428,7 +2422,7 @@ Para alterar o limite padrão, você pode usar o editor de exibição de código
        ![Selecionar instância em execução mais antiga](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
 
        > [!TIP]
-       > Para exibir apenas as instâncias que ainda estão em execução, abra a lista **todos** e selecione **executando**.    
+       > Para exibir apenas as instâncias que ainda estão em execução, abra a lista **todos** e selecione **executando**.
 
     1. Em **execução do aplicativo lógico**, selecione **Cancelar executar**.
 
@@ -2444,11 +2438,11 @@ Para alterar o limite padrão, você pode usar o editor de exibição de código
 
        ![Especificar duração do tempo limite](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
-* Se você quiser executar seu aplicativo lógico sequencialmente, poderá definir a simultaneidade do gatilho para `1` usando o editor de modo de exibição de código ou o designer. No entanto, não defina também a propriedade `operationOptions` do gatilho como `SingleInstance` no editor de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [disparar instâncias sequencialmente](#sequential-trigger).
+* Para executar seu aplicativo lógico sequencialmente, defina a simultaneidade do gatilho como `1` usando o editor de modo de exibição de código ou o designer. Verifique se você também não definiu a propriedade `operationOptions` do gatilho como `SingleInstance` no editor de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [disparar instâncias sequencialmente](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Editar na exibição de código 
 
-Na definição de gatilho subjacente, adicione ou atualize a propriedade `runtimeConfiguration.concurrency.runs` para um valor entre `1` e `50` inclusivamente.
+Na definição de gatilho subjacente, adicione a propriedade `runtimeConfiguration.concurrency.runs`, que pode ter um valor que varia de `1` para `50`.
 
 Aqui está um exemplo que limita as execuções simultâneas a 10 instâncias:
 
@@ -2467,26 +2461,30 @@ Aqui está um exemplo que limita as execuções simultâneas a 10 instâncias:
 }
 ```
 
+Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. No canto superior direito do gatilho, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
+1. No canto superior direito do gatilho, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
 
-2. Em **controle de simultaneidade**, defina **limite** como **ativado**. 
+1. Em **controle de simultaneidade**, defina **limite** como **ativado**. 
 
-3. Arraste o controle deslizante **grau de paralelismo** para o valor desejado. Para executar o aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
+1. Arraste o controle deslizante **grau de paralelismo** para o valor desejado. Para executar o aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
 
 <a name="change-for-each-concurrency"></a>
 
 ### <a name="change-for-each-concurrency"></a>Alterar "para cada" simultaneidade
 
-Por padrão, as iterações de loop "for each" são executadas ao mesmo tempo, ou em paralelo, até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, você pode usar o editor de modo de exibição de código ou o designer de aplicativos lógicos, pois alterar a configuração de simultaneidade por meio do designer adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.repetitions` na definição de ação "para cada" subjacente e vice-versa. Essa propriedade controla o número máximo de iterações que podem ser executadas em paralelo.
+Por padrão, todas as iterações de loop "for each" são executadas ao mesmo tempo (simultaneamente ou em paralelo). Esse comportamento significa que cada iteração começa a ser executada antes que a iteração anterior termine a execução. No entanto, o número de iterações em execução simultâneas tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Quando o número de iterações em execução simultânea atinge esse limite, todas as outras iterações devem aguardar para serem executadas.
+
+Para alterar o limite padrão, você pode usar o editor de modo de exibição de código ou o designer de aplicativos lógicos, pois alterar a configuração de simultaneidade por meio do designer adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.repetitions` na definição de ação "para cada" subjacente e vice-versa. Essa propriedade controla o número máximo de iterações que podem ser executadas em paralelo.
 
 > [!NOTE] 
 > Se você definir a ação "para cada" para ser executada sequencialmente usando o designer ou o editor de modo de exibição de código, não defina a propriedade `operationOptions` da ação como `Sequential` no editor de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [executar loops "for each" sequencialmente](#sequential-for-each).
 
 #### <a name="edit-in-code-view"></a>Editar na exibição de código 
 
-Na definição de "para cada" subjacente, adicione ou atualize a propriedade `runtimeConfiguration.concurrency.repetitions` para um valor entre `1` e `50` inclusivamente. 
+Na definição de "para cada" subjacente, adicione ou atualize a propriedade `runtimeConfiguration.concurrency.repetitions`, que pode ter um valor que varia de `1` e `50`.
 
 Aqui está um exemplo que limita as execuções simultâneas a 10 iterações:
 
@@ -2504,23 +2502,25 @@ Aqui está um exemplo que limita as execuções simultâneas a 10 iterações:
 }
 ```
 
+Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. Na ação **para cada** , no canto superior direito, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
+1. Na ação **para cada** , no canto superior direito, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
 
-2. Em **controle de simultaneidade**, defina **controle de simultaneidade** como **ativado**. 
+1. Em **controle de simultaneidade**, defina **controle de simultaneidade** como **ativado**.
 
-3. Arraste o controle deslizante **grau de paralelismo** para o valor desejado. Para executar o aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
+1. Arraste o controle deslizante **grau de paralelismo** para o valor desejado. Para executar o aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
 
 <a name="change-waiting-runs"></a>
 
 ### <a name="change-waiting-runs-limit"></a>Alterar limite de execuções de espera
 
-Por padrão, todas as instâncias de fluxo de trabalho do aplicativo lógico são executadas ao mesmo tempo, simultaneamente ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cada instância de gatilho é acionada antes da conclusão da execução da instância de fluxo de trabalho ativa anteriormente. Embora você possa [alterar esse limite padrão](#change-trigger-concurrency), quando o número de instâncias de fluxo de trabalho atinge o novo limite de simultaneidade, todas as novas instâncias devem aguardar para serem executadas. 
+Por padrão, todas as instâncias de fluxo de trabalho do aplicativo lógico são executadas ao mesmo tempo (simultaneamente ou em paralelo). Esse comportamento significa que cada instância de gatilho é acionada antes da execução da instância de fluxo de trabalho ativa anteriormente. No entanto, o número de instâncias em execução simultânea tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Quando o número de instâncias de fluxo de trabalho em execução simultânea atinge esse limite, todas as outras novas instâncias devem aguardar para serem executadas.
 
-O número de execuções que podem esperar também tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que pode ser alterado. No entanto, depois que o aplicativo lógico atingir o limite de execuções em espera, o mecanismo de aplicativos lógicos não aceitará mais novas execuções. Os gatilhos de solicitação e webhook retornam erros 429 e os gatilhos recorrentes começam a ignorar as tentativas de sondagem.
+O número de execuções em espera também tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Quando o número de execuções em espera atinge esse limite, o mecanismo de aplicativos lógicos não aceita mais novas execuções. Os gatilhos de solicitação e webhook retornam erros 429 e os gatilhos recorrentes começam a ignorar as tentativas de sondagem.
 
-Para alterar o limite padrão em espera de execuções, na definição de gatilho subjacente, adicione a propriedade `runtimeConfiguration.concurency.maximumWaitingRuns` com um valor entre `1` e `100`. 
+Você não só pode [alterar o limite padrão na simultaneidade do gatilho](#change-trigger-concurrency), mas também pode alterar o limite padrão em espera de execuções. Na definição de gatilho subjacente, adicione a propriedade `runtimeConfiguration.concurrency.maximumWaitingRuns`, que pode ter um valor que varia de `1` para `100`.
 
 ```json
 "<trigger-name>": {
@@ -2537,11 +2537,13 @@ Para alterar o limite padrão em espera de execuções, na definição de gatilh
 }
 ```
 
+Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options).
+
 <a name="sequential-trigger"></a>
 
 ### <a name="trigger-instances-sequentially"></a>Instâncias de gatilho sequencialmente
 
-Para executar cada instância de fluxo de trabalho do aplicativo lógico somente após a conclusão da execução da instância anterior, defina o gatilho para ser executado em sequência. Você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por meio do designer também adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.runs` na definição de gatilho subjacente e vice-versa. 
+Para executar cada instância de fluxo de trabalho do aplicativo lógico somente após a conclusão da execução da instância anterior, defina o gatilho para ser executado em sequência. Você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por meio do designer também adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.runs` na definição de gatilho subjacente e vice-versa.
 
 > [!NOTE] 
 > Quando você define um gatilho para ser executado sequencialmente usando o designer ou o editor de modo de exibição de código, não defina a propriedade `operationOptions` do gatilho como `Sequential` no editor de exibição de código. Caso contrário, você receberá um erro de validação. 
@@ -2582,19 +2584,21 @@ Defina a propriedade `operationOptions` como `SingleInstance`:
 }
 ```
 
+Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options) e opções de [operação](#operation-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. No canto superior direito do gatilho, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
+1. No canto superior direito do gatilho, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
 
-2. Em **controle de simultaneidade**, defina **limite** como **ativado**. 
+1. Em **controle de simultaneidade**, defina **limite** como **ativado**. 
 
-3. Arraste o controle deslizante **grau de paralelismo** para o número `1`. 
+1. Arraste o controle deslizante **grau de paralelismo** para o número `1`. 
 
 <a name="sequential-for-each"></a>
 
 ### <a name="run-for-each-loops-sequentially"></a>Executar loops "for each" sequencialmente
 
-Para executar uma iteração de loop "for each" somente após a conclusão da execução da iteração anterior, defina a ação "para cada" para ser executada em sequência. Você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a simultaneidade da ação por meio do designer também adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.repetitions` na definição de ação subjacente e vice-versa. 
+Para executar uma iteração de loop "for each" somente após a conclusão da execução da iteração anterior, defina a ação "para cada" para ser executada em sequência. Você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a simultaneidade da ação por meio do designer também adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.repetitions` na definição de ação subjacente e vice-versa.
 
 > [!NOTE] 
 > Quando você define uma ação "para cada" para execução sequencialmente usando o designer ou o editor de modo de exibição de código, não defina a propriedade `operationOptions` da ação como `Sequential` no editor de exibição de código. Caso contrário, você receberá um erro de validação. 
@@ -2633,13 +2637,15 @@ Defina a propriedade `operationOptions` como `Sequential`:
 }
 ```
 
+Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options) e opções de [operação](#operation-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. No canto superior direito de **cada** ação, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
+1. No canto superior direito de **cada** ação, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
 
-2. Em **controle de simultaneidade**, defina **controle de simultaneidade** como **ativado**. 
+1. Em **controle de simultaneidade**, defina **controle de simultaneidade** como **ativado**.
 
-3. Arraste o controle deslizante **grau de paralelismo** para o número `1`. 
+1. Arraste o controle deslizante **grau de paralelismo** para o número `1`.
 
 <a name="asynchronous-patterns"></a>
 
@@ -2648,7 +2654,7 @@ Defina a propriedade `operationOptions` como `Sequential`:
 Por padrão, todas as ações baseadas em HTTP seguem o padrão de operação assíncrona padrão. Esse padrão especifica que quando uma ação baseada em HTTP envia uma solicitação para o ponto de extremidade especificado, o servidor remoto envia de volta uma resposta "202 aceito". Essa resposta significa que o servidor aceitou a solicitação de processamento. O mecanismo de aplicativos lógicos mantém a verificação da URL especificada pelo cabeçalho de local da resposta até que o processamento seja interrompido, que é qualquer resposta diferente de 202.
 
 No entanto, as solicitações têm um limite de tempo limite, portanto, para ações de longa execução, você pode desabilitar o comportamento assíncrono adicionando e definindo a propriedade `operationOptions` como `DisableAsyncPattern` sob as entradas da ação.
-  
+
 ```json
 "<some-long-running-action>": {
    "type": "Http",
@@ -2658,11 +2664,13 @@ No entanto, as solicitações têm um limite de tempo limite, portanto, para aç
 }
 ```
 
+Para obter mais informações, consulte [Opções de operação](#operation-options).
+
 <a name="run-high-throughput-mode"></a>
 
 ### <a name="run-in-high-throughput-mode"></a>Executar no modo de alta taxa de transferência
 
-Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar esse limite para o [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possível, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. Essa configuração coloca seu aplicativo lógico no modo de "alta taxa de transferência". 
+Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar esse limite para o [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possível, defina a propriedade `operationOptions` como `OptimizedForHighThroughput`. Essa configuração coloca seu aplicativo lógico no modo de "alta taxa de transferência".
 
 > [!NOTE]
 > O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre mais de um aplicativo lógico, conforme necessário.

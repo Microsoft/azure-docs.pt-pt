@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: df2eb0886b71a2d5daaa95f33ef29a2afc7e112a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980725"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543108"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir uma interface de rede
 
@@ -90,7 +90,7 @@ Você pode exibir e alterar a maioria das configurações de uma interface de re
    - **Propriedades:** Exibe as principais configurações sobre o adaptador de rede, incluindo seu endereço MAC (em branco se a interface de rede não estiver anexada a uma máquina virtual) e a assinatura na qual ela existe.
    - **Regras de segurança em vigor:**  As regras de segurança são listadas se o adaptador de rede estiver conectado a uma máquina virtual em execução e um NSG estiver associado à interface de rede, à sub-rede à qual ele está atribuído ou a ambos. Para saber mais sobre o que é exibido, consulte [Exibir regras de segurança em vigor](#view-effective-security-rules). Para saber mais sobre o NSGs, confira [grupos de segurança de rede](security-overview.md).
    - **Rotas efetivas:** As rotas são listadas se a interface de rede estiver conectada a uma máquina virtual em execução. As rotas são uma combinação das rotas padrão do Azure, quaisquer rotas definidas pelo usuário e quaisquer rotas BGP que possam existir para a sub-rede à qual a interface de rede está atribuída. Para saber mais sobre o que é exibido, consulte [Exibir rotas efetivas](#view-effective-routes). Para saber mais sobre as rotas padrão do Azure e as rotas definidas pelo usuário, consulte [visão geral de roteamento](virtual-networks-udr-overview.md).
-   - **Configurações comuns de Azure Resource Manager:**  Para saber mais sobre configurações comuns de Azure Resource Manager, consulte [log de atividades](../azure-monitor/platform/platform-logs-overview.md), [controle de acesso (iam)](../role-based-access-control/overview.md), [marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script de automação](../azure-resource-manager/templates/export-template-portal.md).
+Configurações comuns de Azure Resource Manager: para saber mais sobre configurações comuns de Azure Resource Manager, consulte [log de atividades](../azure-monitor/platform/platform-logs-overview.md), [controle de acesso (iam)](../role-based-access-control/overview.md), [marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script de automação](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -168,7 +168,7 @@ Você pode alterar a sub-rede, mas não a rede virtual, à qual uma interface de
 Você só poderá adicionar um adaptador de rede ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal se o adaptador de rede estiver conectado a uma máquina virtual. Você pode usar o PowerShell ou o CLI do Azure para adicionar um adaptador de rede ou remover um adaptador de rede de um grupo de segurança de aplicativo, independentemente de o adaptador de rede estar conectado a uma máquina virtual ou não. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [criar um grupo de segurança de aplicativo](manage-network-security-group.md).
 
 1. Na caixa *Pesquisar recursos, serviços e documentos* na parte superior do portal, comece a digitar o nome de uma máquina virtual que tem um adaptador de rede que você deseja adicionar ou remover de um grupo de segurança de aplicativo. Quando o nome da VM aparecer nos resultados da pesquisa, selecione-o.
-2. Em **DEFINIÇÕES**, selecione **Redes**.  Selecione **configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicativo aos quais você deseja adicionar o adaptador de rede ou desmarque os grupos de segurança de aplicativo dos quais deseja remover o adaptador de rede e, em seguida, selecione **salvar**. Somente as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo deve existir no mesmo local que a interface de rede.
+2. Em **DEFINIÇÕES**, selecione **Redes**.  Selecione **grupos de segurança de aplicativo** e **Configure os grupos de segurança de aplicativo**, escolha os grupos de segurança de aplicativo aos quais você deseja adicionar o adaptador de rede ou desmarque os grupos de segurança de aplicativo dos quais deseja remover o adaptador de rede e, em seguida, selecione **salvar**. Somente as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo deve existir no mesmo local que a interface de rede.
 
 **Comandos**
 
@@ -196,8 +196,8 @@ Você só poderá adicionar um adaptador de rede ou remover um adaptador de rede
 Você pode excluir um adaptador de rede, desde que ele não esteja anexado a uma máquina virtual. Se um adaptador de rede estiver conectado a uma máquina virtual, você deverá primeiro posicionar a máquina virtual no estado parado (desalocado) e desanexar a interface de rede da máquina virtual. Para desanexar uma interface de rede de uma máquina virtual, conclua as etapas em [desanexar uma interface de rede de uma máquina virtual](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). No entanto, você não poderá desanexar uma interface de rede de uma máquina virtual se ela for a única interface de rede anexada à máquina virtual. Uma máquina virtual sempre deve ter pelo menos uma interface de rede anexada a ela. A exclusão de uma máquina virtual desanexa todas as interfaces de rede anexadas a ela, mas não exclui as interfaces de rede.
 
 1. Na caixa que contém os recursos de *pesquisa* de texto na parte superior da portal do Azure, digite *interfaces de rede*. Quando as **interfaces de rede** aparecerem nos resultados da pesquisa, selecione-as.
-2. Selecione **...** no lado direito da interface de rede que você deseja excluir da lista de interfaces de rede.
-3. Selecione **Eliminar**.
+2. Selecione a interface de rede na lista que você deseja excluir.
+3. Em **visão geral** , selecione **excluir**.
 4. Selecione **Sim** para confirmar a exclusão da interface de rede.
 
 Quando você exclui um adaptador de rede, todos os endereços MAC ou IP atribuídos a ele são liberados.

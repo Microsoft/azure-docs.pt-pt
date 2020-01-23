@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826182"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543159"
 ---
 # <a name="azure-application-skus-tab"></a>Guia SKUs de aplicativo do Azure
 
@@ -47,7 +47,7 @@ Forneça os valores de SKU a seguir.  Os campos anexados a um asterisco são obr
 |    Campo         |       Descrição                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Título\***     | Um título para a SKU. Este título é exibido na galeria deste item.   |
-| **\* de resumo**    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
+| **Resumo\***    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
 | **Descrição\*** | Uma descrição detalhada da SKU. Há suporte para HTML básico.                 | 
 | **Tipo de SKU\***   | Tipo de solução de aplicativo do Azure, selecione ***modelo de solução** para este cenário. |
 | **\* de disponibilidade na nuvem** | O local do SKU. O padrão é **Azure público**.  <b/>**Azure público** -o aplicativo será implantável para clientes em todas as regiões públicas do Azure que têm integração com o Marketplace.  <b/>aplicativo de **nuvem do Azure governamental** será implantado na nuvem do Azure governamental. Antes de publicar no [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda que os editores testem e validem sua solução funcione conforme o esperado nesse ambiente. Para preparar e testar, solicite uma [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
@@ -69,7 +69,7 @@ Defina as seguintes configurações de SKU. Os campos anexados a um asterisco s�
 |    Campo         |       Descrição                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Título\***     | Um título para a SKU. Este título é exibido na galeria deste item.   |
-| **\* de resumo**    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
+| **Resumo\***    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
 | **Descrição\*** | Uma descrição detalhada da SKU. Há suporte para HTML básico.                 | 
 | **Tipo de SKU\***   | Tipo de solução de aplicativo do Azure, selecione ***aplicativo gerenciado** para este cenário. 
 | **\* de disponibilidade na nuvem** | O local do SKU. O padrão é **Azure público**.  <b/>**Azure público** -o aplicativo será implantável para clientes em todas as regiões públicas do Azure que têm integração com o Marketplace.  <b/>aplicativo de **nuvem do Azure governamental** será implantado na nuvem do Azure governamental. Antes de publicar no [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda que os editores testem e validem sua solução funcione conforme o esperado nesse ambiente. Para preparar e testar, solicite uma [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Governamental é uma nuvem de comunidade governamental com acesso controlado para clientes dos EUA Federal, estadual, local ou tribal e parceiros qualificados para atender a essas entidades. |
@@ -82,17 +82,19 @@ Defina as seguintes configurações de SKU. Os campos anexados a um asterisco s�
 
 ### <a name="package-details-for-solution-template"></a>Detalhes do pacote para o modelo de solução
 
-   ![Detalhes do pacote para o modelo de solução](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Detalhes do pacote para o modelo de solução](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Forneça os valores de **detalhes do pacote** a seguir.  Os campos anexados a um asterisco são obrigatórios.
 
 - **Versão\*** -a versão do pacote que será carregada. As marcas de versão devem estar no formato X. Y. Z, em que X, Y e Z são inteiros.
 - **Arquivo de pacote (. zip)\*** -este pacote contém os arquivos a seguir, salvos em um arquivo. zip.
-  - MainTemplate. JSON-o arquivo de modelo de implantação que é usado para implantar a solução/aplicativo e criar os recursos definidos para a solução. Para obter mais informações, consulte [como criar arquivos de modelo de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition. JSON-esse arquivo é usado pelo portal do Azure para gerar a interface do usuário para provisionar esta solução/aplicativo. Para obter mais informações, consulte [criar portal do Azure interface do usuário para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **MainTemplate. json\*** -o arquivo de modelo de implantação usado para implantar a solução/aplicativo e criar os recursos definidos para a solução. Para obter mais informações, consulte [como criar arquivos de modelo de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition. json\*** -esse arquivo é usado pelo portal do Azure para gerar a interface do usuário para provisionar esta solução/aplicativo. Para obter mais informações, consulte [criar portal do Azure interface do usuário para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Scripts (se necessário)-quaisquer scripts adicionais que possam ser necessários ao executar o modelo, por exemplo, `Microsoft.Compute/virtualMachines/extensions`.
+  - Modelos aninhados (se necessário)-quaisquer modelos aninhados adicionais.
 
-  >[!IMPORTANT] 
-  >Esse pacote deve conter quaisquer modelos ou scripts aninhados necessários para provisionar esse aplicativo. O arquivo MainTemplate. JSON e o arquivo createUIDefinition. JSON devem estar na pasta raiz.
+  > [!IMPORTANT] 
+  > Esse pacote deve conter quaisquer modelos ou scripts aninhados necessários para provisionar esse aplicativo. O arquivo MainTemplate. JSON e o arquivo createUIDefinition. JSON devem estar na pasta raiz. Para obter mais informações sobre os artefatos de implantação, consulte [modelos de Azure Resource Manager – guia de práticas recomendadas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### <a name="package-details-for-managed-application"></a>Detalhes do pacote para aplicativo gerenciado
@@ -128,7 +130,7 @@ Para um aplicativo gerenciado, você deve configurar a autorização e as config
 Adicione o identificador de Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela ID de definição de função. Pode ser um proprietário, colaborador ou qualquer função personalizada.
 
 
-#### <a name="policy-settings"></a>Configurações de política
+#### <a name="policy-settings"></a>Definições de política
 
 Adicione as políticas com as quais o aplicativo gerenciado está em conformidade. Saiba mais sobre as políticas de recursos do Azure, confira [o que é Azure Policy?](../../../governance/policy/overview.md)
 
@@ -138,7 +140,7 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 
 1. Em **autorização**, selecione **+ nova autorização**.
 2. Para **ID da entidade de segurança**, digite o identificador de Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela definição de função.
-3. Para **definição de função**, selecione uma destas opções na lista suspensa: proprietário ou colaborador. Para obter mais informações, veja [Funções incorporadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+3. Para **definição de função**, selecione uma destas opções na lista suspensa: proprietário ou colaborador. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 >[!NOTE] 
 >Várias autorizações podem ser adicionadas. No entanto, é recomendável criar um grupo de usuários Active Directory e especificar sua ID no "PrincipalId". Isso permitirá a adição de mais usuários ao grupo de usuários sem a necessidade de atualizar a SKU.

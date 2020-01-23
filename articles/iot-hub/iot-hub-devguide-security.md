@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429314"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546950"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -59,7 +59,7 @@ Por exemplo, em uma solução de IoT típica:
 
 ## <a name="authentication"></a>Autenticação
 
-O Hub IoT do Azure concede acesso aos pontos de extremidade verificando um token em relação às políticas de acesso compartilhado e às credenciais de segurança do registro de identidade.
+o Hub IoT do Azure concede acesso a pontos finais ao verificar um token nas políticas de acesso partilhado e credenciais de segurança de registo de identidades.
 
 As credenciais de segurança, como chaves simétricas, nunca são enviadas pela conexão.
 
@@ -347,7 +347,7 @@ O resultado, que concederia acesso para ler todas as identidades de dispositivo,
 
 ## <a name="supported-x509-certificates"></a>Certificados X. 509 com suporte
 
-Você pode usar qualquer certificado X. 509 para autenticar um dispositivo com o Hub IoT carregando uma impressão digital do certificado ou uma autoridade de certificação (CA) para o Hub IoT do Azure. A autenticação usando impressões digitais de certificado apenas verifica se a impressão digital apresentada corresponde à impressão digital configurada. A autenticação usando a autoridade de certificação valida a cadeia de certificados. 
+Você pode usar qualquer certificado X. 509 para autenticar um dispositivo com o Hub IoT carregando uma impressão digital do certificado ou uma autoridade de certificação (CA) para o Hub IoT do Azure. A autenticação usando impressões digitais de certificado verifica se a impressão digital apresentada corresponde à impressão digital configurada. A autenticação usando a autoridade de certificação valida a cadeia de certificados. De qualquer forma, o handshake TLS exige que o dispositivo tenha um certificado e uma chave privada válidos. Consulte a especificação de TLS para obter detalhes, por exemplo: [RFC 5246-a versão 1,2 do protocolo TLS (Transport Layer Security)](https://tools.ietf.org/html/rfc5246/).
 
 Os certificados com suporte incluem:
 
@@ -461,6 +461,8 @@ Outros tópicos de referência no guia do desenvolvedor do Hub IoT incluem:
 * [Linguagem de consulta do Hub IOT](iot-hub-devguide-query-language.md) descreve a linguagem de consulta que você pode usar para recuperar informações do Hub IOT sobre seu dispositivo gêmeos e trabalhos.
 
 * [Suporte a MQTT do Hub IOT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IOT para o protocolo MQTT.
+
+* [RFC 5246-a versão 1,2 do protocolo TLS](https://tools.ietf.org/html/rfc5246/) fornece mais informações sobre a autenticação TLS.
 
 ## <a name="next-steps"></a>Passos seguintes
 

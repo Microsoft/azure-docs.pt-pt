@@ -3,12 +3,12 @@ title: Durable Functions publicação na grade de eventos do Azure (visualizaç�
 description: Saiba como configurar a publicação automática da grade de eventos do Azure para Durable Functions.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 768af2e89d6523f50bd9fcc3d13cc84b711cc6f0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613130"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547477"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicação na grade de eventos do Azure (visualização)
 
@@ -277,7 +277,7 @@ A lista a seguir explica o esquema de eventos de ciclo de vida:
 
 ## <a name="how-to-test-locally"></a>Como testar localmente
 
-Para testar localmente, use [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
+Para testar localmente, leia a [depuração local do gatilho de grade de eventos da função do Azure](../functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -2,17 +2,17 @@
 title: Trabalhando com VMs e NSGs na bastiões do Azure | Microsoft Docs
 description: Este artigo descreve como incorporar o acesso NSG com a bastiões do Azure
 services: bastion
-author: cherylmc
+author: ashjain
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.author: cherylmc
-ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.author: ashishj
+ms.openlocfilehash: 8fb48b3dbe0d727f92bd2e0fec91ac2dbf33338b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707552"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547630"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 

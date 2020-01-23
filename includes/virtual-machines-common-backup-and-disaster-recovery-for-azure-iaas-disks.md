@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012511"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530927"
 ---
 Este artigo explica como planejar o backup e a recuperação de desastre (DR) de VMs (máquinas virtuais) IaaS e discos no Azure. Este documento aborda discos gerenciados e não gerenciados.
 
@@ -33,7 +33,7 @@ Antes de examinarmos as opções de backup e recuperação de desastre, vamos re
 
 ### <a name="azure-iaas-resiliency"></a>Resiliência de IaaS do Azure
 
-*Resiliência* refere-se à tolerância para falhas normais que ocorrem em componentes de hardware. Resiliência é a capacidade de se recuperar de falhas e continuar a funcionar. Não se trata de evitar falhas, mas responder a falhas de uma maneira que evite tempo de inatividade ou perda de dados. O objetivo da resiliência é fazer com que a aplicação volte para um estado totalmente funcional após uma falha. As máquinas virtuais e os discos do Azure são projetados para serem resilientes a falhas comuns de hardware. Vejamos como a plataforma IaaS do Azure fornece essa resiliência.
+*Resiliência* refere-se à tolerância para falhas normais que ocorrem em componentes de hardware. Resiliência é a capacidade de se recuperar de falhas e continuar a funcionar. Não é uma questão de evitar falhas, mas de responder às falhas de forma a evitar períodos de indisponibilidade ou a perda de dados. O objetivo da resiliência é fazer com que a aplicação volte para um estado totalmente funcional após uma falha. As máquinas virtuais e os discos do Azure são projetados para serem resilientes a falhas comuns de hardware. Vejamos como a plataforma IaaS do Azure fornece essa resiliência.
 
 Uma máquina virtual consiste principalmente em duas partes: um servidor de computação e os discos persistentes. Ambos afetam a tolerância a falhas de uma máquina virtual.
 
@@ -110,7 +110,7 @@ Para discos não gerenciados, você pode usar o tipo de armazenamento com redund
 | Cenário | Replicação automática | Solução de DR |
 | --- | --- | --- |
 | Discos SSD Premium | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Managed disks | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Managed Disks | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Discos de armazenamento com redundância local não gerenciado | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Discos de armazenamento com redundância geográfica não gerenciado | Entre regiões ([armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
 | Discos de armazenamento com redundância geográfica com acesso de leitura não gerenciado | Entre regiões ([armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
@@ -121,10 +121,10 @@ Suas opções de alta disponibilidade, backup e recuperação de desastre em ní
 
 | Nível |   Elevada disponibilidade   | Backup ou recuperação de desastre |
 | --- | --- | --- |
-| Aplicação | SQL Server AlwaysOn | Azure Backup |
+| Candidatura | SQL Server AlwaysOn | Azure Backup |
 | Infraestrutura    | Conjunto de disponibilidade  | Armazenamento com redundância geográfica com instantâneos consistentes |
 
-### <a name="using-azure-backup"></a>Usando o backup do Azure 
+### <a name="using-azure-backup"></a>Utilizar o Azure Backup 
 
 O [backup do Azure](../articles/backup/backup-azure-vms-introduction.md) pode fazer backup de suas VMs que executam Windows ou Linux no cofre dos serviços de recuperação do Azure. Fazer backup e restaurar dados críticos para os negócios é complicado pelo fato de que é necessário fazer backup dos dados críticos para os negócios, enquanto os aplicativos que produzem os dados estão em execução. 
 
@@ -151,8 +151,6 @@ Use as etapas a seguir para habilitar backups de suas VMs usando o [portal do Az
 1.  Configure a política de backup e selecione a VM na mesma interface do usuário.
 
 1.  Verifique se o agente de backup está instalado na VM. Se sua VM for criada usando uma imagem da galeria do Azure, o agente de backup já estará instalado. Caso contrário (ou seja, se você usar uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.  Depois que as etapas anteriores forem concluídas, o backup será executado em intervalos regulares, conforme especificado na política de backup. Se necessário, você pode disparar o primeiro backup manualmente do painel do cofre no portal do Azure.
 
@@ -198,7 +196,7 @@ O processo anterior resulta em uma coleção de instantâneos coordenados para t
 
 Outra opção para criar backups consistentes é desligar a VM e tirar instantâneos de blob de cada disco. Tirar instantâneos de blob é mais fácil do que coordenar instantâneos de uma VM em execução, mas requer alguns minutos de inatividade.
 
-1. Desligue a VM.
+1. Desligar a VM.
 
 1. Crie um instantâneo de cada blob de disco rígido virtual, que leva apenas alguns segundos.
 

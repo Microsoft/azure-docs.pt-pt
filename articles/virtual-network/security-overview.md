@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2018
+ms.date: 01/22/2020
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: e73c4f0a658fb0f9c9abd854a8f91108a617a3d7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c465d86c3a284a45063b9da183e4866fde7e28e9
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975411"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544519"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>

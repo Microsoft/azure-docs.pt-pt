@@ -1,6 +1,6 @@
 ---
 title: Relocalação de grande no Unity
-description: Explicação detalhada de como criar e localizar âncoras usando sensores no dispositivo no C#.
+description: Explicação detalhada de como criar e localizar âncoras usando a relocalização de alta utilização no C#.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8b960ee168a1af66cafc52082138097cda240c9a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5c976bd020d37672c44c89113bf7786e1ccf141b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277172"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548259"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-c"></a>Como criar e localizar âncoras usando sensores no dispositivo noC#
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-c"></a>Como criar e localizar âncoras usando a relocalação de alta utilização noC#
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
-> * [Java Android](set-up-coarse-reloc-java.md)
+> * [Android Java](set-up-coarse-reloc-java.md)
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 

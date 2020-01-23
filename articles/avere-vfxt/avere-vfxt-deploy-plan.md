@@ -4,14 +4,14 @@ description: Explica o planejamento de fazer antes de implantar o avere vFXT par
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 5ffa28a0f6080b94bd47519df578fd15309dbab5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153649"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547545"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -175,6 +175,6 @@ Duas funções internas do Azure são usadas para as máquinas virtuais avere vF
 
 Se você precisar personalizar funções de acesso para componentes avere vFXT, deverá definir sua própria função e, em seguida, atribuí-la às VMs no momento em que elas forem criadas. Você não pode usar o modelo de implantação no Azure Marketplace. Consulte atendimento ao cliente da Microsoft e suporte abrindo um tíquete no portal do Azure, conforme descrito em [obter ajuda com o sistema](avere-vfxt-open-ticket.md).
 
-## <a name="next-step-understand-the-deployment-process"></a>Próxima etapa: entender o processo de implantação
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral da implantação](avere-vfxt-deploy-overview.md) fornece a visão de visão geral das etapas necessárias para criar um avere vFXT para o sistema do Azure e colocá-lo pronto para fornecer dados.

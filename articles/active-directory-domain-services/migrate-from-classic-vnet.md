@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893064"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544162"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Visualização – migre Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
-Azure Active Directory Domain Services (AD DS) dá suporte a uma única movimentação para clientes que atualmente usam o modelo de rede virtual clássica para o modelo de rede virtual do Resource Manager.
+Azure Active Directory Domain Services (AD DS) dá suporte a uma única movimentação para clientes que atualmente usam o modelo de rede virtual clássica para o modelo de rede virtual do Resource Manager. Os domínios gerenciados do Azure AD DS que usam o modelo de implantação do Gerenciador de recursos fornecem recursos adicionais, como política de senha refinada, logs de auditoria e proteção de bloqueio de conta.
 
-Este artigo descreve os benefícios e as considerações de migração e as etapas necessárias para migrar com êxito uma instância existente do AD DS do Azure. Esta funcionalidade encontra-se em pré-visualização.
+Este artigo descreve os benefícios e as considerações de migração e as etapas necessárias para migrar com êxito uma instância existente do AD DS do Azure. Este recurso de migração está atualmente em versão prévia.
 
 ## <a name="overview-of-the-migration-process"></a>Descrição do processo de migração
 
@@ -106,7 +106,7 @@ Ao preparar e migrar um domínio gerenciado do Azure AD DS, há algumas consider
 
 ### <a name="ip-addresses"></a>Endereços IP
 
-Os endereços IP do controlador de domínio para um domínio gerenciado do Azure AD DS são alterados após a migração. Isso inclui o endereço IP público para o ponto de extremidade LDAP seguro. Os novos endereços IP estão dentro do intervalo de endereços para a nova sub-rede na rede virtual do Resource Manager.
+Os endereços IP do controlador de domínio para um domínio gerenciado do Azure AD DS são alterados após a migração. Essa alteração inclui o endereço IP público para o ponto de extremidade LDAP seguro. Os novos endereços IP estão dentro do intervalo de endereços para a nova sub-rede na rede virtual do Resource Manager.
 
 No caso da reversão, os endereços IP podem mudar após a reversão.
 
@@ -122,13 +122,13 @@ O Azure AD DS domínios gerenciados que são executados em redes virtuais cláss
 
 Por padrão, 5 tentativas de senha inadequadas em 2 minutos bloqueiam uma conta por 30 minutos.
 
-Uma conta bloqueada não pode ser conectada ao, o que pode interferir na capacidade de gerenciar o domínio gerenciado do Azure AD DS ou os aplicativos gerenciados pela conta. Depois que um domínio gerenciado do Azure AD DS é migrado, as contas podem ter o que se parece com um bloqueio permanente devido a tentativas com falha repetidas para entrar. Dois cenários comuns após a migração incluem o seguinte:
+Uma conta bloqueada não pode ser usada para entrar, o que pode interferir na capacidade de gerenciar o domínio gerenciado do Azure AD DS ou os aplicativos gerenciados pela conta. Depois que um domínio gerenciado do Azure AD DS é migrado, as contas podem ter o que se parece com um bloqueio permanente devido a tentativas com falha repetidas para entrar. Dois cenários comuns após a migração incluem o seguinte:
 
 * Uma conta de serviço que está usando uma senha expirada.
     * A conta de serviço tenta repetidamente entrar com uma senha expirada, o que bloqueia a conta. Para corrigir isso, localize o aplicativo ou a VM com credenciais expiradas e atualize a senha.
 * Uma entidade mal-intencionada está usando tentativas de força bruta para entrar em contas.
     * Quando as VMs são expostas à Internet, os invasores geralmente tentam combinações comuns de nome de usuário e senha à medida que tentam assinar. Essas tentativas de entrada com falha repetidas podem bloquear as contas. Não é recomendável usar contas de administrador com nomes genéricos, como *admin* ou *administrador*, por exemplo, para minimizar as contas administrativas de serem bloqueadas.
-    * Minimize o número de VMs que são expostas à Internet. Você pode usar a [bastiões do Azure (atualmente em visualização)][azure-bastion] para se conectar com segurança às VMs usando o portal do Azure.
+    * Minimize o número de VMs que são expostas à Internet. Você pode usar a [bastiões do Azure][azure-bastion] para se conectar com segurança às VMs usando o portal do Azure.
 
 Se você suspeitar que algumas contas podem ser bloqueadas após a migração, as etapas finais de migração descrevem como habilitar a auditoria ou alterar as configurações de política de senha refinadas.
 
@@ -164,11 +164,11 @@ A migração para o modelo de implantação do Gerenciador de recursos e a rede 
 
 ## <a name="update-and-verify-virtual-network-settings"></a>Atualizar e verificar as configurações de rede virtual
 
-Antes de iniciar a migração, conclua as seguintes verificações e atualizações iniciais. Essas etapas podem acontecer a qualquer momento antes da migração e não afetam a operação do domínio gerenciado AD DS do Azure.
+Antes de começar o processo de migração, conclua as seguintes verificações e atualizações iniciais. Essas etapas podem acontecer a qualquer momento antes da migração e não afetam a operação do domínio gerenciado AD DS do Azure.
 
 1. Atualize seu ambiente de Azure PowerShell local para a versão mais recente. Para concluir as etapas de migração, você precisa de pelo menos a versão *2.3.2*.
 
-    Para obter informações sobre como verificar e atualizar, consulte [Azure PowerShell visão geral][azure-powershell].
+    Para obter informações sobre como verificar e atualizar sua versão do PowerShell, consulte [Azure PowerShell visão geral][azure-powershell].
 
 1. Crie ou escolha uma rede virtual existente do Resource Manager.
 
@@ -210,7 +210,8 @@ Para preparar o domínio gerenciado AD DS do Azure para migração, conclua as s
 
     ```powershell
     Migrate-Aadds `
-        -Prepare -ManagedDomainFqdn contoso.com `
+        -Prepare `
+        -ManagedDomainFqdn contoso.com `
         -Credentials $creds
     ```
 
@@ -273,27 +274,27 @@ O segundo controlador de domínio deve estar disponível 1-2 horas após a concl
 
 Quando o processo de migração é concluído com êxito, algumas etapas opcionais de configuração incluem a habilitação de logs de auditoria ou notificações por email ou a atualização da política de senha refinada.
 
-#### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Assinar logs de auditoria usando Azure Monitor
+### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Assinar logs de auditoria usando Azure Monitor
 
 O Azure AD DS expõe logs de auditoria para ajudar a solucionar problemas e exibir eventos nos controladores de domínio. Para obter mais informações, consulte [habilitar e usar logs de auditoria][security-audits].
 
 Você pode usar modelos para monitorar informações importantes expostas nos logs. Por exemplo, o modelo de pasta de trabalho log de auditoria pode monitorar possíveis bloqueios de conta no domínio gerenciado AD DS do Azure.
 
-#### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configurar Azure AD Domain Services notificações por email
+### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configurar Azure AD Domain Services notificações por email
 
 Para ser notificado quando um problema for detectado no domínio gerenciado AD DS do Azure, atualize as configurações de notificação de email no portal do Azure. Para obter mais informações, consulte [definir configurações de notificação][notifications].
 
-#### <a name="update-fine-grained-password-policy"></a>Atualizar política de senha refinada
+### <a name="update-fine-grained-password-policy"></a>Atualizar política de senha refinada
 
 Se necessário, você pode atualizar a política de senha refinada para ser menos restritiva do que a configuração padrão. Você pode usar os logs de auditoria para determinar se uma configuração menos restritiva faz sentido e, em seguida, configurar a política conforme necessário. Use as seguintes etapas de alto nível para revisar e atualizar as configurações de política para contas que são bloqueadas repetidamente após a migração:
 
 1. [Configure a política de senha][password-policy] para menos restrições no domínio gerenciado AD DS do Azure e observe os eventos nos logs de auditoria.
 1. Se qualquer conta de serviço estiver usando senhas expiradas, conforme identificado nos logs de auditoria, atualize essas contas com a senha correta.
-1. Se a VM estiver exposta à Internet, examine nomes de conta genérica como *administrador*, *usuário*ou *convidado* com tentativas de entrada altas. Sempre que possível, atualize essas VMs para usar contas com nomes menos genéricos.
-1. Use um rastreamento de rede na VM para localizar a origem dos ataques e bloquear esses endereços IP para poder tentar entrar.
+1. Se uma VM for exposta à Internet, examine nomes de conta genérica como *administrador*, *usuário*ou *convidado* com tentativas de entrada altas. Sempre que possível, atualize essas VMs para usar contas com nomes menos genéricos.
+1. Use um rastreamento de rede na VM para localizar a origem dos ataques e impedir que esses endereços IP sejam capazes de tentar entrar.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senha refinada para ser tão restritiva quanto necessário.
 
-#### <a name="creating-a-network-security-group"></a>Criar um grupo de segurança de rede
+### <a name="creating-a-network-security-group"></a>Criar um grupo de segurança de rede
 
 O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado e não é criado automaticamente. Para criar o grupo de segurança de rede e abrir as portas necessárias, examine as seguintes etapas:
 
@@ -301,6 +302,8 @@ O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas 
 1. Se você usar LDAP seguro, adicione uma regra ao grupo de segurança de rede para permitir o tráfego de entrada para a porta *TCP* *636*. Para obter mais informações, consulte [Configurar o LDAP seguro][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Reverter e restaurar da migração
+
+Até um determinado ponto no processo de migração, você pode optar por reverter ou restaurar o domínio gerenciado AD DS do Azure.
 
 ### <a name="roll-back"></a>Reverter
 
