@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: e4e09ca77de00b7f189db2cbbcaca2e090dd7e72
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311636"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548480"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
-Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no Azure Machine Learning designer. Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
+Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no designer de Azure Machine Learning (versão prévia). Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
 
 Em geral, a *seleção de recursos* refere-se ao processo de aplicação de testes estatísticos a entradas, dado uma saída especificada. O objetivo é determinar quais colunas são mais previsíveis na saída. O módulo seleção de recursos baseada em filtro fornece vários algoritmos de seleção de recursos para escolher. O módulo inclui métodos de correlação, como os valores de correlação Pearson e qui-quadrado. 
 

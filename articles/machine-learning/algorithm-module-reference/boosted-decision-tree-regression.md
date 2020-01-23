@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 4271a180a0f00ae921de9b8deb9a3e5123f9b519
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: fb3ff990dcc207fd6dff6073c7464b6e410431af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314492"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546882"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um Ensemble de árvores de regressão usando o aumento. O *aumento* significa que cada árvore depende de árvores anteriores. O algoritmo aprende ajustando o resíduo das árvores que o precedem. Portanto, o aumento em uma árvore de decisão Ensemble tende a melhorar a precisão com um pequeno risco de menos cobertura.  
   

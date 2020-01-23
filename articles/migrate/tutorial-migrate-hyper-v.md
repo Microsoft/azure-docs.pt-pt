@@ -4,12 +4,12 @@ description: Saiba como migrar VMs do Hyper-V locais para o Azure com migração
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028979"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545913"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -181,7 +181,7 @@ Se esta for a primeira VM que você está replicando no projeto de migrações p
 - **Barramento de serviço**: migrações para Azure: a migração de servidor usa o barramento de serviço para enviar mensagens de orquestração de replicação para o dispositivo.
 - **Conta de armazenamento de gateway**: migrações para Azure: a migração de servidor usa a conta de armazenamento de gateway para armazenar informações de estado sobre as VMs que estão sendo replicadas.
 - **Conta de armazenamento de log**: o dispositivo de migrações para Azure carrega logs de replicação para VMs em uma conta de armazenamento de log. As migrações para Azure aplicam as informações de replicação aos discos gerenciados por réplica.
-- **Cofre de chaves**: o dispositivo de migrações para Azure usa o cofre de chaves para gerenciar cadeias de conexão para o barramento de serviço e chaves de acesso para as contas de armazenamento usadas na replicação. Você deve ter configurado as permissões que o cofre de chaves precisa para acessar a conta de armazenamento quando você se preparou. [Azure preparado](tutorial-prepare-hyper-v.md#prepare-azure) para avaliação e migração de VM do Hyper-V. 
+- **Cofre de chaves**: o dispositivo de migrações para Azure usa o cofre de chaves para gerenciar cadeias de conexão para o barramento de serviço e chaves de acesso para as contas de armazenamento usadas na replicação. Você deve ter configurado as permissões que o cofre de chaves precisa para acessar a conta de armazenamento quando você [preparou o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para avaliação e migração de VMs do Hyper-V. 
 
 
 ## <a name="track-and-monitor"></a>Acompanhar e monitorar

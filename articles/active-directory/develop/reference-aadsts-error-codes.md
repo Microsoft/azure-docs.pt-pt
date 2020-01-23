@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1de85e2c075d343a72fcc9fd29c0358d0054350
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423971"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548140"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -222,6 +222,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90092 | GraphNonRetryableError |
 | AADSTS90093 | GraphUserUnauthorized-grafo retornado com um código de erro proibido para a solicitação. |
 | AADSTS90094 | AdminConsentRequired-o consentimento do administrador é necessário. |
+| AADSTS900382 | Não há suporte para o cliente confidencial na solicitação de nuvem cruzada. |
 | AADSTS90100 | InvalidRequestParameter-o parâmetro está vazio ou não é válido. |
 | AADSTS901002 | AADSTS901002: não há suporte para o parâmetro de solicitação ' Resource '. |
 | AADSTS90101 | InvalidEmailAddress-os dados fornecidos não são um endereço de email válido. O endereço de email deve estar no formato `someone@example.com`. |

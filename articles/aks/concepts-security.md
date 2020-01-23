@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422292"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547936"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no serviço de kubernetes do Azure (AKS)
 
@@ -30,7 +30,7 @@ Este artigo apresenta os principais conceitos que protegem seus aplicativos no A
 
 No AKS, os componentes mestres do kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster AKS tem seu próprio mestre kubernetes dedicado de locatário único para fornecer o servidor de API, o Agendador, etc. Este mestre é gerenciado e mantido pela Microsoft.
 
-Por padrão, o servidor de API kubernetes usa um endereço IP público e o FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao servidor de API usando controles de acesso baseado em função kubernetes e Azure Active Directory. Para obter mais informações, consulte [integração do Azure AD com o AKs][aks-aad].
+Por padrão, o servidor de API kubernetes usa um endereço IP público e um FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao servidor de API usando controles de acesso baseado em função kubernetes e Azure Active Directory. Para obter mais informações, consulte [integração do Azure AD com o AKs][aks-aad].
 
 ## <a name="node-security"></a>Segurança do nó
 

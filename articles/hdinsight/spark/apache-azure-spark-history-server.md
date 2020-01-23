@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552734"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548939"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usar os recursos estendidos do servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark
 
@@ -163,7 +163,7 @@ Selecione a guia **distorção de dados** . As tarefas distorcidas correspondent
 
 #### <a name="specify-parameters"></a>Especificar parâmetros
 
-A seção **especificar parâmetros** exibe os parâmetros, que são usados para detectar a distorção de dados. A regra padrão é: a leitura de dados da tarefa é maior que três vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, poderá escolher seus parâmetros. As seções de **caractere** de inclinação e distorção **inclinadas** serão atualizadas de acordo.
+A seção **especificar parâmetros** exibe os parâmetros, que são usados para detectar a distorção de dados. A regra padrão é: a leitura de dados da tarefa é maior que três vezes a média de dados da tarefa lida e a leitura dos dados da tarefa é maior que 10 MB. Se você quiser definir sua própria regra para tarefas distorcidas, poderá escolher seus parâmetros. As seções **distorção** e **gráfico de distorção** serão atualizadas de acordo.
 
 #### <a name="skewed-stage"></a>Estágio inclinado
 

@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667547"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547426"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -146,7 +146,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são gravadas em uma associação de saída quando a função é concluída. Você adiciona uma ou mais mensagens à coleção. Essas mensagens são enviadas para a fila quando a função é concluída.
 
-Para saber mais, consulte a documentação de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---c-example) .
+Para saber mais, consulte a documentação de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output) .
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -184,7 +184,7 @@ No seu código de função, a associação de `msg` é acessada da `context`, co
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-Para saber mais, consulte a referência de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---javascript-example) .
+Para saber mais, consulte a referência de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output) .
 
 ---
 
