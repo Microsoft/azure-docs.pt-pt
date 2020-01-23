@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705415"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509143"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) executa algumas tarefas em segundo plano para manter o domínio gerenciado íntegro e atualizado. Essas tarefas incluem fazer backups, aplicar atualizações de segurança e sincronizar dados do Azure AD. Se houver problemas com o domínio gerenciado AD DS do Azure, essas tarefas poderão não ser executadas com êxito. Para examinar e resolver quaisquer problemas, você pode verificar o status de integridade de um domínio gerenciado do Azure AD DS usando o portal do Azure.
+Azure Active Directory Domain Services (Azure AD DS) executa algumas tarefas em segundo plano para manter o domínio gerenciado íntegro e atualizado. Essas tarefas incluem fazer backups, aplicar atualizações de segurança e sincronizar dados do Azure AD. Se houver problemas com o domínio gerenciado AD DS do Azure, essas tarefas poderão não ser concluídas com êxito. Para examinar e resolver quaisquer problemas, você pode verificar o status de integridade de um domínio gerenciado do Azure AD DS usando o portal do Azure.
 
 Este artigo mostra como exibir o status de integridade do AD DS do Azure e entender as informações ou os alertas mostrados.
 
@@ -38,20 +38,20 @@ O carimbo de data/hora *último avaliado* da página de integridade mostra quand
 
 O status no canto superior direito indica a integridade geral do domínio gerenciado do Azure AD DS. O status considera todos os alertas existentes em seu domínio. A tabela a seguir detalha os indicadores de status disponíveis:
 
-| Estado | cone | Explicação |
+| Estado | Ícone | Explicação |
 | --- | :----: | --- |
 | A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerenciado do AD DS do Azure está sendo executado corretamente e não tem nenhum alerta crítico ou de aviso. O domínio pode ter alertas informativos. |
 | Requer atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não há alertas críticos no domínio gerenciado AD DS do Azure, mas há um ou mais alertas de aviso que devem ser resolvidos. |
 | Requer atenção (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Há um ou mais alertas críticos no domínio gerenciado AD DS do Azure que devem ser resolvidos. Você também pode ter alertas de aviso e/ou informativos. |
-| Implantar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio AD DS do Azure está sendo implantado. |
+| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio AD DS do Azure está sendo implantado. |
 
 ## <a name="understand-monitors-and-alerts"></a>Entender monitores e alertas
 
-O status de integridade de um domínio gerenciado AD DS do Azure mostra dois tipos de informações – monitores e alertas. Monitores mostram a hora em que as tarefas de segundo plano de núcleo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerenciado.
+O status de integridade de um domínio gerenciado AD DS do Azure mostra dois tipos de informações – *monitores*e *alertas*. Monitores mostram a hora em que as tarefas de segundo plano de núcleo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerenciado.
 
 ### <a name="monitors"></a>Monitores
 
-Monitores são áreas de um domínio gerenciado AD DS do Azure que são verificados regularmente. Se houver alertas ativos para o domínio gerenciado AD DS do Azure, ele poderá fazer com que um dos monitores relate um problema. O Azure AD Domain Services atualmente monitora as seguintes áreas:
+Monitores são áreas de um domínio gerenciado AD DS do Azure que são verificados regularmente. Se houver alertas ativos para o domínio gerenciado AD DS do Azure, ele poderá fazer com que um dos monitores relate um problema. O Azure AD Domain Services atualmente tem monitores para as seguintes áreas:
 
 * Backup
 * Sincronização com o Azure AD
@@ -68,7 +68,7 @@ O monitor de backup verifica se os backups regulares automatizados do domínio g
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>Sincronização com o monitor do Azure AD
 
-Um domínio gerenciado do Azure AD DS é sincronizado regularmente com o Azure Active Directory. O número de usuários e objetos de grupo e o número de alterações feitas no diretório do AD do Azure desde a última sincronização, afeta o tempo necessário para a sincronização. Se o domínio gerenciado do Azure AD DS foi sincronizado pela última vez há três dias, verifique e resolva todos os alertas ativos. Se o monitor de sincronização não atualizar o status para mostrar uma sincronização recente, [abra uma solicitação de suporte do Azure][azure-support].
+Um domínio gerenciado do Azure AD DS é sincronizado regularmente com o Azure Active Directory. O número de usuários e objetos de grupo e o número de alterações feitas no diretório do AD do Azure desde a última sincronização, afeta o tempo necessário para a sincronização. Se o domínio gerenciado do Azure AD DS foi sincronizado pela última vez há três dias, verifique e resolva todos os alertas ativos. Se o monitor de sincronização não atualizar o status para mostrar uma sincronização recente depois de resolver os alertas ativos, [abra uma solicitação de suporte do Azure][azure-support].
 
 ### <a name="alerts"></a>Alertas
 

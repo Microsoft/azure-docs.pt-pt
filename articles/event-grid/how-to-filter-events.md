@@ -1,30 +1,30 @@
 ---
-title: Como filtrar eventos do Azure Event Grid
-description: Mostra como criar subscrições do Azure Event Grid que filtrar eventos.
+title: Como filtrar eventos para a grade de eventos do Azure
+description: Este artigo mostra como filtrar eventos (por tipo de evento, por assunto, por operadores e dados, etc.) ao criar uma assinatura de grade de eventos.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304234"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514566"
 ---
-# <a name="filter-events-for-event-grid"></a>Filtro de eventos do Event Grid
+# <a name="filter-events-for-event-grid"></a>Filtrar eventos para a grade de eventos
 
-Este artigo mostra como filtrar eventos durante a criação de uma subscrição do Event Grid. Para saber mais sobre as opções de filtragem de eventos, veja [evento compreender filtragem para subscrições do Event Grid](event-filtering.md).
+Este artigo mostra como filtrar eventos ao criar uma assinatura de grade de eventos. Para saber mais sobre as opções de filtragem de eventos, consulte [entender a filtragem de eventos para assinaturas de grade de eventos](event-filtering.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="filter-by-event-type"></a>Filtrar por tipo de evento
 
-Ao criar uma subscrição do Event Grid, pode especificar quais [tipos de evento](event-schema.md) para enviar para o ponto final. Os exemplos nesta secção criar subscrições de eventos para um grupo de recursos mas limitar os eventos que são enviados para o `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se precisar de mais flexibilidade ao filtrar eventos por tipos de eventos, consulte filtrar por campos de dados e operadores avançados.
+Ao criar uma assinatura de grade de eventos, você pode especificar quais [tipos de eventos](event-schema.md) enviar ao ponto de extremidade. Os exemplos nesta seção criam assinaturas de evento para um grupo de recursos, mas limitam os eventos que são enviados para `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se precisar de mais flexibilidade ao filtrar eventos por tipos de evento, consulte filtrar por operadores avançados e campos de dados.
 
-Para o PowerShell, utilize o `-IncludedEventType` parâmetro ao criar a subscrição.
+Para o PowerShell, use o parâmetro `-IncludedEventType` ao criar a assinatura.
 
 ```powershell
 $includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
@@ -36,7 +36,7 @@ New-AzEventGridSubscription `
   -IncludedEventType $includedEventTypes
 ```
 
-Para a CLI do Azure, utilize o `--included-event-types` parâmetro. O exemplo seguinte utiliza a CLI do Azure numa Bash shell:
+Para CLI do Azure, use o parâmetro `--included-event-types`. O exemplo a seguir usa CLI do Azure em um shell bash:
 
 ```azurecli
 includedEventTypes="Microsoft.Resources.ResourceWriteFailure Microsoft.Resources.ResourceWriteSuccess"
@@ -48,7 +48,7 @@ az eventgrid event-subscription create \
   --included-event-types $includedEventTypes
 ```
 
-Para um modelo do Resource Manager, utilize o `includedEventTypes` propriedade.
+Para um modelo do Resource Manager, use a propriedade `includedEventTypes`.
 
 ```json
 "resources": [
@@ -79,9 +79,9 @@ Para um modelo do Resource Manager, utilize o `includedEventTypes` propriedade.
 
 ## <a name="filter-by-subject"></a>Filtrar por assunto
 
-Pode filtrar eventos pelo requerente dos dados de eventos. Pode especificar um valor a corresponder para o início ou fim do assunto. Se precisar de mais flexibilidade ao filtrar eventos por assunto, consulte filtrar por campos de dados e operadores avançados.
+Você pode filtrar eventos pelo assunto nos dados do evento. Você pode especificar um valor para corresponder ao início ou ao fim do assunto. Se você precisar de mais flexibilidade ao filtrar eventos por assunto, consulte filtrar por operadores avançados e campos de dados.
 
-O exemplo de PowerShell seguinte, vai criar uma subscrição de evento que filtra pelo início do assunto. Utilizar o `-SubjectBeginsWith` parâmetro para limitar os eventos para as que para um recurso específico. Passar o ID de recurso de um grupo de segurança de rede.
+No exemplo do PowerShell a seguir, você cria uma assinatura de evento que filtra pelo início do assunto. Use o parâmetro `-SubjectBeginsWith` para limitar eventos a um recurso específico. Você passa a ID de recurso de um grupo de segurança de rede.
 
 ```powershell
 $resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
@@ -93,7 +93,7 @@ New-AzEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-O seguinte exemplo do PowerShell cria uma subscrição para um armazenamento de Blobs. Limita os eventos para aqueles com um assunto que termina em `.jpg`.
+O próximo exemplo do PowerShell cria uma assinatura para um armazenamento de BLOBs. Ele limita os eventos a aqueles com um assunto que termina em `.jpg`.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -105,7 +105,7 @@ New-AzEventGridSubscription `
   -SubjectEndsWith ".jpg"
 ```
 
-O exemplo seguinte da CLI do Azure, vai criar uma subscrição de evento que filtra pelo início do assunto. Utilizar o `--subject-begins-with` parâmetro para limitar os eventos para as que para um recurso específico. Passar o ID de recurso de um grupo de segurança de rede.
+No exemplo a seguir CLI do Azure, você cria uma assinatura de evento que filtra pelo início do assunto. Use o parâmetro `--subject-begins-with` para limitar eventos a um recurso específico. Você passa a ID de recurso de um grupo de segurança de rede.
 
 ```azurecli
 resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
@@ -117,7 +117,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-O exemplo seguinte da CLI do Azure cria uma subscrição para um armazenamento de Blobs. Limita os eventos para aqueles com um assunto que termina em `.jpg`.
+O exemplo a seguir CLI do Azure cria uma assinatura para um armazenamento de BLOBs. Ele limita os eventos a aqueles com um assunto que termina em `.jpg`.
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -129,7 +129,7 @@ az eventgrid event-subscription create \
   --subject-ends-with ".jpg"
 ```
 
-O seguinte exemplo de modelo do Resource Manager, vai criar uma subscrição de evento que filtra pelo início do assunto. Utilizar o `subjectBeginsWith` propriedade para limitar os eventos para as que para um recurso específico. Passar o ID de recurso de um grupo de segurança de rede.
+No exemplo de modelo do Resource Manager a seguir, você cria uma assinatura de evento que filtra pelo início do assunto. Você usa a propriedade `subjectBeginsWith` para limitar eventos a um recurso específico. Você passa a ID de recurso de um grupo de segurança de rede.
 
 ```json
 "resources": [
@@ -155,7 +155,7 @@ O seguinte exemplo de modelo do Resource Manager, vai criar uma subscrição de 
 ]
 ```
 
-O seguinte exemplo de modelo do Resource Manager cria uma subscrição para um armazenamento de Blobs. Limita os eventos para aqueles com um assunto que termina em `.jpg`.
+O próximo exemplo de modelo do Resource Manager cria uma assinatura para um armazenamento de BLOBs. Ele limita os eventos a aqueles com um assunto que termina em `.jpg`.
 
 ```json
 "resources": [
@@ -181,15 +181,15 @@ O seguinte exemplo de modelo do Resource Manager cria uma subscrição para um a
 ]
 ```
 
-## <a name="filter-by-operators-and-data"></a>Filtrar por dados e operadores
+## <a name="filter-by-operators-and-data"></a>Filtrar por operadores e dados
 
-Para obter mais flexibilidade na filtragem, pode usar operadores e propriedades de dados para filtrar eventos.
+Para obter mais flexibilidade na filtragem, você pode usar operadores e propriedades de dados para filtrar eventos.
 
-### <a name="subscribe-with-advanced-filters"></a>Subscrever com filtros avançados
+### <a name="subscribe-with-advanced-filters"></a>Assinar filtros avançados
 
-Para saber mais sobre os operadores e chaves que podem ser usados para filtragem avançada, consulte [filtragem avançada](event-filtering.md#advanced-filtering).
+Para saber mais sobre os operadores e as chaves que você pode usar para a filtragem avançada, consulte [filtragem avançada](event-filtering.md#advanced-filtering).
 
-Estes exemplos criar um tópico personalizado. Eles subscrevem o tópico personalizado e filtrar por um valor no objeto de dados. Eventos que tenham a propriedade de cor definida para azul, vermelho ou verde são enviados para a subscrição.
+Esses exemplos criam um tópico personalizado. Eles assinam o tópico personalizado e filtram por um valor no objeto de dados. Os eventos que têm a Propriedade Color definida como Blue, Red ou Green são enviados para a assinatura.
 
 Para a CLI do Azure, utilize:
 
@@ -236,7 +236,7 @@ New-AzEventGridSubscription `
 
 ### <a name="test-filter"></a>Filtro de teste
 
-Para testar o filtro, envie um evento com o campo de cor definido como verde. Uma vez que é apresentada a verde um dos valores no filtro, o evento é entregue ao ponto final.
+Para testar o filtro, envie um evento com o campo cor definido como verde. Como Green é um dos valores no filtro, o evento é entregue ao ponto de extremidade.
 
 Para a CLI do Azure, utilize:
 
@@ -275,7 +275,7 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Para testar um cenário em que o evento não for enviado, envie um evento com o campo de cor definido como amarelo. Amarelo não é um dos valores especificados na subscrição, para que o evento não é entregue à sua subscrição.
+Para testar um cenário em que o evento não é enviado, envie um evento com o campo cor definido como amarelo. Amarelo não é um dos valores especificados na assinatura, portanto, o evento não é entregue à sua assinatura.
 
 Para a CLI do Azure, utilize:
 
@@ -304,8 +304,8 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre a monitorização de entregas de eventos, consulte [entrega de mensagens do Monitor Event Grid](monitor-event-delivery.md).
-* Para obter mais informações sobre a chave de autenticação, consulte [Event Grid segurança e autenticação](security-authentication.md).
-* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).
+* Para obter informações sobre como monitorar entregas de eventos, consulte [monitorar a entrega de mensagens na grade de eventos](monitor-event-delivery.md).
+* Para obter mais informações sobre a chave de autenticação, consulte [segurança e autenticação da grade de eventos](security-authentication.md).
+* Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md).

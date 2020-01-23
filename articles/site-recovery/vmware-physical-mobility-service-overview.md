@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931893"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513563"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de mobilidade para VMs VMware e servidores físicos
 
 Ao configurar a recuperação de desastre para VMs VMware e servidores físicos usando [Azure site Recovery](site-recovery-overview.md), você instala o serviço de mobilidade de site Recovery em cada servidor físico e VM VMware local.  O serviço de mobilidade captura gravações de dados no computador e as encaminha para o servidor de processo de Site Recovery. Você pode implantar o serviço de mobilidade usando os seguintes métodos:
 
 - [Instalação por push](#push-installation): Site Recovery instala o agente de mobilidade no servidor quando a proteção é habilitada via portal do Azure.
-- Instalar manualmente: Você pode instalar o serviço de mobilidade manualmente em cada computador por meio [da interface do usuário ou do](#install-mobility-agent-through-ui) [prompt de comando](#install-mobility-agent-through-command-prompt).
-- [Implantação automatizada](vmware-azure-mobility-install-configuration-mgr.md): Você pode automatizar a instalação com ferramentas de implantação de software, como System Center Configuration Manager.
+- Instalar manualmente: você pode instalar o serviço de mobilidade manualmente em cada computador por meio [da interface do usuário ou do](#install-mobility-agent-through-ui) [prompt de comando](#install-mobility-agent-through-command-prompt).
+- [Implantação automatizada](vmware-azure-mobility-install-configuration-mgr.md): você pode automatizar a instalação com ferramentas de implantação de software, como Configuration Manager.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivírus em máquinas replicadas
 
@@ -115,8 +115,8 @@ Durante a instalação por push do agente de mobilidade, as etapas a seguir são
 #### <a name="installation-settings"></a>Configurações de instalação
 **Definição** | **Detalhes**
 --- | ---
-Utilização | UnifiedAgent. exe/role \<MS/MT > local \<de instalação do/InstallLocation >/Platform "VMware"/Silent
-Logs de instalação | Em%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+Utilização | UnifiedAgent. exe/role \<MS/MT >/InstallLocation \<instalação local >/Platform "VmWare"/Silent
+Registos de configuração | Em%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o destino mestre (MT) deve ser instalado.
 /InstallLocation| Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade (qualquer pasta).
 /Platform | Obrigatório. Especifica a plataforma na qual o serviço de mobilidade está instalado. **VMware** para VMs VMware/servidores físicos; **Azure** para VMs do Azure.<br/><br/> Se você estiver tratando VMs do Azure como máquinas físicas, especifique **VMware**.
@@ -154,7 +154,7 @@ Logs de configuração do agente | Em%ProgramData%\ASRSetupLogs\ASRUnifiedAgentC
 #### <a name="installation-settings"></a>Configurações de instalação
 **Definição** | **Detalhes**
 --- | ---
-Utilização | ./Install-d \<local de instalação >- \<r MS/MT >-v VMware-q
+Utilização | ./Install-d \<local de instalação >-r \<MS/MT >-v VmWare-q
 -r | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o destino mestre (MT) deve ser instalado.
 -d | Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade:/usr/local/ASR.
 -v | Obrigatório. Especifica a plataforma na qual o serviço de mobilidade está instalado. **VMware** para VMs VMware/servidores físicos; **Azure** para VMs do Azure.
@@ -169,8 +169,8 @@ Utilização | CD/usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual do Azure
 
-- **VMs do Windows**: Da versão 9.7.0.0 do serviço de mobilidade, o [agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço de mobilidade. Isso garante que, quando o computador fizer failover no Azure, a VM do Azure atenderá ao pré-requisito de instalação do agente para usar qualquer extensão de VM.
-- **VMs do Linux**: O [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) deve ser instalado manualmente na VM do Azure após o failover.
+- **VMs do Windows**: da versão 9.7.0.0 do serviço de mobilidade, o [agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço de mobilidade. Isso garante que, quando o computador fizer failover no Azure, a VM do Azure atenderá ao pré-requisito de instalação do agente para usar qualquer extensão de VM.
+- **VMs do Linux**: o [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) deve ser instalado manualmente na VM do Azure após o failover.
 
 ## <a name="locate-installer-files"></a>Localizar arquivos do instalador
 
@@ -190,6 +190,6 @@ Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux servidor LTS 1
 Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure a instalação por push para o serviço de mobilidade](vmware-azure-install-mobility-service.md).

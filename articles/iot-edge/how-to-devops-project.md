@@ -7,12 +7,12 @@ ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccf6ea567143180daa848566d1e7e1420c181c5f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 66401678f03ee0043345208eb32560f589829226
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457373"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510316"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para IoT Edge com Azure DevOps Projects
 
@@ -28,11 +28,11 @@ Projetos de DevOps cria um pipeline CI/CD no Azure DevOps. Você pode criar uma 
 
 1. No painel esquerdo, selecione **criar um recurso**e procure **DevOps Projects**.  
 
-1.  Selecione **Criar**.
+1. Selecione **Criar**.
 
-## <a name="create-a-new-application-pipeline"></a>Criar um novo pipeline de aplicativo 
+## <a name="create-a-new-application-pipeline"></a>Criar um novo pipeline de aplicativo
 
-1. Seus módulos de Azure IOT Edge [C#](tutorial-csharp-module.md)podem ser gravados, [node. js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) e [Java](tutorial-java-module.md). Selecione seu idioma preferido para iniciar um novo aplicativo: **.net**, **node. js**, **python**, **C**ou **Java**. Selecione **Seguinte** para continuar.
+1. Os módulos do Azure IoT Edge podem ser escritos em [ C# ](tutorial-csharp-module.md), [node. js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) e [Java](tutorial-java-module.md). Selecione seu idioma preferido para iniciar um novo aplicativo: **.net**, **node. js**, **python**, **C**ou **Java**. Selecione **Seguinte** para continuar.
 
    ![Selecione o idioma para criar uma nova aplicação](./media/how-to-devops-project/select-language.png)
 
@@ -46,26 +46,25 @@ Projetos de DevOps cria um pipeline CI/CD no Azure DevOps. Você pode criar uma 
 
 4. Crie uma nova organização do Azure DevOps gratuita ou escolher uma organização existente.
 
-   1. Forneça um nome para seu projeto. 
+   1. Forneça um nome para seu projeto.
 
-   2. Selecione sua organização do DevOps do Azure. Se você não tiver uma organização existente, selecione **configurações adicionais** para criar uma nova. 
+   2. Selecione sua organização do DevOps do Azure. Se você não tiver uma organização existente, selecione **configurações adicionais** para criar uma nova.
 
    3. Selecione a sua subscrição do Azure.
 
    4. Use o nome do Hub IoT gerado pelo nome do projeto ou forneça o seu próprio.
 
-   5. Aceite o local padrão ou escolha um próximo a você. 
+   5. Aceite o local padrão ou escolha um próximo a você.
 
-   5. Selecione **configurações adicionais** para configurar os recursos do Azure que DevOps Projects cria em seu nome.
+   6. Selecione **configurações adicionais** para configurar os recursos do Azure que DevOps Projects cria em seu nome.
 
-   6. Selecione **concluído** para concluir a criação do projeto. 
+   7. Selecione **concluído** para concluir a criação do projeto.
 
    ![Dê um nome e a criar aplicação](media/how-to-devops-project/select-devops.png)
 
 Após alguns minutos, é apresentado o dashboard de projetos de DevOps no portal do Azure. Selecione o nome do projeto para ver o progresso. Talvez seja necessário atualizar a página. Um exemplo de aplicação do IoT Edge é configurar num repositório na sua organização de DevOps do Azure, uma compilação é executada e a aplicação é implementada para o dispositivo do IoT Edge. Este dashboard fornece visibilidade para o repositório de código, o pipeline de CI/CD e a sua aplicação no Azure.
 
    ![Exibir aplicativo no portal do Azure](./media/how-to-devops-project/devops-portal.png)
-
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
 
@@ -75,14 +74,13 @@ DevOps Projects criou um repositório Git para seu projeto no Azure Repos. Nesta
 
    ![Exibir repositório gerado no Azure Repos](./media/how-to-devops-project/view-repositories.png)
 
-2. As etapas a seguir percorrem o uso do navegador da Web para fazer alterações de código. Se você quiser clonar seu repositório localmente, selecione **clonar** no canto superior direito da janela. Use a URL fornecida para clonar seu repositório git no Visual Studio Code ou sua ferramenta de desenvolvimento preferida. 
+2. As etapas a seguir percorrem o uso do navegador da Web para fazer alterações de código. Se você quiser clonar seu repositório localmente, selecione **clonar** no canto superior direito da janela. Use a URL fornecida para clonar seu repositório git no Visual Studio Code ou sua ferramenta de desenvolvimento preferida.
 
 3. O repositório já contém código para um módulo chamado **FilterModule** com base no idioma do aplicativo que você escolheu no processo de criação. Abra o arquivo **modules/FilterModule/Module. JSON** .
 
    ![Abra o arquivo module. JSON no Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-4. Observe que esse arquivo usa [variáveis de compilação DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro **version** . Essa configuração garante que uma nova versão do módulo será criada toda vez que uma nova compilação for executada. 
-
+4. Observe que esse arquivo usa [variáveis de compilação DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro **version** . Essa configuração garante que uma nova versão do módulo será criada toda vez que uma nova compilação for executada.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examine o pipeline de CI/CD
 
@@ -114,7 +112,7 @@ Nas seções anteriores, Azure DevOps Projects configurou automaticamente um pip
 
     ![Pipeline de lançamento do Vista](media/how-to-devops-project/release-pipeline.png)
 
-10. Em **Artefactos**, selecione **Remover**. A origem que esse artefato inspeciona é a saída do pipeline de compilação que você examinou nas etapas anteriores. 
+10. Em **Artefactos**, selecione **Remover**. A origem que esse artefato inspeciona é a saída do pipeline de compilação que você examinou nas etapas anteriores.
 
 11. Ao lado do ícone de **soltar** , selecione o **gatilho de implantação contínua** que se parece com um raio. Este pipeline de lançamento habilitou o gatilho, que executa uma implantação sempre que há um novo artefato de compilação disponível. Opcionalmente, pode desativar o acionador para que as suas implementações exigem execução manual.  
 
@@ -122,16 +120,16 @@ Nas seções anteriores, Azure DevOps Projects configurou automaticamente um pip
 
     ![Visualizar tarefas de implementação contínua](media/how-to-devops-project/dev-release.png)
 
-13. À direita, selecione **Exibir versões**. Esta vista mostra um histórico das versões.
+13. À direita, selecione **ver versões**. Esta vista mostra um histórico das versões.
 
 14. Selecione o nome de uma versão para exibir mais informações sobre ela.
 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-É possível eliminar o serviço de aplicações do Azure e outros recursos relacionados que criou quando não precisar delas. Use a funcionalidade **excluir** no painel DevOps Projects.
+É possível eliminar o serviço de aplicações do Azure e outros recursos relacionados que criou quando não precisar delas. Utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre as tarefas para Azure IoT Edge no Azure DevOps em [integração contínua e implantação contínua para Azure IOT Edge](how-to-ci-cd.md)
-* Entenda a implantação do IoT Edge em [entender implantações IOT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md)
-* Percorra as etapas para criar, atualizar ou excluir uma implantação em [implantar e monitorar módulos IOT Edge em escala](how-to-deploy-monitor.md).
+
+* Saiba mais sobre as tarefas do Azure IoT Edge no Azure DevOps no [integração contínua e implementação contínua para o Azure IoT Edge](how-to-ci-cd.md)
+* Compreender a implementação de IoT Edge no [implementações de compreender o IoT Edge para dispositivos individuais ou em escala](module-deployment-monitoring.md)
+* Siga os passos para criar, atualizar ou eliminar uma implementação no [implementar e monitorizar os módulos do IoT Edge em escala](how-to-deploy-monitor.md).

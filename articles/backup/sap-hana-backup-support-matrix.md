@@ -3,14 +3,14 @@ title: Matriz de suporte de cópia de segurança do SAP HANA
 description: Neste artigo, saiba mais sobre os cenários e limitações com suporte ao usar o backup do Azure para fazer backup de bancos de dados SAP HANA em VMs do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 0d847d2131a9a9c21fde14cae40a184de4195223
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a0a7c25ec718dcd6a903d2149a8b3930fb25941e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288233"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514302"
 ---
-# <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte para backup de bancos de dados SAP HANA em VMs do Azure
+# <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
 O backup do Azure dá suporte ao backup de bancos de dados SAP HANA no Azure. Este artigo resume os cenários com suporte e as limitações presentes quando você usa o backup do Azure para fazer backup de bancos de dados SAP HANA em VMs do Azure.
 
@@ -39,7 +39,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Implantações do HANA**       | SAP HANA em uma única VM do Azure-escalar somente verticalmente               | Expandir                                                    |
 | **Instâncias do HANA**         | Uma única instância de SAP HANA em uma única VM do Azure – escalar verticalmente somente | Várias instâncias de SAP HANA em uma única VM                  |
 | **Tipos de banco de dados HANA**    | Contêiner de Banco de Dados Individual (SDC) em 1. x, contêiner de vários bancos de dados (MDC) em 2. x | MDC no HANA 1. x                                              |
-| **Tamanho do banco de dados HANA**     | tamanho de backup completo de 2 TB após a compactação (série M 2 TB, 4 TB de RAM) |                                                              |
+| **Tamanho do banco de dados HANA**     | tamanho de backup completo de 2 TB conforme relatado pelo HANA) |                                                              |
 | **Tipos de backup**           | Backups completos, diferenciais e de log                           | Incrementais, instantâneos                                       |
 | **Tipos de restauração**          | Consulte a SAP HANA nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) para saber mais sobre os tipos de restauração com suporte |                                                              |
 | **Limites de backup**          | Até 2 TB de tamanho de backup completo por instância de SAP HANA  |                                                              |
@@ -52,7 +52,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [fazer backup de bancos de dados SAP Hana em execução em VMs do Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
 * Saiba como [restaurar SAP Hana bancos de dados em execução em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)

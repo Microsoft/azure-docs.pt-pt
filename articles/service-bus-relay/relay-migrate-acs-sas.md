@@ -1,6 +1,6 @@
 ---
 title: Retransmissão do Azure-migrar para autorização de assinatura de acesso compartilhado
-description: Migrar aplicativos do serviço de controle de acesso para SAS
+description: Descreve como migrar aplicativos de retransmissão do Azure usando Azure Active Directory serviço de controle de acesso para autorização de assinatura de acesso compartilhado.
 services: service-bus-relay
 documentationcenter: ''
 author: clemensv
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 8aec2483f39f698a62be60f6da6018f8981df423
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59b9e734526c56016e2ddf59c2afb5b8f7b4ad09
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355037"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514906"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Retransmissão do Azure-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 

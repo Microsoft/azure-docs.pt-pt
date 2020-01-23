@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 060d94d6181e894c18d268845b48eb802c52730c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e5ce43e7cdf70c1f552a8f5bbed28ce47f1826fc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838281"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513223"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizar um modelo Person com o site Video Indexer
 
@@ -91,7 +91,7 @@ Você pode excluir qualquer modelo de pessoa que você criou em sua conta. No en
 
     ![Excluir uma pessoa](./media/customize-face-model/delete-person.png)
     
-    Um pop-up será exibido e você será notificado de que essa ação excluirá o modelo Person e todas as pessoas e os arquivos que ele contém. Esta ação não pode ser desfeita. 
+    Um pop-up será exibido e você será notificado de que essa ação excluirá o modelo Person e todas as pessoas e os arquivos que ele contém. Não é possível desfazer esta ação. 
 
     ![Excluir uma pessoa](./media/customize-face-model/delete-person2.png)
 1. Se tiver certeza, clique em excluir novamente.

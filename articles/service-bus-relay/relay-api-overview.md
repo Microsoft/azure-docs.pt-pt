@@ -1,6 +1,6 @@
 ---
-title: Descrição geral da API de reencaminhamento do Azure | Documentos da Microsoft
-description: Descrição geral de APIs de reencaminhamento do Azure disponível
+title: Visão geral da API de retransmissão do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral das APIs de retransmissão do Azure disponíveis (.NET Standard, .NET Framework, Node. js, etc.)
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -12,51 +12,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593345"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513971"
 ---
-# <a name="available-relay-apis"></a>APIs de reencaminhamento disponíveis
+# <a name="available-relay-apis"></a>APIs de retransmissão disponíveis
 
 ## <a name="runtime-apis"></a>APIs de tempo de execução
 
-A tabela seguinte apresenta uma lista de todos os clientes de tempo de execução de reencaminhamento atualmente disponíveis.
+A tabela a seguir lista todos os clientes de tempo de execução de retransmissão disponíveis no momento.
 
-O [informações adicionais](#additional-information) seção contém mais informações sobre o estado de cada biblioteca de tempo de execução.
+A seção [informações adicionais](#additional-information) contém mais informações sobre o status de cada biblioteca de tempo de execução.
 
-| Idioma/plataforma | Funcionalidade de disponibilidade | Pacote de cliente | Repositório |
+| Linguagem/plataforma | Recurso disponível | Pacote de cliente | Repositório |
 | --- | --- | --- | --- |
 | .NET Standard | Ligações Híbridas | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Reencaminhamento do WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Nó | Ligações Híbridas | [Websockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Pedidos HTTP: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Nó | Ligações Híbridas | [WebSockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Solicitações HTTP: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>Informação adicional
 
 #### <a name="net"></a>.NET
 
-Ecossistema do .NET tem vários tempos de execução, pelo que existem várias bibliotecas de .NET para o reencaminhamento. A biblioteca .NET Standard pode ser executada usando o .NET Core ou .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada num ambiente do .NET Framework. Para obter mais informações sobre estruturas de .NET, consulte [versões de estrutura](/dotnet/articles/standard/frameworks).
+O ecossistema .NET tem vários tempos de execução, portanto, há várias bibliotecas .NET para a retransmissão. A biblioteca de .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca de .NET Framework só pode ser executada em um ambiente .NET Framework. Para obter mais informações sobre o .NET Framework, consulte [versões do Framework](/dotnet/articles/standard/frameworks).
 
-Biblioteca do .NET Framework só suporta o modelo de programação do WCF e depende de um protocolo binário proprietário com base no WCF `net.tcp` transporte. Este protocolo e a biblioteca é mantido para efeitos compatibilidade com aplicativos existentes.
+A biblioteca de .NET Framework só dá suporte ao modelo de programação do WCF e se baseia em um protocolo binário proprietário com base no transporte de `net.tcp` do WCF. Esse protocolo e a biblioteca são mantidos para compatibilidade com versões anteriores com aplicativos existentes.
 
-A biblioteca .NET Standard baseia-se a definição de protocolo aberto para o reencaminhamento de ligações híbridas que se baseia no HTTP e WebSockets. A biblioteca suporta uma abstração de fluxo através de Websockets e um gesto de API simples de solicitação-resposta para pedidos HTTP respondendo. O [Web API](https://github.com/Azure/azure-relay-dotnet) exemplo mostra como integrar as ligações híbridas com o ASP.NET Core para serviços da web.
+A biblioteca de .NET Standard baseia-se na definição de protocolo aberto para a retransmissão de Conexões Híbridas que se baseia em HTTP e WebSockets. A biblioteca dá suporte a uma abstração de fluxo sobre WebSockets e um gesto de API de solicitação-resposta simples para responder a solicitações HTTP. O exemplo de [API da Web](https://github.com/Azure/azure-relay-dotnet) mostra como integrar Conexões Híbridas com ASP.NET Core para serviços Web.
 
 #### <a name="nodejs"></a>Node.js
 
-Os módulos de ligações híbridas listados na tabela acima, substituam ou corrigir módulos existentes do node. js com implementações alternativos que escutar o serviço de reencaminhamento do Azure em vez da pilha de rede local.
+Os módulos de Conexões Híbridas listados na tabela acima substituem ou coexistem módulos node. js existentes com implementações alternativas que escutam no serviço de retransmissão do Azure em vez da pilha de rede local.
 
-O `hyco-https` módulo amends e parcialmente substitui os módulos do node. js principais `http` e `https`, fornecendo uma implementação de serviço de escuta HTTPS é compatível com vários módulos node. js existente e aplicações que dependem estas principais módulos.
+O módulo `hyco-https` se modifique e substitui parcialmente os principais módulos node. js `http` e `https`, fornecendo uma implementação de ouvinte HTTPS compatível com muitos módulos e aplicativos existentes do node. js que dependem desses módulos principais.
 
-O `hyco-ws` e `hyco-websocket` módulos corrigir o popular `ws` e `websocket` módulos para node. js, fornecendo as implementações de serviço de escuta alternativo que ativar módulos e aplicativos que dependam de qualquer módulo para funcionar por trás da híbrida Ligações de reencaminhamento.
+Os módulos `hyco-ws` e `hyco-websocket` alteram os módulos populares de `ws` e `websocket` para node. js, fornecendo implementações alternativas de ouvinte que permitem que módulos e aplicativos dependam de qualquer um dos módulos para trabalhar por trás da retransmissão de Conexões Híbridas.
 
-Detalhes sobre esses módulos podem ser encontrados no [nó do reencaminhamento do azure](https://github.com/Azure/azure-relay-node) repositório do GitHub.
+Os detalhes sobre esses módulos podem ser encontrados no repositório GitHub [do Azure-Relay-node](https://github.com/Azure/azure-relay-node) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o reencaminhamento do Azure, visite estas ligações:
+Para saber mais sobre a retransmissão do Azure, visite estes links:
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
 * [FAQ de Reencaminhamento](relay-faq.md)

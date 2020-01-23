@@ -1,6 +1,6 @@
 ---
-title: Monitorizar eventos de serviços de multimédia do Azure com o Event Grid através do portal | Documentos da Microsoft
-description: Este artigo mostra como subscrever Event Grid para monitorar eventos dos serviços de multimédia do Azure.
+title: Monitorar eventos dos serviços de mídia do Azure com a grade de eventos com o portal
+description: Este artigo mostra como assinar a grade de eventos para monitorar os eventos dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -13,31 +13,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/15/2018
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326534"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509228"
 ---
-# <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorizar eventos de serviços de multimédia com o Event Grid com o portal do Azure
+# <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorar eventos de serviços de mídia com a grade de eventos usando o portal do Azure
 
-O Azure Event Grid é um serviço de eventos para a cloud. Este serviço utiliza [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes. Eventos de serviços de multimédia contêm todas as informações que necessárias para responder a alterações nos seus dados. É possível identificar um evento de serviços de multimédia, porque a propriedade eventType começa com "Microsoft.Media.". Para obter mais informações, consulte [esquemas de eventos dos serviços de multimédia](media-services-event-schemas.md).
+O Azure Event Grid é um serviço de eventos para a cloud. Esse serviço usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Os eventos dos serviços de mídia contêm todas as informações necessárias para responder às alterações em seus dados. Você pode identificar um evento dos serviços de mídia porque a propriedade eventType começa com "Microsoft. Media.". Para obter mais informações, consulte [esquemas de eventos dos serviços de mídia](media-services-event-schemas.md).
 
-Neste artigo, utilize o portal do Azure para subscrever eventos para a sua conta de Media Services do Azure. Em seguida, vai acionar eventos para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. Neste artigo, enviamos eventos para uma aplicação web que recolhe e apresenta as mensagens.
+Neste artigo, você usa o portal do Azure para assinar eventos para sua conta dos serviços de mídia do Azure. Em seguida, você dispara eventos para exibir o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No artigo, enviamos eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 Quando tiver terminado, verá que os dados do evento foram enviados para a aplicação Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-* Ter uma subscrição do Azure Active Directory.
+* Ter uma assinatura ativa do Azure.
 * Crie uma nova conta dos Serviços de Multimédia do Azure, conforme descrito [neste início rápido](create-account-cli-quickstart.md).
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
-Antes de subscrever os eventos para a conta de Media Services, vamos criar o ponto final para a mensagem de evento. Normalmente, o ponto final executa as ações com base nos dados do evento. Neste artigo, vai implementar um [aplicação web pré-criados](https://github.com/Azure-Samples/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
+Antes de assinar os eventos para a conta dos serviços de mídia, vamos criar o ponto de extremidade para a mensagem de evento. Normalmente, o ponto final executa as ações com base nos dados do evento. Neste artigo, você implanta um [aplicativo Web predefinido](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
 1. Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
@@ -45,27 +45,27 @@ Antes de subscrever os eventos para a conta de Media Services, vamos criar o pon
 
 1. A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 
-Se mudar para o site de "Visualizador de grelha de eventos do Azure", verá tem ainda não existem eventos.
+Se você alternar para o site "Visualizador de grade de eventos do Azure", verá que ele ainda não tem eventos.
    
 [!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
-## <a name="subscribe-to-media-services-events"></a>Subscrever eventos dos serviços de multimédia
+## <a name="subscribe-to-media-services-events"></a>Assinar eventos de serviços de mídia
 
 Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar e para onde enviar os eventos.
 
-1. No portal, selecione a sua conta de Media Services e selecione **eventos**.
+1. No portal, selecione sua conta dos serviços de mídia e selecione **eventos**.
 1. Para enviar eventos para a sua aplicação de visualizador, utilize um webhook para o ponto final. 
 
    ![Selecionar webhook](./media/monitor-events-portal/select-web-hook.png)
 
-1. A subscrição de evento é prefilled com valores para a sua conta de Media Services. 
-1. Selecione o Hook de Web para o **tipo de ponto final**.
-1. Neste tópico, vamos deixar o **subscrever todos os tipos de evento** marcada. No entanto, pode desmarcar ele e o filtro para tipos de eventos específicos. 
-1. Clique nas **selecione um ponto de extremidade** ligação.
+1. A assinatura de evento é preenchida com valores para sua conta de serviços de mídia. 
+1. Selecione ' gancho da Web ' para o **tipo de ponto de extremidade**.
+1. Neste tópico, deixamos a opção **inscrever-se em todos os tipos de eventos** verificados. No entanto, você pode desmarcar e filtrar por tipos de eventos específicos. 
+1. Clique no link **selecionar um ponto de extremidade** .
 
     Para o ponto final do webhook, indique o URL da sua aplicação Web e adicione `api/updates` ao URL da home page. 
 
-1. Prima **confirmar seleção**.
+1. Pressione **confirmar seleção**.
 1. Prima **Criar**.
 1. Nomeie a subscrição.
 
@@ -73,19 +73,19 @@ Subscreva um tópico para comunicar ao Event Grid os eventos que pretende contro
 
 1. Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. 
 
-    O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. O ponto final tem de definir `validationResponse` para `validationCode`. Para obter mais informações, consulte [Event Grid segurança e autenticação](../../event-grid/security-authentication.md). Pode ver o código da aplicação web para ver como ele valida a subscrição.
+    O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. O ponto de extremidade precisa definir `validationResponse` como `validationCode`. Para obter mais informações, consulte [Event Grid segurança e autenticação](../../event-grid/security-authentication.md). Você pode exibir o código do aplicativo Web para ver como ele valida a assinatura.
 
-Agora, vamos acionar eventos para ver como o Event Grid distribui a mensagem para o ponto final.
+Agora, vamos disparar eventos para ver como a grade de eventos distribui a mensagem para o ponto de extremidade.
 
 ## <a name="send-an-event-to-your-endpoint"></a>Enviar um evento para o seu ponto final
 
-Pode acionar eventos para a conta de Media Services ao executar uma tarefa de codificação. Pode seguir [este guia de introdução](stream-files-dotnet-quickstart.md) para codificar um ficheiro e iniciar o envio de eventos. Se assina todos os eventos, verá um ecrã semelhante ao seguinte:
+Você pode disparar eventos para a conta dos serviços de mídia executando um trabalho de codificação. Você pode seguir [este guia de início rápido](stream-files-dotnet-quickstart.md) para codificar um arquivo e começar a enviar eventos. Se você se inscreveu em todos os eventos, verá uma tela semelhante à seguinte:
 
 > [!TIP]
-> Selecione o ícone do olho para expandir os dados do evento. Não atualize a página, se desejar exibir todos os eventos.
+> Selecione o ícone do olho para expandir os dados do evento. Não atualize a página, se você quiser exibir todos os eventos.
 
 ![Ver evento da subscrição](./media/monitor-events-portal/view-subscription-event.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Carregar, codificar e transmitir em fluxo](stream-files-tutorial-with-api.md)
+[Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)

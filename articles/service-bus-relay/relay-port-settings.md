@@ -1,6 +1,6 @@
 ---
-title: Definições de porta de reencaminhamento do Azure | Documentos da Microsoft
-description: Detalhes sobre os valores de portas de reencaminhamento do Azure.
+title: Configurações de porta de retransmissão do Azure | Microsoft Docs
+description: Este artigo inclui uma tabela que descreve a configuração necessária para valores de porta para a retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,45 +12,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789931"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514889"
 ---
-# <a name="azure-relay-port-settings"></a>Definições de porta de reencaminhamento do Azure
+# <a name="azure-relay-port-settings"></a>Configurações de porta de retransmissão do Azure
 
-A tabela seguinte descreve a configuração necessária para os valores de porta para o reencaminhamento do Azure.
+A tabela a seguir descreve a configuração necessária para valores de porta para a retransmissão do Azure.
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-Ligações híbridas utiliza WebSockets na porta 443 com SSL, como o mecanismo de transporte subjacente, que usa **HTTPS** apenas. 
+Conexões Híbridas usa WebSockets na porta 443 com SSL como o mecanismo de transporte subjacente, que usa somente **https** . 
 
 ## <a name="wcf-relays"></a>Reencaminhamentos do WCF
   
-|Vínculo|Segurança de transporte|Port|  
+|Vínculo|Segurança de transporte|Porta|  
 |-------------|------------------------|----------|  
-|[Classe de BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (cliente)|Sim|HTTPS| 
+|[Classe BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (cliente)|Sim|HTTPS| 
 |" |Não|HTTP|  
-|[Classe de BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
-|[Classe de NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (cliente)|Sim|9351/HTTPS|  
+|[Classe BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
+|[Classe NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (cliente)|Sim|9351/HTTPS|  
 |" |Não|9350/HTTP|  
-|[Classe de NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
-|[Classe de NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (cliente/serviço)|Qualquer um dos|5671/9352/HTTP (9352/9353 se utilizar híbrida)|  
-|[Classe de NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (cliente)|Sim|9351/HTTPS|  
+|[Classe NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
+|[Classe NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (cliente/serviço)|Qualquer um dos|5671/9352/HTTP (9352/9353 se estiver usando híbrido)|  
+|[Classe NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (cliente)|Sim|9351/HTTPS|  
 |" |Não|9350/HTTP|  
-|[Classe de NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
-|[Classe de WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (cliente)|Sim|HTTPS|  
+|[Classe NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
+|[Classe WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (cliente)|Sim|HTTPS|  
 |" |Não|HTTP|  
-|[Classe de WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
-|[Classe de WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (cliente)|Sim|HTTPS|  
+|[Classe WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|  
+|[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (cliente)|Sim|HTTPS|  
 |" |Não|HTTP|  
-|[Classe de WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|
+|[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o reencaminhamento do Azure, visite estas ligações:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre a retransmissão do Azure, visite estes links:
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
 * [FAQ de Reencaminhamento](relay-faq.md)

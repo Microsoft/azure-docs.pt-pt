@@ -1,5 +1,5 @@
 ---
-title: Video Indexer a continuidade dos negócios e a recuperação de desastres (BCDR) – Azure | Microsoft Docs
+title: Video Indexer continuidade dos negócios e recuperação de desastres-Azure
 description: Saiba como fazer failover para uma conta de Video Indexer secundária se ocorrer uma interrupção ou falha de um datacenter regional.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: ce788b4640f0a6c6f25b3280ce4f52fd018d1699
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 2f54c340226a9ea78643df8e0a984c8ed8475c94
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668307"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513580"
 ---
 # <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Manipule Video Indexer continuidade dos negócios e recuperação de desastres
 
@@ -42,6 +42,6 @@ Para implementar o BCDR, você precisa ter duas contas de Video Indexer para lid
 
 Para obter informações sobre como usar vários locatários, consulte [gerenciar vários locatários](manage-multiple-tenants.md). Para implementar o BCDR, escolha uma destas duas opções: [Video indexer conta por locatário](manage-multiple-tenants.md#video-indexer-account-per-tenant) ou [assinatura do Azure por locatário](manage-multiple-tenants.md#azure-subscription-per-tenant).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerenciar uma conta de video indexer conectada ao Azure](manage-account-connected-to-azure.md).

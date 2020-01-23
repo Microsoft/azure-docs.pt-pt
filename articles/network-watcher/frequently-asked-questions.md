@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 570b8057fc09e3f054152d09467519a167d938e9
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 856c249b72e9e0ff8667d10821ad14b3432b0775
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280786"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509194"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o observador de rede do Azure
 O serviço [observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -75,17 +75,17 @@ Os recursos de rede do Azure podem ser combinados e gerenciados por meio [de NSG
 
 Para usar uma conta de armazenamento com um firewall, você precisa fornecer uma exceção para que os serviços confiáveis da Microsoft acessem sua conta de armazenamento:
 
-* Encontre o nome da conta de armazenamento ao localizar o NSG na [página de descrição geral dos Registos do Fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
-* Navegue até à conta de armazenamento ao introduzir o nome da conta de armazenamento na pesquisa global no portal
+* Navegue até a conta de armazenamento digitando o nome da conta de armazenamento na pesquisa global no portal ou na [página contas de armazenamento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 * Na secção **DEFINIÇÕES**, selecione **Firewalls e redes virtuais**
 * Em "permitir acesso de", selecione **redes selecionadas**. Em **exceções**, marque a caixa ao lado de **"permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento"** 
 * Se já estiver selecionada, não é preciso alterar nada.  
+* Localize o NSG de destino na [página de visão geral dos logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e habilite os logs de fluxo do NSG com a conta de armazenamento acima selecionada.
 
 Pode verificar os registos de armazenamento após alguns minutos; deve ver um carimbo de data/hora atualizado ou um novo ficheiro JSON criado.
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints-for-storage"></a>Como fazer usar logs de fluxo NSG com pontos de extremidade de serviço para armazenamento?
 
-Consulte o [tutorial habilitando pontos de extremidade de serviço](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
+Consulte o [tutorial sobre como habilitar pontos de extremidade de serviço](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual é a diferença entre as versões 1 & 2 dos logs de fluxo?

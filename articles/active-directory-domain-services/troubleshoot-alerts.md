@@ -1,5 +1,5 @@
 ---
-title: Alertas e resoluções comuns no Azure AD Domain Services | Microsoft Docs '
+title: Alertas e resoluções comuns no Azure AD Domain Services | Microsoft Docs
 description: Saiba como resolver alertas comuns gerados como parte do status de integridade para Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979894"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512669"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Esse erro geralmente ocorre quando uma assinatura do Azure é movida para um nov
 Esse erro é irrecuperável. Para resolver o alerta, [exclua seu domínio gerenciado AD DS do Azure existente](delete-aadds.md) e recrie-o no novo diretório. Se você tiver problemas ao excluir o domínio gerenciado AD DS do Azure, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C está em execução neste diretório
- 
+
 ### <a name="alert-message"></a>Mensagem de alerta
 
 *Azure AD Domain Services não pode ser habilitada em um diretório Azure AD B2C.*
@@ -78,7 +78,7 @@ Para resolver esse alerta, exclua seu domínio gerenciado do Azure AD DS existen
 1. Selecione **sub-redes** no painel de navegação à esquerda.
 1. Escolha a sub-rede que você deseja editar ou crie uma sub-rede adicional.
 1. Atualize ou especifique um intervalo de endereços IP privado e **salve** as alterações.
-1. [Crie um domínio gerenciado AD DS do Azure de substituição](tutorial-create-instance.md). Certifique-se de selecionar uma sub-rede de rede virtual atualizada com um intervalo de endereços IP privado.
+1. [Crie um domínio gerenciado AD DS do Azure de substituição](tutorial-create-instance.md). Verifique se você selecionou a sub-rede de rede virtual atualizada com um intervalo de endereços IP privado.
 
 A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
 
@@ -129,7 +129,7 @@ O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assina
 
 ### <a name="resolution"></a>Resolução
 
-O Azure AD DS cria recursos específicos para funcionar corretamente, como endereços IP públicos, NICs e um balanceador de carga. Se qualquer um desses recursos for excluído, o domínio gerenciado estará em um estado sem suporte e impedirá que o domínio seja gerenciado. Para obter mais informações sobre esses recursos, consulte [recursos de rede usados pelo Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+O Azure AD DS cria recursos adicionais para funcionar corretamente, como endereços IP públicos, interfaces de rede virtual e um balanceador de carga. Se qualquer um desses recursos for excluído, o domínio gerenciado estará em um estado sem suporte e impedirá que o domínio seja gerenciado. Para obter mais informações sobre esses recursos, consulte [recursos de rede usados pelo Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 Esse alerta é gerado quando um desses recursos necessários é excluído. Se o recurso foi excluído há menos de 4 horas, há uma chance de que a plataforma do Azure possa recriar automaticamente o recurso excluído. As etapas a seguir descrevem como verificar o status de integridade e o carimbo de data/hora para a exclusão de recursos:
 
@@ -160,7 +160,7 @@ Esse erro é irrecuperável. Para resolver o alerta, [exclua seu domínio gerenc
 
 ### <a name="resolution"></a>Resolução
 
-Algumas entidades de serviço geradas automaticamente são usadas para gerenciar e criar recursos para um domínio gerenciado AD DS do Azure. Se as permissões de acesso para uma dessas entidades de serviço forem alteradas, não será possível gerenciar corretamente os recursos. As etapas a seguir mostram como entender e conceder permissões de acesso a uma entidade de serviço:
+Algumas entidades de serviço geradas automaticamente são usadas para gerenciar e criar recursos para um domínio gerenciado AD DS do Azure. Se as permissões de acesso para uma dessas entidades de serviço forem alteradas, o domínio não poderá gerenciar corretamente os recursos. As etapas a seguir mostram como entender e conceder permissões de acesso a uma entidade de serviço:
 
 1. Leia sobre [o controle de acesso baseado em função e como conceder acesso a aplicativos no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Examine o acesso que a entidade de serviço com a ID *abba844e-bc0e-44b0-947a-dc74e5d09022* tem e conceda o acesso que foi negado em uma data anterior.
@@ -178,13 +178,13 @@ A sub-rede da rede virtual para o Azure AD DS precisa de endereços IP suficient
 Para resolver esse alerta, exclua seu domínio gerenciado do Azure AD DS existente e recrie-o em uma rede virtual com um grande intervalo de endereços IP suficiente. Esse processo é interrompido, pois o domínio gerenciado do Azure AD DS não está disponível e todos os recursos personalizados criados como UOs ou contas de serviço são perdidos.
 
 1. [Exclua o domínio gerenciado AD DS do Azure](delete-aadds.md) do seu diretório.
-1. Para atualizar o intervalo de endereços IP da rede virtual, procure e selecione *rede virtual* na portal do Azure. Selecione a rede virtual para o Azure AD DS que o pequeno intervalo de endereços IP.
+1. Para atualizar o intervalo de endereços IP da rede virtual, procure e selecione *rede virtual* na portal do Azure. Selecione a rede virtual para AD DS do Azure que tem o pequeno intervalo de endereços IP.
 1. Em **configurações**, selecione *espaço de endereço*.
 1. Atualize o intervalo de endereços escolhendo o intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Verifique se o novo intervalo de endereços IP é grande o suficiente para o intervalo de sub-rede AD DS do Azure. Quando estiver pronto, **salve** as alterações.
 1. Selecione **sub-redes** no painel de navegação à esquerda.
 1. Escolha a sub-rede que você deseja editar ou crie uma sub-rede adicional.
 1. Atualize ou especifique um intervalo de endereços IP grande o suficiente e **salve** as alterações.
-1. [Crie um domínio gerenciado AD DS do Azure de substituição](tutorial-create-instance.md). Certifique-se de selecionar uma sub-rede de rede virtual atualizada com um grande intervalo de endereços IP suficiente.
+1. [Crie um domínio gerenciado AD DS do Azure de substituição](tutorial-create-instance.md). Verifique se você selecionou a sub-rede de rede virtual atualizada com um grande intervalo de endereços IP suficiente.
 
 A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
 
@@ -216,11 +216,11 @@ Esse erro é irrecuperável. Para resolver o alerta, [exclua seu domínio gerenc
 
 ### <a name="resolution"></a>Resolução
 
-Os bloqueios de recursos podem ser aplicados aos recursos do Azure e aos grupos de recursos para evitar alterações ou exclusões. Como o Azure AD DS é um serviço gerenciado, a plataforma do Azure precisa da capacidade de fazer alterações de configuração. Se um bloqueio de recurso for aplicado em alguns dos componentes de AD DS do Azure, a plataforma do Azure não poderá executar suas tarefas de gerenciamento.
+Os bloqueios de recursos podem ser aplicados aos recursos do Azure para evitar alterações ou exclusões. Como o Azure AD DS é um serviço gerenciado, a plataforma do Azure precisa da capacidade de fazer alterações de configuração. Se um bloqueio de recurso for aplicado em alguns dos componentes de AD DS do Azure, a plataforma do Azure não poderá executar suas tarefas de gerenciamento.
 
 Para verificar se há bloqueios de recursos nos componentes do AD DS do Azure e removê-los, conclua as seguintes etapas:
 
-1. Para cada um dos componentes de rede AD DS do Azure em seu grupo de recursos, como rede virtual, NIC ou endereço IP público, verifique os logs de operação no portal do Azure. Esses logs de operação devem indicar por que uma operação está falhando e onde um bloqueio de recurso é aplicado.
+1. Para cada um dos componentes de rede AD DS do Azure em seu grupo de recursos, como rede virtual, interface de rede ou endereço IP público, verifique os logs de operação no portal do Azure. Esses logs de operação devem indicar por que uma operação está falhando e onde um bloqueio de recurso é aplicado.
 1. Selecione o recurso em que um bloqueio é aplicado e, em **bloqueios**, selecione e remova os bloqueios.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: os recursos são inutilizáveis
@@ -231,7 +231,7 @@ Para verificar se há bloqueios de recursos nos componentes do AD DS do Azure e 
 
 ### <a name="resolution"></a>Resolução
 
-As políticas são aplicadas aos recursos e grupos de recursos do Azure para controlar quais ações de configuração são permitidas. Como o Azure AD DS é um serviço gerenciado, a plataforma do Azure precisa da capacidade de fazer alterações de configuração. Se uma política for aplicada em alguns dos componentes de AD DS do Azure, a plataforma do Azure poderá não ser capaz de executar suas tarefas de gerenciamento.
+As políticas são aplicadas aos recursos do Azure e aos grupos de recursos que controlam quais ações de configuração são permitidas. Como o Azure AD DS é um serviço gerenciado, a plataforma do Azure precisa da capacidade de fazer alterações de configuração. Se uma política for aplicada em alguns dos componentes de AD DS do Azure, a plataforma do Azure poderá não ser capaz de executar suas tarefas de gerenciamento.
 
 Para verificar as políticas aplicadas nos componentes do AD DS do Azure e atualizá-los, conclua as seguintes etapas:
 
@@ -246,7 +246,7 @@ Para verificar as políticas aplicadas nos componentes do AD DS do Azure e atual
 
 ### <a name="resolution"></a>Resolução
 
-[Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indiquem problemas na configuração do domínio gerenciado. Problemas com a configuração de rede podem bloquear a sincronização do Azure AD. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída.
+[Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indiquem problemas na configuração do domínio gerenciado. Problemas com a configuração de rede podem bloquear a sincronização do Azure AD. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída com êxito.
 
 Os motivos comuns a seguir fazem com que a sincronização pare em um AD DS domínios gerenciados do Azure:
 
@@ -261,7 +261,7 @@ Os motivos comuns a seguir fazem com que a sincronização pare em um AD DS dom�
 
 ### <a name="resolution"></a>Resolução
 
-[Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indiquem problemas na configuração do domínio gerenciado. Problemas com a configuração de rede podem bloquear a plataforma do Azure de fazer backups com êxito. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída.
+[Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indicam problemas na configuração do domínio gerenciado. Problemas com a configuração de rede podem bloquear a plataforma do Azure de fazer backups com êxito. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída com êxito.
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: suspensão devido a uma assinatura desabilitada
 
@@ -292,7 +292,7 @@ Quando o domínio gerenciado é habilitado novamente, a integridade do domínio 
 > [!WARNING]
 > Se um domínio gerenciado do Azure AD DS for suspenso por um longo período de tempo, haverá um perigo de que ele seja excluído. Resolva o motivo da suspensão o mais rápido possível. Para obter mais informações, consulte [entender os Estados suspensos do Azure AD DS](suspension.md).
 
-[Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indiquem problemas na configuração do domínio gerenciado. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída. Quando estiver pronto, [abra uma solicitação de suporte do Azure][azure-support] para reabilitar o domínio gerenciado AD DS do Azure.
+[Verifique a integridade de AD DS do Azure](check-health.md) em busca de alertas que indicam problemas na configuração do domínio gerenciado. Se você conseguir resolver alertas que indicam um problema de configuração, aguarde duas horas e verifique novamente se a sincronização foi concluída. Quando estiver pronto, [abra uma solicitação de suporte do Azure][azure-support] para reabilitar o domínio gerenciado AD DS do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704533"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512764"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de senha e conta em domínios gerenciados
 
@@ -65,7 +65,7 @@ Com essas configurações padrão, as contas de usuário são bloqueadas por 30 
 
 Os bloqueios de conta só ocorrem no domínio gerenciado. As contas de usuário são bloqueadas somente no Azure AD DS e somente devido a tentativas de entrada com falha no domínio gerenciado. As contas de usuário que foram sincronizadas no do Azure AD ou locais não são bloqueadas em seus diretórios de origem, somente no Azure AD DS.
 
-Se você tiver uma política de senha do Azure AD que especifique uma duração máxima de senha superior a 90 dias, essa duração de senha será aplicada à política padrão no Azure AD DS. Você pode configurar uma política de senha personalizada para definir uma duração de senha máxima diferente no Azure AD DS. Tome cuidado se você tiver uma idade de senha máxima mais curta configurada em uma política de senha de AD DS do Azure do que no Azure AD ou em um ambiente de AD DS local. Nesse cenário, a senha de um usuário pode expirar no Azure AD DS antes que seja solicitada a alteração no Azure AD em um ambiente de AD DS local.
+Se você tiver uma política de senha do Azure AD que especifique uma duração máxima de senha superior a 90 dias, essa duração de senha será aplicada à política padrão no Azure AD DS. Você pode configurar uma política de senha personalizada para definir uma duração de senha máxima diferente no Azure AD DS. Tome cuidado se você tiver uma idade de senha máxima mais curta configurada em uma política de senha de AD DS do Azure do que no Azure AD ou em um ambiente de AD DS local. Nesse cenário, a senha de um usuário pode expirar no Azure AD DS antes que seja solicitada a alteração no Azure AD ou em um ambiente de AD DS local.
 
 Para contas de usuário criadas manualmente em um domínio gerenciado AD DS do Azure, as configurações de senha adicionais a seguir também são aplicadas a partir da política padrão. Essas configurações não se aplicam a contas de usuário sincronizadas no Azure AD, pois um usuário não pode atualizar sua senha diretamente no Azure AD DS.
 
@@ -103,12 +103,12 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 1. Edite outras configurações de política de senha conforme desejado. Lembre-se dos seguintes pontos principais:
 
     * Configurações como complexidade de senha, idade ou tempo de expiração somente para usuários criados manualmente em um domínio gerenciado AD DS do Azure.
-    * As configurações de bloqueio de conta se aplicam a todos os usuários, mas só entram em vigor no domínio gerenciado.
+    * As configurações de bloqueio de conta se aplicam a todos os usuários, mas só entram em vigor dentro do domínio gerenciado e não no próprio Azure AD.
 
     ![Criar uma política de senha refinada personalizada](./media/how-to/custom-fgpp.png)
 
 1. Desmarque **proteger contra exclusão acidental**. Se essa opção estiver selecionada, você não poderá salvar o FGPP.
-1. Na seção **aplica-se diretamente a** , selecione o botão **Adicionar** . Na caixa de diálogo **Selecionar usuários ou grupos** , clique no botão **locais** .
+1. Na seção **aplica-se diretamente a** , selecione o botão **Adicionar** . Na caixa de diálogo **Selecionar usuários ou grupos** , selecione o botão **locais** .
 
     ![Selecione os usuários e grupos aos quais aplicar a política de senha](./media/how-to/fgpp-applies-to.png)
 
