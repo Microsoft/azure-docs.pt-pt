@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 8bfbc6783df4f902d25b2a4791708990a327edc8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ccf258594aa68fc9b5d0189c9ada640078e0ba6f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663068"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514872"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do VMware para o Azure
 
@@ -28,7 +28,7 @@ A tabela e o gráfico a seguir fornecem uma exibição de alto nível dos compon
 **Azure** | Uma assinatura do Azure, uma conta de armazenamento do Azure para cache, disco gerenciado e rede do Azure. | Os dados replicados de VMs locais são armazenados no armazenamento do Azure. As VMs do Azure são criadas com os dados replicados quando você executa um failover do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
 **Computador do servidor de configuração** | Um único computador local. Recomendamos que você o execute como uma VM VMware que pode ser implantada de um modelo OVF baixado.<br/><br/> O computador executa todos os componentes de Site Recovery locais, que incluem o servidor de configuração, o servidor de processo e o servidor de destino mestre. | **Servidor de configuração**: coordena as comunicações entre o local e o Azure e gerencia a replicação de dados.<br/><br/> **Servidor de processo**: instalado por padrão no servidor de configuração. Ele recebe dados de replicação; otimiza-o com caching, compactação e criptografia; e o envia para o armazenamento do Azure. O servidor de processo também instala o Azure Site Recovery Mobility Service nas VMs que pretende replicar e realiza a descoberta automática das máquinas no local. À medida que sua implantação cresce, você pode adicionar servidores de processo adicionais e separados para lidar com volumes maiores de tráfego de replicação.<br/><br/> **Servidor de destino mestre**: instalado por padrão no servidor de configuração. Ele lida com os dados de replicação durante o failback do Azure. Para grandes implantações, você pode adicionar um servidor de destino mestre adicional e separado para failback.
 **Servidores de VMware** | As VMs do VMware são hospedadas em servidores vSphere ESXi locais. Recomendamos um servidor vCenter para gerenciar os hosts. | Durante a implantação de Site Recovery, você adiciona servidores VMware ao cofre dos serviços de recuperação.
-**Máquinas replicadas** | O serviço de mobilidade é instalado em cada VM VMware que você replica. | Recomendamos que você permita a instalação automática do servidor de processo. Como alternativa, você pode instalar o serviço manualmente ou usar um método de implantação automatizado, como System Center Configuration Manager.
+**Máquinas replicadas** | O serviço de mobilidade é instalado em cada VM VMware que você replica. | Recomendamos que você permita a instalação automática do servidor de processo. Como alternativa, você pode instalar o serviço manualmente ou usar um método de implantação automatizado, como Configuration Manager.
 
 **Arquitetura de VMware para o Azure**
 

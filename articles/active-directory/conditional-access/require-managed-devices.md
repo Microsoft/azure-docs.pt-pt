@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb0764b9c2c43faf88db165a11ae963c4f170f01
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424824"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512594"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -69,7 +69,7 @@ Essa configuração se aplica somente a dispositivos Windows 10 ou de nível inf
 
 ![Condições baseadas no dispositivo](./media/require-managed-devices/45.png)
 
-O que torna um dispositivo associado do Azure AD híbrido um dispositivo gerenciado?  Para dispositivos que ingressaram em um AD local, supõe-se que o controle desses dispositivos seja imposto usando soluções de gerenciamento como **System Center Configuration Manager (SCCM)** ou **política de grupo (GP)** para gerenciá-los. Como não há nenhum método para o Azure AD determinar se algum desses métodos foi aplicado a um dispositivo, exigir um dispositivo ingressado no Azure AD híbrido é um mecanismo relativamente fraco para exigir um dispositivo gerenciado. Cabe a você como administrador avaliar se os métodos aplicados aos seus dispositivos ingressados no domínio local são fortes o suficiente para constituir um dispositivo gerenciado se esse dispositivo também for um dispositivo ingressado no Azure AD híbrido.
+O que torna um dispositivo associado do Azure AD híbrido um dispositivo gerenciado?  Para dispositivos que ingressaram em um AD local, supõe-se que o controle desses dispositivos seja imposto usando soluções de gerenciamento, como **Configuration Manager** ou **GP (política de grupo)** para gerenciá-los. Como não há nenhum método para o Azure AD determinar se algum desses métodos foi aplicado a um dispositivo, exigir um dispositivo ingressado no Azure AD híbrido é um mecanismo relativamente fraco para exigir um dispositivo gerenciado. Cabe a você como administrador avaliar se os métodos aplicados aos seus dispositivos ingressados no domínio local são fortes o suficiente para constituir um dispositivo gerenciado se esse dispositivo também for um dispositivo ingressado no Azure AD híbrido.
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como em conformidade
 

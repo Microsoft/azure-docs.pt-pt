@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449972"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513784"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -53,7 +53,6 @@ Antes de começar, faça o seguinte:
 Além disso, há algumas coisas que você pode precisar fazer em algumas circunstâncias:
 
 - **Instalar o agente de VM na VM: o**backup do Azure faz backup de VMs do Azure instalando uma extensão para o agente de VM do Azure em execução no computador. Se sua VM foi criada a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Se você criar uma VM personalizada ou migrar um computador local, talvez seja necessário [instalar o agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-- **Permitir acesso de saída explicitamente**: geralmente, você não precisa permitir explicitamente o acesso à rede de saída para uma VM do Azure para que ela se comunique com o backup do Azure. No entanto, algumas VMs podem enfrentar problemas de conexão, mostrando o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar. Se isso acontecer, você deverá [permitir explicitamente o acesso de saída](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), para que a extensão de backup do Azure possa se comunicar com os endereços IP públicos do Azure para o tráfego de backup.
 
 ## <a name="configure-a-backup-policy"></a>Configurar uma política de backup
 

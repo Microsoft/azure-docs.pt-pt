@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a8725e3ba7be2dc572798d1397e098046a4b352
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772419"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510231"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian
 
@@ -30,7 +30,7 @@ Este artigo lista as etapas para instalar o Azure IoT Edge Runtime em um disposi
 
 ## <a name="install-the-latest-runtime-version"></a>Instalar a versão mais recente do tempo de execução
 
-Use as seções a seguir para instalar a versão mais recente do Azure IoT Edge Runtime em seu dispositivo. 
+Use as seções a seguir para instalar a versão mais recente do Azure IoT Edge Runtime em seu dispositivo.
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>Registar o feed de repositório de chave e o software Microsoft
 
@@ -39,16 +39,19 @@ Prepare seu dispositivo para a instalação do IoT Edge Runtime.
 Instale a configuração do repositório. Escolha o comando **16, 4** ou **18, 4** que corresponde ao sistema operacional do seu dispositivo:
 
 * **Ubuntu Server 16, 4**:
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Ubuntu Server 18, 4**:
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Raspbian Stretch**:
+
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
@@ -88,7 +91,7 @@ Instale a interface de linha de comandos (CLI) de Moby. A CLI é útil para dese
    sudo apt-get install moby-cli
    ```
 
-Se você encontrar erros ao instalar o tempo de execução do contêiner Moby, siga as etapas para [verificar a compatibilidade do kernel do Linux para Moby](#verify-your-linux-kernel-for-moby-compatibility), fornecida mais adiante neste artigo. 
+Se você encontrar erros ao instalar o tempo de execução do contêiner Moby, siga as etapas para [verificar a compatibilidade do kernel do Linux para Moby](#verify-your-linux-kernel-for-moby-compatibility), fornecida mais adiante neste artigo.
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Instale o Daemon de segurança do Azure IoT Edge
 
@@ -108,7 +111,7 @@ Instale o daemon de segurança. O pacote está instalado em `/etc/iotedge/`.
    sudo apt-get install iotedge
    ```
 
-Quando IoT Edge for instalado com êxito, a saída solicitará que você atualize o arquivo de configuração. Siga as etapas na seção [Configurar o daemon de segurança](#configure-the-security-daemon) para concluir o provisionamento do seu dispositivo. 
+Quando IoT Edge for instalado com êxito, a saída solicitará que você atualize o arquivo de configuração. Siga as etapas na seção [Configurar o daemon de segurança](#configure-the-security-daemon) para concluir o provisionamento do seu dispositivo.
 
 ## <a name="install-a-specific-runtime-version"></a>Instalar uma versão de tempo de execução específica
 
@@ -145,7 +148,7 @@ Se você quiser instalar uma versão específica do Moby e o tempo de execução
       ```bash
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
-   
+
    3. Localize o arquivo **iotedge** que corresponde à arquitetura do dispositivo IOT Edge. Clique com o botão direito do mouse no link do arquivo e copie o endereço do link. 
 
    4. Use o link copiado no comando a seguir para instalar essa versão do daemon de segurança IoT Edge. 
@@ -174,7 +177,7 @@ Abra o ficheiro de configuração.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Localize as configurações de provisionamento do arquivo e remova a marca de comentário da seção **configuração de provisionamento manual** . Atualize o valor de **device_connection_string** com a cadeia de ligação do seu dispositivo IoT Edge. Verifique se qualquer outra seção de provisionamento foi comentada.
+Localize as configurações de provisionamento do arquivo e remova a marca de comentário da seção **configuração de provisionamento manual** . Atualize o valor de **device_connection_string** com a cadeia de ligação do seu dispositivo IoT Edge. Verifique se qualquer outra seção de provisionamento foi comentada. Verifique se o **provisionamento:** linha não tem espaço em branco precedente e se os itens aninhados são recuados em dois espaços.
 
    ```yaml
    # Manual provisioning configuration
@@ -190,7 +193,8 @@ Localize as configurações de provisionamento do arquivo e remova a marca de co
    #   attestation:
    #     method: "tpm"
    #     registration_id: "{registration_id}"
-```
+   ```
+
 Para colar o conteúdo da área de transferência no nano `Shift+Right Click` ou pressione `Shift+Insert`.
 
 Guarde e feche o ficheiro.
@@ -213,7 +217,7 @@ Abra o ficheiro de configuração.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Localize as configurações de provisionamento do arquivo e remova a marca de comentário da seção apropriada para seu mecanismo de atestado. Ao usar o atestado do TPM, por exemplo, atualize os valores de **scope_id** e **registration_id** com os valores do serviço de provisionamento de dispositivos do Hub IOT e seu dispositivo de IOT Edge com o TPM, respectivamente.
+Localize as configurações de provisionamento do arquivo e remova a marca de comentário da seção apropriada para seu mecanismo de atestado. Ao usar o atestado do TPM, por exemplo, atualize os valores de **scope_id** e **registration_id** com os valores do serviço de provisionamento de dispositivos do Hub IOT e seu dispositivo de IOT Edge com o TPM, respectivamente. Verifique se o **provisionamento:** linha não tem espaço em branco precedente e se os itens aninhados são recuados em dois espaços.
 
    ```yaml
    # Manual provisioning configuration
@@ -265,7 +269,7 @@ Execute uma verificação automatizada para os erros mais comuns de configuraç�
 sudo iotedge check
 ```
 
-Até que você implante seu primeiro módulo para IoT Edge em seu dispositivo, o módulo do sistema **$edgeHub** não será implantado no dispositivo. Como resultado, a verificação automática retornará um erro para a verificação de conectividade de `Edge Hub can bind to ports on host`. Esse erro pode ser ingored, a menos que ocorra após a implantação de um módulo no dispositivo.
+Até que você implante seu primeiro módulo para IoT Edge em seu dispositivo, o módulo do sistema **$edgeHub** não será implantado no dispositivo. Como resultado, a verificação automática retornará um erro para a verificação de conectividade de `Edge Hub can bind to ports on host`. Esse erro pode ser ignorado, a menos que ocorra após a implantação de um módulo no dispositivo.
 
 Por fim, liste módulos em execução:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Integration Runtime endereços IP
+title: Endereços IP do Azure Integration Runtime
 description: Saiba quais endereços IP você deve permitir o tráfego de entrada, para configurar corretamente os firewalls para proteger o acesso à rede para armazenamentos de dados.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a2947eee31ccb193c8a81cff86cead577e6810c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d64475ce524a3e859ed68a46552fedf30068f71d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863864"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514787"
 ---
-# <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime endereços IP
+# <a name="azure-integration-runtime-ip-addresses"></a>Endereços IP do Azure Integration Runtime
 
 Os endereços IP que Azure Integration Runtime usa depende da região em que o tempo de execução de integração do Azure está localizado. *Todos* Os tempos de execução de integração do Azure que estão na mesma região usam os mesmos intervalos de endereços IP.
 
@@ -45,6 +45,7 @@ Permita o tráfego dos endereços IP listados para o tempo de execução de inte
 | Índia          | Centro da Índia       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Japão          | Este do Japão          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Coreia          | Coreia do Sul Central       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| África do Sul   | Norte da África do Sul  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | Reino Unido | Sul do Reino Unido            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | Estados Unidos  | Centro dos E.U.A.          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | Este dos E.U.A.             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |

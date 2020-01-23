@@ -1,6 +1,6 @@
 ---
-title: Descrição geral das APIs de nó do reencaminhamento do Azure | Documentos da Microsoft
-description: Descrição geral da API de nó de reencaminhamento
+title: Visão geral das APIs de nó de retransmissão do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral da API do node. js para o serviço de retransmissão do Azure. Ele também mostra como usar o pacote de nó hyco-WS.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699382"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514515"
 ---
-# <a name="relay-hybrid-connections-node-api-overview"></a>Descrição geral da API de nó de ligações híbridas de reencaminhamento
+# <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API do nó de retransmissão Conexões Híbridas
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-O [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pacote de nó para ligações híbridas do reencaminhamento do Azure baseia-se e expande o ["ws"](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente Exporta todas as exportações do pacote base e adiciona novas exportações que ativar a integração com a funcionalidade de ligações híbridas do serviço de reencaminhamento do Azure. 
+O pacote de nó [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) para retransmissão do Azure conexões híbridas é criado e estende o pacote de NPM [' WS '](https://www.npmjs.com/package/ws) . Esse pacote reexporta todas as exportações desse pacote base e adiciona novas exportações que habilitam a integração com o recurso Conexões Híbridas do serviço de retransmissão do Azure. 
 
-Os aplicativos existentes que `require('ws')` pode utilizar este pacote com `require('hyco-ws')` em vez disso, o que permite também cenários híbridos, em que um aplicativo pode escutar para ligações de WebSocket localmente a partir de "no interior da firewall" e através de ligações híbridas, tudo no ao mesmo tempo.
+Os aplicativos existentes que `require('ws')` podem usar esse pacote com `require('hyco-ws')` em vez disso, o que também permite cenários híbridos nos quais um aplicativo pode escutar conexões WebSocket localmente de "dentro do firewall" e por meio de Conexões Híbridas, tudo ao mesmo tempo.
   
 ## <a name="documentation"></a>Documentação
 
-As APIs são [documentados no pacote principal "ws"](https://github.com/websockets/ws/blob/master/doc/ws.md). Este artigo descreve como este pacote difere essa linha de base. 
+As APIs estão [documentadas no pacote principal ' WS '](https://github.com/websockets/ws/blob/master/doc/ws.md). Este artigo descreve como esse pacote é diferente da linha de base. 
 
-As principais diferenças entre o pacote básico e este 'hyco-ws"é que ele adiciona uma nova classe de servidor, exportada por meio de `require('hyco-ws').RelayedServer`e alguns métodos auxiliares.
+As principais diferenças entre o pacote base e este ' hyco-WS ' é que ele adiciona uma nova classe de servidor, exportada via `require('hyco-ws').RelayedServer`e alguns métodos auxiliares.
 
-### <a name="package-helper-methods"></a>Métodos de programa auxiliar do pacote
+### <a name="package-helper-methods"></a>Métodos auxiliares de pacote
 
-Existem vários métodos de utilitário disponíveis na exportação de pacote que pode fazer referência a da seguinte forma:
+Há vários métodos de utilitário disponíveis na exportação de pacote que você pode referenciar da seguinte maneira:
 
 ```JavaScript
 const WebSocket = require('hyco-ws');
@@ -48,7 +48,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-Os métodos auxiliares são para utilização com este pacote, mas também podem ser utilizados por um servidor de nó para habilitar clientes web ou de dispositivo criar serviços de escuta ou remetentes. O servidor utiliza esses métodos, passando-os URIs que incorpore tokens de curta duração. Estes URIs também pode ser utilizado com as pilhas de WebSocket comuns que não suportam a cabeçalhos HTTP de definição para o handshake do WebSocket. Incorporação de tokens de autorização para o URI é suportado principalmente para esses cenários de utilização da biblioteca externa. 
+Os métodos auxiliares são para uso com este pacote, mas também podem ser usados por um servidor de nó para permitir que clientes Web ou de dispositivo criem ouvintes ou remetentes. O servidor usa esses métodos passando-os URIs que inserem tokens de curta duração. Esses URIs também podem ser usados com pilhas WebSocket comuns que não dão suporte à definição de cabeçalhos HTTP para o handshake WebSocket. A inserção de tokens de autorização no URI é suportada principalmente para os cenários de uso externo da biblioteca. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 
@@ -56,14 +56,14 @@ Os métodos auxiliares são para utilização com este pacote, mas também podem
 var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 ```
 
-Cria uma escuta de ligação de híbridas de reencaminhamento do Azure válida URI para o espaço de nomes especificado e o caminho. Este URI, em seguida, pode ser utilizado com a versão de reencaminhamento da classe WebSocketServer.
+Cria um URI de ouvinte de conexão híbrida de retransmissão do Azure válido para o namespace e o caminho fornecidos. Esse URI pode ser usado com a versão de retransmissão da classe WebSocketServer.
 
-- `namespaceName` (obrigatório) - o nome de domínio qualificado do espaço de nomes de reencaminhamento do Azure para utilizar.
-- `path` (obrigatório) - o nome de uma ligação híbrida de reencaminhamento do Azure existente nesse espaço de nomes.
-- `token` (opcional) – um emitidos anteriormente reencaminhamento token de acesso que está incorporada no serviço de escuta URI (veja o exemplo a seguir).
-- `id` (opcional) – um identificador de controlo que permite o controlo de diagnóstico de ponto-a-ponto de pedidos.
+- `namespaceName` (obrigatório)-o nome qualificado pelo domínio do namespace de retransmissão do Azure a ser usado.
+- `path` (obrigatório)-o nome de uma conexão híbrida de retransmissão do Azure existente nesse namespace.
+- `token` (opcional)-um token de acesso de retransmissão emitido anteriormente que é inserido no URI do ouvinte (consulte o exemplo a seguir).
+- `id` (opcional)-um identificador de rastreamento que permite o acompanhamento de diagnóstico de ponta a ponta de solicitações.
 
-O `token` valor é opcional e só deve ser utilizado quando não é possível enviar cabeçalhos HTTP, juntamente com o handshake do WebSocket, tal como acontece com a pilha de WebSocket de W3C.                  
+O valor `token` é opcional e só deve ser usado quando não for possível enviar cabeçalhos HTTP junto com o handshake WebSocket, como é o caso com a pilha do WebSocket do W3C.                  
 
 
 #### <a name="createrelaysenduri"></a>createRelaySendUri
@@ -72,14 +72,14 @@ O `token` valor é opcional e só deve ser utilizado quando não é possível en
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
 
-Cria um envio de ligação de híbridas de reencaminhamento do Azure URI válido para o espaço de nomes especificado e o caminho. Este URI pode ser utilizado com qualquer cliente WebSocket.
+Cria um URI de envio de conexão híbrida de retransmissão do Azure válido para o namespace e o caminho fornecidos. Esse URI pode ser usado com qualquer cliente WebSocket.
 
-- `namespaceName` (obrigatório) - o nome de domínio qualificado do espaço de nomes de reencaminhamento do Azure para utilizar.
-- `path` (obrigatório) - o nome de uma ligação híbrida de reencaminhamento do Azure existente nesse espaço de nomes.
-- `token` (opcional) – um emitidos anteriormente reencaminhamento token de acesso que está incorporada no envio URI (veja o exemplo a seguir).
-- `id` (opcional) – um identificador de controlo que permite o controlo de diagnóstico de ponto-a-ponto de pedidos.
+- `namespaceName` (obrigatório)-o nome qualificado pelo domínio do namespace de retransmissão do Azure a ser usado.
+- `path` (obrigatório)-o nome de uma conexão híbrida de retransmissão do Azure existente nesse namespace.
+- `token` (opcional)-um token de acesso de retransmissão emitido anteriormente que é inserido no URI de envio (consulte o exemplo a seguir).
+- `id` (opcional)-um identificador de rastreamento que permite o acompanhamento de diagnóstico de ponta a ponta de solicitações.
 
-O `token` valor é opcional e só deve ser utilizado quando não é possível enviar cabeçalhos HTTP, juntamente com o handshake do WebSocket, tal como acontece com a pilha de WebSocket de W3C.                   
+O valor `token` é opcional e só deve ser usado quando não for possível enviar cabeçalhos HTTP junto com o handshake WebSocket, como é o caso com a pilha do WebSocket do W3C.                   
 
 
 #### <a name="createrelaytoken"></a>createRelayToken 
@@ -88,14 +88,14 @@ O `token` valor é opcional e só deve ser utilizado quando não é possível en
 var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Cria um token de assinatura de acesso partilhado do Azure Relay (SAS) para o determinado URI de destino, a regra SAS e a regra da chave SAS que é válida para o determinado número de segundos ou para uma hora de instante atual se o argumento de expiração for omitido.
+Cria um token de SAS (assinatura de acesso compartilhado) de retransmissão do Azure para o URI de destino fornecido, a regra SAS e a chave de regra SAS que é válida para o número determinado de segundos ou para uma hora do instante atual se o argumento de expiração for omitido.
 
-- `uri` (obrigatório) - o URI para o qual o token é emitido. O URI é normalizado para utilizar o esquema HTTP e informações de cadeia de caracteres de consulta será removido.
-- `ruleName` (obrigatório) - SAS nome da regra para qualquer entidade representada por determinado URI ou para o espaço de nomes representado por parte de anfitrião do URI.
-- `key` (obrigatório) - chave válida para a regra SAS. 
-- `expirationSeconds` (opcional) – o número de segundos até que o token gerado deve expirar. Se não for especificado, a predefinição é 1 hora (3600).
+- `uri` (obrigatório)-o URI para o qual o token deve ser emitido. O URI é normalizado para usar o esquema HTTP e as informações de cadeia de caracteres de consulta são removidas.
+- `ruleName` (obrigatório)-nome da regra SAS para a entidade representada pelo URI fornecido ou para o namespace representado pela parte do host URI.
+- `key` (obrigatório)-chave válida para a regra de SAS. 
+- `expirationSeconds` (opcional)-o número de segundos até que o token gerado expire. Se não for especificado, o padrão será 1 hora (3600).
 
-O token emitido confere direitos associados à regra SAS especificada durante o período especificado.
+O token emitido confere os direitos associados à regra SAS especificada para a duração determinada.
 
 #### <a name="appendrelaytoken"></a>appendRelayToken
 
@@ -103,13 +103,13 @@ O token emitido confere direitos associados à regra SAS especificada durante o 
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Este método é funcionalmente equivalente ao `createRelayToken` método documentado anteriormente, mas devolve o token de anexado corretamente para a URI de entrada.
+Esse método é funcionalmente equivalente ao método `createRelayToken` documentado anteriormente, mas retorna o token anexado corretamente ao URI de entrada.
 
-### <a name="class-wsrelayedserver"></a>Classe ws. RelayedServer
+### <a name="class-wsrelayedserver"></a>Classe WS. RelayedServer
 
-O `hycows.RelayedServer` classe é uma alternativa para o `ws.Server` classe que não escutam na rede local, mas delegados escuta para o serviço de reencaminhamento do Azure.
+A classe `hycows.RelayedServer` é uma alternativa à classe `ws.Server` que não escuta na rede local, mas os delegados que escutam o serviço de retransmissão do Azure.
 
-As duas classes são principalmente a compatível, o que significa que uma aplicação existente com o contrato a `ws.Server` classe pode ser alterada facilmente para utilizar a versão retransmitida. As principais diferenças são no construtor e nas opções disponíveis.
+As duas classes são basicamente compatíveis com o contrato, o que significa que um aplicativo existente usando a classe `ws.Server` pode ser facilmente alterado para usar a versão retransmitida. As principais diferenças estão no construtor e nas opções disponíveis.
 
 #### <a name="constructor"></a>Construtor  
 
@@ -124,24 +124,24 @@ var wss = new server(
     });
 ```
 
-O `RelayedServer` construtor suporta um conjunto diferente de argumentos que o `Server`, porque não é um serviço de escuta do autónomo ou podem ser incorporados numa arquitetura de serviço de escuta HTTP existente. Também existem menos opções disponíveis, uma vez que a gestão de WebSocket em grande parte é delegada para o serviço de reencaminhamento.
+O Construtor `RelayedServer` dá suporte a um conjunto diferente de argumentos que o `Server`, pois ele não é um ouvinte autônomo ou pode ser inserido em uma estrutura de ouvinte HTTP existente. Há também menos opções disponíveis, pois o gerenciamento de WebSocket é basicamente delegado para o serviço de retransmissão.
 
-Argumentos do construtor:
+Argumentos do Construtor:
 
-- `server` (obrigatório) - o URI completamente qualificado de um nome de ligação híbrida na qual pode escutar, e geralmente construída com o método de programa auxiliar de WebSocket.createRelayListenUri().
-- `token` Este argumento (obrigatório) - contém uma cadeia de caracteres de token emitida anteriormente ou uma função de retorno de chamada que pode ser chamada para obter esse uma cadeia de token. A opção de chamada de retorno é preferencial, pois permitirá renovação token.
+- `server` (obrigatório)-o URI totalmente qualificado para um nome de conexão híbrida no qual escutar, normalmente construído com o método auxiliar WebSocket. createRelayListenUri ().
+- `token` (obrigatório)-esse argumento contém uma cadeia de caracteres de token emitida anteriormente ou uma função de retorno de chamada que pode ser chamado para obter essa cadeia de caracteres de token. A opção de retorno de chamada é preferida, pois habilita a renovação de token.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Eventos
 
-`RelayedServer` instâncias de emitem três eventos que permitem-lhe processar os pedidos recebidos, estabeleça ligações e detetar condições de erro. Tem de subscrever o `connect` eventos para processar mensagens. 
+`RelayedServer` instâncias emitem três eventos que permitem que você manipule solicitações de entrada, estabeleça conexões e detecte condições de erro. Você deve assinar o evento `connect` para manipular mensagens. 
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>conector
 
 ```JavaScript 
 function(headers)
 ```
 
-O `headers` o evento é gerado antes de uma ligação recebida for aceita, permitindo que a modificação dos cabeçalhos para enviar para o cliente. 
+O evento `headers` é gerado logo antes de uma conexão de entrada ser aceita, permitindo a modificação dos cabeçalhos para enviar ao cliente. 
 
 ##### <a name="connection"></a>ligação
 
@@ -149,20 +149,20 @@ O `headers` o evento é gerado antes de uma ligação recebida for aceita, permi
 function(socket)
 ```
 
-Emitida quando uma nova conexão WebSocket é aceite. O objeto é do tipo `ws.WebSocket`, tal como com o pacote básico.
+Emitido quando uma nova conexão WebSocket é aceita. O objeto é do tipo `ws.WebSocket`, assim como no pacote base.
 
 
-##### <a name="error"></a>error
+##### <a name="error"></a>erro
 
 ```JavaScript
 function(error)
 ```
 
-Se o servidor subjacente emite um erro, ele é reencaminhado aqui.  
+Se o servidor subjacente emitir um erro, ele será encaminhado aqui.  
 
 #### <a name="helpers"></a>Auxiliares
 
-Para simplificar a partir de um servidor retransmitido e imediatamente subscrever as ligações de entrada, o pacote expõe uma função auxiliar simples, que também é usada nos exemplos, da seguinte forma:
+Para simplificar a inicialização de um servidor retransmitido e a assinatura imediata de conexões de entrada, o pacote expõe uma função auxiliar simples, que também é usada nos exemplos, da seguinte maneira:
 
 ##### <a name="createrelayedlistener"></a>createRelayedListener
 
@@ -191,11 +191,11 @@ var wss = WebSocket.createRelayedServer(
 var server = createRelayedServer([options], [connectCallback] )
 ```
 
-Esse método chama o construtor para criar uma nova instância do RelayedServer e, em seguida, assina o retorno de chamada fornecido para o evento de "ligação".
+Esse método chama o construtor para criar uma nova instância do RelayedServer e, em seguida, assina o retorno de chamada fornecido para o evento ' Connection '.
  
 ##### <a name="relayedconnect"></a>relayedConnect
 
-Espelhamento simplesmente a `createRelayedServer` auxiliar na função, `relayedConnect` cria uma ligação de cliente e subscreve o evento de "abrir" no soquete resultante.
+Simplesmente espelhando o auxiliar de `createRelayedServer` em Function, `relayedConnect` cria uma conexão de cliente e assina o evento ' Open ' no soquete resultante.
 
 ```JavaScript
 var uri = WebSocket.createRelaySendUri(ns, path);
@@ -208,7 +208,7 @@ WebSocket.relayedConnect(
 );
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o reencaminhamento do Azure, visite estas ligações:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre a retransmissão do Azure, visite estes links:
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
-* [APIs de reencaminhamento disponíveis](relay-api-overview.md)
+* [APIs de retransmissão disponíveis](relay-api-overview.md)

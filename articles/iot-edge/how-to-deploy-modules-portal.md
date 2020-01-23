@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290721"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510537"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementar módulos do Azure IoT Edge do portal do Azure
 
@@ -43,9 +43,9 @@ O portal do Azure tem um assistente que explica como criar o manifesto de implan
 1. Na seção **módulos IOT Edge** da página, selecione **Adicionar**.
 1. Examine os tipos de módulos no menu suspenso:
 
-   * **Módulo IOT Edge** -você fornece o nome do módulo e o URI da imagem de contêiner. Por exemplo, o URI da imagem para o módulo SimulatedTemperatureSensor de exemplo é `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Se a imagem do módulo estiver armazenada em um registro de contêiner privado, adicione as credenciais nesta página para acessar a imagem. 
+   * **Módulo IOT Edge** -você fornece o nome do módulo e o URI da imagem de contêiner. Por exemplo, o URI da imagem para o módulo SimulatedTemperatureSensor de exemplo é `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Se a imagem do módulo estiver armazenada em um registro de contêiner privado, adicione as credenciais nesta página para acessar a imagem.
    * **Módulo do Marketplace** -módulos hospedados no Azure Marketplace. Alguns módulos do Marketplace exigem configuração adicional, portanto, examine os detalhes do módulo na lista de [módulos de IOT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
-   * **Módulo Azure Stream Analytics** -módulos gerados de uma carga de trabalho de Azure Stream Analytics. 
+   * **Módulo Azure Stream Analytics** -módulos gerados de uma carga de trabalho de Azure Stream Analytics.
 
 1. Depois de adicionar um módulo, selecione o nome do módulo na lista para abrir as configurações do módulo. Preencha os campos opcionais, se necessário. Para obter mais informações sobre o contentor criar uma política de reinício de opções e ver o estado pretendido [propriedades pretendidas do EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para obter mais informações sobre o duplo do módulo, consulte [definir ou atualizar propriedades pretendidas](module-composition.md#define-or-update-desired-properties).
 1. Se necessário, repita as etapas de 5 a 8 para adicionar mais módulos à sua implantação.

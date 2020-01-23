@@ -1,18 +1,18 @@
 ---
 title: Origens de eventos da grade de eventos do Azure
-description: Descreve as fontes de eventos com suporte para a grade de eventos do Azure
+description: Este artigo descreve as fontes de eventos com suporte para a grade de eventos do Azure. Uma origem do evento é onde o evento acontece.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531450"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512951"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes de eventos na grade de eventos do Azure
 

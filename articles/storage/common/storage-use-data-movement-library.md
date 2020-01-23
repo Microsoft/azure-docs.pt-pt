@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978382"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509007"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca do Movimento de Dados
 
-A biblioteca de movimentação de dados do armazenamento do Azure é uma biblioteca de software livre de plataforma cruzada projetada para carregamento de alto desempenho, download e cópia de BLOBs e arquivos. Essa biblioteca é a estrutura de movimentação de dados principal que capacita o [AzCopy](../storage-use-azcopy.md). A biblioteca de movimentação de dados fornece métodos convenientes que não estão disponíveis na biblioteca de cliente de armazenamento do Azure para .NET. Esses métodos fornecem a capacidade de definir o número de operações paralelas, acompanhar o progresso da transferência, retomar facilmente uma transferência cancelada e muito mais.
+A biblioteca de movimentação de dados do armazenamento do Azure é uma biblioteca de software livre de plataforma cruzada projetada para carregamento de alto desempenho, download e cópia de BLOBs e arquivos. A biblioteca de movimentação de dados fornece métodos convenientes que não estão disponíveis na biblioteca de cliente de armazenamento do Azure para .NET. Esses métodos fornecem a capacidade de definir o número de operações paralelas, acompanhar o progresso da transferência, retomar facilmente uma transferência cancelada e muito mais.
 
 Essa biblioteca também usa o .NET Core, o que significa que você pode usá-lo ao criar aplicativos .NET para Windows, Linux e macOS. Para saber mais sobre o .NET Core, consulte a [documentação do .NET Core](https://dotnet.github.io/). Essa biblioteca também funciona para aplicativos tradicionais de .NET Framework para Windows.
 

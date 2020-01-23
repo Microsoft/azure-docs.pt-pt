@@ -4,16 +4,16 @@ description: Este artigo explica como gerir e interpretar a fatura Azure Enterpr
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 95df54eb096588fe23da87f7334f9d693e54cf9d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992325"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514362"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição Azure Enterprise
 
@@ -370,7 +370,7 @@ Para referência, ao utilizar o Excel para modelar as regras de arredondamento e
 | Arredondar Preços (2 casas decimais) | =MARRED({_source_}, 0,02) |
 | Arredondar Preços (0 casas decimais) | =MARRED({_source_}, 2) |
 
-**Tabela**  **2**  **– conversão de horas do serviço de nuvem e da máquina virtual**
+**Tabela**  **2**  **– Conversão de Horas de Serviços Cloud e Máquinas Virtuais**
 
 ### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>Conversão entre o Ficheiro de Utilização de Transferências e a Vista do Portal de Resumo de Utilização
 
@@ -417,7 +417,7 @@ Para os serviços em que a zona e a região afetam os preços, a tabela seguinte
 | Zona 2 | Este da Ásia-Pacífico <br> Sudeste da Ásia-Pacífico <br> Este do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Sudeste da Austrália | Ásia-Pacífico <br> Japão <br> América Latina <br> Médio Oriente/África <br> Leste da Austrália <br> Sudeste da Austrália |
 | Zona 3 | Sul do Brasil |   |
 
-**Tabela**  **4**  **– regiões de transferência de dados**
+**Tabela**  **4**  **– Regiões de Transferência de Dados**
 
 Não há custos para a saída de dados entre serviços (por exemplo, O365 e Azure) alojados no mesmo datacenter.
 
@@ -557,7 +557,7 @@ Veja estas fontes adicionais de informações para obter mais detalhes. Estes fi
 | [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Fornece uma lista de todos os serviços ativos com a categoria de serviço, nome de serviço amigável, nome da alocação e número de peça, nome de consumo e número de peça, unidades de medida e fatores de conversão entre a utilização reportada e a utilização apresentada no Enterprise Portal. | Friendly\_Service\_Names.xlsx |
 | [**Service Download Fields**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta folha de cálculo fornece uma lista de todas as combinações possíveis dos campos relacionados com o serviço no Relatório de Transferência de Utilização. | Service\_Download\_Fields.xlsx |
 
-**Tabela**  **5**  **– fontes de informações adicionais**
+**Tabela**  **5**  **– Fontes de Informações Adicionais**
 
 ## <a name="power-bi-reporting"></a>Relatórios do Power BI
 
@@ -585,7 +585,7 @@ Para se inscrever na avaliação gratuita, vá para o ícone de engrenagem e sel
 1. Forneça a sua chave de acesso da API para ligar. Pode encontrar a chave relativa à sua inscrição no [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Clique em **Iniciar sessão**.
 1. O processo de importação começará automaticamente. Quando estiver concluído, será apresentado um novo dashboard, relatório e modelo no painel de navegação. Clique no dashboard para ver os dados importados.
 
-Para obter mais informações sobre como gerar a chave de API para a sua inscrição, visite o ficheiro de ajuda API Reports no [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Para obter mais informações sobre o novo pacote de conteúdos, transfira o documento [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+Para obter mais informações sobre como gerar a chave de API para a sua inscrição, visite o ficheiro de ajuda API Reports no [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Para obter mais informações sobre o novo pacote de conteúdo, consulte [Microsoft Azure consumption insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### <a name="to-access-the-legacy-power-bi-ea-content-pack"></a>Para aceder ao pacote de conteúdos do Power BI EA legado:
 

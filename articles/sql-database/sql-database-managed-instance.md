@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: b8cf7992617b7263b86fd98e5def8be1d43ca68c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293373"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514560"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 
@@ -72,7 +72,7 @@ Os principais recursos das instâncias gerenciadas são mostrados na tabela a se
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para instâncias gerenciadas oferece flexibilidade, controle, transparência e uma maneira simples de traduzir os requisitos de carga de trabalho local para a nuvem. Esse modelo permite que você altere a computação, a memória e o armazenamento com base nas suas necessidades de carga de trabalho. O modelo vCore também é elegível para economias de até 30% com o [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para instâncias gerenciadas oferece flexibilidade, controle, transparência e uma maneira simples de traduzir os requisitos de carga de trabalho local para a nuvem. Esse modelo permite que você altere a computação, a memória e o armazenamento com base nas suas necessidades de carga de trabalho. O modelo vCore também é elegível para economia de até 55% com o [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 No modelo vCore, você pode escolher entre gerações de hardware.
 

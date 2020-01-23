@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ab8019a8537d4080afdb457459f09cd156ff4ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc8162a157cee10deeb8bf3f1e62a53fbdd30d0e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365534"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513444"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho do Log Analytics no portal do Azure
 Use o menu **log Analytics espaços de trabalho** para criar um espaço de trabalho do log Analytics usando o portal do Azure. Um espaço de trabalho Log Analytics é um ambiente exclusivo para dados de Azure Monitor log. Cada espaço de trabalho tem seu próprio repositório de dados e configuração, e as fontes de dados e soluções são configuradas para armazenar seus dados em um espaço de trabalho específico. Você precisará de um espaço de trabalho Log Analytics se pretender coletar dados das seguintes fontes:
 
 * Recursos do Azure na sua subscrição
 * Computadores monitorizados pelo System Center Operations Manager no local
-* Coleções de dispositivos do System Center Configuration Manager 
+* Coleções de dispositivos de Configuration Manager 
 * Dados de diagnóstico ou de registo do armazenamento do Azure
 
 Para outras origens, como as VMs do Azure e o Windows ou VMs do Linux no seu ambiente, consulte os seguintes tópicos:

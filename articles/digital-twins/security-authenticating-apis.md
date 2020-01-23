@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/21/2020
+ms.openlocfilehash: d950d41186d578702343645875dd7c565002d5a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860967"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513009"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conectar e autenticar com APIs
 

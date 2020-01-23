@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707653"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515127"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados SQL em uma instância gerenciada para um ponto anterior no tempo
 
@@ -58,7 +58,7 @@ Restaure um banco de dados existente para a mesma instância usando o portal do 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 2. Vá para a instância gerenciada e selecione o banco de dados que você deseja restaurar.
 3. Selecione **restaurar** na página do banco de dados:
 
@@ -136,7 +136,7 @@ Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [
 
 ## <a name="restore-a-deleted-database"></a>Restaurar uma base de dados eliminada
 
-A restauração de um banco de dados excluído só pode ser feita usando o PowerShell. O banco de dados pode ser restaurado para a mesma instância ou outra instância.
+A restauração de um banco de dados excluído pode ser feita usando o PowerShell ou o portal do Azure. Use este documento para fazer isso pelo [portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). O banco de dados pode ser restaurado para a mesma instância ou outra instância.
 
 Para restaurar um banco de dados excluído usando o PowerShell, especifique os valores para os parâmetros no comando a seguir. Em seguida, execute o comando:
 
@@ -195,7 +195,7 @@ Use um dos seguintes métodos para se conectar ao banco de dados na instância g
 
 - [SSMS/Azure Data Studio por meio de uma máquina virtual do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -237,7 +237,7 @@ Use um dos seguintes métodos para se conectar ao banco de dados na instância g
 
 - [Máquina virtual do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## <a name="next-steps"></a>Passos seguintes
 

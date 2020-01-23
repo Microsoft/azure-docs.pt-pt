@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do reencaminhamento do Azure APIs padrão do .NET | Documentos da Microsoft
-description: Descrição geral de API de padrão de .NET do reencaminhamento do Azure
+title: Visão geral das APIs de .NET Standard de retransmissão do Azure | Microsoft Docs
+description: Este artigo resume algumas das principais uma visão geral da API de .NET Standard de retransmissão do Azure Conexões Híbridas.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 78ad3ab49db162af060b4273deea717cd3472668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749024"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514540"
 ---
-# <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Descrição geral de API de .NET de ligações híbridas do reencaminhamento padrão do Azure
+# <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Visão geral da API de .NET Standard de retransmissão do Azure Conexões Híbridas
 
-Este artigo resume alguns dos principais do Azure Relay Hybrid ligações .NET Standard [APIs de cliente](/dotnet/api/microsoft.azure.relay).
+Este artigo resume algumas das principais Conexões Híbridas de retransmissão do Azure .NET Standard [APIs de cliente](/dotnet/api/microsoft.azure.relay).
   
-## <a name="relay-connection-string-builder-class"></a>Classe de construtor de cadeia de ligação de reencaminhamento
+## <a name="relay-connection-string-builder-class"></a>Classe do construtor de cadeia de conexão de retransmissão
 
-O [RelayConnectionStringBuilder] [ RelayConnectionStringBuilder] cadeias de ligação que são específicas para ligações híbridas de reencaminhamento de formatos de classe. Pode usá-lo para verificar o formato de uma cadeia de ligação, ou para criar uma cadeia de ligação do zero. Consulte o seguinte código para obter um exemplo:
+A classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] formata cadeias de conexão específicas para conexões híbridas de retransmissão. Você pode usá-lo para verificar o formato de uma cadeia de conexão ou para criar uma cadeia de conexão do zero. Consulte o código a seguir para obter um exemplo:
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -44,7 +44,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-Também é possível passar uma cadeia de ligação diretamente para o `RelayConnectionStringBuilder` método. Esta operação permite-lhe verificar se a cadeia de ligação está num formato válido. Se qualquer um dos parâmetros são inválidos, o construtor gera um `ArgumentException`.
+Você também pode passar uma cadeia de conexão diretamente para o método `RelayConnectionStringBuilder`. Essa operação permite que você verifique se a cadeia de conexão está em um formato válido. Se qualquer um dos parâmetros for inválido, o Construtor gerará um `ArgumentException`.
 
 ```csharp
 var myConnectionString = "[RelayConnectionString]";
@@ -61,15 +61,15 @@ catch (ArgumentException ae)
 }
 ```
 
-## <a name="hybrid-connection-stream"></a>Fluxo de ligação híbrida
+## <a name="hybrid-connection-stream"></a>Fluxo de conexão híbrida
 
-O [HybridConnectionStream] [ HCStream] classe é o objeto principal utilizado para enviar e receber dados de um ponto de extremidade do reencaminhamento do Azure, se estiver a trabalhar com um [HybridConnectionClient] [ HCClient], ou uma [HybridConnectionListener][HCListener].
+A classe [HybridConnectionStream][HCStream] é o objeto principal usado para enviar e receber dados de um ponto de extremidade de retransmissão do Azure, se você estiver trabalhando com um [HybridConnectionClient][HCClient]ou um [HybridConnectionListener][HCListener].
 
-### <a name="getting-a-hybrid-connection-stream"></a>Obter um fluxo de ligação híbrida
+### <a name="getting-a-hybrid-connection-stream"></a>Obtendo um fluxo de conexão híbrida
 
-#### <a name="listener"></a>Serviço de escuta
+#### <a name="listener"></a>Serviço de Escuta
 
-Utilizar um [HybridConnectionListener] [ HCListener] objeto, pode obter um `HybridConnectionStream` objeto da seguinte forma:
+Usando um objeto [HybridConnectionListener][HCListener] , você pode obter um objeto `HybridConnectionStream` da seguinte maneira:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -82,7 +82,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 
 #### <a name="client"></a>Cliente
 
-Utilizar um [HybridConnectionClient] [ HCClient] objeto, pode obter um `HybridConnectionStream` objeto da seguinte forma:
+Usando um objeto [HybridConnectionClient][HCClient] , você pode obter um objeto `HybridConnectionStream` da seguinte maneira:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -91,11 +91,11 @@ var client = new HybridConnectionClient(csb.ToString());
 var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
-### <a name="receiving-data"></a>Receber dados
+### <a name="receiving-data"></a>Recebendo dados
 
-O [HybridConnectionStream] [ HCStream] classe permite a comunicação bidirecional. Na maioria dos casos, receberá continuamente do fluxo. Se estiver lendo o texto do fluxo, pode também querer utilizar um [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) objeto, que permite a análise mais fácil dos dados. Por exemplo, é possível ler dados como texto, e não como `byte[]`.
+A classe [HybridConnectionStream][HCStream] habilita a comunicação bidirecional. Na maioria dos casos, você recebe continuamente do fluxo. Se você estiver lendo o texto do fluxo, talvez também queira usar um objeto [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) , que permite a análise mais fácil dos dados. Por exemplo, você pode ler dados como texto, em vez de `byte[]`.
 
-O seguinte código lê as linhas individuais de texto do fluxo até que é pedido um cancelamento:
+O código a seguir lê linhas individuais de texto do fluxo até que um cancelamento seja solicitado:
 
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
@@ -120,14 +120,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Envio de dados
 
-Assim que tiver uma ligação estabelecida, pode enviar uma mensagem para o ponto final de reencaminhamento. Como o objeto de ligação herda [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), enviar os seus dados como um `byte[]`. O exemplo seguinte mostra como fazer isso:
+Depois de estabelecer uma conexão, você pode enviar uma mensagem para o ponto de extremidade de retransmissão. Como o objeto de conexão herda o [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), envie seus dados como um `byte[]`. O exemplo a seguir mostra como fazer isso:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-No entanto, se pretender enviar a mensagem de texto diretamente, sem a necessidade de codificar a cadeia de cada vez, pode envolver a `hybridConnectionStream` objeto com um [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) objeto.
+No entanto, se você quiser enviar texto diretamente, sem a necessidade de codificar a cadeia de caracteres a cada vez, você poderá encapsular o objeto `hybridConnectionStream` com um objeto [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) .
 
 ```csharp
 // The StreamWriter object only needs to be created once
@@ -135,13 +135,13 @@ var textWriter = new StreamWriter(hybridConnectionStream);
 await textWriter.WriteLineAsync("hello");
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o reencaminhamento do Azure, visite estas ligações:
+Para saber mais sobre a retransmissão do Azure, visite estes links:
 
-* [Referência do Relay](/dotnet/api/microsoft.azure.relay)
+* [Referência do Microsoft. Azure. Relay](/dotnet/api/microsoft.azure.relay)
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
-* [APIs de reencaminhamento disponíveis](relay-api-overview.md)
+* [APIs de retransmissão disponíveis](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
 [HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream

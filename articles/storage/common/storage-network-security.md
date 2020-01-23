@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 28e3f276da231ef0186dba8ecd9c064cdd10a5a8
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 2c3b329aa767fbe9795c90ca236008210576fe12
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281228"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514736"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -380,7 +380,7 @@ Quando você habilita a configuração **permitir serviços confiáveis da Micro
 | Azure File Sync          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Exportação de importação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o Azure e a exportação de dados do Azure usando o serviço de importação/exportação. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
-| Monitor do Azure            | Microsoft. insights         | Permite a escrita de dados para uma conta de armazenamento seguro de monitorização [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Monitor do Azure            | Microsoft. insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de diagnóstico de recursos, Azure Active Directory de entrada e logs de auditoria e logs de Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Redes do Azure         | Microsoft.Network          | Store e analisar registos de tráfego de rede. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Recuperação de Site do Azure      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 

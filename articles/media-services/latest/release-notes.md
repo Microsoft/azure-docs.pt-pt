@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979684"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514491"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão do Azure Media Services V3
 
@@ -61,6 +61,7 @@ Adição de suporte para os seguintes novos codificadores de parceiros recomenda
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>Aprimoramentos de codificação de arquivo
+
 - Uma nova predefinição de codificação com reconhecimento de conteúdo está disponível agora. Ele produz um conjunto de MP4s alinhado a GOP usando a codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço executa uma análise leve inicial do conteúdo de entrada. Ele usa esses resultados para determinar o número ideal de camadas, a taxa de bits apropriada e as configurações de resolução para entrega por streaming adaptável. Essa predefinição é particularmente eficaz para vídeos de baixa complexidade e de complexidade média, em que os arquivos de saída têm taxas de bits menores, mas com uma qualidade que ainda oferece uma boa experiência aos visualizadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte as [especificações de API aberta](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
 - Melhor desempenho e multithreading para o redimensionador em Media Encoder Standard. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação VOD. O conteúdo de baixa complexidade codificado em várias taxas de bits verá o maior desempenho aumenta. 
 - A codificação padrão agora mantém uma cadência GOP regular para conteúdo de VFR (taxa de quadros variável) durante a codificação VOD ao usar a configuração de GOP baseada em tempo.  Isso significa que o cliente que envia conteúdo de taxa de quadros misto que varia entre 15-30 fps, por exemplo, agora deve ver as distâncias GOP regulares calculadas na saída para arquivos MP4 de streaming de taxa de bits adaptável. Isso melhorará a capacidade de alternar diretamente entre as faixas ao entregar HLS ou DASH. 
@@ -82,7 +83,7 @@ Os serviços de mídia v3 estão anunciando a visualização de 24 horas x 365 d
 
 #### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição da *Azure Media indexer* e da versão *prévia do Azure Media indexer 2*. O processador de mídia [Azure Media indexer](../previous/media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia da versão [prévia do Azure Media indexer 2](../previous/media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+Estamos anunciando a substituição da *Azure Media indexer* e da versão *prévia do Azure Media indexer 2*. Para as datas de desativação, consulte este tópico de [componentes herdados](../previous/legacy-components.md) . Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
 
 Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -100,7 +101,7 @@ Para obter mais informações, consulte [nuvens e regiões nas quais os serviço
 
 #### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame), que estão sendo desativados em 31 de março de 2020.
+Estamos anunciando a reprovação dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame), que estão sendo desativados. Para as datas de desativação, consulte este tópico de [componentes herdados](../previous/legacy-components.md) .
 
 Para obter detalhes, consulte [migrar WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [migrar ame para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  

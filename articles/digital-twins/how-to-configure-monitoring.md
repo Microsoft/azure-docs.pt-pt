@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 38f5af3cb2006e4b029f8979a213c0af10f1ed8a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e35e18be20af3bd9f6fdc9541f9abfe857a6b87c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863585"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511863"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento no Azure digital gêmeos
 

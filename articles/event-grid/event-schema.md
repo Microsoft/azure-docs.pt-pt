@@ -1,19 +1,19 @@
 ---
 title: Esquema de evento da grade de eventos do Azure
-description: Descreve as propriedades que são fornecidas para eventos com a grade de eventos do Azure
+description: Descreve as propriedades e o esquema que estão presentes para todos os eventos. Os eventos consistem em um conjunto de cinco Propriedades de cadeia de caracteres necessárias e um objeto de dados necessário.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/20/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 44cc611a9a7d71a3ac4ac7b0d779b18778d0aacd
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1fceda6fcbb6e8db1fa8afbc5181315bd0c98940
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607599"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512985"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de evento da grade de eventos do Azure
 
@@ -85,14 +85,14 @@ Todos os eventos têm os mesmos dados de nível superior a seguir:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
-| Assunto | string | Caminho definido pelo Publicador para a entidade do evento. |
-| EventType | string | Um dos tipos de evento registrados para essa origem do evento. |
+| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. O Event Grid fornece este valor. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | ID | string | Identificador exclusivo do evento. |
-| dado | objeto | Dados de evento específicos para o provedor de recursos. |
-| versão de | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. A grade de eventos define o esquema das propriedades de nível superior. A grade de eventos fornece esse valor. |
+| data | objeto | Dados de evento específicos para o provedor de recursos. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a origem do evento:
 

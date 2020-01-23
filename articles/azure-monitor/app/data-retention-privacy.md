@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052494"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513461"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -53,13 +53,13 @@ Há três fontes de dados:
 As principais categorias são:
 
 * [Telemetria do servidor Web](../../azure-monitor/app/asp-net.md) -solicitações HTTP.  URI, tempo levado para processar a solicitação, o código de resposta, o endereço IP do cliente. `Session id`.
-* [Páginas da Web](../../azure-monitor/app/javascript.md) – contagens de página, usuário e sessão. Tempos de carregamento de página. Exceção. Chamadas AJAX.
+* [Páginas da Web](../../azure-monitor/app/javascript.md) – contagens de página, usuário e sessão. Tempos de carregamento de página. Exceções. Chamadas AJAX.
 * Contadores de desempenho-memória, CPU, e/s, ocupação de rede.
 * Contexto de cliente e servidor-sistema operacional, localidade, tipo de dispositivo, navegador, resolução de tela.
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md) e falhas – **despejos de pilha**, `build id`, tipo de CPU. 
 * [Dependências](../../azure-monitor/app/asp-net-dependencies.md) – chamadas para serviços externos, como REST, SQL, Ajax. URI ou cadeia de conexão, duração, êxito, comando.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) -duração de teste e etapas, respostas.
-* [Os logs de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) e a [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)  - **qualquer coisa que você codifique em seus logs ou telemetria**.
+* [Os logs de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) e a [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) - **qualquer coisa que você codifique em seus logs ou telemetria**.
 
 [Mais detalhes](#data-sent-by-application-insights).
 
@@ -84,7 +84,7 @@ Os dados mantidos por mais de 90 dias incorrerão em encargos adicionais. Saiba 
 
 Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de métricas) são mantidos em um detalhamento de 1 minuto por 90 dias.
 
-Os [instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados por 15 dias. Essa política de retenção é definida em uma base por aplicativo. Se você precisar aumentar esse valor, poderá solicitar um aumento abrindo um caso de suporte na portal do Azure.
+Os [instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados por 15 dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 Os dados ficam visíveis para você e, se você tiver uma conta da organização, seus membros da equipe. 
@@ -118,7 +118,7 @@ Se você compartilhar código com outros projetos, lembre-se de remover sua chav
 Todos os dados são criptografados em repouso e à medida que se movem entre data centers.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Os dados são criptografados em trânsito de meu aplicativo para servidores Application Insights?
-Sim, usamos HTTPS para enviar dados ao portal de praticamente todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web HTTPS. A única exceção são os dados enviados de páginas da Web HTTP simples.
+Sim, usamos HTTPS para enviar dados ao portal de praticamente todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web HTTPS. 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>O SDK cria um armazenamento local temporário?
 
@@ -179,7 +179,7 @@ O prefixo da pasta `appInsights-node` pode ser substituído alterando o valor de
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Como fazer enviar dados para Application Insights usando o TLS 1,2?
 
-Para garantir a segurança dos dados em trânsito para os pontos de extremidade de Application Insights, recomendamos que os clientes configurem seus aplicativos para usarem pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. Versões mais antigas do TLS/protocolo SSL (SSL) foram considerados vulneráveis e, embora ainda funcionem para permitir a compatibilidade com versões anteriores, elas não são **recomendadas**e o setor está mudando rapidamente para abandonar o suporte para esses protocolos. 
+Para garantir a segurança dos dados em trânsito para os pontos de extremidade de Application Insights, recomendamos que os clientes configurem seus aplicativos para usarem pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**, e o setor que está a mudar rapidamente para abandonar o suporte para esses protocolos mais antigos. 
 
 O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) definiu um [prazo de 30 de junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desabilitar versões mais antigas de TLS/SSL e atualizar para protocolos mais seguros. Quando o Azure descartar o suporte herdado, se seu aplicativo/clientes não puderem se comunicar por pelo menos o TLS 1,2, você não poderá enviar dados para Application Insights. A abordagem que você tomará para testar e validar o suporte a TLS do aplicativo varia dependendo do sistema operacional/plataforma, bem como da linguagem/estrutura usada pelo aplicativo.
 
@@ -187,19 +187,19 @@ Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1
 
 ### <a name="platformlanguage-specific-guidance"></a>Diretrizes específicas de plataforma/linguagem
 
-|Plataforma/idioma | Suporte | Mais Informações |
+|Plataforma/linguagem | Suporte | Mais Informações |
 | --- | --- | --- |
 | Serviços de Aplicações do Azure  | Com suporte, a configuração pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para obter [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Aplicativos de funções do Azure | Com suporte, a configuração pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para obter [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Aplicações de Funções do Azure | Com suporte, a configuração pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para obter [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Com suporte, a configuração varia de acordo com a versão. | Para obter informações de configuração detalhadas para o .NET 4,7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de Estado | Com suporte, configuração necessária | Status Monitor se baseia na configuração do [so](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  + [configuração do .net](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte a TLS 1,2.
+|Monitor de Estado | Com suporte, configuração necessária | Status Monitor se baseia na configuração do [so](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .net](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte a TLS 1,2.
 |Node.js |  Com suporte, em v 10.5.0, a configuração pode ser necessária. | Use a [documentação oficial do TLS/SSL do node. js](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
 |Java | Com suporte, o suporte do JDK para TLS 1,2 foi adicionado no [JDK 6 atualização 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | O JDK 8 usa o [TLS 1,2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
-|Linux | As distribuições do Linux tendem a confiar no [OpenSSL](https://www.openssl.org) para suporte a TLS 1,2.  | Verifique o [changelog OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar se há suporte para sua versão do OpenSSL.|
-| Windows 8,0-10 | Com suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Com suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro TLS (Transport Layer Security)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar o.  |
-| Windows Server 2008 SP2 | O suporte para TLS 1,2 requer uma atualização. | Consulte [atualizar para adicionar suporte para TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
+|Linux | Distribuições do Linux tendem a depender [OpenSSL](https://www.openssl.org) para suporte de TLS 1.2.  | Verifique os [registo de alterações de OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL que é suportado.|
+| Windows 8.0 10 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar o [predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2016 de 2012 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar o [predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por predefinição. | Consulte a [definições de registo de Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) página para obter detalhes sobre como ativar.  |
+| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 |Windows Vista | Não suportado. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verifique qual versão do OpenSSL sua distribuição do Linux está em execução
@@ -239,9 +239,9 @@ Os SDKs variam entre as plataformas, e há vários componentes que você pode in
 | [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
-| [Chamar TrackMetric][api] |Valores numéricos<br/>**Properties** |
-| [Controle de chamada *][api] |Nome do evento<br/>**Properties** |
-| [Chamar Trackexception][api] |**Exceções**<br/>Despejo de pilha<br/>**Properties** |
+| [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
+| [Controle de chamada *][api] |Nome do evento<br/>**Propriedades** |
+| [Chamar Trackexception][api] |**Exceções**<br/>Despejo de pilha<br/>**Propriedades** |
 | O SDK não pode coletar dados. Por exemplo: <br/> -Não é possível acessar contadores de desempenho<br/> -exceção no inicializador de telemetria |Diagnóstico do SDK |
 
 Para [SDKs para outras plataformas][platforms], consulte seus documentos.
@@ -250,7 +250,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus documentos.
 
 | Classe de dados coletados | Inclui (não é uma lista completa) |
 | --- | --- |
-| **Properties** |**Qualquer dado-determinado pelo seu código** |
+| **Propriedades** |**Qualquer dado-determinado pelo seu código** |
 | DeviceContext |`Id`, IP, localidade, modelo de dispositivo, rede, tipo de rede, nome do OEM, resolução da tela, instância de função, nome da função, tipo de dispositivo |
 | ClientContext |Sistema operacional, localidade, idioma, rede, resolução de janela |
 | Sessão |`session id` |

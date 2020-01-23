@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 1cd1ff83fd706e3474426f6cc2ac99d39e74dc22
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 96d1c44eb9ecb71684e817a89f9376a07dbe3ccb
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177939"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514974"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência para avaliação
 
@@ -38,7 +38,7 @@ O mapeamento de dependência ajuda a Visualizar dependências entre computadores
 --- | ---
 Disponibilidade | A visualização de dependência não está disponível no Azure governamental.
 Mapa do Serviço | A visualização de dependência usa Mapa do Serviço solução no Azure Monitor. [Mapa do serviço](../azure-monitor/insights/service-map.md) descobre e mostra automaticamente as conexões entre os servidores.
-Agentes | Para usar a visualização de dependência, instale os seguintes agentes nos computadores que você deseja mapear:<br/> - [log Analytics](../azure-monitor/platform/log-analytics-agent.md) agente de agente (anteriormente conhecido como Microsoft Monitoring Agent (MMA).<br/> - [mapa do serviço o agente de dependência](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Para automatizar a instalação do agente, você pode usar uma ferramenta de implantação como o System Center Configuration Manager, que tem uma solução de implantação de agente para migrações para Azure.
+Agentes | Para usar a visualização de dependência, instale os seguintes agentes nos computadores que você deseja mapear:<br/> - agente do [log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) (anteriormente chamado de Microsoft Monitoring Agent (MMA).<br/> - [mapa do serviço agente de dependência](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Para automatizar a instalação do agente, você pode usar uma ferramenta de implantação como o Configuration Manager, que tem uma solução de implantação de agente para migrações para Azure.
 Agente de Dependência | Examine o [suporte do agente de dependência](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) para Windows e Linux.<br/><br/> [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sobre como usar scripts para instalar o Dependency Agent.
 Agente de Log Analytics (MMA) | [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) sobre os métodos de instalação do MMA.<br/><br/> Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, você não precisa instalar o agente do MMA. Mapa do Serviço integra-se com Operations Manager. Você pode habilitar a integração usando as diretrizes [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). No entanto, observe que o agente de dependência precisará ser instalado nesses computadores.<br/><br/> [Examine](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) os sistemas operacionais Linux com suporte no agente de log Analytics.
 Grupos de avaliação | Os grupos para os quais você deseja visualizar dependências não devem conter mais de 10 máquinas. Se você tiver mais de 10 máquinas, divida-as em grupos menores para visualizar as dependências.
@@ -88,7 +88,7 @@ Para instalar o agente em um computador Windows:
 4. Em **Opções de instalação do agente**, selecione **Azure log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um novo espaço de trabalho log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do Portal. Clique em **Seguinte**.
 
-Você pode instalar o agente da linha de comando ou usando um método automatizado, como System Center Configuration Manager ou [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA. O agente MMA também pode ser instalado com este [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+Você pode instalar o agente da linha de comando ou usando um método automatizado, como Configuration Manager ou [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA. O agente MMA também pode ser instalado com este [script](https://go.microsoft.com/fwlink/?linkid=2104394).
 
 [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) sobre os sistemas operacionais Windows com suporte do MMA.
 
@@ -157,7 +157,7 @@ Execute uma consulta para dados de dependência da seguinte maneira:
 3. Na página Log Analytics espaço de trabalho > **geral**, clique em **logs**.
 4. Escreva sua consulta e clique em **executar**.
 
-### <a name="sample-queries"></a>Exemplos de consultas
+### <a name="sample-queries"></a>Amostras de consultas
 
 Fornecemos um número de consultas de exemplo que você pode usar para extrair dados de dependência.
 

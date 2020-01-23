@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4efe9fe8dd1f006cb21c60c4c0e086264af26561
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310106"
+ms.locfileid: "76513325"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -100,7 +100,7 @@ As informações a seguir descrevem os requisitos de cliente específicos do sis
 
 Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS ou devem ter acesso ao Microsoft Update.
 
-Você pode usar Gerenciamento de Atualizações com System Center Configuration Manager. Para saber mais sobre cenários de integração, consulte [integrar System Center Configuration Manager com gerenciamento de atualizações](oms-solution-updatemgmt-sccmintegration.md#configuration). O [agente do Windows](../azure-monitor/platform/agent-windows.md) é necessário. O agente será instalado automaticamente se você estiver integrando uma VM do Azure.
+Você pode usar Gerenciamento de Atualizações com Configuration Manager. Para saber mais sobre cenários de integração, consulte [integrar Configuration Manager com gerenciamento de atualizações](oms-solution-updatemgmt-sccmintegration.md#configuration). O [agente do Windows](../azure-monitor/platform/agent-windows.md) é necessário. O agente será instalado automaticamente se você estiver integrando uma VM do Azure.
 
 Por padrão, as VMs do Windows que são implantadas no Azure Marketplace são definidas para receber atualizações automáticas do serviço Windows Update. Esse comportamento não é alterado quando você adiciona essa solução ou adiciona VMs do Windows ao seu espaço de trabalho. Se você não gerenciar ativamente as atualizações usando essa solução, o comportamento padrão (para aplicar atualizações automaticamente) será aplicado.
 
@@ -192,15 +192,65 @@ Recomendamos que você use os endereços listados ao definir exceções. Para en
 
 Siga as instruções em [conectar computadores sem acesso à Internet](../azure-monitor/platform/gateway.md) para configurar computadores que não têm acesso à Internet.
 
-## <a name="integrate-with-system-center-configuration-manager"></a>Integrar no System Center Configuration Manager
+## <a name="view-update-assessments"></a>Ver avaliações de atualizações
 
-Os clientes que investiram em System Center Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e da maturidade de Configuration Manager para ajudá-los a gerenciar atualizações de software. Configuration Manager faz parte do ciclo de gerenciamento de atualização de software (SUM).
+Na sua conta de automação, selecione **Gerenciamento de atualizações** para exibir o status de seus computadores.
 
-Para saber como integrar a solução de gerenciamento com o System Center Configuration Manager, consulte [integrar System Center Configuration Manager com gerenciamento de atualizações](oms-solution-updatemgmt-sccmintegration.md).
+Esta exibição fornece informações sobre seus computadores, atualizações ausentes, implantações de atualização e implantações de atualização agendada. Na coluna **conformidade** , você pode ver a última vez em que o computador foi avaliado. Na coluna **prontidão do agente de atualização** , você pode verificar a integridade do agente de atualização. Se houver um problema, selecione o link para acessar a documentação de solução de problemas que pode ajudá-lo a corrigir o problema.
+
+Para executar uma pesquisa de logs que retorna informações sobre a máquina, atualização ou implantação, selecione o item correspondente na lista. O painel **pesquisa de log** é aberto com uma consulta para o item selecionado:
+
+![Gerenciamento de Atualizações exibição padrão](media/automation-update-management/update-management-view.png)
+
+## <a name="view-missing-updates"></a>Exibir atualizações ausentes
+
+Selecione **atualizações ausentes** para exibir a lista de atualizações ausentes em seus computadores. Cada atualização é listada e pode ser selecionada. As informações sobre o número de computadores que exigem a atualização, o sistema operacional e um link para obter mais informações são mostradas. O painel **pesquisa de log** mostra mais detalhes sobre as atualizações.
+
+![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+
+## <a name="update-classifications"></a>Classificações de atualizações
+
+As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição para cada classificação.
+
+### <a name="windows"></a>Windows
+
+|Classificação  |Descrição  |
+|---------|---------|
+|Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
+|Atualizações de segurança     | Uma atualização para um problema específico de um produto e relacionado à segurança.        |
+|Update rollups     | Um conjunto cumulativo de hotfixes que são empacotados em conjunto para facilitar a implantação.        |
+|Pacotes de funcionalidades     | Novos recursos do produto que são distribuídos fora de uma versão do produto.        |
+|Service packs     | Um conjunto cumulativo de hotfixes que são aplicados a um aplicativo.        |
+|Atualizações de definições     | Uma atualização para vírus ou outros arquivos de definição.        |
+|Ferramentas     | Um utilitário ou recurso que ajuda a concluir uma ou mais tarefas.        |
+|Atualizações     | Uma atualização para um aplicativo ou arquivo que está instalado no momento.        |
+
+### <a name="linux-2"></a>Linux
+
+|Classificação  |Descrição  |
+|---------|---------|
+|Atualizações críticas e de segurança     | Atualizações para um problema específico ou um problema específico do produto, relacionado à segurança.         |
+|Outras atualizações     | Todas as outras atualizações que não são críticas por natureza ou que não são atualizações de segurança.        |
+
+Para o Linux, Gerenciamento de Atualizações pode distinguir entre atualizações críticas e atualizações de segurança na nuvem enquanto exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para aplicação de patch, Gerenciamento de Atualizações depende dos dados de classificação disponíveis no computador. Ao contrário de outras distribuições, o CentOS não tem essas informações disponíveis na versão RTM. Se você tiver máquinas CentOS configuradas para retornar dados de segurança para o comando a seguir, Gerenciamento de Atualizações poderá aplicar patches com base nas classificações.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Atualmente, não há um método com suporte para habilitar a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas o suporte de melhor esforço é fornecido aos clientes que podem ter habilitado isso por conta própria. 
+
+Para classificar atualizações no Red Hat Enterprise versão 6, você precisa instalar o plug-in yum-Security. No Red Hat Enterprise Linux 7, o plug-in já faz parte do próprio yum, não há necessidade de instalar nada. Para obter mais informações, consulte o seguinte [artigo de conhecimento](https://access.redhat.com/solutions/10021)do Red Hat.
+
+## <a name="integrate-with-configuration-manager"></a>Integrar no Configuration Manager
+
+Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e da maturidade de Configuration Manager para ajudá-los a gerenciar atualizações de software. Configuration Manager faz parte do ciclo de gerenciamento de atualização de software (SUM).
+
+Para saber como integrar a solução de gerenciamento com o Configuration Manager, consulte [integrar Configuration Manager com gerenciamento de atualizações](oms-solution-updatemgmt-sccmintegration.md).
 
 ### <a name="third-party-patches-on-windows"></a>Patches de terceiros no Windows
 
-Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Este é o WSUS ou o Windows Update. Ferramentas como [System Center Updates Publisher](/sccm/sum/tools/updates-publisher) (Updates Publisher) permitem que você publique atualizações personalizadas no WSUS. Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam System Center Configuration Manager como seu repositório de atualizações com software de terceiros. Para saber como configurar o Updates Publisher, consulte [instalar o Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Este é o WSUS ou o Windows Update. Ferramentas como [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) (Updates Publisher) permitem que você publique atualizações personalizadas no WSUS. Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros. Para saber como configurar o Updates Publisher, consulte [instalar o Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
 
 ## <a name="patch-linux-machines"></a>Corrigir computadores Linux
 

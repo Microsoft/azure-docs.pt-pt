@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47adda38bb39a95fe9abc0775a1822d677f19dab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391851"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513852"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: problemas com o agente ou extensão
 
@@ -89,7 +89,6 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 
 **Causa 1: [o status do instantâneo não pode ser recuperado ou um instantâneo não pode ser obtido](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 2: [a extensão de backup falha ao atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>Falha na operação de extensão ExtensionOperationFailedForManagedDisks-VMSnapshot
 
@@ -113,7 +112,7 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Causa 3: [o status do instantâneo não pode ser recuperado ou um instantâneo não pode ser obtido](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 4: [falha ao atualizar ou carregar a extensão de backup](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 5: o serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
-**Causa 6: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**
+
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-os tamanhos de disco configurados não têm suporte no momento pelo backup do Azure.
 
@@ -141,16 +140,6 @@ O trabalho de backup recente falhou porque há um trabalho de backup existente e
 Se a operação de backup agendado estiver demorando mais, em conflito com a próxima configuração de backup, revise as [práticas recomendadas](backup-azure-vms-introduction.md#best-practices), [desempenho de backup](backup-azure-vms-introduction.md#backup-performance)e [consideração de restauração](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
-
-### <a name="the-vm-has-no-internet-access"></a>A VM não tem acesso à Internet
-
-De acordo com o requisito de implantação, a VM não tem acesso à Internet. Ou pode ter restrições que impeçam o acesso à infraestrutura do Azure.
-
-Para funcionar corretamente, a extensão de backup requer conectividade com os endereços IP públicos do Azure. A extensão envia comandos para um ponto de extremidade de armazenamento do Azure (URL HTTPs) para gerenciar os instantâneos da VM. Se a extensão não tiver acesso à Internet pública, o backup eventualmente falhará.
-
-#### <a name="solution"></a>Solução
-
-Para resolver o problema de rede, consulte [estabelecer conectividade de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado na VM, mas não está respondendo (para VMs do Windows)
 

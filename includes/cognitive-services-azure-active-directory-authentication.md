@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b08ffa79e012344cad6cf72df98a0f1ba5240ce0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897540"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76508678"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
@@ -25,10 +25,10 @@ Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do 
 
 A primeira etapa é criar um subdomínio personalizado. Se você quiser usar um recurso de serviços cognitivas existente que não tem um nome de subdomínio personalizado, siga as instruções em [subdomínios personalizados de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) para habilitar o subdomínio personalizado para seu recurso.
 
-1. Comece abrindo a Azure Cloud Shell. em seguida, [Selecione uma assinatura](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+1. Comece abrindo a Azure Cloud Shell. Em seguida, [Selecione uma assinatura](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
 
    ```azurecli-interactive
-   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
 2. Em seguida, [crie um recurso de serviços cognitivas](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) com um subdomínio personalizado. O nome do subdomínio precisa ser globalmente exclusivo e não pode incluir caracteres especiais, como: ".", "!", ",".
@@ -75,7 +75,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
 
-### <a name="sample-request"></a>Exemplo de solicitação
+### <a name="sample-request"></a>Pedido de exemplo
 
 Neste exemplo, uma senha é usada para autenticar a entidade de serviço. O token fornecido é usado para chamar o API da Pesquisa Visual Computacional.
 

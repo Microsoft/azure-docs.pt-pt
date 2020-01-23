@@ -3,12 +3,12 @@ title: Perguntas comuns – descoberta, avaliação e análise de dependência e
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 5afda40f4953b8eb51a757034661eb5a3349cd10
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292370"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513291"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Perguntas comuns sobre descoberta, avaliação e análise de dependência
 
@@ -99,7 +99,7 @@ Não, a visualização de dependência não pode ser exportada. No entanto, as m
 
 Use esse [script para instalar o Dependency Agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) usando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
-Além de scripts, você também pode usar ferramentas de implantação como System Center Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implantar os agentes.
+Além de scripts, você também pode usar ferramentas de implantação como o Microsoft Endpoint Configuration Manager e o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implantar os agentes.
 
 
 ## <a name="what-operating-systems-does-mma-support"></a>A quais sistemas operacionais o MMA dá suporte?

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 9abf9b791cc986bcce49bbd0cf8136a573a149a3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 09e6fd8530ddb1745a92c6f31f4d5a5843a2ac10
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860196"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513172"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Personalizando modelos de conteúdo no Video Indexer
 
@@ -23,7 +23,7 @@ Video Indexer permite que você personalize alguns de seus modelos para serem ad
 
 Este artigo fornece links para artigos que explicam os benefícios de cada tipo de personalização. O artigo também fornece links para guias de instruções que mostram como você pode implementar a personalização de cada modelo.
 
-## <a name="animated-characters"></a>Caracteres animados
+## <a name="animated-characters"></a>Carateres animados
 
 * [Detecção de caracteres animados](animated-characters-recognition.md)
 
@@ -45,6 +45,6 @@ Este artigo fornece links para artigos que explicam os benefícios de cada tipo 
 * [Personalizando modelos de pessoa usando o site Video Indexer](customize-person-model-with-website.md)
 * [Personalizando modelos de pessoa usando a API de Video Indexer](customize-person-model-with-api.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

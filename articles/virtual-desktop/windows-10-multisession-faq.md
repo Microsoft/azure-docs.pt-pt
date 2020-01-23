@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 10724407b8ba5568b38a844f2bf475060e2b7699
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227671"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515110"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -44,7 +44,7 @@ Personalize a imagem para suas necessidades Instalando aplicativos LOB e Sysprep
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Como fazer gerenciar o Windows 10 Enterprise Multi-Session após a implantação?
 
-Você pode usar qualquer ferramenta de configuração com suporte, mas é recomendável System Center Configuration Manager 1906 porque ele dá suporte a Windows 10 Enterprise Multi-Session. No momento, estamos trabalhando no suporte Microsoft Intune.
+Você pode usar qualquer ferramenta de configuração com suporte, mas é recomendável Configuration Manager a versão 1906 porque ela dá suporte a Windows 10 Enterprise Multi-Session. No momento, estamos trabalhando no suporte Microsoft Intune.
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>O ingresso no Windows 10 Enterprise Multi-Session Azure Active Directory (AD) pode ser ingressado?
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre como configurar um contêiner de perfil do F
 
 Para obter uma lista completa das licenças aplicáveis, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a área de trabalho virtual do Windows e a várias sessões do Windows 10 Enterprise:
 

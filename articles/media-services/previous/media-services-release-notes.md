@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: d4c8dd4b3a53d484d5240f3514d171231fc93ae0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5b1daab724d979206983ee758760790967abc06d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968515"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513427"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de mídia do Azure
 
@@ -50,15 +50,17 @@ Para obter informações sobre o histórico de versão da API REST dos serviços
 
 ### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição da *Azure Media indexer* e da versão *prévia do Azure Media indexer 2*. O processador de mídia [Azure Media indexer](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia da versão [prévia do Azure Media indexer 2](media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+Estamos anunciando a substituição da *Azure Media indexer* e da versão *prévia do Azure Media indexer 2*. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
 
-Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
+Para as datas de desativação, consulte este tópico de [componentes herdados](legacy-components.md) .
+
+Consulte também [migrar de Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto de 2019
 
 ### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
 
-Estamos anunciando a substituição dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame), que estão sendo desativados em 31 de março de 2020.
+Estamos anunciando a substituição dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame), que estão sendo desativados em 1º de março de 2020.
 
 Para obter detalhes, consulte [migrar WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [migrar ame para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
@@ -247,13 +249,13 @@ Para obter mais informações, veja [este blogue](https://azure.microsoft.com/bl
 ## <a id="august_changes_15"></a>Versão de agosto de 2015
 * O SDK dos serviços de mídia para a versão 0.8.0 do Java e novos exemplos agora estão disponíveis. Para obter mais informações, veja:
     
-* O Player de Mídia do Azure foi atualizado com suporte a fluxo de vários áudios. Para obter mais informações, veja [esta mensagem do blogue](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
+* O Player de Mídia do Azure foi atualizado com suporte a fluxo de vários áudios. Para mais informações, consulte [esta mensagem no blogue](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Versão de julho de 2015
-* A disponibilidade geral do Media Encoder Standard foi anunciada. Para obter mais informações, veja [esta mensagem do blogue](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+* A disponibilidade geral do Media Encoder Standard foi anunciada. Para mais informações, consulte [esta mensagem no blogue](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
     Media Encoder Standard usa predefinições, conforme descrito nesta [seção](https://go.microsoft.com/fwlink/?LinkId=618336). Quando você usa uma predefinição para codificações de 4K, obtenha o tipo de unidade reservada Premium. Para obter mais informações, consulte [dimensionar codificação](media-services-scale-media-processing-overview.md).
-* As legendas em tempo real são usadas com os serviços de mídia e o Media Player. Para obter mais informações, veja [esta mensagem do blogue](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+* As legendas em tempo real são usadas com os serviços de mídia e o Media Player. Para mais informações, consulte [esta mensagem no blogue](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK do .NET dos serviços de mídia
 O SDK do .NET dos serviços de mídia agora está na versão 3.4.0.0. As seguintes atualizações foram feitas: 

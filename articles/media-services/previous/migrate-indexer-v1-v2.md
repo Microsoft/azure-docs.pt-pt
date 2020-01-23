@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 791287d693903007d09c2e82025bfe195f9f15d1
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2268c074480f99ca23117ca2ffd2c87c1dbb10a2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464049"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513240"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrar do indexador de mídia e do indexador de mídia 2 para Video Indexer
 
-O processador de mídia [Azure Media indexer](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia da versão [prévia do Azure Media indexer 2](media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020.  Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+O processador de mídia [Azure Media indexer](media-services-index-content.md) e os processadores de mídia de [Azure Media indexer 2 Preview](media-services-process-content-with-indexer2.md) estão sendo desativados. Para as datas de desativação, consulte este tópico de [componentes herdados](legacy-components.md) . Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
 
 Os serviços de mídia do Azure Video Indexer se baseiam em Análise de Mídia do Azure, Pesquisa Cognitiva do Azure, serviços cognitivas (como o API de Detecção Facial, o Microsoft Translator, o API da Pesquisa Visual Computacional e o serviço Fala Personalizada). Esta aplicação permite-lhe extrair as informações dos seus vídeos através dos modelos de vídeo e áudio do Video Indexer. Para ver quais cenários Video Indexer podem ser usados no, quais recursos ele oferece e como começar, consulte [Video indexer modelos de vídeo e áudio](../video-indexer/video-indexer-overview.md). 
 
@@ -35,7 +35,7 @@ Este artigo discute as etapas para migrar do Azure Media Indexer e Azure Media I
 
 ## <a name="migration-options"></a>Opções de migração 
 
-|Se você precisar  |Clique |
+|Se você precisar  |em seguida, |
 |---|---|
 |uma solução que fornece uma transcrição de conversão de fala em texto para qualquer formato de arquivo de mídia em formatos de arquivo de legenda codificada: VTT, SRT ou TTML<br/>Além de informações adicionais sobre áudio, como: palavras-chave, tópico inferência, eventos acústicos, diarization do palestrante, extração e tradução de entidades| atualize seus aplicativos para usar os recursos de Video Indexer do Azure por meio da API REST do Video Indexer v2 ou da predefinição do analisador de áudio do Azure Media Services V3.|
 |recursos de conversão de fala em texto| Use os serviços cognitivas Speech API diretamente.|  
@@ -50,7 +50,7 @@ A API dos serviços de mídia do Azure v3 permite que você extraia informaçõe
 
 O **AudioAnalyzerPreset** permite que você extraia várias informações de áudio de um arquivo de áudio ou de vídeo. A saída inclui um arquivo VTT ou TTML para a transcrição de áudio e um arquivo JSON (com todas as informações de áudio adicionais). As informações de áudio incluem palavras-chave, indexação de orador e análise de sentimentos de fala. O AudioAnalyzerPreset também dá suporte à detecção de idioma para idiomas específicos. Para obter informações detalhadas, consulte [transformações](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
-### <a name="get-started"></a>Introdução
+### <a name="get-started"></a>Começar
 
 Para começar, consulte:
 
@@ -79,7 +79,7 @@ Algumas diferenças conhecidas incluem:
 
 Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes herdados](legacy-components.md)
 * [Página de preços](https://azure.microsoft.com/pricing/details/media-services/#encoding)

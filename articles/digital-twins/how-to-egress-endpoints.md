@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/21/2020
+ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456926"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511574"
 ---
 # <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
 
@@ -50,13 +50,13 @@ Os eventos são enviados por objetos IoT (como dispositivos e sensores) para pro
 | Atributo | Tipo | Descrição |
 | --- | --- | --- |
 | ID | string | Identificador exclusivo do evento. |
-| subject | string | Caminho definido pelo Publicador para a entidade do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | data | objeto | Dados de evento específicos para o provedor de recursos. |
-| eventType | string | Um dos tipos de evento registrados para essa origem do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. A grade de eventos define o esquema das propriedades de nível superior. A grade de eventos fornece esse valor. |
-| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
+| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. O Event Grid fornece este valor. |
 
 Para obter mais informações sobre o esquema de evento da grade de eventos:
 
@@ -248,7 +248,7 @@ Os exemplos a seguir demonstram como configurar os pontos de extremidade com sup
 
 Uma solicitação HTTP POST autenticada em relação a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 

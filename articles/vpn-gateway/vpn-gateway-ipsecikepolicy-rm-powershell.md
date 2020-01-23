@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864065"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514923"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet
 
@@ -341,7 +341,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-Se não houver nenhuma política de IPsec/IKE configurada, o comando (PS > $connection 6. Policy) obterá um retorno vazio. Isso não significa que o IPsec/IKE não esteja configurado na conexão, mas que não haja nenhuma política de IPsec/IKE personalizada. A conexão real usa a política padrão negociada entre o dispositivo VPN local e o gateway de VPN do Azure.
+Se não houver nenhuma política de IPsec/IKE configurada, o comando (PS > $connection 6. IpsecPolicies) Obtém um retorno vazio. Isso não significa que o IPsec/IKE não esteja configurado na conexão, mas que não haja nenhuma política de IPsec/IKE personalizada. A conexão real usa a política padrão negociada entre o dispositivo VPN local e o gateway de VPN do Azure.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. adicionar ou atualizar uma política de IPsec/IKE para uma conexão
 

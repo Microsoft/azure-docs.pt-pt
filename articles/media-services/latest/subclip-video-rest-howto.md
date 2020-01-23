@@ -1,5 +1,5 @@
 ---
-title: Subclipe um vídeo ao codificar com API REST de Serviços de Mídia do Azure
+title: Subclipe um vídeo ao codificar com REST dos serviços de mídia do Azure
 description: Este tópico descreve como subcortar um vídeo ao codificar com os serviços de mídia do Azure usando REST
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704454"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514328"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclipe um vídeo ao codificar com os serviços de mídia-REST
 
@@ -39,7 +39,7 @@ Para concluir os passos descritos neste tópico, tem de:
 
 ## <a name="create-a-subclipping-job"></a>Criar um trabalho de subcorte
 
-1. Na coleção de postmaster que você baixou, selecione **transformações e trabalhos** -> **criar trabalho com**o subcorte.
+1. Na coleção de postmaster que você baixou, selecione **transformações e trabalhos** -> **criar trabalho com subcorte**.
     
     A solicitação **Put** é parecida com esta:
     
@@ -84,6 +84,6 @@ Para concluir os passos descritos neste tópico, tem de:
 
     Você verá a **resposta** com as informações sobre o trabalho que foi criado e enviado e o status do trabalho. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Como codificar com uma transformação personalizada](custom-preset-rest-howto.md) 

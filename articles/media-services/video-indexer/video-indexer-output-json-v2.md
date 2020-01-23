@@ -1,5 +1,5 @@
 ---
-title: Examinar os serviços de mídia do Azure Video Indexer saída produzida pela API v2
+title: Examinar a saída de Video Indexer produzida pela API v2 – Azure
 titleSuffix: Azure Media Services
 description: Este tópico examina os serviços de mídia do Azure Video Indexer saída produzida pela API v2.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454642"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514396"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 

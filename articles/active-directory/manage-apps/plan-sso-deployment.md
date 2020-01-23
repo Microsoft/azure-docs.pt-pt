@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779370"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512832"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -31,7 +31,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço), como
 
 O Azure Marketplace tem mais de 3000 aplicativos com conexões de SSO previamente integradas, facilitando sua integração em seu locatário.
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licenças
 
 - **Licenciamento do Azure ad** -o SSO para aplicativos SaaS previamente integrados é gratuito. No entanto, o número de objetos em seu diretório e os recursos que você deseja implantar podem exigir licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de aplicativos** – você precisará das licenças apropriadas para seus aplicativos SaaS atenderem às suas necessidades de negócios. Trabalhe com o proprietário do aplicativo para determinar se os usuários atribuídos ao aplicativo têm as licenças apropriadas para suas funções no aplicativo. Se o Azure AD gerenciar o provisionamento automático com base em funções, as funções atribuídas no Azure AD deverão ser alinhadas com o número de licenças de Propriedade do aplicativo. O número inadequado de licenças pertencentes ao aplicativo pode levar a erros durante o provisionamento/atualização de um usuário.
@@ -62,7 +62,7 @@ Há duas maneiras principais de permitir que seus usuários façam logon único 
 Usar o Azure AD para SSO baseado em senha requer a implantação de uma extensão de navegador que irá recuperar as credenciais com segurança e preencher os formulários de logon. Defina um mecanismo para implantar a extensão em escala com os [navegadores com suporte](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). As opções incluem:
 
 - [Política de Grupo para o Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) para o Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Configuration Manager para o Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Download e configuração controlados pelo usuário para Chrome, Firefox, Microsoft Edge ou IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Para saber mais, consulte [como configurar o logon único com senha](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
@@ -117,12 +117,12 @@ Alguns dos principais tópicos a serem planejados durante a configuração das r
 
 O Azure AD fornece [relatórios que contêm informações técnicas e de negócios](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
-Os relatórios de segurança e atividade estão disponíveis. Os relatórios de segurança mostram os usuários sinalizados para risco e entradas arriscadas. Os relatórios de atividades ajudam você a entender o comportamento dos usuários em sua organização, detalhando a atividade de entrada e fornecendo trilhas de auditoria de todos os logons. Você pode usar relatórios para gerenciar riscos, aumentar a produtividade e monitorar a conformidade.
+Os relatórios de segurança e atividade estão disponíveis. Os relatórios de segurança mostram os usuários sinalizados para risco e entradas arriscadas. os relatórios de atividades ajudam você a entender o comportamento dos usuários em sua organização, detalhando a atividade de entrada e fornecendo trilhas de auditoria de todos os logons. Você pode usar relatórios para gerenciar riscos, aumentar a produtividade e monitorar a conformidade.
 
 | Tipo de relatório | Revisão de acesso | Relatórios de segurança | Relatório de entrada |
 |-------------|---------------|------------------|----------------|
 | Usar para examinar | Uso e permissões do aplicativo. | Contas potencialmente comprometidas | Quem está acessando os aplicativos |
-| Ações potenciais | Acesso de auditoria; revogar permissões | Revogar o acesso; forçar redefinição de segurança | Revogar acesso |
+| Ações potenciais | Acesso de auditoria; revogar permissões | Revogar o acesso; forçar redefinição de segurança | Revogar o acesso |
 
 O Azure AD retém a maioria dos dados de auditoria por 30 dias e disponibiliza os dados por meio do portal de administração do Azure ou por meio de uma API para você baixar em seus sistemas de análise.
 
@@ -140,9 +140,9 @@ A implantação do MCAS permite que você:
 
 O controle de sessão MCAS (segurança de aplicativo) Microsoft Cloud está disponível para qualquer navegador em qualquer plataforma principal em qualquer sistema operacional. Aplicações móveis e aplicações de ambiente de trabalho também podem ser bloqueadas ou permitidas. Ao integrar nativamente com o Azure AD, todos os aplicativos configurados com SAML ou aplicativos Open ID Connect com logon único no Azure AD podem ter suporte, incluindo [vários aplicativos em destaque](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
 
-Para obter informações sobre MCAS, consulte a [visão geral de Microsoft Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS é um serviço de assinatura baseado em usuário. Você pode examinar os detalhes de licenciamento na [folha de MCAS](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO)de licenciamento do.
+Para obter informações sobre MCAS, consulte a [visão geral de Microsoft Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS é um serviço de assinatura baseado em usuário. Você pode examinar os detalhes de licenciamento na [folha de MCAS de licenciamento](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO)do.
 
-### <a name="use-conditional-access"></a>Usar acesso condicional
+### <a name="use-conditional-access"></a>Utilizar o Acesso Condicional
 
 Com o acesso condicional, você pode automatizar decisões de controle de acesso com base em critérios para seus aplicativos de nuvem.
 
@@ -156,7 +156,7 @@ A seção a seguir detalha os requisitos para configurar seu aplicativo específ
 
 Para todos os aplicativos SaaS previamente integrados, a Microsoft fornece um tutorial e você não precisará dessas informações. Se o aplicativo não estiver em nosso Marketplace/Galeria de aplicativos, talvez seja necessário coletar os seguintes dados:
 
-- **Provedor de identidade atual que o aplicativo usa para SSO, se aplicável** , por exemplo: AD FS, PingFederate, Okta
+- **Provedor de identidade atual o aplicativo usa para SSO, se aplicável** , por exemplo: AD FS, PingFederate, Okta
 - **Protocolos com suporte no aplicativo de destino** -por exemplo, SAML 2,0, OpenID Connect, OAuth, autenticação baseada em formulários, WS-enalimentado, WS-Trust
 - **Protocolo que está sendo configurado com o Azure ad** -por exemplo, SAML 2,0 ou 1,1, OpenID Connect, OAuth, baseado em formulários, WS-alimentado
 
@@ -236,11 +236,11 @@ Sempre use a função com o mínimo de permissões disponíveis para realizar a 
 
 | Persona| Funções | Função do Azure AD (se necessário) |
 |--------|-------|-----------------------------|
-| Administrador de assistência técnica | Suporte da camada 1 | Nenhum |
+| Administrador de assistência técnica | Suporte da camada 1 | Nenhuma |
 | Administrador de identidade | Configurar e depurar quando os problemas afetam o Azure AD | Administrador global |
-| Administrador do aplicativo | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhuma |
+| Administrador da aplicação | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhuma |
 | Administradores de infraestrutura | Proprietário da substituição do certificado | Administrador global |
-| Proprietário da empresa/participante | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhum |
+| Proprietário da empresa/participante | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhuma |
 
 Recomendamos o uso de [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 
@@ -264,9 +264,9 @@ A disponibilidade de métodos de autenticação dentro do aplicativo determinar�
 
 - **Se seu aplicativo não oferecer suporte a vários IDPs** , mas permitir que os usuários façam logon usando a autenticação baseada em formulários (nome de usuário/senha), verifique se os usuários podem retornar a essa abordagem caso a nova distribuição da configuração de SSO falhe.
 
-### <a name="access-management"></a>Gerenciamento de acesso
+### <a name="access-management"></a>Gestão de acesso
 
-É recomendável escolher uma abordagem dimensionada ao gerenciar o acesso aos recursos. Abordagens comuns incluem a utilização de grupos locais por meio da sincronização por meio de Azure AD Connect, a [criação de grupos dinâmicos no Azure AD com base em atributos de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)ou a criação de [grupos](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) de autoatendimento no Azure ad gerenciado por um proprietário de recurso.
+É recomendável escolher uma abordagem dimensionada ao gerenciar o acesso aos recursos. Abordagens comuns incluem a utilização de grupos locais por meio da sincronização por meio de Azure AD Connect, a [criação de grupos dinâmicos no Azure AD com base em atributos de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)ou a criação de [grupos de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) no Azure ad gerenciado por um proprietário de recurso.
 
 ### <a name="monitor-security"></a>Monitorar a segurança
 
@@ -304,7 +304,7 @@ Os links a seguir apresentam cenários de solução de problemas. Talvez você q
 
 - [Problema com SSO Federado para aplicativos não listados na Galeria de Aplicativo Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Depuração SSO baseadas em SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
@@ -318,7 +318,7 @@ Os links a seguir apresentam cenários de solução de problemas. Talvez você q
 
 [B2B do Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (para usuários externos, como parceiros e fornecedores)
 
-[Acesso condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Acesso Condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Proteção de identidade do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

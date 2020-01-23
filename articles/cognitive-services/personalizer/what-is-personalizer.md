@@ -8,68 +8,97 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707957"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514310"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
-O personalizador do Azure é um serviço de API baseado em nuvem que permite que seu aplicativo escolha a melhor experiência para mostrar aos seus usuários, aprendendo com seu comportamento em tempo real coletivo.
+O personalizador do Azure é um serviço de API baseado em nuvem que ajuda o aplicativo cliente a escolher o melhor item de _conteúdo_ único para mostrar cada usuário. O serviço seleciona o melhor item, de itens de conteúdo, com base em informações em tempo real coletiva que você fornece sobre conteúdo e contexto.
 
-* Forneça informações sobre seus usuários e conteúdo e receba a ação principal para mostrar os usuários. 
-* Não é necessário limpar e rotular dados antes de usar o personalizador.
-* Forneça comentários para o personalizador quando for conveniente para você. 
-* Exibir análise em tempo real. 
+Depois de apresentar o item de conteúdo ao seu usuário, o sistema monitora o comportamento do usuário e relata uma pontuação de recompensa de volta ao personalizador para melhorar sua capacidade de selecionar o melhor conteúdo com base nas informações de contexto que ele recebe.
 
-Veja uma demonstração de [como o personalizador funciona](https://personalizercontentdemo.azurewebsites.net/)
+O **conteúdo** pode ser qualquer unidade de informações, como texto, imagens, URLs ou emails que você deseja selecionar para mostrar ao usuário.
 
-## <a name="how-does-personalizer-work"></a>Como funciona o personalizador?
+<!--
+![What is personalizer animation](./media/what-is-personalizer.gif)
+-->
 
-O personalizador usa modelos de aprendizado de máquina para descobrir qual ação deve ser classificada mais alta em um contexto. O aplicativo cliente fornece uma lista de possíveis ações, com informações sobre elas; e informações sobre o contexto, que podem incluir informações sobre o usuário, o dispositivo, etc. O personalizador determina a ação a ser tomada. Depois que o aplicativo cliente usa a ação escolhida, ele fornece comentários para o personalizador na forma de uma pontuação de recompensa. Depois que os comentários são recebidos, o personalizador atualiza automaticamente seu próprio modelo usado para futuras classificações. Ao longo do tempo, o personalizador treinará um modelo que pode sugerir a melhor ação a ser escolhida em cada contexto com base em seus recursos.
+## <a name="how-does-personalizer-select-the-best-content-item"></a>Como o personalizador seleciona o melhor item de conteúdo?
 
-## <a name="how-do-i-use-the-personalizer"></a>Como fazer usar o personalizador?
+O personalizador usa o **reforço Learning** para selecionar o melhor item (_ação_) com base no comportamento coletivo e recompensar pontuações em todos os usuários. As ações são itens de conteúdo, como artigos de notícias, filmes específicos ou produtos dos quais escolher.
 
-![Usando o personalizador para escolher qual vídeo mostrar a um usuário](media/what-is-personalizer/personalizer-example-highlevel.png)
+A chamada de **classificação** usa o item de ação, juntamente com os recursos da ação e os recursos de contexto para selecionar o item de ação superior:
 
-1. Escolha uma experiência em seu aplicativo para personalizar.
-1. Crie e configure uma instância do serviço de personalização no portal do Azure. Cada instância é um loop personalizado.
-1. Use a [API de classificação](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) para chamar o personalizador com informações (_recursos_) sobre seus usuários e o conteúdo (_ações_). Você não precisa fornecer dados limpos e rotulados antes de usar o personalizador. As APIs podem ser chamadas diretamente ou usando SDKs disponíveis para diferentes linguagens de programação.
-1. No aplicativo cliente, mostre ao usuário a ação selecionada pelo personalizador.
-1. Use a [API de recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) para fornecer comentários ao personalizador indicando se a ação do personalizador selecionado pelo usuário. Esta é uma _[Pontuação de recompensa](concept-rewards.md)_ .
-1. Veja a análise no portal do Azure para avaliar como o sistema está funcionando e como seus dados estão ajudando a personalização.
+* **Ações com recursos** -itens de conteúdo com recursos específicos para cada item
+* **Recursos de contexto** -recursos de seus usuários, seu contexto ou seu ambiente ao usar seu aplicativo
 
-## <a name="where-can-i-use-personalizer"></a>Onde posso usar o personalizador?
+A chamada de classificação retorna a ID da qual item de conteúdo, __Action__, para mostrar ao usuário, no campo **ID da ação de recompensa** .
+A __ação__ mostrada para o usuário é escolhida com modelos de aprendizado de máquina, tentando maximizar a quantidade total de recompensas ao longo do tempo.
 
-Por exemplo, seu aplicativo cliente pode adicionar personalizador a:
+Vários cenários de exemplo são:
 
-* Personalize o artigo que está destacado em um site de notícias.    
-* Otimizar o posicionamento do AD em um site.
-* Exibir um "item recomendado" personalizado em um site de compras.
-* Sugira elementos de interface do usuário, como filtros, a serem aplicados a uma foto específica.
-* Escolha uma resposta de bot de chat para esclarecer a intenção do usuário ou sugerir uma ação.
-* Priorize sugestões do que um usuário deve fazer como a próxima etapa em um processo de negócios.
+|Tipo de conteúdo|**Ações (com recursos)**|**Recursos de contexto**|ID da ação de recompensa retornada<br>(exibir este conteúdo)|
+|--|--|--|--|
+|Lista de notícias|a. `The president...` (National, política, [texto])<br>b. `Premier League ...` (global, esportes, [texto, imagem, vídeo])<br> c. `Hurricane in the ...` (regional, clima, [texto, imagem]|As notícias do dispositivo são lidas de<br>Mês ou temporada<br>|um `The president...`|
+|Lista de filmes|1. `Star Wars` (1977, [ação, aventura, fantasia], George Lucas)<br>2. `Hoop Dreams` (1994, [documentário, esportes], Steve James<br>3. `Casablanca` (1942, [romance, inTudo, War], Michael Curtiz)|O filme do dispositivo é observado em<br>tamanho da tela<br>Tipo de usuário<br>|3. `Casablanca`|
+|Lista de produtos|i. `Product A` (3 kg, US $ $ $ $ $, entrega em 24 horas)<br>ii. `Product B` (20 kg, US $ $, 2 semanas entregues com alfândega)<br>iii. `Product C` (3 kg, US $ $ $, entrega em 48 horas)|A compra do dispositivo é lida<br>Camada de gastos do usuário<br>Mês ou temporada|ii. `Product B`|
 
-O personalizador não é um serviço para persistir e gerenciar informações de perfil do usuário ou para registrar as preferências ou o histórico de usuários individuais. O personalizado aprende dos recursos de cada interação na ação de um contexto em um único modelo que pode obter recompensas máximas quando ocorrem recursos semelhantes. 
+O personalizador usou o reforço Learning para selecionar a melhor ação, conhecida como _ID de ação de recompensa_, com base em uma combinação de:
+* Modelo treinado – informações antigas do serviço personalizado recebido
+* Ações específicas de dados atuais com recursos e recursos de contexto
 
-## <a name="personalization-for-developers"></a>Personalização para desenvolvedores
+## <a name="when-to-call-personalizer"></a>Quando chamar o personalizador
 
-O serviço de personalização tem duas APIs:
+A [API](https://go.microsoft.com/fwlink/?linkid=2092082) de **classificação** do personalizador é chamada _toda vez_ que você apresenta conteúdo, em tempo real. Isso é conhecido como um **evento**, anotado com uma _ID de evento_.
 
-* *Classificação*: Use a API de classificação para determinar qual _ação_ mostrar, no _contexto_atual. As ações são enviadas como uma matriz de objetos JSON, com uma ID e informações (_recursos_) sobre cada um; o contexto é enviado como outro objeto JSON. A API retorna a ActionID que seu aplicativo deve renderizar para o usuário.
-* *Recompensa*: depois que o usuário interage com seu aplicativo, você mede o quão bem a personalização funcionou como um número entre 0 e 1 e a envia como uma [Pontuação de recompensa](concept-rewards.md). 
+A [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) de **recompensa** do personalizador pode ser chamada em tempo real ou atrasada para se adequar melhor à sua infraestrutura. Você determina a pontuação de recompensa com base em suas necessidades de negócios. Isso pode ser um valor único, como 1 para bom, e 0 para ruim, ou um número produzido por um algoritmo criado considerando suas metas e métricas de negócios.
 
-![Sequência básica de eventos para personalização](media/what-is-personalizer/personalization-intro.png)
+## <a name="personalizer-content-requirements"></a>Requisitos de conteúdo do personalizador
+
+Use o personalizador quando seu conteúdo:
+
+* Tem um conjunto limitado de itens (máximo de ~ 50) para selecionar. Se você tiver uma lista maior, [use um mecanismo de recomendação](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) para reduzir a lista até 50 itens.
+* Tem informações que descrevem o conteúdo que você deseja classificar: _ações com_ recursos e _recursos de contexto_.
+* Tem um mínimo de ~ 1K/dia de eventos relacionados ao conteúdo para que o personalizado seja eficaz. Se o personalizador não receber o tráfego mínimo necessário, o serviço levará mais tempo para determinar o único item de conteúdo mais adequado.
+
+Como o personalizador usa informações coletivamente quase em tempo real para retornar o único item de conteúdo mais adequado, o serviço não:
+* Manter e gerenciar informações de perfil do usuário
+* Registrar preferências ou histórico de usuários individuais
+* Exigir conteúdo limpo e rotulado
+
+## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Como projetar e implementar o personalizador para seu aplicativo cliente
+
+1. [Projete](concepts-features.md) e planeje o conteúdo, as **_ações_** e o **_contexto_** . Determine o algoritmo de recompensa da Pontuação de **_recompensa_** .
+1. Cada [recurso personalizado](how-to-settings.md) que você cria é considerado 1 loop de aprendizado. O loop receberá as chamadas Rank e recompensa para o conteúdo ou a experiência do usuário.
+1. Adicione o personalizador ao seu site ou ao sistema de conteúdo:
+    1. Adicione uma chamada de **classificação** ao personalizador no seu aplicativo, site ou sistema para determinar o melhor item de _conteúdo_ único antes de o conteúdo ser mostrado ao usuário.
+    1. Exiba o melhor item de _conteúdo_ único, que é a _ID da ação de recompensa_retornada, para o usuário.
+    1. Aplique o _algoritmo_ para obter informações coletadas sobre como o usuário se comporta, para determinar a pontuação de **recompensa** , como:
+
+        |Comportamento|Pontuação de recompensa calculada|
+        |--|--|
+        |Melhor selecionado pelo usuário, item de _conteúdo_ único (ID da ação de recompensa)|**1**|
+        |Outro conteúdo foi selecionado pelo usuário|**0**|
+        |O usuário está em pausa, rolando de forma indecisiva, antes de selecionar melhor, item de _conteúdo_ único (ID da ação de recompensa)|**0,5**|
+
+    1. Adicionar uma chamada de **recompensa** enviando uma pontuação de recompensa entre 0 e 1
+        * Imediatamente após mostrar seu conteúdo
+        * Ou algum tempo depois em um sistema offline
+    1. [Avalie seu loop](concepts-offline-evaluation.md) com uma avaliação offline após um período de uso. Uma avaliação offline permite testar e avaliar a eficácia do serviço personalizado sem alterar seu código nem afetar a experiência do usuário.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que há de novo no Personalizador?](whats-new.md)
-* [Como funciona o personalizador?](how-personalizer-works.md)
+
+* [Como o personalizador funciona](how-personalizer-works.md)
 * [O que é o reforço Learning?](concepts-reinforcement-learning.md)
 * [Saiba mais sobre os recursos e as ações para a solicitação de classificação](concepts-features.md)
 * [Saiba como determinar a pontuação da solicitação de recompensa](concept-rewards.md)
+* [Inícios rápidos]()
+* [Tutorial]()
 * [Usar a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

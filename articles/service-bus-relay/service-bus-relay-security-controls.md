@@ -1,18 +1,18 @@
 ---
 title: Controles de segurança para retransmissão do barramento de serviço do Azure
-description: Uma lista de verificação de controles de segurança para avaliar a retransmissão do barramento de serviço do Azure
+description: Este artigo fornece uma lista de verificação de controles de segurança internos para avaliar a retransmissão do barramento de serviço do Azure.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7f4e2a31673905a7e28d1dbb5520650aefc6f368
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219979"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514022"
 ---
 # <a name="security-controls-for-azure-service-bus-relay"></a>Controles de segurança para retransmissão do barramento de serviço do Azure
 
@@ -36,25 +36,25 @@ Este artigo documenta os controles de segurança criados na retransmissão do ba
 | Registro e auditoria do plano de gerenciamento e controle| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
 | Log e auditoria do plano de dados| Sim | Êxito na conexão/falha e erros e registrados.  |   |
 
-## <a name="identity"></a>identidade
+## <a name="identity"></a>Identidade
 
 | Controle de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Authentication| Sim | Via SAS. | [Autenticação e autorização de retransmissão do Azure](relay-authentication-and-authorization.md) |
+| Autenticação| Sim | Via SAS. | [Autenticação e autorização de retransmissão do Azure](relay-authentication-and-authorization.md) |
 | Autorização|  Sim | Via SAS. | [Autenticação e autorização de retransmissão do Azure](relay-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Proteção de dados
 
 | Controle de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft |  N/A | A retransmissão é um soquete da Web e não mantém os dados. |   |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  N/A | A retransmissão é um soquete da Web e não mantém os dados. |   |
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não | Usa somente certificados TLS da Microsoft.  |   |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |   |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | O serviço requer TLS. |   |
 | Chamadas de API criptografadas| Sim | HTTPS. |
 
 
-## <a name="configuration-management"></a>Gestão de configuração
+## <a name="configuration-management"></a>Gestão de configurações
 
 | Controle de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|

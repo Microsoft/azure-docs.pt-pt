@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas de erros encontrados 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664632"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513801"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -262,7 +262,6 @@ Verifique a versão do agente de VM em VMs do Windows:
 
 O backup da VM depende de emitir comandos de instantâneo para o armazenamento subjacente. Não ter acesso ao armazenamento ou atrasos em uma execução de tarefa de instantâneo pode fazer com que o trabalho de backup falhe. As condições a seguir podem causar falha na tarefa de instantâneo:
 
-* O **acesso à rede para armazenamento é bloqueado usando NSG**. Saiba mais sobre como [estabelecer o acesso à rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity) para armazenamento usando a lista de IPs permitidos ou por meio de um servidor proxy.
 * **VMs com SQL Server Backup configurado podem causar atraso na tarefa de instantâneo**. Por padrão, o backup da VM cria um backup completo do VSS em VMs do Windows. As VMs que executam o SQL Server, com SQL Server Backup configurado, podem ter atrasos de instantâneos. Se os atrasos de instantâneo causarem falhas de backup, defina a seguinte chave do registro:
 
    ```text
@@ -276,29 +275,9 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
 
 ## <a name="networking"></a>Funcionamento em Rede
 
-Assim como todas as extensões, as extensões de backup precisam acessar a Internet pública para funcionar. Não ter acesso à Internet pública pode se manifestar de várias maneiras:
+O DHCP deve ser habilitado dentro do convidado para que o backup da VM IaaS funcione. Se você precisar de um IP privado estático, configure-o por meio do portal do Azure ou do PowerShell. Verifique se a opção DHCP dentro da VM está habilitada.
+Obtenha mais informações sobre como configurar um IP estático por meio do PowerShell:
 
-* A instalação da extensão pode falhar.
-* Operações de backup como instantâneo de disco podem falhar.
-* A exibição do status da operação de backup pode falhar.
+* [Como adicionar um IP interno estático a uma VM existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Alterar o método de alocação para um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-A necessidade de resolver endereços da Internet pública é discutida neste [blog de suporte do Azure](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Verifique as configurações de DNS para a VNET e verifique se os URIs do Azure podem ser resolvidos.
-
-Após a resolução de nomes ser feita corretamente, o acesso aos IPs do Azure também precisa ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga uma destas etapas:
-
-* Lista de permissões de intervalos de IP do datacenter do Azure:
-   1. Obtenha a lista de [IPS do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para estar na lista de permissões.
-   1. Desbloqueie os IPs usando o cmdlet [New-netroute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) . Execute este cmdlet dentro da VM do Azure, em uma janela do PowerShell com privilégios elevados. Execute como administrador.
-   1. Adicione regras ao NSG, se você tiver um em vigor, para permitir o acesso aos IPs.
-* Crie um caminho para o tráfego HTTP fluir:
-   1. Se você tiver alguma restrição de rede em vigor, implante um servidor proxy HTTP para rotear o tráfego. Um exemplo é um grupo de segurança de rede. Consulte as etapas para implantar um servidor proxy HTTP em [estabelecer conectividade de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Adicione regras ao NSG, se você tiver um em vigor, para permitir o acesso à Internet por meio do proxy HTTP.
-
-> [!NOTE]
-> O DHCP deve ser habilitado dentro do convidado para que o backup da VM IaaS funcione. Se você precisar de um IP privado estático, configure-o por meio do portal do Azure ou do PowerShell. Verifique se a opção DHCP dentro da VM está habilitada.
-> Obtenha mais informações sobre como configurar um IP estático por meio do PowerShell:
->
-> * [Como adicionar um IP interno estático a uma VM existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Alterar o método de alocação para um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

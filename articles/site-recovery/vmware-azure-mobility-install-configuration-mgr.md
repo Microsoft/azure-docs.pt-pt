@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 318b73011901e9ab07643bc2ecec28e5016e8702
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613912"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514828"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizar a instalação do serviço de mobilidade
 
@@ -19,8 +19,8 @@ Este artigo descreve como automatizar a instalação e as atualizações para o 
 Ao implantar Site Recovery para recuperação de desastre de VMs VMware locais e servidores físicos no Azure, você instala o agente do serviço de mobilidade em cada computador que deseja replicar. O serviço de mobilidade captura gravações de dados no computador e as encaminha para o servidor de processo de Site Recovery para replicação. Você pode implantar o serviço de mobilidade de duas maneiras:
 
 - **Instalação por push**: permita que site Recovery instale o agente do serviço de mobilidade quando você habilitar a replicação para um computador no portal do Azure.
-- **Instalação manual**: Instale o serviço de mobilidade manualmente em cada computador. [Saiba mais](vmware-physical-mobility-service-overview.md) sobre a instalação manual e por push.
-- **Implantação automatizada**: automatize a instalação com ferramentas de implantação de software como System Center Configuration Manager ou ferramentas de terceiros, como Intigua JetPatch.
+- **Instalação manual**: Instale o serviço de mobilidade manualmente em cada computador. [Saiba mais](/vmware-physical-mobility-service-overview.md) sobre a instalação manual e por push.
+- **Implantação automatizada**: automatize a instalação com ferramentas de implantação de software, como o Microsoft Endpoint Configuration Manager ou ferramentas de terceiros, como Intigua JetPatch.
 
 A instalação automatizada e a atualização fornece uma solução se:
 

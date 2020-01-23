@@ -7,14 +7,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922160"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512917"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consultar dados em Azure Data Lake usando o Data Explorer do Azure (versão prévia)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Consultar dados em Azure Data Lake usando o Azure Data Explorer
 
 Azure Data Lake Storage é uma solução data Lake altamente escalonável e econômica para análise de Big Data. Alia o poder de um sistema de ficheiros de elevado desempenho à economia e escala maciça para o ajudar a chegar mais rapidamente às informações que realmente interessam e oferecem valor. A Ger2 de Armazenamento do Data Lake expande as capacidades de Armazenamento de Blobs do Azure e está otimizada para cargas de trabalho de análise.
  

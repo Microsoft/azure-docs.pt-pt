@@ -1,18 +1,18 @@
 ---
 title: Manipuladores de eventos da grade de eventos do Azure
-description: Descreve os manipuladores de eventos com suporte para a grade de eventos do Azure
+description: Descreve os manipuladores de eventos com suporte para a grade de eventos do Azure. O manipulador executa algumas outras ações para processar o evento.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: c88ef8c3996b1e7d998d3eff12c15077ec2482ff
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3cef32cd204e8bd4b21353cf66575a721315b387
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900722"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511319"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na grade de eventos do Azure
 
@@ -42,7 +42,7 @@ Se utilizar as Funções do Azure como o processador, utilize o acionador do Eve
 | [Tutorial: transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md) | Quando os hubs de eventos criam um arquivo de captura, a grade de eventos envia um evento para um aplicativo de funções. O aplicativo recupera o arquivo de captura e migra os dados para um data warehouse. |
 | [Tutorial: exemplos de integração do barramento de serviço do Azure para a grade de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A grade de eventos envia mensagens do tópico do barramento de serviço para o aplicativo de funções e o aplicativo lógico. |
 
-## <a name="event-hubs"></a>Hubs de Eventos
+## <a name="event-hubs"></a>Event Hubs
 
 Use os hubs de eventos quando sua solução receber eventos mais rapidamente do que pode processar os eventos. Seu aplicativo processa os eventos dos hubs de eventos no próprio agendamento. Você pode dimensionar o processamento de eventos para lidar com os eventos de entrada.
 

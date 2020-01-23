@@ -8,16 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f3627a79cad6833b5fb20f3c829c1e3bcbd9c3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d11d23cf7d96482028a9d3738196fc5a787fec91
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457340"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510214"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Como instalar o IoT Edge no kubernetes (versão prévia)
 
-IoT Edge pode integrar com o kubernetes usando-o como uma camada de infraestrutura resiliente e altamente disponível. Ele registra um IoT Edge CRD ( *definição de recurso personalizado* ) com o servidor de API do kubernetes. Além disso, ele fornece um *operador* (agente de IOT Edge) que reconcilia o estado desejado gerenciado pela nuvem com o estado do cluster local. 
+IoT Edge pode integrar com o kubernetes usando-o como uma camada de infraestrutura resiliente e altamente disponível. Ele registra um IoT Edge CRD ( *definição de recurso personalizado* ) com o servidor de API do kubernetes. Além disso, ele fornece um *operador* (agente de IOT Edge) que reconcilia o estado desejado gerenciado pela nuvem com o estado do cluster local.
 
 O tempo de vida do módulo é gerenciado pelo Agendador kubernetes, que mantém a disponibilidade do módulo e escolhe seu posicionamento. IoT Edge gerencia a plataforma de aplicativo de borda em execução na parte superior, reconciliando continuamente o estado desejado especificado no Hub IoT com o estado no cluster de borda. O modelo de aplicativo do Edge ainda é o conhecido modelo com base em módulos e rotas IoT Edge. O operador agente IoT Edge executa a conversão *automática* para as construções nativas do kubernetes, como pods, implantações, serviços etc.
 
@@ -34,13 +34,13 @@ Cada componente da implantação de borda tem como escopo um namespace kubernete
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Kubernetes 1,10 ou mais recente. Se você não tiver uma configuração de cluster existente, poderá usar o [Minikube](https://kubernetes.io/docs/setup/minikube/) para um ambiente de cluster local. 
+* Kubernetes 1,10 ou mais recente. Se você não tiver uma configuração de cluster existente, poderá usar o [Minikube](https://kubernetes.io/docs/setup/minikube/) para um ambiente de cluster local.
 
 * [Helm](https://helm.sh/docs/using_helm/#quickstart-guide), o Gerenciador de pacotes do kubernetes.
 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para exibir e interagir com o cluster.
 
-### <a name="setup-steps"></a>Etapas de instalação
+### <a name="setup-steps"></a>Passos de configuração
 
 1. Iniciar **Minikube**
 
@@ -71,6 +71,7 @@ Cada componente da implantação de borda tem como escopo um namespace kubernete
     --set "deviceConnectionString=replace-with-device-connection-string" \
     edgek8s/edge-kubernetes
     ```
+
 1. Abra o painel do kubernetes no navegador
 
     ```shell
@@ -91,8 +92,8 @@ Para remover todos os recursos criados pela implantação de borda, use o comand
 helm delete --purge k8s-edge1
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-### <a name="deploy-as-a-highly-available-edge-gateway"></a>Implantar como um gateway de borda altamente disponível 
+### <a name="deploy-as-a-highly-available-edge-gateway"></a>Implantar como um gateway de borda altamente disponível
 
 O dispositivo de borda em um cluster kubernetes pode ser usado como um gateway IoT para dispositivos downstream. Ele pode ser configurado para ser resiliente à falha de nó, fornecendo alta disponibilidade a implantações de borda. Consulte este [passo a passos detalhado](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) para usar IOT Edge neste cenário.

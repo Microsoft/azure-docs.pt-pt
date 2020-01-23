@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027776"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514634"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -41,8 +41,15 @@ Se você tentar instalar o agente de sincronização em um controlador de domín
 
 Para resolver, transfira a função de PDC para outro controlador de domínio que executa o Windows Server 2012 R2 ou mais recente e, em seguida, instale a sincronização.
 
-<a id="server-registration-prerequisites"></a>**O registro do servidor exibe a seguinte mensagem: "pré-requisitos estão ausentes"**
+<a id="parameter-is-incorrect"></a>**Falha ao acessar um volume no Windows Server 2012 R2 com o erro: o parâmetro está incorreto**  
+Depois de criar um ponto de extremidade de servidor no Windows Server 2012 R2, o seguinte erro ocorrerá ao acessar o volume:
 
+letra_da_unidade: \ Não está acessível.  
+Parâmetro incorreto.
+
+Para resolver, instale as atualizações mais recentes do Windows Server 2012 R2 e reinicie o servidor.
+
+<a id="server-registration-prerequisites"></a>**O registro do servidor exibe a seguinte mensagem: "pré-requisitos estão ausentes"**  
 Essa mensagem será exibida se o módulo do PowerShell AZ ou AzureRM não estiver instalado no PowerShell 5,1. 
 
 > [!Note]  

@@ -1,6 +1,6 @@
 ---
 title: Métricas de retransmissão do Azure no Azure Monitor (visualização) | Microsoft Docs
-description: Usar o monitoramento do Azure para monitorar a retransmissão do Azure
+description: Este artigo fornece informações sobre como você pode usar Azure Monitor para monitorar o estado da retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9933b7857580f29cbb6a54ebc82d4e7207456ad4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5c548186ec51cf86f34942cb15d8f984afa60268
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261791"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514940"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de retransmissão do Azure no Azure Monitor (versão prévia)
 As métricas de retransmissão do Azure fornecem o estado dos recursos em sua assinatura do Azure. Com um rico conjunto de dados de métricas, você pode avaliar a integridade geral dos recursos de retransmissão, não apenas no nível de namespace, mas também no nível de entidade. Essas estatísticas podem ser importantes, pois ajudam você a monitorar o estado da retransmissão do Azure. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
@@ -60,24 +60,24 @@ Todos os valores de métricas são enviados para o Azure Monitor, a cada minuto.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| ListenerConnections-êxito (versão prévia) | O número de conexões de ouvinte bem-sucedidas feitas para a retransmissão do Azure durante um período especificado. <br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|ListenerConnections-ClientError (versão prévia)|O número de erros do cliente em conexões de ouvinte durante um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|ListenerConnections-ServerError (versão prévia)|O número de erros de servidor no ouvinte de conexões durante um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|SenderConnections-êxito (versão prévia)|O número de conexões de remetente bem-sucedidas feitas em um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|SenderConnections-ClientError (versão prévia)|O número de erros de cliente em conexões de remetente durante um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|SenderConnections-ServerError (versão prévia)|O número de erros de servidor em conexões de remetente durante um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|ListenerConnections-TotalRequests (versão prévia)|O número total de conexões de ouvinte em um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|SenderConnections-TotalRequests (versão prévia)|As solicitações de conexão feitas pelos remetentes durante um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|ActiveConnections (pré-visualização)|O número de conexões ativas em um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|ActiveListeners (visualização)|O número de ouvintes ativos em um período especificado.<br/><br/> Unidade Count <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|ListenerDisconnects (visualização)|O número de ouvintes desconectados durante um período especificado.<br/><br/> Unidade Bytes <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
-|SenderDisconnects (visualização)|O número de remetentes desconectados em um período especificado.<br/><br/> Unidade Bytes <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
+| ListenerConnections-êxito (versão prévia) | O número de conexões de ouvinte bem-sucedidas feitas para a retransmissão do Azure durante um período especificado. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-ClientError (versão prévia)|O número de erros do cliente em conexões de ouvinte durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-ServerError (versão prévia)|O número de erros de servidor no ouvinte de conexões durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-êxito (versão prévia)|O número de conexões de remetente bem-sucedidas feitas em um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-ClientError (versão prévia)|O número de erros de cliente em conexões de remetente durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-ServerError (versão prévia)|O número de erros de servidor em conexões de remetente durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-TotalRequests (versão prévia)|O número total de conexões de ouvinte em um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-TotalRequests (versão prévia)|As solicitações de conexão feitas pelos remetentes durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections (pré-visualização)|O número de conexões ativas em um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveListeners (visualização)|O número de ouvintes ativos em um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerDisconnects (visualização)|O número de ouvintes desconectados durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderDisconnects (visualização)|O número de remetentes desconectados em um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Métricas de uso de memória
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|BytesTransferred (visualização)|O número de bytes transferidos durante um período especificado.<br/><br/> Unidade Bytes <br/> Tipo de agregação: Total <br/> Dimensões EntityName|
+|BytesTransferred (visualização)|O número de bytes transferidos durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 

@@ -1,5 +1,5 @@
 ---
-title: Utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM
+title: Serviço de entrega de licença e criptografia DRM dos serviços de mídia do Azure
 titleSuffix: Azure Media Services
 description: Saiba como usar a criptografia dinâmica de DRM e o serviço de entrega de licença para entregar fluxos criptografados com licenças do Microsoft PlayReady, Google Widevine ou Apple FairPlay.
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974075"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513070"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: usar o serviço de entrega de licença e criptografia dinâmica de DRM
 
@@ -70,7 +70,7 @@ O exemplo "Encrypt with DRM" está localizado na pasta [EncryptWithDRM](https://
 > [!NOTE]
 > O exemplo cria recursos exclusivos toda vez que você executa o aplicativo. Normalmente, você reutilizará recursos existentes, como transformações e políticas (se o recurso existente tiver as configurações necessárias).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar APIs dos Serviços de Multimédia com SDK do .NET
+## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
 
 Para começar a usar as APIs dos serviços de mídia com o .NET, crie um objeto **AzureMediaServicesClient** . Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials, com base nas credenciais fornecidas no ficheiro de configuração local.
 
@@ -168,7 +168,7 @@ Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (nor
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
+Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.
 
 Execute o seguinte comando da CLI:
 
