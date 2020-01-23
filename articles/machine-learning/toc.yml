@@ -191,6 +191,9 @@
         - name: Identificar imagens
           displayName: 'data, dataset, labeling'
           href: how-to-label-images.md
+        - name: Criar conjuntos de dados com etiquetas
+          displayName: 'data, labels, torchvision'
+          href: how-to-use-labeled-dataset.md
     - name: Preparar modelos
       items:
         - name: Utilizar o estruturador

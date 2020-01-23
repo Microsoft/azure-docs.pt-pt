@@ -309,7 +309,7 @@
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparar para a instalação push do serviço de Mobilidade
                   href: vmware-azure-install-mobility-service.md
-                - name: Implementar o serviço de Mobilidade com o System Center Configuration Manager
+                - name: Implementar o Serviço de mobilidade com o Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Ativar a ativação pós-falha e a reativação pós-falha
           href: physical-to-azure-failover-failback.md

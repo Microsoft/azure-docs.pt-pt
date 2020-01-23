@@ -4,7 +4,7 @@
   items:
     - name: Sobre o Spatial Anchors
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar aplicação do Unity
@@ -57,7 +57,7 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: Em C++ /WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Utilizar sensores no dispositivo para descobrir âncoras próximas
+    - name: Utilizar relocalização genérica para descobrir âncoras próximas
       items:
         - name: 'Em C#/Unity'
           href: how-tos/set-up-coarse-reloc-unity.md
