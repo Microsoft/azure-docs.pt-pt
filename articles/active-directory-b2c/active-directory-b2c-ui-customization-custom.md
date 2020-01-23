@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db9b95f82a18072af538d4aa946431dcef8d9cff
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949631"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154646"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Crie conteúdo HTML com o nome da marca do produto no título.
 
 Para hospedar esse conteúdo HTML no armazenamento de BLOBs, execute as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No menu **Hub** , selecione **novo** **armazenamento** de >  > **conta de armazenamento**.
 1. Selecione uma **assinatura** para sua conta de armazenamento.
 1. Crie um **grupo de recursos** ou selecione um existente.
@@ -120,7 +120,7 @@ Valide se você está pronto executando as seguintes etapas:
 
 Para configurar a personalização da interface do usuário, você copia o **ContentDefinition** e seus elementos filho do arquivo base para o arquivo de extensões.
 
-1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> . Esse é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`**</em>. Esse é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Pesquise e copie todo o conteúdo do elemento **ContentDefinitions** .
 1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions. xml*. Procure o elemento **BuildingBlocks** . Se o elemento não existir, adicione-o.
 1. Cole todo o conteúdo do elemento **ContentDefinitions** que você copiou como um filho do elemento **BuildingBlocks** .
@@ -146,19 +146,19 @@ Para configurar a personalização da interface do usuário, você copia o **Con
 
 1. Salve o arquivo de extensões.
 
-## <a name="upload-your-updated-custom-policy"></a>Carregar sua política personalizada atualizada
+## <a name="upload-and-test-your-updated-custom-policy"></a>Carregar e testar sua política personalizada atualizada
+
+### <a name="upload-the-custom-policy"></a>Carregar a política personalizada
 
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-1. Selecione **Identity Experience Framework**.
-1. Clique em **todas as políticas**.
-1. Clique em **carregar política**.
+1. Procure e selecione **Azure ad B2C**.
+1. Em **políticas**, selecione **estrutura de experiência de identidade**.
+1. Selecione **carregar política personalizada**.
 1. Carregue o arquivo de extensões que você alterou anteriormente.
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada usando **executar agora**
+### <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada usando **executar agora**
 
-1. Na página **Azure ad B2C** , vá para **todas as políticas**.
-1. Selecione a política personalizada que você carregou e clique no botão **executar agora** .
+1. Selecione a política que você carregou e, em seguida, selecione **executar agora**.
 1. Você deve ser capaz de se inscrever usando um endereço de email.
 
 ## <a name="reference"></a>Referência
