@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: 44430f5a150952ba7cfc32b3e54d004cb0d0b761
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312350"
+ms.locfileid: "76514277"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -105,8 +105,8 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 >Você deve usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se você preferir não usar * para o tráfego relacionado ao agente, veja como encontrar as URLs sem curingas:
 >
 >1. Registre suas máquinas virtuais no pool de hosts da área de trabalho virtual do Windows.
->2. Abra o **Visualizador de eventos** e navegue até **Windows** > logs de **aplicativos** e procure a ID de evento 3712.
->3. Lista de permissões as URLs encontradas na ID do evento 3712. As URLs em ID de evento 3712 são específicas da região. Você precisará repetir o processo de lista de permissões com as URLs relevantes para cada região em que você deseja implantar suas máquinas virtuais.
+>2. Abra o **Visualizador de eventos** e navegue até **Windows** > logs de **aplicativos** e procure a ID de evento 3702.
+>3. Lista de permissões as URLs encontradas na ID do evento 3702. As URLs em ID de evento 3702 são específicas da região. Você precisará repetir o processo de lista de permissões com as URLs relevantes para cada região em que você deseja implantar suas máquinas virtuais.
 
 A área de trabalho virtual do Windows inclui os aplicativos e as áreas de trabalho do Windows que você fornece aos usuários e à solução de gerenciamento, que é hospedada como um serviço no Azure pela Microsoft. Desktops e aplicativos podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gerenciamento e os dados para essas VMs residirão no Estados Unidos. Isso pode resultar na transferência de dados para o Estados Unidos.
 

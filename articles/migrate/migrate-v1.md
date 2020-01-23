@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 52fe4af87d1f5ed6684896aebf404926691ccb07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186545"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514991"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior do migrações para Azure
 
@@ -76,7 +76,7 @@ Um computador só se moverá para um estágio posterior se ele passar o anterior
 
 A vista de preparação para o Azure na avaliação mostra o estado de preparação de cada VM.
 
-**Preparação** | **Status** | **Detalhes**
+**Preparação** | **Estado** | **Detalhes**
 --- | --- | ---
 Preparado para o Azure | Não há problemas de compatibilidade. O computador pode ser migrado no estado em que se encontra para o Azure e será inicializado no Azure com o suporte completo do Azure. | Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure.
 Condicionalmente preparado para o Azure | O computador pode ser inicializado no Azure, mas pode não ter o suporte completo do Azure. Por exemplo, um computador com uma versão mais antiga do Windows Server que não tem suporte no Azure. | As migrações para Azure explicam os problemas de preparação e fornecem etapas de correção.
@@ -96,7 +96,7 @@ A preparação leva em consideração uma série de propriedades da VM, para ide
 **Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados ao computador deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Pronto se estiver dentro dos limites.
 **Redes** | Um computador deve ter 32 ou menos NICs conectados a ele. | Pronto se estiver dentro dos limites.
 
-#### <a name="guest-operating-system"></a>Sistema operacional convidado
+#### <a name="guest-operating-system"></a>Sistema operativo convidado
 
 Juntamente com as propriedades da VM, as migrações para Azure também examinam o sistema operacional convidado da VM local para identificar se a VM pode ser executada no Azure.
 
@@ -105,7 +105,7 @@ Juntamente com as propriedades da VM, as migrações para Azure também examinam
 
 A lógica a seguir é usada.
 
-**Sistema Operacional** | **Detalhes** | **Preparação**
+**Sistema operativo** | **Detalhes** | **Preparação**
 --- | --- | ---
 Windows Server 2016 e todos os SPs | O Azure fornece suporte completo. | Preparado para o Azure
 Windows Server 2012 R2 e todos os SPs | O Azure fornece suporte completo. | Preparado para o Azure
@@ -130,7 +130,7 @@ sistemas operacionais de 32 bits | O computador pode ser inicializado no Azure, 
 - Se o dimensionamento for baseado em desempenho, a recomendação de tamanho considerará o histórico de desempenho das VMs (CPU e memória) e discos (IOPS e taxa de transferência).
 - Se o critério de dimensionamento for ' como local ', a recomendação de tamanho no Azure será baseada no tamanho da VM local. O dimensionamento de disco é baseado no tipo de armazenamento especificado nas propriedades de avaliação (o padrão é discos Premium). As migrações para Azure não consideram os dados de desempenho para a VM e os discos.
 
-### <a name="review-cost-estimates"></a>Examinar estimativas de custo
+### <a name="review-cost-estimates"></a>Rever as estimativas de custos
 
 As estimativas de custo mostram o custo total de computação e armazenamento da execução das VMs no Azure, juntamente com os detalhes de cada computador.
 
@@ -216,7 +216,7 @@ Depois de configurar um espaço de trabalho, baixe e instale agentes em cada com
 4. Copie o ID e a chave da área de trabalho. Você precisará delas quando instalar o MMA no computador local.
 
 > [!NOTE]
-> Para automatizar a instalação de agentes, você pode usar uma ferramenta de implantação, como System Center Configuration Manager ou uma ferramenta de parceiro como, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que fornece uma solução de implantação de agente para migrações para Azure.
+> Para automatizar a instalação de agentes, você pode usar uma ferramenta de implantação, como Configuration Manager ou uma ferramenta de parceiro como, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que fornece uma solução de implantação de agente para migrações para Azure.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Instalar o agente MMA em um computador Windows
@@ -229,7 +229,7 @@ Para instalar o agente em um computador Windows:
 4. Em **Opções de instalação do agente**, selecione **Azure log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um novo espaço de trabalho log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do Portal. Clique em **Seguinte**.
 
-Você pode instalar o agente da linha de comando ou usando um método automatizado, como System Center Configuration Manager. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
+Você pode instalar o agente da linha de comando ou usando um método automatizado, como Configuration Manager. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instalar o agente MMA em um computador Linux
 
@@ -340,5 +340,5 @@ VMConnection
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre](migrate-services-overview.md) a versão mais recente das migrações para Azure.

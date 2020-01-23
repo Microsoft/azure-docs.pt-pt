@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1c14d1dd171f9bca6b6bdc61e35c0d541b29cb3c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026165"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511217"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Hub IoT Edge
 
@@ -25,8 +25,8 @@ Nas soluções IoT, o valor empresarial é impulsionado pelas análises, mas nem
 
 O Azure IoT Edge é composto por três componentes:
 
-* Os **módulos de IOT Edge** são contêineres que executam serviços do Azure, serviços de terceiros ou seu próprio código. Os módulos são implantados em dispositivos IoT Edge e executados localmente nesses dispositivos.
-* O **tempo de execução de IOT Edge** é executado em cada dispositivo IOT Edge e gerencia os módulos implantados em cada dispositivo. 
+* Os **módulos de IOT Edge** são contêineres que executam serviços do Azure, serviços de terceiros ou seu próprio código. Os módulos são implementados nos dispositivos do IoT Edge e executados localmente nos mesmos.
+* O **tempo de execução de IOT Edge** é executado em cada dispositivo IOT Edge e gerencia os módulos implantados em cada dispositivo.
 * Uma **interface baseada em nuvem** permite que você monitore e gerencie dispositivos IOT Edge remotamente.
 
 >[!NOTE]
@@ -62,7 +62,7 @@ O tempo de execução de Azure IoT Edge é executado em um grande conjunto de di
 
 ## <a name="iot-edge-cloud-interface"></a>Interface na cloud do IoT Edge
 
-É difícil gerenciar o ciclo de vida do software para milhões de dispositivos IoT que geralmente são marcas e modelos diferentes ou geograficamente dispersos. As cargas de trabalho são criadas e configuradas para um determinado tipo de dispositivo, implantadas em todos os seus dispositivos e monitoradas para capturar qualquer dispositivo com comportamento inadequado. Estas atividades não podem ser feitas individualmente por dispositivo; têm de o ser em escala.
+É difícil gerenciar o ciclo de vida do software para milhões de dispositivos IoT que geralmente são marcas e modelos diferentes ou geograficamente dispersos. As cargas de trabalho são criadas e configuradas para um determinado tipo de dispositivos, implementadas em todos os seus dispositivos e monitorizadas para detetar dispositivos que possam estar a funcionar mal. Estas atividades não podem ser feitas individualmente por dispositivo; têm de o ser em escala.
 
 O Azure IoT Edge integra-se facilmente com os aceleradores de soluções do Azure IoT para proporcionar um plano de controlo para as necessidades da sua solução. Os serviços de nuvem permitem que você:
 
@@ -70,7 +70,7 @@ O Azure IoT Edge integra-se facilmente com os aceleradores de soluções do Azur
 * Enviem cargas de trabalho para um conjunto de dispositivos.
 * Monitorizem as cargas de trabalho em execução em dispositivos no terreno.
 
-![A telemetria e as ações do dispositivo são coordenadas com a nuvem](./media/about-iot-edge/cloud-interface.png)
+![Telemetria do dispositivo e as ações são coordenadas com a cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
