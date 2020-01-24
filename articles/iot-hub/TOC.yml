@@ -84,9 +84,9 @@
 - name: Conceitos
   items:
     - name: Suporte de TLS
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: Descontinuação do TLS 1.0 e 1.1
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Descrição geral dos melhoramentos das mensagens
       href: iot-hub-message-enrichments-overview.md
     - name: Descrição geral da gestão de dispositivos

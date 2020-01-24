@@ -5,12 +5,12 @@ metadata:
   title: Documentação do Processo de Ciência de Dados de Equipa
   description: Aprenda a utilizar o Processo de Ciência de Dados de Equipa é uma metodologia de ciência de dados ágil e iterativa que visa fornecer soluções de análise preditiva e aplicações inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e a aprendizagem em equipa. Contém uma seleção das melhores práticas e estruturas da Microsoft e de outras empresas do setor para facilitar a implementação de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
   services: machine-learning
-  author: cjgronlund
+  author: marktab
   ms.service: machine-learning
   ms.subservice: team-data-science-process
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: cgronlun
+  ms.date: 01/10/2020
+  ms.author: marktab
 abstract:
   description: O Processo de Ciência de Dados de Equipa é uma metodologia de ciência de dados ágil e iterativa que visa fornecer soluções de análise preditiva e aplicações inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e a aprendizagem em equipa. Contém uma seleção das melhores práticas e estruturas da Microsoft e de outras empresas do setor para facilitar a implementação de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
 sections:

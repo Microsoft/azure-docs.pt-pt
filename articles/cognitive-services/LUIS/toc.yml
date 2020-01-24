@@ -365,9 +365,9 @@
         - name: Node.js
           items:
             - name: NPM - criação
-              href: 'https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring'
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring'
             - name: NPM - tempo de execução
-              href: 'https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime'
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime'
             - name: Amostras
               href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
         - name: Python

@@ -9,14 +9,14 @@ metadata:
   ms.subservice: peering-service
   ms.topic: landing-page
   author: ypitsch
-  ms.author: v-meravi
+  ms.author: ypitsch
   ms.date: 11/04/2019
-  ms.openlocfilehash: 3f026ca55b19d1285ad555dbf1dffa009ef167e7
-  ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+  ms.openlocfilehash: edebc54be0a4ac96d7230e93d0c3bb20bc502cad
+  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/14/2019
-  ms.locfileid: "74084777"
+  ms.lasthandoff: 01/24/2020
+  ms.locfileid: "76721239"
 landingContent:
 - title: Acerca do Peering Service
   linkLists:

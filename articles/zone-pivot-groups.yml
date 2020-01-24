@@ -130,10 +130,24 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-set-functions01
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 metadata:
-  ms.openlocfilehash: ecd2963e13936b25836d9981f8681427a6b7df7c
-  ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+  ms.openlocfilehash: 13d7897bccf95a9bfc6c6de80c2a99e07dd143e8
+  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/20/2020
-  ms.locfileid: "76280803"
+  ms.lasthandoff: 01/24/2020
+  ms.locfileid: "76720780"
