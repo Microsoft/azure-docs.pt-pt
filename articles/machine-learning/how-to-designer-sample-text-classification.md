@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771432"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311051"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Crie um classificador para prever a categoria da empresa usando o designer de Azure Machine Learning.
 
-**Designer (visualização) exemplo 7**
+**Amostra de designer 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Este exemplo demonstra como usar módulos de análise de texto para criar um pipeline de classificação de texto no designer de Azure Machine Learning (versão prévia).
+Esta amostra demonstra como usar módulos de análise de texto para construir um pipeline de classificação de texto em Azure Machine Learning designer.
 
 A meta da classificação de texto é atribuir uma parte do texto a uma ou mais classes ou categorias predefinidas. A parte do texto pode ser um documento, artigo de notícias, consulta de pesquisa, email, tweet, tíquetes de suporte, comentários do cliente, revisão do produto do usuário, etc. Aplicativos de classificação de texto incluem a categorização de artigos de jornal e conteúdo de emails de notícias em tópicos, organização de páginas da Web em categorias hierárquicas, filtragem de e-mail de spam, análise de sentimentos, previsão de intenção de usuário de consultas de pesquisa, roteamento suporte a tíquetes e análise de comentários do cliente. 
 
@@ -35,7 +35,7 @@ As etapas fundamentais de um modelo de aprendizado de máquina de treinamento co
 
 1. Pré-processar os dados de texto
 
-1. Desenvolvimento de Funcionalidades
+1. Engenharia de Recursos
 
    Converta o recurso de texto no recurso numérico com o módulo de extração de recursos, como o hash de recurso, extraia o recurso n-Gram dos dados de texto.
 
@@ -47,7 +47,7 @@ As etapas fundamentais de um modelo de aprendizado de máquina de treinamento co
 
 Aqui está o grafo final concluído do pipeline no qual vamos trabalhar. Forneceremos a lógica para todos os módulos para que você possa tomar decisões semelhantes por conta própria.
 
-[![grafo do pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
+[gráfico ![do oleoduto](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## <a name="data"></a>Dados
 
@@ -63,9 +63,9 @@ Não foi possível encontrar artigos para algumas empresas, portanto, o número 
 
 ## <a name="pre-process-the-text-data"></a>Pré-processar os dados de texto
 
-Usamos o módulo de **texto pré-processar** para pré-processar os dados de texto, incluindo detectar as sentenças, Tokenize sentenças e assim por diante. Você encontraria todas as opções com suporte no artigo de [**texto de pré-processamento**](algorithm-module-reference/preprocess-text.md) . Após o pré-processamento dos dados de Tex, usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de modo que o conjunto de dados de treinamento contenha 50% dos dados originais e o conjunto de dado de teste contenha 50% dos originais.
+Usamos o módulo de **texto pré-processar** para pré-processar os dados de texto, incluindo detectar as sentenças, Tokenize sentenças e assim por diante. Você encontraria todas as opções com suporte no artigo de [**texto de pré-processamento**](algorithm-module-reference/preprocess-text.md) . Após o pré-processamento dos dados tex, utilizamos o módulo **Split Data** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 50% dos dados originais e o conjunto de dados de teste contém 50% dos dados originais.
 
-## <a name="feature-engineering"></a>Desenvolvimento de Funcionalidades
+## <a name="feature-engineering"></a>Engenharia de Recursos
 Neste exemplo, usaremos dois métodos executando a engenharia de recursos.
 
 ### <a name="feature-hashing"></a>Hashing de Funcionalidade
@@ -73,7 +73,7 @@ Usamos o módulo [**hash de recurso**](algorithm-module-reference/feature-hashin
 
 O módulo **hash de recurso** pode ser usado para converter documentos de texto de comprimento variável em vetores de recursos numéricos de comprimento igual, usando o método de hash de 32 bits murmurhash v3 fornecido pela biblioteca Vowpal Wabbit. O objetivo de usar o hash de recurso é a redução da dimensionalidade; o hash de recurso também torna a pesquisa de pesos de recursos mais rápida no tempo de classificação porque usa comparação de valor de hash em vez de comparação de cadeia de caracteres.
 
-No pipeline de exemplo, definimos o número de bits de hash como 14 e definimos o número de n-grams como 2. Com essas configurações, a tabela de hash pode conter 2 ^ 14 entradas, nas quais cada recurso de hash representa um ou mais recursos de n-Gram e seu valor representa a frequência de ocorrência desse n-Gram na instância de texto. Para muitos problemas, uma tabela de hash desse tamanho é mais do que a adequada, mas em alguns casos, mais espaço pode ser necessário para evitar colisões. Avalie o desempenho da sua solução de aprendizado de máquina usando um número diferente de bits. 
+No pipeline de exemplo, definimos o número de bits de hash como 14 e definimos o número de n-grams como 2. Com estas definições, a tabela de hash pode conter 2^14 entradas, nas quais cada característica de hashing representa uma ou mais funcionalidades n-grama e o seu valor representa a frequência de ocorrência desse n-grama na instância de texto. Para muitos problemas, uma tabela de hash desse tamanho é mais do que a adequada, mas em alguns casos, mais espaço pode ser necessário para evitar colisões. Avalie o desempenho da sua solução de aprendizado de máquina usando um número diferente de bits. 
 
 ### <a name="extract-n-gram-feature-from-text"></a>Extrair recurso de N-Gram de texto
 
@@ -96,7 +96,7 @@ Depois que o modelo é treinado, usaremos o **modelo de Pontuação** e **avalia
 Para o módulo **hash de recurso** , é fácil executar engenheiro de recursos no fluxo de Pontuação como fluxo de treinamento. Use o módulo **hash de recurso** diretamente para processar os dados de texto de entrada.
 
 Para **extrair o recurso N-Gram do módulo de texto** , conectamos **a saída do vocabulário de resultado** do fluxo de **dados** de treinamento ao vocabulário de entrada no fluxo de informações de Pontuação e definimos o parâmetro **modo de vocabulário** como **ReadOnly**.
-[Grafo de ![de Pontuação de n-Gram](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
+[Gráfico ![da pontuação n-grama](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
 Depois de concluir a etapa de engenharia, o **modelo de Pontuação** poderia ser usado para gerar previsões para o conjunto de teste usando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **modelo de Pontuação** e, em seguida, selecione **Visualizar**.
 
