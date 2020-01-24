@@ -1,6 +1,6 @@
 ---
-title: Configurar aplicativos de daemon que chamam APIs da Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como configurar o código para seu aplicativo daemon que chama APIs da Web (configuração de aplicativo)
+title: Configure aplicativos daemon que chamam APIs web - plataforma de identidade Microsoft / Azure
+description: Saiba como configurar o código para a sua aplicação daemon que chama APIs web (configuração de aplicações)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,54 +15,53 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7afad7bdc0cd0fb957104e4963eaade96fa2d840
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f857cfabfcacc5bb11e152a53fddee612c63d75b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423925"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702441"
 ---
-# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
+# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
 
-Saiba como configurar o código para seu aplicativo daemon que chama APIs da Web.
+Saiba como configurar o código para a sua aplicação daemon que chama APIs web.
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>Bibliotecas de MSAL com suporte a aplicativos de daemon
+## <a name="msal-libraries-supporting-daemon-apps"></a>Bibliotecas MSAL que apoiam aplicações daemon
 
-As bibliotecas da Microsoft que oferecem suporte a aplicativos daemon são:
+As bibliotecas da Microsoft que suportam aplicações daemon são:
 
   Biblioteca MSAL | Descrição
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas com suporte para criar um aplicativo daemon são .NET Framework e plataformas .NET Core (não UWP, Xamarin. iOS e Xamarin. Android, pois essas plataformas são usadas para criar aplicativos cliente públicos)
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas suportadas para construir uma aplicação daemon são .NET Framework e .NET Core plataformas (não UWP, Xamarin.iOS e Xamarin.Android, uma vez que essas plataformas são usadas para construir aplicações de clientes públicos)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Suporte para aplicativos daemon em Python
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Suporte para aplicativos daemon em Java
 
-## <a name="configuration-of-the-authority"></a>Configuração da autoridade
+## <a name="configuration-of-the-authority"></a>Configuração da Autoridade
 
-Considerando que os aplicativos de daemon não usam permissões delegadas, mas permissões de aplicativo, seu *tipo de conta com suporte* não pode ser *contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)* . Na verdade, não há nenhum administrador de locatários para conceder consentimento ao aplicativo de daemon para contas pessoais da Microsoft. Você precisará escolher *contas em minha organização* ou *contas em qualquer organização*.
+Dado que as aplicações dadaon não usam permissões delegadas, mas permissões de aplicação, o seu tipo de *conta suportada* não pode ser *Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)* . Na verdade, não há nenhum administrador de inquilino para conceder o consentimento ao pedido de daemon para contas pessoais da Microsoft. Terá de escolher *contas na minha organização* ou *contas em qualquer organização.*
 
-Portanto, a autoridade especificada na configuração do aplicativo deve ser o locatário-Ed (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
+Por isso, a autoridade especificada na configuração da aplicação deve ser arrendada (especificando um ID do Arrendatário ou um nome de domínio associado à sua organização).
 
-Se você for um ISV e quiser fornecer uma ferramenta multilocatário, poderá usar `organizations`. Mas tenha em mente que você também precisará explicar aos seus clientes como conceder o consentimento do administrador. Consulte [solicitando consentimento para um locatário inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para obter detalhes. Há, atualmente, uma limitação em MSAL: `organizations` só é permitida quando as credenciais do cliente são um segredo do aplicativo (não um certificado).
+Se você é um ISV e quer fornecer uma ferramenta multi-inquilino, você pode usar `organizations`. Mas lembre-se que também terá de explicar aos seus clientes como conceder o consentimento da administração. Consulte [o consentimento solicitado para um inquilino inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para obter detalhes. Também existe atualmente uma limitação na MSAL: `organizations` só é permitida quando as credenciais do cliente são um segredo de aplicação (não um certificado).
 
-## <a name="application-configuration-and-instantiation"></a>Configuração e instanciação do aplicativo
+## <a name="application-configuration-and-instantiation"></a>Configuração e instantânea da aplicação
 
-Em bibliotecas MSAL, as credenciais do cliente (segredo ou certificado) são passadas como um parâmetro da construção do aplicativo cliente confidencial.
+Nas bibliotecas mSAL, as credenciais do cliente (segredo ou certificado) são passadas como parâmetro da construção de aplicações confidenciais do cliente.
 
 > [!IMPORTANT]
-> Mesmo que seu aplicativo seja um aplicativo de console em execução como um serviço, se for um aplicativo de daemon, ele precisará ser um aplicativo cliente confidencial.
+> Mesmo que a sua aplicação seja uma aplicação de consola que funciona como um serviço, se for uma aplicação daemon, tem de ser uma aplicação de cliente confidencial.
 
 ### <a name="configuration-file"></a>Arquivo de configuração
 
-O arquivo de configuração define:
+O ficheiro de configuração define:
 
-- a autoridade ou a instância de nuvem e a tenantid
-- o ClientID que você obteve do registro do aplicativo
-- um segredo do cliente ou um certificado
+- a autoridade ou a instância de nuvem e inquilinoId
+- o ClientID que obteve do registo de candidatura
+- ou um segredo de cliente, ou um certificado
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-[appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) da amostra do [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+[appssettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) da amostra de [daemon da consola .NET Core.](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 ```JSon
 {
@@ -74,11 +73,11 @@ O arquivo de configuração define:
 }
 ```
 
-Você fornece um clientSecret ou um CertificateName. Ambas as configurações são exclusivas.
+Ou fornece um clienteSecret ou um nome de certificado. Ambas as definições são exclusivas.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Ao criar um cliente confidencial com os segredos do cliente, o arquivo de configuração [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) no exemplo do [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte.
+Ao construir um cliente confidencial com segredos de cliente, o ficheiro config de [parâmetros.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) na amostra [Python Daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte.
 
 ```Json
 {
@@ -90,7 +89,7 @@ Ao criar um cliente confidencial com os segredos do cliente, o arquivo de config
 }
 ```
 
-Ao criar um cliente confidencial com certificados, o arquivo de configuração [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) no exemplo do [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte.
+Ao construir um cliente confidencial com certificados, o ficheiro [config de parâmetros.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) na amostra [Python Daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte.
 
 ```Json
 {
@@ -119,22 +118,22 @@ public class TestData {
 
 ---
 
-### <a name="instantiation-of-the-msal-application"></a>Instanciação do aplicativo MSAL
+### <a name="instantiation-of-the-msal-application"></a>Instantânea da aplicação MSAL
 
-Para criar uma instância do aplicativo MSAL, você precisa:
+Para instantaneamente a aplicação MSAL, é necessário:
 
-- Adicionar, referenciar ou importar o pacote MSAL (dependendo do idioma)
-- Em seguida, a construção será diferente dependendo se você estiver usando os certificados ou os segredos do cliente (ou, como um cenário avançado, as asserções assinadas)
+- adicionar, referir ou importar o pacote MSAL (dependendo da língua)
+- Em seguida, a construção é diferente dependendo de se estiver a usar segredos ou certificados de cliente (ou, como um cenário avançado, afirmações assinadas)
 
-#### <a name="reference-the-package"></a>Referenciar o pacote
+#### <a name="reference-the-package"></a>Referência ao pacote
 
-Referencie o pacote MSAL no código do aplicativo.
+Consulte o pacote MSAL no seu código de aplicação.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-Adicione o pacote NuGet [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) ao seu aplicativo.
-No MSAL.NET, o aplicativo cliente confidencial é representado pela interface `IConfidentialClientApplication`.
-Usar o namespace MSAL.NET no código-fonte
+Adicione o pacote [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet à sua aplicação.
+Em MSAL.NET, a aplicação cliente confidencial é representada pela interface `IConfidentialClientApplication`.
+Utilize MSAL.NET espaço de nome no código fonte
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -158,9 +157,9 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-client-secrets"></a>Criar uma instância do aplicativo cliente confidencial com segredos do cliente
+#### <a name="instantiate-the-confidential-client-application-with-client-secrets"></a>Instantie a aplicação confidencial do cliente com segredos do cliente
 
-Este é o código para instanciar o aplicativo cliente confidencial com um segredo do cliente:
+Aqui está o código para instantaneamente a aplicação confidencial do cliente com um segredo de cliente:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -198,9 +197,9 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-client-certificate"></a>Criar uma instância do aplicativo cliente confidencial com o certificado do cliente
+#### <a name="instantiate-the-confidential-client-application-with-client-certificate"></a>Instantie a aplicação cliente confidencial com certificado de cliente
 
-Este é o código para criar um aplicativo com um certificado:
+Aqui está o código para construir um pedido com um certificado:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -229,7 +228,7 @@ app = msal.ConfidentialClientApplication(
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Em MSAL. Java há dois construtores para criar uma instância do aplicativo cliente confidencial com certificados:
+Na MSAL. Java existem dois construtores para instantaneamente a aplicação confidencial do cliente com certificados:
 
 ```Java
 
@@ -258,18 +257,18 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### <a name="advanced-scenario---instantiate-the-confidential-client-application-with-client-assertions"></a>Cenário avançado – instanciar o aplicativo cliente confidencial com declarações de cliente
+#### <a name="advanced-scenario---instantiate-the-confidential-client-application-with-client-assertions"></a>Cenário avançado - instantaneamente a aplicação confidencial do cliente com afirmações do cliente
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-Em vez de um segredo do cliente ou um certificado, o aplicativo cliente confidencial também pode provar sua identidade usando as declarações do cliente.
+Em vez de um segredo de cliente ou um certificado, a aplicação confidencial do cliente também pode provar a sua identidade usando afirmações do cliente.
 
-MSAL.NET tem dois métodos para fornecer asserções assinadas ao aplicativo cliente confidencial:
+MSAL.NET tem dois métodos para fornecer afirmações assinadas à aplicação confidencial do cliente:
 
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Ao usar `WithClientAssertion`, você precisa fornecer um JWT assinado. Este cenário avançado é detalhado em [asserções do cliente](msal-net-client-assertions.md)
+Quando utilizar `WithClientAssertion`, precisa de fornecer um JWT assinado. Este cenário avançado é detalhado em [asserções do cliente](msal-net-client-assertions.md)
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -278,8 +277,8 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Quando você usa `WithClientClaims`, o MSAL.NET computará uma asserção assinada contendo as declarações esperadas pelo Azure AD, além de declarações de cliente adicionais que você deseja enviar.
-Aqui está um trecho de código sobre como fazer isso:
+Quando utilizar `WithClientClaims`, MSAL.NET calculará uma afirmação assinada contendo as reclamações esperadas pela Azure AD mais alegações adicionais de clientes que pretende enviar.
+Aqui está um código de snippet sobre como fazê-lo:
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -291,11 +290,11 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();```
 ```
 
-Novamente, para obter detalhes, consulte [declarações do cliente](msal-net-client-assertions.md).
+Mais uma vez, para mais detalhes, consulte [as afirmações do Cliente.](msal-net-client-assertions.md)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-No MSAL Python, você pode fornecer declarações de cliente usando as declarações que serão assinadas por essa chave privada de `ConfidentialClientApplication`.
+Na MSAL Python, pode fornecer reclamações de clientes usando as reclamações que serão assinadas por esta `ConfidentialClientApplication`chave privada.
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -311,11 +310,11 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
-Para obter detalhes, consulte a documentação de referência do MSAL Python para [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__).
+Para mais detalhes, consulte a documentação de referência da MSAL Python para [a ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL Java está em visualização pública. As declarações assinadas ainda não têm suporte.
+A MSAL Java está em pré-estreia pública. As afirmações assinadas ainda não são apoiadas.
 
 ---
 
@@ -324,16 +323,16 @@ MSAL Java está em visualização pública. As declarações assinadas ainda nã
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
+> [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
+> [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Aplicativo de daemon-adquirindo tokens para o aplicativo](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+> [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
 
 ---

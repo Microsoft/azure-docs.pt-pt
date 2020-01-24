@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b98fd1a3b135a586d2c2d16d7cdeda8faf545d3
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 84aa3731f8066772c6a268f2ae4e16215452e78a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681213"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704685"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Entre em suas contas usando o aplicativo Microsoft Authenticator
 
@@ -52,7 +51,7 @@ A entrada pelo telefone só está disponível em dispositivos iOS e Android que 
 
 - Abra o aplicativo Microsoft Authenticator, vá para sua conta corporativa ou de estudante e ative a entrada pelo telefone:
 
-    - **Se você vir esse ícone ![ícone mostrando que você está configurado](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone aparecer ao lado do nome de sua conta corporativa ou de estudante, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
+    - **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone aparecer ao lado do nome de sua conta corporativa ou de estudante, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
 
     - **Se você estiver usando o aplicativo para verificação de dois fatores.** Se já estiver usando o aplicativo e a verificação de dois fatores, você poderá escolher a seta suspensa ao lado do nome da conta e, em seguida, selecionar **Habilitar entrada pelo telefone**.
 
@@ -85,7 +84,7 @@ Você pode ativar a entrada pelo telefone para seus conta Microsoft pessoais, co
 
 - Abra o aplicativo Microsoft Authenticator, vá para sua conta Microsoft pessoal e ative a entrada pelo telefone:
 
-    - **Se você vir esse ícone ![ícone mostrando que você está configurado](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone aparecer ao lado do nome da sua conta, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
+    - **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone aparecer ao lado do nome da sua conta, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
 
     - **Se você estiver usando o aplicativo para verificação de dois fatores.** Se já estiver usando o aplicativo e a verificação de dois fatores, você poderá escolher a seta suspensa ao lado do nome da conta e, em seguida, selecionar **Habilitar entrada pelo telefone**.
 

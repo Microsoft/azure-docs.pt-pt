@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f03e92c1bfd86d15bf582487e3e92a3713b63e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c01a7a9c5adb050d98840938260c8486ecdeb199
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619356"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705195"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurar um dispositivo móvel como seu método de verificação de dois fatores
 
@@ -27,17 +26,17 @@ Você pode configurar seu dispositivo móvel para atuar como seu método de veri
 
 ## <a name="set-up-your-mobile-device-to-use-a-text-message-as-your-verification-method"></a>Configurar seu dispositivo móvel para usar uma mensagem de texto como seu método de verificação
 
-1. Na página **verificação de segurança adicional** , selecione **telefone de autenticação** na **etapa 1: Como devemos entrar em contato** com a área, selecione seu país ou região na lista suspensa e digite o número de telefone do dispositivo móvel.
+1. Na página **verificação de segurança adicional** , selecione **telefone de autenticação** da **etapa 1: como devemos entrar em contato com você** , selecione seu país ou região na lista suspensa e, em seguida, digite o número de telefone do dispositivo móvel.
 
 2. Selecione **Enviar para mim um código por mensagem de texto** da área **método** e, em seguida, selecione **Avançar**.
 
     ![Página de verificação de segurança adicional, com telefone de autenticação e mensagem de texto](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
-3. Digite o código de verificação da mensagem de texto enviada da Microsoft para **a etapa 2: Enviamos uma mensagem de texto para a área** de telefone e, em seguida, selecionamos **verificar**.
+3. Digite o código de verificação da mensagem de texto enviada da Microsoft para a **etapa 2: enviamos uma mensagem de texto para sua** área de telefone e, em seguida, selecionamos **verificar**.
 
     ![Página de verificação de segurança adicional, com telefone de autenticação e mensagem de texto](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message-test.png)
 
-4. **Na etapa 3: Continue usando sua área de** aplicativos existentes, copie a senha de aplicativo fornecida e cole-a em um local seguro.
+4. Na área **etapa 3: continuar usando seus aplicativos existentes** , copie a senha de aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página de verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -48,7 +47,7 @@ Você pode configurar seu dispositivo móvel para atuar como seu método de veri
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>Configurar seu dispositivo móvel para receber uma chamada telefônica
 
-1. Na página **verificação de segurança adicional** , selecione **telefone de autenticação** na **etapa 1: Como devemos entrar em contato** com a área, selecione seu país ou região na lista suspensa e digite o número de telefone do dispositivo móvel.
+1. Na página **verificação de segurança adicional** , selecione **telefone de autenticação** da **etapa 1: como devemos entrar em contato com você** , selecione seu país ou região na lista suspensa e, em seguida, digite o número de telefone do dispositivo móvel.
 
 2. Selecione **ligar para mim** na área **método** e, em seguida, selecione **Avançar**.
 
@@ -58,7 +57,7 @@ Você pode configurar seu dispositivo móvel para atuar como seu método de veri
 
     ![Testando o número de telefone especificado](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call-test.png)
 
-4. **Na etapa 3: Continue usando sua área de** aplicativos existentes, copie a senha de aplicativo fornecida e cole-a em um local seguro.
+4. Na área **etapa 3: continuar usando seus aplicativos existentes** , copie a senha de aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página de verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

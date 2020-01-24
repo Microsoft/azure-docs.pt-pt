@@ -16,13 +16,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1de85e2c075d343a72fcc9fd29c0358d0054350
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 03f88b0b1369020d0ba5e8cb1e1b416059def21d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548140"
+ms.locfileid: "76703053"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -134,7 +133,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50180 | A autenticação WindowsIntegratedAuthMissing integrada do Windows é necessária. Ativar o inquilino para SSO Totalmente Integrado. |
 | AADSTS50187 | DeviceInformationNotProvided-o serviço não pôde executar a autenticação do dispositivo. |
 | AADSTS50196 | LoopDetected-um loop de cliente foi detectado. Verifique a lógica do aplicativo para garantir que o cache de token seja implementado e que as condições de erro sejam tratadas corretamente.  O aplicativo fez muitas da mesma solicitação em um período muito curto, indicando que ela está em um estado de falha ou está solicitando os tokens de forma abusiva. |
-| AADSTS50199 | CmsiInterrupt-a interação do usuário é necessária para essa autenticação.  Como esse é um erro "interaction_required", o cliente deve fazer a autenticação interativa.  Isso ocorre porque uma WebView do sistema foi usada para solicitar um token para um aplicativo nativo-o usuário deve ser solicitado a perguntar se isso foi, na verdade, o aplicativo para o qual pretendia entrar.|
+| AADSTS50199 | CmsiInterrupt-a interação do usuário é necessária para essa autenticação.  Como este é um erro "interaction_required", o cliente deve fazer auth interativo.  Isto ocorre porque um webview do sistema foi usado para solicitar um símbolo para uma aplicação nativa - o utilizador deve ser solicitado a perguntar se esta era realmente a app que pretendia assinar.|
 | AADSTS51000 | RequiredFeatureNotEnabled-o recurso está desabilitado. |
 | AADSTS51001 | DomainHintMustbePresent-a dica de domínio deve estar presente com o identificador de segurança local ou com o UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory-a conta de usuário não existe no diretório. |
@@ -153,11 +152,11 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant-falha na autenticação. O token de atualização não é válido. O erro pode ser devido aos seguintes motivos:<ul><li>O cabeçalho de associação de token está vazio</li><li>O hash de associação de token não corresponde</li></ul> |
 | AADSTS70001 | UnauthorizedClient-o aplicativo está desabilitado. |
-| AADSTS70002 | InvalidClient-erro ao validar as credenciais. O client_secret especificado não corresponde ao valor esperado para este cliente. Corrija o client_secret e tente novamente. Para obter mais informações, consulte [usar o código de autorização para solicitar um token de acesso](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
+| AADSTS70002 | InvalidClient-erro ao validar as credenciais. O client_secret especificado não corresponde ao valor esperado para este cliente. Corrija o client_secret e tente de novo. Para obter mais informações, consulte [usar o código de autorização para solicitar um token de acesso](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType-o aplicativo retornou um tipo de concessão sem suporte. |
 | AADSTS70004 | InvalidRedirectUri-o aplicativo retornou um URI de redirecionamento inválido. O endereço de redirecionamento especificado pelo cliente não corresponde a nenhum dos endereços configurados ou a nenhum dos endereços na lista de aprovações OIDC. |
 | AADSTS70005 | UnsupportedResponseType-o aplicativo retornou um tipo de resposta sem suporte devido aos seguintes motivos:<ul><li>o tipo de resposta ' token ' não está habilitado para o aplicativo</li><li>o tipo de resposta “id_token” requer o âmbito “OpenID”; contém um valor de parâmetro de OAuth não suportado no wctx codificado</li></ul> |
-| AADSTS70007 | UnsupportedResponseMode-o aplicativo retornou um valor sem suporte de `response_mode` ao solicitar um token.  |
+| AADSTS70007 | Não suportadoResponseMode - A aplicação devolveu um valor não suportado de `response_mode` ao solicitar um símbolo.  |
 | AADSTS70008 | ExpiredOrRevokedGrant-o token de atualização expirou devido à inatividade. O token foi emitido em XXX e estava inativo por um determinado período de tempo. |
 | AADSTS70011 | InvalidScope-o escopo solicitado pelo aplicativo é inválido. |
 | AADSTS70012 | MsaServerError-ocorreu um erro de servidor durante a autenticação de um usuário do MSA (consumidor). Tente novamente. Se ele continuar falhando, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
@@ -199,7 +198,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90015 | QueryStringTooLong-a cadeia de caracteres de consulta é muito longa. |
 | AADSTS90016 | MissingRequiredClaim-o token de acesso não é válido. A declaração necessária está ausente. |
 | AADSTS90019 | MissingTenantRealm-o Azure AD não pôde determinar o identificador do locatário a partir da solicitação. |
-| AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat-o formato de nome da entidade de segurança não é válido ou não atende ao formato de `name[/host][@realm]` esperado. O nome da entidade de segurança é obrigatório, o host e o realm são opcionais e podem ser definidos como NULL. |
+| AADSTS90022 | AutenticadoInvalidAMainNameFormat - O formato de nome principal não é válido, ou não cumpre o formato `name[/host][@realm]` esperado. O nome da entidade de segurança é obrigatório, o host e o realm são opcionais e podem ser definidos como NULL. |
 | AADSTS90023 | InvalidRequest-a solicitação de serviço de autenticação não é válida. |
 | AADSTS9002313 | InvalidRequest-a solicitação está malformada ou é inválida. -O problema aqui é porque houve algo errado com a solicitação para um determinado ponto de extremidade. A sugestão para esse problema é obter um rastreamento Fiddler do erro que está ocorrendo e procurando ver se a solicitação está realmente formatada ou não corretamente. |
 | AADSTS90024 | RequestBudgetExceededError-ocorreu um erro transitório. Tente novamente. |
@@ -209,7 +208,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90043 | NationalCloudAuthCodeRedirection-o recurso está desabilitado. |
 | AADSTS90051 | InvalidNationalCloudId-o identificador de nuvem nacional contém um identificador de nuvem inválido. |
 | AADSTS90055 | TenantThrottlingError-há muitas solicitações de entrada. Essa exceção é lançada para locatários bloqueados. |
-| AADSTS90056 | BadResourceRequest-para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o ponto de extremidade `/token`. Além disso, antes de isso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o ponto de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Direcione o usuário para o ponto de extremidade `/authorize`, que retornará um authorization_code. Ao lançar uma solicitação para o ponto de extremidade `/token`, o usuário Obtém o token de acesso. Faça logon na portal do Azure e marque **registros de aplicativo pontos de extremidade de >** para confirmar que os dois pontos de extremidade foram configurados corretamente. |
+| AADSTS90056 | BadResourceRequest-para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o ponto de extremidade `/token`. Além disso, antes de isso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o ponto de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Direcione o utilizador para o ponto final `/authorize`, que devolverá uma authorization_code. Ao lançar uma solicitação para o ponto de extremidade `/token`, o usuário Obtém o token de acesso. Faça logon na portal do Azure e marque **registros de aplicativo pontos de extremidade de >** para confirmar que os dois pontos de extremidade foram configurados corretamente. |
 | AADSTS90072 | PassThroughUserMfaError-a conta externa com a qual o usuário se conecta não existe no locatário ao qual ele se conectou; Portanto, o usuário não pode atender aos requisitos de MFA para o locatário. A conta deve ser adicionada primeiro como um usuário externo no locatário. Saia e entre com uma conta de usuário diferente do Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid-ocorreu um erro quando o serviço tentou processar uma mensagem do WS-Federation. A mensagem não é válida. |
 | AADSTS90082 | OrgIdWsFederationNotSupported-a política de autenticação selecionada para a solicitação não tem suporte no momento. |
@@ -266,9 +265,9 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS220501 | InvalidCrlDownload |
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource-o recurso não está configurado para aceitar tokens somente de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized-o usuário não está autorizado a registrar dispositivos no Azure AD. |
-| AADSTS240002 | RequiredClaimIsMissing-a id_token não pode ser usada como concessão de `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS240002 | Reclamações Não São Exigidas - O id_token não pode ser usado como subsídio de `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
 | AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-o administrador de locatários configurou uma política de segurança que bloqueia essa solicitação. Verifique as políticas de segurança definidas no nível de locatário para determinar se sua solicitação atende aos requisitos de política. |
-| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest-o aplicativo não foi encontrado no diretório/locatário. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Você pode ter configurado incorretamente o valor do identificador para o aplicativo ou enviado sua solicitação de autenticação para o locatário incorreto. |
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - O pedido não foi encontrado no diretório/inquilino. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Você pode ter configurado incorretamente o valor do identificador para o aplicativo ou enviado sua solicitação de autenticação para o locatário incorreto. |
 | AADSTS700020 | InteractionRequired-a concessão de acesso requer interação. |
 | AADSTS700022 | InvalidMultipleResourcesScope-o valor fornecido para o escopo do parâmetro de entrada não é válido porque contém mais de um recurso. |
 | AADSTS700023 | InvalidResourcelessScope-o valor fornecido para o escopo do parâmetro de entrada não é válido ao solicitar um token de acesso. |

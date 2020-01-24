@@ -15,13 +15,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c228e708988d9d1ec9f58fce4f1289fd61f817b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2d85a3a5d876d731655bb30f7d37a6f42fa5c220
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424450"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696729"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java
 

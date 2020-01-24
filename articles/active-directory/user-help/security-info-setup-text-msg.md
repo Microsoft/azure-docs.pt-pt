@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e8e8b20fc9b8e19b2f7c5f9c1b9e926580c9dbb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 1d21445d12ea8ae7040627c6f9bdae7c744953c3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156068"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704821"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurar mensagens de texto como seu método de verificação
 
@@ -90,11 +89,11 @@ Se você quiser que o sistema de mensagens de texto seja o método padrão usado
 
     ![Alterar o link para o método de entrada padrão](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **texto de telefone ( *_your_phone_number_* )** na lista suspensa de métodos disponíveis e, em seguida, selecione **confirmar**.
+2. Selecione **Telefone - texto *_(your_phone_number_* )** da lista de métodos disponíveis e, em seguida, selecione **Confirmar**.
 
     ![Escolha o método para entrar no padrão](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    O método padrão usado para alterações de entrada em **texto de telefone ( *_your_phone_number_* )** .
+    O método predefinido utilizado para alterações de sessão no **Telefone - texto ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
 

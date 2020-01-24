@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33e1037a0fe261f9fb0d06a9ebb0b3b323fe8d5f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423376"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701268"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API de Microsoft Graph de um aplicativo de página única do JavaScript (SPA)
 
@@ -379,8 +378,8 @@ Adicione o código a seguir ao arquivo de `index.html` dentro das marcas de `<sc
     ```
 
     Onde:
-    - *\<Enter_the_Application_Id_here >* é a **ID do aplicativo (cliente)** para o aplicativo que você registrou.
-    - *\<Enter_the_Tenant_info_here >* é definido como uma das seguintes opções:
+    - *\<Enter_the_Application_Id_here>* é o ID de **Aplicação (cliente)** para a aplicação que registou.
+    - *\<Enter_the_Tenant_info_here>* está definido para uma das seguintes opções:
        - Se seu aplicativo der suporte a *contas nesse diretório organizacional*, substitua esse valor pela **ID do locatário** ou pelo **nome do locatário** (por exemplo, *contoso.Microsoft.com*).
        - Se seu aplicativo oferecer suporte a *contas em qualquer diretório organizacional*, substitua esse valor pelas **organizações**.
        - Se seu aplicativo oferecer suporte a *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte *somente a contas pessoais da Microsoft*, substitua esse valor por **consumidores**.

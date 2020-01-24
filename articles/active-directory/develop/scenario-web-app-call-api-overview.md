@@ -1,6 +1,6 @@
 ---
-title: Compilar um aplicativo Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo Web que chama APIs da Web (visão geral)
+title: Construa uma aplicação web que chama APIs web - plataforma de identidade microsoft / Azure
+description: Saiba como construir uma aplicação web que chama APIs web (visão geral)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,49 +14,48 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3888c7f838d6009382f849bc7d3e34c49b3b70a4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9e123195205bb0eb88f0edd4e2dff2e0da9d84ce
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962139"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701659"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Cenário: aplicativo Web que chama APIs da Web
+# <a name="scenario-web-app-that-calls-web-apis"></a>Cenário: Web app que chama APIs web
 
-Saiba como criar um aplicativo Web que conecta usuários na plataforma de identidade da Microsoft e, em seguida, chama APIs da Web em nome do usuário conectado.
+Saiba como construir uma aplicação web que assina nos utilizadores na plataforma de identidade da Microsoft e depois liga para a Web APIs em nome do utilizador inscrito.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-Este cenário pressupõe que você tenha passado pelo seguinte cenário:
+Este cenário supõe que passou pelo seguinte cenário:
 
 > [!div class="nextstepaction"]
-> [Aplicativo Web que faz logon de usuários](scenario-web-app-sign-user-overview.md)
+> [Aplicação web que inscreve utilizadores](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>Visão geral
 
-Você adiciona autenticação ao seu aplicativo Web, que, portanto, pode conectar usuários e chamar uma API da Web em nome do usuário conectado.
+Adiciona autenticação à sua Web App, que pode, portanto, inscrever-se nos utilizadores e chama uma API web em nome do utilizador inscrito.
 
 ![Aplicação Web que chama as APIs Web](./media/scenario-webapp/web-app.svg)
 
-Aplicativos Web que chamam APIs da Web:
+Web Apps que chama APIs web:
 
-- são aplicativos cliente confidenciais.
-- é por isso que eles registraram um segredo (senha de aplicativo ou certificado) com o Azure AD. Esse segredo é passado durante a chamada para o Azure AD para obter um token
+- São pedidos confidenciais de clientes.
+- É por isso que registaram um segredo (senha de aplicação ou certificado) com a AD Azure. Este segredo é passado durante a chamada para Azure AD para obter um símbolo
 
 ## <a name="specifics"></a>Especificações
 
 > [!NOTE]
-> Adicionar a entrada a um aplicativo Web não usa as bibliotecas MSAL, pois isso é sobre a proteção do aplicativo Web. A proteção de bibliotecas é obtida por bibliotecas denominadas middleware. Esse era o objeto do cenário anterior [que os usuários entram em um aplicativo Web](scenario-web-app-sign-user-overview.md)
+> Adicionar sessão a uma Aplicação Web não utiliza as bibliotecas MSAL, uma vez que se trata de proteger a Aplicação Web. Proteger bibliotecas é alcançado por bibliotecas chamadas Middleware. Este foi o objeto do cenário anterior [Os utilizadores de sessão para uma Web App](scenario-web-app-sign-user-overview.md)
 >
-> Ao chamar APIs Web de um aplicativo Web, você precisará obter tokens de acesso para essas APIs da Web. Você pode usar bibliotecas MSAL para adquirir esses tokens.
+> Ao ligar para a Web APIs a partir de uma Aplicação Web, terá de obter fichas de acesso para estas APIs web. Pode usar bibliotecas MSAL para adquirir estes tokens.
 
-A experiência de ponta a ponta dos desenvolvedores para esse cenário tem, portanto, aspectos específicos como:
+O fim da experiência final dos desenvolvedores para este cenário tem, portanto, aspetos específicos como:
 
-- Durante o [registro do aplicativo](scenario-web-app-call-api-app-registration.md), você precisará fornecer um, ou vários (se você implantar seu aplicativo em vários locais), URIs de resposta, segredos ou certificados precisam ser compartilhados com o Azure AD.
-- A [configuração do aplicativo](scenario-web-app-call-api-app-configuration.md) precisa fornecer credenciais de cliente como compartilhadas com o Azure ad durante o registro do aplicativo
+- Durante o registo da [Candidatura,](scenario-web-app-call-api-app-registration.md)terá de fornecer um, ou vários (se implementar a sua aplicação em vários locais) Responder URIs, segredos ou certificados tem de ser partilhado com a Azure AD.
+- A configuração da [Aplicação](scenario-web-app-call-api-app-configuration.md) precisa de fornecer credenciais de cliente partilhadas com a Azure AD durante o registo de candidaturas
 
 ## <a name="next-steps"></a>Passos seguintes
 

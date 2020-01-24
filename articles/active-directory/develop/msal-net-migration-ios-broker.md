@@ -1,5 +1,5 @@
 ---
-title: Migrar aplicativos Xamarin usando agentes para MSAL.NET
+title: Migrar aplicações Xamarin com mediadores para o MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Saiba como migrar aplicativos do Xamarin iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET.
 author: jmprieur
@@ -12,13 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c830b7f6d13d9b85eae34b6193ad2a10e7bfb410
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17c7949f2bbd6d75343bb2e6825be36b56a20967
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424204"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695335"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
 
@@ -116,7 +115,7 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 No MSAL.NET, você faz duas coisas para definir a janela de objeto para iOS:
 
-1. Em `AppDelegate.cs`, defina `App.RootViewController` como um novo `UIViewController()`. Essa atribuição garante que há um UIViewController com a chamada para o agente. Se não estiver definido corretamente, você poderá receber esse erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. Em `AppDelegate.cs`, defina `App.RootViewController` como um novo `UIViewController()`. Essa atribuição garante que há um UIViewController com a chamada para o agente. Se não estiver corretamente definido, poderá ter este erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. Na chamada AcquireTokenInteractive, use `.WithParentActivityOrWindow(App.RootViewController)`e passe a referência para a janela de objeto que você usará.
 
 **Por exemplo:**

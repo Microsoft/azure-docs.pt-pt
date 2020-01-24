@@ -1,6 +1,6 @@
 ---
-title: URI de redirecionamento & restrições de URL de resposta-plataforma de identidade da Microsoft | Azure
-description: URLs de resposta/redirecionamento de restrições de URls & limitações
+title: Redirecione as restrições de URL do URI e da resposta - plataforma de identidade da Microsoft Azure
+description: Resposta URLs/redirecionamento uRls restrições e limitações
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
@@ -10,66 +10,65 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920332"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702526"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
-Um URI de redirecionamento, ou URL de resposta, é o local para o qual o servidor de autorização enviará o usuário quando o aplicativo tiver sido autorizado com êxito e receberá um código de autorização ou um token de acesso. O código ou o token está contido no URI de redirecionamento ou no token de resposta, portanto, é importante que você registre o local correto como parte do processo de registro do aplicativo.
+Um URI redirecionado, ou URL de resposta, é a localização para a qual o servidor de autorização enviará o utilizador uma vez que a aplicação tenha sido autorizada com sucesso, e concedeu um código de autorização ou ficha de acesso. O código ou token está contido no uri redirecionamento ou token de resposta, pelo que é importante que registe a localização correta como parte do processo de registo da aplicação.
 
-## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URIs de redirecionamento
+## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URIs redirecionais
 
-A tabela a seguir mostra o número máximo de URIs de redirecionamento que você pode adicionar ao registrar seu aplicativo.
+A tabela que se segue mostra o número máximo de URIs redirecionais que pode adicionar quando registar a sua aplicação.
 
-| Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
+| Contas sendo assinadas em | Número máximo de URIs redirecionais | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
-| Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* |
+| Microsoft trabalha ou conta escolar em qualquer inquilino azure ative diretório (Azure AD) | 256 | `signInAudience` campo no manifesto de aplicação está definido para *AzureADMyOrg* ou *AzureADMultipleOrgs* |
+| Contas pessoais da Microsoft e contas de trabalho e escola | 100 | `signInAudience` campo no manifesto de aplicação está definido para *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Comprimento máximo do URI
 
-Você pode usar um máximo de 256 caracteres para cada URI de redirecionamento que você adicionar a um registro de aplicativo.
+Pode utilizar um máximo de 256 caracteres para cada redirecionamento de URI que adiciona a uma inscrição na aplicação.
 
-## <a name="supported-schemes"></a>Esquemas com suporte
-O modelo de aplicativo do Azure AD atualmente dá suporte a esquemas HTTP e HTTPS para aplicativos que entram em contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização. Esse é `signInAudience` campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para os aplicativos que entram em contas pessoais da Microsoft e em contas corporativas e de estudante (`signInAudience` definido como *AzureADandPersonalMicrosoftAccount*), somente o esquema HTTPS é permitido.
+## <a name="supported-schemes"></a>Regimes apoiados
+O modelo de aplicação Azure AD suporta hoje tanto os esquemas HTTP como https para apps que assinam em trabalho seletiva da Microsoft ou contas escolares em qualquer inquilino azure ative diretório (Azure AD) de qualquer organização. Isto é `signInAudience` campo no manifesto de aplicação está definido para *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para as aplicações que assinam em contas pessoais da Microsoft e contas de trabalho e escola (que é `signInAudience` definida para *AzureADandPersonalMicrosoftAccount*) apenas é permitido o esquema HTTPS.
 
 > [!NOTE]
-> A nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs com esquema http na interface do usuário. A adição de URIs HTTP para aplicativos que entram em contas corporativas ou de estudante tem suporte apenas por meio do editor de manifesto de aplicativo. No futuro, novos aplicativos não poderão usar esquemas HTTP no URI de redirecionamento. No entanto, aplicativos mais antigos que contêm esquemas HTTP em URIs de redirecionamento continuarão a funcionar. Os desenvolvedores devem usar esquemas HTTPS nos URIs de redirecionamento.
+> A experiência de [registos](https://go.microsoft.com/fwlink/?linkid=2083908) da nova App não permite que os desenvolvedores adicionem URIs com o esquema HTTP na UI. A adição de HTTP URIs para apps que assinam em contas de trabalho ou de escola é suportada apenas através do editor manifesto da aplicação. Daqui para a frente, as novas aplicações não poderão utilizar esquemas HTTP no redirecionamento URI. No entanto, aplicações mais antigas que contenham esquemas HTTP em URIs redirecionados continuarão a funcionar. Os desenvolvedores devem utilizar esquemas HTTPS nos URIs de redirecionamento.
 
-## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrições usando um curinga em URIs
+## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrições usando um wildcard em URIs
 
-URIs curinga, como `https://*.contoso.com`, são convenientes, mas devem ser evitados. O uso de curingas no URI de redirecionamento tem implicações de segurança. De acordo com a especificação do OAuth 2,0 ([seção 3.1.2 da RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), um URI de ponto de extremidade de redirecionamento deve ser um URI absoluto. 
+Os URIs wildcard, como `https://*.contoso.com`, são convenientes, mas devem ser evitados. A utilização de wildcards no URI redirecionado tem implicações de segurança. De acordo com a especificação OAuth 2.0[(secção 3.1.2 do RFC 6749),](https://tools.ietf.org/html/rfc6749#section-3.1.2)um ponto final de reorientação URI deve ser um URI absoluto. 
 
-O modelo de aplicativo do Azure AD não dá suporte a URIs curinga para aplicativos configurados para entrar em contas pessoais da Microsoft e contas corporativas ou de estudante. No entanto, URIs curinga são permitidos para aplicativos que estão configurados para entrar em contas corporativas ou de estudante no locatário do Azure AD de uma organização hoje. 
+O modelo de aplicação Azure AD não suporta URIs wildcard para aplicações configuradas para assinar em contas pessoais da Microsoft e contas de trabalho ou escola. No entanto, os URIs wildcard são permitidos para apps que estão configuradas para assinar em contas de trabalho ou escola em um inquilino Azure AD de uma organização hoje. 
  
 > [!NOTE]
-> A nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs curinga na interface do usuário. A adição de URI curinga para aplicativos que entram em contas corporativas ou de estudante tem suporte apenas por meio do editor de manifesto de aplicativo. No futuro, novos aplicativos não poderão usar curingas no URI de redirecionamento. No entanto, os aplicativos mais antigos que contêm curingas em URIs de redirecionamento continuarão a funcionar.
+> A experiência de [registos](https://go.microsoft.com/fwlink/?linkid=2083908) da nova App não permite que os desenvolvedores adicionem URIs wildcard na UI. A adição de wilcard URI para apps que assinam em contas de trabalho ou de escola é suportada apenas através do editor manifesto da aplicação. Daqui para a frente, as novas aplicações não poderão utilizar wildcards no REdirect URI. No entanto, aplicações mais antigas que contenham wildcards em URIs redirecionados continuarão a funcionar.
 
-Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, em vez de adicionar um URI de redirecionamento curinga, considere uma das abordagens a seguir.
+Se o seu cenário requer mais URIs redirecionados do que o limite máximo permitido, em vez de adicionar um URI de redirecionamento wildcard, considere uma das seguintes abordagens.
 
-### <a name="use-a-state-parameter"></a>Usar um parâmetro de estado
+### <a name="use-a-state-parameter"></a>Use um parâmetro estatal
 
-Se você tiver um número de subdomínios e se seu cenário exigir que você redirecione os usuários após a autenticação bem-sucedida na mesma página em que eles foram iniciados, o uso de um parâmetro de estado pode ser útil. 
+Se tiver vários subdomínios, e se o seu cenário exigir que redirecione os utilizadores após autenticação bem sucedida para a mesma página onde começaram, usar um parâmetro de estado pode ser útil. 
 
 Nesta abordagem:
 
-1. Crie um URI de redirecionamento "compartilhado" por aplicativo para processar os tokens de segurança que você recebe do ponto de extremidade de autorização.
-1. Seu aplicativo pode enviar parâmetros específicos do aplicativo (como a URL de subdomínio onde o usuário originou ou qualquer coisa como informações de identidade visual) no parâmetro State. Ao usar um parâmetro de estado, proteja-se contra proteção CSRF conforme especificado na [seção 10,12 da RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)). 
-1. Os parâmetros específicos do aplicativo incluirão todas as informações necessárias para que o aplicativo processe a experiência correta para o usuário, ou seja, construa o estado do aplicativo apropriado. O ponto de extremidade de autorização do Azure AD retira o HTML do parâmetro de estado, portanto, certifique-se de que você não está passando o conteúdo HTML nesse parâmetro.
-1. Quando o Azure AD envia uma resposta para o URI de redirecionamento "compartilhado", ele envia o parâmetro de estado de volta para o aplicativo.
-1. Em seguida, o aplicativo pode usar o valor no parâmetro State para determinar a URL para a qual enviar o usuário. Certifique-se de validar para proteção do CSRF.
+1. Crie um URI redirecionado "partilhado" por aplicação para processar as fichas de segurança que recebe do ponto final da autorização.
+1. A sua aplicação pode enviar parâmetros específicos da aplicação (como URL de subdomínio onde o utilizador se originou ou qualquer coisa como informações de marca) no parâmetro do estado. Quando utilizar um parâmetro estatal, proteja-se contra a proteção CSRF, conforme especificado na [secção 10.12 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)). 
+1. Os parâmetros específicos da aplicação incluirão todas as informações necessárias para que a aplicação torne a experiência correta para o utilizador, ou seja, construir o estado de aplicação adequado. O ponto final de autorização da AD Azure tira HTML do parâmetro estatal para se certificar de que não está a passar o conteúdo HTML neste parâmetro.
+1. Quando a Azure AD enviar uma resposta ao redirecionamento "partilhado" URI, enviará o parâmetro estatal de volta para a aplicação.
+1. A aplicação pode então utilizar o valor no parâmetro do Estado para determinar a que URL enviar o utilizador. Certifique-se de que valida para proteção CSRF.
 
 > [!NOTE]
-> Essa abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro de estado, redirecionando, assim, o usuário para uma URL diferente, que é a [ameaça de redirecionamento aberta](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita na RFC 6819. Portanto, o cliente deve proteger esses parâmetros criptografando o estado ou verificando-o por outros meios, como validar o nome de domínio no URI de redirecionamento em relação ao token.
+> Esta abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro do Estado, redirecionando assim o utilizador para um URL diferente, que é a ameaça aberta de [redirector](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrito no RFC 6819. Por isso, o cliente deve proteger estes parâmetros encriptando o estado ou verificando-o por outros meios, tais como validar o nome de domínio no redirecionamento do URI contra o símbolo.
 
-### <a name="add-redirect-uris-to-service-principals"></a>Adicionar URIs de redirecionamento às entidades de serviço
+### <a name="add-redirect-uris-to-service-principals"></a>Adicionar URIs redirecionados aos principais de serviço
 
-Outra abordagem é adicionar URIs de redirecionamento às [entidades de serviço](app-objects-and-service-principals.md#application-and-service-principal-relationship) que representam o registro do aplicativo em qualquer locatário do Azure AD. Você pode usar essa abordagem quando não pode usar um parâmetro de estado ou seu cenário requer que você adicione novos URIs de redirecionamento ao registro do aplicativo para cada novo locatário ao qual dá suporte. 
+Outra abordagem é adicionar URIs redirecionados aos [principais de serviço](app-objects-and-service-principals.md#application-and-service-principal-relationship) que representam o registo da sua aplicação em qualquer inquilino da AD Azure. Pode utilizar esta abordagem quando não pode utilizar um parâmetro de estado ou o seu cenário requer que adicione novos URIs redirecionados ao registo da sua aplicação para cada novo inquilino que apoiar. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a401f019f38d00790b1975f7a0a68d6097c21a70
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b7fe65938b6f96a649a5a2a9ec1d1b921a95dd49
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920366"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703087"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Usando URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
 

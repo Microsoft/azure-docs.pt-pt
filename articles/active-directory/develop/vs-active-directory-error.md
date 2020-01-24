@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 379acbe8493f57fca97497b1b1483036ace905b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6ec31f0d60c7f6e3737dc4042b05a6d8bf3dd5e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423174"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699976"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticando erros com o serviço conectado do Azure Active Directory
 
@@ -27,7 +26,7 @@ Para detectar corretamente o código de autenticação anterior em um projeto, o
 
 ## <a name="project-types"></a>Tipos de projeto
 
-O serviço conectado verifica o tipo de projeto que você está desenvolvendo para que ele possa injetar a lógica de autenticação correta no projeto. Se houver qualquer controlador que derive de `ApiController` no projeto, o projeto será considerado um projeto WebAPI. Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto do MVC. O serviço conectado não dá suporte a nenhum outro tipo de projeto.
+O serviço conectado verifica o tipo de projeto que você está desenvolvendo para que ele possa injetar a lógica de autenticação correta no projeto. Se houver algum controlador que deriva de `ApiController` no projeto, o projeto é considerado um projeto WebAPI. Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto é considerado um projeto MVC. O serviço conectado não dá suporte a nenhum outro tipo de projeto.
 
 ## <a name="compatible-authentication-code"></a>Código de autenticação compatível
 
@@ -54,7 +53,7 @@ Por fim, o serviço conectado tenta detectar versões de código de autenticaç�
 * Contas de usuário individuais
 * Contas institucionais
 
-Para detectar a autenticação do Windows em um projeto MVC, a conexão procura o elemento `authentication` no arquivo `web.config`.
+Para detetar a Autenticação do Windows num projeto MVC, o dispositivo conectado procura o elemento `authentication` no seu ficheiro `web.config`.
 
 ```xml
 <configuration>
@@ -64,7 +63,7 @@ Para detectar a autenticação do Windows em um projeto MVC, a conexão procura 
 </configuration>
 ```
 
-Para detectar a autenticação do Windows em um projeto de API da Web, o serviço conectado procura o elemento `IISExpressWindowsAuthentication` no arquivo de `.csproj` do seu projeto:
+Para detetar a Autenticação do Windows num projeto Web API, o serviço conectado procura o elemento `IISExpressWindowsAuthentication` no ficheiro `.csproj` do seu projeto:
 
 ```xml
 <Project>
@@ -74,7 +73,7 @@ Para detectar a autenticação do Windows em um projeto de API da Web, o serviç
 </Project>
 ```
 
-Para detectar a autenticação de contas de usuário individuais, o serviço conectado procura o elemento de pacote em seu arquivo de `packages.config`.
+Para detetar a autenticação das Contas de Utilizador Individuais, o serviço conectado procura o elemento do pacote no seu ficheiro `packages.config`.
 
 ```xml
 <packages>
@@ -82,7 +81,7 @@ Para detectar a autenticação de contas de usuário individuais, o serviço con
 </packages>
 ```
 
-Para detectar uma forma antiga de autenticação de conta organizacional, o serviço conectado procura o seguinte elemento no`web.config`:
+Para detetar uma antiga forma de autenticação da Conta Organizacional, o serviço conectado procura o seguinte elemento em`web.config`:
 
 ```xml
 <configuration>
@@ -94,4 +93,4 @@ Para detectar uma forma antiga de autenticação de conta organizacional, o serv
 
 Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e tente adicionar o serviço conectado novamente.
 
-Para obter mais informações, consulte [cenários de autenticação do Azure ad](authentication-scenarios.md).
+Para mais informações, consulte Cenários de [Autenticação para AD Azure](authentication-scenarios.md).

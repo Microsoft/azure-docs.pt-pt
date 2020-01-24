@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 10eb16dc1757255c77ed8967dc132f42660e070f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 505670e719e86086dbf7721b4298ec913220f928
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183962"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694444"
 ---
 ## <a name="provide-frames-to-the-session"></a>Fornecer quadros para a sessão
 
-A sessão de âncora geográficos funciona, mapeando o espaço à volta do utilizador. Isso ajuda a determinar onde estão localizadas as âncoras. Plataformas móveis (iOS e Android) requerem uma chamada nativa para o feed para obter quadros da biblioteca de AR de sua plataforma da câmara. Por outro lado, HoloLens constantemente está a analisar o ambiente, portanto, não há nenhuma necessidade de uma chamada específica, como com o Mobile.
+A sessão de âncora espacial funciona mapeando o espaço em torno do utilizador. Fazê-lo ajuda a determinar onde estão as âncoras. As plataformas móveis (iOS e Android) requerem uma chamada nativa para o feed da câmara para obter quadros da biblioteca AR da sua plataforma. Em contraste, os HoloLens estão constantemente a digitalizar o ambiente, por isso não há necessidade de uma chamada específica como no Mobile.

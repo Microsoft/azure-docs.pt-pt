@@ -1,7 +1,7 @@
 ---
 title: Guia de migração do ADAL para MSAL (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Conheça as diferenças entre o MSAL para iOS/macOS e a biblioteca de autenticação do Azure AD para ObjectiveC (ADAL. ObjC) e como migrar para o MSAL para iOS/macOS.
+description: Conheça as diferenças entre o MSAL para iOS/macOS e a Biblioteca de Autenticação AD Azure para o ObjectiveC (ADAL). ObjC) e como migrar para mSAL para iOS/macOS.
 services: active-directory
 author: TylerMSFT
 manager: CelesteDG
@@ -13,13 +13,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f35243e29755c42dbe8e3a696f2718ee3d10178c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 311d6ed988777e94f5dd3fde8ac6e9aff1fb39fe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424418"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696678"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicativos para o MSAL para iOS e macOS
 
@@ -92,13 +91,13 @@ Ao migrar do ADAL para o MSAL, `WKWebView` fornece a experiência do usuário ma
 
 ### <a name="account-management-api-differences"></a>Diferenças de API de gerenciamento de conta
 
-Ao chamar os métodos de ADAL `acquireToken()` ou `acquireTokenSilent()`, você recebe um objeto `ADUserInformation` que contém uma lista de declarações do `id_token` que representa a conta que está sendo autenticada. Além disso, `ADUserInformation` retorna uma `userId` com base na declaração de `upn`. Após a aquisição de token interativo inicial, a ADAL espera que o desenvolvedor forneça `userId` em todas as chamadas silenciosas.
+Quando liga para os métodos ADAL `acquireToken()` ou `acquireTokenSilent()`, recebe um objeto `ADUserInformation` contendo uma lista de reclamações do `id_token` que representa a autenticação da conta. Além disso, `ADUserInformation` retorna uma `userId` com base na declaração de `upn`. Após a aquisição de token interativo inicial, a ADAL espera que o desenvolvedor forneça `userId` em todas as chamadas silenciosas.
 
 A ADAL não fornece uma API para recuperar identidades de usuário conhecidas. Ele depende do aplicativo para salvar e gerenciar essas contas.
 
 O MSAL fornece um conjunto de APIs para listar todas as contas conhecidas para o MSAL sem a necessidade de adquirir um token.
 
-Como a ADAL, MSAL retorna informações de conta que contêm uma lista de declarações do `id_token`. Faz parte do objeto `MSALAccount` dentro do objeto `MSALResult`.
+Tal como a ADAL, a MSAL devolve informações de conta que detêm uma lista de reclamações do `id_token`. Faz parte do objeto `MSALAccount` dentro do objeto `MSALResult`.
 
 O MSAL fornece um conjunto de APIs para remover contas, tornando as contas removidas inacessíveis para o aplicativo. Depois que a conta for removida, as chamadas de aquisição de token posteriores solicitarão que o usuário faça a aquisição de token interativa. A remoção de conta só se aplica ao aplicativo cliente que o iniciou e não remove a conta dos outros aplicativos em execução no dispositivo ou no navegador do sistema. Isso garante que o usuário Continue tendo uma experiência de SSO no dispositivo mesmo depois de sair de um aplicativo individual.
 
@@ -126,7 +125,7 @@ MSAL introduz algumas alterações de chamada de aquisição de token:
 
 * Como a ADAL, `acquireTokenSilent` sempre resulta em uma solicitação silenciosa.
 * Ao contrário da ADAL, `acquireToken` sempre resulta em uma interface do usuário acionável por meio da exibição da Web ou do aplicativo Microsoft Authenticator. Dependendo do estado de SSO dentro do WebView/Microsoft Authenticator, o usuário pode ser solicitado a inserir suas credenciais.
-* Na ADAL, `acquireToken` com `AD_PROMPT_AUTO` primeiro tenta a aquisição de token silenciosa e mostra apenas a interface do usuário se a solicitação silenciosa falhar. No MSAL, essa lógica pode ser obtida primeiro chamando `acquireTokenSilent` e apenas chamando `acquireToken` se a aquisição silenciosa falhar. Isso permite que os desenvolvedores personalizem a experiência do usuário antes de iniciar a aquisição de token interativa.
+* Na ADAL, `acquireToken` com `AD_PROMPT_AUTO` primeira tentativa de aquisição de token silenciosa, e só mostra UI se o pedido silencioso falhar. No MSAL, essa lógica pode ser obtida primeiro chamando `acquireTokenSilent` e apenas chamando `acquireToken` se a aquisição silenciosa falhar. Isso permite que os desenvolvedores personalizem a experiência do usuário antes de iniciar a aquisição de token interativa.
 
 ### <a name="error-handling-differences"></a>Diferenças de tratamento de erro
 

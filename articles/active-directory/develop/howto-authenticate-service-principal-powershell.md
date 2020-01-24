@@ -14,13 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31b3b24c324d471a13775f2d64ea79f1d861703
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c6c07c48bf94b50d46a50a47f57857fdd15a0e8e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424515"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697256"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: usar Azure PowerShell para criar uma entidade de serviço com um certificado
 

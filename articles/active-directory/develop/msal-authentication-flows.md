@@ -13,13 +13,12 @@ ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bf241bc15ccdcf9e7d65f277c235f1aa668fcbe0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291589"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696645"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -38,7 +37,7 @@ Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
  
-Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
+Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Estes fluxos podem produzir uma variedade de tokens (id_tokens, fichas de atualização, fichas de acesso) bem como códigos de autorização, e requerem diferentes fichas para fazê-los funcionar. Este gráfico fornece uma visão geral:
  
 |Flow | Requer | id_token | token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
@@ -50,7 +49,7 @@ Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos
 |[Fluxo de código do dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
  
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`.
+Os tokens emitidos através do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador através do URL (onde `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`.
 
 ## <a name="interactive"></a>Interativo
 
@@ -183,7 +182,7 @@ O IWA é para aplicativos escritos para as plataformas .NET Framework, .NET Core
 
 IWA não ignora a autenticação multifator. Se a autenticação multifator estiver configurada, IWA poderá falhar se um desafio de autenticação multifator for necessário. A autenticação multifator requer interação do usuário.
 
-Você não controla quando o provedor de identidade solicita que a autenticação de dois fatores seja executada. O administrador de locatários faz. Normalmente, a autenticação de dois fatores é necessária quando você entra em um país diferente, quando você não está conectado via VPN a uma rede corporativa e, às vezes, mesmo quando você está conectado via VPN. O Azure AD usa o ia para aprender continuamente se a autenticação de dois fatores é necessária. Se IWA falhar, você deverá retornar a um [prompt de usuário interativo] (#interactive).
+Você não controla quando o provedor de identidade solicita que a autenticação de dois fatores seja executada. O administrador de locatários faz. Normalmente, a autenticação de dois fatores é necessária quando você entra em um país diferente, quando você não está conectado via VPN a uma rede corporativa e, às vezes, mesmo quando você está conectado via VPN. O Azure AD usa o ia para aprender continuamente se a autenticação de dois fatores é necessária. Se o IWA falhar, deve recuar para um [pedido de utilizador interativo] (#interactive).
 
 A autoridade passada ao construir o aplicativo cliente público deve ser uma das seguintes:
 - Com locatários (do formulário `https://login.microsoftonline.com/{tenant}/` onde `tenant` é o GUID que representa a ID do locatário ou um domínio associado ao locatário).

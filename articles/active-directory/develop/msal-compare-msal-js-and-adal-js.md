@@ -1,7 +1,7 @@
 ---
-title: Diferenças entre MSAL. js e ADAL. js | Azure
+title: Diferenças entre MSAL.js e ADAL.js / Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) e a biblioteca de autenticação do Azure AD para JavaScript (ADAL. js) e como escolher qual delas usar.
+description: Saiba mais sobre as diferenças entre a Microsoft Authentication Library for JavaScript (MSAL.js) e a Azure AD Authentication Library for JavaScript (ADAL.js) e como escolher qual usar.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -13,56 +13,55 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d156ccd4b3f81081433962dcd939a91ab1bc7143
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963236"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696423"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre MSAL JS e ADAL JS
 
-A biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) e a biblioteca de autenticação do Azure AD para JavaScript (ADAL. js) são usadas para autenticar entidades do Azure AD e solicitar tokens do Azure AD. Até agora, a maioria dos desenvolvedores trabalhou com o Azure AD para desenvolvedores (v 1.0) para autenticar identidades do Azure AD (contas corporativas e de estudante) solicitando tokens usando a ADAL. Agora, usando o MSAL. js, você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades do Azure AD e contas da Microsoft e contas sociais e locais por meio do Azure AD B2C) por meio da plataforma Microsoft Identity (v 2.0).
+Tanto a Microsoft Authentication Library for JavaScript (MSAL.js) como a Azure AD Authentication Library for JavaScript (ADAL.js) são usadas para autenticar entidades da AD Azure e solicitar fichas da Azure AD. Até agora, a maioria dos desenvolvedores tem trabalhado com a Azure AD para programadores (v1.0) para autenticar identidades azure AD (contas de trabalho e escola) solicitando fichas usando a ADAL. Agora, usando mSAL.js, pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades Azure AD e contas Microsoft, e contas sociais e locais através do Azure AD B2C) através da plataforma de identidade da Microsoft (v2.0).
 
-Este artigo descreve como escolher entre a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) e a biblioteca de autenticação do Azure AD para JavaScript (ADAL. js) e compara as duas bibliotecas.
+Este artigo descreve como escolher entre a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) e a Biblioteca de Autenticação AD Azure para JavaScript (ADAL.js) e compara as duas bibliotecas.
 
-## <a name="choosing-between-adaljs-and-msaljs"></a>Escolhendo entre ADAL. js e MSAL. js
+## <a name="choosing-between-adaljs-and-msaljs"></a>Escolha entre ADAL.js e MSAL.js
 
-Na maioria dos casos, você deseja usar a plataforma de identidade da Microsoft e o MSAL. js, que é a última geração de bibliotecas de autenticação da Microsoft. Usando o MSAL. js, você adquire tokens para usuários que entram em seu aplicativo com o Azure AD (contas corporativas e de estudante), MSA (contas pessoais) da Microsoft ou Azure AD B2C.
+Na maioria dos casos, pretende utilizar a plataforma de identidade da Microsoft e o MSAL.js, que é a mais recente geração de bibliotecas de autenticação da Microsoft. Utilizando MSAL.js, adquire fichas para utilizadores que saem da sua aplicação com a Azure AD (contas de trabalho e escola), contas Microsoft (pessoais) (MSA) ou Azure AD B2C.
 
-Se você já estiver familiarizado com o ponto de extremidade v 1.0 (e o ADAL. js), talvez queira ler [o que há de diferente no ponto de extremidade v 2.0?](active-directory-v2-compare.md).
+Se já está familiarizado com o ponto final v1.0 (e ADAL.js), talvez queira ler [O que há de diferente no ponto final v2.0?](active-directory-v2-compare.md)
 
-No entanto, você ainda precisará usar o ADAL. js se seu aplicativo precisar conectar usuários com versões anteriores do [serviços de Federação do Active Directory (AD FS) (ADFS)](/windows-server/identity/active-directory-federation-services).
+No entanto, ainda precisa de utilizar a ADAL.js se a sua aplicação precisar de contratar utilizadores com versões anteriores dos Serviços da Federação de [DiretórioAtivo (ADFS).](/windows-server/identity/active-directory-federation-services)
 
-## <a name="key-differences-in-authentication-with-msaljs"></a>Principais diferenças na autenticação com MSAL. js
+## <a name="key-differences-in-authentication-with-msaljs"></a>Principais diferenças na autenticação com MSAL.js
 
-### <a name="core-api"></a>API principal
+### <a name="core-api"></a>API central
 
-* O ADAL. js usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) como a representação de uma instância da conexão do aplicativo para o servidor de autorização ou o provedor de identidade por meio de uma URL de autoridade. No contrário, a API MSAL. js é projetada em relação ao aplicativo cliente do agente do usuário (uma forma de aplicativo cliente público em que o código do cliente é executado em um agente de usuário, como um navegador da Web). Ele fornece a classe `UserAgentApplication` para representar uma instância do contexto de autenticação do aplicativo com o servidor de autorização. Para obter mais detalhes, consulte [inicializar usando MSAL. js](msal-js-initializing-client-applications.md).
+* A ADAL.js utiliza o [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) como representação de uma instância da ligação da sua aplicação ao servidor de autorização ou fornecedor de identidade através de um URL de autoridade. Pelo contrário, a MSAL.js API é projetada em torno da aplicação do cliente do agente utilizador (uma forma de aplicação do cliente público em que o código do cliente é executado em um utilizador-agente como um navegador web). Fornece a classe `UserAgentApplication` para representar uma instância do contexto de autenticação da aplicação com o servidor de autorização. Para mais detalhes, consulte [Inicialize utilizando MSAL.js](msal-js-initializing-client-applications.md).
 
-* No ADAL. js, os métodos para adquirir tokens são associados a uma única autoridade definida no `AuthenticationContext`. No MSAL. js, as solicitações de token de aquisição podem ter valores de autoridade diferentes dos que estão definidos no `UserAgentApplication`. Isso permite que o MSAL. js adquira e armazene em cache tokens separadamente para vários locatários e contas de usuário no mesmo aplicativo.
+* Em ADAL.js, os métodos de aquisição de fichas estão associados a uma única autoridade estabelecida no `AuthenticationContext`. Em MSAL.js, os pedidos simbólicos de aquisição podem assumir valores de autoridade diferentes dos estabelecidos no `UserAgentApplication`. Isto permite que a MSAL.js adquira e cache tokens separadamente para vários inquilinos e contas de utilizador na mesma aplicação.
 
-* O método para adquirir e renovar tokens silenciosamente sem avisar os usuários é denominado `acquireToken` no ADAL. js. No MSAL. js, esse método é denominado `acquireTokenSilent` para ser mais descritivo dessa funcionalidade.
+* O método para adquirir e renovar tokens silenciosamente sem incitar os utilizadores é nomeado `acquireToken` em ADAL.js. Em MSAL.js, este método é nomeado `acquireTokenSilent` ser mais descritivo desta funcionalidade.
 
-### <a name="authority-value-common"></a>`common` de valor de autoridade
+### <a name="authority-value-common"></a>`common` de valor da autoridade
 
-Na v 1.0, o uso da autoridade de `https://login.microsoftonline.com/common` permitirá que os usuários entrem com qualquer conta do Azure AD (para qualquer organização).
+Em v1.0, a utilização da autoridade `https://login.microsoftonline.com/common` permitirá que os utilizadores assinem qualquer conta Azure AD (para qualquer organização).
 
-Na v 2.0, usar a autoridade de `https://login.microsoftonline.com/common` permitirá que os usuários entrem com qualquer conta da organização do Azure AD ou uma MSA (conta pessoal da Microsoft). Para restringir a entrada somente às contas do Azure AD (mesmo comportamento do ADAL. js), você precisa usar `https://login.microsoftonline.com/organizations`. Para obter detalhes, consulte a opção de configuração `authority` em [inicializar usando MSAL. js](msal-js-initializing-client-applications.md).
+Em v2.0, utilizando a autoridade `https://login.microsoftonline.com/common`, permitirá que os utilizadores assinem com qualquer conta de organização da Azure AD ou uma conta pessoal da Microsoft (MSA). Para restringir o início de sessão apenas a contas AD Azure (o mesmo comportamento que com a ADAL.js), é necessário utilizar `https://login.microsoftonline.com/organizations`. Para mais detalhes, consulte a opção `authority` config em [Inicialize utilizando MSAL.js](msal-js-initializing-client-applications.md).
 
-### <a name="scopes-for-acquiring-tokens"></a>Escopos para adquirir tokens
-* Escopo em vez do parâmetro de recurso em solicitações de autenticação para adquirir tokens
+### <a name="scopes-for-acquiring-tokens"></a>Âmbitos para aquisição de fichas
+* Âmbito em vez de parâmetro de recursos em pedidos de autenticação para adquirir fichas
 
-    o protocolo v 2.0 usa escopos em vez de recurso nas solicitações. Em outras palavras, quando seu aplicativo precisa solicitar tokens com permissões para um recurso como o MS Graph, a diferença nos valores passados para os métodos de biblioteca é a seguinte:
+    v2.0 protocolo utiliza âmbitos em vez de recursos nos pedidos. Por outras palavras, quando a sua aplicação precisa de solicitar fichas com permissões para um recurso como o MS Graph, a diferença de valores passados para os métodos da biblioteca é a seguinte:
 
-    v 1.0: Resource = https\://graph.microsoft.com
+    v1.0: recurso = https\://graph.microsoft.com
 
-    v 2.0: scope = https\://graph.microsoft.com/User.Read
+    v2.0: âmbito = https\://graph.microsoft.com/User.Read
 
-    Você pode solicitar escopos para qualquer API de recurso usando o URI da API neste formato: appidURI/Scope, por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
+    Pode solicitar âmbitos para qualquer recurso API utilizando o URI da API neste formato: appidURI/scope Por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Somente para o MS API do Graph, um valor de escopo `user.read` é mapeado para https:\//graph.microsoft.com/User.Read e pode ser usado de forma intercambiável.
+    Apenas para a API do Gráfico MS, um valor de âmbito `user.read` mapas para https:\//graph.microsoft.com/User.Read e pode ser usado alternadamente.
 
     ```javascript
     var request = {
@@ -72,9 +71,9 @@ Na v 2.0, usar a autoridade de `https://login.microsoftonline.com/common` permit
     acquireTokenPopup(request);   
     ```
 
-* Escopos dinâmicos para consentimento incremental.
+* Âmbitos dinâmicos para o consentimento incremental.
 
-    Ao criar aplicativos usando a v 1.0, você precisava registrar o conjunto completo de permissões (escopos estáticos) exigido pelo aplicativo para que o usuário consentisse no momento do logon. Na v 2.0, você pode usar o parâmetro scope para solicitar as permissões no momento em que desejar. Eles são chamados de escopos dinâmicos. Isso permite que o usuário forneça consentimento incremental para escopos. Portanto, se no início você quiser que o usuário entre no seu aplicativo e não precisar de nenhum tipo de acesso, poderá fazer isso. Se posteriormente você precisar da capacidade de ler o calendário do usuário, poderá solicitar o escopo do calendário nos métodos acquireToken e obter o consentimento do usuário. Por exemplo:
+    Ao construir aplicações utilizando v1.0, foi necessário registar o conjunto completo de permissões (âmbitos estáticos) exigidos pelo pedido para que o utilizador consinta no momento do login. Em v2.0, pode utilizar o parâmetro de âmbito para solicitar as permissões no momento em que as desejar. Estes são chamados de âmbitos dinâmicos. Isto permite ao utilizador fornecer consentimento incremental aos âmbitos. Portanto, se no início apenas quiser que o utilizador aceda à sua aplicação e não precise de qualquer tipo de acesso, pode fazê-lo. Se mais tarde necessitar da capacidade de ler o calendário do utilizador, poderá então solicitar o âmbito do calendário nos métodos token adquiridos e obter o consentimento do utilizador. Por exemplo:
 
     ```javascript
     var request = {
@@ -84,9 +83,9 @@ Na v 2.0, usar a autoridade de `https://login.microsoftonline.com/common` permit
     acquireTokenPopup(request);   
     ```
 
-* Escopos para APIs V 1.0
+* Âmbitos para V1.0 APIs
 
-    Ao obter tokens para APIs V 1.0 usando MSAL. js, você pode solicitar todos os escopos estáticos registrados na API acrescentando `.default` ao URI de ID do aplicativo da API como escopo. Por exemplo:
+    Ao obter fichas para V1.0 APIs utilizando MSAL.js, pode solicitar todos os âmbitos estáticos registados na API, através da aplicação `.default` ao APP ID URI da API como âmbito. Por exemplo:
 
     ```javascript
     var request = {

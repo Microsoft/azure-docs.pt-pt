@@ -17,13 +17,12 @@ ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17538d383d7f796803c88d9490aa68ed75351445
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ebdebd48710e892ec8f1a96eeba0f91228024420
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423288"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700537"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -99,7 +98,7 @@ Se você conectar o usuário ao seu aplicativo, poderá identificar a organizaç
 Quando estiver pronto para solicitar permissões do administrador da organização, você poderá redirecionar o usuário para o *ponto de extremidade de consentimento do administrador*da plataforma de identidade da Microsoft.
 
 > [!TIP]
-> Tente executar esta solicitação no postmaster! (Use sua própria ID de aplicativo para obter melhores resultados-o aplicativo tutorial não solicitará permissões úteis.) [![tentar executar esta solicitação no postmaster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar esta solicitação no postmaster! (Use o seu próprio ID de aplicação para obter os melhores resultados - a aplicação tutorial não solicitará permissões úteis.) [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -161,7 +160,7 @@ Depois de receber uma resposta bem-sucedida do ponto de extremidade de provision
 Depois de adquirir a autorização necessária para seu aplicativo, continue com a aquisição de tokens de acesso para APIs. Para obter um token usando a concessão de credenciais de cliente, envie uma solicitação POST para o `/token` ponto de extremidade da plataforma de identidade da Microsoft:
 
 > [!TIP]
-> Tente executar esta solicitação no postmaster! (Use sua própria ID de aplicativo para obter melhores resultados-o aplicativo tutorial não solicitará permissões úteis.) [![tentar executar esta solicitação no postmaster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar esta solicitação no postmaster! (Use o seu próprio ID de aplicação para obter os melhores resultados - a aplicação tutorial não solicitará permissões úteis.) [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
 
@@ -212,7 +211,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | Obrigatório | Uma asserção (um token Web JSON) que você precisa para criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Leia sobre [as credenciais do certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e o formato da asserção.|
 | `grant_type` | Obrigatório | Tem de ser definido como `client_credentials`. |
 
-Observe que os parâmetros são quase iguais aos do caso da solicitação por segredo compartilhado, exceto pelo fato de que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
+Note-se que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 
 ### <a name="successful-response"></a>Resposta bem-sucedida
 

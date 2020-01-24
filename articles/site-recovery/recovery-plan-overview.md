@@ -2,25 +2,27 @@
 title: Sobre os planos de recuperação no Azure Site Recovery
 description: Saiba mais sobre os planos de recuperação no Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/23/2020
+ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497886"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705858"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
 Este artigo fornece uma visão geral dos planos de recuperação no [Azure site Recovery](site-recovery-overview.md).
 
-Um plano de recuperação reúne computadores em grupos de recuperação. Um plano de recuperação ajuda você a definir um processo de recuperação sistemático, criando pequenas unidades independentes nas quais você pode fazer failover. Uma unidade normalmente representa um aplicativo em seu ambiente.
+Um plano de recuperação reúne máquinas em grupos de recuperação com o propósito de falhar. Um plano de recuperação ajuda você a definir um processo de recuperação sistemático, criando pequenas unidades independentes nas quais você pode fazer failover. Uma unidade normalmente representa um aplicativo em seu ambiente.
 
 - Um plano de recuperação define como os computadores fazem failover e a sequência na qual eles iniciam após o failover.
+- Os planos de recuperação são usados para falhar com o Azure, mas não podem ser usados para o failback do Azure.
 - Até 100 instâncias protegidas podem ser adicionadas a um plano de recuperação.
 - Você pode personalizar um plano adicionando uma ordem, instruções e tarefas a ele.
 - Depois que um plano é definido, você pode executar um failover nele.
 - Os computadores podem ser referenciados em vários planos de recuperação, nos quais os planos subsequentes ignoram a implantação/inicialização de um computador se ele foi implantado anteriormente usando outro plano de recuperação.
+
 
 
 ### <a name="why-use-a-recovery-plan"></a>Por que usar um plano de recuperação?

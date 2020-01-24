@@ -1,6 +1,6 @@
 ---
-title: Agentes de autorização e como habilitá-los | Azure
-description: Saiba mais sobre os diferentes agentes de autorização que a MSAL (biblioteca de autenticação da Microsoft) permite que seu aplicativo Android use e como habilitá-los.
+title: Agentes de autorização e como os habilitar Azure
+description: Conheça os diferentes agentes de autorização que a Microsoft Authentication Library (MSAL) permite que a sua aplicação Android utilize e como as habilitar.
 services: active-directory
 author: tylermsft
 manager: CelesteDG
@@ -12,83 +12,82 @@ ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44a0e93c87c50fbc63cddad349ec9b5fbf45d91f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843908"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698004"
 ---
 # <a name="authorization-agents-android"></a>Agentes de autorização (Android)
 
-Este artigo descreve os diferentes agentes de autorização que a MSAL (biblioteca de autenticação da Microsoft) permite que seu aplicativo use e como habilitá-los.
+Este artigo descreve os diferentes agentes de autorização que a Microsoft Authentication Library (MSAL) permite que a sua aplicação utilize e como as habilitar.
 
-A escolha de uma estratégia específica para agentes de autorização é opcional e representa a funcionalidade adicional que os aplicativos podem personalizar. A maioria dos aplicativos usará os padrões MSAL (consulte [entender o arquivo de configuração do MSAL do Android](msal-configuration.md) para ver os vários padrões).
+Escolher uma estratégia específica para agentes de autorização é opcional e representa aplicações de funcionalidades adicionais que podem personalizar. A maioria das aplicações usará os predefinições do MSAL (ver Compreender o ficheiro de [configuração Android MSAL](msal-configuration.md) para ver os vários incumprimentos).
 
-O MSAL dá suporte à autorização usando uma `WebView`ou o navegador do sistema.  A imagem abaixo mostra como ele se parece usando o `WebView`ou o navegador do sistema com CustomTabs ou sem CustomTabs:
+A MSAL suporta a autorização utilizando uma `WebView`, ou o navegador do sistema.  A imagem abaixo mostra como fica usando o `WebView`, ou o navegador do sistema com CustomTabs ou sem CustomTabs:
 
-![Exemplos de logon do MSAL](./media/authorization-agents/sign-in-ui.jpg)
+![Exemplos de login mSAL](./media/authorization-agents/sign-in-ui.jpg)
 
-## <a name="single-sign-in-implications"></a>Implicações de logon único
+## <a name="single-sign-in-implications"></a>Implicações únicas de inscrição
 
-Por padrão, os aplicativos integrados ao MSAL usam as guias personalizadas do navegador do sistema para autorizar. Ao contrário das exibições, as guias personalizadas compartilham um jar de cookie com o navegador do sistema padrão, permitindo menos entradas com a Web ou outros aplicativos nativos que se integraram com guias personalizadas.
+Por padrão, as aplicações integradas com o MSAL utilizam os Separadores Personalizados do navegador do sistema para autorizar. Ao contrário do WebViews, os Custom Tabs partilham um frasco de cookies com o navegador de sistema padrão, permitindo menos inscrições com web ou outras aplicações nativas que se integraram com Separadores Personalizados.
 
-Se o aplicativo usar uma estratégia de `WebView` sem integrar Microsoft Authenticator ou Portal da Empresa suporte ao seu aplicativo, os usuários não terão uma experiência de logon único (SSO) em todo o dispositivo ou entre aplicativos e aplicativos Web nativos.
+Se a aplicação utilizar uma estratégia `WebView` sem integrar o suporte do Microsoft Authenticator ou do Portal da Empresa na sua aplicação, os utilizadores não terão uma experiência single sign on (SSO) em todo o dispositivo ou entre aplicações nativas e aplicações web.
 
-Se o aplicativo usar MSAL com suporte a Microsoft Authenticator ou Portal da Empresa, os usuários poderão ter uma experiência de SSO entre aplicativos se o usuário tiver uma entrada ativa com um dos aplicativos.
+Se a aplicação utilizar o MSAL com suporte ao Microsoft Authenticator ou ao Portal da Empresa, os utilizadores podem ter uma experiência SSO em aplicações se o utilizador tiver um acesso ativo com uma das aplicações.
 
 ## <a name="webview"></a>WebView
 
-Para usar o WebView no aplicativo, coloque a seguinte linha no JSON de configuração do aplicativo que é passado para MSAL:
+Para utilizar o WebView na aplicação, coloque a seguinte linha na configuração da aplicação JSON que é passada para MSAL:
 
 ```json
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-Ao usar o `WebView`no aplicativo, o usuário entra diretamente no aplicativo. Os tokens são mantidos dentro da área restrita do aplicativo e não estão disponíveis fora do jar do cookie do aplicativo. Como resultado, o usuário não pode ter uma experiência de SSO entre aplicativos, a menos que os aplicativos se integrem com o autenticador ou Portal da Empresa.
+Ao utilizar o `WebView`da aplicação, o utilizador assina diretamente na aplicação. Os tokens são mantidos dentro da caixa de areia da app e não estão disponíveis fora do pote de cookies da aplicação. Como resultado, o utilizador não pode ter uma experiência SSO em todas as aplicações, a menos que as aplicações se integrem com o Autenticador ou Portal da Empresa.
 
-No entanto, o `WebView` fornece a capacidade de personalizar a aparência da interface do usuário de entrada. Consulte [Webviews do Android](https://developer.android.com/reference/android/webkit/WebView) para obter mais informações sobre como fazer essa personalização.
+No entanto, `WebView` fornece a capacidade de personalizar o look e sentir por UI de inscrição. Consulte o [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) para saber mais sobre como fazer esta personalização.
 
-## <a name="default-browser-plus-custom-tabs"></a>Navegador padrão mais guias personalizadas
+## <a name="default-browser-plus-custom-tabs"></a>Navegador padrão mais separadores personalizados
 
-Por padrão, o MSAL usa o navegador e uma estratégia de [guias personalizadas](https://developer.chrome.com/multidevice/android/customtabs) . Você pode indicar explicitamente essa estratégia para evitar alterações em versões futuras para `DEFAULT` usando a seguinte configuração de JSON no arquivo de configuração personalizada:
+Por padrão, a MSAL utiliza o navegador e uma estratégia [de separadores personalizados.](https://developer.chrome.com/multidevice/android/customtabs) Pode indicar explicitamente esta estratégia para evitar alterações em futuras versões para `DEFAULT` utilizando a seguinte configuração JSON no ficheiro de configuração personalizado:
 
 ```json
 "authorization_user_agent" : "BROWSER"
 ```
 
-Use essa abordagem para fornecer uma experiência de SSO por meio do navegador do dispositivo. O MSAL usa um jar de cookie compartilhado, que permite que outros aplicativos nativos ou aplicativos Web obtenham o SSO no dispositivo usando o cookie de sessão persistente definido por MSAL.
+Utilize esta abordagem para proporcionar uma experiência SSO através do navegador do dispositivo. A MSAL utiliza um frasco de cookies partilhado, que permite que outras aplicações nativas ou aplicações web atinjam o SSO no dispositivo, utilizando o conjunto de cookies de sessão de persistência definido pela MSAL.
 
-## <a name="browser-selection-heuristic"></a>Heurística de seleção do navegador
+## <a name="browser-selection-heuristic"></a>Heurística de seleção de navegador
 
-Como é impossível para MSAL especificar o pacote exato do navegador a ser usado em cada uma das grandes matrizes de telefones Android, o MSAL implementa uma heurística de seleção de navegador que tenta fornecer o melhor SSO entre dispositivos.
+Como é impossível para o MSAL especificar o pacote exato do navegador para usar em cada uma das amplas gamas de telefones Android, o MSAL implementa um heurístico de seleção de navegador que tenta fornecer o melhor SSO cross-device.
 
-MSAL recupera a lista completa de navegadores instalados no dispositivo para selecionar qual navegador usar. A lista está na ordem retornada pelo Gerenciador de pacotes, que reflete indiretamente as preferências do usuário. Por exemplo, o navegador padrão, se definido, é a primeira entrada na lista. O _primeiro_ navegador na lista será escolhido, independentemente de ele dar suporte a guias personalizadas. Se o navegador oferecer suporte a guias personalizadas, o MSAL iniciará a guia personalizada. as guias personalizadas terão uma aparência mais próxima a uma `WebView` no aplicativo e permitirão a personalização básica da interface do usuário. Consulte [guias personalizadas no Android](https://developer.chrome.com/multidevice/android/customtabs) para saber mais.
+A MSAL recupera a lista completa dos navegadores instalados no dispositivo para selecionar qual o navegador a utilizar. A lista está na ordem devolvida pelo gestor do pacote, o que reflete indiretamente as preferências do utilizador. Por exemplo, o navegador predefinido, se definido, é a primeira entrada na lista. O _primeiro_ navegador da lista será escolhido independentemente de suportar separadores personalizados. Se o navegador suportar separadores personalizados, o MSAL lançará o Separador `WebView` Personalizado. Consulte [Separadores Personalizados no Android](https://developer.chrome.com/multidevice/android/customtabs) para saber mais.
 
-Se não houver nenhum pacote de navegador no dispositivo, o MSAL usará o `WebView`no aplicativo.
+Se não houver pacotes de navegador no dispositivo, o MSAL utiliza o `WebView`da aplicação .
 
-A ordem dos navegadores na lista de navegadores é determinada pelo sistema operacional. Ele é, na ordem, mais preferencial para o mínimo. Se a configuração padrão do dispositivo não for alterada, o mesmo navegador deverá ser iniciado para cada conexão para garantir uma experiência de SSO.
+A ordem dos navegadores na lista de navegadores é determinada pelo sistema operativo. É por ordem da maioria preferida para menos. Se a definição de predefinição do dispositivo não for alterada, o mesmo navegador deve ser lançado para cada sinal para garantir uma experiência SSO.
 
 > [!NOTE]
-> MSAL não prefere mais o Chrome se outro navegador estiver definido como padrão. Por exemplo, em um dispositivo que tem o Chrome e outro navegador pré-instalado, o MSAL usará o navegador que o usuário definiu como o padrão.
+> A MSAL já nem sempre prefere o Chrome se outro navegador estiver definido como padrão. Por exemplo, num dispositivo que tenha o Chrome e outro navegador pré-instalado, o MSAL utilizará o navegador que o utilizador definiu como padrão.
 
-### <a name="tested-browsers"></a>Navegadores testados
+### <a name="tested-browsers"></a>Navegadores Testados
 
-Os seguintes navegadores foram testados para ver se eles são redirecionados corretamente para o `"redirect_uri"` especificado no arquivo de configuração:
+Os seguintes navegadores foram testados para ver se redirecionam corretamente para o `"redirect_uri"` especificado no ficheiro de configuração:
 
-| | Navegador interno | Chrome | Opera  | Microsoft Edge | Navegador de UC | Firefox |
+| | Navegador incorporado | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | Passá | Passá |não se aplica |não se aplica |não se aplica |não se aplica |
-| Samsung S7 (API 25) | passá | Passá | Passá | Passá | falha |Passá |
-| Huawei (API 26) |Pass * * | Passá | falha | Passá | Passá |Passá |
+| Samsung S7 (API 25) | passe* | Passá | Passá | Passá | falha |Passá |
+| Huawei (API 26) |passe** | Passá | falha | Passá | Passá |Passá |
 | Vivo (API 26) |Passá|Passá|Passá|Passá|Passá|falha|
 | Pixel 2 (API 26) |Passá | Passá | Passá | Passá | falha |Passá |
-| Oppo | Passá | Não aplicável * * * |não se aplica  |não se aplica |não se aplica | não se aplica|
+| Oppo | Passá | não aplicável*** |não se aplica  |não se aplica |não se aplica | não se aplica|
 | OnePlus (API 25) |Passá | Passá | Passá | Passá | falha |Passá |
 | Nexus (API 28) |Passá | Passá | Passá | Passá | falha |Passá |
 |EM | Passá | Passá | Passá | Passá | falha |Passá |
 
-\* O navegador interno da Samsung é a Samsung Internet.  
-\* * O navegador interno do Huawei é o navegador Huawei.  
-O navegador padrão não pode ser alterado dentro da configuração do dispositivo Oppo.
+*O navegador incorporado da Samsung é a Samsung Internet.  
+O navegador integrado da Huawei é o Huawei Browser.  
+O navegador predefinido não pode ser alterado dentro da definição do dispositivo Oppo.

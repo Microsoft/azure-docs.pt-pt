@@ -13,13 +13,12 @@ ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e350f4fc3d40b45a1308e1edd9331dc7f71399c5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777841"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696134"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicativos cliente usando o MSAL. js
 Este artigo descreve como inicializar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com uma instância de um aplicativo de agente do usuário. O aplicativo de agente de usuário é uma forma de aplicativo cliente público em que o código do cliente é executado em um agente de usuário, como um navegador da Web. Esses clientes não armazenam segredos, pois o contexto do navegador está aberto de acessível. Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
@@ -142,4 +141,4 @@ Veja abaixo o conjunto total de opções configuráveis que têm suporte no mome
 Eles só se aplicam a serem passados da biblioteca de invólucro angular do MSAL:
 - **unprotectedResources**: opcional.  Matriz de URIs que são recursos desprotegidos. MSAL não anexará um token às solicitações de saída que têm esse URI. Assume a predefinição `null`.
 
-- **protectedResourceMap**: opcional.  Esse é o mapeamento de recursos para escopos usados pelo MSAL para anexar automaticamente tokens de acesso em chamadas à API Web. Um único token de acesso é obtido para o recurso. Portanto, você pode mapear um caminho de recurso específico da seguinte maneira: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]} ou a URL do aplicativo do recurso como: {"https://graph.microsoft.com/", ["User. Read", "mail. Send"]}. Isso é necessário para chamadas de CORS. Assume a predefinição `null`.
+- **protectedResourceMap**: opcional.  Esse é o mapeamento de recursos para escopos usados pelo MSAL para anexar automaticamente tokens de acesso em chamadas à API Web. Um único token de acesso é obtido para o recurso. Assim, pode mapear um caminho específico de recursos da seguinte forma: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, ou o URL da aplicação do recurso como: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. Isso é necessário para chamadas de CORS. Assume a predefinição `null`.

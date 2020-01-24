@@ -1,16 +1,16 @@
 ---
-title: Solucionar problemas do Azure FarmBeats
+title: Resolver problemas do Azure FarmBeats
 description: Este artigo descreve como solucionar problemas do Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: f017b19ef8bd8e4c44d9e2885da6fbaf172808a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485978"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705620"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -20,9 +20,9 @@ Para obter ajuda adicional, entre em contato conosco em farmbeatssupport@microso
 
 Para baixar o arquivo **implantador. log** , faça o seguinte:
 
-1. Entre para **portal do Azure** e selecione sua assinatura e o locatário do Azure AD.
+1. Inscreva-se no **portal Azure** e selecione a sua subscrição e inquilino da Azure AD.
 2. Inicie o Cloud Shell a partir do menu de navegação superior do portal do Azure.
-3. Selecione **bash** como a experiência de Cloud Shell preferida.
+3. Selecione **Bash** como a experiência preferida da Cloud Shell.
 4. Selecione o ícone realçado e, na lista suspensa, selecione **baixar**.
 
     ![FarmBeats do projeto](./media/troubleshoot-azure-farmbeats/download-deployer-log-1.png)
@@ -45,6 +45,38 @@ Para baixar o arquivo **implantador. log** , faça o seguinte:
 
 Para entender como baixar logs, vá para a seção ["coletar logs manualmente"](#collect-logs-manually) .  
 
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível visualizar dados de telemetria depois de ingerir dados históricos/de streaming dos seus sensores
+
+**Sintoma**: Dispositivos ou sensores são implantados e você criou os dispositivos/sensores em FarmBeats e ingerido telemetria para o EventHub, mas você não pode obter ou ver dados de telemetria em FarmBeats.
+
+**Ação corretiva**:
+
+1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo para o seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga os [passos aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
+2. Certifique-se de que utilizou o formato de mensagem telemetria correto:
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
+
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Não tem a cadeia de conexão dos hubs de eventos do Azure
 
 **Ação corretiva**:
@@ -57,7 +89,7 @@ Para entender como baixar logs, vá para a seção ["coletar logs manualmente"](
 
    A resposta da API deve ter a cadeia de conexão dos hubs de eventos.
 
-### <a name="device-appears-offline"></a>O dispositivo aparece offline
+### <a name="device-appears-offline"></a>Dispositivo aparece offline
 
 **Sintomas**: os dispositivos são instalados e você vinculou o FarmBeats ao seu parceiro de dispositivo. Os dispositivos estão online e enviando dados de telemetria, mas aparecem offline.
 
@@ -90,15 +122,15 @@ Enquanto estiver excluindo um dispositivo, você poderá encontrar um dos seguin
     > Você não poderá excluir um dispositivo se os sensores estiverem associados a ele. Para obter mais informações sobre como excluir sensores associados, consulte a seção "excluir sensor" em [obter dados de sensor de parceiros de sensor](get-sensor-data-from-sensor-partner.md).
 
 
-## <a name="issues-with-jobs"></a>Problemas com trabalhos
+## <a name="issues-with-jobs"></a>Questões com emprego
 
-### <a name="farmbeats-internal-error"></a>Erro interno de FarmBeats
+### <a name="farmbeats-internal-error"></a>Erro interno FarmBeats
 
 **Mensagem**: "erro interno do FarmBeats, consulte o guia de solução de problemas para obter mais detalhes".
 
 **Ação corretiva**: esse problema pode resultar de uma falha temporária no pipeline de dados. Crie o trabalho novamente. Se o erro persistir, adicione a mensagem de erro em uma postagem no fórum do FarmBeats ou entre em contato com FarmBeatsSupport@microsoft.com.
 
-## <a name="accelerator-troubleshooting"></a>Solução de problemas do acelerador
+## <a name="accelerator-troubleshooting"></a>Resolução de problemas do acelerador
 
 ### <a name="access-control"></a>Controlo de acesso
 
@@ -108,7 +140,7 @@ Enquanto estiver excluindo um dispositivo, você poderá encontrar um dos seguin
 
 **Ação corretiva**: Verifique a ID de email para a qual você está tentando adicionar uma atribuição de função. A ID de email deve ser uma correspondência exata da ID registrada para esse usuário na Active Directory. Se o erro persistir, adicione a mensagem de erro em uma postagem no fórum do FarmBeats ou entre em contato com FarmBeatsSupport@microsoft.com.
 
-### <a name="unable-to-log-in-to-accelerator"></a>Não é possível fazer logon no acelerador
+### <a name="unable-to-log-in-to-accelerator"></a>Incapaz de iniciar sessão no Acelerador
 
 **Mensagem**: "erro: você não está autorizado a chamar o serviço. Contate o administrador para autorização. "
 
@@ -157,7 +189,7 @@ Efetue uma das seguintes ações:
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Servidor Sentinel: inoperante para manutenção
 
-**Mensagem de falha do trabalho**: "o Hub de acesso aberto do Copernicus será feito em breve! Lamentamos o inconveniente, estamos realizando alguma manutenção no momento. Voltaremos a ficar online em breve! " 
+**Mensagem de falha do trabalho**: "o Hub de acesso aberto do Copernicus será feito em breve! Desculpe pelo inconveniente, estamos fazendo alguma manutenção no momento. Voltaremos a ficar online em breve! " 
 
 **Ação corretiva**:
 
@@ -188,7 +220,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
    Para obter informações sobre qualquer atividade de manutenção de sentinela planejada ou não planejada, vá para o site de [notícias do hub de acesso do Copernicus Open](https://scihub.copernicus.eu/news/) .  
 2. Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5 a 7 dias e, em seguida, verifique se o trabalho foi bem-sucedido.
 
-## <a name="collect-logs-manually"></a>Coletar logs manualmente
+## <a name="collect-logs-manually"></a>Recolher registos manualmente
 
 [Instalar e implantar Gerenciador de armazenamento do Azure]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
@@ -260,7 +292,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-## <a name="batch-related-issues"></a>Problemas relacionados ao lote
+## <a name="batch-related-issues"></a>Questões relacionadas com lotes
 
 **Mensagem de erro**: "a cota da conta regional das contas do lote para a assinatura especificada foi atingida".
 

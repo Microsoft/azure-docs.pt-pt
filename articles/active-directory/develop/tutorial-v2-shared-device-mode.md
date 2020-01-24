@@ -15,13 +15,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401681b1704e36072da3854ef5b5f8e7c1e3f7b2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 98882ad115ff977cfd8222c6055a436855f50c04
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030864"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701251"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: usar o modo de dispositivo compartilhado em seu aplicativo Android
 
@@ -52,11 +51,11 @@ dependencies{
 
 Consulte a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) para obter mais informações sobre como configurar o arquivo de configuração.
 
-Defina `"shared_device_mode_supported"` como `true` no arquivo de configuração do MSAL.
+Detete `"shared_device_mode_supported"` para `true` no seu ficheiro de configuração MSAL.
 
-Talvez você não esteja planejando dar suporte ao modo de várias contas. Isso pode ser se você não estiver usando um dispositivo compartilhado e o usuário puder entrar no aplicativo com mais de uma conta ao mesmo tempo. Nesse caso, defina `"account_mode"` como `"SINGLE"`. Isso garante que seu aplicativo sempre obterá `ISingleAccountPublicClientApplication`e simplifica significativamente a integração do MSAL. O valor padrão de `"account_mode"` é `"MULTIPLE"`, portanto, é importante alterar esse valor no arquivo de configuração se você estiver usando o modo de `"single account"`.
+Talvez você não esteja planejando dar suporte ao modo de várias contas. Isso pode ser se você não estiver usando um dispositivo compartilhado e o usuário puder entrar no aplicativo com mais de uma conta ao mesmo tempo. Em caso afirmativo, `"account_mode"` `"SINGLE"`. Isso garante que seu aplicativo sempre obterá `ISingleAccountPublicClientApplication`e simplifica significativamente a integração do MSAL. O valor padrão do `"account_mode"` é `"MULTIPLE"`, pelo que é importante alterar este valor no ficheiro config se estiver a utilizar `"single account"` modo.
 
-Aqui está um exemplo do arquivo auth_config. JSON incluído no **aplicativo**>**principal**>**res**>diretório **bruto** do aplicativo de exemplo:
+Aqui está um exemplo do ficheiro auth_config.json incluído na **app**>**principal**>**res**>diretório **bruto** da aplicação da amostra:
 
 ```json
 {
@@ -92,7 +91,7 @@ deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Sh
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Inicializar o objeto PublicClientApplication
 
-Se você definir `"account_mode":"SINGLE"` no arquivo de configuração MSAL, poderá converter com segurança o objeto de aplicativo retornado como um `ISingleAccountPublicCLientApplication`.
+Se colocar `"account_mode":"SINGLE"` no ficheiro config MSAL, pode lançar com segurança o objeto de aplicação devolvido como `ISingleAccountPublicCLientApplication`.
 
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -206,14 +205,14 @@ As etapas a seguir descrevem como configurar seu aplicativo no portal do Azure e
 
 ### <a name="register-your-application-in-azure-active-directory"></a>Registrar seu aplicativo no Azure Active Directory
 
-Primeiro, Registre seu aplicativo em seu locatário organizacional. Em seguida, forneça esses valores abaixo em auth_config. JSON para que seu aplicativo seja executado corretamente.
+Primeiro, Registre seu aplicativo em seu locatário organizacional. Em seguida, forneça estes valores abaixo em auth_config.json para que a sua aplicação seja executada corretamente.
 
 Para obter informações sobre como fazer isso, consulte [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
 
 > [!NOTE]
-> Ao registrar seu aplicativo, use o guia de início rápido no lado esquerdo e, em seguida, selecione **Android**. Isso levará você a uma página em que será solicitado que você forneça o **nome do pacote** e o **hash de assinatura** para seu aplicativo. Eles são muito importantes para garantir que a configuração do aplicativo funcione. Em seguida, você receberá um objeto de configuração que pode ser usado para seu aplicativo que será recortado e colado em seu arquivo auth_config. JSON.
+> Ao registrar seu aplicativo, use o guia de início rápido no lado esquerdo e, em seguida, selecione **Android**. Isso levará você a uma página em que será solicitado que você forneça o **nome do pacote** e o **hash de assinatura** para seu aplicativo. Eles são muito importantes para garantir que a configuração do aplicativo funcione. Em seguida, receberá um objeto de configuração que pode usar para a sua aplicação que cortará e colará no seu ficheiro auth_config.json.
 
-![tela de registro do aplicativo](media/tutorial-v2-shared-device-mode/register-app.png) você deve selecionar **fazer essa alteração para mim** e, em seguida, fornecer os valores que o início rápido solicita no portal do Azure. Quando isso for feito, geraremos todos os arquivos de configuração necessários.
+![ecrã de registo da App](media/tutorial-v2-shared-device-mode/register-app.png) Você deve selecionar **Faça esta alteração para mim** e, em seguida, fornecer os valores que o quickstart pede no portal Azure. Quando isso for feito, geraremos todos os arquivos de configuração necessários.
 
 ![Tela de informações de configuração do aplicativo](media/tutorial-v2-shared-device-mode/config-info.png)
 

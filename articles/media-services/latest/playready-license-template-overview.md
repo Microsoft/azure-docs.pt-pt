@@ -1,6 +1,6 @@
 ---
-title: Serviços de multimédia do Azure com o modelo de licença PlayReady
-description: Este tópico apresenta uma visão geral de um modelo de licença de PlayReady que é utilizado para configurar as licenças do PlayReady.
+title: Azure Media Services v3 com modelo de licença Microsoft PlayReady
+description: Este tópico dá uma visão geral de um modelo de licença PlayReady que é usado para configurar licenças PlayReady.
 author: juliako
 manager: femila
 editor: ''
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0ce0d40bfd9d41838573f6355ceffc17761111c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472656"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705892"
 ---
-# <a name="media-services-playready-license-template-overview"></a>Descrição geral do modelo de licença PlayReady de serviços de multimédia 
+# <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 com modelo de licença PlayReady 
 
-Serviços de multimédia do Azure permite-lhe encriptar o seu conteúdo com **Microsoft PlayReady**. Serviços de multimédia também fornecem um serviço para entregar licenças do PlayReady. Pode utilizar as APIs dos serviços de multimédia para configurar as licenças do PlayReady. Quando um jogador tenta reproduzir os conteúdos protegidos de PlayReady, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, que emite a licença que é enviada ao cliente e é utilizada para desencriptar e reproduzir o conteúdo especificado.
+O Azure Media Services permite-lhe encriptar o seu conteúdo com o **Microsoft PlayReady**. A Media Services também fornece um serviço para a entrega de licenças PlayReady. Pode utilizar APIs de Serviços de Media para configurar as licenças PlayReady. Quando um jogador tenta reproduzir o seu conteúdo protegido pela PlayReady, um pedido é enviado para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, que emite a licença que é enviada ao cliente e é utilizada para desencriptar e reproduzir o conteúdo especificado.
 
-Licenças do PlayReady contêm os direitos e restrições que pretende que o runtime (DRM gerenciamento) de direitos digitais do PlayReady para impor quando um usuário tentar reproduzir os conteúdos protegidos. Aqui estão alguns exemplos de restrições de licença de PlayReady que pode especificar:
+As licenças PlayReady contêm os direitos e restrições que pretende que o tempo de execução da gestão de direitos digitais playReady (DRM) aplique quando um utilizador tenta reproduzir conteúdo protegido. Aqui estão alguns exemplos de restrições de licença PlayReady que pode especificar:
 
-* A data e hora a partir do qual a licença é válida.
-* O valor de DateTime quando a licença expira. 
-* Para a licença sejam guardados no armazenamento persistente no cliente. Licenças persistentes são normalmente utilizadas para permitir a reprodução offline do conteúdo.
-* O nível mínimo de segurança que tem de ter um leitor para reproduzir o conteúdo. 
-* O nível de proteção de saída para os controles de saída para o conteúdo de audio\video. 
-* Para obter mais informações, consulte a secção de "Controles de saída" (3.5) no [regras de conformidade de PlayReady](https://www.microsoft.com/playready/licensing/compliance/) documento.
+* A data e a hora a partir da qual a licença é válida.
+* O valor DateTime quando a licença expirar. 
+* Para que a licença seja guardada em armazenamento persistente no cliente. As licenças persistentes são normalmente usadas para permitir a reprodução offline do conteúdo.
+* O nível de segurança mínimo que um jogador deve ter de reproduzir o seu conteúdo. 
+* O nível de proteção de saída para os controlos de saída para o conteúdo áudio\vídeo. 
+* Para mais informações, consulte a secção "Controlos de Saída" (3.5) no documento [PlayReady Compliance Rules.](https://www.microsoft.com/playready/licensing/compliance/)
 
 > [!NOTE]
-> Atualmente, só pode configurar o PlayRight da licença PlayReady. Este direito é necessário. O PlayRight atribui o cliente a capacidade de reproduzir o conteúdo. Também pode utilizar o PlayRight para configurar restrições específicas para reprodução. 
+> Atualmente, só é possível configurar a playRight da licença PlayReady. Este direito é necessário. O PlayRight dá ao cliente a capacidade de reproduzir o conteúdo. Também pode utilizar o PlayRight para configurar restrições específicas à reprodução. 
 > 
 
-Este tópico descreve como configurar licenças do PlayReady com serviços de multimédia.
+Este tópico descreve como configurar licenças PlayReady com Serviços de Media.
 
-## <a name="basic-streaming-license-example"></a>Exemplo de licença de transmissão em fluxo básico
+## <a name="basic-streaming-license-example"></a>Exemplo básico de licença de streaming
 
-O exemplo seguinte mostra o modelo mais simples (e mais comuns) que configura uma licença de transmissão em fluxo básico. Com esta licença, os clientes podem reproduzir o conteúdo protegido por PlayReady. 
+O exemplo seguinte mostra o modelo mais simples (e mais comum) que configura uma licença de streaming básica. Com esta licença, os seus clientes podem reproduzir o seu conteúdo protegido pela PlayReady. 
 
-O XML está em conformidade com o esquema XML do modelo do PlayReady licença definido no [esquema XML do modelo de licença do PlayReady](#schema) secção.
+O XML está em conformidade com o modelo de licença PlayReady XML schema definido na secção esquema de [esquema sema do modelo de licença PlayReady XML.](#schema)
 
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -58,16 +58,16 @@ O XML está em conformidade com o esquema XML do modelo do PlayReady licença de
     </PlayReadyLicenseResponseTemplate>
 
 
-## <a id="classes"></a>Utilizar APIs de serviços de multimédia para configurar modelos de licença
+## <a id="classes"></a>Utilize APIs de Serviços de Mídia para configurar modelos de licença
 
-Os Media Services fornecem tipos que pode utilizar para configurar um modelo de licença PlayReady. 
+O Media Services fornece tipos que pode usar para configurar um modelo de licença PlayReady. 
 
-O fragmento seguinte utiliza classes do .NET dos serviços de multimédia para configurar o modelo de licença PlayReady. As classes são definidas no [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) espaço de nomes. O fragmento configura o PlayRight da licença PlayReady. PlayRight concede ao usuário a capacidade de reproduzir o conteúdo sujeitas a restrições de configurado na licença e no PlayRight (para a política de específica de reprodução). Grande parte da política num PlayRight diz respeito a restrição de saída que controlam os tipos de saídas que o conteúdo que pode ser jogado em. Ele também inclui as restrições que devem ser colocadas em prática, quando é utilizada uma saída de determinado. Por exemplo, se DigitalVideoOnlyContentRestriction estiver ativada, o runtime DRM apenas permite que o vídeo a ser exibido através de saídas digital. (As saídas de vídeo analógica não são permitidas para transmitir o conteúdo).
+O snippet que se segue utiliza as classes Media Services .NET para configurar o modelo de licença PlayReady. As aulas são definidas no [microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. O snippet confunde a playRight da licença PlayReady. A PlayRight concede ao utilizador a capacidade de reproduzir os conteúdos sujeitos a quaisquer restrições configuradas na licença e no próprio PlayRight (para uma política específica de reprodução). Grande parte da política de um PlayRight diz respeito à restrição de saída que controla os tipos de saídas que o conteúdo pode ser reproduzido. Inclui também quaisquer restrições que devem ser aplicadas quando uma determinada saída é utilizada. Por exemplo, se o DigitalVideoOnlyContentRestriction estiver ativado, o tempo de execução do DRM apenas permite que o vídeo seja exibido sobre as saídas digitais. (As saídas de vídeo analógicas não estão autorizadas a passar o conteúdo.)
 
 > [!IMPORTANT]
-> Licença de PlayReady tem restrições que são poderosas. Se as proteções de saída são muito restritivas, o conteúdo pode ser unplayable em alguns clientes. Para obter mais informações, consulte a [regras de conformidade de PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+> A licença PlayReady tem restrições que são poderosas. Se as proteções de saída forem demasiado restritivas, o conteúdo pode ser irrepreensível em alguns clientes. Para mais informações, consulte as Regras de [Conformidade PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
-### <a name="configure-playready-license-template-with-net"></a>Configurar o modelo de licença PlayReady com .NET
+### <a name="configure-playready-license-template-with-net"></a>Configure o modelo de licença PlayReady com .NET
 
 ```csharp
 ContentKeyPolicyPlayReadyLicense objContentKeyPolicyPlayReadyLicense;
@@ -88,7 +88,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 };
 ```
 
-## <a id="schema"></a>Esquema XML do modelo de licença do PlayReady
+## <a id="schema"></a>Esquema de modelo de licença PlayReady XML
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -311,6 +311,6 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
     </xs:schema>
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Verificar como [proteger com o DRM](protect-with-drm.md)

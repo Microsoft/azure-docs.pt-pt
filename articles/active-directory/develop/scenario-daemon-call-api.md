@@ -1,6 +1,6 @@
 ---
-title: Chamar uma API da Web de um aplicativo daemon-plataforma Microsoft Identity | Azure
-description: Saiba como criar um aplicativo daemon que chama APIs da Web
+title: Ligue para uma API web a partir de uma app daemon - plataforma de identidade Microsoft / Azure
+description: Saiba como construir uma app daemon que chama APIs web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,21 +15,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5a234e0b5d3a88b722257aa80249f4d80182d12f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962615"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702237"
 ---
-# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicativo daemon que chama APIs Web – chama uma API Web do aplicativo
+# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App Daemon que chama APIs web - ligue para uma API web da app
 
-Um aplicativo de daemon pode chamar uma API da Web de um aplicativo de daemon do .NET ou chamar várias APIs Web previamente aprovadas.
+Uma aplicação daemon pode ligar para uma API web a partir de uma aplicação .NET daemon ou ligar para várias APIs web pré-aprovadas.
 
-## <a name="calling-a-web-api-daemon-application"></a>Chamando um aplicativo Web API daemon
+## <a name="calling-a-web-api-daemon-application"></a>Chamando uma aplicação web Daemon Daemon
 
-Aqui está como usar o token para chamar uma API:
+Aqui está como usar o símbolo para chamar uma API:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -68,23 +67,23 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Chamando várias APIs
 
-Para aplicativos daemon, as APIs da Web que você chama precisam ser aprovadas previamente. Não haverá nenhum consentimento incremental com aplicativos de daemon (não há interação do usuário). O administrador de locatários precisa consentir previamente o aplicativo e todas as permissões de API. Se você quiser chamar várias APIs, precisará adquirir um token para cada recurso, sempre chamando `AcquireTokenForClient`. MSAL usará o cache de token de aplicativo para evitar chamadas de serviço desnecessárias.
+Para aplicações daemon, as APIs web a que chama precisam de ser pré-aprovadas. Não haverá qualquer consentimento incremental com aplicações daemon (não há interação do utilizador). O administrador do inquilino precisa de pré-consentimento do pedido e de todas as permissões da API. Se quiser ligar para várias APIs, terá de adquirir um símbolo para cada recurso, ligando cada vez `AcquireTokenForClient`. A MSAL utilizará a cache de ficha de aplicação para evitar chamadas de serviço desnecessárias.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Aplicativo de daemon – mover para produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+> [App Daemon - mude para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Aplicativo de daemon – mover para produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+> [App Daemon - mude para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Aplicativo de daemon – mover para produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+> [App Daemon - mude para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
 
 ---

@@ -1,7 +1,7 @@
 ---
-title: Obter consentimento para vários recursos (MSAL.NET) | Azure
+title: Obtenha o consentimento de vários recursos (MSAL.NET) / Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como um usuário pode obter o consentimento para vários recursos usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+description: Saiba como um utilizador pode obter o pré-consentimento de vários recursos usando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: TylerMSFT
 manager: CelesteDG
@@ -13,26 +13,25 @@ ms.date: 04/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89afdbed6870b4ce739ed51131def686c41a3015
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3bd23a1f14d5e3cbf9fc41ade47571c6689f3468
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921761"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695029"
 ---
-# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O usuário obtém consentimento para vários recursos usando o MSAL.NET
-O ponto de extremidade da plataforma de identidade da Microsoft não permite que você obtenha um token para vários recursos de uma vez. Ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET), o parâmetro escopos no método de token de aquisição deve conter apenas escopos para um único recurso. No entanto, você pode me concordar com vários recursos antecipadamente especificando escopos adicionais usando o método `.WithExtraScopeToConsent` Builder.
+# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Utilizador obtém consentimento para vários recursos usando MSAL.NET
+O ponto final da plataforma de identidade da Microsoft não lhe permite obter um símbolo para vários recursos ao mesmo tempo. Ao utilizar a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método do token adquirente só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir antecipadamente vários recursos, especificando âmbitos adicionais utilizando o método `.WithExtraScopeToConsent` construtor.
 
 > [!NOTE]
-> A obtenção de consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para Azure AD B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
+> Obter o consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure AD B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
 
-Por exemplo, se você tiver dois recursos que têm 2 escopos cada:
+Por exemplo, se tiver dois recursos que têm 2 âmbitos cada:
 
-- https:\//mytenant.onmicrosoft.com/customerapi (com 2 escopos `customer.read` e `customer.write`)
-- https:\//mytenant.onmicrosoft.com/vendorapi (com 2 escopos `vendor.read` e `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (com 2 âmbitos `customer.read` e `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (com 2 âmbitos `vendor.read` e `vendor.write`)
 
-Você deve usar o modificador `.WithExtraScopeToConsent` que tem o parâmetro *extraScopesToConsent* , conforme mostrado no exemplo a seguir:
+Deve utilizar o modificador `.WithExtraScopeToConsent` que tenha o parâmetro *extraScopesToConsent,* como mostra o seguinte exemplo:
 
 ```csharp
 string[] scopesForCustomerApi = new string[]
@@ -53,7 +52,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-Isso lhe obterá um token de acesso para a primeira API Web. Em seguida, quando precisar acessar a segunda API Web, você pode adquirir o token do cache de token silenciosamente:
+Isto lhe dará um sinal de acesso para a primeira API web. Em seguida, quando precisa de aceder à segunda API web, pode adquirir silenciosamente o símbolo da cache simbólica:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

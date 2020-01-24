@@ -1,6 +1,6 @@
 ---
-title: Acessar e iniciar aplicativos do portal meus aplicativos (versão prévia)-Azure AD
-description: Saiba como acessar e iniciar os aplicativos baseados em nuvem da sua organização no portal meus aplicativos (versão prévia).
+title: Aceder e iniciar aplicações a partir do portal My Apps (pré-visualização) - Azure AD
+description: Saiba como aceder e iniciar as aplicações baseadas na nuvem da sua organização a partir do portal My Apps (pré-visualização).
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,17 +12,16 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dee6973a638a2cabc0ccc2138ed9db8b798f4d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820400"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705127"
 ---
-# <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Acessar e iniciar aplicativos do portal meus aplicativos (versão prévia)
+# <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Aceder e iniciar aplicações do portal As Minhas Aplicações (pré-visualização)
 
-Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseados na Web (versão prévia) para exibir, organizar e iniciar muitos dos aplicativos baseados em nuvem da sua organização. Se você não tiver acesso ao portal **meus aplicativos** , contate a assistência técnica da sua organização para obter permissão.
+Você pode usar o seu trabalho ou conta escolar com o portal **My Apps** (pré-visualização) baseado na web, para visualizar, organizar e iniciar muitas das aplicações baseadas na nuvem da sua organização. Se não tiver acesso ao portal **My Apps,** contacte o Helpdesk da sua organização para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -31,73 +30,73 @@ Você pode usar sua conta corporativa ou de estudante com o portal **meus aplica
 
 ## <a name="supported-browsers"></a>Browsers suportados
 
-Você pode acessar o portal **meus aplicativos** de qualquer um dos seguintes navegadores da Web:
+Você pode chegar ao portal **My Apps** a partir de qualquer um dos seguintes navegadores web:
 
 - Google Chrome
 
-- Mozilla Firefox, versão 26,0 ou posterior
+- Mozilla Firefox, versão 26.0 ou mais tarde
 
 - Microsoft Edge
 
 - Internet Explorer, versão 11 (suporte limitado)
 
-## <a name="access-the-my-apps-portal-by-device-type"></a>Acessar o portal meus aplicativos por tipo de dispositivo
+## <a name="access-the-my-apps-portal-by-device-type"></a>Aceda ao portal My Apps por tipo de dispositivo
 
-Você pode acessar e usar o portal **meus aplicativos** em seu computador corporativo ou de estudante, em um navegador gerenciado pelo Intune ou em um dispositivo móvel Ios ou Android.
+Pode aceder e utilizar o portal **My Apps** no seu trabalho ou computador escolar, a partir de um navegador gerido pelo Intune, ou a partir de um iOS ou dispositivo móvel Android.
 
-![Página de aplicativos no portal meus aplicativos](media/my-apps-portal-preview/my-apps-portal-preview.png)
+![Página de aplicativos no portal My Apps](media/my-apps-portal-preview/my-apps-portal-preview.png)
 
-### <a name="access-the-my-apps-portal-on-a-computer"></a>Acessar o portal meus aplicativos em um computador
+### <a name="access-the-my-apps-portal-on-a-computer"></a>Aceda ao portal My Apps num computador
 
-Se você tiver permissão para acessar e usar os aplicativos baseados em nuvem da sua organização, poderá acessá-los por meio do portal **meus aplicativos** .
+Se tiver permissão para aceder e utilizar as aplicações baseadas na nuvem da sua organização, pode chegar até elas através do portal **My Apps.**
 
-1. Entre em sua conta corporativa ou de estudante no seu computador.
+1. Inscreva-se no seu trabalho ou na conta escolar no seu computador.
 
-2. Abra um navegador da Web com suporte e vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para usar uma página personalizada para sua organização, como `https://myapps.microsoft.com/contoso.com`.
+2. Abra um navegador web suportado e vá para https://myapps.microsoft.com, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para usar uma página personalizada para a sua organização, como `https://myapps.microsoft.com/contoso.com`.
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
+    A página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
-### <a name="access-the-my-apps-portal-from-the-intune-managed-browser-app"></a>Acessar o portal meus aplicativos do aplicativo Intune Managed Browser
+### <a name="access-the-my-apps-portal-from-the-intune-managed-browser-app"></a>Aceda ao portal My Apps a partir da aplicação Intune Managed Browser
 
-Exiba e use os aplicativos da sua organização do Intune Managed Browser aplicativo em seus dispositivos iOS ou Android.
+Veja e utilize as aplicações da sua organização a partir da aplicação Intune Managed Browser nos seus dispositivos iOS ou Android.
 
-1. Em seu dispositivo móvel, baixe e instale o aplicativo Intune Managed Browser da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou o [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. No seu dispositivo móvel, descarregue e instale a aplicação Intune Managed Browser a partir da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou da Google Play [Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Abra o aplicativo Intune Managed Browser, vá para https://myapps.microsoft.comou use o link fornecido por sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra a aplicação Intune Managed Browser, vá para https://myapps.microsoft.com, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com.
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
+    A página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
-### <a name="access-the-my-apps-portal-on-an-ios-device"></a>Acessar o portal meus aplicativos em um dispositivo iOS
+### <a name="access-the-my-apps-portal-on-an-ios-device"></a>Aceda ao portal My Apps num dispositivo iOS
 
-Exiba e use o portal **meus aplicativos** de um dispositivo iPhone ou iPad, executando o IOS versão 7 ou posterior. Você também pode instalar o [aplicativo móvel meus aplicativos](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) para acessar os aplicativos da sua organização em seus dispositivos IOS.
+Ver e utilizar o portal **My Apps** a partir de um dispositivo iPhone ou iPad, executando a versão 7 ou posterior do iOS. Também pode instalar a [aplicação móvel My Apps](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) para aceder às aplicações da sua organização nos seus dispositivos iOS.
 
-1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Safari.
+1. No seu dispositivo móvel, inicie uma aplicação de navegador web, como o Safari.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Vá a https://myapps.microsoft.com, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com.
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
+    A página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
-### <a name="access-the-my-apps-portal-on-an-android-device"></a>Acessar o portal meus aplicativos em um dispositivo Android
+### <a name="access-the-my-apps-portal-on-an-android-device"></a>Aceda ao portal My Apps num dispositivo Android
 
-Exibir e usar o portal **meus aplicativos** em um dispositivo Android.
+Ver e utilizar o portal **My Apps** num dispositivo Android.
 
-1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Google Chrome.
+1. No seu dispositivo móvel, inicie uma aplicação de navegador web, como o Google Chrome.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Vá a https://myapps.microsoft.com, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com.
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
+    A página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
-## <a name="start-a-cloud-based-app"></a>Iniciar um aplicativo baseado em nuvem
+## <a name="start-a-cloud-based-app"></a>Inicie uma aplicação baseada na nuvem
 
-Você pode iniciar qualquer um dos aplicativos baseados em nuvem disponíveis no portal **meus aplicativos** . Você só verá os aplicativos que você tem permissão para usar.
+Pode iniciar qualquer uma das aplicações disponíveis baseadas na nuvem a partir do portal **My Apps.** Só verá aplicações que tem permissão para usar.
 
-- Na página **aplicativos** , selecione o aplicativo que você deseja começar a usar.
+- A partir da página **Apps,** selecione a aplicação que pretende começar a utilizar.
 
-    Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
+    Uma nova página abre para a aplicação, onde pode iniciar sessão (se necessário) ou começar a usar a aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de acessar o portal **meus aplicativos** , você pode:
+Depois de chegar ao portal **My Apps,** pode:
 
 - Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, consulte [acessar e usar espaços de trabalho no portal meus aplicativos (versão prévia)](my-applications-portal-workspaces.md).
 

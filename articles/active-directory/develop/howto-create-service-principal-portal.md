@@ -1,7 +1,7 @@
 ---
 title: Criar um aplicativo do Azure AD & entidade de serviço no portal
 titleSuffix: Microsoft identity platform
-description: Crie um novo aplicativo Azure Active Directory & entidade de serviço para gerenciar o acesso a recursos com controle de acesso baseado em função no Azure Resource Manager.
+description: Crie uma nova app e serviço de diretório Ativo Azure para gerir o acesso a recursos com controlo de acesso baseado em papéis no Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,13 +12,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0261c060358b9f0f42624008341f80245ff57aca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d3e1e10120dce404f0fdfe781661c4c169ae00a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424522"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697222"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos
 
@@ -123,7 +122,7 @@ Tenha em mente que talvez seja necessário configurar permissões de adição em
 1. No [portal do Azure](https://portal.azure.com), navegue até o cofre de chaves e selecione **políticas de acesso**.  
 1. Selecione **Adicionar política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
 1. Selecione **Adicionar** para adicionar a política de acesso e, em seguida, **salvar** para confirmar suas alterações.
-    ![adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
+    ![Adicionar](./media/howto-create-service-principal-portal/add-access-policy.png) de política de acesso
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 

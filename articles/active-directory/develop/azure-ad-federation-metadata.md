@@ -1,6 +1,6 @@
 ---
-title: Metadados de Federação do Azure AD | Microsoft Docs
-description: Este artigo descreve o documento de metadados de Federação que Azure Active Directory publica para serviços que aceitam tokens de Azure Active Directory.
+title: Metadados da Federação Azure AD Microsoft Docs
+description: Este artigo descreve o documento de metadados da federação que o Azure Ative Directory publica para serviços que aceitam fichas de Diretório Ativo Azure.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,43 +13,42 @@ ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0da348d87d1dedbdc1f97d3a4d0a1a001871a1d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 74ce45067dbe2d89d7bb7e267bffa6bbb02defa3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843789"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697885"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
-O Azure Active Directory (Azure AD) publica um documento de metadados de Federação para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados de Federação é descrito na [versão 1,2 do especificação Web Services Federation Language (WS-Federation)](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que estende [os metadados para o Oasis Security Assertion Markup Language (SAML) v 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+O Azure Ative Directory (Azure AD) publica um documento de metadados da federação para serviços configurados para aceitar os tokens de segurança que a Azure AD emite. O formato de documento de metadados da federação é descrito na versão 1.2 da Federação de [Serviços Web (WS-Federação),](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html)que alarga metadados para a linguagem de marcação de afirmação de [segurança oasis (SAML) v2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
-## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Pontos de extremidade de metadados específicos do locatário e independentes de locatário
-O Azure AD publica pontos de extremidade específicos do locatário e independentes de locatário.
+## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Pontos finais de metadados específicos do arrendatário e independentes do arrendatário
+A Azure AD publica pontos finais específicos e independentes de inquilinos.
 
-Os pontos de extremidade específicos do locatário são projetados para um locatário específico. Os metadados de Federação específicos do locatário incluem informações sobre o locatário, incluindo informações de emissor e de ponto de extremidade específicas do locatário. Os aplicativos que restringem o acesso a um único locatário usam pontos de extremidade específicos do locatário.
+Os pontos finais específicos do inquilino são projetados para um inquilino particular. Os metadados da federação específica sinuoso incluem informações sobre o inquilino, incluindo informações específicas do inquilino e do ponto final. As aplicações que restringem o acesso a um único inquilino usam pontos finais específicos do arrendatário.
 
-Os pontos de extremidade independentes de locatário fornecem informações que são comuns a todos os locatários do Azure AD. Essas informações se aplicam a locatários hospedados em *login.microsoftonline.com* e são compartilhadas entre locatários. Os pontos de extremidade independentes de locatário são recomendados para aplicativos multilocatários, pois não estão associados a nenhum locatário específico.
+Os pontos finais independentes dos inquilinos fornecem informações que são comuns a todos os inquilinos da AD Azure. Esta informação aplica-se aos inquilinos alojados em *login.microsoftonline.com* e é partilhada entre inquilinos. Os pontos finais independentes dos inquilinos são recomendados para pedidos de multi-inquilinos, uma vez que não estão associados a nenhum inquilino em particular.
 
-## <a name="federation-metadata-endpoints"></a>Pontos de extremidade de metadados de Federação
-O Azure AD publica metadados de Federação em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
+## <a name="federation-metadata-endpoints"></a>Pontos finais de metadados da Federação
+A Azure AD publica metadados da federação em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
-Para **pontos de extremidade específicos do locatário**, o `TenantDomainName` pode ser um dos seguintes tipos:
+Para **os pontos finais específicos do arrendatário,** o `TenantDomainName` pode ser um dos seguintes tipos:
 
-* Um nome de domínio registrado de um locatário do Azure AD, como: `contoso.onmicrosoft.com`.
-* A ID de locatário imutável do domínio, como `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* Um nome de domínio registado de um inquilino da AD Azure, tais como: `contoso.onmicrosoft.com`.
+* A imutável identificação do inquilino do domínio, como `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-Para **pontos de extremidade independentes de locatário**, o `TenantDomainName` é `common`. Este documento lista somente os elementos de metadados de Federação que são comuns a todos os locatários do Azure AD hospedados em login.microsoftonline.com.
+Para **os pontos finais independentes dos inquilinos,** o `TenantDomainName` é `common`. Este documento lista apenas os elementos da Federação de Metadados que são comuns a todos os inquilinos da AD Azure que estão hospedados em login.microsoftonline.com.
 
-Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Você pode exibir o documento de metadados de Federação digitando esta URL em um navegador.
+Por exemplo, um ponto final específico do arrendatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto final independente do inquilino é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml. ](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml) Pode ver o documento de metadados da federação digitando este URL num browser.
 
-## <a name="contents-of-federation-metadata"></a>Conteúdo dos metadados de Federação
-A seção a seguir fornece as informações necessárias para os serviços que consomem os tokens emitidos pelo Azure AD.
+## <a name="contents-of-federation-metadata"></a>Conteúdo dos Metadados da Federação
+A secção seguinte fornece informações necessárias pelos serviços que consomem as fichas emitidas pela Azure AD.
 
 ### <a name="entity-id"></a>ID da entidade
-O elemento `EntityDescriptor` contém um atributo `EntityID`. O valor do atributo `EntityID` representa o emissor, ou seja, o serviço de token de segurança (STS) que emitiu o token. É importante validar o emissor quando você recebe um token.
+O elemento `EntityDescriptor` contém um atributo `EntityID`. O valor do atributo `EntityID` representa o emitente, ou seja, o serviço de token de segurança (STS) que emitiu o símbolo. É importante validar o emitente quando recebe um símbolo.
 
-Os metadados a seguir mostram um elemento de `EntityDescriptor` de exemplo específico do locatário com um elemento `EntityID`.
+Os seguintes metadados mostram uma amostra específica do `EntityDescriptor` elemento com um elemento `EntityID`.
 
 ```
 <EntityDescriptor
@@ -57,9 +56,9 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-Você pode substituir a ID do locatário no ponto de extremidade independente do locatário por sua ID de locatário para criar um valor de `EntityID` específico do locatário. O valor resultante será o mesmo que o emissor do token. A estratégia permite que um aplicativo multilocatário valide o emissor para um determinado locatário.
+Você pode substituir a identificação do inquilino no ponto final independente do inquilino com o seu ID de inquilino para criar um valor de `EntityID` específico para inquilino. O valor resultante será o mesmo que o emitente simbólico. A estratégia permite que uma aplicação multi-arrendatária validar o emitente para um determinado inquilino.
 
-Os metadados a seguir mostram um elemento de `EntityID` de exemplo independente de locatário. Observe que o `{tenant}` é um literal, não um espaço reservado.
+Os seguintes metadados mostram uma amostra de elemento `EntityID` independente do inquilino. Por favor, note que o `{tenant}` é um literal, não um espaço reservado.
 
 ```
 <EntityDescriptor
@@ -68,12 +67,12 @@ ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd"
 entityID="https://sts.windows.net/{tenant}/">
 ```
 
-### <a name="token-signing-certificates"></a>Certificados de assinatura de token
-Quando um serviço recebe um token emitido por um locatário do Azure AD, a assinatura do token deve ser validada com uma chave de assinatura que é publicada no documento de metadados de Federação. Os metadados de Federação incluem a parte pública dos certificados que os locatários usam para autenticação de token. Os bytes brutos do certificado aparecem no elemento `KeyDescriptor`. O certificado de autenticação de tokens é válido para assinatura somente quando o valor do atributo `use` é `signing`.
+### <a name="token-signing-certificates"></a>Certificados de assinatura token
+Quando um serviço recebe um símbolo emitido por um inquilino da AD Azure, a assinatura do token deve ser validada com uma chave de assinatura publicada no documento de metadados da federação. Os metadados da federação incluem a parte pública dos certificados que os inquilinos usam para a assinatura simbólica. Os bytes crus do certificado aparecem no elemento `KeyDescriptor`. O certificado de assinatura simbólica só é válido para a assinatura quando o valor do atributo `use` for `signing`.
 
-Um documento de metadados de Federação publicado pelo Azure AD pode ter várias chaves de assinatura, como quando o Azure AD está se preparando para atualizar o certificado de autenticação. Quando um documento de metadados de Federação inclui mais de um certificado, um serviço que está validando os tokens deve dar suporte a todos os certificados no documento.
+Um documento de metadados da federação publicado pela Azure AD pode ter várias chaves de assinatura, como quando a Azure AD se prepara para atualizar o certificado de assinatura. Quando um documento de metadados da federação inclui mais de um certificado, um serviço que esteja a validar as fichas deve suportar todos os certificados do documento.
 
-Os metadados a seguir mostram um elemento de `KeyDescriptor` de exemplo com uma chave de assinatura.
+Os seguintes metadados mostram uma amostra `KeyDescriptor` elemento com uma chave de assinatura.
 
 ```
 <KeyDescriptor use="signing">
@@ -87,29 +86,29 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-O elemento `KeyDescriptor` aparece em dois locais no documento de metadados de Federação; na seção específica do WS-Federation e na seção específica do SAML. Os certificados publicados em ambas as seções serão os mesmos.
+O elemento `KeyDescriptor` aparece em dois locais do documento de metadados da federação; na secção específica da WS-Federação e na secção específica da SAML. Os certificados publicados em ambas as secções serão os mesmos.
 
-Na seção específica do WS-Federation, um leitor de metadados do WS-Federation lerá os certificados de um elemento `RoleDescriptor` com o tipo `SecurityTokenServiceType`.
+Na secção específica da WS-Federação, um leitor de metadados da WS-Federação leria os certificados de um elemento `RoleDescriptor` com o tipo `SecurityTokenServiceType`.
 
-Os metadados a seguir mostram um elemento de `RoleDescriptor` de exemplo.
+Os seguintes metadados mostram uma amostra `RoleDescriptor` elemento.
 
 ```
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-Na seção específica do SAML, um leitor de metadados do WS-Federation lerá os certificados de um elemento `IDPSSODescriptor`.
+Na secção específica da SAML, um leitor de metadados da WS-Federation leria os certificados de um elemento `IDPSSODescriptor`.
 
-Os metadados a seguir mostram um elemento de `IDPSSODescriptor` de exemplo.
+Os seguintes metadados mostram uma amostra `IDPSSODescriptor` elemento.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
-Não há diferenças no formato de certificados específicos de locatários e independentes de locatário.
+Não existem diferenças no formato dos certificados específicos dos inquilinos e dos inquilinos independentes.
 
-### <a name="ws-federation-endpoint-url"></a>URL de ponto de extremidade do WS-Federation
-Os metadados de Federação incluem a URL que o Azure AD usa para logon único e saída única no protocolo WS-Federation. Esse ponto de extremidade aparece no elemento `PassiveRequestorEndpoint`.
+### <a name="ws-federation-endpoint-url"></a>URL final da WS-Federação
+Os metadados da federação incluem o URL que é Azure AD usa para um único sign-in e um único sign-out no protocolo WS-Federation. Este ponto final aparece no elemento `PassiveRequestorEndpoint`.
 
-Os metadados a seguir mostram um elemento de `PassiveRequestorEndpoint` de exemplo para um ponto de extremidade específico do locatário.
+Os seguintes metadados mostram uma amostra `PassiveRequestorEndpoint` elemento para um ponto final específico do arrendatário.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -120,7 +119,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-Para o ponto de extremidade independente de locatário, a URL do WS-Federation aparece no ponto de extremidade do WS-Federation, conforme mostrado no exemplo a seguir.
+Para o ponto final independente do inquilino, o URL da WS-Federação aparece no ponto final da WS-Federação, como mostra a amostra seguinte.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -132,12 +131,12 @@ https://login.microsoftonline.com/common/wsfed
 </fed:PassiveRequestorEndpoint>
 ```
 
-### <a name="saml-protocol-endpoint-url"></a>URL do ponto de extremidade do protocolo SAML
-Os metadados de Federação incluem a URL que o AD do Azure usa para logon único e saída única no protocolo SAML 2,0. Esses pontos de extremidade aparecem no elemento `IDPSSODescriptor`.
+### <a name="saml-protocol-endpoint-url"></a>URL final do protocolo SAML
+Os metadados da federação incluem o URL que o Azure AD utiliza para um único login e inscrição única no protocolo SAML 2.0. Estes pontos finais aparecem no elemento `IDPSSODescriptor`.
 
-As URLs de entrada e saída são exibidas nos elementos `SingleSignOnService` e `SingleLogoutService`.
+Os URLs de inscrição e inscrição aparecem nos elementos `SingleSignOnService` e `SingleLogoutService`.
 
-Os metadados a seguir mostram um `PassiveResistorEndpoint` de exemplo para um ponto de extremidade específico do locatário.
+Os seguintes metadados mostram uma amostra `PassiveResistorEndpoint` para um ponto final específico do inquilino.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -147,7 +146,7 @@ Os metadados a seguir mostram um `PassiveResistorEndpoint` de exemplo para um po
   </IDPSSODescriptor>
 ```
 
-Da mesma forma, os pontos de extremidade para os pontos de extremidade do protocolo SAML 2,0 comuns são publicados nos metadados de Federação independentes de locatário, conforme mostrado no exemplo a seguir.
+Da mesma forma, os pontos finais dos pontos finais comuns do protocolo SAML 2.0 são publicados nos metadados da federação independente de inquilinos, como mostra a amostra seguinte.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

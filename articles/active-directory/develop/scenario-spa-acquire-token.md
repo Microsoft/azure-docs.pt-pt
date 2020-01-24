@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c11b8cb4c1d7f4eef22903b81f38d93b54b41b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423682"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701931"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
 

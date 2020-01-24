@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545046"
+ms.locfileid: "76704549"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -298,6 +298,15 @@ Observe que, se você fez alterações diretamente no compartilhamento de arquiv
 Se seu PerItemErrorCount no servidor ou os arquivos que não estão sincronizando a contagem no portal forem maiores que 0 para qualquer sessão de sincronização específica, isso significará que alguns itens não serão sincronizados. Arquivos e pastas podem ter características que os impeçam de sincronizar. Essas características podem ser persistentes e exigem ação explícita para retomar a sincronização, por exemplo removendo caracteres sem suporte do nome do arquivo ou da pasta. Eles também podem ser transitórios, o que significa que o arquivo ou a pasta retomará a sincronização automaticamente; por exemplo, arquivos com identificadores abertos continuarão a sincronização automaticamente quando o arquivo for fechado. Quando o mecanismo de Sincronização de Arquivos do Azure detecta esse problema, é produzido um log de erros que pode ser analisado para listar os itens que não estão atualmente sincronizando corretamente.
 
 Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport. ps1** (localizado no diretório de instalação do agente do agente de sincronização de arquivos do Azure) para identificar os arquivos que não foram sincronizados devido a identificadores abertos, caracteres sem suporte ou outros problemas. O campo dopath informa o local do arquivo em relação ao diretório de sincronização raiz. Consulte a lista de erros comuns de sincronização abaixo para obter as etapas de correção.
+
+> [!Note]  
+> Se o script FileSyncErrorsReport.ps1 devoluções "Não foram encontrados erros de ficheiro" ou não enumera erros por item para o grupo de sincronização, a causa é:
+>
+>- Causa 1: A última sessão de sincronização concluída não teve erros por item. O portal deve ser atualizado em breve para mostrar 0 Ficheiros Não Sincronizados. 
+>   - Verifique o [ID de evento 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) no registo do evento Telemettry para confirmar que o PerItemErrorCount é 0. 
+>
+>- Causa 2: O registo do evento ItemResults no servidor embrulhado devido a demasiados erros por item e o registo do evento já não contém erros para este grupo de sincronização.
+>   - Para evitar este problema, aumente o tamanho do registo do evento ItemResults. O registo do evento ItemResults pode ser encontrado em "Applications and Services Logs\Microsoft\FileSync\Agent" no Visualizador de Eventos. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solução de problemas por erros de sincronização de arquivo/diretório
 **Erros de sincronização de log por item de itens de resultados**  
@@ -825,7 +834,7 @@ Esse erro ocorre se as configurações de firewall e rede virtual estiverem habi
 | **Cadeia de caracteres de erro** | ERROR_ACCESS_DENIED |
 | **Correção necessária** | Sim |
 
-Este erro poderá ocorrer se a conta NT AUTHORITY\SYSTEM não tiver permissões para a pasta Informações de Volume do Sistema no volume onde o ponto final do servidor está localizado. Observe que, se os arquivos individuais não conseguirem ser sincronizados com o ERROR_ACCESS_DENIED, execute as etapas documentadas na seção [solução de problemas por erros de sincronização de arquivo/diretório](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshooting-per-filedirectory-sync-errors) .
+Este erro poderá ocorrer se a conta NT AUTHORITY\SYSTEM não tiver permissões para a pasta Informações de Volume do Sistema no volume onde o ponto final do servidor está localizado. Nota, se os ficheiros individuais não estiverem a sincronizar com ERROR_ACCESS_DENIED, execute os passos documentados na secção de erros de sincronização de [ficheiro/diretório.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshooting-per-filedirectory-sync-errors)
 
 Para resolver este problema, realize os passos seguintes:
 
@@ -883,7 +892,7 @@ Esse erro ocorre quando uma operação de ingestão de dados excede o tempo limi
 2. Selecione o ponto de extremidade de nuvem dentro do grupo de sincronização.
 3. Observe o nome do compartilhamento de arquivos do Azure no painel aberto.
 4. Selecione a conta de armazenamento ligada. Se esse link falhar, a conta de armazenamento referenciada foi removida.
-    ![uma captura de tela mostrando o painel detalhes do ponto de extremidade da nuvem com um link para a conta de armazenamento.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
+    ![Uma imagem mostrando o painel de detalhes do ponto final da nuvem com um link para a conta de armazenamento.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
@@ -1108,8 +1117,8 @@ Se os arquivos falharem ao serem recuperados:
 Os arquivos em camadas em um servidor ficarão inacessíveis se os arquivos não forem recuperados antes de excluir um ponto de extremidade do servidor.
 
 Erros registrados se os arquivos em camadas não estiverem acessíveis
-- Ao sincronizar um arquivo, o código de erro-2147942467 (0x80070043-ERROR_BAD_NET_NAME) é registrado no log de eventos do doresults
-- Ao recuperar um arquivo, o código de erro-2134376393 (0x80c80037-ECS_E_SYNC_SHARE_NOT_FOUND) é registrado no log de eventos do RecallResults
+- Ao sincronizar um ficheiro, o código de erro -2147942467 (0x80070043 - ERROR_BAD_NET_NAME) é registado no registo de eventos DoitResults
+- Ao recordar um ficheiro, o código de erro -2134376393 (0x80c80037 - ECS_E_SYNC_SHARE_NOT_FOUND) é registado no registo do evento RecallResults
 
 O restauro do acesso aos ficheiros em camadas será possível se forem cumpridas as seguintes condições:
 - O ponto final do servidor foi eliminado nos últimos 30 dias

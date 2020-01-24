@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9bf5608a44aa19650a507ada3a0a437d34c13277
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513745"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705671"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -37,9 +37,7 @@ Depois de iniciar o streaming de dados do sensor, você pode começar o processo
  - Segredo do cliente
  - Cadeia de conexão do EventHub
 
-As informações anteriores são fornecidas a você pelo integrador de sistema. Para quaisquer problemas que você possa encontrar ao habilitar as integrações de dispositivo, entre em contato com o integrador de sistema.
-
-Como alternativa, você pode gerar as credenciais executando esse script em Azure Cloud Shell. Siga estes passos.
+Pode gerar a informação acima seguindo estes passos: (Por favor, note que estes passos são necessários para serem feitos no Azure para que você precise de acesso à subscrição Azure onde o FarmBeats é implantado)
 
 1. Baixe o [arquivo zip](https://aka.ms/farmbeatspartnerscriptv2)e extraia-o para a unidade local. Haverá um arquivo dentro do arquivo zip.
 2. Entre para https://portal.azure.com/ e vá para registros do aplicativo Azure Active Directory->

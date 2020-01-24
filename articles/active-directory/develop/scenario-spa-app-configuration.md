@@ -1,6 +1,6 @@
 ---
-title: Configurar aplicativo de página única-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo de página única (configuração de código do aplicativo)
+title: Configure aplicativo de página única - Plataforma de identidade da Microsoft / Azure
+description: Saiba como construir uma aplicação de uma única página (configuração de código da aplicação)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -14,32 +14,31 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111f8d45fced1ed0e9293c874d7a56c64e9fb0e4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f72b2b85fcaae4e0a21e4bbe2f3af79359ca2fa6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965420"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701914"
 ---
-# <a name="single-page-application-code-configuration"></a>Aplicativo de página única: configuração de código
+# <a name="single-page-application-code-configuration"></a>Aplicação de página única: Configuração do código
 
-Saiba como configurar o código para seu aplicativo de página única (SPA).
+Saiba como configurar o código para a sua aplicação de uma página única (SPA).
 
-## <a name="msal-libraries-that-support-implicit-flow"></a>Bibliotecas MSAL que dão suporte ao fluxo implícito
+## <a name="msal-libraries-that-support-implicit-flow"></a>Bibliotecas MSAL que suportam fluxo implícito
 
-A plataforma de identidade da Microsoft fornece as seguintes bibliotecas de MSAL (biblioteca de autenticação da Microsoft) para dar suporte ao fluxo implícito usando práticas de segurança recomendadas pelo setor:  
+A plataforma de identidade da Microsoft fornece as seguintes bibliotecas da Microsoft Authentication Library (MSAL) para suportar o fluxo implícito utilizando práticas de segurança recomendadas pela indústria:  
 
 | Biblioteca MSAL | Descrição |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue. js e reaja. js. |
-| ![angular MSAL](media/sample-v2-code/logo_angular.png) <br/> [MSAL angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper da biblioteca MSAL. js principal para simplificar o uso em aplicativos de página única que são criados por meio da estrutura angular. Esta biblioteca está em visualização e tem [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) com determinadas versões e navegadores angulares. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicação web do lado do cliente que seja construída através de quadros JavaScript ou SPA tais como Angular, Vue.js e React.js. |
+| ![](media/sample-v2-code/logo_angular.png) angular MSAL <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Invólucro da biblioteca core MSAL.js para simplificar o uso em aplicações de uma página única que são construídas através da estrutura angular. Esta biblioteca está em pré-visualização e tem [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) com certas versões angulares e navegadores. |
 
-## <a name="application-code-configuration"></a>Configuração de código do aplicativo
+## <a name="application-code-configuration"></a>Configuração do código de aplicação
 
-Em uma biblioteca MSAL, as informações de registro do aplicativo são passadas como configuração durante a inicialização da biblioteca.
+Numa biblioteca da MSAL, a informação de inscrição da aplicação é passada como configuração durante a inicialização da biblioteca.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 // Configuration object constructed.
@@ -53,7 +52,7 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
-Para obter mais informações sobre as opções configuráveis, consulte [inicializando aplicativo com MSAL. js](msal-js-initializing-client-applications.md).
+Para obter mais informações sobre as opções configuráveis, consulte [a aplicação inicialização com mSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="angular"></a>Angular
 
@@ -73,4 +72,4 @@ import { MsalModule } from '@azure/msal-angular';
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Entrada e saída](scenario-spa-sign-in.md)
+> [Iniciar sessão e inscrição](scenario-spa-sign-in.md)

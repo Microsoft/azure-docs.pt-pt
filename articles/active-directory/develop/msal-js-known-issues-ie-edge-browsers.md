@@ -13,13 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c75162cc66e9277d111def92842f5a67a132f59
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 5ae2dee68ec0da8e8a00d4f01583461462bc196c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548157"
+ms.locfileid: "76696100"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conhecidos nos navegadores do Internet Explorer e do Microsoft Edge (MSAL. js)
 
@@ -31,7 +30,7 @@ A causa da maioria desses problemas é a seguinte. O armazenamento de sessão e 
 
 ### <a name="issues"></a>Problemas
 
-- **Loops de redirecionamento infinitos e recarregamentos de página durante a autenticação**. Quando os usuários entram no aplicativo no Microsoft Edge, eles são redirecionados de volta da página de logon do AAD e ficam presos em um loop de redirecionamento infinito, resultando em recargas repetidas de página. Geralmente, isso é acompanhado por um erro de `invalid_state` no armazenamento de sessão.
+- **Loops de redirecionamento infinitos e recarregamentos de página durante a autenticação**. Quando os usuários entram no aplicativo no Microsoft Edge, eles são redirecionados de volta da página de logon do AAD e ficam presos em um loop de redirecionamento infinito, resultando em recargas repetidas de página. Isto é geralmente acompanhado por um erro `invalid_state` no armazenamento da sessão.
 
 - **Loops de token de aquisição infinito e erro AADSTS50058**. Quando um aplicativo em execução no Microsoft Edge tenta adquirir um token para um recurso, o aplicativo pode ficar preso em um loop infinito da chamada de aquisição de token junto com o seguinte erro do AAD em seu rastreamento de rede:
 

@@ -1,6 +1,6 @@
 ---
-title: Alterar padrões de tempo de vida do token para aplicativos personalizados do Azure AD | Microsoft Docs
-description: Como atualizar as políticas de tempo de vida do token para seu aplicativo que você está desenvolvendo no Azure AD
+title: Alterar incumprimentos de vida simbólicos para aplicações personalizadas do Azure AD  Microsoft Docs
+description: Como atualizar as políticas token Lifetime para a sua aplicação que está a desenvolver no Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,24 +15,23 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a603be6d57581541c0868b9f48a0bf9997cadd71
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 431f18b9babb52b5000d3bf4cca75a0f5e29bb93
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962836"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702815"
 ---
-# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os padrões de tempo de vida do token para um aplicativo de desenvolvimento personalizado
+# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os incumprimentos de vida simbólicos para uma aplicação desenvolvida sob medida
 
-Este artigo mostra como usar o PowerShell do Azure AD para definir uma política de tempo de vida do token. Azure AD Premium permite que os desenvolvedores de aplicativos e administradores de locatário configurem o tempo de vida de tokens emitidos para clientes não confidenciais. As políticas de tempo de vida do token são definidas em todo o locatário ou os recursos que estão sendo acessados.
+Este artigo mostra como usar o Azure AD PowerShell para definir uma política de vida simbólica. O Azure AD Premium permite que os desenvolvedores de aplicações e administradores de inquilinos configurem a vida útil dos tokens emitidos para clientes não confidenciais. As políticas de token vitalícia são definidas numa base de arrendamento ou os recursos a serem acedidos.
 
-1. Para definir uma política de tempo de vida do token, você precisa baixar o [módulo do PowerShell do Azure ad](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Execute o comando **Connect-AzureAD-Confirm** .
+1. Para definir uma política simbólica de vida, precisa de descarregar o Módulo PowerShell Da [AD Azure](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Executar o comando **Connect-AzureAD -Confirmar.**
 
-    Aqui está um exemplo de política que define o token de atualização de fator único de idade máxima. Crie a política: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+    Aqui está uma política de exemplo que define a idade máxima single fator refresh token. Criar a política: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Consulte [tempos de vida de token configuráveis no Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) para saber como configurar tempos de vida de token emitidos pelo Azure AD, incluindo como definir tempos de vida de token para todos os aplicativos em sua organização, para um aplicativo multilocatário ou para uma entidade de serviço específica em sua organização. 
-* [Referência de token do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Consulte a [configurável vida útil em Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) para aprender a configurar vidas simbólicas emitidas pela Azure AD, incluindo como definir vidas simbólicas para todas as aplicações da sua organização, para uma aplicação multi-inquilino, ou para um diretor de serviço específico na sua organização. 
+* [Referência simbólica azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)

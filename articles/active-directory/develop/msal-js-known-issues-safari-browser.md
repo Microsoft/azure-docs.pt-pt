@@ -1,7 +1,7 @@
 ---
-title: Problemas conhecidos do navegador Safari (MSAL. js) | Azure
+title: Problemas conhecidos do navegador Safari (MSAL.js) / Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre os problemas conhecidos ao usar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com o navegador Safari.
+description: Saiba mais sobre problemas ao utilizar a Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) com o navegador Safari.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -13,31 +13,30 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1fda1471d629ab8d84d06a3cc5bcfae0a6d9ec5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: edb995e31c2872c1541e29fee09dd66aafc8f9e2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916337"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696117"
 ---
-# <a name="known-issues-on-safari-browser-with-msaljs"></a>Problemas conhecidos no navegador Safari com MSAL. js 
+# <a name="known-issues-on-safari-browser-with-msaljs"></a>Questões conhecidas no navegador Safari com MSAL.js 
 
-## <a name="silent-token-renewal-on-safari-12-and-itp-20"></a>Renovação de token silenciosa no Safari 12 e ITP 2,0
+## <a name="silent-token-renewal-on-safari-12-and-itp-20"></a>Renovação silenciosa de token no Safari 12 e ITP 2.0
 
-Os sistemas operacionais Apple iOS 12 e MacOS 10,14 incluíam uma versão do [navegador Safari 12](https://developer.apple.com/safari/whats-new/). Para fins de segurança e privacidade, o Safari 12 inclui a [prevenção de rastreamento inteligente 2,0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/). Essencialmente, isso faz com que o navegador descartar os cookies de terceiros que estão sendo definidos. O ITP 2,0 também trata os cookies definidos por provedores de identidade como cookies de terceiros.
+Os sistemas operativos Apple iOS 12 e MacOS 10.14 incluíram um lançamento do [navegador Safari 12.](https://developer.apple.com/safari/whats-new/) Para efeitos de segurança e privacidade, o Safari 12 inclui a [Prevenção inteligente de rastreio 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/). Isto essencialmente faz com que o navegador deixe cair cookies de terceiros sendo definidos. ItP 2.0 também trata os cookies definidos pelos fornecedores de identidade como cookies de terceiros.
 
-### <a name="impact-on-msaljs"></a>Impacto no MSAL. js
+### <a name="impact-on-msaljs"></a>Impacto em MSAL.js
 
-O MSAL. js usa um iframe oculto para executar a aquisição e a renovação de tokens silenciosas como parte das chamadas de `acquireTokenSilent`. As solicitações de token silenciosas dependem do iframe que tem acesso à sessão de usuário autenticado representada pelos cookies definidos pelo Azure AD. Com o ITP 2,0 impedindo o acesso a esses cookies, o MSAL. js falha ao adquirir e renovar silenciosamente tokens e isso resulta em falhas de `acquireTokenSilent`.
+MSAL.js usa um Iframe oculto para realizar aquisição e renovação silenciosa como parte das chamadas `acquireTokenSilent`. Os pedidos de ficha silenciosa dependem do Iframe ter acesso à autenticada sessão de utilizadores representada pelos cookies definidos pela Azure AD. Com a ITP 2.0 a impedir o acesso a estes cookies, a MSAL.js não adquire e renova silenciosamente tokens e isso resulta em falhas `acquireTokenSilent`.
 
-Não há nenhuma solução para esse problema neste ponto e estamos avaliando opções com a comunidade de padrões.
+Não há nenhuma solução para esta questão neste momento e estamos a avaliar opções com a comunidade de normas.
 
-### <a name="work-around"></a>Solução alternativa
+### <a name="work-around"></a>Trabalhar ao redor
 
-Por padrão, a configuração ITP está habilitada no navegador Safari. Você pode desabilitar essa configuração navegando até **preferências** -> **privacidade** e desmarcando a opção **impedir rastreamento entre sites** .
+Por defeito, a definição itp está ativada no navegador Safari. Pode desativar esta definição navegando para **Preferências** -> **Privacidade** e desmarcando a opção **de rastreio do cross-site.**
 
-![configuração do Safari](./media/msal-js-known-issue-safari-browser/safari.png)
+![configuração de safari](./media/msal-js-known-issue-safari-browser/safari.png)
 
-Você precisará manipular as falhas de `acquireTokenSilent` com uma chamada de token de aquisição interativa, que solicita que o usuário entre.
-Para evitar entradas repetidas, uma abordagem que você pode implementar é manipular a falha de `acquireTokenSilent` e fornecer ao usuário uma opção para desabilitar a configuração ITP no Safari antes de prosseguir com a chamada interativa. Quando a configuração estiver desabilitada, as renovações de token silencioso subsequentes deverão ser realizadas com sucesso.
+Terá de lidar com as falhas `acquireTokenSilent` com uma chamada simbólica de aquisição interativa, o que leva o utilizador a iniciar sessão.
+Para evitar inscrições repetidas, uma abordagem que pode implementar é lidar com a falha `acquireTokenSilent` e fornecer ao utilizador uma opção para desativar a definição de ITP no Safari antes de prosseguir com a chamada interativa. Uma vez desativada a definição, as renovações subsequentes de token silenciosos devem ter sucesso.

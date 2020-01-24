@@ -1,6 +1,6 @@
 ---
-title: Como o consentimento do aplicativo funciona | Microsoft Docs
-description: Saiba mais sobre como a estrutura de consentimento do Azure AD funciona para ver como você pode usá-la ao desenvolver aplicativos no Azure AD
+title: Como funciona o consentimento da candidatura  Microsoft Docs
+description: Saiba mais sobre como funciona o quadro de consentimento da AD Azure para ver como pode usá-lo no desenvolvimento de aplicações em Azure AD
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,24 +12,23 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c79d9226b3a8965ad6ce853350f2e4c46617b5b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15206f394f63e9373a4a0016588bc1e2e2c65d44
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843432"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697715"
 ---
-# <a name="how-application-consent-works"></a>Como o consentimento do aplicativo funciona
+# <a name="how-application-consent-works"></a>Como funciona o consentimento da candidatura
 
-Este artigo é útil para ajudá-lo a saber mais sobre como a estrutura de consentimento do Azure AD funciona para que você possa desenvolver aplicativos com mais eficiência.
+Este artigo é para ajudá-lo a aprender mais sobre como funciona o quadro de consentimento da AD Azure para que possa desenvolver aplicações de forma mais eficaz.
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-- Obtenha uma compreensão geral de [como o consentimento permite que um proprietário do recurso controle o acesso de um aplicativo aos recursos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Obtenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure ad implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Para obter mais detalhes, saiba [como um aplicativo multilocatário pode usar a estrutura de consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para implementar o consentimento de "usuário" e "administrador", dando suporte a padrões de aplicativos multicamadas mais avançados.
-- Para obter mais detalhes, saiba [como o consentimento tem suporte na camada de protocolo OAuth 2,0 durante o fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+- Obtenha uma compreensão geral de como o consentimento permite que um proprietário de [recursos regule o acesso de uma aplicação aos recursos.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent)
+- Obtenha uma visão geral passo a passo de como o quadro de [consentimento da AD Azure implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Para obter mais profundidade, saiba [como uma aplicação multi-arrendatária pode usar o quadro de consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para implementar o consentimento de "utilizador" e "administrador", suportando padrões de aplicação multi-nível mais avançados.
+- Para obter mais profundidade, saiba como o consentimento é suportado na camada de [protocolo OAuth 2.0 durante o fluxo de concessão do código](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code) de autorização.
 
 ## <a name="next-steps"></a>Passos seguintes
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Empilhador AzureAdOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

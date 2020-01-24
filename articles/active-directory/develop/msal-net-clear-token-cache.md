@@ -13,13 +13,12 @@ ms.date: 05/07/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11ff07e551002b8a0242afe51f3868a2f4a0ee85
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51407c4c157fa171bc5fd18e8db1f97f677ed973
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424249"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695590"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Limpar o cache de token usando MSAL.NET
 

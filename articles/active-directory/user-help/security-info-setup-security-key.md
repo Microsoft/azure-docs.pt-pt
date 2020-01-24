@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 3e16602128a70077d0a7962522ad3898421c8997
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156085"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704923"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar uma chave de segurança como seu método de verificação
 

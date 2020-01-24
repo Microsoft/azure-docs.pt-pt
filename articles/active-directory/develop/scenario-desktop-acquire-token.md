@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: da8d9a43ac5db4cedc8b27910bb838b911f3ebc6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bc00f348e9443384c7799bf227efd7309d6aeac2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293152"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702203"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de área de trabalho que chama APIs da Web: adquirir um token
 
@@ -216,7 +215,7 @@ Comentários
 
 A classe define as seguintes constantes:
 
-- ``SelectAccount`` força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o usuário tem uma sessão. Essa opção é útil quando os desenvolvedores de aplicativos desejam permitir que os usuários escolham entre diferentes identidades. Essa opção conduz MSAL para enviar ``prompt=select_account`` para o provedor de identidade. Esta é a opção predefinida. Ele faz um bom trabalho de fornecer a melhor experiência possível com base nas informações disponíveis, como a conta e a presença de uma sessão para o usuário. Não a altere, a menos que você tenha um bom motivo para fazê-lo.
+- ``SelectAccount`` força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o usuário tem uma sessão. Essa opção é útil quando os desenvolvedores de aplicativos desejam permitir que os usuários escolham entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Esta é a opção predefinida. Ele faz um bom trabalho de fornecer a melhor experiência possível com base nas informações disponíveis, como a conta e a presença de uma sessão para o usuário. Não a altere, a menos que você tenha um bom motivo para fazê-lo.
 - ``Consent`` permite que o desenvolvedor do aplicativo Force o consentimento do usuário, mesmo que o consentimento tenha sido concedido antes. Nesse caso, o MSAL envia `prompt=consent` para o provedor de identidade. Essa opção pode ser usada em alguns aplicativos focados em segurança em que o controle da organização exige que o usuário tenha a caixa de diálogo de consentimento sempre que o aplicativo for usado.
 - ``ForceLogin`` permite que o desenvolvedor do aplicativo solicite as credenciais ao usuário pelo serviço, mesmo que esse prompt de usuário não seja necessário. Essa opção pode ser útil para permitir que o usuário entre novamente se a aquisição de um token falhar. Nesse caso, o MSAL envia `prompt=login` para o provedor de identidade. Às vezes, ele é usado em aplicativos com foco em segurança, em que o controle da organização exige que o usuário se reconecte a cada vez que acessam partes específicas de um aplicativo.
 - ``Never`` (somente para .NET 4,5 e WinRT) não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte exibições da Web no MSAL.NET. O uso dessa opção pode falhar. Nesse caso, `AcquireTokenInteractive` gera uma exceção para notificar que uma interação de interface do usuário é necessária. Você precisará usar outro parâmetro `Prompt`.
@@ -346,7 +345,7 @@ future.handle((res, ex) -> {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-O Python MSAL não fornece um método de token de aquisição interativo diretamente. Em vez disso, ele requer que o aplicativo envie uma solicitação de autorização em sua implementação do fluxo de interação do usuário para obter um código de autorização. Esse código pode então ser passado para o método `acquire_token_by_authorization_code` para obter o token.
+O Python MSAL não fornece um método de token de aquisição interativo diretamente. Em vez disso, ele requer que o aplicativo envie uma solicitação de autorização em sua implementação do fluxo de interação do usuário para obter um código de autorização. Este código pode então ser passado para o método `acquire_token_by_authorization_code` para obter o símbolo.
 
 ```Python
 result = None

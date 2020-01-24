@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Azure AD em projetos do .NET MVC | Azure
-description: Como começar a usar o Azure Active Directory em projetos do .NET MVC depois de se conectar ou criar um AD do Azure usando os serviços conectados do Visual Studio
+title: Começar com a Azure AD em projetos de MVC .NET  Azure
+description: Como começar a usar o Azure Ative Directory em projetos .NET MVC após ligar ou criar um Azure AD utilizando serviços conectados ao Estúdio Visual
 author: ghogen
 manager: jillfra
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
@@ -11,31 +11,30 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a603f37850cba13328889fcd120851f3c97c8c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 23e087205d316c4383b460afa5e6d7f86b6bd8af
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966542"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700027"
 ---
-# <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introdução com Azure Active Directory (projetos ASP.NET MVC)
+# <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Começar com o Diretório Ativo Azure (ASP.NET Projetos MVC)
 
 > [!div class="op_single_selector"]
 > - [Introdução](vs-active-directory-dotnet-getting-started.md)
 > - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
 
-Este artigo fornece diretrizes adicionais depois de você ter adicionado Active Directory a um projeto MVC do ASP.NET por meio do comando **project > Connected Services** do Visual Studio. Se você ainda não adicionou o serviço ao seu projeto, você pode fazer isso a qualquer momento.
+Este artigo fornece orientação adicional depois de ter adicionado Diretório Ativo a um projeto ASP.NET MVC através do comando **do Project > Connected Services** do Visual Studio. Se ainda não adicionou o serviço ao seu projeto, pode fazê-lo a qualquer momento.
 
-Veja o [que aconteceu com meu projeto do MVC?](vs-active-directory-dotnet-what-happened.md) para as alterações feitas ao seu projeto ao adicionar o serviço conectado.
+Veja [o que aconteceu ao meu projeto mVC?](vs-active-directory-dotnet-what-happened.md)
 
-## <a name="requiring-authentication-to-access-controllers"></a>Exigindo autenticação para acessar controladores
+## <a name="requiring-authentication-to-access-controllers"></a>Exigindo autenticação para aceder aos controladores
 
-Todos os controladores em seu projeto foram adornados com o atributo `[Authorize]`. Este atributo requer que o usuário seja autenticado antes de acessar esses controladores. Para permitir que o controlador seja acessado anonimamente, remova esse atributo do controlador. Se você quiser definir as permissões em um nível mais granular, aplique o atributo a cada método que requer autorização em vez de aplicá-lo à classe do controlador.
+Todos os controladores do seu projeto foram adornados com o atributo `[Authorize]`. Este atributo exige que o utilizador seja autenticado antes de aceder a estes controladores. Para permitir que o controlador seja acedido de forma anónima, remova este atributo do controlador. Se pretender definir as permissões a um nível mais granular, aplique o atributo a cada método que requer autorização em vez de a aplicar à classe de controlador.
 
-## <a name="adding-signin--signout-controls"></a>Adicionando controles de entrada/saída
+## <a name="adding-signin--signout-controls"></a>Adicionar controlos signin /signout
 
-Para adicionar os controles de entrada/saída à exibição, você pode usar o `_LoginPartial.cshtml` exibição parcial para adicionar a funcionalidade a uma de suas exibições. Aqui está um exemplo da funcionalidade adicionada à exibição de `_Layout.cshtml` padrão. (Observe o último elemento no div com a barra de navegação de classe-Collapse):
+Para adicionar os controlos SignIn/SignOut à sua vista, pode utilizar a visão parcial `_LoginPartial.cshtml` para adicionar a funcionalidade a uma das suas opiniões. Aqui está um exemplo da funcionalidade adicionada à visão padrão `_Layout.cshtml`. (Note o último elemento no div com o colapso da navbar de classe):
 
 ```html
 <!DOCTYPE html>
@@ -84,5 +83,5 @@ Para adicionar os controles de entrada/saída à exibição, você pode usar o `
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
-- [Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)
+- [Cenários de autenticação para o Diretório Ativo do Azure](authentication-scenarios.md)
+- [Adicione o sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)

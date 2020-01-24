@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 965943937a5cbc24f3c4dbe5bc85a6f5b4338fe2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156119"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704991"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurar suas informações de segurança (versão prévia) de um prompt de entrada
 

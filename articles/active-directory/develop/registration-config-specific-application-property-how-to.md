@@ -1,6 +1,6 @@
 ---
-title: portal do Azure campos de registro para aplicativos desenvolvidos com personalização
-description: Diretrizes para registrar um aplicativo personalizado desenvolvido com o Azure AD
+title: Campos de registo do portal Azure para aplicações desenvolvidas sob medida
+description: Orientação para registar uma aplicação desenvolvida sob medida com a Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,65 +15,64 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ded0ba36a8eef7adb1be5b5f07408b9f79359f44
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 36d74b9926639bb4ec49821a3d73b5d615016394
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965641"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702679"
 ---
-# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>portal do Azure campos de registro para aplicativos desenvolvidos com personalização
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registo do portal Azure para aplicações desenvolvidas sob medida
 
-Este artigo fornece uma breve descrição de todos os campos disponíveis no formulário de registro do aplicativo no [portal do Azure](https://portal.azure.com).
+Este artigo dá-lhe uma breve descrição de todos os campos disponíveis no formulário de inscrição de candidatura no [portal Azure](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Registar uma nova aplicação
 
--   Para registrar um novo aplicativo, navegue até a [portal do Azure](https://portal.azure.com).
+-   Para registar uma nova aplicação, navegue para o [portal Azure.](https://portal.azure.com)
 
--   No painel de navegação esquerdo, clique em **Azure Active Directory.**
+-   A partir do painel de navegação esquerdo, clique no **Diretório Ativo Azure.**
 
--   Escolha **registros de aplicativo** e clique em **Adicionar**.
+-   Escolha **as inscrições da App** e clique em **Adicionar**.
 
--   Isso abre o formulário de registro do aplicativo.
+-   Isto abre o formulário de inscrição da candidatura.
 
-## <a name="fields-in-the-application-registration-form"></a>Campos no formulário de registro do aplicativo
+## <a name="fields-in-the-application-registration-form"></a>Campos no formulário de inscrição de candidatura
 
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nome             | O nome da aplicação. Ele deve ter um mínimo de quatro caracteres.                |
-| Tipos de conta suportados| Selecione as contas às quais você deseja que seu aplicativo dê suporte: contas neste diretório organizacional somente, contas em qualquer diretório organizacional ou contas em qualquer diretório organizacional e contas pessoais da Microsoft.  |
-| URI de Redirecionamento (opcional) | Selecione o tipo de aplicativo que você está criando, cliente **Web** ou **público (Mobile & Desktop)** e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para seu aplicativo. Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, http://localhost:31544 pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Insira um valor específico para seu aplicativo, como myapp://auth. Para ver exemplos específicos para aplicativos Web ou aplicativos nativos, Confira nossos [guias de início rápido](https://docs.microsoft.com/azure/active-directory/develop).|
+| Nome             | O nome da aplicação. Deve ter um mínimo de quatro caracteres.                |
+| Tipos de conta suportados| Selecione quais as contas que deseja que a sua aplicação suporte: contas apenas neste diretório organizacional, contas em qualquer diretório organizacional, ou contas em qualquer diretório organizacional e contas pessoais da Microsoft.  |
+| URI de Redirecionamento (opcional) | Selecione o tipo de aplicação que está a construir, **web** ou **cliente público (mobile & desktop)** e, em seguida, introduza o URI redirecionamento (ou URL de resposta) para a sua aplicação. Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, http://localhost:31544 pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Insira um valor específico da sua aplicação, como myapp://auth. Para ver exemplos específicos para aplicações web ou aplicações nativas, confira os nossos [quickstarts](https://docs.microsoft.com/azure/active-directory/develop).|
 
-Depois de preencher os campos acima, o aplicativo será registrado na portal do Azure e você será redirecionado para a página Visão geral do aplicativo. As páginas de configurações no painel esquerdo em **gerenciar** têm mais campos para personalizar seu aplicativo. As tabelas a seguir descrevem todos os campos. Você só veria um subconjunto desses campos, dependendo se você criou um aplicativo Web ou um aplicativo cliente público.
+Depois de ter preenchido os campos acima, a aplicação está registada no portal Azure, e é redirecionado para a página de visão geral da aplicação. As páginas de definições no painel esquerdo em **Manage** têm mais campos para personalizar a sua aplicação. As tabelas abaixo descrevem todos os campos. Só veria um subconjunto destes campos, dependendo se criou uma aplicação web ou uma aplicação de cliente público.
 
 ### <a name="overview"></a>Visão geral
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID da aplicação  | Quando você registra um aplicativo, o AD do Azure atribui à sua aplicação uma ID de aplicativo. A ID do aplicativo pode ser usada para identificar exclusivamente seu aplicativo em solicitações de autenticação para o Azure AD, bem como para acessar recursos como o API do Graph.                                                          |
-| URI da ID do aplicativo      | Ele deve ser um URI exclusivo, geralmente do formato **https://&lt;\_nome do locatário&gt;/** &lt;do\_de nome do aplicativo. Isso é usado durante o fluxo de concessão de autorização, como um identificador exclusivo para especificar o recurso para o qual o token deve ser emitido. Ele também se torna a declaração ' AUD ' no token de acesso emitido. |
+| ID da aplicação  | Ao registar uma aplicação, a Azure AD atribui à sua aplicação um ID de aplicação. O ID da aplicação pode ser usado para identificar exclusivamente a sua aplicação em pedidos de autenticação à AD Azure, bem como para aceder a recursos como o Graph API.                                                          |
+| App ID URI      | Este deve ser um URI único, geralmente do formulário **https://&lt;nome\_inquilino&gt;/&lt;aplicação\_nome&gt;.** Isto é utilizado durante o fluxo de concessão de autorização, como um identificador único para especificar o recurso para o qual o símbolo deve ser emitido. Torna-se também a alegação 'aud' no sinal de acesso emitido. |
 
 ### <a name="branding"></a>Personalização
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Carregar novo logotipo | Você pode usar isso para carregar um logotipo para seu aplicativo. O logotipo deve estar no formato. bmp,. jpg ou. png e o tamanho do arquivo deve ser inferior a 100 KB. As dimensões da imagem devem ser 215x215 pixels, com dimensões de imagem central de pixels de 94x94.|
-| URL da Home Page   | Esta é a URL de logon especificada durante o registro do aplicativo.|
+| Carregar novo logótipo | Pode usá-lo para fazer upload de um logotipo para a sua aplicação. O logótipo deve estar em formato .bmp, .jpg ou .png, e o tamanho do ficheiro deve ser inferior a 100 KB. As dimensões da imagem devem ser 215x215 pixels, com dimensões de imagem central de 94x94 pixels.|
+| URL de página inicial   | Este é o URL de entrada especificado durante o registo da candidatura.|
 
 ### <a name="authentication"></a>Autenticação
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL de fim de sessão      | Esta é a URL de logoff de logoff único. O Azure AD envia uma solicitação de logoff para essa URL quando o usuário limpa sua sessão com o AD do Azure usando qualquer outro aplicativo registrado.|
-| Tipos de conta suportados  | Essa opção especifica se o aplicativo pode ser usado por vários locatários. Normalmente, isso significa que as organizações externas podem usar seu aplicativo registrando-o em seu locatário e concedendo acesso aos dados da organização.|
-| URLs de Redirecionamento      | As URLs de redirecionamento, ou de resposta são os pontos de extremidade onde o Azure AD retorna quaisquer tokens que seu aplicativo solicita. Para aplicativos nativos, é aqui que o usuário é enviado após a autorização bem-sucedida. O Azure AD verifica se o URI de redirecionamento que seu aplicativo fornece na solicitação OAuth 2,0 corresponde a um dos valores registrados no Portal.|
+| URL de fim de sessão      | Este é o único URL de logout de inscrição. A Azure AD envia um pedido de logout para este URL quando o utilizador limpar a sua sessão com a Azure AD utilizando qualquer outra aplicação registada.|
+| Tipos de conta suportados  | Este interruptor especifica se a aplicação pode ser usada por vários inquilinos. Normalmente, isto significa que as organizações externas podem usar a sua aplicação, registando-a no seu inquilino e concedendo acesso aos dados da sua organização.|
+| URLs de Redirecionamento      | Os URLs redirecionamento, ou resposta, são os pontos finais onde a Azure AD devolve quaisquer fichas que a sua aplicação solicita. Para aplicações nativas, é aqui que o utilizador é enviado após autorização bem sucedida. A Azure AD verifica se o redirecionamento do URI que a sua aplicação fornece no pedido OAuth 2.0 corresponde a um dos valores registados no portal.|
 
 ### <a name="certificates-and-secrets"></a>Certificados e segredos
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Segredos de cliente            | Você pode criar segredos do cliente, ou chaves, para acessar programaticamente APIs da Web protegidas pelo Azure AD sem nenhuma interação do usuário. Na página **novo segredo do cliente** , insira uma descrição da chave e a data de validade e salve para gerar a chave. Certifique-se de salvá-lo em algum lugar seguro, pois você não poderá acessá-lo mais tarde.             |
+| Segredos de cliente            | Pode criar segredos de clientes, ou chaves, para aceder programáticamente a APIs web protegidos pela Azure AD sem qualquer interação do utilizador. A partir da página secreta do **novo cliente,** introduza uma descrição chave e a data de validade e poupe para gerar a chave. Certifique-se de guardá-lo em algum lugar seguro, pois não poderá aceder mais tarde.             |
 
 ## <a name="next-steps"></a>Passos seguintes
 

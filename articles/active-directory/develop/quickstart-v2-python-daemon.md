@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 400dfb1ad8b0682194974e6d829cc42bad37bf75
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a45f516f751609b413948278e2f2cfca47c9da2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920621"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703308"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo de console do Python usando a identidade do aplicativo
 
@@ -189,7 +188,7 @@ app = msal.ConfidentialClientApplication(
 
 Para obter mais informações, consulte a [documentação de referência para `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
 
-### <a name="requesting-tokens"></a>Pedir tokens
+### <a name="requesting-tokens"></a>Solicitar tokens
 
 Para solicitar um token usando a identidade do aplicativo, use `AcquireTokenForClient` método:
 

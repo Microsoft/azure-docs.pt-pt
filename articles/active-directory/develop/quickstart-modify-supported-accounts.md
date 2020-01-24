@@ -12,13 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921355"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704124"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: modificar as contas com suporte em um aplicativo
 
@@ -41,7 +40,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
+1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Siga os passos para [alterar o registo de aplicação para suportar diferentes contas](#change-the-application-registration-to-support-different-accounts).
 1. Se tiver uma aplicação de página única, [ative a concessão implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
 
@@ -70,7 +69,7 @@ Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas ap
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>Para permitir a concessão implícita de OAuth 2.0
 
-1. Na página **Descrição Geral** da aplicação, selecione a secção **Autenticação**.
+1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação**.
 1. Em **Definições avançadas**, localize a secção **Concessão implícita**.
 1. Selecione **Tokens de ID**, **Tokens de acesso** ou ambos.
 1. Selecione **Guardar**.

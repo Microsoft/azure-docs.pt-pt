@@ -1,6 +1,6 @@
 ---
-title: Tipos de aplicativos em v 1.0 | Azure
-description: Descreve os tipos de aplicativos e cenários com suporte pelo ponto de extremidade Azure Active Directory v 2.0.
+title: Tipos de candidatura em v1.0 / Azure
+description: Descreve os tipos de apps e cenários suportados pelo Ponto final do Azure Ative Directory v2.0.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,70 +12,69 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e4228febb5b49ad14a89ceec5482c277fca5fae
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d8f5002c60150f39415d6e4debd1fc73b056c386
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844214"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698157"
 ---
-# <a name="application-types-in-v10"></a>Tipos de aplicativos em v 1.0
+# <a name="application-types-in-v10"></a>Tipos de aplicação em v1.0
 
-O Azure Active Directory (AD do Azure) dá suporte à autenticação para uma variedade de arquiteturas de aplicativo modernas, todas elas baseadas em protocolos padrão do setor OAuth 2,0 ou OpenID Connect.
+O Azure Ative Directory (Azure AD) suporta a autenticação para uma variedade de arquiteturas de aplicações modernas, todas elas baseadas em protocolos padrão da indústria OAuth 2.0 ou OpenID Connect.
 
-O diagrama a seguir ilustra os cenários e os tipos de aplicativos e como os diferentes componentes podem ser adicionados:
+O diagrama que se segue ilustra os cenários e os tipos de aplicação e como podem ser adicionados diferentes componentes:
 
 ![Tipos de Aplicação e cenários](./media/authentication-scenarios/application_types_and_scenarios.png)
 
-Estes são os cinco cenários principais de aplicativo com suporte do Azure AD:
+Estes são os cinco cenários de candidatura primária suportados pela Azure AD:
 
-- **[Aplicativo de página única (Spa)](single-page-application.md)** : um usuário precisa entrar em um aplicativo de página única que é protegido pelo Azure AD.
-- **[Navegador da Web para aplicativo Web](web-app.md)** : um usuário precisa entrar em um aplicativo Web protegido pelo Azure AD.
-- **[Aplicativo nativo para API da Web](native-app.md)** : um aplicativo nativo que é executado em um telefone, Tablet ou PC precisa autenticar um usuário para obter recursos de uma API da Web que é protegida pelo Azure AD.
-- **[Aplicativo Web para API da Web](web-api.md)** : um aplicativo Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
-- **[Aplicativo de daemon ou de servidor para API da Web](service-to-service.md)** : um aplicativo de daemon ou um aplicativo de servidor sem interface de usuário da Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
+- **[Aplicação de página única (SPA)](single-page-application.md)** : Um utilizador precisa de iniciar sessão numa aplicação de uma única página que é protegida pela Azure AD.
+- **[Navegador web para aplicação web](web-app.md)** : Um utilizador precisa de iniciar sessão numa aplicação web que é protegida pela Azure AD.
+- **[Aplicação nativa para web API](native-app.md)** : Uma aplicação nativa que funciona num telefone, tablet ou PC precisa de autenticar um utilizador para obter recursos de uma API web que é protegida pela Azure AD.
+- **[Aplicação web para Web API](web-api.md)** : Uma aplicação web precisa de obter recursos de uma API web protegida pela Azure AD.
+- **[Aplicação da ememon ou servidor para web API](service-to-service.md)** : Uma aplicação daemon ou uma aplicação de servidor sem interface de utilizador web precisa de obter recursos de uma API web protegida por Azure AD.
 
-Siga os links para saber mais sobre cada tipo de aplicativo e entender os cenários de alto nível antes de começar a trabalhar com o código. Você também pode aprender sobre as diferenças que precisa saber ao escrever um aplicativo específico que funciona com o ponto de extremidade v 1.0 ou o ponto de extremidade v 2.0.
+Siga os links para saber mais sobre cada tipo de app e compreenda os cenários de alto nível antes de começar a trabalhar com o código. Também pode aprender sobre as diferenças que precisa de saber ao escrever uma determinada aplicação que funciona com o ponto final v1.0 ou v2.0 endpoint.
 
 > [!NOTE]
-> O ponto de extremidade v 2.0 não dá suporte a todos os cenários e recursos do Azure AD. Para determinar se você deve usar o ponto de extremidade v 2.0, leia sobre as [limitações de v 2.0](active-directory-v2-limitations.md).
+> O ponto final v2.0 não suporta todos os cenários e funcionalidades da Azure AD. Para determinar se deve utilizar o ponto final v2.0, leia sobre [as limitações v2.0](active-directory-v2-limitations.md).
 
-Você pode desenvolver qualquer um dos aplicativos e cenários descritos aqui usando várias linguagens e plataformas. Eles são todos apoiados por exemplos de código completos disponíveis no guia de exemplos de código: os exemplos de código do [v 1.0 por cenário](sample-v1-code.md) e [exemplos de código v 2.0 por cenário](sample-v2-code.md). Você também pode baixar os exemplos de código diretamente dos [repositórios de exemplo do GitHub](https://github.com/Azure-Samples?q=active-directory)correspondentes.
+Pode desenvolver qualquer uma das aplicações e cenários aqui descritos utilizando vários idiomas e plataformas. Todas elas são apoiadas por amostras completas de código disponíveis no guia de amostras de código: [v1.0 amostras de código por cenário](sample-v1-code.md) e amostras de código [v2.0 por cenário](sample-v2-code.md). Também pode descarregar as amostras de código diretamente dos [repositórios](https://github.com/Azure-Samples?q=active-directory)correspondentes da amostra GitHub.
 
-Além disso, se seu aplicativo precisar de uma parte ou segmento específico de um cenário de ponta a ponta, na maioria dos casos essa funcionalidade pode ser adicionada de forma independente. Por exemplo, se você tiver um aplicativo nativo que chama uma API da Web, poderá adicionar facilmente um aplicativo Web que também chama a API da Web.
+Além disso, se a sua aplicação precisar de uma peça ou segmento específico de um cenário de ponta a ponta, na maioria dos casos essa funcionalidade pode ser adicionada de forma independente. Por exemplo, se tiver uma aplicação nativa que chama a API web, pode facilmente adicionar uma aplicação web que também chama a Web API.
 
 ## <a name="app-registration"></a>Registo da aplicação
 
-### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registrando um aplicativo que usa o ponto de extremidade v 1.0 do Azure AD
+### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registar uma aplicação que utiliza o ponto final da AD Azure
 
-Qualquer aplicativo que terceiriza a autenticação para o Azure AD deve ser registrado em um diretório. Esta etapa envolve informar ao Azure AD sobre seu aplicativo, incluindo a URL onde ele está localizado, a URL para enviar respostas após a autenticação, o URI para identificar seu aplicativo e muito mais. Essas informações são necessárias por alguns motivos principais:
+Qualquer aplicação que forme a autenticação para a AD Azure deve ser registada num diretório. Este passo envolve contar ao Azure AD sobre a sua aplicação, incluindo o URL onde está localizado, o URL para enviar respostas após a autenticação, o URI para identificar a sua aplicação, e muito mais. Esta informação é necessária por algumas razões fundamentais:
 
-* O Azure AD precisa se comunicar com o aplicativo ao manipular tokens de logon ou de troca. As informações passadas entre o Azure AD e o aplicativo incluem o seguinte:
+* A Azure AD precisa de comunicar com a aplicação ao manusear sinais ou trocar fichas. As informações transmitidas entre a Azure AD e a aplicação incluem:
   
-  * **URI da ID do aplicativo** -o identificador de um aplicativo. Esse valor é enviado ao Azure AD durante a autenticação para indicar a qual aplicativo o chamador deseja um token. Além disso, esse valor é incluído no token para que o aplicativo saiba que ele era o destino pretendido.
-  * **URL de resposta** e **URI de redirecionamento** – para uma API Web ou aplicativo Web, a URL de resposta é o local em que o Azure ad enviará a resposta de autenticação, incluindo um token se a autenticação tiver sido bem-sucedida. Para um aplicativo nativo, o URI de redirecionamento é um identificador exclusivo para o qual o Azure AD redirecionará o agente do usuário em uma solicitação do OAuth 2,0.
-  * **ID do aplicativo** – a ID de um aplicativo, que é gerada pelo Azure ad quando o aplicativo é registrado. Ao solicitar um código de autorização ou token, a ID e a chave do aplicativo são enviadas ao Azure AD durante a autenticação.
-  * **Chave** -a chave que é enviada junto com uma ID de aplicativo ao autenticar no Azure ad para chamar uma API da Web.
-* O Azure AD precisa garantir que o aplicativo tenha as permissões necessárias para acessar os dados do diretório, outros aplicativos em sua organização e assim por diante.
+  * **ID DE aplicação URI** - O identificador para uma aplicação. Este valor é enviado para a AD Azure durante a autenticação para indicar para que aplicação o chamador quer um símbolo. Adicionalmente, este valor está incluído no símbolo para que a aplicação saiba que foi o alvo pretendido.
+  * **Url de resposta** e **Redirecionamento URI** - Para uma Web API ou aplicação web, o URL de resposta é o local onde o Azure AD enviará a resposta de autenticação, incluindo um símbolo se a autenticação tiver sido bem sucedida. Para uma aplicação nativa, o Redirect URI é um identificador único para o qual a Azure AD redirecionará o agente utilizador num pedido oAuth 2.0.
+  * **ID de aplicação** - O ID para uma aplicação, que é gerado pela Azure AD quando a aplicação é registada. Ao solicitar um código de autorização ou ficha, o ID de aplicação e a chave são enviados para a AD Azure durante a autenticação.
+  * **Chave** - A chave que é enviada juntamente com um ID de aplicação ao autenticar a AD Azure para chamar uma API web.
+* A Azure AD precisa de garantir que a aplicação tem as permissões necessárias para aceder aos dados do seu diretório, outras aplicações na sua organização, e assim por diante.
 
-Para obter detalhes, saiba como [registrar um aplicativo](quickstart-register-app.md).
+Para mais detalhes, saiba [como registar uma aplicação](quickstart-register-app.md).
 
-## <a name="single-tenant-and-multi-tenant-apps"></a>Aplicativos de locatário único e de vários locatários
+## <a name="single-tenant-and-multi-tenant-apps"></a>Aplicativos de inquilino único e multi-inquilinos
 
-O provisionamento fica mais claro quando você entende que há duas categorias de aplicativos que podem ser desenvolvidos e integrados ao Azure AD:
+O provisionamento torna-se mais claro quando se compreende que existem duas categorias de aplicações que podem ser desenvolvidas e integradas com a Azure AD:
 
-* **Aplicativo de locatário único** -um aplicativo de locatário único destina-se ao uso em uma organização. Esses são normalmente aplicativos de linha de negócios (LoB) escritos por um desenvolvedor empresarial. Um único aplicativo de locatário só precisa ser acessado por usuários em um diretório e, como resultado, ele só precisa ser provisionado em um diretório. Esses aplicativos normalmente são registrados por um desenvolvedor na organização.
-* **Aplicativo multilocatário** -um aplicativo multilocatário destina-se ao uso em muitas organizações, não apenas em uma organização. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor independente de software (ISV). Aplicativos multilocatários precisam ser provisionados em cada diretório onde serão usados, o que exige o consentimento do usuário ou administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo é registrado no diretório e recebe acesso ao API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, ele recebe uma caixa de diálogo que exibe as permissões exigidas pelo aplicativo. O usuário ou administrador pode então consentir o aplicativo, que dá ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo em seu diretório. Para obter mais informações, consulte [visão geral da estrutura de consentimento](consent-framework.md).
+* **Pedido** de inquilino único - Um único pedido de inquilino destina-se a ser utilizado numa só organização. Estas são aplicações tipicamente line-of-business (LoB) escritas por um desenvolvedor de empresas. Uma única aplicação de inquilino só precisa de ser acedida pelos utilizadores num só diretório e, consequentemente, só precisa de ser disponibilizada num só diretório. Estas aplicações são tipicamente registadas por um desenvolvedor da organização.
+* **Aplicação multi-inquilino** - Uma aplicação multi-inquilino destina-se a ser usada em muitas organizações, e não apenas numa organização. Estas são aplicações tipicamente de software como um serviço (SaaS) escritas por um fornecedor de software independente (ISV). Os pedidos de multi-inquilinos devem ser aprovisionados em cada diretório onde serão utilizados, o que requer o consentimento do utilizador ou administrador para os registar. Este processo de consentimento começa quando uma aplicação foi registada no diretório e tem acesso à API do Gráfico ou talvez a outra API web. Quando um utilizador ou administrador de uma organização diferente se inscreve para usar a aplicação, é-lhes apresentado um diálogo que apresenta as permissões que a aplicação necessita. O utilizador ou administrador pode então consentir com a aplicação, que dá à aplicação acesso aos dados indicados, e finalmente regista a aplicação no seu diretório. Para mais informações, consulte [a visão geral do Quadro de Consentimento](consent-framework.md).
 
-### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais ao desenvolver aplicativos de locatário único ou de vários locatários
+### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais ao desenvolver aplicações individuais de inquilinoou multi-inquilinos
 
-Algumas considerações adicionais surgem ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo para os usuários em vários diretórios, você precisará de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único precisa apenas examinar seu próprio diretório para um usuário, enquanto um aplicativo multilocatário precisa identificar um usuário específico de todos os diretórios no Azure AD. Para realizar essa tarefa, o AD do Azure fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico do locatário. Esse ponto de extremidade é https://login.microsoftonline.com/common para todos os diretórios no Azure AD, enquanto um ponto de extremidade específico de locatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto de extremidade comum é especialmente importante para ser considerado ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante a entrada, saída e validação de token.
+Algumas considerações adicionais surgem no desenvolvimento de um pedido de multi-inquilinoem de um único pedido de inquilino. Por exemplo, se estiver a disponibilizar a sua aplicação aos utilizadores em vários diretórios, precisa de um mecanismo para determinar em que inquilino estão. Uma única aplicação de inquilino só precisa de olhar para um utilizador no seu próprio diretório, enquanto uma aplicação multi-arrendatária precisa identificar um utilizador específico de todos os diretórios da AD Azure. Para realizar esta tarefa, a Azure AD fornece um ponto final de autenticação comum onde qualquer aplicação multi-arrendatária pode dirigir pedidos de inscrição, em vez de um ponto final específico do inquilino. Este ponto final é https://login.microsoftonline.com/common para todos os diretórios em Azure AD, enquanto um ponto final específico do arrendatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto final comum é especialmente importante a considerar ao desenvolver a sua aplicação porque você precisará da lógica necessária para lidar com vários inquilinos durante a inscrição, inscrição e validação de fichas.
 
-Se, no momento, você estiver desenvolvendo um aplicativo de locatário único, mas quiser disponibilizá-lo para muitas organizações, poderá fazer alterações facilmente no aplicativo e em sua configuração no Azure AD para torná-lo compatível com vários locatários. Além disso, o Azure AD usa a mesma chave de assinatura para todos os tokens em todos os diretórios, independentemente de você estar fornecendo autenticação em um único locatário ou aplicativo multilocatário.
+Se está atualmente a desenvolver uma única aplicação de inquilino, mas quer disponibilizá-la a muitas organizações, pode facilmente fazer alterações na aplicação e na sua configuração em Azure AD para torná-la multi-arrendatária capaz. Além disso, a Azure AD utiliza a mesma chave de assinatura para todos os tokens em todos os diretórios, quer esteja a fornecer autenticação num único pedido de inquilino ou multi-inquilino.
 
-Cada cenário listado neste documento inclui uma subseção que descreve seus requisitos de provisionamento. Para obter informações mais detalhadas sobre como provisionar um aplicativo no Azure AD e as diferenças entre aplicativos únicos e multilocatários, consulte [integrando aplicativos com Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) para obter mais informações. Continue lendo para entender os cenários comuns de aplicativos no Azure AD.
+Cada cenário listado neste documento inclui uma subsecção que descreve os seus requisitos de provisionamento. Para obter informações mais aprofundadas sobre o fornecimento de uma aplicação em Azure AD e as diferenças entre aplicações individuais e multi-arrendatárias, consulte a Integração de aplicações com o [Diretório Ativo Azure](quickstart-v1-integrate-apps-with-azure-ad.md) para obter mais informações. Continuar a ler Para compreender os cenários comuns de candidatura em Azure AD.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre outros [conceitos básicos de autenticação](v1-authentication-scenarios.md) do Azure AD
+- Saiba mais sobre outros [fundamentos de autenticação](v1-authentication-scenarios.md) da AD Azure

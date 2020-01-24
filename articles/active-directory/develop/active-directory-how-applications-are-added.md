@@ -14,13 +14,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4814026de5ba92d6470c503f8d316c0ceba0da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424752"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698821"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 

@@ -11,13 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 468005094ab8a9c42d7eacdfefa990565a3297f3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 010302d3a4c7498f7fa5344dc73e7b182c4b94bc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155813"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704668"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 

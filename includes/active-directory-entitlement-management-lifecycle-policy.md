@@ -8,37 +8,37 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389214"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694365"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida
 
-Na guia **ciclo de vida** , você especifica quando a atribuição de um usuário para o pacote de acesso expira. Você também pode especificar se os usuários podem estender suas atribuições.
+No separador **Lifecycle,** especifice quando a atribuição de um utilizador ao pacote de acesso expira. Também pode especificar se os utilizadores podem estender as suas atribuições.
 
-1. Na seção **expiração** , defina as **atribuições de pacote de acesso expiram** como **em data**, **número de dias**ou **nunca**.
+1. Na secção **Expiração,** as atribuições de pacotes de **acesso expiram** até à **data**, **Número de dias**, ou **Nunca**.
 
-    Para **na data**, selecione uma data de validade no futuro.
+    Para **data de trabalho**, selecione uma data de validade no futuro.
 
-    Para **número de dias**, especifique um número entre 0 e 3660 dias.
+    Durante **o número de dias**, especifique um número entre 0 e 3660 dias.
 
-    Com base na sua seleção, a atribuição de um usuário ao pacote de acesso expira em uma determinada data, um determinado número de dias depois que eles são aprovados ou nunca.
+    Com base na sua seleção, a atribuição de um utilizador ao pacote de acesso expira numa determinada data, um certo número de dias após a sua aprovação, ou nunca.
 
-1. Clique em **Mostrar configurações de expiração avançadas** para mostrar configurações adicionais.
+1. Clique em **Mostrar definições de expiração avançadas** para mostrar definições adicionais.
 
-    ![Pacotes de acesso-configurações de expiração do ciclo de vida](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+    ![Pacote de acesso - Definições de Expiração do Ciclo de Vida](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
 
-1. Para permitir que o usuário Estenda suas atribuições, defina **permitir que os usuários estendam o acesso** para **Sim**.
+1. Para permitir que o utilizador prolongue as suas atribuições, **detete te permita que os utilizadores aumentem o acesso** ao **Sim**.
 
-    Se as extensões forem permitidas na política, o usuário receberá um email 14 dias e também um dia antes que sua atribuição de pacote de acesso seja definida para expirar solicitando que estendam a atribuição.
+    Se forem permitidas extensões na apólice, o utilizador receberá um e-mail 14 dias e também 1 dia antes da sua atribuição do pacote de acesso expirar, levando-os a prolongar a atribuição. Se o utilizador apresentar um pedido de extensão do acesso, a data de extensão deve ser em ou antes de as atribuições expirarem conforme definido na política que foi utilizada para conceder ao utilizador o acesso ao pacote de acesso. Por exemplo, se a apólice indicar que as atribuições estão previstas para expirar a 30 de junho, a extensão máxima que um utilizador pode solicitar é 30 de junho.
 
-    Se o acesso de um usuário for estendido, ele não poderá solicitar o pacote de acesso após a data de extensão especificada (data definida no fuso horário do usuário que criou a política).
+    Se o acesso de um utilizador for alargado, não poderá solicitar o pacote de acesso após a data de extensão especificada (data definida no fuso horário do utilizador que criou a apólice).
 
-1. Para exigir aprovação para conceder uma extensão, defina **exigir aprovação para conceder a extensão** para **Sim**.
+1. Para exigir a aprovação para conceder uma extensão, definido **Exigir aprovação para conceder extensão** a **Sim**.
 
-    As mesmas configurações de aprovação que foram especificadas na guia **solicitações** serão usadas.
+    Serão utilizadas as mesmas definições de aprovação especificadas no separador **Pedidos.**
 
-1. Clique em **Avançar** ou **Atualizar**.
+1. Clique em **Seguir** ou **atualizar**.

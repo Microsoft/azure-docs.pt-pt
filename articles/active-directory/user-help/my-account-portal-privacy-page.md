@@ -1,6 +1,6 @@
 ---
-title: Exibir informações relacionadas à privacidade no portal minha conta – Azure AD
-description: Saiba como sua organização usa suas informações relacionadas à privacidade na página de privacidade do portal minha conta.
+title: Ver informações relacionadas com a privacidade do portal My Account - Azure AD
+description: Saiba como a sua organização utiliza as suas informações relacionadas com a privacidade a partir da página de Privacidade do portal My Account.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,35 +11,34 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 232a17a21c7172bbf5056ae990679d87600ee6a0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231824"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705093"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como sua organização usa seus dados relacionados à privacidade
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como a sua organização utiliza os seus dados relacionados com a privacidade
 
-Você pode exibir como sua organização usa seus dados na página **privacidade** do portal **minha conta** .
+Pode ver como a sua organização utiliza os seus dados a partir da página de **Privacidade** do portal **My Account.**
 
 ## <a name="view-your-privacy-related-info"></a>Ver as suas informações relacionadas com a privacidade
 
 1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
 
-2. Selecione **privacidade** no painel de navegação esquerdo ou selecione o link **examinar privacidade** do bloco de **privacidade** .
+2. Selecione **Privacidade** a partir do painel de navegação esquerdo ou selecione o link de **privacidade Rever** do bloco **Privacidade.**
 
-    ![Página minha conta, mostrando links de privacidade realçados](media/my-account-portal/my-account-portal-privacy.png)
+    ![Página da minha Conta, mostrando links de privacidade destacados](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Examine as informações, incluindo:
+3. Reveja as informações, incluindo:
 
-    - **Serviços.** Uma lista de serviços online você está conectado a usar sua conta corporativa ou de estudante.
+    - **Os serviços.** Uma lista de serviços online a que está ligado a usar o seu trabalho ou conta escolar.
 
-    - **Termos de uso**. Os termos de uso da sua organização.
+    - **Termos de utilização.** Os termos de uso da sua organização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de exibir como sua organização usa seus dados, você pode:
+Depois de ver como a sua organização utiliza os seus dados, pode:
 
 - Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
 
@@ -49,4 +48,4 @@ Depois de exibir como sua organização usa seus dados, você pode:
 
 - Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- Você também pode exibir suas preferências de contato relacionadas ao Microsoft Office e informações de privacidade na [página de privacidade do portal do Office, segurança &](https://portal.office.com/account/#security).
+- Também pode visualizar as preferências de contacto relacionadas com o Microsoft Office e informações de privacidade a partir do [portal do Office, página](https://portal.office.com/account/#security)de Segurança e Privacidade.

@@ -3,12 +3,12 @@ title: Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 description: Descreve como fazer backup de VMs do Azure em um cofre de serviços de recuperação usando o backup do Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: e5ff3a00d8cb3bf0c5fa3cb4929b7c22d92c7834
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513818"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705552"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 
@@ -189,16 +189,11 @@ O backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 **Linux** | Instale o usando um RPM ou um pacote de DEB do repositório de pacotes de sua distribuição. Esse é o método preferencial para instalar e atualizar o agente Linux do Azure. Todos os [provedores de distribuição endossados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não recomendamos a instalação a partir daí.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e atualize os binários.
 
 >[!NOTE]
-> O backup do Azure agora oferece suporte a backup e restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.
+> **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**
 >
 >Hoje, o backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM em conjunto usando a solução de backup de máquina virtual. Com a funcionalidade excluir disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
 >
-> Essa solução é particularmente útil nos seguintes cenários:
->  
->1. Você tem dados críticos para fazer backup em apenas um disco e não deseja fazer backup do restante dos discos anexados a uma VM. Isso minimiza os custos de armazenamento de backup.  
->2. Você tem outras soluções de backup para parte dos dados da VM. Por exemplo, você faz o backup de seus bancos de dados ou de sua capacidade com uma solução de backup de carga de trabalho diferente e deseja usar o backup de nível de VM do Azure para o restante dos seus discos e dados para criar um sistema eficiente e robusto utilizando os melhores recursos disponíveis.
->
->Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
+>**Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44698bc88b87aa76dd55ab5d632ad7276a49aea5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0b0ac05e54619af0b1dd4a68918a89681f845bd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424179"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695080"
 ---
 # <a name="using-web-browsers-msalnet"></a>Usando navegadores da Web (MSAL.NET)
 
@@ -48,15 +47,15 @@ Em geral, é recomendável que você use o padrão de plataforma, e isso normalm
 
 | Framework        | Embedded | Sistema | Predefinição |
 | ------------- |-------------| -----| ----- |
-| Clássico do .NET     | Sim | Sim ^ | Embedded |
-| .NET Core     | Não | Sim ^ | Sistema |
-| .NET Standard | Não | Sim ^ | Sistema |
+| Clássico do .NET     | Sim | Sim, | Embedded |
+| .NET Core     | Não | Sim, | Sistema |
+| .NET Standard | Não | Sim, | Sistema |
 | UWP | Sim | Não | Embedded |
 | Xamarin.Android | Sim | Sim  | Sistema |
 | Xamarin.iOS | Sim | Sim  | Sistema |
 | Xamarin. Mac| Sim | Não | Embedded |
 
-^ Requer URI de redirecionamento "http://localhost"
+^ Requer "http://localhost" redirecionar URI
 
 ## <a name="system-web-browser-on-xamarinios-xamarinandroid"></a>Navegador da Web do sistema no Xamarin. iOS, Xamarin. Android
 

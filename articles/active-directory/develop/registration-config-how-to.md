@@ -1,6 +1,6 @@
 ---
-title: Configurar pontos de extremidade | Microsoft Docs
-description: Como localizar os pontos de extremidade de autenticação para um aplicativo personalizado que você está desenvolvendo ou registrando com o Azure AD.
+title: Configure pontos finais  Microsoft Docs
+description: Como encontrar os pontos finais de autenticação para uma aplicação personalizada que está a desenvolver ou a registar-se com a Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,27 +15,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6547266b92cbeee2754871d4cdca7a2de261fc8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5dbe9d6eed6c546af0ed2cb35a0a62e9943503a9
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325357"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702798"
 ---
-# <a name="how-to-configure-endpoints"></a>Como configurar pontos de extremidade
+# <a name="how-to-configure-endpoints"></a>Como configurar pontos finais
 
-Você pode encontrar os pontos de extremidade de autenticação para seu aplicativo no [portal do Azure](https://portal.azure.com).
+Pode encontrar os pontos finais de autenticação para a sua aplicação no [portal Azure](https://portal.azure.com).
 
 -   Navegue para o [portal do Azure](https://portal.azure.com).
 
--   No painel de navegação esquerdo, clique em **Azure Active Directory**.
+-   A partir do painel de navegação esquerdo, clique no **Diretório Ativo Azure**.
 
--   Clique em **registros do aplicativo** e escolha pontos de **extremidade**.
+-   Clique em **Registos de Aplicações** e escolha **Pontos Finais**.
 
--   Isso abre a página **pontos de extremidade** , que lista todos os pontos de extremidade de autenticação do seu locatário.
+-   Isto abre a página **Endpoints,** que lista todos os pontos finais de autenticação para o seu inquilino.
 
--   Use o ponto de extremidade específico para o protocolo de autenticação que você está usando, em conjunto com a ID do aplicativo para criar a solicitação de autenticação específica para seu aplicativo.
+-   Utilize o ponto final específico do protocolo de autenticação que está a utilizar, em conjunto com o ID da aplicação para elaborar o pedido de autenticação específico da sua aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

@@ -13,13 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424466"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697001"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários
 

@@ -12,13 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49198909da103debd77fcf0d630e0fa16c1e4448
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 839f62660096aaf3d7954acc45443f04d9ace77d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424227"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695148"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Microsoft Intune Portal da Empresa em aplicativos Xamarin
 
@@ -88,7 +87,7 @@ Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado com
 Ainda em `AppDelegate.cs`, você precisa definir uma janela de objeto. Normalmente, com o Xamarin iOS, você não precisa definir a janela de objeto. Para enviar e receber respostas do agente, você precisa de uma janela de objeto. 
 
 Para fazer isso, você faz duas coisas. 
-1. Em `AppDelegate.cs`, defina o `App.RootViewController` como um novo `UIViewController()`. Essa atribuição certifica-se de que há um UIViewController com a chamada para o agente. Se não estiver definido corretamente, você poderá receber esse erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. Em `AppDelegate.cs`, defina o `App.RootViewController` como um novo `UIViewController()`. Essa atribuição certifica-se de que há um UIViewController com a chamada para o agente. Se não estiver corretamente definido, poderá ter este erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. Na chamada AcquireTokenInteractive, use o `.WithParentActivityOrWindow(App.RootViewController)` e passe a referência para a janela de objeto que você usará.
 
 **Por exemplo:**

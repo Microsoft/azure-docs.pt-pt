@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 944c3f8fcf440ce71cbb059aff21b7c8b63e74ab
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 94013b735f70358d0c49512e6d90cd1d03e78d5f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166912"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705722"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: criar um projeto de detecção de objeto com o Visão Personalizada SDK do node. js
 
@@ -67,6 +67,15 @@ const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
+
+/* Helper function to let us use await inside a forEach loop.
+ * This lets us insert delays between image uploads to accommodate the rate limit.
+ */
+async function asyncForEach (array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        await callback(array[i], i, array);
+    }
+}
 
 (async () => {
     console.log("Creating project...");
@@ -145,43 +154,25 @@ let fileUploadPromises = [];
 
 const forkDir = `${sampleDataRoot}/Fork`;
 const forkFiles = fs.readdirSync(forkDir);
-forkFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = forkTag.id;
-    region.left = forkImageRegions[file][0];
-    region.top = forkImageRegions[file][1];
-    region.width = forkImageRegions[file][2];
-    region.height = forkImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${forkDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(forkFiles, async (file) => {
+    const region = { tagId : forkTag.id, left : forkImageRegions[file][0], top : forkImageRegions[file][1], width : forkImageRegions[file][2], height : forkImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${forkDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 
 const scissorsDir = `${sampleDataRoot}/Scissors`;
 const scissorsFiles = fs.readdirSync(scissorsDir);
-scissorsFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = scissorsTag.id;
-    region.left = scissorsImageRegions[file][0];
-    region.top = scissorsImageRegions[file][1];
-    region.width = scissorsImageRegions[file][2];
-    region.height = scissorsImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${scissorsDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(scissorsFiles, async (file) => {
+    const region = { tagId : scissorsTag.id, left : scissorsImageRegions[file][0], top : scissorsImageRegions[file][1], width : scissorsImageRegions[file][2], height : scissorsImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${scissorsDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 

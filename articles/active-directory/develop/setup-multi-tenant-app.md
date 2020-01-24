@@ -1,6 +1,6 @@
 ---
-title: Configurar um novo aplicativo multilocatário | Microsoft Docs
-description: Saiba como configurar um aplicativo como multilocatário e como funcionam os aplicativos de vários locatários
+title: Configure uma nova aplicação multi-arrendatária Microsoft Docs
+description: Saiba como configurar uma aplicação como multi-inquilino, e como funcionam as aplicações multi-inquilinos
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,22 +15,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e31d4fc47c31fb6c5c63f5855ab835f7fc6b6cc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ae5f0f0cd42c4b734e14a66bc7ba9cf5bbfe61a4
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325296"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701489"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar um novo aplicativo multilocatário
+# <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação multi-inquilino
 
-Aqui está uma lista de tópicos recomendados para saber mais sobre aplicativos multilocatário:
+Aqui está uma lista de tópicos recomendados para saber mais sobre candidaturas multi-inquilinos:
 
-- Obtenha uma compreensão geral do [que significa ser um aplicativo multilocatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Obtenha uma compreensão geral de [como configurar um aplicativo para ser multilocatário](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
-- Obtenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD é usada para implementar o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), que é necessário para aplicativos de vários locatários
-- Para obter mais detalhes, saiba [como um aplicativo multilocatário está configurado e codificado de ponta a ponta](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluindo como registrar, usar o ponto de extremidade "comum", implementar o consentimento de "usuário" e "administrador", como implementar cenários de várias camadas mais avançados
+- Obter uma compreensão geral do [que significa ser uma aplicação multi-inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
+- Obtenha uma compreensão geral de [como configurar uma aplicação para ser multi-inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
+- Obtenha uma visão geral passo a passo de como o quadro de consentimento da [AD Azure é usado para implementar o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), que é necessário para pedidos de multi-inquilinos
+- Para mais profundidade, saiba [como é que uma aplicação multi-arrendatária é configurada e codificada de ponta a ponta](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluindo como registar-se, utilizar o ponto final "comum", implementar o consentimento "utilizador" e "administrador", como implementar cenários multi-nível mais avançados
 
-## <a name="next-steps"></a>Passos Seguintes
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+## <a name="next-steps"></a>Passos seguintes
+[Empilhador AzureAdOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

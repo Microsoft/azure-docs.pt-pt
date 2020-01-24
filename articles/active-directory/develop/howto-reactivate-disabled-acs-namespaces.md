@@ -1,6 +1,6 @@
 ---
-title: Reativar os namespaces do serviço de controle de acesso (ACS) do Azure desabilitados
-description: Localize e habilite seus namespaces do ACS (serviço de controle de acesso) do Azure e solicite uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
+title: Reativar espaços de controlo de acesso azure desativados (ACS)
+description: Encontre e ative os espaços de nome do Serviço de Controlo de Acesso (ACS) do Azure e solicite uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,94 +12,93 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ad908b814a7c2b4dce9d15153b0991f51f623e8b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966950"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697103"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: reativar namespaces de serviço de controle de acesso desabilitados
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar espaços de nome do Serviço de Controlo de Acesso desativados
 
-Em novembro de 2017, anunciamos que Serviço de Controle de Acesso do Microsoft Azure (ACS), um serviço do Azure Active Directory (AD do Azure), está sendo desativado em 7 de novembro de 2018.
+Em novembro de 2017, anunciamos que o Microsoft Azure Access Control Service (ACS), um serviço da Azure Ative Directory (Azure AD), vai ser reformado a 7 de novembro de 2018.
 
-Desde então, enviamos emails para o email de administrador de assinaturas do ACS sobre a desativação do ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de desativação de 7 de novembro de 2018.
+Desde então, enviamos e-mails para o e-mail administrativo das assinaturas ACS sobre a reforma da ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de reforma de 7 de novembro de 2018.
 
-Em 3 de outubro de 2018, anunciamos (por email e [uma postagem de blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) uma oferta de extensão para clientes que não conseguem concluir sua migração antes de 7 de novembro de 2018. O comunicado também tinha instruções para solicitar a extensão.
+No dia 3 de outubro de 2018, anunciámos (via e-mail e uma publicação de [blog)](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)uma oferta de extensão aos clientes que não conseguem terminar a sua migração antes de 7 de novembro de 2018. O anúncio também tinha instruções para solicitar a extensão.
 
-## <a name="why-your-namespace-is-disabled"></a>Por que o namespace está desabilitado
+## <a name="why-your-namespace-is-disabled"></a>Por que o seu espaço de nome é desativado
 
-Se você ainda não tiver optado pela extensão, começaremos a desabilitar os namespaces do ACS a partir de 7 de novembro de 2018. Você deve ter solicitado a extensão para 4 de fevereiro de 2019 já; caso contrário, você não poderá habilitar os namespaces por meio do PowerShell.
+Se ainda não optou pela extensão, começaremos a desativar os espaços de nome ACS a partir de 7 de novembro de 2018. Já deve ter solicitado a extensão para 4 de fevereiro de 2019; caso contrário, não poderá ativar os espaços de nome através do PowerShell.
 
 > [!NOTE]
-> Você deve ser um administrador de serviços ou coadministrador da assinatura para executar os comandos do PowerShell e solicitar uma extensão.
+> Deve ser administrador de serviçoou coadministrador da subscrição para executar os comandos PowerShell e solicitar uma extensão.
 
-## <a name="find-and-enable-your-acs-namespaces"></a>Localizar e habilitar seus namespaces do ACS
+## <a name="find-and-enable-your-acs-namespaces"></a>Encontre e ative os seus espaços de nome ACS
 
-Você pode usar o ACS no PowerShell para listar todos os namespaces do ACS e reativá-los que foram desabilitados.
+Pode utilizar o ACS PowerShell para listar todos os seus espaços de nome ACS e reativar os que foram desativados.
 
-1. Baixe e instale o PowerShell do ACS:
-    1. Vá para a Galeria do PowerShell e baixe [ACS. Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Descarregue e instale o ACS PowerShell:
+    1. Vá à Galeria PowerShell e baixe [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
     1. Instale o módulo:
 
         ```powershell
         Install-Module -Name Acs.Namespaces
         ```
 
-    1. Obter uma lista de todos os comandos possíveis:
+    1. Obtenha uma lista de todos os comandos possíveis:
 
         ```powershell
         Get-Command -Module Acs.Namespaces
         ```
 
-        Para obter ajuda sobre um comando específico, execute:
+        Para obter ajuda num comando específico, corra:
 
         ```powershell
         Get-Help [Command-Name] -Full
         ```
     
-        em que `[Command-Name]` é o nome do comando do ACS.
-1. Conecte-se ao ACS usando o cmdlet **Connect-AcsAccount** . 
+        onde `[Command-Name]` é o nome do comando ACS.
+1. Ligue-se ao ACS utilizando o cmdlet **Connect-AcsAccount.** 
 
-    Talvez seja necessário alterar a política de execução executando **Set-ExecutionPolicy** antes de executar o comando.
-1. Liste suas assinaturas do Azure disponíveis usando o cmdlet **Get-AcsSubscription** .
-1. Liste seus namespaces do ACS usando o cmdlet **Get-AcsNamespace** .
-1. Confirme se os namespaces estão desabilitados confirmando se `State` está `Disabled`.
+    Pode ter de alterar a sua política de execução executando a **Política de Execução de set antes** de poder executar o comando.
+1. Enumere as suas subscrições Azure disponíveis utilizando o cmdlet **Get-AcsSubscription.**
+1. Enumere os seus espaços de nome ACS utilizando o cmdlet **Get-AcsNamespace.**
+1. Confirme se os espaços de nome são desativados confirmando que `State` é `Disabled`.
 
-    [![confirmar que os namespaces estão desabilitados](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
+    [![Confirmar que os espaços de nome estão desativados](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
-    Você também pode usar `nslookup {your-namespace}.accesscontrol.windows.net` para confirmar se o domínio ainda está ativo.
+    Também pode utilizar `nslookup {your-namespace}.accesscontrol.windows.net` para confirmar se o domínio ainda está ativo.
 
-1. Habilite seus namespaces do ACS usando o cmdlet **Enable-AcsNamespace** .
+1. Ative o seu espaço de nome ACS utilizando o cmdlet **Enable-AcsNamespace.**
 
-    Depois de habilitar seus namespaces, você pode solicitar uma extensão para que os namespaces não sejam desabilitados novamente antes de 4 de fevereiro de 2019. Após essa data, todas as solicitações para o ACS falharão.
+    Uma vez ativado o seu espaço de nome, pode solicitar uma extensão para que o espaço de nome(s) não seja desativado novamente antes de 4 de fevereiro de 2019. Após essa data, todos os pedidos à ACS falharão.
 
 ## <a name="request-an-extension"></a>Solicitar uma extensão
 
-Estamos fazendo novas solicitações de extensão a partir de 21 de janeiro de 2019.
+Estamos a receber novos pedidos de extensão a partir de 21 de janeiro de 2019.
 
-Começaremos a desabilitar namespaces para clientes que solicitaram extensões para 4 de fevereiro de 2019. Você ainda pode reabilitar namespaces por meio do PowerShell, mas os namespaces serão desabilitados novamente após 48 horas.
+Começaremos a desativar espaços de nome para clientes que tenham solicitado extensões a 4 de fevereiro de 2019. Ainda pode reativar espaços de nome através do PowerShell, mas os espaços de nome voltarão a ser desativados após 48 horas.
 
-Após 4 de março de 2019, os clientes não poderão mais reabilitar os namespaces por meio do PowerShell.
+Depois de 4 de março de 2019, os clientes deixarão de poder reativar quaisquer espaços de nome através da PowerShell.
 
-Extensões adicionais não serão mais aprovadas automaticamente. Se você precisar de mais tempo para migrar, entre em contato com o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support) para fornecer uma linha de tempo de migração detalhada.
+Outras extensões deixarão de ser automaticamente aprovadas. Se precisar de mais tempo para migrar, contacte o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support) para fornecer uma linha temporal de migração detalhada.
 
 ### <a name="to-request-an-extension"></a>Para solicitar uma extensão
 
-1. Entre no portal do Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
-1. Preencha o novo formulário de solicitação de suporte, conforme mostrado no exemplo a seguir.
+1. Inscreva-se no portal Azure e crie um novo pedido de [apoio.](https://portal.azure.com/#create/Microsoft.Support)
+1. Preencha o novo formulário de pedido de apoio, como mostra o seguinte exemplo.
 
-    | Campo de Solicitação de suporte | Valor |
+    | Campo de pedido de apoio | Valor |
     |-----------------------|--------------------|
     | **Tipo de problema** | `Technical` |
-    | **Subscrição** | Definir para sua assinatura |
+    | **Subscrição** | Definir para a sua subscrição |
     | **Serviço** | `All services` |
     | **Recurso** | `General question/Resource not available` |
     | **Tipo de problema** | `ACS to SAS Migration` |
-    | **Assunto** | Descrever o problema |
+    | **Assunto** | Descreva a questão |
 
-   ![Mostra um exemplo de uma nova solicitação de suporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Mostra um exemplo de um novo pedido de apoio técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 
@@ -119,9 +118,9 @@ Extensões adicionais não serão mais aprovadas automaticamente. Se você preci
 
 ## <a name="help-and-support"></a>Ajuda e suporte
 
-- Se você tiver algum problema depois de seguir este "como", entre em contato com o [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-- Se você tiver dúvidas ou comentários sobre a desativação do ACS, entre em contato conosco em acsfeedback@microsoft.com.
+- Se tiver algum problema depois de seguir este como fazer, contacte o [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+- Se tiver dúvidas ou feedback sobre a reforma da ACS, contacte-nos em acsfeedback@microsoft.com.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Examine as informações sobre a desativação do ACS em [como migrar do serviço de controle de acesso do Azure](active-directory-acs-migration.md).
+- Reveja as informações sobre a reforma da ACS em [Como: Migrar do Serviço de Controlo de Acesso Azure](active-directory-acs-migration.md).

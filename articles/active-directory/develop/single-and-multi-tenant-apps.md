@@ -1,7 +1,7 @@
 ---
-title: Aplicativos únicos e multilocatários no Azure AD
+title: Aplicativos individuais e multi-inquilinos em Azure AD
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre os recursos e as diferenças entre aplicativos de locatário único e multilocatário no Azure AD.
+description: Conheça as funcionalidades e diferenças entre aplicações de inquilino único e multi-inquilinos em Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,40 +17,39 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cef2ed24eb242629aa5547391c0d2a27344d8b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 364395a05737f6dc6333b922f54376a9d5149fe6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919485"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701455"
 ---
-# <a name="tenancy-in-azure-active-directory"></a>Aluguel em Azure Active Directory
+# <a name="tenancy-in-azure-active-directory"></a>Arrendamento em Diretório Ativo Azure
 
-O Azure Active Directory (AD do Azure) organiza objetos como usuários e aplicativos em grupos chamados *locatários*. Os locatários permitem que um administrador defina políticas nos usuários dentro da organização e os aplicativos que a organização possui para atender às políticas operacionais e de segurança. 
+O Azure Ative Directory (Azure AD) organiza objetos como utilizadores e aplicações em *grupos chamados inquilinos.* Os inquilinos permitem que um administrador estabeleça políticas sobre os utilizadores dentro da organização e as aplicações que a organização detém para atender às suas políticas de segurança e operacionais. 
 
-## <a name="who-can-sign-in-to-your-app"></a>Quem pode entrar em seu aplicativo?
+## <a name="who-can-sign-in-to-your-app"></a>Quem pode iniciar sessão na sua aplicação?
 
-Quando se trata de desenvolver aplicativos, os desenvolvedores podem optar por configurar seu aplicativo para ser um locatário único ou multilocatário durante o registro do aplicativo no [portal do Azure](https://portal.azure.com).
-* Os aplicativos de locatário único só estão disponíveis no locatário em que foram registrados, também conhecidos como seu locatário inicial.
-* Aplicativos multilocatários estão disponíveis para usuários em ambos os locatários domésticos e outros locatários.
+No que diz respeito ao desenvolvimento de apps, os desenvolvedores podem optar por configurar a sua app para serem inquilinos únicos ou multi-inquilinos durante o registo de aplicações no [portal Azure.](https://portal.azure.com)
+* As aplicações de inquilino único só estão disponíveis no inquilino onde estavam registadas, também conhecidas como sua casa de inquilino.
+* Aplicações multi-inquilinos estão disponíveis para os utilizadores tanto no seu inquilino doméstico como em outros inquilinos.
 
-No portal do Azure, você pode configurar seu aplicativo para ser de locatário único ou multilocatário definindo o público como a seguir.
+No portal Azure, pode configurar a sua app para ser um inquilino único ou multi-inquilino, definindo o público da seguinte forma.
 
-| Audiência | Único/multilocatário | Quem pode entrar | 
+| Audiência | Inquilino único/multi-inquilino | Quem pode entrar | 
 |----------|--------| ---------|
-| Contas somente neste diretório | Inquilino único | Todas as contas de usuário e convidado em seu diretório podem usar seu aplicativo ou API.<br>*Use esta opção se o público-alvo for interno à sua organização.* |
-| Contas em qualquer diretório do AD do Azure | Multi-inquilino | Todos os usuários e convidados com uma conta corporativa ou de estudante da Microsoft podem usar seu aplicativo ou API. Isso inclui escolas e empresas que usam o Office 365.<br>*Use esta opção se o público-alvo for cliente corporativo ou educativo.* |
-| Contas em qualquer diretório do Azure AD e contas pessoais da Microsoft (como Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os usuários com um trabalho ou escola ou conta Microsoft pessoal podem usar seu aplicativo ou API. Ele inclui escolas e empresas que usam o Office 365, bem como contas pessoais que são usadas para entrar em serviços como Xbox e Skype.<br>*Use esta opção para direcionar o conjunto mais amplo de contas da Microsoft.* | 
+| Contas neste diretório apenas | Inquilino único | Todas as contas de utilizador e hóspedes do seu diretório podem utilizar a sua aplicação ou API.<br>*Use esta opção se o seu público-alvo for interno para a sua organização.* |
+| Contas em qualquer diretório da AD Azure | Multi-inquilino | Todos os utilizadores e hóspedes com uma conta de trabalho ou escola da Microsoft podem usar a sua aplicação ou API. Isto inclui escolas e empresas que usam o Escritório 365.<br>*Utilize esta opção se o seu público-alvo for clientes empresariais ou educativos.* |
+| Contas em qualquer diretório da AD Azure e contas pessoais da Microsoft (como Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os utilizadores com uma conta de trabalho ou escola, ou conta pessoal da Microsoft, podem utilizar a sua aplicação ou API. Inclui escolas e empresas que usam o Office 365, bem como contas pessoais que são usadas para iniciar sessão em serviços como Xbox e Skype.<br>*Utilize esta opção para direcionar o conjunto mais amplo das contas da Microsoft.* | 
 
-## <a name="best-practices-for-multi-tenant-apps"></a>Práticas recomendadas para aplicativos multilocatários
+## <a name="best-practices-for-multi-tenant-apps"></a>Boas práticas para aplicações multi-inquilinos
 
-A criação de aplicativos ótimos de vários locatários pode ser desafiadora devido ao número de políticas diferentes que os administradores de ti podem definir em seus locatários. Se você optar por criar um aplicativo multilocatário, siga estas práticas recomendadas:
+A construção de grandes aplicações multi-arrendatárias pode ser um desafio devido ao número de políticas diferentes que os administradores de TI podem definir nos seus inquilinos. Se optar por construir uma aplicação multi-inquilinos, siga estas boas práticas:
 
-* Teste seu aplicativo em um locatário que tenha configurado [políticas de acesso condicional](conditional-access-dev-guide.md).
-* Siga o princípio do acesso mínimo do usuário para garantir que seu aplicativo solicite apenas as permissões de que realmente precisa. Evite solicitar permissões que exijam consentimento de administrador, pois isso pode impedir que os usuários adquiram seu aplicativo em algumas organizações. 
-* Forneça nomes e descrições apropriados para quaisquer permissões que você expor como parte de seu aplicativo. Isso ajuda os usuários e administradores a saber o que eles estão concordando ao tentarem usar as APIs do seu aplicativo. Para obter mais informações, consulte a seção práticas recomendadas no [Guia de permissões](v1-permissions-and-consent.md).
+* Teste a sua aplicação num inquilino que tenha configurado as políticas de [Acesso Condicional.](conditional-access-dev-guide.md)
+* Siga o princípio do menor acesso ao utilizador para garantir que a sua aplicação apenas solicita permissões de que realmente necessita. Evite solicitar permissões que exijam consentimento administrativo, uma vez que isso pode impedir que os utilizadores adquiram a sua app em algumas organizações. 
+* Forneça nomes e descrições apropriados para quaisquer permissões que exponha como parte da sua aplicação. Isto ajuda os utilizadores e administradores a saberem com o que estão a concordar quando tentam utilizar as APIs da sua aplicação. Para mais informações, consulte a secção de boas práticas no guia de [permissões](v1-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como converter um aplicativo para ser multilocatário](howto-convert-app-to-be-multi-tenant.md)
+* [Como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)

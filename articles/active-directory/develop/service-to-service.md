@@ -1,6 +1,6 @@
 ---
-title: Aplicativos de serviço a serviço no Azure Active Directory
-description: Descreve quais aplicativos de serviço a serviço e os conceitos básicos sobre o fluxo de protocolo, o registro e a expiração do token para esse tipo de aplicativo.
+title: Aplicativos de serviço a serviço no Diretório Ativo do Azure
+description: Descreve quais as aplicações serviço-a-serviço e os fundamentos sobre o fluxo de protocolo, registo e expiração simbólica para este tipo de aplicação.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,61 +16,60 @@ ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a94fcaffc190016a5377fe4b32484f84dc46ed25
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284904"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701506"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos de serviço a serviço
 
-Aplicativos de serviço a serviço podem ser um aplicativo de daemon ou de servidor que precisa obter recursos de uma API da Web. Há dois subcenários que se aplicam a esta seção:
+As aplicações de serviço ao serviço podem ser uma aplicação daemon ou servidor que precisa de obter recursos de uma API web. Há dois subcenários que se aplicam a esta secção:
 
-- Um daemon que precisa chamar uma API da Web, criada em tipo de concessão de credenciais de cliente OAuth 2,0
+- Um daemon que precisa de chamar uma API web, construída sobre o tipo de concessão de credenciais de cliente OAuth 2.0
 
-    Nesse cenário, é importante entender algumas coisas. Primeiro, a interação do usuário não é possível com um aplicativo daemon, o que exige que o aplicativo tenha sua própria identidade. Um exemplo de um aplicativo daemon é um trabalho em lotes ou um serviço do sistema operacional em execução em segundo plano. Esse tipo de aplicativo solicita um token de acesso usando sua identidade de aplicativo e apresentando sua ID de aplicativo, credencial (senha ou certificado) e URI de ID do aplicativo para o Azure AD. Após a autenticação bem-sucedida, o daemon recebe um token de acesso do Azure AD, que é usado para chamar a API da Web.
+    Neste cenário, é importante entender algumas coisas. Em primeiro lugar, a interação do utilizador não é possível com uma aplicação daemon, que requer que a aplicação tenha a sua própria identidade. Um exemplo de uma aplicação daemon é um trabalho de lote, ou um serviço de sistema operativo em execução em segundo plano. Este tipo de aplicação solicita um sinal de acesso utilizando a sua identidade de aplicação e apresentando o seu ID de aplicação, credencial (senha ou certificado) e id de aplicação URI à AD Azure. Após a autenticação bem sucedida, o daemon recebe um sinal de acesso da Azure AD, que é então usada para chamar a Web API.
 
-- Um aplicativo de servidor (como uma API Web) que precisa chamar uma API da Web, criada na especificação de rascunho em nome de OAuth 2,0
+- Uma aplicação de servidor (como uma API web) que precisa de chamar uma API web, construída em OAuth 2.0 Em nome da especificação de projeto
 
-    Nesse cenário, imagine que um usuário se autenticou em um aplicativo nativo, e esse aplicativo nativo precisa chamar uma API da Web. O Azure AD emite um token de acesso JWT para chamar a API da Web. Se a API da Web precisar chamar outra API da Web downstream, ela poderá usar o fluxo em nome de para delegar a identidade do usuário e autenticar para a API da Web de segunda camada.
+    Neste cenário, imagine que um utilizador se autenticou numa aplicação nativa, e esta aplicação nativa precisa de chamar uma API web. A Azure AD emite um sinal de acesso JWT para ligar para a Web API. Se a API web precisar de chamar outra API web a jusante, pode usar o fluxo em nome para delegar a identidade do utilizador e autenticar para a API web de segundo nível.
 
 ## <a name="diagram"></a>Diagrama
 
-![Diagrama de daemon ou aplicativo de servidor para API da Web](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
+![Aplicação da Daemon ou servidor para o diagrama da Web API](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
 ## <a name="protocol-flow"></a>Fluxo de protocolo
 
-### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidade do aplicativo com concessão de credenciais de cliente OAuth 2,0
+### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidade de candidatura com bolsa de credenciais de cliente OAuth 2.0
 
-1. Primeiro, o aplicativo de servidor precisa se autenticar com o Azure AD como ele mesmo, sem qualquer interação humana, como uma caixa de diálogo de logon interativo. Ele faz uma solicitação para o ponto de extremidade do token do Azure AD, fornecendo a credencial, a ID do aplicativo e o URI da ID do aplicativo.
-1. O Azure AD autentica o aplicativo e retorna um token de acesso JWT que é usado para chamar a API da Web.
-1. Via HTTPS, o aplicativo Web usa o token de acesso JWT retornado para adicionar a cadeia de caracteres JWT com uma designação de "portador" no cabeçalho de autorização da solicitação para a API da Web. Em seguida, a API da Web valida o token JWT e, se a validação for bem-sucedida, retornará o recurso desejado.
+1. Em primeiro lugar, a aplicação do servidor precisa de autenticar com a AD Azure como ela própria, sem qualquer interação humana, como um diálogo de sinalização interativo. Faz um pedido ao ponto final simbólico da Azure AD, fornecendo a credencial, id de aplicação e ID de aplicação URI.
+1. A Azure AD autentica a aplicação e devolve um token de acesso JWT que é usado para chamar a Web API.
+1. Ao longo do HTTPS, a aplicação web utiliza o token de acesso JWT devolvido para adicionar a cadeia JWT com uma designação "Bearer" no cabeçalho de autorização do pedido à Web API. A Web API valida então o símbolo JWT, e se a validação for bem sucedida, devolve o recurso desejado.
 
-### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Identidade de usuário delegado com especificação de rascunho em nome de OAuth 2,0
+### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Identidade de utilizador delegada com OAuth 2.0 Em nome do esboço de especificação
 
-O fluxo discutido abaixo pressupõe que um usuário tenha sido autenticado em outro aplicativo (como um aplicativo nativo) e que sua identidade de usuário tenha sido usada para adquirir um token de acesso para a API da Web de primeira camada.
+O fluxo discutido abaixo pressupõe que um utilizador foi autenticado noutra aplicação (como uma aplicação nativa), e a sua identidade de utilizador tem sido utilizada para adquirir um sinal de acesso à API web de primeiro nível.
 
-1. O aplicativo nativo envia o token de acesso para a API da Web de primeira camada.
-1. A API da Web de primeira camada envia uma solicitação ao ponto de extremidade do token do Azure AD, fornecendo sua ID de aplicativo e suas credenciais, bem como o token de acesso do usuário. Além disso, a solicitação é enviada com um parâmetro on_behalf_of que indica que a API da Web está solicitando novos tokens para chamar uma API Web downstream em nome do usuário original.
-1. O Azure AD verifica se a API da Web de primeira camada tem permissões para acessar a API da Web de segunda camada e valida a solicitação, retornando um token de acesso JWT e um token de atualização JWT para a API da Web de primeira camada.
-1. Via HTTPS, a API da Web de primeira camada chama a API da Web de segunda camada acrescentando a cadeia de caracteres do token no cabeçalho de autorização na solicitação. A API da Web de primeira camada pode continuar a chamar a API da Web de segunda camada, contanto que o token de acesso e os tokens de atualização sejam válidos.
+1. A aplicação nativa envia o sinal de acesso à API web de primeiro nível.
+1. A API web de primeiro nível envia um pedido ao ponto final simbólico da Azure AD, fornecendo o seu ID de aplicação e credenciais, bem como o sinal de acesso do utilizador. Além disso, o pedido é enviado com um parâmetro on_behalf_of que indica que a API da web está a solicitar novos tokens para chamar uma API web a jusante em nome do utilizador original.
+1. A Azure AD verifica que a API web de primeiro nível tem permissões para aceder à API web de segundo nível e valida o pedido, devolvendo um token de acesso JWT e um token de atualização JWT para a API web de primeiro nível.
+1. Ao longo do HTTPS, a API web de primeiro nível chama então a API web de segundo nível, através da adesão da cadeia simbólica no cabeçalho de Autorização no pedido. A API web de primeiro nível pode continuar a chamar a API web de segundo nível, desde que os tokens de acesso e tokens de atualização sejam válidos.
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Consulte os exemplos de código para o aplicativo daemon ou de servidor para cenários da API Web: [servidor ou aplicativo daemon para API da Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Consulte as amostras de código para da daemon ou aplicação do servidor para cenários da Web API: [Servidor ou Aplicação Daemon para Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>Registo da aplicação
 
-* Locatário único – para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo de daemon ou de servidor deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas. Na página **permissão de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões delegadas**e, em seguida, selecione suas permissões. Esta etapa não será necessária se o tipo de identidade do aplicativo estiver sendo usado.
-* Multilocatário-primeiro, o daemon ou aplicativo de servidor é configurado para indicar as permissões que ele requer para ser funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento ao aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões em nível de usuário, às quais qualquer usuário na organização pode consentir. Outros aplicativos exigem permissões de nível de administrador, às quais um usuário da organização não pode consentir. Somente um administrador de diretório pode dar consentimento a aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador consentir, ambas as APIs da Web serão registradas em seu diretório.
+* Inquilino único - Tanto para a identidade de aplicação como para os casos de identidade de utilizador delegados, a aplicação daemon ou servidor deve ser registada no mesmo diretório em Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou servidor aos seus recursos. Se estiver a ser utilizado um tipo de identidade de utilizador delegado, a aplicação do servidor tem de selecionar as permissões desejadas. Na página de **Permissão DaAPI** para o registo da candidatura, depois de ter selecionado **Adicionar uma permissão** e escolher a família API, escolher **permissões delegadas**e, em seguida, selecionar as suas permissões. Este passo não é necessário se o tipo de identidade da aplicação estiver a ser utilizado.
+* Multi-inquilino - Em primeiro lugar, a aplicação daemon ou servidor está configurada para indicar as permissões que necessita para ser funcional. Esta lista de permissões necessárias é mostrada num diálogo quando um utilizador ou administrador no diretório de destino dá consentimento à aplicação, o que a coloca à disposição da sua organização. Algumas aplicações apenas requerem permissões ao nível do utilizador, que qualquer utilizador da organização pode consentir. Outras aplicações requerem permissões de nível de administrador, que um utilizador da organização não pode consentir. Apenas um administrador de diretório pode dar consentimento a pedidos que requerem este nível de permissões. Quando o utilizador ou administrador consentir, ambas as APIs web estão registadas no seu diretório.
 
 ## <a name="token-expiration"></a>Expiração do token
 
-Quando o primeiro aplicativo usa seu código de autorização para obter um token de acesso JWT, ele também recebe um token de atualização JWT. Quando o token de acesso expira, o token de atualização pode ser usado para autenticar novamente o usuário sem solicitar credenciais. Esse token de atualização é usado para autenticar o usuário, o que resulta em um novo token de acesso e token de atualização.
+Quando a primeira aplicação usa o seu código de autorização para obter um sinal de acesso JWT, também recebe um token de atualização JWT. Quando o token de acesso expirar, o token de atualização pode ser usado para reautenticar o utilizador sem solicitar credenciais. Este token de atualização é então usado para autenticar o utilizador, o que resulta num novo token de acesso e token de atualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre outros [tipos de aplicativos e cenários](app-types.md)
-- Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD
+- Saiba mais sobre outros [tipos e cenários](app-types.md) de aplicação
+- Conheça os [fundamentos básicos](v1-authentication-scenarios.md) de autenticação da AD Azure

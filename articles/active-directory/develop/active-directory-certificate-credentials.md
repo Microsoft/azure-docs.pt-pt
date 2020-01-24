@@ -14,13 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a44d89e19a1efc54e2c3c49053ec9badc91ba97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15fa6b9c7b9c84cd17b67c53dd65acd54ea63910
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424709"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699228"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais do certificado de autenticação de aplicativo da plataforma de identidade da Microsoft
 
@@ -43,12 +42,12 @@ Plataforma de identidade da Microsoft para computar a asserção, você pode usa
 
 | Parâmetro |  Observações |
 | --- | --- |
-| `aud` | Público-alvo: deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | Público: Deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data de validade: a data em que o token expira. O tempo é representado como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0: 0Z) UTC até a hora em que a validade do token expira.|
-| `iss` | Emissor: deve ser o client_id (ID do aplicativo do serviço do cliente) |
+| `iss` | Emitente: deve ser o client_id (Id de aplicação do serviço ao cliente) |
 | `jti` | GUID: a ID do JWT |
 | `nbf` | Não antes: a data antes da qual o token não pode ser usado. O tempo é representado como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0: 0Z) UTC até a hora em que o token foi emitido. |
-| `sub` | Assunto: como por `iss`, deve ser o client_id (ID do aplicativo do serviço do cliente) |
+| `sub` | Objeto: Quanto à `iss`, deve ser o client_id (Id de aplicação do serviço ao cliente) |
 
 ### <a name="signature"></a>Assinatura
 

@@ -13,13 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb44e078a3958a788d23356c970b62fd97cbf420
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424396"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696321"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
 
@@ -33,12 +32,12 @@ Este artigo o ajudará a entender as várias configurações no arquivo de confi
 
 | Propriedade | Tipo de Dados | Obrigatório | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | Cadeia | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Cadeia | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Listar > de autoridade de\< | Não | A lista de autoridades que seu aplicativo precisa |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT`, `BROWSER`, `WEBVIEW` |
-| `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e `read_timeout` |
-| `logging` | LoggingConfiguration | Não | Especifica o nível de detalhes de log. As configurações opcionais incluem: `pii_enabled`, que usa um valor booliano e `log_level`, que usa `ERROR`, `WARNING`, `INFO`ou `VERBOSE`. |
+| `http` | HttpConfiguration | Não | Configure `connect_timeout` e `read_timeout` de `HttpUrlConnection` |
+| `logging` | LoggingConfiguration | Não | Especifica o nível de detalhes de log. As configurações opcionais incluem: `pii_enabled`, que tem um valor booleano, e `log_level`, que leva `ERROR`, `WARNING`, `INFO`ou `VERBOSE`. |
 
 ### <a name="client_id"></a>client_id
 
@@ -104,17 +103,17 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 | Propriedade | Data type  | Obrigatório | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | Cadeia | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`, `B2C` |
+| `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`, `B2C` |
 | `audience` | Objeto | Não | Aplica-se somente quando Type =`AAD`. Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
-| `authority_url` | Cadeia | Sim | Necessário somente quando Type =`B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
+| `authority_url` | String | Sim | Necessário somente quando Type =`B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
 | `default` | boolean | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do público
 
 | Propriedade | Tipo de Dados  | Obrigatório | Notas |
 |-----------|-------------|------------|-------|
-| `type` | Cadeia | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
-| `tenant_id` | Cadeia | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros valores de `type`. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
+| `tenant_id` | String | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros valores de `type`. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -341,7 +340,7 @@ O exemplo a seguir ilustra uma configuração básica que especifica a ID do cli
 
 ## <a name="how-to-use-a-configuration-file"></a>Como usar um arquivo de configuração
 
-1. Crie um arquivo de configuração. Recomendamos que você crie seu arquivo de configuração personalizada no `res/raw/auth_config.json`. Mas você pode colocá-lo em qualquer lugar que desejar.
+1. Crie um arquivo de configuração. Recomendamos que crie o seu ficheiro de configuração personalizado em `res/raw/auth_config.json`. Mas você pode colocá-lo em qualquer lugar que desejar.
 2. Informe ao MSAL onde procurar sua configuração ao construir o `PublicClientApplication`. Por exemplo:
 
    ```java

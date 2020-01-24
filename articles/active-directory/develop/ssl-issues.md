@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas de SSL (MSAL iOS/macOS) | Azure
+title: Problemas problemas ssl (MSAL iOS/macOS)  Azure
 titleSuffix: Microsoft identity platform
-description: Saiba o que fazer sobre vários problemas usando certificados SSL com o MSAL. Biblioteca Objective-C.
+description: Saiba o que fazer sobre vários problemas usando certificados SSL com o MSAL. Biblioteca Objectiva-C.
 services: active-directory
 documentationcenter: ''
 author: TylerMSFT
@@ -17,38 +17,37 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cfb530deab0cce12247c2ec87e3efb3ce61810b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fef1e1df15fed8452066f06a351452a83f73d89b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964723"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701353"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>Como: solucionar problemas de SSL do MSAL para iOS e macOS
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>Como: Resolução de problemas mSAL para problemas iOS e macOS SSL
 
-Este artigo fornece informações para ajudá-lo a solucionar problemas que podem surgir durante o uso da [MSAL (biblioteca de autenticação da Microsoft) para IOS e MacOS](reference-v2-libraries.md)
+Este artigo fornece informações para ajudá-lo a resolver problemas que pode encontrar ao utilizar a [Microsoft Authentication Library (MSAL) para iOS e macOS](reference-v2-libraries.md)
 
 ## <a name="network-issues"></a>Problemas de rede
 
-**Erro-1200**: "ocorreu um erro de SSL e uma conexão segura com o servidor não pode ser feita".
+**Erro -1200**: "Ocorreu um erro SSL e não é possível então uma ligação segura ao servidor."
 
-Esse erro significa que a conexão não é segura. Ocorre quando um certificado é inválido. Para obter mais informações, incluindo qual servidor está falhando na verificação de SSL, consulte `NSURLErrorFailingURLErrorKey` no dicionário de `userInfo` do objeto de erro.
+Este erro significa que a ligação não é segura. Ocorre quando um certificado é inválido. Para obter mais informações, incluindo qual o servidor que está falhando na verificação SSL, consulte `NSURLErrorFailingURLErrorKey` no dicionário `userInfo` do objeto de erro.
 
-Esse erro é da biblioteca de rede da Apple. Uma lista completa de códigos de erro NSURL está em NSURLError. h nos SDKs macOS e iOS. Para obter mais detalhes sobre esse erro, consulte [códigos de erro do sistema de carregamento de URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
+Este erro é da biblioteca de networking da Apple. Uma lista completa de códigos de erro NSURL está em NSURLError.h nos sDKs macOS e iOS. Para mais detalhes sobre este erro, consulte [códigos](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc)de erro do sistema de carregamento de URL .
 
-## <a name="certificate-issues"></a>Problemas de certificado
+## <a name="certificate-issues"></a>Emissões de certificados
 
-Se a URL que fornece um certificado inválido se conectar ao servidor que você pretende usar como parte do fluxo de autenticação, um bom começo para diagnosticar o problema é testar a URL com um serviço de validação SSL, como o [Qualys SSL Labs Analyzer](https://www.ssllabs.com/ssltest/analyze.html). Ele testa o servidor em uma ampla gama de cenários e navegadores e verifica se há muitas vulnerabilidades conhecidas.
+Se o URL que fornece um certificado inválido ligar ao servidor que pretende utilizar como parte do fluxo de autenticação, um bom começo para diagnosticar o problema é testar o URL com um serviço de validação SSL, como o [Qualys SSL Labs Analyzer.](https://www.ssllabs.com/ssltest/analyze.html) Testa o servidor contra uma grande variedade de cenários e navegadores e verifica muitas vulnerabilidades conhecidas.
 
-Por padrão, o novo recurso de [ATS (segurança de transporte de aplicativo)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) da Apple aplica políticas de segurança mais rigorosas a aplicativos que usam certificados SSL. Alguns sistemas operacionais e navegadores da Web começaram a impor algumas dessas políticas por padrão. Por motivos de segurança, recomendamos que você não desabilite o ATS.
+Por padrão, a nova funcionalidade de Segurança do Transporte de [Aplicações (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) da Apple aplica políticas de segurança mais rigorosas a apps que utilizam certificados SSL. Alguns sistemas operativos e navegadores web começaram a aplicar algumas destas políticas por padrão. Por razões de segurança, recomendamos que não desative a ATS.
 
-Os certificados que usam hashes SHA-1 têm vulnerabilidades conhecidas. Os navegadores da Web mais modernos não permitem certificados com hashes SHA-1.
+Os certificados que usam hashes SHA-1 têm vulnerabilidades conhecidas. A maioria dos navegadores web modernos não permitem certificados com hashes SHA-1.
 
-## <a name="captive-portals"></a>Portais prisioneiros
+## <a name="captive-portals"></a>Portais cativos
 
-Um portal cativo apresenta uma página da Web para um usuário ao acessar pela primeira vez uma rede Wi-Fi e ainda não recebeu acesso a essa rede. Ele intercepta seu tráfego de Internet até que o usuário atenda aos requisitos do Portal. Erros de rede porque o usuário não pode se conectar aos recursos de rede é esperado até que o usuário se conecte por meio do Portal.
+Um portal cativo apresenta uma página web a um utilizador quando acede pela primeira vez a uma rede Wi-Fi e ainda não teve acesso a essa rede. Interceta o seu tráfego de internet até que o utilizador satisfaça os requisitos do portal. Erros de rede porque o utilizador não pode ligar-se aos recursos de rede são esperados até que o utilizador se conecte através do portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [portais prisioneiros](https://en.wikipedia.org/wiki/Captive_portal) e o novo recurso de [ATS (segurança de transporte de aplicativo)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) da Apple.
+Conheça os [portais cativos](https://en.wikipedia.org/wiki/Captive_portal) e a nova funcionalidade de Segurança do Transporte de [Aplicações (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) da Apple.

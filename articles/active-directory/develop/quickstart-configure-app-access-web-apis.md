@@ -12,13 +12,12 @@ ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963338"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704294"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início rápido: configurar um aplicativo cliente para acessar APIs Web
 
@@ -56,7 +55,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
 1. Procure e selecione **Azure Active Directory**. 
 1. No painel esquerdo, selecione **registros de aplicativo**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
+1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Siga os passos para configurar a aplicação para aceder às APIs Web:
     * [Adicionar URIs de redirecionamento à aplicação](#add-redirect-uris-to-your-application)
     * [Definir configurações avançadas para seu aplicativo](#configure-advanced-settings-for-your-application)
@@ -68,7 +67,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 Para adicionar um URI de redirecionamento à aplicação:
 
-1. Na página **Descrição Geral** da aplicação, selecione a secção **Autenticação**.
+1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação**.
 1. Para adicionar um URI de redirecionamento personalizado para aplicações cliente da Web e públicas, siga estes passos:
    1. Localize a secção **URI de redirecionamento**.
    1. Selecione o tipo de aplicação que está a compilar, **Web** ou **Cliente público (móvel e ambiente de trabalho)** .

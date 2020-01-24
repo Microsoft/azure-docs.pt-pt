@@ -13,13 +13,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff9af6a6f51ca89fa7e852609ceed1ee02c6e23f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6712c89431b13e939ef298020e5a2e7d288856cc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294359"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698038"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 
@@ -137,7 +136,7 @@ O diagrama de sequência a seguir resume essa interação:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Como um aplicativo Web determina se o usuário é autenticado
 
-Os desenvolvedores de aplicativos Web podem indicar se todas ou apenas determinadas páginas exigem autenticação. Por exemplo, no ASP.NET/ASP.NET Core, isso é feito adicionando o atributo `[Authorize]` às ações do controlador. 
+Os desenvolvedores de aplicativos Web podem indicar se todas ou apenas determinadas páginas exigem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto é feito adicionando o atributo `[Authorize]` às ações do controlador. 
 
 Esse atributo faz com que o ASP.NET Verifique a presença de um cookie de sessão que contém a identidade do usuário. Se um cookie não estiver presente, o ASP.NET redirecionará a autenticação para o provedor de identidade especificado. Se o provedor de identidade for o Azure AD, o aplicativo Web redireciona a autenticação para https://login.microsoftonline.com, que exibe uma caixa de diálogo de entrada.
 

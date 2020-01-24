@@ -1,6 +1,6 @@
 ---
-title: Selecionar permissões para uma determinada API | Microsoft Docs
-description: Saiba mais sobre como as solicitações de permissões funcionam para aplicativos de cliente e de recursos para aplicativos que você está desenvolvendo
+title: Selecione permissões para uma dada API / Microsoft Docs
+description: Saiba como os pedidos de permissões funcionam para aplicações de clientes e recursos para aplicações que está a desenvolver
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d459325b6c02a4109825ea7de984b57ff3d7ae00
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cf28677e143b66a16b69c4363602537073f0be5a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921386"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704243"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma determinada API 
+# <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para um dado API 
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-- Saiba mais sobre como os aplicativos cliente usam [solicitações de permissão de aplicativo e delegadas](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) para acessar recursos.
-- Consulte instruções passo a passo sobre como [Configurar solicitações de permissão de um aplicativo cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- Para obter mais detalhes, saiba como os aplicativos de recursos expõem [escopos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) e [funções de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) para aplicativos cliente, que manifestam como delegadas e permissões de aplicativo, respectivamente no portal do Azure. 
+- Saiba mais sobre como as aplicações do cliente usam [pedidos de autorização delegados e de aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) para aceder a recursos.
+- Consulte instruções passo a passo sobre como [configurar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) os pedidos de autorização de um pedido de cliente
+- Para mais profundidade, saiba como as aplicações de recursos expõem [os âmbitos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) e [as funções](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) de aplicação às aplicações dos clientes, que se manifestam como permissões delegadas e de aplicação, respectivamente, no portal Azure. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Empilhador AzureAdOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 

@@ -12,13 +12,12 @@ ms.date: 11/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75838b655a2f4a10bce6c4cbd8310598a1fd9ed2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c532eb658e882f11bb380dce4f7a604097693c0f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424076"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704362"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web aceitando tokens v 1.0
 
@@ -26,7 +25,7 @@ As permissões OAuth2 são escopos de permissão que um Azure Active Directory (
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas de OAuth2 de um aplicativo v 1.0
 
-Para adquirir tokens para escopos específicos de um aplicativo v 1.0 (por exemplo, o Azure AD Graph, que é https://graph.windows.net), crie escopos concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
+Para adquirir tokens para âmbitos específicos de uma aplicação v1.0 (por exemplo, o gráfico Azure AD, que é https://graph.windows.net), criar âmbitos concatenando um identificador de recursos desejado com uma permissão OAuth2 desejada para esse recurso.
 
 Por exemplo, para acessar em nome do usuário uma API Web v 1.0 em que o URI da ID do aplicativo é `ResourceId`:
 

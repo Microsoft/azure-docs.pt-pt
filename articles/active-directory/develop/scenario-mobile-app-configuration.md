@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61d3a7b7f06ffdb7f39f80f7f3bf19e9007945d2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423801"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702118"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicativo móvel que chama as APIs da Web-configuração de código
 
@@ -213,7 +212,7 @@ Com o Xamarin iOS, normalmente você não precisa definir uma janela de objeto, 
 
 Faça o seguinte para definir a janela de objeto:
 
-1) Em `AppDelegate.cs`, defina o `App.RootViewController` como um novo `UIViewController()`. Isso verificará se há um `UIViewController` com a chamada para o agente. Se não estiver definido corretamente, você poderá receber esse erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1) Em `AppDelegate.cs`, defina o `App.RootViewController` como um novo `UIViewController()`. Isso verificará se há um `UIViewController` com a chamada para o agente. Se não estiver corretamente definido, poderá obter este erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 2) Na chamada AcquireTokenInteractive, use o `.WithParentActivityOrWindow(App.RootViewController)` e passe a referência para a janela de objeto que você usará.
 
 **Por exemplo:**

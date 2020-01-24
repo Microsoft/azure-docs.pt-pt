@@ -1,5 +1,5 @@
 ---
-title: Nova experiência de registro de aplicativo portal do Azure
+title: Nova experiência de registos de aplicações do portal do Azure
 titleSuffix: Microsoft identity platform
 description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
 services: active-directory
@@ -13,13 +13,12 @@ ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 835924c92d0c5768c1125b3b1d26ee72cf2cec70
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424640"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698276"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registro de aplicativo portal do Azure
 

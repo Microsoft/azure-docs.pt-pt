@@ -3,22 +3,34 @@ title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028200"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705501"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
-As preocupações em relação a problemas de segurança, como software maligno, ransomware e intrusão, estão a aumentar. Estes problemas de segurança podem ser dispendiosos, tanto em termos de dinheiro como de dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão. Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o backup de uma VM (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Esses 14 dias adicionais de retenção de dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para o cliente. O Azure também criptografa todos os dados de backup em repouso usando [criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger ainda mais seus dados.
+As preocupações em relação a problemas de segurança, como software maligno, ransomware e intrusão, estão a aumentar. Estes problemas de segurança podem ser dispendiosos, tanto em termos de dinheiro como de dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão.
+
+Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o backup de uma VM (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente. O Azure também criptografa todos os dados de backup em repouso usando [criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger ainda mais seus dados.
+
+A proteção de eliminação suave para máquinas virtuais Azure está geralmente disponível.
+
+>[!NOTE]
+>A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure já está disponível na pré-visualização.<br>
+>Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
+
+## <a name="soft-delete"></a>Eliminação de forma recuperável
+
+### <a name="soft-delete-for-vms"></a>Eliminação suave para VMs
+
+A eliminação suave para VMs protege as cópias de segurança dos seus VMs de eliminação não intencional. Mesmo depois de as cópias de segurança serem eliminadas, são preservadas em estado de eliminação suave por 14 dias adicionais.
 
 > [!NOTE]
 > A exclusão reversível só protege os dados de backup excluídos. Se uma VM for excluída sem um backup, o recurso de exclusão reversível não preservará os dados. Todos os recursos devem ser protegidos com o backup do Azure para garantir a resiliência completa.
 >
-
-## <a name="soft-delete"></a>Eliminação de forma recuperável
 
 ### <a name="supported-regions"></a>Regiões suportadas
 

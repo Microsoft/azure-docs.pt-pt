@@ -1,6 +1,6 @@
 ---
-title: Configurar logon único do aplicativo | Microsoft Docs
-description: Como configurar o logon único para um aplicativo personalizado que você está desenvolvendo e registrando com o Azure AD.
+title: Configure inscrição única de aplicação / Microsoft Docs
+description: Como configurar um único início de inscrição para uma aplicação personalizada que está a desenvolver e a registar com a Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,36 +15,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc9f20903d65fbde161d26ed3e194e63d341ccb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bb77f376e22428e9259ff3efc84cf6f1cb3491fe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320961"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702646"
 ---
-# <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar o logon único para um aplicativo
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar um único início de inscrição para uma aplicação
 
-Habilitar o SSO (logon único) federado em seu aplicativo é habilitado automaticamente ao federar por meio do Azure AD para OpenID Connect, SAML 2,0 ou WS-enalimentado. Se os usuários finais estiverem tendo de entrar apesar de já ter uma sessão existente com o Azure AD, é provável que seu aplicativo possa estar configurado incorretamente.
+Ativar um único sign-on federado (SSO) na sua aplicação é automaticamente ativado quando federado através do Azure AD para OpenID Connect, SAML 2.0 ou WS-Fed. Se os utilizadores finais tiverem de iniciar sessão apesar de já terem uma sessão existente com o Azure AD, é provável que a sua aplicação possa estar mal configurada.
 
-* Se você estiver usando o ADAL/MSAL, verifique se você tem o **PromptBehavior** definido como **automático** em vez de **sempre**.
+* Se estiver a utilizar a ADAL/MSAL, certifique-se de que tem **o PromptBehavior** definido para **Auto** em vez de **Sempre**.
 
-* Se você estiver criando um aplicativo móvel, talvez precise de configurações adicionais para habilitar o SSO orientado ou não-orientado.
+* Se estiver a construir uma aplicação móvel, poderá necessitar de configurações adicionais para ativar o SSO intermediado ou não intermediado.
 
-Para o Android, consulte [habilitando SSO entre aplicativos no Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
+Para Android, consulte [Enableing Cross App SSO no Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
 
-Para iOS, consulte [habilitando SSO entre aplicativos no Ios](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+Para iOS, consulte [Enableing Cross App SSO no iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[SSO do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Azure AD SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
 
-[Habilitando o SSO entre aplicativos no Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Habilitar sSO de aplicativo so em Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
 
-[Habilitando o SSO entre aplicativos no iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Habilitar a App Transversal SSO no iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
 
-[Integrando aplicativos ao AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integração de Apps para O AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Consentimento e permissão para aplicativos convergidos do AzureAD v 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Consentimento e Permissão para Aplicações Convergentes AzureAD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Empilhador AzureAdOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

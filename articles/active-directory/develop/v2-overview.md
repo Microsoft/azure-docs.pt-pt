@@ -16,13 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbbcd854434bcc085f1b63fb864755dd0e928fc9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852151"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700299"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma Microsoft Identity (v 2.0)
 
@@ -33,7 +32,7 @@ A plataforma de identidade da Microsoft é uma evolução da plataforma de progr
   - Contas pessoais da Microsoft (como Skype, Xbox e Outlook.com)
   - Contas sociais ou locais (via Azure AD B2C)
 - **Bibliotecas de código-fonte aberto**: MSAL (bibliotecas de autenticação da Microsoft) e suporte para outras bibliotecas em conformidade com os padrões
-- **Portal de gerenciamento de aplicativos**: Uma experiência de registro e configuração criada no portal do Azure, juntamente com todos os outros recursos de gerenciamento do Azure.
+- **Portal de gerenciamento de aplicativos**: uma experiência de registro e configuração criada no portal do Azure, juntamente com todos os outros recursos de gerenciamento do Azure.
 - **API de configuração de aplicativo e PowerShell**: que permite a configuração programática de seus aplicativos por meio da API REST (Microsoft Graph e Azure Active Directory grafo 1,6) e do PowerShell, para que você possa automatizar suas tarefas de DevOps.
 - **Conteúdo do desenvolvedor**: documentação conceitual e de referência, exemplos de início rápido, exemplos de código, tutoriais e guias de instruções.
 
@@ -56,9 +55,9 @@ Trabalhar com a identidade não tem de ser tão difícil. Escolha um [cenário](
 
 O gráfico a seguir descreve os cenários de aplicativos de autenticação comuns – use-os como referência ao integrar a plataforma de identidade da Microsoft ao seu aplicativo.
 
-[![Cenários de aplicativos na plataforma Microsoft Identity](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+[cenários de aplicativo ![na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você quiser saber mais sobre os principais conceitos de autenticação, recomendamos que comece com estes tópicos:
 
@@ -67,7 +66,7 @@ Se você quiser saber mais sobre os principais conceitos de autenticação, reco
 - [Entidades de serviço e aplicativo](app-objects-and-service-principals.md)
 - [Compostos](v2-supported-account-types.md)
 - [Permissões e consentimento](v2-permissions-and-consent.md)
-- [Tokens de ID](id-tokens.md) e tokens de [acesso](access-tokens.md)
+- [Tokens de ID](id-tokens.md) e [tokens de acesso](access-tokens.md)
 
 Crie um aplicativo com dados ricos que chama [Microsoft Graph](https://docs.microsoft.com/graph/overview).
 

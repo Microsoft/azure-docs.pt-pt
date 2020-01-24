@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a62026ecec2317173361f166adcc3a7981f6d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423341"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701183"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API Microsoft Graph de um aplicativo Plataforma Universal do Windows (XAML)
 
@@ -295,7 +294,7 @@ Para desconectar o usuário, adicione o seguinte método a *MainPage.XAML.cs*:
 
 #### Mais informações sobre como sair<a name="more-information-on-sign-out"></a>
 
-O método `SignOutButton_Click` remove o usuário do cache de usuário MSAL. Esse método informa efetivamente ao MSAL para esquecer o usuário atual. Uma solicitação futura para adquirir um token é realizada com sucesso apenas se ele for interativo.
+O método `SignOutButton_Click` remove o utilizador da cache do utilizador MSAL. Esse método informa efetivamente ao MSAL para esquecer o usuário atual. Uma solicitação futura para adquirir um token é realizada com sucesso apenas se ele for interativo.
 
 O aplicativo neste exemplo dá suporte a um único usuário. O MSAL dá suporte a cenários em que o usuário pode entrar em mais de uma conta. Um exemplo é um aplicativo de email em que um usuário tem várias contas.
 

@@ -14,13 +14,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130bfb055b41ea3d2726c83c06430a0ea58fe98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37d6cd03c07c10bfac5b25e3850c7d3af97bcec7
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424558"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697494"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
@@ -71,7 +70,7 @@ Após o consentimento dos administradores para a sua aplicação, estes podem op
 
 No entanto, recomendamos que escreva um texto explicativo em vez de utilizar botões. Por exemplo:
 
-> *Se você já usa o Office 365 ou outro serviço comercial da Microsoft, é possível conceder < your_app_name > acesso aos dados da sua organização. Isso permitirá que os usuários acessem < your_app_name > com suas contas de trabalho existentes.*
+> *Se já utilizar o Office 365 ou outro serviço de negócios da Microsoft, pode conceder <your_app_name> acesso aos dados da sua organização. Isto permitirá aos seus utilizadores aceder em <your_app_name> com as suas contas de trabalho existentes.*
 
 Para transferir o logótipo oficial da Microsoft para utilizar na sua aplicação, clique com o botão direito do rato naquele que pretende utilizar e, em seguida, guarde-o no seu computador.
 

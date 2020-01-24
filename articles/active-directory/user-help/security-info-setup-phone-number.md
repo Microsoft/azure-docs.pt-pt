@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 93302388813f09a37628d16b4ede3f7d6cc08752
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156153"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704940"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como seu método de verificação
 
@@ -103,11 +102,11 @@ Se você quiser que as chamadas telefônicas sejam o método padrão usado quand
 
     ![Alterar o link para o método de entrada padrão](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **chamada telefônica ( *_your_phone_number_* )** na lista suspensa de métodos disponíveis e, em seguida, selecione **confirmar**.
+2. Selecione **Telefone - chamada *_(your_phone_number_* )** da lista de métodos disponíveis e, em seguida, selecione **Confirmar**.
 
     ![Escolha o método para entrar no padrão](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    O método padrão usado para alterações de entrada em **chamada telefônica ( *_your_phone_number_* )** .
+    O método predefinido utilizado para alterações de sessão no **Telefone - chamada ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
 

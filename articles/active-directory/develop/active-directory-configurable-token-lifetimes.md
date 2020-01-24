@@ -1,7 +1,7 @@
 ---
-title: Tempos de vida de token configuráveis do Azure AD
+title: Vida útil do token ad
 titleSuffix: Microsoft identity platform
-description: Saiba como definir tempos de vida para tokens emitidos pelo Azure AD.
+description: Aprenda a definir vidas para fichas emitidas pela Azure AD.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,227 +14,226 @@ ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c195a5da6b04a919947c0ae65d7d6109115627d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 55c7ee6711c6001745053b850c1b4e1859af5dbe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918394"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699024"
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
+# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Toda a vida de fichas configuráveis em Diretório Ativo Azure (Pré-visualização)
 
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de maio de 2020, você não poderá usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
+> Depois de ouvir os clientes durante a pré-visualização, implementamos capacidades de gestão de sessões de [autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no Acesso Condicional Azure AD. Pode utilizar esta nova funcionalidade para configurar a atualização das vidas token, definindo o sinal na frequência. Depois de 1 de maio de 2020, não poderá utilizar a política configurável token lifetime para configurar sessão e refrescar fichas. Ainda pode configurar as vidas de acesso ao token após a depreciação.
 
-No Azure AD, um objeto de política representa um conjunto de regras que são impostas em aplicativos individuais ou em todos os aplicativos em uma organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas a objetos aos quais elas são atribuídas.
+Em Azure AD, um objeto político representa um conjunto de regras que são aplicadas em aplicações individuais ou em todas as aplicações de uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são aplicadas a objetos aos quais são atribuídos.
 
-Você pode designar uma política como a política padrão para sua organização. A política é aplicada a qualquer aplicativo na organização, desde que ela não seja substituída por uma política com uma prioridade mais alta. Você também pode atribuir uma política a aplicativos específicos. A ordem de prioridade varia por tipo de política.
+Pode designar uma política como a política padrão para a sua organização. A política aplica-se a qualquer aplicação na organização, desde que não seja ultrapassada por uma política com maior prioridade. Também pode atribuir uma apólice a aplicações específicas. A ordem de prioridade varia consocada mente.
 
 > [!NOTE]
-> Não há suporte para a política de tempo de vida de token configurável para o SharePoint Online.  Embora você tenha a capacidade de criar essa política por meio do PowerShell, o SharePoint Online não reconhecerá essa política. Consulte o [blog do SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre como configurar tempos limite de sessão ociosa.
->* O tempo de vida padrão para o token de acesso do SharePoint Online é de 1 hora. 
->* O tempo máximo inativo padrão do token de atualização do SharePoint Online é de 90 dias.
+> A política de vida token configurável não é suportada para o SharePoint Online.  Apesar de ter a capacidade de criar esta política através do PowerShell, o SharePoint Online não reconhecerá esta política. Consulte o [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre a configuração de timeouts de sessão inativos.
+>* O tempo de vida padrão para o token de acesso SharePoint Online é de 1 hora. 
+>* O tempo inativo padrão máximo do token de atualização SharePoint Online é de 90 dias.
 
-## <a name="token-types"></a>Tipos de token
+## <a name="token-types"></a>Tipos de fichas
 
-Você pode definir políticas de tempo de vida de token para tokens de atualização, tokens de acesso, tokens SAML, tokens de sessão e tokens de ID
+Você pode definir políticas de vida simbólicas para tokens de atualização, fichas de acesso, tokens SAML, tokens de sessão e tokens de id.
 
 ### <a name="access-tokens"></a>Tokens de acesso
 
-Os clientes usam tokens de acesso para acessar um recurso protegido. Um token de acesso pode ser usado somente para uma combinação específica de usuário, cliente e recurso. Tokens de acesso não podem ser revogados e são válidos até sua expiração. Um ator mal-intencionado que obteve um token de acesso pode usá-lo para a extensão do seu tempo de vida. Ajustar o tempo de vida de um token de acesso é uma compensação entre melhorar o desempenho do sistema e aumentar a quantidade de tempo que o cliente retém o acesso depois que a conta do usuário é desabilitada. O desempenho aprimorado do sistema é obtido com a redução do número de vezes que um cliente precisa adquirir um novo token de acesso.  O padrão é 1 hora-após 1 hora, o cliente deve usar o token de atualização para (normalmente silenciosamente) adquirir um novo token de atualização e token de acesso. 
+Os clientes usam fichas de acesso para aceder a um recurso protegido. Um token de acesso só pode ser usado para uma combinação específica de utilizador, cliente e recurso. As fichas de acesso não podem ser revogadas e são válidas até ao seu termo. Um ator malicioso que obteve um sinal de acesso pode usá-lo durante toda a sua vida. Ajustar a vida útil de um token de acesso é uma compensação entre melhorar o desempenho do sistema e aumentar o tempo que o cliente mantém o acesso após a conta do utilizador ser desativada. O melhor desempenho do sistema é alcançado reduzindo o número de vezes que um cliente precisa para adquirir um novo sinal de acesso.  O predefinido é de 1 hora - após 1 hora, o cliente deve usar o token de atualização para (geralmente silenciosamente) adquirir um novo token de atualização e ficha de acesso. 
 
 ### <a name="saml-tokens"></a>Tokens SAML
 
-Os tokens SAML são usados por muitos aplicativos SAAS baseados na Web e são obtidos usando o ponto de extremidade do protocolo SAML2 do Azure Active Directory. Eles também são consumidos por aplicativos que usam o WS-Federation. O tempo de vida padrão do token é de 1 hora. Da perspectiva de um aplicativo, o período de validade do token é especificado pelo valor NotOnOrAfter do elemento `<conditions …>` no token. Após o término do período de validade do token, o cliente deve iniciar uma nova solicitação de autenticação, que geralmente será satisfeita sem a entrada interativa como resultado do token de sessão de logon único (SSO).
+As fichas SAML são usadas por muitas aplicações SAAS baseadas na web, e são obtidas usando o ponto final do protocolo SAML2 do Azure Ative Directory. São também consumidos por aplicações que utilizam a WS-Federação. A duração do token é de 1 hora. Do ponto de vista de uma aplicação, o período de validade do token é especificado pelo valor NotOnOrAfter do elemento `<conditions …>` no símbolo. Após o fim do período de validade do token, o cliente deve iniciar um novo pedido de autenticação, que muitas vezes será satisfeito sem inscrição interativa em resultado do token single sign on (SSO) Session.
 
-O valor de NotOnOrAfter pode ser alterado usando o parâmetro `AccessTokenLifetime` em uma `TokenLifetimePolicy`. Ele será definido para o tempo de vida configurado na política, se houver, além de um fator de distorção de relógio de cinco minutos.
+O valor do NotOnOrAfter pode ser alterado utilizando o parâmetro `AccessTokenLifetime` numa `TokenLifetimePolicy`. Será definido para a vida útil configurado na apólice, se houver, mais um fator de rotação do relógio de cinco minutos.
 
-Observe que o NotOnOrAfter de confirmação da entidade especificado no elemento `<SubjectConfirmationData>` não é afetado pela configuração de tempo de vida do token. 
+Note que a confirmação do assunto NotOnOrAfter especificada no elemento `<SubjectConfirmationData>` não é afetada pela configuração Token Lifetime. 
 
-### <a name="refresh-tokens"></a>Tokens de atualização
+### <a name="refresh-tokens"></a>Fichas de atualização
 
-Quando um cliente adquire um token de acesso para acessar um recurso protegido, o cliente também recebe um token de atualização. O token de atualização é usado para obter novos pares de tokens de acesso/atualização quando o token de acesso atual expira. Um token de atualização está associado a uma combinação de usuário e cliente. Um token de atualização pode ser [revogado a qualquer momento](access-tokens.md#token-revocation)e a validade do token é verificada toda vez que o token é usado.  Os tokens de atualização não são revogados quando usados para buscar novos tokens de acesso – é recomendável, no entanto, excluir com segurança o token antigo ao obter um novo. 
+Quando um cliente adquire um sinal de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token de atualização é usado para obter novos pares de acessórios de acesso/atualização quando o token de acesso atual expirar. Um token de atualização está ligado a uma combinação de utilizador e cliente. Um token de atualização pode ser [revogado](access-tokens.md#token-revocation)a qualquer momento , e a validade do token é verificada sempre que o símbolo é usado.  As fichas de atualização não são revogadas quando usadas para obter novos tokens de acesso - é a melhor prática, no entanto, para apagar seguramente o símbolo antigo ao obter um novo. 
 
-É importante fazer uma distinção entre os clientes confidenciais e os clientes públicos, pois isso afeta por quanto tempo os tokens de atualização podem ser usados. Para obter mais informações sobre diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+É importante fazer uma distinção entre clientes confidenciais e clientes públicos, uma vez que isso afeta o tempo que os tokens de atualização podem ser usados. Para obter mais informações sobre diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
-#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidenciais
-Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha de cliente (segredo). Eles podem provar que as solicitações são provenientes do aplicativo cliente protegido e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois ele pode armazenar um segredo do cliente no servidor Web. Ele não é exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são `until-revoked`, não podem ser alterados usando a política e não serão revogados em redefinições de senha voluntárias.
+#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Token lifetimes com fichas confidenciais de atualização de cliente
+Clientes confidenciais são aplicações que podem armazenar de forma segura uma palavra-passe do cliente (segredo). Podem provar que os pedidos vêm da aplicação de cliente segura e não de um ator malicioso. Por exemplo, uma aplicação web é um cliente confidencial porque pode armazenar um segredo de cliente no servidor web. Não está exposto. Uma vez que estes fluxos são mais seguros, as vidas padrão das fichas de atualização emitidas para estes fluxos são `until-revoked`, não podem ser alteradas usando a política, e não serão revogadas em resets voluntários de palavras-passe.
 
-#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público
+#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Token lifetimes com fichas de atualização de cliente público
 
-Os clientes públicos não podem armazenar com segurança uma senha de cliente (segredo). Por exemplo, um aplicativo iOS/Android não pode ofuscar um segredo do proprietário do recurso, portanto, é considerado um cliente público. Você pode definir políticas em recursos para impedir que tokens de atualização de clientes públicos com mais de um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade tempo máximo inativo do token de atualização (`MaxInactiveTime`).) Você também pode usar políticas para definir um período além do qual os tokens de atualização não são mais aceitos. (Para fazer isso, use a propriedade idade máxima do token de atualização.) Você pode ajustar o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser reautenticado silenciosamente, ao usar um aplicativo cliente público.
+Os clientes públicos não podem armazenar uma senha de cliente (segredo) de forma segura. Por exemplo, uma aplicação iOS/Android não pode ocultar um segredo do proprietário do recurso, pelo que é considerado um cliente público. Pode definir políticas sobre recursos para evitar que tokens de atualização de clientes públicos com mais de um período especificado obtenham um novo par de fichas de acesso/atualização. (Para isso, utilize a propriedade Refresh Token Max Inative Time (`MaxInactiveTime`).) Também pode utilizar políticas para definir um período para além do qual as fichas de atualização já não são aceites. (Para isso, utilize a propriedade Refresh Token Max Age.) Pode ajustar o tempo de vida de um token de atualização para controlar quando e com que frequência o utilizador é obrigado a reentrar nas credenciais, em vez de ser reautenticado silenciosamente, quando utilizar uma aplicação de cliente público.
 
 > [!NOTE]
-> A propriedade idade máxima é o período de tempo que um único token pode ser usado. 
+> A propriedade Max Age é o tempo que um único símbolo pode ser usado. 
 
 ### <a name="id-tokens"></a>Tokens de ID
-Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de usuário e cliente. Os tokens de ID são considerados válidos até sua expiração. Normalmente, um aplicativo Web corresponde ao tempo de vida da sessão de um usuário no aplicativo para o tempo de vida do token de ID emitido para o usuário. Você pode ajustar o tempo de vida de um token de ID para controlar a frequência com que o aplicativo Web expira a sessão do aplicativo e com que frequência ele requer que o usuário seja reautenticado com o Azure AD (silenciosa ou interativamente).
+Fichas de identificação são passadas para sites e clientes nativos. As fichas de identificação contêm informações de perfil sobre um utilizador. Um símbolo de identificação está ligado a uma combinação específica de utilizador e cliente. As fichas de identificação são consideradas válidas até ao seu termo. Normalmente, uma aplicação web corresponde ao tempo de vida útil da sessão de um utilizador na aplicação ao tempo de vida do token de id emitido para o utilizador. Pode ajustar o tempo de vida de um token de id para controlar a frequência com que a aplicação da Web expira na sessão de aplicação e com que frequência o utilizador é reautenticado com AD Azure (silenciosamente ou interativamente).
 
-### <a name="single-sign-on-session-tokens"></a>Tokens de sessão de logon único
-Quando um usuário é autenticado com o Azure AD, uma sessão de logon único (SSO) é estabelecida com o navegador do usuário e o Azure AD. O token de SSO, na forma de um cookie, representa essa sessão. O token de sessão de SSO não está associado a um aplicativo cliente/recurso específico. Os tokens de sessão de SSO podem ser revogados e sua validade é verificada toda vez que eles são usados.
+### <a name="single-sign-on-session-tokens"></a>Fichas únicas da sessão de inscrição
+Quando um utilizador autentica com AD Azure, é estabelecida uma única sessão de sinalização (SSO) com o navegador do utilizador e a AD Azure. O símbolo SSO, na forma de um cookie, representa esta sessão. O token da sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens da sessão SSO podem ser revogados, e a sua validade é verificada sempre que são usadas.
 
-O Azure AD usa dois tipos de tokens de sessão de SSO: persistente e não persistente. Os tokens de sessão persistentes são armazenados como cookies persistentes pelo navegador. Os tokens de sessão não persistentes são armazenados como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador é fechado.) Normalmente, um token de sessão não persistente é armazenado. Mas, quando o usuário seleciona a caixa de seleção **manter-me conectado** durante a autenticação, um token de sessão persistente é armazenado.
+A Azure AD usa dois tipos de fichas de sessão SSO: persistente e não persistente. Os tokens de sessão persistentes são armazenados como cookies persistentes pelo navegador. Os tokens de sessão não persistentes são armazenados como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador está fechado.) Normalmente, uma ficha de sessão não persistente é armazenada. Mas, quando o utilizador seleciona o **Keep me assinado na** caixa de verificação durante a autenticação, uma ficha de sessão persistente é armazenada.
 
-Os tokens de sessão não persistentes têm um tempo de vida de 24 horas. Os tokens persistentes têm um tempo de vida de 180 dias. Sempre que um token de sessão de SSO é usado dentro de seu período de validade, o período de validade é estendido em mais de 24 horas ou 180 dias, dependendo do tipo de token. Se um token de sessão de SSO não for usado em seu período de validade, ele será considerado expirado e não será mais aceito.
+Fichas de sessão não persistentes têm uma vida útil de 24 horas. Fichas persistentes têm uma vida inteira de 180 dias. Sempre que uma ficha de sessão SSO é utilizada dentro do seu período de validade, o período de validade é prorrogado mais 24 horas ou 180 dias, dependendo do tipo de token. Se uma ficha de sessão SSO não for utilizada dentro do seu período de validade, é considerada expirada e já não é aceite.
 
-Você pode usar uma política para definir a hora em que o primeiro token de sessão foi emitido, além do qual o token de sessão não é mais aceito. (Para fazer isso, use a propriedade idade máxima de token de sessão.) Você pode ajustar o tempo de vida de um token de sessão para controlar quando e com que frequência um usuário precisa reinserir as credenciais, em vez de ser autenticado silenciosamente, ao usar um aplicativo Web.
+Pode utilizar uma política para definir o tempo após a primeira sessão ter sido emitida uma ficha para além da qual o token da sessão já não é aceite. (Para isso, utilize a propriedade Session Token Max Age.) Pode ajustar o tempo de vida de uma sessão para controlar quando e com que frequência um utilizador é obrigado a reentrar nas credenciais, em vez de ser silenciosamente autenticado, quando utilizar uma aplicação web.
 
-### <a name="token-lifetime-policy-properties"></a>Propriedades da política de tempo de vida do token
-Uma política de tempo de vida de token é um tipo de objeto de política que contém regras de tempo de vida de token. Use as propriedades da política para controlar tempos de vida de token especificados. Se nenhuma política for definida, o sistema aplicará o valor de tempo de vida padrão.
+### <a name="token-lifetime-policy-properties"></a>Propriedades de política vitalícia simbólica
+Uma política simbólica de vida é um tipo de objeto político que contém regras de vida simbólicas. Utilize as propriedades da apólice para controlar as vidas token especificadas. Se nenhuma política for definida, o sistema aplica o valor de vida padrão.
 
-### <a name="configurable-token-lifetime-properties"></a>Propriedades de tempo de vida de token configuráveis
-| Propriedade | Cadeia de caracteres da propriedade de política | Prejudica | Predefinição | Mínimo | Máximo |
+### <a name="configurable-token-lifetime-properties"></a>Propriedades de vida simbólicas configuráveis
+| Propriedade | Cadeia de propriedade política | Afeta | Predefinição | Mínimo | Máximo |
 | --- | --- | --- | --- | --- | --- |
-| Tempo de vida do token de acesso |AccessTokenLifetime<sup>2</sup> |Tokens de acesso, tokens de ID, tokens de SAML2 |1 hora |10 minutos |1 dia |
-| Tempo máximo inativo de token de atualização |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
-| Idade máxima de token de atualização de fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
-| Idade máxima de token de atualização multifator |MaxAgeMultiFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
-| Idade máxima de token de sessão de fator único |MaxAgeSessionSingleFactor |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
-| Idade máxima de token de sessão multifator |MaxAgeSessionMultiFactor |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Acesso Token Lifetime |AccessTokenLifetime<sup>2</sup> |Fichas de acesso, fichas de identificação, fichas SAML2 |1 hora |10 minutos |1 dia |
+| Refrescar tempo inativo token Max |MaxInactiveTime |Fichas de atualização |90 dias |10 minutos |90 dias |
+| Idade token max de atualização de um fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer utilizador) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Tokens de atualização (para qualquer utilizador) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade token Max |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não persistentes) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não persistentes) |Até que revogado |10 minutos |Until-revoked<sup>1</sup> |
 
-* <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para esses atributos.
-* <sup>2</sup> Para garantir que o cliente Web do Microsoft Teams funcione, é recomendável manter o AccessTokenLifetime a mais de 15 minutos para o Microsoft Teams.
+* <sup>1</sup>365 dias é o comprimento explícito máximo que pode ser definido para estes atributos.
+* <sup>2</sup> Para garantir que o cliente Web da Microsoft Teams funciona, recomenda-se manter o AccessTokenLifetime a mais de 15 minutos para as Equipas Microsoft.
 
 ### <a name="exceptions"></a>Exceções
-| Propriedade | Prejudica | Predefinição |
+| Propriedade | Afeta | Predefinição |
 | --- | --- | --- |
-| Idade máxima do token de atualização (emitido para usuários federados que têm informações de revogação insuficientes<sup>1</sup>) |Tokens de atualização (emitidos para usuários federados que têm informações de revogação insuficientes<sup>1</sup>) |12 horas |
-| Tempo máximo inativo de token de atualização (emitido para clientes confidenciais) |Tokens de atualização (emitidos para clientes confidenciais) |90 dias |
-| Idade máxima do token de atualização (emitido para clientes confidenciais) |Tokens de atualização (emitidos para clientes confidenciais) |Until-revogado |
+| Refresh Token Max Age (emitido para utilizadores federados que têm informações de revogação insuficientes<sup>1</sup>) |Fichas de atualização (emitidas para utilizadores federados que tenham informações de revogação insuficientes<sup>1</sup>) |12 horas |
+| Refresh Token Max Inative Time (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |90 dias |
+| Refresh Token Max Age (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |Até que revogado |
 
-* <sup>1</sup> Os usuários federados que têm informações de revogação insuficientes incluem todos os usuários que não têm o atributo "LastPasswordChangeTimestamp" sincronizado. Esses usuários recebem essa idade máxima curta porque o AAD não consegue verificar quando revogar tokens vinculados a uma credencial antiga (como uma senha que foi alterada) e deve verificar novamente com mais frequência para garantir que o usuário e os tokens associados ainda estejam em boas condições  permanente. Para melhorar essa experiência, os administradores de locatários devem garantir que estejam sincronizando o atributo "LastPasswordChangeTimestamp" (isso pode ser definido no objeto de usuário usando o PowerShell ou por meio de AADSync).
+* <sup>1</sup> Os utilizadores federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque a AAD não pode verificar quando revogar fichas que estão ligadas a uma credencial antiga (como uma palavra-passe que foi alterada) e devem voltar a fazer o check-in com mais frequência para garantir que o utilizador e as fichas associadas ainda estão em boas condições.  de pé. Para melhorar esta experiência, os administradores dos inquilinos devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto de utilizador utilizando o Powershell ou através do AADSync).
 
-### <a name="policy-evaluation-and-prioritization"></a>Avaliação e priorização de política
-Você pode criar e atribuir uma política de tempo de vida de token a um aplicativo específico, à sua organização e às entidades de serviço. Várias políticas podem se aplicar a um aplicativo específico. A política de tempo de vida do token que entra em vigor segue estas regras:
+### <a name="policy-evaluation-and-prioritization"></a>Avaliação e priorização de políticas
+Você pode criar e, em seguida, atribuir uma política de vida simbólica a uma aplicação específica, à sua organização, e aos diretores de serviço. Várias políticas podem aplicar-se a uma aplicação específica. A política simbólica vitalícia que entra em vigor segue estas regras:
 
-* Se uma política for explicitamente atribuída à entidade de serviço, ela será imposta.
-* Se nenhuma política for explicitamente atribuída à entidade de serviço, uma política explicitamente atribuída à organização pai da entidade de serviço será imposta.
-* Se nenhuma política for explicitamente atribuída à entidade de serviço ou à organização, a política atribuída ao aplicativo será imposta.
-* Se nenhuma política tiver sido atribuída à entidade de serviço, à organização ou ao objeto de aplicativo, os valores padrão serão impostos. (Consulte a tabela em [Propriedades de tempo de vida de token configuráveis](#configurable-token-lifetime-properties).)
+* Se uma política for explicitamente atribuída ao diretor de serviço, é aplicada.
+* Se nenhuma política for explicitamente atribuída ao diretor de serviço, é aplicada uma política explicitamente atribuída à organização-mãe do diretor de serviços.
+* Se nenhuma política for explicitamente atribuída ao diretor de serviço ou à organização, a política atribuída à aplicação é aplicada.
+* Se nenhuma política tiver sido atribuída ao diretor de serviço, à organização ou ao objeto de aplicação, os valores predefinidos são aplicados. (Ver a tabela em [propriedades de token configuráveis](#configurable-token-lifetime-properties).)
 
-Para obter mais informações sobre a relação entre objetos de aplicativo e objetos de entidade de serviço, consulte objetos de entidade de serviço [e de aplicativo no Azure Active Directory](app-objects-and-service-principals.md).
+Para obter mais informações sobre a relação entre objetos de aplicação e objetos principais de serviço, consulte [os objetos principais da Aplicação e do serviço no Diretório Ativo do Azure](app-objects-and-service-principals.md).
 
-A validade de um token é avaliada no momento em que o token é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
+A validade de um símbolo é avaliada no momento em que o símbolo é usado. A política com maior prioridade na aplicação a que está a ser acedida entra em vigor.
 
-Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Portanto, 80 dias e 30 minutos seriam `80.00:30:00`.  O D à esquerda pode ser Descartado se for zero, portanto, 90 minutos seria `00:90:00`.  
+Todas as horas terrosas utilizadas C# aqui são formatadas de acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) - D.HH:MM:SS.  Então 80 dias e 30 minutos seriam `80.00:30:00`.  O líder D pode ser derrubado se zero, então 90 minutos seriam `00:90:00`.  
 
 > [!NOTE]
 > Aqui está um cenário de exemplo.
 >
-> Um usuário deseja acessar dois aplicativos Web: aplicativo Web A e aplicativo Web B.
+> Um utilizador quer aceder a duas aplicações web: Aplicação Web A e Aplicação Web B.
 > 
-> Fatores
-> * Ambos os aplicativos Web estão na mesma organização pai.
-> * A política de tempo de vida de token 1 com uma idade máxima de token de sessão de oito horas é definida como o padrão da organização pai.
-> * O aplicativo Web A é um aplicativo Web de uso regular e não está vinculado a nenhuma política.
-> * O aplicativo Web B é usado para processos altamente confidenciais. Sua entidade de serviço está vinculada à política de tempo de vida de token 2, que tem uma idade máxima de token de sessão de 30 minutos.
+> Fatores:
+> * Ambas as aplicações web estão na mesma organização-mãe.
+> * Token Lifetime Policy 1 com uma Sessão Token Max Age de oito horas é definido como o padrão da organização-mãe.
+> * Aplicação Web A é uma aplicação web de uso regular e não está ligada a nenhuma política.
+> * Aplicação Web B é usado para processos altamente sensíveis. O seu diretor de serviço está ligado à Token Lifetime Policy 2, que tem uma Sessão Token Max Age de 30 minutos.
 >
-> Às 12:00 PM, o usuário inicia uma nova sessão do navegador e tenta acessar o aplicativo Web A. O usuário é redirecionado para o Azure AD e é solicitado a entrar. Isso cria um cookie que tem um token de sessão no navegador. O usuário é Redirecionado de volta para o aplicativo Web A com um token de ID que permite ao usuário acessar o aplicativo.
+> Às 12:00, o utilizador inicia uma nova sessão de navegador e tenta aceder à Aplicação Web A. O utilizador é redirecionado para a AD Azure e é solicitado a iniciar sessão. Isto cria um cookie que tem um token de sessão no navegador. O utilizador é redirecionado para a Aplicação Web A com um token DE IDENTIFICAção que permite ao utilizador aceder à aplicação.
 >
-> Às 12:15 PM, o usuário tenta acessar o aplicativo Web B. O navegador redireciona para o Azure AD, que detecta o cookie de sessão. A entidade de serviço do aplicativo Web B está vinculada à política de tempo de vida do token 2, mas também faz parte da organização pai, com a política de tempo de vida do token padrão 1. A política de tempo de vida de token 2 entra em vigor porque as políticas vinculadas a entidades de serviço têm uma prioridade mais alta do que as políticas padrão da organização. O token de sessão foi originalmente emitido nos últimos 30 minutos, portanto, é considerado válido. O usuário é Redirecionado de volta para o aplicativo Web B com um token de ID que concede acesso a eles.
+> Às 12:15, o utilizador tenta aceder à Aplicação Web B. O navegador redireciona para a AD Azure, que deteta o cookie da sessão. O diretor de serviço da Aplicação Web B está ligado à Token Lifetime Policy 2, mas também faz parte da organização-mãe, com a Política vitalícia padrão token 1. Token Lifetime Policy 2 entra em vigor porque as políticas ligadas aos principais de serviços têm uma prioridade maior do que as políticas de incumprimento da organização. O token da sessão foi originalmente emitido nos últimos 30 minutos, pelo que é considerado válido. O utilizador é redirecionado para a Aplicação Web B com um token de identificação que lhes dá acesso.
 >
-> Às 1:00 PM, o usuário tenta acessar o aplicativo Web A. O usuário é redirecionado para o Azure AD. O aplicativo Web A não está vinculado a nenhuma política, mas como está em uma organização com a política de tempo de vida de token padrão 1, essa política entra em vigor. O cookie de sessão que foi originalmente emitido nas últimas oito horas é detectado. O usuário é redirecionado silenciosamente de volta para o aplicativo Web A com um novo token de ID. Não é necessário autenticar o usuário.
+> Às 13:00, o utilizador tenta aceder à Aplicação Web A. O utilizador é redirecionado para a AD Azure. Aplicação Web A não está ligado a nenhuma política, mas porque está numa organização com política de vida padrão token 1, essa política entra em vigor. O cookie da sessão que foi originalmente emitido nas últimas oito horas é detetado. O utilizador é redirecionado silenciosamente para a Aplicação Web A com um novo token ID. O utilizador não é obrigado a autenticar.
 >
-> Imediatamente depois, o usuário tenta acessar o aplicativo Web B. O usuário é redirecionado para o Azure AD. Como antes, a política de tempo de vida do token 2 entra em vigor. Como o token foi emitido há mais de 30 minutos, é solicitado que o usuário insira novamente suas credenciais de entrada. Um token de sessão totalmente novo e um token de ID são emitidos. O usuário pode acessar o aplicativo Web B.
+> Imediatamente a seguir, o utilizador tenta aceder à Aplicação Web B. O utilizador é redirecionado para a AD Azure. Como antes, token Life Policy 2 entra em vigor. Como o símbolo foi emitido há mais de 30 minutos, o utilizador é solicitado a reentrar nas suas credenciais de entrada. Um novo token de sessão e ficha de identificação são emitidos. O utilizador pode então aceder à Aplicação Web B.
 >
 >
 
 ## <a name="configurable-policy-property-details"></a>Detalhes da propriedade de política configurável
-### <a name="access-token-lifetime"></a>Tempo de vida do token de acesso
-**Cadeia de caracteres:** AccessTokenLifetime
+### <a name="access-token-lifetime"></a>Acesso Token Lifetime
+**Cadeia:** AccessTokenLifetime
 
-**Afeta:** Tokens de acesso, tokens de ID, tokens SAML
+**Afeta:** Fichas de acesso, fichas de identificação, fichas SAML
 
-**Resumo:** Esta política controla por quanto tempo os tokens de acesso e de ID para esse recurso são considerados válidos. A redução da propriedade de tempo de vida do token de acesso reduz o risco de um token de acesso ou token de ID ser usado por um ator mal-intencionado por um longo período de tempo. (Esses tokens não podem ser revogados.) A desvantagem é que o desempenho é afetado negativamente, pois os tokens precisam ser substituídos com mais frequência.
+**Resumo:** Esta política controla a duração do acesso e dos tokens de identificação deste recurso são considerados válidos. A redução da propriedade Access Token Lifetime atenua o risco de um token de acesso ou ficha de identificação ser usado por um ator malicioso por um longo período de tempo. (Estas fichas não podem ser revogadas.) A compensação é que o desempenho é negativamente afetado, porque as fichas têm de ser substituídas com mais frequência.
 
-### <a name="refresh-token-max-inactive-time"></a>Tempo máximo inativo de token de atualização
-**Cadeia de caracteres:** MaxInactiveTime
+### <a name="refresh-token-max-inactive-time"></a>Refrescar tempo inativo token Max
+**Cadeia:** MaxInactiveTime
 
-**Afeta:** Tokens de atualização
+**Afeta:** Fichas de atualização
 
-**Resumo:** Essa política controla o quão antigo um token de atualização pode ser antes de um cliente não poder mais usá-lo para recuperar um novo par de tokens de acesso/atualização ao tentar acessar esse recurso. Como um novo token de atualização geralmente é retornado quando um token de atualização é usado, essa política impede o acesso se o cliente tentar acessar qualquer recurso usando o token de atualização atual durante o período de tempo especificado.
+**Resumo:** Esta política controla a idade de um token de atualização antes que um cliente não possa mais usá-lo para recuperar um novo par de fichas de acesso/atualização ao tentar aceder a este recurso. Uma vez que um novo token de atualização é normalmente devolvido quando um token de atualização é usado, esta política impede o acesso se o cliente tentar aceder a qualquer recurso usando o token de atualização atual durante o período de tempo especificado.
 
-Essa política força os usuários que não estão ativos em seu cliente a autenticar novamente para recuperar um novo token de atualização.
+Esta política obriga os utilizadores que não têm estado ativos no seu cliente a reautenticar em recuperar um novo token de atualização.
 
-A propriedade tempo máximo inativo do token de atualização deve ser definida com um valor mais baixo do que a idade máxima do token de fator único e as propriedades de idade máxima do token de atualização multifator.
+A propriedade Refresh Token Max Inative Time deve ser definida para um valor mais baixo do que a Idade Máxima token single-factor e as propriedades de Multi-Factor Refresh Token Max Age.
 
-### <a name="single-factor-refresh-token-max-age"></a>Idade máxima de token de atualização de fator único
-**Cadeia de caracteres:** MaxAgeSingleFactor
+### <a name="single-factor-refresh-token-max-age"></a>Idade token max de atualização de um fator único
+**Cadeia:** MaxageSingleFactor
 
-**Afeta:** Tokens de atualização
+**Afeta:** Fichas de atualização
 
-**Resumo:** Essa política controla por quanto tempo um usuário pode usar um token de atualização para obter um novo par de tokens de acesso/atualização após a última autenticação bem-sucedida usando apenas um único fator. Depois que um usuário é autenticado e recebe um novo token de atualização, o usuário pode usar o fluxo do token de atualização para o período de tempo especificado. (Isso é verdadeiro, desde que o token de atualização atual não seja revogado e não seja deixado não utilizado por mais tempo do que a hora inativa.) Nesse ponto, o usuário é forçado a autenticar novamente para receber um novo token de atualização.
+**Resumo:** Esta política controla quanto tempo um utilizador pode usar um token de atualização para obter um novo par de fichas de acesso/atualização depois de ter autenticado com sucesso usando apenas um único fator. Depois de um utilizador autenticar e receber um novo token de atualização, o utilizador pode utilizar o fluxo de token de atualização durante o período de tempo especificado. (Isto é verdade desde que o token de atualização atual não seja revogado, e não seja deixado por utilizar por mais tempo do que o tempo inativo.) Nessa altura, o utilizador é obrigado a reautenticar para receber um novo token de atualização.
 
-Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que você defina essa propriedade com um valor igual ou menor que a propriedade idade máxima do token de atualização multifator.
+A redução da idade máxima obriga os utilizadores a autenticar com mais frequência. Uma vez que a autenticação de um fator único é considerada menos segura do que a autenticação de vários fatores, recomendamos que este imóvel seja igual ou inferior ao da propriedade Multi-Factor Refresh Token Max Age.
 
-### <a name="multi-factor-refresh-token-max-age"></a>Idade máxima de token de atualização multifator
-**Cadeia de caracteres:** MaxAgeMultiFactor
+### <a name="multi-factor-refresh-token-max-age"></a>Multi-Factor Refresh Token Max Age
+**Cadeia:** MaxageMultiFactor
 
-**Afeta:** Tokens de atualização
+**Afeta:** Fichas de atualização
 
-**Resumo:** Essa política controla por quanto tempo um usuário pode usar um token de atualização para obter um novo par de tokens de acesso/atualização após a última autenticação bem-sucedida usando vários fatores. Depois que um usuário é autenticado e recebe um novo token de atualização, o usuário pode usar o fluxo do token de atualização para o período de tempo especificado. (Isso é verdadeiro, desde que o token de atualização atual não seja revogado e não seja usado por mais tempo do que a hora inativa.) Nesse ponto, os usuários são forçados a autenticar novamente para receber um novo token de atualização.
+**Resumo:** Esta política controla quanto tempo um utilizador pode usar um token de atualização para obter um novo par de fichas de acesso/atualização depois de ter autenticado com sucesso usando vários fatores. Depois de um utilizador autenticar e receber um novo token de atualização, o utilizador pode utilizar o fluxo de token de atualização durante o período de tempo especificado. (Isto é verdade desde que o token de atualização atual não seja revogado, e não seja utilizado por mais tempo do que o tempo inativo.) Nessa altura, os utilizadores são obrigados a reautenticar para receber um novo token de atualização.
 
-Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que você defina essa propriedade com um valor igual ou maior que a propriedade idade máxima do token de atualização de fator único.
+A redução da idade máxima obriga os utilizadores a autenticar com mais frequência. Uma vez que a autenticação de um fator único é considerada menos segura do que a autenticação de vários fatores, recomendamos que este imóvel seja igual ou superior ao imóvel De atualização de fator único Token Max Age.
 
-### <a name="single-factor-session-token-max-age"></a>Idade máxima de token de sessão de fator único
-**Cadeia de caracteres:** MaxAgeSessionSingleFactor
+### <a name="single-factor-session-token-max-age"></a>Idade token Max
+**Cadeia:** MaxagesessionSingleFactor
 
-**Afeta:** Tokens de sessão (persistentes e não persistentes)
+**Afeta:** Fichas de sessão (persistentes e não persistentes)
 
-**Resumo:** Essa política controla por quanto tempo um usuário pode usar um token de sessão para obter uma nova ID e um novo token de sessão após a última autenticação bem-sucedida usando apenas um único fator. Depois que um usuário é autenticado e recebe um novo token de sessão, o usuário pode usar o fluxo de token de sessão para o período de tempo especificado. (Isso será verdadeiro, desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período de tempo especificado, o usuário é forçado a autenticar novamente para receber um novo token de sessão.
+**Resumo:** Esta política controla quanto tempo um utilizador pode usar um token de sessão para obter um novo documento de identificação e sessão depois de ter autenticado com sucesso usando apenas um único fator. Depois de um utilizador autenticar e receber uma nova sessão de token, o utilizador pode utilizar o fluxo de fichas da sessão durante o período de tempo especificado. (Isto é verdade desde que o presente token da sessão não seja revogado e não tenha expirado.) Após o período de tempo especificado, o utilizador é obrigado a reautenticar para receber um novo token de sessão.
 
-Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que você defina essa propriedade com um valor igual ou menor que a propriedade idade máxima de token de sessão multifator.
+A redução da idade máxima obriga os utilizadores a autenticar com mais frequência. Uma vez que a autenticação de um fator único é considerada menos segura do que a autenticação de vários fatores, recomendamos que este imóvel seja igual ou inferior ao da propriedade Multi-Factor Session Token Max Age.
 
-### <a name="multi-factor-session-token-max-age"></a>Idade máxima de token de sessão multifator
+### <a name="multi-factor-session-token-max-age"></a>Multi-Factor Session Token Max Age
 **String:** MaxAgeSessionMultiFactor
 
-**Afeta:** Tokens de sessão (persistentes e não persistentes)
+**Afeta:** Fichas de sessão (persistentes e não persistentes)
 
-**Resumo:** Essa política controla por quanto tempo um usuário pode usar um token de sessão para obter uma nova ID e um novo token de sessão após a última vez que eles foram autenticados com êxito usando vários fatores. Depois que um usuário é autenticado e recebe um novo token de sessão, o usuário pode usar o fluxo de token de sessão para o período de tempo especificado. (Isso será verdadeiro, desde que o token de sessão atual não seja revogado e não tenha expirado.) Após o período de tempo especificado, o usuário é forçado a autenticar novamente para receber um novo token de sessão.
+**Resumo:** Esta política controla quanto tempo um utilizador pode usar um token de sessão para obter um novo documento de identificação e sessão após a última vez que autenticaram com sucesso usando vários fatores. Depois de um utilizador autenticar e receber uma nova sessão de token, o utilizador pode utilizar o fluxo de fichas da sessão durante o período de tempo especificado. (Isto é verdade desde que o presente token da sessão não seja revogado e não tenha expirado.) Após o período de tempo especificado, o utilizador é obrigado a reautenticar para receber um novo token de sessão.
 
-Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que você defina essa propriedade com um valor igual ou maior que a propriedade idade máxima de token de sessão de fator único.
+A redução da idade máxima obriga os utilizadores a autenticar com mais frequência. Uma vez que a autenticação de um fator único é considerada menos segura do que a autenticação de vários fatores, recomendamos que este imóvel seja igual ou superior ao imóvel token Max Age da Sessão Single-Factor.
 
-## <a name="example-token-lifetime-policies"></a>Exemplo de políticas de tempo de vida de token
-Muitos cenários são possíveis no Azure AD quando você pode criar e gerenciar tempos de vida de token para aplicativos, entidades de serviço e sua organização em geral. Nesta seção, examinaremos alguns cenários de política comuns que podem ajudá-lo a impor novas regras para:
+## <a name="example-token-lifetime-policies"></a>Exemplo de políticas de vida simbólicas
+Muitos cenários são possíveis em Azure AD quando você pode criar e gerir vidas simbólicas para apps, diretores de serviço e sua organização geral. Nesta secção, percorremos alguns cenários de política comum que podem ajudá-lo a impor novas regras para:
 
 * Duração do Token
-* Tempo máximo inativo do token
-* Idade máxima do token
+* Tempo Inativo Token Max
+* Idade Token Max
 
-Nos exemplos, você pode aprender a:
+Nos exemplos, pode aprender a:
 
-* Gerenciar a política padrão de uma organização
-* Criar uma política para entrada na Web
-* Criar uma política para um aplicativo nativo que chama uma API da Web
-* Gerenciar uma política avançada
+* Gerir a política de incumprimento de uma organização
+* Criar uma política de inscrição na web
+* Crie uma política para uma aplicação nativa que chama a API web
+* Gerir uma política avançada
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas para aplicativos, entidades de serviço e sua organização em geral. Se você for novo no Azure AD, recomendamos que saiba [como obter um locatário do Azure ad](quickstart-create-new-tenant.md) antes de prosseguir com esses exemplos.  
+Nos seguintes exemplos, cria, atualiza, liga e elimina políticas para apps, diretores de serviços e a sua organização em geral. Se você é novo em Azure AD, recomendamos que você aprenda sobre [como obter um inquilino Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.  
 
 Para começar, execute as seguintes etapas:
 
-1. Baixe a versão mais recente da [Visualização pública do módulo do Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Execute o comando `Connect` para entrar em sua conta de administrador do Azure AD. Execute esse comando toda vez que iniciar uma nova sessão.
+1. Descarregue o mais recente lançamento do Módulo PowerShell Da [AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+2. Execute o comando `Connect` para iniciar sessão na sua conta de administração da AD Azure. Execute esse comando toda vez que iniciar uma nova sessão.
 
     ```powershell
     Connect-AzureAD -Confirm
     ```
 
-3. Para ver todas as políticas que foram criadas em sua organização, execute o comando a seguir. Execute este comando após a maioria das operações nos cenários a seguir. A execução do comando também ajuda você a obter o * * * * de suas políticas.
+3. Para ver todas as políticas que foram criadas em sua organização, execute o comando a seguir. Executar este comando após a maioria das operações nos seguintes cenários. Executar o comando também ajuda a obter o ** ** das suas políticas.
 
     ```powershell
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>Exemplo: gerenciar a política padrão de uma organização
-Neste exemplo, você cria uma política que permite que os usuários façam logon com menos frequência em toda a organização. Para fazer isso, crie uma política de tempo de vida de token para tokens de atualização de fator único, que é aplicada em sua organização. A política é aplicada a todos os aplicativos em sua organização e a cada entidade de serviço que ainda não tem uma política definida.
+### <a name="example-manage-an-organizations-default-policy"></a>Exemplo: Gerir a política de incumprimento de uma organização
+Neste exemplo, cria uma política que permite o sinal dos seus utilizadores com menos frequência em toda a sua organização. Para isso, crie uma política de vida simbólica para tokens de refrescamento single-factor, que é aplicado em toda a sua organização. A política é aplicada a todas as aplicações da sua organização, e a cada diretor de serviço que ainda não tem um conjunto de políticas.
 
-1. Criar uma política de tempo de vida do token.
+1. Crie uma política simbólica para toda a vida.
 
-    1. Defina o token de atualização de fator único para "até a revogação". O token não expira até que o acesso seja revogado. Crie a seguinte definição de política:
+    1. Desloque o token de atualização de fator único para "até revogar". O símbolo não expira até que o acesso seja revogado. Criar a seguinte definição de política:
 
         ```powershell
         @('{
@@ -252,27 +251,27 @@ Neste exemplo, você cria uma política que permite que os usuários façam logo
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. Para ver sua nova política e obter o **ObjectID**da política, execute o seguinte comando:
+    3. Para ver a sua nova política, e para obter o **ObjectId**da apólice, executar o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atualize a política.
+2. Atualize a apólice.
 
-    Você pode decidir que a primeira política definida neste exemplo não é tão estrita quanto o seu serviço requer. Para definir o token de atualização de fator único para expirar em dois dias, execute o seguinte comando:
+    Pode decidir que a primeira política que deu neste exemplo não é tão rigorosa como o seu serviço exige. Para definir o seu Token Refresh Single-Factor expirar em dois dias, execute o seguinte comando:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-### <a name="example-create-a-policy-for-web-sign-in"></a>Exemplo: criar uma política para entrada na Web
+### <a name="example-create-a-policy-for-web-sign-in"></a>Exemplo: Criar uma política de inscrição na Web
 
-Neste exemplo, você cria uma política que exige que os usuários se autentiquem com mais frequência em seu aplicativo Web. Essa política define o tempo de vida dos tokens de acesso/ID e a idade máxima de um token de sessão multifator para a entidade de serviço do seu aplicativo Web.
+Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem com mais frequência na sua aplicação web. Esta política define a vida útil dos tokens de acesso/ID e a idade máxima de uma sessão de vários fatores para o diretor de serviço da sua aplicação web.
 
-1. Criar uma política de tempo de vida do token.
+1. Crie uma política simbólica para toda a vida.
 
-    Essa política, para entrada na Web, define o tempo de vida do token de acesso/ID e a idade máxima de token de sessão de fator único para duas horas.
+    Esta política, para o início de sessão web, define a vida útil do token de acesso/ID e a idade máxima da sessão de um único fator para duas horas.
 
     1. Para criar a política, execute este comando:
 
@@ -280,46 +279,46 @@ Neste exemplo, você cria uma política que exige que os usuários se autentique
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver sua nova política e obter o **ObjectID**da política, execute o seguinte comando:
+    2. Para ver a sua nova política, e para obter a política **ObjectId,** executar o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a política à entidade de serviço. Você também precisa obter o **ObjectID** da entidade de serviço.
+2. Atribua a política à entidade de serviço. Também precisa de obter o **ObjectId** do seu diretor de serviço.
 
-    1. Use o cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todas as entidades de serviço de sua organização ou uma única entidade de serviço.
+    1. Utilize o [Cmdlet Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todos os diretores de serviço da sua organização ou um único diretor de serviço.
         ```powershell
         # Get ID of the service principal
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. Quando você tiver a entidade de serviço, execute o seguinte comando:
+    2. Quando tiver o diretor de serviço, faça o seguinte comando:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exemplo: criar uma política para um aplicativo nativo que chama uma API da Web
-Neste exemplo, você cria uma política que exige que os usuários se autentiquem com menos frequência. A política também aumenta a quantidade de tempo que um usuário pode ficar inativo antes que o usuário precise se autenticar novamente. A política é aplicada à API da Web. Quando o aplicativo nativo solicita a API da Web como um recurso, essa política é aplicada.
+### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exemplo: Criar uma política para uma aplicação nativa que chama a API web
+Neste exemplo, cria-se uma política que exige que os utilizadores autentiquem com menos frequência. A política também alonga o tempo que um utilizador pode estar inativo antes de o utilizador se reanotar. A política é aplicada à Web API. Quando a aplicação nativa solicita a API web como recurso, esta política é aplicada.
 
-1. Criar uma política de tempo de vida do token.
+1. Crie uma política simbólica para toda a vida.
 
-    1. Para criar uma política estrita para uma API da Web, execute o seguinte comando:
+    1. Para criar uma política rigorosa para uma API web, executar o seguinte comando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver sua nova política, execute o seguinte comando:
+    2. Para ver a sua nova política, dirija o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a política à sua API da Web. Você também precisa obter o **ObjectID** do seu aplicativo. Use o cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para localizar o **ObjectID**do seu aplicativo ou use o [portal do Azure](https://portal.azure.com/).
+2. Atribua a apólice à sua Web API. Também precisa de obter o **ObjectId** da sua aplicação. Utilize o cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId**da sua aplicação, ou utilize o [portal Azure](https://portal.azure.com/).
 
-    Obtenha o **ObjectID** do seu aplicativo e atribua a política:
+    Obtenha o **ObjectId** da sua aplicação e atribua a política:
 
     ```powershell
     # Get the application
@@ -329,30 +328,30 @@ Neste exemplo, você cria uma política que exige que os usuários se autentique
     Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
     ```
 
-### <a name="example-manage-an-advanced-policy"></a>Exemplo: gerenciar uma política avançada
-Neste exemplo, você cria algumas políticas para saber como o sistema de prioridade funciona. Você também aprenderá como gerenciar várias políticas que são aplicadas a vários objetos.
+### <a name="example-manage-an-advanced-policy"></a>Exemplo: Gerir uma política avançada
+Neste exemplo, cria-se algumas políticas para aprender como funciona o sistema prioritário. Você também aprende como gerir múltiplas políticas que são aplicadas a vários objetos.
 
-1. Criar uma política de tempo de vida do token.
+1. Crie uma política simbólica para toda a vida.
 
-    1. Para criar uma política padrão da organização que defina o tempo de vida do token de atualização de fator único para 30 dias, execute o seguinte comando:
+    1. Para criar uma política de incumprimento da organização que define a vida útil do Single-Factor Refresh Token para 30 dias, executar o seguinte comando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver sua nova política, execute o seguinte comando:
+    2. Para ver a sua nova política, dirija o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a política a uma entidade de serviço.
+2. Atribuir a apólice a um diretor de serviço.
 
-    Agora, você tem uma política que se aplica a toda a organização. Talvez você queira preservar essa política de 30 dias para uma entidade de serviço específica, mas alterar a política padrão da organização para o limite superior de "até a revogação".
+    Agora, tem uma política que se aplica a toda a organização. Talvez queira preservar esta política de 30 dias para um diretor de serviço específico, mas mude a política de incumprimento da organização para o limite máximo de "até revogar".
 
-    1. Para ver todas as entidades de serviço de sua organização, use o cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
+    1. Para ver todos os diretores de serviço da sua organização, utilize o [Cmdlet Get-AzureADServicePrincipal.](/powershell/module/azuread/get-azureadserviceprincipal)
 
-    2. Quando você tiver a entidade de serviço, execute o seguinte comando:
+    2. Quando tiver o diretor de serviço, faça o seguinte comando:
 
         ```powershell
         # Get ID of the service principal
@@ -362,25 +361,25 @@ Neste exemplo, você cria algumas políticas para saber como o sistema de priori
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Defina o sinalizador de `IsOrganizationDefault` como false:
+3. Coloque a bandeira `IsOrganizationDefault` em falso:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Criar uma nova política padrão da organização:
+4. Criar uma nova política de incumprimento da organização:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
     ```
 
-    Agora você tem a política original vinculada à sua entidade de serviço e a nova política é definida como a política padrão da sua organização. É importante lembrar que as políticas aplicadas às entidades de serviço têm prioridade sobre as políticas padrão da organização.
+    Tem agora a política original ligada ao seu diretor de serviço, e a nova política é definida como a sua política de incumprimento da organização. É importante lembrar que as políticas aplicadas aos diretores de serviçotêm prioridade sobre as políticas de incumprimento da organização.
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlets
 
 ### <a name="manage-policies"></a>Gerir políticas
 
-Você pode usar os cmdlets a seguir para gerenciar políticas.
+Pode utilizar os seguintes cmdlets para gerir as políticas.
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
@@ -392,16 +391,16 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Definition</code> |Matriz de JSON em cadeias que contém todas as regras da política. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |Se for true, definirá a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |Tipo de política. Para tempos de vida de token, sempre use "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [opcional] |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> |Uma série de JSON stringified que contém todas as regras da política. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |Cadeia do nome da apólice. |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |Se for verdade, define a política como a política padrão da organização. Se é falso, não faz nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |Tipo de política. Para token lifetimes, use sempre "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Estabelece uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Obtém todas as políticas do Azure AD ou uma política especificada.
+Obtém todas as políticas da AD Azure ou uma política especificada.
 
 ```powershell
 Get-AzureADPolicy
@@ -409,12 +408,12 @@ Get-AzureADPolicy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [opcional] |**ObjectId (ID)** da política que você deseja. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Obtém todos os aplicativos e entidades de serviço que estão vinculados a uma política.
+Obtém todas as aplicações e diretores de serviço que estão ligados a uma política.
 
 ```powershell
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
@@ -422,7 +421,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da política que você deseja. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,17 +434,17 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da política que você deseja. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |Cadeia de caracteres do nome da política. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> [opcional] |Matriz de JSON em cadeias que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> [opcional] |Se for true, definirá a política como a política padrão da organização. Se for false, não fará nada. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> [opcional] |Tipo de política. Para tempos de vida de token, sempre use "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [opcional] |Define uma ID alternativa para a política. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |Cadeia do nome da apólice. |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Opcional] |Uma série de JSON stringified que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for verdade, define a política como a política padrão da organização. Se é falso, não faz nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Opcional] |Tipo de política. Para token lifetimes, use sempre "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Estabelece uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Exclui a política especificada.
+Elimina a política especificada.
 
 ```powershell
  Remove-AzureADPolicy -Id <ObjectId of Policy>
@@ -453,15 +452,15 @@ Exclui a política especificada.
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da política que você deseja. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
 ### <a name="application-policies"></a>Políticas da aplicação
-Você pode usar os cmdlets a seguir para políticas de aplicativo.</br></br>
+Pode utilizar os seguintes cmdlets para as políticas de aplicação.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Vincula a política especificada a um aplicativo.
+Liga a política especificada a uma aplicação.
 
 ```powershell
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
@@ -469,13 +468,13 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectID** da política. | `-RefObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |**ObjectId** da apólice. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Obtém a política atribuída a um aplicativo.
+Obtém a política que é atribuída a uma candidatura.
 
 ```powershell
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
@@ -483,12 +482,12 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Remove uma política de um aplicativo.
+Remove uma apólice de uma aplicação.
 
 ```powershell
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
@@ -496,16 +495,16 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectID** da política. | `-PolicyId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |**ObjectId** da apólice. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Políticas de entidade de serviço
-Você pode usar os cmdlets a seguir para as políticas de entidade de serviço.
+### <a name="service-principal-policies"></a>Políticas principais de serviço
+Pode utilizar os seguintes cmdlets para as políticas principais de serviço.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Vincula a política especificada a uma entidade de serviço.
+Liga a política especificada a um diretor de serviço.
 
 ```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
@@ -513,13 +512,13 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectID** da política. | `-RefObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |**ObjectId** da apólice. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Obtém qualquer política vinculada à entidade de serviço especificada.
+Obtém qualquer política ligada ao diretor de serviço especificado.
 
 ```powershell
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
@@ -527,12 +526,12 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Remove a política da entidade de serviço especificada.
+Remove a apólice do diretor de serviço especificado.
 
 ```powershell
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
@@ -540,5 +539,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectID** da política. | `-PolicyId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |**ObjectId** da apólice. | `-PolicyId <ObjectId of Policy>` |

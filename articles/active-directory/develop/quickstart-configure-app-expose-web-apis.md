@@ -12,13 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966117"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704226"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início rápido: configurar um aplicativo para expor APIs Web
 
@@ -41,7 +40,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
+1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Escolha o método que quer utilizar, a IU ou o manifesto de aplicação para expor um novo âmbito:
     * [Expor um novo âmbito através da IU](#expose-a-new-scope-through-the-ui)
     * [Expor um novo âmbito ou função através do manifesto de aplicação](#expose-a-new-scope-or-role-through-the-application-manifest)

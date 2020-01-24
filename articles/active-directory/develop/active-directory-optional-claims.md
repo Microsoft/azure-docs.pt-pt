@@ -12,17 +12,16 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f221ed773677c28094d2e5eaecc10a191e84addb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1bc2c3a17aef232df184926dca5f70eac61b03ac
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638974"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698769"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
 
-Os desenvolvedores de aplicativos podem usar declarações opcionais em seus aplicativos do Azure AD para especificar quais declarações eles desejam em tokens enviados para seu aplicativo. 
+Os desenvolvedores de aplicações podem utilizar reclamações opcionais nas suas aplicações Azure AD para especificar quais as reclamações que pretendem em fichas enviadas para a sua aplicação. 
 
 Você pode usar declarações opcionais para:
 
@@ -30,7 +29,7 @@ Você pode usar declarações opcionais para:
 - Altere o comportamento de determinadas declarações que o Azure AD retorna em tokens.
 - Adicione e acesse declarações personalizadas para seu aplicativo.
 
-Para obter as listas de declarações padrão, consulte o [token de acesso](access-tokens.md) e a documentação de declarações de [id_token](id-tokens.md) . 
+Para as listas de reclamações padrão, consulte a [documentação](access-tokens.md) de acesso e [id_token](id-tokens.md) reclamações. 
 
 Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v 2.0, bem como nos tokens SAML, elas fornecem a maior parte de seu valor ao mudar de v 1.0 para v 2.0. Um dos objetivos do ponto de [extremidade da plataforma de identidade da Microsoft v 2.0](active-directory-appmodel-v2-overview.md) é um tamanho de token menor para garantir o desempenho ideal dos clientes. Como resultado, várias declarações anteriormente incluídas nos tokens de acesso e de ID não estão mais presentes em tokens v 2.0 e devem ser solicitadas especificamente por aplicativo.
 
@@ -46,7 +45,7 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 O conjunto de declarações opcionais disponíveis por padrão para aplicativos a serem usados está listado abaixo. Para adicionar declarações opcionais personalizadas para seu aplicativo, consulte [extensões de diretório](#configuring-directory-extension-optional-claims), abaixo. Ao adicionar declarações ao **token de acesso**, as declarações se aplicam aos tokens de acesso solicitados *para* o aplicativo (uma API da Web), não as declarações solicitadas *pelo* aplicativo. Não importa como o cliente acessa sua API, os dados corretos estão presentes no token de acesso que é usado para autenticar em sua API.
 
 > [!NOTE]
-> A maioria dessas declarações pode ser incluída no JWTs para tokens v 1.0 e v 2.0, mas não tokens SAML, exceto quando indicado na coluna tipo de token. As contas de consumidor dão suporte a um subconjunto dessas declarações, marcadas na coluna "tipo de usuário".  Muitas das declarações listadas não se aplicam aos usuários do consumidor (não têm locatários, portanto `tenant_ctry` não tem valor).  
+> A maioria dessas declarações pode ser incluída no JWTs para tokens v 1.0 e v 2.0, mas não tokens SAML, exceto quando indicado na coluna tipo de token. As contas de consumidor dão suporte a um subconjunto dessas declarações, marcadas na coluna "tipo de usuário".  Muitas das reclamações enumeradas não se aplicam aos utilizadores de consumo (não têm inquilino, pelo que `tenant_ctry` não tem valor).  
 
 **Tabela 2: conjunto de declarações opcionais v 1.0 e v 2.0**
 
@@ -73,7 +72,7 @@ O conjunto de declarações opcionais disponíveis por padrão para aplicativos 
 | `acct`             | O status da conta de usuários no locatário. | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se forem convidados, o valor será `1`. |
 | `upn`                      | Declaração UserPrincipalName. | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais para modificar seu comportamento no caso do usuário convidado.  |
 
-## <a name="v20-specific-optional-claims-set"></a>v 2.0-conjunto de declarações opcionais específicas
+## <a name="v20-specific-optional-claims-set"></a>v2.0 conjunto de reclamações opcionais específicas
 
 Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não são incluídas em tokens v 2.0, a menos que solicitado. Essas declarações são aplicáveis somente para JWTs (tokens de ID e tokens de acesso). 
 
@@ -87,13 +86,13 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 | `pwd_url`     | Alterar URL da senha             | Uma URL que o usuário pode visitar para alterar sua senha.   |   |
 | `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está fazendo logon da rede corporativa. Se não forem, a declaração não será incluída.   |  Com base nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
 | `nickname`    | Alcunha                        | Um nome adicional para o usuário. O apelido é separado de First ou Last Name. | 
-| `family_name` | Apelido                       | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. <br>"family_name": "Miller" | Com suporte no MSA e no Azure AD   |
+| `family_name` | Apelido                       | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. <br>"family_name":"Miller" | Com suporte no MSA e no Azure AD   |
 | `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do usuário, conforme definido no objeto de usuário.<br>"given_name": "Frank"                   | Com suporte no MSA e no Azure AD  |
-| `upn`         | Nome Principal de Utilizador | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Consulte [as propriedades adicionais](#additional-properties-of-optional-claims) abaixo para obter a configuração da declaração. |
+| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Consulte [as propriedades adicionais](#additional-properties-of-optional-claims) abaixo para obter a configuração da declaração. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
 
-Algumas declarações opcionais podem ser configuradas para alterar a maneira como a declaração é retornada. Essas propriedades adicionais são usadas principalmente para ajudar na migração de aplicativos locais com expectativas de dados diferentes (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com os clientes que não podem tratar as marcas de hash (`#`) no UPN)
+Algumas declarações opcionais podem ser configuradas para alterar a maneira como a declaração é retornada. Estas propriedades adicionais são usadas principalmente para ajudar a migrar de aplicações no local com diferentes expectativas de dados (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não conseguem lidar com marcas de hash (`#`) na UPN)
 
 **Tabela 4: valores para configurar declarações opcionais**
 
@@ -125,29 +124,29 @@ Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua
 > [!IMPORTANT]
 > Os tokens de acesso **sempre** são gerados usando o manifesto do recurso, não o cliente.  Portanto, na solicitação `...scope=https://graph.microsoft.com/user.read...` o recurso é grafo.  Assim, o token de acesso é criado usando o manifesto do grafo, não o manifesto do cliente.  Alterar o manifesto para seu aplicativo nunca fará com que os tokens do Graph pareçam diferentes.  Para validar que as alterações de `accessToken` estão em vigor, solicite um token para seu aplicativo, não para outro aplicativo.  
 
-Você pode configurar declarações opcionais para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
+Pode configurar reclamações opcionais para a sua aplicação através do UI ou do manifesto de aplicação.
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
-1. Na seção **gerenciar** , selecione **registros de aplicativo**.
-1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
+1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
+1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
 
-**Configurando declarações opcionais por meio da interface do usuário:**
+**Configurar reclamações opcionais através da UI:**
 
-[![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Mostra como configurar reclamações opcionais usando a UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Na seção **gerenciar** , selecione **configuração de token (versão prévia)** .
-2. Selecione **Adicionar declaração opcional**.
-3. Selecione o tipo de token que você deseja configurar.
-4. Selecione as declarações opcionais a serem adicionadas.
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+2. **Selecione Adicionar reclamação opcional**.
+3. Selecione o tipo de ficha que pretende configurar.
+4. Selecione as reclamações opcionais a adicionar.
 5. Clique em **Adicionar**.
 
-**Configurando declarações opcionais por meio do manifesto do aplicativo:**
+**Configurar reclamações opcionais através do manifesto de candidatura:**
 
-[![mostra como configurar declarações opcionais usando o manifesto do aplicativo](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
+[![Mostra como configurar reclamações opcionais usando o manifesto da aplicação](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Na seção **gerenciar** , selecione **manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto. Opcionalmente, pode selecionar **Transferir**, editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação. Para obter mais informações sobre o manifesto do aplicativo, consulte o [artigo noções básicas sobre o manifesto do aplicativo do Azure ad](reference-app-manifest.md).
+1. A partir da secção **Gerir,** selecione **Manifesto**. Abre-se um editor de manifesto baseado na web, permitindo-lhe editar o manifesto. Opcionalmente, pode selecionar **Transferir**, editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação. Para obter mais informações sobre o manifesto de candidatura, consulte o artigo manifesto de candidatura da [AD Azure.](reference-app-manifest.md)
 
-    A seguinte entrada de manifesto de aplicativo adiciona as declarações opcionais auth_time, IPADDR e UPN aos tokens de ID, acesso e SAML.
+    A seguinte inscrição manifesto de aplicação adiciona as reclamações opcionais auth_time, ipaddr e upn opcionais para ID, acesso e fichas SAML.
 
     ```json
         "optionalClaims":  
@@ -215,7 +214,7 @@ Além do conjunto de declarações opcionais padrão, você também pode configu
 
 ### <a name="directory-extension-formatting"></a>Formatação de extensão de diretório
 
-Ao configurar declarações opcionais de extensão de diretório usando o manifesto do aplicativo, use o nome completo da extensão (no formato: `extension_<appid>_<attributename>`). O `<appid>` deve corresponder à ID do aplicativo que está solicitando a declaração. 
+Ao configurar as reclamações opcionais de extensão do diretório utilizando o manifesto de aplicação, utilize o nome completo da extensão (no formato: `extension_<appid>_<attributename>`). O `<appid>` deve corresponder à ID do aplicativo que está solicitando a declaração. 
 
 Dentro do JWT, essas declarações serão emitidas com o seguinte formato de nome: `extn.<attributename>`.
 
@@ -292,26 +291,26 @@ Esta seção aborda as opções de configuração em declarações opcionais par
    | **name:** | Deve ser "grupos" |
    | **original** | Não utilizado. Omitir ou especificar nulo |
    | **essential:** | Não utilizado. Omitir ou especificar false |
-   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **additionalProperties:** | Lista de propriedades adicionais.  Opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   Somente um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" é necessário em um adicional.  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
+   Adicionalmente são necessários apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
 
-   Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração para de uma declaração de grupo para uma declaração de função, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
+   Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de reclamação para de um grupo reivindicar para uma reivindicação de papel, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
    > [!NOTE]
-   > Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário está atribuído não aparecerão na declaração de função
+   > Se "emit_as_roles" for utilizada, quaisquer Funções de Aplicação configuradas por o utilizador ser atribuído não aparecerão na alegação de funções
 
 **Exemplos:**
 
-1) Emitir grupos como nomes de grupo nos tokens de acesso OAuth no formato dnsDomainName\sAMAccountName
+1) Emitem grupos como nomes de grupo em tokens de acesso OAuth no formato dnsDomainName\sAMAccountName
 
     
-    **Configuração da interface do usuário:**
+    **Configuração ui:**
 
-    [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Mostra como configurar reclamações opcionais usando a UI](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
 
-    **Entrada do manifesto do aplicativo:**
+    **Inscrição manifesto de inscrição:**
     ```json
         "optionalClaims": {
             "accessToken": [{
@@ -323,13 +322,13 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
  
     
-2) Emitir nomes de grupos a serem retornados no formato netbiosDomain\sAMAccountName como a declaração de funções em tokens de ID SAML e OIDC
+2) Emita nomes de grupo a serem devolvidos no formato netbiosDomain\sAMAccountName como as funções reivindicam em Tokens de ID SAML e OIDC
 
-    **Configuração da interface do usuário:**
+    **Configuração ui:**
 
-    [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Mostra como configurar reclamações opcionais usando a UI](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
-    **Entrada do manifesto do aplicativo:**
+    **Inscrição manifesto de inscrição:**
     
     ```json
         "optionalClaims": {
@@ -348,16 +347,16 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 Nesta seção, você pode percorrer um cenário para ver como você pode usar o recurso de declarações opcionais para seu aplicativo.
 Há várias opções disponíveis para atualizar as propriedades na configuração de identidade de um aplicativo para habilitar e configurar declarações opcionais:
--    Você pode usar a interface do usuário de **configuração de token (versão prévia)** (Veja o exemplo abaixo)
--    Você pode usar o **manifesto** (Veja o exemplo abaixo). Leia o [documento noções básicas sobre o manifesto do aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) primeiro para obter uma introdução ao manifesto.
+-    Pode utilizar a **configuração Token (pré-visualização)** UI (ver exemplo abaixo)
+-    Pode utilizar o **Manifesto** (ver exemplo abaixo). Leia o [documento noções básicas sobre o manifesto do aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) primeiro para obter uma introdução ao manifesto.
 -   Também é possível escrever um aplicativo que usa o [API do Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para atualizar seu aplicativo. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência API do Graph pode ajudá-lo a configurar as declarações opcionais.
 
-**Exemplo:** No exemplo a seguir, você usará a interface do usuário de **configuração do token (versão prévia)** e o **manifesto** para adicionar declarações opcionais aos tokens de acesso, ID e SAML destinados ao seu aplicativo. Diferentes declarações opcionais serão adicionadas a cada tipo de token que o aplicativo pode receber:
--    Agora, os tokens de ID conterão o UPN para usuários federados no formato completo (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
--    Os tokens de acesso que outros clientes solicitam para esse aplicativo agora incluirão a declaração de auth_time
--    Os tokens SAML agora conterão a extensão de esquema de diretório do SkypeID (neste exemplo, a ID do aplicativo para esse aplicativo é ab603c56068041afb2f6832e2a17e237). Os tokens SAML vão expor a ID do Skype como `extension_skypeId`.
+**Exemplo:** No exemplo abaixo, utilizará a **configuração Token (pré-visualização)** UI e **Manifesto** para adicionar reclamações opcionais aos tokens de acesso, ID e SAML destinados à sua aplicação. Serão adicionadas diferentes reclamações opcionais a cada tipo de ficha que a aplicação pode receber:
+-    As fichas de identificação irão agora conter a UPN para utilizadores federados na forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
+-    Os tokens de acesso que outros clientes pedem para este pedido agora incluirão a reivindicação auth_time
+-    Os tokens SAML agora conterão a extensão de esquema de diretório do SkypeID (neste exemplo, a ID do aplicativo para esse aplicativo é ab603c56068041afb2f6832e2a17e237). As fichas SAML exporão o ID skype como `extension_skypeId`.
 
-**Configuração da interface do usuário:**
+**Configuração ui:**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
@@ -365,28 +364,28 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
 1. Selecione **Azure Active Directory** no menu à esquerda.
 
-1. Na seção **gerenciar** , selecione **registros de aplicativo**.
+1. Na secção **Gerir,** selecione registos de **aplicações**.
 
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e clique nele.
 
-1. Na seção **gerenciar** , clique em **configuração de token (versão prévia)** .
+1. Na secção **Gerir,** clique na **configuração token (pré-visualização)** .
 
 1. Selecione **Adicionar declaração opcional**, selecione o tipo de token de **ID** , selecione **UPN** na lista de declarações e clique em **Adicionar**.
 
-1. Selecione **Adicionar declaração opcional**, selecione o tipo de token de **acesso** , selecione **auth_time** na lista de declarações e clique em **Adicionar**.
+1. **Selecione Adicionar pedido opcional,** selecione o tipo de ficha de **acesso,** selecione **auth_time** da lista de reclamações e, em seguida, clique em **Adicionar**.
 
 1. Na tela Visão geral da configuração do token, clique no ícone de lápis ao lado de **UPN**, clique na alternância **autenticada externamente** e, em seguida, clique em **salvar**.
 
 1. Selecione **Adicionar declaração opcional**, selecione o tipo de token **SAML** , selecione **Extn. SkypeID** na lista de declarações (aplicável somente se você tiver criado um objeto de usuário do Azure AD chamado SkypeID) e, em seguida, clique em **Adicionar**.
 
-    [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Mostra como configurar reclamações opcionais usando a UI](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
-**Configuração do manifesto:**
+**Configuração manifesta:**
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Depois de autenticado, escolha seu locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e clique nele.
-1. Na seção **gerenciar** , clique em **manifesto** para abrir o editor de manifesto embutido.
+1. Na secção **Gerir,** clique em **Manifestar** para abrir o editor de manifesto inline.
 1. Você pode editar o manifesto diretamente usando este editor. O manifesto segue o esquema para a [entidade de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)e formata automaticamente o manifesto depois de salvo. Novos elementos serão adicionados à propriedade `OptionalClaims`.
 
     ```json

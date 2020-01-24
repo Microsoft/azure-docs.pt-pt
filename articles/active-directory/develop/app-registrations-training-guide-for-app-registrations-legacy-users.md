@@ -1,5 +1,5 @@
 ---
-title: Novo guia de treinamento de registro de aplicativo portal do Azure
+title: Novo guia de preparação de registos de aplicações do portal do Azure
 description: Apresenta a nova experiência de registro de aplicativo portal do Azure
 services: active-directory
 author: archieag
@@ -12,15 +12,14 @@ ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3726ebbe0ebc3725a885c847f33760ebd7e2e8b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b110929051098917d7c3f73161ca8694d4698070
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424665"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698225"
 ---
-# <a name="new-azure-portal-app-registration-training-guide"></a>Novo guia de treinamento de registro de aplicativo portal do Azure
+# <a name="new-azure-portal-app-registration-training-guide"></a>Novo guia de preparação de registos de aplicações do portal do Azure
 
 Você pode encontrar muitos aprimoramentos na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver familiarizado com a experiência de Registros de aplicativo (herdada) no portal do Azure, use este guia de treinamento para começar a usar a nova experiência.
 

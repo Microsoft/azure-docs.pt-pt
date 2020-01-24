@@ -12,13 +12,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38fe0b0ff3bcb38133444819200254a684f08d44
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 818e9a36f54e67ba1ea872394d470f2386485e2f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573790"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705042"
 ---
 # <a name="access-and-use-workspaces-on-the-my-apps-preview-portal"></a>Acessar e usar espaços de trabalho no portal meus aplicativos (versão prévia)
 

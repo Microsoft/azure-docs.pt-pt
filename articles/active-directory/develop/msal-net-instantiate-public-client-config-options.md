@@ -1,7 +1,7 @@
 ---
-title: Criar uma instância de um aplicativo cliente público (MSAL.NET) | Azure
+title: Instantiate uma aplicação de cliente público (MSAL.NET) / Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar uma instância de um aplicativo cliente público com opções de configuração usando a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba como instantaneamente uma aplicação de cliente público com opções de configuração utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: TylerMSFT
 manager: CelesteDG
@@ -13,27 +13,26 @@ ms.date: 04/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4052c67b019b5ca6d3936e34ec8a5b2b1aff89b1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c07ffb77a838a91bd7eed4b9e40b39050450981c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915831"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695505"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Criar uma instância de um aplicativo cliente público com opções de configuração usando MSAL.NET
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instantiate uma aplicação de cliente público com opções de configuração usando MSAL.NET
 
-Este artigo descreve como criar uma instância de um [aplicativo cliente público](msal-client-applications.md) usando a MSAL.net (biblioteca de autenticação da Microsoft para .net).  O aplicativo é instanciado com as opções de configuração definidas em um arquivo de configurações.
+Este artigo descreve como instantaneamente uma [aplicação de cliente público](msal-client-applications.md) usando a Microsoft Authentication Library para .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
 
-Antes de inicializar um aplicativo, primeiro você precisa [registrá](quickstart-register-app.md) -lo para que seu aplicativo possa ser integrado à plataforma de identidade da Microsoft. Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
+Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
 
-- A ID do cliente (uma cadeia de caracteres que representa um GUID)
+- O ID do cliente (uma corda que representa um GUID)
 - A URL do provedor de identidade (chamada de instância) e o público-alvo de entrada para seu aplicativo. Esses dois parâmetros são coletivamente conhecidos como autoridade.
-- A ID do locatário se você estiver escrevendo um aplicativo de linha de negócios somente para sua organização (também chamado de aplicativo de locatário único).
-- Para aplicativos Web e, às vezes, para aplicativos cliente públicos (em particular quando seu aplicativo precisa usar um agente), você também terá definido o redirectUri em que o provedor de identidade entrará em contato com o seu aplicativo com os tokens de segurança.
+- O ID do inquilino se estiver a escrever uma linha de aplicação de negócios exclusivamente para a sua organização (também nomeada candidatura de inquilino único).
+- Para aplicações web, e por vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
 
 
-Um aplicativo de console do .NET Core pode ter o seguinte arquivo de configuração *appSettings. JSON* :
+Uma aplicação de consola .NET Core poderia ter o seguinte ficheiro de *configuração appsettings.json:*
 
 ```json
 {
@@ -49,7 +48,7 @@ Um aplicativo de console do .NET Core pode ter o seguinte arquivo de configuraç
 }
 ```
 
-O código a seguir lê esse arquivo usando a estrutura de configuração do .NET:
+O seguinte código lê este ficheiro utilizando a estrutura de configuração .NET:
 
 ```csharp
 public class SampleConfiguration
@@ -91,7 +90,7 @@ public class SampleConfiguration
 }
 ```
 
-O código a seguir cria seu aplicativo usando a configuração do arquivo de configurações:
+O seguinte código cria a sua aplicação, utilizando a configuração a partir do ficheiro de definições:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

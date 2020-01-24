@@ -1,6 +1,6 @@
 ---
-title: Cenário de aplicativo de página única JavaScript – plataforma Microsoft Identity | Azure
-description: Saiba como criar um aplicativo de página única (visão geral do cenário) usando a plataforma de identidade da Microsoft.
+title: Cenário de aplicação de uma página única javaScript - plataforma de identidade da Microsoft / Azure
+description: Saiba como construir uma aplicação de uma página única (visão geral do cenário) utilizando a plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -14,17 +14,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab7b0f1e59504eae64422fd4bbaf6f9e0804ed4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b430778bed811656b5c8aadc75ba3cf35917f737
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919822"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701880"
 ---
-# <a name="scenario-single-page-application"></a>Cenário: aplicativo de página única
+# <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
-Saiba tudo o que você precisa para criar um aplicativo de página única (SPA).
+Saiba tudo o que precisa para construir uma aplicação de uma única página (SPA).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,28 +31,28 @@ Saiba tudo o que você precisa para criar um aplicativo de página única (SPA).
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar seu primeiro aplicativo seguindo o início rápido de SPA do JavaScript:
+Pode criar a sua primeira aplicação seguindo o quickstart javaScript SPA:
 
 > [!div class="nextstepaction"]
-> [Início rápido: aplicativo de página única](./quickstart-v2-javascript.md)
+> [Quickstart: Aplicação de página única](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Visão geral
 
-Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente. Os desenvolvedores os gravam usando JavaScript ou uma estrutura SPA como angular, Vue. js e reagir. js. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web tradicionais do lado do servidor. 
+Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente. Os desenvolvedores escrevem-nos usando javaScript ou uma estrutura SPA como Angular, Vue.js e React.js. Estas aplicações funcionam num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor. 
 
-A plataforma de identidade da Microsoft permite que aplicativos de página única conectem usuários e obtenham tokens para acessar serviços de back-end ou APIs da Web usando o [fluxo implícito do OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). O fluxo implícito permite que o aplicativo obtenha tokens de ID para representar o usuário autenticado e também os tokens de acesso necessários para chamar APIs protegidas.
+A plataforma de identidade da Microsoft permite que as aplicações de uma só página sinuosem nos utilizadores e acedam a serviços de back-end ou APIs web utilizando o [fluxo implícito OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). O fluxo implícito permite que a aplicação obtenha fichas de identificação para representar o utilizador autenticado e também aceder a fichas necessárias para ligar para APIs protegidos.
 
 ![Aplicativos de página única](./media/scenarios/spa-app.svg)
 
-Esse fluxo de autenticação não inclui cenários de aplicativos que usam estruturas JavaScript de plataforma cruzada, como o ar-nativo e o reajam, são nativos. Eles exigem mais recursos para interação com as plataformas nativas.
+Este fluxo de autenticação não inclui cenários de aplicação que utilizam quadros javaScript de plataforma cruzada, tais como Eletrão e React-Native. Exigem mais capacidades de interação com as plataformas nativas.
 
 ## <a name="specifics"></a>Especificações
 
-Para habilitar esse cenário para seu aplicativo, você precisa de:
+Para ativar este cenário para a sua aplicação, precisa de:
 
-* Registro de aplicativo com Azure Active Directory (Azure AD). Esse registro envolve habilitar o fluxo implícito e definir um URI de redirecionamento para o qual os tokens são retornados.
-* Configuração de aplicativo com as propriedades do aplicativo registrado, como ID do aplicativo.
-* Usando a MSAL (biblioteca de autenticação da Microsoft) para fazer o fluxo de autenticação para entrar e adquirir tokens.
+* Inscrição de candidatura com Diretório Ativo Azure (Azure AD). Este registo envolve permitir o fluxo implícito e definir um URI redirecionado para o qual os tokens são devolvidos.
+* Configuração da aplicação com as propriedades de aplicação registadas, como id de aplicação.
+* Utilizando a Microsoft Authentication Library (MSAL) para fazer o fluxo de autenticação para iniciar sessão e adquirir fichas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

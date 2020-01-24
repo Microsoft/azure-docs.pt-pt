@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613334"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705331"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicação com HTTP para redirecionamento a HTTPS com o portal do Azure
 
@@ -83,7 +83,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
    - *myVNet* - para o nome da rede virtual.
    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
    - *myAGSubnet* - para o nome da sub-rede.
-   - *10.0.1.0/24* – para o espaço de endereços da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
      ![Criar a rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 

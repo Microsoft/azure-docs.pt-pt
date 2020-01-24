@@ -14,29 +14,28 @@ ms.workload: identity
 ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5472b424f7d2b44b62e6e4495afaf7bdfbbc8439
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a77bb59afa753fa9d1655e787d4f7a18715ed2ca
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423512"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701591"
 ---
-# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Remover contas do cache na saída global
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Remover contas da cache no sign-out global
 
-Você já sabe como adicionar entrada ao seu aplicativo Web. Você aprende que, em um [aplicativo Web que entra com usuários-adicionar entrada](scenario-web-app-sign-user-sign-in.md).
+Já sabe como adicionar sessão de acesso à sua aplicação web. Aprende-se isso na [aplicação Web que faz sessão aos utilizadores - adicione sessão .](scenario-web-app-sign-user-sign-in.md)
 
-O que há de diferente aqui é que, quando o usuário sai, desse aplicativo ou de qualquer aplicativo, você deseja remover do cache de tokens os tokens associados ao usuário.
+O que é diferente aqui, é que quando o utilizador assinou, a partir desta aplicação, ou de qualquer aplicação, pretende remover da cache simbólica, as fichas associadas ao utilizador.
 
-## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Interceptando o retorno de chamada após a saída-saída única
+## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Intercetação da chamada após a inscrição - Single Sign out
 
-Seu aplicativo pode interceptar o evento After `logout`, por exemplo, para limpar a entrada do cache de token associado à conta que se desconectou. O aplicativo Web irá armazenar tokens de acesso para o usuário em um cache. Interceptar o retorno de chamada After `logout` permite que o aplicativo Web remova o usuário do cache de token.
+A sua aplicação pode intercetar o evento após `logout`, por exemplo, para limpar a entrada da cache simbólica associada à conta que assinou. A aplicação web armazenará fichas de acesso para o utilizador numa cache. Intercetar o backback após `logout` permite que a sua aplicação web remova o utilizador da cache token.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Esse mecanismo é ilustrado no método `AddMsal()` de [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
+Este mecanismo é ilustrado no método `AddMsal()` de [WebAppServiceCollectionExtensions.cs#L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
 
-A **URL de logout** que você registrou para seu aplicativo permite que você implemente o logout único. O ponto de extremidade `logout` da plataforma de identidade da Microsoft chamará a **URL de logout** registrada com seu aplicativo. Essa chamada ocorrerá se a saída tiver sido iniciada por meio de seu aplicativo Web ou de outro aplicativo Web ou navegador. Para obter mais informações, consulte [logout único](v2-protocols-oidc.md#single-sign-out).
+O **Url de Logout** que registou para a sua aplicação permite-lhe implementar uma única inscrição. A plataforma de identidade da Microsoft `logout` ponto final irá ligar para o **URL de Logout** registado com a sua aplicação. Esta chamada acontece se o sign-out foi iniciado a partir da sua aplicação web, ou de outra aplicação web ou do navegador. Para mais informações, consulte [a inscrição individual](v2-protocols-oidc.md#single-sign-out).
 
 ```csharp
 public static class WebAppServiceCollectionExtensions
@@ -62,19 +61,19 @@ public static class WebAppServiceCollectionExtensions
 }
 ```
 
-O código para RemoveAccountAsync está disponível em [Microsoft. Identity. Web/TokenAcquisition. cs # L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
+O código para RemoveAccountAsync está disponível na [Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-O exemplo ASP.NET não remove contas do cache no logout global
+A amostra ASP.NET não remove contas da cache no sign-out global
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O exemplo de Java não remove contas do cache no logout global
+A amostra de Java não remove contas da cache no sign-out global
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-O exemplo de Python não remove as contas do cache na saída global
+A amostra python não remove contas da cache no sign-out global
 
 ---
 
@@ -83,21 +82,21 @@ O exemplo de Python não remove as contas do cache na saída global
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Adquirindo um token para o aplicativo Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
+> [Adquirir um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Adquirindo um token para o aplicativo Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
+> [Adquirir um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Adquirindo um token para o aplicativo Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
+> [Adquirir um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Adquirindo um token para o aplicativo Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
+> [Adquirir um símbolo para a aplicação web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
 
 ---

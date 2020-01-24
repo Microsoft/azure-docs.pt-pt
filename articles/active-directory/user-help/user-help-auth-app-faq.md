@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc68b34ce10957d8c025d4767cc4f8d04c6a72c3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 70f4844a8c157ba7964ce1053c007db8e9301336
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155864"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704702"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 

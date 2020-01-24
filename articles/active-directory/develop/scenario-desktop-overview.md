@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23085e486972ef6a10b3bd2ee86ae1bb1dc3006
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 196102769c1f5f68df316918a63079b09baad32d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293322"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702152"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: aplicativo de desktop que chama APIs da Web
 

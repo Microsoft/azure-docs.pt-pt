@@ -16,13 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7570030f4b0cc2e7bc1a1d64ad9eea7a74429eee
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2a86e8352958524bc51b185712d6b60ec347b98e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293475"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702101"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicativo móvel que chama APIs da Web – obter um token
 
@@ -233,7 +232,7 @@ Se você não o tiver especificado ao criar o aplicativo, no Android, também pr
 
 A classe define as seguintes constantes:
 
-- ``SelectAccount``: forçará o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o usuário tem uma sessão. Essa opção é útil quando os desenvolvedores de aplicativos desejam permitir que o usuário escolha entre diferentes identidades. Essa opção conduz MSAL para enviar ``prompt=select_account`` para o provedor de identidade. Essa opção é o padrão e faz um bom trabalho de fornecer a melhor experiência possível com base nas informações disponíveis (conta, presença de uma sessão para o usuário e assim por diante). ...). Não a altere, a menos que você tenha um bom motivo para fazê-lo.
+- ``SelectAccount``: forçará o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o usuário tem uma sessão. Essa opção é útil quando os desenvolvedores de aplicativos desejam permitir que o usuário escolha entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Essa opção é o padrão e faz um bom trabalho de fornecer a melhor experiência possível com base nas informações disponíveis (conta, presença de uma sessão para o usuário e assim por diante). ...). Não a altere, a menos que você tenha um bom motivo para fazê-lo.
 - ``Consent``: permite que o desenvolvedor do aplicativo Force o consentimento do usuário, mesmo que o consentimento tenha sido concedido antes. Nesse caso, o MSAL envia `prompt=consent` para o provedor de identidade. Essa opção pode ser usada em alguns aplicativos focados em segurança em que o controle da organização exige que o usuário tenha apresentado a caixa de diálogo de consentimento sempre que o aplicativo for usado.
 - ``ForceLogin``: permite que o desenvolvedor do aplicativo tenha o usuário solicitado a fornecer credenciais pelo serviço, mesmo que esse prompt de usuário não seja necessário. Essa opção pode ser útil se a aquisição de um token falhar, para permitir que o usuário entre novamente. Nesse caso, o MSAL envia `prompt=login` para o provedor de identidade. Mais uma vez, vimos que ele é usado em alguns aplicativos focados em segurança em que o controle da organização exige que o usuário faça o logon novamente, sempre que acessarem partes específicas de um aplicativo.
 - ``Never`` (somente para .NET 4,5 e WinRT) não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida (veja abaixo: exibições da Web no MSAL.NET). O uso dessa opção pode falhar e, nesse caso, `AcquireTokenInteractive` gerará uma exceção para notificar que uma interação de interface do usuário é necessária e você precisará usar outro parâmetro `Prompt`.

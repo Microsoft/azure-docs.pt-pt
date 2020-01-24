@@ -1,6 +1,6 @@
 ---
-title: Escopos, permissões e consentimento da plataforma Microsoft Identity | Microsoft Docs
-description: Uma descrição da autorização no ponto de extremidade da plataforma Microsoft Identity, incluindo escopos, permissões e consentimento.
+title: Aplicações, permissões e consentimento da plataforma de identidade da Microsoft Microsoft Docs
+description: Uma descrição da autorização no ponto final da plataforma de identidade da Microsoft, incluindo âmbitos, permissões e consentimento.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,97 +17,96 @@ ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 29e099e1c53f83d038caa697d11158fd5939ca7b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997008"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700316"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Os aplicativos que se integram à plataforma Microsoft Identity seguem um modelo de autorização que oferece aos usuários e administradores o controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada no ponto de extremidade da plataforma de identidade da Microsoft e altera como um aplicativo deve interagir com a plataforma de identidade da Microsoft. Este artigo aborda os conceitos básicos desse modelo de autorização, incluindo escopos, permissões e consentimento.
+Os aplicativos que se integram à plataforma Microsoft Identity seguem um modelo de autorização que oferece aos usuários e administradores o controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada no ponto final da plataforma de identidade da Microsoft, e altera a forma como uma aplicação deve interagir com a plataforma de identidade da Microsoft. Este artigo abrange os conceitos básicos deste modelo de autorização, incluindo âmbitos, permissões e consentimento.
 
 > [!NOTE]
-> O ponto de extremidade da plataforma Microsoft Identity não oferece suporte a todos os cenários e recursos. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
+> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
 
-## <a name="scopes-and-permissions"></a>Escopos e permissões
+## <a name="scopes-and-permissions"></a>Âmbitos e permissões
 
-A plataforma de identidade da Microsoft implementa o protocolo de autorização [OAuth 2,0](active-directory-v2-protocols.md) . O OAuth 2,0 é um método pelo qual um aplicativo de terceiros pode acessar recursos hospedados na Web em nome de um usuário. Qualquer recurso hospedado na Web que se integre com a plataforma de identidade da Microsoft tem um identificador de recurso ou um *URI de ID do aplicativo*. Por exemplo, alguns dos recursos hospedados na Web da Microsoft incluem:
+A plataforma de identidade da Microsoft implementa o protocolo de autorização [OAuth 2.0.](active-directory-v2-protocols.md) O OAuth 2.0 é um método através do qual uma aplicação de terceiros pode aceder a recursos hospedados na Web em nome de um utilizador. Qualquer recurso web-hostque que se integre com a plataforma de identidade da Microsoft tem um identificador de recursos, ou *ID DE aplicação URI*. Por exemplo, alguns dos recursos web da Microsoft incluem:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API de email do Office 365: `https://outlook.office.com`
-* Azure AD Graph: `https://graph.windows.net`
-* Azure Key Vault: `https://vault.azure.net`
+* Office 365 Mail API: `https://outlook.office.com`
+* Gráfico da AD Azure: `https://graph.windows.net`
+* Cofre chave Azure: `https://vault.azure.net`
 
 > [!NOTE]
-> É altamente recomendável que você use Microsoft Graph em vez do Azure AD Graph, a API de email do Office 365, etc.
+> Recomendamos vivamente que utilize o Microsoft Graph em vez do Azure AD Graph, Office 365 Mail API, etc.
 
-O mesmo acontece com todos os recursos de terceiros que se integraram à plataforma Microsoft Identity. Qualquer um desses recursos também pode definir um conjunto de permissões que podem ser usadas para dividir a funcionalidade desse recurso em partes menores. Por exemplo, [Microsoft Graph](https://graph.microsoft.com) definiu permissões para realizar as seguintes tarefas, entre outras:
+O mesmo acontece com quaisquer recursos de terceiros que tenham integrado a plataforma de identidade da Microsoft. Qualquer um destes recursos também pode definir um conjunto de permissões que podem ser usadas para dividir a funcionalidade desse recurso em pedaços menores. Como exemplo, o [Microsoft Graph](https://graph.microsoft.com) definiu permissões para fazer as seguintes tarefas, entre outras:
 
-* Ler o calendário de um usuário
-* Gravar no calendário de um usuário
-* Enviar email como um usuário
+* Leia o calendário de um utilizador
+* Escreva para o calendário de um utilizador
+* Enviar correio como utilizador
 
-Ao definir esses tipos de permissões, o recurso tem um controle refinado sobre seus dados e como a funcionalidade da API é exposta. Um aplicativo de terceiros pode solicitar essas permissões de usuários e administradores, que devem aprovar a solicitação antes que o aplicativo possa acessar dados ou agir em nome de um usuário. Ao dividir a funcionalidade do recurso em conjuntos de permissões menores, aplicativos de terceiros podem ser criados para solicitar apenas as permissões específicas necessárias para executar sua função. Os usuários e administradores podem saber exatamente quais dados o aplicativo tem acesso e podem ter mais certeza de que ele não está se comportando com más intenções. Os desenvolvedores devem sempre obedecer ao conceito de privilégios mínimos, solicitando apenas as permissões necessárias para que seus aplicativos funcionem.
+Ao definir este tipo de permissões, o recurso tem um controlo fino sobre os seus dados e como a funcionalidade API é exposta. Uma aplicação de terceiros pode solicitar estas permissões a utilizadores e administradores, que devem aprovar o pedido antes de a app poder aceder a dados ou agir em nome de um utilizador. Ao analisar a funcionalidade do recurso em conjuntos de permissões mais pequenos, as aplicações de terceiros podem ser construídas para solicitar apenas as permissões específicas de que necessitam para desempenhar em funções a sua função. Os utilizadores e administradores podem saber exatamente a que dados a app tem acesso, e podem estar mais confiantes de que não se está a comportar com intenções maliciosas. Os desenvolvedores devem sempre respeitar o conceito de menor privilégio, pedindo apenas as permissões de que necessitam para que as suas aplicações funcionem.
 
-No OAuth 2,0, esses tipos de permissões são chamados de *escopos*. Eles também são chamados de *permissões*. Uma permissão é representada na plataforma de identidade da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo de Microsoft Graph, o valor da cadeia de caracteres para cada permissão é:
+No OAuth 2.0, este tipo de permissões são *chamados de âmbitos*. Também são frequentemente *referidas como permissões.* Uma permissão está representada na plataforma de identidade da Microsoft como um valor de cadeia. Continuando com o exemplo do Microsoft Graph, o valor de cadeia para cada permissão é:
 
-* Ler o calendário de um usuário usando `Calendars.Read`
-* Gravar no calendário de um usuário usando `Calendars.ReadWrite`
-* Enviar email como um usuário usando o por `Mail.Send`
+* Leia o calendário de um utilizador usando `Calendars.Read`
+* Escreva para o calendário de um utilizador usando `Calendars.ReadWrite`
+* Envie correio como utilizador usando por `Mail.Send`
 
-Um aplicativo geralmente solicita essas permissões especificando os escopos em solicitações para o ponto de extremidade de autorização da plataforma de identidade da Microsoft. No entanto, certas permissões de alto privilégio só podem ser concedidas por meio do consentimento do administrador e solicitadas/concedidas usando o [ponto de extremidade de consentimento](v2-permissions-and-consent.md#admin-restricted-permissions)do Continue a ler para obter mais informações.
+Uma aplicação mais frequentemente solicita estas permissões especificando os âmbitos nos pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, certas permissões de privilégio elevado só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas através do [ponto final](v2-permissions-and-consent.md#admin-restricted-permissions)do consentimento do administrador . Continue a ler para obter mais informações.
 
 ## <a name="permission-types"></a>Tipos de permissão
 
-A plataforma de identidade da Microsoft dá suporte a dois tipos de permissões: **permissões delegadas** e **permissões de aplicativo**.
+A plataforma de identidade da Microsoft suporta dois tipos de permissões: **permissões delegadas** e **permissões de aplicação.**
 
-* **As permissões delegadas** são usadas por aplicativos que têm um usuário conectado presente. Para esses aplicativos, o usuário ou um administrador consentirá com as permissões solicitadas pelo aplicativo e o aplicativo será delegado a permissão para atuar como o usuário conectado ao fazer chamadas para o recurso de destino. Algumas permissões delegadas podem ser consentidas por usuários não administrativos, mas algumas permissões com privilégios superiores exigem o [consentimento do administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [permissões de função de administrador no Azure ad](../users-groups-roles/directory-assign-admin-roles.md).
+* **As permissões delegadas** são utilizadas por apps que têm um utilizador inscrito. Para estas aplicações, ou o utilizador ou um administrador consente com as permissões que a aplicação solicita, e a aplicação é delegada permissão para agir como o utilizador inscrito ao efetuar chamadas para o recurso alvo. Algumas permissões delegadas podem ser consentidas por utilizadores não administrativos, mas algumas permissões mais privilegiadas requerem o consentimento do [administrador.](v2-permissions-and-consent.md#admin-restricted-permissions) Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de funções do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **As permissões de aplicativo** são usadas por aplicativos que são executados sem um usuário conectado presente; por exemplo, aplicativos executados como serviços em segundo plano ou daemons.  As permissões de aplicativo só podem ser [consentidas por um administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **As permissões** de aplicação são utilizadas por apps que funcionam sem um utilizador inscrito presente; por exemplo, aplicações que funcionam como serviços de fundo ou daemons.  As permissões de pedido só podem ser [consentidas por um administrador.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)
 
-_Permissões efetivas_ são as permissões que seu aplicativo terá ao fazer solicitações para o recurso de destino. É importante entender a diferença entre as permissões delegadas e de aplicativo que seu aplicativo recebe e suas permissões efetivas ao fazer chamadas para o recurso de destino.
+_Permissões eficazes_ são as permissões que a sua aplicação terá ao fazer pedidos para o recurso alvo. É importante compreender a diferença entre as permissões delegadas e de aplicação que a sua aplicação é concedida e as suas permissões eficazes ao fazer chamadas para o recurso alvo.
 
-- Para permissões delegadas, as _permissões efetivas_ de seu aplicativo serão a interseção menos privilegiada das permissões delegadas que o aplicativo recebeu (via consentimento) e os privilégios do usuário conectado no momento. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [permissões de função de administrador no Azure ad](../users-groups-roles/directory-assign-admin-roles.md).
+- Para permissões delegadas, as _permissões efetivas_ da sua aplicação serão a intersecção menos privilegiada das permissões delegadas que a app foi concedida (por consentimento) e os privilégios do utilizador atualmente assinado. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de funções do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-   Por exemplo, suponha que seu aplicativo tenha recebido a permissão _User. ReadWrite. All_ delegated. Esta permissão concede nominalmente permissão à aplicação para ler e atualizar o perfil de todos os utilizadores de uma organização. Se o utilizador com sessão iniciada for administrador global, a aplicação poderá atualizar o perfil de todos os utilizadores da organização. No entanto, se o usuário conectado não estiver em uma função de administrador, seu aplicativo poderá atualizar somente o perfil do usuário conectado. Não poderá atualizar os perfis dos outros utilizadores da organização porque o utilizador em cujo nome tem permissão para agir não tem esses privilégios.
+   Por exemplo, assuma que a sua aplicação foi concedida ao _Utilizador.ReadWrite.Toda_ a permissão delegada. Esta permissão concede nominalmente permissão à aplicação para ler e atualizar o perfil de todos os utilizadores de uma organização. Se o utilizador com sessão iniciada for administrador global, a aplicação poderá atualizar o perfil de todos os utilizadores da organização. No entanto, se o utilizador de saque não estiver numa função de administrador, a sua aplicação poderá atualizar apenas o perfil do utilizador inscrito. Não poderá atualizar os perfis dos outros utilizadores da organização porque o utilizador em cujo nome tem permissão para agir não tem esses privilégios.
   
-- Para permissões de aplicativo, as _permissões efetivas_ do seu aplicativo serão o nível completo de privilégios implícitos pela permissão. Por exemplo, um aplicativo que tem a permissão _User. ReadWrite. All_ Application pode atualizar o perfil de cada usuário na organização. 
+- Para permissões de aplicação, as _permissões efetivas_ da sua aplicação serão o nível completo de privilégios implícitos pela permissão. Por exemplo, uma aplicação que tenha o _User.ReadWrite.Todas as_ permissões de aplicação podem atualizar o perfil de cada utilizador da organização. 
 
-## <a name="openid-connect-scopes"></a>Escopos do OpenID Connect
+## <a name="openid-connect-scopes"></a>AbraID Connect scopes
 
-A implementação da plataforma Microsoft Identity do OpenID Connect tem alguns escopos bem definidos que não se aplicam a um recurso específico: `openid`, `email`, `profile`e `offline_access`. Não há suporte para os escopos `address` e `phone` OpenID Connect.
+A implementação da plataforma de identidade Microsoft do OpenID Connect tem alguns âmbitos bem definidos que não se aplicam a um recurso específico: `openid`, `email`, `profile`e `offline_access`. Os `address` e `phone` os âmbitos OpenID Connect não são suportados.
 
-### <a name="openid"></a>OpenID
+### <a name="openid"></a>openid
 
-Se um aplicativo executar a entrada usando o [OpenID Connect](active-directory-v2-protocols.md), ele deverá solicitar o escopo de `openid`. O escopo de `openid` é mostrado na página de consentimento da conta corporativa como a permissão "conectar você" e na página de consentimento conta Microsoft pessoal como a permissão "exibir seu perfil e conectar-se a aplicativos e serviços usando sua conta Microsoft". Com essa permissão, um aplicativo pode receber um identificador exclusivo para o usuário na forma de declaração de `sub`. Ele também dá ao aplicativo acesso ao ponto de extremidade de UserInfo. O escopo de `openid` pode ser usado no ponto de extremidade de token da plataforma de identidade da Microsoft para adquirir tokens de ID, que podem ser usados pelo aplicativo para autenticação.
+Se uma aplicação realizar o sessão utilizando o [OpenID Connect,](active-directory-v2-protocols.md)deve solicitar o âmbito `openid`. O âmbito `openid` mostra na página de consentimento da conta de trabalho como a permissão "Inscreva-se" e na página de consentimento pessoal da conta da Microsoft como a "Ver o seu perfil e ligar-se a apps e serviços utilizando a sua conta Microsoft". Com esta permissão, uma aplicação pode receber um identificador único para o utilizador sob a forma da reivindicação `sub`. Também dá acesso à aplicação ao ponto final do UserInfo. O âmbito `openid` pode ser utilizado na plataforma de identidade da Microsoft para adquirir tokens de ID, que podem ser usados pela aplicação para autenticação.
 
 ### <a name="email"></a>e-mail
 
-O escopo de `email` pode ser usado com o escopo de `openid` e quaisquer outros. Ele dá ao aplicativo acesso ao endereço de email principal do usuário na forma da declaração de `email`. A declaração de `email` será incluída em um token somente se um endereço de email estiver associado à conta de usuário, que nem sempre é o caso. Se ele usar o escopo de `email`, seu aplicativo deverá estar preparado para lidar com um caso no qual a declaração de `email` não existe no token.
+O âmbito `email` pode ser utilizado com o âmbito `openid` e qualquer outro. Dá à aplicação acesso ao endereço de e-mail primário do utilizador sob a forma da `email` reivindicação. A `email` reclamação só está incluída num símbolo se um endereço de e-mail estiver associado à conta de utilizador, o que nem sempre é o caso. Se utilizar o âmbito `email`, a sua aplicação deve estar preparada para lidar com um caso em que a alegação `email` não exista no token.
 
 ### <a name="profile"></a>profile
 
-O escopo de `profile` pode ser usado com o escopo de `openid` e quaisquer outros. Ele dá ao aplicativo acesso a uma quantidade significativa de informações sobre o usuário. As informações que ele pode acessar incluem, mas não se limitam a, o nome do usuário, o sobrenome, o nome de usuário preferencial e a ID de objeto. Para obter uma lista completa das declarações de perfil disponíveis no parâmetro id_tokens para um usuário específico, consulte a [referência`id_tokens`](id-tokens.md).
+O âmbito `profile` pode ser utilizado com o âmbito `openid` e qualquer outro. Dá à aplicação acesso a uma quantidade substancial de informação sobre o utilizador. A informação a que pode aceder inclui, mas não se limita a, o nome, apelido, nome de utilizador preferido e ID do objeto. Para obter uma lista completa das reclamações de perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte a [referência`id_tokens`](id-tokens.md).
 
 ### <a name="offline_access"></a>offline_access
 
-O [escopo de`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá ao aplicativo acesso a recursos em nome do usuário por um longo tempo. Na página de consentimento, esse escopo aparece como a permissão "manter o acesso aos dados aos quais você concedeu acesso". Quando um usuário aprova o escopo de `offline_access`, seu aplicativo pode receber tokens de atualização do ponto de extremidade de token da plataforma de identidade da Microsoft. Os tokens de atualização têm vida longa. Seu aplicativo pode obter novos tokens de acesso à medida que os antigos expiram.
+O [âmbito`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá à sua app acesso aos recursos em nome do utilizador por um período prolongado. Na página de consentimento, este âmbito aparece como a permissão "Manter o acesso aos dados a que lhe deu acesso". Quando um utilizador aprova o âmbito `offline_access`, a sua aplicação pode receber fichas de atualização do ponto final da plataforma de identidade da Microsoft. Os tokens de atualização têm vida longa. A sua aplicação pode obter novos tokens de acesso à medida que os mais velhos expiram.
 
 > [!NOTE]
-> Essa permissão aparece em todas as telas de consentimento hoje, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isso é para abranger cenários em que um cliente pode começar dentro do fluxo implícito e, em seguida, ir até o fluxo de código em que um token de atualização é esperado.
+> Esta permissão aparece em todos os ecrãs de consentimento hoje em dia, mesmo para fluxos que não fornecem um token refrescante (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isto é para cobrir cenários em que um cliente pode começar dentro do fluxo implícito, e depois passar para o fluxo de código onde é esperado um token de atualização.
 
-Na plataforma de identidade da Microsoft (solicitações feitas ao ponto de extremidade v 2.0), seu aplicativo deve solicitar explicitamente o escopo de `offline_access`, para receber tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2,0](active-directory-v2-protocols.md), você receberá apenas um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período de tempo. O token de acesso geralmente expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário de volta para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário pode precisar inserir suas credenciais novamente ou consentir novamente as permissões. 
+Na plataforma de identidade da Microsoft (pedidos feitos para o ponto final v2.0), a sua aplicação deve solicitar explicitamente o âmbito de `offline_access`, para receber fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de [autorização OAuth 2.0,](active-directory-v2-protocols.md)receberá apenas um sinal de acesso do `/token` ponto final. O sinal de acesso é válido por um curto período de tempo. O sinal de acesso geralmente expira em uma hora. Nessa altura, a sua aplicação precisa de redirecionar o utilizador para o `/authorize` ponto final para obter um novo código de autorização. Durante este redirecionamento, dependendo do tipo de app, o utilizador poderá ter de voltar a introduzir as suas credenciais ou consentir novamente com permissões. 
 
-Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
+Para obter mais informações sobre como obter e usar tokens de atualização, consulte a referência do protocolo da [plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
-## <a name="requesting-individual-user-consent"></a>Solicitando consentimento de usuário individual
+## <a name="requesting-individual-user-consent"></a>Solicitando o consentimento individual do utilizador
 
-Em uma solicitação de autorização do [OpenID Connect ou do OAuth 2,0](active-directory-v2-protocols.md) , um aplicativo pode solicitar as permissões necessárias usando o parâmetro de consulta `scope`. Por exemplo, quando um usuário entra em um aplicativo, o aplicativo envia uma solicitação como o exemplo a seguir (com quebras de linha adicionadas para legibilidade):
+Num pedido de autorização [OpenID Connect ou OAuth 2.0,](active-directory-v2-protocols.md) uma aplicação pode solicitar as permissões de que necessita utilizando o parâmetro de consulta `scope`. Por exemplo, quando um utilizador faz o inserido numa aplicação, a aplicação envia um pedido como o seguinte exemplo (com quebras de linha adicionadas para legibilidade):
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -121,72 +120,72 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-O parâmetro `scope` é uma lista separada por espaços de permissões delegadas que o aplicativo está solicitando. Cada permissão é indicada acrescentando o valor de permissão ao identificador do recurso (o URI da ID do aplicativo). No exemplo de solicitação, o aplicativo precisa de permissão para ler o calendário do usuário e enviar email como o usuário.
+O parâmetro `scope` é uma lista separada do espaço de permissões delegadas que a aplicação está a solicitar. Cada permissão é indicada através da adesão do valor de permissão ao identificador do recurso (o ID DE Aplicação URI). No exemplo do pedido, a aplicação necessita de permissão para ler o calendário do utilizador e enviar correio como utilizador.
 
-Depois que o usuário inserir suas credenciais, o ponto de extremidade da plataforma de identidade da Microsoft verificará se há um registro correspondente de *consentimento do usuário*. Se o usuário não consentiu em nenhuma das permissões solicitadas no passado, nem tem um administrador que consentiu essas permissões em nome de toda a organização, o ponto de extremidade da plataforma de identidade da Microsoft solicita que o usuário conceda as permissões solicitadas.
+Depois de o utilizador introduzir as suas credenciais, a plataforma de identidade da Microsoft verifica se há um registo correspondente do consentimento do *utilizador*. Se o utilizador não tiver consentido com nenhuma das permissões solicitadas no passado, nem um administrador consentiu nestas permissões em nome de toda a organização, o ponto final da plataforma de identidade da Microsoft pede ao utilizador que conceda as permissões solicitadas.
 
 > [!NOTE]
-> Neste momento, o `offline_access` ("manter o acesso aos dados aos quais você concedeu acesso") e `user.read` ("entrar e ler seu perfil") as permissões são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade de aplicativo adequada-`offline_access` dá ao aplicativo acesso para atualizar tokens, essencial para aplicativos Web e nativos, enquanto `user.read` fornece acesso à declaração de `sub`, permitindo que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesse informações rudimentares do usuário.  
+> Neste momento, as autorizações `offline_access` ("Manter o acesso aos dados a que lhe foi dado acesso") e `user.read` ("Inscreva-se e leia o seu perfil") as permissões são automaticamente incluídas no consentimento inicial de uma aplicação.  Estas permissões são geralmente necessárias para uma funcionalidade adequada da aplicação - `offline_access` dá à app acesso a tokens de atualização, críticos para aplicações nativas e web, enquanto `user.read` dá acesso à `sub` reivindicação, permitindo ao cliente ou app identificar corretamente o utilizador ao longo do tempo e aceder a informações rudimentares do utilizador.  
 
-![Captura de tela de exemplo que mostra o consentimento da conta corporativa](./media/v2-permissions-and-consent/work_account_consent.png)
+![Screenshot de exemplo que mostra consentimento da conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
 
-Quando o usuário aprova a solicitação de permissão, o consentimento é registrado e o usuário não precisa consentir novamente em entradas subsequentes para o aplicativo.
+Quando o utilizador aprova o pedido de permissão, o consentimento é registado e o utilizador não tem de consentir novamente nos subsequentes insinos para a aplicação.
 
-## <a name="requesting-consent-for-an-entire-tenant"></a>Solicitando consentimento para um locatário inteiro
+## <a name="requesting-consent-for-an-entire-tenant"></a>Solicitando consentimento para um inquilino inteiro
 
-Geralmente, quando uma organização adquire uma licença ou assinatura para um aplicativo, a organização deseja configurar proativamente o aplicativo para uso por todos os membros da organização. Como parte desse processo, um administrador pode conceder consentimento para o aplicativo agir em nome de qualquer usuário no locatário. Se o administrador conceder consentimento para o locatário inteiro, os usuários da organização não verão uma página de consentimento para o aplicativo.
+Muitas vezes, quando uma organização compra uma licença ou subscrição para uma aplicação, a organização quer configurar proativamente o pedido de utilização por todos os membros da organização. Como parte deste processo, um administrador pode conceder o consentimento para que o pedido atue em nome de qualquer utilizador do inquilino. Se o administrador conceder o consentimento para todo o inquilino, os utilizadores da organização não verão uma página de consentimento para a aplicação.
 
-Para solicitar consentimento para permissões delegadas para todos os usuários em um locatário, seu aplicativo pode usar o ponto de extremidade de consentimento do administrador.
+Para solicitar o consentimento para permissões delegadas para todos os utilizadores de um inquilino, a sua aplicação pode utilizar o ponto final de consentimento do administrador.
 
-Além disso, os aplicativos devem usar o ponto de extremidade de consentimento do administrador para solicitar permissões de aplicativo.
+Além disso, as aplicações devem usar o ponto final do consentimento do administrador para solicitar permissões de pedido.
 
-## <a name="admin-restricted-permissions"></a>Permissões restritas ao administrador
+## <a name="admin-restricted-permissions"></a>Permissões restritas a administradores
 
-Algumas permissões de alto privilégio no ecossistema da Microsoft podem ser definidas como *restritas ao administrador*. Exemplos desses tipos de permissões incluem o seguinte:
+Algumas permissões de privilégio saem no ecossistema da Microsoft podem ser definidas como restritas à *administração.* Exemplos deste tipo de permissões incluem o seguinte:
 
-* Ler todos os perfis completos do usuário usando `User.Read.All`
-* Gravar dados no diretório de uma organização usando `Directory.ReadWrite.All`
-* Ler todos os grupos no diretório de uma organização usando `Groups.Read.All`
+* Leia todos os perfis completos do utilizador usando `User.Read.All`
+* Escreva dados para o diretório de uma organização usando `Directory.ReadWrite.All`
+* Leia todos os grupos no diretório de uma organização usando `Groups.Read.All`
 
-Embora um usuário consumidor possa conceder a um aplicativo acesso a esse tipo de dados, os usuários organizacionais estão restritos a conceder acesso ao mesmo conjunto de dados confidenciais da empresa. Se seu aplicativo solicitar acesso a uma dessas permissões de um usuário da organização, o usuário receberá uma mensagem de erro informando que elas não estão autorizadas a dar consentimento às permissões do seu aplicativo.
+Embora um utilizador de consumo possa conceder um acesso a este tipo de dados, os utilizadores organizacionais estão impedidos de conceder acesso ao mesmo conjunto de dados sensíveis da empresa. Se a sua aplicação solicitar o acesso a uma dessas permissões de um utilizador organizacional, o utilizador recebe uma mensagem de erro que diz não estar autorizada a consentir com as permissões da sua aplicação.
 
-Se seu aplicativo exigir acesso a escopos restritos ao administrador para organizações, você deverá solicitá-los diretamente de um administrador da empresa, também usando o ponto de extremidade de consentimento do administrador, descrito a seguir.
+Se a sua aplicação necessitar de acesso a âmbitos restritos de administração para organizações, deve solicitá-las diretamente a um administrador da empresa, também utilizando o ponto final de consentimento administrativo, descrito em seguida.
 
-Se o aplicativo estiver solicitando permissões delegadas de alto privilégio e um administrador conceder essas permissões por meio do ponto de extremidade de consentimento do administrador, o consentimento será concedido para todos os usuários no locatário.
+Se o pedido estiver a solicitar permissões delegadas de alto privilégio e um administrador conceder essas permissões através do ponto final do consentimento do administrador, o consentimento é concedido a todos os utilizadores do inquilino.
 
-Se o aplicativo estiver solicitando permissões de aplicativo e um administrador conceder essas permissões por meio do ponto de extremidade de consentimento do administrador, essa concessão não será feita em nome de qualquer usuário específico. Em vez disso, o aplicativo cliente recebe permissões *diretamente*. Esses tipos de permissões são usados apenas por serviços de daemon e outros aplicativos não interativos que são executados em segundo plano.
+Se o pedido estiver a solicitar permissões de pedido e um administrador conceder essas permissões através do ponto final do consentimento do administrador, esta subvenção não é feita em nome de nenhum utilizador específico. Em vez disso, o pedido do cliente é concedido *diretamente*a permissões . Este tipo de permissões são utilizados apenas por serviços daemon e outras aplicações não interativas que funcionam em segundo plano.
 
-## <a name="using-the-admin-consent-endpoint"></a>Usando o ponto de extremidade de consentimento do administrador
+## <a name="using-the-admin-consent-endpoint"></a>Utilização do ponto final do consentimento da administração
 
 > [!NOTE] 
-> Observe que, depois de conceder o consentimento do administrador usando o ponto de extremidade de consentimento do administrador, você terminou de conceder o consentimento do administrador e os usuários não precisam executar outras ações adicionais. Depois de conceder o consentimento do administrador, os usuários poderão obter um token de acesso por meio de um fluxo de autenticação típico e o token de acesso resultante terá as permissões consentidas. 
+> Por favor, note depois de conceder o consentimento do administrador usando o ponto final do consentimento da administração, você terminou de conceder consentimento de administrador e os utilizadores não precisam realizar quaisquer ações adicionais adicionais. Após a concessão do consentimento da administração, os utilizadores podem obter um sinal de acesso através de um fluxo típico de auth e o token de acesso resultante terá as permissões consentidas. 
 
-Quando um administrador da empresa usa seu aplicativo e é direcionado para o ponto de extremidade de autorização, a plataforma de identidade da Microsoft detectará a função do usuário e perguntará se deseja consentir em nome do locatário inteiro para as permissões que você solicitou. No entanto, também há um ponto de extremidade de consentimento de administrador dedicado que você pode usar se quiser solicitar proativamente que um administrador Conceda permissão em nome de todo o locatário. O uso desse ponto de extremidade também é necessário para solicitar permissões de aplicativo (que não podem ser solicitadas usando o ponto de extremidade de autorização).
+Quando um Administrador da Empresa utiliza a sua aplicação e é direcionado para o ponto final de autorização, a plataforma de identidade da Microsoft irá detetar o papel do utilizador e perguntar-lhe se gostaria de consentir em nome de todo o inquilino pelas permissões que solicitou. No entanto, existe também um ponto final dedicado ao consentimento do administrador que pode usar se quiser solicitar proativamente que um administrador conceda autorização em nome de todo o inquilino. A utilização deste ponto final também é necessária para solicitar permissões de pedido (que não podem ser solicitadas usando o ponto final de autorização).
 
-Se você seguir essas etapas, seu aplicativo poderá solicitar permissões para todos os usuários em um locatário, incluindo escopos restritos ao administrador. Essa é uma operação de alto privilégio e só deve ser feita se necessário para seu cenário.
+Se seguir estes passos, a sua aplicação pode solicitar permissões a todos os utilizadores de um inquilino, incluindo âmbitos restritos à administração. Esta é uma operação de alto privilégio e só deve ser feita se necessário para o seu cenário.
 
-Para ver um exemplo de código que implementa as etapas, consulte o [exemplo de escopos restritos ao administrador](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Para ver uma amostra de código que implemente os passos, consulte a [amostra de âmbitos restritos à administração](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registro de aplicativo
 
-O consentimento do administrador não aceita um parâmetro de escopo, portanto, todas as permissões solicitadas devem ser definidas estaticamente no registro do aplicativo. Em geral, é recomendável garantir que as permissões definidas estaticamente para um determinado aplicativo sejam um superconjunto das permissões que serão solicitadas dinamicamente/incrementalmente.
+O consentimento do administrador não aceita um parâmetro de âmbito, pelo que quaisquer permissões solicitadas devem ser definidas estáticamente no registo do pedido. Em geral, é a melhor prática garantir que as permissões definidas estáticamente para uma determinada aplicação são um superconjunto das permissões que irá solicitar dinamicamente/incrementalmente.
 
-#### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões solicitadas estaticamente para um aplicativo
+#### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões estáticas solicitadas para um pedido
 
-1. Vá para seu aplicativo na experiência de [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) ou [crie um aplicativo](quickstart-register-app.md) , caso ainda não tenha feito isso.
-2. Localize a seção **permissões de API** e, dentro das permissões de API, clique em adicionar uma permissão.
-3. Selecione **Microsoft Graph** na lista de APIs disponíveis e, em seguida, adicione as permissões que seu aplicativo requer.
+1. Vá à sua aplicação no portal Azure – Experiência de registos de [aplicações,](https://go.microsoft.com/fwlink/?linkid=2083908) ou [crie uma app](quickstart-register-app.md) se ainda não o fez.
+2. Localize a secção **de permissões DaPI** e dentro das permissões da API clique em Adicionar uma permissão.
+3. Selecione o **Microsoft Graph** na lista de APIs disponíveis e, em seguida, adicione as permissões que a sua aplicação necessita.
 3. **Salve** o registro do aplicativo.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: conectar o usuário ao seu aplicativo
 
-Normalmente, quando você cria um aplicativo que usa o ponto de extremidade de consentimento do administrador, o aplicativo precisa de uma página ou exibição na qual o administrador possa aprovar as permissões do aplicativo. Essa página pode fazer parte do fluxo de inscrição do aplicativo, parte das configurações do aplicativo ou pode ser um fluxo de "conexão" dedicado. Em muitos casos, faz sentido que o aplicativo mostre esse modo de exibição "conectar" somente depois que um usuário tiver entrado com uma conta Microsoft corporativa ou de estudante.
+Normalmente, quando se constrói uma aplicação que utiliza o ponto final do consentimento do administrador, a aplicação precisa de uma página ou vista na qual o administrador pode aprovar as permissões da app. Esta página pode fazer parte do fluxo de inscrição da aplicação, parte das definições da aplicação, ou pode ser um fluxo dedicado de "connect". Em muitos casos, faz sentido que o aplicativo mostre esse modo de exibição "conectar" somente depois que um usuário tiver entrado com uma conta Microsoft corporativa ou de estudante.
 
-Ao conectar o usuário ao seu aplicativo, você pode identificar a organização à qual o administrador pertence antes de pedir que eles aprovem as permissões necessárias. Embora não seja estritamente necessário, ele pode ajudá-lo a criar uma experiência mais intuitiva para seus usuários organizacionais. Para conectar o usuário, siga nossos [tutoriais de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
+Ao assinar o utilizador na sua aplicação, pode identificar a organização a que pertence o administrador antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para conectar o usuário, siga nossos [tutoriais de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitar as permissões de um administrador de diretório
 
-Quando estiver pronto para solicitar permissões do administrador da sua organização, você poderá redirecionar o usuário para o ponto de *extremidade de consentimento do administrador*da plataforma de identidade da Microsoft.
+Quando estiver pronto para solicitar permissões ao administrador da sua organização, pode redirecionar o utilizador para o *ponto final*de consentimento da plataforma de identidade da Microsoft .
 
 ```
 // Line breaks are for legibility only.
@@ -202,18 +201,18 @@ Quando estiver pronto para solicitar permissões do administrador da sua organiz
 
 | Parâmetro     | Condição     | Descrição                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obrigatório | O locatário do diretório do qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com `common` como visto no exemplo. |
+| `tenant` | Obrigatório | O locatário do diretório do qual você deseja solicitar permissão. Pode ser fornecido em formato de nome GUIA ou amigável OU genericamente referenciado com `common` como se pode ver no exemplo. |
 | `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Obrigatório |O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
-|`scope`        | Obrigatório      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC (`openid`, `profile`, `email`). | 
+| `redirect_uri` | Obrigatório |O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Deve corresponder exatamente a uma das URIs redirecionais que registou no portal de registo da aplicação. |
+| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma série de qualquer conteúdo que queiras. Utilize o Estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava. |
+|`scope`        | Obrigatório      | Define o conjunto de permissões que estão a ser solicitadas pelo pedido. Isto pode ser estático (utilizando /.padrão) ou âmbitos dinâmicos.  Isto pode incluir os âmbitos OIDC (`openid`, `profile`, `email`). | 
 
 
-Neste ponto, o Azure AD requer que um administrador de locatários entre para concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no parâmetro `scope`.  Se você usou um valor estático (`/.default`), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.
+Neste momento, a Azure AD exige que um administrador inquilino assine o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no parâmetro `scope`.  Se tiver usado um valor estático (`/.default`), funcionará como o ponto final de consentimento da administração v1.0 e solicitará o consentimento de todos os âmbitos encontrados nas permissões necessárias para a app.
 
 #### <a name="successful-response"></a>Resposta bem-sucedida
 
-Se o administrador aprovar as permissões para seu aplicativo, a resposta bem-sucedida terá esta aparência:
+Se o administrador aprovar as permissões para a sua aplicação, a resposta bem sucedida é a seguinte:
 
 ```
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
@@ -221,13 +220,13 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `tenant` | O locatário de diretório que concedeu ao aplicativo as permissões solicitadas, no formato GUID. |
-| `state` | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
-| `admin_consent` | Será definido como `True`. |
+| `tenant` | O inquilino de diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID. |
+| `state` | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. O estado é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
+| `admin_consent` | Será programado para `True`. |
 
 #### <a name="error-response"></a>Resposta de erro
 
-Se o administrador não aprovar as permissões para seu aplicativo, a resposta com falha terá esta aparência:
+Se o administrador não aprovar as permissões para a sua aplicação, a resposta falhada é a seguinte:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -236,13 +235,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 | Parâmetro | Descrição |
 | --- | --- |
 | `error` | Uma cadeia de caracteres de código de erro que pode ser usada para classificar tipos de erros que ocorrem e pode ser usada para reagir a erros. |
-| `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro. |
+| `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa principal de um erro. |
 
-Depois de receber uma resposta bem-sucedida do ponto de extremidade de consentimento do administrador, seu aplicativo ganhou as permissões solicitadas. Em seguida, você pode solicitar um token para o recurso desejado.
+Depois de ter recebido uma resposta bem sucedida do ponto final do consentimento da administração, a sua aplicação obteve as permissões que solicitou. Em seguida, pode pedir um sinal para o recurso que quiser.
 
 ## <a name="using-permissions"></a>Usando permissões
 
-Depois que o usuário consentir permissões para seu aplicativo, seu aplicativo poderá adquirir tokens de acesso que representem a permissão do seu aplicativo para acessar um recurso em alguma capacidade. Um token de acesso pode ser usado apenas para um único recurso, mas codificado dentro do token de acesso é cada permissão que seu aplicativo recebeu para esse recurso. Para adquirir um token de acesso, seu aplicativo pode fazer uma solicitação para o ponto de extremidade de token da plataforma de identidade da Microsoft, desta forma:
+Depois de o utilizador consentir em permissões para a sua aplicação, a sua aplicação pode adquirir fichas de acesso que representam a permissão da sua aplicação para aceder a um recurso com alguma capacidade. Um token de acesso pode ser usado apenas para um único recurso, mas codificado dentro do token de acesso é cada permissão que a sua aplicação foi concedida para esse recurso. Para adquirir um token de acesso, a sua aplicação pode fazer um pedido para a plataforma de identidade da Microsoft token endpoint, como este:
 
 ```
 POST common/oauth2/v2.0/token HTTP/1.1
@@ -259,42 +258,42 @@ Content-Type: application/json
 }
 ```
 
-Você pode usar o token de acesso resultante em solicitações HTTP para o recurso. Ele indica de maneira confiável o recurso de que seu aplicativo tem a permissão apropriada para executar uma tarefa específica. 
+Pode utilizar o token de acesso resultante nos pedidos http para o recurso. Indica de forma fiável ao recurso que a sua aplicação tem a permissão adequada para executar uma tarefa específica. 
 
-Para obter mais informações sobre o protocolo OAuth 2,0 e como obter tokens de acesso, consulte a [referência do protocolo de ponto de extremidade da plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
+Para obter mais informações sobre o protocolo OAuth 2.0 e como obter fichas de acesso, consulte a referência do [protocolo final da plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
-## <a name="the-default-scope"></a>O escopo/.Default
+## <a name="the-default-scope"></a>O âmbito /.padrão
 
-Você pode usar o escopo de `/.default` para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 para o ponto de extremidade da plataforma Microsoft Identity. Esse é um escopo interno para cada aplicativo que se refere à lista estática de permissões configuradas no registro do aplicativo. Um valor `scope` de `https://graph.microsoft.com/.default` é funcionalmente o mesmo que os pontos de extremidade v 1.0 `resource=https://graph.microsoft.com`-or, ele solicita um token com os escopos no Microsoft Graph em que o aplicativo se registrou na portal do Azure.
+Pode utilizar o âmbito `/.default` para ajudar a migrar as suas aplicações do ponto final v1.0 para o ponto final da plataforma de identidade da Microsoft. Esta é uma mira incorporada para cada aplicação que se refere à lista estática de permissões configuradas no registo de candidatura. Um valor `scope` de `https://graph.microsoft.com/.default` é funcionalmente o mesmo que os pontos finais v1.0 `resource=https://graph.microsoft.com` - nomeadamente, solicita um símbolo com os âmbitos no Microsoft Graph que a aplicação registou no portal Azure.
 
-O escopo/.default pode ser usado em qualquer fluxo OAuth 2,0, mas é necessário no [fluxo em nome de](v2-oauth2-on-behalf-of-flow.md) e no fluxo de [credenciais do cliente](v2-oauth2-client-creds-grant-flow.md).  
+O âmbito /.padrão pode ser utilizado em qualquer fluxo OAuth 2.0, mas é necessário no fluxo de fluxo e [credenciais](v2-oauth2-client-creds-grant-flow.md)de cliente em nome de [entrada.](v2-oauth2-on-behalf-of-flow.md)  
 
 > [!NOTE]
-> Os clientes não podem combinar o consentimento estático (`/.default`) e dinâmico em uma única solicitação. Assim, `scope=https://graph.microsoft.com/.default+mail.read` resultará em um erro devido à combinação de tipos de escopo.
+> Os clientes não podem combinar o consentimento estático (`/.default`) e dinâmico num único pedido. Assim, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.
 
-### <a name="default-and-consent"></a>/.Default e consentimento
+### <a name="default-and-consent"></a>/.padrão e consentimento
 
-O escopo de `/.default` aciona o comportamento de ponto de extremidade v 1.0 para `prompt=consent` também. Ele solicita consentimento para todas as permissões registradas pelo aplicativo, independentemente do recurso. Se incluído como parte da solicitação, o escopo de `/.default` retorna um token que contém os escopos para o recurso solicitado.
+O âmbito `/.default` despoleta o comportamento do ponto final v1.0 para `prompt=consent` também. Solicita consentimento para todas as permissões registadas pelo pedido, independentemente do recurso. Se incluído como parte do pedido, o âmbito de `/.default` devolve um símbolo que contém os âmbitos para o recurso solicitado.
 
-### <a name="default-when-the-user-has-already-given-consent"></a>/.default quando o usuário já tiver dado consentimento
+### <a name="default-when-the-user-has-already-given-consent"></a>/.padrão quando o utilizador já deu consentimento
 
-Como `/.default` é funcionalmente idêntica ao comportamento do ponto de extremidade v 1.0 centrado em `resource`, ele também traz o comportamento de consentimento do ponto de extremidade v 1.0. Ou seja, `/.default` apenas acionará um prompt de consentimento se nenhuma permissão tiver sido concedida entre o cliente e o recurso pelo usuário. Se esse tipo de consentimento existir, um token será retornado contendo todos os escopos concedidos pelo usuário para esse recurso. No entanto, se nenhuma permissão tiver sido concedida ou o parâmetro `prompt=consent` tiver sido fornecido, uma solicitação de consentimento será mostrada para todos os escopos registrados pelo aplicativo cliente.
+Como `/.default` é funcionalmente idêntico ao comportamento do `resource`-centrado v1.0 endpoint, traz consigo o comportamento de consentimento do ponto final v1.0 também. Ou seja, `/.default` apenas desencadeia um pedido de consentimento se não tiver sido concedida qualquer permissão entre o cliente e o recurso pelo utilizador. Se tal consentimento existir, então será devolvido um símbolo contendo todos os âmbitos concedidos pelo utilizador para esse recurso. No entanto, se não tiver sido concedida qualquer permissão, ou se o parâmetro `prompt=consent` tiver sido fornecido, será apresentado um pedido de consentimento para todos os âmbitos registados pelo pedido do cliente.
 
-#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Exemplo 1: o usuário, ou administrador de locatário, concedeu permissões
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Exemplo 1: O utilizador, ou administrador de inquilino, concedeu permissões
 
-O usuário (ou um administrador de locatários) concedeu ao cliente as permissões de Microsoft Graph `mail.read` e `user.read`. Se o cliente fizer uma solicitação para `scope=https://graph.microsoft.com/.default`, nenhum prompt de consentimento será mostrado, independentemente do conteúdo das permissões registradas de aplicativos cliente para Microsoft Graph. Um token seria retornado contendo os escopos `mail.read` e `user.read`.
+O utilizador (ou administrador de inquilino) concedeu ao cliente as permissões do Microsoft Graph `mail.read` e `user.read`. Se o cliente fizer um pedido de `scope=https://graph.microsoft.com/.default`, então nenhum pedido de consentimento será mostrado independentemente do conteúdo das aplicações do cliente permissões registadas para o Microsoft Graph. Seria devolvido um símbolo contendo os âmbitos `mail.read` e `user.read`.
 
-#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exemplo 2: o usuário não concedeu permissões entre o cliente e o recurso
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exemplo 2: O utilizador não concedeu permissões entre o cliente e o recurso
 
-Não existe consentimento para o usuário entre o cliente e o Microsoft Graph. O cliente se registrou para as permissões de `user.read` e `contacts.read`, bem como o `https://vault.azure.net/user_impersonation`de escopo de Azure Key Vault. Quando o cliente solicitar um token para `scope=https://graph.microsoft.com/.default`, o usuário verá uma tela de consentimento para o `user.read`, `contacts.read`e os escopos de `user_impersonation` de Key Vault. O token retornado terá apenas os escopos `user.read` e `contacts.read`.
+Não existe consentimento para o utilizador entre o cliente e o Microsoft Graph. O cliente registou-se para as permissões `user.read` e `contacts.read`, bem como o âmbito do Cofre chave Azure `https://vault.azure.net/user_impersonation`. Quando o cliente solicitar um sinal para `scope=https://graph.microsoft.com/.default`, o utilizador verá um ecrã de consentimento para o `user.read`, `contacts.read`, e o Cofre chave `user_impersonation` âmbitos. O símbolo devolvido terá apenas o `user.read` e `contacts.read` âmbitos nele.
 
-#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemplo 3: o usuário consentiu e o cliente solicita escopos adicionais
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemplo 3: O utilizador consentiu e o cliente solicita âmbitos adicionais
 
-O usuário já consentiu `mail.read` para o cliente. O cliente foi registrado para o escopo de `contacts.read` em seu registro. Quando o cliente faz uma solicitação para um token usando `scope=https://graph.microsoft.com/.default` e solicita o consentimento por meio de `prompt=consent`, o usuário verá uma tela de consentimento somente para e todas as permissões registradas pelo aplicativo. `contacts.read` estará presente na tela de consentimento, mas o `mail.read` não fará isso. O token retornado será para Microsoft Graph e conterá `mail.read` e `contacts.read`.
+O utilizador já consentiu em `mail.read` para o cliente. O cliente registou-se para o âmbito `contacts.read` no seu registo. Quando o cliente fizer um pedido de um token usando `scope=https://graph.microsoft.com/.default` e solicitar consentimento através de `prompt=consent`, então o utilizador verá um ecrã de consentimento apenas e todas as permissões registadas pela aplicação. `contacts.read` estará presente no ecrã de consentimento, mas `mail.read` não. O símbolo devolvido será para o Microsoft Graph e conterá `mail.read` e `contacts.read`.
 
-### <a name="using-the-default-scope-with-the-client"></a>Usando o escopo/.Default com o cliente
+### <a name="using-the-default-scope-with-the-client"></a>Utilização do âmbito /.padrão com o cliente
 
-Um caso especial do escopo de `/.default` existe onde um cliente solicita seu próprio escopo de `/.default`. O exemplo a seguir demonstra esse cenário.
+Existe um caso especial do âmbito `/.default` em que um cliente solicita o seu próprio âmbito `/.default`. O exemplo que se segue demonstra este cenário.
 
 ```
 // Line breaks are for legibility only.
@@ -307,8 +306,8 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Isso produz uma tela de consentimento para todas as permissões registradas (se aplicável com base nas descrições acima de consentimento e `/.default`) e, em seguida, retorna um id_token, em vez de um token de acesso.  Esse comportamento existe para determinados clientes herdados que se movem de ADAL para MSAL e não devem ser usados por novos clientes direcionados ao ponto de extremidade da plataforma Microsoft Identity.  
+Isto produz um ecrã de consentimento para todas as permissões registadas (se aplicável com base nas descrições acima referidas de consentimento e `/.default`), em seguida, devolve um id_token, em vez de um sinal de acesso.  Este comportamento existe para certos clientes legados que se deslocam da ADAL para a MSAL, e não devem ser utilizados por novos clientes que direcionem o ponto final da plataforma de identidade da Microsoft.  
 
-## <a name="troubleshooting-permissions-and-consent"></a>Permissões de solução de problemas e consentimento
+## <a name="troubleshooting-permissions-and-consent"></a>Permissões e consentimento de resolução de problemas
 
-Se você ou os usuários do aplicativo estiverem vendo erros inesperados durante o processo de consentimento, consulte este artigo para obter as etapas de solução de problemas: [erro inesperado ao executar o consentimento para um aplicativo](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Se você ou os utilizadores da sua aplicação estiverem a ver erros inesperados durante o processo de consentimento, consulte este artigo para medidas de resolução de problemas: [Erro inesperado ao executar o consentimento de uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

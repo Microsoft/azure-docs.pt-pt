@@ -14,13 +14,12 @@ ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c4e820867e22d23135f9c50255902447e6063ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e19e9067052c516427391adcc615767446c4049
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424479"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697154"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como entrar em qualquer Azure Active Directory usuário usando o padrão de aplicativo multilocatário
 
@@ -118,13 +117,13 @@ Permissões somente de aplicativo sempre exigem o consentimento de um administra
 
 Determinadas permissões delegadas também exigem o consentimento de um administrador de locatários. Por exemplo, a capacidade de fazer write-back para o Azure AD como o usuário conectado requer o consentimento de um administrador de locatários. Como as permissões somente de aplicativo, se um usuário comum tentar entrar em um aplicativo que solicita uma permissão delegada que exige o consentimento do administrador, seu aplicativo receberá um erro. Se uma permissão requer o consentimento do administrador é determinado pelo desenvolvedor que publicou o recurso e pode ser encontrado na documentação do recurso. A documentação de permissões para o [API do Graph do Azure ad][AAD-Graph-Perm-Scopes] e a [API do Microsoft Graph][MSFT-Graph-permission-scopes] indicam quais permissões exigem o consentimento do administrador.
 
-Se seu aplicativo usa permissões que exigem o consentimento do administrador, você precisa ter um gesto, como um botão ou link no qual o administrador pode iniciar a ação. A solicitação que seu aplicativo envia para essa ação é a solicitação de autorização comum OAuth2/OpenID Connect que também inclui o parâmetro de cadeia de caracteres de consulta `prompt=admin_consent`. Depois que o administrador tiver consentido e a entidade de serviço for criada no locatário do cliente, as solicitações de entrada subsequentes não precisarão do parâmetro `prompt=admin_consent`. Como o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro usuário no locatário é solicitado a fornecer consentimento desse ponto em diante.
+Se seu aplicativo usa permissões que exigem o consentimento do administrador, você precisa ter um gesto, como um botão ou link no qual o administrador pode iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de corda de consulta `prompt=admin_consent`. Uma vez que o administrador tenha consentido e o diretor de serviço seja criado no inquilino do cliente, os pedidos subsequentes de inscrição não precisam do parâmetro `prompt=admin_consent`. Como o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro usuário no locatário é solicitado a fornecer consentimento desse ponto em diante.
 
 Um administrador de locatários pode desabilitar a capacidade de usuários normais consentirem com os aplicativos. Se esse recurso estiver desabilitado, o consentimento do administrador sempre será necessário para que o aplicativo seja usado no locatário. Se você quiser testar seu aplicativo com o consentimento do usuário final desabilitado, poderá encontrar a opção de configuração no [portal do Azure][AZURE-portal] na seção **[configurações do usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** em **aplicativos empresariais**.
 
-O parâmetro `prompt=admin_consent` também pode ser usado por aplicativos que solicitam permissões que não exigem o consentimento do administrador. Um exemplo de quando isso seria usado é se o aplicativo requer uma experiência em que o administrador de locatários "se inscreve" uma vez e nenhum outro usuário é solicitado a fornecer consentimento desse ponto em diante.
+O parâmetro `prompt=admin_consent` também pode ser usado por pedidos que solicitam permissões que não requerem consentimento administrativo. Um exemplo de quando isso seria usado é se o aplicativo requer uma experiência em que o administrador de locatários "se inscreve" uma vez e nenhum outro usuário é solicitado a fornecer consentimento desse ponto em diante.
 
-Se um aplicativo exigir o consentimento do administrador e um administrador entrar sem o parâmetro `prompt=admin_consent` que está sendo enviado, quando o administrador consentir com êxito para o aplicativo, ele será aplicado **somente à sua conta de usuário**. Os usuários regulares ainda não poderão entrar ou consentir o aplicativo. Esse recurso será útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir que outros usuários acessem.
+Se um pedido necessitar de consentimento administrativo e um administrador entrar sem o `prompt=admin_consent` parâmetro, quando o administrador consentir com sucesso com a aplicação, aplicar-se-á **apenas à sua conta de utilizador**. Os usuários regulares ainda não poderão entrar ou consentir o aplicativo. Esse recurso será útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir que outros usuários acessem.
 
 > [!NOTE]
 > Alguns aplicativos desejam uma experiência em que os usuários normais podem consentir inicialmente e, posteriormente, o aplicativo pode envolver o administrador e solicitar permissões que exigem o consentimento do administrador. Não há como fazer isso com um registro de aplicativo v 1.0 no Azure AD hoje mesmo; no entanto, o uso do ponto de extremidade da plataforma Microsoft Identity (v 2.0) permite que os aplicativos solicitem permissões em tempo de execução em vez de no momento do registro, o que habilita esse cenário. Para obter mais informações, consulte [ponto de extremidade da plataforma de identidade da Microsoft][AAD-V2-Dev-Guide].

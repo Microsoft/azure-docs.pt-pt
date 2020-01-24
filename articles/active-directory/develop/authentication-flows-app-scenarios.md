@@ -12,13 +12,12 @@ ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cc62ad80b52ee3fece29ad02d2ec53c885e4df2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2c13956fa84b0bdb1ff694878ff2994bee4b64c9
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294240"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698293"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicativos
 

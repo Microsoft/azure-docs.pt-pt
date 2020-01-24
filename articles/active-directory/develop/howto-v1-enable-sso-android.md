@@ -1,6 +1,6 @@
 ---
-title: Como habilitar o SSO entre aplicativos no Android usando a ADAL | Microsoft Docs
-description: Como usar os recursos do SDK do ADAL para habilitar o logon único em seus aplicativos.
+title: Como permitir o SSO cross-app no Android utilizando o ADAL  Microsoft Docs
+description: Como utilizar as funcionalidades do ADAL SDK para permitir um único sinal através das suas aplicações.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,62 +15,61 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4d247c569cdc0beff499cee191b95711a603e42
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2dfcd1711be107fd161d38e5c9df660d35d8332
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917561"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696933"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como habilitar o SSO entre aplicativos no Android usando a ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar o SSO cross-app no Android usando o ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-O SSO (logon único) permite que os usuários insiram suas credenciais apenas uma vez e essas credenciais funcionem automaticamente entre aplicativos e entre plataformas que outros aplicativos possam usar (como contas da Microsoft ou uma conta corporativa de Microsoft 365) não importa o editor.
+O único sinal de inscrição (SSO) permite que os utilizadores introduzam apenas as suas credenciais uma vez e tenham essas credenciais a funcionar automaticamente através de aplicações e em plataformas que outras aplicações podem usar (como contas microsoft ou uma conta de trabalho do Microsoft 365) não importa o editor.
 
-A plataforma de identidade da Microsoft, junto com os SDKs, facilita a habilitação do SSO em seu próprio pacote de aplicativos ou com a capacidade do agente e os aplicativos de autenticador, em todo o dispositivo.
+A plataforma de identidade da Microsoft, juntamente com os SDKs, facilita a ativação do SSO dentro do seu próprio conjunto de aplicações, ou com a capacidade de corretor e aplicações Authenticator, em todo o dispositivo.
 
-Neste "como", você aprenderá a configurar o SDK em seu aplicativo para fornecer SSO aos seus clientes.
+Neste como- vai aprender a configurar o SDK dentro da sua aplicação para fornecer SSO aos seus clientes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este "como" pressupõe que você saiba como:
+Este como-assumir que você sabe como:
 
-- Provisione seu aplicativo usando o portal herdado para Azure Active Directory (Azure AD). Para obter mais informações, consulte [registrar um aplicativo](quickstart-register-app.md)
-- Integre seu aplicativo com o [SDK do Android do Azure ad](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+- Disponibilize a sua aplicação utilizando o portal legacy para o Azure Ative Directory (Azure AD). Para mais informações, consulte [Registar uma aplicação](quickstart-register-app.md)
+- Integre a sua aplicação com o [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
-## <a name="single-sign-on-concepts"></a>Conceitos de logon único
+## <a name="single-sign-on-concepts"></a>Conceitos de inscrição simples
 
-### <a name="identity-brokers"></a>Agentes de identidade
+### <a name="identity-brokers"></a>Corretores de identidade
 
-A Microsoft fornece aplicativos para cada plataforma móvel que permitem a ponte de credenciais entre aplicativos de diferentes fornecedores e recursos aprimorados que exigem um único local seguro de onde validar as credenciais. Esses são chamados de **agentes**.
+A Microsoft fornece aplicações para todas as plataformas móveis que permitem a ponte de credenciais através de aplicações de diferentes fornecedores e para funcionalidades melhoradas que requerem um único lugar seguro de onde validar credenciais. Estes são **chamados corretores.**
 
-No iOS e no Android, os agentes são fornecidos por meio de aplicativos baixáveis que os clientes instalam de forma independente ou enviada por push para o dispositivo por uma empresa que gerencia alguns ou todos os dispositivos de seus funcionários. Os agentes dão suporte ao gerenciamento de segurança apenas para alguns aplicativos ou para todo o dispositivo com base na configuração do administrador de ti. No Windows, essa funcionalidade é fornecida por um seletor de conta interno ao sistema operacional, conhecido tecnicamente como o agente de autenticação da Web.
+No iOS e Android, os corretores são fornecidos através de aplicações transferíveis que os clientes instalam de forma independente ou empurradas para o dispositivo por uma empresa que gere alguns, ou todos, dos dispositivos para os seus colaboradores. Os corretores suportam a gestão da segurança apenas para algumas aplicações ou todo o dispositivo com base na configuração de administração de TI. No Windows, esta funcionalidade é fornecida por um escolhidor de conta incorporado no sistema operativo, conhecido tecnicamente como o Corretor de Autenticação Web.
 
-#### <a name="broker-assisted-login"></a>Logon assistido do agente
+#### <a name="broker-assisted-login"></a>Login assistido corretor
 
-Os logons assistidos por agente são experiências de logon que ocorrem dentro do aplicativo agente e usam o armazenamento e a segurança do agente para compartilhar credenciais em todos os aplicativos no dispositivo que aplicam a plataforma de identidade. A implicação de seus aplicativos dependerá do agente para conectar os usuários. No iOS e no Android, esses agentes são fornecidos por meio de aplicativos baixáveis que os clientes instalam de forma independente ou que podem ser enviados por push para o dispositivo por uma empresa que gerencia o dispositivo para o usuário. Um exemplo desse tipo de aplicativo é o aplicativo Microsoft Authenticator no iOS. No Windows, essa funcionalidade é fornecida por um seletor de conta interno ao sistema operacional, conhecido tecnicamente como o agente de autenticação da Web.
-A experiência varia de acordo com a plataforma e, às vezes, pode sofrer interrupções para os usuários, caso não sejam gerenciados corretamente. Provavelmente você está mais familiarizado com esse padrão se tiver o aplicativo do Facebook instalado e usar o Facebook Connect de outro aplicativo. A plataforma de identidade usa o mesmo padrão.
+Os logins assistidos pelo corretor são experiências de login que ocorrem dentro da aplicação de corretor e usam o armazenamento e segurança do corretor para partilhar credenciais em todas as aplicações do dispositivo que aplicam a plataforma de identidade. A implicação é que as suas aplicações dependerão do corretor para iniciar a inscrição dos utilizadores. No iOS e Android, estes corretores são fornecidos através de aplicações transferíveis que os clientes instalam de forma independente ou podem ser empurrados para o dispositivo por uma empresa que gere o dispositivo para o seu utilizador. Um exemplo deste tipo de aplicação é a aplicação Microsoft Authenticator no iOS. No Windows, esta funcionalidade é fornecida por um escolhidor de conta incorporado no sistema operativo, conhecido tecnicamente como o Corretor de Autenticação Web.
+A experiência varia por plataforma e pode por vezes ser disruptiva para os utilizadores se não for gerida corretamente. Provavelmente está mais familiarizado com este padrão se tiver a aplicação do Facebook instalada e utilizar o Facebook Connect a partir de outra aplicação. A plataforma de identidade usa o mesmo padrão.
 
-No Android, o seletor de conta é exibido na parte superior do aplicativo, o que é menos perturbador para o usuário.
+No Android, o escolhidor de conta é apresentado em cima da sua aplicação, o que é menos disruptivo para o utilizador.
 
-#### <a name="how-the-broker-gets-invoked"></a>Como o agente é invocado
+#### <a name="how-the-broker-gets-invoked"></a>Como o corretor é invocado
 
-Se um agente compatível estiver instalado no dispositivo, como o aplicativo Microsoft Authenticator, os SDKs de identidade farão automaticamente o trabalho de invocar o agente para você quando um usuário indicar que deseja fazer logon usando qualquer conta da plataforma de identidade.
+Se um corretor compatível for instalado no dispositivo, como a aplicação Microsoft Authenticator, os SDKs de identidade farão automaticamente o trabalho de invocar o corretor para si quando um utilizador indicar que pretende iniciar sessão utilizando qualquer conta a partir da plataforma de identidade.
 
-#### <a name="how-microsoft-ensures-the-application-is-valid"></a>Como a Microsoft garante que o aplicativo é válido
+#### <a name="how-microsoft-ensures-the-application-is-valid"></a>Como a Microsoft garante que a aplicação é válida
 
-A necessidade de garantir que a identidade de um aplicativo chame o agente seja crucial para a segurança fornecida nos logons assistidos do agente. o iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, de modo que aplicativos mal-intencionados podem "falsificar" um identificador de aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que a Microsoft esteja sempre se comunicando com o aplicativo certo em tempo de execução, o desenvolvedor será solicitado a fornecer um redirectURI personalizado ao registrar seu aplicativo na Microsoft. **Como os desenvolvedores devem criar esse URI de redirecionamento é discutido em detalhes abaixo.** Este redirectURI personalizado contém a impressão digital do certificado do aplicativo e tem a certeza de ser exclusivo para o aplicativo pelo Google Play Store. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional Android forneça a impressão digital do certificado que chamou o agente. O agente fornece essa impressão digital do certificado à Microsoft na chamada para o sistema de identidade. Se a impressão digital do certificado do aplicativo não corresponder à impressão digital do certificado fornecida a nós pelo desenvolvedor durante o registro, o acesso será negado aos tokens para o recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
+A necessidade de garantir a identidade de uma chamada de aplicação o corretor é crucial para a segurança fornecida em logins assistidos pelo corretor. O iOS e o Android não aplicam identificadores únicos que sejam válidos apenas para uma determinada aplicação, pelo que aplicações maliciosas podem "falsificar" o identificador de uma aplicação legítima e receber os tokens destinados à aplicação legítima. Para garantir que a Microsoft está sempre a comunicar com a aplicação certa no prazo de execução, o desenvolvedor é solicitado a fornecer um redirectURI personalizado ao registar a sua aplicação com a Microsoft. **Como os desenvolvedores devem criar este URI redirecionado é discutido em detalhe abaixo.** Este redirecionamento personalizado contém a impressão digital do certificado da aplicação e é garantido ser único na aplicação pela Google Play Store. Quando uma aplicação chama o corretor, o corretor pede ao sistema operativo Android que lhe forneça a impressão digital do certificado que chamou o corretor. O corretor fornece este certificado de impressão digital à Microsoft na chamada para o sistema de identidade. Se a impressão digital do certificado da aplicação não corresponder à impressão digital do certificado que nos foi fornecida pelo desenvolvedor durante o registo, o acesso é negado às fichas para o recurso que a aplicação está a solicitar. Este cheque garante que apenas a aplicação registada pelo programador recebe fichas.
 
-Os logons de SSO com agente têm os seguintes benefícios:
+Os logins brokered-SSO têm os seguintes benefícios:
 
-* O usuário experimenta o SSO em todos os seus aplicativos, independentemente do fornecedor.
-* Seu aplicativo pode usar recursos de negócios mais avançados, como o acesso condicional e o suporte a cenários do Intune.
-* Seu aplicativo pode dar suporte à autenticação baseada em certificado para usuários empresariais.
-* Experiência de entrada mais segura como a identidade do aplicativo e o usuário são verificados pelo aplicativo agente com algoritmos de segurança e criptografia adicionais.
+* Experiências de utilizador SSO em todas as suas aplicações, independentemente do fornecedor.
+* A sua aplicação pode utilizar funcionalidades de negócio mais avançadas, como acesso condicional e suporte a cenários Intune.
+* A sua aplicação pode apoiar a autenticação baseada em certificados para utilizadores empresariais.
+* Experiência de inscrição mais segura como a identidade da aplicação e o utilizador são verificados pela aplicação de corretagem com algoritmos de segurança adicionais e encriptação.
 
-Aqui está uma representação de como os SDKs funcionam com os aplicativos do agente para habilitar o SSO:
+Aqui está uma representação de como os SDKs trabalham com as aplicações de corretor para permitir o SSO:
 
 ```
 +------------+ +------------+   +-------------+
@@ -97,41 +96,41 @@ Aqui está uma representação de como os SDKs funcionam com os aplicativos do a
 
 ```
 
-### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ativando o SSO para SSO assistido por agente
+### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ligar sSO para corretor assistido SSO
 
-A capacidade de um aplicativo de usar qualquer agente instalado no dispositivo é desativada por padrão. Para usar o aplicativo com o agente, você deve fazer algumas configurações adicionais e adicionar algum código ao seu aplicativo.
+A capacidade de uma aplicação utilizar qualquer corretor instalado no dispositivo é desligada por defeito. Para utilizar a sua aplicação com o corretor, tem de fazer alguma configuração adicional e adicionar algum código à sua aplicação.
 
-As etapas a serem seguidas são:
+Os passos a seguir são:
 
-1. Habilitar o modo de agente na chamada do código do aplicativo para o SDK do MS
-2. Estabelecer um novo URI de redirecionamento e fornecê-lo ao aplicativo e ao registro do aplicativo
-3. Configurando as permissões corretas no manifesto do Android
+1. Ativar o modo de corretagem no código de aplicação está a ligar para o MS SDK
+2. Estabeleça um novo redirecionamento URI e forneça isso tanto para a app como para o registo da sua aplicação
+3. Configurar as permissões corretas no manifesto Android
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Etapa 1: habilitar o modo de agente em seu aplicativo
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Passo 1: Ativar o modo de corretagem na sua aplicação
 
-A capacidade de seu aplicativo de usar o agente é ativada quando você cria as "configurações" ou a configuração inicial da sua instância de autenticação. Para fazer isso em seu aplicativo:
+A capacidade de utilização da sua aplicação é ligada quando cria as "definições" ou configuração inicial da sua instância de Autenticação. Para fazer isso na sua aplicação:
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Etapa 2: estabelecer um novo URI de redirecionamento com seu esquema de URL
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Passo 2: Estabelecer um novo uri redirecionamento com o seu esquema de URL
 
-Para garantir que o aplicativo correto receba os tokens de credencial retornados, é necessário certificar-se de que o retorno de chamada para seu aplicativo de forma que o sistema operacional Android possa verificar. O sistema operacional Android usa o hash do certificado no repositório de Google Play. Esse hash do certificado não pode ser falsificado por um aplicativo não autorizado. Junto com o URI do aplicativo agente, a Microsoft garante que os tokens sejam retornados para o aplicativo correto. Um URI de redirecionamento exclusivo precisa ser registrado no aplicativo.
+De forma a garantir que a aplicação certa recebe os tokens credenciais devolvidos, é necessário garantir que a chamada volte à sua aplicação de forma a que o sistema operativo Android possa verificar. O sistema operativo Android utiliza o hash do certificado na loja Google Play. Este hash do certificado não pode ser falsificado por um pedido fraudulento. Juntamente com o URI da aplicação broker, a Microsoft garante que os tokens são devolvidos à aplicação correta. É necessário que seja registado um URI único de redirecionamento no pedido.
 
-O URI de redirecionamento deve estar na forma apropriada de:
+O seu uri redireccional deve estar na forma adequada de:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
 ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Você pode registrar esse URI de redirecionamento em seu registro de aplicativo usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações sobre o registro de aplicativo do Azure AD, consulte [integrando com Azure Active Directory](active-directory-how-to-integrate.md).
+Pode registar este URI redirecionado na sua inscrição na aplicação através do [portal Azure](https://portal.azure.com/). Para obter mais informações sobre o registo da aplicação Azure AD, consulte [Integração com o Diretório Ativo Azure](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Etapa 3: configurar as permissões corretas em seu aplicativo
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Passo 3: Configurar as permissões corretas na sua aplicação
 
-O aplicativo agente no Android usa o recurso Gerenciador de contas do sistema operacional Android para gerenciar credenciais entre aplicativos. Para usar o agente no Android, seu manifesto de aplicativo deve ter permissões para usar contas do accountmanager. Essas permissões são discutidas detalhadamente na [documentação do Google para o gerente de contas aqui](https://developer.android.com/reference/android/accounts/AccountManager.html)
+A aplicação de corretor no Android utiliza a funcionalidade Accounts Manager do Sistema Operativo Android para gerir credenciais através de aplicações. Para utilizar o corretor no Android, o manifesto da aplicação deve ter permissões para utilizar contas Do AccountManager. Estas permissões são discutidas detalhadamente na [documentação](https://developer.android.com/reference/android/accounts/AccountManager.html) do Google para o Gestor de Conta aqui
 
-Em particular, essas permissões são:
+Em particular, estas permissões são:
 
 ```
 GET_ACCOUNTS
@@ -139,10 +138,10 @@ USE_CREDENTIALS
 MANAGE_ACCOUNTS
 ```
 
-### <a name="youve-configured-sso"></a>Você configurou o SSO!
+### <a name="youve-configured-sso"></a>Configuraste o SSO!
 
-Agora, o SDK de identidade compartilhará automaticamente as credenciais em seus aplicativos e invocará o agente se ele estiver presente em seu dispositivo.
+Agora, a identidade SDK partilhará automaticamente as credenciais através das suas aplicações e invocará o corretor se estiver presente no seu dispositivo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o [protocolo SAML de logon único](single-sign-on-saml-protocol.md)
+* Conheça o [protocolo SAML de inscrição única](single-sign-on-saml-protocol.md)

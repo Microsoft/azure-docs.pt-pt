@@ -13,13 +13,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: edcfe4d7dff5d84ceaf07a8aafd5f9b485308bd5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f7e2380bff7d6d3e6fafd1b3d44b65de972e57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920672"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703393"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Início rápido: adquirir um token e chamar Microsoft Graph API usando a identidade do aplicativo de console
 
@@ -197,7 +196,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Para obter mais informações, consulte a [documentação de referência para `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
-### <a name="requesting-tokens"></a>Pedir tokens
+### <a name="requesting-tokens"></a>Solicitar tokens
 
 Para solicitar um token usando a identidade do aplicativo, use `AcquireTokenForClient` método:
 

@@ -1,6 +1,6 @@
 ---
-title: Autenticação serviço a serviço com o fluxo em nome de do OAuth 2.0 | Microsoft Docs
-description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço a serviço com o fluxo em nome de do OAuth 2.0.
+title: Autenticação de serviço ao serviço com OAuth2.0 em nome do fluxo  Microsoft Docs
+description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação serviço-a-serviço com o fluxo OAuth2.0 On-Behalf-Of.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -17,93 +17,92 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22abde182437bfeb4a42e5c9a0d8e41a4643f8f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9c02611ea6f083a6ce8f95844e52429fc1152f90
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964451"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701013"
 ---
-# <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam identidade de usuário delegado no fluxo em nome de
+# <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que utilizam a identidade de utilizador delegada no fluxo em nome
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-O fluxo do OAuth 2,0 em nome de (OBO) permite que um aplicativo que invoca um serviço ou API da Web passe a autenticação do usuário para outro serviço ou API da Web. O fluxo OBO propaga a identidade do usuário delegado e as permissões por meio da cadeia de solicitação. Para que o serviço de camada intermediária faça solicitações autenticadas para o serviço downstream, ele deve proteger um token de acesso do Azure Active Directory (AD do Azure) em nome do usuário.
+O fluxo OAuth 2.0 On-Behalf-Of (OBO) permite que uma aplicação que invoque um serviço ou API web para passar a autenticação do utilizador para outro serviço ou API web. O fluxo OBO propaga a identidade de utilizador delegada e permissões através da cadeia de pedidos. Para que o serviço de nível médio evoque pedidos autenticados ao serviço a jusante, deve assegurar um sinal de acesso do Azure Ative Directory (Azure AD) em nome do utilizador.
 
 > [!IMPORTANT]
-> A partir de maio de 2018, um `id_token` não pode ser usado para o fluxo em nome de.  Os aplicativos de página única (SPAs) devem passar um token de acesso para um cliente confidencial de camada intermediária para executar fluxos de OBO. Para obter mais detalhes sobre os clientes que podem executar chamadas em nome de, consulte [limitações](#client-limitations).
+> A partir de maio de 2018, um `id_token` não pode ser usado para o fluxo de on-behalf-of.  As aplicações de uma página única (SPAs) devem passar um sinal de acesso a um cliente confidencial de nível médio para executar fluxos OBO. Para mais detalhes sobre os clientes que podem realizar chamadas Em Nome-A-Favor, consulte [limitações](#client-limitations).
 
-## <a name="on-behalf-of-flow-diagram"></a>Diagrama de fluxo em nome de
+## <a name="on-behalf-of-flow-diagram"></a>Diagrama de fluxo em nome
 
-O fluxo OBO começa depois que o usuário é autenticado em um aplicativo que usa o [fluxo de concessão de código de autorização OAuth 2,0](v1-protocols-oauth-code.md). Nesse ponto, o aplicativo envia um token de acesso (token A) para a API da Web da camada intermediária (API A) que contém as declarações do usuário e o consentimento para acessar a API A. Em seguida, A API A faz uma solicitação autenticada para a API da Web downstream (API B).
+O fluxo OBO começa depois de o utilizador ter sido autenticado numa aplicação que utiliza o fluxo de concessão de código de [autorização OAuth 2.0](v1-protocols-oauth-code.md). Nessa altura, a aplicação envia um sinal de acesso (token A) à API (API A) de nível médio contendo as reclamações do utilizador e o consentimento para aceder à API A. Em seguida, a API A faz um pedido autenticado à API web a jusante (API B).
 
-Estas etapas constituem o fluxo em nome de: ![mostra as etapas no fluxo em nome de do OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Estes passos constituem o fluxo em nome: ![mostra os passos no fluxo OAuth2.0 Em Nome](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
-1. O aplicativo cliente faz uma solicitação para a API A com o token A.
-1. A API A é autenticada no ponto de extremidade de emissão de token do Azure AD e solicita um token para acessar a API B.
-1. O ponto de extremidade de emissão de token do Azure AD valida as credenciais da API A com o token A e emite o token de acesso para a API B (token B).
-1. A solicitação para a API B contém o token B no cabeçalho de autorização.
-1. A API B retorna dados do recurso protegido.
+1. O pedido do cliente faz um pedido à API A com o símbolo A.
+1. API A autentica o ponto final de emissão de fichas azure AD e solicita um sinal de acesso ao API B.
+1. O ponto final de emissão de fichas Azure AD valida as credenciais da API A com token A e emite o sinal de acesso para API B (símbolo B).
+1. O pedido à API B contém ficha B no cabeçalho de autorização.
+1. APi B devolve dados do recurso seguro.
 
 >[!NOTE]
->A declaração de público em um token de acesso usado para solicitar um token para um serviço downstream deve ser a ID do serviço que faz a solicitação OBO. O token também deve ser assinado com a chave de assinatura global Azure Active Directory (que é o padrão para aplicativos registrados por meio de **registros de aplicativo** no Portal).
+>A reivindicação do público num sinal de acesso usado para solicitar um sinal de um serviço a jusante deve ser a identificação do serviço que faz o pedido da OBO. O símbolo também deve ser assinado com a chave de assinatura global do Diretório Ativo Azure (que é o padrão para aplicações registadas através de registos de **Aplicações** no portal).
 
-## <a name="register-the-application-and-service-in-azure-ad"></a>Registrar o aplicativo e o serviço no Azure AD
+## <a name="register-the-application-and-service-in-azure-ad"></a>Registe a aplicação e o serviço na Azure AD
 
-Registre o serviço de camada intermediária e o aplicativo cliente no Azure AD.
+Registe o serviço de nível médio e a aplicação do cliente na Azure AD.
 
-### <a name="register-the-middle-tier-service"></a>Registrar o serviço de camada intermediária
+### <a name="register-the-middle-tier-service"></a>Registe o serviço de nível médio
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione sua conta e procure na lista de **diretórios** para selecionar um locatário de Active Directory para seu aplicativo.
-1. Selecione **mais serviços** no painel esquerdo e escolha **Azure Active Directory**.
-1. Selecione **registros de aplicativo** e, em seguida, **novo registro**.
-1. Insira um nome amigável para o aplicativo e selecione o tipo de aplicativo.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Na barra superior, selecione a sua conta e procure na lista **de Diretórios** para selecionar um inquilino de Diretório Ativo para a sua candidatura.
+1. Selecione **Mais Serviços** no painel esquerdo e escolha **o Diretório Ativo Azure**.
+1. Selecione **registos de aplicativos** e, em seguida, **novo registo**.
+1. Introduza um nome amigável para a aplicação e selecione o tipo de aplicação.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
-1. Defina o URI de redirecionamento para a URL base.
+1. Delineie o URI redirecionamento para o URL base.
 1. Selecione **Registar** para criar a aplicação.
-1. Gere um segredo do cliente antes de sair do portal do Azure.
-1. Na portal do Azure, escolha seu aplicativo e selecione **certificados & segredos**.
-1. Selecione **novo segredo do cliente** e adicione um segredo com uma duração de um ano ou dois anos.
-1. Quando você salvar essa página, a portal do Azure exibirá o valor secreto. Copie e salve o valor secreto em um local seguro.
+1. Gere um segredo de cliente antes de sair do portal Azure.
+1. No portal Azure, escolha a sua aplicação e selecione **Certificados e segredos.**
+1. Selecione **novo segredo de cliente** e adicione um segredo com uma duração de um ano ou dois anos.
+1. Quando guarda esta página, o portal Azure mostra o valor secreto. Copie e guarde o valor secreto num local seguro.
 
 > [!IMPORTANT]
-> Você precisa do segredo para definir as configurações do aplicativo em sua implementação. Esse valor secreto não é exibido novamente e não é recuperável por nenhum outro meio. Registre-o assim que estiver visível no portal do Azure.
+> Precisa do segredo para configurar as definições de aplicação na sua implementação. Este valor secreto não é mostrado novamente, e não é recuperável por qualquer outro meio. Grave-o assim que estiver visível no portal Azure.
 
-### <a name="register-the-client-application"></a>Registrar o aplicativo cliente
+### <a name="register-the-client-application"></a>Registar o pedido de cliente
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione sua conta e procure na lista de **diretórios** para selecionar um locatário de Active Directory para seu aplicativo.
-1. Selecione **mais serviços** no painel esquerdo e escolha **Azure Active Directory**.
-1. Selecione **registros de aplicativo** e, em seguida, **novo registro**.
-1. Insira um nome amigável para o aplicativo e selecione o tipo de aplicativo.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Na barra superior, selecione a sua conta e procure na lista **de Diretórios** para selecionar um inquilino de Diretório Ativo para a sua candidatura.
+1. Selecione **Mais Serviços** no painel esquerdo e escolha **o Diretório Ativo Azure**.
+1. Selecione **registos de aplicativos** e, em seguida, **novo registo**.
+1. Introduza um nome amigável para a aplicação e selecione o tipo de aplicação.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
-1. Defina o URI de redirecionamento para a URL base.
+1. Delineie o URI redirecionamento para o URL base.
 1. Selecione **Registar** para criar a aplicação.
-1. Configure permissões para seu aplicativo. Em **permissões de API**, selecione **Adicionar uma permissão** e, em seguida, **minhas APIs**.
-1. Digite o nome do serviço de camada intermediária no campo de texto.
-1. Escolha **selecionar permissões** e, em seguida, selecione **acessar \<nome do serviço >** .
+1. Configure permissões para a sua aplicação. Nas **permissões DaPI,** selecione **Adicionar uma permissão** e, em seguida, as minhas **APIs**.
+1. Digite o nome do serviço de nível médio no campo de texto.
+1. **Escolha Selecionar Permissões** e, em seguida, selecione Access \<nome de **serviço>**
 
-### <a name="configure-known-client-applications"></a>Configurar aplicativos cliente conhecidos
+### <a name="configure-known-client-applications"></a>Configurar aplicações de clientes conhecidas
 
-Nesse cenário, o serviço de camada intermediária precisa obter o consentimento do usuário para acessar a API downstream sem uma interação do usuário. A opção de conceder acesso à API downstream deve ser apresentada antecipadamente como parte da etapa de consentimento durante a autenticação.
+Neste cenário, o serviço de nível médio precisa de obter o consentimento do utilizador para aceder à API a jusante sem uma interação do utilizador. A opção de conceder acesso à API a jusante deve ser apresentada antecipadamente como parte da etapa de consentimento durante a autenticação.
 
-Siga as etapas abaixo para ligar explicitamente o registro do aplicativo cliente no Azure AD com o registro do serviço de camada intermediária. Esta operação mescla o consentimento exigido pelo cliente e pela camada intermediária em uma única caixa de diálogo.
+Siga os passos abaixo para ligar explicitamente o registo da aplicação de clientes em Azure AD com o registo do serviço de nível médio. Esta operação une o consentimento exigido tanto pelo cliente como pelo meio num único diálogo.
 
-1. Vá para o registro de serviço de camada intermediária e selecione **manifesto** para abrir o editor de manifesto.
-1. Localize a propriedade `knownClientApplications` array e adicione a ID do cliente do aplicativo cliente como um elemento.
-1. Salve o manifesto selecionando **salvar**.
+1. Vá ao registo de serviço de nível médio e selecione **Manifesto** para abrir o editor manifesto.
+1. Localize a propriedade `knownClientApplications` array e adicione o ID do cliente da aplicação do cliente como um elemento.
+1. Guarde o manifesto selecionando **Save**.
 
 ## <a name="service-to-service-access-token-request"></a>Solicitação de token de acesso de serviço a serviço
 
-Para solicitar um token de acesso, faça um HTTP POST para o ponto de extremidade do Azure AD específico do locatário com os seguintes parâmetros:
+Para solicitar um sinal de acesso, faça um POST HTTP ao ponto final do Azure AD específico do inquilino com os seguintes parâmetros:
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
 
-O aplicativo cliente é protegido por um segredo compartilhado ou por um certificado.
+O pedido do cliente é garantido por um segredo partilhado ou por um certificado.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
 
@@ -111,17 +110,17 @@ Ao usar um segredo compartilhado, uma solicitação de token de acesso de servi�
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |required | O tipo da solicitação de token. Uma solicitação OBO usa um JWT (token Web JSON) para que o valor deva ser **urn: IETF: params: OAuth: Grant-Type: JWT-portador**. |
-| assertion |required | O valor do token de acesso usado na solicitação. |
-| client_id |required | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do aplicativo no portal do Azure, selecione **Active Directory**, escolha o diretório e, em seguida, selecione o nome do aplicativo. |
-| client_secret |required | A chave registrada para o serviço de chamada no Azure AD. Esse valor deve ter sido observado no momento do registro. |
-| resource |required | O URI da ID do aplicativo do serviço de recebimento (recurso protegido). Para localizar o URI da ID do aplicativo no portal do Azure, selecione **Active Directory** e escolha o diretório. Selecione o nome do aplicativo, escolha **todas as configurações**e, em seguida, selecione **Propriedades**. |
-| requested_token_use |required | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
-| scope |required | Uma lista de escopos separados por espaço para a solicitação de token. Para o OpenID Connect, o **OpenID** do escopo deve ser especificado.|
+| grant_type |required | O tipo da solicitação de token. Um pedido oBO utiliza um JSON Web Token (JWT) para que o valor seja **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |required | O valor do token de acesso utilizado no pedido. |
+| client_id |required | O ID da aplicação atribuído ao serviço de chamada durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory,** escolha o diretório e, em seguida, selecione o nome da aplicação. |
+| client_secret |required | A chave registada para o serviço de chamadas em Azure AD. Este valor deveria ter sido observado no momento da inscrição. |
+| resource |required | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directy** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições,** e, em seguida, selecione **Propriedades**. |
+| requested_token_use |required | Especifica como a solicitação deve ser processada. No fluxo em nome, o valor deve ser **on_behalf_of**. |
+| scope |required | Uma lista de escopos separados por espaço para a solicitação de token. Para o OpenID Connect, o âmbito **aberto** deve ser especificado.|
 
 #### <a name="example"></a>Exemplo
 
-O HTTP POST a seguir solicita um token de acesso para a API Web do https://graph.windows.net. O `client_id` identifica o serviço que solicita o token de acesso.
+O seguinte HTTP POST solicita um sinal de acesso para a https://graph.windows.net Web API. O `client_id` identifica o serviço que solicita o sinal de acesso.
 
 ```
 // line breaks for legibility only
@@ -145,20 +144,20 @@ Uma solicitação de token de acesso de serviço a serviço com um certificado c
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |required | O tipo da solicitação de token. Uma solicitação OBO usa um token de acesso JWT para que o valor deva ser **urn: IETF: params: OAuth: Grant-Type: JWT-portador**. |
+| grant_type |required | O tipo da solicitação de token. Um pedido de OBO utiliza um símbolo de acesso JWT para que o valor seja **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | O valor do token usado na solicitação. |
-| client_id |required | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do aplicativo no portal do Azure, selecione **Active Directory**, escolha o diretório e, em seguida, selecione o nome do aplicativo. |
+| client_id |required | O ID da aplicação atribuído ao serviço de chamada durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory,** escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_assertion_type |required |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |required | Um token Web JSON que você cria e assina com o certificado que você registrou como credenciais para seu aplicativo. Consulte [credenciais de certificado](active-directory-certificate-credentials.md) para saber mais sobre o formato de asserção e sobre como registrar seu certificado.|
-| resource |required | O URI da ID do aplicativo do serviço de recebimento (recurso protegido). Para localizar o URI da ID do aplicativo no portal do Azure, selecione **Active Directory** e escolha o diretório. Selecione o nome do aplicativo, escolha **todas as configurações**e, em seguida, selecione **Propriedades**. |
-| requested_token_use |required | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
-| scope |required | Uma lista de escopos separados por espaço para a solicitação de token. Para o OpenID Connect, o **OpenID** do escopo deve ser especificado.|
+| client_assertion |required | Um Token Web JSON que cria e assina com o certificado que registou como credenciais para a sua aplicação. Consulte [as credenciais](active-directory-certificate-credentials.md) de certificado para saber sobre o formato de afirmação e sobre como registar o seu certificado.|
+| resource |required | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directy** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições,** e, em seguida, selecione **Propriedades**. |
+| requested_token_use |required | Especifica como a solicitação deve ser processada. No fluxo em nome, o valor deve ser **on_behalf_of**. |
+| scope |required | Uma lista de escopos separados por espaço para a solicitação de token. Para o OpenID Connect, o âmbito **aberto** deve ser especificado.|
 
-Esses parâmetros são quase iguais aos da solicitação por segredo compartilhado, exceto pelo fato de que o `client_secret parameter` é substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
+Estes parâmetros são quase os mesmos que com o pedido por segredo partilhado, exceto que o `client_secret parameter` é substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
 
 #### <a name="example"></a>Exemplo
 
-O HTTP POST a seguir solicita um token de acesso para a API Web do https://graph.windows.net com um certificado. O `client_id` identifica o serviço que solicita o token de acesso.
+O seguinte HTTP POST solicita um sinal de acesso para a https://graph.windows.net Web API com um certificado. O `client_id` identifica o serviço que solicita o sinal de acesso.
 
 ```
 // line breaks for legibility only
@@ -177,24 +176,24 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## <a name="service-to-service-access-token-response"></a>Resposta de token de acesso de serviço a serviço
+## <a name="service-to-service-access-token-response"></a>Resposta de acesso serviço ao serviço
 
-Uma resposta de êxito é uma resposta JSON OAuth 2,0 com os seguintes parâmetros:
+Uma resposta de sucesso é uma resposta JSON OAuth 2.0 com os seguintes parâmetros:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure AD dá suporte é **portador**. Para obter mais informações sobre tokens de portador, consulte a [estrutura de autorização do OAuth 2,0: uso de token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor do tipo de token. O único tipo que a Azure AD suporta é **o Bearer.** Para obter mais informações sobre fichas ao portador, consulte o Quadro de [Autorização OAuth 2.0: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo de acesso concedido no token. |
-| expires_in |O período de tempo que o token de acesso é válido (em segundos). |
+| expires_in |O tempo de duração do token de acesso é válido (em segundos). |
 | expires_on |A hora em que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0: 0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida dos tokens armazenados em cache. |
-| resource |O URI da ID do aplicativo do serviço de recebimento (recurso protegido). |
+| resource |A aplicação ID URI do serviço recetor (recurso seguro). |
 | access_token |O token de acesso solicitado. O serviço de chamada pode usar esse token para se autenticar no serviço de recebimento. |
-| id_token |O token de ID solicitado. O serviço de chamada pode usar esse token para verificar a identidade do usuário e iniciar uma sessão com o usuário. |
+| id_token |O símbolo de identificação solicitado. O serviço de chamada pode usar este símbolo para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
 | refresh_token |O token de atualização para o token de acesso solicitado. O serviço de chamada pode usar esse token para solicitar outro token de acesso depois que o token de acesso atual expirar. |
 
 ### <a name="success-response-example"></a>Exemplo de resposta de êxito
 
-O exemplo a seguir mostra uma resposta de êxito a uma solicitação de um token de acesso para a API Web do https://graph.windows.net.
+O exemplo seguinte mostra uma resposta de sucesso a um pedido de acesso para a https://graph.windows.net Web API.
 
 ```json
 {
@@ -213,7 +212,7 @@ O exemplo a seguir mostra uma resposta de êxito a uma solicitação de um token
 
 ### <a name="error-response-example"></a>Exemplo de resposta de erro
 
-O ponto de extremidade de token do Azure AD retorna uma resposta de erro quando tenta adquirir um token de acesso para uma API downstream que é definida com uma política de acesso condicional (por exemplo, autenticação multifator). O serviço de camada intermediária deve enfileirar esse erro para o aplicativo cliente para que o aplicativo cliente possa fornecer a interação do usuário para atender à política de acesso condicional.
+O ponto final do token Azure AD devolve uma resposta de erro quando tenta adquirir um símbolo de acesso para uma API a jusante que é definida com uma política de Acesso Condicional (por exemplo, autenticação de vários fatores). O serviço de camada intermediária deve enfileirar esse erro para o aplicativo cliente para que o aplicativo cliente possa fornecer a interação do usuário para atender à política de acesso condicional.
 
 ```json
 {
@@ -229,7 +228,7 @@ O ponto de extremidade de token do Azure AD retorna uma resposta de erro quando 
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Usar o token de acesso para acessar o recurso protegido
 
-O serviço de camada intermediária pode usar o token de acesso adquirido para fazer solicitações autenticadas para a API da Web downstream definindo o token no cabeçalho `Authorization`.
+O serviço de nível médio pode utilizar o sinal de acesso adquirido para efazer pedidos autenticados para a API web a jusante, definindo o símbolo no cabeçalho `Authorization`.
 
 ### <a name="example"></a>Exemplo
 
@@ -239,65 +238,65 @@ Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>Asserções SAML obtidas com um fluxo OBO do OAuth 2.0
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>Afirmações saml obtidas com um fluxo OAuth2.0 OBO
 
-Alguns serviços Web baseados em OAuth precisam acessar outras APIs de serviço Web que aceitam asserções SAML em fluxos não interativos. Azure Active Directory pode fornecer uma Asserção SAML em resposta a um fluxo em nome de que usa um serviço Web baseado em SAML como um recurso de destino.
+Alguns serviços web baseados em OAuth precisam de aceder a outros APIs de serviço web que aceitam afirmações SAML em fluxos não interativos. O Azure Ative Directory pode fornecer uma afirmação SAML em resposta a um fluxo em nome que utiliza um serviço web baseado em SAML como recurso-alvo.
 
 >[!NOTE]
->Esta é uma extensão não padrão para o fluxo em nome de do OAuth 2,0 que permite que um aplicativo baseado em OAuth2 acesse os pontos de extremidade da API do serviço Web que consomem tokens SAML.
+>Esta é uma extensão não padrão do fluxo OAuth 2.0 On-Behalf-Of que permite uma aplicação baseada em OAuth2 para aceder a pontos finais do serviço web API que consomem tokens SAML.
 
 > [!TIP]
-> Ao chamar um serviço Web protegido por SAML de um aplicativo Web de front-end, você pode simplesmente chamar a API e iniciar um fluxo de autenticação interativa normal com a sessão existente do usuário. Você só precisa usar um fluxo OBO quando uma chamada de serviço a serviço exigir um token SAML para fornecer o contexto do usuário.
+> Quando liga para um serviço web protegido por SAML a partir de uma aplicação web frontal, pode simplesmente ligar para a API e iniciar um fluxo normal de autenticação interativa com a sessão existente do utilizador. Só precisa de utilizar um fluxo OBO quando uma chamada de serviço ao serviço requer um token SAML para fornecer contexto ao utilizador.
 
-### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Obter um token SAML usando uma solicitação OBO com um segredo compartilhado
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Obtenha um token SAML usando um pedido oBO com um segredo partilhado
 
-Uma solicitação de serviço a serviço para uma Asserção SAML contém os seguintes parâmetros:
+Um pedido de serviço ao serviço para uma afirmação SAML contém os seguintes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |required | O tipo da solicitação de token. Para uma solicitação que usa um JWT, o valor deve ser **urn: IETF: params: OAuth: Grant-Type: JWT-portador**. |
-| assertion |required | O valor do token de acesso usado na solicitação.|
-| client_id |required | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do aplicativo no portal do Azure, selecione **Active Directory**, escolha o diretório e, em seguida, selecione o nome do aplicativo. |
-| client_secret |required | A chave registrada para o serviço de chamada no Azure AD. Esse valor deve ter sido observado no momento do registro. |
-| resource |required | O URI da ID do aplicativo do serviço de recebimento (recurso protegido). Esse é o recurso que será o público do token SAML. Para localizar o URI da ID do aplicativo no portal do Azure, selecione **Active Directory** e escolha o diretório. Selecione o nome do aplicativo, escolha **todas as configurações**e, em seguida, selecione **Propriedades**. |
-| requested_token_use |required | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
-| requested_token_type | required | Especifica o tipo de token solicitado. O valor pode ser **urn: IETF: params: OAuth: token-Type: saml2** ou **urn: IETF: params: OAuth: token-Type: saml1** dependendo dos requisitos do recurso acessado. |
+| grant_type |required | O tipo da solicitação de token. Para um pedido que utilize um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |required | O valor do token de acesso utilizado no pedido.|
+| client_id |required | O ID da aplicação atribuído ao serviço de chamada durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory,** escolha o diretório e, em seguida, selecione o nome da aplicação. |
+| client_secret |required | A chave registada para o serviço de chamadas em Azure AD. Este valor deveria ter sido observado no momento da inscrição. |
+| resource |required | A aplicação ID URI do serviço recetor (recurso seguro). Este é o recurso que será o símbolo do Público da SAML. Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directy** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições,** e, em seguida, selecione **Propriedades**. |
+| requested_token_use |required | Especifica como a solicitação deve ser processada. No fluxo em nome, o valor deve ser **on_behalf_of**. |
+| requested_token_type | required | Especifica o tipo de ficha solicitada. O valor pode ser **urna:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1** dependendo dos requisitos do recurso acessado. |
 
-A resposta contém um token SAML codificado em UTF8 e Base64url.
+A resposta contém um símbolo SAML codificado em UTF8 e Base64url.
 
-- **SubjectConfirmationData para uma ASSERÇÃO SAML originada de uma chamada obo**: se o aplicativo de destino exigir um valor de destinatário em **SubjectConfirmationData**, o valor deverá ser uma URL de resposta não curinga na configuração do aplicativo de recurso.
-- **O nó SubjectConfirmationData**: o nó não pode conter um atributo **inresponseto** , pois não faz parte de uma resposta SAML. O aplicativo que recebe o token SAML deve ser capaz de aceitar a Asserção SAML sem um atributo **Inresponseto** .
+- **SubjectConfirmationData para uma afirmação SAML obtida a partir de uma chamada OBO**: Se a aplicação-alvo requer um valor destinatário em **Dados de Confirmação,** então o valor deve ser um URL de resposta não wildcard na configuração da aplicação de recursos.
+- **O nó DeConfirmação do Sujeito**: O nó não pode conter um atributo **InResponseTo** uma vez que não faz parte de uma resposta SAML. O pedido que recebe o símbolo SAML deve poder aceitar a afirmação saml sem um atributo **InResponseTo.**
 
-- **Consentimento**: o consentimento deve ter sido concedido para receber um token SAML que contém dados do usuário em um fluxo OAuth. Para obter informações sobre permissões e como obter o consentimento do administrador, consulte [permissões e consentimento no ponto de extremidade do Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Consentimento**: O consentimento deve ter sido concedido para receber um símbolo SAML contendo dados do utilizador num fluxo OAuth. Para obter informações sobre permissões e obtenção do consentimento do administrador, consulte [Permissões e consentimento no Ponto final do Diretório Ativo Azure v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
-### <a name="response-with-saml-assertion"></a>Resposta com Asserção SAML
+### <a name="response-with-saml-assertion"></a>Resposta com afirmação SAML
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure AD dá suporte é **portador**. Para obter mais informações sobre tokens de portador, consulte [estrutura de autorização OAuth 2,0: uso de token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor do tipo de token. O único tipo que a Azure AD suporta é **o Bearer.** Para obter mais informações sobre fichas ao portador, consulte [OAuth 2.0 Quadro de Autorização: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo de acesso concedido no token. |
-| expires_in |O período de tempo que o token de acesso é válido (em segundos). |
+| expires_in |O tempo de duração do token de acesso é válido (em segundos). |
 | expires_on |A hora em que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0: 0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida dos tokens armazenados em cache. |
-| resource |O URI da ID do aplicativo do serviço de recebimento (recurso protegido). |
-| access_token |O parâmetro que retorna a Asserção SAML. |
-| refresh_token |O token de atualização. O serviço de chamada pode usar esse token para solicitar outro token de acesso depois que a declaração SAML atual expirar. |
+| resource |A aplicação ID URI do serviço recetor (recurso seguro). |
+| access_token |O parâmetro que devolve a afirmação do SAML. |
+| refresh_token |O símbolo refrescante. O serviço de chamada pode usar este token para solicitar outro sinal de acesso após a alegação atual do SAML expirar. |
 
-- token_type: portador
+- token_type: Portador
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
 - recurso: `https://api.contoso.com`
-- access_token: \<Asserção SAML\>
+- access_token: \<\> de afirmação da SAML
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: \<token de atualização\>
+- refresh_token: \<Refresh token\>
 
 ## <a name="client-limitations"></a>Limitações do cliente
 
-Clientes públicos com URLs de resposta curinga não podem usar um `id_token` para fluxos OBO. No entanto, um cliente confidencial ainda pode resgatar tokens de **acesso** adquiridos por meio do fluxo de concessão implícita, mesmo que o cliente público tenha um URI de redirecionamento curinga registrado.
+Clientes públicos com URLs de resposta wildcard não podem usar uma `id_token` para fluxos OBO. No entanto, um cliente confidencial ainda pode resgatar fichas de **acesso** adquiridas através do fluxo de subvenção implícito, mesmo que o cliente público tenha um URI de redirecionamento wildcard registado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o protocolo OAuth 2,0 e outra maneira de executar a autenticação serviço a serviço que usa as credenciais do cliente:
+Saiba mais sobre o protocolo OAuth 2.0 e outra forma de realizar a autenticação serviço-a-serviço que utiliza credenciais de cliente:
 
-* [Autenticação de serviço a serviço usando a concessão de credenciais de cliente OAuth 2,0 no Azure AD](v1-oauth2-client-creds-grant-flow.md)
-* [OAuth 2,0 no Azure AD](v1-protocols-oauth-code.md)
+* [Serviço de autenticação de serviço utilizando subsídio de credenciais de cliente OAuth 2.0 em Azure AD](v1-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 em Azure AD](v1-protocols-oauth-code.md)

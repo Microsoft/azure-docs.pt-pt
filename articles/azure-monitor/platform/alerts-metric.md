@@ -1,110 +1,110 @@
 ---
-title: Criar, ver e gerir a métrica alertas utilizando o Azure Monitor
-description: Saiba como utilizar o portal do Azure ou a CLI para criar, ver e gerir regras de alerta de métrica.
-author: snehithm
+title: Criar, visualizar e gerir alertas métricos usando o Monitor Azure
+description: Aprenda a usar o portal Azure ou o CLI para criar, visualizar e gerir regras de alerta métricos.
+author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f5f37591ed2ed250cb756c686ea15136921512
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712994"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705535"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas através do Azure Monitor
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas métricos usando o Monitor Azure
 
-Alertas de métricas no Azure Monitor oferecem uma forma de ser notificado quando uma das suas métricas ultrapassam um determinado limiar. Alertas de métricas de trabalho numa variedade de métricas multidimensionais plataforma, métricas personalizadas, padrão do Application Insights e métricas personalizadas. Neste artigo, descreveremos como criar, ver e gerir regras de alerta de métrica, através do portal do Azure e CLI do Azure. Também pode criar regras de alerta de métrica com modelos do Azure Resource Manager que está descrito [um artigo separado](alerts-metric-create-templates.md).
+Os alertas de métricas no Azure Monitor permitem ser notificado quando uma das métricas atinge um limiar. Os alertas de métricas funcionam numa variedade de métricas de plataforma multidimensionais, métricas personalizadas e métricas padrão e personalizadas do Application Insights. Neste artigo, vamos descrever como criar, ver e gerir regras de alerta de métricas no portal do Azure e na CLI do Azure. Também pode criar regras de alerta métricautilizando modelos do Gestor de Recursos Azure, [descritos num artigo separado.](alerts-metric-create-templates.md)
 
-Pode saber mais sobre métricas como funcionam os alertas do [descrição geral dos alertas de métrica](alerts-metric-overview.md).
+Pode saber mais sobre como os alertas métricos funcionam a partir de [alertas métricos.](alerts-metric-overview.md)
 
-## <a name="create-with-azure-portal"></a>Criar com o portal do Azure
+## <a name="create-with-azure-portal"></a>Criar com portal Azure
 
-O procedimento seguinte descreve como criar uma regra de alerta de métrica no portal do Azure:
+O seguinte procedimento descreve como criar uma regra de alerta métrico no portal Azure:
 
-1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. Painel Monitor consolida todas as suas monitorização definições e dados numa vista.
+1. No [portal Azure,](https://portal.azure.com)clique no **Monitor**. A lâmina Monitor consolida todas as definições e dados de monitorização numa só vista.
 
-2. Clique em **alertas** , em seguida, clique em **+ nova regra de alerta**.
+2. Clique em **Alertas** e clique + **Nova regra de alerta**.
 
     > [!TIP]
-    > A maioria dos painéis de recursos também tem **alertas** no respetivo menu de recursos sob **monitorização**, poderia criar alertas a partir do mesmo.
+    > A maioria das lâminas de recursos também tem **Alertas** no seu menu de recursos em **Monitorização,** você poderia criar alertas a partir daí também.
 
-3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que quer receber o alerta. Uso **subscrição** e **tipo de recurso** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
+3. Clique em **Selecionar o alvo**, no painel de contexto que carrega, selecione um recurso-alvo que pretende alertar. Utilize as quedas do tipo **Subscrição** e **Recursos** para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
 
-4. Se o recurso selecionado tem métricas, pode criar alertas, **sinais disponíveis** na parte inferior direita irá incluir as métricas. Pode ver a lista completa dos tipos de recurso suportados para alertas de métricas desta [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Se o recurso selecionado tiver métricas em que pode criar alertas, **os sinais disponíveis** no canto inferior direito incluirão métricas. Pode ver a lista completa de tipos de recursos suportados para alertas métricos neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
+5. Depois de ter selecionado um recurso-alvo, clique na **condição de Adicionar**.
 
-6. Irá ver uma lista de suportadas para o recurso de sinais, selecione a métrica que pretende criar um alerta.
+6. Verá uma lista de sinais suportados para o recurso, selecione a métrica em que pretende criar um alerta.
 
-7. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Se a métrica tem dimensões, verá **dimensões** tabela apresentada. Selecione um ou mais valores por dimensão. Alerta de métrica será executado avaliar a condição para todas as combinações de valores selecionados. [Saiba mais sobre como funciona o alertas em métricas multidimensionais](alerts-metric-overview.md). Também pode **selecionar \***  para qualquer uma das dimensões. **Selecione \***  serão dinamicamente escala que a seleção para todos os valores atuais e futuras para uma dimensão.
+7. Opcionalmente, refine a métrica ajustando o **período** e **a agregação.** Se a métrica tiver dimensões, verá a tabela **Dimensions** apresentada. Selecione um ou mais valores por dimensão. O alerta métrico irá ser executado avaliar a condição para todas as combinações de valores selecionados. Saiba mais sobre como funciona o alerta sobre as [métricas multidimensionais.](alerts-metric-overview.md) Também pode **selecionar \*** para qualquer uma das dimensões. **Selecione \*** escalará dinamicamente a seleção para todos os valores atuais e futuros para uma dimensão.
 
-8. Verá um gráfico para a métrica para as últimas 6 horas. Definir os parâmetros de alerta; **Tipo de condição**, **frequência**, **operador** e **limiar** ou **sensibilidade**, esta irá Determine a lógica que irão avaliar a regra de alerta de métrica. [Saiba mais sobre opções de tipo e a sensibilidade de condição de limiares dinâmicos](alerts-dynamic-thresholds.md).
+8. Verá um gráfico para a métrica nas últimas 6 horas. Definir os parâmetros de alerta; Tipo de **condição,** **Frequência,** **Operador** e **Limiar** ou **Sensibilidade,** isto determinará a lógica que a regra de alerta métrica irá avaliar. Saiba mais sobre o tipo de [condição dos Limiares Dinâmicos e opções](alerts-dynamic-thresholds.md)de sensibilidade.
 
-9. Se estiver a utilizar um limiar estático, o gráfico de métricas pode ajudar a determinar o que pode ser um limiar razoável. Se estiver a utilizar um limiares dinâmicos, o gráfico de métricas irá apresentar os limiares calculados com base nos dados recentes.
+9. Se estiver a usar um limiar estático, o gráfico métrico pode ajudar a determinar o que pode ser um limiar razoável. Se estiver a utilizar um Limiar Dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
 10. Clique em **Concluído**
 
-11. Opcionalmente, adicione critérios outro se pretender monitorizar uma regra de alerta complexa. Atualmente os usuários podem ter regras de alerta com os critérios de limiares dinâmicos como um único critério.
+11. Opcionalmente, adicione outros critérios se quiser monitorizar uma regra de alerta complexa. Atualmente, os utilizadores podem ter regras de alerta com critérios de Limiardinâmico como um critério único.
 
-12. Preencha **detalhes do alerta** como **nome da regra de alerta**, **Descrição** e **gravidade**
+12. Preencha **detalhes** de alerta como Nome da Regra **de Alerta,** **Descrição** e **Gravidade**
 
-13. Adicione um grupo de ação para o alerta ao selecionar um grupo de ação existente ou criar um novo grupo de ação.
+13. Adicione um grupo de ação ao alerta, quer selecionando um grupo de ação existente, quer criando um novo grupo de ação.
 
-14. Clique em **feito** para guardar a regra de alerta de métrica.
+14. Clique **em Feito** para salvar a regra de alerta métrico.
 
 > [!NOTE]
-> Alerta de métrica regras criadas através do portal são criadas no mesmo grupo de recursos como o recurso de destino.
+> As regras de alerta métrico criadas através do portal são criadas no mesmo grupo de recursos que o recurso-alvo.
 
-## <a name="view-and-manage-with-azure-portal"></a>Ver e gerir com o portal do Azure
+## <a name="view-and-manage-with-azure-portal"></a>Ver e gerir com o portal Azure
 
-Pode ver e gerir regras de alerta de métrica utilizando o painel de gerir regras em alertas. O procedimento a seguir mostra como ver as regras de alerta de métrica e editar uma delas.
+Pode visualizar e gerir regras de alerta métricautilizando a lâmina 'Regras de Gestão' em Alertas. O procedimento abaixo mostra como ver as suas regras de alerta métrico e editar uma delas.
 
-1. No portal do Azure, navegue para **Monitor**
+1. No portal Azure, navegue para **Monitor**
 
-2. Clique em **alertas** e **gerir regras**
+2. Clique em **Alertas** e **Gerir regras**
 
-3. Na **gerir regras** painel, pode ver todas as regras de alerta em várias subscrições. Pode filtrar ainda mais as regras de usando **grupo de recursos**, **tipo de recurso** e **recurso**. Se quiser ver apenas os alertas de métricas, selecione **sinalizar tipo** como métricas.
+3. Na lâmina de **regras de Gestão,** pode ver todas as suas regras de alerta em subscrições. Pode filtrar ainda mais as regras utilizando o **grupo Derecurso,** **o tipo de recurso** e o **recurso.** Se quiser ver apenas alertas métricos, selecione **o tipo de sinal** como Métricas.
 
     > [!TIP]
-    > Na **gerir regras** painel, pode selecionar várias regras de alerta e ativar/desativá-los. Isso pode ser útil quando determinados recursos de destino tem de ser colocada em manutenção
+    > Na lâmina de **regras 'Gerir',** pode selecionar várias regras de alerta e ative-as/desativá-las. Isto pode ser útil quando certos recursos-alvo precisam de ser colocados sob manutenção
 
-4. Clique no nome da regra de alerta métrica que pretende editar
+4. Clique no nome da regra de alerta métrico que pretende editar
 
-5. A regra de editar, clique nas **critérios de alerta** que pretende editar. Pode alterar a métrica, a condição de limiar e outros campos conforme necessário
+5. Na Regra de Edição, clique nos **critérios** de Alerta que pretende editar. Pode alterar a métrica, condição limiar e outros campos conforme necessário
 
     > [!NOTE]
-    > Não é possível editar a **recurso de destino** e **nome da regra de alerta** depois de criar o alerta de métrica.
+    > Não é possível editar o **recurso Target** e o Nome da Regra de **Alerta** após a criação do alerta métrico.
 
-6. Clique em **feito** para guardar as suas edições.
+6. Clique **em Feito** para guardar as suas edições.
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As secções anteriores descreveram como criar, ver e gerir regras de alerta de métrica com portal do Azure. Esta secção descreve como fazer o mesmo com várias plataformas [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). CLI do Azure mais rápida maneira de começar a utilizar é através de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). Neste artigo, iremos irá utilizar o Cloud shell.
+As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métrica usando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). Para este artigo, usaremos a cloud shell.
 
-1. Aceda ao portal do Azure, clique em **Cloud shell**.
+1. Vá ao portal Azure, clique na **cloud shell**.
 
-2. Na linha de comandos, pode utilizar os comandos com ``--help`` opção para saber mais sobre o comando e como usá-lo. Por exemplo, o comando seguinte mostra a lista de comandos disponíveis para criar, visualizar e gerir alertas de métricas
+2. A pedido, pode utilizar comandos com ``--help`` opção para saber mais sobre o comando e como usá-lo. Por exemplo, o seguinte comando mostra-lhe a lista de comandos disponíveis para criar, visualizar e gerir alertas métricos
 
     ```azurecli
     az monitor metrics alert --help
     ```
 
-3. Pode criar uma regra alerta de métrica simple que monitoriza se a média de percentagem de CPU, numa VM é superior a 90
+3. Pode criar uma regra de alerta métrico simples que monitoriza se a percentagem média de CPU num VM for superior a 90
 
     ```azurecli
     az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
-4. Pode ver todos os alertas de métricas num grupo de recursos com o seguinte comando
+4. Pode ver todos os alertas métricos num grupo de recursos usando o seguinte comando
 
     ```azurecli
     az monitor metrics alert list  -g {ResourceGroup}
     ```
 
-5. Pode ver os detalhes de uma regra de alerta métrica específica com o nome ou o ID de recurso da regra.
+5. Pode ver os detalhes de uma determinada regra de alerta métrico usando o nome ou a identificação de recursos da regra.
 
     ```azurecli
     az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}
@@ -114,22 +114,22 @@ As secções anteriores descreveram como criar, ver e gerir regras de alerta de 
     az monitor metrics alert show --ids {RuleResourceId}
     ```
 
-6. Pode desativar uma regra de alerta de métrica utilizando o seguinte comando.
+6. Pode desativar uma regra de alerta métrico utilizando o seguinte comando.
 
     ```azurecli
     az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
-7. Pode eliminar uma regra de alerta de métrica utilizando o seguinte comando.
+7. Pode eliminar uma regra de alerta métrico utilizando o seguinte comando.
 
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar alertas de métricas utilizando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
-- [Compreender a forma como o trabalho de alertas de métrica](alerts-metric-overview.md).
-- [Compreender como métrica alertas com limiares dinâmicos condição trabalho](alerts-dynamic-thresholds.md).
-- [Compreender o esquema de hook de web para alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+- [Crie alertas métricos utilizando modelos](../../azure-monitor/platform/alerts-enable-template.md)de gestor de recursos azure .
+- [Entenda como os alertas métricos funcionam.](alerts-metric-overview.md)
+- [Compreenda como funcionam os alertas métricos com a condição dos Limiares Dinâmicos.](alerts-dynamic-thresholds.md)
+- [Compreenda o esquema do gancho web para alertas métricos](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
 

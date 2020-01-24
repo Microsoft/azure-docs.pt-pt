@@ -1,7 +1,7 @@
 ---
-title: Configurar a declaração de função para aplicativos Enterprise AD do Azure | Azure
+title: Configure pedido de função para aplicações da Empresa Azure AD  Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
+description: Saiba como configurar a alegação de funções emitida no símbolo SAML para aplicações empresariais em Diretório Ativo Azure
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,93 +13,92 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 702c64fbc4eda2af7132a2117c1b09ca0bf41cff
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918598"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699262"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de função emitida no símbolo SAML para aplicações empresariais
 
-Usando Azure Active Directory (AD do Azure), você pode personalizar o tipo de declaração para a declaração de função no token de resposta que você recebe depois de autorizar um aplicativo.
+Ao utilizar o Azure Ative Directory (Azure AD), pode personalizar o tipo de reclamação para a alegação de função no token de resposta que recebe depois de autorizar uma aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure AD com a instalação do diretório.
-- Uma assinatura que tem SSO (logon único) habilitado. Você deve configurar o SSO com seu aplicativo.
+- Uma subscrição de AD Azure com configuração de diretório.
+- Uma subscrição que tem um único sinal (SSO) ativado. Tem de configurar o SSO com a sua aplicação.
 
-## <a name="when-to-use-this-feature"></a>Quando usar este recurso
+## <a name="when-to-use-this-feature"></a>Quando utilizar esta funcionalidade
 
-Se seu aplicativo espera que as funções personalizadas sejam passadas em uma resposta SAML, você precisa usar esse recurso. Você pode criar quantas funções precisar para serem passadas do Azure AD para seu aplicativo.
+Se a sua aplicação espera que as funções personalizadas sejam passadas numa resposta SAML, precisa de utilizar esta funcionalidade. Pode criar o número de funções que necessitar para ser devolvido do Azure AD para a sua aplicação.
 
-## <a name="create-roles-for-an-application"></a>Criar funções para um aplicativo
+## <a name="create-roles-for-an-application"></a>Criar papéis para uma aplicação
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o ícone de **Azure Active Directory** .
+1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione o ícone do **Diretório Ativo Azure.**
 
-    ![Ícone de Azure Active Directory][1]
+    ![Ícone de Diretório Ativo Azure][1]
 
-2. Selecione **aplicativos empresariais**. Em seguida, selecione **todos os aplicativos**.
+2. Selecione **aplicativos empresariais**. Em seguida, selecione **Todas as aplicações**.
 
-    ![Painel aplicativos empresariais][2]
+    ![Painel de aplicações empresariais][2]
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior da caixa de diálogo.
 
-    ![Botão "novo aplicativo"][3]
+    ![Botão "Nova aplicação"][3]
 
-4. Na caixa de pesquisa, digite o nome do seu aplicativo e, em seguida, selecione o aplicativo no painel de resultados. Selecione o botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, escreva o nome da sua aplicação e, em seguida, selecione a sua aplicação a partir do painel de resultados. Selecione o botão **Adicionar** para adicionar a aplicação.
 
-    ![Aplicativo na lista de resultados](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
+    ![Candidatura na lista de resultados](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
-5. Depois que o aplicativo for adicionado, vá para a página **Propriedades** e copie a ID do objeto.
+5. Depois de adicionada a aplicação, vá à página **Propriedades** e copie o ID do objeto.
 
-    ![Página de propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Página de Propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
+6. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) noutra janela e dê os seguintes passos:
 
-    a. Entre no site do Graph Explorer usando as credenciais de administrador global ou coadmin para seu locatário.
+    a. Inscreva-se no site do Graph Explorer utilizando as credenciais de administrador ou coadmina global para o seu inquilino.
 
-    b. Você precisa de permissões suficientes para criar as funções. Selecione **Modificar permissões** para obter as permissões.
+    b. Precisa de permissões suficientes para criar os papéis. Selecione **modificar permissões** para obter as permissões.
 
-      ![O botão "Modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+      ![O botão "modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    c. Selecione as seguintes permissões na lista (se você ainda não as tiver) e selecione **Modificar permissões**.
+    c. Selecione as seguintes permissões da lista (se ainda não as tiver) e selecione **Modificar Permissões**.
 
-      ![Lista de permissões e o botão "Modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+      ![Lista de permissões e botão "Modificar Permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
     > [!Note]
-    > O administrador de aplicativo de nuvem e a função de administrador de aplicativos não funcionarão nesse cenário, pois precisamos das permissões de administrador global para leitura e gravação de diretório.
+    > O papel de Administrador de Aplicações cloud e administrador de aplicações não funcionará neste cenário, uma vez que precisamos das permissões da Global Admin para o Diretório Ler e Escrever.
 
-    d. Aceite o consentimento. Você está conectado ao sistema novamente.
+    d. Aceite o consentimento. Está sintetizador no sistema de novo.
 
-    e. Altere a versão para **beta**e busque a lista de entidades de serviço do seu locatário usando a seguinte consulta:
+    e. Mude a versão para **beta**e pegue a lista de diretores de serviço do seu inquilino utilizando a seguinte consulta:
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Se você estiver usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Se estiver a usar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-      ![Caixa de diálogo Gerenciador de gráficos, com a consulta para buscar entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+      ![Caixa de diálogo graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
       > [!Note]
-      > Já estamos no processo de atualização das APIs para que os clientes possam ver algumas interrupções no serviço.
+      > Já estamos em processo de modernização das APIs para que os clientes possam ver alguma perturbação no serviço.
 
-    f. Na lista de entidades de serviço buscadas, obtenha aquela que você precisa modificar. Você também pode usar Ctrl + F para pesquisar o aplicativo de todas as entidades de serviço listadas. Pesquise a ID de objeto que você copiou da página **Propriedades** e use a consulta a seguir para obter a entidade de serviço:
+    f. A partir da lista de diretores de serviço saqueados, obtenha o que precisa modificar. Também pode utilizar ctrl+F para pesquisar a aplicação a partir de todos os diretores de serviço listados. Procure o ID do objeto que copiou da página **Propriedades** e use a seguinte consulta para chegar ao diretor de serviço:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-      ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+      ![Consulta para obter o diretor de serviço que precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+    g. Extraia a propriedade **appRoles** do objeto principal do serviço.
 
       ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
       > [!Note]
-      > Se você estiver usando o aplicativo personalizado (não o aplicativo do Azure Marketplace), verá duas funções padrão: usuário e msiam_access. Para o aplicativo do Marketplace, msiam_access é a única função padrão. Você não precisa fazer nenhuma alteração nas funções padrão.
+      > Se estiver a utilizar a aplicação personalizada (não a aplicação Azure Marketplace), vê duas funções padrão: utilizador e msiam_access. Para a aplicação Marketplace, msiam_access é a única função padrão. Não precisas de fazer alterações nas funções padrão.
 
-    h. Gere novas funções para seu aplicativo.
+    h. Gere novos papéis para a sua aplicação.
 
-      O JSON a seguir é um exemplo do objeto **appRoles** . Crie um objeto semelhante para adicionar as funções desejadas para seu aplicativo.
+      O seguinte JSON é um exemplo do objeto **appRoles.** Crie um objeto semelhante para adicionar as funções que deseja para a sua aplicação.
 
       ```
       {
@@ -131,24 +130,24 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
       ```
 
       > [!Note]
-      > Você só pode adicionar novas funções após msiam_access para a operação de patch. Além disso, você pode adicionar quantas funções forem necessárias à sua organização. O Azure AD enviará o valor dessas funções como o valor de declaração na resposta SAML. Para gerar os valores de GUID para a ID de novas funções, use as ferramentas da Web como [esta](https://www.guidgenerator.com/)
+      > Só pode adicionar novas funções após msiam_access para a operação de patch. Além disso, pode adicionar o número de papéis que a sua organização precisa. A Azure AD enviará o valor destas funções como valor de reclamação na resposta SAML. Para gerar os valores GUID para a identificação de novas funções, utilize as ferramentas web como [esta](https://www.guidgenerator.com/)
 
-    i. Volte para o Gerenciador de gráficos e altere o método de **Get** para **patch**. Corrija o objeto de entidade de serviço para ter as funções desejadas atualizando a propriedade **appRoles** como a mostrada no exemplo anterior. Selecione **Executar consulta** para executar a operação de patch. Uma mensagem de êxito confirma a criação da função.
+    i. Volte ao Graph Explorer e mude o método de **GET** para **PATCH**. Remende o objeto principal do serviço para ter as funções desejadas atualizando a propriedade **appRoles** como a mostrada no exemplo anterior. Selecione **Executar A Consulta** para executar a operação de patch. Uma mensagem de sucesso confirma a criação do papel.
 
-      ![Operação de patch com mensagem de êxito](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+      ![Patch operação com mensagem de sucesso](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Depois que a entidade de serviço é corrigida com mais funções, você pode atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **usuários e grupos** . Essa guia lista todos os usuários e grupos que já estão atribuídos ao aplicativo. Você pode adicionar novos usuários nas novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
+7. Depois de o diretor de serviço ser remendado com mais funções, pode atribuir aos utilizadores as respetivas funções. Pode atribuir os utilizadores indo ao portal e navegando na aplicação. Selecione o separador **Utilizadores e grupos.** Este separador lista todos os utilizadores e grupos que já estão atribuídos à aplicação. Pode adicionar novos utilizadores às novas funções. Também pode selecionar um utilizador existente e selecionar **editar** para alterar a função.
 
-    ![Guia "usuários e grupos"](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
+    ![Separador "Utilizadores e grupos"](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-    Para atribuir a função a qualquer usuário, selecione a nova função e selecione o botão **atribuir** na parte inferior da página.
+    Para atribuir a função a qualquer utilizador, selecione a nova função e selecione o botão **Atribuir** na parte inferior da página.
 
-    ![Painel "Editar atribuição" e "selecionar função"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
+    ![Painel de "Atribuição de Edição" e painel "Select Role"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     > [!Note]
-    > Você precisa atualizar sua sessão no portal do Azure para ver novas funções.
+    > Precisa refrescar a sua sessão no portal Azure para ver novos papéis.
 
-8. Atualize a tabela de **atributos** para definir um mapeamento personalizado da declaração de função.
+8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da reivindicação de funções.
 
 9. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
@@ -157,19 +156,19 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
     | Nome da função  | user.assignedroles |
 
     >[!NOTE]
-    >Se o valor de declaração de função for nulo, o Azure AD não enviará esse valor no token e isso será padrão de acordo com o design.
+    >Se o valor da reclamação de funções for nulo, então a Azure AD não enviará este valor no token e isso é padrão de acordo com o design.
 
-    a. Clique no ícone **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
+    a. clique em **Editar** o ícone para abrir o diálogo **de Atributos e Reclamações** do Utilizador.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Na caixa de diálogo **gerenciar declarações do usuário** , adicione o atributo de token SAML clicando em **Adicionar nova declaração**.
+    b. No diálogo de reclamações do **utilizador Manage,** adicione o atributo token SAML clicando em **Adicionar nova reclamação**.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-      ![Painel "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+      ![Painel "Adicionar Atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. Na caixa **nome** , digite o nome do atributo conforme necessário. Este exemplo usa o **nome da função** como o nome da declaração.
+    c. Na caixa **nome,** digite o nome do atributo conforme necessário. Este exemplo usa o **Nome de Papel** como nome de reclamação.
 
     d. Deixe a caixa **namespace** em branco.
 
@@ -177,97 +176,97 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
 
     f. Selecione **Guardar**.
 
-10. Para testar seu aplicativo em um logon único iniciado por um provedor de identidade, entre no [painel de acesso](https://myapps.microsoft.com) e selecione o bloco do aplicativo. No token SAML, você deve ver todas as funções atribuídas para o usuário com o nome da declaração que você atribuiu.
+10. Para testar a sua aplicação num único sign-on iniciado por um fornecedor de identidade, inicie o acesso ao Painel de [Acesso](https://myapps.microsoft.com) e selecione o seu azulejo de aplicação. No token SAML, deve ver todas as funções atribuídas para o utilizador com o nome de reclamação que deu.
 
-## <a name="update-an-existing-role"></a>Atualizar uma função existente
+## <a name="update-an-existing-role"></a>Atualizar um papel existente
 
-Para atualizar uma função existente, execute as seguintes etapas:
+Para atualizar uma função existente, execute os seguintes passos:
 
 1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-2. Entre no site do Graph Explorer usando as credenciais de administrador global ou coadmin para seu locatário.
+2. Inscreva-se no site do Graph Explorer utilizando as credenciais de administrador ou coadmina global para o seu inquilino.
 
-3. Altere a versão para **beta**e busque a lista de entidades de serviço do seu locatário usando a seguinte consulta:
+3. Mude a versão para **beta**e pegue a lista de diretores de serviço do seu inquilino utilizando a seguinte consulta:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se você estiver usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a usar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Caixa de diálogo Gerenciador de gráficos, com a consulta para buscar entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![Caixa de diálogo graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Na lista de entidades de serviço buscadas, obtenha aquela que você precisa modificar. Você também pode usar Ctrl + F para pesquisar o aplicativo de todas as entidades de serviço listadas. Pesquise a ID de objeto que você copiou da página **Propriedades** e use a consulta a seguir para obter a entidade de serviço:
+4. A partir da lista de diretores de serviço saqueados, obtenha o que precisa modificar. Também pode utilizar ctrl+F para pesquisar a aplicação a partir de todos os diretores de serviço listados. Procure o ID do objeto que copiou da página **Propriedades** e use a seguinte consulta para chegar ao diretor de serviço:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![Consulta para obter o diretor de serviço que precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+5. Extraia a propriedade **appRoles** do objeto principal do serviço.
 
     ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-6. Para atualizar a função existente, use as etapas a seguir.
+6. Para atualizar a função existente, utilize os seguintes passos.
 
-    ![Corpo da solicitação para "PATCH", com "Descrição" e "DisplayName" realçados](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+    ![Solicitar corpo para "PATCH", com "descrição" e "displayname" em destaque](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Altere o método de **Get** para **patch**.
+    a. Altere o método de **GET** para **PATCH**.
 
-    b. Copie as funções existentes e cole-as sob o **corpo da solicitação**.
+    b. Copie as funções existentes e cole-as no **órgão de pedido**.
 
-    c. Atualize o valor de uma função atualizando a descrição da função, o valor da função ou o nome de exibição da função, conforme necessário.
+    c. Atualizar o valor de uma função atualizando a descrição do papel, o valor do papel ou o nome da exibição de papéis conforme necessário.
 
-    d. Depois de atualizar todas as funções necessárias, selecione **Executar consulta**.
+    d. Depois de atualizar todas as funções necessárias, selecione **'Executar Consulta**' .
 
-## <a name="delete-an-existing-role"></a>Excluir uma função existente
+## <a name="delete-an-existing-role"></a>Eliminar um papel existente
 
-Para excluir uma função existente, execute as seguintes etapas:
+Para eliminar uma função existente, execute os seguintes passos:
 
-1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
+1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) noutra janela.
 
-2. Entre no site do Graph Explorer usando as credenciais de administrador global ou coadmin para seu locatário.
+2. Inscreva-se no site do Graph Explorer utilizando as credenciais de administrador ou coadmina global para o seu inquilino.
 
-3. Altere a versão para **beta**e busque a lista de entidades de serviço do seu locatário usando a seguinte consulta:
+3. Mude a versão para **beta**e pegue a lista de diretores de serviço do seu inquilino utilizando a seguinte consulta:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se você estiver usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a usar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Caixa de diálogo Gerenciador de gráficos, com a consulta para buscar a lista de entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![Caixa de diálogo graph Explorer, com a consulta para obter a lista de diretores de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Na lista de entidades de serviço buscadas, obtenha aquela que você precisa modificar. Você também pode usar Ctrl + F para pesquisar o aplicativo de todas as entidades de serviço listadas. Pesquise a ID de objeto que você copiou da página **Propriedades** e use a consulta a seguir para obter a entidade de serviço:
+4. A partir da lista de diretores de serviço saqueados, obtenha o que precisa modificar. Também pode utilizar ctrl+F para pesquisar a aplicação a partir de todos os diretores de serviço listados. Procure o ID do objeto que copiou da página **Propriedades** e use a seguinte consulta para chegar ao diretor de serviço:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![Consulta para obter o diretor de serviço que precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+5. Extraia a propriedade **appRoles** do objeto principal do serviço.
 
-    ![Detalhes da propriedade appRoles do objeto de entidade de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
+    ![Detalhes da propriedade appRoles do objeto principal do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. Para excluir a função existente, use as etapas a seguir.
+6. Para eliminar a função existente, utilize os seguintes passos.
 
-    ![Corpo da solicitação para "PATCH", com IsEnabled definido como false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+    ![Solicitar corpo para "PATCH", com IsEnabled definido para falso](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Altere o método de **Get** para **patch**.
+    a. Altere o método de **GET** para **PATCH**.
 
-    b. Copie as funções existentes do aplicativo e cole-as sob o **corpo da solicitação**.
+    b. Copie as funções existentes da aplicação e cole-as no **âmbito do Órgão de Pedido**.
 
-    c. Defina o valor de **IsEnabled** como **false** para a função que você deseja excluir.
+    c. Detete o valor **IsEnabled** para **falso** para o papel que pretende eliminar.
 
     d. Selecione **Executar Consulta**.
 
     > [!NOTE]
-    > Verifique se você tem a função msiam_access e se a ID corresponde à função gerada.
+    > Certifique-se de que tem o papel msiam_access, e o ID está a corresponder ao papel gerado.
 
-7. Depois que a função for desabilitada, exclua esse bloco de função da seção **appRoles** . Mantenha o método como **patch**e selecione **Executar consulta**.
+7. Depois de a função ser desativada, elimine esse bloco de funções da secção **AppRoles.** Mantenha o método como **PATCH**, e selecione **Executar Consulta**.
 
-8. Depois de executar a consulta, a função é excluída.
+8. Depois de fazer a consulta, o papel é apagado.
 
     > [!NOTE]
-    > A função precisa ser desabilitada para que possa ser removida.
+    > O papel tem de ser desativado antes de poder ser removido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter etapas adicionais, consulte a [documentação do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Para obter passos adicionais, consulte a documentação da [aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 <!--Image references-->
 <!--Image references-->

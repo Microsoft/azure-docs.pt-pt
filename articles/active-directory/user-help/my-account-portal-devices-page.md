@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0b22997c9b8fc95c89503f06a99e29653c8aead
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 60eb0fb0f7129b148b4a30f9ed96b402d6b018fb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293288"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705161"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados na página dispositivos
 

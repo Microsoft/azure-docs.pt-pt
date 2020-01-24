@@ -13,13 +13,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2c072ccfe1ba83813ab135fa08c3ffdf5d80d4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aaef7c4c0e2fa295e6e20976df5cce1523a70c43
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424594"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697783"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como configurar o MSAL para iOS e macOS para usar provedores de identidade diferentes
 
@@ -38,7 +37,7 @@ Em alguns cenários, como B2C (Business-to-Consumer), talvez seja necessário al
 
 ### <a name="b2c"></a>B2C
 
-Para trabalhar com o B2C, a [MSAL (biblioteca de autenticação da Microsoft)](reference-v2-libraries.md) requer uma configuração de autoridade diferente. O MSAL reconhece o formato de URL de uma autoridade como B2C por si só. O formato de autoridade B2C reconhecido é `https://<host>/tfp/<tenant>/<policy>`, por exemplo `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`. No entanto, você também pode usar qualquer outra URL de autoridade B2C com suporte, declarando autoridade como autoridade B2C explicitamente.
+Para trabalhar com o B2C, a [MSAL (biblioteca de autenticação da Microsoft)](reference-v2-libraries.md) requer uma configuração de autoridade diferente. O MSAL reconhece o formato de URL de uma autoridade como B2C por si só. O formato de autoridade B2C reconhecido é `https://<host>/tfp/<tenant>/<policy>`, por exemplo, `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`. No entanto, você também pode usar qualquer outra URL de autoridade B2C com suporte, declarando autoridade como autoridade B2C explicitamente.
 
 Para dar suporte a um formato de URL arbitrário para B2C, `MSALB2CAuthority` pode ser definida com uma URL arbitrária, como esta:
 

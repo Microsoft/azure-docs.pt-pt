@@ -13,13 +13,12 @@ ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17f02d38c77fce6a256e3c42d887f2b7d560add9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3d73e803a31867bedbd0ff069b8c9321257b78cb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424245"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695573"
 ---
 # <a name="confidential-client-assertions"></a>Asserções confidenciais do cliente
 
@@ -53,12 +52,12 @@ As declarações esperadas pelo Azure AD são:
 
 Tipo de afirmação | Valor | Descrição
 ---------- | ---------- | ----------
-aud | https://login.microsoftonline.com/{tenantId}/v2.0 | A declaração "AUD" (público) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) consulte [RFC 7519, section 4.1.3]
-exp | Qui Jun 27 2019 15:04:17 GMT + 0200 (horário de Verão de romance) | A declaração "exp" (tempo de expiração) identifica o tempo de expiração em ou após o qual o JWT não deve ser aceito para processamento. Consulte [RFC 7519, seção 4.1.4]
-iss | ClientID | A declaração "ISS" (emissor) identifica a entidade de segurança que emitiu o JWT. O processamento dessa declaração é específico do aplicativo. O valor "ISS" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas contendo um valor StringOrURI. [RFC 7519, seção 4.1.1]
-jti | (um GUID) | A declaração "JTI" (ID JWT) fornece um identificador exclusivo para o JWT. O valor do identificador deve ser atribuído de maneira que garanta que haja uma probabilidade insignificante de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; Se o aplicativo usar vários emissores, as colisões deverão ser evitadas entre os valores produzidos por diferentes emissores também. A declaração "JTI" pode ser usada para impedir que o JWT seja reproduzido. O valor "JTI" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas. [RFC 7519, seção 4.1.7]
-NBF | Qui Jun 27 2019 14:54:17 GMT + 0200 (horário de Verão de romance) | A declaração "NBF" (não antes) identifica o tempo antes do qual o JWT não deve ser aceito para processamento. [RFC 7519, seção 4.1.5]
-projeto | ClientID | A declaração "sub" (Subject) identifica o assunto do JWT. As declarações em um JWT normalmente são instruções sobre o assunto. O valor da entidade deve ter o escopo definido para ser local exclusivo no contexto do emissor ou ser globalmente exclusivo. Veja [RFC 7519, section 4.1.2]
+aud | https://login.microsoftonline.com/{tenantId}/v2.0 | A alegação "aud" (audiência) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) Ver [RFC 7519, Secção 4.1.3]
+exp | Qui Jun 27 2019 15:04:17 GMT + 0200 (horário de Verão de romance) | A declaração "exp" (tempo de expiração) identifica o tempo de expiração em ou após o qual o JWT não deve ser aceito para processamento. Ver [RFC 7519, Secção 4.1.4]
+iss | ClientID | A declaração "ISS" (emissor) identifica a entidade de segurança que emitiu o JWT. O processamento dessa declaração é específico do aplicativo. O valor "ISS" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas contendo um valor StringOrURI. [RFC 7519, Secção 4.1.1]
+jti | (um GUID) | A declaração "JTI" (ID JWT) fornece um identificador exclusivo para o JWT. O valor do identificador deve ser atribuído de maneira que garanta que haja uma probabilidade insignificante de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; Se o aplicativo usar vários emissores, as colisões deverão ser evitadas entre os valores produzidos por diferentes emissores também. A declaração "JTI" pode ser usada para impedir que o JWT seja reproduzido. O valor "JTI" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas. [RFC 7519, Secção 4.1.7]
+NBF | Qui Jun 27 2019 14:54:17 GMT + 0200 (horário de Verão de romance) | A declaração "NBF" (não antes) identifica o tempo antes do qual o JWT não deve ser aceito para processamento. [RFC 7519, Secção 4.1.5]
+projeto | ClientID | A declaração "sub" (Subject) identifica o assunto do JWT. As declarações em um JWT normalmente são instruções sobre o assunto. O valor da entidade deve ter o escopo definido para ser local exclusivo no contexto do emissor ou ser globalmente exclusivo. O ver [RFC 7519, Secção 4.1.2]
 
 Aqui está um exemplo de como criar essas declarações:
 

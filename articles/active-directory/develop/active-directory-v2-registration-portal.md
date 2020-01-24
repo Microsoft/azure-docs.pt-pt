@@ -1,7 +1,7 @@
 ---
-title: Referência do portal de registro de aplicativo | Azure
+title: Referência do portal de registo de aplicações  Azure
 titleSuffix: Microsoft identity platform
-description: Uma descrição dos recursos no portal de registro de aplicativo da Microsoft.
+description: Uma descrição das funcionalidades no portal de registo de aplicações da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,47 +14,46 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1699aad41d8a5da153199f79f65af67bd04c6b2c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 26ebee446523c138569b9d5379c9a5e1b9e93e7d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966100"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698446"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 
-Este documento fornece contexto e descrições de vários recursos encontrados na experiência de [registros de aplicativo](https://aka.ms/appregistrations) no portal do Azure.
+Este documento fornece contexto e descrições de várias funcionalidades encontradas na experiência de [registos](https://aka.ms/appregistrations) da App no portal Azure.
 
-## <a name="my-applications-or-converged-applications"></a>Meus aplicativos ou aplicativos convergidos
+## <a name="my-applications-or-converged-applications"></a>Minhas aplicações ou aplicações convergentes
 
-Esta lista contém todos os seus aplicativos registrados para uso com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). Esses aplicativos têm a capacidade de conectar usuários com contas da Microsoft pessoais e contas corporativas/de estudante da Azure Active Directory. Para saber mais sobre o ponto de extremidade da plataforma de identidade, consulte a [visão geral v 2.0](active-directory-appmodel-v2-overview.md). Esses aplicativos também podem ser usados para integrar com o ponto de extremidade de autenticação conta Microsoft, `https://login.live.com`.
+Esta lista contém todas as suas aplicações registadas para utilização com a plataforma de identidade da Microsoft (v2.0) ponto final. Estas aplicações têm a capacidade de contratar utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre o ponto final da plataforma de identidade, consulte a visão geral do [v2.0.](active-directory-appmodel-v2-overview.md) Estas aplicações também podem ser utilizadas para integrar com o ponto final de autenticação da conta Microsoft, `https://login.live.com`.
 
-## <a name="azure-ad-only-applications"></a>Somente aplicativos do Azure AD
+## <a name="azure-ad-only-applications"></a>Apenas aplicações da Azure AD
 
-Esta lista contém todos os seus aplicativos registrados para uso com o ponto de extremidade v 1.0 do Azure AD. Esses aplicativos só têm a capacidade de conectar usuários com contas corporativas/de estudante da Azure Active Directory. Essa lista inclui aplicativos que foram registrados usando a experiência de **registros de aplicativo** no [portal do Azure](https://portal.azure.com).
+Esta lista contém todas as suas aplicações registadas para utilização com o ponto final da AD Azure. Estas aplicações apenas têm a capacidade de contratar utilizadores com contas de trabalho/escola a partir do Azure Ative Directory. Esta lista inclui aplicações que foram registadas através da experiência de **registos** da App no [portal Azure](https://portal.azure.com).
 
-## <a name="live-sdk-applications"></a>Aplicativos do Live SDK
+## <a name="live-sdk-applications"></a>Aplicações SDK ao vivo
 
-Esta lista contém todos os seus aplicativos registrados para uso exclusivo com conta Microsoft. Eles não estão habilitados para uso com Azure Active Directory. É aí que você encontra todos os aplicativos que foram registrados anteriormente com o portal do desenvolvedor MSA em `https://account.live.com/developers/applications`. Todas as funções executadas anteriormente em `https://account.live.com/developers/applications` agora podem ser executadas em [registros de aplicativo](https://aka.ms/appregistrations).
+Esta lista contém todas as suas aplicações registadas para utilização exclusivamente com a conta microsoft. Não estão habilitados para utilização com o Azure Ative Directory. É aqui que encontra quaisquer aplicações que tenham sido previamente registadas no portal de desenvolvimento da MSA em `https://account.live.com/developers/applications`. Todas as funções que desempenhou anteriormente no `https://account.live.com/developers/applications` podem agora ser executadas em registos de [Aplicações.](https://aka.ms/appregistrations)
 
 ## <a name="application-secrets"></a>Segredos da Aplicação
 
-Os segredos do aplicativo são credenciais que permitem que seu aplicativo execute a autenticação confiável do [cliente](https://tools.ietf.org/html/rfc6749#section-2.3) com o Azure AD. No OAuth & OpenID Connect, um segredo do aplicativo é comumente conhecido como um `client_secret`. No protocolo v 2.0, qualquer aplicativo que recebe um token de segurança em um local endereçável da Web (usando um esquema de `https`) deve usar um segredo de aplicativo para se identificar ao Azure AD após o resgate desse token de segurança. Além disso, qualquer cliente nativo que receba tokens em um dispositivo será proibido de usar um segredo do aplicativo para executar a autenticação do cliente. Isso desencoraja o armazenamento de segredos em ambientes inseguros.
+Os segredos da aplicação são credenciais que permitem à sua aplicação realizar [autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) fiável do cliente com a AD Azure. Em OAuth & OpenID Connect, um segredo de aplicação é comumente referido como um `client_secret`. No protocolo v2.0, qualquer aplicação que receba um símbolo de segurança num local web endereçado (utilizando um esquema `https`) deve utilizar um segredo de aplicação para se identificar com a AD Azure após o resgate desse token de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
 
-Cada aplicativo pode conter dois segredos de aplicativo válidos em um determinado momento. Ao manter dois segredos, você tem a capacidade de executar a substituição de chave periódica em todo o ambiente do seu aplicativo. Depois de migrar todo o seu aplicativo para um novo segredo, você poderá excluir o segredo antigo e provisionar um novo.
+Cada aplicação pode conter dois segredos de aplicação válidos a qualquer momento. Ao manter dois segredos, tem a capacidade de realizar a caducidade periódica de chaves em todo o ambiente da sua aplicação. Uma vez migrado a totalidade da sua aplicação para um novo segredo, pode apagar o velho segredo e fornecer um novo.
 
-Neste momento, somente dois tipos de segredos de aplicativo são permitidos no portal de registro de aplicativo. Escolher **gerar nova senha** gera e armazena um segredo compartilhado no respectivo armazenamento de dados, que pode ser usado em seu aplicativo. Escolher **gerar novo par de chaves** cria um novo par de chaves pública/privada que pode ser baixado e usado para autenticação de cliente no Azure AD. Escolher **carregar chave pública** permite que você use seu próprio par de chaves pública/privada.
-Você precisa carregar um certificado que contém uma chave pública.
+Neste momento, apenas dois tipos de segredos de aplicação são permitidos no portal de registo da aplicação. Escolher **Gerar Nova Palavra-passe** gera e armazena um segredo partilhado na respetiva loja de dados, que pode utilizar na sua aplicação. A escolha **do Novo Par** de Chaves cria um novo par de chaves público/privado que pode ser descarregado e usado para autenticação de clientes para a AD Azure. Escolher **a chave pública de upload** permite-lhe utilizar o seu próprio par de chaves público/privado.
+É obrigado a fazer o upload de um certificado que contenha uma chave pública.
 
 ## <a name="profile"></a>Perfil
 
-A seção de perfil do portal de registro de aplicativo pode ser usada para personalizar a página de entrada para seu aplicativo. Neste momento, você pode alterar o logotipo do aplicativo da página de entrada, a URL dos termos de serviço e a URL da política de privacidade. O logotipo deve ser uma imagem de pixel transparente de 48 x 48 ou 50 x 50 em um arquivo GIF, PNG ou JPEG de 15 KB ou menor. Tente alterar os valores e exibir a página de entrada resultante!
+A secção de perfil do portal de registo da aplicação pode ser usada para personalizar a página de início de sessão para a sua aplicação. Neste momento pode alterar o logótipo da página de login, termos de URL de serviço e URL de declaração de privacidade. O logótipo deve ser uma imagem transparente de 48 x 48 ou 50 x 50 pixels num ficheiro GIF, PNG ou JPEG que seja de 15 KB ou menor. Tente alterar os valores e ver a página de inscrição resultante!
 
-## <a name="live-sdk-support"></a>Suporte ao Live SDK
+## <a name="live-sdk-support"></a>Suporte SDK ao vivo
 
-Quando você habilita o "suporte ao Live SDK", qualquer segredo de aplicativo que você criar será provisionado nos armazenamentos de dados de conta do Azure AD e da Microsoft. Isso permite que seu aplicativo integre-se diretamente com o serviço de conta da Microsoft (login.live.com). Se você quiser criar um aplicativo usando a conta da Microsoft diretamente (em vez de usar o ponto de extremidade v 2.0), certifique-se de que o suporte ao Live SDK esteja habilitado.
+Quando ativar o "Live SDK Support", quaisquer segredos de aplicação que criar serão aprovisionados nas lojas de dados Azure AD e Microsoft Account. Isto permite que a sua aplicação se integre diretamente com o serviço da Conta Microsoft (login.live.com). Se pretender construir uma aplicação utilizando diretamente a Conta Microsoft (em oposição à utilização do ponto final v2.0), deverá certificar-se de que o Live SDK Support está ativado.
 
-A desabilitação do suporte ao Live SDK garante que o segredo do aplicativo seja gravado apenas no armazenamento de dados do Azure AD. O armazenamento de dados do Azure AD incorpora regulamentos de nível empresarial que permitem que ele atenda a determinados padrões, como a conformidade com a FISMA. Se você habilitar o suporte ao Live SDK, seu aplicativo poderá não obter conformidade com alguns desses padrões.
+O suporte de SDK ao vivo garante que o segredo da aplicação só está escrito na loja de dados Azure AD. A loja de dados Azure AD incorpora regulamentos de nível empresarial que lhe permitem cumprir determinados padrões, tais como o cumprimento do FISMA. Se ativar o suporte live SDK, a sua aplicação poderá não conseguir o cumprimento de algumas destas normas.
 
-Se você só planeja usar o ponto de extremidade v 2.0, você pode desabilitar com segurança o suporte ao Live SDK.
+Se apenas planeia utilizar o ponto final v2.0, pode desativar com segurança o suporte Live SDK.

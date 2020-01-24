@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6c54f8754b0ca67107f48b2dcfa912a98252b8b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 4e165bad33e46b91a63fc1be72a57bf192b59789
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293305"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705076"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal A Minha Conta?
 

@@ -14,13 +14,12 @@ ms.date: 07/17/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1aca48c547fc8c298128b35d9c571512fcbdf8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c35e44dff321c4a2f568855dacd827001a57f64a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965947"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703818"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início rápido: conectar usuários e chamar a API de Microsoft Graph de um aplicativo de área de trabalho .NET (WPF)
 

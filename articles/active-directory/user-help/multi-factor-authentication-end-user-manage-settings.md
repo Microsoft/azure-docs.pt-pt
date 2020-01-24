@@ -12,13 +12,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e557ca1bfc7587b6a65957177440041bf4e902f
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: e48834800f1fe3d34c13a87cfb3d8ef00c9e6bff
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681332"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705280"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Alterar o método e as configurações de verificação de dois fatores
 

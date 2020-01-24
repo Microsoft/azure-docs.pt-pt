@@ -1,6 +1,6 @@
 ---
-title: Como o Azure AD usa o protocolo SAML | Microsoft Docs
-description: Este artigo fornece uma visão geral dos perfis SAML de logon único e logout único no Azure Active Directory.
+title: Como a Azure AD utiliza o protocolo SAML  Microsoft Docs
+description: Este artigo fornece uma visão geral dos perfis SAML de entrada única e de inscrição única no Diretório Ativo Azure.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,28 +13,27 @@ ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57c5f21e04b2d3adad975be0368d9435583b4f72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 372eac63b2ab9ea7dea540a088d61a5144886686
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844674"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698599"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Como o Azure AD utiliza o protocolo SAML
 
-O Azure Active Directory (AD do Azure) usa o protocolo SAML 2,0 para permitir que os aplicativos forneçam uma experiência de logon único para seus usuários. Os perfis SAML de [logon único](single-sign-on-saml-protocol.md) e [logout único](single-sign-out-saml-protocol.md) do Azure ad explicam como as asserções, os protocolos e as associações SAML são usados no serviço de provedor de identidade.
+O Azure Ative Directory (Azure AD) utiliza o protocolo SAML 2.0 para permitir que as aplicações forneçam uma única experiência de início de sessão aos seus utilizadores. Os perfis SAML de [Entrada](single-sign-on-saml-protocol.md) Única e Único De [saml](single-sign-out-saml-protocol.md) da Azure AD explicam como as afirmações, protocolos e encadernações da SAML são utilizados no serviço de fornecedor de identidade.
 
-O protocolo SAML requer que o provedor de identidade (Azure AD) e o provedor de serviços (o aplicativo) troquem informações sobre eles mesmos.
+O Protocolo SAML exige que o fornecedor de identidade (Azure AD) e o prestador de serviços (o pedido) troquem informações sobre si mesmos.
 
-Quando um aplicativo é registrado no Azure AD, o desenvolvedor do aplicativo registra informações relacionadas à Federação com o Azure AD. Essas informações incluem o **URI de redirecionamento** e o **URI de metadados** do aplicativo.
+Quando uma aplicação é registada na Azure AD, o desenvolvedor de aplicações regista informações relacionadas com a federação com a Azure AD. Estas informações incluem o **Redirect URI** e **metadata URI** da aplicação.
 
-O Azure AD usa o URI de **metadados** do serviço de nuvem para recuperar a chave de assinatura e o URI de logout. O cliente pode abrir o aplicativo no **Azure ad – > registro de aplicativo** e, em seguida, em **Configurações-> Propriedades**, eles podem atualizar a URL de logout. Dessa forma, o Azure AD pode enviar a resposta para a URL correta. 
+A Azure AD utiliza o **Metadata URI** do serviço na nuvem para recuperar a chave de assinatura e o logout URI. O cliente pode abrir a aplicação em **Azure AD -> Registo** de Aplicações e, em seguida, em **Definições -> Propriedades,** podem atualizar o URL de Logout. Desta forma, o Azure AD pode enviar a resposta para o URL correto. 
 
-O Azure Active Directory expõe pontos de extremidade de logon único e de saída único de locatários e comuns (independentes de locatário). Essas URLs representam locais endereçáveis – elas não são apenas identificadores, portanto, você pode ir para o ponto de extremidade para ler os metadados.
+O Azure Ative Directory expõe os pontos finais de inscrição simples e únicos (independentes de inquilinos) e de entrada única. Estes URLs representam localizações endereçáveis, não são apenas identificadores, por isso pode supor que pode ir ao ponto final para ler os metadados.
 
-* O ponto de extremidade específico do locatário está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O espaço reservado *\<TenantDomainName >* representa um nome de domínio registrado ou um GUID tenantid de um locatário do Azure AD. Por exemplo, os metadados de Federação do locatário contoso.com estão em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* O ponto final específico do inquilino está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O *\<TenantDomainName>* o espaço reservado representa um nome de domínio registado ou O TenantID GUID de um inquilino da AD Azure. Por exemplo, os metadados da federação do inquilino contoso.com estão em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-* O ponto de extremidade independente de locatário está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Nesse endereço de ponto de extremidade, **Common** é exibido em vez de um nome de domínio de locatário ou ID.
+* O ponto final independente do inquilino está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Neste endereço final, aparece **comum** em vez de um nome de domínio ou ID do inquilino.
 
-Para obter informações sobre os documentos de metadados de Federação que o Azure AD publica, consulte [metadados de Federação](azure-ad-federation-metadata.md).
+Para obter informações sobre os documentos de metadados da federação que a Azure AD publica, consulte [metadados da Federação](azure-ad-federation-metadata.md).

@@ -15,13 +15,12 @@ ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87dd60f00278389c1fc03d6fd69652608ae0c998
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e1b8b38474b9dfd620ea8501151a754ab0a31f6d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966066"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704039"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app-v10"></a>Início rápido: conectar usuários e chamar a API de Microsoft Graph de um aplicativo do Android (v 1.0)
 
