@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2019
 ms.author: allensu
-ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f570e0cd7361b365a4034e318511cf8227c425a2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263545"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722480"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Load Balancer
 O Azure Load Balancer contém vários componentes principais para a operação.  Esses componentes podem ser configurados em sua assinatura por meio do portal do Azure, CLI do Azure ou Azure PowerShell.  
@@ -58,7 +58,7 @@ O Load Balancer básico não oferece suporte a regras de saída.
 
 O Balanceador de Carga proporciona as seguintes capacidades básicas para as aplicações TCP e UDP:
 
-* **Algoritmo de balanceamento de carga**: com o Azure Load Balancer, você pode criar uma regra de balanceamento de carga para distribuir o tráfego que chega às instâncias do pool de front-ends para o back-end. Load Balancer usa um algoritmo de hash para distribuição de fluxos de entrada e reescreve os cabeçalhos de fluxos para instâncias de pool de back-end. Um servidor está disponível para receber novos fluxos quando uma investigação de integridade indica um ponto de extremidade de back-end íntegro.
+* **Algoritmo de balanceamento de carga**: com o Azure Load Balancer, você pode criar uma regra de balanceamento de carga para distribuir o tráfego que chega às instâncias do pool de front-ends para o back-end. Load Balancer usa um algoritmo de hashing para distribuição de fluxos de entrada (não bytes) e reescreve os cabeçalhos dos fluxos para apoiar as instâncias da piscina. Um servidor está disponível para receber novos fluxos quando uma investigação de integridade indica um ponto de extremidade de back-end íntegro.
 Por padrão, Load Balancer usa um hash de 5 tuplas. 
 
    O hash inclui: 

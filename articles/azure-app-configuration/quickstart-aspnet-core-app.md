@@ -6,14 +6,14 @@ author: jpconnock
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 01/04/2020
+ms.date: 01/21/2020
 ms.author: jeconnoc
-ms.openlocfilehash: f625135f036ec8fc816bc3c3eb6c76c635c51fe9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 782c18344732362dee96842bcc7c9a6c4ed14a68
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690202"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711230"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo ASP.NET Core com a configuração Azure App
 
@@ -102,13 +102,15 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 1. Adicione uma referência ao pacote `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet executando o seguinte comando:
 
     ```dotnetcli
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
     ```
+
 1. Execute o seguinte comando para restaurar os pacotes para seu projeto:
 
     ```dotnetcli
     dotnet restore
     ```
+
 1. Adicione um segredo denominado *ConnectionStrings: AppConfig* ao Gerenciador de segredo.
 
     Esse segredo contém a cadeia de conexão para acessar seu repositório de configuração de aplicativo. Substitua o valor no comando a seguir pela cadeia de conexão para o repositório de configuração do aplicativo.
@@ -133,7 +135,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     ```
 
 1. Atualize o método de `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration()`.
-    
+
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3,0.  Selecione a sintaxe correta com base em seu ambiente.
 
@@ -151,7 +153,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     ```
 
     #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -163,6 +165,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
         })
         .UseStartup<Startup>());
     ```
+
     ---
 
 1. Navegue até *<app root>/views/Home* e abra *index. cshtml*. Substitua seu conteúdo pelo código a seguir:
@@ -184,7 +187,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-1. Navegue até *<app root>/views/Shared* e abra *_Layout. cshtml*. Substitua seu conteúdo pelo código a seguir:
+1. Navegue para *<app root>/Vistas/Partilhados* e *abertos _Layout.cshtml*. Substitua seu conteúdo pelo código a seguir:
 
     ```HTML
     <!DOCTYPE html>

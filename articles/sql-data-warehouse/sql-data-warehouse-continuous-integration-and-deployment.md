@@ -1,6 +1,6 @@
 ---
 title: Integração e implementação contínua
-description: Experiência de DevOps de banco de dados de classe empresarial para SQL Data Warehouse com suporte interno para integração e implantação contínua usando o Azure Pipelines.
+description: Base de Dados de classe empresarial DevOps experiência para SQL Data Warehouse com suporte incorporado para integração contínua e implantação usando Pipelines Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,88 +10,58 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708655"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712996"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínuas para o Azure SQL Data Warehouse
+# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínua sql data Warehouse
 
-Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) com o Azure DevOps e aproveitar Azure Pipelines para configurar a integração e a implantação contínuas. Este tutorial é a segunda etapa para criar seu pipeline de implantação e integração contínua com o SQL Data Warehouse. 
+Este simples tutorial descreve como integrar o seu projeto de base de dados SQL Server Data (SSDT) com o Azure DevOps e alavancar os Pipelines Azure para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu oleoduto de integração e implantação contínua com o SQL Data Warehouse. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Percorrer o [tutorial de integração de controle do código-fonte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
+- Passe pelo tutorial de integração de controlo de [fontes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
 
-- Configurar e conectar-se ao Azure DevOps
+- Configurar e ligar a Azure DevOps
 
 
-## <a name="continuous-integration-with-visual-studio-build"></a>Integração contínua com o Visual Studio Build
+## <a name="continuous-integration-with-visual-studio-build"></a>Integração contínua com a construção de Estúdio Visual
 
-1. Navegue até Azure Pipelines e crie um novo pipeline de compilação
+1. Navegue para os Oleodutos Azure e crie um novo oleoduto de construção.
 
-      ![Novo pipeline](media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Novo Pipeline")
+      ![Novo Oleoduto](media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Novo Pipeline")
 
-2. Selecione o repositório de código-fonte (Azure Repos git) e selecione o modelo de aplicativo da área de trabalho .NET
+2. Selecione o seu repositório de código fonte (Azure Repos Git) e selecione o modelo de aplicação .NET Desktop.
 
-      ![Configuração do pipeline](media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Configuração do pipeline") 
+      ![Configuração do gasoduto](media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Configuração do gasoduto") 
 
-3. Edite o arquivo YAML para usar o pool apropriado do seu agente. O arquivo YAML deve ser semelhante a este:
+3. Edite o seu ficheiro YAML para utilizar a piscina adequada do seu agente. O seu ficheiro YAML deve ser parecido com isto:
 
       ![YAML](media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-Neste ponto, você tem um ambiente simples em que qualquer check-in em sua Branch mestre do repositório de controle do código-fonte deve disparar automaticamente uma compilação bem-sucedida do Visual Studio do seu projeto de banco de dados. Valide se a automação está funcionando de ponta a ponta fazendo uma alteração no projeto de banco de dados local e fazendo o check-in dessa alteração para sua ramificação mestre.
+Neste ponto, você tem um ambiente simples onde qualquer check-in no seu ramo principal de controlo de fonte deve desencadear automaticamente uma construção bem sucedida do Visual Studio do seu projeto de base de dados. Validar que a automatização está a trabalhar de ponta a ponta, fazendo uma alteração no seu projeto de base de dados local e verificando essa alteração no seu ramo principal.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação SQL Data Warehouse (ou banco de dados) do Azure
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Armazém de Dados Azure SQL (ou Base de Dados)
 
-1. Adicione uma nova tarefa usando a [tarefa de implantação do banco de dados SQL do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado a partir do processo de compilação anterior é implantado no data warehouse de destino. Você também pode usar a [tarefa de implantação do DataWarehouse do SQL do Azure](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
+1. Adicione uma nova tarefa utilizando a tarefa de implementação da Base de [Dados Azure SQL](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos necessários para se ligar ao seu armazém de dados-alvo. Quando esta tarefa funciona, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados alvo. Também pode utilizar a tarefa de implementação do Armazém de [Dados Azure SQL](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). 
 
       ![Tarefa de implantação](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 
-2. Se você estiver usando um agente auto-hospedado, certifique-se de definir sua variável de ambiente para usar o SqlPackage. exe correto para SQL Data Warehouse. O caminho deve ser semelhante a este:
+2. Se estiver a utilizar um agente auto-hospedado, certifique-se de que define a sua variável ambiental para utilizar o SqlPackage.exe correto para o SQL Data Warehouse. O caminho deve ser parecido com isto:
 
-      ![Variável de ambiente](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável de ambiente")
+      ![Variável ambiental](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável de ambiente")
 
-   C:\Arquivos de programas (x86) \Microsoft Visual Studio\2019\Preview\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  
+   C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  
 
-   Execute e valide seu pipeline. Você pode fazer alterações localmente e fazer alterações no controle do código-fonte que devem gerar uma compilação e implantação automática.
+   Corra e valide o seu oleoduto. Pode fazer alterações localmente e verificar alterações no seu controlo de origem que devem gerar uma construção e implementação automáticas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Explorar a [arquitetura de SQL data warehouse do Azure](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-- [Criar rapidamente um SQL data warehouse][create a SQL Data Warehouse]
-- [Carregar dados de exemplo][load sample data].
-- Explorar [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
-
-
-
-<!--Image references-->
-
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
-
-<!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/
+- Explore a [arquitetura azure SQL Data Warehouse](massively-parallel-processing-mpp-architecture.md)
+- Crie rapidamente um Armazém de [Dados SQL](create-data-warehouse-portal.md)
+- [Dados da amostra de carga](sql-data-warehouse-load-sample-databases.md)
+- Explore [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos)

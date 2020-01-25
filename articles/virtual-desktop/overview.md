@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 83744750a664a3a992d823f0b7e76768e249aaba
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514277"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721426"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -99,13 +99,15 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 |kms.core.windows.net|Porta TCP 1688|Ativação do Windows 10|
 
 >[!IMPORTANT]
->Abrir essas URLs é essencial para uma implantação de área de trabalho virtual do Windows confiável. Não há suporte para o bloqueio de acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos da área de trabalho virtual do Windows e não incluem URLs para outros serviços como o Azure AD.
+>Abrir essas URLs é essencial para uma implantação de área de trabalho virtual do Windows confiável. Não há suporte para o bloqueio de acesso a essas URLs e isso afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
 
 >[!NOTE]
+>O Windows Virtual Desktop atualmente não tem uma lista de intervalos de endereços IP que pode whitelist para permitir o tráfego de rede. Só apoiamos urLs específicos de whitelisting neste momento.
+>
 >Você deve usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se você preferir não usar * para o tráfego relacionado ao agente, veja como encontrar as URLs sem curingas:
 >
 >1. Registre suas máquinas virtuais no pool de hosts da área de trabalho virtual do Windows.
->2. Abra o **Visualizador de eventos** e navegue até **Windows** > logs de **aplicativos** e procure a ID de evento 3702.
+>2. Abra **o espectador do Evento** e navegue para **registos do Windows** > **Aplicação** > **WVD-Agent** e procure o ID do evento 3702.
 >3. Lista de permissões as URLs encontradas na ID do evento 3702. As URLs em ID de evento 3702 são específicas da região. Você precisará repetir o processo de lista de permissões com as URLs relevantes para cada região em que você deseja implantar suas máquinas virtuais.
 
 A área de trabalho virtual do Windows inclui os aplicativos e as áreas de trabalho do Windows que você fornece aos usuários e à solução de gerenciamento, que é hospedada como um serviço no Azure pela Microsoft. Desktops e aplicativos podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gerenciamento e os dados para essas VMs residirão no Estados Unidos. Isso pode resultar na transferência de dados para o Estados Unidos.

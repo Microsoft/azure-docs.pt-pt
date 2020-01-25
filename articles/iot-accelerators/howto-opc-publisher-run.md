@@ -1,6 +1,6 @@
 ---
-title: Executar Publicador OPC-Azure | Microsoft Docs
-description: Este artigo descreve como executar e depurar o Publicador OPC. Ele também aborda considerações de desempenho e memória.
+title: Run OPC Publisher - Azure  Microsoft Docs
+description: Este artigo descreve como executar e depurar a OPC Publisher. Aborda também considerações de desempenho e memória.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,20 +8,20 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66e2cb30dcd58b7ad0c6cedbb547f75c8039bc58
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2f99f50ffcccb052526981a712ac5046836a44ae
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824141"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712895"
 ---
 # <a name="run-opc-publisher"></a>Executar o Publicador OPC
 
-Este artigo descreve como executar o editor de OPC de depuração do AD. Ele também aborda considerações de desempenho e memória.
+Este artigo descreve como executar anúncio de depuração OPC Publisher. Aborda também considerações de desempenho e memória.
 
 ## <a name="command-line-options"></a>Opções de linha de comando
 
-O uso do aplicativo é mostrado usando a opção de linha de comando `--help` da seguinte maneira:
+A utilização da aplicação é mostrada utilizando a opção `--help` linha de comando da seguinte forma:
 
 ```sh/cmd
 Current directory is: /appdata
@@ -334,47 +334,47 @@ Options:
                                 reside in a directory.
 ```
 
-Normalmente, você especifica a cadeia de conexão do proprietário do Hub IoT somente na primeira execução do aplicativo. A cadeia de conexão é criptografada e armazenada no repositório de certificados da plataforma. Em execuções posteriores, o aplicativo lê a cadeia de conexão do repositório de certificados. Se você especificar a cadeia de conexão em cada execução, o dispositivo criado para o aplicativo no registro de dispositivo do Hub IoT será removido e recriado.
+Normalmente, especifica a cadeia de ligação do proprietário IoT Hub apenas na primeira execução da aplicação. A cadeia de ligação é encriptada e armazenada na loja de certificados da plataforma. Em posteriores execuções, a aplicação lê a cadeia de ligação da loja de certificados. Se especificar a cadeia de ligação em cada execução, o dispositivo criado para a aplicação no registo do dispositivo IoT Hub é removido e recriado.
 
-## <a name="run-natively-on-windows"></a>Executar nativamente no Windows
+## <a name="run-natively-on-windows"></a>Correr de forma nativa no Windows
 
-Abra o projeto **opcpublisher. sln** com o Visual Studio, Compile a solução e publique-a. Você pode iniciar o aplicativo no **diretório de destino** que você publicou como a seguir:
+Abra o projeto **opcpublisher.sln** com o Visual Studio, construa a solução e publique-o. Pode iniciar a aplicação no **diretório Target** que publicou da seguinte forma:
 
 ```cmd
 dotnet opcpublisher.dll <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-## <a name="use-a-self-built-container"></a>Usar um contêiner criado automaticamente
+## <a name="use-a-self-built-container"></a>Use um recipiente auto-construído
 
-Crie seu próprio contêiner e inicie-o da seguinte maneira:
+Construa o seu próprio recipiente e inicie-o da seguinte forma:
 
 ```sh/cmd
 docker run <your-container-name> <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-## <a name="use-a-container-from-microsoft-container-registry"></a>Usar um contêiner do registro de contêiner da Microsoft
+## <a name="use-a-container-from-microsoft-container-registry"></a>Utilize um recipiente do Registo de Contentores da Microsoft
 
-Há um contêiner predefinido disponível no registro de contêiner da Microsoft. Inicie-o da seguinte maneira:
+Há um recipiente pré-construído disponível no Registo de Contentores da Microsoft. Comece da seguinte forma:
 
 ```sh/cmd
 docker run mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-Verifique o [Hub do Docker](https://hub.docker.com/_/microsoft-iotedge-opc-publisher) para ver os sistemas operacionais e as arquiteturas de processador com suporte. Se houver suporte para a arquitetura do sistema operacional e da CPU, o Docker selecionará automaticamente o contêiner correto.
+Consulte o [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher) para ver os sistemas operativos suportados e as arquiteturas de processadores. Se a sua arquitetura DE SO e CPU for suportada, o Docker seleciona automaticamente o recipiente correto.
 
-## <a name="run-as-an-azure-iot-edge-module"></a>Executar como um módulo Azure IoT Edge
+## <a name="run-as-an-azure-iot-edge-module"></a>Executado como um módulo Azure IoT Edge
 
-O editor OPC está pronto para ser usado como um módulo [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge) . Quando você usa o Publicador OPC como IoT Edge módulo, os únicos protocolos de transporte com suporte são **Amqp_Tcp_Only** e **Mqtt_Tcp_Only**.
+A OPC Publisher está pronta para ser usada como módulo [Azure IoT Edge.](https://docs.microsoft.com/azure/iot-edge) Quando utiliza o OPC Publisher como módulo IoT Edge, os únicos protocolos de transporte suportados são **Amqp_Tcp_Only** e **Mqtt_Tcp_Only**.
 
-Para adicionar o editor OPC como módulo à sua implantação do IoT Edge, vá para as configurações do Hub IoT na portal do Azure e conclua as seguintes etapas:
+Para adicionar o OPC Publisher como módulo à sua implementação IoT Edge, vá às definições do IoT Hub no portal Azure e complete os seguintes passos:
 
-1. Vá para **IOT Edge** e crie ou selecione seu dispositivo de IOT Edge.
+1. Vá ao **IoT Edge** e crie ou selecione o seu dispositivo IoT Edge.
 1. Selecione **Definir Módulos**.
-1. Selecione **Adicionar** em **módulos de implantação** e **IOT Edge módulo**.
-1. No campo **nome** , insira **Publicador**.
-1. No campo **URI da imagem** , insira `mcr.microsoft.com/iotedge/opc-publisher:<tag>`
-1. Você pode encontrar as marcas disponíveis no [Hub do Docker](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)
-1. Cole o JSON a seguir no campo **Opções de criação de contêiner** :
+1. **Selecione Adicionar** sob módulos de **implantação** e, em seguida, **módulo ioT edge**.
+1. No campo **Nome,** insira **o editor.**
+1. No campo **Image URI,** insira `mcr.microsoft.com/iotedge/opc-publisher:<tag>`
+1. Você pode encontrar as etiquetas disponíveis no [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)
+1. Colar o seguinte JSON no campo De criação de **Recipientes:**
 
     ```json
     {
@@ -385,10 +385,10 @@ Para adicionar o editor OPC como módulo à sua implantação do IoT Edge, vá p
     }
     ```
 
-    Essa configuração configura IoT Edge para iniciar um contêiner chamado **Publisher** usando a imagem do editor OPC. O nome do host do sistema do contêiner está definido como **Publicador**. O editor OPC é chamado com o seguinte argumento de linha de comando: `--aa`. Com essa opção, o editor OPC confia nos certificados dos servidores OPC UA aos quais ele se conecta. Você pode usar qualquer opção de linha de comando do Publicador OPC. A única limitação é o tamanho das **Opções de criação de contêiner** com suporte pelo IOT Edge.
+    Esta configuração configura ioT Edge para iniciar um recipiente chamado **editor** usando a imagem da Editora OPC. O nome de anfitrião do sistema do contentor está definido para **a editora.** A OPC Publisher é chamada com o seguinte argumento de linha de comando: `--aa`. Com esta opção, a OPC Publisher confia nos certificados dos servidores OPC UA a que se conecta. Pode utilizar quaisquer opções de linha de comando da OPC Publisher. A única limitação é o tamanho das opções de criação de **recipientes** suportadas pela IoT Edge.
 
 1. Deixe as outras definições inalteradas e selecione **Guardar**.
-1. Se você quiser processar a saída do editor OPC localmente com outro módulo IoT Edge, volte para a página **definir módulos** . Em seguida, vá para a guia **especificar rotas** e adicione uma nova rota parecida com a seguinte JSON:
+1. Se quiser processar a saída da Editora OPC localmente com outro módulo IoT Edge, volte à página **De Conjunto de Módulos.** Em seguida, vá ao **separador 'Especificar Rotas'** e adicione uma nova rota que se pareça com a seguinte JSON:
 
     ```json
     {
@@ -399,13 +399,13 @@ Para adicionar o editor OPC como módulo à sua implantação do IoT Edge, vá p
     }
     ```
 
-1. De volta à página **definir módulos** , selecione **Avançar**, até chegar à última página da configuração.
-1. Selecione **Enviar** para enviar sua configuração para IOT Edge.
-1. Quando você inicia IoT Edge em seu dispositivo de borda e o **Publicador** de contêiner do Docker está em execução, você pode verificar a saída de log do editor OPC usando `docker logs -f publisher` ou verificando o arquivo de log. No exemplo anterior, o arquivo de log está acima de `d:\iiotegde\publisher-publisher.log`. Você também pode usar a [ferramenta IOT-Edge-OPC-Publisher-Diagnostics](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics).
+1. De volta à página **De Conjunto de Módulos,** selecione **Next**, até chegar à última página da configuração.
+1. Selecione **Submeter** para enviar a sua configuração para IoT Edge.
+1. Quando tiver iniciado o IoT Edge no seu dispositivo de borda e o **editor** de contentores do estivador estiver em execução, pode verificar a saída de registo da OPC Publisher, utilizando `docker logs -f publisher` ou verificando o ficheiro de registo. No exemplo anterior, o ficheiro de registo está acima `d:\iiotegde\publisher-publisher.log`. Também pode utilizar a [ferramenta iot-edge-opc-editor-diagnósticos](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics).
 
-### <a name="make-the-configuration-files-accessible-on-the-host"></a>Tornar os arquivos de configuração acessíveis no host
+### <a name="make-the-configuration-files-accessible-on-the-host"></a>Tornar os ficheiros de configuração acessíveis no anfitrião
 
-Para tornar os arquivos de configuração do módulo IoT Edge acessíveis no sistema de arquivos do host, use as **Opções de criação de contêiner**a seguir. O exemplo a seguir é de uma implantação usando contêineres do Linux para Windows:
+Para tornar os ficheiros de configuração do módulo IoT Edge acessíveis no sistema de ficheiros de hospedeiro, utilize as seguintes opções de criação de **recipientes**. O exemplo seguinte é de uma implementação utilizando recipientes Linux para Windows:
 
 ```json
 {
@@ -422,13 +422,13 @@ Para tornar os arquivos de configuração do módulo IoT Edge acessíveis no sis
 }
 ```
 
-Com essas opções, o Publicador OPC lê os nós que ele deve publicar no arquivo `./pn.json` e o diretório de trabalho do contêiner é definido como `/appdata` na inicialização. Com essas configurações, o Publicador OPC lê o arquivo `/appdata/pn.json` do contêiner para obter sua configuração. Sem a opção `--pf`, o Publicador OPC tenta ler o arquivo de configuração padrão `./publishednodes.json`.
+Com estas opções, a OPC Publisher lê os nós que deve publicar a partir do ficheiro `./pn.json` e o diretório de trabalho do contentor está programado para `/appdata` no arranque. Com estas definições, a OPC Publisher lê o ficheiro `/appdata/pn.json` do recipiente para obter a sua configuração. Sem a opção `--pf`, a OPC Publisher tenta ler o ficheiro de configuração padrão `./publishednodes.json`.
 
-O arquivo de log, usando o nome padrão `publisher-publisher.log`, é gravado em `/appdata` e o diretório `CertificateStores` também é criado nesse diretório.
+O ficheiro de registo, utilizando o nome padrão `publisher-publisher.log`, está escrito para `/appdata` e o diretório `CertificateStores` também é criado neste diretório.
 
-Para disponibilizar todos esses arquivos no sistema de arquivos do host, a configuração do contêiner requer um volume de montagem de associação. O `d://iiotedge:/appdata` associar mapeia o `/appdata`de diretório, que é o diretório de trabalho atual na inicialização do contêiner, para o diretório de host `d://iiotedge`. Sem essa opção, nenhum dado de arquivo é mantido quando o próximo contêiner é iniciado.
+Para disponibilizar todos estes ficheiros no sistema de ficheiros do hospedeiro, a configuração do recipiente requer um volume de montagem de ligação. O `d://iiotedge:/appdata` liga o diretório `/appdata`, que é o atual diretório de trabalho em arranque de contentores, ao diretório anfitrião `d://iiotedge`. Sem esta opção, não se persistem dados de ficheiros quando o recipiente começa a seguir.
 
-Se você estiver executando contêineres do Windows, a sintaxe do parâmetro `Binds` será diferente. Na inicialização do contêiner, o diretório de trabalho é `c:\appdata`. Para colocar o arquivo de configuração no diretório `d:\iiotedge`no host, especifique o seguinte mapeamento na seção `HostConfig`:
+Se estiver a executar contentores Windows, então a sintaxe do parâmetro `Binds` é diferente. No arranque de contentores, o diretório de trabalho é `c:\appdata`. Para colocar o ficheiro de configuração no diretório `d:\iiotedge`no anfitrião, especifique o seguinte mapeamento na secção `HostConfig`:
 
 ```json
 "HostConfig": {
@@ -438,7 +438,7 @@ Se você estiver executando contêineres do Windows, a sintaxe do parâmetro `Bi
 }
 ```
 
-Se você estiver executando contêineres do Linux no Linux, a sintaxe do parâmetro `Binds` será diferente novamente. Na inicialização do contêiner, o diretório de trabalho é `/appdata`. Para colocar o arquivo de configuração no diretório `/iiotedge` no host, especifique o seguinte mapeamento na seção `HostConfig`:
+Se estiver a executar contentores Linux em Linux, a sintaxe do parâmetro `Binds` é novamente diferente. No arranque de contentores, o diretório de trabalho é `/appdata`. Para colocar o ficheiro de configuração no diretório `/iiotedge` no anfitrião, especifique o seguinte mapeamento na secção `HostConfig`:
 
 ```json
 "HostConfig": {
@@ -448,106 +448,106 @@ Se você estiver executando contêineres do Linux no Linux, a sintaxe do parâme
 }
 ```
 
-## <a name="considerations-when-using-a-container"></a>Considerações ao usar um contêiner
+## <a name="considerations-when-using-a-container"></a>Considerações ao utilizar um recipiente
 
-As seções a seguir listam algumas coisas para ter em mente quando você usa um contêiner:
+As seguintes secções listam algumas coisas a ter em mente quando se utiliza um recipiente:
 
-### <a name="access-to-the-opc-publisher-opc-ua-server"></a>Acesso ao servidor OPC UA do editor OPC
+### <a name="access-to-the-opc-publisher-opc-ua-server"></a>Acesso ao servidor OPC Publisher OPC UA
 
-Por padrão, o servidor OPC UA editor OPC escuta na porta 62222. Para expor essa porta de entrada em um contêiner, use o seguinte comando:
+Por predefinição, o servidor OPC Publisher OPC UA ouve na porta 62222. Para expor esta porta de entrada num recipiente, utilize o seguinte comando:
 
 ```sh/cmd
 docker run -p 62222:62222 mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-### <a name="enable-intercontainer-name-resolution"></a>Habilitar resolução de nome de intercontêiner
+### <a name="enable-intercontainer-name-resolution"></a>Ativar a resolução de nomes de intercontentores
 
-Para habilitar a resolução de nomes de dentro do contêiner para outros contêineres, crie um usuário defina rede de ponte do Docker e conecte o contêiner a essa rede usando a opção `--network`. Além disso, atribua um nome ao contêiner usando a opção `--name` da seguinte maneira:
+Para permitir a resolução de nomes de dentro do contentor para outros contentores, crie um utilizador que defina a rede de pontes de estivador e ligue o recipiente a esta rede utilizando a opção `--network`. Atribua também ao recipiente um nome utilizando a opção `--name` seguinte:
 
 ```sh/cmd
 docker network create -d bridge iot_edge
 docker run --network iot_edge --name publisher mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-O contêiner agora está acessível usando o nome `publisher` por outros contêineres na mesma rede.
+O recipiente está agora acessível utilizando o nome `publisher` por outros contentores na mesma rede.
 
-### <a name="access-other-systems-from-within-the-container"></a>Acessar outros sistemas de dentro do contêiner
+### <a name="access-other-systems-from-within-the-container"></a>Acesso a outros sistemas a partir do interior do contentor
 
-Outros contêineres podem ser acessados usando os parâmetros descritos na seção anterior. Se o sistema operacional no qual o Docker está hospedado estiver habilitado para DNS, o acesso a todos os sistemas que são conhecidos como DNS funcionará.
+Outros recipientes podem ser alcançados utilizando os parâmetros descritos na secção anterior. Se o sistema operativo em que o Docker está hospedado estiver ativado, então acede a todos os sistemas conhecidos das obras de DNS.
 
-Em redes que usam a resolução de nomes NetBIOS, habilite o acesso a outros sistemas iniciando o contêiner com a opção `--add-host`. Essa opção adiciona efetivamente uma entrada ao arquivo de host do contêiner:
+Nas redes que utilizam a resolução de nomes NetBIOS, ative o acesso a outros sistemas iniciando o seu contentor com a opção `--add-host`. Esta opção adiciona efetivamente uma entrada no ficheiro hospedeiro do contentor:
 
 ```cmd/sh
 docker run --add-host mydevbox:192.168.178.23  mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-### <a name="assign-a-hostname"></a>Atribuir um nome de host
+### <a name="assign-a-hostname"></a>Atribuir um nome de anfitrião
 
-O Publicador OPC usa o nome do host do computador em que está sendo executado para a geração de certificado e ponto de extremidade. O Docker escolhe um nome de host aleatório se um não for definido pela opção `-h`. O exemplo a seguir mostra como definir o nome de host interno do contêiner para `publisher`:
+A OPC Publisher usa o nome de anfitrião da máquina em que está a funcionar para a geração de certificados e pontos finais. Docker escolhe um nome de anfitrião aleatório se não for definido pela opção `-h`. O exemplo que se segue mostra como definir o nome de acolhimento interno do contentor para `publisher`:
 
 ```sh/cmd
 docker run -h publisher mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-### <a name="use-bind-mounts-shared-filesystem"></a>Usar montagens de associação (sistema de arquivos compartilhado)
+### <a name="use-bind-mounts-shared-filesystem"></a>Utilize suportes de ligação (sistema de ficheiros partilhados)
 
-Em vez de usar o sistema de arquivos do contêiner, você pode escolher o sistema de arquivos do host para armazenar informações de configuração e arquivos de log. Para configurar essa opção, use a opção `-v` de `docker run` no modo de montagem de associação.
+Em vez de utilizar o sistema de ficheiros de contentores, pode escolher o sistema de ficheiros do anfitrião para armazenar informações de configuração e ficheiros de registo. Para configurar esta opção, utilize a opção `-v` de `docker run` no modo de montagem de ligação.
 
-## <a name="opc-ua-x509-certificates"></a>Certificados OPC UA X. 509
+## <a name="opc-ua-x509-certificates"></a>Certificados OPC UA X.509
 
-O OPC UA usa certificados X. 509 para autenticar o cliente e o servidor OPC UA quando eles estabelecem uma conexão e para criptografar a comunicação entre eles. O editor OPC usa repositórios de certificados mantidos pela pilha OPC UA para gerenciar todos os certificados. Na inicialização, o editor OPC verifica se há um certificado para si mesmo. Se não houver nenhum certificado no repositório de certificados e um não for um passado na linha de comando, o Publicador OPC criará um certificado autoassinado. Para obter mais informações, consulte o método **InitApplicationSecurityAsync** em `OpcApplicationConfigurationSecurity.cs`.
+O OPC UA usa certificados X.509 para autenticar o cliente e servidor opc ua quando estabelecer uma ligação e encriptar a comunicação entre eles. A OPC Publisher utiliza lojas de certificados mantidas pela pilha OPC UA para gerir todos os certificados. No arranque, a OPC Publisher verifica se há um certificado para si. Se não houver certificado na loja de certificados, e nenhum é um passado na linha de comando, a OPC Publisher cria um certificado auto-assinado. Para mais informações, consulte o método **InitApplicationSecurityAsync** em `OpcApplicationConfigurationSecurity.cs`.
 
-Os certificados autoassinados não fornecem nenhuma segurança, pois não são assinados por uma autoridade de certificação confiável.
+Os certificados auto-assinados não fornecem qualquer segurança, uma vez que não são assinados por um ac de confiança.
 
-O editor OPC fornece opções de linha de comando para:
+A OPC Publisher fornece opções de linha de comando para:
 
-- Recupere informações do CSR do certificado de aplicativo atual usado pelo editor OPC.
-- Provisione o editor OPC com um certificado assinado por uma CA.
-- Provisione o editor OPC com um novo par de chaves e certificado assinado da CA correspondente.
-- Adicione certificados a um repositório de certificados do emissor confiável ou par confiável.
-- Adicione uma CRL.
-- Remova um certificado do repositório de certificados do par confiável ou dos emissores confiáveis.
+- Recupere informações cSR do certificado de candidatura atual utilizado pela OPC Publisher.
+- Provision OPC Publisher com um certificado assinado ca.
+- Provision OPC Publisher com um novo par de chaves e certificado assinado ca correspondente.
+- Adicione certificados a um par de confiança ou loja de certificados de emitente de confiança.
+- Adicione um CRL.
+- Retire um certificado da loja de certificados de emitentes de confiança ou de emitentes de confiança.
 
-Todas essas opções permitem que você passe parâmetros usando arquivos ou cadeias de caracteres codificadas em base64.
+Todas estas opções permitem-lhe passar em parâmetros utilizando ficheiros ou cordas codificadas base64.
 
-O tipo de armazenamento padrão para todos os repositórios de certificados é o sistema de arquivos, que pode ser alterado usando opções de linha de comando. Como o contêiner não fornece armazenamento persistente em seu sistema de arquivos, você deve escolher um tipo de repositório diferente. Use a opção Docker `-v` para persistir os repositórios de certificados no sistema de arquivos host ou em um volume do Docker. Se você usar um volume do Docker, poderá passar certificados usando cadeias de caracteres codificadas em base64.
+O tipo de loja predefinido para todas as lojas de certificados é o sistema de ficheiros, que pode alterar utilizando opções de linha de comando. Como o recipiente não fornece armazenamento persistente no seu sistema de ficheiros, deve escolher um tipo de loja diferente. Utilize a opção `-v` Docker para persistir as lojas de certificados no sistema de ficheiros hospedeiros ou num volume Docker. Se utilizar um volume Docker, pode passar em certificados utilizando cordas codificadas base64.
 
-O ambiente de tempo de execução afeta como os certificados são persistidos. Evite criar novos repositórios de certificados cada vez que você executar o aplicativo:
+O ambiente de tempo de funcionação afeta a forma como os certificados são perscontinuados. Evite criar novas lojas de certificados sempre que executar a aplicação:
 
-- Executando nativamente no Windows, você não pode usar um repositório de certificados de aplicativo do tipo `Directory` porque o acesso à chave privada falha. Nesse caso, use a opção `--at X509Store`.
-- Executando como contêiner do Docker do Linux, você pode mapear os repositórios de certificados para o sistema de arquivos do host com a opção de execução do Docker `-v <hostdirectory>:/appdata`. Essa opção torna o certificado persistente entre as execuções do aplicativo.
-- Executando como contêiner do Docker do Linux e você deseja usar um repositório X509 para o certificado do aplicativo, use a opção de execução do Docker `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` e a opção do aplicativo `--at X509Store`
+- Funcionando de forma nativa no Windows, não é possível utilizar um certificado de aplicação de tipo `Directory` porque o acesso à chave privada falha. Neste caso, utilize a opção `--at X509Store`.
+- Funcionando como recipiente de estivador Linux, pode mapear as lojas de certificados para o sistema de ficheiros anfitrião com a opção de execução do estivador `-v <hostdirectory>:/appdata`. Esta opção torna o certificado persistente em todas as execuções de candidatura.
+- Funcionando como recipiente de estivador Linux e você quer usar uma loja X509 para o certificado de aplicação, use a opção de execução do estivador `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` e a opção de aplicação `--at X509Store`
 
-## <a name="performance-and-memory-considerations"></a>Considerações sobre desempenho e memória
+## <a name="performance-and-memory-considerations"></a>Considerações de desempenho e memória
 
-Esta seção aborda as opções de gerenciamento de memória e desempenho:
+Esta secção discute opções para gerir a memória e o desempenho:
 
 ### <a name="command-line-parameters-to-control-performance-and-memory"></a>Parâmetros de linha de comando para controlar o desempenho e a memória
 
-Ao executar o editor OPC, você precisa estar ciente dos requisitos de desempenho e dos recursos de memória disponíveis no host.
+Quando executa o OPC Publisher, tem de estar atento aos seus requisitos de desempenho e aos recursos de memória disponíveis no seu anfitrião.
 
-A memória e o desempenho são interdependentes e ambos dependem da configuração de quantos nós você configurar para publicar. Verifique se os seguintes parâmetros atendem às suas necessidades:
+A memória e o desempenho são interdependentes e ambos dependem da configuração de quantos nós configura para publicar. Certifique-se de que os seguintes parâmetros satisfazem os seus requisitos:
 
-- O Hub IoT envia o intervalo: `--si`
-- Tamanho da mensagem do Hub IoT (padrão `1`): `--ms`
-- Capacidade da fila de itens monitorados: `--mq`
+- IoT Hub envia intervalo: `--si`
+- Tamanho da mensagem IoT Hub (`1`padrão ): `--ms`
+- Capacidade de fila de itens monitorizados: `--mq`
 
-O parâmetro `--mq` controla o limite superior da capacidade da fila interna, que armazena em buffer todas as notificações de alteração de valor de nó OPC. Se o editor OPC não puder enviar mensagens ao Hub IoT rápido o suficiente, essa fila armazenará em buffer as notificações. O parâmetro define o número de notificações que podem ser armazenadas em buffer. Se você vir o número de itens nessa fila aumentando em suas execuções de teste, para evitar mensagens perder, você deve:
+O parâmetro `--mq` controla o limite superior da capacidade da fila interna, o que amortece todas as notificações de alteração de valor do nó OPC. Se a OPC Publisher não puder enviar mensagens para ioT Hub suficientemente rápido, esta fila amortece as notificações. O parâmetro define o número de notificações que podem ser tamponadas. Se vir o número de itens nesta fila a aumentar nas suas corridas de teste, então para evitar perder mensagens deve:
 
-- Reduzir o intervalo de envio do Hub IoT
-- Aumentar o tamanho da mensagem do Hub IoT
+- Reduza o intervalo de envio do IoT Hub
+- Aumente o tamanho da mensagem IoT Hub
 
-O parâmetro `--si` força o editor OPC a enviar mensagens ao Hub IoT no intervalo especificado. O Publicador OPC envia uma mensagem assim que o tamanho da mensagem especificado pelo parâmetro `--ms` é atingido ou assim que o intervalo especificado pelo parâmetro `--si` é atingido. Para desabilitar a opção tamanho da mensagem, use `--ms 0`. Nesse caso, o editor OPC usa o maior tamanho possível de mensagem do Hub IoT de 256 kB para dados em lotes.
+O parâmetro `--si` obriga a Editora OPC a enviar mensagens para o IoT Hub no intervalo especificado. A OPC Publisher envia uma mensagem assim que o tamanho da mensagem especificado pelo parâmetro `--ms` for atingido, ou assim que o intervalo especificado pelo parâmetro `--si` for atingido. Para desativar a opção tamanho da mensagem, utilize `--ms 0`. Neste caso, a OPC Publisher utiliza o maior tamanho de mensagem IoT Hub possível de 256 kB para dados de lote.
 
-O parâmetro `--ms` permite que você envie mensagens em lote para o Hub IoT. O protocolo que você está usando determina se a sobrecarga de envio de uma mensagem para o Hub IoT é alta em comparação com o tempo real de envio da carga. Se seu cenário permitir latência quando os dados forem ingeridos pelo Hub IoT, configure o editor OPC para usar o maior tamanho de mensagem de 256 kB.
+O parâmetro `--ms` permite enviar mensagens de lote enviadas para o IoT Hub. O protocolo que está a usar determina se a sobrecarga de envio de uma mensagem para o IoT Hub é elevada em comparação com o tempo real de envio da carga útil. Se o seu cenário permitir a latência quando os dados ingeridos pelo IoT Hub, configure a Editora OPC para utilizar o maior tamanho de mensagem de 256 kB.
 
-Antes de usar o editor OPC em cenários de produção, teste o desempenho e o uso de memória em condições de produção. Você pode usar o parâmetro `--di` para especificar o intervalo, em segundos, que o editor OPC grava as informações de diagnóstico.
+Antes de utilizar o OPC Publisher em cenários de produção, teste o desempenho e o uso da memória em condições de produção. Pode utilizar o parâmetro `--di` para especificar o intervalo, em segundos, que a OPC Publisher escreve informações de diagnóstico.
 
-### <a name="test-measurements"></a>Medidas de teste
+### <a name="test-measurements"></a>Medições de ensaio
 
-O diagnóstico de exemplo a seguir mostra medidas com valores diferentes para `--si` e `--ms` parâmetros publicando nós 500 com um intervalo de publicação OPC de 1 segundo.  O teste usou uma compilação de depuração de Publicador OPC no Windows 10 nativamente por 120 segundos. O protocolo do Hub IoT era o protocolo MQTT padrão.
+Os diagnósticos de exemplo seguinte mostram medições com valores diferentes para `--si` e `--ms` parâmetros de publicação de 500 nódos com um intervalo de publicação OPC de 1 segundo.  O teste utilizou um debug da OPC Publisher no Windows 10 de forma nativa durante 120 segundos. O protocolo IoT Hub era o protocolo padrão do MQTT.
 
-#### <a name="default-configuration---si-10---ms-262144"></a>Configuração padrão (--si 10--ms 262144)
+#### <a name="default-configuration---si-10---ms-262144"></a>Configuração predefinida (--si 10 --ms 262144)
 
 ```log
 ==========================================================================
@@ -579,9 +579,9 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-A configuração padrão envia dados ao Hub IoT a cada 10 segundos, ou quando 256 kB de dados estão disponíveis para a ingestão do Hub IoT. Essa configuração adiciona uma latência moderada de cerca de 10 segundos, mas tem a menor probabilidade de dados de perder devido ao tamanho da mensagem grande. A saída de diagnóstico mostra que não há atualizações de nó OPC perdidas: `monitored item notifications enqueue failure: 0`.
+A configuração predefinida envia dados para o IoT Hub a cada 10 segundos, ou quando 256 kB de dados estão disponíveis para o IoT Hub ingerir. Esta configuração adiciona uma latência moderada de cerca de 10 segundos, mas tem menor probabilidade de perder dados devido ao tamanho da grande mensagem. A saída de diagnóstico mostra que não há atualizações de nó OPC perdidas: `monitored item notifications enqueue failure: 0`.
 
-#### <a name="constant-send-interval---si-1---ms-0"></a>Intervalo de envio constante (--si 1--MS 0)
+#### <a name="constant-send-interval---si-1---ms-0"></a>Intervalo de envio constante (--si 1 --ms 0)
 
 ```log
 ==========================================================================
@@ -613,9 +613,9 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-Quando o tamanho da mensagem é definido como 0, o editor OPC internamente agrupa dados em lotes usando o maior tamanho de mensagem do Hub IoT com suporte, que é 256 kB. A saída de diagnóstico mostra que o tamanho médio da mensagem é de 115.019 bytes. Nesta configuração, o editor OPC não perde nenhuma atualização de valor de nó OPC e, em comparação com o padrão, ela tem latência mais baixa.
+Quando o tamanho da mensagem é definido para 0 então a OPC Publisher emite dados internos usando o maior tamanho de mensagem IoT Hub suportado, que é de 256 kB. A saída de diagnóstico mostra que o tamanho médio da mensagem é de 115.019 bytes. Nesta configuração, a OPC Publisher não perde nenhuma atualização de valor do nó OPC, e em comparação com o padrão tem menor latência.
 
-### <a name="send-each-opc-node-value-update---si-0---ms-0"></a>Enviar cada atualização de valor de nó OPC (--si 0--MS 0)
+### <a name="send-each-opc-node-value-update---si-0---ms-0"></a>Envie cada atualização de valor do nó OPC (--si 0 --ms 0)
 
 ```log
 ==========================================================================
@@ -647,9 +647,9 @@ current working set in MB: 96
 ==========================================================================
 ```
 
-Essa configuração envia para cada valor de nó OPC alterar uma mensagem para o Hub IoT. O diagnóstico mostra que o tamanho médio da mensagem é de 234 bytes, o que é pequeno. A vantagem dessa configuração é que o editor OPC não adiciona nenhuma latência. O número de atualizações de valor de nó OPC perdido (`monitored item notifications enqueue failure: 44624`) é alto, o que torna essa configuração inadequada para cenários com grandes volumes de telemetria a serem publicados.
+Esta configuração envia para cada valor do nó OPC alterar uma mensagem para IoT Hub. Os diagnósticos mostram que o tamanho médio da mensagem é de 234 bytes, que é pequeno. A vantagem desta configuração é que a OPC Publisher não adiciona nenhuma latência. O número de atualizações de valor do nó OPC perdidas (`monitored item notifications enqueue failure: 44624`), o que torna esta configuração inadequada para cenários com elevados volumes de telemetria a publicar.
 
-### <a name="maximum-batching---si-0---ms-262144"></a>Máximo de envio em lote (--si 0--ms 262144)
+### <a name="maximum-batching---si-0---ms-262144"></a>Lotamento máximo (--si 0 --ms 262144)
 
 ```log
 ==========================================================================
@@ -681,35 +681,35 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-Essa configuração processa em lotes o máximo possível de atualizações de valor de nó OPC. O tamanho máximo de mensagem do Hub IoT é 256 kB, que é configurado aqui. Não há nenhum intervalo de envio solicitado, o que significa que a quantidade de dados para o Hub IoT a ser ingerida determina a latência. Essa configuração tem a menor probabilidade de perder quaisquer valores de nó OPC e é adequada para publicar um grande número de nós. Ao usar essa configuração, verifique se o cenário não tem condições em que a alta latência é introduzida se o tamanho da mensagem de 256 kB não for atingido.
+Esta configuração batches o maior número possível de atualizações de valor do nó OPC. O tamanho máximo da mensagem IoT Hub é de 256 kB, que está configurado aqui. Não há intervalo de envio solicitado, o que significa que a quantidade de dados para ioT Hub para ingerir determina a latência. Esta configuração tem a menor probabilidade de perder qualquer valore de nó OPC e é adequada para publicar um elevado número de nós. Quando utilizar esta configuração, certifique-se de que o seu cenário não tem condições em que a latência elevada é introduzida se o tamanho da mensagem de 256 kB não for atingido.
 
 ## <a name="debug-the-application"></a>Depurar a aplicação
 
-Para depurar o aplicativo, abra o arquivo de solução **opcpublisher. sln** com o Visual Studio e use as ferramentas de depuração do Visual Studio.
+Para desmarcar a aplicação, abra o ficheiro de solução **opcpublisher.sln** com o Visual Studio e utilize as ferramentas de depuração do Estúdio Visual.
 
-Se você precisar acessar o servidor OPC UA no Publicador OPC, verifique se o firewall permite o acesso à porta escutada pelo servidor. A porta padrão é: 62222.
+Se necessitar de aceder ao servidor OPC UA na Editora OPC, certifique-se de que a sua firewall permite o acesso à porta onde o servidor escuta. A porta padrão é: 62222.
 
-## <a name="control-the-application-remotely"></a>Controlar o aplicativo remotamente
+## <a name="control-the-application-remotely"></a>Controlar a aplicação remotamente
 
-A configuração dos nós a serem publicados pode ser feita usando métodos diretos do Hub IoT.
+Configurar os nódosos para publicar pode ser feito usando métodos diretos IoT Hub.
 
-O Publicador OPC implementa algumas chamadas de método diretas do Hub IoT adicionais para ler:
+A OPC Publisher implementa algumas chamadas adicionais do método ioT Hub para ler:
 
 - Informações gerais.
-- Informações de diagnóstico em sessões do OPC, assinaturas e itens monitorados.
-- Informações de diagnóstico sobre mensagens e eventos do Hub IoT.
-- O log de inicialização.
-- As últimas 100 linhas do log.
-- Desligue o aplicativo.
+- Informações de diagnóstico sobre sessões de OPC, subscrições e itens monitorizados.
+- Informações de diagnóstico sobre mensagens e eventos do IoT Hub.
+- O registo de arranque.
+- As últimas 100 linhas do tronco.
+- Desligue o pedido.
 
-Os repositórios GitHub a seguir contêm ferramentas para [configurar os nós para publicar](https://github.com/Azure-Samples/iot-edge-opc-publisher-nodeconfiguration) e [ler as informações de diagnóstico](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics). Ambas as ferramentas também estão disponíveis como contêineres no Hub do Docker.
+Os repositórios GitHub que se seguem contêm ferramentas para [configurar os nós para publicar](https://github.com/Azure-Samples/iot-edge-opc-publisher-nodeconfiguration) e ler as [informações](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics)de diagnóstico . Ambas as ferramentas também estão disponíveis como contentores no Docker Hub.
 
-## <a name="use-a-sample-opc-ua-server"></a>Usar um servidor OPC UA de exemplo
+## <a name="use-a-sample-opc-ua-server"></a>Utilize uma amostra de servidor OPC UA
 
-Se você não tiver um servidor OPC UA real, poderá usar o [exemplo de PLC do OPC UA](https://github.com/Azure-Samples/iot-edge-opc-plc) para começar. Esse PLC de exemplo também está disponível no Hub do Docker.
+Se não tiver um servidor UA Real oPC, pode utilizar a [amostra OPC UA PLC](https://github.com/Azure-Samples/iot-edge-opc-plc) para começar. Esta amostra PLC também está disponível no Docker Hub.
 
-Ele implementa várias marcas, que geram dados aleatórios e marcas com anomalias. Você pode estender o exemplo se precisar simular valores de marca adicionais.
+Implementa uma série de tags, que geram dados aleatórios e tags com anomalias. Pode estender a amostra se precisar de simular valores adicionais de etiqueta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a executar o [Editor OPC,](overview-opc-twin.md) as próximas etapas recomendadas são aprender sobre o compartimento de OPC e o [cofre OPC](overview-opc-vault.md).
+Agora que aprendeu a gerir a OPC Publisher, os próximos passos recomendados são para aprender sobre [o OPC Twin](overview-opc-twin.md) e [o OPC Vault](overview-opc-vault.md).

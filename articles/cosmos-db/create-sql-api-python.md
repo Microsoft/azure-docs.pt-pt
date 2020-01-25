@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: a794a9ed35cbbdd36c2cf136b8afc208c3ea0692
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1e0016e8ce6bc9178befd1a5ca96aa2554929ac5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549019"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719539"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início rápido: criar um aplicativo Python usando uma conta de API do SQL Azure Cosmos DB
 
@@ -47,15 +47,15 @@ Este guia de início rápido usa a versão 4 do [SDK do Python](https://pypi.org
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-container"></a>Adicionar um contentor
+## <a name="add-a-container"></a>Adicione um recipiente
 
 Agora você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
 
-1. Selecione **Data Explorer** > **Novo Contentor**. 
+1. Selecione **Data Explorer** > **Novo Recipiente**. 
     
     A área **Adicionar contêiner** é exibida na extrema direita, talvez seja necessário rolar para a direita para vê-la.
 
-    ![O Data Explorer no portal do Azure, painel Adicionar Contentor](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    ![O portal Azure Data Explorer, Adicionar painel de contentores](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
 
 2. Na página **Adicionar contêiner** , insira as configurações para o novo contêiner.
 
@@ -63,12 +63,12 @@ Agora você pode usar a ferramenta Data Explorer no portal do Azure para criar u
     |---|---|---|
     |**ID da Base de Dados**|Tarefas|Insira *ToDoList* como o nome do novo banco de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita. Marque a opção **provisionar taxa de transferência do banco de dados** , que permite que você compartilhe a taxa de transferência provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custos. |
     |**Débito**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
-    |**ID do Contentor**|Itens|Insira os *itens* como o nome do novo contêiner. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
+    |**ID do contentor**|Itens|Insira os *itens* como o nome do novo contêiner. Os IDs de contentores têm os mesmos requisitos de caracteres que os nomes da base de dados.|
     |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */Category* como a chave de partição.|
     
     Além das configurações anteriores, você pode opcionalmente adicionar **chaves exclusivas** para o contêiner. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chave exclusiva ao criar um contêiner, você garante a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
-    Selecione **OK**. O Data Explorer mostra a base de dados e o contentor novos.
+    Selecione **OK**. O Data Explorer exibe a nova base de dados e o recipiente.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -113,13 +113,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Obter uma chave de acesso e um URI nas configurações de chaves no portal do Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
 
-2. Abra o arquivo `cosmos_get_started.py` no \git-samples\azure-Cosmos-DB-Python-Getting-Started no Visual Studio Code.
+2. Abra o ficheiro `cosmos_get_started.py` em \git-samples\azure-cosmos-db-python-start-start-start-in no Visual Studio Code.
 
-3. Copie o valor do **URI** do portal (usando o botão de cópia) e torne-o o valor da variável de **ponto de extremidade** em ``cosmos_get_started.py``. 
+3. Copie o seu valor **URI** a partir do portal (utilizando o botão de cópia) e torne-o o valor da variável **de ponto final** em ``cosmos_get_started.py``. 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Em seguida, copie o valor da **chave primária** do portal e transforme-o no valor da **chave** em ``cosmos_get_started.py``. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o seu valor **PRINCIPAL** CHAVE a partir do portal e faça dele o valor da **chave** em ``cosmos_get_started.py``. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
@@ -143,11 +143,11 @@ Os seguintes fragmentos foram todos retirados do ficheiro `cosmos_get_started.py
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
-* Alguns itens são adicionados ao contentor. Contêineres são uma coleção de itens (documentos JSON) que podem ter um esquema variado. Os métodos auxiliares ```get_[name]_family_item``` retornam representações de uma família que são armazenadas em Azure Cosmos DB como documentos JSON.
+* Alguns itens são adicionados ao contentor. Contêineres são uma coleção de itens (documentos JSON) que podem ter um esquema variado. Os métodos de ajuda ```get_[name]_family_item``` devolver representações de uma família que são armazenadas em Azure Cosmos DB como documentos JSON.
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
-* As leituras de ponto (pesquisas de valor de chave) são executadas usando o método `read_item`. Imprimimos a [cobrança de ru](request-units.md) de cada operação.
+* As leituras de pontos (as aparências de valor chave) são realizadas utilizando o método `read_item`. Imprimimos a [cobrança de ru](request-units.md) de cada operação.
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
 * Uma consulta é executada usando A sintaxe de consulta SQL. Como estamos usando valores de chave de partição de ```lastName``` na cláusula WHERE, Azure Cosmos DB roteará com eficiência essa consulta para as partições relevantes, melhorando o desempenho.

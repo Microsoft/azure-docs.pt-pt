@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
-ms.openlocfilehash: 35b087cdf190585ae98de35bc3f920c2cb66204a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a994a72ae57b39dba8025e7636e0f822f483bc8c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461221"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720678"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início rápido: criar um Pesquisa Cognitiva de conhecimento cognitiva do Azure no portal do Azure
 
@@ -89,7 +89,7 @@ Para este início rápido, o assistente é muito útil, pois define predefiniç�
 
 + Os campos padrão são baseados nas propriedades de BLOBs existentes, além de novos campos para conter a saída de enriquecimento (por exemplo, `people`, `organizations`, `locations`). Os tipos de dados são inferidos de metadados e por amostragem de dados.
 
-+ A chave do documento padrão está *metadata_storage_path* (selecionada porque o campo contém valores exclusivos).
++ A chave *de* documento predefinida é metadata_storage_path (selecionada porque o campo contém valores únicos).
 
 + Os atributos padrão são **recuperáveis** e **pesquisáveis**. **Pesquisável** permite que a pesquisa de texto completo seja um campo. **Recuperável** significa que os valores de campo podem ser retornados nos resultados. O assistente pressupõe que você deseja que esses campos sejam recuperáveis e pesquisáveis porque você os criou por meio de um contratador de habilidades.
 
@@ -156,7 +156,7 @@ Agora você criou seu primeiro qualificable e conhece conceitos importantes úte
 
 Alguns dos conceitos-chave que esperamos que tenha assimilado incluem a dependência das origens de dados do Azure. Um configurador de qualificações é associado a um indexador, e os indexadores são específicos do Azure e de origem. Embora este início rápida utilize o armazenamento de Blobs do Azure, pode utilizar outras origens de dados do Azure. Para obter mais informações, consulte [indexadores no Azure pesquisa cognitiva](search-indexer-overview.md). 
 
-Outro conceito importante é que as habilidades operam sobre tipos de conteúdo e, ao trabalhar com conteúdo heterogêneo, algumas entradas serão ignoradas. Além disso, arquivos ou campos grandes podem exceder os limites do indexador da sua camada de serviço. É normal ver avisos quando esses eventos ocorrem. 
+Outro conceito importante é que as competências operam sobre tipos de conteúdo, e quando se trabalha com conteúdo heterogéneo, algumas inputs serão ignoradas. Além disso, arquivos ou campos grandes podem exceder os limites do indexador da sua camada de serviço. É normal ver avisos quando esses eventos ocorrem. 
 
 A saída é direcionada para um índice de pesquisa e há um mapeamento entre pares de nome-valor criados durante a indexação e campos individuais no índice. Internamente, o portal configura as [anotações](cognitive-search-concept-annotations-syntax.md) e define um [conjunto de competências](cognitive-search-defining-skillset.md) ao estabelecer a ordem das operações e o fluxo geral. Estes passos estão ocultos no portal, mas quando começar a escrever código, estes conceitos tornam-se importantes.
 
@@ -164,7 +164,7 @@ Por fim, você aprendeu que o pode verificar o conteúdo consultando o índice. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 

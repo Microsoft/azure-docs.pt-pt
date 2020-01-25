@@ -1,17 +1,17 @@
 ---
 title: Desenvolvimento em equipe no kubernetes
 services: azure-dev-spaces
-ms.date: 04/25/2019
+ms.date: 01/22/2020
 ms.topic: quickstart
 description: Este guia de início rápido mostra como fazer o Team kubernetes Development com contêineres e microservices com Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: b84bb67556eda3a453ede5a6fb745d8ae472fb6c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: d2b31cce6604cef31de6f034566ebd46a4e92750
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290415"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721596"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início rápido: desenvolvimento de equipe no kubernetes-Azure Dev Spaces
 
@@ -27,7 +27,7 @@ Neste guia, vai aprender a:
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
 - A [CLI do Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2,13-2,16 instalado][helm-installed].
+- [Helm 3 instalado][helm-installed].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do serviço kubernetes do Azure
 
@@ -74,7 +74,7 @@ MyAKS               MyResourceGroup   dev       fedcab0987.eus.azds.io
 
 ## <a name="update-the-helm-chart-with-your-hostsuffix"></a>Atualize o gráfico Helm com seu HostSuffix
 
-Abra [Charts/Values. YAML](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) e substitua todas as instâncias de `<REPLACE_ME_WITH_HOST_SUFFIX>` pelo valor de HostSuffix recuperado anteriormente. Salve as alterações e feche o arquivo.
+Abra [gráficos/valores.yaml](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) e substitua todas as instâncias de `<REPLACE_ME_WITH_HOST_SUFFIX>` pelo valor hostSufix que recuperou anteriormente. Salve as alterações e feche o arquivo.
 
 ## <a name="run-the-sample-application-in-kubernetes"></a>Executar o aplicativo de exemplo no kubernetes
 
@@ -82,39 +82,14 @@ Os comandos para executar o aplicativo de exemplo no kubernetes fazem parte de u
 
 Você pode usar Azure Dev Spaces para desenvolvimento de equipe depois que um aplicativo é executado em um cluster, independentemente das ferramentas usadas para implantá-lo.
 
-Use os comandos `helm init` e `helm install` para configurar e instalar o aplicativo de exemplo no cluster.
+Utilize o comando `helm install` para configurar e instalar a aplicação da amostra no seu cluster.
 
 ```cmd
 cd charts/
-helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic 
-```
-> [!Note]
-> **Se você estiver usando um cluster habilitado para RBAC**, certifique-se de configurar [uma conta de serviço para o gaveta](https://helm.sh/docs/using_helm/#role-based-access-control). Caso contrário, `helm` comandos falharão.
-
-O comando `helm install` pode levar vários minutos para ser concluído. A saída do comando mostra o status de todos os serviços implantados no cluster quando concluído:
-
-```cmd
-$ cd charts/
-$ helm init --wait
-...
-Happy Helming!
-
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic
-
-Hang tight while we grab the latest from your chart repositories...
-...
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-bikes              1/1    1           1          4m32s
-bikesharingweb     1/1    1           1          4m32s
-billing            1/1    1           1          4m32s
-gateway            1/1    1           1          4m32s
-reservation        1/1    1           1          4m32s
-reservationengine  1/1    1           1          4m32s
-users              1/1    1           1          4m32s
+helm install bikesharing . --dependency-update --namespace dev --atomic
 ```
 
-Depois que o aplicativo de exemplo é instalado no cluster e, como você tem espaços de desenvolvimento habilitados no cluster, use o comando `azds list-uris` para exibir as URLs do aplicativo de exemplo no *dev* selecionado no momento.
+O comando `helm install` pode levar vários minutos para ser concluído. Depois que o aplicativo de exemplo é instalado no cluster e, como você tem espaços de desenvolvimento habilitados no cluster, use o comando `azds list-uris` para exibir as URLs do aplicativo de exemplo no *dev* selecionado no momento.
 
 ```cmd
 $ azds list-uris
@@ -235,5 +210,5 @@ Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
 
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

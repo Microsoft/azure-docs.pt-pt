@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: cf6c84e0fa3d3d5306e3295d082efc4a27cfdea6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4d9ea8c7cc64a27ec6033ff084d5771328f89699
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310038"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714669"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início rápido: criar um aplicativo .NET Core com a configuração do aplicativo
 
@@ -52,7 +52,7 @@ Você usa a [CLI (interface de linha de comando) do .NET Core](https://docs.micr
 1. Adicione uma referência ao pacote `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet executando o seguinte comando:
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-010550001-251
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-011100001-1152
     ```
 
 2. Execute o seguinte comando para restaurar os pacotes para seu projeto:

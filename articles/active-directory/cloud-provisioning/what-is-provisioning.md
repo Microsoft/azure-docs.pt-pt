@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167614"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712548"
 ---
 # <a name="what-is-identity-provisioning"></a>O que é o aprovisionamento de identidades?
 
 Hoje, as empresas e as empresas estão se tornando cada vez mais uma combinação de aplicativos locais e na nuvem.  Os usuários exigem acesso a aplicativos locais e na nuvem. É necessário ter uma única identidade entre esses vários aplicativos (local, bem como nuvem).
 
-O provisionamento é o processo de criação de um objeto com base em determinadas condições, mantendo o objeto até a data e excluindo o objeto quando as condições não forem mais atendidas. Por exemplo, quando um novo usuário ingressa em sua organização, esse usuário é inserido no sistema de RH.  Nesse ponto, o provisionamento pode criar uma conta de usuário correspondente na nuvem, em Active Directory e diferentes aplicativos aos quais o usuário precisa acessar.  Isso permite que o usuário inicie o trabalho e tenha acesso aos aplicativos e sistemas de que precisam no primeiro dia. 
+O provisionamento é o processo de criação de um objeto com base em determinadas condições, mantendo o objeto atualizado e apagando o objeto quando as condições já não estão satisfeitas. Por exemplo, quando um novo usuário ingressa em sua organização, esse usuário é inserido no sistema de RH.  Nesse ponto, o provisionamento pode criar uma conta de usuário correspondente na nuvem, em Active Directory e diferentes aplicativos aos quais o usuário precisa acessar.  Isso permite que o usuário inicie o trabalho e tenha acesso aos aplicativos e sistemas de que precisam no primeiro dia. 
 
 ![provisionamento de nuvem](media/what-is-provisioning/cloud1.png)
 
