@@ -8,12 +8,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 12/23/2019
 ms.reviewer: ''
-ms.openlocfilehash: f93ab61fcba53ebf39adf8ad56137f4a1df7d5fd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615033"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715190"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>Manual de práticas recomendadas de segurança do banco de dados SQL do Azure
 
@@ -30,7 +30,7 @@ Este documento fornece orientação sobre como resolver requisitos comuns de seg
 
 - Armazém de Dados SQL do Azure
 - VMs do SQL do Azure (IaaS)
-- SQL Server local
+- SQL Server no local
 
 ### <a name="audience"></a>Audiência
 
@@ -207,7 +207,7 @@ A autenticação do SQL refere-se à autenticação de um usuário ao conectar-s
   - Consulte o artigo [controlando e concedendo acesso ao banco de dados SQL e SQL data warehouse](sql-database-manage-logins.md).
 
 - Siga as práticas recomendadas de gerenciamento de senhas:
-  - Forneça uma senha complexa, composta por letras maiúsculas e minúsculas latinas, dígitos (0-9) e caracteres não alfanuméricos (como $,!, # ou%).
+  - Forneça uma senha complexa, composta por letras, dígitos (0-9) e caracteres não alfanuméricos (como $, !, #, #ou %).
   - Use senhas mais longas em vez de caracteres selecionados aleatoriamente mais curtos.
   - Impor a alteração de senha manual pelo menos a cada 90 dias.
 
@@ -314,7 +314,7 @@ A separação de tarefas, também chamada de diferenciação de direitos, descre
 
 - Evite atribuir permissões a usuários individuais. Use funções (funções de banco de dados ou de servidor) de forma consistente. Ter funções ajuda muito com as permissões de relatório e solução de problemas.
 
-- Use funções internas quando as permissões corresponderem exatamente às permissões necessárias – se a União de todas as permissões de várias funções internas levar a uma correspondência de 100%, você também poderá atribuir várias funções simultaneamente. 
+- Use papéis incorporados quando as permissões correspondem exatamente às permissões necessárias – se a união de todas as permissões de várias funções incorporadas levar a uma correspondência de 100%, também pode atribuir múltiplas funções simultaneamente. 
 
 - Crie e use funções personalizadas quando funções internas concederem permissões demais ou permissões insuficientes. 
 
@@ -326,9 +326,9 @@ A separação de tarefas, também chamada de diferenciação de direitos, descre
 
 - Você pode recuperar a definição das funções RBAC internas para ver as permissões usadas e criar uma função personalizada com base em trechos e acumulações delas por meio do PowerShell 
 
-- Como qualquer membro da função de banco de dados db_owner pode alterar configurações de segurança como Transparent Data Encryption (TDE) ou alterar o SLO, essa associação deve ser concedida com cuidado. Por outro lado, muitas tarefas, como alterar qualquer configuração de banco de dados, como alterar as opções de BD, exigem privilégios de db_owner. A auditoria desempenha um papel fundamental em qualquer solução.
+- Uma vez que qualquer membro da db_owner papel de base de dados pode alterar as definições de segurança como a Encriptação transparente de dados (TDE), ou alterar o SLO, esta adesão deve ser concedida com cuidado. Por outro lado, muitas tarefas, como alterar qualquer definição de base de dados, como alterar opções de DB, requerem privilégios db_owner. A auditoria desempenha um papel fundamental em qualquer solução.
 
-- Não é possível manter uma db_owner de exibir dados do usuário somente com permissões. Se houver dados altamente confidenciais em um banco, Always Encrypted poderá ser usado para impedir com segurança db_owners ou qualquer outro DBA de exibi-lo.
+- Não é possível impedir que um db_owner de visualizar os dados dos utilizadores apenas com permissões. Se houver dados altamente sensíveis numa base de dados, o Always Encrypted pode ser usado para evitar que db_owners ou qualquer outro DBA os veja.
 
 > [!NOTE]
 > A obtenção de SoD (separação de funções) é desafiadora para tarefas relacionadas à segurança ou à solução de problemas. Outras áreas, como desenvolvimento e funções de usuário final, são mais fáceis de separar. A maioria dos controles relacionados à conformidade permite o uso de funções de controle alternativo, como a auditoria quando outras soluções não são práticas.
@@ -392,7 +392,7 @@ A proteção de dados é um conjunto de recursos para proteger informações imp
 
 Protege seus dados enquanto os dados são movidos entre o cliente e o servidor. Consulte [segurança de rede](#network-security).
 
-### <a name="encrypt-data-at-rest"></a>Encriptar dados inativos
+### <a name="encrypt-data-at-rest"></a>Criptografe dados em repouso
 
 > [!NOTE]
 > Mencionado em: #6 de prática de OSA, família de controle ISO: criptografia
@@ -462,7 +462,7 @@ Ao usar CLE:
 - Proteja chaves simétricas com chaves/certificados assimétricos (não senhas) para evitar o uso do 3DES. 
 
 - Tenha cuidado ao migrar um banco de dados usando a criptografia em nível de célula por meio de exportação/importação (arquivos bacpac). 
-  - Confira o artigo [recomendações para usar a criptografia em nível de célula no banco de dados SQL do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) sobre como evitar chaves perder ao migrar e para outras diretrizes de práticas recomendadas.
+  - Consulte o artigo, [Recomendações para usar encriptação de nível celular na Base de Dados Azure SQL](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) sobre como evitar a perda de chaves ao migrar dados, e para outras orientações de boas práticas.
 
 Ao usar Always Encrypted, tenha em mente que Always Encrypted foi projetado principalmente para proteger dados confidenciais em uso de usuários de alto privilégio do banco de dados SQL do Azure (operadores de nuvem, DBAs) – consulte [proteger dados confidenciais em uso de usuários com alto privilégio e não autorizados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Esteja atento aos seguintes desafios ao usar Always Encrypted para proteger dados de usuários de aplicativos:
 
@@ -483,7 +483,7 @@ Outra técnica para impedir que usuários não autorizados exibam dados é ofusc
 **Práticas recomendadas**:
 
 > [!NOTE]
-> Máscara de Dados Dinâmicos não pode ser usado para proteger dados de usuários de alto privilégio. As políticas de mascaramento não se aplicam a usuários com acesso administrativo como db_owner.
+> Máscara de Dados Dinâmicos não pode ser usado para proteger dados de usuários de alto privilégio. As políticas de mascaramento não se aplicam aos utilizadores com acesso administrativo, como db_owner.
 
 - Não permita que os usuários de aplicativos executem consultas ad hoc (pois eles podem contornar Máscara de Dados Dinâmicos).  
   - Consulte o artigo [ignorando o mascaramento usando a inferência ou técnicas de força bruta](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#security-note-bypassing-masking-using-inference-or-brute-force-techniques) para obter detalhes.  
@@ -687,7 +687,7 @@ Para dar suporte à separação de tarefas e separar o DBA de auditores, é fund
 
 - Ao auditar o acesso a dados confidenciais, considere proteger os dados com a criptografia de dados para evitar o vazamento de informações para o auditor. Para obter mais informações, consulte a seção [proteger dados confidenciais em uso de usuários com alto privilégio e não autorizados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users).
 
-## <a name="security-management"></a>Gerenciamento de segurança
+## <a name="security-management"></a>Gestão de Segurança
 
 Esta seção descreve os diferentes aspectos e as práticas recomendadas para o gerenciamento de sua postura de segurança de bancos de dados. Ele inclui as práticas recomendadas para garantir que seus bancos de dados estejam configurados para atender aos padrões de segurança, para descobrir e classificar e controlar o acesso a dados potencialmente confidenciais em seus bancos. 
 

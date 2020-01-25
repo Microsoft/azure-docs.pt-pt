@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB cotas de serviço
 description: Azure Cosmos DB cotas de serviço e limites padrão em diferentes tipos de recursos.
-author: arramac
-ms.author: arramac
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d6b66c4a4924f8455b58b930621d6a7b93901a2a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b954b56d3c4f9d3ae0ad3142b11a8660e341b74a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887619"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711312"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
-Este artigo fornece uma visão geral das cotas padrão oferecidas a diferentes recursos no Azure Cosmos DB.
+Este artigo fornece uma descrição geral das quotas predefinidas oferecidas a diferentes recursos no Azure Cosmos DB.
 
 ## <a name="storage-and-throughput"></a>Armazenamento e taxa de transferência
 
@@ -45,7 +45,7 @@ Um contêiner Cosmos (ou banco de dados de produtividade compartilhado) deve ter
 A taxa de transferência atual e mínima de um contêiner ou de um banco de dados pode ser recuperada do portal do Azure ou dos SDKs. Para obter mais informações, consulte [provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md). 
 
 > [!NOTE]
-> Em alguns casos, talvez seja possível reduzir a taxa de transferência para menos de 10%. Use a API para obter o máximo de RUs exato por contêiner.
+> Em alguns casos, pode ser capaz de baixar a entrada para menos de 10%. Use a API para obter o máximo de RUs exato por contêiner.
 >
 
 Em resumo, aqui estão os limites mínimos de RU provisionados. 

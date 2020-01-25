@@ -2,15 +2,15 @@
 title: Azure Functions associações SendGrid
 description: Azure Functions referência de associações SendGrid.
 author: craigshoemaker
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: d70b05842fc7f251af6aefd743f064c037f63b7b
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922360"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710978"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions associações SendGrid
 
@@ -36,7 +36,7 @@ As associações SendGrid são fornecidas no pacote NuGet [Microsoft. Azure. web
 
 O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que usa um gatilho de fila do barramento de serviço e uma associação de saída SendGrid.
 
-### <a name="synchronous"></a>Síncrono
+### <a name="synchronous"></a>Sincronizado
 
 ```cs
 [FunctionName("SendEmail")]

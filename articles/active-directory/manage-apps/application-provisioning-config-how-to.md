@@ -17,12 +17,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8aa8265733128ed3b2ad5ddf16dcebb122b0f054
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87818066a656aa4bcd6f45f1835ca1512a674a9e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443428"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712300"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD
 
@@ -40,19 +40,19 @@ Se desejar solicitar suporte para o provisionamento automático para um determin
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configurando um aplicativo para provisionamento automático
 
-*Automático* significa que um conector de provisionamento do Azure ad foi desenvolvido para este aplicativo. Para obter mais informações sobre o serviço de provisionamento do Azure AD e como ele funciona, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+*Automático* significa que um conector de provisionamento do Azure ad foi desenvolvido para este aplicativo. Para obter mais informações sobre o serviço de provisionamento do Azure AD e como ele funciona, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](user-provisioning.md).
 
-Para obter mais informações sobre como provisionar usuários e grupos específicos para um aplicativo, consulte [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
+Para obter mais informações sobre como provisionar usuários e grupos específicos para um aplicativo, consulte [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](configure-automatic-user-provisioning-portal.md).
 
 As etapas reais necessárias para habilitar e configurar o provisionamento automático variam de acordo com o aplicativo.
 
 > [!NOTE]
-> Você deve começar encontrando o tutorial de instalação específico para configurar o provisionamento para seu aplicativo e seguindo essas etapas para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento. 
+> Você deve começar encontrando o tutorial de instalação específico para configurar o provisionamento para seu aplicativo e seguindo essas etapas para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento.
 
-Os tutoriais do aplicativo podem ser encontrados na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Os tutoriais do aplicativo podem ser encontrados na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md).
 
 Uma coisa importante a ser considerada ao configurar o provisionamento é examinar e configurar os mapeamentos de atributo e os fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Isso inclui a definição da "propriedade correspondente" que é usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Consulte o link nas *próximas etapas* para obter mais informações sobre mapeamentos de atributo.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+[Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md)
 

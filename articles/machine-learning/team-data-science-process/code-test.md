@@ -3,26 +3,26 @@ title: Testar o código de ciência de dados com os serviços de DevOps do Azure
 description: Código de ciência de dados de teste no Azure com o conjunto de dados da predição de rendimento para adultos UCI com o processo de ciência de dados de equipa e os serviços do Azure DevOps
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336699"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722070"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Código de ciência de dados de teste no Azure com o processo de ciência de dados de equipa e os serviços do Azure DevOps
 Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Um Team Data Science Process (TDSP), usamos [projeto que usa o conjunto de dados de rendimento para adultos de UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos anteriormente para mostrar como teste de código pode ser feito. 
 
 ## <a name="introduction-on-code-testing"></a>Introdução no código de teste
-"Testes de unidade" é uma prática de longa data para o desenvolvimento de software. Mas para ciência de dados, muitas vezes, não está claro o que significa que e como deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, tais como:
+"Testes de unidade" é uma prática de longa data para o desenvolvimento de software. Mas para a ciência dos dados, muitas vezes não é claro o que significa "teste de unidade" e como você deve testar código para diferentes fases de um ciclo de vida da ciência dos dados, tais como:
 
 * Preparação de dados
 * Análise de qualidade de dados
@@ -114,35 +114,35 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     a. No repositório do projeto, selecione **criar e lançar**e, em seguida, selecione **+ novo** para criar um novo processo de compilação.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![Seleções para iniciar um novo processo de construção](./media/code-test/create_new_build.PNG)
 
     b. Siga as instruções para selecionar a localização do código de origem, nome do projeto, repositório e informações do ramo.
     
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![Fonte, nome, repositório e informação sobre sucursais](./media/code-test/fill_in_build_info.PNG)
 
     c. Selecione um modelo. Como não há nenhum modelo de projeto de Python, comece por selecionar **vazio processo**. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie a compilação e selecione o agente. Se pretender utilizar uma DSVM para concluir o processo de compilação, pode escolher o padrão aqui. Para obter mais informações sobre agentes de definição, consulte [criar e lançar agentes](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie a compilação e selecione o agente. Pode escolher o padrão aqui se pretender utilizar um DSVM para completar o processo de construção. Para obter mais informações sobre agentes de definição, consulte [criar e lançar agentes](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![Seleções de construção e agente](./media/code-test/select_agent.PNG)
 
-    e. Selecione **+** no painel esquerdo, para adicionar uma tarefa para esta fase de compilação. Como nós vamos para executar o script de Python **test1.py** para concluir a todas as verificações, esta tarefa está a utilizar um comando do PowerShell para executar o código de Python.
+    e. Selecione **+** no painel esquerdo, para adicionar uma tarefa para esta fase de compilação. Como vamos executar o guião python **test1.py** para completar todos os cheques, esta tarefa é usar um comando PowerShell para executar o código Python.
     
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    ![Painel "Adicionar tarefas" com powerShell selecionado](./media/code-test/add_task_powershell.PNG)
 
     f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e versão do PowerShell. Escolher **o Inline Script de** como o tipo. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    Na caixa em **Script Inline,** pode escrever **test1.py python**. Certifique-se de que a variável ambiental está corretamente configurada para python. Se precisar de uma versão ou núcleo diferente de Python, pode especificar explicitamente o caminho como mostrado na figura: 
     
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![Detalhes da PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecione **guardar e colocar em fila** para concluir o processo de pipeline de compilação.
+    g. Selecione **Guardar e fazer fila** para completar o processo de construção do gasoduto.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    ![Botão "Guardar e fazer fila"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Agora sempre que uma consolidação novo é emitida para o repositório de código, o processo de compilação será iniciada automaticamente. (Aqui, vamos utilizar mestre como o repositório, mas pode definir qualquer ramo.) O processo é executado o **test1.py** ficheiro no computador agente para certificar-se de que tudo definidas no código é executado corretamente. 
+Agora sempre que uma consolidação novo é emitida para o repositório de código, o processo de compilação será iniciada automaticamente. (Aqui usamos o mestre como repositório, mas você pode definir qualquer ramo.) O processo executa o ficheiro **test1.py** na máquina do agente para se certificar de que tudo definido no código funciona corretamente. 
 
 Se os alertas estão configurados corretamente, será notificado por e-mail quando a compilação estiver concluída. Também pode verificar o estado da compilação do Azure DevOps. Se falhar, pode verificar os detalhes da compilação e descobrir qual parte foi interrompida.
 
@@ -150,7 +150,7 @@ Se os alertas estão configurados corretamente, será notificado por e-mail quan
 
 ![Notificação de DevOps do Azure de sucesso de compilação](./media/code-test/vs_online_build_succeed.PNG)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Consulte a [repositório de predição de renda UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para exemplos concretos de testes de unidade para cenários de ciência de dados.
 * Siga a estrutura de tópicos e exemplos de cenário de predição de renda UCI em seus próprios projetos de ciência de dados anterior.
 

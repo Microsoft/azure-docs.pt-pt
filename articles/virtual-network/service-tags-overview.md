@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: dc64570ccf69c321f33b9689362def8c9caf975e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543040"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715404"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -64,7 +64,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureInformationProtection** | Proteção de informações do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory** e **AzureFrontDoor. frontend** . Além disso, leia a lista de permissões a seguir IPs (essa dependência será removida em breve): 13.107.6.181 & 13.107.9.181. | Saída | Não | Não |
 | **AzureIoTHub** | Hub IoT do Azure. | Saída | Não | Não |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Observação:* Essa marca tem uma dependência na marca **AzureActiveDirectory** . | Saída | Sim | Sim |
-| **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca se traduz no [endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16) onde as investigações de integridade do Azure se originam. Se você não estiver usando Azure Load Balancer, poderá substituir essa regra. | Ambos | Não | Não |
+| **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca se traduz no [endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16) onde as investigações de integridade do Azure se originam. Isto não inclui tráfego para o seu recurso Azure Load Balancer. Se você não estiver usando Azure Load Balancer, poderá substituir essa regra. | Ambos | Não | Não |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | Não | Sim |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos de extremidade GiG).<br/><br/>*Observação:* Por Log Analytics, essa marca tem uma dependência na marca de **armazenamento** . | Saída | Não | Sim |
 | **AzurePlatformDNS** | O serviço DNS de infraestrutura básica (padrão).<br/><br>Você pode usar essa marca para desabilitar o DNS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [considerações da plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
@@ -83,7 +83,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **HDInsight** | Azure HDInsight. | Entrada | Sim | Não |
 | **Internet** | O espaço de endereço IP que está fora da rede virtual e acessível pela Internet pública.<br/><br/>O intervalo de endereços inclui o [espaço de endereço IP público de Propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | Não | Não |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Saída | Não | Não |
-| **MicrosoftContainerRegistry** | Registro de contêiner do Azure. | Saída | Sim | Sim |
+| **MicrosoftContainerRegistry** | Registo de contentores para imagens de contentores da Microsoft. <br/><br/>*Nota:* Por favor, também a lista branca após o IP (esta dependência será removida em breve): 204.79.197.219. | Saída | Sim | Sim |
 | **ServiceBus** | O tráfego do barramento de serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Service Fabric do Azure. | Saída | Não | Não |
 | **Sql** | Banco de dados SQL do Azure, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. | Saída | Sim | Sim |

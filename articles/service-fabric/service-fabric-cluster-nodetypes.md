@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4175dfe4ed5b7aa1064e8ba25c5b44243e4c79b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028498"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722344"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de Service Fabric do Azure e conjuntos de dimensionamento de máquinas virtuais
 
@@ -22,9 +22,9 @@ A figura a seguir mostra um cluster que tem dois tipos de nó, chamados *fronten
 
 ## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mapear instâncias do conjunto de dimensionamento de máquinas virtuais para nós
 
-Conforme mostrado na figura anterior, as instâncias do conjunto de dimensionamento começam na instância 0 e, em seguida, aumentam em 1. A numeração é refletida nos nomes dos nós. Por exemplo, o nó BackEnd_0 é a instância 0 do conjunto de dimensionamento de back-end. Esse conjunto de dimensionamento específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
+Conforme mostrado na figura anterior, as instâncias do conjunto de dimensionamento começam na instância 0 e, em seguida, aumentam em 1. A numeração é refletida nos nomes dos nós. Por exemplo, o nó BackEnd_0 é a instância 0 do conjunto de escala BackEnd. Este conjunto de escala seleções em particular tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
-Quando você escala verticalmente um conjunto de dimensionamento, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento normalmente é o nome do conjunto de dimensionamento mais o próximo número da instância. Em nosso exemplo, é BackEnd_5.
+Quando você escala verticalmente um conjunto de dimensionamento, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento normalmente é o nome do conjunto de dimensionamento mais o próximo número da instância. No nosso exemplo, é BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear conjunto de dimensionamento de balanceamento de carga para tipos de nó e conjuntos de dimensionamento
 
@@ -75,7 +75,7 @@ A seguir estão as descrições de propriedade:
 | nome | string | nome exclusivo para a extensão |
 | tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
-| publicador | Microsoft.Azure.ServiceFabric | nome do editor de extensão de Service Fabric |
+| publicador | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de tecido de serviço |
 | clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
 | nodeTypeRef | string | nome do nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | tempo permitido para pausar a infraestrutura imutável do Azure |

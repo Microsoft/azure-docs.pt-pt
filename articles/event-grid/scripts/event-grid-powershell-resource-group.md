@@ -1,23 +1,22 @@
 ---
 title: Exemplo de script do Azure PowerShell - Subscrever um grupo de recursos | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Subscrever um grupo de recursos
+description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos da Rede de Eventos para um grupo de recursos.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: db4be11286825a8a990918a80c687f86c2294c6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: e285f628d1ec3afce55dc8fe4efa50a361dab5ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117193"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720814"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Subscrever eventos para um grupo de recursos com o PowerShell
 
@@ -25,7 +24,7 @@ Este script cria uma subscrição do Event Grid para os eventos para um grupo de
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-O script de exemplo de pré-visualização requer o módulo do Event Grid. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+O script da amostra de pré-visualização requer o módulo De Rede de Eventos. Para instalar, executar `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 ## <a name="sample-script---stable"></a>Script de exemplo - estável
 
@@ -33,7 +32,7 @@ O script de exemplo de pré-visualização requer o módulo do Event Grid. Para 
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
 
-## <a name="sample-script---preview-module"></a>Script de exemplo - módulo de pré-visualização
+## <a name="sample-script---preview-module"></a>Script de amostra - módulo de pré-visualização
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
-ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/21/2020
+ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977576"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715839"
 ---
-# <a name="collect-azure-activity-log-with-legacy-settings"></a>Coletar log de atividades do Azure com configurações herdadas
-O [log de atividades do Azure](platform-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. Até recentemente, você criou um perfil de log para enviar entradas do log de atividades a [um hub de eventos ou uma conta de armazenamento](activity-log-export.md) e usou um conector para coletá-las em um [espaço de trabalho log Analytics](activity-log-collect.md). Este artigo descreve a diferença entre os métodos, como trabalhar com configurações herdadas existentes e como limpar as configurações herdadas em preparação para configurações de diagnóstico.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Atualização à recolha e exportação de registos da Atividade Azure
+O [log de atividades do Azure](platform-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. O método para enviar entradas de registo de atividade para [um centro de eventos ou uma conta](activity-log-export.md) de armazenamento ou para um espaço de trabalho log [Analytics](activity-log-collect.md) mudou para usar [configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve a diferença entre os métodos e como limpar as definições do legado na preparação para mudar para configurações de diagnóstico.
 
 
 ## <a name="differences-between-methods"></a>Diferenças entre métodos
@@ -39,14 +39,16 @@ Considere os seguintes detalhes da coleta de log de atividades usando configura�
 ### <a name="differences-in-data"></a>Diferenças nos dados
 As configurações de diagnóstico coletam os mesmos dados que os métodos anteriores usados para coletar o log de atividades com as seguintes diferenças atuais:
 
-As seguintes propriedades foram removidas:
+As seguintes colunas foram removidas. A substituição destas colunas está num formato diferente, pelo que poderá ser necessário modificar as consultas de registo que as utilizam. Ainda pode ver colunas removidas no esquema, mas não serão povoadas com dados.
 
-- ActivityStatus
-- ActivitySubstatus
-- OperationName
-- ResourceProvider
+| Coluna removida | Coluna de substituição |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | Valor do Fornecedor de Recursos  |
 
-As seguintes propriedades foram adicionadas:
+Foram adicionadas as seguintes colunas:
 
 - Authorization_d
 - Claims_d

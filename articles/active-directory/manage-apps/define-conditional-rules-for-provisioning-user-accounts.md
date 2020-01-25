@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778350"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711693"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo baseado em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários são provisionados para um aplicativo.
@@ -52,7 +52,7 @@ Cada usuário ou grupo processado pelo serviço de provisionamento do Azure AD �
 
 Como exemplo, considere o seguinte filtro de escopo:
 
-![Filtro de escopo](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Filtro de escopo](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 De acordo com esse filtro de escopo, os usuários devem atender aos seguintes critérios para serem provisionados:
 
@@ -91,7 +91,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributo pa
 
    f. **não é nulo**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
 
-   g. **correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por exemplo: ([1-9] [0-9]) corresponde a qualquer número entre 10 e 99.
+   g. **correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 
    h. **não há correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
  

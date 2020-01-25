@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d515731b8da186ef7e44a397d5abf87dfa65e83a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433800"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711471"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos com Azure Active Directory
 
-No Azure Active Directory (AD do Azure), o termo **provisionamento de aplicativo** refere-se à criação automática de identidades de usuário e funções nos aplicativos de nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e muito mais.
+No Azure Active Directory (AD do Azure), o termo **provisionamento de aplicativo** refere-se à criação automática de identidades de usuário e funções nos aplicativos de nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 
 ![Diagrama de visão geral de provisionamento](media/user-provisioning/provisioning-overview.png)
 
@@ -63,7 +63,7 @@ O Azure AD apresenta suporte integrado para muitos sistemas de recursos humanos 
 
    ![Logotipo do Salesforce](media/user-provisioning/gallery-app-logos.png)
 
-   Se você quiser solicitar um novo aplicativo para provisionamento, poderá [solicitar que seu aplicativo seja integrado à nossa galeria de aplicativos](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). Para uma solicitação de provisionamento de usuário, exigimos que o aplicativo tenha um ponto de extremidade compatível com SCIM. Solicite que o fornecedor do aplicativo siga o padrão SCIM para que possamos integrar o aplicativo à nossa plataforma rapidamente.
+   Se você quiser solicitar um novo aplicativo para provisionamento, poderá [solicitar que seu aplicativo seja integrado à nossa galeria de aplicativos](../develop/howto-app-gallery-listing.md). Para uma solicitação de provisionamento de usuário, exigimos que o aplicativo tenha um ponto de extremidade compatível com SCIM. Solicite que o fornecedor do aplicativo siga o padrão SCIM para que possamos integrar o aplicativo à nossa plataforma rapidamente.
 
 * **Aplicativos que dão suporte ao SCIM 2,0**. Para obter informações sobre como se conectar genericamente a aplicativos que implementam APIs de gerenciamento de usuário com base em SCIM 2,0, consulte [criar um ponto de extremidade scim e configurar o provisionamento de usuários](use-scim-to-provision-users-and-groups.md).
 
@@ -81,7 +81,7 @@ Os aplicativos na galeria do Azure AD dão suporte a um dos dois modos de provis
 
 * O provisionamento **manual** significa que ainda não há nenhum conector de provisionamento do Azure ad automático para o aplicativo. As contas de usuário devem ser criadas manualmente, por exemplo, adicionando usuários diretamente no portal administrativo do aplicativo ou carregando uma planilha com detalhes da conta de usuário. Consulte a documentação fornecida pelo aplicativo ou entre em contato com o desenvolvedor do aplicativo para determinar quais mecanismos estão disponíveis.
 
-* **Automático** significa que um conector de provisionamento do Azure ad foi desenvolvido para este aplicativo. Você deve seguir o tutorial de instalação específico para configurar o provisionamento para o aplicativo. Os tutoriais do aplicativo podem ser encontrados na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+* **Automático** significa que um conector de provisionamento do Azure ad foi desenvolvido para este aplicativo. Você deve seguir o tutorial de instalação específico para configurar o provisionamento para o aplicativo. Os tutoriais do aplicativo podem ser encontrados na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md).
 
 Na galeria do Azure AD, os aplicativos que dão suporte ao provisionamento automático são designados por um ícone de **provisionamento** . Alterne para a nova experiência de visualização da galeria para ver esses ícones (na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **clicar aqui para experimentar a Galeria de aplicativos nova e aprimorada**).
 
@@ -91,7 +91,7 @@ O modo de provisionamento com suporte de um aplicativo também será visível na
 
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Como fazer configurar o provisionamento automático para um aplicativo?
 
-Para aplicativos previamente integrados listados na Galeria, a orientação passo a passo está disponível para configurar o provisionamento automático. Consulte a [lista de tutoriais para aplicativos da Galeria integrada](https://docs.microsoft.com/azure/active-directory/saas-apps/). O vídeo a seguir demonstra como configurar o provisionamento automático de usuário para o SalesForce.
+Para aplicativos previamente integrados listados na Galeria, a orientação passo a passo está disponível para configurar o provisionamento automático. Consulte a [lista de tutoriais para aplicativos da Galeria integrada](../saas-apps/tutorial-list.md). O vídeo a seguir demonstra como configurar o provisionamento automático de usuário para o SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

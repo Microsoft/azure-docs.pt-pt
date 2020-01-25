@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840645"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748957"
 ---
 Este artigo fornece o próximo nível de detalhes para proteger a infraestrutura de IoT (Internet das Coisas baseada em IoT) do Azure. Ele é vinculado aos detalhes do nível de implementação para configurar e implantar cada componente. Ele também fornece comparações e escolhas entre vários métodos concorrentes.
 
@@ -77,11 +77,11 @@ Ao estabelecer uma conexão TLS segura com o Hub IoT, o dispositivo IoT autentic
 
 ## <a name="securing-the-connection"></a>Protegendo a conexão
 
-A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão TLS (Transport Layer Security). O Azure IoT dá suporte a [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 e TLS 1,0, nesta ordem. O suporte para TLS 1,0 é fornecido apenas para fins de compatibilidade com versões anteriores. Se possível, [configure seu hub](../articles/iot-hub/iot-hub-tls.md) para usar o TLS 1,2, pois ele fornece a maior segurança.
+A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão TLS (Transport Layer Security). O Azure IoT dá suporte a [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 e TLS 1,0, nesta ordem. O suporte para TLS 1,0 é fornecido apenas para fins de compatibilidade com versões anteriores. Verifique o [suporte TLS no IoT Hub](../articles/iot-hub/iot-hub-tls-support.md) para ver como configurar o seu hub para utilizar o TLS 1.2, uma vez que proporciona mais segurança.
 
 ## <a name="securing-the-cloud"></a>Protegendo a nuvem
 
-O Hub IoT do Azure permite a definição de [políticas de controle de acesso](../articles/iot-hub/iot-hub-devguide-security.md) para cada chave de segurança. Ele usa o seguinte conjunto de permissões para conceder acesso a cada um dos pontos de extremidade do Hub IoT. As permissões limitam o acesso a um Hub IoT baseado na funcionalidade.
+O Hub IoT do Azure permite a definição de [políticas de controle de acesso](../articles/iot-hub/iot-hub-devguide-security.md) para cada chave de segurança. Ele usa o seguinte conjunto de permissões para conceder acesso a cada um dos pontos de extremidade do Hub IoT. As permissões limitam o acesso a um Hub IoT com base na funcionalidade.
 
 * **RegistryRead**. Concede acesso de leitura ao registro de identidade. Para obter mais informações, consulte [registro de identidade](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 

@@ -1,22 +1,22 @@
 ---
-title: Criar características para dados num cluster do Hadoop - Team Data Science Process
+title: Criar funcionalidades para dados num cluster de Hadoop Azure HDInsight - Team Data Science Process
 description: Exemplos de consultas do Hive que geram recursos em dados armazenados num cluster do Azure HDInsight Hadoop.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982049"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721783"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar características para dados num cluster do Hadoop com consultas do Hive
 Este documento mostra como criar características para dados armazenados num cluster do Azure HDInsight Hadoop com consultas do Hive. Estas consultas do Hive utilizam embedded Hive User-Defined funções (UDFs), os scripts para os quais são fornecidos.
@@ -130,7 +130,7 @@ Os campos que são utilizados nesta consulta são as coordenadas do GPS de local
         and dropoff_latitude between 30 and 90
         limit 10;
 
-As equações de matemáticas calcular a distância entre duas coordenadas do GPS podem ser encontradas no <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts do tipo de Movable</a> site, criado por Peter Lapisu. Nesse JavaScript, a função `toRad()` é apenas *lat_or_lon*PI/180, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou longitude. Uma vez que o ramo de registo não fornece a função `atan2`, mas fornece a função `atan`, o `atan2` função é implementada por `atan` função na consulta do Hive acima com a definição fornecida no <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+As equações de matemáticas calcular a distância entre duas coordenadas do GPS podem ser encontradas no <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts do tipo de Movable</a> site, criado por Peter Lapisu. Neste Javascript, a função `toRad()` é apenas *lat_or_lon*pi/180, que converte graus em radians. Aqui, *lat_or_lon* é a latitude ou longitude. Uma vez que o ramo de registo não fornece a função `atan2`, mas fornece a função `atan`, o `atan2` função é implementada por `atan` função na consulta do Hive acima com a definição fornecida no <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Criar área de trabalho](./media/create-features-hive/atan2new.png)
 
@@ -144,14 +144,14 @@ As predefinições de parâmetro de cluster de Hive podem não ser adequadas par
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Este parâmetro aloca memória de 4GB de espaço de área dinâmica para dados de Java e também torna a classificação mais eficiente ao alocar mais memória para o mesmo. É uma boa idéia para brincar com essas alocações, se houver qualquer tarefa relacionados ao espaço de área dinâmica para dados de erros de falha.
+    Este parâmetro atribui a memória de 4-GB ao espaço heap de Java e também torna a classificação mais eficiente, alocando mais memória para ele. É uma boa idéia para brincar com essas alocações, se houver qualquer tarefa relacionados ao espaço de área dinâmica para dados de erros de falha.
 
 1. **Bloquear o DFS tamanho**: este parâmetro define a menor unidade de dados que armazena o sistema de ficheiros. Por exemplo, se o tamanho do bloco DFS é 128 MB, em seguida, quaisquer dados e de tamanho menor e até 128 MB é armazenado num único bloco. Dados que é maiores do que 128 MB são alocados blocos extras. 
 2. Escolher um tamanho de pequeno bloco faz com que grandes sobrecargas no Hadoop, uma vez que o nó de nome tem de processar mais pedidos para localizar o bloco relevante relativas ao ficheiro. Uma configuração recomendada quando lidando com gigabytes (ou superior) os dados são:
 
         set dfs.block.size=128m;
 
-2. **Otimizando a operação de associação no Hive**: enquanto as operações de associação do Framework de mapa/redução, normalmente ocorrem na fase de reduza, às vezes, os ganhos enorme podem ser alcançados ao agendamento associações na fase de mapa (também chamada de "mapjoins"). Para direcionar o Hive para fazer isso, sempre que possível, defina:
+2. **Otimizando a operação de associação no Hive**: enquanto as operações de associação do Framework de mapa/redução, normalmente ocorrem na fase de reduza, às vezes, os ganhos enorme podem ser alcançados ao agendamento associações na fase de mapa (também chamada de "mapjoins"). Definir esta opção:
    
        set hive.auto.convert.join=true;
 
@@ -167,7 +167,7 @@ As predefinições de parâmetro de cluster de Hive podem não ser adequadas par
 
      Como podemos ver, dado o tamanho de dados, ajuste estes parâmetros por "configuração"-los nos permite ajustar o número de mapeadores utilizado.
 
-4. Aqui estão outras mais algumas **opções avançadas** para otimizar o desempenho do Hive. Estas permitem-lhe definir a memória alocada para mapear e reduzir as tarefas e podem ser útil na realização de alterações de desempenho. Tenha em atenção que o *mapreduce.reduce.memory.mb* não pode ser maior que o tamanho de memória física de cada nó de trabalho do cluster de Hadoop.
+4. Aqui estão outras mais algumas **opções avançadas** para otimizar o desempenho do Hive. Estas opções permitem definir a memória atribuída para mapear e reduzir tarefas, e podem ser úteis para ajustar o desempenho. Tenha em atenção que o *mapreduce.reduce.memory.mb* não pode ser maior que o tamanho de memória física de cada nó de trabalho do cluster de Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

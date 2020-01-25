@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: 81bad21b53dbac3f03d11b2ffd7e42b15c0e37eb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1766b536043d8c404addb1877aa3ef9b57344ef4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539427"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722259"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar pipelines do Machine Learning com o SDK do Azure Machine Learning para Python
 
@@ -75,11 +75,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Os pipelines disparados por alterações de arquivo podem ser mais eficientes do que os agendamentos baseados em tempo. Por exemplo, você pode desejar executar uma etapa de pré-processamento quando um arquivo for alterado ou quando um novo arquivo for adicionado a um diretório de dados. Você pode monitorar qualquer alteração em um repositório de armazenamento ou alterações dentro de um diretório específico dentro do repositório de armazenamento. Se você monitorar um diretório específico, as alterações nos subdiretórios desse diretório _não_ dispararão uma execução.
 
-Para criar um arquivo-reativo `Schedule`, você deve definir o parâmetro `datastore` na chamada para [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorar uma pasta, defina o argumento `path_on_datastore`.
+Para criar um arquivo-reativo `Schedule`, você deve definir o parâmetro `datastore` na chamada para [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorizar uma pasta, detete o argumento `path_on_datastore`.
 
-O argumento `polling_interval` permite que você especifique, em minutos, a frequência na qual o repositório de armazenamento é verificado quanto a alterações.
+O argumento `polling_interval` permite especificar, em minutos, a frequência a que o datastore é verificado para obter alterações.
 
-Se o pipeline foi construído com um [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), você pode definir essa variável como o nome do arquivo alterado, definindo o argumento `data_path_parameter_name`.
+Se o gasoduto foi construído com um [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)pode definir essa variável para o nome do ficheiro alterado, definindo o argumento `data_path_parameter_name`.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
@@ -90,7 +90,7 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Argumentos opcionais ao criar uma agenda
 
-Além dos argumentos discutidos anteriormente, você pode definir o argumento `status` como `"Disabled"` para criar uma agenda inativa. Por fim, a `continue_on_step_failure` permite que você passe um booliano que substituirá o comportamento de falha padrão do pipeline.
+Além dos argumentos discutidos anteriormente, você pode definir o argumento `status` como `"Disabled"` para criar uma agenda inativa. Finalmente, o `continue_on_step_failure` permite-lhe passar um Boolean que irá anular o comportamento de falha padrão do oleoduto.
 
 ## <a name="view-your-scheduled-pipelines"></a>Exibir seus pipelines agendados
 
@@ -117,7 +117,7 @@ for s in ss:
     print(s)
 ```
 
-Quando você tiver o `schedule_id` deseja desabilitar, execute:
+Uma vez que tenha o `schedule_id` deseja desativar, corra:
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -125,7 +125,7 @@ def stop_by_schedule_id(ws, schedule_id):
     s.disable()
     return s
 
-stop_by_schedule(ws, schedule_id)
+stop_by_schedule_id(ws, schedule_id)
 ```
 
 Se você executar `Schedule.list(ws)` novamente, deverá obter uma lista vazia.

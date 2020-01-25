@@ -1,7 +1,7 @@
 ---
-title: Criar um serviço de fala de voz personalizado
+title: Criar um serviço de voz personalizada - discurso
 titleSuffix: Azure Cognitive Services
-description: Quando estiver pronto para carregar seus dados, vá para o portal de voz personalizado. Crie ou selecione um projeto de voz personalizado. O projeto deve compartilhar o idioma/a localidade correto e as propriedades do gênero como os dados que você pretende usar para o treinamento de voz.
+description: Quando estiver pronto para fazer o upload dos seus dados, vá ao portal Custom Voice. Crie ou selecione um projeto Custom Voice. O projeto deve partilhar a linguagem/local e as propriedades de género adequadas como os dados que pretende utilizar para a sua formação de voz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,141 +10,141 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 437b87a3d684d7751adc89ba77b20ea86b3455e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805999"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717325"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 
-Em [preparar dados para voz personalizada](how-to-custom-voice-prepare-data.md), descrevemos os diferentes tipos de dados que você pode usar para treinar uma voz personalizada e os requisitos de formato diferentes. Depois de preparar seus dados, você pode começar a carregá-los no [portal de voz personalizado](https://aka.ms/custom-voice-portal)ou por meio da API de treinamento de voz personalizada. Aqui, descrevemos as etapas de treinamento de uma voz personalizada por meio do Portal.
+Na Prepare os dados para voz [personalizada,](how-to-custom-voice-prepare-data.md)descrevemos os diferentes tipos de dados que pode utilizar para treinar uma voz personalizada e os diferentes requisitos de formato. Assim que tiver preparado os seus dados, pode começar a carregá-los para o [portal De Voz Personalizada,](https://aka.ms/custom-voice-portal)ou através da API de treino de Voz Personalizada. Aqui descrevemos os passos de treinar uma voz personalizada através do portal.
 
 > [!NOTE]
-> Esta página pressupõe que você leu [introdução à voz personalizada](how-to-custom-voice.md) e [preparar dados para voz personalizada](how-to-custom-voice-prepare-data.md)e criou um projeto de voz personalizado.
+> Esta página assume que leu [Começar com voz personalizada](how-to-custom-voice.md) e preparar dados para voz [personalizada,](how-to-custom-voice-prepare-data.md)e criou um projeto De Voz Personalizada.
 
-Verifique os idiomas com suporte para personalizar voz: [idioma para personalização](language-support.md#customization).
+Consulte os idiomas suportados para voz personalizada: [linguagem para personalização](language-support.md#customization).
 
-## <a name="upload-your-datasets"></a>Carregar seus conjuntos de os
+## <a name="upload-your-datasets"></a>Faça upload dos seus conjuntos de dados
 
-Quando estiver pronto para carregar seus dados, vá para o [portal de voz personalizado](https://aka.ms/custom-voice-portal). Crie ou selecione um projeto de voz personalizado. O projeto deve compartilhar o idioma/a localidade correto e as propriedades do gênero como os dados que você pretende usar para o treinamento de voz. Por exemplo, selecione `en-GB` se as gravações de áudio que você tem são feitas em inglês com um acento do Reino Unido.
+Quando estiver pronto para fazer o upload dos seus dados, vá ao [portal De Voz Personalizada](https://aka.ms/custom-voice-portal). Crie ou selecione um projeto Custom Voice. O projeto deve partilhar a linguagem/local e as propriedades de género adequadas como os dados que pretende utilizar para a sua formação de voz. Por exemplo, selecione `en-GB` se as gravações áudio que tem forem feitas em inglês com sotaque do Reino Unido.
 
-Vá para a guia **dados** e clique em **carregar dados**. No assistente, selecione o tipo de dados correto que corresponde ao que você preparou.
+Vá ao separador **Dados** e clique em **dados de upload**. No assistente, selecione o tipo de dados correto que corresponda ao que preparou.
 
-Cada conjunto de dados que você carrega deve atender aos requisitos para o tipo de dado que você escolher. É importante formatar corretamente os dados antes que eles sejam carregados. Isso garante que os dados serão processados com precisão pelo serviço de voz personalizado. Acesse [preparar dados para voz personalizada](how-to-custom-voice-prepare-data.md) e verifique se os dados foram formatados de forma correta.
-
-> [!NOTE]
-> Os usuários da assinatura gratuita (F0) podem carregar dois conjuntos de os simultaneamente. Assinatura padrão (S0) os usuários podem carregar cinco conjuntos de os simultaneamente. Se você atingir o limite, aguarde até que pelo menos um dos seus conjuntos de valores termine a importação. Em seguida, tente novamente.
+Cada conjunto de dados que você carrega deve atender aos requisitos para o tipo de dado que você escolher. É importante formatar corretamente os seus dados antes de ser carregado. Isto garante que os dados serão processados com precisão pelo serviço Custom Voice. Vá à [Prepare os dados para Voz Personalizada](how-to-custom-voice-prepare-data.md) e certifique-se de que os seus dados foram devidamente formatados.
 
 > [!NOTE]
-> O número máximo de conjuntos de usuários que podem ser importados por assinatura é de 10 arquivos. zip para usuários de assinatura gratuita (F0) e 500 para usuários de assinatura padrão (S0).
+> Os utilizadores de subscrição gratuita (F0) podem fazer o upload de dois conjuntos de dados simultaneamente. Os utilizadores de subscrição padrão (S0) podem carregar cinco conjuntos de dados simultaneamente. Se atingir o limite, aguarde pelo menos um dos seus conjuntos de dados que termine de importar. Em seguida, tente novamente.
 
-Os conjuntos de valores são validados automaticamente quando você pressiona o botão carregar. A validação de dados inclui uma série de verificações nos arquivos de áudio para verificar o formato, o tamanho e a taxa de amostragem do arquivo. Corrija os erros se houver e envie novamente. Quando a solicitação de importação de dados for iniciada com êxito, você deverá ver uma entrada na tabela de dados que corresponde ao DataSet que você acabou de carregar.
+> [!NOTE]
+> O número máximo de conjuntos de dados autorizados a serem importados por subscrição é de 10 .ficheiros zip para utilizadores de subscrição gratuita (F0) e 500 para utilizadores de subscrição padrão (S0).
 
-A tabela a seguir mostra os Estados de processamento para conjuntos de tabelas importados:
+Os conjuntos de dados são automaticamente validados assim que carregar no botão de carregamento. A validação de dados inclui uma série de verificações nos ficheiros áudio para verificar o seu formato de ficheiro, tamanho e taxa de amostragem. Corrija os erros se houver e submeta novamente. Quando o pedido de importação de dados for iniciado com sucesso, deve ver uma entrada na tabela de dados que corresponda ao conjunto de dados que acaba de carregar.
+
+O quadro seguinte mostra os estados de tratamento dos conjuntos de dados importados:
 
 | Estado | Significado |
 | ----- | ------- |
-| Em processamento | Seu conjunto de seus foi recebido e está sendo processado. |
-| Bem-sucedido | Seu conjunto de um foi validado e agora pode ser usado para criar um modelo de voz. |
-| Com Falhas | O conjunto de dados falhou durante o processamento devido a vários motivos, por exemplo, erros de arquivo, problemas de dados ou problemas de rede. |
+| Em processamento | O seu conjunto de dados foi recebido e está a ser tratado. |
+| Bem-sucedido | O seu conjunto de dados foi validado e pode agora ser usado para construir um modelo de voz. |
+| Com Falhas | O seu conjunto de dados foi falhado durante o processamento devido a muitas razões, por exemplo erros de ficheiros, problemas de dados ou problemas de rede. |
 
-Após a conclusão da validação, você poderá ver o número total de declarações correspondentes para cada um de seus conjuntos de os na coluna **declarações** . Se o tipo de dados selecionado exigir segmentação de áudio de longo prazo, essa coluna refletirá apenas o declarações que segmentamos para você com base em suas transcrições ou por meio do serviço de transcrição de fala. Você pode baixar ainda mais o conjunto de informações validado para exibir os resultados detalhados do declarações importado com êxito e suas transcrições de mapeamento. Dica: a segmentação de áudio longo pode levar mais de uma hora para concluir o processamento de dados.
+Após a validação estar completa, pode ver o número total de expressões correspondidas para cada um dos seus conjuntos de dados na coluna **Utterances.** Se o tipo de dados que selecionou requer segmentação de áudio longo, esta coluna apenas reflete as expressões que segmentamos para si, quer com base nas suas transcrições, quer através do serviço de transcrição da fala. Pode ainda descarregar o conjunto de dados validado para ver os resultados pormenorizados das expressões importadas com sucesso e as suas transcrições de mapeamento. Atenção: a segmentação de áudio longo pode demorar mais de uma hora a concluir o processamento de dados.
 
-Para conjuntos de resultados en-US e zh-CN, você pode baixar um relatório para verificar as pontuações de pronúncia e o nível de ruído para cada uma de suas gravações. A pontuação da pronúncia varia de 0 a 100. Uma pontuação abaixo de 70 indica normalmente um erro de fala ou incompatibilidade de script. Um acentuado pesado pode reduzir sua pontuação de pronúncia e afetar a voz digital gerada.
+Para conjuntos de dados en-US e zh-CN, pode ainda fazer o download de um relatório para verificar as pontuações de pronúncia e o nível de ruído para cada uma das suas gravações. A pontuação da pronúncia varia de 0 a 100. Uma pontuação abaixo de 70 normalmente indica um erro de fala ou desajuste do script. Um sotaque pesado pode reduzir a sua pontuação de pronúncia e impactar a voz digital gerada.
 
-Uma taxa mais alta de sinal para ruído (SNR) indica menos ruído em seu áudio. Normalmente, você pode alcançar um SNR de 50 + gravando em Professional estúdios. O áudio com um SNR abaixo de 20 pode resultar em um ruído óbvio na voz gerada.
+Uma relação sinal-ruído mais elevada (SNR) indica ruído mais baixo no seu áudio. Você normalmente pode alcançar um SNR de 50+ gravando em estúdios profissionais. O áudio com um SNR abaixo de 20 pode resultar em ruído óbvio na sua voz gerada.
 
-Considere gravar novamente qualquer declarações com pontuações de pronúncia baixa ou taxas de sinal para ruído ruins. Se não for possível regravar, você poderá excluir esses declarações do conjunto de seus conjuntos de registros.
+Considere regravar quaisquer declarações com baixas pontuações de pronúncia ou baixas relações sinal-ruído. Se não conseguir voltar a gravar, pode excluir essas declarações do seu conjunto de dados.
 
-## <a name="build-your-custom-voice-model"></a>Crie seu modelo de voz personalizado
+## <a name="build-your-custom-voice-model"></a>Construa o seu modelo de voz personalizado
 
-Depois que o conjunto de seus conjuntos de um for validado, você poderá usá-lo para criar seu modelo de voz personalizado.
+Depois de validado o seu conjunto de dados, pode usá-lo para construir o seu modelo de voz personalizado.
 
-1.  Navegue até a **conversão de texto em fala > treinamento de > de voz personalizado**.
+1.  Navegue para **Texto-a-Fala > Voz Personalizada > Formação**.
 
-2.  Clique em **treinar modelo**.
+2.  Clique no **modelo de comboio**.
 
-3.  Em seguida, insira um **nome** e uma **Descrição** para ajudá-lo a identificar esse modelo.
+3.  Em seguida, insira um **Nome** e **Descrição** para ajudá-lo a identificar este modelo.
 
-    Escolha um nome com cuidado. O nome que você digitar aqui será o nome usado para especificar a voz em sua solicitação de síntese de fala como parte da entrada SSML. Somente letras, números e alguns caracteres de pontuação, como-, \_e (', ') são permitidos. Use nomes diferentes para modelos de voz diferentes.
+    Escolha um nome com cuidado. O nome que introduzir aqui será o nome que utilizar para especificar a voz no seu pedido de síntese de fala como parte da entrada SSML. Apenas letras, números e alguns caracteres de pontuação como - \_, e (', ' ' ' são permitidos. Use diferentes nomes para diferentes modelos de voz.
 
-    Um uso comum do campo **Descrição** é registrar os nomes dos conjuntos de registros que foram usados para criar o modelo.
+    Um uso comum do campo **Descrição** é registar os nomes dos conjuntos de dados que foram usados para criar o modelo.
 
-4.  Na página **selecionar dados de treinamento** , escolha um ou vários conjuntos de dados que você gostaria de usar para treinamento. Verifique o número de declarações antes de enviá-los. Você pode começar com qualquer número de declarações para modelos de voz en-US e zh-CN. Para outras localidades, você deve selecionar mais de 2.000 declarações para poder treinar uma voz.
+4.  Na página de dados de **treino Select,** escolha um ou vários conjuntos de dados que gostaria de utilizar para treinar. Verifique o número de expressões antes de as submeter. Pode começar com várias expressões para modelos de voz en-US e zh-CN. Para outros locais, você deve selecionar mais de 2.000 expressões para ser capaz de treinar uma voz.
 
     > [!NOTE]
-    > Nomes de áudio duplicados serão removidos do treinamento. Verifique se os conjuntos de valores selecionados não contêm os mesmos nomes de áudio em vários arquivos. zip.
+    > Os nomes áudio duplicados serão removidos do treino. Certifique-se de que os conjuntos de dados selecionados não contêm os mesmos nomes áudio em vários ficheiros .zip.
 
     > [!TIP]
-    > O uso dos conjuntos de valores do mesmo palestrante é necessário para os resultados de qualidade. Quando os conjuntos de valores que você enviou para treinamento contêm um número total de menos de 6.000 declarações distintos, você treinará seu modelo de voz por meio da técnica de síntese paramétricas estatística. No caso em que os dados de treinamento excedem um número total de 6.000 declarações distintos, você iniciará um processo de treinamento com a técnica de síntese de concatenação. Normalmente, a tecnologia de concatenação pode resultar em resultados de voz mais naturais e de maior fidelidade. [Entre em contato com a equipe de voz personalizada](https://go.microsoft.com/fwlink/?linkid=2108737) se desejar treinar um modelo com a tecnologia de TTS do neural mais recente que pode produzir uma voz digital equivalente às [vozes neurais](language-support.md#neural-voices)disponíveis publicamente.
+    > A utilização dos conjuntos de dados do mesmo altifalante é necessária para obter resultados de qualidade. Quando os conjuntos de dados que submeteu para treino contiverem um número total de menos de 6.000 expressões distintas, irá treinar o seu modelo de voz através da técnica de Síntese Paramétrica Estatística. No caso de os seus dados de treino excederem um número total de 6.000 expressões distintas, iniciará um processo de treino com a técnica de Síntese de Concatenação. Normalmente, a tecnologia de concatenação pode resultar em resultados de voz mais naturais e de maior fidelidade. [Contacte a equipa Custom Voice](https://go.microsoft.com/fwlink/?linkid=2108737) se quiser treinar um modelo com a mais recente tecnologia Neural TTS que pode produzir uma voz digital equivalente às [vozes neurais](language-support.md#neural-voices)publicamente disponíveis.
 
-5.  Clique em **treinar** para começar a criar seu modelo de voz.
+5.  Clique em **Comboio** para começar a criar o seu modelo de voz.
 
-A tabela de treinamento exibe uma nova entrada que corresponde a esse modelo recém-criado. A tabela também exibe o status: processamento, com êxito, com falha.
+A tabela formativa apresenta uma nova entrada que corresponde a este modelo recém-criado. A tabela também mostra o estado: Processamento, Sucesso, Falhado.
 
-O status mostrado reflete o processo de conversão do conjunto de seus conjuntos de um modelo de voz, como mostrado aqui.
+O estado que é mostrado reflete o processo de conversão do seu conjunto de dados para um modelo de voz, como mostrado aqui.
 
 | Estado | Significado |
 | ----- | ------- |
-| Em processamento | Seu modelo de voz está sendo criado. |
-| Bem-sucedido | Seu modelo de voz foi criado e pode ser implantado. |
-| Com Falhas | O seu modelo de voz falhou no treinamento devido a vários motivos, por exemplo, problemas de dados ou problemas de rede não vistos. |
+| Em processamento | O teu modelo de voz está a ser criado. |
+| Bem-sucedido | O seu modelo de voz foi criado e pode ser implantado. |
+| Com Falhas | O seu modelo de voz foi falhado no treino devido a muitas razões, por exemplo problemas de dados invisíveis ou problemas de rede. |
 
-O tempo de treinamento varia dependendo do volume de dados de áudio processados. Os tempos típicos variam de cerca de 30 minutos para centenas de declarações a 40 horas para 20.000 declarações. Quando o treinamento do modelo for bem-sucedido, você poderá começar a testá-lo.
-
-> [!NOTE]
-> Os usuários da assinatura gratuita (F0) podem treinar uma fonte de voz simultaneamente. Assinatura padrão (S0) os usuários podem treinar três vozes simultaneamente. Se você atingir o limite, aguarde até que pelo menos uma das fontes de voz conclua o treinamento e tente novamente.
+O tempo de formação varia consoante o volume de dados áudio processados. Os tempos típicos variam de cerca de 30 minutos para centenas de expressões a 40 horas para 20.000 expressões. Assim que o teu treino de modelo for bem sucedido, podes começar a testá-lo.
 
 > [!NOTE]
-> O número máximo de modelos de voz com permissão para ser treinado por assinatura é de 10 modelos para usuários de assinatura gratuita (F0) e 100 para usuários de assinatura padrão (S0).
+> Os utilizadores de subscrição gratuita (F0) podem treinar simultaneamente uma fonte de voz. Os utilizadores de subscrição padrão (S0) podem treinar três vozes simultaneamente. Se atingir o limite, espere até que pelo menos uma das suas fontes de voz termine o treino e tente novamente.
 
-Se você estiver usando o recurso de treinamento de voz neural, poderá optar por treinar um modelo otimizado para cenários de streaming em tempo real ou um modelo neural de HD otimizado para a [síntese de áudio de longo e](long-audio-api.md)assíncrono.  
+> [!NOTE]
+> O número máximo de modelos de voz autorizados a serem treinados por subscrição é de 10 modelos para utilizadores de subscrição gratuita (F0) e 100 para utilizadores de subscrição padrão (S0).
 
-## <a name="test-your-voice-model"></a>Testar seu modelo de voz
+Se estiver a utilizar a capacidade de treino de voz neural, pode selecionar para treinar um modelo otimizado para cenários de streaming em tempo real, ou um modelo neural HD otimizado para síntese de [áudio longo](long-audio-api.md)assíncrono.  
 
-Depois que a fonte de voz for criada com êxito, você poderá testá-la antes de implantá-la para uso.
+## <a name="test-your-voice-model"></a>Teste o seu modelo de voz
 
-1.  Navegue até a **conversão de texto em fala > teste de > de voz personalizado**.
+Depois da sua fonte de voz ser construída com sucesso, pode testá-la antes de a utilizar.
 
-2.  Clique em **Adicionar teste**.
+1.  Navegue para **Texto-a-Fala > Voz Personalizada > Teste**.
 
-3.  Selecione um ou vários modelos que você gostaria de testar.
+2.  Clique no **teste Adicionar**.
 
-4.  Forneça o texto que você deseja que as voz (s) falem. Se você tiver selecionado para testar vários modelos ao mesmo tempo, o mesmo texto será usado para os testes de modelos diferentes.
+3.  Selecione um ou vários modelos que gostaria de testar.
+
+4.  Forneça o texto que pretende que a voz(s) fale. Se tiver selecionado para testar vários modelos de uma só vez, o mesmo texto será utilizado para os testes para diferentes modelos.
 
     > [!NOTE]
-    > O idioma do texto deve ser o mesmo que o idioma da sua fonte de voz. Somente modelos treinados com êxito podem ser testados. Somente texto sem formatação tem suporte nesta etapa.
+    > A linguagem do seu texto deve ser a mesma que a linguagem da sua fonte de voz. Só modelos treinados com sucesso podem ser testados. Neste passo, apenas o texto simples é apoiado.
 
 5.  Clique em **Criar**.
 
-Depois de enviar sua solicitação de teste, você retornará para a página de teste. A tabela agora inclui uma entrada que corresponde à sua nova solicitação e à coluna status. Pode levar alguns minutos para sintetizar a fala. Quando a coluna status for **bem-sucedida**, você poderá reproduzir o áudio ou baixar a entrada de texto (um arquivo. txt) e a saída de áudio (um arquivo. wav) e ainda mais Audition o último para obter qualidade.
+Depois de ter apresentado o seu pedido de teste, voltará à página de teste. A tabela inclui agora uma entrada que corresponde ao seu novo pedido e à coluna de estado. Pode levar alguns minutos para sintetizar o discurso. Quando a coluna de estado diz **"Sucesso",** pode reproduzir o áudio ou descarregar a entrada de texto (um ficheiro .txt) e a saída de áudio (um ficheiro .wav), e fazer uma audição posterior para qualidade.
 
-Você também pode encontrar os resultados do teste na página de detalhes de cada modelo selecionado para teste. Vá para a guia **treinamento** e clique no nome do modelo para inserir a página de detalhes do modelo.
+Também pode encontrar os resultados dos testes na página de detalhes de cada modelo selecionado para testes. Vá ao separador **Formação** e clique no nome do modelo para introduzir a página de detalhes do modelo.
 
-## <a name="create-and-use-a-custom-voice-endpoint"></a>Criar e usar um ponto de extremidade de voz personalizado
+## <a name="create-and-use-a-custom-voice-endpoint"></a>Criar e usar um ponto final de voz personalizado
 
-Depois de criar e testar com êxito seu modelo de voz, implante-o em um ponto de extremidade de conversão de texto em fala personalizado. Em seguida, você usa esse ponto de extremidade no lugar do ponto de extremidade usual ao fazer solicitações de conversão de texto em fala por meio da API REST. Seu ponto de extremidade personalizado pode ser chamado apenas pela assinatura que você usou para implantar a fonte.
+Depois de ter criado e testado com sucesso o seu modelo de voz, implementa-o num ponto final de Texto-a-Fala personalizado. Em seguida, utilize este ponto final no lugar do ponto final habitual ao fazer pedidos de texto para a fala através da API REST. O seu ponto final personalizado só pode ser chamado pela subscrição que utilizou para implementar a fonte.
 
-Para criar um novo ponto de extremidade de voz personalizado, acesse **conversão de texto em fala > voz personalizada > implantação**. Selecione **Adicionar ponto de extremidade** e insira um **nome** e uma **Descrição** para o ponto de extremidade personalizado. Em seguida, selecione o modelo de voz personalizado que você deseja associar a esse ponto de extremidade.
+Para criar um novo ponto final de voz personalizado, vá ao **Text-to-Speech > Custom Voice > Deployment**. **Selecione Adicionar ponto final** e introduza um **nome** e **descrição** para o seu ponto final personalizado. Em seguida, selecione o modelo de voz personalizado que gostaria de associar a este ponto final.
 
-Depois de clicar no botão **Adicionar** , na tabela ponto de extremidade, você verá uma entrada para o novo ponto de extremidade. Pode levar alguns minutos para criar uma instância de um novo ponto de extremidade. Quando o status da implantação for **bem-sucedido**, o ponto de extremidade estará pronto para uso.
-
-> [!NOTE]
-> Os usuários da assinatura gratuita (F0) podem ter apenas um modelo implantado. Assinatura padrão (S0) os usuários podem criar até 50 pontos de extremidade, cada um com sua própria voz personalizada.
+Depois de clicar no botão **Adicionar,** na tabela de pontofinal, verá uma entrada para o seu novo ponto final. Pode levar alguns minutos para instantaneamente um novo ponto final. Quando o estado da implantação for **bem sucedido,** o ponto final está pronto a ser utilizado.
 
 > [!NOTE]
-> Para usar sua voz personalizada, você deve especificar o nome do modelo de voz, usar o URI personalizado diretamente em uma solicitação HTTP e usar a mesma assinatura para passar pela autenticação do serviço TTS.
+> Os utilizadores de subscrição gratuita (F0) só podem ter um modelo implementado. Os utilizadores de subscrição standard (S0) podem criar até 50 pontos finais, cada um com a sua própria voz personalizada.
 
-Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade aparecerá como um link. Clique no link para exibir informações específicas para seu ponto de extremidade, como a chave do ponto de extremidade, a URL do ponto de extremidade e o código de exemplo.
+> [!NOTE]
+> Para utilizar a sua voz personalizada, deve especificar o nome do modelo de voz, utilizar o URI personalizado diretamente num pedido HTTP e utilizar a mesma subscrição para passar através da autenticação do serviço TTS.
 
-O teste online do ponto de extremidade também está disponível por meio do portal de voz personalizado. Para testar seu ponto de extremidade, escolha **verificar ponto de extremidade** na página de **detalhes do ponto de extremidade** . A página de teste do ponto de extremidade é exibida. Insira o texto a ser falado (no formato de texto sem formatação ou [SSML](speech-synthesis-markup.md) na caixa de texto. Para ouvir o texto falado em sua fonte de voz personalizada, selecione **reproduzir**. Este recurso de teste será cobrado em relação ao uso personalizado de síntese de fala.
+Depois de o seu ponto final ser implantado, o nome final aparece como um link. Clique no link para visualizar informações específicas do seu ponto final, tais como a chave de ponto final, URL de ponto final e código de amostra.
 
-O ponto de extremidade personalizado é funcionalmente idêntico ao ponto de extremidade padrão usado para solicitações de conversão de texto em fala. Consulte [API REST](rest-text-to-speech.md) para obter mais informações.
+Os testes online do ponto final também estão disponíveis através do portal de voz personalizado. Para testar o seu ponto final, escolha **o ponto final** da página de detalhes **endpoint.** A página de teste do ponto final aparece. Introduza o texto a ser falado (em texto simples ou [em formato SSML](speech-synthesis-markup.md) na caixa de texto. Para ouvir o texto falado na sua fonte de voz personalizada, selecione **Reproduzir**. Esta função de teste será carregada contra o uso personalizado da síntese da fala.
+
+O ponto final personalizado é funcionalmente idêntico ao ponto final padrão que é usado para pedidos de texto a fala. Consulte a [REST API](rest-text-to-speech.md) para mais informações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Guia: Registre suas amostras de voz](record-custom-voice-samples.md)
-* [Referência de texto para Speech API](rest-text-to-speech.md)
+* [Guia: Grave as amostras de voz](record-custom-voice-samples.md)
+* [Referência da API texto-a-fala](rest-text-to-speech.md)
 * [API de áudio longo](long-audio-api.md)

@@ -1,7 +1,7 @@
 ---
-title: Examinar usuário expressão-LUIS
+title: Rever a expressão do utilizador - LUIS
 titleSuffix: Azure Cognitive Services
-description: Com o Active Learning, seu ponto de extremidade de revisão declarações para a intenção e a entidade corretas. LUIS escolhe ponto de extremidade declarações não tem certeza de.
+description: Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,36 +9,40 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 772d2bdff0a5e1c6cd999482ec4ef6be29dc2bb1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486760"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710534"
 ---
-# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para habilitar o aprendizado ativo examinando o ponto de extremidade declarações
-O aprendizado ativo é uma das três estratégias para melhorar a precisão da previsão e a mais fácil de implementar. Com o Active Learning, seu ponto de extremidade de revisão declarações para a intenção e a entidade corretas. LUIS escolhe ponto de extremidade declarações não tem certeza de.
+# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para ativar a aprendizagem ativa, revendo os discursos de ponto final
+Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
 
-## <a name="what-is-active-learning"></a>O que é o aprendizado ativo
-O aprendizado ativo é um processo de duas etapas. Primeiro, LUIS seleciona declarações que recebe no ponto de extremidade do aplicativo que precisa de validação. A segunda etapa é executada pelo proprietário ou colaborador do aplicativo para validar o declarações selecionado para [revisão](luis-how-to-review-endpoint-utterances.md), incluindo a intenção correta e todas as entidades dentro da intenção. Depois de revisar o declarações, treine e publique o aplicativo novamente. 
+## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa
+Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é efetuado pelo proprietário da aplicação ou funcionário para validar as expressões selecionadas para [rever](luis-how-to-review-endpoint-utterances.md), incluindo a intenção correta e todas as entidades na intenção. Depois de rever as expressões, formar e publicar a aplicação novamente.
 
-## <a name="which-utterances-are-on-the-review-list"></a>Quais declarações estão na lista de revisão
-LUIS adiciona declarações à lista de revisão quando a principal tentativa de acionamento tem uma pontuação baixa ou as duas pontuações principais não são muito próximas. 
+## <a name="which-utterances-are-on-the-review-list"></a>As expressões são na lista de revisão
+LUIS adiciona expressões com a lista de revisão quando a parte superior disparando intenção tem uma pontuação baixa ou pontuações de principais dois objetivos estão muito próximos.
 
-## <a name="single-pool-for-utterances-per-app"></a>Pool único para declarações por aplicativo
-A lista **revisar declarações do ponto de extremidade** não é alterada com base na versão. Há um único conjunto de expressões para rever, independentemente da versão da expressão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final. 
+## <a name="single-pool-for-utterances-per-app"></a>Conjunto único para expressões com por aplicação
+O **rever expressões de ponto final** lista não é alterada com base na versão. Há um único conjunto de expressões para rever, independentemente da versão da expressão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final.
 
-## <a name="where-are-the-utterances-from"></a>Onde estão os declarações de
-Os declarações do ponto de extremidade são obtidos de consultas do usuário final no ponto de extremidade HTTP do aplicativo. Se seu aplicativo não for publicado ou ainda não tiver recebido ocorrências, você não terá nenhum declarações para revisar. Se não forem recebidas ocorrências de ponto de extremidade para uma intenção ou entidade específica, você não terá declarações para revisar que as contêm. 
+## <a name="where-are-the-utterances-from"></a>Onde estão as expressões de
+Expressões de ponto de extremidade são obtidas a partir de consultas de utilizador final no ponto final HTTP do aplicativo. Se a aplicação não está publicada ou não recebeu pedidos com êxito na ainda, não tem quaisquer expressões de com para rever. Se não existem resultados de ponto de extremidade são recebidos para um objetivo específico ou uma entidade, não tem expressões para rever o que os contêm.
 
-## <a name="schedule-review-periodically"></a>Agendar revisão periodicamente
-A revisão da declarações sugerida não precisa ser feita todos os dias, mas deve fazer parte da manutenção regular do LUIS. 
+## <a name="schedule-review-periodically"></a>Revisão de agenda periodicamente
+Rever expressões sugeridas com não precisa ser feito a todos os dias, mas deve fazer parte da manutenção regular de LUIS.
 
-## <a name="delete-review-items-programmatically"></a>Excluir itens de revisão programaticamente
-Use a API **[Excluir não rotulada do declarações](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** . Faça backup desses declarações antes da exclusão **[exportando os arquivos de log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** .
+## <a name="delete-review-items-programmatically"></a>Eliminar itens de revisão através de programação
+Utilize as declarações a **[eliminar não etiquetadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Cópia de segurança essas expressões com antes da eliminação por  **[exportar os ficheiros de registo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** .
+
+## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
+
+Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e valor `log=true` QueryString.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [examinar](luis-how-to-review-endpoint-utterances.md) o ponto de extremidade declarações
+* Saiba como [rever](luis-how-to-review-endpoint-utterances.md) expressões de ponto final

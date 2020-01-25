@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d21ebabb34b828624c196922f88380f02234dc05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940916"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711874"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -39,17 +39,17 @@ Siga estas etapas para acessar o recurso **mapeamentos** do provisionamento de u
 1. Selecione **provisionamento** para gerenciar as configurações de provisionamento de conta de usuário para o aplicativo selecionado.
 1. Expanda **mapeamentos** para exibir e editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino. Se o aplicativo de destino oferecer suporte a ele, esta seção permitirá que você configure o provisionamento de grupos e contas de usuário opcionalmente.
 
-   ![Usar mapeamentos para exibir e editar atributos de usuário](./media/customize-application-attributes/21.png)
+   ![Usar mapeamentos para exibir e editar atributos de usuário](media/customize-application-attributes/21.png)
 
 1. Selecione uma configuração de **mapeamentos** para abrir a tela de **mapeamento de atributo** relacionada. Alguns mapeamentos de atributo são exigidos por um aplicativo SaaS para funcionar corretamente. Para os atributos necessários, o recurso de **exclusão** não está disponível.
 
-   ![Usar mapeamento de atributo para configurar mapeamentos de atributo para aplicativos](./media/customize-application-attributes/22.png)
+   ![Usar mapeamento de atributo para configurar mapeamentos de atributo para aplicativos](media/customize-application-attributes/22.png)
 
    Nesta captura de tela, você pode ver que o atributo **username** de um objeto gerenciado no Salesforce é preenchido com o valor **userPrincipalName** do objeto Azure Active Directory vinculado.
 
 1. Selecione um **mapeamento de atributo** existente para abrir a tela **Editar atributo** . Aqui você pode editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
 
-   ![Usar o atributo editar para editar atributos de usuário](./media/customize-application-attributes/23.png)
+   ![Usar o atributo editar para editar atributos de usuário](media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>Noções básicas sobre tipos de mapeamento de atributo
 
@@ -71,7 +71,7 @@ Junto com essa propriedade, os mapeamentos de atributo também oferecem suporte 
 
 - **Atributo de origem** -o atributo de usuário do sistema de origem (exemplo: Azure Active Directory).
 - **Atributo de destino** – o atributo de usuário no sistema de destino (exemplo: ServiceNow).
-- **Valor padrão se NULL (opcional)** – o valor que será passado para o sistema de destino se o atributo de origem for nulo. Esse valor só será provisionado quando um usuário for criado. O "valor padrão quando nulo" não será provisionado durante a atualização de um usuário existente. Se, por exemplo, você quiser provisionar todos os usuários existentes no sistema de destino com um cargo específico (quando ele for nulo no sistema de origem), você poderá usar a seguinte [expressão](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): switch (IsPresent ([JobTitle]), "DefaultValue", "true", [JobTitle]). Certifique-se de substituir o "valor padrão" pelo que você gostaria de provisionar quando nulo no sistema de origem. 
+- **Valor padrão se NULL (opcional)** – o valor que será passado para o sistema de destino se o atributo de origem for nulo. Esse valor só será provisionado quando um usuário for criado. O "valor padrão quando nulo" não será provisionado durante a atualização de um usuário existente. Se, por exemplo, pretender fornecer todos os utilizadores existentes no sistema-alvo com um determinado Título de Trabalho (quando for nulo no sistema de origem), pode utilizar a seguinte [expressão](functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Certifique-se de substituir o "valor padrão" pelo que você gostaria de provisionar quando nulo no sistema de origem. 
 - **Corresponder objetos usando este atributo** – se esse mapeamento deve ser usado para identificar exclusivamente os usuários entre os sistemas de origem e de destino. Normalmente, ele é definido no atributo userPrincipalName ou mail no Azure AD, que normalmente é mapeado para um campo de nome de usuário em um aplicativo de destino.
 - **Precedência de correspondência** – vários atributos correspondentes podem ser definidos. Quando há vários, eles são avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum atributo correspondente será avaliado.
 - **Aplicar este mapeamento**
@@ -92,7 +92,7 @@ O serviço de provisionamento do Azure AD pode ser implantado em cenários "gree
 
 Um número selecionado de aplicativos, como ServiceNow, Box e G Suite, dá suporte à capacidade de provisionar objetos de grupo e objetos de usuário. Os objetos de grupo podem conter Propriedades de grupo, como nomes de exibição e aliases de email, juntamente com membros do grupo.
 
-![Exemplo mostra o ServiceNow com objetos de grupo e usuário provisionados](./media/customize-application-attributes/24.png)
+![Exemplo mostra o ServiceNow com objetos de grupo e usuário provisionados](media/customize-application-attributes/24.png)
 
 O provisionamento de grupo pode ser opcionalmente habilitado ou desabilitado selecionando o mapeamento de grupo em **mapeamentos**e a configuração **habilitada** para a opção desejada na tela **mapeamento de atributos** .
 
@@ -193,13 +193,13 @@ Atributos personalizados não podem ser atributos de referência ou atributos de
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Provisionando uma função para um aplicativo SCIM
 Use as etapas abaixo para provisionar funções para um usuário para seu aplicativo. Observe que a descrição abaixo é específica para aplicativos SCIM personalizados. Para aplicativos de galeria, como Salesforce e ServiceNow, use os mapeamentos de função predefinidos. Os marcadores abaixo descrevem como transformar o atributo AppRoleAssignments no formato esperado pelo aplicativo.
 
-- O mapeamento de um appRoleAssignment no Azure AD para uma função em seu aplicativo requer que você transforme o atributo usando uma [expressão](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). O atributo appRoleAssignment **não deve ser mapeado diretamente** para um atributo role sem usar uma expressão para analisar os detalhes da função. 
+- O mapeamento de um appRoleAssignment no Azure AD para uma função em seu aplicativo requer que você transforme o atributo usando uma [expressão](functions-for-customizing-application-data.md). O atributo appRoleAssignment **não deve ser mapeado diretamente** para um atributo role sem usar uma expressão para analisar os detalhes da função. 
 
 - **SingleAppRoleAssignment** 
   - **Quando usar:** Use a expressão SingleAppRoleAssignment para provisionar uma única função para um usuário e para especificar a função primária. 
-  - **Como configurar:** Use as etapas descritas acima para navegar até a página Mapeamentos de atributo e use a expressão SingleAppRoleAssignment para mapear para o atributo funções. Há três atributos de função a serem escolhidos: (funções [Primary EQ "true"]. display, Roles [Primary EQ "true]. Type e Roles [Primary EQ" true "]. Value). Você pode optar por incluir qualquer um dos atributos de função ou todos eles em seus mapeamentos. Se você quiser incluir mais de um, basta adicionar um novo mapeamento e incluí-lo como o atributo de destino.  
+  - **Como configurar:** Use as etapas descritas acima para navegar até a página Mapeamentos de atributo e use a expressão SingleAppRoleAssignment para mapear para o atributo funções. Há três atributos de papel a escolher: (papéis [primárioe "True"].display, roles[primary eq "True].type, e papéis[primário eq "True"].value). Você pode optar por incluir qualquer um dos atributos de função ou todos eles em seus mapeamentos. Se você quiser incluir mais de um, basta adicionar um novo mapeamento e incluí-lo como o atributo de destino.  
   
-  ![Adicionar SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Adicionar SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Itens a serem considerados**
     - Certifique-se de que várias funções não sejam atribuídas a um usuário. Não podemos garantir qual função será provisionada.
     
@@ -231,11 +231,11 @@ Use as etapas abaixo para provisionar funções para um usuário para seu aplica
   - **Quando usar:** Use a expressão AppRoleAssignmentsComplex para provisionar várias funções para um usuário. 
   - **Como configurar:** Edite a lista de atributos com suporte, conforme descrito acima, para incluir um novo atributo para as funções: 
   
-    ![Adicionar funções](./media/customize-application-attributes/add-roles.png)<br>
+    ![Adicionar papéis](media/customize-application-attributes/add-roles.png)<br>
 
     Em seguida, use a expressão AppRoleAssignmentsComplex para mapear para o atributo de função personalizada, conforme mostrado na imagem abaixo:
 
-    ![Adicionar AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Adicionar AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Itens a serem considerados**
     - Todas as funções serão provisionadas como primárias = falso.
     - A POSTAgem contém o tipo de função. A solicitação de PATCH não contém o tipo. Estamos trabalhando para enviar o tipo em solicitações POST e PATCH.

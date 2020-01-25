@@ -2,34 +2,35 @@
 title: Plataformas e ferramentas para projetos de ciência de dados - Team Data Science Process
 description: Detalha e aborda os recursos de dados e análise disponíveis para as empresas a padronizar o processo de ciência de dados de equipa.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978514"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718893"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
-A Microsoft oferece uma gama completa de serviços de dados e análise e recursos para plataformas de cloud ou no local. Eles podem ser implementados para tornar a execução dos seus projetos de ciência de dados eficiente e dimensionável. Orientações para as equipes de implementar projetos de ciência de dados num passível de controlo, versão, e controlados forma colaboração fornecida pelos [Team Data Science Process](overview.md) (TDSP).  Para um destaque das funções de equipe e das respetivas tarefas associadas que são processadas por um dados ciência equipe padronização sobre esse processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
+A Microsoft fornece um espectro completo de recursos de análise para plataformas de cloud ou no local. Eles podem ser implementados para tornar a execução dos seus projetos de ciência de dados eficiente e dimensionável. Orientações para as equipes de implementar projetos de ciência de dados num passível de controlo, versão, e controlados forma colaboração fornecida pelos [Team Data Science Process](overview.md) (TDSP).  Para um destaque das funções de equipe e das respetivas tarefas associadas que são processadas por um dados ciência equipe padronização sobre esse processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
 
-Os serviços de dados e análise disponíveis para as equipas de ciência de dados com o TDSP incluem:
+Os recursos de análise disponíveis para as equipas de ciência de dados que utilizam o TDSP incluem:
 
 - Máquinas de virtuais de ciência dados (Windows e Linux CentOS)
 - Clusters do HDInsight Spark
-- Data Warehouse SQL
+- Synapse Analytics
 - Azure Data Lake
 - Clusters do HDInsight Hive
 - Armazenamento de Ficheiros do Azure
-- O SQL Server 2016 R Services
+- Serviços SQL Server 2019 R e Python
+- Azure Databricks
 
 Neste documento, podemos resumidamente descrevem os recursos e fornecem ligações para os tutoriais e orientações passo a passo, as equipes TDSP tem publicado. Eles podem ajudá-lo a aprender a usá-los passo a passo e começar a utilizá-los para criar as suas aplicações inteligentes. Obter mais informações sobre esses recursos estão disponíveis nas páginas de produto. 
 
@@ -44,13 +45,13 @@ A máquina de virtual de ciência de dados oferecidos no Windows e Linux pela Mi
 - Ambiente de trabalho do Power BI para Windows
 - SQL Server 2016 Developer Edition no Windows / Postgres no Linux
 
-Ele também inclui **ferramentas de ml e ia** como xgboost, Mxnet e Vowpal Wabbit.
+Também inclui **ferramentas ML e IA** como xgboost, mxnet e Vowpal Wabbit.
 
 Atualmente está disponível no DSVM **Windows** e **Linux CentOS** sistemas operativos. Escolha o tamanho da sua DSVM (número de núcleos de CPU) e a quantidade de memória com base nas necessidades dos projetos de ciência de dados que pretende executar no mesmo. 
 
-Para obter mais informações sobre a edição do Windows da DSVM, consulte [máquina de Virtual de ciência de dados do Microsoft](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) no Azure marketplace. Para a edição Linux da DSVM, consulte [máquina de Virtual de ciência de dados do Linux](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Para obter mais informações sobre a edição do Windows do DSVM, consulte a [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) no Azure Marketplace. Para a edição Linux da DSVM, consulte [máquina de Virtual de ciência de dados do Linux](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-Para saber como executar algumas das tarefas de ciência de dados comuns com eficiência em DSVM, veja [dez coisas que pode fazer na máquina Virtual de ciência de dados](../data-science-virtual-machine/vm-do-ten-things.md)
+Para aprender a executar algumas das tarefas comuns de ciência de dados no DSVM de forma eficiente, veja [10 coisas que pode fazer na Máquina Virtual](../data-science-virtual-machine/vm-do-ten-things.md) da Ciência dos Dados
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Clusters do Azure HDInsight Spark
@@ -71,7 +72,7 @@ Para obter mais informações sobre o Azure SQL Data Warehouse, consulte a [o SQ
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
 
-Azure data lake é-se como um repositório de toda a empresa de todos os tipos de dados recolhidos numa única localização, antes de quaisquer requisitos formais ou um esquema que está a ser impostas. Essa flexibilidade permite que todos os tipos de dados ser mantidos num data lake, independentemente do porte e estrutura ou da rapidez com que é ingerido. As organizações podem, em seguida, utilizar o Hadoop ou análise avançada para encontrar padrões nestes dados lakes. Lakes de dados também podem servir como um repositório para preparação de dados de custo mais baixo e antes de moderação os dados e movê-lo para um armazém de dados.
+O Lago de Dados Azure é um repositório em toda a empresa de todos os tipos de dados recolhidos num único local, antes de quaisquer requisitos formais, ou esquema imposto. Essa flexibilidade permite que todos os tipos de dados ser mantidos num data lake, independentemente do porte e estrutura ou da rapidez com que é ingerido. As organizações podem, em seguida, utilizar o Hadoop ou análise avançada para encontrar padrões nestes dados lakes. Lakes de dados também podem servir como um repositório para preparação de dados de custo mais baixo e antes de moderação os dados e movê-lo para um armazém de dados.
 
 Para obter mais informações sobre o Azure Data Lake, veja [apresentando o Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Para saber como criar uma solução de ciência de dados ponto a ponto escaláveis com o Azure Data Lake, veja [ciência de dados dimensionável no Azure Data Lake: uma passo a passo-a-ponto](data-lake-walkthrough.md)
 
@@ -89,16 +90,16 @@ Para obter mais informações sobre Clusters de ramo de registo do Azure HDInsig
 
 ## <a name="azure-file-storage"></a>Armazenamento de Ficheiros do Azure 
 
-Armazenamento de ficheiros do Azure é um serviço que oferece partilhas de ficheiros na cloud utilizando o protocolo de bloco de mensagem de servidor (SMB) padrão. O SMB 2.1 e o SMB 3.0 são suportados. Com o Armazenamento de ficheiros do Azure, pode migrar aplicações antigas que se baseiam em partilhas de ficheiros para o Azure rapidamente e sem reescritas dispendiosas. As aplicações em execução em máquinas virtuais ou serviços em nuvem do Azure ou em clientes no local podem montar uma partilha de ficheiros na nuvem, tal como uma aplicação de ambiente de trabalho monta uma partilha SMB típica. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do File Storage em simultâneo.
+Armazenamento de ficheiros do Azure é um serviço que oferece partilhas de ficheiros na cloud utilizando o protocolo de bloco de mensagem de servidor (SMB) padrão. O SMB 2.1 e o SMB 3.0 são suportados. Com o Armazenamento de ficheiros do Azure, pode migrar aplicações antigas que se baseiam em partilhas de ficheiros para o Azure rapidamente e sem reescritas dispendiosas. As aplicações em execução em máquinas virtuais ou serviços em nuvem do Azure ou em clientes no local podem montar uma partilha de ficheiros na nuvem, tal como uma aplicação de ambiente de trabalho monta uma partilha SMB típica. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do Armazenamento de ficheiros em simultâneo.
 
 Especialmente útil para projetos de ciência de dados é a capacidade de criar um armazenamento de ficheiros do Azure como o local para partilhar dados de projeto com os membros da equipe de projeto. Em seguida, cada um deles tem acesso para a mesma cópia dos dados no armazenamento de ficheiros do Azure. Também podem utilizar o armazenamento de ficheiros para partilhar os conjuntos de recursos gerados durante a execução do projeto. Se o projeto é um compromisso de cliente, os seus clientes podem criar um armazenamento de ficheiros do Azure na sua própria subscrição do Azure para partilhar os dados do projeto e recursos com o utilizador. Dessa forma, o cliente tem controlo total sobre os recursos de dados do projeto. Para obter mais informações sobre o armazenamento de ficheiros do Azure, consulte [introdução ao armazenamento de ficheiros do Azure no Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) e [como utilizar o File Storage do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>O SQL Server 2016 R Services
+## <a name="sql-server-2019-r-and-python-services"></a>Serviços SQL Server 2019 R e Python
 
-R Services (In-database) fornecem uma plataforma para desenvolver e implementar aplicações inteligentes que podem descobrir novas informações. Pode utilizar a linguagem de R diversificada e poderosa, incluindo muitos pacotes fornecidos pela Comunidade do R, para criar modelos e gerar predições a partir dos seus dados do SQL Server. Uma vez que a linguagem R de integrar o R Services (In-database) com o SQL Server, análise é mantida próximas dos dados, o que elimina os custos e riscos de segurança associados à mudança de dados.
+Os Serviços R (Base de Dados) fornecem uma plataforma para desenvolver e implementar aplicações inteligentes que podem descobrir novos conhecimentos. Pode utilizar a linguagem de R diversificada e poderosa, incluindo muitos pacotes fornecidos pela Comunidade do R, para criar modelos e gerar predições a partir dos seus dados do SQL Server. Uma vez que os Serviços R (Base de dados) integram a linguagem R com o SQL Server, a análise é mantida perto dos dados, o que elimina os custos e riscos de segurança associados aos dados em movimento.
 
-R Services (In-database) suporta a linguagem R de código aberto com um conjunto abrangente de ferramentas do SQL Server e tecnologias. Eles oferecem desempenho superior, segurança, confiabilidade e capacidade de gestão. Pode implementar soluções de R com ferramentas convenientes e familiares. As aplicações de produção podem chamar o tempo de execução do R e obter previsões e os elementos visuais com o Transact-SQL. Também é usar as bibliotecas de ScaleR para melhorar o dimensionamento e desempenho das suas soluções de R. Para obter mais informações, consulte [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+Os Serviços R (Base de Dados) suportam a linguagem R de código aberto com um conjunto abrangente de ferramentas e tecnologias Do Servidor SQL. Eles oferecem desempenho superior, segurança, confiabilidade e capacidade de gestão. Pode implementar soluções de R com ferramentas convenientes e familiares. As aplicações de produção podem chamar o tempo de execução do R e obter previsões e os elementos visuais com o Transact-SQL. Também é usar as bibliotecas de ScaleR para melhorar o dimensionamento e desempenho das suas soluções de R. Para obter mais informações, consulte [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
 A equipe do TDSP da Microsoft publicou dois ponto-a-ponto orientações passo a passo que mostram como criar soluções de ciência de dados do SQL Server 2016 R Services: um para programadores de R e outro para os desenvolvedores de SQL. Para **programadores de R**, consulte [ciência de dados ponto-a-ponto instruções](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **programadores de SQL**, consulte [na base de dados Advanced Analytics para programadores de SQL (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
@@ -135,7 +136,7 @@ Se estiver a utilizar máquinas do Linux (CentOS) para executar os comandos do g
 
 1. Copie todo o ssh incluindo chave *ssh-rsa*. 
 1. Inicie sessão para os serviços de DevOps do Azure. 
-1. Clique em **< nome da\>**  no canto superior direito da página e clique em **segurança**. 
+1. Clique **em <O seu nome\>** no canto superior direito da página e clique em **segurança**. 
     
    ![Clique no seu nome e, em seguida, clique em segurança](./media/platforms-and-tools/resources-2-user-setting.png)
 
@@ -143,11 +144,11 @@ Se estiver a utilizar máquinas do Linux (CentOS) para executar os comandos do g
 
    ![Clique em chaves públicas SSH e, em seguida, clique em + Adicionar](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. Colar o ssh key acabou de ser copiada na caixa de texto e guarde.
+1. Colar a chave ssh copiada na caixa de texto e guardar.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Completa de instruções passo a passo de ponto-a-ponto, que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) tópico. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos que mostram como executar etapas no processo de ciência de dados de equipe usando Azure Machine Learning Studio (clássico), consulte o com o roteiro de aprendizagem [do Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) .
+Por exemplo, que mostram como executar passos no Processo de Ciência de Dados da Equipa utilizando o Azure Machine Learning Studio (clássico), consulte o caminho de aprendizagem [Com Azure ML.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)

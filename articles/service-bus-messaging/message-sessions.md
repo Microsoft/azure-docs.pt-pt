@@ -1,6 +1,6 @@
 ---
-title: Sessões de mensagens do barramento de serviço do Azure | Microsoft Docs
-description: Manipule sequências de mensagens do barramento de serviço do Azure com sessões.
+title: Sessões de mensagens azure service bus / Microsoft Docs
+description: Manuseie sequências de mensagens de ônibus de serviço Azure com sessões.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,86 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7da3c3de5074df80c676238e4d43dbd677b0a3b4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091820"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720236"
 ---
-# <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: PEPS (primeiro a entrar, primeiro a sair) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagem: primeiro a entrar, primeiro fora (FIFO) 
 
-As sessões de Barramento de Serviço do Microsoft Azure permitem o tratamento em conjunto e ordenado de sequências não associadas de mensagens relacionadas. Para obter uma garantia FIFO no barramento de serviço, use sessões. O barramento de serviço não é prescritiva sobre a natureza da relação entre as mensagens e também não define um modelo específico para determinar onde uma sequência de mensagens inicia ou termina.
+As sessões de ônibus de serviço do Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. Para realizar uma garantia FIFO no Ônibus de Serviço, utilize as Sessões. O Service Bus não é prescritivo sobre a natureza da relação entre as mensagens, e também não define um modelo específico para determinar onde uma sequência de mensagens começa ou termina.
 
 > [!NOTE]
-> A camada básica do barramento de serviço não oferece suporte a sessões. As camadas Standard e Premium dão suporte a sessões. Para obter mais informações, consulte [preços do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+> O nível básico de Ônibus de Serviço não suporta sessões. As sessões de suporte de níveis standard e premium. Para mais informações, consulte os preços dos [autocarros de serviço.](https://azure.microsoft.com/pricing/details/service-bus/)
 
-Qualquer remetente pode criar uma sessão ao enviar mensagens para um tópico ou fila definindo a propriedade [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) como um identificador definido pelo aplicativo que é exclusivo para a sessão. No nível do protocolo AMQP 1,0, esse valor é mapeado para a propriedade *Group-ID* .
+Qualquer remetente pode criar uma sessão ao submeter mensagens num tópico ou fila, definindo a propriedade [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) para um identificador definido pela aplicação que seja único na sessão. Ao nível do protocolo AMQP 1.0, este valor mapeia para a propriedade *group-id.*
 
-Em filas ou assinaturas com reconhecimento de sessão, as sessões entram em existência quando há pelo menos uma mensagem com a [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)da sessão. Quando uma sessão existe, não há tempo definido ou API para quando a sessão expira ou desaparece. Teoricamente, uma mensagem pode ser recebida para uma sessão hoje, a próxima mensagem no horário de um ano e, se a **SessionID** corresponder, a sessão será a mesma da perspectiva do barramento de serviço.
+Nas filas ou subscrições conscientes da sessão, surgem sessões quando há pelo menos uma mensagem com o [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)da sessão. Uma vez que existe uma sessão, não há tempo definido ou API para quando a sessão expirar ou desaparecer. Teoricamente, uma mensagem pode ser recebida para uma sessão hoje, a próxima mensagem dentro de um ano, e se o **SessionId** corresponder, a sessão é a mesma do ponto de vista do Bus de Serviço.
 
-Normalmente, no entanto, um aplicativo tem uma noção clara de onde um conjunto de mensagens relacionadas começa e termina. O barramento de serviço não define nenhuma regra específica.
+Normalmente, no entanto, uma aplicação tem uma noção clara de onde um conjunto de mensagens relacionadas começa e termina. O Ônibus de Serviço não estabelece regras específicas.
 
-Um exemplo de como delinear uma sequência para transferir um arquivo é definir a propriedade **Label** para a primeira mensagem como **Start**, para mensagens intermediárias para **Content**e para a última mensagem como **end**. A posição relativa das mensagens de conteúdo pode ser computada como a mensagem atual *SequenceNumber* Delta da mensagem de **início** *SequenceNumber*.
+Um exemplo de como delinear uma sequência para transferir um ficheiro é definir a propriedade **Label** para a primeira mensagem a **iniciar,** para mensagens intermédias para **conteúdo**, e para que a última mensagem **termine**. A posição relativa das mensagens de conteúdo pode ser calculada como a mensagem atual *SequenceNumber* delta a partir da mensagem **inicial** *SequenceNumber*.
 
-O recurso de sessão no barramento de serviço habilita uma operação de recebimento específica, na [](/dotnet/api/microsoft.servicebus.messaging.messagesession) forma de MessageSession C# nas APIs do e do Java. Habilite o recurso definindo a propriedade [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) na fila ou assinatura por meio de Azure Resource Manager ou definindo o sinalizador no Portal. Isso é necessário antes de tentar usar as operações de API relacionadas.
+A funcionalidade de sessão no Service Bus permite uma operação C# de receção específica, sob a forma de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nas APIs e Java. Ativa a funcionalidade definindo a propriedade [necessáriaSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) na fila ou subscrição via Azure Resource Manager, ou colocando a bandeira no portal. Isto é necessário antes de tentar utilizar as operações relacionadas com a API.
 
-No portal, defina o sinalizador com a caixa de seleção a seguir:
+No portal, coloque a bandeira com a seguinte caixa de verificação:
 
 ![][2]
 
 > [!NOTE]
-> Quando as sessões são habilitadas em uma fila ou em uma assinatura, os aplicativos cliente ***não podem mais*** enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo a ID de sessão) e recebidas recebendo a sessão.
+> Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente ***já não*** podem enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas recebendo a sessão.
 
-As APIs para sessões existem em clientes de fila e de assinatura. Há um modelo imperativo que controla quando as sessões e mensagens são recebidas e um modelo baseado em manipulador, semelhante ao *onMessage*, que oculta a complexidade do gerenciamento do loop de recebimento.
+As APIs para sessões existem em clientes de fila e subscrição. Existe um modelo imperativo que controla quando as sessões e as mensagens são recebidas, e um modelo baseado em manipulador, semelhante ao *OnMessage,* que esconde a complexidade da gestão do loop de receção.
 
-## <a name="session-features"></a>Recursos de sessão
+## <a name="session-features"></a>Características da sessão
 
-As sessões fornecem a Desmultiplexação simultânea de fluxos de mensagens intercaladas enquanto preservam e garantem a entrega ordenada.
+As sessões proporcionam um desmúltiplo simultâneo de fluxos de mensagens intercaladas, preservando e garantindo a entrega ordenada.
 
 ![][1]
 
-Um receptor de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é criado pelo cliente aceitando uma sessão. O cliente chama [QueueClient. AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient. AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) no C#. No modelo de retorno de chamada reativo, ele registra um manipulador de sessão.
+Um recetor [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é criado pelo cliente que aceita uma sessão. O cliente chama [queueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) em C#. No modelo de chamada reativa, regista um manipulador de sessão.
 
-Quando o objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é aceito e enquanto é mantido por um cliente, esse cliente mantém um bloqueio exclusivo em todas as mensagens com a [SessionID](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) da sessão que existe na fila ou assinatura e também em todas as mensagens com essa **SessionID** isso ainda chega enquanto a sessão é mantida.
+Quando o objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é aceite e enquanto é detido por um cliente, esse cliente detém um bloqueio exclusivo em todas as mensagens com o [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) dessa sessão que existem na fila ou subscrição, e também em todas as mensagens com o **SessionId** que ainda chegam enquanto a sessão é realizada.
 
-O bloqueio é liberado quando **Close** ou **CloseAsync** são chamados ou quando o bloqueio expira em casos em que o aplicativo não consegue executar a operação de fechamento. O bloqueio de sessão deve ser tratado como um bloqueio exclusivo em um arquivo, o que significa que o aplicativo deve fechar a sessão assim que não precisar mais dela e/ou não esperar nenhuma mensagem adicional.
+O bloqueio é libertado quando o **Close** ou **o CloseAsync** são chamados, ou quando o bloqueio expira nos casos em que a aplicação não é capaz de executar o funcionamento próximo. O bloqueio da sessão deve ser tratado como um bloqueio exclusivo num ficheiro, o que significa que a aplicação deve encerrar a sessão assim que deixar de precisar e/ou não esperar mais mensagens.
 
-Quando vários destinatários simultâneos efetuam pull da fila, as mensagens que pertencem a uma sessão específica são expedidas para o receptor específico que atualmente mantém o bloqueio para essa sessão. Com essa operação, um fluxo de mensagens intercaladas que reside em uma fila ou assinatura é limpo de forma limpa para destinatários diferentes e esses receptores também podem residir em computadores cliente diferentes, pois o gerenciamento de bloqueios ocorre no lado do serviço, dentro Barramento de serviço.
+Quando vários recetores simultâneos retiram da fila, as mensagens pertencentes a uma determinada sessão são enviadas para o recetor específico que atualmente detém o cadeado para essa sessão. Com esta operação, um fluxo de mensagens intercalada sintetizado que reside numa fila ou subscrição é limpo desmultiplexado para diferentes recetores e esses recetores também podem viver em diferentes máquinas de cliente, uma vez que a gestão do bloqueio acontece lado de serviço, no interior Autocarro de serviço.
 
-A ilustração anterior mostra três receptores de sessão simultâneos. Uma sessão com `SessionId` = 4 não tem nenhum cliente proprietário ativo, o que significa que nenhuma mensagem é entregue dessa sessão específica. Uma sessão atua de várias maneiras, como uma subfila.
+A ilustração anterior mostra três recetores simultâneos de sessão. One Session with `SessionId` = 4 não tem cliente ativo e possuidor, o que significa que nenhuma mensagem é entregue a partir desta sessão específica. Uma sessão funciona de muitas maneiras como uma sub fila.
 
-O bloqueio de sessão mantido pelo receptor de sessão é uma proteção para os bloqueios de mensagem usados pelo modo de liquidação de *bloqueio de Peek* . Um receptor não pode ter duas mensagens simultaneamente "em trânsito", mas as mensagens devem ser processadas na ordem. Uma nova mensagem só pode ser obtida quando a mensagem anterior tiver sido concluída ou estiver inativa. Abandonar uma mensagem faz com que a mesma mensagem seja servida novamente com a próxima operação de recebimento.
+O bloqueio de sessão mantido pelo recetor da sessão é um guarda-chuva para os bloqueios de mensagem utilizados pelo modo de liquidação *de bloqueio de peek..* Um recetor não pode ter duas mensagens em simultâneo "em voo", mas as mensagens devem ser processadas em ordem. Uma nova mensagem só pode ser obtida quando a mensagem prévia tiver sido completada ou com letras mortas. O abandono de uma mensagem faz com que a mesma mensagem seja novamente servida com a próxima operação de receção.
 
-## <a name="message-session-state"></a>Estado da sessão da mensagem
+## <a name="message-session-state"></a>Estado da sessão de mensagens
 
-Quando os fluxos de trabalho são processados em sistemas de nuvem de alta disponibilidade e de grande escala, o manipulador de fluxo de trabalho associado a uma sessão específica deve ser capaz de se recuperar de falhas inesperadas e também ser capaz de retomar trabalhos parcialmente concluídos em um outro processo ou máquina de onde o trabalho começou.
+Quando os fluxos de trabalho são processados em sistemas de nuvem de alta escala e de alta disponibilidade, o manipulador de fluxode trabalho associado a uma determinada sessão deve ser capaz de recuperar de falhas inesperadas e também ser capaz de retomar os trabalhos parcialmente concluídos em um diferente processo ou máquina de onde o trabalho começou.
 
-O recurso de estado de sessão permite uma anotação definida pelo aplicativo de uma sessão de mensagem dentro do agente, para que o estado de processamento registrado relativo a essa sessão se torne instantaneamente disponível quando a sessão for adquirida por um novo processador.
+A instalação do estado da sessão permite uma anotação definida pela aplicação de uma sessão de mensagem dentro do corretor, de modo que o estado de processamento registado relativo a essa sessão fica instantaneamente disponível quando a sessão é adquirida por um novo processador.
 
-Da perspectiva do barramento de serviço, o estado de sessão da mensagem é um objeto binário opaco que pode conter dados do tamanho de uma mensagem, que é 256 KB para o barramento de serviço Standard e 1 MB para o barramento de serviço Premium. O estado de processamento relativo a uma sessão pode ser mantido dentro do estado da sessão ou o estado da sessão pode apontar para algum local de armazenamento ou registro de banco de dados que contém essas informações.
+Do ponto de vista do Ônibus de serviço, o estado da sessão de mensagens é um objeto binário opaco que pode conter dados do tamanho de uma mensagem, que é 256 KB para service bus standard, e 1 MB para Service Bus Premium. O estado de processamento relativo a uma sessão pode ser realizado dentro do estado da sessão, ou o estado da sessão pode apontar para algum local de armazenamento ou registo de base de dados que detenha tais informações.
 
-As APIs para gerenciar o estado da sessão, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), podem ser encontradas no objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nas APIs C# do e do Java. Uma sessão que anteriormente não tinha nenhum estado de sessão definido retorna uma referência **nula** para **GetState**. Limpar o estado de sessão definido anteriormente é feito com [SetState (NULL)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+As APIs para gestão do estado de sessão, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e C# [GetState,](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)podem ser encontradas no objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) tanto nas APIs como em Java. Uma sessão que anteriormente não tinha estado definido devolve uma referência **nula** para **o GetState**. A limpeza do estado de sessão previamente definido é feita com [setState (nulo)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
 
-Observe que o estado da sessão permanece desde que não seja apagado (retornando **NULL**), mesmo que todas as mensagens em uma sessão sejam consumidas.
+Note que o estado da sessão permanece enquanto não estiver esclarecido (retornando **nulo),** mesmo que todas as mensagens de uma sessão sejam consumidas.
 
-Todas as sessões existentes em uma fila ou assinatura podem ser enumeradas com o método **SessionBrowser** na API do Java e com [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) no [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) e no [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) no cliente .net.
+Todas as sessões existentes numa fila ou subscrição podem ser enumeradas com o método **SessionBrowser** no API java e com [O GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) no [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) e [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) no cliente .NET.
 
-O estado de sessão mantido em uma fila ou em uma assinatura conta com relação à cota de armazenamento da entidade. Quando o aplicativo é concluído com uma sessão, é recomendável que o aplicativo Limpe seu estado retido para evitar custo de gerenciamento externo.
+O estado da sessão realizado numa fila ou numa subscrição conta para a quota de armazenamento daquela entidade. Quando o pedido estiver concluído com uma sessão, recomenda-se, por isso, que a aplicação limpe o seu estado retido para evitar custos de gestão externos.
 
-## <a name="impact-of-delivery-count"></a>Impacto da contagem de entrega
+## <a name="impact-of-delivery-count"></a>Impacto da contagem de entregas
 
-A definição de contagem de entrega por mensagem no contexto de sessões varia um pouco da definição no a ausência de sessões. Aqui está uma tabela Resumindo quando a contagem de entrega é incrementada.
+A definição de contagem de entregas por mensagem no contexto das sessões varia ligeiramente em coma da definição na ausência de sessões. Aqui está uma tabela resumindo quando a contagem de entrega é incrementada.
 
 | Cenário | A contagem de entrega da mensagem é incrementada |
 |----------|---------------------------------------------|
-| A sessão é aceita, mas o bloqueio de sessão expira (devido ao tempo limite) | Sim |
-| A sessão é aceita, as mensagens dentro da sessão não são concluídas (mesmo se estiverem bloqueadas) e a sessão será fechada | Não |
-| A sessão é aceita, as mensagens são concluídas e, em seguida, a sessão é fechada explicitamente | N/A (esse é o fluxo padrão. Estas mensagens são removidas da sessão) |
+| A sessão é aceite, mas o bloqueio da sessão expira (devido ao intervalo) | Sim |
+| A sessão é aceite, as mensagens dentro da sessão não estão completas (mesmo que estejam bloqueadas), e a sessão está fechada | Não |
+| A sessão é aceite, as mensagens são completadas, e então a sessão é explicitamente fechada | N/A (este é o fluxo padrão. Aqui as mensagens são removidas da sessão) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte os exemplos de [Microsoft. Azure. ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft. ServiceBus. Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) para obter um exemplo que usa o cliente .NET Framework para lidar com mensagens com reconhecimento de sessão. 
+- Consulte as [amostras Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft.ServiceBus.Mensagens,](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) por exemplo, que utiliza o cliente .NET Framework para lidar com mensagens conscientes da sessão. 
 
 Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
 

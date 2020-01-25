@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894026"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720406"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crie, explore e implante experimentos automatizados de aprendizado de máquina com o Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "75894026"
 
 1. Navegue até o painel esquerdo. Selecione **ml automatizado** na seção **autor** .
 
-[painel de navegação do ![Azure Machine Learning Studio](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[painel de navegação do estúdio de machine learning ![Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  Se esta for a primeira vez que você faz qualquer experimento, você verá uma lista vazia e links para a documentação. 
 
@@ -66,7 +66,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
         Campo| Descrição
         ----|----
-        Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
+        Formato de ficheiro| Define o layout e o tipo de dados armazenados em um arquivo.
         Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
         Encoding| Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.
@@ -153,9 +153,15 @@ Kurtosis| A medida de quão cauda os dados desta coluna é comparada a uma distr
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>Opções avançadas de pré-processamento
+## <a name="advanced-featurization-options"></a>Opções avançadas de caracterização
 
-Ao configurar seus experimentos, você pode habilitar a configuração avançada `Preprocess`. Isso significa que, como parte do pré-processamento, as etapas de guardrails e personalização de dados a seguir são executadas automaticamente.
+Ao configurar as suas experiências, pode ativar a configuração avançada `feauturization`. 
+
+|Configuração de Características | Descrição |
+| ------------- | ------------- |
+|"feauturização" = 'FeaturizationConfig'| Indica que deve ser utilizado um passo de caracterização personalizado. [Aprenda a personalizar a caracterização.](how-to-configure-auto-train.md#customize-feature-engineering)|
+|"feauturização" = 'off'| Indica que o passo de caracterização não deve ser feito automaticamente.|
+|"feauturização" = 'auto'| Indica que, como parte do pré-processamento, os seguintes guarda-costas de dados e passos de característicasão executados automaticamente.|
 
 |Pré-processando&nbsp;etapas| Descrição |
 | ------------- | ------------- |
@@ -196,13 +202,13 @@ A tela de **detalhes da execução** é aberta na guia **detalhes** . Esta tela 
 
 A guia **modelos** contém uma lista dos modelos criados ordenados pela pontuação da métrica. Por padrão, o modelo que classifica o mais alto com base na métrica escolhida está no topo da lista. Como o trabalho de treinamento tenta mais modelos, eles são adicionados à lista. Use isso para obter uma comparação rápida das métricas para os modelos produzidos até agora.
 
-[![painel de detalhes de execução](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
+[![Executar detalhes dashboard](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Exibir detalhes da execução de treinamento
 
 Faça uma busca detalhada em qualquer um dos modelos concluídos para ver detalhes de execução de treinamento, como executar métricas na guia **detalhes do modelo** ou gráficos de desempenho na guia **visualizações** . [saiba mais sobre gráficos](how-to-understand-automated-ml.md).
 
-[detalhes da iteração de ![](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
+[detalhes da ![Iteração](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Implantar seu modelo
 
@@ -222,7 +228,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
     ----|----
     Nome| Insira um nome exclusivo para sua implantação.
     Descrição| Insira uma descrição para identificar melhor a finalidade dessa implantação.
-    Tipo de computação| Selecione o tipo de ponto de extremidade que você deseja implantar: *AKs (serviço kubernetes do Azure)* ou *instância de contêiner do Azure (ACI)* .
+    Tipo computacional| Selecione o tipo de ponto de extremidade que você deseja implantar: *AKs (serviço kubernetes do Azure)* ou *instância de contêiner do Azure (ACI)* .
     Nome| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
     Ativar autenticação | Selecione para permitir a autenticação baseada em token ou baseada em chave.
     Usar ativos de implantação personalizados| Habilite esse recurso se você quiser carregar seu próprio script de Pontuação e arquivo de ambiente. [Saiba mais sobre scripts de Pontuação](how-to-deploy-and-where.md#script).

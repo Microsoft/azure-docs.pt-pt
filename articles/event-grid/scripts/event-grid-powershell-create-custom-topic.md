@@ -1,23 +1,22 @@
 ---
 title: Exemplo de script do Azure PowerShell - Criar um tópico personalizado | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Criar um tópico personalizado
+description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como criar um tópico personalizado da Rede de Eventos.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 01/23/2020
 ms.author: tomfitz
-ms.openlocfilehash: 20ad58c2e7209f8bed8014d5ce1dff094907590c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 900f31ff87e6a588fc1d1e3efd854437d2c8c1b9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117158"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719947"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Criar um tópico personalizado do Event Grid com o PowerShell
 

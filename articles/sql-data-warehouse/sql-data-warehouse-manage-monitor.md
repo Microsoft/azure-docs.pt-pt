@@ -1,6 +1,6 @@
 ---
 title: Monitorizar a carga de trabalho com DMVs
-description: Saiba como monitorar sua carga de trabalho usando DMVs.
+description: Aprenda a monitorizar a sua carga de trabalho utilizando DMVs.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,42 +10,42 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b71d3b4824d8c1c73f40c8c6d87db315aabd423b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 14c4bb843a93fe6d235354f24475b9974142db79
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555480"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721154"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
-Este artigo descreve como usar DMVs (exibições de gerenciamento dinâmico) para monitorar sua carga de trabalho. Isso inclui investigar a execução da consulta no SQL Data Warehouse do Azure.
+Este artigo descreve como usar pontos de vista de gestão dinâmica (DMVs) para monitorizar a sua carga de trabalho. Incluído está investigando uma execução de consulta no Armazém de Dados Azure SQL.
 
 ## <a name="permissions"></a>Permissões
-Para consultar as DMVs neste artigo, você precisará da permissão VIEW DATABASE STATE ou CONTROL. Geralmente, a concessão do estado do banco de dados de exibição é a permissão preferida, pois é muito mais restritiva.
+Para consultar os DMVs neste artigo, precisa de ver a BASE DE DADOS STATE ou a permissão CONTROL. Normalmente, conceder o VIEW DATABASE STATE é a permissão preferida, uma vez que é muito mais restritiva.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
 ```
 
-## <a name="monitor-connections"></a>Monitorar conexões
-Todos os logons para SQL Data Warehouse são registrados em [Sys. dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Essa DMV contém os últimos logons 10.000.  O session_id é a chave primária e é atribuído sequencialmente para cada novo logon.
+## <a name="monitor-connections"></a>Monitorizar ligações
+Todos os logins para o SQL Data Warehouse estão registados em [sys.dm_pdw_exec_sessions](https://msdn.microsoft.com/library/mt203883.aspx).  Este DMV contém os últimos 10.000 logins.  O session_id é a chave principal e é atribuído sequencialmente para cada novo logon.
 
 ```sql
 -- Other Active Connections
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <> session_id();
 ```
 
-## <a name="monitor-query-execution"></a>Monitorar a execução da consulta
-Todas as consultas executadas em SQL Data Warehouse são registradas em [Sys. dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Essa DMV contém as últimas 10.000 consultas executadas.  O request_id identifica exclusivamente cada consulta e é a chave primária para essa DMV.  O request_id é atribuído sequencialmente para cada nova consulta e é prefixado com QID, que representa a ID de consulta.  Consultar essa DMV para um determinado session_id mostra todas as consultas para um determinado logon.
+## <a name="monitor-query-execution"></a>Monitorizar a execução da consulta
+Todas as consultas executadas no SQL Data Warehouse são registadas em [sys.dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx).  Este DMV contém as últimas 10.000 consultas executadas.  O request_id identifica exclusivamente cada consulta e é a chave principal para este DMV.  O request_id é atribuído sequencialmente para cada nova consulta e é prefixado com QID, que significa identificação de consulta.  Consultar este DMV para um dado session_id mostra todas as consultas para um determinado logon.
 
 > [!NOTE]
-> Os procedimentos armazenados usam várias IDs de solicitação.  As IDs de solicitação são atribuídas em ordem sequencial. 
+> Os procedimentos armazenados utilizam várias IDs de Pedido.  As iDs de pedido são atribuídas por ordem sequencial. 
 > 
 > 
 
-Aqui estão as etapas a serem seguidas para investigar os planos de execução de consulta e os horários de uma consulta específica.
+Aqui estão os passos a seguir para investigar planos de execução de consulta e tempos para uma consulta particular.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>ETAPA 1: identificar a consulta que você deseja investigar
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>PASSO 1: Identifique a consulta que pretende investigar
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -61,11 +61,11 @@ ORDER BY total_elapsed_time DESC;
 
 ```
 
-Nos resultados da consulta anterior, **Observe a ID da solicitação** da consulta que você deseja investigar.
+A partir dos resultados da consulta anterior, **note a Identificação de Pedido** da consulta que gostaria de investigar.
 
-As consultas no estado **suspenso** podem ser enfileiradas devido a um grande número de consultas ativas em execução. Essas consultas também aparecem na consulta [Sys. dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) esperas com um tipo de UserConcurrencyResourceType. Para obter informações sobre limites de simultaneidade, consulte [limites de memória e de simultaneidade para o Azure SQL data warehouse](memory-concurrency-limits.md) ou [classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem esperar por outros motivos, como para bloqueios de objeto.  Se sua consulta estiver aguardando um recurso, consulte [investigando consultas aguardando recursos][Investigating queries waiting for resources] mais adiante neste artigo.
+As consultas no estado **suspenso** podem ser filas devido a um grande número de consultas de funcionamento ativos. Estas consultas também aparecem no [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) aguarda consulta com um tipo de UserConcurrencyResourceType. Para obter informações sobre os limites da concurrency, consulte os limites de memória e concurrency para as classes [Azure SQL Data Warehouse](memory-concurrency-limits.md) ou [Resource para gestão de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem esperar por outras razões, como por exemplo, bloqueios de objetos.  Se a sua consulta está à espera de um recurso, consulte [consultas de investigação à espera de recursos](#monitor-waiting-queries) mais abaixo neste artigo.
 
-Para simplificar a pesquisa de uma consulta na tabela [Sys. dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) , use o [rótulo][LABEL] para atribuir um comentário à consulta que pode ser pesquisada na exibição sys. dm_pdw_exec_requests.
+Para simplificar a procura de uma consulta na tabela [sys.dm_pdw_exec_requests,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) utilize o [LABEL](https://msdn.microsoft.com/library/ms190322.aspx) para atribuir um comentário à sua consulta, que pode ser consultada na vista sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -81,8 +81,8 @@ FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>ETAPA 2: investigar o plano de consulta
-Use a ID da solicitação para recuperar o plano do SQL distribuído da consulta (DSQL) de [Sys. dm_pdw_request_steps][sys.dm_pdw_request_steps].
+### <a name="step-2-investigate-the-query-plan"></a>PASSO 2: Investigar o plano de consulta
+Utilize o ID de pedido para recuperar o plano SQL (DSQL) distribuído da consulta a partir de [sys.dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx).
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -93,15 +93,15 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Quando um plano de DSQL está demorando mais do que o esperado, a causa pode ser um plano complexo com muitas etapas do DSQL ou apenas uma etapa demorando muito.  Se o plano for de muitas etapas com várias operações de movimentação, considere otimizar as distribuições de tabela para reduzir a movimentação de dados. O artigo [distribuição de tabela][Table distribution] explica por que os dados devem ser movidos para resolver uma consulta e explica algumas estratégias de distribuição para minimizar a movimentação de dados.
+Quando um plano DSQL está a demorar mais tempo do que o esperado, a causa pode ser um plano complexo com muitos passos DSQL ou apenas um passo a demorar muito tempo.  Se o plano for em muitos passos com várias operações de movimento, considere otimizar as distribuições da sua tabela para reduzir o movimento de dados. O artigo de distribuição da [tabela](sql-data-warehouse-tables-distribute.md) explica por que razão os dados devem ser movidos para resolver uma consulta. O artigo também explica algumas estratégias de distribuição para minimizar o movimento de dados.
 
-Para investigar mais detalhes sobre uma única etapa, a coluna *operation_type* da etapa de consulta de execução longa e anote o **índice da etapa**:
+Para investigar mais detalhes sobre um único passo, a *operation_type* coluna do passo de consulta de longa duração e observar o **Índice de Passos:**
 
-* Prossiga com a etapa 3a para **operações do SQL**: OnOperation, RemoteOperation, ReturnOperation.
-* Continue com a etapa 3B para **operações de movimentação de dados**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Prossiga com o Passo 3a para **operações SQL**: Operação, Operação Remota, Operação de Devolução.
+* Prossiga com a Passo 3b para **operações**de Movimento de Dados : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>ETAPA 3a: investigar o SQL nos bancos de dados distribuídos
-Use a ID da solicitação e o índice da etapa para recuperar detalhes de [Sys. dm_pdw_sql_requests][sys.dm_pdw_sql_requests], que contém informações de execução da etapa de consulta em todos os bancos de dados distribuídos.
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASSO 3a: Investigar a SQL nas bases de dados distribuídas
+Utilize o ID de Pedido e o Índice de Etapa para obter detalhes de [sys.dm_pdw_sql_requests,](https://msdn.microsoft.com/library/mt203889.aspx)que contém informações de execução do passo de consulta em todas as bases de dados distribuídas.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -111,7 +111,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Quando a etapa de consulta está em execução, o [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] pode ser usado para recuperar o SQL Server plano estimado do cache do plano de SQL Server para a etapa em execução em uma distribuição específica.
+Quando o passo de consulta está em execução, [o DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) pode ser usado para recuperar o plano estimado do SQL Server a partir da cache do plano SQL Server para o passo em execução numa determinada distribuição.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -120,8 +120,8 @@ Quando a etapa de consulta está em execução, o [DBCC PDW_SHOWEXECUTIONPLAN][D
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>ETAPA 3B: investigar a movimentação de dados nos bancos de dados distribuídos
-Use a ID da solicitação e o índice da etapa para recuperar informações sobre uma etapa de movimentação de dados em execução em cada distribuição de [Sys. dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASSO 3b: Investigar o movimento de dados nas bases de dados distribuídas
+Utilize o ID de Pedido e o Índice de Passos para obter informações sobre um passo de movimento de dados em cada distribuição a partir de [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx).
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -131,10 +131,10 @@ SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-* Verifique a coluna *total_elapsed_time* para ver se uma distribuição específica está demorando significativamente mais do que outras para a movimentação de dados.
-* Para a distribuição de execução longa, marque a coluna *rows_processed* para ver se o número de linhas que estão sendo movidas dessa distribuição é significativamente maior do que outras. Nesse caso, essa localização pode indicar a distorção dos dados subjacentes.
+* Verifique a coluna *total_elapsed_time* para ver se uma determinada distribuição está a demorar significativamente mais tempo do que outras para o movimento de dados.
+* Para a distribuição a longo prazo, verifique a coluna *rows_processed* para ver se o número de linhas que estão a ser deslocadas dessa distribuição é significativamente maior do que outros. Em caso afirmativo, esta descoberta pode indicar distorções dos seus dados subjacentes.
 
-Se a consulta estiver em execução, o [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] poderá ser usado para recuperar o SQL Server plano estimado do cache do plano de SQL Server para a etapa SQL em execução no momento em uma distribuição específica.
+Se a consulta estiver em execução, pode utilizar [o DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) para recuperar o plano estimado do SQL Server a partir da cache do plano SQL Server para o Passo SQL atualmente em execução dentro de uma distribuição específica.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -145,8 +145,8 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 <a name="waiting"></a>
 
-## <a name="monitor-waiting-queries"></a>Monitorar consultas em espera
-Se você descobrir que sua consulta não está progredindo porque está aguardando um recurso, aqui está uma consulta que mostra todos os recursos que uma consulta está aguardando.
+## <a name="monitor-waiting-queries"></a>Monitorizar consultas de espera
+Se descobrir que a sua consulta não está a progredir porque está à espera de um recurso, aqui está uma consulta que mostra todos os recursos que uma consulta espera.
 
 ```sql
 -- Find queries 
@@ -168,13 +168,13 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Se a consulta estiver aguardando ativamente os recursos de outra consulta, o estado será **AcquireResources**.  Se a consulta tiver todos os recursos necessários, o estado será **concedido**.
+Se a consulta estiver ativamente à espera de recursos de outra consulta, então o Estado será **adquirir Recursos.**  Se a consulta tiver todos os recursos necessários, então o Estado será **concedido.**
 
-## <a name="monitor-tempdb"></a>Monitorar tempdb
-O tempdb é usado para manter resultados intermediários durante a execução da consulta. A alta utilização do banco de dados tempdb pode levar a um desempenho de consulta lento. Cada nó no Azure SQL Data Warehouse tem aproximadamente 1 TB de espaço bruto para tempdb. Abaixo estão as dicas para monitorar o uso do tempdb e para diminuir o uso do tempdb em suas consultas. 
+## <a name="monitor-tempdb"></a>Tempdb monitor
+Tempdb é usado para manter resultados intermédios durante a execução da consulta. Uma utilização elevada da base de dados tempdb pode levar a um desempenho lento da consulta. Cada nó no Azure SQL Data Warehouse tem aproximadamente 1 TB de espaço bruto para a temperatura. Abaixo estão as dicas para monitorizar o uso temporário e para diminuir o uso temporário nas suas consultas. 
 
-### <a name="monitoring-tempdb-with-views"></a>Monitorando tempdb com exibições
-Para monitorar o uso do tempdb, primeiro instale o modo de exibição [Microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) do [microsoft Toolkit para SQL data warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Em seguida, você pode executar a consulta a seguir para ver o uso de tempdb por nó para todas as consultas executadas:
+### <a name="monitoring-tempdb-with-views"></a>Monitorização tempdb com vistas
+Para monitorizar a utilização temporária, instale primeiro a visão [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) do Microsoft Toolkit para O Armazém de [Dados SQL](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Em seguida, pode executar a seguinte consulta para ver o uso temporário por nó para todas as consultas executadas:
 
 ```sql
 -- Monitor tempdb
@@ -206,17 +206,17 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Se você tiver uma consulta que esteja consumindo uma grande quantidade de memória ou tenha recebido uma mensagem de erro relacionada à alocação de tempdb, isso pode ser devido a uma CREATE TABLE muito grande, [como SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou a instrução [Insert Select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) em execução que está falhando na operação de movimentação de dados final. Normalmente, isso pode ser identificado como uma operação ShuffleMove no plano de consulta distribuída logo antes da seleção de inserção final.  Use [Sys. dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) para monitorar operações ShuffleMove. 
+Se tiver uma consulta que esteja a consumir uma grande quantidade de memória ou tenha recebido uma mensagem de erro relacionada com a atribuição de tempdb, pode ser devido a uma tabela de criação muito grande [COMO SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [insert SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) statement que está falhando na operação final de movimento de dados. Isto pode geralmente ser identificado como uma operação ShuffleMove no plano de consulta distribuído imediatamente antes do SELECT DE ENCAIXE final.  Utilize [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) para monitorizar as operações da ShuffleMove. 
 
-A mitigação mais comum é quebrar sua CTAS ou inserir instrução SELECT em várias instruções Load para que o volume de dados não exceda o limite de 1 TB por nó de tempdb. Você também pode dimensionar o cluster para um tamanho maior que espalhará o tamanho do tempdb em mais nós, reduzindo o tempdb em cada nó individual.
+A mitigação mais comum é quebrar a sua declaração CTAS ou INSERIR SELECT em várias demonstrações de carga para que o volume de dados não exceda o limite de 1TB por temperatura do nó. Também pode escalar o seu cluster para um tamanho maior que irá espalhar o tamanho temporário em mais nós reduzindo a temperatura em cada nó individual.
 
-Além das instruções CTAS e INSERT SELECT, as consultas grandes e complexas em execução com memória insuficiente podem ser despejadas no tempdb, causando a falha das consultas.  Considere a execução com uma [classe de recursos](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) maior para evitar o despejo em tempdb.
+Além das declarações CTAS e INSERT SELECT, consultas grandes e complexas que correm com memória insuficiente podem derramar em tempdb causando falhas nas consultas.  Considere correr com uma classe de [recursos](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) maior para evitar derramar em tempdb.
 
-## <a name="monitor-memory"></a>Monitorar memória
+## <a name="monitor-memory"></a>Monitorizar a memória
 
-A memória pode ser a causa raiz para baixo desempenho e problemas de memória insuficiente. Considere dimensionar seu data warehouse se você encontrar SQL Server uso de memória atingindo seus limites durante a execução da consulta.
+A memória pode ser a causa principal para um desempenho lento e fora de problemas de memória. Considere escalar o seu armazém de dados se encontrar o uso da memória do SQL Server atingindo os seus limites durante a execução da consulta.
 
-A consulta a seguir retorna SQL Server uso de memória e pressão de memória por nó:   
+A seguinte consulta devolve o uso da memória do Servidor SQL e a pressão de memória por nó:   
 ```sql
 -- Memory consumption
 SELECT
@@ -238,8 +238,8 @@ WHERE
 pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
-## <a name="monitor-transaction-log-size"></a>Monitorar o tamanho do log de transações
-A consulta a seguir retorna o tamanho do log de transações em cada distribuição. Se um dos arquivos de log estiver alcançando 160 GB, considere escalar verticalmente sua instância ou limitar o tamanho da transação. 
+## <a name="monitor-transaction-log-size"></a>Monitorizar o tamanho do registo de transações
+A consulta seguinte devolve o tamanho do registo de transações em cada distribuição. Se um dos ficheiros de registo estiver a atingir os 160 GB, deverá considerar aumentar a sua instância ou limitar o tamanho da sua transação. 
 ```sql
 -- Transaction log size
 SELECT
@@ -251,8 +251,8 @@ WHERE
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
 ```
-## <a name="monitor-transaction-log-rollback"></a>Monitorar a reversão do log de transações
-Se suas consultas estiverem falhando ou demorando muito para continuar, você poderá verificar e monitorar se você tiver quaisquer transações revertidas.
+## <a name="monitor-transaction-log-rollback"></a>Monitorizar a reversão do registo de transações
+Se as suas dúvidas estiverem a falhar ou demorar muito tempo a proceder, pode verificar e monitorizar se tem alguma transação a reverter.
 ```sql
 -- Monitor rollback
 SELECT 
@@ -264,8 +264,8 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## <a name="monitor-polybase-load"></a>Monitorar o carregamento do polybase
-A consulta a seguir fornece uma estimativa aproximada do progresso da carga. A consulta mostra apenas os arquivos que estão sendo processados no momento. 
+## <a name="monitor-polybase-load"></a>Monitorizar a carga polyBase
+A seguinte consulta fornece uma estimativa aproximada do progresso da sua carga. A consulta apenas mostra ficheiros que estão a ser processados. 
 
 ```sql
 
@@ -290,23 +290,4 @@ ORDER BY
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre DMVs, consulte [exibições do sistema][System views].
-
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
-
-<!--MSDN references-->
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+Para obter mais informações sobre DMVs, consulte [as vistas do Sistema](./sql-data-warehouse-reference-tsql-system-views.md).

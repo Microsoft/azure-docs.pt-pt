@@ -1,6 +1,6 @@
 ---
 title: Exibir a tendência de custo estimado mensal do laboratório em Azure DevTest Labs
-description: Saiba mais sobre o gráfico de tendência de custo estimado mensal Azure DevTest Labs.
+description: Este artigo fornece informações sobre como rastrear o custo do seu laboratório (gráfico de tendência de custos estimado mensalmente) em Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 15ddaa6c73cedb32d920ef943627831c1e9b378b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 2e4fe55fac5edf73e16df05bd38cc2712a94377d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169616"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721732"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Acompanhe os custos associados a um laboratório no Azure DevTest Labs
 Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como exibir o Trent de custo estimado para o mês do calendário atual do laboratório. O artigo também mostra como exibir o custo acumulado no mês por recurso no laboratório.
@@ -69,7 +69,7 @@ O DevTest Labs permite que você gerencie melhor os custos em seu laboratório d
       - **Mensalmente**: os destinos de custo são acompanhados por mês.
       - **Corrigido**: os destinos de custo são rastreados para o intervalo de datas especificado nas datas de início e término. Normalmente, esses valores representam por quanto tempo seu projeto está agendado para ser executado.
    - Especifique um **custo de destino**. Por exemplo, quanto você planeja gastar neste laboratório no período de tempo definido.
-   - Selecione para habilitar ou desabilitar qualquer limite que você deseja reportar – em incrementos de 25% – até 125% do **custo de destino**especificado.
+   - Selecione para ativar ou desativar qualquer limiar que pretenda reportado – em incrementos de 25% – até 125% do custo do **Target**especificado .
       - **Notificar**: quando esse limite for atingido, você será notificado por uma URL do webhook que você especificar.
       - **Plotar no gráfico**: quando esse limite é atingido, os resultados são plotados no grafo de tendência de custo que você pode exibir, conforme descrito em exibindo o gráfico de tendência de custo estimado mensal.
    - Se você optar por **notificar** quando o limite for atingido, deverá especificar uma URL de webhook. Na área integrações de custo, selecione **clique aqui para adicionar uma integração**. Insira uma **URL de webhook** no painel configurar notificação e, em seguida, selecione **OK**.

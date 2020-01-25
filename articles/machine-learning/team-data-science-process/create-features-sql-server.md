@@ -3,20 +3,20 @@ title: Criar recursos no SQL Server com o SQL e Python – Team Data Science Pro
 description: Gere características para dados armazenados numa VM do SQL Server no Azure com o SQL e Python – parte do processo de ciência de dados de equipa.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982063"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721749"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar características para dados no SQL Server com SQL e Python
 Este documento mostra como gerar características para dados armazenados numa VM do SQL Server no Azure que o ajudam a aprender de forma mais eficiente com os dados de algoritmos. Pode utilizar uma linguagem de programação, como o Python ou SQL para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
@@ -37,9 +37,9 @@ Este artigo pressupõe que tem:
 ## <a name="sql-featuregen"></a>Geração de recursos com o SQL
 Nesta seção, descrevemos as formas de gerar recursos com o SQL:  
 
-1. [Geração de recursos com base de contagem](#sql-countfeature)
-2. [Discretização de funcionalidade de geração](#sql-binningfeature)
-3. [A implementar os recursos de uma única coluna](#sql-featurerollout)
+* [Geração de recursos com base de contagem](#sql-countfeature)
+* [Discretização de funcionalidade de geração](#sql-binningfeature)
+* [A implementar os recursos de uma única coluna](#sql-featurerollout)
 
 > [!NOTE]
 > Depois de gerar recursos adicionais, pode adicioná-los como colunas na tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser associado com a tabela original.
@@ -47,7 +47,7 @@ Nesta seção, descrevemos as formas de gerar recursos com o SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Contagem de geração de recursos com base
-Este documento demonstra duas formas de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo método utiliza a cláusula "where". Estes podem, em seguida, ser associadas com a tabela original (usando colunas de chave primária) para que a contagem de recursos em conjunto com os dados originais.
+Este documento demonstra duas formas de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo método utiliza a cláusula "where". Estas novas funcionalidades podem então ser unidas à tabela original (utilizando colunas de chaves primárias) para ter características de contagem ao lado dos dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ Este documento demonstra duas formas de gerar recursos de contagem. O primeiro m
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>Discretização de funcionalidade de geração
-O exemplo seguinte mostra como gerar recursos compartimentados por compartimentação de (com 5 discretizações), uma coluna numérica que pode ser utilizada como um recurso em vez disso:
+O exemplo seguinte mostra como gerar recursos compartimentados por compartimentação (usando cinco discretizações), uma coluna numérica que pode ser utilizada como um recurso em vez disso:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ Eis um breve manual nos dados de localização de latitude/longitude (resourced 
 * A terceiro casa decimal, vale a pena m: até 110, poderá identificar um campo de agricultural grandes ou o campus institucional.
 * A quarta casa decimal, vale a pena m: até 11, poderá identificar um parcel da terra. É comparável da precisão típica de uma unidade GPS uncorrected com nenhuma interferência.
 * A quinta casa decimal, vale a pena m: até 1.1, que distingue árvores uns dos outros. Precisão para este nível com as unidades GPS comerciais só pode ser realizada com a correção diferencial.
-* A sexta casa decimal, vale a pena m: até 0.11, que pode utilizá-lo para disposição dos estruturas em detalhes, para a criação de cenários, a criação de estradas. Deve ser mais de bom o suficiente para movimentos de glaciers e rios de controlo. Isso pode ser conseguido ao tirar o trabalho árduo medidas com GPS, como GPS differentially corrigido.
+* O sexto lugar decimal vale até 0,11 m: você pode usar este nível para definir estruturas em detalhe, para projetar paisagens, construindo estradas. Deve ser mais de bom o suficiente para movimentos de glaciers e rios de controlo. Este objetivo pode ser alcançado tomando medidas meticulosas com GPS, tais como GPS corrigido diferenciado.
 
-As informações de localização podem ser caracterizadas, separando os região, localização e informações de cidade. Tenha em atenção que uma vez também pode chamar um ponto de final de REST, como a API do mapas Bing disponível em `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito.
+As informações de localização podem ser caracterizadas, separando os região, localização e informações de cidade. Uma vez também pode chamar um ponto final DE REPOUSO, como bing Maps API (ver `https://msdn.microsoft.com/library/ff701710.aspx` para obter a informação região/distrito).
 
     select
         <location_columnname>
@@ -89,7 +89,7 @@ As informações de localização podem ser caracterizadas, separando os região
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Esses recursos baseados na localização podem servir-se ainda mais para gerar recursos adicionais de contagem, conforme descrito anteriormente.
+Estas funcionalidades com base na localização podem servir-se ainda mais para gerar recursos adicionais de contagem, conforme descrito anteriormente.
 
 > [!TIP]
 > Por meio de programação, pode inserir os registros usando a linguagem de sua escolha. Terá de inserir os dados em segmentos para melhorar a eficiência de escrita. [Eis um exemplo de como fazer isso usando o pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).

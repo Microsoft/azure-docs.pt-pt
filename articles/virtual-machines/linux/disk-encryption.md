@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 4508d4b36e17db801a3ac172c434cf2e2136e141
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2df0135953a9f810bdc142b18386c9a186028767
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289361"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717597"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor de Azure Managed disks
 
@@ -139,12 +139,12 @@ az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --
 #### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Criar um conjunto de dimensionamento de máquinas virtuais usando uma imagem do Marketplace, criptografando o sistema operacional e os discos de dados com chaves gerenciadas pelo cliente
 
 ```azurecli
-rgName=ssecmktesting
-vmssName=ssecmktestvmss5
+rgName=yourResourceGroupName
+vmssName=yourVMSSName
 location=WestCentralUS
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
-diskEncryptionSetName=diskencryptionset786
+diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
@@ -188,7 +188,7 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Explore os modelos de Azure Resource Manager para criar discos criptografados com chaves gerenciadas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [O que é o Cofre chave Azure?](../../key-vault/key-vault-overview.md)
 - [Replicar máquinas com discos habilitados para chaves gerenciadas pelo cliente](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Configurar a recuperação de desastre de VMs do VMware para o Azure com o PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Configurar a recuperação de desastres para o Azure para VMs do Hyper-V usando o PowerShell e Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

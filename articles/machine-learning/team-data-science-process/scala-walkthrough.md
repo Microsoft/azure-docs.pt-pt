@@ -3,26 +3,26 @@ title: Ciência de dados com o Scala e Spark no Azure - Team Data Science Proces
 description: Como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b22d461d327e595908ea8cc18dd0d507fdc83ecd
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907700"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716760"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
 Este artigo mostra-lhe como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e aumentou a gradação árvores (GBTs), além de dois supervisionado tarefas de machine learning:
 
-* Problema de regressão: Previsão do valor da gorjeta ($) para uma viagem de táxi
-* Classificação binária: Previsão de Tip ou nenhuma Tip (1/0) para uma viagem de táxi
+* Problema de regressão: previsão da quantidade de tip ($) para uma viagem de táxis
+* Classificação binária: previsão de sugestão ou nenhuma sugestão (1/0) para uma viagem de táxis
 
 O processo de modelagem requer formação e avaliação num conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, pode saber como armazenar esses modelos no armazenamento de Blobs do Azure e como proceder à sua classificação e avaliar seu desempenho de previsão. Este artigo também abrange os tópicos mais avançados de como otimizar modelos utilizando varrimento de validação cruzada e de hyper-parâmetro. Os dados utilizados são um exemplo do 2013 NYC táxis viagem e Europeia conjunto de dados disponível no GitHub.
 
@@ -41,7 +41,7 @@ Os passos de configuração e o código neste artigo são para o Azure HDInsight
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Precisa de uma subscrição do Azure. Se ainda não tiver um, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos seguintes. Para criar um cluster, consulte as instruções em [introdução: Criar Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Definir o tipo de cluster e a versão da **selecionar o tipo de Cluster** menu.
+* Precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos seguintes. Para criar um cluster, consulte as instruções em [começar a utilizar: criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Definir o tipo de cluster e a versão da **selecionar o tipo de Cluster** menu.
 
 ![Configuração de tipo de cluster do HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ Pode carregar o bloco de notas diretamente a partir do GitHub para o servidor de
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Instalação Contextos predefinidos do Spark e do hive, mágicas do Spark e bibliotecas do Spark
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Programa de configuração: Contextos do Spark de configuração predefinida e do Hive, magia do Spark e bibliotecas de Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Configuração predefinida contextos do Spark e do Hive
     # SET THE START TIME
     import java.util.Calendar
@@ -254,12 +254,12 @@ Em seguida, consultar a tabela para Europeia, passageiros e dados da tip; filtra
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Exploração de dados e visualização
-Depois de colocar os dados no Spark, a próxima etapa no processo de ciência de dados é obter uma compreensão mais aprofundada dos dados por meio de exploração e visualização. Nesta seção, examinar os dados de táxis utilizando consultas SQL. Em seguida, importe os resultados para um quadro de dados para desenhar as variáveis de destino e os recursos potenciais para inspeção visual ao utilizar a funcionalidade de visualização de auto do Jupyter.
+Depois de colocar os dados no Spark, a próxima etapa no processo de ciência de dados é obter uma compreensão mais aprofundada dos dados por meio de exploração e visualização. Nesta seção, examinar os dados de táxis utilizando consultas SQL. Em seguida, importe os resultados num quadro de dados para traçar as variáveis-alvo e as funcionalidades prospetivas para a inspeção visual utilizando a funcionalidade de visualização automática Jupyter.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Utilizar o local e "SQL Magic" para representar dados
 Por predefinição, a saída de qualquer trecho de código que executar a partir de um bloco de notas do Jupyter está disponível dentro do contexto da sessão que é mantido em nós de trabalho. Se desejar salvar uma viagem para os nós de trabalho para cada cálculo e, se todos os dados que precisa para a computação de que está disponível localmente no nó de servidor de Jupyter (que é o nó principal), pode utilizar o `%%local` mágica para executar o fragmento de código no Jupyter servidor.
 
-* **"SQL Magic"** (`%%sql`). O kernel de Spark do HDInsight suporta consultas HiveQL inline fácil kontext SQLContext. O (`-o VARIABLE_NAME`) argumento persistir o resultado da consulta SQL como um quadro de dados de Pandas no servidor do Jupyter. Isso significa que estará disponível no modo de local.
+* **"SQL Magic"** (`%%sql`). O kernel de Spark do HDInsight suporta consultas HiveQL inline fácil kontext SQLContext. O (`-o VARIABLE_NAME`) argumento persistir o resultado da consulta SQL como um quadro de dados de Pandas no servidor do Jupyter. Esta definição significa que a saída estará disponível no modo local.
 * `%%local` **Magic**. O `%%local` mágica executa o código localmente no servidor do Jupyter, o que é o nó principal do cluster do HDInsight. Normalmente, utiliza `%%local` mágica em conjunto com o `%%sql` mágico com o `-o` parâmetro. O `-o` parâmetro persistir o resultado da consulta SQL localmente e, em seguida, `%%local` mágica dispararia o próximo conjunto de Trecho de código para executar localmente em relação a saída das consultas SQL que é mantida localmente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consultar os dados com o SQL
@@ -289,7 +289,7 @@ Pode desenhar com o código de Python depois do quadro de dados no contexto loca
 
  O kernel de Spark visualiza automaticamente a saída de consultas SQL (HiveQL) depois de executar o código. Pode escolher entre vários tipos de visualizações:
 
-* Tabela
+* Tabelas
 * Circular
 * Linha
 * Área
@@ -532,7 +532,7 @@ Aqui está o código para essas duas tarefas.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: Prever se uma gorjeta deve ser paga
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prever se uma dica deve ser pago
 Nesta secção, vai criar três tipos de modelos de classificação binária para prever se ou não deve ser pago uma dica:
 
 * R **modelo de regressão logística** ao utilizar o Spark ML `LogisticRegression()` função
@@ -723,9 +723,9 @@ Em seguida, crie um modelo de classificação GBT através da utilização do ML
 
 **Saída:**
 
-Área sob curva ROC: 0.9846895479241554
+Área em curva cor MULTICLASSE: 0.9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: Prever valor da gorjeta
+## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: prever a quantidade de sugestão
 Nesta secção, vai criar dois tipos de modelos de regressão para prever a quantidade de dica:
 
 * R **modelo de regressão linear regularized** ao utilizar o Spark ML `LinearRegression()` função. Irá guardar o modelo e avaliar o modelo em dados de teste.
@@ -848,12 +848,12 @@ Crie gráficos com Python matplotlib.
 
 **Saída:**
 
-![Valor da gorjeta: Real versus previsto](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Sugestão quantidade: real vs. prevista](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Criar um modelo de regressão GBT
 Criar um modelo de regressão GBT com o Spark ML `GBTRegressor()` de função e, em seguida, avaliar o modelo em dados de teste.
 
-[Árvores de aumentou a gradação](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são árvores de árvores de decisões. GBTs treinar árvores de decisão iterativamente para minimizar a uma função de perda. Pode usar GBTs para classificação e regressão. Pode manipular recursos categóricos, não requerem o dimensionamento do recurso e podem capturar nonlinearities e interações de funcionalidade. Também pode usá-los numa configuração de classificação de várias classes.
+[As árvores reforçadas com gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. A GBTS treina a decisão das árvores iterativamente para minimizar uma função de perda. Pode utilizar GBTS para regressão e classificação. Pode manipular recursos categóricos, não requerem o dimensionamento do recurso e podem capturar nonlinearities e interações de funcionalidade. Também pode usá-los numa configuração de classificação de várias classes.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -881,7 +881,7 @@ Criar um modelo de regressão GBT com o Spark ML `GBTRegressor()` de função e,
 
 **Saída:**
 
-Testar R-Sqr é: 0.7655383534596654
+É de teste. o R-sqr: 0.7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>Utilitários de modelação avançada para Otimização
 Nesta secção, vai utilizar utilitários de aprendizado de máquina que os desenvolvedores utilizam com frequência para a otimização de modelo. Especificamente, pode otimizar modelos de machine learning três formas diferentes com varrimento de parâmetro e a validação cruzada:
@@ -938,7 +938,7 @@ Em seguida, dividir os dados em conjuntos de formação e a validação, utilize
 
 **Saída:**
 
-Testar R-Sqr é: 0.6226484708501209
+É de teste. o R-sqr: 0.6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Otimizar o modelo de classificação binário, utilizando a validação cruzada e de hyper-parâmetro de varrimento
 Esta secção mostra-lhe como otimizar um modelo de classificação binária utilizando varrimento de validação cruzada e de hyper-parâmetro. Esta opção utiliza o Spark ML `CrossValidator` função.
@@ -982,7 +982,7 @@ Esta secção mostra-lhe como otimizar um modelo de classificação binária uti
 
 **Saída:**
 
-Tempo para executar a célula: 33 segundos.
+Tempo para executar a célula: e 33 segundos.
 
 ### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Otimizar o modelo de regressão linear com o código de validação cruzada e varrimento de parâmetro personalizado
 Em seguida, otimizar o modelo utilizando código personalizado e identificar os melhores parâmetros de modelo ao utilizar o critério de precisão mais elevada. Em seguida, crie o modelo final, avaliar o modelo em dados de teste e guardar o modelo no armazenamento de Blobs. Por fim, carregar o modelo, classificar os dados de teste e avaliar a precisão.

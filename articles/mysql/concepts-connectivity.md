@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d91048c52794869b5db1467a3456ca58e703d1ad
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659224"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719930"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MySQL
 
@@ -95,7 +95,7 @@ public class SimpleTestOnBorrowExample {
             // The pool itself doesn't timeout the query, it is still up to the JDBC driver to enforce query timeouts. 
             // A value less than or equal to zero will disable this feature.
           p.setValidationQueryTimeout(1);
-            // set other usefull pool properties.
+            // set other useful pool properties.
           DataSource datasource = new DataSource();
           datasource.setPoolProperties(p);
 

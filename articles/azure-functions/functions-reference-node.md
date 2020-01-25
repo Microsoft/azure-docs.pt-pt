@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: a34efe20e796570358771ec53fbfb797daa15b93
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922004"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714792"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor do Azure Functions JavaScript
 
@@ -102,7 +102,7 @@ No JavaScript, as [associações](functions-triggers-bindings.md) são configura
 
 ### <a name="inputs"></a>Entradas
 As entradas são divididas em duas categorias no Azure Functions: uma é a entrada do gatilho e a outra é a entrada adicional. Gatilho e outras associações de entrada (associações de `direction === "in"`) podem ser lidos por uma função de três maneiras:
- - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos em *Function. JSON*. A propriedade `name` definida em *Function. JSON* não precisa corresponder ao nome do parâmetro, embora deva ser.
+ - **_[Recomendado]_ À medida que os parâmetros passavam para a sua função.** Eles são passados para a função na mesma ordem em que são definidos em *Function. JSON*. A propriedade `name` definida em *Function. JSON* não precisa corresponder ao nome do parâmetro, embora deva ser.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -133,7 +133,7 @@ As saídas (associações de `direction === "out"`) podem ser gravadas por uma f
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
 
-- **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo a seguir, as associações de saída são nomeadas como "httpResponse" e "queueOutput" em *Function. JSON*.
+- **_[Recomendado para várias saídas]_ Devolver um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo a seguir, as associações de saída são nomeadas como "httpResponse" e "queueOutput" em *Function. JSON*.
 
   ```javascript
   module.exports = async function(context) {
@@ -148,7 +148,7 @@ Você pode atribuir dados a associações de saída de uma das seguintes maneira
   ```
 
   Se você estiver usando uma função síncrona, poderá retornar esse objeto usando [`context.done`](#contextdone-method) (consulte o exemplo).
-- **_[Recomendado para saída única]_ Retornando um valor diretamente e usando o nome da Associação de $return.** Isso funciona apenas para funções de retorno de Async/Promise. Consulte o exemplo em [exportando uma função Async](#exporting-an-async-function). 
+- **_[Recomendado para uma saída única]_ Devolvendo um valor diretamente e utilizando o $return nome de ligação.** Isso funciona apenas para funções de retorno de Async/Promise. Consulte o exemplo em [exportando uma função Async](#exporting-an-async-function). 
 - **Atribuindo valores a `context.bindings`** Você pode atribuir valores diretamente a Context. Bindings.
 
   ```javascript
@@ -232,7 +232,7 @@ Você pode optar por definir dados de associação de saída usando o método `c
 context.bindingData
 ```
 
-Retorna um objeto nomeado que contém metadados de gatilho e dados de invocação de função (`invocationId`, `sys.methodName`, `sys.utcNow``sys.randGuid`). Para obter um exemplo de metadados de gatilho, consulte este [exemplo de hubs de eventos](functions-bindings-event-hubs.md#trigger---javascript-example).
+Retorna um objeto nomeado que contém metadados de gatilho e dados de invocação de função (`invocationId`, `sys.methodName`, `sys.utcNow``sys.randGuid`). Para obter um exemplo de metadados de gatilho, consulte este [exemplo de hubs de eventos](functions-bindings-event-hubs.md#trigger).
 
 ### <a name="contextdone-method"></a>método Context. Done
 
@@ -389,9 +389,9 @@ Ao trabalhar com gatilhos HTTP, você pode acessar os objetos de solicitação e
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Somente resposta]_ Chamando `context.res.send(body?: any)`.** Uma resposta HTTP é criada com `body` de entrada como o corpo da resposta. `context.done()` é chamado implicitamente.
++ **_[Apenas resposta]_ Chamando `context.res.send(body?: any)`.** Uma resposta HTTP é criada com `body` de entrada como o corpo da resposta. `context.done()` é chamado implicitamente.
 
-+ **_[Somente resposta]_ Chamando `context.done()`.** Um tipo especial de associação HTTP retorna a resposta que é passada para o método `context.done()`. A seguinte Associação de saída HTTP define um `$return` parâmetro de saída:
++ **_[Apenas resposta]_ Chamando `context.done()`.** Um tipo especial de associação HTTP retorna a resposta que é passada para o método `context.done()`. A seguinte Associação de saída HTTP define um `$return` parâmetro de saída:
 
     ```json
     {
@@ -412,9 +412,9 @@ Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativ
 
 Esse comportamento de dimensionamento é suficiente para muitos aplicativos node. js. Para aplicativos associados à CPU, você pode melhorar ainda mais o desempenho usando vários processos de trabalho de linguagem.
 
-Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. Você pode aumentar o número de processos de trabalho por host (até 10) usando a configuração de aplicativo [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
+Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
 
-O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao escalar horizontalmente seu aplicativo para atender à demanda. 
+O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções criam ao escalonar a sua aplicação para satisfazer a procura. 
 
 ## <a name="node-version"></a>Versão do nó
 
@@ -423,7 +423,7 @@ A tabela a seguir mostra a versão do node. js usada por cada versão principal 
 | Versão das funções | Versão do node. js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueado pelo tempo de execução) |
-| 2.x  | _Active LTS_ e _Maintenance LTS_ versões do node. js (aproximadamente, 10 recomendado). Direcione a versão no Azure definindo a configuração de [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION como `~10`.|
+| 2.x  | _Active LTS_ e _Maintenance LTS_ versões do node. js (aproximadamente, 10 recomendado). Direcione a versão em Azure definindo a definição de [aplicação](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION para `~10`.|
 
 Você pode ver a versão atual que o tempo de execução está usando verificando a configuração do aplicativo acima ou imprimindo `process.version` de qualquer função.
 
@@ -451,7 +451,7 @@ Há duas maneiras de instalar pacotes no seu Aplicativo de funções:
 ### <a name="deploying-with-dependencies"></a>Implantando com dependências
 1. Instale todos os pacotes necessários localmente executando `npm install`.
 
-2. Implante seu código e verifique se a pasta `node_modules` está incluída na implantação. 
+2. Implemente o seu código e certifique-se de que a pasta `node_modules` está incluída na implementação. 
 
 
 ### <a name="using-kudu"></a>Usando kudu
@@ -467,7 +467,7 @@ Há duas maneiras de instalar pacotes no seu Aplicativo de funções:
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [as configurações de aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `process.env`, conforme mostrado aqui na segunda e terceira chamadas para `context.log()` em que registramos as variáveis de ambiente `AzureWebJobsStorage` e `WEBSITE_SITE_NAME`:
+Em funções, [as configurações de aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, são expostas como variáveis de ambiente durante a execução. Pode aceder a estas definições utilizando `process.env`, como mostra aqui na segunda e terceira chamadas para `context.log()` onde registamos as variáveis ambiente `AzureWebJobsStorage` e `WEBSITE_SITE_NAME`:
 
 ```javascript
 module.exports = async function (context, myTimer) {
@@ -487,7 +487,7 @@ Ao executar localmente, as configurações do aplicativo são lidas no arquivo d
 
 As propriedades `function.json` `scriptFile` e `entryPoint` podem ser usadas para configurar o local e o nome da sua função exportada. Essas propriedades podem ser importantes quando o JavaScript é transcompilado.
 
-### <a name="using-scriptfile"></a>Utilizar `scriptFile`
+### <a name="using-scriptfile"></a>Usando `scriptFile`
 
 Por padrão, uma função JavaScript é executada a partir de `index.js`, um arquivo que compartilha o mesmo diretório pai que seu `function.json`correspondente.
 
@@ -516,7 +516,7 @@ O `function.json` para `myNodeFunction` deve incluir uma propriedade `scriptFile
 }
 ```
 
-### <a name="using-entrypoint"></a>Utilizar `entryPoint`
+### <a name="using-entrypoint"></a>Usando `entryPoint`
 
 Em `scriptFile` (ou `index.js`), uma função deve ser exportada usando `module.exports` para ser encontrada e executada. Por padrão, a função que é executada quando disparado é a única exportação desse arquivo, a exportação nomeada `run`ou a exportação nomeada `index`.
 
@@ -623,7 +623,7 @@ npm run build:production
 func azure functionapp publish <APP_NAME>
 ```
 
-Neste comando, substitua `<APP_NAME>` pelo nome do seu aplicativo de funções.
+Neste comando, substitua `<APP_NAME>` pelo nome da sua aplicação de funções.
 
 ## <a name="considerations-for-javascript-functions"></a>Considerações para funções de JavaScript
 

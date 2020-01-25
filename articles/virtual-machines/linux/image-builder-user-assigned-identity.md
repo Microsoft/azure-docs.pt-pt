@@ -1,46 +1,46 @@
 ---
-title: Criar uma imagem de Máquina Virtual e utilizar uma identidade gerida atribuído ao utilizador para aceder aos ficheiros no armazenamento do Azure (pré-visualização)
-description: Crie imagem de máquina virtual com o construtor de imagens do Azure, que podem aceder a ficheiros armazenados no armazenamento do Azure com a identidade gerida atribuído ao utilizador.
+title: Crie uma imagem Virtual Machine e utilize uma identidade gerida atribuída pelo utilizador para aceder a ficheiros no Armazenamento Azure (pré-visualização)
+description: Crie uma imagem de máquina virtual utilizando o Azure Image Builder, que pode aceder a ficheiros armazenados no Armazenamento Azure utilizando a identidade gerida atribuída pelo utilizador.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: b6347765f8d2e21c352834dc8d28b65c28f99758
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 36016e462e3f4906c4dfe8c58501c82fd554f3bd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671455"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720593"
 ---
-# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Criar uma imagem e utilizar uma identidade gerida atribuído ao utilizador para aceder aos ficheiros no armazenamento do Azure 
+# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Crie uma imagem e utilize uma identidade gerida atribuída ao utilizador para aceder a ficheiros no Armazenamento Azure 
 
-O Azure suporta de construtor de imagens utilizando scripts ou copiar ficheiros a partir de várias localizações, como o GitHub e o Azure armazenamento etc. Para as utilizar, tem de ter sido acessível externamente para o construtor de imagens do Azure, mas pode estar a proteger os blobs de armazenamento do Azure com SAS Tokens.
+O Azure Image Builder suporta a utilização de scripts, ou a cópia de ficheiros de vários locais, tais como o armazenamento GitHub e Azure, etc. Para usá-las, devem ter sido acessíveis externamente ao Azure Image Builder, mas pode proteger as bolhas de armazenamento Azure usando Tokens SAS.
 
-Este artigo mostra como criar uma imagem personalizada usando o construtor de imagens de VM do Azure, onde o serviço irá utilizar um [atribuído ao utilizador a identidade gerido](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para aceder aos ficheiros no armazenamento do Azure para a personalização de imagem, sem que tenha de fazer os ficheiros publicamente acessíveis ou configurar SAS tokens.
+Este artigo mostra como criar uma imagem personalizada utilizando o Azure VM Image Builder, onde o serviço utilizará uma [Identidade Gerida atribuída](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pelo Utilizador para aceder a ficheiros no armazenamento do Azure para a personalização da imagem, sem que tenha de tornar os ficheiros acessíveis ao público ou configurar fichas SAS.
 
-No exemplo abaixo, irá criar dois grupos de recursos, um será utilizado para a imagem personalizada e o outro irá alojar uma conta de armazenamento do Azure, que contém um ficheiro de script. Isso simula um cenário da vida real, onde é possível ter artefactos de compilação ou arquivos de imagem nas contas de armazenamento diferentes, fora do construtor de imagens. Irá criar uma identidade de utilizador atribuído, em seguida, conceder permissões de leitura no ficheiro de script, mas não irá definir qualquer acesso público a esse ficheiro. Em seguida, irá utilizar o personalizador de Shell para transferir e executar esse script da conta de armazenamento.
+No exemplo abaixo, você vai criar dois grupos de recursos, um será usado para a imagem personalizada, e o outro irá hospedar uma Conta de Armazenamento Azure, que contém um ficheiro script. Isto simula um cenário de vida real, onde pode ter construído artefactos, ou ficheiros de imagem em diferentes contas de armazenamento, fora do Image Builder. Criará uma identidade atribuída ao utilizador e, em seguida, concederá que leia permissões no ficheiro script, mas não definirá qualquer acesso público a esse ficheiro. Em seguida, utilizará o personalizador Shell para descarregar e executar esse script a partir da conta de armazenamento.
 
 
 > [!IMPORTANT]
-> Construtor de imagens do Azure está atualmente em pré-visualização pública.
+> O construtor de imagem do Azure está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-features"></a>Registe-se os recursos
-Para utilizar o construtor de imagens do Azure durante a pré-visualização, terá de registar o novo recurso.
+## <a name="register-the-features"></a>Registrar os recursos
+Para usar o construtor de imagens do Azure durante a versão prévia, você precisa registrar o novo recurso.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Verificar o estado de registo de recurso.
+Verifique o status do registro do recurso.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Verifique o registo.
+Verifique seu registro.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -48,7 +48,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Se elas não dizem registados, execute o seguinte:
+Se não disser registrado, execute o seguinte:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -59,7 +59,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Usaremos algumas partes de informações repetidamente, portanto, vamos criar algumas variáveis para armazenar tais informações.
+Usaremos algumas informações repetidamente, portanto, criaremos algumas variáveis para armazenar essas informações.
 
 
 ```azurecli-interactive
@@ -75,13 +75,13 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Criar uma variável para o seu ID de subscrição. Pode obter, utilize `az account show | grep id`.
+Crie uma variável para sua ID de assinatura. Você pode obter isso usando `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
 
-Crie os grupos de recursos para a imagem e o armazenamento de script.
+Crie os grupos de recursos tanto para a imagem como para o armazenamento do script.
 
 ```azurecli-interactive
 # create resource group for image template
@@ -91,7 +91,7 @@ az group create -n $strResourceGroup -l $location
 ```
 
 
-Criar o armazenamento e copie o script de exemplo para o mesmo a partir do GitHub.
+Crie o armazenamento e copie o script da amostra a partir do GitHub.
 
 ```azurecli-interactive
 # script storage account
@@ -118,7 +118,7 @@ az storage blob copy start \
 
 
 
-Conceder permissão de construtor de imagens para criar recursos no grupo de recursos de imagem. O `--assignee` valor é o ID de registo de aplicação para o serviço de construtor de imagens. 
+Dê permissão ao Image Builder para criar recursos no grupo de recursos de imagem. O valor de `--assignee` é a ID de registro do aplicativo para o serviço do construtor de imagem. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -128,9 +128,9 @@ az role assignment create \
 ```
 
 
-## <a name="create-user-assigned-managed-identity"></a>Criar utilizador atribuído a identidade gerida
+## <a name="create-user-assigned-managed-identity"></a>Criar identidade gerida atribuída ao utilizador
 
-Crie a identidade e atribua permissões para a conta de armazenamento de script. Para obter mais informações, consulte [identidade gerida de User-Assigned](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Crie a identidade e atribua permissões para a conta de armazenamento do script. Para mais informações, consulte a [Identidade Gerida Atribuída](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)pelo Utilizador .
 
 ```azurecli-interactive
 # Create the user assigned identity 
@@ -147,9 +147,9 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 ```
 
 
-## <a name="modify-the-example"></a>Modifique o exemplo
+## <a name="modify-the-example"></a>Modificar o exemplo
 
-Transfira o ficheiro. JSON de exemplo e configurá-lo com as variáveis que criou.
+Descarregue o exemplo .json file e configure-o com as variáveis que criou.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
@@ -164,7 +164,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Submeta a configuração de imagem para o serviço de construtor de imagens do Azure.
+Envie a configuração de imagem para o serviço do construtor de imagem do Azure.
 
 ```azurecli-interactive
 az resource create \
@@ -175,7 +175,7 @@ az resource create \
     -n helloImageTemplateMsi01
 ```
 
-Inicie a compilação de imagem.
+Inicie a compilação da imagem.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -185,11 +185,11 @@ az resource invoke-action \
      --action Run 
 ```
 
-Aguarde que a compilação concluir. Esta ação pode demorar cerca de 15 minutos.
+Aguarde a conclusão da compilação. Isto pode levar cerca de 15 minutos.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Crie uma VM a partir da imagem. 
+Crie um VM a partir da imagem. 
 
 ```bash
 az vm create \
@@ -201,13 +201,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Depois da VM tiver sido criada, inicie uma sessão SSH com a VM.
+Depois de criado o VM, inicie uma sessão de SSH com o VM.
 
 ```azurecli-interactive
 ssh aibuser@<publicIp>
 ```
 
-Deverá ver que a imagem foi personalizada com uma mensagem do dia assim que a ligação SSH é estabelecida!
+Deve ver que a imagem foi personalizada com uma Mensagem do Dia assim que a sua ligação SSH estiver estabelecida!
 
 ```console
 
@@ -220,7 +220,7 @@ Deverá ver que a imagem foi personalizada com uma mensagem do dia assim que a l
 
 ## <a name="clean-up"></a>Limpeza
 
-Quando tiver terminado, pode eliminar os recursos se já não são necessários.
+Quando terminar, pode apagar os recursos se já não forem necessários.
 
 ```azurecli-interactive
 az identity delete --ids $imgBuilderId
@@ -232,6 +232,6 @@ az group delete -n $imageResourceGroup
 az group delete -n $strResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se tiver problemas para trabalhar com o construtor de imagens do Azure, veja [resolução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
+Se tiver algum problema em trabalhar com o Azure Image Builder, consulte [a Resolução de Problemas.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json)

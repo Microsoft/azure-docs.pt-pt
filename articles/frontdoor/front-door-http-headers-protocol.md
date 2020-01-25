@@ -1,6 +1,6 @@
 ---
-title: Suporte de protocolo para cabeçalhos HTTP no serviço de porta frontal do Azure | Microsoft Docs
-description: Este artigo descreve os protocolos de cabeçalho HTTP aos quais o serviço de porta frontal dá suporte.
+title: Suporte protocolar para cabeçalhos HTTP no Serviço da Porta Da Frente Azure  Microsoft Docs
+description: Este artigo descreve protocolos de cabeçalho HTTP que o Front Door Service suporta.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,51 +11,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 3579aee46c610e5bb3efc0942944bbfc3fcb801d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790512"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720440"
 ---
-# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte de protocolo para cabeçalhos HTTP no serviço de porta frontal do Azure
-Este artigo descreve o protocolo que o serviço de porta frontal dá suporte com partes do caminho de chamada (consulte a imagem). As seções a seguir fornecem mais informações sobre os cabeçalhos HTTP com suporte do serviço de porta frontal.
+# <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte protocolar para cabeçalhos HTTP no Serviço de Porta Da Frente Azure
+Este artigo descreve o protocolo que o Front Door Service suporta com partes do caminho de chamada (ver imagem). As seguintes secções fornecem mais informações sobre os cabeçalhos HTTP suportados pelo Serviço porta da frente.
 
-![Protocolo de cabeçalhos HTTP do serviço de porta frontal do Azure][1]
+![Protocolo de cabeçalhos do Serviço da Porta Da Frente Azure HTTP][1]
 
 >[!IMPORTANT]
->O serviço de porta frontal não certifica nenhum cabeçalho HTTP que não esteja documentado aqui.
+>O Serviço de Porta da Frente não certifica quaisquer cabeçalhos HTTP que não estejam documentados aqui.
 
-## <a name="client-to-front-door-service"></a>Cliente para serviço de porta frontal
-O serviço de porta frontal aceita a maioria dos cabeçalhos da solicitação de entrada sem modificá-los. Alguns cabeçalhos reservados são removidos da solicitação de entrada se forem enviados, incluindo cabeçalhos com o prefixo X-FD-*.
+## <a name="client-to-front-door-service"></a>Serviço de Cliente à Porta da Frente
+O Serviço porta da frente aceita a maioria dos cabeçalhos do pedido de entrada sem modificá-los. Alguns cabeçalhos reservados são removidos do pedido de entrada se enviados, incluindo cabeçalhos com o prefixo X-FD-*.
 
-## <a name="front-door-service-to-backend"></a>Serviço de porta frontal para back-end
+## <a name="front-door-service-to-backend"></a>Serviço de porta da frente para apoiar
 
-O serviço de porta frontal inclui cabeçalhos de uma solicitação de entrada, a menos que sejam removidos devido a restrições. A porta frontal também adiciona os seguintes cabeçalhos:
+O Serviço porta da frente inclui cabeçalhos de um pedido de entrada a menos que seja removido devido a restrições. A Porta da Frente também adiciona os seguintes cabeçalhos:
 
 | Cabeçalho  | Exemplo e descrição |
 | ------------- | ------------- |
-| Pela |  Via: 1,1 Azure </br> Porta frontal adiciona a versão HTTP do cliente seguida pelo *Azure* como o valor para o cabeçalho via. Isso indica a versão HTTP do cliente e essa porta frontal era um destinatário intermediário da solicitação entre o cliente e o back-end.  |
-| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representa o endereço IP do cliente associado à solicitação que está sendo processada. Por exemplo, uma solicitação proveniente de um proxy pode adicionar o cabeçalho X-Forwardd-for para indicar o endereço IP do chamador original. |
-| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representa o endereço IP do soquete associado à conexão TCP da qual a solicitação atual foi originada. O endereço IP do cliente de uma solicitação pode não ser igual ao seu endereço IP de soquete porque pode ser substituído arbitrariamente por um usuário.|
-| X-Azure-ref |  X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Uma cadeia de caracteres de referência exclusiva que identifica uma solicitação servida pela porta da frente. Ele é usado para pesquisar logs de acesso e crítico para solução de problemas.|
-| X-Azure-RequestChain |  X-Azure-RequestChain: saltos = 1 </br> Um cabeçalho que o front door usa para detectar loops de solicitação e os usuários não devem assumir uma dependência dele. |
-| X-encaminhado-para | X-Forwarded-for: 127.0.0.1 </br> O campo de cabeçalho HTTP X-Forwarded-for (XFF) geralmente identifica o endereço IP de origem de um cliente que se conecta a um servidor Web por meio de um proxy HTTP ou balanceador de carga. Se houver um cabeçalho XFF existente, a porta frontal acrescentará o IP de soquete do cliente a ele ou adicionará o cabeçalho XFF com o IP de soquete do cliente. |
-| X-Forwarded-host | X-Forwarded-host: contoso.azurefd.net </br> O campo de cabeçalho HTTP do host X encaminhado é um método comum usado para identificar o host original solicitado pelo cliente no cabeçalho de solicitação HTTP do host. Isso ocorre porque o nome do host da porta frontal pode ser diferente para o servidor de back-end que manipula a solicitação. |
-| Proto X/encaminhado | X-encaminhar-proto: http </br> O campo de cabeçalho HTTP de IP encaminhada-proto é geralmente usado para identificar o protocolo de origem de uma solicitação HTTP porque a porta frontal, com base na configuração, pode se comunicar com o back-end usando HTTPS. Isso é verdadeiro mesmo que a solicitação para o proxy reverso seja HTTP. |
-| X-FD-HealthProbe | O campo de cabeçalho HTTP X-FD-HealthProbe é usado para identificar a investigação de integridade da porta frontal. Se esse cabeçalho for definido como 1, a solicitação será investigação de integridade. Você pode usar quando desejar restringir o acesso da porta frontal do determinado com o campo de cabeçalho X-Forwarded-host. |
+| Via |  Via: 1.1 Azure </br> A Porta Frontal adiciona a versão HTTP do cliente seguida pelo *Azure* como o valor para o cabeçalho Via. Isto indica a versão HTTP do cliente e que a Porta Frontal foi um destinatário intermédio para o pedido entre o cliente e o backend.  |
+| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representa o endereço IP do cliente associado ao pedido que está a ser processado. Por exemplo, um pedido proveniente de um proxy pode adicionar o cabeçalho X-Forward-For para indicar o endereço IP do chamador original. |
+| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representa o endereço IP da tomada associado à ligação TCP de que o pedido atual teve origem. O endereço IP do cliente de um pedido pode não ser igual ao seu endereço IP da tomada, uma vez que pode ser arbitrariamente substituído por um utilizador.|
+| X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYWYS00YTU0LTk0YzMnwZmNzA3NjQ3Nzgz </br> Uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. É usado para pesquisar registos de acesso e crítico para resolução de problemas.|
+| X-Azure-RequestChain |  X-Azure-RequestChain: lúpulo=1 </br> Um cabeçalho que a Porta Da Frente usa para detetar loops de pedido, e os utilizadores não devem assumir uma dependência dele. |
+| X-Forward-For | X-Forward-For: 127.0.0.1 </br> O campo de cabeçalho S-Forwarded-For (XFF) HTTP identifica frequentemente o endereço IP originário de um cliente que se conecta a um servidor web através de um proxy ou um balancer de carga HTTP. Se houver um cabeçalho XFF existente, então a Porta frontal anexa o IP da tomada do cliente ou adiciona o cabeçalho XFF com o IP da tomada do cliente. |
+| X-Forward-Host | X-Forwardhost: contoso.azurefd.net </br> O campo de cabeçalho si-forward-host http é um método comum usado para identificar o anfitrião original solicitado pelo cliente no cabeçalho de pedido do Anfitrião HTTP. Isto porque o nome do anfitrião da Porta Frontal pode diferir para o servidor de backend que manuseia o pedido. |
+| X-Forwarded-Proto | X-Forwarded-Proto: http </br> O campo de cabeçalho X-Forwarded-Proto HTTP é frequentemente utilizado para identificar o protocolo de origem de um pedido HTTP porque a Porta Frontal, com base na configuração, pode comunicar com o backend utilizando HTTPS. Isto é verdade mesmo que o pedido ao representante inverso seja HTTP. |
+| Sonda X-FD-Health | O campo de cabeçalho Saúde Http X-FD-HealthProbe HTTP é utilizado para identificar a sonda de saúde da Porta da Frente. Se este cabeçalho definido para 1, o pedido é sonda de saúde. Pode utilizar quando quiser aceder estritamente a partir de uma porta particular com um campo de cabeçalho x-forward-host. |
 
-## <a name="front-door-service-to-client"></a>Serviço de porta frontal para o cliente
+## <a name="front-door-service-to-client"></a>Serviço de porta da frente ao cliente
 
-Todos os cabeçalhos enviados para a porta de front-end também são passados para o cliente. Os cabeçalhos a seguir são enviados da porta frontal para os clientes.
+Quaisquer cabeçalhos enviados para a Porta da Frente a partir do backend também são passados para o cliente. Seguem-se os cabeçalhos enviados da Porta da Frente para os clientes.
 
 | Cabeçalho  | Exemplo |
 | ------------- | ------------- |
-| X-Azure-ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Essa é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação servida pela porta da frente. Isso é essencial para a solução de problemas, pois é usado para pesquisar logs de acesso.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYWYS00YTU0LTk0YzMnwZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. Isto é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma porta frontal](quickstart-create-front-door.md)
+- [Criar uma porta da frente](quickstart-create-front-door.md)
 - [Como funciona a porta frontal](front-door-routing-architecture.md)
 
 <!--Image references-->

@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB dicas de desempenho para .NET
-description: Aprenda as opções de configuração do cliente para melhorar o desempenho do banco de dados Cosmos do Azure
+title: Dicas de desempenho do Azure Cosmos DB para .NET
+description: Aprenda opções de configuração do cliente para melhorar o desempenho da base de dados azure Cosmos
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "71261316"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721001"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para Azure Cosmos DB e .NET
 
@@ -21,37 +21,37 @@ ms.locfileid: "71261316"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB é um banco de dados distribuído rápido e flexível que é dimensionado diretamente com latência garantida e taxa de transferência. Você não precisa fazer alterações de arquitetura importantes ou escrever código complexo para dimensionar seu banco de dados com Azure Cosmos DB. Escalar verticalmente e reduzir é tão fácil quanto fazer uma única chamada à API. Para saber mais, consulte [como provisionar a produtividade do contêiner](how-to-provision-container-throughput.md) ou [como provisionar a taxa de transferência do banco de dados](how-to-provision-database-throughput.md). No entanto, como Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o máximo de desempenho ao usar o [SDK do .net do SQL](sql-api-sdk-dotnet-standard.md).
+Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala perfeitamente com latência garantida e produção. Não é preciso fazer grandes alterações de arquitetura ou escrever código complexo para escalar a sua base de dados com o Azure Cosmos DB. Escalar para cima e para baixo é tão fácil como fazer uma única chamada aPi. Para saber mais, veja como fornecer a entrada de [recipientes](how-to-provision-container-throughput.md) ou [como fornecer a entrada](how-to-provision-database-throughput.md)de base de dados . No entanto, como o Azure Cosmos DB é acedido através de chamadas de rede, existem otimizações do lado do cliente que você pode fazer para alcançar o desempenho máximo ao usar o [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
-Então, se você estiver perguntando "como posso melhorar meu desempenho de banco de dados?" Considere as seguintes opções:
+Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de dados?" Considere as seguintes opções:
 
 ## <a name="networking"></a>Funcionamento em Rede
 <a id="direct-connection"></a>
 
-1. **Política de conexão: usar o modo de conexão direta**
+1. **Política de ligação: Utilize o modo de ligação direta**
 
-    Como um cliente se conecta a Azure Cosmos DB tem implicações importantes no desempenho, especialmente em termos de latência de cliente observada. Há duas definições de configuração principais disponíveis para configurar a política de conexão do cliente – o *modo* de conexão e o *protocolo*de conexão.  Os dois modos disponíveis são:
+    A forma como um cliente se liga ao Azure Cosmos DB tem implicações importantes no desempenho, sobretudo em termos da latência observada do lado do cliente. Existem duas definições de configuração de chaves disponíveis para configurar a Política de Ligação ao Cliente – o *modo* de ligação e o *protocolo*de ligação .  Os dois modos disponíveis são:
 
-   * Modo de gateway
+   * Modo Gateway
       
-     O modo de gateway tem suporte em todas as plataformas SDK e é o padrão configurado para o [SDK Microsoft. Azure. DocumentDB](sql-api-sdk-dotnet.md). Se seu aplicativo for executado em uma rede corporativa com restrições de firewall estritas, o modo de gateway será a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados Azure Cosmos DB. Por isso, o modo direto oferece melhor desempenho devido a menos saltos de rede. O modo de conexão do gateway também é recomendado quando você executa aplicativos em ambientes com um número limitado de conexões de soquete. 
+     O modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado para [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). Se a sua aplicação for executado dentro de uma rede corporativa com restrições rigorosas de firewall, o modo gateway é a melhor escolha uma vez que utiliza a porta HTTPS padrão e um único ponto final. A troca de desempenho, no entanto, é que o modo gateway envolve um salto de rede adicional cada vez que os dados são lidos ou escritos para o Azure Cosmos DB. Por isso, o Modo Direct oferece um melhor desempenho devido a menos lúpulo de rede. O modo de ligação gateway também é recomendado quando executa aplicações em ambientes com um número limitado de ligações à tomada. 
 
-     Ao usar o SDK no Azure Functions, particularmente no [plano de consumo](../azure-functions/functions-scale.md#consumption-plan), lembre-se dos [limites atuais em conexões](../azure-functions/manage-connections.md). Nesse caso, o modo de gateway poderá ser recomendado se você também estiver trabalhando com outros clientes baseados em HTTP no seu aplicativo Azure Functions.
+     Ao utilizar o SDK em Funções Azure, particularmente no plano de [consumo,](../azure-functions/functions-scale.md#consumption-plan)esteja atento aos limites atuais [nas ligações](../azure-functions/manage-connections.md). Nesse caso, o modo gateway pode ser recomendado se também estiver a trabalhar com outros clientes baseados em HTTP dentro da sua aplicação Funções Azure.
 
    * Modo direto
 
-     O modo direto dá suporte à conectividade por meio de protocolos TCP e HTTPS e é o modo de conectividade padrão se você estiver usando [o SDK Microsoft. Azure. Cosmos/.net v3](sql-api-sdk-dotnet-standard.md).
+     O modo direct suporta a conectividade através do protocolo TCP e é o modo de conectividade padrão se estiver a utilizar [o Microsoft.Azure.Cosmos/.Net V3 SDK](sql-api-sdk-dotnet-standard.md).
 
-     Ao usar o modo Gateway, Cosmos DB usa a porta 443 e as portas 10250, 10255 e 10256 ao usar a API do Azure Cosmos DB para MongoDB. A porta 10250 é mapeada para uma instância padrão do MongoDB sem a replicação geográfica e as portas 10255/10256 são mapeadas para a instância do MongoDB com a funcionalidade de replicação geográfica. Ao usar TCP no modo direto, além das portas de gateway, você precisa garantir que o intervalo de portas entre 10000 e 20000 esteja aberto porque o Azure Cosmos DB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá um erro 503 Serviço indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para diferentes APIs e o usuário de portas de serviço para cada API:
+     Ao utilizar o modo gateway, cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 quando utiliza a API do Azure Cosmos DB para MongoDB. A porta de 10250 mapeia para uma instância padrão de MongoDB sem geo-replicação e mapa de portas 10255/10256 para a instância MongoDB com funcionalidade de geo-replicação. Ao utilizar o TCP em Modo Direct, para além das portas Gateway, é necessário garantir que a gama de portas entre 10000 e 20000 está aberta porque o Azure Cosmos DB utiliza portas TCP dinâmicas. Se estas portas não estiverem abertas e tentar utilizar o TCP, recebe um erro indisponível de serviço 503. A tabela que se segue mostra os modos de conectividade disponíveis para diferentes APIs e o utilizador das portas de serviço para cada API:
 
-     |Modo de conexão  |Protocolo com suporte  |SDKs com suporte  |Porta de API/serviço  |
+     |Modo de ligação  |Protocolo apoiado  |SDKs suportados  |Porto API/Serviço  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
-     |Direto    |     TCP    |  .NET SDK    | Portas dentro do intervalo de 10000 a 20.000 |
+     |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo (10250, 10255, 10256), Quadro (443), Cassandra (10350), Gráfico (443)    |
+     |Direto    |     TCP    |  .NET SDK    | Portos dentro de 10.000-20.000 |
 
-     O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O TCP direto e o HTTPS usam SSL para autenticação inicial e criptografia de tráfego. Para obter o melhor desempenho, use o protocolo TCP quando possível.
+     A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto em HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do SDK cliente .NET. O protocolo TCP utiliza o SSL para autenticação inicial e encriptação do tráfego. Para um melhor desempenho, utilize o protocolo TCP sempre que possível.
 
-     Para o SDK v3, o modo de conectividade é configurado durante a criação da instância CosmosClient, como parte do CosmosClientOptions.
+     Para o SDK V3, o modo de conectividade está configurado ao mesmo tempo que cria a instância CosmosClient, como parte das Opções CosmosClientOptions, lembre-se que o modo Direct é o padrão.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -59,11 +59,11 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct
+        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
      });
      ```
 
-     Para o SDK do Microsoft. Azure. DocumentDB, o modo de conectividade é configurado durante a construção da instância DocumentClient com o parâmetro ConnectionPolicy. Se o modo direto for usado, o protocolo também poderá ser definido dentro do parâmetro ConnectionPolicy.
+     Para o Microsoft.Azure.DocumentDB SDK, o modo de conectividade é configurado durante a construção da instância DocumentClient com o parâmetro ConnectionPolicy. Se o Modo Direct for utilizado, o Protocolo também pode ser definido dentro do parâmetro ConnectionPolicy.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -71,129 +71,129 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-        ConnectionMode = ConnectionMode.Direct,
+        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
         ConnectionProtocol = Protocol.Tcp
      });
      ```
 
-     Como o TCP só tem suporte no modo direto, se o modo de gateway for usado, o protocolo HTTPS sempre será usado para se comunicar com o gateway e o valor de protocolo no ConnectionPolicy será ignorado.
+     Uma vez que o TCP só é suportado no Modo Direct, se o modo gateway for utilizado, o protocolo HTTPS é sempre utilizado para comunicar com o Gateway e o valor do Protocolo na Política de Ligação é ignorado.
 
-     ![Ilustração da política de conexão de Azure Cosmos DB](./media/performance-tips/connection-policy.png)
+     ![Ilustração da política de conexão Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
-2. **Chamar OpenAsync para evitar a latência de inicialização na primeira solicitação**
+2. **Ligue para a OpenAsync para evitar a latência do arranque no primeiro pedido**
 
-    Por padrão, a primeira solicitação tem uma latência maior porque ela precisa buscar a tabela de roteamento de endereços. Ao usar o [SDK v2](sql-api-sdk-dotnet.md), para evitar essa latência de inicialização na primeira solicitação, você deve chamar OpenAsync () uma vez durante a inicialização da seguinte maneira.
+    Por padrão, o primeiro pedido tem uma latência mais elevada porque tem de ir buscar a tabela de encaminhamento de endereços. Ao utilizar o [SDK V2](sql-api-sdk-dotnet.md), para evitar esta latência de arranque no primeiro pedido, deve ligar para openAsync() uma vez durante a inicialização da seguinte forma.
 
         await client.OpenAsync();
 
     > [!NOTE] 
-    > O método OpenAsync irá gerar solicitações para obter a tabela de roteamento de endereços para todos os contêineres na conta. Para contas que têm muitos contêineres, mas seu aplicativo acessa um subconjunto deles, ele geraria uma quantidade desnecessária de tráfego que torna a inicialização lenta. Portanto, usar o método OpenAsync pode não ser útil nesse cenário, pois ele torna a inicialização do aplicativo mais lenta.
+    > O método OpenAsync gerará pedidos para obter a tabela de encaminhamento de endereços para todos os recipientes da conta. Para contas que têm muitos contentores mas a sua aplicação acede a um subconjunto deles, geraria uma quantidade desnecessária de tráfego que torna a inicialização lenta. Assim, usar o método OpenAsync pode não ser útil neste cenário, uma vez que abranda o arranque da aplicação.
 
    <a id="same-region"></a>
-3. **Colocar clientes na mesma região do Azure para desempenho**
+3. **Clientes collocalizados na mesma região de Azure para desempenho**
 
-    Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mesma região que o banco de dados Cosmos do Azure. Para uma comparação aproximada, as chamadas para Azure Cosmos DB na mesma região são concluídas dentro de 1-2 ms, mas a latência entre a costa oeste e a leste dos EUA é > 50 ms. Essa latência pode variar de acordo com a solicitação até a solicitação, dependendo da rota tomada pela solicitação à medida que ele passa do cliente para o limite de datacenter do Azure. A menor latência possível é obtida garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
+    Sempre que possível, coloque todas as aplicações que chamem Azure Cosmos DB na mesma região que a base de dados Azure Cosmos. Para uma comparação aproximada, as chamadas para Azure Cosmos DB dentro da mesma região completam dentro de 1-2 ms, mas a latência entre a costa oeste e leste dos EUA é de >50 ms. Esta latência pode variar de pedido a pedido dependendo da rota percorreu pelo pedido à medida que passa do cliente para o limite do datacenter Azure. A menor latência possível é obtida garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista das regiões disponíveis, consulte [as regiões de Azure.](https://azure.microsoft.com/regions/#services)
 
-    ![ilustração da política de conexão de Azure Cosmos DB](./media/performance-tips/same-region.png)
+    ![Ilustração da política de conexão Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-4. **Aumentar o número de threads/tarefas**
+4. **Aumentar o número de fios/tarefas**
 
-    Como chamadas para Azure Cosmos DB são feitas pela rede, talvez seja necessário variar o grau de paralelismo de suas solicitações para que o aplicativo cliente aguarde muito pouco tempo esperando entre as solicitações. Por exemplo, se você estiver usando o. [Biblioteca paralela de tarefas](https://msdn.microsoft.com//library/dd460717.aspx)da rede, crie na ordem de centenas de tarefas de leitura ou gravação em Azure Cosmos DB.
+    Uma vez que as chamadas para o Azure Cosmos DB são feitas ao longo da rede, poderá ter de variar o grau de paralelismo dos seus pedidos para que a aplicação do cliente passe muito pouco tempo à espera entre pedidos. Por exemplo, se estiver a usar . Biblioteca Paralela de [Tarefas](https://msdn.microsoft.com//library/dd460717.aspx)net, criar na ordem dos 100s de Tarefas leitura ou escrita para Azure Cosmos DB.
 
-5. **Habilitar rede acelerada**
+5. **Ativar o networking acelerado**
 
-   Para reduzir a latência e a tremulação da CPU, recomendamos que as máquinas virtuais do cliente sejam habilitadas para rede acelerada. Consulte a artigos [criar uma máquina virtual do Windows com rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [criar uma máquina virtual Linux com rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md) para habilitar a rede acelerada.
+   Para reduzir a latência e o nervosismo do CPU, recomendamos que as máquinas virtuais do cliente estejam ativadas em rede. Consulte a [Create a Windows virtual machine com Networking Acelerado](../virtual-network/create-vm-accelerated-networking-powershell.md) ou Crie uma máquina virtual Linux com artigos de [Networking Acelerados](../virtual-network/create-vm-accelerated-networking-cli.md) para permitir a ligação em rede acelerada.
 
 
 ## <a name="sdk-usage"></a>Uso do SDK
-1. **Instalar o SDK mais recente**
+1. **Instale o Mais recente SDK**
 
-    Os SDKs de Azure Cosmos DB estão constantemente sendo aprimorados para fornecer o melhor desempenho. Consulte as páginas [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) para determinar o SDK mais recente e revisar as melhorias.
+    Os SDKs DB Azure Cosmos estão constantemente a ser melhorados para proporcionar o melhor desempenho. Consulte as páginas [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) para determinar as mais recentes melhorias de SDK e revisão.
 
-2. **Usar APIs de fluxo**
+2. **Utilizar aAPIs stream**
 
-    O [SDK do .net v3](sql-api-sdk-dotnet-standard.md) contém APIs de fluxo que podem receber e retornar dados sem serialização. 
+    O [.Net SDK V3](sql-api-sdk-dotnet-standard.md) contém APIs de fluxo que podem receber e devolver dados sem serializar. 
 
-    Os aplicativos de camada intermediária que não consomem as respostas do SDK diretamente, mas os retransmitem para outras camadas de aplicativo podem se beneficiar das APIs de fluxo. Consulte os exemplos de [Gerenciamento de itens](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) para obter exemplos de manipulação de fluxo.
+    As aplicações de nível médio que não consomem as respostas do SDK diretamente, mas retransmitem-nas para outros níveis de aplicação podem beneficiar das APIs stream. Consulte as amostras de gestão do [item,](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) por exemplo, no manuseamento de fluxos.
 
-3. **Usar um cliente Azure Cosmos DB singleton durante o tempo de vida do seu aplicativo**
+3. **Use um cliente singleton Azure Cosmos DB para a vida útil da sua aplicação**
 
-    Cada instância de DocumentClient e CosmosClient é thread-safe e executa o gerenciamento de conexão e o cache de endereços eficientes ao operar no modo direto. Para permitir um gerenciamento de conexão eficiente e melhor desempenho pelo cliente do SDK, é recomendável usar uma única instância por AppDomain durante o tempo de vida do aplicativo.
+    Cada instância documentClient e CosmosClient é segura em fios e executa uma gestão eficiente da ligação e endereça-se ao operar em modo direto. Para permitir uma gestão eficiente da ligação e um melhor desempenho por parte do cliente SDK, recomenda-se a utilização de uma única instância por AppDomain durante o tempo de vida da aplicação.
 
    <a id="max-connection"></a>
-4. **Aumentar o System.Net MaxConnections por host ao usar o modo de gateway**
+4. **Aumente System.Net MaxConnections por hospedeiro ao utilizar o modo Gateway**
 
-    Azure Cosmos DB solicitações são feitas por HTTPS/REST ao usar o modo de gateway e estão sujeitas ao limite de conexões padrão por nome de host ou endereço IP. Talvez seja necessário definir MaxConnections para um valor mais alto (100-1000) para que a biblioteca de cliente possa utilizar várias conexões simultâneas para Azure Cosmos DB. No SDK do .NET 1.8.0 e superior, o valor padrão para [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e para alterar o valor, você pode definir os [Documents. Client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) como um valor mais alto.   
-5. **Ajustando consultas paralelas para coleções particionadas**
+    Os pedidos da Azure Cosmos DB são feitos sobre HTTPS/REST ao utilizar o modo Gateway, e estão sujeitos ao limite de ligação predefinido por nome de anfitrião ou endereço IP. Poderá ser necessário definir as MaxConnections para um valor mais elevado (100-1000) para que a biblioteca do cliente possa utilizar múltiplas ligações simultâneas ao Azure Cosmos DB. No .NET SDK 1.8.0 ou acima, o valor predefinido para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é de 50 e para alterar o valor, pode definir os [Documentos.Cliente.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) para um valor mais elevado.   
+5. **Afinação de consultas paralelas para coleções divididas**
 
-     O SDK do SQL .NET versão 1.9.0 e superior oferece suporte a consultas paralelas, que permitem consultar uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados ao trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência de consulta e a taxa de transferência em relação à sua contraparte serial. As consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos requisitos personalizados, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições, então, pode ser consultado em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados previamente buscados.
+     SQL .NET SDK versão 1.9.0 e acima suportam consultas paralelas, que lhe permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte amostras de [código relacionadas](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) com o trabalho com os SDKs. Consultas paralelas são concebidas para melhorar a latência de consultas e a entrada sobre a sua congénere em série. Consultas paralelas fornecem dois parâmetros que os utilizadores podem sintonizar para adaptar as suas exigências personalizadas, (a) MaxDegreeOfParallelismo: para controlar o número máximo de divisórias então podem ser consultados em paralelo, e (b) MaxBufferedItemCount: para controlar o número de resultados pré-rebuscados.
 
-    (a) ***grau de ajuste de paralelismo\:*** a consulta paralela funciona consultando várias partições em paralelo. No entanto, os dados de uma partição individual são buscados em série em relação à consulta. Definir o `MaxDegreeOfParallelism` no [SDK v2](sql-api-sdk-dotnet.md) ou `MaxConcurrency` no [SDK v3](sql-api-sdk-dotnet-standard.md) para o número de partições tem a chance máxima de alcançar a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir o grau de paralelismo como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau de paralelismo.
+    a ***Grau de afinação do paralelismo\:*** trabalhos de consulta paralela consultando múltiplas divisórias paralelamente. No entanto, os dados de uma partição individual são recolhidos em série no que diz respeito à consulta. A definição do `MaxDegreeOfParallelism` em [SDK V2](sql-api-sdk-dotnet.md) ou `MaxConcurrency` em [SDK V3](sql-api-sdk-dotnet-standard.md) para o número de divisórias tem a máxima possibilidade de conseguir a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode definir o grau de paralelismo para um número elevado, e o sistema escolhe o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau de paralelismo.
 
-    É importante observar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente entre todas as partições em relação à consulta. Se a coleção particionada for particionada de forma que toda ou a maioria dos dados retornados por uma consulta esteja concentrada em algumas partições (uma partição, no pior caso), o desempenho da consulta seria afunilado por essas partições.
+    É importante notar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente por todas as divisórias no que diz respeito à consulta. Se a coleção dividida for dividida de modo a que a toda ou a maioria dos dados devolvidos por uma consulta se concentrem em algumas divisórias (uma partição no pior dos casos), então o desempenho da consulta seria engarrafado por essas divisórias.
 
-    (b) ***ajuste do MaxBufferedItemCount\:*** a consulta paralela foi projetada para buscar previamente os resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados previamente buscados. A definição de MaxBufferedItemCount como o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o máximo benefício da busca prévia.
+    (b) ***Afinação MaxBufferedItemCount\:*** Consulta paralela foi concebida para antecipar resultados enquanto o atual lote de resultados está a ser processado pelo cliente. A busca prévia ajuda na melhoria da latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados pré-rebuscados. Configurar o MaxBufferedItemCount para o número esperado de resultados devolvidos (ou um número superior) permite que a consulta receba o máximo benefício da pré-busca.
 
-    A busca prévia funciona da mesma maneira, independentemente do grau de paralelismo, e há um único buffer para os dados de todas as partições.  
-6. **Ativar GC do lado do servidor**
+    A pré-busca funciona da mesma forma, independentemente do grau de paralelismo, e há um único tampão para os dados de todas as divisórias.  
+6. **Ligue o GC do lado do servidor**
 
-    Reduzir a frequência da coleta de lixo pode ajudar em alguns casos. Em .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.
-7. **Implementar retirada em intervalos de RetryAfter**
+    A redução da frequência da recolha de lixo pode ajudar em alguns casos. Em .NET, coloque o [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como verdadeiro.
+7. **Implementar recuo sintetizador em intervalos de retryAfter**
 
-    Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja limitada. Se limitado, o aplicativo cliente deve retirar o limite para o intervalo de repetição especificado pelo servidor. Respeitar a retirada garante que você gaste uma quantidade mínima de tempo esperando entre repetições. O suporte à política de repetição está incluído na versão 1.8.0 e superior do SQL [.net](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), versão 1.9.0 e superior do [node. js](sql-api-sdk-node.md) e do [Python](sql-api-sdk-python.md)e todas as versões com suporte dos SDKs do [.NET Core](sql-api-sdk-dotnet-core.md) . Para obter mais informações, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos seja acelerada. Se for acelerada, a aplicação do cliente deve recuar no acelerador para o intervalo de repetição especificado pelo servidor. Respeitar o backoff garante que se passa o mínimo de tempo à espera entre as tentativas. O suporte à política de retry está incluído na versão 1.8.0 e acima do SQL [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), versão 1.9.0 e acima do [Nó.js](sql-api-sdk-node.md) e [Python,](sql-api-sdk-python.md)e todas as versões suportadas dos SDKs [.NET Core.](sql-api-sdk-dotnet-core.md) Para mais informações, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
-    Com a versão 1,19 e posterior do SDK do .NET, há um mecanismo para registrar informações de diagnóstico adicionais e solucionar problemas de latência, conforme mostrado no exemplo a seguir. Você pode registrar a cadeia de caracteres de diagnóstico para solicitações que têm uma latência de leitura maior. A cadeia de caracteres de diagnóstico capturada ajudará você a entender o número de vezes que você observou o 429s para uma determinada solicitação.
+    Com a versão 1.19 e mais tarde do .NET SDK, existe um mecanismo para registar informações adicionais de diagnóstico e problemas de latência de resolução de problemas, como mostra a amostra seguinte. Pode registar a cadeia de diagnóstico para pedidos que tenham uma latência de leitura superior. A cadeia de diagnóstico capturada irá ajudá-lo a entender o número de vezes que observou 429s para um determinado pedido.
     ```csharp
     ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
     readDocument.RequestDiagnosticsString 
     ```
     
-8. **Escalar horizontalmente seu cliente-carga de trabalho**
+8. **Esforce a sua carga de trabalho do cliente**
 
-    Se você estiver testando em níveis de taxa de transferência alta (> 50000 RU/s), o aplicativo cliente poderá se tornar o afunilamento devido à máquina que está capping a utilização da CPU ou da rede. Se você chegar a esse ponto, poderá continuar a enviar a conta Azure Cosmos DB mais detalhadamente expandindo os aplicativos cliente em vários servidores.
-9. **Armazenar URIs de documento em cache para latência de leitura mais baixa**
+    Se estiver a testar em níveis elevados de pontuação (>50.000 RU/s), a aplicação do cliente pode tornar-se o estrangulamento devido à máquina que se limita à utilização de CPU ou Rede. Se chegar a este ponto, pode continuar a empurrar ainda mais a conta Azure Cosmos DB, dimensionando as suas aplicações de clientes em vários servidores.
+9. **Documento cache URIs para latência de leitura inferior**
 
-    Armazenar em cache URIs de documento sempre que possível para o melhor desempenho de leitura. Você precisa definir a lógica para armazenar em cache o ResourceId ao criar o recurso. As pesquisas baseadas em ResourceId são mais rápidas do que as pesquisas baseadas em nome, portanto, armazenar esses valores em cache melhora o desempenho. 
+    Cache documento URIs sempre que possível para o melhor desempenho de leitura. É preciso definir a lógica para cache o desado quando se cria o recurso. As aparências baseadas em recursos são mais rápidas do que as aparências baseadas no nome, por isso, a cache destes valores melhora o desempenho. 
 
    <a id="tune-page-size"></a>
-10. **Ajustar o tamanho da página para consultas/ler feeds para melhorar o desempenho**
+10. **Sintonize o tamanho da página para consultas/feeds de leitura para um melhor desempenho**
 
-   Ao executar uma leitura em massa de documentos usando a funcionalidade de feed de leitura (por exemplo, ReadDocumentFeedAsync) ou ao emitir uma consulta SQL, os resultados são retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em partes de 100 itens ou 1 MB, o limite que for atingido primeiro.
+   Ao realizar uma leitura a granel de documentos utilizando a funcionalidade de feed de leitura (por exemplo, ReadDocumentFeedAsync) ou ao emitir uma consulta SQL, os resultados são devolvidos de forma segmentada se o conjunto de resultados for demasiado grande. Por padrão, os resultados são devolvidos em pedaços de 100 itens ou 1 MB, qualquer que seja o limite atingido primeiro.
 
-   Para reduzir o número de viagens de ida e volta da rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação [x-MS-Max-item-Count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas 10 resultados por vez, você também poderá diminuir o tamanho da página para 10 para reduzir a taxa de transferência consumida para leituras e consultas.
+   Para reduzir o número de viagens de ida e volta da rede necessárias para recuperar todos os resultados aplicáveis, pode aumentar o tamanho da página utilizando o cabeçalho de pedido de contagem de [itens x-ms-max](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) até 1000. Nos casos em que precisa de apresentar apenas alguns resultados, por exemplo, se a interface de utilizador ou aplicação API devolver apenas 10 resultados por vez, também pode diminuir o tamanho da página para 10 para reduzir a entrada consumida para leituras e consultas.
 
    > [!NOTE] 
-   > A propriedade maxItemCount não deve ser usada apenas para fins de paginação. É o principal uso para melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
+   > A propriedade maxItemCount não deve ser usada apenas para fins de paginação. É o principal uso para melhorar o desempenho das consultas reduzindo o número máximo de itens devolvidos numa única página.  
 
-   Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) no feedoptions permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
+   Também pode definir o tamanho da página utilizando os SDKs DB Do MB Do Mato Azul. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) em FeedOptions permite-lhe definir o número máximo de itens a devolver na operação de enumeração. Quando `maxItemCount` está definido para -1, o SDK encontra automaticamente o valor mais ideal dependendo do tamanho do documento. Por exemplo:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   Quando uma consulta é executada, os dados resultantes são enviados em um pacote TCP. Se você especificar um valor muito baixo para `maxItemCount`, o número de viagens necessárias para enviar os dados no pacote TCP será alto, o que afetará o desempenho. Portanto, se você não tiver certeza de qual valor definir para `maxItemCount` Propriedade, é melhor defini-lo como-1 e permitir que o SDK escolha o valor padrão. 
+   Quando uma consulta é executada, os dados resultantes são enviados dentro de um pacote de TCP. Se especificar um valor demasiado baixo para `maxItemCount`, o número de viagens necessárias para enviar os dados dentro do pacote TCP é elevado, o que impacta o desempenho. Portanto, se você não tem certeza de qual o valor a definir para `maxItemCount` propriedade, é melhor defini-lo para -1 e deixar o SDK escolher o valor padrão. 
 
-11. **Aumentar o número de threads/tarefas**
+11. **Aumentar o número de fios/tarefas**
 
-    Consulte [aumentar o número de threads/tarefas](#increase-threads) na seção rede.
+    Ver Aumentar o [número de fios/tarefas](#increase-threads) na secção de Networking.
 
-12. **Usar o processamento de host de 64 bits**
+12. **Utilize processamento de hospedeiro de 64 bits**
 
-    O SDK do SQL funciona em um processo de host de 32 bits quando você estiver usando o SQL .NET SDK versão 1.11.4 e superior. No entanto, se você estiver usando consultas entre partições, o processamento de host de 64 bits será recomendado para melhorar o desempenho. Os seguintes tipos de aplicativos têm um processo de host de 32 bits como o padrão; portanto, para alterá-lo para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
+    O SQL SDK funciona num processo de hospedaria de 32 bits quando estiver a utilizar a versão SDK SQL .NET 1.11.4 ou superior. No entanto, se estiver a utilizar consultas de partição cruzada, o processamento do hospedeiro de 64 bits é recomendado para um melhor desempenho. Os seguintes tipos de aplicações têm o processo de hospedeiro de 32 bits como padrão, por isso, para alterar isso para 64 bits, siga estes passos com base no tipo da sua aplicação:
 
-    - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **preferir 32 bits** na janela **Propriedades do projeto** , na guia **Compilar** .
+    - Para aplicações executáveis, isto pode ser feito desverificando a opção **Prefer 32 bits** na janela Propriedades do **Projeto,** no separador **Build.**
 
-    - Para projetos de teste baseados em VSTest, isso pode ser feito selecionando **testar**->**configurações de teste**->**arquitetura de processador padrão como x64**, na opção de menu **teste do Visual Studio** .
+    - Para projetos de teste baseados em VSTest, isto pode ser feito selecionando **definições** de **teste**->teste->**Arquitetura padrão do processador como X64**, a partir da opção de menu de teste de **estúdio visual.**
 
-    - Para aplicativos Web ASP.NET implantados localmente, isso pode ser feito verificando o **uso da versão de 64 bits do IIS Express para sites e projetos**, em **ferramentas**->**opções**->**projetos e soluções**-> **Projetos da Web**.
+    - Para aplicações web ASP.NET implementadas localmente, isto pode ser feito verificando a versão de **64 bits do IIS Express para web sites e projetos,** no âmbito **de Tools**->**Options**->Projects **and Solutions**->**Web Projects.**
 
-    - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo a **plataforma como 64 bits** nas **configurações do aplicativo** na portal do Azure.
+    - Para ASP.NET aplicações Web implementadas no Azure, isso pode ser feito escolhendo a **Plataforma como 64 bits** nas Definições de **Aplicação** no portal Azure.
 
 ## <a name="indexing-policy"></a>Política de Indexação
  
 1. **Excluir os caminhos não utilizados da indexação para assegurar escritas mais rápidas**
 
-    A política de indexação do Cosmos DB também permite que você especifique quais caminhos de documento incluir ou excluir da indexação, aproveitando os caminhos de indexação (IndexingPolicy. IncludedPaths e IndexingPolicy. ExcludedPaths). O uso de caminhos de indexação pode oferecer melhor desempenho de gravação e menor armazenamento de índice para cenários nos quais os padrões de consulta são conhecidos com antecedência, pois os custos de indexação são correlacionados diretamente com o número de caminhos exclusivos indexados.  Por exemplo, o código a seguir mostra como excluir uma seção inteira dos documentos (uma subárvore) da indexação usando o curinga "*".
+    A política de indexação da Cosmos DB também permite especificar quais as trajetórias documentais a incluir ou excluir da indexação, alavancando caminhos de indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcluidosCaminhos). A utilização de trajetórias de indexação pode oferecer um melhor desempenho de escrita e armazenamento de índices mais baixos para cenários em que os padrões de consulta são conhecidos previamente, uma vez que os custos de indexação estão diretamente correlacionados com o número de caminhos únicos indexados.  Por exemplo, o código que se segue mostra como excluir uma secção inteira dos documentos (uma subárvore) de indexação utilizando o wildcard "*".
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -202,20 +202,20 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Para obter mais informações, consulte [Azure Cosmos DB políticas de indexação](index-policy.md).
+    Para mais informações, consulte as políticas de [indexação do Azure Cosmos DB.](index-policy.md)
 
 ## <a name="throughput"></a>Débito
 <a id="measure-rus"></a>
 
 1. **Medir e ajustar para unidades de solicitação menores/segundo uso**
 
-    O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas com UDFs, procedimentos armazenados e gatilhos – todos operando nos documentos dentro de uma coleção de banco de dados. O custo associado a cada uma dessas operações varia de acordo com a CPU, a e/s e a memória necessária para concluir a operação. Em vez de pensar e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários para executar várias operações de banco de dados e atender a uma solicitação de aplicativo.
+    A Azure Cosmos DB oferece um conjunto rico de operações de base de dados, incluindo consultas relacionais e hierárquicas com UDFs, procedimentos armazenados e gatilhos – todos operando nos documentos dentro de uma coleção de bases de dados. O custo associado a cada uma destas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar e gerir recursos de hardware, pode pensar numa unidade de pedido (RU) como uma medida única para os recursos necessários para realizar várias operações de base de dados e servir um pedido de aplicação.
 
-    A taxa de transferência é provisionada com base no número de [unidades de solicitação](request-units.md) definidas para cada contêiner. O consumo de unidade de solicitação é avaliado como uma taxa por segundo. Os aplicativos que excedem a taxa de unidade de solicitação provisionada para seu contêiner são limitados até que a taxa fique abaixo do nível provisionado para o contêiner. Se seu aplicativo exigir um nível mais alto de taxa de transferência, você poderá aumentar sua taxa de transferência Provisionando unidades de solicitação adicionais. 
+    A entrada é disponibilizada com base no número de unidades de [pedido definidas](request-units.md) para cada recipiente. O consumo unitário de pedido é avaliado como uma taxa por segundo. Os pedidos que excedam a taxa unitária de pedido previsto para o seu contentor são limitados até que a taxa desça abaixo do nível previsto para o contentor. Se a sua aplicação necessitar de um nível mais elevado de entrada, pode aumentar a sua entrada, disponibilizando unidades de pedido adicionais. 
 
-    A complexidade de uma consulta afeta quantas unidades de solicitação são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e o tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
+    A complexidade de uma consulta tem impacto na quantidade de Unidades de Pedido que são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e a dimensão dos dados de origem todos influenciam o custo das operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), inspecione o cabeçalho [x-MS-Request-encharge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade RequestCharge equivalente em ResourceResponse\<t > ou FeedResponse\<t > no SDK do .net) para medir o número de unidades de solicitação consumidas por essas operações.
+    Para medir o sobretempo de qualquer operação (criar, atualizar ou excluir), inspecione o cabeçalho [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente requestCharge em RecursosResponse\<T> ou FeedResponse\<T> no .NET SDK) para medir o número de unidades de pedido consumidas por estas operações.
 
     ```csharp
     // Measure the performance (request units) of writes
@@ -230,26 +230,26 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
          }
     ```             
 
-    O encargo de solicitação retornado neste cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta anterior retornar 1000 1 KB-Documents, o custo da operação será 1000. Como tal, dentro de um segundo, o servidor honra apenas duas solicitações desse tipo antes de limitar a taxa de solicitações subsequentes. Para obter mais informações, consulte [unidades de solicitação](request-units.md) e a calculadora de unidade de [solicitação](https://www.documentdb.com/capacityplanner).
+    A taxa de pedido devolvida neste cabeçalho é uma fração da sua entrada prevista (isto é, 2000 RUs /segundo). Por exemplo, se a consulta anterior devolver 1000 documentos 1KB, o custo da operação é de 1000. Como tal, dentro de um segundo, o servidor honra apenas duas solicitações desse tipo antes de limitar a taxa de solicitações subsequentes. Para mais informações, consulte as [unidades de pedido](request-units.md) e a [calculadora](https://www.documentdb.com/capacityplanner)da unidade de pedido .
 <a id="429"></a>
-2. **Processar limitação de taxa/taxa de solicitação muito grande**
+2. **Taxa de manipulamento/taxa de pedido demasiado grande**
 
-    Quando um cliente tenta exceder a taxa de transferência reservada para uma conta, não há degradação de desempenho no servidor e nenhum uso da capacidade de taxa de transferência além do nível reservado. O servidor encerrará de forma preventiva a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho [x-MS-Retry-After-MS](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , indicando o tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
+    Quando um cliente tenta exceder a entrada reservada para uma conta, não há degradação de desempenho no servidor e não há uso da capacidade de entrada para além do nível reservado. O servidor terminará preventivamente o pedido com o RequestRateTooLarge (código de estado HTTP 429) e devolverá o cabeçalho [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) indicando a quantidade de tempo, em milissegundos, que o utilizador deve esperar antes de voltar a tentar o pedido.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
 
-    Todos os SDKs capturam implicitamente essa resposta, respeitam o cabeçalho Retry-After especificado pelo servidor e tentam novamente a solicitação. A menos que sua conta esteja sendo acessada simultaneamente por vários clientes, a próxima tentativa terá sucesso.
+    Os SDKs captam implicitamente esta resposta, respeitam o cabeçalho de retry-after especificado pelo servidor e retentam novamente o pedido. A menos que a sua conta esteja a ser acedida simultaneamente por vários clientes, a próxima reprovação terá sucesso.
 
-    Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão definida atualmente como 9 internamente pelo cliente pode não ser suficiente; Nesse caso, o cliente gera um DocumentClientException com o código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada configurando as Repetiçãooptions na instância ConnectionPolicy. Por padrão, o DocumentClientException com o código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetições atual é menor que a contagem máxima de tentativas, seja o padrão de 9 ou um valor definido pelo usuário.
+    Se tiver mais de um cliente a operar de forma consistente acima da taxa de pedido, a contagem de retry predefinido atualmente fixada para 9 internamente pelo cliente pode não ser suficiente; neste caso, o cliente lança uma DocumentClientException com o código de estado 429 para a aplicação. A contagem de retry predefinido pode ser alterada definindo as Opções de Retrynana na instância ConnectionPolicy. Por predefinição, o DocumentoClientException com o código de estado 429 é devolvido após um tempo acumulado de espera de 30 segundos se o pedido continuar a funcionar acima da taxa de pedido. Isto ocorre mesmo quando a contagem de retry atual é inferior à contagem máxima de retry, seja o padrão de 9 ou um valor definido pelo utilizador.
 
-    Embora o comportamento de repetição automatizado ajude a melhorar a resiliência e a usabilidade para a maioria dos aplicativos, isso pode ocorrer ao fazer benchmarks de desempenho, especialmente ao medir a latência.  A latência observada pelo cliente será propico se o experimento atingir a limitação do servidor e fizer com que o SDK do cliente tente novamente de forma silenciosa. Para evitar picos de latência durante os experimentos de desempenho, meça o encargo retornado por cada operação e verifique se as solicitações estão operando abaixo da taxa de solicitação reservada. Para obter mais informações, consulte [unidades de solicitação](request-units.md).
-3. **Design de documentos menores para maior taxa de transferência**
+    Embora o comportamento automatizado de retry ajude a melhorar a resiliência e a usabilidade para a maioria das aplicações, pode estar em desacordo ao fazer referências de desempenho, especialmente quando se mede a latência.  A latência observada pelo cliente aumentará se a experiência atingir o acelerador do servidor e fizer com que o SDK do cliente volte a tentar silenciosamente. Para evitar picos de latência durante as experiências de desempenho, meça a carga devolvida por cada operação e certifique-se de que os pedidos estão a funcionar abaixo da taxa de pedido reservada. Para mais informações, consulte [Unidades de Pedido](request-units.md).
+3. **Design para documentos menores para maior estoque**
 
-    O encargo da solicitação (ou seja, o custo de processamento da solicitação) de uma determinada operação está correlacionado diretamente ao tamanho do documento. As operações em documentos grandes custam mais do que as operações para documentos pequenos.
+    A taxa de pedido (isto é, custo de processamento de pedidos) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que as operações para pequenos documentos.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para um aplicativo de exemplo usado para avaliar Azure Cosmos DB para cenários de alto desempenho em alguns computadores cliente, consulte [teste de desempenho e escala com Azure Cosmos DB](performance-testing.md).
+Para uma aplicação de amostra usada para avaliar o Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte performance e testes de [escala com Azure Cosmos DB](performance-testing.md).
 
-Além disso, para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, confira [particionamento e dimensionamento em Azure Cosmos DB](partition-data.md).
+Além disso, para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [A Partilha e Escalaem em Azure Cosmos DB](partition-data.md).

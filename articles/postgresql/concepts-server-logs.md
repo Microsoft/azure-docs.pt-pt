@@ -1,98 +1,98 @@
 ---
-title: Logs-banco de dados do Azure para PostgreSQL-servidor único
-description: Descreve a configuração de log, o armazenamento e a análise no banco de dados do Azure para PostgreSQL-servidor único
+title: Registos - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Descreve a configuração, armazenamento e análise de registo slogantes na Base de Dados Azure para PostgreSQL - Servidor Único
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768219"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721324"
 ---
-# <a name="logs-in-azure-database-for-postgresql---single-server"></a>Logs no banco de dados do Azure para PostgreSQL-servidor único
-O banco de dados do Azure para PostgreSQL permite configurar e acessar os logs padrão do Postgres. Os logs podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho inferior. As informações de registro em log que você pode configurar e acessar incluem erros, informações de consulta, registros de vácuo, conexões e pontos de verificação. (O acesso aos logs de transações não está disponível).
+# <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
+A Base de Dados Azure para PostgreSQL permite-lhe configurar e aceder aos registos padrão do Postgres. Os registos podem ser utilizados para identificar, resolução de problemas e erros de configuração de reparação e desempenho sub-ideal. O registo de informações que pode configurar e aceder inclui erros, informações de consulta, registos de autovácuo, ligações e pontos de verificação. (O acesso aos registos de transações não está disponível).
 
-O log de auditoria é disponibilizado por meio de uma extensão Postgres, pgaudit. Para saber mais, visite o artigo [conceitos de auditoria](concepts-audit.md) .
+A exploração madeireira de auditoria é disponibilizada através de uma extensão de Postgres, pgaudit. Para saber mais, visite o artigo [conceitos de auditoria.](concepts-audit.md)
 
 
 ## <a name="configure-logging"></a>Configurar registro em log 
-Você pode configurar o log padrão do postgres no servidor usando os parâmetros do servidor de registro em log. Em cada servidor de banco de dados do Azure para PostgreSQL, `log_checkpoints` e `log_connections` estão ativados por padrão. Há parâmetros adicionais que você pode ajustar para atender às suas necessidades de registro em log: 
+Pode configurar o registo padrão do Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada base de dados Azure para servidor PostgreSQL, `log_checkpoints` e `log_connections` estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de exploração madeireira: 
 
-![Banco de dados do Azure para PostgreSQL-parâmetros de log](./media/concepts-server-logs/log-parameters.png)
+![Base de Dados Azure para PostgreSQL - Parâmetros de exploração](./media/concepts-server-logs/log-parameters.png)
 
-Para saber mais sobre os parâmetros de log do Postgres, visite as seções [quando registrar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e [o que registrar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) na documentação do Postgres. A maioria dos parâmetros de log Postgres, mas não todos, estão disponíveis para configurar no banco de dados do Azure para PostgreSQL.
+Para saber mais sobre os parâmetros de registo postgres, visite as secções [Quando Registar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e O [Que Registar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) as secções da documentação postgres. A maioria, mas não todos, os parâmetros de registo postgres estão disponíveis para configurar na Base de Dados Azure para PostgreSQL.
 
-Para saber como configurar parâmetros no banco de dados do Azure para PostgreSQL, consulte a [documentação do portal](howto-configure-server-parameters-using-portal.md) ou a [documentação da CLI](howto-configure-server-parameters-using-cli.md). 
+Para saber configurar parâmetros na Base de Dados Azure para PostgreSQL, consulte a [documentação](howto-configure-server-parameters-using-portal.md) do portal ou a [documentação CLI](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> Configurar um alto volume de logs, por exemplo, log de instruções, pode adicionar uma sobrecarga desempenho significativa. 
+> Configurar um elevado volume de registos, por exemplo, registo de demonstração de declaração, pode adicionar sobrecargas significativas de desempenho. 
 
-## <a name="access-log-files"></a>Acessar arquivos. log
-O formato de log padrão no banco de dados do Azure para PostgreSQL é. log. Uma linha de exemplo desse log é semelhante a:
+## <a name="access-log-files"></a>Aceder a ficheiros .log
+O formato de registo predefinido na Base de Dados Azure para PostgreSQL é .log. Uma linha de amostra deste tronco parece:
 
 ```
 2019-10-14 17:00:03 UTC-5d773cc3.3c-LOG: connection received: host=101.0.0.6 port=34331 pid=16216
 ```
 
-O banco de dados do Azure para PostgreSQL fornece um local de armazenamento de curto prazo para os arquivos. log. Um novo arquivo começa A cada 1 hora ou 100 MB, o que vier primeiro. Os logs são anexados ao arquivo atual à medida que são emitidos de Postgres.  
+A Base de Dados Azure para PostgreSQL fornece um local de armazenamento de curto prazo para os ficheiros .log. Um novo ficheiro começa a cada 1 hora ou 100 MB, o que vier primeiro. Os registos são anexados ao ficheiro atual, uma vez que são emitidos a partir de Postgres.  
 
-Você pode definir o período de retenção para esse armazenamento de log de curto prazo usando o parâmetro `log_retention_period`. O valor padrão é 3 dias; o valor máximo é de 7 dias. O local de armazenamento de curto prazo pode conter até 1 GB de arquivos de log. Após 1 GB, os arquivos mais antigos, independentemente do período de retenção, serão excluídos para liberar espaço para novos logs. 
+Pode definir o período de retenção para este armazenamento de registo de curto prazo utilizando o parâmetro `log_retention_period`. O valor predefinido é de 3 dias; o valor máximo é de 7 dias. O local de armazenamento a curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar espaço a novos registos. 
 
-Para retenção de longo prazo de logs e análise de log, você pode baixar os arquivos. log e movê-los para um serviço de terceiros. Você pode baixar os arquivos usando o [portal do Azure](howto-configure-server-logs-in-portal.md), [CLI do Azure](howto-configure-server-logs-using-cli.md). Como alternativa, você pode definir Azure Monitor configurações de diagnóstico que emite automaticamente os logs (no formato JSON) para locais de longo prazo. Saiba mais sobre essa opção na seção abaixo. 
+Para a retenção a mais longo prazo de registos e análise de registo, pode descarregar os ficheiros .log e movê-los para um serviço de terceiros. Pode descarregar os ficheiros através do [portal Azure,](howto-configure-server-logs-in-portal.md) [Azure CLI](howto-configure-server-logs-using-cli.md). Em alternativa, pode configurar as definições de diagnóstico do Monitor Azure que emitem automaticamente os seus registos (em formato JSON) para locais de longo prazo. Saiba mais sobre esta opção na secção abaixo. 
 
-Você pode parar de gerar arquivos. log definindo o parâmetro `logging_collector` como OFF. A desativação da geração do arquivo de log é recomendada se você estiver usando Azure Monitor configurações de diagnóstico. Essa configuração reduzirá o impacto no desempenho do log adicional.
+Pode parar de gerar ficheiros .log, definindo o parâmetro `logging_collector` desligado. Recomenda-se desligar a geração de ficheiros .log se estiver a utilizar as definições de diagnóstico do Monitor Azure. Esta configuração reduzirá o impacto de desempenho de uma exploração extraloga adicional.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-O banco de dados do Azure para PostgreSQL é integrado com Azure Monitor configurações de diagnóstico. As configurações de diagnóstico permitem que você envie os logs do postgres no formato JSON para Azure Monitor logs para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento. 
+A Base de Dados Azure para PostgreSQL está integrada com as definições de diagnóstico do Monitor Azure. As definições de diagnóstico permitem-lhe enviar os seus registos Postgres em formato JSON para registos de monitorização azure para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento. 
 
 > [!IMPORTANT]
 > Esse recurso de diagnóstico para logs de servidor só está disponível nos [tipos de preço](concepts-pricing-tiers.md)uso geral e com otimização de memória.
 
 
 ### <a name="configure-diagnostic-settings"></a>Definir configurações de diagnóstico
-Você pode habilitar as configurações de diagnóstico para o servidor postgres usando o portal do Azure, a CLI, a API REST e o PowerShell. A categoria de log a ser selecionada é **PostgreSQLLogs**. (Há outros logs que você pode configurar se estiver usando [repositório de consultas](concepts-query-store.md).)
+Pode ativar as definições de diagnóstico do seu servidor Postgres utilizando o portal Azure, CLI, REST API e Powershell. A categoria de registo a selecionar é **PostgreSQLLogs**. (Existem outros registos que pode configurar se estiver a utilizar a [Consulta Store](concepts-query-store.md).)
 
-Para habilitar os logs de diagnóstico usando o portal do Azure:
+Para ativar registos de diagnóstico utilizando o portal Azure:
 
-   1. No portal, vá para *configurações de diagnóstico* no menu de navegação do seu servidor do Postgres.
-   2. Selecione *Adicionar configuração de diagnóstico*.
-   3. Nomeie essa configuração. 
-   4. Selecione seu ponto de extremidade preferido (conta de armazenamento, Hub de eventos, log Analytics). 
+   1. No portal, vá a *Definições* de Diagnóstico no menu de navegação do seu servidor Postgres.
+   2. *Selecione Adicionar definição de diagnóstico*.
+   3. Diga este cenário. 
+   4. Selecione o seu ponto final preferido (conta de armazenamento, centro de eventos, análise de registo). 
    5. Selecione o tipo de log **PostgreSQLLogs**.
    7. Salve sua configuração.
 
-Para habilitar os logs de diagnóstico usando o PowerShell, a CLI ou a API REST, visite o artigo [configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) .
+Para ativar os registos de diagnóstico utilizando a Powershell, CLI ou REST API, visite o artigo de definições de [diagnóstico.](../azure-monitor/platform/diagnostic-settings.md)
 
 ### <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
-A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, o esquema é descrito no artigo [conta de armazenamento de logs](../azure-monitor/platform/resource-logs-collect-storage.md) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+A forma como acede aos registos depende do ponto final que escolher. Para o Armazenamento Azure, o esquema é descrito no artigo da conta de armazenamento de [registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Hubs de Eventos, consulte o artigo de [logs do Stream Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
-Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) .
+Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na mesa são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral da consulta do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
 
-Veja a seguir as consultas que você pode tentar começar. Você pode configurar alertas com base em consultas.
+Seguem-se consultas que pode tentar começar. Pode configurar alertas com base em consultas.
 
-Pesquisar todos os logs do postgres para um servidor específico no último dia
+Procure todos os registos do Postgres para um determinado servidor no último dia
 ```
 AzureDiagnostics
 | where LogicalServerName_s == 'myservername'
 | where TimeGenerated > ago(1d) 
 ```
 
-Pesquisar todas as tentativas de conexão não localhost
+Pesquisar todas as tentativas de ligação não-local
 ```
 AzureDiagnostics
 | where Message contains "connection received" and Message !contains "host=127.0.0.1"
 | where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
-A consulta acima mostrará os resultados nas últimas 6 horas para qualquer log de servidor postgres nesse espaço de trabalho.
+A consulta acima mostrará resultados nas últimas 6 horas para qualquer registo de servidor do Postgres neste espaço de trabalho.
 
 ### <a name="log-format"></a>Formato de log
 
-A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo do ponto de extremidade de saída escolhido, os campos incluídos e a ordem na qual eles aparecem podem variar. 
+A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo do ponto final de saída que escolher, os campos incluídos e a ordem em que aparecem podem variar. 
 
 |**Campo** | **Descrição** |
 |---|---|
@@ -108,19 +108,19 @@ A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo
 | Recurso | Nome do servidor |
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| errorLevel | Nível de log, exemplo: LOG, erro, aviso |
-| Mensagem | Mensagem de log principal | 
-| Domain | Versão do servidor, exemplo: Postgres-10 |
-| detalhes | Mensagem de log secundária (se aplicável) |
-| ColumnName | Nome da coluna (se aplicável) |
+| errorLevel | Nível de exploração madeireira, exemplo: LOG, ERROR, NOTICE |
+| Mensagem | Mensagem de registo primário | 
+| Domain | Versão do servidor, exemplo: postgres-10 |
+| Detalhe | Mensagem de registo secundária (se aplicável) |
+| Nome da coluna | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
-| Tipo de texto | Nome do tipo de dados (se aplicável) |
+| DatatypeName | Nome do tipo de dados (se aplicável) |
 | LogicalServerName | Nome do servidor | 
 | _ResourceId | URI de recurso |
 | Prefixo | Prefixo da linha de log |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre como acessar logs do [portal do Azure](howto-configure-server-logs-in-portal.md) ou [CLI do Azure](howto-configure-server-logs-using-cli.md).
-- Saiba mais sobre [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
-- Saiba mais sobre [os logs de auditoria](concepts-audit.md)
+- Saiba mais sobre o acesso a registos do [portal Azure](howto-configure-server-logs-in-portal.md) ou [do Azure CLI](howto-configure-server-logs-using-cli.md).
+- Saiba mais sobre os preços do [Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/)
+- Saiba mais sobre [registos de auditoria](concepts-audit.md)

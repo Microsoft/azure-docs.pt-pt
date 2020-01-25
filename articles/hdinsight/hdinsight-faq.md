@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830382"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720355"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -151,7 +151,7 @@ Sim, você pode compartilhar o metastore personalizado em vários clusters, desd
 
 Se você bloquear as portas 22 e 23, não terá acesso SSH ao cluster. Essas portas não são usadas pelo serviço HDInsight.
 
-Para obter mais informações, consulte os documentos seguintes:
+Para mais informações, consulte os seguintes documentos:
 
 - [Controlando o tráfego de rede](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
 
@@ -231,9 +231,9 @@ Em cenários nos quais você deve controlar a agenda, você pode usar as seguint
 Para obter mais informações sobre como configurar e executar um trabalho cron, consulte [como fazer configurar um trabalho cron](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
 
 ### <a name="why-is-llap-available-on-spark-esp-clusters"></a>Por que o LLAP está disponível em clusters de ESP do Spark?
-Em clusters do Spark do ESP, o LLAP é habilitado por motivos de segurança (ou seja, o Apache Ranger), não pelo desempenho. Você deve usar VMs de nó maior para acomodar o uso de recursos de LLAP (por exemplo, D13V2 mínimo). 
+Em clusters do Spark do ESP, o LLAP é habilitado por motivos de segurança (ou seja, o Apache Ranger), não pelo desempenho. Deve utilizar VMs de nó maiores para acomodar a utilização de recursos de LLAP (por exemplo, d13V2 mínimo). 
 
-### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>Como posso adicionar grupos do addional AAD depois de criar um cluster ESP?
+### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>Como posso adicionar grupos AAD adicionais depois de criar um cluster ESP?
 Há duas maneiras de conseguir isso: 1-você pode recriar o cluster e adicionar o grupo adicional no momento da criação do cluster. Se você estiver usando a sincronização com escopo no AAD-DS, verifique se o grupo B está incluído na sincronização com escopo.
 2-Adicione o grupo como um subgrupo aninhado do grupo anterior que foi usado para criar o cluster ESP. Por exemplo, se você tiver criado um cluster ESP com `A`de grupo, poderá mais tarde em Adicionar grupo `B` como um subgrupo aninhado de `A` e depois de aproximadamente uma hora ele será sincronizado e estará disponível no cluster automaticamente. 
 
@@ -308,14 +308,14 @@ Você usa scripts persistentes para personalizar novos nós de trabalho adiciona
 
 Você pode usar os seguintes pontos de extremidade REST para efetuar pull das informações necessárias no formato JSON. Use cabeçalhos de autenticação básica para fazer as solicitações.
 
-- Tez Visualização da Consulta: *https:\//\<nome do cluster >. azurehdinsight. net/WS/v1/Timeline/HIVE_QUERY_ID/*
-- Tez DAG exibição: *https:\//\<nome do cluster >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
+- Tez Query View: https:\//\<nome de *cluster>.azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/*
+- Tez Dag View: https:\//\<nome de *cluster>.azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Como fazer recuperar os detalhes de configuração do cluster HDI usando um usuário Azure Active Directory?
 
 Para negociar tokens de autenticação apropriados com o usuário do AAD, percorra o gateway usando o seguinte formato:
 
-* https://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https://`<cluster dnsname>`azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Como fazer usar a API RESTful Ambari para monitorar o desempenho do YARN?
 

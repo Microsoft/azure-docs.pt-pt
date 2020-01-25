@@ -1,19 +1,18 @@
 ---
 title: Esquema de subscrições do Azure Event Grid
-description: Descreve as propriedades de assinatura de um evento com o Azure Event Grid.
+description: Este artigo descreve as propriedades para subscrever um evento com a Azure Event Grid. Esquema de subscrição da Grelha de Eventos.
 services: event-grid
 author: banisadr
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/02/2019
+ms.date: 01/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845471"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720763"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrições do Event Grid
 
@@ -35,8 +34,8 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| destination | object | O objeto que define o ponto final. |
-| filter | object | Um campo opcional para filtrar os tipos de eventos. |
+| destination | objeto | O objeto que define o ponto final. |
+| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
@@ -76,6 +75,6 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução ao Event Grid, consulte [o que é o Event Grid?](overview.md)

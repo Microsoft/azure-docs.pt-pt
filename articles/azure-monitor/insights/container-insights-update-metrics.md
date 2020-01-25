@@ -3,12 +3,12 @@ title: Como atualizar Azure Monitor para contêineres para métricas | Microsoft
 description: Este artigo descreve como você atualiza Azure Monitor para contêineres para habilitar o recurso de métricas personalizadas que dá suporte à exploração e aos alertas em métricas agregadas.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7f40cb0523c2366c47da228e49311c2f9579212
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403230"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715914"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar Azure Monitor para contêineres para habilitar métricas
 
@@ -20,7 +20,7 @@ Azure Monitor para contêineres está introduzindo o suporte para coletar métri
 
 As seguintes métricas são habilitadas como parte desse recurso:
 
-| Espaço de nomes de métricas | Métrica | Descrição |
+| Espaço de nomemétrico | Métrica | Descrição |
 |------------------|--------|-------------|
 | insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Essas são as métricas de *nó* e incluem *host* como uma dimensão e também incluem o<br> nome do nó como valor para a dimensão do *host* . |
 | percepções. Container/pods | podCount | Essas são métricas de *Pod* e incluem as seguintes como dimensões-ControllerName, namespace kubernetes, nome, fase. |
@@ -321,7 +321,7 @@ Execute as etapas a seguir para atualizar todos os clusters em sua assinatura us
     Write-Host("Completed adding role assignment for the aks clusters in subscriptionId :$SubscriptionId")   
     ```
 
-2. Salve esse arquivo como **onboard_metrics_atscale. ps1** em uma pasta local.
+2. Guarde este ficheiro como **onboard_metrics_atscale.ps1** para uma pasta local.
 3. Execute o comando a seguir usando o Azure PowerShell.  Edite o valor de **SubscriptionId** usando o valor da página **visão geral do AKS** para o cluster AKs.
 
     ```powershell
@@ -529,7 +529,7 @@ Execute as etapas a seguir para atualizar um cluster específico usando Azure Po
     }
 
     #
-    #   Check AKS cluster existance and access check
+    #   Check AKS cluster existence and access check
     #
     Write-Host("Checking aks cluster exists...")
     $cluster = Get-AzAks -ResourceGroupName $resourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue
@@ -571,7 +571,7 @@ Execute as etapas a seguir para atualizar um cluster específico usando Azure Po
     }
     ```
 
-2. Salve esse arquivo como **onboard_metrics. ps1** em uma pasta local.
+2. Guarde este ficheiro como **onboard_metrics.ps1** para uma pasta local.
 3. Execute o comando a seguir usando o Azure PowerShell. Edite os valores para **SubscriptionId**, **resourceGroupName**e **ClusterName** usando os valores na página **visão geral do AKS** para o cluster AKs.
 
     ```powershell

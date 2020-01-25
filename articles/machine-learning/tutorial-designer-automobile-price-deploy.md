@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: implantar um modelo de aprendizado de máquina com o designer'
 titleSuffix: Azure Machine Learning
-description: Este tutorial mostra como criar uma solução de análise preditiva no designer de Azure Machine Learning. Treine, pontuate e implante um modelo de aprendizado de máquina usando os módulos arrastar e soltar.
+description: Este tutorial mostra como criar uma solução de análise preditiva no designer de Azure Machine Learning (versão prévia). Treine, pontuate e implante um modelo de aprendizado de máquina usando os módulos arrastar e soltar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 89fdac5e59b59c60d7e20b94799d78b029d236d6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315002"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719794"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: implantar um modelo de aprendizado de máquina com o designer
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: implantar um modelo de aprendizado de máquina com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Você pode implantar o modelo de previsão desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros a oportunidade de usá-lo. Na parte um, você treinou seu modelo. Agora, é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você vai:
@@ -55,10 +55,6 @@ Para implantar seu pipeline, você deve primeiro converter o pipeline de treinam
     >
 
 1. Selecione **executar**e use o mesmo destino de computação e teste que você usou na parte um.
-
-1. Selecione o módulo **modelo de Pontuação** .
-
-1. No painel Propriedades, selecione **saídas** > **Visualizar** para verificar se o modelo ainda está funcionando. Você pode ver que os dados originais são exibidos junto com o preço previsto ("rótulos pontuados").
 
 1. Selecione **Implementar**.
 

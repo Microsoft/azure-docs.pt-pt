@@ -1,34 +1,34 @@
 ---
-title: Carregar dados em ambientes de armazenamento do Azure-processo de ciência de dados de equipe
-description: Saiba mais sobre como ingerir dados em vários ambientes de destino nos quais os dados são armazenados e processados.
+title: Carregue dados em ambientes de armazenamento do Azure - Processo de Ciência de Dados da Equipa
+description: Saiba como ingerir dados em vários ambientes-alvo onde os dados são armazenados e processados.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 515decfafe46ad0c1b5b90743688abc26a975903
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053265"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720542"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carregar dados para ambientes de armazenamento para análise
 
-O processo de ciência de dados de equipe exige que os dados sejam ingeridos ou carregados em uma variedade de diferentes ambientes de armazenamento para serem processados ou analisados da maneira mais apropriada em cada estágio do processo. Os destinos de dados geralmente usados para processamento incluem armazenamento de BLOBs do Azure, SQL Azure bancos de dados, SQL Server na VM do Azure, HDInsight (Hadoop) e Azure Machine Learning. 
+O Processo de Ciência de Dados da Equipa exige que os dados sejam ingeridos ou carregados da forma mais adequada em cada fase. Os destinos de dados podem incluir armazenamento Azure Blob, bases de dados SQL Azure, SQL Server em Azure VM, HDInsight (Hadoop), Synapse Analytics e Azure Machine Learning. 
 
-Os artigos a seguir descrevem como ingerir dados em vários ambientes de destino nos quais os dados são armazenados e processados.
+Os seguintes artigos descrevem como a ingestão de dados em vários ambientes de destino onde os dados são armazenados e processados.
 
-* De/para o [armazenamento de BLOBs do Azure](move-azure-blob.md)
-* Para [SQL Server na VM do Azure](move-sql-server-virtual-machine.md)
-* Para o [banco de dados SQL do Azure](move-sql-azure.md)
-* Para [tabelas do hive](move-hive-tables.md)
+* De/para [armazenamento de Blobs do Azure](move-azure-blob.md)
+* Para [SQL Server numa VM do Azure](move-sql-server-virtual-machine.md)
+* Para [azure SQL Base de Dados](move-sql-azure.md)
+* Para [tabelas do Hive](move-hive-tables.md)
 * Para [tabelas particionadas do SQL](parallel-load-sql-partitioned-tables.md)
-* Do [SQL Server local](move-sql-azure-adf.md)
+* De [no local do SQL Server](move-sql-azure-adf.md)
 
-As necessidades técnicas e de negócios, bem como o local inicial, o formato e o tamanho de seus dados, determinarão os ambientes de destino nos quais os dados precisam ser ingeridos para atingir as metas de sua análise. Não é incomum um cenário exigir que os dados sejam movidos entre vários ambientes para alcançar a variedade de tarefas necessárias para construir um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, exploração de dados, pré-processamento, limpeza, redução de amostragem e treinamento de modelo.
+As necessidades técnicas e empresariais, bem como a localização inicial, formato e tamanho dos seus dados determinarão o melhor plano de ingestão de dados. Não é incomum um melhor plano ter vários passos. Esta sequência de tarefas pode incluir, por exemplo, exploração de dados, processamento prévio de, limpeza, amostragem de baixo e preparação de modelos.  A Azure Data Factory é um recurso Azure recomendado para orquestrar o movimento e transformação de dados.

@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5238f8ca9258e4f7907d9d9755b7252e60f40de8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719975"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711579"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -29,14 +29,14 @@ O provisionamento automático refere-se à criação de identidades e funções 
 O **serviço de provisionamento do Azure ad** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se a um sistema para o ponto de extremidade da API de gerenciamento de usuário 2,0 do scim (gerenciamento de identidade entre domínios) fornecido pelo fornecedor do aplicativo. Esse ponto de extremidade SCIM permite que o Azure AD crie, atualize e remova programaticamente usuários. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções. O canal usado para provisionamento entre o Azure AD e o aplicativo é criptografado usando a criptografia SSL HTTPS.
 
 
-![o serviço de provisionamento do Azure AD](./media/user-provisioning/provisioning0.PNG)
-*Figura 1: o serviço de provisionamento do Azure ad*
+![Serviço de Provisionamento AD Azure](media/how-provisioning-works/provisioning0.PNG)
+Figura 1: O Serviço de *Provisionamento de AD Azure*
 
-![fluxo de trabalho de provisionamento de usuário *de saída](./media/user-provisioning/provisioning1.PNG)
-Figura 2: fluxo de trabalho de provisionamento de usuário "de saída" do Azure ad para aplicativos SaaS populares*
+![fluxo de trabalho de fornecimento de utilizadores de saída](media/how-provisioning-works/provisioning1.PNG)
+*Figura 2: fluxo de trabalho de fornecimento de utilizadores "outbound" de Azure AD para aplicações populares do SaaS*
 
-![fluxo de trabalho de provisionamento de usuário de entrada](./media/user-provisioning/provisioning2.PNG)
-*Figura 3: fluxo de trabalho de provisionamento de usuário "de entrada" de aplicativos de HCM (gerenciamento de capital humano) populares para Azure Active Directory e Windows Server Active Directory*
+![fluxo de trabalho de fornecimento de utilizadores de entrada](media/how-provisioning-works/provisioning2.PNG)
+Figura 3: Fluxo de trabalho de fornecimento de *utilizadores "Inbound" de aplicações populares de Gestão de Capitais Humanos (HCM) para O Diretório Ativo azure e Diretório Ativo do Servidor Windows*
 
 ## <a name="provisioning-using-scim-20"></a>Provisionamento usando o SCIM 2,0
 
@@ -48,7 +48,7 @@ Para solicitar um conector de provisionamento automático do Azure AD para um ap
 
 As credenciais são necessárias para que o Azure AD se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. No portal do Azure, você poderá testar as credenciais fazendo com que o Azure AD tente se conectar ao aplicativo de provisionamento do aplicativo usando as credenciais fornecidas.
 
-Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure AD será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure AD). Quando o logon único baseado em SAML é configurado, o certificado usado para assinar os tokens SAML geralmente consome mais de 50% por cento do espaço. Quaisquer itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [problema ao salvar as credenciais de administrador ao configurar o provisionamento do usuário](application-provisioning-config-problem-storage-limit.md).
+Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure AD será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure AD). Quando o sinal único baseado em SAML é configurado, o certificado usado para assinar as fichas SAML consome frequentemente mais de 50% do espaço. Quaisquer itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [problema ao salvar as credenciais de administrador ao configurar o provisionamento do usuário](application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -73,11 +73,11 @@ Para o provisionamento de saída do Azure AD para um aplicativo SaaS, depender d
 
   * Grupos dinâmicos podem afetar o desempenho do provisionamento de ponta a ponta do Azure AD para aplicativos SaaS.
 
-  * A velocidade com que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quão rápido o grupo dinâmico pode avaliar as alterações de associação. Para obter informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [verificar o status de processamento de uma regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+  * A velocidade com que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quão rápido o grupo dinâmico pode avaliar as alterações de associação. Para obter informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [verificar o status de processamento de uma regra de associação](../users-groups-roles/groups-create-rule.md).
 
   * Quando um usuário perde a associação no grupo dinâmico, ele é considerado um evento de desprovisionamento. Considere este cenário ao criar regras para grupos dinâmicos.
 
-* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure AD não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [usando um grupo para gerenciar o acesso a aplicativos SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). Em vez disso, atribua ou então o [escopo diretamente nos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) grupos que contêm os usuários que precisam ser provisionados.
+* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure AD não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [usando um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)). Em vez disso, atribua ou então o [escopo diretamente nos](define-conditional-rules-for-provisioning-user-accounts.md) grupos que contêm os usuários que precisam ser provisionados.
 
 ### <a name="attribute-based-scoping"></a>Escopo baseado em atributo 
 
@@ -85,7 +85,7 @@ Você pode usar filtros de escopo para definir regras baseadas em atributo que d
 
 ### <a name="b2b-guest-users"></a>Usuários B2B (convidados)
 
-É possível usar o serviço de provisionamento de usuário do Azure AD para provisionar usuários B2B (ou convidados) no Azure AD para aplicativos SaaS. No entanto, para que os usuários B2B entrem no aplicativo SaaS usando o Azure AD, o aplicativo SaaS deve ter seu recurso de logon único baseado em SAML configurado de forma específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários B2B, consulte [configurar aplicativos SaaS para colaboração B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+É possível usar o serviço de provisionamento de usuário do Azure AD para provisionar usuários B2B (ou convidados) no Azure AD para aplicativos SaaS. No entanto, para que os usuários B2B entrem no aplicativo SaaS usando o Azure AD, o aplicativo SaaS deve ter seu recurso de logon único baseado em SAML configurado de forma específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários B2B, consulte [configurar aplicativos SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: inicial e incremental
 
@@ -160,7 +160,7 @@ Se a maioria ou todas as chamadas feitas no sistema de destino falharem consiste
 
 Quando em quarentena, a frequência de ciclos incrementais é reduzida gradualmente para uma vez por dia.
 
-O trabalho de provisionamento sai da quarentena depois que todos os erros incorretos são corrigidos e o próximo ciclo de sincronização é iniciado. Se o trabalho de provisionamento permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+O trabalho de provisionamento sai da quarentena depois que todos os erros incorretos são corrigidos e o próximo ciclo de sincronização é iniciado. Se o trabalho de provisionamento permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>O tempo que o aprovisionamento demora
 
@@ -184,7 +184,7 @@ O serviço de provisionamento do Azure AD excluirá de forma reversível um usu�
 
 Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversível, o serviço de provisionamento enviará uma solicitação de exclusão para excluir permanentemente o usuário do aplicativo. 
 
-30 dias após a exclusão de um usuário no Azure AD, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de exclusão para excluir permanentemente o usuário no aplicativo. A qualquer momento durante o período de 30 dias, você pode [excluir manualmente um usuário permanentemente]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), o que envia uma solicitação de exclusão para o aplicativo.
+30 dias após a exclusão de um usuário no Azure AD, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de exclusão para excluir permanentemente o usuário no aplicativo. A qualquer momento durante o período de 30 dias, você pode [excluir manualmente um usuário permanentemente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão para o aplicativo.
 
 Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com Active = false para excluir a exclusão reversível do usuário. 
 

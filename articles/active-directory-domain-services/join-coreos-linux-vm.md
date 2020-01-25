@@ -1,6 +1,6 @@
 ---
-title: Ingressar uma VM CoreOS para Azure AD Domain Services | Microsoft Docs
-description: Saiba como configurar e ingressar uma máquina virtual CoreOS em um domínio gerenciado Azure AD Domain Services.
+title: Junte-se a um CoreOS VM para serviços de domínio azure AD  Microsoft Docs
+description: Aprenda a configurar e junte uma máquina virtual CoreOS a um domínio gerido pelo Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/14/2019
+ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 4cdc2fff05270a296d9c4c9151f73cadeb2a1cfc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ddf6c9238cabedfbdeeb8056864072edc543c342
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754381"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712610"
 ---
-# <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Ingressar uma máquina virtual CoreOS em um domínio gerenciado Azure AD Domain Services
+# <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Junte-se a uma máquina virtual CoreOS para um domínio gerido pelo Azure AD Domain Services
 
-Para permitir que os usuários entrem em máquinas virtuais (VMs) no Azure usando um único conjunto de credenciais, você pode ingressar VMs em um domínio gerenciado Azure Active Directory Domain Services (AD DS). Quando você une uma VM a um domínio gerenciado AD DS do Azure, as contas de usuário e as credenciais do domínio podem ser usadas para entrar e gerenciar servidores. As associações de grupo do domínio gerenciado do AD DS do Azure também são aplicadas para permitir que você controle o acesso a arquivos ou serviços na VM.
+Para permitir que os utilizadores inscrevam em máquinas virtuais (VMs) em Azure utilizando um único conjunto de credenciais, pode juntar VMs a um domínio gerido pelo Azure Ative Directory Domain Services (AD DS). Quando se junta a um VM a um domínio gerido pelo Azure AD DS, as contas de utilizador e credenciais do domínio podem ser usadas para iniciar sessão e gerir servidores. As adesões do grupo do domínio gerido pelo Azure AD DS também são aplicadas para permitir controlar o acesso a ficheiros ou serviços no VM.
 
-Este artigo mostra como unir uma VM CoreOS a um domínio gerenciado AD DS do Azure.
+Este artigo mostra-lhe como se juntar a um CoreOS VM a um domínio gerido pelo Azure AD DS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,74 +36,74 @@ Para concluir este tutorial, você precisa dos seguintes recursos e privilégios
     * Se necessário, o primeiro tutorial [cria e configura uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
 
-## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Criar e conectar-se a uma VM do Linux CoreOS
+## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Criar e ligar a um CoreOS Linux VM
 
-Se você tiver uma VM do CoreOS Linux existente no Azure, conecte-se a ela usando o SSH e continue na próxima etapa para [começar a configurar a VM](#configure-the-hosts-file).
+Se tiver um VM CoreOS Linux existente em Azure, ligue-o utilizando SSH e continue para o próximo passo para [começar a configurar o VM](#configure-the-hosts-file).
 
-Se você precisar criar uma VM do CoreOS Linux ou desejar criar uma VM de teste para uso com este artigo, você pode usar um dos seguintes métodos:
+Se precisar de criar um VM CoreOS Linux, ou pretender criar um VM de teste para utilização com este artigo, pode utilizar um dos seguintes métodos:
 
 * [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [O Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado AD DS do Azure:
+Quando criar o VM, preste atenção às definições de rede virtual para se certificar de que o VM pode comunicar com o domínio gerido pelo Azure AD DS:
 
-* Implante a VM na mesma rede virtual, ou emparelhada, na qual você habilitou Azure AD Domain Services.
-* Implante a VM em uma sub-rede diferente da instância do Azure AD Domain Services.
+* Desloque o VM para a mesma rede virtual, ou uma rede virtual em que permitiu o Azure AD Domain Services.
+* Coloque o VM numa subrede diferente da instância dos Serviços de Domínio Azure AD.
 
-Depois que a VM for implantada, siga as etapas para se conectar à VM usando SSH.
+Uma vez implantado o VM, siga os passos para ligar ao VM utilizando SSH.
 
-## <a name="configure-the-hosts-file"></a>Configurar o arquivo de hosts
+## <a name="configure-the-hosts-file"></a>Configure o ficheiro de anfitriões
 
-Para certificar-se de que o nome do host da VM esteja configurado corretamente para o domínio gerenciado, edite o arquivo */etc/hosts* e defina o nome do host:
+Para se certificar de que o nome de anfitrião VM está corretamente configurado para o domínio gerido, edite o ficheiro */etc/anfitriões* e detetete o nome de anfitrião:
 
 ```console
 sudo vi /etc/hosts
 ```
 
-No arquivo *hosts* , atualize o endereço *localhost* . No exemplo a seguir:
+No ficheiro dos *anfitriões,* atualize *o* endereço local. No seguinte exemplo:
 
-* *contoso.com* é o nome de domínio DNS do seu domínio gerenciado AD DS do Azure.
-* *Coreos* é o nome do host da VM Coreos que você está unindo ao domínio gerenciado.
+* *aadds.contoso.com* é o nome de domínio DNS do seu domínio gerido pelo Azure AD DS.
+* *coreos* é o nome de anfitrião do seu CoreOS VM que está a juntar ao domínio gerido.
 
-Atualize esses nomes com seus próprios valores:
+Atualize estes nomes com os seus próprios valores:
 
 ```console
-127.0.0.1 coreos coreos.contoso.com
+127.0.0.1 coreos coreos.aadds.contoso.com
 ```
 
-Quando terminar, salve e saia do arquivo de *hosts* usando o comando `:wq` do editor.
+Quando estiver feito, guarde e saia do ficheiro dos *anfitriões* utilizando o comando `:wq` do editor.
 
-## <a name="configure-the-sssd-service"></a>Configurar o serviço SSSD
+## <a name="configure-the-sssd-service"></a>Configure o serviço SSSD
 
-Atualize a configuração do */etc/SSSD/SSSD.conf* SSSD.
+Atualize a configuração */etc/sssd/sssd.conf* SSSD.
 
 ```console
 sudo vi /etc/sssd/sssd.conf
 ```
 
-Especifique seu próprio nome de domínio gerenciado AD DS do Azure para os seguintes parâmetros:
+Especifique o seu próprio nome de domínio gerido pelo Azure AD DS para os seguintes parâmetros:
 
-* *domínios* em todas as letras maiúsculas
-* *[domínio/contoso]* em que a Contoso está em todas as letras maiúsculas
+* *domínios* em TODAS AS MAIÚStes
+* *[domínio/AADDS]* onde a AADDS está em TODAS AS MAIÚStes
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
-* *krb5_realm* em todas as letras maiúsculas
+* *krb5_realm* em TODAS AS MAIÚSTES
 
 ```console
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO.COM
+domains = AADDS.CONTOSO.COM
 
-[domain/CONTOSO.COM]
+[domain/AADDS.CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso.com
-ldap_search_base = dc=contoso,dc=com
+ldap_uri = ldap://aadds.contoso.com
+ldap_search_base = dc=aadds.contoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -114,63 +114,63 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso.com
-krb5_realm = CONTOSO.COM
+krb5_server = aadds.contoso.com
+krb5_realm = AADDS.CONTOSO.COM
 ```
 
-## <a name="join-the-vm-to-the-managed-domain"></a>Ingresse a VM no domínio gerenciado
+## <a name="join-the-vm-to-the-managed-domain"></a>Junte-se ao VM ao domínio gerido
 
-Com o arquivo de configuração SSSD atualizado, agora ingresse a máquina virtual no domínio gerenciado.
+Com o ficheiro de configuração SSSD atualizado, junte-se agora à máquina virtual ao domínio gerido.
 
-1. Primeiro, use o comando `adcli info` para verificar se você pode ver informações sobre o domínio gerenciado do Azure AD DS. O exemplo a seguir obtém informações para o domínio *contoso.com*. Especifique seu próprio nome de domínio gerenciado AD DS do Azure em letras MAIÚSCULAs:
-
-    ```console
-    sudo adcli info CONTOSO.COM
-    ```
-
-   Se o comando `adcli info` não conseguir localizar seu domínio gerenciado do Azure AD DS, examine as seguintes etapas de solução de problemas:
-
-    * Verifique se o domínio está acessível da VM. Tente `ping contoso.com` para ver se uma resposta positiva é retornada.
-    * Verifique se a VM está implantada no mesmo ou em uma rede virtual emparelhada na qual o domínio gerenciado do Azure AD DS está disponível.
-    * Confirme se as configurações do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerenciado AD DS do Azure.
-
-1. Agora, ingresse a VM no domínio gerenciado AD DS do Azure usando o comando `adcli join`. Especifique um usuário que pertença ao grupo de *Administradores de DC do AAD* . Se necessário, [adicione uma conta de usuário a um grupo no Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
-
-    Novamente, o nome de domínio gerenciado do AD DS do Azure deve ser inserido em letras MAIÚSCULAs. No exemplo a seguir, a conta chamada `contosoadmin@contoso.com` é usada para inicializar o Kerberos. Insira sua própria conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
+1. Em primeiro lugar, utilize o comando `adcli info` para verificar se pode ver informações sobre o domínio gerido pelo Azure AD DS. O exemplo seguinte obtém informações para o domínio *AADDS. CONTOSO.COM.* Especifique o seu próprio nome de domínio gerido azure AD DS em TODAS as MAIDES:
 
     ```console
-    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    sudo adcli info AADDS.CONTOSO.COM
     ```
 
-    O comando `adcli join` não retorna nenhuma informação quando a VM ingressou com êxito no domínio gerenciado do Azure AD DS.
+   Se o comando `adcli info` não encontrar o seu domínio gerido pelo Azure AD DS, reveja os seguintes passos de resolução de problemas:
 
-1. Para aplicar a configuração de ingresso no domínio, inicie o serviço SSSD:
+    * Certifique-se de que o domínio é acessível a partir do VM. Tente `ping aadds.contoso.com` para ver se uma resposta positiva é devolvida.
+    * Verifique se o VM está implantado na mesma rede virtual, ou numa rede virtual em que o domínio gerido pelo Azure AD DS está disponível.
+    * Confirme que as definições do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerido pelo Azure AD DS.
+
+1. Agora junte-se ao VM ao domínio gerido pela AD DS azure utilizando o comando `adcli join`. Especifique um utilizador que pertença ao grupo de *administradores da AAD DC.* Se necessário, [adicione uma conta de utilizador a um grupo em Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+
+    Mais uma vez, o nome de domínio gerido pela AD DS azure deve ser introduzido em TODAS as MAIDES. No exemplo seguinte, a conta chamada `contosoadmin@aadds.contoso.com` é usada para inicializar Kerberos. Insira a sua própria conta de utilizador que é membro do grupo de administradores da *AAD DC.*
+
+    ```console
+    sudo adcli join -D AADDS.CONTOSO.COM -U contosoadmin@AADDS.CONTOSO.COM -K /etc/krb5.keytab -H coreos.aadds.contoso.com -N coreos
+    ```
+
+    O comando `adcli join` não devolve nenhuma informação quando o VM se juntou com sucesso ao domínio gerido pela AD DS azure.
+
+1. Para aplicar a configuração de união de domínio, inicie o serviço SSSD:
   
     ```console
     sudo systemctl start sssd.service
     ```
 
-## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Entrar na VM usando uma conta de domínio
+## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Inscreva-se no VM usando uma conta de domínio
 
-Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azure, inicie uma nova conexão SSH usando uma conta de usuário de domínio. Confirme se um diretório base foi criado e se a associação de grupo do domínio foi aplicada.
+Para verificar se o VM foi bem-sucedido juntou-se ao domínio gerido pelo Azure AD DS, inicie uma nova ligação SSH utilizando uma conta de utilizador de domínio. Confirme que foi criado um diretório doméstico e que a adesão ao grupo a partir do domínio é aplicada.
 
-1. Crie uma nova conexão SSH no console do. Use uma conta de domínio que pertença ao domínio gerenciado usando o comando `ssh -l`, como `contosoadmin@contoso.com` e, em seguida, insira o endereço da VM, como *Coreos.contoso.com*. Se você usar o Azure Cloud Shell, use o endereço IP público da VM em vez do nome DNS interno.
+1. Crie uma nova ligação SSH a partir da sua consola. Utilize uma conta de domínio que pertença ao domínio gerido utilizando o comando `ssh -l`, como `contosoadmin@aadds.contoso.com` e, em seguida, introduza o endereço do seu VM, como *coreos.aadds.contoso.com*. Se utilizar a Concha de Nuvem Azure, utilize o endereço IP público do VM em vez do nome DNS interno.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com coreos.aadds.contoso.com
     ```
 
-1. Agora, verifique se as associações de grupo estão sendo resolvidas corretamente:
+1. Verifique agora se os membros do grupo estão a ser resolvidos corretamente:
 
     ```console
     id
     ```
 
-    Você deve ver suas associações de grupo no domínio gerenciado AD DS do Azure.
+    Deve ver os seus membros do grupo do domínio gerido pelo Azure AD DS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você tiver problemas para conectar a VM ao domínio gerenciado AD DS do Azure ou entrar com uma conta de domínio, consulte [Solucionando problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-domain-join-issues).
+Se tiver problemas em ligar o VM ao domínio gerido pelo Azure AD DS ou iniciar sessão com uma conta de domínio, consulte problemas de resolução de [domínios](join-windows-vm.md#troubleshoot-domain-join-issues).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720128"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720933"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Armazenar segredos em um cofre de chaves no Azure DevTest Labs
 Talvez seja necessário inserir um segredo complexo ao usar Azure DevTest Labs: senha para sua VM do Windows, chave SSH pública para sua VM Linux ou token de acesso pessoal para clonar seu repositório git por meio de um artefato. Os segredos são geralmente longos e têm caracteres aleatórios. Portanto, inseri-los pode ser complicado e inconveniente, especialmente se você usar o mesmo segredo várias vezes.
 
 Para resolver esse problema e também manter seus segredos em um local seguro, o DevTest Labs dá suporte ao armazenamento de segredos em um [cofre de chaves do Azure](../key-vault/key-vault-overview.md). Quando um usuário salva um segredo pela primeira vez, o serviço do DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. O DevTest Labs cria um cofre de chaves separado para cada usuário. 
 
-Observe que o usuário do laboratório precisará primeiro criar uma máquina virtual de laboratório antes de poder criar um segredo no cofre de chaves. Isso ocorre porque o DevTest Lab Service precisa associar o usuário do laboratório a um documento de usuário válido antes de poder criar e armazenar segredos em seu cofre de chaves. 
+Observe que o usuário do laboratório precisará primeiro criar uma máquina virtual de laboratório antes de poder criar um segredo no cofre de chaves. Isto porque o serviço DevTest Lab precisa de associar o utilizador do laboratório a um documento de utilizador válido antes de poderem criar e armazenar segredos no seu cofre chave. 
 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Salvar um segredo no Azure Key Vault

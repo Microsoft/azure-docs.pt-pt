@@ -1,93 +1,93 @@
 ---
-title: Estágio de modelagem do ciclo de vida do processo de ciência de dados de equipe
-description: As metas, as tarefas e os resultados finais para o estágio de modelagem de seus projetos de ciência de dados
+title: Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa
+description: As metas, tarefas e resultados finais para a fase de modelagem dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538229"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720474"
 ---
-# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do processo de ciência de dados de equipe
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa
 
-Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de modelagem do TDSP (processo de ciência de dados de equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os principais estágios que os projetos normalmente executam, muitas vezes iterativamente:
+Este artigo descreve os objetivos, tarefas e resultados associados a fase de modelagem de Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
-   1. **Noções básicas sobre negócios**
-   2. **Aquisição e compreensão de dados**
-   3. **Mode**
+   1. **Compreensão empresarial**
+   2. **Aquisição de dados e compreensão**
+   3. **Modelagem**
    4. **Implementação**
    5. **Aceitação do cliente**
 
-Aqui está uma representação visual do ciclo de vida do TDSP:
+Esta é uma representação visual de ciclo de vida do TDSP:
 
 ![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goals"></a>Atingir
-* Determine os recursos de dados ideais para o modelo de aprendizado de máquina.
-* Crie um modelo de aprendizado de máquina informativo que prevê o destino com mais precisão.
-* Crie um modelo de aprendizado de máquina adequado para produção.
+## <a name="goals"></a>Objetivos
+* Determine os recursos de dados ideal para o modelo de aprendizagem automática.
+* Crie um modelo de machine learning informativo que prevê o destino com mais precisão.
+* Crie um modelo de machine learning, que é adequado para produção.
 
-## <a name="how-to-do-it"></a>Como fazer isso
-Há três tarefas principais abordadas neste estágio:
+## <a name="how-to-do-it"></a>Como fazê-lo
+Existem três tarefas principais abordadas neste estágio:
 
-  * **Engenharia de recursos**: Crie recursos de dados dos dados brutos para facilitar o treinamento do modelo.
-  * **Treinamento de modelo**: Encontre o modelo que responde à pergunta com mais precisão, comparando suas métricas de sucesso.
-  * Determine se seu modelo é **adequado para produção.**
+  * **"Feature Engineering"** : criar recursos de dados a partir dos dados não processados para facilitar a preparação de modelos.
+  * **Treinamento de modelo**: localizar o modelo que responde a pergunta com mais precisão ao comparar as suas métricas de sucesso.
+  * Determinar se o seu modelo fica **adequado para produção.**
 
 ### <a name="feature-engineering"></a>Com engenharia
-A engenharia de recursos envolve a inclusão, agregação e transformação de variáveis brutas para criar os recursos usados na análise. Se você quiser obter informações sobre o que está orientando um modelo, precisará entender como os recursos estão relacionados entre si e como os algoritmos de aprendizado de máquina devem usar esses recursos. 
+Engenharia de funcionalidades envolve a inclusão, a agregação e a transformação de variáveis não processadas para criar os recursos utilizados na análise. Se quiser informações sobre o que está orientando um modelo, terá de compreender como os recursos se relacionam entre si e como os algoritmos de machine learning devem usar esses recursos. 
 
-Esta etapa requer uma combinação criativa de experiência de domínio e as informações obtidas na etapa de exploração de dados. A engenharia de recursos é um ato de balanceamento de localização e inclusão de variáveis informativas, mas ao mesmo tempo tentando evitar muitas variáveis não relacionadas. Variáveis informativas melhoram seu resultado; variáveis não relacionadas introduzem ruído desnecessário no modelo. Você também precisa gerar esses recursos para novos dados obtidos durante a pontuação. Como resultado, a geração desses recursos só pode depender de dados disponíveis no momento da pontuação. 
+Este passo requer uma combinação criativa de experiência de domínio e as informações obtidas a partir do passo de exploração de dados. Engenharia de funcionalidades é um ato de equilíbrio de localizar e variáveis informativas, incluindo, mas ao mesmo tempo tentando evitar muitas variáveis não relacionadas. Variáveis informativas melhorar seu resultado; variáveis não relacionadas introduzem ruído desnecessário para o modelo. Também terá de gerar esses recursos para quaisquer novos dados obtidos durante de classificação. Como resultado, a geração desses recursos só pode depender de dados que estão disponíveis no momento da classificação. 
 
-Para obter orientações técnicas sobre a engenharia de recursos ao usar várias tecnologias de dados do Azure, consulte [engenharia de recursos no processo de ciência de dados](create-features.md). 
+Para obter orientação técnica sobre a funcionalidade de engenharia quando fazer várias tecnologias de dados do Azure, consulte ["Feature Engineering" no processo de ciência de dados](create-features.md). 
 
 ### <a name="model-training"></a>Preparação de modelos
-Dependendo do tipo de pergunta que você está tentando responder, há muitos algoritmos de modelagem disponíveis. Para obter orientação sobre como escolher os algoritmos, consulte [como escolher algoritmos para Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Embora este artigo use Azure Machine Learning, a orientação que ele fornece é útil para qualquer projeto de aprendizado de máquina. 
+Dependendo do tipo de pergunta que está a tentar responder, há muitos algoritmos de modelagem disponíveis. Para obter orientações sobre como escolher os algoritmos, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Embora este artigo utiliza o Azure Machine Learning, a documentação de orientação fornece é útil para todos os projetos machine learning. 
 
-O processo de treinamento do modelo inclui as seguintes etapas: 
+O processo de preparação de modelos inclui os seguintes passos: 
 
-   * **Divida os dados de entrada** aleatoriamente para modelagem em um conjunto de dados de treinamento e um conjunto de dados de teste.
-   * **Crie os modelos** usando o conjunto de dados de treinamento.
-   * **Avalie** o treinamento e o conjunto de dados de teste. Use uma série de algoritmos de aprendizado de máquina concorrentes juntamente com os vários parâmetros de ajuste associados (conhecidos como *limpeza de parâmetro*) que são voltados para responder à pergunta de interesse com os dados atuais.
-   * **Determine a "melhor" solução** para responder à pergunta, comparando as métricas de sucesso entre os métodos alternativos.
+   * **Dividir os dados de entrada** aleatoriamente para a Modelagem num conjunto de dados de treinamento e um conjunto de dados de teste.
+   * **Criar os modelos** ao utilizar o conjunto de dados de treinamento.
+   * **Avaliar** a formação e o conjunto de dados de teste. Usar uma série de algoritmos de machine learning concorrentes, juntamente com os vários parâmetros de ajuste associados (conhecido como um *varrimentos*) que são adaptadas na direção de responder à pergunta de interesse com os dados atuais.
+   * **Determinar a solução de "melhor"** para responder à pergunta ao comparar as métricas de sucesso entre métodos alternativos.
 
 > [!NOTE]
-> **Evitar vazamento**: você pode causar vazamento de dados se incluir dados de fora do conjunto de dados de treinamento que permite que um modelo ou algoritmo de aprendizado de máquina faça previsões inrealísticamente boas. O vazamento é um motivo comum pelo qual os cientistas de dados ficam preocupadoss quando eles obtêm resultados previsíveis que parecem muito bons para serem verdadeiros. Essas dependências podem ser difíceis de detectar. Para evitar o vazamento geralmente, é necessário iterar entre a criação de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
+> **Evitar a fuga**: pode causar vazamento de dados se incluir dados a partir de fora do conjunto de dados de treinamento que permite a um modelo ou o algoritmo de aprendizagem automática para fazer previsões inacreditavelmente boas. Fuga é um motivo comum, por que dados cientistas obtém nervoso só quando recebem preditivos resultados que parecem muito boas para ser verdade. Estas dependências podem ser difíceis de detetar. Para evitar a fuga de muitas vezes requer a iteração entre a criação de um conjunto de dados de análise, criação de um modelo e avaliar a precisão dos resultados. 
 > 
 > 
 
-Fornecemos uma [ferramenta automatizada de modelagem e emissão de relatórios](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) com TDSP que é capaz de executar vários algoritmos e limpezas de parâmetros para produzir um modelo de linha de base. Ele também produz um relatório de modelagem de linha de base que resume o desempenho de cada modelo e combinação de parâmetros, incluindo importância variável. Esse processo também é iterativo, pois pode gerar mais engenharia de recursos. 
+Fornecemos uma [automatizada de modelagem e ferramenta de relatório](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) com TDSP que pode ser executada por meio de vários algoritmos e parâmetros largas para produzir um modelo de linha de base. Também produz uma relatório que resume o desempenho de cada combinação de modelo e parâmetros, incluindo a importância de variável de modelagem de linha de base. Este processo também é iterativo, como pode promover a engenharia de funcionalidades adicional. 
 
 ## <a name="artifacts"></a>Artefactos
-Os artefatos produzidos neste estágio incluem:
+Os artefactos produzidos nesse estágio incluem:
 
-   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem são descritos na seção **conjuntos de recursos** do relatório definição de **dados** . Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
-   * [Relatório de modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo tentado, um relatório padrão baseado em modelo que fornece detalhes sobre cada experimento é produzido.
-   * **Decisão do ponto de verificação**: avalie se o modelo executa bem o suficiente para implantá-lo em um sistema de produção. Algumas perguntas importantes a serem feitas são:
-     * O modelo responde à pergunta com confiança suficiente considerando os dados de teste? 
-     * Você deve tentar qualquer abordagem alternativa? Você deve coletar dados adicionais, fazer mais engenharia de recursos ou experimentar outros algoritmos?
+   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a Modelagem são descritos no **conjuntos de recursos** seção o **definição de dados** relatório. Ela contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
+   * [Relatório de modelos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo é experimentado uma norma de relatório baseado em modelo, que fornece detalhes sobre cada experimentação é produzido.
+   * **Decisão do checkpoint**: Avaliar se o modelo funciona o suficiente para a produção. Seguem-se algumas perguntas importantes para perguntar:
+     * O modelo de responder à pergunta com confiança suficiente, tendo em conta os dados de teste? 
+     * Se tentasse qualquer abordagens alternativas? Deve recolher dados adicionais, fazer a engenharia de funcionalidades mais ou experimentar outros algoritmos?
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão os links para cada etapa no ciclo de vida do TDSP:
+Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
 
-   1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Aquisição e compreensão de dados](lifecycle-data.md)
-   3. [Mode](lifecycle-modeling.md)
+   1. [Compreensão empresarial](lifecycle-business-understanding.md)
+   2. [Aquisição de dados e compreensão](lifecycle-data.md)
+   3. [Modelagem](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos orientações completas de ponta a ponta que demonstram todas as etapas no processo para cenários específicos. O artigo [passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de miniaturas e links. As orientações ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
+Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos de como executar etapas em TDSPs que usam Azure Machine Learning Studio, consulte [usar o TDSP com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 

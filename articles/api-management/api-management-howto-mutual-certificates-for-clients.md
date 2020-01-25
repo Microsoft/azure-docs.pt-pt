@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 60cd9a1454704fae17ccdcf39b9de2745ae4fd2c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121017"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713144"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs usando a autenticação de certificado de cliente no gerenciamento de API
 
@@ -34,7 +34,7 @@ Para obter informações sobre como proteger o acesso ao serviço de back-end de
 > [!IMPORTANT]
 > Para receber e verificar os certificados do cliente na camada de consumo, você deve ativar a configuração "solicitar certificado do cliente" na folha "domínios personalizados", conforme mostrado abaixo.
 
-![Pedir certificado do cliente](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
+![Solicitar certificado de cliente](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
 ## <a name="checking-the-issuer-and-subject"></a>Verificando o emissor e o assunto
 
@@ -93,7 +93,7 @@ O exemplo a seguir mostra como verificar a impressão digital de um certificado 
 
 > [!TIP]
 > O problema de deadlock de certificado de cliente descrito neste [artigo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) pode se manifestar de várias maneiras, por exemplo, as solicitações congeladas, resultam em `403 Forbidden` código de status após o tempo limite `context.Request.Certificate` é `null`. Esse problema geralmente afeta `POST` e `PUT` solicitações com tamanho de conteúdo de aproximadamente 60KB ou maior.
-> Para evitar que esse problema ocorra, ative a configuração "negociar certificado de cliente" para os nomes de host desejados na folha "domínios personalizados", conforme mostrado abaixo. Este recurso não está disponível na camada de consumo.
+> Para evitar que este problema ocorra, ligue a definição "Negociar o certificado de cliente" para os nomes de anfitriões desejados na lâmina "Domínios Personalizados", como mostrado abaixo. Este recurso não está disponível na camada de consumo.
 
 ![Negociar certificado do cliente](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 

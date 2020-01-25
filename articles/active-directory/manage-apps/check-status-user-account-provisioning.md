@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 77865ad3fe23d1413b6b957d351d9d9d92d22fb7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430229"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711979"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: relatórios sobre o provisionamento automático de conta de usuário
 
@@ -61,7 +61,7 @@ A [barra de progresso de provisionamento](application-provisioning-when-will-pro
 
 O **status atual** deve ser o primeiro lugar em que os administradores procuram verificar a integridade operacional do trabalho de provisionamento.
 
- ![Relatório de resumo](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Relatório de resumo](media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## <a name="provisioning-logs-preview"></a>Provisionando logs (versão prévia)
 

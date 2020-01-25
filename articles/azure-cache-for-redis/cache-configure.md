@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972133"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714631"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para o cache do Azure para instâncias Redis. Este tópico também aborda a configuração padrão do servidor Redis para o cache do Azure para instâncias do Redis.
@@ -40,8 +40,8 @@ Você pode exibir e definir as configurações a seguir usando o **menu de recur
     * [Definições avançadas](#advanced-settings)
     * [Cache do Azure para o Redis Advisor](#azure-cache-for-redis-advisor)
     * [Dimensionamento](#scale)
-    * [Tamanho do cluster Redis](#cluster-size)
-    * [Persistência de dados de Redis](#redis-data-persistence)
+    * [Tamanho do cluster](#cluster-size)
+    * [Persistência de dados](#redis-data-persistence)
     * [Atualizações agendadas](#schedule-updates)
     * [Georreplicação](#geo-replication)
     * [Rede Virtual](#virtual-network)
@@ -92,8 +92,8 @@ A seção **configurações** permite que você acesse e defina as configuraçõ
 * [Definições avançadas](#advanced-settings)
 * [Cache do Azure para o Redis Advisor](#azure-cache-for-redis-advisor)
 * [Dimensionamento](#scale)
-* [Tamanho do cluster Redis](#cluster-size)
-* [Persistência de dados de Redis](#redis-data-persistence)
+* [Tamanho do cluster](#cluster-size)
+* [Persistência de dados](#redis-data-persistence)
 * [Atualizações agendadas](#schedule-updates)
 * [Georreplicação](#geo-replication)
 * [Rede Virtual](#virtual-network)
@@ -145,7 +145,7 @@ A configuração **MaxMemory-reserved** configura a quantidade de memória, em M
 
 A configuração **reservada maxfragmentationmemory** configura a quantidade de memória em MB reservada para acomodar a fragmentação de memória. Definir esse valor permite que você tenha uma experiência de servidor Redis mais consistente quando o cache está cheio ou próximo de completo e a taxa de fragmentação é alta. Quando a memória é reservada para essas operações, ela não está disponível para armazenamento de dados armazenados em cache.
 
-Uma coisa a ser considerada ao escolher um novo valor de reserva de memória (**MaxMemory-reservado** ou **maxfragmentationmemory-reservado**) é como essa alteração pode afetar um cache que já está sendo executado com grandes quantidades de dados. Por exemplo, se você tiver um cache de 53 GB com 49 GB de dados, altere o valor de reserva para 8 GB, essa alteração removerá a memória máxima disponível para o sistema até 45 GB. Se o `used_memory` atual ou seus valores de `used_memory_rss` forem maiores do que o novo limite de 45 GB, o sistema terá que remover os dados até que `used_memory` e `used_memory_rss` estejam abaixo de 45 GB. A remoção pode aumentar a carga do servidor e a fragmentação da memória. Para obter mais informações sobre as métricas de cache, como `used_memory` e `used_memory_rss`, consulte [métricas disponíveis e intervalos de relatórios](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Uma coisa a ser considerada ao escolher um novo valor de reserva de memória (**MaxMemory-reservado** ou **maxfragmentationmemory-reservado**) é como essa alteração pode afetar um cache que já está sendo executado com grandes quantidades de dados. Por exemplo, se você tiver um cache de 53 GB com 49 GB de dados, altere o valor de reserva para 8 GB, essa alteração removerá a memória máxima disponível para o sistema até 45 GB. Se os seus `used_memory` atuais ou os seus valores `used_memory_rss` forem superiores ao novo limite de 45 GB, então o sistema terá de despejar dados até que tanto `used_memory` como `used_memory_rss` estejam abaixo dos 45 GB. A remoção pode aumentar a carga do servidor e a fragmentação da memória. Para obter mais informações sobre métricas de cache, como `used_memory` e `used_memory_rss`, consulte [métricas disponíveis e intervalos de reporte.](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)
 
 > [!IMPORTANT]
 > As configurações **MaxMemory-reserved** e **maxfragmentationmemory-reserved** estão disponíveis somente para caches Premium e Standard.
@@ -185,7 +185,7 @@ Cada tipo de preço tem limites diferentes para conexões de cliente, memória e
 
 | Cache do Azure para métrica Redis | Mais informações |
 | --- | --- |
-| Utilização da largura de banda de rede |[Desempenho do cache-largura de banda disponível](cache-faq.md#cache-performance) |
+| Utilização da largura de banda da rede |[Desempenho do cache-largura de banda disponível](cache-faq.md#cache-performance) |
 | Clientes conectados |[Configuração padrão do servidor Redis-MaxClients](#maxclients) |
 | Carga do servidor |[Gráficos de uso-carga do servidor Redis](cache-how-to-monitor.md#usage-charts) |
 | Uso de memória |[Desempenho do cache-tamanho](cache-faq.md#cache-performance) |
@@ -201,14 +201,9 @@ Clique em **dimensionar** para exibir ou alterar o tipo de preço do seu cache. 
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Tamanho do cluster Redis
-Clique em **tamanho do cluster Redis (visualização)** para alterar o tamanho do cluster para um cache Premium em execução com clustering habilitado.
+Clique no tamanho do **cluster** para alterar o tamanho do cluster para uma cache premium em execução com clustering ativado.
 
-> [!NOTE]
-> Observe que, embora o cache do Azure para a camada Premium do Redis tenha sido liberado para disponibilidade geral, o recurso de tamanho de cluster Redis está atualmente em visualização.
->
->
-
-![Tamanho do cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![Tamanho do cluster](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 Para alterar o tamanho do cluster, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **contagem de fragmentos** e clique em **OK** para salvar.
 
@@ -219,7 +214,7 @@ Para alterar o tamanho do cluster, use o controle deslizante ou digite um númer
 
 
 ### <a name="redis-data-persistence"></a>Persistência de dados de Redis
-Clique em **persistência de dados do Redis** para habilitar, desabilitar ou configurar a persistência de dados para o cache Premium. O cache do Azure para Redis oferece persistência de Redis usando persistência de [RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência de AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Clique na **persistência de Dados** para ativar, desativar ou configurar a persistência de dados para a sua cache premium. O cache do Azure para Redis oferece persistência de Redis usando persistência de [RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência de AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Para obter mais informações, consulte [como configurar a persistência para um cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
 
@@ -286,7 +281,7 @@ Clique em **Propriedades** para exibir informações sobre o cache, incluindo o 
 ### <a name="locks"></a>Bloqueios
 A seção de **bloqueios** permite que você bloqueie uma assinatura, grupo de recursos ou recurso para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
-### <a name="automation-script"></a>Script de automatização
+### <a name="automation-script"></a>Roteiro de automação
 
 Clique em **script de automação** para criar e exportar um modelo de seus recursos implantados para implantações futuras. Para obter mais informações sobre como trabalhar com modelos, consulte [implantar recursos com modelos de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -359,7 +354,7 @@ Por padrão, as métricas de cache no Azure Monitor são [armazenadas por 30 dia
 ## <a name="support--troubleshooting-settings"></a>Suporte & configurações de solução de problemas
 As configurações na seção **suporte + solução de problemas** fornecem opções para resolver problemas com o cache.
 
-![Suporte e resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Suporte + resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resource Health](#resource-health)
 * [Nova solicitação de suporte](#new-support-request)
@@ -457,9 +452,9 @@ Para obter mais informações sobre bancos de dados, consulte [o que são bancos
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIGURAÇÃO
-> * DEPURAR
+> * DEPURADO
 > * MIGRÁ
-> * GUARDAR
+> * SALVAR
 > * DESLIGAR
 > * SLAVEOF
 > * CLUSTER-os comandos de gravação do cluster estão desabilitados, mas são permitidos comandos de cluster somente leitura.

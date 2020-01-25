@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e97a6e1adff02001e36a43d9fb4a917b7e133257
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 11f5c07305fa9192097dbcb1386c13707c0d46f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922439"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711133"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions gatilhos e associações HTTP
 
@@ -623,7 +623,7 @@ module.exports = function (context, req) {
 
 O contexto de execução da função é exposto por meio de um parâmetro declarado como `func.HttpRequest`. Essa instância permite que uma função acesse parâmetros de rota de dados, valores de cadeia de caracteres de consulta e métodos que permitem retornar respostas HTTP.
 
-Uma vez definidas, os parâmetros de rota estão disponíveis para a função chamando o método `route_params`.
+Uma vez definidos, os parâmetros da rota estão disponíveis para a função, chamando o método `route_params`.
 
 ```python
 import logging
@@ -801,7 +801,7 @@ Há dois tipos de chaves:
 
 Cada chave é nomeada para referência, e há uma chave padrão (denominada "padrão") no nível da função e do host. As teclas de função têm precedência sobre as chaves de host. Quando duas chaves são definidas com o mesmo nome, a tecla de função sempre é usada.
 
-Cada aplicativo de funções também tem uma **chave mestra**especial. Essa chave é uma chave de host chamada `_master`, que fornece acesso administrativo às APIs de tempo de execução. Esta chave não pode ser revogada. Quando você define um nível de autorização de `admin`, as solicitações devem usar a chave mestra; qualquer outra chave resulta em falha de autorização.
+Cada aplicativo de funções também tem uma **chave mestra**especial. Esta chave é uma chave de acolhimento chamada `_master`, que proporciona acesso administrativo às APIs em tempo de execução. Esta chave não pode ser revogada. Quando você define um nível de autorização de `admin`, as solicitações devem usar a chave mestra; qualquer outra chave resulta em falha de autorização.
 
 > [!CAUTION]  
 > Devido às permissões elevadas em seu aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros ou distribuí-la em aplicativos cliente nativos. Tome cuidado ao escolher o nível de autorização do administrador.
@@ -825,7 +825,7 @@ A chave pode ser incluída em uma variável de cadeia de caracteres de consulta 
 Você pode permitir solicitações anônimas, que não exigem chaves. Você também pode exigir que a chave mestra seja usada. Você altera o nível de autorização padrão usando a propriedade `authLevel` no JSON de associação. Para obter mais informações, consulte [gatilho-configuração](#trigger---configuration).
 
 > [!NOTE]
-> Ao executar funções localmente, a autorização é desabilitada independentemente da configuração do nível de autorização especificado. Após a publicação no Azure, a configuração de `authLevel` em seu gatilho é imposta. As chaves ainda são necessárias ao executar [localmente em um contêiner](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> Ao executar funções localmente, a autorização é desabilitada independentemente da configuração do nível de autorização especificado. Após a publicação no Azure, a configuração de `authLevel` em seu gatilho é imposta. As chaves ainda são necessárias ao executar [localmente em um contêiner](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Proteger um ponto de extremidade HTTP na produção
@@ -861,7 +861,7 @@ O webhook de margem de atraso gera um token para você em vez de permitir que vo
 
 A autorização de webhook é tratada pelo componente receptor de webhook, parte do gatilho HTTP e o mecanismo varia de acordo com o tipo de webhook. Cada mecanismo depende de uma chave. Por padrão, a chave de função chamada "default" é usada. Para usar uma chave diferente, configure o provedor de webhook para enviar o nome da chave com a solicitação de uma das seguintes maneiras:
 
-* **Cadeia de caracteres de consulta**: o provedor passa o nome da chave no parâmetro de cadeia de caracteres de consulta `clientid`, como `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
+* **Cadeia de consulta**: O fornecedor passa o nome-chave no parâmetro de corda de consulta `clientid`, como `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Cabeçalho da solicitação**: o provedor passa o nome da chave no cabeçalho `x-functions-clientid`.
 
 ## <a name="trigger---limits"></a>Gatilho-limites
@@ -872,7 +872,7 @@ Se uma função que usa o gatilho HTTP não for concluída dentro de 230 segundo
 
 ## <a name="output"></a>Saída
 
-Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Esse enlace requer um acionador HTTP e permite-lhe personalizar a resposta associada ao pedido do acionador. Se uma associação de saída HTTP não for fornecida, um gatilho HTTP retornará HTTP 200 OK com um corpo vazio em Functions 1. x ou HTTP 204 sem conteúdo com um corpo vazio no functions 2. x e superior.
+Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Esta ligação requer um gatilho HTTP e permite-lhe personalizar a resposta associada ao pedido do gatilho. Se uma associação de saída HTTP não for fornecida, um gatilho HTTP retornará HTTP 200 OK com um corpo vazio em Functions 1. x ou HTTP 204 sem conteúdo com um corpo vazio no functions 2. x e superior.
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -920,8 +920,8 @@ Esta seção descreve as definições de configuração global disponíveis para
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 | customHeaders|nenhuma|Permite que você defina cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o cabeçalho `X-Content-Type-Options` à resposta para evitar a detecção de tipo de conteúdo. |
-|dynamicThrottlesEnabled|verdadeiro<sup>\*</sup>|Quando habilitado, essa configuração faz com que o pipeline de processamento de solicitações Verifique periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/CPU/etc. e, se qualquer um desses contadores estiver acima de um limite alto interno (80%), as solicitações serão rejeitadas com uma resposta 429 "muito ocupado" até que os contadores retornem aos níveis normais.<br/><sup>\*</sup> O padrão em um plano de consumo é `true`. O padrão em um plano dedicado é `false`.|
-|hsts|não habilitado|Quando `isEnabled` é definido como `true`, o [comportamento de HSTS (segurança de transporte estrito http) do .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é imposto, conforme definido na [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a propriedade [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) como 10 dias. As propriedades com suporte de `hsts` são: <table><tr><th>Propriedade</th><th>Descrição</th></tr><tr><td>excludedHosts</td><td>Uma matriz de cadeia de caracteres de nomes de host para a qual o cabeçalho HSTS não é adicionado.</td></tr><tr><td>includeSubDomains</td><td>Valor booliano que indica se o parâmetro includeSubDomain do cabeçalho Strict-Transport-Security está habilitado.</td></tr><tr><td>Período</td><td>Cadeia de caracteres que define o parâmetro Max-age do cabeçalho Strict-Transport-Security.</td></tr><tr><td>pré-carregamento</td><td>Booliano que indica se o parâmetro PreLoad do cabeçalho Strict-Transport-Security está habilitado.</td></tr></table>|
+|dynamicThrottlesEnabled|verdadeiro<sup>\*</sup>|Quando ativada, esta definição faz com que o gasoduto de processamento de pedidos verifique periodicamente os contadores de desempenho do sistema, tais como ligações/fios/processos/memória/cpu/etc. e se algum desses contadores estiver acima de um limiar elevado incorporado (80%), os pedidos serão rejeitados com uma resposta de 429 "Demasiado Ocupado" até que o contador(s) volte aos níveis normais.<br/><sup>\*</sup> O padrão em um plano de consumo é `true`. O padrão em um plano dedicado é `false`.|
+|hsts|não habilitado|Quando `isEnabled` é definido como `true`, o [comportamento de HSTS (segurança de transporte estrito http) do .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é imposto, conforme definido na [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a propriedade [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) como 10 dias. As propriedades com suporte de `hsts` são: <table><tr><th>Propriedade</th><th>Descrição</th></tr><tr><td>excludedHosts</td><td>Uma matriz de cadeia de caracteres de nomes de host para a qual o cabeçalho HSTS não é adicionado.</td></tr><tr><td>includeSubDomains</td><td>Valor booliano que indica se o parâmetro includeSubDomain do cabeçalho Strict-Transport-Security está habilitado.</td></tr><tr><td>Período</td><td>Cadeia de caracteres que define o parâmetro Max-age do cabeçalho Strict-Transport-Security.</td></tr><tr><td>pré-carga</td><td>Booliano que indica se o parâmetro PreLoad do cabeçalho Strict-Transport-Security está habilitado.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|O número máximo de funções HTTP que são executadas em paralelo. Isso permite que você controle a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, você pode ter uma função HTTP que usa muitos recursos do sistema (memória/CPU/soquetes), de modo que isso cause problemas quando a simultaneidade for muito alta. Ou você pode ter uma função que faça solicitações de saída para um serviço de terceiros, e essas chamadas precisam ser limitadas por taxa. Nesses casos, a aplicação de uma limitação aqui pode ajudar. <br/><sup>*</sup> O padrão para um plano de consumo é 100. O padrão para um plano dedicado é não associado (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|O número máximo de solicitações pendentes que são mantidas em um determinado momento. Esse limite inclui solicitações que estão na fila, mas não iniciaram a execução, bem como qualquer execução em andamento. Todas as solicitações de entrada acima desse limite são rejeitadas com uma resposta de 429 "muito ocupado". Isso permite que os chamadores empreguem estratégias de repetição baseadas em tempo, além de ajudar você a controlar as latências de solicitação máximas. Isso controla somente o enfileiramento que ocorre no caminho de execução do host de script. Outras filas, como a fila de solicitações ASP.NET, ainda estarão em vigor e não serão afetadas por essa configuração. <br/><sup>\*</sup> O padrão para um plano de consumo é 200. O padrão para um plano dedicado é não associado (`-1`).|
 |routePrefix|api|O prefixo de rota que se aplica a todas as rotas. Use uma cadeia de caracteres vazia para remover o prefixo padrão. |

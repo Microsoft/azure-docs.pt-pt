@@ -2,66 +2,66 @@
 title: Codificação em colaboração com Git - Team Data Science Process
 description: Como fazer o desenvolvimento de código de colaboração para projetos de ciência de dados com o Git com o planejamento ágil.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195361"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721902"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação em colaboração com Git
 
-Este artigo descreve como usar o Git como a estrutura de desenvolvimento de código colaborativa para projetos de ciência de dados. O artigo aborda como vincular código em Azure Repos aos itens de trabalho de [desenvolvimento Agile](agile-development.md) no Azure boards, como fazer revisões de código e como criar e mesclar solicitações pull para alterações.
+Este artigo descreve como usar Git como o quadro colaborativo de desenvolvimento de códigos para projetos de ciência de dados. O artigo abrange como ligar código em Azure Repos a itens de trabalho de [desenvolvimento ágeis](agile-development.md) em Placas Azure, como fazer revisões de códigos e como criar e fundir pedidos de alterações.
 
-## <a name='Linkaworkitemwithagitbranch-1'></a>Vincular um item de trabalho a uma ramificação Azure Repos 
+## <a name='Linkaworkitemwithagitbranch-1'></a>Ligue um item de trabalho a uma sucursal de Azure Repos 
 
-O Azure DevOps fornece uma maneira conveniente de conectar um Azure Boards uma história de usuário ou um item de trabalho de tarefa com uma ramificação de repositório git Azure Repos. Você pode vincular sua história de usuário ou tarefa diretamente ao código associado a ela. 
+A Azure DevOps fornece uma forma conveniente de ligar um artigo de trabalho de utilizador ou tarefa de Placas Azure com uma filial de repositório Azure Repos Git. Pode ligar a sua História de Utilizador ou Tarefa diretamente ao código associado ao mesmo. 
 
-Para conectar um item de trabalho a uma nova ramificação, selecione as reticências de **ações** ( **...** ) ao lado do item de trabalho e, no menu de contexto, role para e selecione **novo Branch**.  
+Para ligar um item de trabalho a um novo ramo, selecione as **Ações** elipsis ( **...** ) ao lado do item de trabalho, e no menu de contexto, percorra e selecione **Nova filial.**  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Na caixa de diálogo **criar uma ramificação** , forneça o nome da nova ramificação e a base Azure Repos repositório e ramificação git. O repositório base deve estar no mesmo projeto DevOps do Azure que o item de trabalho. A ramificação base pode ser a ramificação mestre ou outra ramificação existente. Selecione **criar ramificação**. 
+No diálogo **Criar um ramo,** forneça o novo nome do ramo e o repositório e ramo de base Azure Repos Git. O repositório base deve estar no mesmo projeto Azure DevOps que o item de trabalho. O ramo base pode ser o ramo principal ou outro ramo existente. Selecione **Criar ramo**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
-Você também pode criar uma nova ramificação usando o seguinte comando git bash no Windows ou Linux:
+Também pode criar um novo ramo utilizando o seguinte comando git bash no Windows ou Linux:
 
 ```bash
 git checkout -b <new branch name> <base branch name>
 
 ```
-Se você não especificar um \<nome de Branch base >, a nova ramificação será `master`baseada em. 
+Se não especificar um \<nome de filial base>, o novo ramo baseia-se em `master`. 
 
-Para alternar para o Branch de trabalho, execute o seguinte comando: 
+Para mudar para o seu ramo de trabalho, execute o seguinte comando: 
 
 ```bash
 git checkout <working branch name>
 ```
 
-Depois de alternar para o Branch de trabalho, você pode começar a desenvolver o código ou artefatos de documentação para concluir o item de trabalho. Executar `git checkout master` o comutador de volta `master` para a ramificação.
+Depois de mudar para o ramo de trabalho, pode começar a desenvolver artefactos de código ou documentação para completar o item de trabalho. Correr `git checkout master` muda-te de volta para o ramo `master`.
 
-É uma boa prática criar uma ramificação git para cada item de trabalho de história de usuário. Em seguida, para cada item de trabalho de tarefa, você pode criar uma ramificação com base na ramificação de história de usuário. Organize as ramificações em uma hierarquia que corresponde à relação de tarefa de história de usuário quando você tem várias pessoas trabalhando em histórias de usuário diferentes para o mesmo projeto ou em tarefas diferentes para a mesma história de usuário. Você pode minimizar conflitos fazendo com que cada membro da equipe trabalhe em uma ramificação diferente ou em código diferente ou em outros artefatos ao compartilhar uma ramificação. 
+É uma boa prática criar uma filial Git para cada item de trabalho da User Story. Em seguida, para cada item de trabalho de Tarefa, pode criar um ramo baseado no ramo User Story. Organize os ramos numa hierarquia que corresponda à relação User Story-Task quando tiver várias pessoas a trabalhar em diferentes Histórias de Utilizadores para o mesmo projeto, ou em diferentes Tarefas para a mesma História do Utilizador. Você pode minimizar conflitos fazendo com que cada membro da equipa trabalhe em um ramo diferente, ou em código diferente ou outros artefactos ao partilhar um ramo. 
 
-O diagrama a seguir mostra a estratégia de ramificação recomendada para TDSP. Talvez você não precise de tantas ramificações quantas forem mostradas aqui, especialmente quando apenas uma ou duas pessoas trabalham em um projeto ou apenas uma pessoa trabalha em todas as tarefas de uma história de usuário. Mas separar a ramificação de desenvolvimento da ramificação mestre é sempre uma boa prática e pode ajudar a impedir que o Branch de lançamento seja interrompido pelas atividades de desenvolvimento. Para obter uma descrição completa do modelo de ramificação git, consulte [um modelo de ramificação git bem-sucedido](https://nvie.com/posts/a-successful-git-branching-model/).
+O diagrama seguinte mostra a estratégia de ramificação recomendada para a TDSP. Você pode não precisar de tantos ramos como mostrado aqui, especialmente quando apenas uma ou duas pessoas trabalham num projeto, ou apenas uma pessoa trabalha em todas as Tarefas de uma História de Utilizador. Mas separar o ramo de desenvolvimento do ramo principal é sempre uma boa prática, e pode ajudar a evitar que o ramo de libertação seja interrompido por atividades de desenvolvimento. Para obter uma descrição completa do modelo git branch, consulte Um modelo de [ramificação Git bem sucedido](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
-Também pode associar um item de trabalho a uma ramificação existente. Na página de **detalhes** de um item de trabalho, selecione **Adicionar link**. Em seguida, selecione um Branch existente para vincular o item de trabalho e selecione **OK**. 
+Também pode associar um item de trabalho a uma ramificação existente. Na página **de Detalhes** de um item de trabalho, selecione **Adicionar link**. Em seguida, selecione um ramo existente para ligar o item de trabalho e selecione **OK**. 
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
-## <a name='WorkonaBranchandCommittheChanges-2'></a>Trabalhar no Branch e confirmar as alterações 
+## <a name='WorkonaBranchandCommittheChanges-2'></a>Trabalhar no ramo e cometer alterações 
 
-Depois de fazer uma alteração para seu item de trabalho, como adicionar um arquivo de script R à ramificação do `script` computador local, você pode confirmar a alteração do Branch local para o Branch de trabalho upstream usando os seguintes comandos do git bash:
+Depois de fazer uma alteração para o seu item de trabalho, como adicionar um ficheiro de script R ao ramo `script` da sua máquina local, pode comprometer a mudança da sua filial local para o ramo de trabalho a montante utilizando os seguintes comandos git bash:
 
 ```bash
 git status
@@ -72,37 +72,37 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name='CreateapullrequestonVSTS-3'></a>Criar uma solicitação de pull
+## <a name='CreateapullrequestonVSTS-3'></a>Criar um pedido de puxar
 
-Após uma ou mais confirmações e envios por push, quando estiver pronto para mesclar seu Branch de trabalho atual em sua ramificação base, você poderá criar e enviar uma *solicitação de pull* no Azure repos. 
+Depois de um ou mais compromissos e empurrões, quando estiver pronto para fundir o seu atual ramo de trabalho no seu ramo base, pode criar e submeter um pedido de *pull* em Azure Repos. 
 
-Na página principal do seu projeto DevOps do Azure, aponte para**solicitações de pull** do **repositórios** > no painel de navegação esquerdo. Em seguida, selecione um dos novos botões de **solicitação de pull** ou o link **criar uma solicitação de pull** .
+A partir da página principal do seu projeto Azure DevOps, aponte para os pedidos **de Repos** > **Pull** na navegação à esquerda. Em seguida, selecione um dos botões de pedido de **puxar novo,** ou o link Criar um pedido de **puxar.**
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Na tela **nova solicitação de pull** , se necessário, navegue até o repositório git e Branch para os quais você deseja mesclar suas alterações. Adicione ou altere outras informações que desejar. Emrevisores, adicione os nomes dos que você precisa para revisar suas alterações e, em seguida, selecione **criar**. 
+No ecrã **New Pull Request,** se necessário, navegue para o repositório Git e branch em que pretende fundir as suas alterações. Adicione ou altere qualquer outra informação que desejar. Em **Revisores,** adicione os nomes dos revisores e, em seguida, selecione **Criar**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
 ## <a name='ReviewandMerge-4'></a>Revisão e intercalação
 
-Depois de criar a solicitação de pull, seus revisores receberão uma notificação por email para examinar a solicitação de pull. Os revisores testam se as alterações funcionam e verificam as alterações com o solicitante, se possível. Os revisores podem fazer comentários, solicitar alterações e aprovar ou rejeitar a solicitação de pull com base em sua avaliação. 
+Assim que criar o pedido de pull, os seus revisores recebem uma notificação de e-mail para rever o pedido de pull. Os revisores testam se as alterações funcionam e verificam as alterações com o solicitador, se possível. Os revisores podem fazer comentários, solicitar alterações e aprovar ou rejeitar o pedido de retirada com base na sua avaliação. 
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-Depois que os revisores aprovarem as alterações, você ou outra pessoa com permissões de mesclagem podem mesclar a ramificação de trabalho com sua ramificação base. Selecione **concluir**e, em seguida, selecione **mesclagem completa** na caixa de diálogo **concluir solicitação de pull** . Você pode optar por excluir o Branch de trabalho depois que ele tiver sido mesclado. 
+Depois de os revisores aprovarem as alterações, você ou outra pessoa com permissões de fusão pode fundir o ramo de trabalho com o seu ramo base. Selecione **Complete**, e, em seguida, selecione **Complete fundir** no diálogo de pedido de **puxar completo.** Pode optar por eliminar o ramo de trabalho depois de se ter fundido. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
-Confirme se a solicitação está marcada como **concluída**. 
+Confirme que o pedido está marcado como **CONCLUÍDO**. 
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Ao voltar para **repositórios** no painel de navegação esquerdo, você pode ver que foi alternado para o Branch mestre desde que a `script` ramificação foi excluída.
+Quando voltar a **Repos** na navegação esquerda, pode ver que foi mudado para o ramo principal desde que o ramo `script` foi apagado.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-Você também pode usar os seguintes comandos do git bash para mesclar o Branch de `script` trabalho para sua ramificação base e excluir o Branch de trabalho após a mesclagem:
+Também pode utilizar os seguintes comandos git bash para fundir o `script` ramo de trabalho ao seu ramo base e eliminar o ramo de trabalho após a fusão:
 
 ```bash
 git checkout master
@@ -114,7 +114,7 @@ git branch -d script
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Executar tarefas de ciência de dados](execute-data-science-tasks.md) mostra como usar utilitários para concluir várias tarefas comuns de ciência de dados, como exploração interativa de dados, análise de dados, relatórios e criação de modelo.
+[Executar tarefas de ciência](execute-data-science-tasks.md) de dados mostra como usar utilitários para completar várias tarefas comuns de ciência de dados, tais como a exploração interativa de dados, análise de dados, relatórios e criação de modelos.
 
-[Exemplos de orientações passo](walkthroughs.md) a passo de cenários específicos, com descrições de miniaturas e links. Os cenários vinculados ilustram como combinar ferramentas e serviços de nuvem e locais em fluxos de trabalho ou pipelines para criar aplicativos inteligentes. 
+[Os walkthroughs de exemplo](walkthroughs.md) listam caminhadas de cenários específicos, com links e descrições de miniaturas. Os cenários ligados ilustram como combinar ferramentas e serviços em fluxos de trabalho ou oleodutos para criar aplicações inteligentes. 
 

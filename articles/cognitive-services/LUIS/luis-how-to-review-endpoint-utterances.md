@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: b04a17c893f748670eb1c79f0ada879c0d5c401f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ed0b9450217b06ff145641d9e268ccee28ee49b2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381720"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710596"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
@@ -33,7 +33,7 @@ Para habilitar o aprendizado ativo, você deve registrar as consultas de usuári
 Cada ocorrência de pronunciação tem uma intenção sugerida zobrazené a **alinhadas com a intenção** coluna.
 
 > [!div class="mx-imgBorder"]
-> [![revisar ponto de extremidade declarações que LUIS não tem certeza de](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
+> [![Rever declarações finais que LUIS não tem a certeza](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
 Se você concordar com essa intenção, selecione a marca de seleção. Se discordar com a sugestão, selecione a intenção correta da lista pendente intenção alinhada, em seguida, selecione na marca de verificação para a direita da intenção alinhada. Depois de selecionar na marca de seleção, o expressão é movido para a intenção e removido da lista **examinar ponto de extremidade declarações** .
 

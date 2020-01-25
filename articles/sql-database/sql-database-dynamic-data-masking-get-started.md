@@ -8,16 +8,16 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: b3f3aef66af056ca06d066c5235b0d23a2f39ecc
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 149c42829762920583948958da8252a01e35ef1f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945773"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721919"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Mascaramento de dados dinâmicos para o Azure SQL Database e data warehouse
 
@@ -46,8 +46,8 @@ A máscara de dados dinâmicos pode ser configurada pelas funções administrado
 | **Predefinição** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos XS se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, Decimal, int, Money, Numeric, smallint, SmallMoney, tinyint, float, real).<br/>• Use 01-01-1900 para tipos de dados de data/hora (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, time).<br/>• Para variante SQL, o valor padrão do tipo atual é usado.<br/>• For XML, o documento \<mascarado/> será usado.<br/>• Use um valor vazio para tipos de dados especiais (carimbo de data/hora, hierarchyid, GUID, binário, imagem, tipos espaciais varbinary). |
 | **Cartão de crédito** |**Método de mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por xxx.com** usando um prefixo de cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e o último caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizada no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>sufixo do prefixo [Padding]<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) de navegação |
+| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e o último caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizada no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>prefixo[enchimento]sufixo<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) de navegação |
 
 <a name="Anchor1"></a>
 

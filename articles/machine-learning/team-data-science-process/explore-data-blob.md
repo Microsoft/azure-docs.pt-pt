@@ -3,20 +3,20 @@ title: Explorar os dados no armazenamento de Blobs do Azure com o pandas - Team 
 description: Como explorar os dados armazenados no contentor de Blobs do Azure com o pacote do Python pandas.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e041b41c5c569a2329bb2fc6f33e8f5a05c385
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981990"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722191"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar os dados no armazenamento de Blobs do Azure com o pandas
 
@@ -33,7 +33,7 @@ Este artigo pressupõe que tem:
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregar os dados para um pandas DataFrame
 Para explorar e manipular um conjunto de dados, transferi-lo a tem primeiro de origem do blob para um arquivo local, que, em seguida, pode ser carregado num pandas DataFrame. Aqui estão as etapas a seguir para este procedimento:
 
-1. Transferência dos dados do Azure de Blobs com o seguinte exemplo de código de Python com o serviço de Blobs. Substitua os valores específicos a variável no código a seguir:
+1. Descarregue os dados da blob Azure com a seguinte amostra de código Python utilizando o serviço Blob. Substitua os valores específicos a variável no código a seguir:
 
 ```python
 from azure.storage.blob import BlockBlobService

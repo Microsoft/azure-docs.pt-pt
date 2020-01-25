@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973369"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719080"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
 Armazenamento com redundância de zona geográfica (GZRS) (visualização) casasse a alta disponibilidade de [armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md) com proteção contra interrupções regionais, conforme fornecido pelo [armazenamento com REDUNDÂNCIA geográfica (GRS)](storage-redundancy-grs.md). Os dados em uma conta de armazenamento GZRS são replicados em três [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md) na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais. Cada região do Azure é emparelhada com outra região na mesma geografia, juntos criando um par regional. Para obter mais detalhes e exceções, consulte a [documentação](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. O GZRS também oferece as mesmas metas de escalabilidade que LRS, ZRS, GRS ou RA-GRS. Opcionalmente, você pode habilitar o acesso de leitura aos dados na região secundária com armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) se seus aplicativos precisarem ser capazes de ler dados no caso de um desastre na região primária.
+Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. A GZRS foi concebida para fornecer pelo menos 99.9999999999999999999999999% (16 9's) durabilidade de objetos durante um determinado ano. O GZRS também oferece as mesmas metas de escalabilidade que LRS, ZRS, GRS ou RA-GRS. Opcionalmente, você pode habilitar o acesso de leitura aos dados na região secundária com armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) se seus aplicativos precisarem ser capazes de ler dados no caso de um desastre na região primária.
 
 A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade, alta disponibilidade, excelente desempenho e resiliência para a recuperação de desastres. Para obter a segurança adicional de acesso de leitura para a região secundária no caso de um desastre regional, habilite o RA-GZRS para sua conta de armazenamento.
 
@@ -32,6 +32,7 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 - Sudeste Asiático
 - Norte da Europa
 - Europa Ocidental
+- Este do Japão
 - Sul do Reino Unido
 - Este dos EUA
 - Este dos EUA 2
@@ -129,6 +130,7 @@ Depois que a migração for concluída, a configuração de replicação da cont
 Tenha em mente as seguintes restrições na migração ao vivo:
 
 - Embora a Microsoft processe com o seu pedido para migração em direto imediatamente, não há nenhuma garantia em relação a quando uma migração em direto será concluída. Se você precisar que seus dados sejam migrados para GZRS ou RA-GZRS em uma determinada data, a Microsoft recomenda que você execute uma migração manual. Em geral, quanto mais dados tiver na conta, mais tempo levará a migrar esses dados.
+- A migração ao vivo é suportada apenas para contas de armazenamento que utilizam a replicação GRS ou RA-GRS. Se a sua conta utilizar LRS, então tem de alterar primeiro o tipo de replicação da sua conta para GRS ou RA-GRS antes de prosseguir. Este passo intermediário adiciona o ponto final secundário fornecido por GRS/RA-GRS.
 - Sua conta deve conter dados.
 - Você só pode migrar dados dentro da mesma região.
 - Somente os tipos de conta de armazenamento Standard dão suporte à migração dinâmica. As contas de armazenamento Premium devem ser migradas manualmente.
@@ -148,7 +150,7 @@ Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.portal
     - **Tipo de problema**: selecione **migração de dados**.
     - **Categoria**: selecione **migrar para (ra-) GZRS em uma região**.
     - **Título**: digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
-    - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região do \_\_". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região do \_\_."
+    - **Detalhes**: Digite detalhes adicionais na caixa **de Detalhes,** por exemplo, "Gostaria de migrar para gZRS de [LRS, GRS] na região \_\_." ou "Gostaria de migrar para RA-GZRS de [LRS, RA-GRS] na \_\_ região."
 5. Selecione **Seguinte**.
 6. Verifique se as informações de contato estão corretas na folha **informações de contato** .
 7. Selecione **Criar**.

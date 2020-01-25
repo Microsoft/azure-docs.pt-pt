@@ -3,20 +3,20 @@ title: Operacionalizar modelos de aprendizagem de máquina criados com o Spark -
 description: Como carregar e classificar modelos de aprendizagem armazenados no armazenamento de Blobs do Azure (WASB) com o Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253185"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718553"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizagem automática criados com o Spark
 
@@ -35,7 +35,7 @@ Para modificar o bloco de notas do Jupyter para Spark 1.6 utilizar com um cluste
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Precisa de uma conta do Azure e um Spark 1.6 (ou Spark 2.0) cluster do HDInsight para concluir estas instruções. Consulte a [descrição geral de ciência de dados com o Spark no Azure HDInsight](spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de táxis de 2013 NYC usados aqui e obter instruções sobre como executar o código a partir de um bloco de notas do Jupyter no cluster do Spark. 
-2. Também tem de criar os modelos de machine learning ser classificados aqui ao trabalhar com o [exploração de dados e modelação com o Spark](spark-data-exploration-modeling.md) tópico para o cluster do Spark 1.6 ou os blocos de notas do Spark 2.0. 
+2. Crie os modelos de machine learning a serem pontuados aqui, trabalhando através da [exploração de Dados e modelação com](spark-data-exploration-modeling.md) o tópico Spark para o cluster Spark 1.6 ou os cadernos Spark 2.0. 
 3. Os blocos de notas do Spark 2.0 utilizam um conjunto de dados adicional para a tarefa de classificação, bem conhecido companhia aérea pontuais mudança dataset a partir de 2011 e 2012. Uma descrição dos blocos de notas e links para eles são fornecidos na [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que contém-los. Além disso, o código aqui e em blocos de notas ligados é genérico e deve trabalhar em qualquer cluster do Spark. Se não estiver a utilizar o Spark do HDInsight, os passos de configuração e o gerenciamento de cluster podem ser ligeiramente diferentes do que é mostrado aqui. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -104,7 +104,7 @@ Definir o contexto do spark e importe bibliotecas necessárias com o código a s
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Contexto de Spark predefinido e a magia do PySpark
-PySpark kernels que são fornecidos com blocos de notas do Jupyter têm um contexto predefinido. Portanto, não é necessário definir o Spark ou do Hive contextos explicitamente antes de começar a trabalhar com a aplicação estiver a desenvolver. Estas estão disponíveis para por predefinição. Desses contextos são:
+PySpark kernels que são fornecidos com blocos de notas do Jupyter têm um contexto predefinido. Por isso, não precisa de definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com a aplicação que está a desenvolver. Estes contextos estão disponíveis por defeito:
 
 * SC - para o Spark 
 * kontext sqlContext - para o Hive
@@ -112,7 +112,7 @@ PySpark kernels que são fornecidos com blocos de notas do Jupyter têm um conte
 O kernel do PySpark fornece alguns predefinidas "magia", que são comandos especiais que pode chamar com % %. Existem dois desses comandos que são utilizados nestas amostras de código.
 
 * **% % local** especificado que o código nas linhas subsequentes é executado localmente. Código tem de ser um código de Python válido.
-* **%%sql -o \<variable name>** 
+* **%%sql -o \<nome variável>** 
 * Executa uma consulta do Hive contra o kontext sqlContext. Se o parâmetro -o passado, o resultado da consulta é mantido no % % contexto Python local como um Pandas dataframe.
 
 Para obter mais informações sobre os kernels de blocos de notas do Jupyter e predefinidos "magics" que fornecem, consulte [Kernels disponíveis para blocos de notas do Jupyter com o HDInsight Spark Linux clusters no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -120,7 +120,7 @@ Para obter mais informações sobre os kernels de blocos de notas do Jupyter e p
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Ingestão de dados e criar um quadro de dados de membros limpos
 Esta secção contém o código de uma série de tarefas necessárias para ingestão de dados ser classificados. Ler um exemplo de 0,1% associado ao souboru táxis viagem e Europeia (armazenado como um ficheiro. tsv), formato os dados e, em seguida, cria um quadro de dados limpa.
 
-Os ficheiros de viagem e Europeia táxis foram associados com base no procedimento fornecido no: [O processo de ciência de dados de equipa em ação: com clusters do HDInsight Hadoop](hive-walkthrough.md) tópico.
+Os ficheiros de viagem e Europeia táxis foram associados com base no procedimento fornecido no: [o processo de ciência de dados de equipa em ação: com clusters do HDInsight Hadoop](hive-walkthrough.md) tópico.
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -257,7 +257,7 @@ O [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.prep
 Tempo decorrido para executar acima célula: 5.37 segundos
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Criar objetos RDD com matrizes de funcionalidade de entrada em modelos
-Esta secção contém código que mostra como indexar dados categóricos texto como um objeto RDD e um-hot codificá-lo para que possa ser utilizada para dar formação e teste de regressão logística de MLlib e modelos baseados em árvore. Os dados indexados são armazenados no [conjunto de dados distribuídos resilientes (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objetos. Estes são a abstração básica no Spark. Um objeto RDD representa uma coleção particionada imutável de elementos que pode ser manipulado em paralelo com o Spark.
+Esta secção contém código que mostra como indexar dados categóricos texto como um objeto RDD e um-hot codificá-lo para que possa ser utilizada para dar formação e teste de regressão logística de MLlib e modelos baseados em árvore. Os dados indexados são armazenados no [conjunto de dados distribuídos resilientes (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objetos. Os RDDs são a abstração básica em Spark. Um objeto RDD representa uma coleção particionada imutável de elementos que pode ser manipulado em paralelo com o Spark.
 
 Também contém o código que mostra como dimensionar os dados com o `StandardScalar` fornecida pelo MLlib para utilização em regressão linear com stochastic Gradient gradiente descendente (SGD), um algoritmo popular para uma vasta gama de modelos de aprendizagem automática de formação. O [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) é usado para dimensionar os recursos a variância de unidade. Dimensionamento de recursos, também conhecido como normalização de dados, forma, assegura que funcionalidades com valores amplamente disbursed são não fornecido excessiva pesar na função Objetiva. 
 
@@ -443,9 +443,9 @@ Tempo decorrido para executar acima célula: 31.07 segundos
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Classificação e regressão gradação adaptativo árvore modelos de pontuação
 O código nesta secção mostra como carregar classificação e regressão gradação adaptativo árvore modelos do armazenamento de Blobs do Azure, classificar o desempenho com classificador padrão e medidas de regressão e, em seguida, guardar os resultados novamente para o armazenamento de Blobs. 
 
-**spark.mllib** suporta GBTs para classificação binária e regressão, usando recursos contínuos e categóricos. 
+**spark.mllib** suporta GBTS para classificação binária e para regressão, utilizando características contínuas e categóricas. 
 
-[Árvores de aumentam a gradação](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são árvores de árvores de decisões. GBTs treinar árvores de decisão iterativamente para minimizar a uma função de perda. GBTs pode lidar com recursos categóricos, não requerem o dimensionamento do recurso e podem capturar não linearities e interações de recursos. Eles também podem ser usados numa configuração de classificação de várias classes.
+[Gradiente Boosting Trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. A decisão do comboio GBTS árvores iterativamente para minimizar uma função de perda. O GBTS pode lidar com características categóricas, não requer dimensionamento de funcionalidades e é capaz de capturar não linearidades e interações de recursos. Este algoritmo também pode ser usado numa definição de classificação multiclasse.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Consumir modelos de Spark através de uma interface da web
-Spark fornece um mecanismo para submeter remotamente tarefas de lote ou consultas interativas através de uma interface REST com um componente chamado Livy. Livy está ativada por predefinição no seu cluster do HDInsight Spark. Para obter mais informações sobre o Livy, consulte: [Submeter tarefas do Spark remotamente com o Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark fornece um mecanismo para submeter remotamente tarefas de lote ou consultas interativas através de uma interface REST com um componente chamado Livy. Livy está ativada por predefinição no seu cluster do HDInsight Spark. Para obter mais informações sobre o Livy, consulte: [tarefas do Spark de submeter remotamente com o Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Pode utilizar Livy remotamente submeter uma tarefa que o batch pontuações de um ficheiro que é armazenado num blob do Azure e, em seguida, grava os resultados em outro blob. Para fazer isso, carrega o script de Python de  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) para o blob do cluster do Spark. Pode usar uma ferramenta como o **Explorador de armazenamento do Microsoft Azure** ou **AzCopy** para copiar o script para o blob de cluster. No nosso caso, nós carregamos o script para ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -586,6 +586,6 @@ Se preferir uma experiência de cliente gratuito de código, utilize o [do Azure
 
 ![Estruturador de Aplicações Lógicas](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>Passos seguintes?
-**A validação cruzada e varrimento de hiper-parâmetros**: Ver [avançada de exploração de dados e modelagem com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar.
+## <a name="whats-next"></a>O que se segue?
+**A validação cruzada e varrimento de hiper-parâmetros**: veja [avançada de exploração de dados e modelagem com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar.
 

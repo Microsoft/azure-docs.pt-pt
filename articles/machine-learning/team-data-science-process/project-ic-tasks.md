@@ -1,80 +1,80 @@
 ---
 title: Tarefas para um colaborador individual no Team Data Science Process
-description: Uma explicação detalhada das tarefas para um colaborador individual em um projeto de equipe de ciência de dados.
+description: Uma passagem detalhada das tarefas para um colaborador individual num projeto da equipa de ciência de dados.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64d9669c11f15de5e6bd616ff7a79f59b748363
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244276"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721256"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um colaborador individual no Team Data Science Process
 
-Este tópico descreve as tarefas que um *colaborador individual* conclui para configurar um projeto no TDSP ( [processo de ciência de dados de equipe](overview.md) ). O objetivo é trabalhar em um ambiente de equipe colaborativa que padronize o TDSP. O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. Para obter uma descrição das funções de pessoal e de suas tarefas associadas que são manipuladas por uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md).
+Este tópico descreve as tarefas que um *colaborador individual* completa para a criação de um projeto no Processo de Ciência de Dados da [Equipa](overview.md) (TDSP). O objetivo é trabalhar num ambiente de equipa colaborativo que normalize no TDSP. O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. Para um esboço das funções de pessoal e das suas tarefas associadas que são tratadas por uma equipa de ciência de dados padronizada no TDSP, consulte as [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipa.
 
-O diagrama a seguir mostra as tarefas que o projeto colaboradores individuais (cientistas de dados) concluiu para configurar seu ambiente de equipe. Para obter instruções sobre como executar um projeto de ciência de dados no TDSP, consulte [execução de projetos de ciência de dados](project-execution.md). 
+O diagrama seguinte mostra as tarefas que os contribuintes individuais (cientistas de dados) completam para configurar o seu ambiente de equipa. Para obter instruções sobre como executar um projeto de ciência de dados no âmbito do TDSP, consulte a [Execução de projetos de ciência de dados](project-execution.md). 
 
-![Tarefas de colaborador individuais](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
+![Tarefas individuais dos contribuintes](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
-- **ProjectRepository** é o repositório que sua equipe de projeto mantém para compartilhar modelos e ativos de projeto.
-- **TeamUtilities** é o repositório de utilitários que sua equipe mantém especificamente para sua equipe. 
-- **GroupUtilities** é o repositório que seu grupo mantém para compartilhar utilitários úteis em todo o grupo. 
+- **ProjectRepository** é o repositório que a sua equipa de projeto mantém para partilhar modelos e ativos do projeto.
+- **TeamUtilities** é o repositório de utilidades que a sua equipa mantém especificamente para a sua equipa. 
+- **GroupUtilities** é o repositório que o seu grupo mantém para partilhar utilitários úteis em todo o grupo. 
 
 > [!NOTE] 
-> Este artigo usa Azure Repos e um Máquina Virtual de Ciência de Dados (DSVM) para configurar um ambiente TDSP, pois é como implementar TDSP na Microsoft. Se sua equipe usa outras plataformas de Hospedagem de código ou de desenvolvimento, as tarefas de colaborador individuais são as mesmas, mas a maneira de concluí-las pode ser diferente.
+> Este artigo utiliza o Azure Repos e uma Máquina Virtual de Ciência de Dados (DSVM) para criar um ambiente TDSP, porque é assim que se implementa o TDSP na Microsoft. Se a sua equipa utilizar outras plataformas de hospedagem ou desenvolvimento de códigos, as tarefas individuais dos contribuintes são as mesmas, mas a forma de as completar pode ser diferente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial pressupõe que os seguintes recursos e permissões foram configurados por seu [gerente de grupo](group-manager-tasks.md), [líder de equipe](team-lead-tasks.md)e [líder de projeto](project-lead-tasks.md):
+Este tutorial pressupõe que os seguintes recursos e permissões foram criados pelo seu gestor de [grupo,](group-manager-tasks.md)líder de [equipa,](team-lead-tasks.md)e líder do [projeto:](project-lead-tasks.md)
 
-- A **organização** do Azure DevOps para sua unidade de ciência de dados
-- Um **repositório de projeto** configurado pelo seu projeto líder de projetos para compartilhar modelos e ativos de projeto
-- Repositórios **GroupUtilities** e **TeamUtilities** configurados pelo gerente de grupo e líder de equipe, se aplicável
-- Configuração do **armazenamento de arquivos** do Azure para ativos compartilhados para sua equipe ou projeto, se aplicável
-- **Permissões** para clonar e enviar de volta para o repositório do projeto 
+- A **organização** Azure DevOps para a sua unidade de ciência de dados
+- Um **repositório** de projeto criado pelo seu projeto leva a partilhar modelos e ativos de projeto
+- **Repositórios de Utilitários** e **TeamUtilities** criados pelo gestor do grupo e liderança da equipa, se aplicável
+- Armazenamento de **ficheiros** Azure configurado para ativos partilhados para a sua equipa ou projeto, se aplicável
+- **Permissões** para que clone e empurre para o seu repositório de projeto 
 
-Para clonar repositórios e modificar o conteúdo em seu computador local ou DSVM, ou montar o armazenamento de arquivos do Azure em seu DSVM, você precisará do seguinte:
+Para clonar repositórios e modificar conteúdos na sua máquina local ou DSVM, ou montar o armazenamento de ficheiros Azure para o seu DSVM, você precisa considerar esta lista de verificação:
 
 - Uma subscrição do Azure.
 - Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
 - Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
 - Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
 - Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
-- As informações de armazenamento de arquivos do Azure para qualquer armazenamento de arquivos do Azure que você precisa para montar seu DSVM. 
+- As informações de armazenamento de ficheiros Azure para qualquer armazenamento de ficheiros Azure que você precisa montar para o seu DSVM. 
 
-## <a name="clone-repositories"></a>Clonar repositórios
+## <a name="clone-repositories"></a>Repositórios de clones
 
-Para trabalhar com repositórios localmente e enviar por push suas alterações para os repositórios de equipe e projeto compartilhados, primeiro copie ou *clone* os repositórios em seu computador local. 
+Para trabalhar com repositórios localmente e empurrar as suas mudanças para a equipa partilhada e repositórios de projeto, você primeiro copia ou *clona* os repositórios para a sua máquina local. 
 
-1. No Azure DevOps, vá para a página de resumo do projeto da sua equipe em *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe*>, por exemplo, **https:\//dev.Azure.com/DataScienceUnit/myTeam**.
+1. No Azure DevOps, vá à página sumária do projeto da sua equipa em https:\//\<nome de *servidor>/\<nome de organização>/\<nome de equipa>* por exemplo, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
    
-1. Selecione **repositórios** no painel de navegação esquerdo e, na parte superior da página, selecione o repositório que você deseja clonar.
+1. Selecione **Repos** na navegação esquerda e, no topo da página, selecione o repositório que pretende clonar.
    
 1. Na página repositório, selecione **clonar** no canto superior direito.
    
-1. Na caixa de diálogo **clonar repositório** , selecione **https** para uma conexão http ou **SSH** para uma conexão SSH e copie a URL de clone na **linha de comando** para a área de transferência.
+1. No diálogo de **repositório Clone,** selecione **HTTPS** para uma ligação HTTP, ou **SSH** para uma ligação SSH, e copie o URL do clone sob **a linha de comando** para a sua área de pré-quadro.
    
-   ![Clonar repositório](./media/project-ic-tasks/clone.png)
+   ![Repo clone](./media/project-ic-tasks/clone.png)
    
-1. No computador local ou DSVM, crie os seguintes diretórios:
+1. Na sua máquina local ou DSVM, crie os seguintes diretórios:
    
-   - Para Windows: **C:\GitRepos**
-   - Para Linux: **$Home/gitrepos**
+   - Para Janelas: **C:\GitRepos**
+   - Para Linux: **$home/GitRepos**
    
 1. Altere para o diretório que você criou.
    
-1. No git bash, execute o comando `git clone <clone URL>` para cada repositório que você deseja clonar. 
+1. Em Git Bash, dirija o comando `git clone <clone URL>` para cada repositório que quiser clonar. 
    
-   Por exemplo, o comando a seguir clona o repositório **TeamUtilities** para o diretório *myTeam* em seu computador local. 
+   Por exemplo, os seguintes clones de comando o repositório **TeamUtilities** para o diretório *MyTeam* na sua máquina local. 
    
    **Conexão HTTPS:**
    
@@ -88,13 +88,13 @@ Para trabalhar com repositórios localmente e enviar por push suas alterações 
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
    
-1. Confirme que você pode ver as pastas para os repositórios clonados no diretório do projeto local.
+1. Confirme que pode ver as pastas dos repositórios clonados no seu diretório de projeto local.
    
-   ![Três pastas de repositório locais](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
+   ![Três pastas de repositório local](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="mount-azure-file-storage-to-your-dsvm"></a>Montar o armazenamento de arquivos do Azure para seu DSVM
+## <a name="mount-azure-file-storage-to-your-dsvm"></a>Armazenamento de ficheiros Mount Azure para o seu DSVM
 
-Se sua equipe ou projeto tiver ativos compartilhados no armazenamento de arquivos do Azure, monte o armazenamento de arquivos em seu computador local ou DSVM. Siga as instruções em [montar o armazenamento de arquivos do Azure no computador local ou DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
+Se a sua equipa ou projeto tiver ativos partilhados no armazenamento de ficheiros Azure, monte o armazenamento de ficheiros na sua máquina local ou DSVM. Siga as instruções no armazenamento de [ficheiros Mount Azure na sua máquina local ou DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
 ## <a name="next-steps"></a>Passos seguintes
 

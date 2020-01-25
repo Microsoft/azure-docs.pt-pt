@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 01/23/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 41e6828f03533bfd239f6408a580150e614eb5e7
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 70400dbf6ad94da3212990d35e9689a33e322705
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281186"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717222"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Início rápido: usar a biblioteca de cliente do Análise de Texto v3
 

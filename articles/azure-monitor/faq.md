@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/30/2019
-ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/23/2020
+ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290347"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715928"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -95,6 +95,18 @@ Todos os dados de log coletados pelo Azure Monitor são armazenados em um espaç
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Você pode mover um espaço de trabalho Log Analytics existente para outra assinatura do Azure?
 Você pode mover um espaço de trabalho entre grupos de recursos ou assinaturas, mas não para uma região diferente. Consulte [mover um espaço de trabalho log Analytics para uma assinatura ou grupo de recursos diferente](platform/move-workspace.md).
+
+### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Por que não posso ver o Query Explorer e guardar botões no Log Analytics?
+
+**Consulta Explorer**, **Save** and New **alert rule** buttons não estão disponíveis quando o âmbito de [consulta](log-query/scope.md) é definido para um recurso específico. Para criar alertas, guardar ou carregar uma consulta, o Log Analytics deve ser remeto para um espaço de trabalho. Para abrir o Log Analytics no contexto do espaço de trabalho, selecione **Registos** do menu **Do Monitor Azure.** A última área de trabalho utilizada é selecionada, mas pode selecionar qualquer outra área de trabalho. Consulte o âmbito e o intervalo de tempo de consulta de [registo no Azure Monitor Log Analytics](log-query/scope.md)
+
+### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Porque é que estou a receber o erro: "Registar o fornecedor de recursos 'Microsoft.Insights' para esta subscrição para permitir esta consulta" ao abrir o Log Analytics a partir de um VM? 
+Muitos fornecedores de recursos estão automaticamente registados, mas pode ser necessário registar manualmente alguns fornecedores de recursos. O âmbito de registo é sempre a subscrição. Veja [Fornecedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) para obter mais informações.
+
+### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Porque é que não estou a receber nenhuma mensagem de erro de acesso ao abrir o Log Analytics a partir de um VM? 
+Para ver os Registos VM, é necessário ter permissão de leitura para os espaços de trabalho que armazenam os registos VM. Nestes casos, o administrador deve conceder-lhe com as permissões no Azure.
+
+
 
 
 ## <a name="alerts"></a>Alertas
@@ -181,6 +193,12 @@ Especifique um [grupo de ação](platform/action-groups.md) novo ou existente pa
 Consulte [requisitos de firewall de rede](platform/log-analytics-agent.md#network-firewall-requirements)para obter detalhes sobre os requisitos de firewall.
 
 
+## <a name="visualizations"></a>Visualizações
+
+### <a name="why-cant-i-cant-see-view-designer"></a>Por que não posso ver o Designer de Vistas?
+
+O View Designer só está disponível para utilizadores atribuídos com permissões do Colaborador ou superiores no espaço de trabalho do Log Analytics.
+
 
 ## <a name="application-insights"></a>Estatísticas das Aplicações
 
@@ -243,7 +261,7 @@ Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
 * Insere itens em:
   * Web.config
   * packages.config
-* (Somente novos projetos – se você [adicionar Application insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra views/Shared/\_layout. cshtml
+* (Somente novos projetos – se você [adicionar Application insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso Application Insights. Por exemplo, numa aplicação MVC, o código é inserido na página principal Views/Shared/\_Layout.cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como fazer atualizar de versões mais antigas do SDK?
 Consulte as [notas de versão](app/release-notes.md) do SDK apropriado para seu tipo de aplicativo.
@@ -306,7 +324,7 @@ Você pode configurar o `ClientIpHeaderTelemetryInitializer` para obter o endere
 Você pode [usar Power bi](app/export-power-bi.md ) para exibir a telemetria de solicitação em um mapa.
 
 
-### <a name="data"></a>Por quanto tempo os dados são retidos no portal? Ele está seguro?
+### <a name="data"></a>Por quanto tempo os dados são retidos no portal? É seguro?
 Dê uma olhada na [retenção e na privacidade dos dados][data].
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>Os dados pessoais podem ser enviados na telemetria?
@@ -322,7 +340,7 @@ Isso será possível se o seu código enviar esses dados. Isso também pode acon
 * Ele pode ser usado para distorcer seus dados ou disparar alertas.
 * Não ouvimos que qualquer cliente tenha tido tais problemas.
 
-Pode:
+Podia:
 
 * Use duas chaves de instrumentação separadas (recursos de Application Insights separados) para dados de cliente e servidor. Ou
 * Gravar um proxy que é executado em seu servidor e fazer com que o cliente Web envie dados por meio desse proxy.
@@ -529,7 +547,7 @@ ContainerLog
 
 Reabilitar a coleção para essas propriedades para cada linha de log de contêiner.
 
-Se a primeira opção não for conveniente devido a alterações de consulta envolvidas, você poderá reabilitar a coleta desses campos habilitando a configuração ```log_collection_settings.enrich_container_logs``` no mapa de configuração do agente, conforme descrito nas [definições de configuração de coleta de dados](insights/container-insights-agent-config.md).
+Se a primeira opção não for conveniente devido às alterações de consulta envolvidas, pode voltar a ativar a recolha destes campos, permitindo a definição ```log_collection_settings.enrich_container_logs``` no mapa de config do agente, tal como descrito nas definições de [configuração](insights/container-insights-agent-config.md)de recolha de dados .
 
 > [!NOTE]
 > A segunda opção não é recomendada com clusters grandes que têm mais de 50 nós porque ele gera chamadas de servidor de API de cada nó no cluster para executar esse enriquecimento. Essa opção também aumenta o tamanho dos dados para cada linha de log coletada.

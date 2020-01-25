@@ -1,6 +1,6 @@
 ---
-title: Utilizar laboratórios de sala de aula para treinamentos - Azure Lab Services | Documentos da Microsoft
-description: Saiba como utilizar o Azure DevTest Labs para cenários de treinamento.
+title: Utilizar laboratórios de sala de aula para formações - Serviços de Laboratório Azure
+description: Este artigo descreve como usar o Azure DevTest Labs para criar laboratórios em Azure para cenários de treino.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,48 +11,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60695292"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717993"
 ---
-# <a name="use-classroom-labs-for-trainings"></a>Utilizar laboratórios de sala de aula para treinamentos
-Pode configurar um laboratório para treinamentos. Laboratórios de sala de aula do Azure Lab Services permitem que crie um laboratório para fins de formação em que cada trainee utiliza ambientes idênticos e isoladas para treinamento. Pode aplicar políticas para garantir que os ambientes de treinamento estão disponíveis para cada trainee apenas quando precisam e contêm recursos suficientes - como máquinas virtuais - necessários para o treinamento. 
+# <a name="use-classroom-labs-for-trainings"></a>Use laboratórios de sala de aula para treinos
+Pode montar um laboratório para treinos. Os Laboratórios de Sala de Aula dos Serviços de Laboratório Azure permitem-lhe criar um laboratório para a sua formação onde cada estagiário utiliza ambientes idênticos e isolados para formação. Só é possível aplicar políticas que garantam que os ambientes de formação só estão disponíveis para cada estagiário quando necessitam e contêm recursos suficientes - como máquinas virtuais - necessários para a formação. 
 
 ![Laboratório de sala de aula](../media/classroom-labs-scenarios/classroom.png)
 
-Laboratórios de sala de aula cumpre os seguintes requisitos que são necessárias para realizar treinamento em qualquer ambiente virtual: 
+Os Laboratórios de Sala de Aula satisfazem os seguintes requisitos que são necessários para realizar formação em qualquer ambiente virtual: 
 
-- Formandos rapidamente podem aprovisionar ambientes de treinamento
-- Todas as máquinas de treinamento devem ser idêntica
-- Formandos não é possível ver as VMs criadas por outros formandos
-- Controlar o custo, garantindo que os formandos não é possível obter as VMs de mais do que o necessário para o treinamento e também o encerramento VMs quando não estão a utilizá-los
-- Partilhe facilmente o laboratório de treinamento com cada trainee
-- Reutilizar o laboratório de treinamento e novamente
+- Os estagiários podem fornecer rapidamente os seus ambientes de formação
+- Todas as máquinas de treino devem ser idênticas.
+- Estagiários não podem ver VMs criados por outros estagiários
+- Custo de controlo garantindo que os estagiários não podem obter mais VMs do que precisam para a formação e também desligar VMs quando não estão a usá-los
+- Partilhe facilmente o laboratório de formação com cada estagiário
+- Reutilizar o laboratório de treino uma e outra vez
 
-Neste artigo, ficará a conhecer várias funcionalidades do Azure Lab Services que podem ser utilizadas para satisfazer os requisitos de treinamento descrito anteriormente e passos detalhados que pode seguir para configurar um laboratório para treinamento.  
+Neste artigo, você aprende sobre várias funcionalidades do Azure Lab Services que podem ser usadas para atender aos requisitos de formação previamente descritos e passos detalhados que você pode seguir para configurar um laboratório para o treino.  
 
-## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Criar a conta de laboratório como um administrador de conta de laboratório
-É a primeira etapa no uso do Azure Lab Services criar uma conta de laboratório no portal do Azure. Depois de um administrador de conta de laboratório cria a conta de laboratório, o administrador adiciona os utilizadores que pretendem criar laboratórios para o **criador do laboratório** função. Os trainers criar laboratórios com máquinas virtuais para estudantes fazer exercícios no curso que estão ensinando. Para obter detalhes, consulte [criar e gerir a conta de laboratório](how-to-manage-lab-accounts.md).
+## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Crie a conta de laboratório como administrador de conta de laboratório
+O primeiro passo na utilização dos Serviços De Laboratório Azure é criar uma conta de laboratório no portal Azure. Depois de um administrador de conta de laboratório criar a conta de laboratório, o administrador adiciona utilizadores que querem criar laboratórios para o papel de Criador de **Laboratório.** Os formadores criam laboratórios com máquinas virtuais para os alunos fazerem exercícios para o curso que estão a dar. Para mais detalhes, consulte Criar e gerir a conta de [laboratório.](how-to-manage-lab-accounts.md)
 
 ## <a name="create-and-manage-classroom-labs"></a>Criar e gerir laboratórios de sala de aula
-Um treinador, que é um membro da função de criador do laboratório numa conta de laboratório, pode criar um ou mais laboratórios na conta de laboratório. Criar e configurar um modelo de VM com o software necessário para fazer a exercícios no seu curso. Selecione uma imagem pronta a utilizar a partir das imagens disponíveis para a criação de um laboratório de sala de aula e, em seguida, personalizá-lo ao instalar o software necessário para o laboratório. Para obter detalhes, consulte [criar e gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md).
+Um treinador, que é membro do papel de Criador de Laboratório numa conta de laboratório, pode criar um ou mais laboratórios na conta do laboratório. Cria e configura um VM de modelo com todo o software necessário para fazer exercícios no seu curso. Escolhe-se uma imagem pronta a partir das imagens disponíveis para criar um laboratório de sala de aula e depois personalizá-la instalando o software necessário para o laboratório. Para mais detalhes, consulte [Criar e gerir laboratórios de sala de aula.](how-to-manage-classroom-labs.md)
 
-## <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
-O criador do laboratório pode adicionar ou remover utilizadores de laboratório, obter ligação de registo para enviar aos utilizadores de laboratório, configurados políticas como quotas individuais de configuração por usuário, atualizar o número de VMs disponíveis no laboratório e muito mais. Para obter detalhes, consulte [configurar as políticas e definições de utilização](how-to-configure-student-usage.md).
+## <a name="configure-usage-settings-and-policies"></a>Configurar as definições e políticas de utilização
+O criador do laboratório pode adicionar ou remover os utilizadores para o laboratório, obter link de registo para enviar aos utilizadores do laboratório, configurar políticas como definir quotas individuais por utilizador, atualizar o número de VMs disponíveis no laboratório, e muito mais. Para mais detalhes, consulte [configurar as definições e políticas](how-to-configure-student-usage.md)de utilização .
 
 ## <a name="create-and-manage-schedules"></a>Criar e gerir agendamentos
-Agendas permitem-lhe configurar um laboratório de sala de aula, de modo a que as VMs no laboratório iniciarem automaticamente e encerre durante um período de tempo especificado. Pode definir um agendamento periódico ou numa agenda periódica. Para obter detalhes, consulte [criar e gerenciar cronogramas para laboratórios de sala de aula](how-to-create-schedules.md).
+Os horários permitem configurar um laboratório de sala de aula de modo a que os VMs no laboratório comecem e desliguem automaticamente num determinado momento. Pode definir um horário único ou um horário recorrente. Para mais detalhes, consulte [Criar e gerir horários para laboratórios de sala de aula.](how-to-create-schedules.md)
 
 ## <a name="set-up-and-publish-a-template-vm"></a>Configurar e publicar um modelo VM
-Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure o modelo de VM para que este é configurado com exatamente o que deseja fornecer aos participantes de treinamento. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Em seguida, publicar o modelo para que as instâncias do modelo VM disponíveis aos seus utilizadores de laboratório. Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do modelo. O número de VMs criadas neste processo é igual ao número máximo de utilizadores permitidos no laboratório, o que pode configurar na política de utilização do laboratório. Todas as máquinas virtuais têm a mesma configuração do modelo. Para obter detalhes, consulte [definir a cópia de segurança e publicar as máquinas virtuais do modelo](how-to-create-manage-template.md). 
+Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure o modelo VM de modo a que esteja configurado com exatamente o que pretende fornecer aos participantes de formação. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Em seguida, publica o modelo para disponibilizar casos do modelo VM aos utilizadores do laboratório. Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do modelo. O número de VMs criadas neste processo é igual ao número máximo de utilizadores permitidos no laboratório, o que pode configurar na política de utilização do laboratório. Todas as máquinas virtuais têm a mesma configuração do modelo. Para mais detalhes, consulte [Configurar e publicar máquinas virtuais de modelo](how-to-create-manage-template.md). 
 
-## <a name="use-vms-in-the-classroom-lab"></a>Utilizar VMs num laboratório de sala de aula
-Um estudante ou participante de treinamento registra para o laboratório e liga-se a VM para fazer a exercícios para o curso. Para obter detalhes, consulte [como aceder a um laboratório de sala de aula](how-to-use-classroom-lab.md).
+## <a name="use-vms-in-the-classroom-lab"></a>Use VMs no laboratório de sala de aula
+Um aluno ou participante de formação registra-se no laboratório, e conecta-se ao VM para fazer exercícios para o curso. Para mais detalhes, consulte [Como aceder a um laboratório de sala de aula.](how-to-use-classroom-lab.md)
 
-## <a name="next-steps"></a>Passos Seguintes
-Comece com a criação de uma conta de laboratório ao seguir as instruções no artigo nos laboratórios de sala de aula: [Tutorial: Configurar uma conta de laboratório com o Azure Lab Services](tutorial-setup-lab-account.md).
+## <a name="next-steps"></a>Passos seguintes
+Comece com a criação de uma conta de laboratório em Laboratórios de Sala de Aula seguindo instruções no artigo: [Tutorial: Configurar uma conta](tutorial-setup-lab-account.md)de laboratório com os Serviços de Laboratório Azure .

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: b33366b65fed0042eb3024c2264bce1c4a1c4c1d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651634"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715682"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
 
@@ -67,7 +67,7 @@ Para obter mais informações, consulte [criar uma oferta de aplicativo do Azure
 ## <a name="event-triggers"></a>Acionadores de eventos
 A tabela a seguir descreve todas as combinações possíveis de EventType e ProvisioningState e seus gatilhos:
 
-EventType | ProvisioningState | Gatilho para notificação
+Tipo de evento | ProvisioningState | Gatilho para notificação
 ---|---|---
 PUT | Aceite | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
 PUT | Bem-sucedido | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
@@ -189,7 +189,7 @@ billingDetails | *Especificado somente para aplicativos gerenciados do Azure Mar
 
 ## <a name="endpoint-authentication"></a>Autenticação de ponto de extremidade
 Para proteger o ponto de extremidade do webhook e garantir a autenticidade da notificação:
-1. Forneça um parâmetro de consulta na parte superior do URI do webhook, desta forma: https://your-endpoint.com?sig=Guid. Com cada notificação, verifique se o parâmetro de consulta `sig` tem o valor esperado `Guid`.
+1. Forneça um parâmetro de consulta em cima do webhook URI, como este: https\://your-endpoint.com?sig=Guid. Com cada notificação, verifique se o parâmetro de consulta `sig` tem o valor esperado `Guid`.
 2. Emita um GET na instância do aplicativo gerenciado usando applicationId. Valide se o provisioningState corresponde ao provisioningState da notificação para garantir a consistência.
 
 ## <a name="notification-retries"></a>Tentativas de notificação

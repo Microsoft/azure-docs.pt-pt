@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154346"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713323"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado do serviço kubernetes do Azure (versão prévia)
 
@@ -112,11 +112,11 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
 
      Se você criar uma VM em uma rede virtual diferente, configure um link entre essa rede virtual e a zona DNS privada. Para tal:
     
-     a. Vá para o MC_ * grupo de recursos no portal do Azure.  
+     a. Vá ao grupo de recursos MC_* no portal Azure.  
      b. Selecione a zona DNS privada.   
      c. No painel esquerdo, selecione o link **rede virtual** .  
      d. Crie um novo link para adicionar a rede virtual da VM à zona DNS privada. Leva alguns minutos para que o link da zona DNS fique disponível.  
-     e. Volte para o grupo de recursos MC_ * no portal do Azure.  
+     e. Volte para o grupo de recursos MC_* no portal Azure.  
      f. No painel direito, selecione a rede virtual. O nome da rede virtual está no formato *AKs-vnet-\** .  
      g. No painel esquerdo, selecione **emparelhamentos**.  
      h. Selecione **Adicionar**, adicione a rede virtual da VM e, em seguida, crie o emparelhamento.  
@@ -128,14 +128,16 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
 
 ## <a name="dependencies"></a>Dependências  
 * O serviço de vínculo privado tem suporte somente no Azure Load Balancer padrão. Não há suporte para Azure Load Balancer básica.  
+* Para utilizar um servidor DNS personalizado, implemente um servidor AD com DNS para encaminhar para este IP 168.63.129.16
 
 ## <a name="limitations"></a>Limitações 
+* As Zonas de Disponibilidade não são suportadas atualmente
 * As [limitações do serviço de vínculo privado do Azure][private-link-service] se aplicam a clusters privados, pontos de extremidade privados do Azure e pontos de extremidade de serviço de rede virtual, que atualmente não têm suporte na mesma rede virtual.
-* Não há suporte para nós virtuais em um cluster privado para girar ACI (instâncias de contêiner do Azure particulares) em uma rede virtual do Azure privada.
-* Não há suporte para a integração do Azure DevOps pronta para uso com clusters privados.
+* Nenhum suporte para nós virtuais em um cluster privado para girar instâncias privadas de contentores Azure (ACI) em uma rede virtual azure privada
+* Não há suporte para a integração do Azure DevOps pronta para uso com clusters privados
 * Para clientes que precisam habilitar o registro de contêiner do Azure para trabalhar com AKS particulares, a rede virtual do registro de contêiner deve ser emparelhada com a rede virtual do cluster do agente.
-* Não há suporte atual para Azure Dev Spaces.
-* Não há suporte para converter clusters AKS existentes em clusters privados.  
+* Não há suporte atual para Azure Dev Spaces
+* Nenhum apoio para converter os aglomerados AKS existentes em clusters privados
 * Excluir ou modificar o ponto de extremidade privado na sub-rede do cliente fará com que o cluster pare de funcionar. 
 * No momento, não há suporte para Azure Monitor para contêineres de dados dinâmicos.
 * Não há suporte para *traga seu próprio DNS* no momento.

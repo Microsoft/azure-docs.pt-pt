@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: a078f1dc7d7aa3727f3f057f284c2ea5da923e07
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514855"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719556"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -93,7 +93,7 @@ Normalmente, você verá um aumento no custo das transações incorridos nas con
 
 ### <a name="where-can-i-find-the-mobility-service-installers"></a>Onde posso encontrar os instaladores do serviço de mobilidade?
 
-Os instaladores estão na pasta%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository no servidor de configuração.
+Os instaladores estão na pasta %ProgramData%\ASR\home\svsystems\pushinstallsvc\repositório no servidor de configuração.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Como fazer instalar o serviço de mobilidade?
 
@@ -169,7 +169,7 @@ Discos dinâmicos podem ser replicados. O disco do sistema operacional deve ser 
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se eu usar grupos de replicação para consistência de várias VMS, posso adicionar uma nova VM a um grupo de replicação existente?
 
-Sim, você pode adicionar novas VMs a um grupo de replicação existente ao habilitar a replicação para eles. No entanto,
+Sim, você pode adicionar novas VMs a um grupo de replicação existente ao habilitar a replicação para eles. Todavia:
 
 - Você não pode adicionar uma VM a um grupo de replicação existente após o início da replicação.
 - Você não pode criar um grupo de replicação para VMs existentes.
@@ -290,7 +290,7 @@ No cofre dos serviços de recuperação, selecione **servidores de configuraçã
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Um único servidor de configuração pode ser usado para proteger várias instâncias do vCenter?
 
-Sim, um único servidor de configuração pode proteger VMs entre vários vCenters.  Não há limite de quantas instâncias do vCenter podem ser adicionadas ao servidor de configuração, no entanto, os limites de quantas VMs um único servidor de configuração pode proteger se aplicam.
+Sim, um único servidor de configuração pode proteger VMs em vários vCenters.  Não há limite de quantas instâncias do vCenter podem ser adicionadas ao servidor de configuração, no entanto, os limites de quantas VMs um único servidor de configuração pode proteger se aplicam.
 
 ### <a name="can-a-single-configuration-server-protect-multiple-clusters-within-vcenter"></a>Um único servidor de configuração pode proteger vários clusters no vCenter?
 

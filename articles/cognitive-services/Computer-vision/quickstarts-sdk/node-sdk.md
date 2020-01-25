@@ -7,25 +7,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 ms.author: pafarley
-ms.openlocfilehash: 95b15924db7e5b1b788656d7592bb4ad87e07ce2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 530665168cc1ed21f1664e3012bbf37e52d96fbf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166754"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716163"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente Pesquisa Visual Computacional para node. js
 
-Introdução à biblioteca de cliente Pesquisa Visual Computacional para node. js. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. 
+Introdução à biblioteca de cliente Pesquisa Visual Computacional para node. js. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
 
 Use a biblioteca de cliente Pesquisa Visual Computacional para node. js para:
 
 * [Analisar uma imagem](#analyze-an-image)
 * [Ler texto impresso e manuscrito](#read-printed-and-handwritten-text)
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) |  | [(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) |  | [(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,20 +38,20 @@ Use a biblioteca de cliente Pesquisa Visual Computacional para node. js para:
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
 
-* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL do ponto de extremidade, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
- 
+Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT` respectivamente.
+
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele. 
+Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `npm init` para criar um aplicativo de nó com um arquivo de `package.json`. 
+Execute o comando `npm init` para criar um aplicativo de nó com um arquivo de `package.json`.
 
 ```console
 npm init
@@ -59,7 +59,7 @@ npm init
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
 
-Instale o `ms-rest-azure` e `azure-cognitiveservices-computervision` pacotes NPM:
+Instale os pacotes `ms-rest-azure` e `@azure/cognitiveservices-computervision` NPM:
 
 ```console
 npm install @azure/cognitiveservices-computervision
@@ -177,11 +177,11 @@ O código a seguir imprime a presença detectada de conteúdo adulto na imagem. 
 
 Defina a URL da imagem a ser usada:
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)]
 
 Em seguida, adicione o código a seguir para detectar conteúdo adulto e imprimir os resultados no console.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)]
 
 ### <a name="get-image-color-scheme"></a>Obter esquema de cores da imagem
 
@@ -195,7 +195,7 @@ Defina a função auxiliar `printColorScheme` para imprimir os detalhes do esque
 
 ### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
 
-Pesquisa Visual Computacional pode usar um modelo especializado para fazer mais análises sobre imagens. Consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
+Pesquisa Visual Computacional pode usar um modelo especializado para fazer mais análises sobre imagens. Consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes.
 
 Primeiro, defina a URL de uma imagem a ser analisada:
 

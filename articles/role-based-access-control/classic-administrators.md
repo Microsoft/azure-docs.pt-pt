@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979345"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720661"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de assinatura clássica do Azure
 
@@ -99,29 +99,11 @@ Para obter informações que comparam usuários Membros e usuários convidados, 
 
 Somente o administrador da conta pode alterar o administrador de serviço para uma assinatura. Por padrão, quando você se inscreve para uma assinatura do Azure, o administrador de serviço é o mesmo que o administrador da conta. O usuário com a função de administrador de conta não tem acesso ao portal do Azure. O usuário com a função de administrador de serviços tem acesso completo ao portal do Azure. Se o administrador da conta e o administrador de serviços forem o mesmo usuário e você alterar o administrador de serviços para um usuário diferente, o administrador da conta perderá o acesso a portal do Azure. No entanto, o administrador da conta sempre pode usar o centro de contas para alterar o administrador de serviço para si mesmo.
 
-Existem duas formas de alterar o Administrador de Serviços. Você pode alterar na **portal do Azure** ou no **centro de contas**.
-
-### <a name="azure-portal"></a>Portal do Azure
-
-1. Verifique se o cenário tem suporte verificando as limitações para alterar os administradores de serviço.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
-
-1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
-
-1. Clique em **Propriedades**.
-
-    ![Captura de tela mostrando o administrador da conta](./media/classic-administrators/account-admin.png)
-
-1. Na parte superior, clique em **administrador de serviços** para abrir o painel administrador de serviços.
-
-    Se o botão administrador de serviço estiver desabilitado, você não terá permissões. Somente o usuário que é o administrador da conta pode alterar o administrador do serviço.
-
-1. Selecione um novo administrador de serviços e clique em **salvar**.
+Siga estes passos para alterar o Administrador de Serviço no **Centro de Conta**.
 
 ### <a name="account-center"></a>Centro de contas
 
-1. Verifique se o cenário tem suporte verificando as limitações para alterar os administradores de serviço.
+1. Certifique-se de que o seu cenário é suportado verificando as [limitações para alterar o Administrador de Serviço](#limitations-for-changing-the-service-administrator).
 
 1. Entre no [centro de contas](https://account.windowsazure.com/subscriptions) como o administrador da conta.
 

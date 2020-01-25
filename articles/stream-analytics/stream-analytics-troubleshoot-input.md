@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354289"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720304"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
@@ -24,11 +24,13 @@ Esta página descreve problemas comuns com ligações de entrada e como resolvê
 
 2.  Examine os dados de entrada.
 
-    Para verificar que os dados de entrada é fluir para o Hub de eventos, utilize [Explorador do Service Bus](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) para ligar ao Hub de eventos do Azure (se for utilizada a entrada do Hub de eventos).
+    1. Para verificar que os dados de entrada é fluir para o Hub de eventos, utilize [Explorador do Service Bus](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) para ligar ao Hub de eventos do Azure (se for utilizada a entrada do Hub de eventos).
         
-    Utilize o [ **dados de exemplo** ](stream-analytics-sample-data-input.md) botão para cada entrada e transferir os dados de exemplo de entrada.
+    1. Utilize o botão Dados da [**Amostra**](stream-analytics-sample-data-input.md) para cada entrada. Descarregue os dados da amostra de entrada.
         
-    Inspecionar os dados de exemplo para compreender a forma dos dados: o esquema e o [tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspecione os dados da amostra para compreender a forma dos dados- isto é, o esquema e os tipos de [dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+
+3.  Certifique-se de que selecionou um intervalo de tempo na pré-visualização da entrada. Escolha o intervalo de **tempo e**introduza uma duração da amostra antes de testar a sua consulta.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventos de entrada mal formados provocam erros de desserialização 
 Desserialização problemas causados quando o fluxo de entrada da sua tarefa do Stream Analytics contém mensagens com formato incorreto. Por exemplo, pode dever-se uma mensagem incorretamente formada por um parêntesis de em falta ou uma chave num objeto JSON ou tem um formato de timestamp incorreto no campo de tempo. 

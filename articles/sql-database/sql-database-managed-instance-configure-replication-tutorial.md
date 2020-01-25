@@ -9,12 +9,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: e1ee616adadcabb2deb3fa08a5f3d4f768fddfd5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045642"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719896"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Tutorial: configurar a replicação transacional entre duas instâncias gerenciadas e SQL Server
 
@@ -187,7 +187,7 @@ Para obter mais informações, consulte [gerenciar chaves de acesso da conta de 
 
 
 ## <a name="7---create-a-database"></a>7-criar um banco de dados
-Crie um novo banco de dados no Publicador MI. Para o fazer, siga estes passos:
+Crie um novo banco de dados no Publicador MI. Para isso, siga estes passos:
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
 1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
@@ -234,7 +234,7 @@ GO
 ```
 
 ## <a name="8---configure-distribution"></a>8-configurar a distribuição 
-Depois que a conectividade é estabelecida e você tem um banco de dados de exemplo, você pode configurar a distribuição em sua instância gerenciada `sql-mi-distributor`. Para o fazer, siga estes passos:
+Depois que a conectividade é estabelecida e você tem um banco de dados de exemplo, você pode configurar a distribuição em sua instância gerenciada `sql-mi-distributor`. Para isso, siga estes passos:
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
 1. Conecte-se à instância gerenciada `sql-mi-distributor`. 
@@ -253,7 +253,7 @@ Depois que a conectividade é estabelecida e você tem um banco de dados de exem
    ```
 
    > [!NOTE]
-   > Certifique-se de usar apenas barras invertidas (`\`) para o parâmetro @working_directory. O uso de uma barra (`/`) pode causar um erro ao se conectar ao compartilhamento de arquivos. 
+   > Certifique-se de que utiliza apenas as pestanas (`\`) para o parâmetro @working_directory. O uso de uma barra (`/`) pode causar um erro ao se conectar ao compartilhamento de arquivos. 
 
 1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
 1. Abra uma **nova** janela de consulta e execute o seguinte código TRANSACT-SQL para registrar o distribuidor no Publicador: 
@@ -265,7 +265,7 @@ EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.wi
 
 
 ## <a name="9---create-the-publication"></a>9-criar a publicação
-Depois que a distribuição tiver sido configurada, agora você poderá criar a publicação. Para o fazer, siga estes passos: 
+Depois que a distribuição tiver sido configurada, agora você poderá criar a publicação. Para isso, siga estes passos: 
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
 1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
@@ -287,7 +287,7 @@ Depois que a distribuição tiver sido configurada, agora você poderá criar a 
 
 ## <a name="10---create-the-subscription"></a>10-criar a assinatura 
 
-Depois que a publicação tiver sido criada, você poderá criar a assinatura. Para o fazer, siga estes passos: 
+Depois que a publicação tiver sido criada, você poderá criar a assinatura. Para isso, siga estes passos: 
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
 1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
@@ -385,7 +385,7 @@ Possíveis soluções:
 
 Ao adicionar uma nova assinatura usando o assistente para **nova assinatura** , na página **publicação** , você pode descobrir que não há bancos de dados e publicações listados como opções disponíveis e pode ver a seguinte mensagem de erro:
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 Embora seja possível que essa mensagem de erro seja precisa e realmente não haja publicações disponíveis no Publicador ao qual você se conectou ou não tenha permissões suficientes, esse erro também pode ser causado por uma versão mais antiga do SQL Server Management Studio. Tente atualizar para SQL Server Management Studio 18,0 ou superior para refazer a regra como uma causa raiz. 
 

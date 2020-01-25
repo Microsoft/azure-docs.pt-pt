@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433505"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714447"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o cache do Azure para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache, que fornecem flexibilidade na escolha do tamanho e dos recursos do cache. Depois que um cache é criado, você pode dimensionar o tamanho e o tipo de preço do cache se os requisitos do aplicativo forem alterados. Este artigo mostra como dimensionar seu cache usando o portal do Azure e ferramentas como Azure PowerShell e CLI do Azure.
@@ -24,7 +24,7 @@ Você pode monitorar as seguintes métricas para ajudar a determinar se você pr
 * Carga do servidor Redis
 * Utilização de Memória
 * Largura de banda da rede
-* Utilização da CPU
+* Utilização do CPU
 
 Se você determinar que o cache não está mais atendendo aos requisitos do seu aplicativo, poderá dimensionar para um tipo de preço de cache maior ou menor que seja adequado para seu aplicativo. Para obter mais informações sobre como determinar qual tipo de preço de cache usar, consulte [qual cache do Azure para oferta e tamanho do Redis devo usar](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
@@ -142,7 +142,7 @@ Se você tiver configurado um valor personalizado para a configuração de `data
   * Se você estiver usando um número personalizado de `databases` que exceda os limites da nova camada, a configuração de `databases` será diminuída para os limites da nova camada e todos os dados nos bancos removidos serão perdidos.
 * Ao Dimensionar para um tipo de preço com o mesmo limite de `databases` ou maior do que a camada atual, sua configuração de `databases` é mantida e nenhum dado é perdido.
 
-Embora os caches Standard e Premium tenham um SLA de 99,9% para disponibilidade, não há SLA para perda de dados.
+Embora os caches Standard e Premium tenham um SLA de 99,9% para disponibilidade, não existe SLA para perda de dados.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>Meu cache estará disponível durante o dimensionamento?
 * Os caches **Standard** e **Premium** permanecem disponíveis durante a operação de dimensionamento. No entanto, a conexão blips pode ocorrer durante o dimensionamento de caches padrão e Premium e também durante o dimensionamento de caches básico para Standard. Espera-se que esses blips de conexão sejam pequenos e os clientes Redis devem ser capazes de restabelecer sua conexão instantaneamente.
@@ -166,7 +166,7 @@ Se uma operação de dimensionamento falhar, o serviço tentará reverter a oper
 
 
 ### <a name="how-long-does-scaling-take"></a>Quanto tempo o dimensionamento leva?
-O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de dados no cache.
+O tempo de escala depende da quantidade de dados na cache, com maiores quantidades de dados a demorarem mais tempo a ser concluídos. O escalonamento demora aproximadamente 20 minutos. Para caches agrupados, a escala leva aproximadamente 20 minutos por fragmento.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Como posso saber quando o dimensionamento é concluído?
 Na portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **em execução**.
@@ -176,6 +176,3 @@ Na portal do Azure, você pode ver a operação de dimensionamento em andamento.
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

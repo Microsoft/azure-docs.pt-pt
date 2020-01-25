@@ -1,6 +1,6 @@
 ---
-title: Exportar ou importar sua configuração de provisionamento usando o API do Graph | Microsoft Docs
-description: Saiba como exportar e importar a configuração de provisionamento usando o API do Graph.
+title: Exportar ou importar a sua configuração de provisionamento utilizando o Gráfico API  Microsoft Docs
+description: Aprenda a exportar e importar a configuração de provisionamento utilizando a API do gráfico.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,72 +15,72 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3e92ee5ffd97174331703b703e811bd1ce5f43
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 609031bfad23a14a954a09a447e363e89a9d29d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815909"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711742"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exportar ou importar sua configuração de provisionamento usando API do Graph
+# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exportar ou importar a sua configuração de provisionamento utilizando a API do gráfico
 
-Você pode usar Microsoft Graph API e o explorador do Graph para exportar os mapeamentos e o esquema de atributo de provisionamento de usuário para um arquivo JSON e importá-los de volta para o Azure AD. Você também pode usar as etapas capturadas aqui para criar um backup de sua configuração de provisionamento. 
+Pode utilizar o Microsoft Graph API e o Graph Explorer para exportar os mapeamentos de atributos e esquemas para um ficheiro JSON e importá-lo de volta para AD Azure. Também pode utilizar os passos capturados aqui para criar uma cópia de segurança da sua configuração de provisionamento. 
 
-## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passo 1: Recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
+## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passo 1: Recuperar o seu ID principal do serviço de aplicações de provisionamento (ID do objeto)
 
-1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo. 
-1. Na seção Propriedades do aplicativo de provisionamento, copie o valor de GUID associado ao campo ID de *objeto* . Esse valor também é chamado de **servicePrincipalName** do seu aplicativo e ele será usado em operações do Gerenciador de gráficos.
+1. Lance o [portal Azure](https://portal.azure.com)e navegue para a secção Propriedades da sua aplicação de provisionamento. Para, por exemplo, se pretender exportar o seu Dia de Trabalho para o Mapeamento de *aplicações de fornecimento* de utilizadores ad para a secção Propriedades dessa aplicação. 
+1. Na secção Propriedades da sua aplicação de provisionamento, copie o valor GUID associado ao campo ID do *Objeto.* Este valor também é chamado de **ServicePrincipalId** da sua App e será usado em operações do Graph Explorer.
 
-   ![ID da entidade de serviço do aplicativo workday](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![Id principal do serviço de aplicações do dia de trabalho](media/export-import-provisioning-mappings/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Passo 2: Entrar no Microsoft Graph Explorer
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Passo 2: Assine no Microsoft Graph Explorer
 
-1. Iniciar o [Gerenciador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)
-1. Clique no botão "entrar com a Microsoft" e entre usando as credenciais de administrador global ou de administrador de aplicativo do Azure AD.
+1. Lançar [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Clique no botão "Iniciar sessão com a Microsoft" e iniciar sessão utilizando credenciais de Administração Global Azure AD Ou App Admin.
 
-    ![Entrada no grafo](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Sign-in de gráfico](media/export-import-provisioning-mappings/wd_export_02.png)
 
-1. Após a entrada bem-sucedida, você verá os detalhes da conta de usuário no painel esquerdo.
+1. Após o sucesso do início de sessão, verá os detalhes da conta do utilizador no painel da mão esquerda.
 
-## <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>Passo 3: Recuperar a ID do trabalho de provisionamento do aplicativo de provisionamento
+## <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>Passo 3: Recuperar o ID de trabalho de provisionamento da App de Provisionamento
 
-No Microsoft Graph Explorer, execute a seguinte consulta GET substituindo [servicePrincipalName] pelo **servicePrincipalName** extraído da [etapa 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
+No Microsoft Graph Explorer, faça a seguinte consulta GET substituindo [servicePrincipalId] pelo **ServiçoPrincipalId** extraído do [Passo 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
 ```
 
-Você receberá uma resposta conforme mostrado abaixo. Copie o "atributo de ID" presente na resposta. Esse valor é o **ProvisioningJobId** e será usado para recuperar os metadados de esquema subjacentes.
+Receberá uma resposta como mostrado abaixo. Copie o "atributo id" presente na resposta. Este valor é o **ProvisioningJobId** e será utilizado para recuperar os metadados de esquemas subjacentes.
 
-   [![ID do trabalho de provisionamento](./media/export-import-provisioning-mappings/wd_export_03.png)](./media/export-import-provisioning-mappings/wd_export_03.png#lightbox)
+   [![provisioning Job ID](media/export-import-provisioning-mappings/wd_export_03.png)](media/export-import-provisioning-mappings/wd_export_03.png#lightbox)
 
-## <a name="step-4-download-the-provisioning-schema"></a>Passo 4: Baixar o esquema de provisionamento
+## <a name="step-4-download-the-provisioning-schema"></a>Passo 4: Descarregue o Provisioning Schema
 
-No Microsoft Graph Explorer, execute a seguinte consulta GET, substituindo [servicePrincipalName] e [ProvisioningJobId] com o servicePrincipalName e o ProvisioningJobId recuperado nas etapas anteriores.
+No Microsoft Graph Explorer, faça a seguinte consulta GET, substituindo [servicePrincipalId] e [ProvisioningJobId] pelo ServicePrincipalId e o ProvisioningJobId recuperados nos passos anteriores.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
 ```
 
-Copie o objeto JSON da resposta e salve-o em um arquivo para criar um backup do esquema.
+Copie o objeto JSON a partir da resposta e guarde-o para um ficheiro para criar uma cópia de segurança do esquema.
 
-## <a name="step-5-import-the-provisioning-schema"></a>Passo 5: Importar o esquema de provisionamento
+## <a name="step-5-import-the-provisioning-schema"></a>Passo 5: Importar o Schema de Provisionamento
 
 > [!CAUTION]
-> Execute esta etapa somente se precisar modificar o esquema para configuração que não pode ser alterada usando o portal do Azure ou se você precisar restaurar a configuração de um arquivo de backup anterior com um esquema válido e funcional.
+> Execute este passo apenas se precisar de modificar o esquema para configuração que não pode ser alterada usando o portal Azure ou se precisar restaurar a configuração a partir de um ficheiro previamente apoiado com esquema válido e de trabalho.
 
-No Microsoft Graph Explorer, configure a seguinte consulta PUT, substituindo [servicePrincipalName] e [ProvisioningJobId] com o servicePrincipalName e o ProvisioningJobId recuperado nas etapas anteriores.
+No Microsoft Graph Explorer, configure a seguinte consulta PUT, substituindo [servicePrincipalId] e [ProvisioningJobId] pelo ServicePrincipalId e o ProvisioningJobId recuperados nos passos anteriores.
 
 ```http
     PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
 ```
 
-Na guia "corpo da solicitação", copie o conteúdo do arquivo de esquema JSON.
+No separador "Request Body", copie o conteúdo do ficheiro esquema JSON.
 
-   [![Corpo da solicitação](./media/export-import-provisioning-mappings/wd_export_04.png)](./media/export-import-provisioning-mappings/wd_export_04.png#lightbox)
+   [corpo de pedido de ![](media/export-import-provisioning-mappings/wd_export_04.png)](media/export-import-provisioning-mappings/wd_export_04.png#lightbox)
 
-Na guia "cabeçalhos de solicitação", adicione o atributo de cabeçalho Content-Type com o valor "Application/JSON"
+No separador "Cabeçalhos de Pedido", adicione o atributo cabeçalho do Tipo conteúdo com valor "aplicação/json"
 
-   [![Cabeçalhos de solicitação](./media/export-import-provisioning-mappings/wd_export_05.png)](./media/export-import-provisioning-mappings/wd_export_05.png#lightbox)
+   [cabeçalhos de pedido de ![](media/export-import-provisioning-mappings/wd_export_05.png)](media/export-import-provisioning-mappings/wd_export_05.png#lightbox)
 
-Clique no botão "executar consulta" para importar o novo esquema.
+Clique no botão "Run Query" para importar o novo esquema.

@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 1/04/2020
+ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 124fe4f69396286dbe383f8823a36b4ba52d346c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: e9d98f03b2c97245517e3fbb6d7dc7624cfb724d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665075"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721392"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -36,11 +36,11 @@ TDSP inclui os seguintes componentes principais:
 
 ## <a name="data-science-lifecycle"></a>Ciclo de vida de ciência de dados
 
-O Team Data Science Process (TDSP) fornece um ciclo de vida para estruturar o desenvolvimento dos seus projetos de ciência de dados. O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados.
+O Team Data Science Process (TDSP) fornece um ciclo de vida para estruturar o desenvolvimento dos seus projetos de ciência de dados. O ciclo de vida descreve todos os passos que os projetos de sucesso seguem.
 
-Se estiver a utilizar outro lifecycle de ciência de dados, tal como [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) ou seu processo de personalizados da organização, pode continuar a utilizar o TDSP baseado em tarefas no contexto desses ciclos de vida de desenvolvimento. Num alto nível, essas metodologias diferentes têm muito em comum. 
+Se estiver a utilizar outro ciclo de vida de ciência de dados, como [CRISP-DM,](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining) [KDD ou](https://wikipedia.org/wiki/Data_mining#Process) o próprio processo personalizado da sua organização, ainda pode utilizar o TDSP baseado em tarefas no contexto desses ciclos de vida de desenvolvimento. Num alto nível, essas metodologias diferentes têm muito em comum. 
 
-Este ciclo de vida foi projetado para projetos de ciência de dados que são fornecidos como parte de aplicações inteligentes. Esses aplicativos implementarem modelos de aprendizagem ou inteligência artificial de automática para Análise Preditiva. Projetos de ciência de dados exploratório ou os projetos de análise ad hoc, também podem beneficiar da utilização deste processo. Mas em tais casos alguns dos passos descritos podem não ser necessária.    
+Este ciclo de vida foi projetado para projetos de ciência de dados que são fornecidos como parte de aplicações inteligentes. Esses aplicativos implementarem modelos de aprendizagem ou inteligência artificial de automática para Análise Preditiva. Projetos exploratórios de ciência de dados ou projetos de análise improvisados também podem beneficiar da utilização deste processo. Mas em tais casos alguns dos passos descritos podem não ser necessária.    
 
 O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
@@ -63,13 +63,13 @@ As metas, tarefas e artefactos de documentação para cada fase do ciclo de vida
 
 O diagrama seguinte fornece uma exibição de grade das tarefas (a azul) e artefatos (em verde) associados a cada fase do ciclo de vida (no eixo horizontal) para estas funções (no eixo vertical). 
 
-[![TDSP-funções e tarefas](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Estrutura do projeto padronizado
 
 Ter todos os projetos Compartilhar uma estrutura de diretório e usar modelos para documentos de projeto torna mais fácil para os membros da Equipe obter informações sobre seus projetos. Todos os código e os documentos são armazenados num sistema de controle de versão (VCS) como o Git, TFS ou o Subversion para permitir a colaboração em equipe. Controlo de tarefas e recursos num sistema, como no Jira, Rally e DevOps do Azure de acompanhamento de projetos agile permite que mais perto de controlo de código para recursos individuais. Esse controle também permite às equipes obter estimativas de custo melhor. TDSP recomenda a criação de um repositório separado para cada projeto no VCS para controle de versão, a segurança de informações e colaboração. A estrutura padronizada para todos os projetos ajuda a criar o conhecimento institucional toda a organização.
 
-Fornecemos modelos para a estrutura de pastas e os documentos necessários em locais padrão. Esta estrutura de pastas organiza os ficheiros que contêm o código de exploração de dados e a extração de recurso e que registe iterações do modelo. Estes modelos tornam mais fácil para os membros da Equipe para compreender o trabalho realizado por terceiros e para adicionar novos membros de equipes. É fácil ver e atualizar os modelos de documento no formato de markdown. Utilize modelos para fornecer a listas de verificação principais perguntas para cada projeto assegurar que o problema é bem definido e que os resultados finais cumprem a qualidade esperada. Alguns exemplos:
+Fornecemos modelos para a estrutura de pastas e os documentos necessários em locais padrão. Esta estrutura de pastas organiza os ficheiros que contêm o código de exploração de dados e a extração de recurso e que registe iterações do modelo. Estes modelos tornam mais fácil para os membros da Equipe para compreender o trabalho realizado por terceiros e para adicionar novos membros de equipes. É fácil ver e atualizar os modelos de documento no formato de markdown. Utilize modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados cumprem a qualidade esperada. Alguns exemplos:
 
 - um estatuto de projeto para documentar o problema de negócios e o escopo do projeto
 - relatórios de dados para a estrutura do documento e as estatísticas dos dados não processados
@@ -77,7 +77,7 @@ Fornecemos modelos para a estrutura de pastas e os documentos necessários em lo
 - métricas de desempenho de modelo como curvas ROC ou MSE
 
 
-[![TDSP-diretórios](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
+[![diretórios TDSP](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 A estrutura de diretórios pode ser clonada do [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -90,11 +90,11 @@ TDSP fornece recomendações para a gestão de análise partilhado e a infraestr
 - clusters de grandes volumes de dados (Hadoop ou Spark) 
 - serviço de Machine learning 
 
-É possível a infraestrutura de armazenamento e análise na cloud ou no local. Isso é onde os conjuntos de dados não processados e processados são armazenados. Essa infra-estrutura permite que a análise reproduzível. Ele também evita a duplicação, que pode levar a inconsistências e custos de infraestrutura desnecessários. São fornecidas ferramentas para aprovisionar os recursos partilhados, controlá-las e permitir que cada membro da Equipe ligar a esses recursos em segurança. Também é recomendável ter membros de projeto, criar um ambiente de computação consistentes. Os membros da Equipe diferentes, em seguida, podem replicar e validar experimentações.
+A infraestrutura de análise e armazenamento, onde os conjuntos de dados crus e processados são armazenados, pode estar na nuvem ou no local. Essa infra-estrutura permite que a análise reproduzível. Ele também evita a duplicação, que pode levar a inconsistências e custos de infraestrutura desnecessários. São fornecidas ferramentas para aprovisionar os recursos partilhados, controlá-las e permitir que cada membro da Equipe ligar a esses recursos em segurança. Também é recomendável ter membros de projeto, criar um ambiente de computação consistentes. Os membros da Equipe diferentes, em seguida, podem replicar e validar experimentações.
 
 Eis um exemplo de uma equipe de trabalhar em vários projetos e partilha vários componentes de infraestrutura de análise na cloud.
 
-[![TDSP-infraestrutura](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![infraestrutura TDSP](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto

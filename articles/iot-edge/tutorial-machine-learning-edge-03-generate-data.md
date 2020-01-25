@@ -1,33 +1,33 @@
 ---
 title: 'Tutorial: gerar Machine Learning de dados do dispositivo simulado em Azure IoT Edge'
-description: Neste tutorial, você criará dispositivos virtuais que geram telemetria simulada que posteriormente pode ser usada para treinar um modelo de aprendizado de máquina.
+description: Crie dispositivos virtuais que gerem telemetria simulada que mais tarde possam ser usados para treinar um modelo de aprendizagem automática.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8f7a971315183e867ae06b58801d5855f90462a1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912268"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722389"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: gerar dados de dispositivo simulados
 
 > [!NOTE]
 > Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
 
-Neste artigo, usamos dados de treinamento do Machine Learning para simular um dispositivo enviando telemetria para o Hub IoT. Conforme mencionado na introdução, este tutorial de ponta a ponta usa o conjunto de [dados de simulação de degradação do mecanismo turbofan](https://c3.nasa.gov/dashlink/resources/139/) para simular dados de um conjunto de motores de avião para treinamento e teste.
+Neste artigo, utilizamos dados de formação de machine learning para simular um dispositivo que envia telemetria para o Hub Azure IoT. Como indicado na introdução, este tutorial utiliza o conjunto de dados de simulação de simulação do [motor Turbofan](https://c3.nasa.gov/dashlink/resources/139/) para simular dados de um conjunto de motores de avião para treino e teste.
 
-No arquivo readme. txt que o acompanha, sabemos que:
+No nosso cenário experimental, sabemos que:
 
-* Os dados consistem em várias séries temporais multivariadas
-* Cada conjunto de dados é dividido em subconjuntos de treinamento e teste
-* Cada série temporal é de um mecanismo diferente
-* Cada mecanismo começa com diferentes graus de desgaste inicial e variação de fabricação
+* Os dados consistem em várias séries de tempo multivariadas.
+* Cada conjunto de dados é dividido em subconjuntos de treino e teste.
+* Cada série de cada vez é de um motor diferente.
+* Cada motor começa com diferentes graus de desgaste inicial e variação de fabrico.
 
 Para este tutorial, usamos o subconjunto de dados de treinamento de um conjunto de dados único (FD003).
 
@@ -38,9 +38,9 @@ O simulador é C# um programa que usa as APIs do Hub IOT para registrar programa
 O projeto DeviceHarness é um projeto do .NET Core escrito C# em consistindo em quatro classes:
 
 * **Programa:** O ponto de entrada para a execução responsável por lidar com a entrada do usuário e a coordenação geral.
-* **TrainingFileManager:** responsável por ler e analisar o arquivo de dados selecionado.
-* **CycleData:** representa uma única linha de dados em um arquivo convertido em formato de mensagem.
-* **TurbofanDevice:** responsável por criar um dispositivo IOT que corresponde a um único dispositivo (série temporal) nos dados e transmitindo os dados para o Hub IOT por meio do dispositivo IOT.
+* **TrainingFileManager:** Responsável pela leitura e análise do ficheiro de dados selecionado.
+* **Data do Ciclo:** Representa uma única linha de dados num ficheiro convertido em formato de mensagem.
+* **TurbofanDevice:** Responsável pela criação de um Dispositivo IoT, que corresponde a um único dispositivo (série de tempo), nos dados e transmissão dos dados para o IoT Hub.
 
 As tarefas descritas neste artigo devem levar cerca de 20 minutos para serem concluídas.
 
@@ -48,22 +48,18 @@ O equivalente do mundo real ao trabalho nesta etapa provavelmente seria executad
 
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Configurar Visual Studio Code e compilar o projeto DeviceHarness
 
-1. Abra uma sessão de área de trabalho remota para sua máquina virtual, conforme demonstrado no artigo anterior.
+1. Abra uma sessão remota de desktop para o seu VM de desenvolvimento.
 
-1. Abra o Visual Studio Code.
-
-1. Em Visual Studio Code, selecione **arquivo** > **abrir pasta.** ...
-
-1. Na caixa de texto **pasta** , insira `C:\source\IoTEdgeAndMlSample\DeviceHarness` e clique no botão **Selecionar pasta** .
-
-   Se os erros de OmniSharp aparecerem na janela de saída, você precisará C# desinstalar a extensão, fechar e reabrir vs Code, C# instalar a extensão e recarregar a janela.
+1. No código Visual Studio, abra a pasta `C:\source\IoTEdgeAndMlSample\DeviceHarness`.
 
 1. Como você está usando extensões neste computador pela primeira vez, algumas extensões serão atualizadas e instalarão suas dependências. Você pode ser solicitado a atualizar a extensão. Nesse caso, selecione **recarregar janela**.
+
+   Se surgirem erros OmniSharp na janela de saída, C# terá de desinstalar a extensão.
 
 1. Você será solicitado a adicionar os ativos necessários para DeviceHarness. Selecione **Sim** para adicioná-los.
 
    * A notificação pode levar alguns segundos para ser exibida.
-   * Se você perdeu essa notificação, verifique o ícone "Bell" no canto inferior direito.
+   * Se perdeu esta notificação, verifique o ícone do sino no canto inferior direito.
 
    ![Pop-up de extensão de VS Code](media/tutorial-machine-learning-edge-03-generate-data/add-required-assets.png)
 
@@ -71,9 +67,11 @@ O equivalente do mundo real ao trabalho nesta etapa provavelmente seria executad
 
    ![Prompt de restauração de VS Code](media/tutorial-machine-learning-edge-03-generate-data/restore-package-dependencies.png)
 
-1. Valide se seu ambiente está configurado corretamente disparando um Build, `Ctrl + Shift + B` ou **Terminal** > **executar a tarefa de compilação**.
+   Se não receber estas notificações, feche o Visual Studio Code, elimine os diretórios de bin e obj em `C:\source\IoTEdgeAndMlSample\DeviceHarness`, abra o Código do Estúdio Visual e abra a pasta DeviceHarness.
 
-1. Você será solicitado a selecionar a tarefa de compilação a ser executada. Selecione **Compilar**.
+1. Valide que o seu ambiente está corretamente configurado desencadeando uma construção, a Mudança **de** + **CTRL** + **B,** ou **a Tarefa** de **Construção**de > Terminal .
+
+1. É-lhe pedido que selecione a tarefa de construção a executar. Selecione **Compilar**.
 
 1. A compilação é executada e gera uma mensagem de êxito.
 
@@ -87,21 +85,21 @@ Agora que temos a compilação do projeto, conecte-se ao Hub IoT para acessar a 
 
 ### <a name="sign-in-to-azure-in-visual-studio-code"></a>Entrar no Azure no Visual Studio Code
 
-1. Entre na sua assinatura do Azure em Visual Studio Code abrindo a paleta de comandos, `Ctrl + Shift + P` ou **exibir** > **paleta de comandos...** .
+1. Inscreva-se na sua assinatura Azure no Visual Studio Code abrindo a paleta de comando, `Ctrl + Shift + P` ou **ver** > Paleta de **Comando**.
 
-1. No prompt, pesquise e selecione **Azure: entrar**.
+1. Pesquisa do **Azure: Assine no** comando.
 
-1. Uma janela do navegador é aberta e solicita suas credenciais. Quando você for Redirecionado para uma página de êxito, poderá fechar o navegador.
+   Uma janela do navegador é aberta e solicita suas credenciais. Quando for redirecionado para uma página de sucesso, pode fechar o navegador.
 
 ### <a name="connect-to-your-iot-hub-and-retrieve-hub-connection-string"></a>Conectar-se ao Hub IoT e recuperar a cadeia de conexão do Hub
 
-1. Na seção inferior do Visual Studio Code Explorer, selecione o quadro **dispositivos do Hub IOT do Azure** para expandi-lo.
+1. Na secção inferior do explorador de Código de Estúdio Visual, selecione a moldura **Do Hub Azure IoT** para expandi-lo.
 
 1. No quadro expandido, clique em **selecionar Hub IOT**.
 
 1. Quando solicitado, selecione sua assinatura do Azure e, em seguida, o Hub IoT.
 
-1. Clique no quadro **dispositivos do Hub IOT do Azure** e clique em **...** para obter mais ações. Selecione **copiar cadeia de conexão do Hub IOT**.
+1. Clique no **...** à direita do **Azure IoT Hub** para mais ações. Selecione **copiar cadeia de conexão do Hub IOT**.
 
    ![Copiar cadeia de conexão do Hub IoT](media/tutorial-machine-learning-edge-03-generate-data/copy-hub-connection-string.png)
 
@@ -109,7 +107,7 @@ Agora que temos a compilação do projeto, conecte-se ao Hub IoT para acessar a 
 
 1. Selecione **exibir** > **terminal** para abrir o terminal Visual Studio Code.
 
-   Se você não vir um prompt, selecione Enter.
+   Se não vir um aviso, prima Enter.
 
 1. Introduza `dotnet run` no terminal.
 
@@ -119,9 +117,9 @@ Agora que temos a compilação do projeto, conecte-se ao Hub IoT para acessar a 
 
    ![Atualizar a lista de dispositivos do Hub IoT](media/tutorial-machine-learning-edge-03-generate-data/refresh-hub-device-list.png)
 
-1. Observe que os dispositivos são adicionados ao Hub IoT e que os dispositivos aparecem em verde para indicar que os dados estão sendo enviados por meio desse dispositivo.
+1. Observe que os dispositivos são adicionados ao Hub IoT e que os dispositivos aparecem em verde para indicar que os dados estão sendo enviados por meio desse dispositivo. Depois de os dispositivos enviarem mensagens para o centro IoT, desligam-se e parecem azuis.
 
-1. Você pode exibir as mensagens que estão sendo enviadas ao Hub clicando com o botão direito do mouse em qualquer dispositivo e selecionando **Iniciar Monitoramento de ponto de extremidade de evento interno**. As mensagens serão mostradas no painel de saída em Visual Studio Code.
+1. Pode visualizar mensagens enviadas para o hub clicando à direita em qualquer dispositivo e selecionando **Start Monitoring Built-in Event Endpoint**. As mensagens serão mostradas no painel de saída em Visual Studio Code.
 
 1. Pare o monitoramento clicando no painel saída do **Hub IOT do Azure** e escolha **parar monitoramento do ponto de extremidade do evento interno**.
 
@@ -129,13 +127,15 @@ Agora que temos a compilação do projeto, conecte-se ao Hub IoT para acessar a 
 
 ## <a name="check-iot-hub-for-activity"></a>Verificar a atividade do Hub IoT
 
-Os dados enviados pelo DeviceHarness entraram em seu hub IoT. É fácil verificar se os dados atingiram o Hub usando o portal do Azure.
+Os dados enviados pelo DeviceHarness foram para o seu hub IoT, onde pode verificar no portal Azure.
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e navegue até o Hub IOT.
+1. Abra o [portal Azure](https://portal.azure.com/) e navegue até ao hub IoT criado para este tutorial.
 
-1. Na página Visão geral, você verá que os dados foram enviados para o Hub:  
+1. A partir do menu do painel esquerdo, sob **monitorização,** selecione **Métricas**.
 
-   ![Exibir dispositivo para mensagens na nuvem no Hub IoT](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
+1. Na página de definição de gráfico, clique na queda **métrica,** percorra a lista e selecione **Routing: dados entregues ao armazenamento**. O gráfico deve mostrar o pico de quando os dados foram encaminhados para o armazenamento.
+
+   ![Gráfico mostra pico quando os dados entregues ao armazenamento](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
 
 ## <a name="validate-data-in-azure-storage"></a>Validar dados no armazenamento do Azure
 
@@ -145,21 +145,21 @@ Os dados que acabamos de enviar para o Hub IoT foram roteados para o contêiner 
 
 1. No navegador da conta de armazenamento, selecione **Gerenciador de armazenamento (versão prévia)** .
 
-1. No Gerenciador de armazenamento, selecione **contêineres de blob** e, em seguida, **devicedata**.
+1. No explorador de armazenamento, selecione **Blob Containers** e, em seguida, `devicedata`.
 
-1. No painel de conteúdo, clique na pasta para o nome do Hub IoT, depois o ano, o mês, o dia e a hora. Você verá várias pastas que representam os minutos em que os dados foram gravados.
+1. No painel de conteúdos, clique na pasta para o nome do hub IoT, seguido de ano, mês, dia e hora. Você verá várias pastas que representam os minutos em que os dados foram gravados.
 
    ![Exibir pastas no armazenamento de BLOBs](media/tutorial-machine-learning-edge-03-generate-data/confirm-data-storage-results.png)
 
 1. Clique em uma dessas pastas para localizar os arquivos de dados rotulados como **00** e **01** correspondentes à partição.
 
-1. Os arquivos são gravados no formato [Avro](https://avro.apache.org/) , mas clicar duas vezes em um desses arquivos abrirá outra guia do navegador e renderizará parcialmente os dados. Se, em vez disso, você for solicitado a abrir o arquivo em um programa, poderá escolher VS Code e ele será renderizado corretamente.
+1. Os ficheiros estão escritos em formato [Avro.](https://avro.apache.org/) Clique duas vezes num destes ficheiros para abrir outro separador de navegador e renderizar parcialmente os dados. Se for solicitado a abrir o ficheiro num programa, pode escolher o Código VS e será corretamente correto.
 
 1. Não é necessário tentar ler ou interpretar os dados no momento; Faremos isso no próximo artigo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usamos um projeto .NET Core para criar um conjunto de dispositivos virtuais e enviar dados por meio desses dispositivos por meio de nosso Hub IoT e para um contêiner de armazenamento do Azure. Este projeto simula um cenário do mundo real em que os dispositivos físicos enviam dados, incluindo leituras de sensor, configurações operacionais, sinais de falha e modos e assim por diante, a um hub IoT e em um armazenamento organizado. Uma vez coletados dados suficientes, usamos-os para treinar modelos que preveem a vida útil restante (RUL) para o dispositivo, que demonstraremos no próximo artigo.
+Neste artigo, usamos um projeto .NET Core para criar um conjunto de dispositivos IoT virtuais e enviar dados através deles para o nosso hub IoT e para um recipiente de Armazenamento Azure. Este projeto simula um cenário real onde dispositivos ioT físicos enviam dados para um Hub IoT e para um armazenamento curado. Estes dados incluem leituras de sensores, configurações operacionais, sinais de falha e modos, e assim por diante. Uma vez recolhidos dados suficientes, utilizamo-lo para treinar modelos que prevejam a vida útil restante (RUL) para o dispositivo. Vamos demonstrar esta aprendizagem automática no próximo artigo.
 
 Continue no próximo artigo para treinar um modelo de aprendizado de máquina com os dados.
 

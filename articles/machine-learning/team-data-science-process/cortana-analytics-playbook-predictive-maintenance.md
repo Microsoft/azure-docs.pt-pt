@@ -3,20 +3,20 @@ title: Guia de IA do Azure para soluções de manutenção preditiva - Team Data
 description: Uma descrição abrangente de ciência de dados que capacita a soluções de manutenção preditiva em várias indústrias verticais.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5cd16280ba942404ffb23fd1c9d0e1a20af8c7c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977136"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721817"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -43,7 +43,7 @@ O conteúdo de BDM – não espera que o leitor tenha qualquer conhecimento de c
 
 As empresas requerem a execução de equipamento crítico na eficiência e utilização máximas para garantirem o retorno dos investimentos de capital. Estes recursos podem variar entre motores de aeronaves, turbinas, elevadores ou refrigeradores industriais, que custam milhões, e dispositivos quotidianos como fotocopiadoras, máquinas de café ou refrigeradores de água.
 - Por predefinição, a maioria das empresas dependem _manutenção corretiva_, onde as partes são substituídas como e quando eles falharem. A manutenção corretiva assegura que as peças são utilizadas na totalidade (sem desperdiçar o tempo de vida do componente), mas afeta a empresa em termos de inatividade, mão-de-obra e requisitos de manutenção não agendada (fora do horário de funcionamento ou em locais inconvenientes).
-- Na prática de empresas de nível, próximo _manutenção preventiva_, onde determinar o tempo de vida útil para uma peça e manter o ou substitua-o antes de uma falha. A manutenção preventiva evita falhas imprevistas e catastróficas. Mas os custos elevados de período de indisponibilidade planeado, permanecem de utilização insuficientemente do componente antes de seu ciclo de vida completo de uso e o trabalho ainda.
+- Na prática de empresas de nível, próximo _manutenção preventiva_, onde determinar o tempo de vida útil para uma peça e manter o ou substitua-o antes de uma falha. A manutenção preventiva evita falhas imprevistas e catastróficas. Mas os elevados custos do tempo de paragem programado, a subutilização do componente durante a sua vida útil, e o trabalho ainda permanecem.
 - O objetivo de _manutenção preditiva_ é otimizar o equilíbrio entre manutenção corretiva e preventiva, ao permitir _just-in-time_ substituição dos componentes. Esta abordagem apenas substitui os componentes quando estiverem perto de falhar. Ao prolongar o tempo de vida do componente (em comparação com a manutenção preventiva) e ao reduzir os custos de mão-de-obra e manutenção não agendada (na manutenção corretiva), as empresas podem poupar dinheiro e conquistar vantagens competitivas.
 
 ## <a name="business-problems-in-pdm"></a>Problemas de negócio num PdM
@@ -92,7 +92,7 @@ Esta seção se concentra numa coleção de PdM casos de utilização de vários
 |**Finanças** |                         |
 |_Falha de ATM_ é um problema comum no setor bancário. O problema aqui é a probabilidade de que uma transação de retirada de dinheiro de ATM for interrompida devido a uma falha de confusão ou parte do documento no fornecedor de pagamento à vista de relatório. Com base nas predições de falhas de transação, caixas eletrônicos podem ser reparados proativamente para evitar a ocorrência de falhas.| Em vez de permitir que a máquina para falhar a meio de uma transação, é a alternativa desejável programa a máquina para negar serviços com base na predição.|
 |**Energia** |                          |
-|_Falhas na turbina do vento_: as turbinas do vento são a fonte de energia principal em países/regiões responsáveis por ambiente e envolvem altos custos de capital. Um componente chave no turbines do vento é o motor de gerador. sua falha renderiza a turbina ineficaz. Também é altamente Caro corrigir.|Prever KPIs, tais como MTTF (tempo médio de falha) pode ajudar as empresas de energia evitar falhas de turbina e certifique-se de período de indisponibilidade mínimo. Probabilidades de falha irão informar técnicos para monitorizar turbines que são provável que falhem em breve e agendar regimes baseados no tempo de manutenção. Modelos de previsão de fornecem informações sobre os diferentes fatores que contribuem para a falha, o que ajuda a técnicos de compreender melhor que as principais causas de problemas.|
+|Falhas nas _turbinas eólicas_: As turbinas eólicas são a principal fonte de energia em países/regiões ambientalmente responsáveis e envolvem elevados custos de capital. Um componente chave nas turbinas eólicas é o motor gerador, cuja falha torna a turbina ineficaz. Também é altamente Caro corrigir.|Prever KPIs, tais como MTTF (tempo médio de falha) pode ajudar as empresas de energia evitar falhas de turbina e certifique-se de período de indisponibilidade mínimo. Probabilidades de falha irão informar técnicos para monitorizar turbines que são provável que falhem em breve e agendar regimes baseados no tempo de manutenção. Modelos de previsão de fornecem informações sobre os diferentes fatores que contribuem para a falha, o que ajuda a técnicos de compreender melhor que as principais causas de problemas.|
 |_Falhas de disjuntor automático_: distribuição de eletricidade para casas e empresas requer linhas de power fique operacional em todos os momentos para garantir a entrega de energia. Separadores de circuito ajudar a limitar ou evitar danos à potência linhas durante sobrecarga ou adversos sobreviver aos condições. O problema de negócios aqui é prever falhas de disjuntor automático.| As soluções de PdM ajudam a reduzir os custos de reparação e aumentar a vida útil de equipamentos, tais como separadores de circuito. Eles ajudam a melhorar a qualidade da rede energia ao reduzir falhas inesperadas e interrupções do serviço.|
 |**Transportes e logística** |    |
 |_Falhas de porta do elevador_: as empresas de grande elevador fornecem um serviço de pilha completa para milhões de elevadores funcionais em todo o mundo. Tempo de atividade, confiabilidade e segurança elevador são as principais preocupações para seus clientes. Estas empresas controlam esses e vários outros atributos através de sensores, para ajudá-los com a manutenção preventiva e medidas corretiva. Num elevador, o problema mais proeminente do cliente está a funcionar incorretamente portas elevador. Neste caso é o problema comercial proporcionar um aplicativo de previsão de base de dados de conhecimento que prevê que o potencial causa de falhas de porta de.| Elevadores são investimentos de capitais para potencialmente um tempo de vida do ano de 20 a 30. Para que cada venda potencial possa ser altamente competitiva; Por conseguinte, as expectativas de suporte são elevadas. Manutenção preditiva pode dar a essas empresas com uma vantagem sobre seus concorrentes em seus produtos e ofertas de serviço.|
@@ -117,7 +117,7 @@ O sucesso de qualquer learning depende de (a) a qualidade de que está sendo ens
 Em primeiro lugar, os dados tem de ser _relevantes para o problema_. Considere a _roda falha_ utilizar maiúsculas e minúsculas discutidas acima - os dados de treinamento devem conter as funcionalidades relacionadas com as operações de roda. Se o problema era prever a falha do _system força_, os dados de treinamento devem abranger todos os componentes diferentes para o sistema de força. O primeiro caso destina-se um componente específico, ao passo que o segundo caso destina-se a falha de um subsistema de maior. A recomendação geral é projetar os sistemas de predição sobre componentes específicos, em vez de subsistemas maiores, uma vez que o último será ter mais dispersos dados. O especialista de domínio (consulte [qualificar problemas para manutenção preditiva](#qualifying-problems-for-predictive-maintenance)) deve ajudar a selecionar os subconjuntos mais relevantes de dados para a análise. As origens de dados relevantes são abordadas mais detalhadamente em [preparação de dados para manutenção preditiva](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Dados suficientes
-Duas perguntas feitas normalmente em relação a dados do histórico de falha: (1) "o número de eventos de falha é necessários para preparar um modelo?" (2) "quantos registros são considerados" suficientes "? Não há nenhuma resposta definitiva, mas apenas regras de Thumb. Para (1), mais o número de eventos de falha, melhor o modelo. Para (2), e o número exato de eventos de falha depende dos dados e o contexto do problema que está sendo resolvido. Mas, por outro lado, se uma máquina falhar com muita frequência, em seguida, a empresa irá substituí-lo, que irá reduzir as instâncias de falha. Aqui, novamente, a documentação de orientação do domínio especialistas é importante. No entanto, existem métodos para lidar com a edição da _eventos raro_. Eles serão discutidos na seção [tratamento de dados desequilibrados](#handling-imbalanced-data).
+Duas perguntas feitas normalmente em relação a dados do histórico de falha: (1) "o número de eventos de falha é necessários para preparar um modelo?" (2) "Quantos registos são considerados "suficientes"? Não há respostas definitivas, mas apenas regras de polegar. Para (1), mais o número de eventos de falha, melhor o modelo. Para (2), e o número exato de eventos de falha depende dos dados e o contexto do problema que está sendo resolvido. Mas, por outro lado, se uma máquina falhar com muita frequência, em seguida, a empresa irá substituí-lo, que irá reduzir as instâncias de falha. Aqui, novamente, a documentação de orientação do domínio especialistas é importante. No entanto, existem métodos para lidar com a edição da _eventos raro_. Eles serão discutidos na seção [tratamento de dados desequilibrados](#handling-imbalanced-data).
 
 ### <a name="quality-data"></a>Dados de qualidade
 A qualidade dos dados é crítica - a cada valor de atributo de previsão tem de ser _precisos_ em conjunto com o valor da variável de destino. Qualidade de dados é uma área bem estudada na gestão de estatísticas e dados e, por conseguinte, fora do âmbito deste guia.
@@ -143,7 +143,7 @@ As origens de dados relevantes para manutenção preditiva incluem, mas não sej
 Eventos de falha são raros em aplicativos de PdM. No entanto, ao criar modelos de predição, o algoritmo tem de saber mais sobre o padrão de operacional normal de um componente, bem como seus padrões de falha. Portanto, os dados de treinamento devem conter um número suficiente de exemplos de ambas as categorias. Histórico de substituição de registros e partes de manutenção são boas fontes para encontrar eventos de falha. Com a ajuda de alguns dados de conhecimento do domínio, anomalias nos dados de treinamento também podem ser definidas como falhas.
 
 #### <a name="maintenancerepair-history"></a>Histórico de reparação/manutenção
-O histórico de manutenção de um ativo contém detalhes sobre os componentes substituídos, as atividades de reparo executadas etc. Esses eventos registram padrões de degradação. Ausência dessas informações cruciais nos dados de treinamento pode levar a resultados de modelo enganoso. Histórico de falhas também pode ser encontrado no histórico de manutenção como códigos de erro especial ou datas de encomenda de partes. Origens de dados adicionais que influenciam a padrões de falhas devem ser investigadas e fornecidas por especialistas de domínio.
+O histórico de manutenção de um ativo contém detalhes sobre componentes substituídos, atividades de reparação realizadas, etc. Estes eventos registam padrões de degradação. Ausência dessas informações cruciais nos dados de treinamento pode levar a resultados de modelo enganoso. Histórico de falhas também pode ser encontrado no histórico de manutenção como códigos de erro especial ou datas de encomenda de partes. Origens de dados adicionais que influenciam a padrões de falhas devem ser investigadas e fornecidas por especialistas de domínio.
 
 #### <a name="machine-operating-conditions"></a>Condições de funcionamento da máquina
 Dados de transmissão em fluxo de sensores com base (ou outros) do equipamento na operação são uma origem de dados importantes. Uma suposição-chave no PdM é que o estado de funcionamento de uma máquina degrada ao longo do tempo durante a operação de rotina. Espera-se que os dados contêm recursos variados de tempo que capturam a esse padrão de classificação por vencimento e quaisquer anomalias que leva à degradação. O aspecto temporal dos dados é necessário para o algoritmo para aprender a falha e os padrões da não-falhas ao longo do tempo. O algoritmo com base nos seguintes pontos de dados, aprende prever a quantos mais unidades de tempo que uma máquina pode continuar a funcionar antes de falhar.
@@ -155,13 +155,13 @@ Exemplos de dados relevantes para o [casos de utilização de exemplo PdM](#samp
 
 | Caso de Utilização | Exemplos de dados relevantes |
 |:---------|---------------------------|
-|_Atraso de voo e cancelamentos_ | Informações de rota de voo na forma de registos de página e de legs de voo. Os dados do segmento de voo incluem detalhes de roteamento, como data de partida/chegada, hora, aeroporto, layovers, etc. O log de página inclui uma série de códigos de erro e manutenção registrados pela equipe de manutenção de aterramento.|
+|_Atraso de voo e cancelamentos_ | Informações de rota de voo na forma de registos de página e de legs de voo. Os dados da perna de voo incluem detalhes de encaminhamento, tais como data de partida/chegada, hora, aeroporto, paradções, etc. O registo de página inclui uma série de códigos de erro e manutenção registados pelo pessoal de manutenção do solo.|
 |_Falhas de partes de motores de aeronaves_ | Os dados recolhidos a partir de sensores na aeronave que fornece informações sobre a condição de várias partes. Registos de manutenção ajudam a identificar quando ocorreram de falhas de componentes e quando elas foram substituídas.|
-|_Falha de ATM_ | As leituras dos sensores para cada transação (depositar o pagamento à vista/verificação) e diz respeito à administração de pagamento à vista. Informações sobre a medição de lacunas entre notas, espessura da nota, nota de chegada de observação, atributos de cheque, etc. Registros de manutenção que fornecem códigos de erro, informações de reparo, última vez que o dispensador de caixa foi recarregado.|
-|_Falha de turbina do vento_ | Sensores de turbina monitoram condições como temperatura, direção do vento, geração de energia, velocidade do gerador, etc. Os dados são coletados de várias turbinas de ventos dos farms de vento localizados em várias regiões. Normalmente, cada turbina terá vários as leituras dos sensores retransmitir medidas num intervalo de tempo fixo.|
-|_Falhas de disjuntor automático_ | Registos de manutenção que incluem ações corretivas, preventivas e sistemática. Dados operacionais, que inclui automáticos e manuais comandos enviados para os separadores de circuito, tais como para ações de abertura e fechamento. Metadados de dispositivo, como data de fabricação, localização, modelo, etc. Especificações de disjuntor, como níveis de tensão, geolocalização, condições de ambiente.|
+|_Falha de ATM_ | As leituras dos sensores para cada transação (depositar o pagamento à vista/verificação) e diz respeito à administração de pagamento à vista. Informação sobre a medição do intervalo entre notas, espessura de nota, distância de chegada de nota, verificar atributos etc. Registos de manutenção que fornecem códigos de erro, informações de reparação, da última vez que o distribuidor de dinheiro foi reabastecido.|
+|_Falha de turbina do vento_ | Os sensores monitorizam as condições da turbina, tais como temperatura, direção do vento, energia gerada, velocidade do gerador, etc. Os dados são recolhidos a partir de várias turbinas eólicas de parques eólicos localizados em várias regiões. Normalmente, cada turbina terá vários as leituras dos sensores retransmitir medidas num intervalo de tempo fixo.|
+|_Falhas de disjuntor automático_ | Registos de manutenção que incluem ações corretivas, preventivas e sistemática. Dados operacionais, que inclui automáticos e manuais comandos enviados para os separadores de circuito, tais como para ações de abertura e fechamento. Metadados do dispositivo, tais como data de fabrico, localização, modelo, etc. Especificações de disjuntores tais como níveis de tensão, geolocalização, condições ambientais.|
 |_Falhas de porta de elevator_| Elevador metadados, tais como o tipo de elevador, produzidos e data, frequência de manutenção, tipo de construção e assim por diante. Informações operacionais, como o número de ciclos de porta, tempo médio de porta de fechar. Histórico de falhas com as causas.|
-|_Falhas de roda_ | Dados de sensor que medem a aceleração da roda, instâncias frenagem, distância de condução, velocidade etc. Informações estáticas em rodas como fabricante, data de fabricação. Dados de falha inferidos da base de dados de ordem de parte que controlam as datas de pedido e as quantidades.|
+|_Falhas de roda_ | Dados do sensor que medem a aceleração das rodas, as instâncias de travagem, a distância de condução, a velocidade, etc. Informações estáticas sobre rodas como fabricante, data fabricada. Dados de falha inferidos da base de dados de ordem de parte que controlam as datas de pedido e as quantidades.|
 |_Falhas de porta de comboio de metrô_ | Abertura de porta e os tempos de fechamento, outros dados operacionais, como condição atual de portas de comboio. Dados estáticos incluiria o identificador de recurso, a hora e colunas de valor de condição.|
 
 ### <a name="data-types"></a>Tipos de dados
@@ -209,7 +209,7 @@ Figura 1. Implementar recursos de agregação
 
 Exemplos de sem interrupção agregados numa janela de tempo são contagem, média, medidas CUMESUM (soma cumulativa), valores mínimos/máximos. Além disso, variação, desvio padrão e contagem de valores atípicos, além de desvios padrão de N, muitas vezes, são utilizados. Exemplos de agregados podem ser aplicados para o [casos de utilização](#sample-pdm-use-cases) neste guia são listados abaixo. 
 - _Atraso de vôo_: contagem de códigos de erro durante o dia/semana passada.
-- _Falha na parte do mecanismo de aeronave_: média, desvio padrão e soma durante o dia anterior, semana, etc. Essa métrica deve ser determinada junto com o especialista em domínio de negócios.
+- _Falha da parte do motor_do motor da aeronave : meios de rolamento, desvio padrão e soma ao longo do último dia, semana, etc. Esta métrica deve ser determinada juntamente com o especialista em domínio empresarial.
 - _Falhas de ATM_: sem interrupção significa, mediana, intervalo, desvios padrão, contagem de valores atípicos, além de desvios padrão de três, CUMESUM superior e inferior.
 - _Falhas de porta de comboio de metrô_: contagem de eventos ao longo do dia anterior, semana, duas semanas etc.
 - _Falhas de disjuntor automático_: contagens de falha ao longo da semana passada, ano, três anos etc.
@@ -217,7 +217,7 @@ Exemplos de sem interrupção agregados numa janela de tempo são contagem, méd
 Outra técnica útil no PdM é capturar alterações de tendências, picos e alterações no nível de usando algoritmos que detetem anomalias nos dados.
 
 #### <a name="tumbling-aggregates"></a>Agregados em cascata
-Para cada registro rotulado de um ativo, uma janela de tamanho _w-<sub>k</sub>_  é definida, em que _k_ é o número de janelas de tamanho _w_. As agregações são então criadas sobre _k_ _em cascata Windows_ _W-k, w-<sub>(k-1)</sub>,..., w-<sub>2</sub>, w-<sub>1</sub>_  para os períodos antes do carimbo de data/hora de um registro. _k_ pode ser um número pequeno para capturar os efeitos de curto prazo, ou um número grande para capturar os padrões de degradação de longo prazo. (consulte a figura 2).
+Para cada registo rotulado de um ativo, define-se uma janela de tamanho _<sub>W-k,</sub>_  onde _k_ é o número de janelas do tamanho _W_. Os agregados são então criados sobre _k_ _tumbling windows_ _W-k, W-<sub>(k-1)</sub>, ..., W-2 ,<sub></sub>W-1<sub></sub>_  para os períodos antes do carimbo temporal de um recorde. _k_ pode ser um número pequeno para capturar os efeitos de curto prazo, ou um número grande para capturar os padrões de degradação de longo prazo. (consulte a figura 2).
 
 ![Figura 2. Em cascata funcionalidades agregadas](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
 
@@ -231,7 +231,7 @@ As especificações técnicas do equipamento como a data de fabrico, número de 
 
 Os esforços de preparação de dados discutidos até agora devem levar aos dados que está a ser organizados conforme mostrado abaixo. Dados de treinamento, teste e validação devem ter este esquema lógico (Este exemplo mostra o tempo em unidades de dias).
 
-| ID do Recurso | Tempo | \<colunas de recurso > | Label |
+| ID do Recurso | Tempo | \<Feature Columns> | Label |
 | ---- | ---- | --- | --- |
 | A123 |Dia 1 | . . . | . |
 | A123 |Dia 2 | . . . | . |
@@ -246,7 +246,7 @@ Os esforços de preparação de dados discutidos até agora devem levar aos dado
 > Preparação de dados e de engenharia de funcionalidades são tão importantes quanto técnicas para deparar-se com êxito PdM soluções de modelagem. O especialista de domínio e o profissional devem investir tempo significativo se chegar uma a certos recursos e os dados para o modelo. Uma pequena amostra de muitos livros em engenharia de funcionalidades estão listados abaixo:
 > - Pyle, preparação de dados d. para os dados (a Morgan Kaufmann série em sistemas de gerenciamento de dados), de extração de 1999
 > - Zheng, r., Casari, engenharia de funcionalidades de r. para o Machine Learning: princípios e as técnicas para cientistas de dados, o ' Reilly, de 2018.
-> - Dong, G. Liu, H. (editores), engenharia de recursos para análise de dados e Machine Learning (Chapman & Hall/CRC e série de descoberta de conhecimento), CRC Press, 2018.
+> - Dong, G. Liu, H. (Editores), Engenharia de Recursos para Machine Learning e Análise de Dados (Chapman & Hall/CRC Data Mining and Knowledge Discovery Series), CRC Press, 2018.
 
 ## <a name="modeling-techniques-for-predictive-maintenance"></a>Técnicas de modelação para manutenção preditiva
 
@@ -257,7 +257,7 @@ Esta secção descreve as técnicas de modelagem de principal para problemas de 
 > deve ser determinada após a consulta com a especialista de domínio.
 
 ### <a name="binary-classification"></a>Classificação binária
-A classificação binária é usada para _prever a probabilidade de uma parte do equipamento falhar dentro de um período de tempo futuro_ , chamado de _período de horizonte futuro X_. X é determinado pelo problema de negócios e pelos dados em mãos, em consultoria com o especialista em domínio. Os exemplos são:
+A classificação binária é usada para _prever a probabilidade de um equipamento falhar num período de tempo futuro_ - chamado período horizonte futuro _X_. X é determinado pelo problema do negócio e pelos dados em questão, em consulta com o especialista em domínio. Os exemplos são:
 - _tempo de antecedência mínima_ necessário substituir componentes, implementar recursos de manutenção, realizar a manutenção para evitar um problema que é provável que ocorram nesse período.
 - _contagem mínima de eventos_ que pode acontecer antes de ocorrer um problema.
 
@@ -271,7 +271,7 @@ A questão aqui é: "o que é a probabilidade de que o elemento falhará no praz
 Figura 3. Etiquetas de classificação binária
 
 Seguem-se exemplos de etiquetagem estratégia para alguns dos casos de utilização.
-- _Andamento a atrasos_: X pode ser escolhido como 1 dia, para prever a atrasos nas próximas 24 horas. Em seguida, todos os voos que estão dentro de 24 horas antes de falhas são identificados como 1.
+- _Atrasos_no voo : X pode ser escolhido como um dia, para prever atrasos nas próximas 24 horas. Em seguida, todos os voos que estão dentro de 24 horas antes de falhas são identificados como 1.
 - _Falhas de dispensar à vista de ATM_: um objetivo pode ser determinar a probabilidade de falha de uma transação na próxima hora de um. Nesse caso, todas as transações que ocorreram na última hora da falha são identificadas como 1. Para prever a probabilidade de falha sobre a moeda de N seguinte notas dispensed, todas as anotações dispensed dentro as últimas notas de N de uma falha são identificadas como 1.
 - _Falhas de disjuntor automático_: O objetivo pode ser prever a seguinte falha do comando de disjuntor automático. Nesse caso, X é escolhido para ser um comando futuro.
 - _Falhas de porta de treinar_: X pode ser escolhido como dois dias.
@@ -297,13 +297,13 @@ Técnicas de classificação de Roc podem ser utilizadas em soluções de PdM pa
 #### <a name="label-construction-for-multi-class-classification"></a>Construção de etiqueta de classificação de Roc
 A questão aqui é: "o que é a probabilidade de que um recurso irá falhar nos próximos _nZ_ unidades de tempo em que _n_ é o número de períodos?" Para responder a essa pergunta, da etiqueta nZ registos antes da falha de um recurso com os registos de tempo (3Z, 2Z, Z). Etiqueta, todos os outros registos como "normal" (etiqueta = 0). Nesse método, a variável de destino mantém _categóricos_ valores. (Consulte a figura 5).
 
-![Figura 5. Rótulos de previsão de tempo de falha para classificação multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+![Figura 5. Etiquetas de previsão do tempo de insucesso para classificação multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
 Figura 5. Etiquetas para classificação de Roc para predição de falha de tempo
 
 A questão aqui é: "o que é a probabilidade de que o elemento falhará no prazo de X unidades de tempo devido a causa de raiz/problema _P<sub>eu</sub>_ ?" em que _eu_ é o número de causas possíveis. Para responder a essa pergunta, registos de etiqueta X antes da falha de um ativo como "prestes a falhar devido a causa raiz _P<sub>eu</sub>_ " (etiqueta = _P<sub>eu</sub>_ ). Todos os outros registos como sendo "normal" da etiqueta (etiqueta = 0). Nesse método além disso, as etiquetas são categóricos (consulte figura 6).
 
-![Figura 6. Rótulos de previsão de causa raiz para classificação multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+![Figura 6. Rótulos de previsão de causa seleção para classificação multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
 Figura 6. Etiquetas para classificação de Roc para predição de causa raiz
 
@@ -337,7 +337,7 @@ Quando a série de tempo é estacionários e fáceis de prever, abordagens aleat
 ### <a name="time-dependent-split"></a>Divisão de dependente de tempo
 Esta secção descreve as melhores práticas para implementar a divisão de dependente de tempo. Uma divisão de bidirecional dependente de tempo entre conjuntos de testes e treinamento é descrita abaixo.
 
-Suponha que um fluxo de eventos de timestamped como medidas de vários sensores. Defina os recursos e as etiquetas de treinamento e exemplos de teste ao longo de períodos de tempo que contêm vários eventos. Por exemplo, para classificação binária, crie recursos com base em eventos passados e crie rótulos com base em eventos futuros dentro das unidades de tempo no futuro (consulte as seções sobre Engenharia de [recursos](#feature-engineering) e técnicas de modelagem). Portanto, o etiquetagem período de tempo de um exemplo vem depois que o intervalo de tempo de seus recursos.
+Suponha que um fluxo de eventos de timestamped como medidas de vários sensores. Defina os recursos e as etiquetas de treinamento e exemplos de teste ao longo de períodos de tempo que contêm vários eventos. Por exemplo, para a classificação binária, crie funcionalidades baseadas em eventos passados e crie rótulos baseados em eventos futuros dentro de unidades de tempo "X" no futuro (ver as secções sobre técnicas de engenharia de [recursos](#feature-engineering) e técnicas de modelação). Portanto, o etiquetagem período de tempo de um exemplo vem depois que o intervalo de tempo de seus recursos.
 
 Para divisão dependente de tempo, escolher uma _T o tempo limite de treinamento<sub>c</sub>_  no qual pretende preparar um modelo, com hiperparâmetros ajustados a utilização dos dados históricos até T<sub>c</sub>. Para evitar a fuga de etiquetas futuras que ultrapassam T<sub>c</sub> os dados de treinamento, escolha a hora mais recente para exemplos de treinamento de etiqueta ser X unidades antes de T<sub>c</sub>. No exemplo mostrado na figura 7, cada quadrado representa um registro no conjunto de dados em que as funcionalidades e as etiquetas são computadas, tal como descrito acima. A figura mostra os registos que devem passar à preparação e teste conjuntos para X = 2 e W = 3:
 
@@ -425,11 +425,11 @@ A seção final deste guia fornece uma lista de modelos de soluções PdM, tutor
 
 | # | Título | Descrição |
 |--:|:------|-------------|
-| 2 | [Modelo de solução de manutenção preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de software livre que demonstra a modelagem do Azure ML e uma infraestrutura do Azure completa capaz de dar suporte a cenários de manutenção preditiva no contexto do monitoramento remoto de IoT. |
+| 2 | [Modelo de solução de manutenção preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de código aberto que demonstra a modelação Azure ML e uma infraestrutura Azure completa capaz de suportar cenários de manutenção preditiva no contexto da monitorização remota IoT. |
 | 3 | [Aprendizagem para manutenção preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Bloco de notas do Azure com uma solução de demonstração de como utilizar as redes LSTM (memória de curto prazo longo) (uma classe de redes Neurais recorrente) para manutenção preditiva, com um [mensagem de blogue esta amostra](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guia de modelagem de manutenção preditiva no R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guia de modelagem de PdM com scripts em R.|
 | 5 | [Manutenção preditiva do Azure para aeronáutica](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Um dos modelos de soluções de PdM primeiro com base na versão 1.0 do Azure ML para manutenção de aeronave. Este guia originado este projeto. |
-| 6 | [Ferramentas de IA do Azure para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA no IoT Edge usando TensorFlow; o kit de ferramentas empacota modelos de aprendizado profundo em contêineres do Docker compatíveis com Azure IoT Edge e expõe esses modelos como APIs REST.
+| 6 | [Ferramentas de IA do Azure para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA na Borda IoT utilizando o TensorFlow; o toolkit embala modelos de aprendizagem profunda em recipientes Docker compatíveis com bordas Azure IoT e expõe esses modelos como APIs REST.
 | 7 | [Manutenção preditiva do IoT do Azure](https://github.com/Azure/azure-iot-predictive-maintenance) | O Azure IoT Suite PCS – solução pré-configurada. Modelo de PdM de manutenção das aeronaves com o IoT Suite. [Outro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e [passo a passo](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relacionados com o mesmo projeto. |
 | 8 | [Modelo de manutenção Preditiva com o SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstração de cenário de vida útil restante com base nos serviços de R. |
 | 9 | [Guia de modelagem de manutenção preditiva](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Funcionalidade de conjunto de dados de manutenção das aeronaves desenvolvida através da linguagem R com [experimentações](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) e [conjuntos de dados](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) e [bloco de notas do Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) e [experimentações](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)na versão 1.0 do AzureML|
@@ -446,7 +446,7 @@ O Microsoft Azure oferece os percursos de aprendizagem para os conceitos básico
 | [Instituição de ensino do Microsoft AI](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizagem de IA do Azure do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [Aprendizagem do LinkedIn](https://www.linkedin.com/learning) | Público |
-| [Microsoft AI YouTube webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
+| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Show de IA da Microsoft](https://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Parceiros |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Parceiros |

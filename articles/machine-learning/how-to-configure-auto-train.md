@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277996"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722157"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -187,11 +187,11 @@ A métrica primária determina a métrica a ser usada durante o treinamento do m
 
 Saiba mais sobre as definições específicas dessas métricas em [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
 
-### <a name="data-preprocessing--featurization"></a>Pré-processamento de dados & personalização
+### <a name="data-featurization"></a>Característica de dados
 
-Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar o pré-processamento/personalização adicional, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess).
+Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, também pode permitir uma funcionalidade adicional, como a imputação de valores em falta, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess).
 
-Para habilitar esse personalização, especifique `"preprocess": True` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Para permitir esta caracterização, especifique `"featurization": 'auto'` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
 > As etapas de pré-processamento automatizado do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
@@ -199,9 +199,9 @@ Para habilitar esse personalização, especifique `"preprocess": True` para a [c
 ### <a name="time-series-forecasting"></a>Previsão de série temporal
 A tarefa de `forecasting` de série temporal requer parâmetros adicionais no objeto de configuração:
 
-1. `time_column_name`: parâmetro obrigatório que define o nome da coluna em seus dados de treinamento que contém uma série temporal válida.
-1. `max_horizon`: define o período de tempo que você deseja prever com base na periodicidade dos dados de treinamento. Por exemplo, se você tiver dados de treinamento com refinamentos diários de tempo, defina a distância em dias que deseja que o modelo treine.
-1. `grain_column_names`: define o nome das colunas que contêm dados de série temporal individuais em seus dados de treinamento. Por exemplo, se você estiver prevendo as vendas de uma determinada marca por loja, você definirá as colunas de armazenamento e marca como suas colunas de refinamento. As diversas séries temporais e as previsões serão criadas para cada granulação/agrupamento. 
+1. `time_column_name`: Parâmetro necessário que define o nome da coluna nos seus dados de treino contendo uma série de tempo válida.
+1. `max_horizon`: Define o tempo que pretende prever com base na periodicidade dos dados de formação. Por exemplo, se você tiver dados de treinamento com refinamentos diários de tempo, defina a distância em dias que deseja que o modelo treine.
+1. `grain_column_names`: Define o nome das colunas que contêm dados individuais de séries temporais nos seus dados de formação. Por exemplo, se você estiver prevendo as vendas de uma determinada marca por loja, você definirá as colunas de armazenamento e marca como suas colunas de refinamento. As diversas séries temporais e as previsões serão criadas para cada granulação/agrupamento. 
 
 Para obter exemplos das configurações usadas abaixo, consulte o [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
@@ -240,9 +240,9 @@ Os modelos de Ensemble são habilitados por padrão e aparecem como as iteraçõ
 
 Há vários argumentos padrão que podem ser fornecidos como `kwargs` em um objeto `AutoMLConfig` para alterar o comportamento padrão da pilha Ensemble.
 
-* `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogêneos individuais. Os meta-aprendizs padrão são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver habilitada) e `ElasticNet` para tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver habilitada). Esse parâmetro pode ser uma das seguintes cadeias de caracteres: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`ou `LinearRegression`.
-* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de treinamento (ao escolher treinamento e tipo de validação) a ser reservado para treinar o meta-aprendiz. O valor padrão é `0.2`.
-* `stack_meta_learner_kwargs`: parâmetros opcionais a serem passados para o inicializador do meta-aprendiz. Esses parâmetros e tipos de parâmetro espelham os parâmetros e os tipos de parâmetro do construtor de modelo correspondente e são encaminhados para o construtor de modelo.
+* `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizs padrão são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver habilitada) e `ElasticNet` para tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver habilitada). Esse parâmetro pode ser uma das seguintes cadeias de caracteres: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`ou `LinearRegression`.
+* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (ao escolher o tipo de treino de comboio e validação) a reservar para a formação do meta-aprendiz. O valor padrão é `0.2`.
+* `stack_meta_learner_kwargs`: parâmetros opcionais para passar para o inicializador do meta-aprendiz. Esses parâmetros e tipos de parâmetro espelham os parâmetros e os tipos de parâmetro do construtor de modelo correspondente e são encaminhados para o construtor de modelo.
 
 O código a seguir mostra um exemplo de especificação do comportamento Ensemble personalizado em um objeto `AutoMLConfig`.
 
@@ -270,7 +270,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-O treinamento do Ensemble é habilitado por padrão, mas pode ser desabilitado usando os parâmetros boolianos `enable_voting_ensemble` e `enable_stack_ensemble`.
+O treino do conjunto é ativado por padrão, mas pode ser desativado utilizando os parâmetros `enable_voting_ensemble` e `enable_stack_ensemble` boolean.
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -314,8 +314,8 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>Critérios de saída
 Há algumas opções que você pode definir para encerrar seu experimento.
 1. Nenhum critério: se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum progresso adicional seja feito em sua métrica primária.
-1. Sair após um período de tempo: usar `experiment_timeout_minutes` em suas configurações permite que você defina por quanto tempo em minutos um experimento continuará em execução.
-1. Sair depois que uma pontuação for atingida: usar `experiment_exit_score` concluirá o experimento depois que uma pontuação de métrica primária for atingida.
+1. Saída após um período de tempo: Utilizar `experiment_timeout_minutes` nas suas definições permite definir quanto tempo em minutos deve uma experiência continuar em execução.
+1. Saída após uma pontuação alcançada: Usando `experiment_exit_score` completará a experiência depois de ter sido atingida uma pontuação métrica primária.
 
 ### <a name="explore-model-metrics"></a>Explorar métricas de modelo
 
@@ -324,10 +324,10 @@ Você pode exibir os resultados de treinamento em um widget ou embutido se estiv
 ## <a name="understand-automated-ml-models"></a>Entender os modelos de ML automatizados
 
 Qualquer modelo produzido usando o ML automatizado inclui as seguintes etapas:
-+ Engenharia automatizada de recursos (se pré-processar = true)
++ Engenharia automática de recursos (se `"featurization": 'auto'`)
 + Dimensionamento/normalização e algoritmo com valores de hiperparâmetro
 
-Tornamos transparente para obter essas informações da fitted_model saída do ML automatizado.
+Tornamos transparente obter esta informação a partir da fitted_model saída a partir de ML automatizado.
 
 ```python
 automl_config = AutoMLConfig(…)
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Engenharia automatizada de recursos
 
-Consulte a lista de pré-processamento e [engenharia automatizada de recursos](concept-automated-ml.md#preprocess) que ocorre quando feauturization = auto.
+Consulte a lista de pré-processamento e [engenharia automática](concept-automated-ml.md#preprocess) de recursos que acontece quando `"featurization": 'auto'`.
 
 Considere este exemplo:
 + Há quatro recursos de entrada: A (numérico), B (numérico), C (numérico), D (DateTime)
@@ -347,7 +347,7 @@ Considere este exemplo:
 
 Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Consulte [este bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-+ API 1: `get_engineered_feature_names()` retorna uma lista de nomes de recursos com engenharia.
++ API 1: `get_engineered_feature_names()` devolve uma lista de nomes de funcionalidades projetados.
 
   Utilização:
   ```python
@@ -363,7 +363,7 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
   >[!Note]
   >Use ' timeseriestransformer ' para a tarefa = ' previsão ', caso contrário use ' transtransformer ' para a tarefa ' regressão ' ou ' classificação '.
 
-+ API 2: `get_featurization_summary()` retorna o resumo de personalização para todos os recursos de entrada.
++ API 2: `get_featurization_summary()` retorna resumo de características para todas as funcionalidades de entrada.
 
   Utilização:
   ```python
@@ -435,7 +435,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Dimensionamento/normalização e algoritmo com valores de hiperparâmetro:
 
-Para entender os valores de dimensionamento/normalização e de algoritmo/hiperparâmetro para um pipeline, use fitted_model. Steps. [Saiba mais sobre dimensionamento/normalização](concept-automated-ml.md#preprocess). Eis uma saída de exemplo:
+Para compreender os valores de escala/normalização e algoritmo/hiperparâmetro para um gasoduto, utilize fitted_model.passos. [Saiba mais sobre dimensionamento/normalização](concept-automated-ml.md#preprocess). Eis uma saída de exemplo:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
@@ -492,16 +492,16 @@ LogisticRegression
 
 ### <a name="predict-class-probability"></a>Prever probabilidade de classe
 
-Os modelos produzidos usando o ML automatizado têm objetos wrapper que espelham a funcionalidade de sua classe de origem de código aberto. A maioria dos objetos do wrapper do modelo de classificação retornados pelo ML automatizado implementam a função `predict_proba()`, que aceita um exemplo de dados de matriz esparso ou de matriz esparsa dos seus recursos (valores X) e retorna uma matriz n-dimensional de cada amostra e sua respectiva probabilidade de classe.
+Os modelos produzidos usando o ML automatizado têm objetos wrapper que espelham a funcionalidade de sua classe de origem de código aberto. A maioria dos objetos de invólucro de modelo de classificação devolvidos por ML automatizado implementam a função `predict_proba()`, que aceita uma amostra de dados de matriz matriz matriz esparsa ou escassa das suas características (valores X), e devolve uma matriz n-dimensional de cada amostra e a sua respetiva probabilidade de classe.
 
-Supondo que você tenha recuperado o melhor modelo de execução e ajustada usando as mesmas chamadas acima, você pode chamar `predict_proba()` diretamente do modelo ajustado, fornecendo uma amostra de `X_test` no formato apropriado, dependendo do tipo de modelo.
+Assumindo que recuperou o melhor modelo de execução e equipado utilizando as mesmas chamadas de cima, pode ligar `predict_proba()` diretamente do modelo equipado, fornecendo uma amostra `X_test` no formato apropriado, dependendo do tipo de modelo.
 
 ```python
 best_run, fitted_model = automl_run.get_output()
 class_prob = fitted_model.predict_proba(X_test)
 ```
 
-Se o modelo subjacente não oferecer suporte à função `predict_proba()` ou o formato estiver incorreto, uma exceção específica de classe de modelo será lançada. Consulte os documentos de referência do [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e do [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para obter exemplos de como essa função é implementada para diferentes tipos de modelo.
+Se o modelo subjacente não suportar a função `predict_proba()` ou o formato estiver incorreto, será lançada uma exceção específica para a classe do modelo. Consulte os documentos de referência do [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e do [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para obter exemplos de como essa função é implementada para diferentes tipos de modelo.
 
 <a name="explain"></a>
 

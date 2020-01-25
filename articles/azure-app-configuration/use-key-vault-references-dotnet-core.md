@@ -1,6 +1,6 @@
 ---
-title: Tutorial para usar as referências de Key Vault de configuração do Azure App em um aplicativo ASP.NET Core | Microsoft Docs
-description: Neste tutorial, você aprenderá a usar as referências Key Vault Azure App da configuração de um aplicativo ASP.NET Core
+title: Tutorial para usar referências chave de configuração de aplicativos Azure numa aplicação ASP.NET Core  Microsoft Docs
+description: Neste tutorial, você aprende a usar referências chave vault da Configuração de Aplicações Azure a partir de uma aplicação ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -11,17 +11,17 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/07/2019
+ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 992cface653bf3fe52afc7efa3f17573fcf91399
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469642"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714440"
 ---
-# <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: usar referências de Key Vault em um aplicativo ASP.NET Core
+# <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências chave vault em uma aplicação ASP.NET Core
 
 Neste tutorial, você aprenderá a usar o serviço de configuração do Azure App junto com Azure Key Vault. A configuração do aplicativo e os Key Vault são serviços complementares usados lado a lado na maioria das implantações de aplicativo.
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma chave de configuração de aplicativo que faça referência a um valor armazenado em Key Vault.
-> * Acesse o valor dessa chave de um aplicativo Web ASP.NET Core.
+> * Aceda ao valor desta chave a partir de uma aplicação web ASP.NET Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,14 +82,14 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicionar uma referência de Key Vault à configuração do aplicativo
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e, em seguida, selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e, em seguida, selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 1. Selecione **Configuration Explorer**.
 
 1. Selecione **+ criar** > **referência do cofre de chaves**e especifique os seguintes valores:
-    - **Chave**: selecione **TestApp: configurações: KeyVaultMessage**.
+    - **Chave**: Selecione **TestApp:Definições:Mensagem de cofre**de teclas .
     - **Rótulo**: Deixe esse valor em branco.
-    - **Assinatura**, **grupo de recursos**e **cofre de chaves**: Insira os valores correspondentes àqueles no cofre de chaves que você criou na seção anterior.
+    - **Subscrição,** **Grupo de Recursos**e Cofre **chave**: Introduza os valores correspondentes aos do cofre chave que criou na secção anterior.
     - **Segredo**: selecione a **mensagem** nomeada do segredo que você criou na seção anterior.
 
 ## <a name="connect-to-key-vault"></a>Conectar-se ao Key Vault
@@ -119,30 +119,62 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
 
 1. Execute o seguinte comando para permitir que a entidade de serviço acesse o cofre de chaves:
 
-    ```
+    ```cmd
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. Adicione segredos para *clientId* e *clientSecret* ao Gerenciador de segredos, a ferramenta para armazenar dados confidenciais que você adicionou ao arquivo *. csproj* no [início rápido: criar um aplicativo ASP.NET Core com Azure app configuração](./quickstart-aspnet-core-app.md). Esses comandos devem ser executados no mesmo diretório que o arquivo *. csproj* .
+1. Adicione variáveis ambientais para armazenar os valores do *clienteId,* *clientSecret,* e *tenantId*.
 
-    ```
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
+    #### <a name="windows-command-prompttabcmd"></a>[Pedido de comando windows](#tab/cmd)
+
+    ```cmd
+    setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
+    setx AZURE_CLIENT_SECRET <clientSecret-of-your-service-principal>
+    setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-> [!NOTE]
-> Essas credenciais de Key Vault são usadas somente dentro de seu aplicativo. Seu aplicativo é autenticado diretamente para Key Vault com essas credenciais. Eles nunca são passados para o serviço de configuração do aplicativo.
+    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+    ```PowerShell
+    $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
+    $Env:AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
+    $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
+    ```
+
+    #### <a name="bashtabbash"></a>[Raso](#tab/bash)
+
+    ```bash
+    export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
+    export AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
+    export AZURE_TENANT_ID = <tenantId-of-your-service-principal>
+    ```
+
+    ---
+
+    > [!NOTE]
+    > Essas credenciais de Key Vault são usadas somente dentro de seu aplicativo. Seu aplicativo é autenticado diretamente para Key Vault com essas credenciais. Eles nunca são passados para o serviço de configuração do aplicativo.
+
+1. Reinicie o seu terminal para carregar estas novas variáveis ambientais.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Atualizar seu código para usar uma referência de Key Vault
+
+1. Adicione uma referência aos pacotes NuGet necessários executando o seguinte comando:
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.KeyVault
+    dotnet add package Azure.Identity
+    ```
 
 1. Abra *Program.cs*e adicione referências aos seguintes pacotes necessários:
 
     ```csharp
     using Microsoft.Azure.KeyVault;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Azure.Identity;
     ```
 
-1. Atualize o método `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration`. Inclua a opção `UseAzureKeyVault` para passar uma nova referência de `KeyVaultClient` para seu Key Vault.
+1. Atualize o método `CreateWebHostBuilder` para utilizar a Configuração da App, ligando para o método `config.AddAzureAppConfiguration`. Inclua a `UseAzureKeyVault` opção de passar numa nova referência `KeyVaultClient` ao seu Cofre Chave.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -151,23 +183,43 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
             {
                 var settings = config.Build();
 
-                KeyVaultClient kvClient = new KeyVaultClient(async (authority, resource, scope) =>
+                config.AddAzureAppConfiguration(options =>
                 {
-                    var adCredential = new ClientCredential(settings["ConnectionStrings:KeyVaultClientId"], settings["ConnectionStrings:KeyVaultClientSecret"]);
-                    var authenticationContext = new AuthenticationContext(authority, null);
-                    return (await authenticationContext.AcquireTokenAsync(resource, adCredential)).AccessToken;
-                });
-
-                config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseAzureKeyVault(kvClient); });
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
             })
             .UseStartup<Startup>();
     ```
 
-1. Ao inicializar a conexão com a configuração do aplicativo, você passou a referência de `KeyVaultClient` para o método `UseAzureKeyVault`. Após a inicialização, você pode acessar os valores de referências de Key Vault da mesma maneira que acessa os valores de chaves de configuração de aplicativo regulares.
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
 
-    Para ver esse processo em ação, abra *index. cshtml* nas **exibições** > pasta **base** . Substitua seu conteúdo pelo código a seguir:
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
+            })
+            .UseStartup<Startup>());
+    ```
+
+1. Quando ininiciaste a ligação à Configuração da Aplicação, passaste a referência `KeyVaultClient` ao método `UseAzureKeyVault`. Após a inicialização, pode aceder aos valores das referências key vault da mesma forma que acede aos valores das teclas regulares de Configuração de Aplicações.
+
+    Para ver este processo em ação, abra *o Index.cshtml* na pasta **Views** > **Home.** Substitua o seu conteúdo pelo seguinte código:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -179,7 +231,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 
@@ -187,7 +239,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    Você acessa o valor do Key Vault Reference **TestApp: Settings: KeyVaultMessage** da mesma maneira que para o valor de configuração de **TestApp: Settings: Message**.
+    Acede ao valor do TestApp de referência do Cofre **chave:Definições:KeyVaultMessage** da mesma forma que para o valor de configuração do **TestApp:Definições:Mensagem**.
 
 ## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
@@ -197,7 +249,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
     dotnet build
     ```
 
-1. Após a conclusão da compilação, use o seguinte comando para executar o aplicativo Web localmente:
+1. Depois de concluída a construção, utilize o seguinte comando para executar a aplicação web localmente:
 
     ```
     dotnet run
@@ -205,7 +257,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
 
 1. Abra uma janela do navegador e vá para `http://localhost:5000`, que é a URL padrão para o aplicativo Web hospedado localmente.
 
-    ![Inicialização do aplicativo local de início rápido](./media/key-vault-reference-launch-local.png)
+    ![Lançamento de aplicações locais Quickstart](./media/key-vault-reference-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -213,7 +265,7 @@ Para adicionar um segredo ao cofre, você precisa executar apenas algumas etapas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você criou uma chave de configuração de aplicativo que faz referência a um valor armazenado em Key Vault. Para saber como adicionar uma identidade de serviço gerenciada pelo Azure que simplifica o acesso à configuração do aplicativo e a Key Vault, prossiga para o próximo tutorial.
+Neste tutorial, você criou uma chave de configuração de aplicativo que faz referência a um valor armazenado em Key Vault. Para aprender a adicionar uma identidade de serviço gerida pelo Azure que dinamiza o acesso à Configuração de Aplicações e ao Cofre de Chaves, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

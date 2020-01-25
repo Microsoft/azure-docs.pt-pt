@@ -1,6 +1,6 @@
 ---
-title: List role assignments using Azure RBAC and the Azure portal
-description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and the Azure portal.
+title: Listar atribuições de função usando o RBAC do Azure e o portal do Azure
+description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso do RBAC (controle de acesso baseado em função) do Azure e o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,42 +11,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934484"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720734"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>List role assignments using Azure RBAC and the Azure portal
+# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Listar atribuições de função usando o RBAC do Azure e o portal do Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de papéis utilizando o portal Azure.
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
 
-## <a name="list-role-assignments-for-a-user-or-group"></a>List role assignments for a user or group
+## <a name="list-role-assignments-for-a-user-or-group"></a>Listar atribuições de função para um usuário ou grupo
 
-The easiest way to see the roles assigned to a user or group in a subscription is to use the **Azure resources** pane.
+A maneira mais fácil de ver as funções atribuídas a um usuário ou grupo em uma assinatura é usar o painel **recursos do Azure** .
 
-1. In the Azure portal, click **All services** and then select **Users** or **Groups**.
+1. No portal do Azure, clique em **todos os serviços** e selecione **usuários** ou **grupos**.
 
-1. Click the user or group you want list the role assignments for.
+1. Clique no usuário ou grupo para o qual você deseja listar as atribuições de função.
 
 1. Clique em **recursos do Azure**.
 
-    You see a list of roles assigned to the selected user or group at various scopes such as management group, subscription, resource group, or resource. Essa lista inclui todas as atribuições de função que você tem permissão para ler.
+    Você vê uma lista de funções atribuídas ao usuário ou grupo selecionado em vários escopos, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso. Essa lista inclui todas as atribuições de função que você tem permissão para ler.
 
     ![Atribuições de funções para um utilizador](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. Para alterar a assinatura, clique na lista **assinaturas** .
 
-## <a name="list-owners-of-a-subscription"></a>List owners of a subscription
+## <a name="list-owners-of-a-subscription"></a>Listar os proprietários de uma assinatura
 
-Users that have been assigned the [Owner](built-in-roles.md#owner) role for a subscription can manage everything in the subscription. Follow these steps to list the owners of a subscription.
+Os usuários aos quais foi atribuída a função de [proprietário](built-in-roles.md#owner) de uma assinatura podem gerenciar tudo na assinatura. Siga estas etapas para listar os proprietários de uma assinatura.
 
 1. No portal do Azure, clique em **todos os serviços** e em **assinaturas**.
 
@@ -125,6 +125,16 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
     ![Atribuições de função para uma identidade gerenciada atribuída pelo sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. Para alterar a assinatura, clique na lista **assinaturas** .
+
+## <a name="list-number-of-role-assignments"></a>Número de lista de atribuições de funções
+
+Pode ter até **2000** atribuições em cada subscrição. Para ajudá-lo a acompanhar estes limites, o separador de **atribuições de role** inclui um gráfico que lista o número atual de atribuições de papéis.
+
+![Controlo de acesso - Gráfico de atribuição de funções](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+Se estiver perto do número máximo e tentar adicionar mais tarefas, verá um aviso no painel de atribuição de **funções Add.** Pode reduzir o número de atribuições de funções, apagando atribuições de funções que já não são necessárias ou atribuindo funções a grupos em vez de utilizadores individuais.
+
+![Controlo de acesso - Adicionar aviso de atribuição de funções](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

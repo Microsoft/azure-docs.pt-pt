@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e776ce8a455f2a5b453e23ebb996de9ddb5175a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430183"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711973"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure
 
@@ -38,7 +38,7 @@ Use o portal de Azure Active Directory para exibir e gerenciar todos os aplicati
 1. Selecione qualquer aplicativo para carregar seu painel de recursos, no qual você pode exibir relatórios e gerenciar configurações de aplicativo.
 1. Selecione **provisionamento** para gerenciar as configurações de provisionamento de conta de usuário para o aplicativo selecionado.
 
-   ![Tela de provisionamento para gerenciar as configurações de provisionamento de conta de usuário](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Tela de provisionamento para gerenciar as configurações de provisionamento de conta de usuário](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modos de provisionamento
 
@@ -68,7 +68,7 @@ Expanda **mapeamentos** para exibir e editar os atributos de usuário que fluem 
 
 Há um conjunto pré-configurado de mapeamentos entre objetos de usuário do Azure AD e os objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. Selecione um mapeamento na tabela para abrir o editor de mapeamento à direita, onde você pode exibi-los e personalizá-los.
 
-![Mostra a tela de mapeamento de atributo](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Mostra a tela de mapeamento de atributo](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 As personalizações com suporte incluem:
 
@@ -88,4 +88,4 @@ Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicati
 
 Altere o **status de provisionamento** para **desativado** para pausar o serviço de provisionamento. Nesse estado, o Azure não cria, atualiza ou remove nenhum objeto de usuário ou grupo no aplicativo. Altere o estado de volta para **ativado** e o serviço será selecionado de onde parou.
 
-**Limpar o estado atual e reiniciar a sincronização** dispara um ciclo inicial. O serviço irá então avaliar todos os usuários no sistema de origem novamente e determinar se eles estão no escopo do provisionamento. Isso pode ser útil quando seu aplicativo está em quarentena no momento ou você precisa fazer uma alteração nos mapeamentos de atributo. Observe que o ciclo inicial leva mais tempo para ser concluído do que o ciclo incremental típico devido ao número de objetos que precisam ser avaliados. Você pode aprender mais sobre o desempenho de ciclos iniciais e incrementais [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 
+**Limpar o estado atual e reiniciar a sincronização** dispara um ciclo inicial. O serviço irá então avaliar todos os usuários no sistema de origem novamente e determinar se eles estão no escopo do provisionamento. Isso pode ser útil quando seu aplicativo está em quarentena no momento ou você precisa fazer uma alteração nos mapeamentos de atributo. Observe que o ciclo inicial leva mais tempo para ser concluído do que o ciclo incremental típico devido ao número de objetos que precisam ser avaliados. Pode saber mais sobre o desempenho dos ciclos iniciais e incrementais [aqui](application-provisioning-when-will-provisioning-finish-specific-user.md). 

@@ -1,6 +1,6 @@
 ---
-title: Otimizar o cache Gen2
-description: Saiba como monitorar o cache Gen2 usando o portal do Azure.
+title: Otimize a sua cache Gen2
+description: Aprenda a monitorizar a sua cache Gen2 utilizando o portal Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,63 +10,45 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b33f7cedca4ef130eefa28c1dbaaedd82d11a9e4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645775"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721222"
 ---
-# <a name="how-to-monitor-the-gen2-cache"></a>Como monitorar o cache Gen2
-A arquitetura de armazenamento Gen2 automaticamente coloca em camadas os segmentos columnstore consultados com mais frequência em um cache que reside em SSDs com base em NVMe projetado para Gen2 data warehouses. Um desempenho maior é percebido quando suas consultas recuperam segmentos que residem no cache. Este artigo descreve como monitorar e solucionar problemas de desempenho de consulta lento determinando se sua carga de trabalho está aproveitando o cache Gen2 de forma ideal.  
-## <a name="troubleshoot-using-the-azure-portal"></a>Solucionar problemas usando o portal do Azure
-Você pode usar Azure Monitor para exibir as métricas de cache Gen2 para solucionar problemas de desempenho de consulta. Primeiro, acesse a portal do Azure e clique em monitorar:
+# <a name="how-to-monitor-the-gen2-cache"></a>Como monitorizar a cache gen2
+A arquitetura de armazenamento Gen2 automaticamente nivete os seus segmentos de colunas mais frequentemente consultados numa cache residente em SSDs baseados em NVMe projetados para armazéns de dados Gen2. Um maior desempenho é realizado quando as suas consultas recuperam segmentos que residem na cache. Este artigo descreve como monitorizar e resolver problemas o desempenho da consulta lenta, determinando se a sua carga de trabalho está a aproveitar idealmente a cache gen2.  
+## <a name="troubleshoot-using-the-azure-portal"></a>Resolução de problemas usando o portal Azure
+Pode utilizar o Monitor Azure para ver as métricas de cache gen2 para resolver o desempenho da consulta. Primeiro vá ao portal Azure e clique no Monitor:
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+![Monitor do Azure](./media/sql-data-warehouse-cache-portal/cache_0.png)
 
-Selecione o botão métricas e preencha a **assinatura**, o **grupo**de recursos, o **tipo de recurso**e o **nome do recurso** do seu data warehouse.
+Selecione o botão métricas e preencha o grupo **de subscrição,** **grupo** **de recursos,** **tipo de recurso**e nome **de recurso** do seu armazém de dados.
 
-As principais métricas para a solução de problemas do cache Gen2 são **percentual de impacto de cache** e percentual de **cache usado**. Configure o gráfico de métrica do Azure para exibir essas duas métricas.
+As métricas-chave para a resolução de problemas da cache Gen2 são **a percentagem** de impacto cache e **a percentagem usada por Cache**. Configure o gráfico métrico Azure para exibir estas duas métricas.
 
-![Métricas de cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Métricas cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
 
 
-## <a name="cache-hit-and-used-percentage"></a>Percentual de impacto de cache e usado
-A matriz a seguir descreve os cenários com base nos valores das métricas de cache:
+## <a name="cache-hit-and-used-percentage"></a>Cache hit e percentagem usada
+A matriz abaixo descreve cenários baseados nos valores das métricas de cache:
 
-|                                | **Porcentagem alta de sucesso de cache** | **Percentual de impacto de cache baixo** |
+|                                | **Alta percentagem de impacto de Cache** | **Baixa percentagem de impacto de Cache** |
 | :----------------------------: | :---------------------------: | :--------------------------: |
-| **Percentual de alto cache usado** |          Cenário 1           |          Cenário 2          |
-| **Percentual de uso de cache baixo**  |          Cenário 3           |          Cenário 4          |
+| **Alta cache de cache usada percentagem** |          Cenário 1           |          Cenário 2          |
+| **Baixa cache usada percentagem**  |          Cenário 3           |          Cenário 4          |
 
-**Cenário 1:** Você está usando o cache de forma ideal. [Solucione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem estar atrasando suas consultas.
+**Cenário 1:** Está a usar o melhor da sua cache. [Problemas de resolução](sql-data-warehouse-manage-monitor.md) de outras áreas que podem estar a abrandar as suas consultas.
 
-**Cenário 2:** O conjunto de dados de trabalho atual não pode se ajustar ao cache, o que causa uma baixa porcentagem de acesso ao cache devido a leituras físicas. Considere escalar verticalmente o nível de desempenho e executar novamente a carga de trabalho para preencher o cache.
+**Cenário 2:** O seu conjunto de dados de trabalho atual não pode caber na cache, o que provoca uma baixa percentagem de impacto em cache devido a leituras físicas. Considere aumentar o seu nível de desempenho e reexecutar a sua carga de trabalho para povoar a cache.
 
-**Cenário 3:** É provável que sua consulta esteja em execução lenta devido a motivos não relacionados ao cache. [Solucione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) outras áreas que podem estar atrasando suas consultas. Você também pode considerar [o dimensionamento de sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho do cache para economizar custos. 
+**Cenário 3:** É provável que a sua consulta esteja a decorrer lentamente devido a razões não relacionadas com a cache. [Problemas de resolução](sql-data-warehouse-manage-monitor.md) de outras áreas que podem estar a abrandar as suas consultas. Também pode considerar [reduzir a sua instância](sql-data-warehouse-manage-monitor.md) para reduzir o tamanho da cache para poupar custos. 
 
-**Cenário 4:** Você tinha um cache frio que poderia ser o motivo pelo qual a consulta estava lenta. Considere a execução da sua consulta novamente, já que seu conjunto de trabalho em funcionamento deve estar armazenado em cache. 
+**Cenário 4:** Tinhas uma cache fria que podia ser a razão pela qual a tua consulta era lenta. Considere refazer a sua consulta, uma vez que o seu conjunto de dados de trabalho deve agora estar em cache. 
 
-**Importante: se a porcentagem de acesso ao cache ou o percentual de cache usado não estiver atualizando após a reexecução da carga de trabalho, seu conjunto de trabalhos já poderá estar residindo na memória. Observação somente as tabelas columnstore clusterizadas são armazenadas em cache.**
+> [!IMPORTANT]
+> Se a percentagem de impacto da cache ou a percentagem utilizada não estiver em atualização após a reexecução da sua carga de trabalho, o seu conjunto de trabalho já pode residir na memória. Apenas as mesas de lojas de colunas agrupadas estão em cache.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre o ajuste de desempenho de consulta geral, consulte [monitorar a execução da consulta](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
-
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
-
-<!--MSDN references-->
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+Para obter mais informações sobre a sintonização geral do desempenho da consulta, consulte a [execução](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution)da consulta do Monitor .

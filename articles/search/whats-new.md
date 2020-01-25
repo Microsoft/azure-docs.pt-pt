@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921017"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719828"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -21,11 +21,9 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>Novo nome do serviço para Azure Search
+## <a name="new-service-name"></a>Novo nome de serviço
 
-Azure Search agora é renomeado para o **pesquisa cognitiva do Azure** para refletir o uso expandido de habilidades cognitivas e processamento de ia em operações principais. Embora as habilidades cognitivas adicionem novos recursos, usar o ia é estritamente opcional. Você pode continuar a usar o Azure Pesquisa Cognitiva sem ia para criar soluções avançadas de pesquisa de texto completo por meio de conteúdo privado, heterogêneo e baseado em texto em um índice que você cria e gerencia na nuvem. 
-
-As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são alterados. As soluções de pesquisa existentes não são afetadas pela alteração do nome do serviço.
+A Azure Search é agora renomeada para **Azure Cognitive Search** para refletir o uso expandido (mas opcional) de habilidades cognitivas e processamento de IA em operações nucleares. As versões API, pacotes NuGet, espaços de nome e pontos finais mantêm-se inalteradas. As novas e existentes soluções de pesquisa não são afetadas pela mudança de nome do serviço.
 
 ## <a name="feature-announcements"></a>Anúncios de recursos
 

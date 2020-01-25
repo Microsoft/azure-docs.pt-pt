@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-assinar a assinatura do Azure
-description: Azure PowerShell & amostra de script da grade de eventos do Azure – assinar assinatura do Azure
+title: Azure PowerShell - subscreva a subscrição do Azure
+description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos da Rede de Eventos para uma subscrição azure.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8c90e39cef1420ec06b7f62ebf9982720ffebf94
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 4a6539966ff2e907c4f6f942dd0c238ee35b6836
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664136"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721460"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Subscrever eventos para uma subscrição do Azure com o PowerShell
 
@@ -30,9 +30,9 @@ Este script cria uma subscrição do Event Grid para os eventos para uma subscri
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
-## <a name="sample-script---preview-module"></a>Script de exemplo – módulo de visualização
+## <a name="sample-script---preview-module"></a>Script de amostra - módulo de pré-visualização
 
-Este script de exemplo de visualização requer o módulo de grade de eventos. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+Este script de amostra de pré-visualização requer o módulo De Rede de Eventos. Para instalar, executar `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

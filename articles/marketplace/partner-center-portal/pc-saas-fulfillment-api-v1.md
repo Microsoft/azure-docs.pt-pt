@@ -1,6 +1,6 @@
 ---
-title: APIs de cumprimento de SaaS v1 | Azure Marketplace
-description: Explica como criar e gerenciar uma oferta de SaaS no Azure Marketplace usando as APIs de cumprimento v1 associadas.
+title: SaaS Realização APIs v1  Mercado Azure
+description: Explica como criar e gerir uma oferta SaaS no Mercado Azure utilizando as APIs v1 de Realização associadas.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -9,45 +9,45 @@ ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99dd6db7003e0358ddde2438f6897cd767932227
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f56e9b4f6c3db6fb47452c7478f5a27445955e87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816572"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715383"
 ---
-# <a name="saas-fulfillment-apis-version-1-deprecated"></a>APIs de preenchimento de SaaS versão 1 (preterido)
+# <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS Fulfillment APIs versão 1 (depreciada)
 
-Este artigo explica como criar uma oferta de SaaS com APIs. As APIs, compostas de métodos REST e pontos de extremidade, são necessárias para permitir assinaturas para sua oferta de SaaS se você tiver vendido por meio do Azure selecionado.  
+Este artigo explica como criar uma oferta SaaS com APIs. As APIs, compostas por métodos REST e pontos finais, são necessárias para permitir subscrições da sua oferta SaaS se tiver sell através do Azure selecionado.  
 
 > [!WARNING]
-> Esta versão inicial da API de preenchimento de SaaS foi preterida; em vez disso, use a [API de preenchimento de SaaS v2](./pc-saas-fulfillment-api-v2.md).  Esta versão inicial da API está sendo mantida no momento apenas para atender aos Publicadores existentes. 
+> Esta versão inicial da API de Realização do SaaS é depreciada; em vez disso, utilize [saas Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  Esta versão inicial da API está atualmente a ser mantida apenas para servir os editores existentes. 
 
-As APIs a seguir são fornecidas para ajudá-lo a integrar seu serviço SaaS com o Azure:
+São fornecidas as seguintes APIs para ajudá-lo a integrar o seu serviço SaaS com o Azure:
 
 -   Resolver
 -   Subscrever
 -   Converter
--   cancelar a assinatura
+-   Cancelar a subscrição
 
 
-## <a name="api-methods-and-endpoints"></a>Métodos de API e pontos de extremidade
+## <a name="api-methods-and-endpoints"></a>Métodos e pontos finais da API
 
-As seções a seguir descrevem os métodos de API e os pontos de extremidade disponíveis para habilitar assinaturas para uma oferta de SaaS.
-
-
-### <a name="marketplace-api-endpoint-and-api-version"></a>Ponto de extremidade da API do Marketplace e versão da API
-
-O ponto de extremidade para a API do Azure Marketplace é `https://marketplaceapi.microsoft.com`.
-
-A versão atual da API é `api-version=2017-04-15`.
+As seguintes secções descrevem os métodos e pontos finais da API disponíveis para permitir subscrições para uma oferta SaaS.
 
 
-### <a name="resolve-subscription"></a>Resolver assinatura
+### <a name="marketplace-api-endpoint-and-api-version"></a>Versão final do Marketplace API e DaPI
 
-Ação POST no ponto de extremidade de resolução permite que os usuários resolvam um token do Marketplace para uma ID de recurso persistente.  A ID de recurso é o identificador exclusivo para a assinatura de SAAS. 
+O ponto final da API azure marketplace é `https://marketplaceapi.microsoft.com`.
 
-Quando um usuário é redirecionado para o site de um ISV, a URL contém um token nos parâmetros de consulta. O ISV deve usar esse token e fazer uma solicitação para resolvê-lo. A resposta contém a ID de assinatura SAAS exclusiva, o nome, a ID da oferta e o plano para o recurso. Esse token é válido somente por uma hora.
+A versão Atual da API é `api-version=2017-04-15`.
+
+
+### <a name="resolve-subscription"></a>Resolver a subscrição
+
+A ação post on resolve endpoint permite que os utilizadores resolvam um símbolo de mercado para um ID de recursos persistente.  O Id de recurso é o identificador único para a subscrição sAAS. 
+
+Quando um utilizador é redirecionado para o website de um ISV, o URL contém um símbolo nos parâmetros de consulta. Espera-se que o ISV utilize este símbolo e faça um pedido para resolvê-lo. A resposta contém o ID de subscrição exclusivo da SAAS, nome, id de oferta e plano para o recurso. Este token é válido por apenas uma hora.
 
 *Pedido*
 
@@ -57,23 +57,23 @@ Quando um usuário é redirecionado para o site de um ISV, a URL contém um toke
 
 |  **Nome do parâmetro** |     **Descrição**                                      |
 |  ------------------ |     ---------------------------------------------------- |
-|  versão da API        |  A versão da operação a ser usada para esta solicitação.   |
+|  api-version        |  A versão da operação a ser usada para esta solicitação.   |
 |  |  |
 
 
 *Headers* (Cabeçalhos)
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-MS-RequestId     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| x-MS-CorrelationId | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse campo correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| tipo de conteúdo       | Sim          | `application/json`                                        |
-| nesse      | Sim          | O token de portador JWT (token Web JSON).                    |
-| x-MS-Marketplace-token| Sim| O parâmetro de consulta de token na URL quando o usuário é redirecionado para o site de ISVs do SaaS do Azure. **Observação:** Esse token só é válido por 1 hora. Além disso, a URL decodifica o valor do token do navegador antes de usá-lo.|
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este campo correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| Tipo de conteúdo       | Sim          | `application/json`                                        |
+| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
+| x-ms-marketplace-token| Sim| O parâmetro de consulta simbólica no URL quando o utilizador é redirecionado para o website do SaaS ISV a partir do Azure. **Nota:** Este token só é válido por 1 hora. Além disso, o URL descodifica o valor simbólico do navegador antes de o utilizar.|
 |  |  |  |
   
 
-*Corpo da resposta*
+*Corpo de Resposta*
 
 ``` json
 {
@@ -86,60 +86,60 @@ Quando um usuário é redirecionado para o site de um ISV, a URL contém um toke
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| ID                 | String        | ID da assinatura de SaaS.          |
-| subscriptionName| String| Nome da assinatura de SaaS definida pelo usuário no Azure ao assinar o serviço SaaS.|
-| OfferId            | String        | ID da oferta que o usuário assinou. |
-| planId             | String        | ID do plano que o usuário assinou.  |
+| ID                 | String        | Identificação da assinatura SaaS.          |
+| subscriptionName| String| Nome da subscrição SaaS definida pelo utilizador em Azure enquanto subscreve o serviço SaaS.|
+| OfferId            | String        | Ofereça ID que o utilizador subscreveu. |
+| planId             | String        | Plano ID que o utilizador subscreveu.  |
 |  |  |  |
 
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                                         |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
-| 200                  | `OK`                 | Token resolvido com êxito.                                                            |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou uma versão de API inválida especificada. Falha ao resolver o token porque o token está malformado ou expirou (o token só é válido por 1 hora depois de gerado). |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                                 |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                                |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente, tente novamente mais tarde.                                        |
+| 200                  | `OK`                 | Token resolveu com sucesso.                                                            |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou especificauma versão api inválida. Não conseguiu resolver o símbolo porque ou o símbolo está mal formado ou expirado (o token só é válido por 1 hora uma vez gerado). |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                                 |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, a tentar novamente mais tarde.                                |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo, tente mais tarde.                                        |
 |  |  |  |
 
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente; caso contrário, esse valor será a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Essa ID é usada para qualquer reconciliação. |
-| Repetir-após        | Não           | Esse valor é definido somente para uma resposta 429.                                                                   |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Esta identificação é usada para qualquer reconciliação. |
+| Retry-After        | Não           | Este valor é definido apenas para uma resposta 429.                                                                   |
 |  |  |  |
 
 
 ### <a name="subscribe"></a>Subscrever
 
-O ponto de extremidade de assinatura permite que os usuários iniciem uma assinatura para um serviço SaaS para um determinado plano e habilitem a cobrança no sistema de comércio.
+O ponto final de subscrição permite que os utilizadores iniciem uma subscrição de um serviço SaaS para um determinado plano e permitam faturação no sistema de comércio.
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{SubscriptionId}* ? API-versão = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID exclusiva da assinatura de SaaS que é obtida após a resolução do token por meio da API de resolução.                              |
-| versão da API         | A versão da operação a ser usada para esta solicitação. |
+| subscriptionId      | Id exclusivo da subscrição SaaS que é obtido após a resolução do token via Resolve API.                              |
+| api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Headers* (Cabeçalhos)
 
-|  **Chave de cabeçalho**        | **Necessário** |  **Descrição**                                                  |
+|  **Chave do cabeçalho**        | **Necessário** |  **Descrição**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
-| x-MS-RequestId         |   Não         | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se isso não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| x-MS-CorrelationId     |   Não         | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação do cliente com eventos no lado do servidor. Se isso não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| If-Match/If-None-Match |   Não         |   Valor de ETag de validador forte.                                                          |
-| tipo de conteúdo           |   Sim        |    `application/json`                                                                   |
-|  nesse         |   Sim        |    O token de portador JWT (token Web JSON).                                               |
-| x-MS-Marketplace-modo de sessão| Não | Sinalizador para habilitar o modo de execução seca ao assinar uma oferta de SaaS. Se definido, a assinatura não será cobrada. Isso é útil para cenários de teste de ISV. Defina-o como **' simulação '**|
+| x-ms-requestid         |   Não         | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-correlationid     |   Não         | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| Se-Match/If-None-Match |   Não         |   Valor eTag validator forte.                                                          |
+| Tipo de conteúdo           |   Sim        |    `application/json`                                                                   |
+|  authorization         |   Sim        |    O símbolo do portador da web JSON (JWT).                                               |
+| x-ms-marketplace-session-mode| Não | Sinalizar para permitir o modo de funcionamento a seco ao subscrever uma oferta SaaS. Se definido, a subscrição não será cobrada. Isto é útil para cenários de teste ISV. Por favor, coloque-o em **'dryrun'**|
 |  |  |  |
 
 *Corpo*
@@ -152,58 +152,58 @@ O ponto de extremidade de assinatura permite que os usuários iniciem uma assina
 
 | **Nome do elemento** | **Tipo de dados** | **Descrição**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | Necessária Strings        | A ID do plano do usuário do serviço SaaS está assinando.  |
+| planId           | (Obrigatório) Corda        | O plano de identificação do utilizador do serviço SaaS está a subscrever.  |
 |  |  |  |
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| 202                  | `Accepted`           | Ativação de assinatura SaaS recebida para um determinado plano.                   |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou o corpo do JSON está malformado. |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                   |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida                                  |
-| 409                  | `Conflict`           | Outra operação está em andamento na assinatura.                     |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                  |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente, tente novamente mais tarde.                          |
+| 202                  | `Accepted`           | Ativação de subscrição SaaS recebida para um determinado plano.                   |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou o corpo do JSON está mal formado. |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                   |
+| 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                  |
+| 409                  | `Conflict`           | Outra operação está em curso na subscrição.                     |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, a tentar novamente mais tarde.                  |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo, tente mais tarde.                          |
 |  |  |  |
 
-Para uma resposta de 202, acompanhe o status da operação de solicitação no cabeçalho ' Operation-location '. A autenticação é a mesma que outras APIs do Marketplace.
+Para uma resposta de 202, acompanhe o estado da operação de pedido no cabeçalho 'Operação-localização'. A autenticação é a mesma que outras APIs do Marketplace.
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente; caso contrário, esse valor será a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Esse valor é usado para qualquer reconciliação. |
-| Repetir-após        | Sim          | Intervalo com o qual o cliente pode verificar o status.                                                       |
-| Operação-localização | Sim          | Link para um recurso para obter o status da operação.                                                        |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Este valor é usado para quaisquer reconciliações. |
+| Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
+| Localização da Operação | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
 |  |  |  |
 
-### <a name="change-plan-endpoint"></a>Alterar ponto de extremidade do plano
+### <a name="change-plan-endpoint"></a>Ponto final do plano de mudança
 
-O ponto de extremidade de alteração permite que o usuário Converta seu plano assinado no momento para um novo plano.
+O ponto final de alteração permite ao utilizador converter o seu plano atualmente subscrito para um novo plano.
 
-**DISTRIBUÍDO**
+**PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{SubscriptionId}* ? API-versão = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID da assinatura de SaaS.                              |
-| versão da API         | A versão da operação a ser usada para esta solicitação. |
+| subscriptionId      | ID da assinatura SaaS.                              |
+| api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Headers* (Cabeçalhos)
 
-| **Chave de cabeçalho**          | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave do cabeçalho**          | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId          | Não           | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente. Recomendar um GUID. Se isso não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-| x-MS-CorrelationId      | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação do cliente com eventos no lado do servidor. Se isso não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| /If-None-Match If-Match | Não           | Valor de ETag de validador forte.                              |
-| tipo de conteúdo            | Sim          | `application/json`                                        |
-| nesse           | Sim          | O token de portador JWT (token Web JSON).                    |
+| x-ms-requestid          | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+| x-ms-correlationid      | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| Se-Match /If-None-Match | Não           | Valor eTag validator forte.                              |
+| Tipo de conteúdo            | Sim          | `application/json`                                        |
+| authorization           | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  |
 
 *Corpo*
@@ -216,109 +216,109 @@ O ponto de extremidade de alteração permite que o usuário Converta seu plano 
 
 |  **Nome do elemento** |  **Tipo de dados**  | **Descrição**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  Necessária Strings         | A ID do plano do usuário do serviço SaaS está assinando.          |
+|  planId           |  (Obrigatório) Corda         | O plano de identificação do utilizador do serviço SaaS está a subscrever.          |
 |  |  |  |
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| 202                  | `Accepted`           | Ativação de assinatura SaaS recebida para um determinado plano.                   |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou o corpo do JSON está malformado. |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                   |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida                                  |
-| 409                  | `Conflict`           | Outra operação está em andamento na assinatura.                     |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                  |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente, tente novamente mais tarde.                          |
+| 202                  | `Accepted`           | Ativação de subscrição SaaS recebida para um determinado plano.                   |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou o corpo do JSON está mal formado. |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                   |
+| 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                  |
+| 409                  | `Conflict`           | Outra operação está em curso na subscrição.                     |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, a tentar novamente mais tarde.                  |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo, tente mais tarde.                          |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente; caso contrário, esse valor será a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Esse valor é usado para qualquer reconciliação. |
-| Repetir-após        | Sim          | Intervalo com o qual o cliente pode verificar o status.                                                       |
-| Operação-localização | Sim          | Link para um recurso para obter o status da operação.                                                        |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Este valor é usado para quaisquer reconciliações. |
+| Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
+| Localização da Operação | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
 |  |  |  |
 
-### <a name="delete-subscription"></a>Excluir assinatura
+### <a name="delete-subscription"></a>Eliminar subscrição
 
-A ação Excluir no ponto de extremidade de assinatura permite que um usuário exclua uma assinatura com uma determinada ID.
+A ação Delete no ponto final de subscrição permite que um utilizador elimine uma subscrição com um determinado ID.
 
 *Pedido*
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{SubscriptionId}* ? API-versão = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID da assinatura de SaaS.                              |
-| versão da API         | A versão da operação a ser usada para esta solicitação. |
+| subscriptionId      | ID da assinatura SaaS.                              |
+| api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Headers* (Cabeçalhos)
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
-| x-MS-RequestId     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente. Recomendar um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
-| x-MS-CorrelationId | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação do cliente com eventos no lado do servidor. Se isso não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| nesse      | Sim          | O token de portador JWT (token Web JSON).                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
+| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  |
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| 202                  | `Accepted`           | Ativação de assinatura SaaS recebida para um determinado plano.                   |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou o corpo do JSON está malformado. |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                   |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida                                  |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                  |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente. Tente novamente mais tarde.                          |
+| 202                  | `Accepted`           | Ativação de subscrição SaaS recebida para um determinado plano.                   |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou o corpo do JSON está mal formado. |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                   |
+| 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                  |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, por favor, tente mais tarde.                  |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo. Tente novamente mais tarde.                          |
 |  |  |  |
 
-Para uma resposta de 202, acompanhe o status da operação de solicitação no cabeçalho ' Operation-location '. A autenticação é a mesma que outras APIs do Marketplace.
+Para uma resposta de 202, acompanhe o estado da operação de pedido no cabeçalho 'Operação-localização'. A autenticação é a mesma que outras APIs do Marketplace.
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente, caso contrário, essa é a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Isso é usado para qualquer reconciliação. |
-| Repetir-após        | Sim          | Intervalo com o qual o cliente pode verificar o status.                                                       |
-| Operação-localização | Sim          | Link para um recurso para obter o status da operação.                                                        |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
+| Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
+| Localização da Operação | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
 |   |  |  |
 
-### <a name="get-operation-status"></a>Obter status da operação
+### <a name="get-operation-status"></a>Obter estado da operação
 
-Esse ponto de extremidade permite que o usuário acompanhe o status de uma operação assíncrona disparada (assinar/cancelar assinatura/Alterar plano).
+Este ponto final permite ao utilizador rastrear o estado de uma operação de asincronização desencadeada (Plano subscrever/cancelar/alterar).
 
 *Pedido*
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ? API-versão = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| operationId         | ID exclusiva para a operação disparada.                |
-| versão da API         | A versão da operação a ser usada para esta solicitação. |
+| operationId         | Identificação única para a operação desencadeada.                |
+| api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Headers* (Cabeçalhos)
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente. Recomendar um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-| x-MS-CorrelationId | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| nesse      | Sim          | O token de portador JWT (token Web JSON).                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  | 
 
-*Corpo da resposta*
+*Corpo de Resposta*
 
 ```json
 {
@@ -332,61 +332,61 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| ID                 | String        | ID da operação.                                                                      |
-| status             | Enum          | Status da operação, um dos seguintes: `In Progress`, `Succeeded`ou `Failed`.          |
-| resourceLocation   | String        | Link para a assinatura que foi criada ou modificada. Isso ajuda o cliente a obter a operação de postagem do estado atualizado. Este valor não está definido para operações de `Unsubscribe`. |
-| criação            | DateTime      | Hora de criação da operação em UTC.                                                           |
-| lastModified       | DateTime      | Última atualização na operação em UTC.                                                      |
+| ID                 | String        | Identificação da operação.                                                                      |
+| status             | Enum          | Estado de funcionamento, um dos seguintes: `In Progress`, `Succeeded`ou `Failed`.          |
+| resourceLocation   | String        | Ligação à subscrição que foi criada ou modificada. Isto ajuda o cliente a obter uma operação estatal atualizada. Este valor não está definido para `Unsubscribe` operações. |
+| criação            | DateTime      | Tempo de criação de operação na UTC.                                                           |
+| lastModified       | DateTime      | Última atualização da operação na UTC.                                                      |
 |  |  |  |
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
-| 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou uma versão de API inválida foi especificada. |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                      |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida.                                     |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                     |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente, tente novamente mais tarde.                             |
+| 200                  | `OK`                 | Resolveu o pedido de obter com sucesso e o corpo contém a resposta.    |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou foi especificada uma versão api inválida. |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                      |
+| 404                  | `NotFound`           | Assinatura não encontrada com o ID dado.                                     |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, a tentar novamente mais tarde.                     |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo, tente mais tarde.                             |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente, caso contrário, essa é a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Isso é usado para qualquer reconciliação. |
-| Repetir-após        | Sim          | Intervalo com o qual o cliente pode verificar o status.                                                       |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
+| Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 |  |  |  |
 
-### <a name="get-subscription"></a>Obter assinatura
+### <a name="get-subscription"></a>Obter Subscrição
 
-A ação Get no ponto de extremidade de assinatura permite que um usuário recupere uma assinatura com um determinado identificador de recurso.
+A ação Get no ponto final de subscrição permite que um utilizador recupere uma subscrição com um determinado identificador de recursos.
 
 *Pedido*
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{SubscriptionId}* ? API-versão = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID da assinatura de SaaS.                              |
-| versão da API         | A versão da operação a ser usada para esta solicitação. |
+| subscriptionId      | ID da assinatura SaaS.                              |
+| api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Headers* (Cabeçalhos)
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                           |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
-| x-MS-CorrelationId | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| nesse      | Sim          | O token de portador JWT (token Web JSON).                                                                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
+| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                                                                    |
 |  |  |  |
 
-*Corpo da resposta*
+*Corpo de Resposta*
 
 ```json
 {
@@ -402,41 +402,41 @@ A ação Get no ponto de extremidade de assinatura permite que um usuário recup
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | ID do recurso de assinatura SaaS no Azure.    |
-| OfferId                | String        | ID da oferta que o usuário assinou.         |
-| planId                 | String        | ID do plano que o usuário assinou.          |
-| saasSubscriptionName   | String        | Nome da assinatura de SaaS.                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
-| criação                | DateTime      | Valor de carimbo de data/hora de criação da assinatura em UTC. |
-| lastModified           | DateTime      | Valor de carimbo de data/hora modificado pela assinatura em UTC. |
+| ID                     | String        | ID do recurso de subscrição SaaS em Azure.    |
+| offerId                | String        | Ofereça ID que o utilizador subscreveu.         |
+| planId                 | String        | Plano ID que o utilizador subscreveu.          |
+| saasSubscriptionName   | String        | Nome da assinatura SaaS.                |
+| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não está inscrito.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
+| criação                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC. |
+| lastModified           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC. |
 |  |  |  |
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
-| 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou uma versão de API inválida foi especificada. |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                      |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida                                     |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                     |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente, tente novamente mais tarde.                             |
+| 200                  | `OK`                 | Resolveu o pedido de obter com sucesso e o corpo contém a resposta.    |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou foi especificada uma versão api inválida. |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                      |
+| 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                     |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, a tentar novamente mais tarde.                     |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo, tente mais tarde.                             |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente, caso contrário, essa é a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Isso é usado para qualquer reconciliação. |
-| Repetir-após        | Não           | Intervalo com o qual o cliente pode verificar o status.                                                       |
-| eTag               | Sim          | Link para um recurso para obter o status da operação.                                                        |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
+| Retry-After        | Não           | Intervalo com o qual o cliente pode verificar o estado.                                                       |
+| eTag               | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
 |  |  |  |
 
-### <a name="get-subscriptions"></a>Obter assinaturas
+### <a name="get-subscriptions"></a>Obter Subscrições
 
-A ação Get no ponto de extremidade de assinaturas permite que um usuário recupere todas as assinaturas para todas as ofertas do ISV.
+A ação Get no ponto final de subscrições permite que um utilizador recupere todas as subscrições para todas as ofertas do ISV.
 
 *Pedido*
 
@@ -446,19 +446,19 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| versão da API         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
 *Headers* (Cabeçalhos)
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                           |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-MS-RequestId     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente. Recomendar um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
-| x-MS-CorrelationId | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| nesse      | Sim          | O token de portador JWT (token Web JSON).                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
+| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  |
 
-*Corpo da resposta*
+*Corpo de Resposta*
 
 ```json
 {
@@ -474,40 +474,40 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | ID do recurso de assinatura SaaS no Azure    |
-| OfferId                | String        | ID da oferta à qual o usuário se inscreveu         |
-| planId                 | String        | ID do plano para o qual o usuário se inscreveu          |
-| saasSubscriptionName   | String        | Nome da assinatura de SaaS                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
-| criação                | DateTime      | Valor timestamp de criação da assinatura em UTC |
-| lastModified           | DateTime      | Valor de carimbo de data/hora modificado pela assinatura em UTC |
+| ID                     | String        | ID do recurso de subscrição SaaS em Azure    |
+| offerId                | String        | DI oferta que o utilizador subscreveu         |
+| planId                 | String        | Id do plano que o utilizador subscreveu          |
+| saasSubscriptionName   | String        | Nome da subscrição SaaS                |
+| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não está inscrito.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
+| criação                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC |
+| lastModified           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC |
 |  |  |  |
 
-*Códigos de resposta*
+*Códigos de Resposta*
 
-| **Código de status HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de Estado HTTP** | **Código de Erro**     | **Descrição**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
-| 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou uma versão de API inválida foi especificada. |
-| 403                  | `Forbidden`          | O chamador não está autorizado a executar esta operação.                      |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida                                     |
-| 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                     |
-| 503                  | `ServiceUnavailable` | O serviço está inoperante temporariamente. Tente novamente mais tarde.                             |
+| 200                  | `OK`                 | Resolveu o pedido de obter com sucesso e o corpo contém a resposta.    |
+| 400                  | `BadRequest`         | Ou faltam cabeçalhos necessários ou foi especificada uma versão api inválida. |
+| 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                      |
+| 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                     |
+| 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, por favor, tente mais tarde.                     |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo. Tente novamente mais tarde.                             |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
-| **Chave de cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
+| **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-MS-RequestId     | Sim          | ID da solicitação recebida do cliente.                                                                   |
-| x-MS-CorrelationId | Sim          | ID de correlação se passada pelo cliente, caso contrário, essa é a ID de correlação do servidor.                   |
-| x-MS-ActivityId    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Isso é usado para qualquer reconciliação. |
-| Repetir-após        | Não           | Intervalo com o qual o cliente pode verificar o status.                                                       |
+| x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
+| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
+| Retry-After        | Não           | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 |  |  |  |
 
-### <a name="saas-webhook"></a>Webhook SaaS
+### <a name="saas-webhook"></a>SaaS Webhook
 
-Um webhook SaaS é usado para notificar as alterações proativamente para o serviço SaaS. Espera-se que essa API POST não seja autenticada e seja chamada pelo serviço da Microsoft. Espera-se que o serviço SaaS chame a API de operações para validar e autorizar antes de tomar medidas na notificação de webhook. 
+Um webhook SaaS é usado para notificar alterações proactivamente ao serviço SaaS. Espera-se que esta API post não seja autenticada e será chamada pelo serviço da Microsoft. Espera-se que o serviço SaaS ligue para as operações API para validar e autorizar antes de tomar medidas sobre a notificação do webhook. 
 
 *Corpo*
 
@@ -524,17 +524,17 @@ Um webhook SaaS é usado para notificar as alterações proativamente para o ser
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID  | String       | ID exclusiva para a operação disparada.                |
-| ActivityId   | String        | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do serviço. Isso é usado para qualquer reconciliação.               |
-| subscriptionId                     | String        | ID do recurso de assinatura SaaS no Azure.    |
-| OfferId                | String        | ID da oferta que o usuário assinou. Fornecido somente com a ação "atualizar".        |
-| publisherId                | String        | ID do editor da oferta de SaaS         |
-| planId                 | String        | ID do plano que o usuário assinou. Fornecido somente com a ação "atualizar".          |
-| action                 | String        | A ação que está disparando esta notificação. Valores possíveis-ativar, excluir, suspender, reaplicar, atualizar          |
-| Estampa                 | String        | Valor de carimbo de data/hora em UTC quando esta notificação foi disparada.          |
+| ID  | String       | Identificação única para a operação desencadeada.                |
+| atividadeId   | String        | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação.               |
+| subscriptionId                     | String        | ID do recurso de subscrição SaaS em Azure.    |
+| offerId                | String        | Ofereça ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".        |
+| publisherId                | String        | Identificação da editora da oferta SaaS         |
+| planId                 | String        | Plano ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".          |
+| action                 | String        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
+| timeStamp                 | String        | Valor de carimbo na UTC quando esta notificação foi desencadeada.          |
 |  |  |  |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os desenvolvedores também podem recuperar e manipular programaticamente cargas de trabalho, ofertas e perfis de Publicador usando as [APIs REST do portal do Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
+Os desenvolvedores também podem recuperar e manipular programáticamente cargas de trabalho, ofertas e perfis de editor usando o Portal de [Parceiros cloud REST APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

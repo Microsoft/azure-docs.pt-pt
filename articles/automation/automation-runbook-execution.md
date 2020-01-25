@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c97e10d2785b7dc1a438c95dca9be94fcef82f94
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658122"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714842"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na automação do Azure
 
@@ -71,7 +71,7 @@ else
     }
 ```
 
-### <a name="time-dependant-scripts"></a>Scripts dependentes de tempo
+### <a name="time-dependent-scripts"></a>Scripts dependentes do tempo
 
 Uma consideração cuidadosa deve ser feita durante a criação de runbooks. Como mencionado anteriormente, os runbooks precisam ser criados de forma que eles sejam robustos e possam lidar com erros transitórios que podem fazer com que o runbook reinicie ou falhe. Se um runbook falhar, ele será repetido. Se um runbook normalmente é executado dentro de uma restrição de tempo, a lógica para verificar o tempo de execução deve ser implementada no runbook para garantir que as operações como inicialização, desligamento ou expansão sejam executadas somente durante horários específicos.
 
@@ -173,7 +173,7 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Throw
+#### <a name="throw"></a>Arremesso
 
 [Throw](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de encerramento. Isso pode ser útil ao definir sua própria lógica em um runbook. Se um determinado critério for atendido que deve parar o script, você poderá usar `throw` para interromper o script. O exemplo a seguir mostra o computador um parâmetro de função necessário usando `throw`.
 
@@ -210,7 +210,7 @@ A tabela seguinte descreve os diferentes estados possíveis das tarefas. O Power
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
 | A Parar |O sistema está parando o trabalho. |
 | Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele será iniciado a partir do início do runbook. Se ele tiver um ponto de verificação, ele poderá ser iniciado novamente e retomado do último ponto de verificação. O runbook só é suspenso pelo sistema quando ocorre uma exceção. Por padrão, ErrorActionPreference é definido como **continuar**, o que significa que o trabalho continua em execução em um erro. Se essa variável de preferência for definida como **parar**, o trabalho será suspenso em um erro. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
-| A suspender |O sistema está tentando suspender o trabalho na solicitação do usuário. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passou seu último ponto de verificação, ele é concluído antes que possa ser suspenso. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
+| A suspender |O sistema está tentando suspender o trabalho na solicitação do usuário. O livro de execução deve chegar ao seu próximo posto de controlo antes de poder ser suspenso. Se já passou seu último ponto de verificação, ele é concluído antes que possa ser suspenso. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Exibindo o status do trabalho no portal do Azure
 
@@ -238,7 +238,7 @@ Como alternativa, você pode exibir detalhes de resumo do trabalho para um runbo
 
 ### <a name="job-summary"></a>Resumo da Tarefa
 
-Você pode exibir uma lista de todos os trabalhos que foram criados para um runbook específico e seu status mais recente. Pode filtrar esta lista por estado da tarefa e por intervalo de datas da última alteração efetuada à tarefa. Para exibir suas informações e saída detalhadas, clique no nome de um trabalho. A vista detalhada da tarefa inclui os valores dos parâmetros do runbook fornecidos para essa tarefa.
+Você pode exibir uma lista de todos os trabalhos que foram criados para um runbook específico e seu status mais recente. Pode filtrar esta lista pelo estado do trabalho e o intervalo de datas para a última alteração ao trabalho. Para exibir suas informações e saída detalhadas, clique no nome de um trabalho. A vista detalhada da tarefa inclui os valores dos parâmetros do runbook fornecidos para essa tarefa.
 
 Pode utilizar os passos seguintes para ver as tarefas de um runbook.
 

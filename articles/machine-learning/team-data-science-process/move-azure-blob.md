@@ -1,57 +1,57 @@
 ---
-title: Mover dados de e para o armazenamento de BLOBs do Azure-processo de ciência de dados da equipe
-description: Mover dados de e para o armazenamento de BLOBs do Azure usando Gerenciador de Armazenamento do Azure, AzCopy, Python e SSIS.
+title: Mover dados para e do armazenamento de Blobs do Azure - Team Data Science Process
+description: Mova dados de e para o armazenamento Azure Blob utilizando o Azure Storage Explorer, AzCopy, Python e SSIS.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d885a7fad6e958507e7d9df34bd2b1fb222c6f86
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053667"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717586"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Mover dados de e para o armazenamento de BLOBs do Azure
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Mover dados para e do armazenamento de Blobs do Azure
 
-O processo de ciência de dados de equipe exige que os dados sejam ingeridos ou carregados em uma variedade de diferentes ambientes de armazenamento para serem processados ou analisados da maneira mais apropriada em cada estágio do processo.
+O processo de ciência de dados de equipa exige que o dados ser ingeridos ou carregados para uma variedade de ambientes de armazenamento diferentes a serem processados ou analisados da forma mais adequada em cada fase do processo.
 
-## <a name="different-technologies-for-moving-data"></a>Tecnologias diferentes para mover dados
+## <a name="different-technologies-for-moving-data"></a>Diferentes tecnologias para mover dados
 
-Os artigos a seguir descrevem como mover dados de e para o armazenamento de BLOBs do Azure usando tecnologias diferentes.
+Os seguintes artigos descrevem como mover dados para e do armazenamento de Blobs do Azure com diferentes tecnologias.
 
-* [Gerenciador de armazenamento do Azure](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [Explorador de armazenamento do Azure](move-data-to-azure-blob-using-azure-storage-explorer.md)
 * [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 
-Qual método é melhor para você depende do seu cenário. Os [cenários de análise avançada no artigo Azure Machine Learning](plan-sample-scenarios.md) ajudam a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
+Qual é o método melhor para depende do seu cenário. O [cenários de análises avançadas no Azure Machine Learning](plan-sample-scenarios.md) artigo ajuda-o a determinar os recursos necessários para uma variedade de fluxos de trabalho do ciência de dados usados no processo de análise avançada.
 
 > [!NOTE]
-> Para obter uma introdução completa ao armazenamento de BLOBs do Azure, consulte [noções básicas de blob do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [serviço blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para obter uma introdução completa para o armazenamento de Blobs do Azure, consulte [Noções básicas de Blobs do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e, a [serviço de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 ## <a name="using-azure-data-factory"></a>Utilizar o Azure Data Factory
 
-Como alternativa, você pode usar [Azure data Factory](https://azure.microsoft.com/services/data-factory/) para: 
+Como alternativa, pode utilizar [do Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para: 
 
-* criar e agendar um pipeline que baixa dados do armazenamento de BLOBs do Azure, 
-* passá-lo para um serviço Web publicado Azure Machine Learning, 
-* receber os resultados da análise preditiva e 
-* Carregue os resultados no armazenamento. 
+* criar e agendar um pipeline que transfere dados a partir do armazenamento de Blobs do Azure, 
+* passá-lo para um serviço web Azure Machine Learning publicado, 
+* receber os resultados de Análise Preditiva, e 
+* carregar os resultados para o armazenamento. 
 
-Para obter mais informações, consulte [criar pipelines preditivas usando Azure data Factory e Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
+Para obter mais informações, consulte [crie pipelines previsíveis utilizando o Azure Data Factory e o Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você tenha uma assinatura do Azure, uma conta de armazenamento e a chave de armazenamento correspondente para essa conta. Antes de carregar/baixar dados, você deve saber o nome da conta de armazenamento do Azure e a chave de conta.
+Este artigo pressupõe que tem uma subscrição do Azure, uma conta de armazenamento e a chave de armazenamento correspondente para essa conta. Antes de fazer o upload/download de dados, deve saber o nome da sua conta de Armazenamento Azure e a chave da conta.
 
-* Para configurar uma assinatura do Azure, consulte [avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Para obter instruções sobre como criar uma conta de armazenamento e obter informações de conta e chave, consulte [sobre contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Para configurar uma subscrição do Azure, veja [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Para obter instruções sobre a criação de uma conta de armazenamento e para obter informações de conta e chave, consulte as contas de [Armazenamento Azure](../../storage/common/storage-create-storage-account.md).
 

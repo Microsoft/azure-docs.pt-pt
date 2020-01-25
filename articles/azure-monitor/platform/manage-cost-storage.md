@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045180"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715858"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -41,10 +41,10 @@ O preço padrão para Log Analytics é um modelo **pago conforme o uso** com bas
   - Número de VMs monitoradas
   - Tipo de dados coletados de cada VM monitorada 
   
-Além do modelo pago conforme o uso, Log Analytics tem camadas de **reserva de capacidade** que permitem que você economize até 25% em comparação com o preço pago conforme o uso do. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. As camadas de reserva de capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, você pode alterar para uma camada de reserva de capacidade de nível superior (que reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o pré-pago ou para uma camada de reserva de capacidade mais baixa até que o período de compromisso seja Finaliza. 
+Além do modelo Pay-As-You-Go, o Log Analytics tem níveis de Reserva de **Capacidade** que lhe permitem economizar até 25% em comparação com o preço pay-As-You-Go. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. As camadas de reserva de capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, você pode alterar para uma camada de reserva de capacidade de nível superior (que reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o pré-pago ou para uma camada de reserva de capacidade mais baixa até que o período de compromisso seja Finaliza. 
 [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre o log Analytics preços pagos conforme o uso e de reserva de capacidade. 
 
-Em todos os tipos de preço, o volume de dados é calculado a partir de uma representação de cadeia de caracteres dos dados conforme eles são preparados para serem armazenados. Várias [Propriedades comuns a todos os tipos de dados](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) não são incluídas no cálculo do tamanho do evento, incluindo `_ResourceId`, `_ItemId`, `_IsBillable` e `_BilledSize`.
+Em todos os tipos de preço, o volume de dados é calculado a partir de uma representação de cadeia de caracteres dos dados conforme eles são preparados para serem armazenados. Várias [propriedades comuns a todos os tipos](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) de dados não estão incluídas no cálculo do tamanho do evento, incluindo `_ResourceId`, `_ItemId`, `_IsBillable` e `_BilledSize`.
 
 Além disso, observe que algumas soluções, como a [central de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/) e o [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), têm seu próprio modelo de preços. 
 
@@ -149,7 +149,7 @@ Para definir a retenção de um tipo de dados específico (neste exemplo, Securi
 
 Os tipos de dados `Usage` e `AzureActivity` não podem ser definidos com retenção personalizada. Eles terão o máximo de retenção de espaço de trabalho padrão ou de 90 dias. 
 
-Uma ótima ferramenta para se conectar diretamente ao Azure Resource Manager definir a retenção por tipo de dados é a ferramenta OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Saiba mais sobre o ARMclient de artigos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Aqui está um exbordo usando ARMClient, definindo os dados de SecurityEvent para uma retenção de 730 dias:
+Uma ótima ferramenta para se conectar diretamente ao Azure Resource Manager definir a retenção por tipo de dados é a ferramenta OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Saiba mais sobre o ARMclient de artigos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Aqui está um exemplo usando armClient, definindo os dados do SecurityEvent para uma retenção de 730 dias:
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
@@ -220,7 +220,7 @@ Heartbeat | where TimeGenerated > startofday(ago(31d))
 | render timechart
 ```
 
-Para obter uma lista de computadores que serão cobrados como nós se o espaço de trabalho estiver no tipo de preço herdado por nó, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para fazer isso, use a [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a lista de computadores com dados cobrados:
+Para obter uma lista de computadores que serão cobrados como nós se o espaço de trabalho estiver no tipo de preço herdado por nó, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para isso, utilize a [propriedade](log-standard-properties.md#_isbillable) `_IsBillable` e utilize o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a lista de computadores com dados cobrados:
 
 ```kusto
 union withsource = tt * 
@@ -274,7 +274,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-Para ver o **tamanho** dos eventos faturáveis ingeridos por computador, use a [Propriedade](log-standard-properties.md#_billedsize)`_BilledSize`, que fornece o tamanho em bytes:
+Para ver o **tamanho** dos eventos faturados ingeridos por computador, utilize a [propriedade](log-standard-properties.md#_billedsize)`_BilledSize`, que fornece o tamanho em bytes:
 
 ```kusto
 union withsource = tt * 
@@ -305,7 +305,7 @@ union withsource = tt *
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso do Azure, grupo de recursos ou assinatura
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos eventos faturáveis ingeridos __por computador__, usar a [Propriedade](log-standard-properties.md#_resourceid)_ResourceId, que fornece o caminho completo para o recurso:
+Para obter dados de nós hospedados em Azure pode obter o **tamanho** de eventos faturados ingeridos __por computador,__ utilize a [propriedade](log-standard-properties.md#_resourceid)_ResourceId, que fornece todo o caminho para o recurso:
 
 ```kusto
 union withsource = tt * 
@@ -313,7 +313,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos eventos faturáveis ingeridos __por assinatura do Azure__, analisar a propriedade `_ResourceId` como:
+Para obter dados de nós hospedados em Azure pode obter o **tamanho** de eventos faturados ingeridos __por subscrição azure,__ analise a propriedade `_ResourceId` como:
 
 ```kusto
 union withsource = tt * 
@@ -469,7 +469,7 @@ Quando receber um alerta, utilize os passos da secção seguinte para resolver o
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Cobranças de transferência de dados usando Log Analytics
 
-Enviar dados para Log Analytics pode incorrer em encargos de largura de banda de dados. Conforme descrito na [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/), a transferência de dados entre os serviços do Azure localizados em duas regiões cobradas como transferência de dados de saída na taxa normal. A transferência de dados de entrada é gratuita. No entanto, esse encargo é muito pequeno (alguns%) em comparação com os custos de ingestão de dados Log Analytics. Consequentemente, controlar os custos de Log Analytics precisa se concentrar no volume de dados ingerido e temos diretrizes para ajudar a entender isso [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
+Enviar dados para Log Analytics pode incorrer em encargos de largura de banda de dados. Conforme descrito na [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/), a transferência de dados entre os serviços do Azure localizados em duas regiões cobradas como transferência de dados de saída na taxa normal. A transferência de dados de entrada é gratuita. No entanto, esta carga é muito pequena (poucos %) em comparação com os custos de ingestão de dados do Log Analytics. Consequentemente, controlar os custos de Log Analytics precisa se concentrar no volume de dados ingerido e temos diretrizes para ajudar a entender isso [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solução de problemas por que o Log Analytics não está mais coletando dados

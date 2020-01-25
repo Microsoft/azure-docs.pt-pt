@@ -3,20 +3,20 @@ title: Noções sobre empresas no processo de ciência de dados de equipa
 description: Os objetivos, tarefas e resultados finais para a fase de compreensão de negócios dos seus projetos de ciência de dados no processo de ciência de dados de equipa.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303558"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710331"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>A fase de compreensão de negócios do ciclo de vida do processo de ciência de dados de equipa
 
@@ -40,8 +40,8 @@ Esta é uma representação visual de ciclo de vida do TDSP:
 ## <a name="how-to-do-it"></a>Como fazê-lo
 Existem duas tarefas principais abordadas neste estágio: 
 
-   * **Definir os objetivos**: Trabalhar com o seu cliente e outros intervenientes para compreender e identificar os problemas empresariais. Formule perguntas que definem os objetivos de negócio que as técnicas de ciência de dados podem ter como destino.
-   * **Identificar origens de dados**: Encontre os dados relevantes que o ajuda a responder às perguntas que definem os objetivos do projeto.
+   * **Definir os objetivos**: trabalhar com seu cliente e outros intervenientes para compreender e a identificar os problemas empresariais. Formule perguntas que definem os objetivos de negócio que as técnicas de ciência de dados podem ter como destino.
+   * **Identificar origens de dados**: localizar os dados relevantes que o ajuda a responder às perguntas que definem os objetivos do projeto.
 
 ### <a name="define-objectives"></a>Definir os objetivos
 1. Um objetivo central deste passo é identificar as variáveis de negócios essenciais que a análise tem de prever. Fazemos referência a essas variáveis como o *modelar destinos*, e podemos usar as métricas associadas a eles para determinar o sucesso do projeto. Dois exemplos de tais destinos são as previsões de vendas ou a probabilidade de um pedido que está sendo fraudulentos.
@@ -77,11 +77,11 @@ Por exemplo, pode descobrir que os sistemas existentes necessário recolher e re
 ## <a name="artifacts"></a>Artefactos
 Aqui estão os resultados finais neste estágio:
 
-   * [Documento de responsabilidade](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): Um modelo padrão é fornecido na definição de estrutura de projeto de TDSP. O documento de responsabilidade é um documento dinâmico. Atualizar o modelo em todo o projeto como fizer deteções novas e quanto a empresa requisitos se alteram. A chave é a iteração após neste documento, adicionando mais detalhes, conforme avança no processo de deteção. Manter o cliente e outras partes interessadas envolvido em fazer as alterações e comuniquem claramente os motivos para que as alterações aos mesmos.  
-   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): O **origens de dados não processados** secção a **definições de dados** relatório que se encontra no projeto de TDSP **relatório de dados** pasta contém as origens de dados. Esta secção especifica as localizações originais e de destino para os dados não processados. Nos estágios posteriores, preencha os detalhes adicionais, como os scripts para mover os dados ao seu ambiente de análise.  
-   * [Os dicionários de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Este documento fornece descrições dos dados que são fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (tipos de dados e informações sobre as regras de validação, se aplicável) e os diagramas de entidade-relação, se disponível.
+   * [Documento de responsabilidade](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): um modelo padrão é fornecido na definição de estrutura de projeto de TDSP. O documento de responsabilidade é um documento dinâmico. Atualizar o modelo em todo o projeto como fizer deteções novas e quanto a empresa requisitos se alteram. A chave é a iteração após neste documento, adicionando mais detalhes, conforme avança no processo de deteção. Manter o cliente e outras partes interessadas envolvido em fazer as alterações e comuniquem claramente os motivos para que as alterações aos mesmos.  
+   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): A **origens de dados não processados** seção o **definições de dados** relatório que se encontra no projeto de TDSP **relatório de dados** pasta contém os dados origens. Esta secção especifica as localizações originais e de destino para os dados não processados. Nos estágios posteriores, preencha os detalhes adicionais, como os scripts para mover os dados ao seu ambiente de análise.  
+   * [Os dicionários de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento fornece descrições dos dados que são fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (tipos de dados e informações sobre as regras de validação, se aplicável) e os diagramas de entidade-relação, se disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
 
@@ -91,4 +91,4 @@ Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
    4. [Implementação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
+Fornecemos passeios completos que demonstram todos os passos no processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 

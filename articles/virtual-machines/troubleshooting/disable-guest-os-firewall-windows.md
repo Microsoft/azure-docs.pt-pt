@@ -1,5 +1,5 @@
 ---
-title: Desabilitar o Firewall do sistema operacional convidado na VM do Azure | Microsoft Docs
+title: Desative o hóspede OS Firewall em Azure VM  Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705556"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718876"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
-Este artigo fornece uma referência para situações em que você suspeita que o Firewall do sistema operacional convidado está filtrando o tráfego parcial ou completo para uma VM (máquina virtual). Isso pode ocorrer se as alterações foram deliberadamente feitas no firewall que fizeram com que as conexões RDP falhassem.
+Este artigo fornece uma referência para situações em que suspeita que a firewall do sistema operativo do hóspede está a filtrar o tráfego parcial ou completo para uma máquina virtual (VM). Isto poderia ocorrer se fossem deliberadamente feitas alterações na firewall que fez com que as ligações RDP falhassem.
 
 ## <a name="solution"></a>Solução
 
-O processo descrito neste artigo destina-se a ser usado como uma solução alternativa para que você possa se concentrar na correção de seu problema real, que é como configurar corretamente as regras de firewall. É uma prática recomendada da Microsoft ter o componente Firewall do Windows habilitado. A maneira como você configura as regras de firewall depende do nível de acesso à VM necessária.
+O processo descrito neste artigo destina-se a ser usado como uma suposição de suposição para que possa focar-se na correção do seu problema real, que é como configurar corretamente as regras da firewall. É uma Aplicação Microsoft Best prática ter o componente Windows Firewall ativado. A configuração das regras de firewall depende do nível de acesso ao VM que é necessário.
 
-### <a name="online-solutions"></a>Soluções online 
+### <a name="online-solutions"></a>Soluções Online 
 
-Se a VM estiver online e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer essas atenuações usando a outra VM.
+Se o VM estiver on-line e puder ser acedido em outro VM na mesma rede virtual, pode então fazer estas mitigações utilizando o outro VM.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: extensão de script personalizado ou recurso de executar comando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: Extensão de script personalizado ou recurso de comando de execução
 
-Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de script personalizado](../extensions/custom-script-windows.md) ou o recurso [executar comandos](../windows/run-command.md) (somente VMs do Gerenciador de recursos) para executar remotamente os scripts a seguir.
+Se tiver um agente Azure a funcionar, pode utilizar a [extensão do script personalizado](../extensions/custom-script-windows.md) ou a funcionalidade [Comandos de Execução](../windows/run-command.md) (apenas VMs do Gestor de Recursos) para executar remotamente os seguintes scripts.
 
 > [!Note]
-> * Se o firewall estiver definido localmente, execute o seguinte script:
+> * Se a firewall estiver definida localmente, execute o seguinte script:
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\Standardprofile' -name "EnableFirewall" -Value 0 
 >   Restart-Service -Name mpssvc
 >   ```
-> * Se o firewall estiver definido por meio de uma política de Active Directory, você poderá usar executar o script a seguir para acesso temporário. 
+> * Se a firewall for definida através de uma política de Diretório Ativo, pode utilizar o seguinte script para acesso temporário. 
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
->   No entanto, assim que a política for aplicada novamente, você será inicializado da sessão remota. A correção permanente para esse problema é modificar a política aplicada neste computador.
+>   No entanto, assim que a apólice for aplicada novamente, será expulso da sessão remota. A solução permanente para este problema é modificar a política aplicada neste computador.
 
 #### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell remoto
 
-1.  Conecte-se a uma VM que está localizada na mesma rede virtual que a VM que você não pode acessar usando a conexão RDP.
+1.  Ligue-se a um VM que está localizado na mesma rede virtual que o VM que não pode alcançar utilizando a ligação RDP.
 
-2.  Abra uma janela de console do PowerShell.
+2.  Abra uma janela de consola do PowerShell.
 
 3.  Execute os seguintes comandos:
 
@@ -70,13 +70,13 @@ Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de
     ```
 
 > [!Note]
-> Se o firewall for definido por meio de um objeto Política de Grupo, esse método poderá não funcionar porque esse comando altera apenas as entradas do Registro local. Se uma política estiver em vigor, ela substituirá essa alteração. 
+> Se a firewall for definida através de um Objeto de Política de Grupo, este método pode não funcionar porque este comando muda apenas as entradas de registo local. Se houver uma política, anulará esta mudança. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Atenuação 3: comandos PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos PSTools
 
-1.  Na VM de solução de problemas, baixe o [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  No contra-problema saturado vM, baixe [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
-2.  Abra uma instância do CMD e, em seguida, acesse a VM por meio de seu DIP.
+2.  Abra uma instância CMD e, em seguida, aceda ao VM através do seu DIP.
 
 3.  Execute os seguintes comandos:
 
@@ -86,13 +86,13 @@ Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Atenuação 4: registro remoto 
+#### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registo Remoto 
 
-Siga estas etapas para usar o [registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Siga estes passos para utilizar o [Registo Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na VM de solução de problemas, inicie o editor do registro e vá para **arquivo** > **conectar o registro de rede**.
+1.  No vM de resolução de problemas, inicie o editor de registo e, em seguida, vá ao Registo de **Rede Connect** > **File** .
 
-2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
+2.  Abra o ramo TARGET *MACHINE*\SYSTEM e especifique os seguintes valores:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,41 +100,41 @@ Siga estas etapas para usar o [registro remoto](https://support.microsoft.com/he
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Reinicie o serviço. Como não é possível fazer isso usando o registro remoto, você deve usar remover console de serviço.
+3.  Reinicie o serviço. Como não pode fazê-lo utilizando o registo remoto, tem de utilizar a Consola de Serviço remover.
 
-4.  Abra uma instância de **Services. msc**.
+4.  Abra uma instância de **Services.msc**.
 
-5.  Clique em **Serviços (local)** .
+5.  Clique em **Serviços (Local)** .
 
-6.  Selecione **conectar a outro computador**.
+6.  Selecione **Ligar a outro computador**.
 
-7.  Insira o **endereço IP privado (DIP)** da VM com problema.
+7.  Introduza o **endereço IP privado (DIP)** do problema VM.
 
-8.  Reinicie a política de firewall local.
+8.  Reinicie a política local de firewall.
 
-9.  Tente se conectar à VM por meio do RDP novamente no computador local.
+9.  Tente ligar-se ao VM através de RDP novamente a partir do seu computador local.
 
-### <a name="offline-solutions"></a>Soluções offline 
+### <a name="offline-solutions"></a>Soluções Offline 
 
-Se você tiver uma situação em que não consiga acessar a VM por qualquer método, a extensão de script personalizado falhará e você terá que trabalhar no modo OFFLINE trabalhando diretamente pelo disco do sistema. Para tal, siga estes passos:
+Se tiver uma situação em que não possa chegar ao VM por qualquer método, a extensão do script personalizado falhará e terá de trabalhar no modo OFFLINE trabalhando diretamente através do disco do sistema. Para tal, siga estes passos:
 
-1.  [Anexe o disco do sistema a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Inicie uma conexão Área de Trabalho Remota com a VM de recuperação.
+2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 
-3.  Verifique se o disco está sinalizado como online no console de gerenciamento de disco. Observe a letra da unidade atribuída ao disco do sistema anexado.
+3.  Certifique-se de que o disco está sinalizado como Online na consola de Gestão de Discos. Repare na carta de unidade atribuída ao disco do sistema anexo.
 
-4.  Antes de fazer qualquer alteração, crie uma cópia da pasta \Windows\System32\config, caso uma reversão das alterações seja necessária.
+4.  Antes de efetuar alterações, crie uma cópia da pasta \windows\system32\config no caso de ser necessária uma reversão das alterações.
 
-5.  Na VM de solução de problemas, inicie o editor do registro (regedit. exe). 
+5.  Na vm de resolução de problemas, inicie o editor de registo (regedit.exe). 
 
-6.  Para este procedimento de solução de problemas, estamos montando os hives como BROKENSYSTEM e BROKENSOFTWARE.
+6.  Para este procedimento de resolução de problemas, estamos a montar as colmeias como BROKENSYSTEM e BROKENSOFTWARE.
 
-7.  Realce a chave de HKEY_LOCAL_MACHINE e, em seguida, selecione Arquivo > Carregar Hive no menu.
+7.  Realce a chave HKEY_LOCAL_MACHINE e, em seguida, selecione File > Carregue a Colmeia no menu.
 
-8.  Localize o arquivo \windows\system32\config\SYSTEM no disco do sistema anexado.
+8.  Localize o ficheiro \windows\system32\config\SYSTEM no disco do sistema anexo.
 
-9.  Abra uma instância do PowerShell com privilégios elevados e execute os seguintes comandos:
+9.  Abra uma instância powerShell elevada e, em seguida, executar os seguintes comandos:
 
     ```cmd
     # Load the hives - If your attached disk is not F, replace the letter assignment here
@@ -148,7 +148,7 @@ Se você tiver uma situação em que não consiga acessar a VM por qualquer mét
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'BROKENSYSTEM\ControlSet00'+$ControlSet+'\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
-    # To ensure the firewall is not set thru AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
+    # To ensure the firewall is not set through AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile'
@@ -160,6 +160,6 @@ Se você tiver uma situação em que não consiga acessar a VM por qualquer mét
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Desanexe o disco do sistema e recrie a VM](troubleshoot-recovery-disks-portal-windows.md).
+10. [Desanexar o disco do sistema e voltar a criar a VM](troubleshoot-recovery-disks-portal-windows.md).
 
-11. Verifique se o problema foi resolvido.
+11. Verifique se o problema está resolvido.

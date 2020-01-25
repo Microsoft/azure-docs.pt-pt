@@ -1,70 +1,70 @@
 ---
-title: Subscrições do Event Grid do Azure através do portal
-description: Descreve como criar subscrições do Event Grid através do portal.
+title: Assinaturas da Rede de Eventos Azure através do portal
+description: Este artigo descreve como criar subscrições da Event Grid para as fontes suportadas, como o Armazenamento De Blob Azure, utilizando o portal Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823560"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721511"
 ---
-# <a name="subscribe-to-events-through-portal"></a>Subscrever eventos através do portal
+# <a name="subscribe-to-events-through-portal"></a>Subscreva eventos através do portal
 
-Este artigo descreve como criar subscrições do Event Grid através do portal.
+Este artigo descreve como criar subscrições da Rede de Eventos através do portal.
 
 ## <a name="create-event-subscriptions"></a>Criar subscrições de eventos
 
-Para criar uma subscrição do Event Grid para qualquer suportadas [origens de eventos](event-sources.md), utilize os seguintes passos. Este artigo mostra como criar uma subscrição do Event Grid para uma subscrição do Azure.
+Para criar uma subscrição da Grelha de Eventos para qualquer uma das fontes de [eventos](event-sources.md)suportadas, utilize os seguintes passos. Este artigo mostra como criar uma subscrição da Rede de Eventos para uma subscrição do Azure.
 
 1. Selecione **Todos os serviços**.
 
    ![Selecione todos os serviços](./media/subscribe-through-portal/select-all-services.png)
 
-1. Procure **subscrições do Event Grid** e selecione-o nas opções disponíveis.
+1. Procure **subscrições** de grelha de eventos e selecione-as a partir das opções disponíveis.
 
-   ![Pesquisa](./media/subscribe-through-portal/search.png)
+   ![Search](./media/subscribe-through-portal/search.png)
 
 1. Selecione **+ Subscrição de Eventos**.
 
    ![Adicionar subscrição](./media/subscribe-through-portal/add-subscription.png)
 
-1. Selecione o tipo de subscrição que pretende criar. Por exemplo, para subscrever eventos para a sua subscrição do Azure, selecione **subscrições do Azure** e a subscrição de destino.
+1. Selecione o tipo de subscrição que pretende criar. Por exemplo, para subscrever eventos para a sua subscrição Azure, selecione **Assinaturas Azure** e a subscrição do alvo.
 
-   ![Selecione a subscrição do Azure](./media/subscribe-through-portal/azure-subscription.png)
+   ![Selecione subscrição do Azure](./media/subscribe-through-portal/azure-subscription.png)
 
-1. Para subscrever todos os tipos de eventos para esta origem de evento, manter a **subscrever todos os tipos de evento** opção marcada. Caso contrário, selecione os tipos de evento para esta subscrição.
+1. Para subscrever todos os tipos de eventos para esta fonte de evento, mantenha o **Subscrito a todos os tipos** de eventos verificados. Caso contrário, selecione os tipos de eventos para esta subscrição.
 
-   ![Selecione os tipos de eventos](./media/subscribe-through-portal/select-event-types.png)
+   ![Selecionar tipos de eventos](./media/subscribe-through-portal/select-event-types.png)
 
-1. Fornece detalhes adicionais sobre a subscrição de evento, como o ponto final para manipulação de eventos e um nome de subscrição.
+1. Forneça detalhes adicionais sobre a subscrição do evento, como o ponto final para lidar com eventos e um nome de subscrição.
 
-   ![Fornecer detalhes da subscrição](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Fornecer detalhes de subscrição](./media/subscribe-through-portal/provide-subscription-details.png)
 
-1. Para ativar mensagens mortas e personalizar as políticas de repetição, selecione **funcionalidades adicionais**.
+1. Para permitir a letra morta e personalizar políticas de retry, selecione **Funcionalidades Adicionais**.
 
-   ![Selecionar funcionalidades adicionais](./media/subscribe-through-portal/select-additional-features.png)
+   ![Selecione funcionalidades adicionais](./media/subscribe-through-portal/select-additional-features.png)
 
-1. Selecione um contentor a utilizar para armazenar os eventos que não são fornecidos e definir como as repetições são enviadas.
+1. Selecione um recipiente para armazenar eventos que não sejam entregues e detetete como as repetições são enviadas.
 
-   ![Ativar mensagens não entregues e tente novamente](./media/subscribe-through-portal/set-deadletter-retry.png)
+   ![Permitir letras mortas e retentar](./media/subscribe-through-portal/set-deadletter-retry.png)
 
 1. Quando terminar, selecione **Criar**.
 
-## <a name="create-subscription-on-resource"></a>Criar subscrição no recurso
+## <a name="create-subscription-on-resource"></a>Criar subscrição de recursos
 
-Algumas origens de evento suportam a criação de uma subscrição de evento por meio da interface do portal para esse recurso. Selecione a origem do evento e procure **eventos** no painel esquerdo.
+Algumas fontes de evento supor a criação de uma subscrição de evento através da interface do portal para esse recurso. Selecione a fonte do evento e procure **eventos** no painel esquerdo.
 
-![Fornecer detalhes da subscrição](./media/subscribe-through-portal/resource-events.png)
+![Fornecer detalhes de subscrição](./media/subscribe-through-portal/resource-events.png)
 
-O portal apresenta as opções para criar uma subscrição de evento que são relevante para essa origem.
+O portal apresenta-lhe opções para criar uma subscrição de evento que seja relevante para essa fonte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

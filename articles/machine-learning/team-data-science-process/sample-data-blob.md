@@ -3,32 +3,32 @@ title: Armazenamento - processo de ciência de dados de equipa de BLOBs de dados
 description: Dados armazenados no armazenamento de Blobs do Azure ao baixá-lo por meio de programação e, em seguida, a amostragem usando procedimentos escritos em Python de amostragem.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1c455106e5faa4aa20ec56f37788e0b8c324fee1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042917"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720287"
 ---
 # <a name="heading"></a>Armazenamento de BLOBs de dados de exemplo no Azure
 
 Este artigo aborda os dados de amostragem armazenados no armazenamento de Blobs do Azure ao baixá-lo por meio de programação e, em seguida, a amostragem usando procedimentos escritos em Python.
 
 **Por que os dados de exemplo?**
-Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. Sua função no Cortana Analytics Process é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
+Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. A amostragem facilita a compreensão de dados, a exploração e a engenharia de recursos. Sua função no Cortana Analytics Process é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 
 Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Transferir e dimensionar dados
-1. Transferir os dados do armazenamento de Blobs do Azure com o serviço de Blobs do código de Python de exemplo seguinte: 
+1. Descarregue os dados do armazenamento de blob Azure utilizando o serviço Blob a partir do seguinte código Python da amostra: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -61,7 +61,7 @@ Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](htt
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Agora, pode trabalhar com o quadro de dados acima com o exemplo de 1 por cento para obter uma exploração e a geração de funcionalidade.
+Agora você pode trabalhar com o quadro de dados acima com a amostra de um por cento para mais exploração e geração de recursos.
 
 ## <a name="heading"></a>Carregar dados e lê-lo no Azure Machine Learning
 Pode utilizar o seguinte código de exemplo para dimensionar os dados e utilizá-lo diretamente no Azure Machine Learning:

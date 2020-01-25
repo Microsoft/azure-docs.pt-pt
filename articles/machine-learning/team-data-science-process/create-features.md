@@ -1,93 +1,93 @@
 ---
-title: Engenharia de recursos na ciência de dados – processo de ciência de dados de equipe
-description: Explica a finalidade da engenharia de recursos e fornece exemplos de sua função no processo de aprimoramento de dados do aprendizado de máquina.
+title: Engenharia de funcionalidades em ciência de dados - Team Data Science Process
+description: Explica a finalidade de engenharia de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e633c5742b8a7882149a347ced46e55440cb6913
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492434"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721137"
 ---
-# <a name="feature-engineering-in-data-science"></a>Engenharia de recursos na ciência de dados
-Este artigo explica a finalidade da engenharia de recursos e fornece exemplos de sua função no processo de aprimoramento de dados do aprendizado de máquina. Os exemplos usados para ilustrar esse processo são desenhados a partir de Azure Machine Learning Studio. 
+# <a name="feature-engineering-in-data-science"></a>Engenharia de funcionalidades em ciência de dados
+Este artigo explica os fins de engenharia de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning. Os exemplos usados para ilustrar esse processo são obtidos a partir do Azure Machine Learning Studio. 
 
-Essa tarefa é uma etapa no [TDSP (processo de ciência de dados de equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-A engenharia de recursos tenta aumentar a potência preditiva dos algoritmos de aprendizado criando recursos de dados brutos que ajudam a facilitar o processo de aprendizado. A engenharia e a seleção de recursos são uma parte do TDSP descrito em o [que é o ciclo de vida do processo de ciência de dados de equipe?](overview.md) Engenharia e seleção de recursos são partes da etapa **desenvolver recursos** do TDSP. 
+Tentativas de engenharia para aumentar a capacidade de previsão de algoritmos de aprendizagem através da criação de recursos de dados não processados que ajudam a facilitar o processo de aprendizado de recursos. A engenharia e a seleção de funcionalidades é parte integrante do TDSP descrito no [o que é o ciclo de vida do processo de ciência de dados de equipa?](overview.md) Engenharia de funcionalidades e seleção são partes do **desenvolver funcionalidades** passo do TDSP. 
 
-* **engenharia de recursos**: esse processo tenta criar recursos relevantes adicionais a partir dos recursos brutos existentes nos dados e aumentar a potência preditiva do algoritmo de aprendizado.
-* **seleção de recursos**: esse processo seleciona o subconjunto de chaves dos recursos de dados originais em uma tentativa de reduzir a dimensionalidade do problema de treinamento.
+* **"Feature Engineering"** : Este processo tenta para criar as funcionalidades relevantes adicionais dos recursos existentes não processados nos dados e para aumentar o poder de previsão do algoritmo de aprendizagem.
+* **seleção de funcionalidades**: Este processo seleciona o subconjunto de chave dos recursos de dados original numa tentativa de reduzir a dimensionalidade do problema de treinamento.
 
-Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção de recursos** é executada para eliminar recursos irrelevantes, redundantes ou altamente correlacionados.
+Normalmente **com engenharia** é aplicada primeiro para gerar recursos adicionais e, em seguida, o **seleção de funcionalidades** passo é realizado para eliminar recursos irrelevantes, redundantes ou altamente correlacionados.
 
-Os dados de treinamento usados no aprendizado de máquina geralmente podem ser aprimorados com a extração de recursos dos dados brutos coletados. Um exemplo de um recurso projetado no contexto de aprender a classificar as imagens de caracteres manuscritos é a criação de um mapa de densidade de bits construído a partir dos dados brutos de distribuição de bits. Esse mapa pode ajudar a localizar as bordas dos caracteres com mais eficiência do que simplesmente usar a distribuição bruta diretamente.
+Os dados de treinamento utilizados na machine learning, muitas vezes, podem ser melhorados pela extração dos recursos dos dados brutos coletados. Um exemplo de uma funcionalidade de engenharia no contexto de aprender classificar as imagens de caracteres manuscritas é a criação de um pouco mapa de densidade construído a partir de dados de distribuição bits brutos. Este mapa pode ajudar a localizar os limites dos caracteres de forma mais eficiente do que simplesmente usar a distribuição bruta diretamente.
 
-Para criar recursos para dados em ambientes específicos, consulte os seguintes artigos:
+Criar características para dados em ambientes específicos, consulte os artigos seguintes:
 
-* [Criar recursos para dados no SQL Server](create-features-sql-server.md)
-* [Criar recursos para dados em um cluster Hadoop usando consultas do hive](create-features-hive.md)
+* [Criar características para dados no SQL Server](create-features-sql-server.md)
+* [Criar características para dados num cluster do Hadoop com consultas do Hive](create-features-hive.md)
 
-## <a name="create-features-from-your-data---feature-engineering"></a>Criar recursos de sua engenharia de recursos de dados
-Os dados de treinamento consistem em uma matriz composta de exemplos (registros ou observações armazenadas em linhas), cada um com um conjunto de recursos (variáveis ou campos armazenados em colunas). Espera-se que os recursos especificados no design experimental caracterizam os padrões nos dados. Embora muitos dos campos de dados brutos possam ser incluídos diretamente no conjunto de recursos selecionado usado para treinar um modelo, geralmente é o caso em que recursos adicionais (desenvolvidos) precisam ser construídos a partir dos recursos nos dados brutos para gerar um conjunto de dado de treinamento aprimorado.
+## <a name="create-features-from-your-data---feature-engineering"></a>Criar recursos dos seus dados - "feature Engineering"
+Os dados de treinamento consiste numa matriz composta por exemplos (registos ou observações armazenadas em linhas), cada um com um conjunto de recursos (variáveis ou armazenados em colunas de campos). Espera-se que os recursos especificados no experimental design caracterizam os padrões nos dados. Embora muitos dos campos de dados não processados podem ser diretamente incluídos no conjunto de funcionalidade selecionada usado para preparar um modelo, é muitas vezes o caso que funcionalidades adicionais de (engenharia) tem de ser criada a partir os recursos de dados não processados para gerar um conjunto de dados de treinamento avançado.
 
-Que tipo de recursos deve ser criado para aprimorar o conjunto de os ao treinar um modelo? Recursos de engenharia que aprimoram o treinamento fornecem informações que diferenciam melhor os padrões dos dados. Os novos recursos devem fornecer informações adicionais que não são claramente capturadas ou aparentes facilmente no conjunto de recursos original ou existente. Mas esse processo é algo de uma arte. Decisões sólidas e produtivas geralmente exigem algum conhecimento do domínio.
+Que tipo de recursos deve ser criado para melhorar o conjunto de dados quando preparar um modelo? Engenharia de funcionalidades que melhoram o treinamento fornecem informações que diferencia melhor os padrões nos dados. Espera-se que os novos recursos fornecem informações adicionais que não é claramente capturada ou facilmente aparente no conjunto de recursos existente ou original. Mas esse processo é algo de arte. Decisões de som e produtivas, muitas vezes, requerem alguma experiência de domínio.
 
-Ao começar com Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no estúdio. Dois exemplos são apresentados aqui:
+Quando a partir do Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
 
-* Uma [previsão de exemplo de regressão do número de locações de bicicletas](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) em um experimento supervisionado em que os valores de destino são conhecidos
-* Um exemplo de classificação de mineração de texto usando [hash de recurso](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* Um exemplo de regressão [previsão do número de bicicletas alugadas](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) numa experimentação supervisionada onde os valores de destino são conhecidos
+* Um através do exemplo de classificação do extração de texto [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: adicionar recursos temporais para um modelo de regressão
-Vamos usar o experimento "Previsão de demanda de bicicletas" em Azure Machine Learning Studio (clássico) para demonstrar como desenvolver recursos para uma tarefa de regressão. O objetivo desse experimento é prever a demanda das bicicletas, ou seja, o número de locações de bicicletas em um mês/dia/hora específico. O conjunto de dados "conjunto de informações do aluguel de bicicletas" é usado como o dado de entrada bruto. Esse conjunto de dados baseia-se no real de Bikeshare da empresa de capital que mantém uma rede de aluguel de bicicletas em Washington, D.c. no Estados Unidos. O conjunto de informações representa o número de locações de bicicletas em uma hora específica de um dia nos anos 2011 e ano 2012 e contém 17379 linhas e 17 colunas. O conjunto de recursos brutos contém condições de clima (temperatura/umidade/velocidade do vento) e o tipo do dia (feriado/dia da semana). O campo a prever é a contagem "CNT", que representa a locações de bicicletas em uma hora específica e que varia de 1 a 977.
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: Adicionar funcionalidades temporais para um modelo de regressão
+Vamos usar a experiência "Demand forecasting of bikes" no Azure Machine Learning Studio (clássico) para demonstrar como projetar funcionalidades para uma tarefa de regressão. O objetivo desta experiência é prever a procura por bicicletas, ou seja, o número de bicicletas alugadas dentro de uma específica mês/dia/hora. O conjunto de dados "aluguer de bicicletas UCI conjunto de dados" é utilizado como os dados de entrada não processados. Este conjunto de dados baseia-se em dados reais da empresa de Capital Bikeshare que mantém uma rede de aluguer de bicicletas em Washington DC nos Estados Unidos. O conjunto de dados representa o número de bicicletas alugadas dentro de uma hora específica de um dia nos anos de 2011 e o ano 2012 e contém 17379 linhas e colunas de 17. O conjunto de recursos não processados contém condições meteorológicas (velocidade de temperatura/umidade/vento) e o tipo do dia (feriado/dia da semana). O campo a prever é a contagem 'CNT', que representa as rendas de bicicletas dentro de uma hora específica e que varia entre 1 e 977.
 
-Com o objetivo de construir recursos eficazes nos dados de treinamento, quatro modelos de regressão são criados usando o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro DataSets representam os mesmos dados de entrada brutos, mas com um número crescente de recursos definidos. Esses recursos são agrupados em quatro categorias:
+Com o objetivo de construção de funcionalidades em vigor nos dados de treinamento, quatro regressão modelos são criados com o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada não processados, mas com um número crescente de recursos do conjunto. Esses recursos são agrupados em quatro categorias:
 
-1. A = clima + feriado + dia da semana + recursos de fim de semana para o dia previsto
-2. B = número de bicicletas que foram alugadas em cada uma das 12 horas anteriores
-3. C = número de bicicletas que foram alugadas em cada um dos 12 dias anteriores na mesma hora
-4. D = número de bicicletas que foram alugadas em cada uma das 12 semanas anteriores na mesma hora e no mesmo dia
+1. Um = Meteorologia + feriado + weekday + final de semana funcionalidades para o dia previsto
+2. B = número de bicicletas que foram alugados em cada um das 12 horas anteriores
+3. C = número de bicicletas que foram alugados em cada um dos últimos dias 12 na mesma hora
+4. 1!d = número de bicicletas que foram alugados em cada um das 12 semanas anteriores na mesma hora e o mesmo dia
 
-Além do conjunto de recursos A, que já existe nos dados brutos originais, os outros três conjuntos de recursos são criados por meio do processo de engenharia de recursos. O conjunto de recursos B captura uma demanda muito recente para as bicicletas. O conjunto de recursos C captura a demanda por bicicletas em uma hora específica. O conjunto de recursos D captura a demanda por bicicletas em uma hora específica e em um dia específico da semana. Cada um dos quatro conjuntos de itens de treinamento inclui o conjunto de recursos A, A + B, A + B + C e A + B + C + D, respectivamente.
+Além de um conjunto de funcionalidade, que já existe nos dados não processados originais, os outros três conjuntos de recursos são criados através da funcionalidade de processo de engenharia. O conjunto de funcionalidades B capta a procura recente das bicicletas. Funcionalidade definida a procura por bicicletas capturas de C numa determinada hora. Conjunto de recursos a pedido de capturas de D para bicicletas em determinada hora e dia determinado da semana. O quatro treinamento conjuntos de dados cada incluem um conjunto de recursos, A + B, A + B + C e A + B + C + D, respectivamente.
 
-No experimento de Azure Machine Learning, esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto a ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) , no qual os recursos derivados (conjunto de recursos B, C e D) são construídos e acrescentados ao conjunto de módulos importado. A figura a seguir demonstra o script R usado para criar o conjunto de recursos B no segundo Branch esquerdo.
+Na experimentação do Azure Machine Learning, estes quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada previamente processada. Exceto o ramo mais à esquerda, cada uma dessas agências contém um [executar Script do R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) módulo, na qual os recursos derivados (conjunto de recursos B, C e D) são respectivamente construídos e acrescentados ao conjunto de dados importado. A figura a seguir demonstra o script de R utilizado para criar o conjunto de recursos B no segundo ramo à esquerda.
 
-![criar recursos](./media/create-features/addFeature-Rscripts.png)
+![Criar recursos](./media/create-features/addFeature-Rscripts.png)
 
-Uma comparação dos resultados de desempenho dos quatro modelos é resumida na tabela a seguir: 
+Uma comparação dos resultados do desempenho de quatro modelos é resumida na tabela a seguir: 
 
-![comparação de resultados](./media/create-features/result1.png)
+![comparação de resultado](./media/create-features/result1.png)
 
-Os melhores resultados são mostrados por recursos A + B + C. Observe que a taxa de erros diminui quando um conjunto de recursos adicional é incluído nos dados de treinamento. Ele verifica a precontinuação de que o conjunto de recursos B, C fornece informações adicionais relevantes para a tarefa de regressão. Mas adicionar o recurso D não parece fornecer nenhuma redução adicional na taxa de erro.
+Os melhores resultados são mostrados pelas funcionalidades A + B + C. A taxa de erro diminui quando o conjunto adicional de funcionalidades é incluído nos dados de formação. Verifica a suposição de que o conjunto de recursos B, C informações adicionais relevantes para a tarefa de regressão. Mas adicionar a funcionalidade de D aparenta não fornecem qualquer redução adicional a taxa de erros.
 
-## <a name="example2"></a>Exemplo 2: criando recursos na mineração de texto
-A engenharia de recursos é amplamente aplicada em tarefas relacionadas à mineração de texto, como a classificação de documentos e a análise de sentimentos. Por exemplo, quando você deseja classificar documentos em várias categorias, uma suposição típica é que as palavras/frases incluídas em uma categoria de documento têm menos probabilidade de ocorrer em outra categoria de documento. Em outras palavras, a frequência da distribuição de palavras/frases é capaz de caracterizar diferentes categorias de documentos. Em aplicativos de mineração de texto, como partes individuais de conteúdo de texto geralmente servem como dados de entrada, o processo de engenharia de recursos é necessário para criar os recursos que envolvem frequências de palavra/frase.
+## <a name="example2"></a> Exemplo 2: Criar recursos na extração de texto
+Engenharia de funcionalidades amplamente é aplicada em tarefas relacionadas com a extração de texto, como a análise de classificação e de sentimento do documento. Por exemplo, quando deseja classificar documentos em várias categorias, uma suposição típica é que as incluído numa categoria de documento do word/frases é menos provável que ocorram noutra categoria de documento. Em outras palavras, a frequência da distribuição de palavras/frases é capaz de caracterizam categorias diferentes de documento. Em aplicativos de extração de texto, uma vez que as partes individuais de conteúdos de texto, normalmente, servem como os dados de entrada, a funcionalidade de processo de engenharia é necessária para criar as funcionalidades que envolvam frequências palavra/expressão.
 
-Para obter essa tarefa, uma técnica chamada **hash de recurso** é aplicada para transformar com eficiência recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/frases) a um índice específico, esse método funciona aplicando uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
+Para realizar esta tarefa, uma técnica chamada **hashing de funcionalidade** é aplicada a transformar eficientemente recursos de texto arbitrário em índices. Em vez de associar cada funcionalidade de texto (palavras/frases) para um índice específico, este funções de método ao aplicar uma função de hash para os recursos e usar seus valores de hash como índices diretamente.
 
-No Azure Machine Learning, há um módulo de [hash de recurso](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que cria esses recursos de palavra/frase convenientemente. A figura a seguir mostra um exemplo de como usar esse módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro variando de 1 a 5 e o conteúdo real da revisão. O objetivo desse módulo de [hash de recurso](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) é recuperar uma série de novos recursos que mostram a frequência de ocorrência das palavras correspondentes (s)/Phrase (s) na revisão do livro em particular. Para usar este módulo, conclua as seguintes etapas:
+No Azure Machine Learning, existe um módulo [de Hashing feature](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que cria funcionalidades de palavra/frase convenientemente. Figura a seguir mostra um exemplo de como utilizar este módulo. O conjunto de dados de entrada contém duas colunas: a classificação de livro entre 1 e 5 e o conteúdo de revisão real. O objetivo desta [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) módulo é para recuperar um monte de novas funcionalidades que mostram a frequência de ocorrência da word(s) correspondente / rever phrase(s) neste livro específico. Para utilizar este módulo, conclua os seguintes passos:
 
 * Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
-* Em segundo lugar, defina "bits de Hashize" como 8, o que significa que 2 ^ 8 = 256 recursos serão criados. A palavra/fase em todo o texto será transformada em hash em índices 256. O parâmetro "bits de Hashização" varia de 1 a 31. As palavras (s)/Phrase (s) têm menos probabilidade de serem configuradas em hash no mesmo índice, caso defina-o como um número maior.
-* Em terceiro lugar, defina o parâmetro "N-grams" como 2. Esse valor Obtém a frequência de ocorrência de unigrams (um recurso para cada palavra) e bigrams (um recurso para cada par de palavras adjacentes) do texto de entrada. O parâmetro "N-grams" varia de 0 a 10, o que indica o número máximo de palavras sequenciais a serem incluídas em um recurso.  
+* Em segundo lugar, defina "bitsize de Hashing" como 8, que significa 2 ^ 8 = 256 funcionalidades serão criadas. O word/fase em todo o texto será convertido para 256 índices. O parâmetro "Hashing bitsize" intervalos de 1 e 31. O word(s) / phrase(s) têm menos probabilidade de ser protegido por hash para o mesmo índice se defini-la para ser um número maior.
+* Em terceiro lugar, defina o parâmetro "N-grams" como 2. Este valor é a frequência de ocorrência de unigrams (um recurso para cada palavra única) e bigrams (um recurso para cada par de palavras adjacentes), o texto de entrada. O parâmetro "N-grams" varia de 0 a 10, que indica o número máximo de sequenciais palavras a serem incluídos num recurso.  
 
-![Módulo "hash de recurso"](./media/create-features/feature-Hashing1.png)
+![Módulo "Hashing de funcionalidade"](./media/create-features/feature-Hashing1.png)
 
-A figura a seguir mostra a aparência desses novos recursos.
+A figura seguinte mostra o que eles nova funcionalidade de aspeto.
 
-![Exemplo de "hash de recurso"](./media/create-features/feature-Hashing2.png)
+![Exemplo de "Hashing de funcionalidade"](./media/create-features/feature-Hashing2.png)
 
 ## <a name="conclusion"></a>Conclusão
-Os recursos projetados e selecionados aumentam a eficiência do processo de treinamento, que tenta extrair as principais informações contidas nos dados. Eles também melhoram o poder desses modelos para classificar os dados de entrada com precisão e prever os resultados de interesse de forma mais robusta. A engenharia de recursos e a seleção também podem combinar para tornar o aprendizado mais computacionalmente manejável. Ele faz isso aprimorando e reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Em termos de matemática, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões nos dados e, em seguida, prevêm os resultados com êxito.
+Funcionalidades de engenharia e selecionadas aumentam a eficiência do processo de treinamento, que tenta extrair as informações da chave contidas nos dados. Eles também melhorem o poder desses modelos para classificar os dados de entrada com precisão e prever os resultados de interesse com mais robustez. Engenharia de funcionalidades e a seleção também podem combinar para tornar a aprendizagem mais recursos computacionais tractable. Ele faz isso, a melhorar e, em seguida, reduzindo o número de recursos necessários para calibrar ou preparar um modelo. Falando em matemática, dos recursos selecionados para preparar o modelo são um conjunto mínimo de variáveis independentes, que explicam os padrões nos dados e, em seguida, prever os resultados com êxito.
 
-Nem sempre é necessariamente executar a engenharia de recursos ou a seleção de recursos. Se é necessário ou não depende dos dados a serem disponibilizados ou coletados, o algoritmo selecionado e o objetivo do experimento.
+Nem sempre é necessariamente para efetuar a seleção de funcionalidade ou de engenharia de funcionalidades. Se for necessário ou não depende a transferência dos dados ou recolhidos, o algoritmo selecionado e o objetivo da experimentação.
 

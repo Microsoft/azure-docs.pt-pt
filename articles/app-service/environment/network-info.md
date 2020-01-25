@@ -4,15 +4,15 @@ description: Saiba mais sobre o tráfego de rede do ASE e como definir os grupos
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75375020"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713189"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um Ambiente do Serviço de Aplicativo #
 
@@ -34,7 +34,7 @@ Se você tiver um ASE externo, o VIP público também será o ponto de extremida
 * Implantação da Web
 * Depuração remota
 
-![ASE ILB][2]
+![ILB ASE][2]
 
 Se você tiver um ASE ILB, o endereço do endereço ILB será o ponto de extremidade para HTTP/S, FTP/S, implantação da Web e depuração remota.
 
@@ -88,7 +88,7 @@ O ASE se comunica com endereços acessíveis à Internet nas seguintes portas:
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, atualizações do Windows, dependências do Linux, serviços do Azure | 80/443 |
+| CRL, atualizações do Windows, dependências linux, serviços Azure | 80/443 |
 | SQL do Azure | 1433 | 
 | Monitorização | 12000 |
 
@@ -108,9 +108,9 @@ Se você alterar a configuração de DNS da VNet em que seu ASE está, será nec
 
 Além das dependências funcionais do ASE, há alguns itens extras relacionados à experiência do Portal. Alguns dos recursos do portal do Azure dependem do acesso direto ao site do _SCM_. Para cada aplicativo no serviço Azure App, há duas URLs. A primeira URL é acessar seu aplicativo. A segunda URL é acessar o site do SCM, que também é chamado de _console do kudu_. Os recursos que usam o site do SCM incluem:
 
--   WebJobs
+-   Trabalhos web
 -   Funções
--   Registo de transmissão em fluxo
+-   Streaming de log
 -   Kudu
 -   Extensões
 -   Explorador de Processos

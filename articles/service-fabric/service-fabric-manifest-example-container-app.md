@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: e4050dedeb48b19b6848a95fc904f7f37fb5b04a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349397"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722565"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço de múltiplos contentores
 Veja a seguir exemplos de manifestos de aplicativo e serviço para um aplicativo Service Fabric de vários contêineres. A finalidade desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviço são baseados nos manifestos de [exemplo do contêiner do Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) .
@@ -310,7 +310,7 @@ Variável de ambiente. Para obter mais informações, consulte [elemento Environ
 ### <a name="certificateref-element"></a>Elemento CertificateRef
 Especifica informações sobre um certificado X509 que deve ser exposto ao ambiente de contêiner. O certificado deve ser instalado no repositório LocalMachine de todos os nós de cluster.
 Quando o aplicativo é iniciado, o tempo de execução lê o certificado e gera um arquivo PFX e uma senha (no Windows) ou um arquivo PEM (no Linux).
-O arquivo PFX e a senha podem ser acessados no contêiner usando as variáveis de ambiente Certificates_ServicePackageName_CodePackageName_CertName_PFX e Certificates_ServicePackageName_CodePackageName_CertName_Password. O arquivo PEM pode ser acessado no contêiner usando as variáveis de ambiente Certificates_ServicePackageName_CodePackageName_CertName_PEM e Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey. Para obter mais informações, consulte [elemento CertificateRef](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+O ficheiro PFX e a palavra-passe estão acessíveis no recipiente utilizando as variáveis ambiente Certificates_ServicePackageName_CodePackageName_CertName_PFX e Certificates_ServicePackageName_CodePackageName_CertName_Password. O ficheiro PEM é acessível no recipiente utilizando as variáveis ambiente Certificates_ServicePackageName_CodePackageName_CertName_PEM e Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey. Para obter mais informações, consulte [elemento CertificateRef](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="defaultservices-element"></a>Elemento DefaultServices
 Declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a esse tipo de aplicativo. Para obter mais informações, consulte [elemento DefaultServices](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
@@ -342,7 +342,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
  Para obter mais informações, consulte [elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-O repositório e a imagem no https://hub.docker.com ou no registro de contêiner do Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repo e a imagem no [registo de contentores https://hub.docker.com](https://hub.docker.com) ou Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento EnvironmentVariables
 Passe as variáveis de ambiente para seu contêiner ou exe.  Para obter mais informações, consulte [elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -386,7 +386,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
 Para obter mais informações, consulte [elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-O repositório e a imagem no https://hub.docker.com ou no registro de contêiner do Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repo e a imagem no [registo de contentores https://hub.docker.com](https://hub.docker.com) ou Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento Commands
 Passe uma lista delimitada por vírgulas de comandos para o contêiner. Para obter mais informações, consulte [elemento Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: f5fa39e07eba6bdf24d96e72c9229e215ff6730b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9fd1e72568b4f0c8813a5d050ce7fa7214ca7cd9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772045"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722446"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -27,7 +27,7 @@ O Standard Load Balancer do Azure expõe os seguintes recursos de diagnóstico:
 
 * **Resource Health**: a página Load Balancer na portal do Azure e a página Resource Health (em monitor) expõem a seção Resource Health para Standard Load Balancer. 
 
-Este artigo fornece um tour rápido por esses recursos e oferece maneiras de usá-los para Standard Load Balancer.
+Este artigo fornece um tour rápido por esses recursos e oferece maneiras de usá-los para Standard Load Balancer. 
 
 ## <a name = "MultiDimensionalMetrics"></a>Métricas multidimensionais
 
@@ -41,7 +41,7 @@ As várias configurações de Standard Load Balancer fornecem as seguintes métr
 | Status da investigação de integridade (disponibilidade DIP) | Balanceador de carga público e interno | Standard Load Balancer usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com suas definições de configuração. Essa métrica fornece uma exibição filtrada por ponto de extremidade ou agregado de cada ponto de extremidade de instância no pool do balanceador de carga. Você pode ver como Load Balancer exibe a integridade do seu aplicativo, conforme indicado pela configuração da investigação de integridade. |  Média |
 | Pacotes SYN (sincronizar) | Balanceador de carga público e interno | Standard Load Balancer não encerra as conexões de protocolo TCP ou interage com os fluxos de pacotes TCP ou UDP. Os fluxos e seus Handshakes sempre estão entre a origem e a instância de VM. Para solucionar melhor os cenários de protocolo TCP, você pode fazer uso de contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica relata o número de pacotes TCP SYN que foram recebidos.| Média |
 | Conexões SNAT | Balanceador de carga público |Standard Load Balancer relata o número de fluxos de saída mascarados para o front-end do endereço IP público. As portas SNAT (conversão de endereço de rede de origem) são um recurso esse esgotável. Essa métrica pode dar uma indicação de quanto seu aplicativo está contando com SNAT para fluxos originados de saída. Os contadores de fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.| Média |
-| Contadores de bytes |  Balanceador de carga público e interno | Standard Load Balancer relata os dados processados por front-end.| Média |
+| Contadores de bytes |  Balanceador de carga público e interno | Standard Load Balancer relata os dados processados por front-end. Pode notar que os bytes não são distribuídos igualmente pelos casos de backend. Isto é esperado como o algoritmo de Balancer de Carga do Azure é baseado em fluxos | Média |
 | Contadores de pacotes |  Balanceador de carga público e interno | Standard Load Balancer relata os pacotes processados por front-end.| Média |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Exibir as métricas do balanceador de carga no portal do Azure
@@ -61,7 +61,7 @@ Para exibir as métricas para seus recursos de Standard Load Balancer:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar métricas multidimensionais programaticamente via APIs
 
-Para obter diretrizes de API para recuperar valores e definições de métrica multidimensionais, consulte [passo a passos da API REST de monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api).
+Para obter diretrizes de API para recuperar valores e definições de métrica multidimensionais, consulte [passo a passos da API REST de monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento apenas através da opção 'All Metrics'. 
 
 ### <a name = "DiagnosticScenarios"></a>Cenários comuns de diagnóstico e exibições recomendadas
 

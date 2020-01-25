@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 40cd3467c7a4377427bb8db437e1047382933b1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412834"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714868"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para um cache do Azure Premium para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo recursos da camada Premium, como o suporte a clustering, persistência e rede virtual. Este artigo descreve como configurar a persistência em um cache do Azure Premium para a instância do Redis.
@@ -26,7 +26,13 @@ O cache do Azure para Redis oferece persistência Redis usando os seguintes mode
 * **Persistência de RDB** – quando a persistência de RDB (banco de dados Redis) é configurada, o cache do Azure para Redis persiste um instantâneo do cache do Azure para Redis em um formato binário Redis para o disco com base em uma frequência de backup configurável. Se ocorrer um evento catastrófico que desabilite o cache primário e de réplica, o cache será reconstruído usando o instantâneo mais recente. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#rdb-advantages) e [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) da persistência do RDB.
 * **Persistência de AOF** – quando a persistência de AOF (acrescentar somente arquivo) está configurada, o cache do Azure para Redis salva cada operação de gravação em um log que é salvo pelo menos uma vez por segundo em uma conta de armazenamento do Azure. Se ocorrer um evento catastrófico que desabilite o cache primário e de réplica, o cache será reconstruído usando as operações de gravação armazenadas. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#aof-advantages) e [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência do AoF.
 
-A persistência é configurada na folha **novo cache do Azure para Redis** durante a criação do cache e no **menu de recursos** para os caches Premium existentes.
+A persistência escreve os dados da Redis numa conta de Armazenamento Azure que possui e gere. Pode configurar a partir do **Novo Azure Cache para** lâmina Redis durante a criação de cache e no menu **Recurso** para caches premium existentes.
+
+> [!NOTE]
+> 
+> O Azure Storage encripta automaticamente os dados quando é persistido. Podes usar as tuas próprias chaves para a encriptação. Para mais informações, consulte [as chaves geridas pelo Cliente com](/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault)o Cofre de Chaves Azure .
+> 
+> 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -38,7 +44,7 @@ As etapas na próxima seção descrevem como configurar a persistência do Redis
 
 ## <a name="enable-redis-persistence"></a>Habilitar persistência Redis
 
-A persistência Redis é habilitada na folha **persistência de dados do Redis** , escolhendo a persistência de **RDB** ou de **AoF** . Para novos caches, essa folha é acessada durante o processo de criação de cache, conforme descrito na seção anterior. Para os caches existentes, a folha **persistência de dados Redis** é acessada no **menu de recursos** do seu cache.
+A persistência do redis é ativada na lâmina de persistência de **Dados,** escolhendo a persistência de **RDB** ou **AOF.** Para novos caches, essa folha é acessada durante o processo de criação de cache, conforme descrito na seção anterior. Para caches existentes, a lâmina de **persistência de Dados** é acedida a partir do menu **Recurso** para a sua cache.
 
 ![Configurações de Redis][redis-cache-settings]
 
@@ -125,7 +131,7 @@ Para persistência de RDB e AOF:
 * Se você tiver escalado para um tamanho menor e não houver espaço suficiente no tamanho menor para manter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [AllKeys-LRU](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso alterar a frequência de backup do RDB depois de criar o cache?
-Sim, você pode alterar a frequência de backup para persistência de RDB na folha **persistência de dados Redis** . Para obter instruções, consulte Configurar persistência Redis.
+Sim, pode alterar a frequência de backup para a persistência de RDB na lâmina de **persistência de Dados.** Para obter instruções, consulte Configurar persistência Redis.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Por que se eu tiver uma frequência de backup de RDB de 60 minutos, haverá mais de 60 minutos entre os backups?
 O intervalo de frequência de backup de persistência de RDB não é iniciado até que o processo de backup anterior seja concluído com êxito. Se a frequência de backup for de 60 minutos e levar um processo de backup de 15 minutos para ser concluída com êxito, o próximo backup não será iniciado até 75 minutos após a hora de início do backup anterior.
@@ -140,7 +146,7 @@ Você deve usar uma segunda conta de armazenamento para persistência AOF quando
 
 ### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>A persistência do AOF afeta em longo, latência ou desempenho do meu cache?
 
-A persistência de AOF afeta a taxa de transferência em cerca de 15% – 20% quando o cache está abaixo da carga máxima (carga de CPU e servidor em 90%). Não deve haver problemas de latência quando o cache está dentro desses limites. No entanto, o cache atingirá esses limites mais cedo com o AOF habilitado.
+A persistência da AOF afeta a entrada em cerca de 15% – 20% quando a cache está abaixo da carga máxima (CPU e Server Load ambos abaixo de 90%). Não deve haver problemas de latência quando o cache está dentro desses limites. No entanto, o cache atingirá esses limites mais cedo com o AOF habilitado.
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Como posso remover a segunda conta de armazenamento?
 

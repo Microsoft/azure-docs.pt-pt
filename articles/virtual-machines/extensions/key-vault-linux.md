@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault extensão de VM para Linux
-description: Implante um agente executando a atualização automática de certificados de Key Vault em máquinas virtuais usando uma extensão de máquina virtual.
+title: Extensão VM do cofre de chaves Azure para Linux
+description: Implemente um agente que realize uma atualização automática dos certificados Key Vault em máquinas virtuais utilizando uma extensão virtual da máquina.
 services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
@@ -8,29 +8,29 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d6b8cdf43fea63fa4709dd5fc5319bb92ddefc63
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806978"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721307"
 ---
-# <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
+# <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Cofre chave para Linux
 
-A extensão de VM Key Vault fornece a atualização automática de certificados armazenados em um cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão de VM Key Vault é publicada e suportada pela Microsoft, atualmente em VMs Linux. Este documento detalha as plataformas, configurações e opções de implantação com suporte para a extensão de VM Key Vault para Linux. 
+A extensão VM do Cofre Chave fornece uma atualização automática de certificados armazenados num cofre de chaves Azure. Especificamente, a extensão monitoriza uma lista de certificados observados armazenados em cofres-chave.  Ao detetar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão De VM Key Vault é publicada e suportada pela Microsoft, atualmente em VMs Linux. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão VM do Cofre chave para o Linux. 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de VM Key Vault dá suporte a essas distribuições do Linux:
+A extensão VM do cofre chave suporta estas distribuições Linux:
 
 - Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
-- SuSE-15 
+- Debiano-9
+- Suse-15 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Especificamente:  
+O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão não requer configurações protegidas - todas as suas definições são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorizados, frequência de sondagens e a loja de certificados de destino. Especificamente:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -60,9 +60,9 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 ```
 
 > [!NOTE]
-> Suas URLs de certificados observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Os seus certificados observados URLs devem ser do formulário `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho de `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isto porque o caminho `/secrets` devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de cofre chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valores de propriedade
@@ -73,19 +73,19 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | string |
+| sondagensIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | boolean |
+| linkOnRenovação | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cadeia de caracteres
+| necessárioInitialSync | true | boolean |
+| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelos. 
 
-A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e no caso do conjunto de dimensionamento de máquinas virtuais em `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
+A configuração JSON para uma extensão virtual da máquina deve ser aninhada dentro do fragmento de recurso virtual da máquina do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e no caso de uma escala de máquina virtual definida sob `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
 
 ```json
     {
@@ -113,11 +113,11 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
 ```
 
 
-## <a name="azure-powershell-deployment"></a>Implantação de Azure PowerShell
+## <a name="azure-powershell-deployment"></a>Implantação Azure PowerShell
 
-O Azure PowerShell pode ser usado para implantar a extensão de VM Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
+O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre chave para uma máquina virtual existente ou um conjunto de escala de máquina virtual. 
 
-* Para implantar a extensão em uma VM:
+* Para implantar a extensão num VM:
     
     ```powershell
         # Build settings
@@ -136,7 +136,7 @@ O Azure PowerShell pode ser usado para implantar a extensão de VM Key Vault em 
     
     ```
 
-* Para implantar a extensão em um conjunto de dimensionamento de máquinas virtuais:
+* Para implantar a extensão num conjunto de escala de máquina virtual:
 
     ```powershell
     
@@ -161,9 +161,9 @@ O Azure PowerShell pode ser usado para implantar a extensão de VM Key Vault em 
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
+O Azure CLI pode ser utilizado para implantar a extensão VM do Cofre chave para uma máquina virtual existente ou conjunto de escala de máquina virtual. 
  
-* Para implantar a extensão em uma VM:
+* Para implantar a extensão num VM:
     
     ```azurecli
        # Start the deployment
@@ -174,7 +174,7 @@ O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma 
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-* Para implantar a extensão em um conjunto de dimensionamento de máquinas virtuais:
+* Para implantar a extensão num conjunto de escala de máquina virtual:
 
    ```azurecli
         # Start the deployment
@@ -185,17 +185,17 @@ O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma 
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-Esteja ciente das seguintes restrições/requisitos:
-- Restrições de Key Vault:
-  - Ele deve existir no momento da implantação 
-  - A política de acesso Key Vault está definida para a identidade VM/VMSS usando o MSI
+Tenha em atenção as seguintes restrições/requisitos:
+- Restrições do cofre chave:
+  - Deve existir no momento da implantação 
+  - A Política de Acesso ao Cofre chave está definida para identidade VM/VMSS usando MSI
 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando o Azure PowerShell. Para ver o estado de implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
+Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure PowerShell.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

@@ -1,22 +1,22 @@
 ---
-title: Dados de exemplo em localizações de armazenamento do Azure diferente - Team Data Science Process
+title: Dados da amostra em diferentes localizações de Armazenamento Azure - Processo de Ciência de Dados da Equipa
 description: Dados de exemplo no Azure, contentores, SQL Server, de BLOBs e tabelas para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável do Hive.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc91aec80f74488125649cfe807757ba5ae49c9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253102"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718608"
 ---
 # <a name="heading"></a>Dados de exemplo no Azure, contentores, SQL Server, de BLOBs e tabelas do Hive
 
@@ -30,5 +30,5 @@ Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](htt
 
 **Por que dados de exemplo?**
 
-Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. Sua função no Cortana Analytics Process é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
+Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. A redução do tamanho pode facilitar a compreensão de dados, a exploração e a engenharia de recursos. Esta função de amostragem no Processo de Análise cortana é permitir a prototipagem rápida das funções de processamento de dados e modelos de machine learning.
 

@@ -2,20 +2,20 @@
 title: Implementar modelos na produção - Team Data Science Process
 description: Como implementar modelos para produção, permitindo-lhes desempenhar um papel ativo na tomada de decisões de negócios.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526775"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722242"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implementar modelos para produção para desempenhar um papel ativo na tomada de decisões de negócios
 
@@ -39,7 +39,7 @@ Existem várias abordagens e plataformas para colocar os modelos em produção. 
 
 ## <a name="ab-testing"></a>Testes A/B
 
-Quando vários modelos na produção, pode ser útil realizar [A testes a / B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
+Quando vários modelos estão em produção, os [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) podem ser usados para comparar o desempenho do modelo. 
  
 ## <a name="next-steps"></a>Passos seguintes
 

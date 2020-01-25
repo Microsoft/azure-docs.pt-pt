@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832925"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720066"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -44,13 +44,13 @@ As especificações JavaScript Object Notation (JSON) e José (assinatura de obj
 
 Consulte as especificações de José para tipos de dados relevantes para chaves, criptografia e assinatura.  
 
--   **algoritmo** -um algoritmo com suporte para uma operação de chave, por exemplo, RSA1_5  
+-   **algoritmo** - um algoritmo suportado para uma operação chave, por exemplo, RSA1_5  
 -   **valores de texto cifrado-valor** -Cipher, codificados usando Base64URL  
 -   **Digest-Value** -a saída de um algoritmo de hash, codificada usando Base64URL  
 -   **Key-Type** -um dos tipos de chave com suporte, por exemplo RSA (Rivest-Shamir-adlema).  
 -   **valores de texto sem formatação –** octetos de texto não criptografado, codificados usando Base64URL  
 -   **assinatura-valor** -saída de um algoritmo de assinatura, codificado usando Base64URL  
--   **base64URL** -um valor binário codificado BASE64URL [RFC4648]  
+-   **base64URL** - um valor binário codificado de Base64URL [RFC4648]  
 -   **booliano** -verdadeiro ou falso  
 -   **Identidade** -uma identidade de Azure Active Directory (AAD).  
 -   **IntDate** -um valor decimal JSON que representa o número de segundos de 1970-01-01T0:0: 0Z UTC até a data/hora UTC especificada. Consulte RFC3339 para obter detalhes sobre data/hora, em geral e UTC em particular.  
@@ -76,16 +76,16 @@ Onde:
 |`keyvault-name`|O nome de um cofre de chaves no serviço de Key Vault Microsoft Azure.<br /><br /> Os nomes de Key Vault são selecionados pelo usuário e são globalmente exclusivos.<br /><br /> Key Vault nome deve ser uma cadeia de caracteres 3-24, contendo apenas 0-9, a-z, A-Z e-.|  
 |`object-type`|O tipo do objeto, "Keys" ou "segredos".|  
 |`object-name`|Um `object-name` é um nome fornecido pelo usuário para e deve ser exclusivo dentro de um Key Vault. O nome deve ser uma cadeia de caracteres 1-127, contendo apenas 0-9, a-z, A-Z e-.|  
-|`object-version`|Um `object-version` é um identificador de cadeia de caracteres 32, gerado pelo sistema, que é opcionalmente usado * o para atender a uma versão exclusiva de um objeto.|  
+|`object-version`|Um `object-version` é um identificador de cadeia de 32 caracteres gerado pelo sistema que é opcionalmente usado para abordar uma versão única de um objeto.|  
 
 ## <a name="key-vault-keys"></a>Chaves de Key Vault
 
 ### <a name="keys-and-key-types"></a>Chaves e tipos de chave
 
-As chaves de criptografia no Key Vault são representadas como objetos de chave da Web JSON [JWK]. As especificações base de JWK/JWA também são estendidas para habilitar tipos de chave exclusivos para a implementação de Key Vault. Por exemplo, a importação de chaves usando o empacotamento específico de fornecedor do HSM permite o transporte seguro de chaves que podem ser usadas apenas em Key Vault HSMs.  
+As teclas criptográficas no Cofre chave são representadas como objetos jSON Web Key [JWK]. As especificações base de JWK/JWA também são estendidas para habilitar tipos de chave exclusivos para a implementação de Key Vault. Por exemplo, a importação de chaves usando o empacotamento específico de fornecedor do HSM permite o transporte seguro de chaves que podem ser usadas apenas em Key Vault HSMs.  
 
 - **Chaves "soft"** : uma chave processada no software por Key Vault, mas é criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave existente de RSA ou EC (curva elíptica) ou solicitar que Key Vault gerar uma.
-- **Chaves "rígidas"** : uma chave processada em um HSM (módulo de segurança de hardware). Essas chaves são protegidas em um dos mundos de segurança Key Vault HSM (há um mundo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, em forma flexível ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar Key Vault para gerar uma chave. Esse tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material de chave HSM.
+- **Chaves "rígidas"** : uma chave processada em um HSM (módulo de segurança de hardware). Essas chaves são protegidas em um dos mundos de segurança Key Vault HSM (há um mundo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, em forma flexível ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material chave HSM.
 
      Para obter mais informações sobre limites geográficos, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -124,15 +124,15 @@ Os módulos de criptografia que o Key Vault usa, seja o HSM ou software, validad
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, CRIPTOGRAFAR/DESCRIPTOGRAFAR
 
--   Criptografia de chave **RSA1_5** -RSAES-PKCS1-V1_5 [RFC3447]  
--   **RSA-OAEP** -RSAES usando o OAEP (preenchimento de criptografia assimétrica ideal) [RFC3447], com os parâmetros padrão especificados pela RFC 3447 na seção A. 2.1. Esses parâmetros padrão estão usando uma função de hash do SHA-1 e uma função de geração de máscara de MGF1 com SHA-1.  
+-   **RSA1_5** - Encriptação chave RSAES-PKCS1-V1_5 [RFC3447]  
+-   **RSA-OAEP** - RSAES utilizando o acolchoamento de encriptação assimétrica ideal (OAEP) [RFC3447], com os parâmetros predefinidos especificados pelo RFC 3447 na secção A.2.1. Esses parâmetros padrão estão usando uma função de hash do SHA-1 e uma função de geração de máscara de MGF1 com SHA-1.  
 
 #### <a name="signverify"></a>ASSINAR/VERIFICAR
 
--   **RS256** -RSASSA-PKCS-V1_5 usando SHA-256. O valor de resumo fornecido pelo aplicativo deve ser computado usando SHA-256 e deve ter 32 bytes de comprimento.  
--   **RS384** -RSASSA-PKCS-V1_5 usando SHA-384. O valor de resumo fornecido pelo aplicativo deve ser computado usando SHA-384 e deve ter 48 bytes de comprimento.  
--   **RS512** -RSASSA-PKCS-V1_5 usando SHA-512. O valor de resumo fornecido pelo aplicativo deve ser computado usando SHA-512 e deve ter 64 bytes de comprimento.  
--   **RSNULL** -consulte [RFC2437], um caso de uso especializado para habilitar determinados cenários de TLS.  
+-   **RS256** - RSASSA-PKCS-v1_5 usando SHA-256. O valor de resumo fornecido pelo aplicativo deve ser computado usando SHA-256 e deve ter 32 bytes de comprimento.  
+-   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. O valor de resumo fornecido pelo aplicativo deve ser computado usando SHA-384 e deve ter 48 bytes de comprimento.  
+-   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor de resumo fornecido pelo aplicativo deve ser computado usando SHA-512 e deve ter 64 bytes de comprimento.  
+-   **RSNULL** - Ver [RFC2437], um caso de utilização especializado para permitir certos cenários de TLS.  
 
 ###  <a name="key-operations"></a>Operações de chave
 
@@ -152,21 +152,21 @@ Para obter mais informações, consulte [operações de chave na referência da 
 
 Depois que uma chave tiver sido criada no Key Vault, as seguintes operações criptográficas poderão ser executadas usando a chave:  
 
--   **Assinar e verificar**: estritamente, essa operação é "assinar hash" ou "verificar hash", pois Key Vault não dá suporte ao hash de conteúdo como parte da criação da assinatura. Os aplicativos devem fazer o hash dos dados a serem assinados localmente e solicitar que Key Vault assinar o hash. Há suporte para a verificação de hashes assinados como uma operação de conveniência para aplicativos que podem não ter acesso ao material de chave [Public]. Para obter o melhor desempenho do aplicativo, verifique se as operações são executadas localmente.  
--   **Criptografia/encapsulamento de chave**: uma chave armazenada em Key Vault pode ser usada para proteger outra chave, normalmente uma CEK (chave de criptografia de conteúdo simétrica). Quando a chave no Key Vault é assimétrica, a criptografia de chave é usada. Por exemplo, as operações RSA-OAEP e WRAPKEY/UNWRAPKEY são equivalentes a CRIPTOGRAFAr/descriptografar. Quando a chave no Key Vault é simétrica, o encapsulamento de chave é usado. Por exemplo, AES-KW. A operação WRAPKEY tem suporte como uma conveniência para aplicativos que podem não ter acesso ao material de chave [Public]. Para obter o melhor desempenho do aplicativo, as operações de WRAPKEY devem ser executadas localmente.  
--   **Criptografar e descriptografar**: uma chave armazenada em Key Vault pode ser usada para criptografar ou descriptografar um único bloco de dados. O tamanho do bloco é determinado pelo tipo de chave e pelo algoritmo de criptografia selecionado. A operação Encrypt é fornecida para sua conveniência, para aplicativos que podem não ter acesso ao material da chave [Public]. Para obter o melhor desempenho do aplicativo, as operações de criptografia devem ser executadas localmente.  
+-   **Assinar e verificar**: estritamente, essa operação é "assinar hash" ou "verificar hash", pois Key Vault não dá suporte ao hash de conteúdo como parte da criação da assinatura. Os aplicativos devem fazer o hash dos dados a serem assinados localmente e solicitar que Key Vault assinar o hash. A verificação de hashes assinados é suportada como uma operação de conveniência para aplicações que podem não ter acesso a material-chave [público]. Para obter o melhor desempenho do aplicativo, verifique se as operações são executadas localmente.  
+-   **Criptografia/encapsulamento de chave**: uma chave armazenada em Key Vault pode ser usada para proteger outra chave, normalmente uma CEK (chave de criptografia de conteúdo simétrica). Quando a chave no Key Vault é assimétrica, a criptografia de chave é usada. Por exemplo, as operações RSA-OAEP e WRAPKEY/UNWRAPKEY são equivalentes a CRIPTOGRAFAr/descriptografar. Quando a chave no Key Vault é simétrica, o encapsulamento de chave é usado. Por exemplo, AES-KW. A operação WRAPKEY é suportada como uma conveniência para aplicações que podem não ter acesso a material chave [público]. Para obter o melhor desempenho do aplicativo, as operações de WRAPKEY devem ser executadas localmente.  
+-   **Criptografar e descriptografar**: uma chave armazenada em Key Vault pode ser usada para criptografar ou descriptografar um único bloco de dados. O tamanho do bloco é determinado pelo tipo de chave e pelo algoritmo de criptografia selecionado. A operação Encrypt está prevista para conveniência, para aplicações que podem não ter acesso a material chave [público]. Para obter o melhor desempenho do aplicativo, as operações de criptografia devem ser executadas localmente.  
 
 Embora WRAPKEY/UNWRAPKEY usando chaves assimétricas possa parecer supérfluo (pois a operação é equivalente a CRIPTOGRAFAr/descriptografar), o uso de operações distintas é importante. A distinção fornece a separação semântica e de autorização dessas operações e a consistência quando outros tipos de chave são suportados pelo serviço.  
 
 Key Vault não dá suporte a operações de exportação. Depois que uma chave é provisionada no sistema, ela não pode ser extraída ou seu material de chave modificado. No entanto, os usuários de Key Vault podem exigir sua chave para outros casos de uso, como após terem sido excluídos. Nesse caso, eles podem usar as operações de BACKUP e restauração para exportar/importar a chave em um formulário protegido. As chaves criadas pela operação de BACKUP não podem ser usadas fora do Key Vault. Como alternativa, a operação de importação pode ser usada em várias instâncias de Key Vault.  
 
-Os usuários podem restringir qualquer uma das operações criptográficas que Key Vault oferece suporte por chave usando a propriedade key_ops do objeto JWK.  
+Os utilizadores podem restringir qualquer uma das operações criptográficas que o Key Vault suporta numa base por chave utilizando a propriedade key_ops do objeto JWK.  
 
 Para obter mais informações sobre objetos JWK, consulte [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
 ###  <a name="key-attributes"></a>Atributos de chave
 
-Para além do material de chave, é possível especificar os seguintes atributos. Em uma solicitação JSON, a palavra-chave Attributes e chaves, ' {' '} ', são necessárias mesmo se não houver nenhum atributo especificado.  
+Além do material-chave, podem ser especificados os seguintes atributos. Em uma solicitação JSON, a palavra-chave Attributes e chaves, ' {' '} ', são necessárias mesmo se não houver nenhum atributo especificado.  
 
 - *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e utilizável para operações criptográficas. O atributo *Enabled* é usado em conjunto com *NBF* e *exp*. Quando ocorrer uma operação entre *NBF* e *exp*, ele só será permitido se *habilitado* for definido como **true**. As operações fora da janela *nbf* / *exp* são automaticamente desautorizadas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations).
 - *NBF*: IntDate, opcional, o padrão é agora. O atributo *NBF* (não antes) identifica a hora antes da qual a chave não deve ser usada para operações criptográficas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations). O processamento do atributo *NBF* requer que a data/hora atual deva ser posterior ou igual à data/hora anterior, listada no atributo *NBF* . Key Vault pode fornecer algumas pequenas reserva, normalmente não mais do que alguns minutos, para considerar a distorção do relógio. Seu valor deve ser um número que contenha um valor IntDate.  
@@ -230,7 +230,7 @@ Para obter mais informações sobre como trabalhar com chaves, consulte [operaç
 
 Da perspectiva de um desenvolvedor, Key Vault APIs aceitam e retornam valores secretos como cadeias de caracteres. Internamente, o Key Vault armazena e gerencia segredos como sequências de octetos (bytes de 8 bits), com um tamanho máximo de 25K bytes cada. O serviço de Key Vault não fornece semântica para segredos. Ele simplesmente aceita os dados, criptografa-os, armazena-os e retorna um identificador secreto ("ID"). O identificador pode ser usado para recuperar o segredo em um momento posterior.  
 
-Para dados altamente confidenciais, os clientes devem considerar camadas adicionais de proteção para os dados. A encriptação de dados com uma chave de proteção separada antes do armazenamento no Key Vault é um exemplo disso.  
+Para dados altamente sensíveis, os clientes devem considerar camadas adicionais de proteção para dados. Encriptar dados utilizando uma chave de proteção separada antes do armazenamento no Cofre chave é um exemplo.  
 
 Key Vault também dá suporte a um campo contentType para segredos. Os clientes podem especificar o tipo de conteúdo de um segredo para ajudar a interpretar os dados secretos quando eles são recuperados. O comprimento máximo desse campo é de 255 caracteres. Não há valores predefinidos. O uso sugerido é como uma dica para interpretar os dados secretos. Por exemplo, uma implementação pode armazenar senhas e certificados como segredos e, em seguida, usar esse campo para diferenciar. Não há valores predefinidos.  
 
@@ -372,7 +372,7 @@ A tabela a seguir representa o mapeamento da política de uso de chave X509 para
 |Não-repúdio|assinar, verificar| N/A |
 |crlsign|assinar, verificar| N/A |
 
-### <a name="certificate-issuer"></a>Emissor do Certificado
+### <a name="certificate-issuer"></a>Emitente de certificado
 
 Um objeto de certificado Key Vault mantém uma configuração usada para se comunicar com um provedor de emissor de certificado selecionado para solicitar certificados X509.  
 

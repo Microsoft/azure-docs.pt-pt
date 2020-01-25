@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Salesforce para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
 services: active-directory
 documentationCenter: na
@@ -15,125 +15,125 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0ed3307f2802e5372cf007f1df8eee2f26e6a39f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849178"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714390"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para fornecimento automático de utilizadores
 
-O objetivo deste tutorial é mostrar as etapas necessárias para executar no Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Salesforce.
+O objetivo deste tutorial é mostrar os passos necessários para executar na Salesforce e na Azure AD para fornecer e desfornecer automaticamente contas de utilizadores da Azure AD à Salesforce.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-* Um locatário do Azure Active Directory
-* Um locatário do Salesforce.com
+* Um inquilino de diretório Azure Ative
+* Um inquilino Salesforce.com
 
 > [!IMPORTANT]
-> Se você estiver usando uma conta de avaliação do Salesforce.com, não será possível configurar o provisionamento automatizado de usuários. As contas de avaliação não têm o acesso à API necessário habilitado até que sejam adquiridas. Você pode contornar essa limitação usando uma conta de [desenvolvedor](https://developer.salesforce.com/signup) gratuita para concluir este tutorial.
+> Se estiver a utilizar uma conta de teste Salesforce.com, não poderá configurar o fornecimento automatizado de utilizadores. As contas de experimentação não têm o acesso a API necessário até serem adquiridas. Pode contornar esta limitação utilizando uma conta de [desenvolvedor](https://developer.salesforce.com/signup) gratuito para completar este tutorial.
 
-Se você estiver usando um ambiente de área restrita Salesforce, consulte o [tutorial de integração do Salesforce sandbox](https://go.microsoft.com/fwLink/?LinkID=521879).
+Se estiver a utilizar um ambiente Salesforce Sandbox, consulte o tutorial de [integração salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879).
 
-## <a name="assigning-users-to-salesforce"></a>Atribuindo usuários ao Salesforce
+## <a name="assigning-users-to-salesforce"></a>Atribuir utilizadores à Salesforce
 
-Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de conta de utilizador, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação em Azure AD são sincronizados.
 
-Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários ou grupos no Azure AD precisam de acesso ao seu aplicativo Salesforce. Depois de tomar essa decisão, você pode atribuir esses usuários ao seu aplicativo Salesforce seguindo as instruções em [atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais os utilizadores ou grupos da AD Azure que precisam de acesso à sua aplicação Salesforce. Depois de ter feito esta decisão, pode atribuir estes utilizadores à sua aplicação Salesforce seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-salesforce"></a>Dicas importantes para atribuir usuários ao Salesforce
+### <a name="important-tips-for-assigning-users-to-salesforce"></a>Dicas importantes para atribuir utilizadores à Salesforce
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao Salesforce para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à Salesforce para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao Salesforce, você deve selecionar uma função de usuário válida. A função de "acesso padrão" não funciona para provisionamento
+* Ao atribuir um utilizador à Salesforce, deve selecionar uma função de utilizador válida. A função "Acesso Predefinido" não funciona para o provisionamento
 
     > [!NOTE]
-    > Este aplicativo importa perfis do Salesforce como parte do processo de provisionamento, que o cliente pode querer selecionar ao atribuir usuários no Azure AD. Observe que os perfis que são importados do Salesforce aparecem como funções no Azure AD.
+    > Esta aplicação importa perfis da Salesforce como parte do processo de provisionamento, que o cliente pode querer selecionar ao atribuir utilizadores em Azure AD. Por favor, note que os perfis que são importados da Salesforce aparecem como Papéis em Azure AD.
 
-## <a name="enable-automated-user-provisioning"></a>Habilitar provisionamento automatizado de usuários
+## <a name="enable-automated-user-provisioning"></a>Ativar o fornecimento automatizado de utilizadores
 
-Esta seção orienta você pela conexão do Azure AD com a [API de provisionamento de conta de usuário do Salesforce-v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm)e pela configuração do serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no Salesforce com base na atribuição de usuário e de grupo no Azure AD.
+Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da Salesforce que [aprovisiona a API - v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm), e configurando o serviço de provisionamento para criar, atualizar e desativar as contas de utilizador atribuídas na Salesforce com base na atribuição de utilizadores e grupos em Azure AD.
 
 > [!Tip]
-> Você também pode optar por habilitar o logon único baseado em SAML para o Salesforce, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos se complementem.
+> Também pode optar por ativar o Single Sign-On baseado em SAML para a Salesforce, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático, embora estas duas funcionalidades se elogiem mutuamente.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Configurar o provisionamento automático de conta de usuário
+### <a name="configure-automatic-user-account-provisioning"></a>Configurar o fornecimento automático de conta de utilizador
 
-O objetivo desta seção é descrever como habilitar o provisionamento de usuário de Active Directory contas de usuário para o Salesforce.
+O objetivo desta secção é delinear como permitir o fornecimento de contas de utilizadores do Diretório Ativo à Salesforce.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
 
-2. Se você já tiver configurado o Salesforce para logon único, pesquise sua instância do Salesforce usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Salesforce** na Galeria de aplicativos. Selecione Salesforce nos resultados da pesquisa e adicione-o à lista de aplicativos.
+2. Se já configurou a Salesforce para um único sinal, procure a sua instância de Salesforce utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **Salesforce** na galeria de aplicações. Selecione Salesforce a partir dos resultados da pesquisa e adicione-a à sua lista de aplicações.
 
-3. Selecione sua instância do Salesforce e, em seguida, selecione a guia **provisionamento** .
+3. Selecione a sua instância de Salesforce e, em seguida, selecione o separador **Provisioning.**
 
 4. Defina o **modo de provisionamento** como **automático**.
 
     ![provisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
 
-5. Na seção **credenciais de administrador** , forneça as seguintes definições de configuração:
+5. No âmbito da secção **credenciais de administrador,** forneça as seguintes definições de configuração:
 
-    a. Na caixa de texto **nome de usuário administrador** , digite um nome de conta do Salesforce que tenha o perfil de **administrador do sistema** em Salesforce.com atribuído.
+    a. Na caixa de texto **'Username' da Admin,** digite um nome de conta Salesforce que tenha o perfil **de Administrador** do Sistema em Salesforce.com atribuído.
 
-    b. Na caixa de texto **senha do administrador** , digite a senha dessa conta.
+    b. Na caixa de texto **'Password' Admin,** digite a palavra-passe para esta conta.
 
-6. Para obter seu token de segurança do Salesforce, abra uma nova guia e entre na mesma conta do administrador do Salesforce. No canto superior direito da página, clique em seu nome e em **configurações**.
+6. Para obter o seu token de segurança Salesforce, abra um novo separador e assine na mesma conta de administração da Salesforce. No canto superior direito da página, clique no seu nome e, em seguida, clique em **Definições**.
 
-    ![Habilitar o provisionamento automático de usuário](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento automático de usuário")
+    ![Ativar o fornecimento automático de utilizadores](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Ativar o fornecimento automático de utilizadores")
 
-7. No painel de navegação esquerdo, clique em **minhas informações pessoais** para expandir a seção relacionada e, em seguida, clique em **Redefinir meu token de segurança**.
+7. No painel de navegação à esquerda, clique em **Minhas Informações Pessoais** para expandir a secção relacionada e, em seguida, clique em **Redefinir o meu token**de segurança .
   
-    ![Habilitar o provisionamento automático de usuário](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento automático de usuário")
+    ![Ativar o fornecimento automático de utilizadores](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Ativar o fornecimento automático de utilizadores")
 
-8. Na página **Redefinir token de segurança** , clique no botão **Redefinir token de segurança** .
+8. Na página **Reset Security Token,** clique em redefinir o botão **Reset Security Token.**
 
-    ![Habilitar o provisionamento automático de usuário](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento automático de usuário")
+    ![Ativar o fornecimento automático de utilizadores](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Ativar o fornecimento automático de utilizadores")
 
-9. Verifique a caixa de entrada de email associada a essa conta de administrador. Procure um email de Salesforce.com que contenha o novo token de segurança.
+9. Verifique a caixa de entrada de e-mail associada a esta conta de administração. Procure um e-mail de Salesforce.com que contenha o novo símbolo de segurança.
 
-10. Copie o token, vá para a janela do Azure AD e cole-o no campo **token secreto** .
+10. Copie o símbolo, vá para a sua janela azure d.D., e cole-o no campo **Secreto Token.**
 
-11. A **URL do locatário** deverá ser inserida se a instância do Salesforce estiver na nuvem do governo do Salesforce. Caso contrário, é opcional. Insira a URL do locatário usando o formato "https://\<sua instância\>. my.salesforce.com", substituindo \<\> da instância pelo nome da sua instância do Salesforce.
+11. O URL do **Arrendatário** deve ser introduzido se a instância da Salesforce estiver na Nuvem do Governo salesforce. Caso contrário, é opcional. Introduza o URL do inquilino utilizando o formato de "https://\<a sua instância\>.my.salesforce.com", substituindo \<\> da sua instância com o nome da sua instância Salesforce.
 
-12. No portal do Azure, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao seu aplicativo Salesforce.
+12. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Salesforce.
 
-13. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento e marque a caixa de seleção abaixo.
+13. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de fornecimento e verifique a caixa de verificação abaixo.
 
-14. Clique em **salvar.**  
+14. Clique em **Guardar.**  
 
-15. Na seção mapeamentos, selecione **sincronizar Azure Active Directory usuários para o Salesforce.**
+15. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to Salesforce.**
 
-16. Na seção **mapeamentos de atributo** , examine os atributos de usuário que são sincronizados do Azure ad para o Salesforce. Observe que os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Salesforce para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+16. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Salesforce. Note que os atributos selecionados como propriedades **correspondentes** são usados para corresponder às contas de utilizador no Salesforce para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-17. Para habilitar o serviço de provisionamento do Azure AD para o Salesforce, altere o **status de provisionamento** para **ativado** na seção Configurações
+17. Para ativar o serviço de provisionamento de AD Azure para a Salesforce, altere o Estado de **Provisionamento** para **On** na secção Definições
 
-18. Clique em **salvar.**
+18. Clique em **Guardar.**
 
 > [!NOTE]
-> Depois que os usuários são provisionados no aplicativo Salesforce, o administrador precisa definir as configurações específicas de idioma para eles. Consulte este artigo para obter mais detalhes sobre [a](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) configuração de idioma.
+> Uma vez que os utilizadores são aprovisionados na aplicação Salesforce, o administrador precisa de configurar as definições específicas do idioma para os mesmos. Consulte [este](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) artigo para mais detalhes sobre a configuração do idioma.
 
-Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Salesforce na seção usuários e grupos. Observe que a sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Salesforce.
+Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Salesforce na secção Utilizadores e Grupos. Note que a sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Salesforce.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="common-issues"></a>Problemas comuns
-* Se você estiver tendo problemas para autorizar o acesso ao Salesforce, verifique o seguinte:
-    * As credenciais usadas têm acesso de administrador ao Salesforce.
-    * A versão do Salesforce que você está usando dá suporte a Acesso via Web (por exemplo, Developer, Enterprise, sandbox e edições ilimitadas do Salesforce.)
-    * O acesso à API Web está habilitado para o usuário.
-* O serviço de provisionamento do Azure AD dá suporte à linguagem de provisionamento, à localidade e ao fuso horário de um usuário. Esses atributos estão nos mapeamentos de atributo padrão, mas não têm um atributo de origem padrão. Verifique se você selecionou o atributo de origem padrão e se o atributo de origem está no formato esperado pelo SalesForce. Por exemplo, localeSidKey para inglês (Estados Unidos) é en_US. Examine as diretrizes fornecidas [aqui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) para determinar o formato localeSidKey apropriado. Os formatos languageLocaleKey podem ser encontrados [aqui](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Além de garantir que o formato esteja correto, talvez seja necessário garantir que o idioma esteja habilitado para seus usuários, conforme descrito [aqui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
-* **SalesforceLicenseLimitExceeded:** Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira licenças adicionais para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.
-* **SalesforceDuplicateUserName:** O usuário não pode ser provisionado porque tem um ' nome de usuário ' Salesforce.com que está duplicado em outro locatário Salesforce.com.  No Salesforce.com, os valores para o atributo ' username ' devem ser exclusivos em todos os locatários do Salesforce.com.  Por padrão, o userPrincipalName de um usuário em Azure Active Directory se torna seu ' username ' em Salesforce.com.   Você tem duas opções.  Uma opção é localizar e renomear o usuário com o ' nome de usuário ' duplicado no outro locatário do Salesforce.com, se você administrar esse outro locatário também.  A outra opção é remover o acesso do usuário Azure Active Directory para o locatário Salesforce.com com o qual seu diretório está integrado. Tentaremos novamente essa operação na próxima tentativa de sincronização. 
-* **SalesforceRequiredFieldMissing:** O Salesforce requer que determinados atributos estejam presentes no usuário para criar ou atualizar o usuário com êxito. Este usuário não tem um dos atributos necessários. Certifique-se de que atributos como email e alias sejam preenchidos em todos os usuários que você deseja que sejam provisionados no Salesforce. Você pode definir o escopo de usuários que não têm esses atributos usando [filtros de escopo baseados em atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
-* O mapeamento de atributo padrão para provisionamento para o Salesforce inclui a expressão SingleAppRoleAssignments para mapear appRoleAssignments no Azure AD para ProfileName no Salesforce. Verifique se os usuários não têm várias atribuições de função de aplicativo no Azure AD, pois o mapeamento de atributo só dá suporte ao provisionamento de uma função. 
-* O Salesforce exige que as atualizações de email sejam aprovadas manualmente antes de serem alteradas. Como resultado, você poderá ver várias entradas nos logs de provisionamento para atualizar o email do usuário (até que a alteração de email tenha sido aprovada).
+* Se tiver problemas que autorizem o acesso à Salesforce, certifique-se do seguinte:
+    * As credenciais utilizadas têm acesso administrativo à Salesforce.
+    * A versão da Salesforce que está a usar suporta o Web Access (por exemplo, Developer, Enterprise, Sandbox e Edições Ilimitadas da Salesforce.)
+    * O acesso à Web API está ativado para o utilizador.
+* O serviço de provisionamento de AD Azure suporta o fornecimento de linguagem, localidade e timeZone para um utilizador. Estes atributos estão nos mapeamentos de atributopadrão, mas não têm um atributo de origem padrão. Certifique-se de que seleciona o atributo de origem predefinido e que o atributo de origem está no formato esperado pelo SalesForce. Por exemplo, o localsidKey para inglês (Estados Unidos) é en_US. Reveja as orientações [fornecidas aqui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) para determinar o formato localsidKey adequado. Os formatos idiomaLocaleKey podem ser encontrados [aqui](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Além de garantir que o formato está correto, poderá ser necessário garantir que o idioma está ativado para os seus utilizadores, tal como descrito [aqui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
+* **SalesforceLicenseLimitExceeded:** O utilizador não pôde ser criado na aplicação-alvo porque não existem licenças disponíveis para este utilizador. Ou obtém licenças adicionais para a aplicação alvo, ou revê as atribuições do utilizador e atribui a configuração de mapeamento para garantir que os utilizadores corretos são atribuídos com os atributos corretos.
+* **SalesforceDuplicateUserName:** O utilizador não pode ser provisionado porque tem um Salesforce.com 'Username' que é duplicado em outro Salesforce.com inquilino.  Em Salesforce.com, os valores para o atributo 'Username' devem ser únicos em todos os Salesforce.com inquilinos.  Por padrão, o utilizador PrincipalName no Diretório Ativo Do Azure torna-se o seu 'Username' em Salesforce.com.   Tem duas opções.  Uma opção é encontrar e renomear o utilizador com o duplicado 'Username' no outro Salesforce.com inquilino, se você administrar o outro inquilino também.  A outra opção é remover o acesso do utilizador do Diretório Ativo Azure ao Salesforce.com inquilino com o qual o seu diretório está integrado. Vamos voltar a tentar esta operação na próxima tentativa de sincronização. 
+* **SalesforceRequiredFieldMissing:** A Salesforce requer que certos atributos estejam presentes no utilizador para criar ou atualizar com sucesso o utilizador. Falta um dos atributos necessários a este utilizador. Certifique-se de que atributos como e-mail e pseudónimo são povoados em todos os utilizadores que gostaria de ser aprovisionado na Salesforce. Pode examinar os utilizadores que não possuem estes atributos utilizando filtros de [deteção baseados em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* O mapeamento de atributo padrão para o fornecimento à Salesforce inclui a expressão SingleAppRoleAssignments para mapear appRoleAssignments em Azure AD para ProfileName em Salesforce. Certifique-se de que os utilizadores não possuem múltiplas atribuições de aplicações em Azure AD, uma vez que o mapeamento do atributo apenas suporta o fornecimento de uma função. 
+* A Salesforce exige que as atualizações de e-mail sejam aprovadas manualmente antes de serem alteradas. Como resultado, poderá ver várias entradas nos registos de fornecimento para atualizar o e-mail do utilizador (até que a alteração de e-mail seja aprovada).
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar logon único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)
+* [Configurar um único signo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 93cdea453050df8899abf9233991715ae237bcd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257229"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719341"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar o Azure Cosmos DB e o Azure App Service Web Apps com um modelo de Gestor de recursos do Azure
 Este tutorial mostra-lhe como utilizar um modelo Azure Resource Manager para implementar e integrar [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), uma [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) aplicação web e um exemplo de aplicação web.
@@ -56,7 +56,7 @@ Agora vamos implementar seu primeiro modelo.
    ![Captura de ecrã da implementação do modelo da interface do Usuário](./media/create-website/TemplateDeployment3.png)
 4. Clique em **Editar parâmetros**, forneça valores para cada um dos parâmetros obrigatórios e clique em **OK**.  Os parâmetros são os seguintes:
    
-   1. SITENAME: Especifica o nome da aplicação do serviço de aplicações web e é utilizado para criar o URL que utilizar para aceder à aplicação web (por exemplo, se especificar "mydemodocdbwebapp", em seguida, o URL através do qual acessar a aplicação web é mydemodocdbwebapp.azurewebsites.net).
+   1. NOME DO SITE: Especifica o nome da aplicação web do App Service e é utilizado para construir o URL que utiliza para aceder à aplicação web (por exemplo, se especificar "mydemodocdbwebapp", então o URL pelo qual acede à aplicação web é `mydemodocdbwebapp.azurewebsites.net`).
    2. HOSTINGPLANNAME: Especifica o nome do plano de alojamento do serviço de aplicações para criar.
    3. LOCALIZAÇÃO: Especifica a localização do Azure na qual se cria, o Azure Cosmos DB e a web, recursos de aplicação.
    4. DATABASEACCOUNTNAME: Especifica o nome da conta do Azure Cosmos DB para criar.   
@@ -114,7 +114,7 @@ Agora vamos implementar o modelo de segundo.  Este modelo é útil para mostrar 
 
 <a name="NextSteps"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Parabéns! Implementar o Azure Cosmos DB, aplicação web do serviço de aplicações e um exemplo de aplicação web com modelos Azure Resource Manager.
 
 * Para saber mais sobre o Azure Cosmos DB, clique em [aqui](https://azure.microsoft.com/services/cosmos-db/).
@@ -122,10 +122,10 @@ Parabéns! Implementar o Azure Cosmos DB, aplicação web do serviço de aplica�
 * Para saber mais sobre os modelos Azure Resource Manager, clique em [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia para a alteração de Web sites para o serviço de aplicações, consulte: [Serviço de aplicações do Azure e o respetivo impacto nos serviços do Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia da alteração de Web sites para o App Service, consulte: [App Service do Azure e o Respetivo Impacto nos Serviços do Azure Existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://go.microsoft.com/fwlink/?LinkId=523751), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.
+> Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://go.microsoft.com/fwlink/?LinkId=523751), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Não é necessário cartão de crédito; sem compromissos.
 > 
 > 
 

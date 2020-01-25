@@ -1,6 +1,6 @@
 ---
-title: Introdução da área de trabalho do Windows do Azure AD v2-configuração | Microsoft Docs
-description: Como um aplicativo .NET da área de trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade Azure Active Directory v2.
+title: Azure AD v2 Windows Desktop Getting Started - Config Microsoft Docs
+description: Como uma aplicação Windows Desktop .NET (XAML) pode obter um sinal de acesso e chamar uma API protegida por Azure Ative Directory v2 endpoint.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -15,18 +15,17 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: ryanwi
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a058024f8d6bdf7399e222c134f9f24c4ddffee8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e84d99d18d999a7b629f65f9d18355321f04e538
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835557"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712511"
 ---
-# <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar as informações de registro do aplicativo ao seu aplicativo
-Nesta etapa, você precisa adicionar a ID do aplicativo ao seu projeto.
+# <a name="add-the-applications-registration-information-to-your-app"></a>Adicione as informações de registo da aplicação à sua app
+Neste passo, é necessário adicionar o Id de Aplicação ao seu projeto.
 
-1.  Abra `App.xaml.cs` e substitua a linha que contém `ClientId` o por:
+1.  Abra `App.xaml.cs` e substitua a linha que contém o `ClientId` com:
 
 ```csharp
 private static string ClientId = "[Enter the application Id here]";

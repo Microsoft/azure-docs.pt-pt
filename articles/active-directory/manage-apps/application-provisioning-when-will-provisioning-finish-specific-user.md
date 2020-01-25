@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8238d2b417dbe03ad0623e472f1a239940c1bc8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: e7296c63a467b2f53550b3e609cf1146244cf933
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681383"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712120"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -35,12 +35,12 @@ Quando você configura o provisionamento automático pela primeira vez, a seçã
 - O tipo de ciclo de provisionamento (inicial ou incremental) que está em execução no momento ou foi concluído pela última vez.
 - Uma **barra de progresso** que mostra a porcentagem do ciclo de provisionamento que foi concluída. A porcentagem reflete a contagem de páginas provisionada. Observe que cada página pode conter vários usuários ou grupos, portanto, o percentual não se correlaciona diretamente com o número de usuários, grupos ou funções provisionados.
 - Um botão de **atualização** que você pode usar para manter a exibição atualizada.
-- O número de **usuários** e **grupos** no armazenamento de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao escopo do provisionamento. A contagem não será desativada se um usuário for excluído de forma reversível ou excluído com hardware, pois isso não remove o objeto do armazenamento de dados do conector. A contagem será recalculados a primeira sincronização depois que o CDS for [redefinido](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- O número de **usuários** e **grupos** no armazenamento de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao escopo do provisionamento. A contagem não será desativada se um usuário for excluído de forma reversível ou excluído com hardware, pois isso não remove o objeto do armazenamento de dados do conector. A contagem será recatada a primeira sincronização após a [reset](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) do CDS 
 - Um link **Exibir logs de auditoria** , que abre os logs de provisionamento do Azure ad para obter detalhes sobre todas as operações executadas pelo serviço de provisionamento de usuário, incluindo o status de provisionamento para usuários individuais (consulte a seção [usar logs de provisionamento](#use-provisioning-logs-to-check-a-users-provisioning-status) abaixo).
 
 Após a conclusão de um ciclo de provisionamento, a seção **estatísticas até a data** mostra os números cumulativos de usuários e grupos que foram provisionados até a data, junto com a data de conclusão e a duração do último ciclo. A **ID da atividade** identifica exclusivamente o ciclo de provisionamento mais recente. A **ID do trabalho** é um identificador exclusivo para o trabalho de provisionamento e é específica para o aplicativo em seu locatário.
 
-O progresso do provisionamento pode ser exibido na portal do Azure, no **Azure Active Directory &gt; Enterprise Apps &gt; \[nome do aplicativo**\] &gt; guia de provisionamento.
+O progresso do provisionamento pode ser visto no portal Azure, no **Azure Ative Directory &gt; Enterprise Apps &gt; \[nome** de aplicação\] &gt; do separador Provisioning.
 
 ![Barra de progresso da página de provisionamento](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -60,7 +60,7 @@ Os logs de provisionamento registram todas as operações executadas pelo servi�
 Para obter mais informações sobre como ler os logs de provisionamento no portal do Azure, consulte o guia de [relatórios de provisionamento](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo será necessário para provisionar os usuários?
-Ao usar o provisionamento automático de usuário com um aplicativo, o Azure AD provisiona e atualiza automaticamente as contas de usuário em um aplicativo com base em coisas como [atribuição de usuário e grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) em um intervalo de tempo agendado regularmente, normalmente a cada 40 minutos.
+Ao usar o provisionamento automático de usuário com um aplicativo, o Azure AD provisiona e atualiza automaticamente as contas de usuário em um aplicativo com base em coisas como [atribuição de usuário e grupo](assign-user-or-group-access-portal.md) em um intervalo de tempo agendado regularmente, normalmente a cada 40 minutos.
 
 O tempo necessário para que um determinado usuário seja provisionado depende principalmente de se o seu trabalho de provisionamento está executando um ciclo inicial ou um ciclo incremental.
 
@@ -102,7 +102,7 @@ Resumo dos fatores que influenciam o tempo necessário para concluir um **ciclo 
 
 - O número e os tamanhos de grupos atribuídos. A sincronização de grupos atribuídos leva mais tempo do que a sincronização de usuários. O número e os tamanhos dos grupos atribuídos impactam o desempenho. Se um aplicativo tiver [mapeamentos habilitados para sincronização de objeto de grupo](customize-application-attributes.md#editing-group-attribute-mappings), as propriedades de grupo, como nomes de grupo e associações, serão sincronizadas além dos usuários. Essas sincronizações adicionais levarão mais tempo do que apenas sincronizar objetos de usuário.
 
-- Se o desempenho se tornar um problema e você estiver tentando provisionar a maioria dos usuários e grupos em seu locatário, use filtros de escopo. Os filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando os usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+- Se o desempenho se tornar um problema e você estiver tentando provisionar a maioria dos usuários e grupos em seu locatário, use filtros de escopo. Os filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando os usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-[Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) (Automatizar o aprovisionamento e desaprovisionamento automático de utilizadores em aplicações SaaS no Azure Active Directory)
+[Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e desaprovisionamento automático de utilizadores em aplicações SaaS no Azure Active Directory)

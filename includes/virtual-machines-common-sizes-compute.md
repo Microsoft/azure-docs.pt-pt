@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 16a0fa29c067262f1794528b16abfce662d05605
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75752082"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748992"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -40,7 +40,7 @@ Cache de armazenamento Premium: com suporte
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000/512 (512)        | 51200/750              | 8 / 14000              |
 | Standard_F48s_v2 | 48     | 96          | 384            | 32             | 96000/768 (768)        | 76800 / 1100             | 8 / 21000              |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 / 1024 (1024)     | 80000 / 1100             | 8 / 28000              |
-| Standard_F72s_v2<sup>2,&nbsp;3</sup> | 72 | 144 | 576         | 32             | 144000 / 1152 (1520)     | 80000 / 1100             | 8 / 30000              |
+| <sup>Standard_F72s_v2 2,&nbsp;3</sup> | 72 | 144 | 576         | 32             | 144000 / 1152 (1520)     | 80000 / 1100             | 8 / 30000              |
 
 <sup>1</sup> o recurso de VMs da série Fsv2 Intel® tecnologia Hyper-Threading.
 
@@ -48,7 +48,7 @@ Cache de armazenamento Premium: com suporte
 - Windows Server 2016 ou posterior
 - Ubuntu 16, 4 LTS ou posterior, com kernel ajustado do Azure (kernel 4,15 ou posterior)
 - SLES 12 SP2 ou posterior
-- RHEL ou CentOS versão 6,7 a 6,10, com o pacote LIS fornecido pela Microsoft 4.3.1 (ou posterior) instalado
+- RHEL ou CentOS versão 6.7 a 6.10, com o pacote LIS fornecido pela Microsoft 4.3.1 (ou mais tarde) instalado
 - RHEL ou CentOS versão 7,3, com o pacote LIS fornecido pela Microsoft 4.2.1 (ou posterior) instalado
 - RHEL ou CentOS versão 7,6 ou posterior
 - Oracle Linux com UEK4 ou posterior

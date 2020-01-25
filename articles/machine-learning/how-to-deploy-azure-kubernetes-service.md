@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: 32a1ac971edb55c6e162f02b60042056cd0fee0f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315053"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722412"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS q
 * Anexe um cluster AKS existente ao seu espaço de trabalho Azure Machine Learning. Um cluster pode ser anexado usando o SDK do Azure Machine Learning, Machine Learning CLI ou Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> O processo de criação ou anexo é uma tarefa ocasional. Depois que um cluster AKS estiver conectado ao espaço de trabalho, você poderá usá-lo para implantações. Você pode desanexar ou excluir o cluster AKS se não precisar mais dele. Depois de Detatched ou excluído, você não poderá mais implantar no cluster.
+> O processo de criação ou anexo é uma tarefa ocasional. Depois que um cluster AKS estiver conectado ao espaço de trabalho, você poderá usá-lo para implantações. Você pode desanexar ou excluir o cluster AKS se não precisar mais dele. Uma vez destacado ou eliminado, deixará de ser capaz de se deslocar para o cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS q
 
     * `ws`-defina para seu espaço de trabalho.
     * `model`-defina para seu modelo registrado.
-    * `inference_config`-defina como a configuração de inferência para o modelo.
+    * `inference_config` - Definir para a configuração de inferência para o modelo.
 
     Para obter mais informações sobre como definir essas variáveis, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
@@ -67,7 +67,7 @@ Criar ou anexar um cluster AKS é um processo de uma vez para seu espaço de tra
 Se você quiser criar um cluster AKS para __desenvolvimento__, __validação__e __teste__ em vez de produção, poderá especificar a finalidade do __cluster__ para o __teste de desenvolvimento__.
 
 > [!WARNING]
-> Se você definir `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, o cluster criado não será adequado para o tráfego de nível de produção e poderá aumentar os tempos de inferência. Os clusters de desenvolvimento/teste também não garantem a tolerância a falhas. Recomendamos pelo menos duas CPUs virtuais para clusters de desenvolvimento/teste.
+> Se definir `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, o cluster que é criado não é adequado para o tráfego de nível de produção e pode aumentar os tempos de inferência. Os clusters de desenvolvimento/teste também não garantem a tolerância a falhas. Recomendamos pelo menos duas CPUs virtuais para clusters de desenvolvimento/teste.
 
 Os exemplos a seguir demonstram como criar um novo cluster AKS usando o SDK e a CLI:
 
@@ -92,16 +92,16 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> Por [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se você escolher valores personalizados para `agent_count` e `vm_size`e `cluster_purpose` não for `DEV_TEST`, será necessário ter certeza de que `agent_count` multiplicado pelo `vm_size` é maior ou igual a 12 CPUs virtuais. Por exemplo, se você usar um `vm_size` de "Standard_D3_v2", que tem 4 CPUs virtuais, deverá escolher uma `agent_count` de 3 ou mais.
+> Para [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se escolher valores personalizados para `agent_count` e `vm_size`, e `cluster_purpose` não é `DEV_TEST`, então você precisa ter certeza de que `agent_count` multiplicado por `vm_size` é maior ou igual a 12 CPUs virtuais. Por exemplo, se utilizar um `vm_size` de "Standard_D3_v2", que tem 4 CPUs virtuais, então deve escolher uma `agent_count` de 3 ou mais.
 >
 > O SDK do Azure Machine Learning não fornece suporte para dimensionar um cluster AKS. Para dimensionar os nós no cluster, use a interface do usuário para o cluster AKS no Azure Machine Learning Studio. Você só pode alterar a contagem de nós, não o tamanho da VM do cluster.
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute. provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [ComputeTarget. Create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget. wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
+* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
 
 **Usando a CLI**
 
@@ -122,11 +122,11 @@ Se você já tiver o cluster AKS em sua assinatura do Azure e for a versão 1,17
 >
 > Se você quiser proteger o cluster AKS usando uma rede virtual do Azure, primeiro deverá criar a rede virtual. Para obter mais informações, consulte [experimentação segura e inferência com a rede virtual do Azure](how-to-enable-virtual-network.md#aksvnet).
 
-Ao anexar um cluster AKS a um espaço de trabalho, você pode definir como usará o cluster definindo o parâmetro `cluster_purpose`.
+Ao ligar um cluster AKS a um espaço de trabalho, pode definir como utilizará o cluster definindo o parâmetro `cluster_purpose`.
 
-Se você não definir o parâmetro `cluster_purpose` ou definir `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, o cluster deverá ter pelo menos 12 CPUs virtuais disponíveis.
+Se não definir o parâmetro `cluster_purpose`, ou definir `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, então o cluster deve ter pelo menos 12 CPUs virtuais disponíveis.
 
-Se você definir `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, o cluster não precisará ter 12 CPUs virtuais. Recomendamos pelo menos duas CPUs virtuais para desenvolvimento/teste. No entanto, um cluster configurado para desenvolvimento/teste não é adequado para o tráfego de nível de produção e pode aumentar os tempos de inferência. Os clusters de desenvolvimento/teste também não garantem a tolerância a falhas.
+Se configurar `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, então o cluster não precisa de ter 12 CPUs virtuais. Recomendamos pelo menos duas CPUs virtuais para desenvolvimento/teste. No entanto, um cluster configurado para desenvolvimento/teste não é adequado para o tráfego de nível de produção e pode aumentar os tempos de inferência. Os clusters de desenvolvimento/teste também não garantem a tolerância a falhas.
 
 > [!WARNING]
 > Não crie vários anexos simultâneos para o mesmo cluster AKS do seu espaço de trabalho. Por exemplo, anexar um cluster AKS a um espaço de trabalho usando dois nomes diferentes. Cada novo anexo interromperá os anexos existentes anteriores.
@@ -159,7 +159,7 @@ aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AksCompute. attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
 * [AksCompute. Attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
@@ -209,9 +209,9 @@ print(service.get_logs())
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py)
-* [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
 * [Modelo. implantar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
+* [Serviço web.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>Usando a CLI
 
@@ -233,7 +233,7 @@ Para obter informações sobre como usar VS Code, consulte [implantar no AKs por
 > A implantação por meio do VS Code requer que o cluster AKS seja criado ou anexado ao seu espaço de trabalho com antecedência.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implantar modelos no AKS usando a distribuição controlada (versão prévia)
-Analise e promova versões de modelo de maneira controlada usando pontos de extremidade. Implante até 6 versões por trás de um único ponto de extremidade e configure o% do tráfego de Pontuação para cada versão implantada. Você pode habilitar o app insights para exibir as métricas operacionais de pontos de extremidade e versões implantadas.
+Analise e promova versões de modelo de maneira controlada usando pontos de extremidade. Implementar até 6 versões atrás de um único ponto final e configurar a % de pontuação do tráfego para cada versão implantada. Você pode habilitar o app insights para exibir as métricas operacionais de pontos de extremidade e versões implantadas.
 
 ### <a name="create-an-endpoint"></a>Criar um ponto final
 Quando você estiver pronto para implantar seus modelos, crie um ponto de extremidade de Pontuação e implante sua primeira versão. A etapa a seguir mostra como implantar e criar o ponto de extremidade usando o SDK. A primeira implantação será definida como a versão padrão, o que significa que o percentual de tráfego não especificado em todas as versões vai para a versão padrão.  
@@ -299,7 +299,7 @@ endpoint.delete_version(version_name="versionb")
 
 Ao implantar no serviço kubernetes do Azure, a autenticação __baseada em chave__ é habilitada por padrão. Você também pode habilitar __a autenticação baseada em token__ . A autenticação baseada em token exige que os clientes usem uma conta de Azure Active Directory para solicitar um token de autenticação, que é usado para fazer solicitações ao serviço implantado.
 
-Para __desabilitar__ a autenticação, defina o parâmetro `auth_enabled=False` ao criar a configuração de implantação. O exemplo a seguir desabilita a autenticação usando o SDK:
+Para __desativar__ a autenticação, defina o parâmetro `auth_enabled=False` ao criar a configuração de implantação. O exemplo a seguir desabilita a autenticação usando o SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -309,7 +309,7 @@ Para obter informações sobre como autenticar de um aplicativo cliente, consult
 
 ### <a name="authentication-with-keys"></a>Autenticação com chaves
 
-Se a autenticação de chave estiver habilitada, você poderá usar o método `get_keys` para recuperar uma chave de autenticação primária e secundária:
+Se a autenticação chave estiver ativada, pode utilizar o método `get_keys` para recuperar uma chave de autenticação primária e secundária:
 
 ```python
 primary, secondary = service.get_keys()
@@ -317,17 +317,17 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se você precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticação com tokens
 
-Para habilitar a autenticação de token, defina o parâmetro `token_auth_enabled=True` ao criar ou atualizar uma implantação. O exemplo a seguir habilita a autenticação de token usando o SDK:
+Para permitir a autenticação simbólica, defina o parâmetro `token_auth_enabled=True` quando estiver a criar ou atualizar uma implementação. O exemplo a seguir habilita a autenticação de token usando o SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Se a autenticação de token estiver habilitada, você poderá usar o método `get_token` para recuperar um token JWT e o tempo de expiração desse token:
+Se a autenticação simbólica estiver ativada, pode utilizar o método `get_token` para recuperar um símbolo JWT e o tempo de validade do token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -335,7 +335,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Você precisará solicitar um novo token após o tempo de `refresh_by` do token.
+> Terá de pedir um novo sinal depois do `refresh_by` tempo do token.
 >
 > A Microsoft recomenda enfaticamente que você crie seu espaço de trabalho Azure Machine Learning na mesma região que o cluster do serviço kubernetes do Azure. Para autenticar com um token, o serviço Web fará uma chamada para a região em que seu espaço de trabalho Azure Machine Learning é criado. Se a região do seu espaço de trabalho estiver indisponível, você não poderá buscar um token para o serviço Web mesmo que o cluster esteja em uma região diferente do seu espaço de trabalho. Isso efetivamente resulta na indisponibilidade da autenticação baseada em token até que a região do seu espaço de trabalho esteja disponível novamente. Além disso, quanto maior a distância entre a região do cluster e a região do seu espaço de trabalho, mais tempo será levado para buscar um token.
 

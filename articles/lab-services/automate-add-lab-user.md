@@ -1,6 +1,6 @@
 ---
 title: Automatizar a adição de um usuário de laboratório no Azure DevTest Labs | Microsoft Docs
-description: Saiba como automatizar a adição de um usuário de laboratório a um laboratório no Azure DevTest Labs.
+description: Este artigo mostra-lhe como automatizar adicionar um utilizador a um laboratório em Azure DevTest Labs usando modelos de Gestor de Recursos Azure, PowerShell e CLI.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: deec67a2c64a57bbb380b3fd87bf820499e6efed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980058"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718144"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatize a adição de um usuário de laboratório a um laboratório no Azure DevTest Labs
 Azure DevTest Labs permite criar rapidamente ambientes de desenvolvimento e teste de autoatendimento usando o portal do Azure. No entanto, se você tiver várias equipes e várias instâncias do DevTest Labs, a automatização do processo de criação poderá poupar tempo. Os [modelos de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) permitem criar laboratórios, VMS de laboratório, imagens personalizadas, fórmulas e adicionar usuários de maneira automatizada. Este artigo se concentra especificamente na adição de usuários a uma instância do DevTest Labs.
@@ -124,7 +124,7 @@ A ID da função é definida na seção de variáveis e denominada `devTestLabUs
 ### <a name="principal-id"></a>ID da entidade
 ID da entidade de segurança é a ID de objeto do Active Directory usuário, grupo ou entidade de serviço que você deseja adicionar como um usuário do laboratório ao laboratório. O modelo usa o `ObjectId` como um parâmetro.
 
-Você pode obter o ObjectId usando os cmdlets do PowerShell [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0), [Get-AzureRMADGroup ou [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) . Esses cmdlets retornam uma única lista de Active Directory objetos que têm uma propriedade de ID, que é a ID de objeto de que você precisa. O exemplo a seguir mostra como obter a ID de objeto de um único usuário em uma empresa.
+Pode obter o ObjectId utilizando os Cmdlets [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0), [Get-AzureRMADGroup ou [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) PowerShell. Esses cmdlets retornam uma única lista de Active Directory objetos que têm uma propriedade de ID, que é a ID de objeto de que você precisa. O exemplo a seguir mostra como obter a ID de objeto de um único usuário em uma empresa.
 
 ```powershell
 $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id

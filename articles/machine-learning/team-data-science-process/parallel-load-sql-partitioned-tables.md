@@ -3,20 +3,20 @@ title: Importação de dados em massa paralelo nas tabelas de partição do SQL 
 description: Crie tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428308"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721341"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Compilar e otimizar tabelas para a importação de dados rápido paralela num SQL Server numa VM do Azure
 
@@ -66,7 +66,7 @@ Para criar tabelas particionadas, de acordo com o esquema de dados, mapeado para
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
 
-### <a name="2-create-a-partition-scheme"></a>2. Criar um esquema de partição
+### <a name="2-create-a-partition-scheme"></a>2. Criar um regime de partição
 [Criar um esquema de partição](https://msdn.microsoft.com/library/ms179854.aspx). Este esquema mapeia cada intervalo de partição na função de partição para um grupo de ficheiros físico, por exemplo:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -85,7 +85,7 @@ Para criar tabelas particionadas, de acordo com o esquema de dados, mapeado para
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
 
-### <a name="3-create-a-partition-table"></a>3. Criar uma tabela de partição
+### <a name="3-create-a-partition-table"></a>3. Criar uma mesa de partição
 [Criar tabela particionada](https://msdn.microsoft.com/library/ms174979.aspx)(s) de acordo com seu esquema de dados e especificar o campo de esquema e restrição de partição utilizado para particionar a tabela, por exemplo:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
@@ -99,7 +99,7 @@ Para obter mais informações, consulte [criar tabelas Particionadas e índices]
 * [Alterar o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de Registro em log de transação para BULK_LOGGED para minimizar a sobrecarga de iniciar sessão, por exemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Para acelerar o processo de carregamento de dados, inicie as operações de importação em massa em paralelo. Para obter dicas sobre acelerar em massa importação de grandes volumes de dados para bases de dados do SQL Server, consulte [carregar 1TB em menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Para acelerar o processo de carregamento de dados, inicie as operações de importação em massa em paralelo. Para obter dicas sobre a rápida importação a granel de big data para as bases de dados do SQL Server, consulte [a Carregar 1 TB em menos](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)de 1 hora .
 
 O seguinte script do PowerShell é um exemplo de paralelos com o BCP de carregamento de dados.
 

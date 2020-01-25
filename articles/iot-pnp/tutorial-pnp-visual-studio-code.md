@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 720b3e56e1dd45bd2940b337adefa6ebdaa2e5a1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550337"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719726"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code
 
@@ -233,7 +233,7 @@ Para criar um arquivo de modelo que especifica as interfaces que o dispositivo d
           "name": "deviceinfo"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -255,7 +255,7 @@ Para baixar a interface **DeviceInformation** do repositório de modelos públic
 
 Agora você tem os três arquivos que compõem o modelo de capacidade do dispositivo:
 
-* urn_azureiot_DeviceManagement_DeviceInformation_1. interface. JSON
+* urn_azureiot_DeviceManagement_DeviceInformation_1.interface.json
 * EnvironmentalSensor. interface. JSON
 * SensorboxModel. capabilitymodel. JSON
 
@@ -311,7 +311,7 @@ Você pode usar as **Ferramentas do Azure IOT para vs Code** para gerar o esquel
 
 1. Escolha **via Vcpkg** como uma maneira de incluir o SDK do dispositivo.
 
-VS Code gera o código de esqueleto C e salva os arquivos na pasta **sensorbox_app** na pasta **modelcode** VS Code abre uma nova janela que contém os arquivos de código gerados.
+O Código VS gera o código C do esqueleto e guarda os ficheiros na pasta **sensorbox_app** na pasta de código de **modelo.** VS Code abre uma nova janela que contém os arquivos de código gerados.
 
 ## <a name="update-the-generated-code"></a>Atualizar o código gerado
 
@@ -319,7 +319,7 @@ Antes de criar e executar o código, você precisa implementar as propriedades, 
 
 Para fornecer implementações para o código fragmentado no VS Code:
 
-1. Abra o arquivo **SensorboxModel_impl. c** .
+1. Abra o ficheiro **SensorboxModel_impl.c.**
 
 1. Adicione o código para implementar as funções fragmentado.
 
@@ -329,7 +329,7 @@ Para fornecer implementações para o código fragmentado no VS Code:
 
 Antes de executar o código para testar seu dispositivo de Plug and Play de IoT com um hub IoT do Azure, você precisa compilar o código.
 
-Siga as instruções no arquivo **README.MD** na pasta **sensorbox_app** para compilar e executar o código no Windows. A seção a seguir inclui instruções para recuperar uma cadeia de conexão de dispositivo a ser usada quando você executar o código do dispositivo.
+Siga as instruções no ficheiro **Readme.md** na pasta **sensorbox_app** para construir e executar o código no Windows. A seção a seguir inclui instruções para recuperar uma cadeia de conexão de dispositivo a ser usada quando você executar o código do dispositivo.
 
 ## <a name="test-the-code"></a>Testar o código
 
@@ -352,7 +352,7 @@ Quando você executa o código, ele se conecta ao Hub IoT e começa a enviar amo
 
     Anote a cadeia de conexão.
 
-1. Em um prompt de comando, navegue até a pasta **Azure-IOT-SDK-c** em que você criou o SDK e os exemplos. Em seguida, navegue até o **cmake\\sensorbox_app\\** pasta de versão.
+1. Em um prompt de comando, navegue até a pasta **Azure-IOT-SDK-c** em que você criou o SDK e os exemplos. Em seguida, navegue para a **pasta\\sensorbox_app\\de lançamento** sensorbox_app.
 
 1. Execute o seguinte comando:
 

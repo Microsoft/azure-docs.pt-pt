@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbfa6f8b85814f0f77234e014ade0ff757a4c4b8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431593"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720083"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analisar dados JSON e Avro no Azure Stream Analytics
 
@@ -60,7 +60,7 @@ FROM input
 ```
 
 ### <a name="select-all-properties"></a>Selecionar todas as propriedades
-Você pode selecionar todas as propriedades de um registro aninhado usando o curinga ' * '. Considere o exemplo seguinte:
+Você pode selecionar todas as propriedades de um registro aninhado usando o curinga ' * '. Considere o seguinte exemplo:
 
 ```SQL
 SELECT input.Location.*
@@ -78,7 +78,7 @@ O resultado é:
 
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Acessar campos aninhados quando o nome da propriedade for uma variável
-Use a função [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) se o nome da propriedade for uma variável. 
+Use a função [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) se o nome da propriedade for uma variável. 
 
 Por exemplo, imagine um fluxo de dados de exemplo precisa ser Unido a dados de referência que contenham limites para cada sensor de dispositivo. Um trecho desses dados de referência é mostrado abaixo.
 

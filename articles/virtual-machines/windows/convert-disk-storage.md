@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cbc2d09429c0a36992167b8c8251d0a570ffbae3
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: e339f0c7ca0807eec3e160eeb3464044c2ef29ba
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563314"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720950"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerenciado
 
@@ -63,9 +63,8 @@ foreach ($disk in $vmDisks)
 {
     if ($disk.ManagedBy -eq $vm.Id)
     {
-        $diskUpdateConfig = New-AzDiskUpdateConfig –AccountType $storageType
-        Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-        -DiskName $disk.Name
+        $disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+        $disk | Update-AzDisk
     }
 }
 
@@ -102,9 +101,8 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
@@ -147,9 +145,8 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```

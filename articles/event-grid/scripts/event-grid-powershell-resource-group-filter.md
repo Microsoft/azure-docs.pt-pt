@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-assinar o grupo de recursos
-description: Grade de eventos do Azure & Azure PowerShell amostra de script – assine o grupo de recursos e filtre por recurso
+title: Azure PowerShell - subscreva o grupo de recursos
+description: Este artigo fornece uma amostra do script Azure PowerShell que mostra como subscrever eventos da Rede de Eventos para um grupo de recursos e filtrar para um recurso.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 222bf6fb9297afda038b38d3fb528711ad03a3ca
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5d41bfec5978d1baf38eaf1608f50375170d9929
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790737"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720610"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>Subscrever eventos de um grupo de recursos e filtrar um recurso com o PowerShell
 
@@ -30,11 +30,11 @@ Este script cria uma subscrição do Event Grid para os eventos para um grupo de
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
-## <a name="sample-script---preview-module"></a>Script de exemplo – módulo de visualização
+## <a name="sample-script---preview-module"></a>Script de amostra - módulo de pré-visualização
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-O script de exemplo de visualização requer o módulo de grade de eventos. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+O script da amostra de pré-visualização requer o módulo De Rede de Eventos. Para instalar, executar `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
 

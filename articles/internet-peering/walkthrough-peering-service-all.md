@@ -1,21 +1,21 @@
 ---
-title: Instruções do parceiro de serviço de emparelhamento
+title: Instruções para parceiros do Peering Service
 titleSuffix: Azure
-description: Instruções do parceiro de serviço de emparelhamento
+description: Instruções para parceiros do Peering Service
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 28aa9f921de64fcc838935cf65b64a63280ddf16
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d626d98613bd5d988b599d0980c885d7f73bb958
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774630"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720253"
 ---
-# <a name="peering-service-partner-walkthrough"></a>Instruções do parceiro de serviço de emparelhamento
+# <a name="peering-service-partner-walkthrough"></a>Instruções para parceiros do Peering Service
 
 Esta seção explica as etapas que um provedor precisa seguir para habilitar um emparelhamento direto para o serviço de emparelhamento.
 
@@ -25,7 +25,7 @@ Os provedores de serviços podem expandir seu alcance geográfico criando um nov
 1. Siga as instruções para [criar ou modificar um emparelhamento direto usando o portal](howto-direct-portal.md). Verifique se ele atende aos requisitos de alta disponibilidade.
 1. Em seguida, siga as etapas para [habilitar o serviço de emparelhamento em um emparelhamento direto usando o portal](howto-peering-service-portal.md).
 
-## <a name="use-legacy-direct-peering-conection-for-peering-service"></a>Usar almejada de emparelhamento direto herdado para serviço de emparelhamento
+## <a name="use-legacy-direct-peering-connection-for-peering-service"></a>Utilize a conexão de peering direto legado para o Serviço de Peering
 Se você tiver um emparelhamento direto herdado que deseja usar para dar suporte ao serviço de emparelhamento,
 1. Torne-se um parceiro de serviço de emparelhamento, se ainda não estiver.
 1. Siga as instruções para [converter um emparelhamento direto herdado para o recurso do Azure usando o portal](howto-legacy-direct-portal.md). Se necessário, solicite circuitos adicionais para atender aos requisitos de alta disponibilidade.

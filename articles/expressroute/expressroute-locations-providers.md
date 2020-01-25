@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57a066132cbc8812fac95862bd1b02a3fc59ff2f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cbddd912831247e30f2913414c6dfa13131dde99
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293900"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719862"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -142,7 +142,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 
 ### <a name="national-cloud-environments"></a>Ambientes em nuvem nacionais
 
-As nuvens nacionais do Azure são isoladas umas das outras e das desaconselhável globais do Azure. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros.
+As nuvens nacionais azure estão isoladas umas das outras e do azure comercial global. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros.
 
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
 | **Localização** | **Corrigir** | **Regiões locais do Azure**| **ER direto** | **Fornecedores de serviços** |

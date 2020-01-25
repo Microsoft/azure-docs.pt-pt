@@ -1,6 +1,6 @@
 ---
-title: Exportar seus dados para o armazenamento de BLOBs do Azure | Microsoft Docs
-description: Como exportar dados de seu aplicativo de IoT Central do Azure para o armazenamento de BLOBs do Azure
+title: Exporte os seus dados para o Armazenamento de Blob Azure  Microsoft Docs
+description: Como exportar dados da sua aplicação Azure IoT Central para o Armazenamento De Blob Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
@@ -8,110 +8,110 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 79d578c910c7d08355901308e00db5912d1f3baf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176246"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721494"
 ---
-# <a name="export-your-data-to-azure-blob-storage"></a>Exportar seus dados para o armazenamento de BLOBs do Azure
+# <a name="export-your-data-to-azure-blob-storage"></a>Exporte os seus dados para o Armazenamento de Blob Azure
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-*Este tópico se aplica aos administradores do.*
+*Este tópico aplica-se aos administradores.*
 
-Este artigo descreve como usar o recurso de exportação de dados contínuos no Azure IoT Central para exportar dados periodicamente para sua **conta de armazenamento de BLOBs do Azure** ou **Azure data Lake Storage Gen2 conta de armazenamento**. Você pode exportar **medidas**, **dispositivos**e **modelos de dispositivo** para arquivos no formato JSON ou Apache Avro. Os dados exportados podem ser usados para a análise de caminho frio, como modelos de treinamento em Azure Machine Learning ou análise de tendência de longo prazo no Microsoft Power BI.
+Este artigo descreve como utilizar a funcionalidade contínua de exportação de dados no Azure IoT Central para exportar periodicamente dados para a sua conta de **armazenamento Azure Blob** ou para a conta de **armazenamento do Lago Azure.** Pode exportar **medições,** **dispositivos**e modelos de **dispositivos** para ficheiros em formato JSON ou Apache Avro. Os dados exportados podem ser utilizados para análise de caminhos frios, como modelos de treino em Azure Machine Learning ou análise de tendências a longo prazo no Microsoft Power BI.
 
 > [!Note]
-> Ao ativar a exportação de dados contínuas, você obtém apenas os dados desse momento em diante. Atualmente, os dados não podem ser recuperados por um horário quando a exportação de dados contínuas estava desativada. Para manter mais dados históricos, ative a exportação contínua de dados antecipadamente.
+> Quando liga a exportação contínua de dados, obtém-se apenas os dados a partir desse momento. Atualmente, os dados não podem ser recuperados por um tempo em que a exportação contínua de dados estava desligada. Para reter dados mais históricos, ligue a exportação contínua de dados mais cedo.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ser um administrador em seu aplicativo IoT Central
+- Deve ser administrador na sua aplicação IoT Central
 
 
-## <a name="set-up-export-destination"></a>Configurar destino de exportação
+## <a name="set-up-export-destination"></a>Configurar o destino de exportação
 
-Se você não tiver um armazenamento existente para exportar para o, siga estas etapas:
+Se não tiver um Armazenamento existente para exportar, siga estes passos:
 
-1. Crie uma [nova conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode saber mais sobre como criar novas [contas de armazenamento de BLOBs do Azure](https://aka.ms/blobdocscreatestorageaccount) ou [contas de armazenamento Azure data Lake Storage v2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
-
-    > [!Note] 
-    > Se você optar por exportar dados para uma conta de armazenamento ADLS v2, deverá escolher **tipo de conta** como **BlobStorage**. 
+1. Crie uma nova conta de [armazenamento no portal Azure.](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Pode saber mais sobre a criação de novas contas de [armazenamento Azure Blob](https://aka.ms/blobdocscreatestorageaccount) ou contas de armazenamento V2 do [Azure Data Lake](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account)Storage.
 
     > [!Note] 
-    > Você pode exportar dados para contas de armazenamento em assinaturas diferentes daquela para seu aplicativo de IoT Central pré-pago. Nesse caso, você se conectará usando uma cadeia de conexão.
+    > Se optar por exportar dados para uma conta de armazenamento ADLS v2, deve escolher **o Account Kind** como **BlobStorage**. 
 
-2. Crie um contêiner em sua conta de armazenamento. Vá para sua conta de armazenamento. Em **serviço blob**, selecione **procurar BLOBs**. Selecione **+ contêiner** na parte superior para criar um novo contêiner.
+    > [!Note] 
+    > Pode exportar dados para contas de armazenamento em subscrições diferentes das da sua aplicação Pay-As-You-Go IoT Central. Irá ligar-se utilizando uma corda de ligação neste caso.
 
-## <a name="set-up-continuous-data-export"></a>Configurar a exportação de dados contínuas
+2. Crie um recipiente na sua conta de armazenamento. Vá para sua conta de armazenamento. No **serviço Blob,** selecione **Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
 
-Agora que você tem um destino de armazenamento para o qual exportar dados, siga estas etapas para configurar a exportação de dados contínuas. 
+## <a name="set-up-continuous-data-export"></a>Configurar a exportação contínua de dados
 
-1. Entre no seu aplicativo IoT Central.
+Agora que tem um destino de armazenamento para exportar dados, siga estes passos para configurar a exportação contínua de dados. 
 
-2. No painel esquerdo, selecione **exportação de dados**.
+1. Inscreva-se na sua aplicação IoT Central.
+
+2. No painel esquerdo, selecione **Data Export**.
 
     > [!Note]
-    > Se você não vir a exportação de dados no painel esquerdo, você não é um administrador em seu aplicativo. Converse com um administrador para configurar a exportação de dados.
+    > Se não vir a Exportação de Dados no painel esquerdo, não é administrador na sua aplicação. Fale com um administrador para configurar a exportação de dados.
 
-3. Selecione o botão **+ novo** no canto superior direito. Escolha o **armazenamento de BLOBs do Azure** como o destino de sua exportação. 
-
-    > [!NOTE] 
-    > O número máximo de exportações por aplicativo é cinco. 
-
-    ![Criar nova exportação de dados contínuas](media/howto-export-data/export-new2.png)
-
-4. Na caixa de listagem suspensa, selecione o namespace da **conta de armazenamento**. Você também pode escolher a última opção na lista que é **Inserir uma cadeia de conexão**. 
+3. Selecione o botão **+ Novo** no topo direito. Escolha **o Armazenamento Azure Blob** como destino da sua exportação. 
 
     > [!NOTE] 
-    > Você só verá namespaces de contas de armazenamento na **mesma assinatura que seu aplicativo IOT central**. Se você quiser exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e consulte a etapa 5.
+    > O número máximo de exportações por app é de cinco. 
+
+    ![Criar novas exportações contínuas de dados](media/howto-export-data/export-new2.png)
+
+4. Na caixa de lista seletiva, selecione o seu espaço de **nome da Conta de Armazenamento**. Também pode escolher a última opção na lista que é Introduzir uma cadeia de **ligação**. 
 
     > [!NOTE] 
-    > Para aplicativos de avaliação de 7 dias, a única maneira de configurar a exportação de dados contínuas é por meio de uma cadeia de conexão. Isso ocorre porque os aplicativos de avaliação de 7 dias não têm uma assinatura do Azure associada.
+    > Só verá espaços de nome de Contas de Armazenamento na **mesma subscrição que a sua aplicação IoT Central**. Se quiser exportar para um destino fora desta subscrição, escolha Entrar numa corda de **ligação** e ver o passo 5.
 
-    ![Criar nova exportação para o blob](media/howto-export-data/export-create-blob2.png)
+    > [!NOTE] 
+    > Para aplicações de teste de 7 dias, a única maneira de configurar a exportação contínua de dados é através de uma cadeia de ligação. Isto porque as aplicações de teste de 7 dias não têm uma subscrição azure associada.
 
-5. Adicional Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para sua conta de armazenamento, vá para a conta de armazenamento no portal do Azure:-em **configurações**, selecione **chaves de acesso** – Copie a cadeia de conexão key1 ou a cadeia de conexão Key2
+    ![Criar nova exportação para blob](media/howto-export-data/export-create-blob2.png)
+
+5. (Opcional) Se escolher uma corda de **ligação,** aparece uma nova caixa para colar a corda de ligação. Para obter a cadeia de ligação para a sua conta de armazenamento, aceda à conta de Armazenamento no portal Azure: - Em **Definições,** selecione **teclas de acesso** - Copie a cadeia de ligação chave1 ou a cadeia de ligação chave2
  
-6. Escolha um contêiner na caixa de listagem suspensa. Se você não tiver um contêiner, vá para sua conta de armazenamento no portal do Azure:
-    - Em **serviço blob**, selecione **BLOBs**. Clique em **+ contêiner** e dê um nome ao seu contêiner. Escolha um nível de acesso público para seus dados (qualquer um funcionará com a exportação de dados contínua). Saiba mais nos [documentos do armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+6. Escolha um recipiente da caixa de listas. Se não tiver um contentor, vá à sua conta de Armazenamento no portal Azure:
+    - Sob **o serviço Blob,** selecione **Blobs**. Clique em **+ Recipiente** e dê um nome ao seu recipiente. Escolha um nível de acesso público para os seus dados (qualquer um trabalhará com a exportação contínua de dados). Saiba mais com [os docs de Armazenamento Azure.](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-7. Escolha o **formato de dados** que você prefere: JSON ou formato [Apache Avro](https://avro.apache.org/docs/current/index.html) .
+7. Escolha o **formato Data** que prefere: formato JSON ou [Apache Avro.](https://avro.apache.org/docs/current/index.html)
 
-8. Em **dados a serem exportados**, especifique cada tipo de dados a serem exportados definindo o tipo como **ativado**.
+8. Em **Dados a exportar,** especifique cada tipo de dados a exportar, definindo o tipo para **On**.
 
-9. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Selecione **Guardar**.
+9. Para ativar a exportação contínua de dados, certifique-se de que o toggle de **exportação de Dados** está **ligado**. Selecione **Guardar**.
 
-   ![Configurar exportação de dados contínua](media/howto-export-data/export-list-blob2.png)
+   ![Configurar a exportação de dados contínua](media/howto-export-data/export-list-blob2.png)
 
-10. Depois de alguns minutos, seus dados aparecerão na sua conta de armazenamento.
+10. Após alguns minutos, os seus dados aparecerão na sua conta de armazenamento.
 
 
 ## <a name="path-structure"></a>Estrutura do caminho
 
-Medidas, dispositivos e dados de modelos de dispositivo são exportados para sua conta de armazenamento uma vez por minuto, com cada arquivo que contém o lote de alterações desde o último arquivo exportado. Os dados exportados são colocados em três pastas no formato JSON ou Avro. Os caminhos padrão em sua conta de armazenamento são:
-- Mensagens: {Container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
-- Dispositivos: {Container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
-- Modelos de dispositivo: {Container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+As medições, dispositivos e modelos de dispositivos são exportados para a sua conta de armazenamento uma vez por minuto, com cada ficheiro contendo o lote de alterações desde o último ficheiro exportado. Os dados exportados são colocados em três pastas em formato JSON ou Avro. Os caminhos predefinidos na sua conta de armazenamento são:
+- Mensagens: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Dispositivos: {contentor}/dispositivos/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Modelos do dispositivo: {recipiente}/dispositivoTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
 
-Você pode procurar os arquivos exportados no portal do Azure navegando até o arquivo e escolhendo a guia **Editar blob** .
+Pode navegar nos ficheiros exportados no portal Azure navegando até ao ficheiro e escolhendo o separador **'edição'.**
 
 ## <a name="data-format"></a>Formato de dados 
 
 ### <a name="measurements"></a>Medições
 
-Os dados de medidas exportados têm todas as novas mensagens recebidas por IoT Central de todos os dispositivos durante esse tempo. Os arquivos exportados usam o mesmo formato que os arquivos de mensagem exportados pelo [Roteamento de mensagens do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para o armazenamento de BLOBs.
+Os dados de medição exportados têm todas as novas mensagens recebidas pela IoT Central de todos os dispositivos durante esse período. Os ficheiros exportados utilizam o mesmo formato que os ficheiros de mensagens exportados pela [mensagem IoT Hub, encaminhamento](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para o armazenamento blob.
 
 > [!NOTE]
-> Verifique se os dispositivos estão enviando mensagens com `contentType: application/JSON` e `contentEncoding:utf-8` (ou `utf-16``utf-32`). Consulte a [documentação do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) para obter um exemplo.
+> Certifique-se de que os seus dispositivos estão a enviar mensagens que tenham `contentType: application/JSON` e `contentEncoding:utf-8` (ou `utf-16`, `utf-32`). Consulte a [documentação do IoT Hub,](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) por exemplo.
 
 > [!NOTE]
-> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos do dispositivo. Correlacione cada registro de mensagem usando o **connectionDeviceId** que corresponde ao **DeviceID** do registro do dispositivo.
+> Os dispositivos que enviam as medições estão representados por IDs do dispositivo (ver as seguintes secções). Para obter os nomes dos dispositivos, exporte as fotos do dispositivo. Correlacionar cada registo de mensagens utilizando a **ligaçãoDeviceId** que corresponde ao **dispositivoId** do registo do dispositivo.
 
-O exemplo a seguir mostra um registro em um arquivo Avro decodificado:
+O exemplo seguinte mostra um registo num ficheiro Avro descodificado:
 
 ```json
 { 
@@ -129,25 +129,25 @@ O exemplo a seguir mostra um registro em um arquivo Avro decodificado:
 
 ### <a name="devices"></a>Dispositivos
 
-Quando a exportação de dados contínuas é ativada pela primeira vez, um único instantâneo com todos os dispositivos é exportado. Cada dispositivo inclui:
-- `id` do dispositivo no IoT Central
+Quando a exportação contínua de dados é ligada pela primeira vez, exporta-se uma única imagem com todos os dispositivos. Cada dispositivo inclui:
+- `id` do dispositivo na IoT Central
 - `name` do dispositivo
-- `deviceId` do [serviço de provisionamento de dispositivos](/azure/iot-central/core/howto-connect-nodejs)
-- Informações do modelo do dispositivo
+- `deviceId` do Serviço de Provisionamento de [Dispositivos](/azure/iot-central/core/howto-connect-nodejs)
+- Informações sobre modelo de dispositivo
 - Valores de propriedade
-- Definindo valores
+- Definir valores
 
-Um novo instantâneo é gravado uma vez por minuto. O instantâneo inclui:
+Uma nova imagem é escrita uma vez por minuto. O instantâneo inclui:
 
 - Novos dispositivos adicionados desde o último instantâneo.
-- Dispositivos com propriedade alterada e valores de configuração desde o último instantâneo.
+- Dispositivos com propriedades alteradas e valores de definição desde o último instantâneo.
 
 > [!NOTE]
-> Dispositivos excluídos desde o último instantâneo não são exportados. Atualmente, os instantâneos não têm indicadores para dispositivos excluídos.
+> Os dispositivos apagados desde que o último instantâneo não são exportados. Atualmente, as imagens não têm indicadores para dispositivos apagados.
 >
-> O modelo de dispositivo ao qual cada dispositivo pertence é representado por uma ID de modelo de dispositivo. Para obter o nome do modelo de dispositivo, exporte os instantâneos de modelo de dispositivo.
+> O modelo de dispositivo a que cada dispositivo pertence é representado por um ID de modelo de dispositivo. Para obter o nome do modelo do dispositivo, exporte os instantâneos do modelo do dispositivo.
 
-Os arquivos exportados contêm uma única linha por registro. O exemplo a seguir mostra um registro no formato Avro, decodificado:
+Os ficheiros exportados contêm uma única linha por registo. O exemplo seguinte mostra um registo no formato Avro, descodificado:
 
 ```json
 { 
@@ -179,23 +179,23 @@ Os arquivos exportados contêm uma única linha por registro. O exemplo a seguir
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
-Quando a exportação de dados contínuas é ativada pela primeira vez, um único instantâneo com todos os modelos de dispositivo é exportado. Cada modelo de dispositivo inclui:
-- `id` do modelo de dispositivo
-- `name` do modelo de dispositivo
-- `version` do modelo de dispositivo
-- Tipos de dados de medição e valores mín./máx.
-- Tipos de dados de propriedade e valores padrão.
-- Definindo tipos de dados e valores padrão.
+Quando a exportação contínua de dados é ligada pela primeira vez, exporta-se um único instantâneo com todos os modelos do dispositivo. Cada modelo de dispositivo inclui:
+- `id` do modelo do dispositivo
+- `name` do modelo do dispositivo
+- `version` do modelo do dispositivo
+- Tipos de dados de medição e valores min/max.
+- Tipos de dados de propriedade e valores predefinidos.
+- Definição de tipos de dados e valores predefinidos.
 
-Um novo instantâneo é gravado uma vez por minuto. O instantâneo inclui:
+Uma nova imagem é escrita uma vez por minuto. O instantâneo inclui:
 
 - Novos modelos de dispositivo adicionados desde o último instantâneo.
-- Modelos de dispositivo com medidas alteradas, propriedade e definições de configuração desde o último instantâneo.
+- Modelos de dispositivo com medições alteradas, propriedade e definições de definição desde o último instantâneo.
 
 > [!NOTE]
-> Modelos de dispositivo excluídos desde o último instantâneo não são exportados. Atualmente, os instantâneos não têm indicadores para modelos de dispositivo excluídos.
+> Os modelos do dispositivo apagados desde que o último instantâneo não são exportados. Atualmente, as imagens não têm indicadores para os modelos de dispositivos apagados.
 
-Os arquivos exportados contêm uma única linha por registro. O exemplo a seguir mostra um registro no formato Avro, decodificado:
+Os ficheiros exportados contêm uma única linha por registo. O exemplo seguinte mostra um registo no formato Avro, descodificado:
 
 ```json
 { 
@@ -271,20 +271,20 @@ Os arquivos exportados contêm uma única linha por registro. O exemplo a seguir
 }
 ```
 
-## <a name="read-exported-avro-files"></a>Ler arquivos Avro exportados
+## <a name="read-exported-avro-files"></a>Ler ficheiros Avro exportados
 
-Avro é um formato binário, portanto, os arquivos não podem ser lidos em seu estado bruto. Os arquivos podem ser decodificados para o formato JSON. Os exemplos a seguir mostram como analisar os arquivos de medidas, dispositivos e modelos de dispositivo Avro. Os exemplos correspondem aos exemplos descritos na seção anterior.
+Avro é um formato binário, por isso os ficheiros não podem ser lidos no seu estado bruto. Os ficheiros podem ser descodificados para o formato JSON. Os exemplos seguintes mostram como analisar as medições, dispositivos e modelos de dispositivos Ficheiros Avro. Os exemplos correspondem aos exemplos descritos na secção anterior.
 
-### <a name="read-avro-files-by-using-python"></a>Ler arquivos Avro usando Python
+### <a name="read-avro-files-by-using-python"></a>Leia os ficheiros Avro usando python
 
-#### <a name="install-pandas-and-the-pandavro-package"></a>Instalar o pandas e o pacote pandavro
+#### <a name="install-pandas-and-the-pandavro-package"></a>Instale pandas e o pacote pandavro
 
 ```python
 pip install pandas
 pip install pandavro
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Analisar um arquivo de medidas Avro
+#### <a name="parse-a-measurements-avro-file"></a>Parse um ficheiro Avro de medição
 
 ```python
 import json
@@ -316,7 +316,7 @@ def parse(filePath):
     print(transformed)
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo de dispositivos Avro
+#### <a name="parse-a-devices-avro-file"></a>Parse um ficheiro Avro dispositivos
 
 ```python
 import json
@@ -353,7 +353,7 @@ def parse(filePath):
     print(transformed)
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Analisar um arquivo de modelos de dispositivo Avro
+#### <a name="parse-a-device-templates-avro-file"></a>Parse um dispositivo modelos de arquivo Avro
 
 ```python
 import json
@@ -384,15 +384,15 @@ def parse(filePath):
     print(transformed)
 ```
 
-### <a name="read-avro-files-by-using-c"></a>Ler arquivos Avro usandoC#
+### <a name="read-avro-files-by-using-c"></a>Leia os ficheiros Avro usandoC#
 
-#### <a name="install-the-microsofthadoopavro-package"></a>Instalar o pacote Microsoft. Hadoop. Avro
+#### <a name="install-the-microsofthadoopavro-package"></a>Instale o pacote Microsoft.Hadoop.Avro
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Analisar um arquivo de medidas Avro
+#### <a name="parse-a-measurements-avro-file"></a>Parse um ficheiro Avro de medição
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -432,7 +432,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo de dispositivos Avro
+#### <a name="parse-a-devices-avro-file"></a>Parse um ficheiro Avro dispositivos
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -483,7 +483,7 @@ public static async Task Run(string filePath)
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Analisar um arquivo de modelos de dispositivo Avro
+#### <a name="parse-a-device-templates-avro-file"></a>Parse um dispositivo modelos de arquivo Avro
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -527,15 +527,15 @@ public static async Task Run(string filePath)
 }
 ```
 
-### <a name="read-avro-files-by-using-javascript"></a>Ler arquivos Avro usando JavaScript
+### <a name="read-avro-files-by-using-javascript"></a>Leia os ficheiros Avro usando javascript
 
-#### <a name="install-the-avsc-package"></a>Instalar o pacote AVSC
+#### <a name="install-the-avsc-package"></a>Instale o pacote avsc
 
 ```javascript
 npm install avsc
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Analisar um arquivo de medidas Avro
+#### <a name="parse-a-measurements-avro-file"></a>Parse um ficheiro Avro de medição
 
 ```javascript
 const avro = require('avsc');
@@ -572,7 +572,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo de dispositivos Avro
+#### <a name="parse-a-devices-avro-file"></a>Parse um ficheiro Avro dispositivos
 
 ```javascript
 const avro = require('avsc');
@@ -610,7 +610,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Analisar um arquivo de modelos de dispositivo Avro
+#### <a name="parse-a-device-templates-avro-file"></a>Parse um dispositivo modelos de arquivo Avro
 
 ```javascript
 const avro = require('avsc');
@@ -620,7 +620,7 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template ID and version from the id and verison properties.
+        // Fetch the template ID and version from the id and version properties.
         const templateId = record.id;
         const templateVersion = record.version;
 
@@ -647,7 +647,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você sabe como exportar seus dados, continue para a próxima etapa:
+Agora que sabe exportar os seus dados, continue para o próximo passo:
 
 > [!div class="nextstepaction"]
-> [Como visualizar seus dados no Power BI](howto-connect-powerbi.md)
+> [Como visualizar os seus dados no Power BI](howto-connect-powerbi.md)

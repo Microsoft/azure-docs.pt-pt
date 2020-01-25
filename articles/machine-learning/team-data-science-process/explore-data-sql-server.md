@@ -3,24 +3,24 @@ title: Explorar os dados na máquina virtual do SQL Server - Team Data Science P
 description: Como explorar os dados são armazenados numa VM do SQL Server no Azure através de uma linguagem de programação, como o Python ou SQL.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be75490e4e86956337ce38133df6095790b3a374
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303660"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720100"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorar dados numa máquina Virtual do SQL Server no Azure
 
-Este artigo aborda como explorar os dados são armazenados numa VM do SQL Server no Azure. Isso pode ser feito de preparação de dados com o SQL ou com uma linguagem de programação, como o Python.
+Este artigo aborda como explorar os dados são armazenados numa VM do SQL Server no Azure. Utilize a SQL ou a Python para examinar os dados.
 
 Esta tarefa é um passo na [Team Data Science Process](overview.md).
 
@@ -51,7 +51,7 @@ Aqui estão alguns scripts de SQL de exemplo que podem ser utilizadas para explo
 > 
 
 ## <a name="python"></a>Explorar os dados SQL com Python
-Com o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados em BLOBs do Azure com o Python, conforme documentado [dados de Blobs do Azure de processo no seu ambiente de ciência de dados](data-blob.md). Os dados tem de ser carregados a partir da base de dados num pandas DataFrame e, em seguida, podem ser processados ainda mais. Iremos documentar o processo de ligar à base de dados e carregar os dados para o pacote de dados nesta secção.
+Com o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados em BLOBs do Azure com o Python, conforme documentado [dados de Blobs do Azure de processo no seu ambiente de ciência de dados](data-blob.md). Carregue os dados da base de dados num DataFrame pandas e, em seguida, pode ser processado mais. Iremos documentar o processo de ligar à base de dados e carregar os dados para o pacote de dados nesta secção.
 
 O seguinte formato de cadeia de ligação pode ser utilizado para ligar a uma base de dados do SQL Server a partir de Python com pyodbc (substitua servername, dbname, nome de utilizador e palavra-passe com os seus valores específicos):
 

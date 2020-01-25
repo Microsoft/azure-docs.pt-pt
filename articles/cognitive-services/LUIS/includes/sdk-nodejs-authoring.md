@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/22/2020
 ms.author: diberry
-ms.openlocfilehash: 65611dfb171008deab9d1d6cb15f0470fcbc2753
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 808fdfb04cbe3b2b9e5f2de0c653bb978196269c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170555"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748761"
 ---
 Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para node. js para:
 
@@ -25,7 +25,7 @@ Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para nod
 * Treine e publique um aplicativo.
 * Excluir aplicativo
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [NPM (pacote de criação)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | Pacote de Autor [(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), Pacote de Prazo de [Execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,8 +42,8 @@ Obtenha a [chave inicial](../luis-how-to-azure-subscription.md#starter-key) cria
 
 Usando sua chave e a região da chave, crie duas variáveis de ambiente para autenticação:
 
-* `LUIS_AUTHORING_KEY`-a chave de recurso para autenticar suas solicitações.
-* `LUIS_AUTHORING_ENDPOINT`-o ponto de extremidade associado à sua chave.
+* `LUIS_AUTHORING_KEY` - A chave de recursos para autenticar os seus pedidos.
+* `LUIS_AUTHORING_ENDPOINT` - O ponto final associado à sua chave.
 
 Use as instruções para seu sistema operacional.
 
@@ -67,7 +67,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir
 
 #### <a name="macostabunix"></a>[macOS](#tab/unix)
 
-Edite seu `.bash_profile`e adicione a variável de ambiente:
+Edite o seu `.bash_profile`e adicione a variável ambiental:
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -115,7 +115,7 @@ Esses trechos de código mostram como fazer o seguinte com a biblioteca de clien
 
 ## <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Crie um novo arquivo de texto em seu editor preferencial ou IDE chamado `luis_authoring_quickstart.js`. Em seguida, adicione as seguintes dependências.
+Crie um novo ficheiro de texto no seu editor preferido ou IDE nomeado `luis_authoring_quickstart.js`. Em seguida, adicione as seguintes dependências.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=Dependencies)]
 
@@ -125,7 +125,7 @@ Crie variáveis para o ponto de extremidade e a chave do Azure do recurso. Se vo
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Crie um objeto [CognitiveServicesCredentials]() com sua chave e use-o com seu ponto de extremidade para criar um objeto [LUISAuthoringClient]() .
+Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) com sua chave e use-o com seu ponto de extremidade para criar um objeto [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) .
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 
@@ -141,7 +141,7 @@ Crie um objeto [CognitiveServicesCredentials]() com sua chave e use-o com seu po
 ## <a name="create-intent-for-the-app"></a>Criar intenção para o aplicativo
 O objeto principal no modelo de um aplicativo LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_de expressão do usuário. Um usuário pode fazer uma pergunta ou fazer uma instrução procurando uma resposta _pretendida_ específica de um bot (ou outro aplicativo cliente). Exemplos de intenções estão reservando um vôo, perguntando o clima em uma cidade de destino e solicitando informações de contato para o atendimento ao cliente.
 
-Use o método [Model. add_intent](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) com o nome da intenção exclusiva e, em seguida, passe a ID do aplicativo, a ID da versão e o nome da nova tentativa.
+Utilize o [método modelo.add_intent](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) com o nome da intenção única e, em seguida, passe o ID da aplicação, id versão e novo nome de intenção.
 
 [!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringAddIntents&highlight=2-6)]
 
@@ -149,7 +149,7 @@ Use o método [Model. add_intent](https://docs.microsoft.com/javascript/api/@azu
 
 Embora as entidades não sejam necessárias, elas são encontradas na maioria dos aplicativos. A entidade extrai informações do expressão do usuário, necessárias para fullfilr a intenção do usuário. Há vários tipos de entidades [predefinidas](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addcustomprebuiltentity-string--string--prebuiltdomainmodelcreateobject--msrest-requestoptionsbase-) e personalizadas, cada uma com seus próprios modelos de DTO (objeto de transformação de dados).  Entidades predefinidas comuns para adicionar ao seu aplicativo incluem [Number](../luis-reference-prebuilt-number.md), [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
 
-Esse método **add_entities** criou uma entidade `Location` simples com duas funções, uma `Class` entidade simples, uma entidade composta `Flight` e adiciona várias entidades predefinidas.
+Este método **add_entities** criou uma entidade `Location` simples com duas funções, uma entidade `Class` simples, uma entidade `Flight` composta e acrescenta várias entidades pré-construídas.
 
 É importante saber que as entidades não estão marcadas com uma intenção. Em geral, eles podem se aplicar a muitas intenções. Somente os declarações de usuário de exemplo são marcados para uma única intenção específica.
 
@@ -173,7 +173,7 @@ Depois que o modelo é criado, o aplicativo LUIS precisa ser treinado para esta 
 
 O método [Train. trainVersion](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#trainversion-string--string--msrest-requestoptionsbase-) precisa da ID do aplicativo e da ID da versão.
 
-Um modelo muito pequeno, como este guia de início rápido, será treinado muito rapidamente. Para aplicativos de nível de produção, o treinamento do aplicativo deve incluir uma chamada de sondagem para o método [get_Status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) para determinar quando ou se o treinamento foi bem-sucedido. A resposta é uma lista de objetos [ModelTrainingInfo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) com um status separado para cada objeto. Todos os objetos devem ter êxito para que o treinamento seja considerado concluído.
+Um modelo muito pequeno, como este guia de início rápido, será treinado muito rapidamente. Para aplicações de nível de produção, a formação da app deve incluir uma chamada de votação para o método [get_status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) para determinar quando ou se a formação foi bem sucedida. A resposta é uma lista de objetos [ModelTrainingInfo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) com um status separado para cada objeto. Todos os objetos devem ter êxito para que o treinamento seja considerado concluído.
 
 [!code-javascript[Train LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringTrainVersion&highlight=2-5)]
 
@@ -201,7 +201,7 @@ Obter uma lista de aplicativos associados à chave de reconhecimento de idioma
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo com o comando `node luis_authoring_quickstart.js` em seu arquivo de início rápido.
+Faça o pedido com o comando `node luis_authoring_quickstart.js` no seu ficheiro de arranque rápido.
 
 ```console
 node luis_authoring_quickstart.js

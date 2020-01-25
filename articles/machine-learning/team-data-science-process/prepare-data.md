@@ -3,29 +3,29 @@ title: Preparação de dados para ML Studio (clássico)-processo de ciência de 
 description: Pré-processar e limpar dados para o preparar para utilizar de forma eficaz para machine learning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d17ca5d4bd709ec2529a771008e47ce6f1b68daf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432143"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720049"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para machine learning otimizado
-Pré-processar e limpeza de dados são tarefas importantes que, normalmente, têm de ser conduzidas antes do conjunto de dados pode ser utilizado eficazmente para o machine learning. Dados não processados costuma desnecessárias e pouco fiáveis e podem estar em falta valores. Usar esses dados para a Modelagem pode produzir resultados enganosos. Essas tarefas fazem parte do Team Data Science Process (TDSP) e, normalmente, siga uma análise inicial de um conjunto de dados utilizado para detetar e planear o pré-processamento de necessário. Para obter instruções sobre o processo TDSP mais detalhadas, consulte os passos descritos no [Team Data Science Process](overview.md).
+Os dados de pré-processamento e limpeza são tarefas importantes que devem ser realizadas antes de um conjunto de dados poder ser utilizado para a formação de modelos. Dados não processados costuma desnecessárias e pouco fiáveis e podem estar em falta valores. Usar esses dados para a Modelagem pode produzir resultados enganosos. Essas tarefas fazem parte do Team Data Science Process (TDSP) e, normalmente, siga uma análise inicial de um conjunto de dados utilizado para detetar e planear o pré-processamento de necessário. Para obter instruções sobre o processo TDSP mais detalhadas, consulte os passos descritos no [Team Data Science Process](overview.md).
 
 As tarefas de pré-processamento e limpeza, como a tarefa de exploração de dados, podem ser executadas em uma ampla variedade de ambientes, como SQL ou Hive ou Azure Machine Learning Studio (clássico) e com várias ferramentas e linguagens, como R ou Python, dependendo de onde seus dados é armazenado e como é formatado. Uma vez que o TDSP é interativo por natureza, estas tarefas podem ocorrer em várias etapas do fluxo de trabalho do processo.
 
 Este artigo apresenta vários conceitos de processamento de dados e tarefas que podem ser realizadas antes ou depois da ingestão de dados em Azure Machine Learning Studio (clássico).
 
-Para obter um exemplo de exploração de dados e pré-processamento feito dentro de Azure Machine Learning Studio (clássico)., consulte o vídeo de [pré-processamento de dados](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) .
+Para um exemplo de exploração de dados e pré-processamento feito dentro do Azure Machine Learning Studio (clássico), consulte o vídeo [de dados pré-processamento.](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)
 
 ## <a name="why-pre-process-and-clean-data"></a>Por que motivo pré-processar e limpar dados?
 Recolha de dados do mundo real de várias origens e processos e ele podem conter irregularidades ou dados danificados comprometer a qualidade do conjunto de dados. Os problemas de qualidade de dados típica que surgem são:
@@ -43,22 +43,22 @@ Podemos verificar a qualidade geral de dados através da verificação:
 * O número de **atributos** (ou **funcionalidades**).
 * O atributo **tipos de dados** (nominal, ordinal ou contínua).
 * O número de **valores em falta**.
-* **Da formação correta** dos dados.
+* **Dados bem formados.**
   * Se os dados estão sendo TSV ou CSV, verifique que os separadores de coluna e os separadores de linha sempre corretamente separam colunas e linhas.
   * Se os dados em formato HTML ou XML, verifique se os dados são bem formados com base em seus respectivos padrões.
   * Análise também poderá ser necessária para extrair informações estruturadas de dados estruturados ou semi-estruturados.
-* **Registos de dados inconsistentes**. Verifique o intervalo de valores são permitidos. Por exemplo, se os dados contêm GPA de estudante, verifique se o GPA está no intervalo designado, digamos 0 ~ 4.
+* **Registos de dados inconsistentes**. Verifique o intervalo de valores são permitidos. Por exemplo, se os dados contenham GPA do aluno (média de ponto de nota), verifique se a AG está na gama designada, digamos 0~4.
 
-Quando encontrar problemas com os dados, **passos de processamento** são necessárias que muitas vezes envolvem a limpeza de valores em falta, a normalização de dados, a discretização, processamento de texto para remover e/ou substituir os carateres que podem afetar os dados incorporados alinhamento, mistos tipos de dados em comum campos entre outros.
+Quando encontra problemas com dados, são necessárias etapas de **processamento,** que muitas vezes envolvem a limpeza de valores em falta, a normalização de dados, a discretaização, o processamento de texto para remover e/ou substituir caracteres incorporados que podem afetar o alinhamento de dados, tipos de dados mistos em campos comuns, entre outros.
 
 **O Azure Machine Learning consome dados tabulares bem formados**.  Se os dados já estiverem em formato de tabela, o pré-processamento de dados poderá ser executado diretamente com Azure Machine Learning Studio (clássico) no Machine Learning.  Se os dados não estão num formato tabular, digamos que está a ser XML, a análise pode ser necessária para converter os dados em formato tabular.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quais são algumas das tarefas principais no pré-processamento de dados?
-* **Limpeza de dados**: preencha ou valores em falta, detectar e remover dados desnecessárias e valores atípicos.
+* **Limpeza de dados:** Preencha os valores em falta, detete e remova dados ruidosos e outliers.
 * **Transformação de dados**: normalizar dados para reduzir as dimensões e de ruído.
 * **Redução de dados**: registos de dados ou atributos para processamento de dados mais fácil de exemplo.
 * **A discretização de dados**: converter atributos contínuos para atributos categóricos para facilidade de utilização com determinados métodos do machine learning.
-* **Limpeza de texto**: remova os caracteres incorporados que podem fazer com que o alinhamento incorreto da dados, para, por exemplo, separadores incorporados num arquivo de dados separados por tabulações, embedded novas linhas que podem ser interrompidos registos, etc.
+* **Limpeza de texto**: remova caracteres incorporados que possam causar desalinhamento de dados, por exemplo, separados de separados por separados por separados, novas linhas que possam quebrar registos, por exemplo.
 
 As secções abaixo detalham alguns destes passos de processamento de dados.
 
@@ -72,7 +72,7 @@ Para lidar com valores em falta, é recomendável primeiro identificar o motivo 
 * **Substituição de regressão**: utilizar um método de regressão para substituir valores em falta com valores regredidos.  
 
 ## <a name="how-to-normalize-data"></a>Como normalizar dados?
-Normalização de dados redimensiona valores numéricos para um intervalo especificado. Os métodos de normalização de dados populares incluem:
+A normalização dos dados redimensiona os valores numéricos para uma gama especificada. Os métodos de normalização de dados populares incluem:
 
 * **Normalização mínima-máxima**: linearmente transformar os dados para um intervalo de, digamos entre 0 e 1, em que o valor mínimo é dimensionado para 0 e o máximo valor para 1.
 * **Normalização de pontuação de Z**: Dimensionar dados com base na média e desvio padrão: dividir a diferença entre os dados e a média pelo desvio-padrão.
@@ -92,9 +92,9 @@ Existem vários métodos para reduzir o tamanho dos dados para o mais fácil de 
 * **Agregação**: dividir os dados em grupos e armazenar os números de cada grupo. Por exemplo, os números de receita diária de uma cadeia de restauração nos últimos 20 anos podem ser agregados a receita mensal para reduzir o tamanho dos dados.  
 
 ## <a name="how-to-clean-text-data"></a>Como limpar dados de texto?
-**Campos de texto em dados tabulares** pode incluir carateres, que afetam os limites de alinhamento e/ou de registo de colunas. Por exemplo, incorporado separadores num alinhamento incorreto da coluna ficheiro separado por tabulações causa e incorporado novos caracteres de linha quebram a linha de registo. Manipulação de codificação de texto inadequado ao texto de escrita/leitura leva à perda de informações, inadvertida introdução de caracteres ilegíveis, por exemplo, nulos e pode também afetam análise de texto. Análise cuidadosa e edição podem ser necessários para limpar os campos de texto para o alinhamento correto e/ou para os dados estruturado de extração dos dados de texto não estruturados ou semiestruturados.
+Os campos de **texto nos dados tabulares** podem incluir caracteres que afetam o alinhamento das colunas e/ou limites de registo. Por exemplo, os separadores incorporados num ficheiro separado por separados causam desalinhamento da coluna e os caracteres de linha nova incorporados quebram linhas de registo. O manuseamento impróprio da codificação de texto sem escrever ou ler texto conduz à perda de informação, introdução inadvertida de caracteres ilegíveis (como nulos), e também pode afetar a análise de texto. Análise cuidadosa e edição podem ser necessários para limpar os campos de texto para o alinhamento correto e/ou para os dados estruturado de extração dos dados de texto não estruturados ou semiestruturados.
 
-**Exploração de dados** oferece uma visão antecipada os dados. Um número de problemas de dados pode ser que não foi abordado durante este passo e métodos correspondentes podem ser aplicados para resolver esses problemas.  É importante fazer perguntas, tais como o que é a origem do problema e como o problema pode ter sido introduzido. Isto também ajuda a decidir sobre os passos de processamento de dados que têm de ser efetuados para resolvê-los. O tipo de informações uma pretende derivar a partir dos dados também pode ser utilizado para priorizar os esforços de processamento de dados.
+**Exploração de dados** oferece uma visão antecipada os dados. Um número de problemas de dados pode ser que não foi abordado durante este passo e métodos correspondentes podem ser aplicados para resolver esses problemas.  É importante fazer perguntas, tais como o que é a origem do problema e como o problema pode ter sido introduzido. Este processo também o ajuda a decidir sobre as medidas de processamento de dados que precisam de ser tomadas para resolvê-los. Identificar os casos e personalidades de uso final também pode ser usado para priorizar o esforço de processamento de dados.
 
 ## <a name="references"></a>Referências
 > *Mineração de dados: Conceitos e técnicas*, 3ª edição, Morgan Kaufmann, 2011, Jiawei Han Micheline Kamber e Jian Pei

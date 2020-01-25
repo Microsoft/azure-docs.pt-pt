@@ -5,20 +5,21 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969668"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715893"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 
-> [!WARNING]
-> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-legacy.md).
+> [!IMPORTANT]
+> O método para enviar o registo da Atividade Azure para o Azure Storage e os Centros de Eventos Azure mudou para [configurações](diagnostic-settings.md)de diagnóstico . Este artigo descreve o método legado que está em processo de ser depreciado. Consulte a recolha e exportação de registos da [Atividade Azure](diagnostic-settings-legacy.md) para uma comparação.
+
 
 O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
 
@@ -72,9 +73,14 @@ Se as políticas de retenção forem definidas, mas o armazenamento de logs em u
 
 Crie ou edite um perfil de log com a opção **exportar para o Hub de eventos** no portal do Azure.
 
-1. No menu **monitorar** na portal do Azure, selecione **exportar para o Hub de eventos**.
+1. No menu **Azure monitor** na portal do Azure, selecione log de **atividades**.
+3. Clique em **Definições de diagnóstico**.
 
-    ![Botão Exportar no portal](media/activity-log-export/portal-export.png)
+   ![Definições de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Clique na faixa roxa para a experiência herdada.
+
+    ![Experiência herdada](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. Na folha que aparece, especifique o seguinte:
    * Regiões com os eventos a serem exportados. Você deve selecionar todas as regiões para garantir que não perca eventos de chave, pois o log de atividades é um log global (não regional) e, portanto, a maioria dos eventos não tem uma região associada a eles.
@@ -158,7 +164,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     | --- | --- | --- |
     | nome |Sim |Nome do seu perfil de log. |
     | storage-account-id |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
-    | locations |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Você pode exibir uma lista de todas as regiões para sua assinatura usando `az account list-locations --query [].name`. |
+    | locations |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Pode ver uma lista de todas as regiões para a sua subscrição usando `az account list-locations --query [].name`. |
     | days |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
     |enabled | Sim |VERDADEIRO ou FALSO.  Usado para habilitar ou desabilitar a política de retenção.  Se for true, o parâmetro Days deverá ser um valor maior que 0.
     | categories |Sim |Lista separada por espaços de categorias de eventos que devem ser coletadas. Os valores possíveis são gravação, exclusão e ação. |

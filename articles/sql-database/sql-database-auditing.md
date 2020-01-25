@@ -5,24 +5,24 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 3d6f9f7d09664f9a5bd968ca5c0441b0846ceca3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8f82f0539432418f967d51f00e659ce92d1fa9b6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122700"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719811"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
-A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure, log Analytics espaço de trabalho ou hubs de eventos. A auditoria também:
+A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure, log Analytics espaço de trabalho ou hubs de eventos. Auditoria também:
 
-- Ajuda a manter a conformidade regulatória, a compreender as atividades da base de dados e a obter informações relativas a discrepâncias e anomalias que possam indicar preocupações comerciais ou suspeitas de violações de segurança.
+- Ajuda-o a manter o cumprimento regulamentar, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar preocupações comerciais ou suspeitas de violações de segurança.
 
-- Ativa e facilita o cumprimento das normas de conformidade, apesar de não garantir a conformidade. Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
+- Permite e facilita a adesão às normas de conformidade, embora não garanta o cumprimento. Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
 
 
 > [!NOTE] 
@@ -35,9 +35,9 @@ A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure
 
 Pode utilizar a auditoria da base de dados SQL para:
 
-- **Manter** uma trilha de auditoria de eventos selecionados. Pode definir categorias de ações de bases de dados para serem auditadas.
-- **Relatório** de atividade do banco de dados. Pode utilizar relatórios pré-configurados e um dashboard para começar rapidamente a utilizar relatórios de eventos e de atividade.
-- **Analise** os relatórios. Pode encontrar eventos suspeitos, atividades invulgares e tendências.
+- **Manter** uma trilha de auditoria de eventos selecionados. Pode definir categorias de ações de base de dados a auditar.
+- **Relatório** de atividade do banco de dados. Pode utilizar relatórios pré-configurados e um dashboard para começar rapidamente com relatórios de atividade e eventos.
+- **Analise** os relatórios. Você pode encontrar eventos suspeitos, atividade incomum, e tendências.
 
 > [!IMPORTANT]
 > Os logs de auditoria são gravados em **blobs de acréscimo** no armazenamento de BLOBs do Azure em sua assinatura do Azure.
@@ -73,7 +73,7 @@ A seção a seguir descreve a configuração de auditoria usando o portal do Azu
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** no título segurança no painel banco de dados SQL/servidor.
 
-    <a id="auditing-screenshot"></a>![painel de navegação][1]
+    <a id="auditing-screenshot"></a>![][1] de painel de navegação
 
 3. Se preferir configurar uma política de auditoria de servidor, você poderá selecionar o link **exibir configurações do servidor** na página de auditoria do banco de dados. Em seguida, você pode exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados neste servidor.
 
@@ -125,7 +125,7 @@ A seção a seguir descreve a configuração de auditoria usando o portal do Azu
 
 Se você optar por gravar logs de auditoria em logs de Azure Monitor:
 
-- Utilize o [portal do Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da página de **auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
+- Utilize o [portal Azure.](https://portal.azure.com)  Abra o banco de dados relevante. Na parte superior da página de **auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
 
     ![Exibir logs de auditoria](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
@@ -137,7 +137,7 @@ Se você optar por gravar logs de auditoria em logs de Azure Monitor:
 
     Clicar em **exibir painel** na parte superior da página de **registros de auditoria** abrirá um painel exibindo informações de logs de auditoria, nos quais você pode fazer uma busca detalhada nos insights de segurança, acessar dados confidenciais e muito mais. Este painel foi projetado para ajudá-lo a obter informações de segurança para seus dados.
     Você também pode personalizar o intervalo de tempo e a consulta de pesquisa. 
-    ![Exibir Log Analytics painel](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+    ![ver o painel de instrumentos de análise de registo](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
 
     ![Painel do Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
 
@@ -159,7 +159,7 @@ Se você optar por gravar logs de auditoria em uma conta de armazenamento do Azu
 
 - Os logs de auditoria são agregados na conta que você escolheu durante a instalação. Você pode explorar os logs de auditoria usando uma ferramenta como o [Gerenciador de armazenamento do Azure](https://storageexplorer.com/). No armazenamento do Azure, os logs de auditoria são salvos como uma coleção de arquivos de blob dentro de um contêiner chamado **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomenclatura e formato de log, consulte o [formato de log de auditoria do banco de dados SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Utilize o [portal do Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da página de **auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
+- Utilize o [portal Azure.](https://portal.azure.com)  Abra o banco de dados relevante. Na parte superior da página de **auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
 
     ![Painel de navegação][7]
 
@@ -171,7 +171,7 @@ Se você optar por gravar logs de auditoria em uma conta de armazenamento do Azu
 
        ![Painel de navegação][8]
 
-- Use a função de sistema **Sys. fn_get_audit_file** (T-SQL) para retornar os dados do log de auditoria no formato de tabela. Para obter mais informações sobre como usar essa função, consulte [Sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Utilize a função do sistema **sys.fn_get_audit_file** (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **mesclar arquivos de auditoria** no SQL Server Management Studio (a partir do SSMS 17):
     1. No menu do SSMS, selecione **arquivo** > **abrir** > **mesclar arquivos de auditoria**.
@@ -229,7 +229,7 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
 - Para obter detalhes sobre o formato de log, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
-    > O Azure SQL Database Audit armazena 4000 caracteres de dados para campos de caractere em um registro de auditoria. Quando a **instrução** ou os valores de **data_sensitivity_information** retornados de uma ação auditável contiverem mais de 4000 caracteres, todos os dados que ultrapassarem os primeiros 4000 caracteres serão **truncados e não auditados**.
+    > O Azure SQL Database Audit armazena 4000 caracteres de dados para campos de caractere em um registro de auditoria. Quando a **declaração** ou os valores **data_sensitivity_information** devolvidos de uma ação auditável contiverem mais de 4000 caracteres, quaisquer dados para além dos primeiros 4000 caracteres serão **truncados e não auditados.**
 
 - Os logs de auditoria são gravados em **blobs de acréscimo** em um armazenamento de BLOBs do Azure em sua assinatura do Azure:
   - No momento, **não há suporte para** o **armazenamento Premium** em blobs de acréscimo.

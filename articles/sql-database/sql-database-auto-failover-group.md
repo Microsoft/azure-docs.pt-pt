@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732421"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722548"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -72,6 +72,13 @@ Para obter continuidade de negócios real, a adição de redundância de banco d
 
   Você pode colocar todos ou vários bancos de dados em um pool elástico no mesmo grupo de failover. Se o banco de dados primário estiver em um pool elástico, o secundário será criado automaticamente no pool elástico com o mesmo nome (pool secundário). Você deve garantir que o servidor secundário contenha um pool elástico com o mesmo nome exato e capacidade livre suficiente para hospedar os bancos de dados secundários que serão criados pelo grupo de failover. Se você adicionar um banco de dados no pool que já tem um banco de dados secundário no pool secundário, esse link de replicação geográfica será herdado pelo grupo. Quando você adiciona um banco de dados que já tem um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo secundário é criado no pool secundário.
   
+- **Sementeing inicial** 
+
+  Ao adicionar bases de dados, piscinas elásticas ou instâncias geridas a um grupo de failover, há uma fase inicial de sementeir antes do início da replicação de dados. A fase inicial de sementesão é a operação mais longa e cara. Uma vez que a sementeing inicial esteja concluída, os dados são sincronizados e, em seguida, apenas alterações de dados subsequentes são replicadas. O tempo que a semente inicial leva a concluir depende do tamanho dos seus dados, do número de bases de dados replicadas e da velocidade da ligação entre as entidades do grupo failover. Em circunstâncias normais, a velocidade típica de sementesão é de 50-500 GB por hora para uma única base de dados ou piscina elástica, e 18-35 GB por hora para um caso gerido. A sementesão é realizada para todas as bases de dados em paralelo. Pode utilizar a velocidade de sementeira indicada, juntamente com o número de bases de dados e o tamanho total dos dados para estimar quanto tempo demorará a fase inicial de sementeira até que a replicação de dados comece.
+
+  Para os casos geridos, a velocidade da ligação da Rota Expresso entre as duas instâncias também deve ser considerada ao estimar o tempo da fase inicial de sementeira. Se a velocidade da ligação entre as duas instâncias for mais lenta do que a necessária, é provável que o tempo de semente seja notavelmente afetado. Pode utilizar a velocidade de sementeira indicada, o número de bases de dados, o tamanho total dos dados e a velocidade de ligação para estimar quanto tempo demorará a fase inicial de sementeira até que a replicação de dados comece. Por exemplo, para uma única base de dados de 100 GB, a fase inicial das sementes demoraria entre 2,8 e 5,5 horas se o link for capaz de empurrar 35 GB por hora. Se o link só puder transferir 10 GB por hora, então a sementede de uma base de dados de 100 GB levará cerca de 10 horas. Se existirem várias bases de dados para replicar, a sementeira será executada paralelamente e, quando combinada com uma velocidade de ligação lenta, a fase inicial de sementeir pode demorar consideravelmente mais tempo, especialmente se a sementeira paralela de dados de todas as bases de dados exceder a disponível largura de banda de ligação. Se a largura de banda da rede entre duas instâncias for limitada e estiver a adicionar múltiplas instâncias geridas a um grupo de failover, considere adicionar múltiplas instâncias geridas ao grupo failover sequencialmente, um a um.
+
+  
 - **Zona DNS**
 
   Uma ID exclusiva que é gerada automaticamente quando uma nova instância é criada. Um certificado de vários domínios (SAN) para essa instância é provisionado para autenticar as conexões de cliente com qualquer instância na mesma zona DNS. As duas instâncias gerenciadas no mesmo grupo de failover devem compartilhar a zona DNS.
@@ -81,11 +88,11 @@ Para obter continuidade de negócios real, a adição de redundância de banco d
 
 - **Ouvinte de leitura/gravação do grupo de failover**
 
-  Um registro DNS CNAME que aponta para a URL primária atual. Ele é criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho de leitura/gravação do SQL Reconecte-se de forma transparente ao banco de dados primário quando o primário é alterado após o failover. Quando o grupo de failover é criado em um servidor de banco de dados SQL, o registro DNS CNAME da URL do ouvinte é formado como `<fog-name>.database.windows.net`. Quando o grupo de failover é criado em uma instância gerenciada, o registro DNS CNAME para a URL do ouvinte é formado como `<fog-name>.zone_id.database.windows.net`.
+  Um registro DNS CNAME que aponta para a URL primária atual. Ele é criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho de leitura/gravação do SQL Reconecte-se de forma transparente ao banco de dados primário quando o primário é alterado após o failover. Quando o grupo de failover é criado em um servidor de banco de dados SQL, o registro DNS CNAME da URL do ouvinte é formado como `<fog-name>.database.windows.net`. Quando o grupo failover é criado numa instância gerida, o registo DNS CNAME para o URL ouvinte é formado como `<fog-name>.zone_id.database.windows.net`.
 
 - **Ouvinte somente leitura do grupo de failover**
 
-  Um registro DNS CNAME formado que aponta para o ouvinte somente leitura que aponta para a URL secundária. Ele é criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho SQL somente leitura se conecte de forma transparente ao secundário usando as regras de balanceamento de carga especificadas. Quando o grupo de failover é criado em um servidor de banco de dados SQL, o registro DNS CNAME da URL do ouvinte é formado como `<fog-name>.secondary.database.windows.net`. Quando o grupo de failover é criado em uma instância gerenciada, o registro DNS CNAME para a URL do ouvinte é formado como `<fog-name>.zone_id.secondary.database.windows.net`.
+  Um registro DNS CNAME formado que aponta para o ouvinte somente leitura que aponta para a URL secundária. Ele é criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho SQL somente leitura se conecte de forma transparente ao secundário usando as regras de balanceamento de carga especificadas. Quando o grupo de failover é criado em um servidor de banco de dados SQL, o registro DNS CNAME da URL do ouvinte é formado como `<fog-name>.secondary.database.windows.net`. Quando o grupo failover é criado numa instância gerida, o registo DNS CNAME para o URL ouvinte é formado como `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Política de failover automático**
 
@@ -176,7 +183,7 @@ Um aplicativo típico do Azure usa vários serviços do Azure e consiste em vár
 Se uma interrupção for detectada, o SQL aguardará o período especificado por `GracePeriodWithDataLossHours`. O valor padrão é 1 hora. Se você não puder perder dados, certifique-se de definir `GracePeriodWithDataLossHours` para um número suficientemente grande, como 24 horas. Use o failover de grupo manual para fazer failback do secundário para o primário.
 
 > [!IMPORTANT]
-> Pools elásticos com 800 ou menos DTUs e mais de 250 bancos de dados usando a replicação geográfica podem encontrar problemas, incluindo failovers planejados mais longos e desempenho degradado.  Esses problemas têm maior probabilidade de ocorrer para cargas de trabalho com uso intensivo de gravação, quando os pontos de extremidade de replicação geográfica são amplamente separados por geografia ou quando vários pontos de extremidade secundários são usados para cada banco de dados.  Os sintomas desses problemas são indicados quando o retardo de replicação geográfica aumenta ao longo do tempo.  Essa latência pode ser monitorada usando [Sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se esses problemas ocorrerem, as atenuações incluem o aumento do número de DTUs de pool ou a redução do número de bancos de dados replicados geograficamente no mesmo pool.
+> Pools elásticos com 800 ou menos DTUs e mais de 250 bancos de dados usando a replicação geográfica podem encontrar problemas, incluindo failovers planejados mais longos e desempenho degradado.  Esses problemas têm maior probabilidade de ocorrer para cargas de trabalho com uso intensivo de gravação, quando os pontos de extremidade de replicação geográfica são amplamente separados por geografia ou quando vários pontos de extremidade secundários são usados para cada banco de dados.  Os sintomas desses problemas são indicados quando o retardo de replicação geográfica aumenta ao longo do tempo.  Este lag pode ser monitorizado utilizando [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se esses problemas ocorrerem, as atenuações incluem o aumento do número de DTUs de pool ou a redução do número de bancos de dados replicados geograficamente no mesmo pool.
 
 ### <a name="changing-secondary-region-of-the-failover-group"></a>Alterando a região secundária do grupo de failover
 
@@ -246,16 +253,16 @@ O grupo de failover gerenciará o failover de todos os bancos de dados na instâ
 
 ### <a name="using-read-write-listener-for-oltp-workload"></a>Usando o ouvinte de leitura/gravação para carga de trabalho OLTP
 
-Ao executar operações OLTP, use `<fog-name>.zone_id.database.windows.net` como a URL do servidor e as conexões são direcionadas automaticamente para o primário. Essa URL não é alterada após o failover. O failover envolve a atualização do registro DNS, portanto, as conexões de cliente são redirecionadas para o novo primário somente depois que o cache DNS do cliente é atualizado. Como a instância secundária compartilha a zona DNS com o primário, o aplicativo cliente poderá se reconectar a ela usando o mesmo certificado de SAN.
+Ao efetuar as operações oLTP, utilize `<fog-name>.zone_id.database.windows.net` como o URL do servidor e as ligações são automaticamente direcionadas para o principal. Essa URL não é alterada após o failover. O failover envolve a atualização do registro DNS, portanto, as conexões de cliente são redirecionadas para o novo primário somente depois que o cache DNS do cliente é atualizado. Como a instância secundária compartilha a zona DNS com o primário, o aplicativo cliente poderá se reconectar a ela usando o mesmo certificado de SAN.
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Usando o ouvinte somente leitura para se conectar à instância secundária
 
-Se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinada desatualização de dados, poderá usar o banco de dado secundário no aplicativo. Para se conectar diretamente ao secundário replicado geograficamente, use `server.secondary.zone_id.database.windows.net` como a URL do servidor e a conexão é feita diretamente para o secundário replicado geograficamente.
+Se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinada desatualização de dados, poderá usar o banco de dado secundário no aplicativo. Para se ligar diretamente ao secundário geo-replicado, utilize `server.secondary.zone_id.database.windows.net` como URL do servidor e a ligação é feita diretamente ao secundário geo-replicado.
 
 > [!NOTE]
 > Em determinadas camadas de serviço, o banco de dados SQL do Azure dá suporte ao uso de [réplicas somente leitura](sql-database-read-scale-out.md) para balancear a carga de cargas de trabalho de consulta somente leitura usando a capacidade de uma réplica somente leitura e usando o parâmetro `ApplicationIntent=ReadOnly` na cadeia de conexão. Quando você tiver configurado um secundário replicado geograficamente, poderá usar essa capacidade para se conectar a uma réplica somente leitura no local primário ou no local com replicação geográfica.
-> - Para se conectar a uma réplica somente leitura no local principal, use `<fog-name>.zone_id.database.windows.net`.
-> - Para se conectar a uma réplica somente leitura no local secundário, use `<fog-name>.secondary.zone_id.database.windows.net`.
+> - Para se ligar a uma réplica apenas de leitura no local primário, utilize `<fog-name>.zone_id.database.windows.net`.
+> - Para se ligar a uma réplica apenas para leitura no local secundário, utilize `<fog-name>.secondary.zone_id.database.windows.net`.
 
 ### <a name="preparing-for-performance-degradation"></a>Preparando-se para degradação do desempenho
 
@@ -362,10 +369,10 @@ Essa sequência é recomendada especificamente para evitar o problema em que o s
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitando a perda de dados críticos
 
-Devido à alta latência de redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona torna inevitável alguma perda de dados se ocorrer uma falha. No entanto, alguns aplicativos podem não exigir perda de dados. Para proteger essas atualizações críticas, um desenvolvedor de aplicativos pode chamar o procedimento do sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) imediatamente após confirmar a transação. Chamar `sp_wait_for_database_copy_sync` bloqueia o thread de chamada até que a última transação confirmada seja transmitida para o banco de dados secundário. No entanto, ele não aguarda que as transações transmitidas sejam reproduzidas e confirmadas no secundário. `sp_wait_for_database_copy_sync` está no escopo de um link de cópia contínua específico. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
+Devido à alta latência de redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona torna inevitável alguma perda de dados se ocorrer uma falha. No entanto, alguns aplicativos podem não exigir perda de dados. Para proteger estas atualizações críticas, um desenvolvedor de aplicações pode ligar para o procedimento do sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) imediatamente após a emissão. Ligar `sp_wait_for_database_copy_sync` bloqueia o fio de chamada até que a última transação cometida tenha sido transmitida para a base de dados secundária. No entanto, ele não aguarda que as transações transmitidas sejam reproduzidas e confirmadas no secundário. `sp_wait_for_database_copy_sync` é vias para uma ligação de cópia contínua específica. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync` impede a perda de dados após o failover, mas não garante a sincronização completa para acesso de leitura. O atraso causado por uma chamada de procedimento `sp_wait_for_database_copy_sync` pode ser significativo e depende do tamanho do log de transações no momento da chamada.
+> `sp_wait_for_database_copy_sync` evita a perda de dados após a falha, mas não garante a sincronização total para o acesso à leitura. O atraso causado por uma chamada de procedimento `sp_wait_for_database_copy_sync` pode ser significativo e depende da dimensão do registo de transações no momento da chamada.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Grupos de failover e restauração pontual
 

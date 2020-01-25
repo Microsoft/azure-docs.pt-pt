@@ -1,6 +1,6 @@
 ---
-title: Ingresse em uma VM do Ubuntu para Azure AD Domain Services | Microsoft Docs
-description: Saiba como configurar e ingressar um Ubuntu Linux máquina virtual em um domínio Azure AD Domain Services gerenciado.
+title: Junte-se a um Ubuntu VM para os Serviços de Domínio Azure AD  Microsoft Docs
+description: Aprenda a configurar e junte-se a uma máquina virtual Ubuntu Linux para um domínio gerido pela Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 9fb41b08cb29a68b39fb416b4b7b7bcce9e821dd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1cf1a97ed6350174511d61d924f893bb209736c2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754356"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712574"
 ---
-# <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Ingressar uma máquina virtual Ubuntu Linux em um domínio Azure AD Domain Services gerenciado
+# <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Ubuntu Linux para um domínio gerido pela Azure AD Domain Services
 
-Para permitir que os usuários entrem em máquinas virtuais (VMs) no Azure usando um único conjunto de credenciais, você pode ingressar VMs em um domínio gerenciado Azure Active Directory Domain Services (AD DS). Quando você une uma VM a um domínio gerenciado AD DS do Azure, as contas de usuário e as credenciais do domínio podem ser usadas para entrar e gerenciar servidores. As associações de grupo do domínio gerenciado do AD DS do Azure também são aplicadas para permitir que você controle o acesso a arquivos ou serviços na VM.
+Para permitir que os utilizadores inscrevam em máquinas virtuais (VMs) em Azure utilizando um único conjunto de credenciais, pode juntar VMs a um domínio gerido pelo Azure Ative Directory Domain Services (AD DS). Quando se junta a um VM a um domínio gerido pelo Azure AD DS, as contas de utilizador e credenciais do domínio podem ser usadas para iniciar sessão e gerir servidores. As adesões do grupo do domínio gerido pelo Azure AD DS também são aplicadas para permitir controlar o acesso a ficheiros ou serviços no VM.
 
-Este artigo mostra como unir uma VM Ubuntu Linux a um domínio gerenciado do Azure AD DS.
+Este artigo mostra-lhe como se juntar a um Ubuntu Linux VM a um domínio gerido pela Azure AD DS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,142 +36,142 @@ Para concluir este tutorial, você precisa dos seguintes recursos e privilégios
     * Se necessário, o primeiro tutorial [cria e configura uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
 
-## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Criar e conectar-se a uma VM Ubuntu Linux
+## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Crie e ligue a um Ubuntu Linux VM
 
-Se você tiver uma VM Ubuntu Linux existente no Azure, conecte-se a ela usando o SSH e continue na próxima etapa para [começar a configurar a VM](#configure-the-hosts-file).
+Se tiver um Ubuntu Linux VM existente em Azure, ligue-o utilizando SSH e continue para o próximo passo para [começar a configurar o VM](#configure-the-hosts-file).
 
-Se você precisar criar uma VM Ubuntu Linux ou desejar criar uma VM de teste para uso com este artigo, poderá usar um dos seguintes métodos:
+Se precisar de criar um Ubuntu Linux VM, ou quiser criar um VM de teste para utilização com este artigo, pode utilizar um dos seguintes métodos:
 
 * [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [O Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado AD DS do Azure:
+Quando criar o VM, preste atenção às definições de rede virtual para se certificar de que o VM pode comunicar com o domínio gerido pelo Azure AD DS:
 
-* Implante a VM na mesma rede virtual, ou emparelhada, na qual você habilitou Azure AD Domain Services.
-* Implante a VM em uma sub-rede diferente da instância do Azure AD Domain Services.
+* Desloque o VM para a mesma rede virtual, ou uma rede virtual em que permitiu o Azure AD Domain Services.
+* Coloque o VM numa subrede diferente da instância dos Serviços de Domínio Azure AD.
 
-Depois que a VM for implantada, siga as etapas para se conectar à VM usando SSH.
+Uma vez implantado o VM, siga os passos para ligar ao VM utilizando SSH.
 
-## <a name="configure-the-hosts-file"></a>Configurar o arquivo de hosts
+## <a name="configure-the-hosts-file"></a>Configure o ficheiro de anfitriões
 
-Para certificar-se de que o nome do host da VM esteja configurado corretamente para o domínio gerenciado, edite o arquivo */etc/hosts* e defina o nome do host:
+Para se certificar de que o nome de anfitrião VM está corretamente configurado para o domínio gerido, edite o ficheiro */etc/anfitriões* e detetete o nome de anfitrião:
 
 ```console
 sudo vi /etc/hosts
 ```
 
-No arquivo *hosts* , atualize o endereço *localhost* . No exemplo a seguir:
+No ficheiro dos *anfitriões,* atualize *o* endereço local. No seguinte exemplo:
 
-* *contoso.com* é o nome de domínio DNS do seu domínio gerenciado AD DS do Azure.
-* o *Ubuntu* é o nome do host da sua VM do Ubuntu que você está unindo ao domínio gerenciado.
+* *aadds.contoso.com* é o nome de domínio DNS do seu domínio gerido pelo Azure AD DS.
+* *Ubuntu* é o nome de anfitrião do seu Ubuntu VM que está se juntando ao domínio gerido.
 
-Atualize esses nomes com seus próprios valores:
+Atualize estes nomes com os seus próprios valores:
 
 ```console
-127.0.0.1 ubuntu.contoso.com ubuntu
+127.0.0.1 ubuntu.aadds.contoso.com ubuntu
 ```
 
-Quando terminar, salve e saia do arquivo de *hosts* usando o comando `:wq` do editor.
+Quando estiver feito, guarde e saia do ficheiro dos *anfitriões* utilizando o comando `:wq` do editor.
 
 ## <a name="install-required-packages"></a>Instalar pacotes necessários
 
-A VM precisa de alguns pacotes adicionais para ingressar a VM no domínio gerenciado AD DS do Azure. Para instalar e configurar esses pacotes, atualize e instale as ferramentas de ingresso no domínio usando `apt-get`
+O VM precisa de alguns pacotes adicionais para se juntar ao VM ao domínio gerido pela AD DS Azure. Para instalar e configurar estes pacotes, atualize e instale as ferramentas de união de domínio utilizando `apt-get`
 
-Durante a instalação do Kerberos, o pacote *krb5-User* solicita o nome do realm em letras maiúsculas. Por exemplo, se o nome do seu domínio gerenciado AD DS do Azure for *contoso.com*, insira *contoso.com* como o realm. A instalação grava as seções `[realm]` e `[domain_realm]` no arquivo de configuração */etc/krb5.conf* . Certifique-se de especificar o realm em letras MAIÚSCULAs:
+Durante a instalação Kerberos, o pacote *krb5-user* solicita o nome do reino em TODAS AS MAIÚScas. Por exemplo, se o nome do seu domínio gerido pelo Azure AD DS for *aadds.contoso.com*, insira *AADDS. CONTOSO.COM* como o reino. A instalação escreve as secções `[realm]` e `[domain_realm]` no ficheiro de configuração */etc/krb5.conf.* Certifique-se de que especifica o reino de uma MAIÚSta:
 
 ```console
 sudo apt-get update
 sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
 ```
 
-## <a name="configure-network-time-protocol-ntp"></a>Configurar protocolo NTP (NTP)
+## <a name="configure-network-time-protocol-ntp"></a>Configure Protocolo de Tempo de Rede (NTP)
 
-Para que a comunicação de domínio funcione corretamente, a data e hora da sua VM do Ubuntu devem sincronizar com o domínio gerenciado AD DS do Azure. Adicione o nome de host NTP do domínio gerenciado AD DS do Azure ao arquivo */etc/ntp.conf* .
+Para que a comunicação de domínio funcione corretamente, a data e a hora do seu Ubuntu VM devem sincronizar com o domínio gerido pelo Azure AD DS. Adicione o nome de anfitrião NTP gerido pelo seu domínio Azure DS ao ficheiro */etc/ntp.conf.*
 
-1. Abra o arquivo *NTP. conf* com um editor:
+1. Abra o ficheiro *ntp.conf* com um editor:
 
     ```console
     sudo vi /etc/ntp.conf
     ```
 
-1. No arquivo *NTP. conf* , crie uma linha para adicionar o nome DNS do domínio gerenciado AD DS do Azure. No exemplo a seguir, uma entrada para *contoso.com* é adicionada. Use seu próprio nome DNS:
+1. No ficheiro *ntp.conf,* crie uma linha para adicionar o nome DNS gerido pelo domínio azure DS. No exemplo seguinte, é acrescentada uma entrada para *aadds.contoso.com.* Use o seu próprio nome DNS:
 
     ```console
-    server contoso.com
+    server aadds.contoso.com
     ```
 
-    Quando terminar, salve e saia do arquivo *NTP. conf* usando o comando `:wq` do editor.
+    Quando estiver feito, guarde e saia do ficheiro *ntp.conf* utilizando o comando `:wq` do editor.
 
-1. Para certificar-se de que a VM está sincronizada com o domínio gerenciado AD DS do Azure, as seguintes etapas são necessárias:
+1. Para garantir que o VM é sincronizado com o domínio gerido pelo Azure AD DS, são necessários os seguintes passos:
 
-    * Parar o servidor NTP
-    * Atualizar a data e a hora do domínio gerenciado
-    * Iniciar o serviço NTP
+    * Pare o servidor NTP
+    * Atualizar a data e a hora do domínio gerido
+    * Inicie o serviço NTP
 
-    Execute os comandos a seguir para concluir essas etapas. Use seu próprio nome DNS com o comando `ntpdate`:
+    Executar os seguintes comandos para completar estes passos. Use o seu próprio nome DNS com o comando `ntpdate`:
 
     ```console
     sudo systemctl stop ntp
-    sudo ntpdate contoso.com
+    sudo ntpdate aadds.contoso.com
     sudo systemctl start ntp
     ```
 
-## <a name="join-vm-to-the-managed-domain"></a>Ingressar VM no domínio gerenciado
+## <a name="join-vm-to-the-managed-domain"></a>Junte-se à VM ao domínio gerido
 
-Agora que os pacotes necessários estão instalados na VM e o NTP está configurado, ingresse a VM no domínio gerenciado AD DS do Azure.
+Agora que os pacotes necessários são instalados no VM e ntP está configurado, junte o VM ao domínio gerido pelo Azure AD DS.
 
-1. Use o comando `realm discover` para descobrir o domínio gerenciado do AD DS do Azure. O exemplo a seguir descobre o realm *contoso.com*. Especifique seu próprio nome de domínio gerenciado AD DS do Azure em letras MAIÚSCULAs:
-
-    ```console
-    sudo realm discover CONTOSO.COM
-    ```
-
-   Se o comando `realm discover` não conseguir localizar seu domínio gerenciado do Azure AD DS, examine as seguintes etapas de solução de problemas:
-
-    * Verifique se o domínio está acessível da VM. Tente `ping contoso.com` para ver se uma resposta positiva é retornada.
-    * Verifique se a VM está implantada no mesmo ou em uma rede virtual emparelhada na qual o domínio gerenciado do Azure AD DS está disponível.
-    * Confirme se as configurações do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerenciado AD DS do Azure.
-
-1. Agora, inicialize o Kerberos usando o comando `kinit`. Especifique um usuário que pertença ao grupo de *Administradores de DC do AAD* . Se necessário, [adicione uma conta de usuário a um grupo no Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
-
-    Novamente, o nome de domínio gerenciado do AD DS do Azure deve ser inserido em letras MAIÚSCULAs. No exemplo a seguir, a conta chamada `contosoadmin@contoso.com` é usada para inicializar o Kerberos. Insira sua própria conta de usuário que seja membro do grupo de *Administradores de DC do AAD* :
+1. Use o comando `realm discover` para descobrir o domínio gerido pela AD DS Azure. O exemplo que se segue descobre o reino *AADDS. CONTOSO.COM.* Especifique o seu próprio nome de domínio gerido azure AD DS em TODAS as MAIDES:
 
     ```console
-    kinit contosoadmin@CONTOSO.COM
+    sudo realm discover AADDS.CONTOSO.COM
     ```
 
-1. Por fim, ingresse o computador no domínio gerenciado AD DS do Azure usando o comando `realm join`. Use a mesma conta de usuário que é membro do grupo de *Administradores de DC do AAD* que você especificou no comando `kinit` anterior, como `contosoadmin@CONTOSO.COM`:
+   Se o comando `realm discover` não encontrar o seu domínio gerido pelo Azure AD DS, reveja os seguintes passos de resolução de problemas:
+
+    * Certifique-se de que o domínio é acessível a partir do VM. Tente `ping aadds.contoso.com` para ver se uma resposta positiva é devolvida.
+    * Verifique se o VM está implantado na mesma rede virtual, ou numa rede virtual em que o domínio gerido pelo Azure AD DS está disponível.
+    * Confirme que as definições do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerido pelo Azure AD DS.
+
+1. Agora rubrica kerberos usando o comando `kinit`. Especifique um utilizador que pertença ao grupo de *administradores da AAD DC.* Se necessário, [adicione uma conta de utilizador a um grupo em Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+
+    Mais uma vez, o nome de domínio gerido pela AD DS azure deve ser introduzido em TODAS as MAIDES. No exemplo seguinte, a conta chamada `contosoadmin@aadds.contoso.com` é usada para inicializar Kerberos. Insira a sua própria conta de utilizador que é membro do grupo de administradores da *AAD DC:*
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
+    kinit contosoadmin@AADDS.CONTOSO.COM
     ```
 
-Leva alguns minutos para ingressar a VM no domínio gerenciado AD DS do Azure. A saída de exemplo a seguir mostra que a VM ingressou com êxito no domínio gerenciado do Azure AD DS:
+1. Por fim, junte a máquina ao domínio gerido azure AD DS utilizando o comando `realm join`. Utilize a mesma conta de utilizador que é membro do grupo de administradores da *AAD DC* que especificou no comando de `kinit` anterior, como `contosoadmin@AADDS.CONTOSO.COM`:
+
+    ```console
+    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM' --install=/
+    ```
+
+Leva alguns momentos para se juntar ao VM ao domínio gerido pela AD DS Azure. A saída de exemplo que se segue mostra que o VM se juntou com sucesso ao domínio gerido pelo Azure AD DS:
 
 ```output
 Successfully enrolled machine in realm
 ```
 
-Se sua VM não puder concluir com êxito o processo de ingresso no domínio, verifique se o grupo de segurança de rede da VM permite o tráfego de saída do Kerberos na porta TCP + UDP 464 para a sub-rede da rede virtual para seu domínio gerenciado AD DS do Azure.
+Se o seu VM não conseguir completar com sucesso o processo de união de domínios, certifique-se de que o grupo de segurança de rede da VM permite o tráfego de saída da Kerberos na porta 464 TCP + UDP para a subnet de rede virtual para o seu domínio gerido pelo Azure AD DS.
 
-## <a name="update-the-sssd-configuration"></a>Atualizar a configuração do SSSD
+## <a name="update-the-sssd-configuration"></a>Atualizar a configuração SSSD
 
-Um dos pacotes instalados em uma etapa anterior era para o daemon dos serviços de segurança do sistema (SSSD). Quando um usuário tenta entrar em uma VM usando credenciais de domínio, o SSSD transmite a solicitação para um provedor de autenticação. Nesse cenário, o SSSD usa o Azure AD DS para autenticar a solicitação.
+Um dos pacotes instalados num passo anterior foi para o System Security Services Daemon (SSSD). Quando um utilizador tenta iniciar sessão num VM utilizando credenciais de domínio, o SSSD transmite o pedido a um fornecedor de autenticação. Neste cenário, a SSSD utiliza o Azure AD DS para autenticar o pedido.
 
-1. Abra o arquivo *SSSD. conf* com um editor:
+1. Abra o ficheiro *sssd.conf* com um editor:
 
     ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
-1. Comente a linha para *use_fully_qualified_names* da seguinte maneira:
+1. Comente a linha para *use_fully_qualified_names* da seguinte forma:
 
     ```console
     # use_fully_qualified_names = True
     ```
 
-    Quando terminar, salve e saia do arquivo *SSSD. conf* usando o comando `:wq` do editor.
+    Quando feito, guarde e saia do ficheiro *sssd.conf* utilizando o comando `:wq` do editor.
 
 1. Para aplicar a alteração, reinicie o serviço SSSD:
 
@@ -179,98 +179,98 @@ Um dos pacotes instalados em uma etapa anterior era para o daemon dos serviços 
     sudo service sssd restart
     ```
 
-## <a name="configure-user-account-and-group-settings"></a>Definir configurações de conta de usuário e grupo
+## <a name="configure-user-account-and-group-settings"></a>Configure as definições da conta de utilizador e do grupo
 
-Com a VM ingressada no domínio gerenciado AD DS do Azure e configurada para autenticação, há algumas opções de configuração de usuário a serem concluídas. Essas alterações de configuração incluem a permissão de autenticação baseada em senha e a criação automática de diretórios base na VM local quando os usuários do domínio entram pela primeira vez.
+Com o VM a de lado junto ao domínio gerido pelo Azure AD DS e configurado para autenticação, existem algumas opções de configuração do utilizador para serem completadas. Estas alterações de configuração incluem permitir a autenticação baseada em palavras-passe e criar automaticamente diretórios domésticos no VM local quando os utilizadores de domínio iniciarem o insto.
 
-### <a name="allow-password-authentication-for-ssh"></a>Permitir autenticação de senha para SSH
+### <a name="allow-password-authentication-for-ssh"></a>Permitir a autenticação de senha para SSH
 
-Por padrão, os usuários só podem entrar em uma VM usando a autenticação baseada em chave pública SSH. Falha na autenticação baseada em senha. Quando você ingressa a VM em um domínio gerenciado AD DS do Azure, essas contas de domínio precisam usar a autenticação baseada em senha. Atualize a configuração de SSH para permitir a autenticação baseada em senha da seguinte maneira.
+Por predefinição, os utilizadores só podem iniciar sessão num VM utilizando a autenticação baseada em chaves SSH. A autenticação baseada em palavra-passe falha. Quando se junta ao VM a um domínio gerido pelo Azure AD DS, essas contas de domínio precisam de utilizar a autenticação baseada em palavra-passe. Atualize a configuração SSH para permitir a autenticação baseada em palavra-passe da seguinte forma.
 
-1. Abra o arquivo *sshd_conf* com um editor:
+1. Abra o ficheiro *sshd_conf* com um editor:
 
     ```console
     sudo vi /etc/ssh/sshd_config
     ```
 
-1. Atualize a linha de *PasswordAuthentication* para *Sim*:
+1. Atualize a linha para *A Autenticação de Palavras-Passe* para *sim:*
 
     ```console
     PasswordAuthentication yes
     ```
 
-    Quando terminar, salve e saia do arquivo *sshd_conf* usando o comando `:wq` do editor.
+    Quando estiver feito, guarde e saia do ficheiro *sshd_conf* utilizando o comando `:wq` do editor.
 
-1. Para aplicar as alterações e permitir que os usuários entrem usando uma senha, reinicie o serviço SSH:
+1. Para aplicar as alterações e deixar os utilizadores iniciarem o contrato com uma palavra-passe, reinicie o serviço SSH:
 
     ```console
     sudo systemctl restart ssh
     ```
 
-### <a name="configure-automatic-home-directory-creation"></a>Configurar a criação automática do diretório base
+### <a name="configure-automatic-home-directory-creation"></a>Configure criação automática de diretório seleções
 
-Para habilitar a criação automática do diretório base quando um usuário entrar pela primeira vez, conclua as seguintes etapas:
+Para permitir a criação automática do diretório doméstico quando um utilizador entrar pela primeira vez, complete os seguintes passos:
 
-1. Abra o arquivo */etc/pam.d/common-Session* em um editor:
+1. Abra o ficheiro */etc/pam.d/common-session* num editor:
 
     ```console
     sudo vi /etc/pam.d/common-session
     ```
 
-1. Adicione a seguinte linha a este arquivo abaixo da linha `session optional pam_sss.so`:
+1. Adicione a seguinte linha neste ficheiro abaixo da linha `session optional pam_sss.so`:
 
     ```console
     session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
     ```
 
-    Quando terminar, salve e saia do arquivo de *sessão comum* usando o comando `:wq` do editor.
+    Quando feito, guarde e saia do ficheiro *de sessão comum* utilizando o comando `:wq` do editor.
 
-### <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceder ao grupo ' Administradores do AAD DC ' privilégios do sudo
+### <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceda os privilégios do grupo 'Administradores da AAD DC'
 
-Para conceder aos membros do grupo de *Administradores do AAD DC* privilégios administrativos na VM do Ubuntu, você adiciona uma entrada ao */etc/sudoers*. Depois de adicionados, os membros do grupo de *Administradores do AAD DC* podem usar o comando `sudo` na VM do Ubuntu.
+Para conceder aos membros do grupo de administradores da *AAD DC privilégios* administrativos no Ubuntu VM, adicione uma entrada para os */etc/sudoers*. Uma vez adicionados, os membros do grupo de administradores da *AAD DC* podem usar o comando `sudo` no Ubuntu VM.
 
-1. Abra o arquivo do *sudoers* para edição:
+1. Abra o ficheiro *sudoers* para edição:
 
     ```console
     sudo visudo
     ```
 
-1. Adicione a seguinte entrada ao final do arquivo */etc/sudoers* :
+1. Adicione a seguinte entrada ao final do ficheiro */etc/sudoers:*
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-    Quando terminar, salve e saia do editor usando o comando `Ctrl-X`.
+    Quando terminar, guarde e saia do editor usando o comando `Ctrl-X`.
 
-## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Entrar na VM usando uma conta de domínio
+## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Inscreva-se no VM usando uma conta de domínio
 
-Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azure, inicie uma nova conexão SSH usando uma conta de usuário de domínio. Confirme se um diretório base foi criado e se a associação de grupo do domínio foi aplicada.
+Para verificar se o VM foi bem-sucedido juntou-se ao domínio gerido pelo Azure AD DS, inicie uma nova ligação SSH utilizando uma conta de utilizador de domínio. Confirme que foi criado um diretório doméstico e que a adesão ao grupo a partir do domínio é aplicada.
 
-1. Crie uma nova conexão SSH no console do. Use uma conta de domínio que pertença ao domínio gerenciado usando o comando `ssh -l`, como `contosoadmin@contoso.com` e, em seguida, insira o endereço da VM, como *Ubuntu.contoso.com*. Se você usar o Azure Cloud Shell, use o endereço IP público da VM em vez do nome DNS interno.
+1. Crie uma nova ligação SSH a partir da sua consola. Utilize uma conta de domínio que pertença ao domínio gerido utilizando o comando `ssh -l`, como `contosoadmin@aadds.contoso.com` e, em seguida, introduza o endereço do seu VM, como *ubuntu.aadds.contoso.com*. Se utilizar a Concha de Nuvem Azure, utilize o endereço IP público do VM em vez do nome DNS interno.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com ubuntu.aadds.contoso.com
     ```
 
-1. Quando você se conectou com êxito à VM, verifique se o diretório base foi inicializado corretamente:
+1. Quando tiver ligações com sucesso ao VM, verifique se o diretório inicialmente foi inicializado corretamente:
 
     ```console
     pwd
     ```
 
-    Você deve estar no diretório */Home* com seu próprio diretório que corresponda à conta de usuário.
+    Você deve estar no diretório */home* com o seu próprio diretório que corresponda à conta de utilizador.
 
-1. Agora, verifique se as associações de grupo estão sendo resolvidas corretamente:
+1. Verifique agora se os membros do grupo estão a ser resolvidos corretamente:
 
     ```console
     id
     ```
 
-    Você deve ver suas associações de grupo no domínio gerenciado AD DS do Azure.
+    Deve ver os seus membros do grupo do domínio gerido pelo Azure AD DS.
 
-1. Se você entrou na VM como um membro do grupo de *Administradores do controlador de domínio do AAD* , verifique se você pode usar corretamente o comando `sudo`:
+1. Se inscreveu o VM como membro do grupo de administradores da *AAD DC,* verifique se pode utilizar corretamente o comando `sudo`:
 
     ```console
     sudo apt-get update
@@ -278,7 +278,7 @@ Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você tiver problemas para conectar a VM ao domínio gerenciado AD DS do Azure ou entrar com uma conta de domínio, consulte [Solucionando problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-domain-join-issues).
+Se tiver problemas em ligar o VM ao domínio gerido pelo Azure AD DS ou iniciar sessão com uma conta de domínio, consulte problemas de resolução de [domínios](join-windows-vm.md#troubleshoot-domain-join-issues).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

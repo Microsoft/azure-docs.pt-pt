@@ -2,14 +2,14 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/13/2019
+ms.date: 01/23/2019
 ms.author: aahi
-ms.openlocfilehash: 518e6d544547b808b278121bf6364dcd1590bd6f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: b71c66c9025ea76d9f99f27537c0d4239ce93fdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281188"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717228"
 ---
 <a name="HOLTop"></a>
 
@@ -17,7 +17,7 @@ ms.locfileid: "76281188"
 
 > [!NOTE]
 > * Este guia de início rápido usa a versão `3.0-preview` da biblioteca de cliente do Análise de Texto, que inclui uma visualização pública para [análise de sentimento](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) aprimorado e [reconhecimento de entidade nomeada (Ner)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
-> * O código neste artigo usa métodos síncronos e o armazenamento de credenciais não protegidas por motivos de simplicidade. Para cenários de produção, é recomendável usar os métodos assíncronos em lote para desempenho e escalabilidade. Por exemplo, importar o cliente do namespace `azure.ai.textanalytics.aio` e chamando `analyze_sentiment()`, em vez de `analyze_sentiment()` do namespace `azure.ai.textanalytics`.
+> * O código neste artigo usa métodos síncronos e o armazenamento de credenciais não protegidas por motivos de simplicidade. Para cenários de produção, é recomendável usar os métodos assíncronos em lote para desempenho e escalabilidade. Por exemplo, importar o cliente do espaço de `azure.ai.textanalytics.aio` e chamar `analyze_sentiment()`, em vez de `analyze_sentiment()` do espaço de nome `azure.ai.textanalytics`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +74,7 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a biblio
 > [!NOTE]
 > O código abaixo é para a análise de sentimentos v3, que está em visualização pública.
 
-Crie uma nova função chamada `sentiment_analysis_example()` que usa o ponto de extremidade e a chave como argumentos e, em seguida, chama a função `single_analyze_sentiment()`. O objeto de resposta retornado conterá o rótulo de sentimentos e a pontuação de todo o documento de entrada, bem como uma análise de sentimentos para cada frase.
+Crie uma nova função chamada `sentiment_analysis_example()` que tome o ponto final e a chave como argumentos, em seguida, chama a função `single_analyze_sentiment()`. O objeto de resposta retornado conterá o rótulo de sentimentos e a pontuação de todo o documento de entrada, bem como uma análise de sentimentos para cada frase.
 
 
 ```python
@@ -84,7 +84,7 @@ def sentiment_analysis_example(endpoint, key):
 
     document = "I had the best day of my life. I wish you were there with me."
 
-    response = single_analyze_sentiment(endpoint=endpoint, key=key, input_text=document)
+    response = single_analyze_sentiment(endpoint=endpoint, credential=key, input_text=document)
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
         response.document_scores.positive,
@@ -127,10 +127,10 @@ negative=0.017
 
 ## <a name="language-detection"></a>Deteção de idioma
 
-Crie uma nova função chamada `language_detection_example()` que usa o ponto de extremidade e a chave como argumentos e, em seguida, chama a função `single_detect_languages()`. O objeto de resposta retornado conterá o idioma detectado em `detected_languages` se for bem-sucedido e um `error` se não for.
+Crie uma nova função chamada `language_detection_example()` que tome o ponto final e a chave como argumentos, em seguida, chama a função `single_detect_languages()`. O objeto de resposta devolvido conterá a linguagem detetada em `detected_languages` se for bem sucedido, e uma `error` se não for.
 
 > [!Tip]
-> Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Você pode usar o parâmetro `country_hint` para especificar um código de país de duas letras. Por padrão, a API está usando o "US" como o countryHint padrão, para remover esse comportamento, você pode redefinir esse parâmetro definindo esse valor como cadeia de caracteres vazia `country_hint : ""`. 
+> Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Pode utilizar o parâmetro `country_hint` para especificar um código de país de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este comportamento pode redefinir este parâmetro definindo este valor para `country_hint : ""`de cadeias vazias . 
 
 ```python
 from azure.ai.textanalytics import single_detect_language
@@ -138,7 +138,7 @@ from azure.ai.textanalytics import single_detect_language
 def language_detection_example(endpoint, key):
     try:
         document = "Ce document est rédigé en Français."
-        response = single_detect_language(endpoint=endpoint, key=key, input_text= document)
+        response = single_detect_language(endpoint=endpoint, credential=key, input_text= document)
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
@@ -158,7 +158,7 @@ Language:  French
 > [!NOTE]
 > O código abaixo é para o reconhecimento de entidade nomeada v3, que está em visualização pública.
 
-Crie uma nova função chamada `entity_recognition_example` que usa o ponto de extremidade e a chave como argumentos, em seguida, chama a função `single_recognize_entities()` e itera pelos resultados. O objeto de resposta retornado conterá a lista de entidades detectadas em `entity` se for bem-sucedido e um `error` se não for. Para cada entidade detectada, imprima seu tipo e subtipo, se existir.
+Crie uma nova função chamada `entity_recognition_example` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_entities()` e iterates através dos resultados. O objeto de resposta retornado conterá a lista de entidades detectadas em `entity` se for bem-sucedido e um `error` se não for. Para cada entidade detectada, imprima seu tipo e subtipo, se existir.
 
 ```python
 from azure.ai.textanalytics import single_recognize_entities
@@ -167,7 +167,7 @@ def entity_recognition_example(endpoint, key):
 
     try:
         document = "I had a wonderful trip to Seattle last week."
-        result = single_recognize_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_entities(endpoint=endpoint, credential=key, input_text= document)
         
         print("Named Entities:\n")
         for entity in result.entities:
@@ -197,7 +197,7 @@ Named Entities:
 > [!NOTE]
 > O código abaixo é para detectar informações pessoais usando o reconhecimento de entidade nomeada v3, que está em visualização pública.
 
-Crie uma nova função chamada `entity_pii_example()` que usa o ponto de extremidade e a chave como argumentos, em seguida, chama a função `single_recognize_pii_entities()` e Obtém o resultado. Em seguida, itere os resultados e imprima as entidades.
+Crie uma nova função chamada `entity_pii_example()` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_pii_entities()` e obtém o resultado. Em seguida, itere os resultados e imprima as entidades.
 
 ```python
 from azure.ai.textanalytics import single_recognize_pii_entities
@@ -207,7 +207,7 @@ def entity_pii_example(endpoint, key):
         document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
 
 
-        result = single_recognize_pii_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_pii_entities(endpoint=endpoint, credential=key, input_text= document)
         
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
@@ -227,7 +227,7 @@ Personally Identifiable Information Entities:
 
 ## <a name="entity-linking"></a>Ligação de Entidades
 
-Crie uma nova função chamada `entity_linking_example()` que usa o ponto de extremidade e a chave como argumentos, em seguida, chama a função `single_recognize_linked_entities()` e itera pelos resultados. O objeto de resposta retornado conterá a lista de entidades detectadas em `entities` se for bem-sucedido e um `error` se não for. Como as entidades vinculadas são identificadas exclusivamente, as ocorrências da mesma entidade são agrupadas em um objeto `entity` como uma lista de objetos `match`.
+Crie uma nova função chamada `entity_linking_example()` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_linked_entities()` e iterates através dos resultados. O objeto de resposta retornado conterá a lista de entidades detectadas em `entities` se for bem-sucedido e um `error` se não for. Como as entidades vinculadas são identificadas exclusivamente, as ocorrências da mesma entidade são agrupadas em um objeto `entity` como uma lista de objetos `match`.
 
 ```python
 from azure.ai.textanalytics import single_recognize_linked_entities
@@ -240,7 +240,7 @@ def entity_linking_example(endpoint, key):
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
         while also being the largest individual shareholder until May 2014."""
-        result = single_recognize_linked_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_linked_entities(endpoint=endpoint, credential=key, input_text= document)
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -307,7 +307,7 @@ Linked Entities:
 
 ## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
-Crie uma nova função chamada `key_phrase_extraction_example()` que usa o ponto de extremidade e a chave como argumentos e, em seguida, chama a função `single_extract_key_phrases()`. O resultado conterá a lista de frases-chave detectadas em `key_phrases` se for bem-sucedido e um `error` se não for. Imprima as frases-chave detectadas.
+Crie uma nova função chamada `key_phrase_extraction_example()` que tome o ponto final e a chave como argumentos, em seguida, chama a função `single_extract_key_phrases()`. O resultado conterá a lista de frases-chave detetadas em `key_phrases` se for bem sucedida, e uma `error` se não for. Imprima as frases-chave detectadas.
 
 ```python
 from azure.ai.textanalytics import single_extract_key_phrases
@@ -317,7 +317,7 @@ def key_phrase_extraction_example(endpoint, key):
     try:
         document = "My cat might need to see a veterinarian."
 
-        response = single_extract_key_phrases(endpoint=endpoint, key=key, input_text= document)
+        response = single_extract_key_phrases(endpoint=endpoint, credential=key, input_text= document)
 
         if not response.is_error:
             print("\tKey Phrases:")

@@ -1,21 +1,21 @@
 ---
 title: Campo personalizado do mapa ao esquema do Azure Event Grid
-description: Descreve como converter seu esquema personalizado para o esquema do Azure Event Grid.
+description: Este artigo descreve como converter o seu esquema personalizado para o esquema da Rede de Eventos Azure quando os dados do seu evento não correspondem ao esquema da Rede de Eventos.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e8077068a265d659cf6009eb7762188637c373d6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565502"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721664"
 ---
-# <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados ao esquema do Event Grid
+# <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados no esquema do Event Grid
 
 Se os dados de evento não corresponderem a esperada [esquema de grelha de eventos](event-schema.md), ainda pode utilizar o Event Grid para eventos de rota para assinantes. Este artigo descreve como mapear o seu esquema para o esquema do Event Grid.
 
@@ -205,7 +205,7 @@ A segunda assinatura utilizado o esquema de eventos de entrada. O formato do eve
 
 Tenha em atenção que os campos originais foram entregues.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
