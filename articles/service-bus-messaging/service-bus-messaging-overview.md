@@ -1,6 +1,6 @@
 ---
 title: Descrição geral de mensagens do Service Bus do Azure | Microsoft Docs
-description: Descrição de mensagens do Service Bus
+description: Este artigo fornece uma visão geral de alto nível do Azure Service Bus, um corretor de mensagens de integração empresarial totalmente gerido.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,37 +11,37 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561589"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759385"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
-O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial totalmente gerido. O barramento de serviço pode desassociar aplicativos e serviços. O barramento de serviço oferece uma plataforma confiável e segura para transferência assíncrona de dados e estado.
+O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial totalmente gerido. O Service Bus pode dissociar aplicações e serviços. A Service Bus oferece uma plataforma fiável e segura para transferência assíncrona de dados e estado.
 
-Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem está em formato binário e pode conter JSON, XML ou apenas texto. Para obter mais informações, consulte [Integration Services](https://azure.com/integration).
+Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem está em formato binário e pode conter JSON, XML ou apenas texto. Para mais informações, consulte Serviços de [Integração.](https://azure.com/integration)
 
 Alguns cenários comuns de mensagens são:
 
-* *Mensagens*. Transfira dados corporativos, como ordens de compra ou vendas, diários ou movimentações de estoque.
-* *Dissociar aplicativos*. Melhore a confiabilidade e a escalabilidade de aplicativos e serviços. O cliente e o serviço não precisam estar online ao mesmo tempo.
-* *Tópicos e assinaturas*. Habilite relações 1:*n* entre Publicadores e assinantes.
-* *Sessões de mensagens*. Implemente fluxos de trabalho que exigem ordenação de mensagens ou adiamento de mensagens.
+* *Mensagens*. Transfira dados empresariais, tais como vendas ou compras, revistas ou movimentos de inventário.
+* *Desagregar aplicações*. Melhorar a fiabilidade e a escalabilidade das aplicações e serviços. O cliente e o serviço não têm de estar online ao mesmo tempo.
+* *Tópicos e subscrições.* Habilitar 1:*n* relações entre editores e assinantes.
+* *Sessões de mensagens.* Implementar fluxos de trabalho que exijam pedido de mensagens ou diferimento de mensagem.
 
 ## <a name="namespaces"></a>Espaços de nomes
 
-Um namespace é um contêiner para todos os componentes de mensagens. Várias filas e tópicos podem estar em um único namespace, e os namespaces geralmente servem como contêineres de aplicativos.
+Um espaço de nome é um recipiente para todos os componentes de mensagens. Várias filas e tópicos podem estar num único espaço de nome, e os espaços de nome muitas vezes servem como recipientes de aplicação.
 
 ## <a name="queues"></a>Filas
 
-As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que o aplicativo receptor esteja disponível para receber e processá-las.
+As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que a aplicação recetora esteja disponível para recebê-las e processá-las.
 
 ![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-As mensagens nas filas são ordenadas e com carimbo de data/hora na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo de *pull* , apenas entregando mensagens quando solicitado.
+As mensagens nas filas são encomendadas e marcadas à chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo *pull,* apenas entregando mensagens quando solicitadas.
 
 ## <a name="topics"></a>Tópicos
 
@@ -49,53 +49,53 @@ Também pode utilizar *tópicos* para enviar e receber mensagens. Embora uma fil
 
 ![Tópico](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-Os tópicos podem ter várias subscrições independentes. Um subscritor de um tópico pode receber uma cópia de cada mensagem enviada para esse tópico. As assinaturas são nomeadas como entidades. As assinaturas persistem, mas podem expirar ou excluir a exclusão.
+Os tópicos podem ter várias subscrições independentes. Um subscritor de um tópico pode receber uma cópia de cada mensagem enviada para esse tópico. As assinaturas são entidades nomeadas. As subscrições persistem, mas podem expirar ou apagar automaticamente.
 
-Talvez você não queira que assinaturas individuais recebam todas as mensagens enviadas a um tópico. Nesse caso, você pode usar *regras* e *filtros* para definir condições que disparam *ações*opcionais. Você pode filtrar as mensagens especificadas e definir ou modificar as propriedades da mensagem. Para obter mais informações, consulte [tópico Filters and actions](topic-filters.md).
+Pode não querer que as subscrições individuais recebam todas as mensagens enviadas para um tópico. Em caso afirmativo, pode utilizar *regras* e *filtros* para definir condições que desencadeiem *ações*opcionais . Pode filtrar mensagens especificadas e definir ou modificar propriedades de mensagem. Para mais informações, consulte [os filtros e ações](topic-filters.md)do Tópico.
 
 ## <a name="advanced-features"></a>Funcionalidades avançadas
 
-O barramento de serviço inclui recursos avançados que permitem que você resolva problemas de mensagens mais complexos. As seções a seguir descrevem vários desses recursos.
+O Service Bus inclui funcionalidades avançadas que lhe permitem resolver problemas de mensagens mais complexos. As seguintes secções descrevem várias destas funcionalidades.
 
 ### <a name="message-sessions"></a>Sessões de mensagens
 
-Para criar uma garantia FIFO (primeiro a entrar, primeiro a sair) no barramento de serviço, use sessões. As sessões de mensagens permitem o tratamento em conjunto e ordenado de sequências não associadas de mensagens relacionadas. Para obter mais informações, consulte [sessões de mensagens: PEPS (primeiro a entrar, primeiro a sair)](message-sessions.md).
+Para criar uma garantia de primeira in,first-out (FIFO) no Service Bus, utilize sessões. As sessões de mensagens permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. Para mais informações, consulte [as sessões de mensagem: primeiro a entrar, primeiro a sair (FIFO)](message-sessions.md).
 
-### <a name="autoforwarding"></a>Encaminhamento automático
+### <a name="autoforwarding"></a>Auto-encaminhamento
 
-O recurso de encaminhamento automático encadeia uma fila ou assinatura para outra fila ou tópico. Eles devem fazer parte do mesmo namespace. Com o encaminhamento automático, o barramento de serviço remove automaticamente as mensagens de uma fila ou assinatura e as coloca em uma fila ou tópico diferente. Para obter mais informações, consulte [encadeando entidades do barramento de serviço com encaminhamento](service-bus-auto-forwarding.md)automático.
+O auto-reencaminhamento de recursos acorrenta uma fila ou subscrição para outra fila ou tópico. Devem fazer parte do mesmo espaço de nome. Com o auto-reencaminhamento, o Service Bus remove automaticamente as mensagens de uma fila ou subscrição e coloca-as numa fila ou tópico diferente. Para mais informações, consulte as entidades de Ônibus de Serviço de [Cadeia com reencaminhamento automático](service-bus-auto-forwarding.md).
 
-### <a name="dead-letter-queue"></a>Fila de mensagens mortas
+### <a name="dead-letter-queue"></a>Fila de letras mortas
 
-O barramento de serviço dá suporte a uma DLQ (fila de mensagens mortas). Um DLQ contém mensagens que não podem ser entregues a nenhum receptor. Ele contém mensagens que não podem ser processadas. O barramento de serviço permite remover mensagens do DLQ e inspecioná-las. Para obter mais informações, consulte [visão geral das filas de mensagens mortas do barramento de serviço](service-bus-dead-letter-queues.md).
+O Ônibus de Serviço suporta uma fila de cartas mortas (DLQ). Um DLQ contém mensagens que não podem ser entregues a nenhum recetor. Contém mensagens que não podem ser processadas. O Service Bus permite-lhe remover mensagens do DLQ e inspecioná-las. Para mais informações, consulte a [visão geral das filas de cartas mortas do Autocarro de Serviço.](service-bus-dead-letter-queues.md)
 
 ### <a name="scheduled-delivery"></a>Entrega agendada
 
-Você pode enviar mensagens para uma fila ou um tópico para processamento atrasado. Você pode agendar um trabalho para ser disponibilizado para processamento por um sistema em um determinado momento. Para obter mais informações, consulte [mensagens agendadas](message-sequencing.md#scheduled-messages).
+Pode enviar mensagens para uma fila ou tópico para processamento atrasado. Pode agendar um trabalho para se tornar disponível para processamento por um sistema a certa hora. Para mais informações, consulte [as mensagens agendadas](message-sequencing.md#scheduled-messages).
 
 ### <a name="message-deferral"></a>Diferimento de mensagens
 
-Um cliente de fila ou assinatura pode adiar a recuperação de uma mensagem até uma hora posterior. Esse adiamento pode ser devido a circunstâncias especiais no aplicativo. A mensagem permanece na fila ou assinatura, mas está reservada. Para obter mais informações, consulte [adiamento de mensagem](message-deferral.md).
+Um cliente de fila ou subscrição pode adiar a recuperação de uma mensagem até uma hora posterior. Este adiamento pode ser devido a circunstâncias especiais no pedido. A mensagem permanece na fila ou subscrição, mas está reservada. Para mais informações, consulte o [adiamento da mensagem.](message-deferral.md)
 
 ### <a name="batching"></a>Lotes
 
-O envio em lote do lado do cliente permite que um cliente de fila ou de tópico atrase enviando uma mensagem por um determinado período de tempo. Se o cliente enviar mensagens adicionais durante este período de tempo, transmitirá as mensagens num único lote. Para obter mais informações, consulte [envio em lote no lado do cliente](service-bus-performance-improvements.md#client-side-batching).
+O lote do lado do cliente permite que um cliente de fila ou tópico atrase o envio de uma mensagem por um determinado período de tempo. Se o cliente enviar mensagens adicionais durante este período de tempo, transmitirá as mensagens num único lote. Para mais informações, consulte o [lote do lado do Cliente](service-bus-performance-improvements.md#client-side-batching).
 
 ### <a name="transactions"></a>Transações
 
-Uma transação agrupa duas ou mais operações em um *escopo de execução*. O barramento de serviço dá suporte a operações de agrupamento em uma única entidade de mensagens dentro do escopo de uma única transação. Uma entidade de mensagem pode ser uma fila, um tópico ou uma assinatura. Para obter mais informações, consulte [visão geral do processamento de transações do barramento de serviço](service-bus-transactions.md).
+Uma transação agrupa duas ou mais operações em conjunto num âmbito de *execução.* A Service Bus apoia operações de agrupamento contra uma única entidade de mensagens no âmbito de uma única transação. Uma entidade de mensagem pode ser uma fila, tópico ou subscrição. Para mais informações, consulte [a visão geral do processamento de transações de ônibus de serviço.](service-bus-transactions.md)
 
 ### <a name="filtering-and-actions"></a>Filtragem e ações
 
-Os subscritores podem definir as mensagens que pretendem receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais regras de assinatura nomeadas. Para cada condição de regra de correspondência, a assinatura produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra de correspondência. Para obter mais informações, consulte [tópico Filters and actions](topic-filters.md).
+Os subscritores podem definir as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou mais regras de subscrição nomeadas. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente. Para mais informações, consulte [os filtros e ações](topic-filters.md)do Tópico.
 
-### <a name="autodelete-on-idle"></a>Exclusão autoativa em ociosidade
+### <a name="autodelete-on-idle"></a>Autodelete em ocioso
 
-A exclusão automática em ociosidade permite que você especifique um intervalo ocioso após o qual uma fila é excluída automaticamente. A duração mínima é 5 minutos. Para obter mais informações, consulte a [Propriedade QueueDescription. AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+A eliminação automática no ocioso permite especificar um intervalo de marcha lenta após o qual uma fila é automaticamente eliminada. A duração mínima é 5 minutos. Para mais informações, consulte a [propriedade QueueDescription.AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
 
 ### <a name="duplicate-detection"></a>Deteção de duplicados
 
-Um erro pode fazer com que o cliente tenha uma dúvida sobre o resultado de uma operação de envio. A detecção de duplicidades permite que o remetente reenvie a mesma mensagem. Outra opção é para a fila ou o tópico para descartar cópias duplicadas. Para obter mais informações, consulte [detecção de duplicidades](duplicate-detection.md).
+Um erro pode levar o cliente a ter dúvidas sobre o resultado de uma operação de envio. A deteção duplicada permite ao remetente reenviar a mesma mensagem. Outra opção é que a fila ou tópico elimine quaisquer cópias duplicadas. Para mais informações, consulte [a deteção do Duplicate](duplicate-detection.md).
 
 ### <a name="security-protocols"></a>Protocolos de segurança
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
@@ -104,7 +104,7 @@ O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Parti
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 
-Quando as regiões ou os data centers do Azure têm experiência com tempo de inatividade, a recuperação de desastres geograficamente permite que o processamento de dados continue operando em uma região ou Datacenter diferente. Para obter mais informações, consulte [recuperação de desastre geográfico do barramento de serviço do Azure](service-bus-geo-dr.md).
+Quando as regiões do Azure ou datacenters experimentam o tempo de inatividade, a recuperação de geo-desastres permite que o processamento de dados continue a operar numa região ou datacenter diferente. Para obter mais informações, consulte [recuperação de desastre geográfico do barramento de serviço do Azure](service-bus-geo-dr.md).
 
 ### <a name="security"></a>Segurança
 
@@ -112,7 +112,7 @@ O Service Bus suporta os protocolos [AMQP 1.0](service-bus-amqp-overview.md) e [
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
-O barramento de serviço dá suporte a bibliotecas de cliente para [.net](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master)e [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+Service Bus suporta bibliotecas de clientes para [.NET,](https://github.com/Azure/azure-service-bus-dotnet/tree/master) [Java](https://github.com/Azure/azure-service-bus-java/tree/master)e [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
 
 ## <a name="integration"></a>Integração
 
@@ -128,8 +128,8 @@ O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 
 Para começar a utilizar as mensagens do Service Bus, consulte os seguintes artigos:
 
-* Para comparar os serviços de mensagens do Azure, consulte [comparação de serviços](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json).
-* Experimente os guias de início rápido para [.net](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md)ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
-* Para gerenciar os recursos do barramento de serviço, consulte [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases).
-* Para saber mais sobre as camadas Standard e Premium e seus preços, confira [preços do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/).
-* Para saber mais sobre o desempenho e a latência da camada Premium, consulte [mensagens Premium](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722).
+* Para comparar os serviços de mensagens Azure, consulte [A Comparação de serviços.](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* Experimente as quickstarts para [.NET,](service-bus-dotnet-get-started-with-queues.md) [Java](service-bus-java-how-to-use-queues.md)ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
+* Para gerir os recursos do Ônibus de serviço, consulte [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases).
+* Para saber mais sobre os níveis Standard e Premium e seus preços, consulte [os preços dos Autocarros de Serviço.](https://azure.microsoft.com/pricing/details/service-bus/)
+* Para aprender sobre desempenho e latência para o nível Premium, consulte [A Mensagem Premium](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722).

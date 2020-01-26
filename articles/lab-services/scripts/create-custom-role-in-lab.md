@@ -1,6 +1,6 @@
 ---
 title: PowerShell-criar uma função personalizada em um laboratório no Azure DevTest Labs
-description: Esse script do PowerShell adiciona um usuário externo a um laboratório no Azure DevTest Labs.
+description: Este artigo fornece um script Azure PowerShell que adiciona um utilizador externo a um laboratório em Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: bcad4e02105bff2dc78a4adc3ca614f997794d52
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9605b3c63877335b8f180ae5fd2b06edc1601096
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166428"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760471"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para criar uma função personalizada em um laboratório no Azure DevTest Labs
 

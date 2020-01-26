@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046038"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760909"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -156,19 +156,9 @@ A página **Propriedades** permite que você defina as categorias e os setores u
 
 Selecione no mínimo um e no máximo três categorias, que serão usadas para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Lembre-se de chamar como sua oferta dá suporte a essas categorias na descrição da oferta. 
 
-### <a name="standard-marketplace-terms-and-conditions"></a>Termos e condições do Marketplace Standard
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato padrão para o Marketplace comercial da Microsoft
 
-Para simplificar o processo de aquisição para clientes e reduzir a complexidade legal para fornecedores de software, a Microsoft oferece um modelo de contrato padrão para ajudar a facilitar uma transação no Marketplace.
-
-Em vez de criar termos e condições personalizados, você pode optar por oferecer seu software sob o contrato padrão, que os clientes precisam apenas examinaremos e aceitar uma vez.
-
-O contrato padrão pode ser encontrado aqui: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Para usar o contrato padrão, marque a caixa **usar contrato padrão?** .
-
-#### <a name="terms-of-use"></a>Termos de utilização
-
-Se você não marcar a caixa **usar contrato padrão?** , você precisará fornecer seus próprios termos legais de uso no campo **termos de uso** . Insira até 10.000 caracteres de texto ou, se os termos de uso exigirem uma descrição mais longa, forneça a URL em que os termos de licença adicionais podem ser encontrados. Os clientes serão solicitados a aceitar esses termos antes que possam experimentar seu aplicativo.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## <a name="offer-listing"></a>Listagem de ofertas
 
@@ -177,7 +167,7 @@ A página de listagem da oferta exibe os idiomas nos quais sua oferta será list
 Você precisará definir detalhes do Marketplace (nome da oferta, descrição, imagens, etc.) para cada idioma/mercado. Selecione o idioma/nome do mercado para fornecer essas informações.
 
 > [!NOTE]
-> A oferta de conteúdo de listagem (como descrição, documentos, capturas de tela, termos de uso etc.) não precisa estar em inglês, desde que a descrição da oferta comece com a frase ", este aplicativo está disponível apenas em [idioma diferente do inglês]". Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
+> Oferecer conteúdo de listagem (como a descrição, documentos, screenshots, termos de uso, etc.) não é necessário estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação só está disponível em [língua não inglesa]." Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
 
 ### <a name="name"></a>Nome
 
@@ -461,7 +451,7 @@ Para cada entidade de segurança, selecione uma das funções internas do Azure 
 
 Aplique [políticas do Azure](https://docs.microsoft.com/azure/governance/policy/overview) ao seu aplicativo gerenciado para especificar os requisitos de conformidade para a solução implantada.  Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](https://docs.microsoft.com/azure/governance/policy/samples/index).  Você pode configurar um máximo de cinco políticas e apenas uma instância de cada opção de políticas.  Algumas políticas exigem parâmetros adicionais.  O SKU Standard é necessário para as políticas de auditoria.  O nome da política está limitado a 50 caracteres.
 
-## <a name="co-sell"></a>Venda Conjunta
+## <a name="co-sell"></a>Co-Venda
 
 Fornecer informações sobre a guia de televenda é totalmente opcional para publicar sua oferta. É necessário atingir o status pronto para venda de covenda pronta e de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes.
 

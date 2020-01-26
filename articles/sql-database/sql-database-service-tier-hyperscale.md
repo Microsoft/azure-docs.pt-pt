@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940813"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759504"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
-O banco de dados SQL do Azure é baseado em SQL Server Mecanismo de Banco de Dados arquitetura ajustada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
+A Base de Dados Azure SQL baseia-se na arquitetura do motor de base de dados do Servidor SQL que é ajustada para o ambiente em nuvem de forma a garantir uma disponibilidade de 99,99%, mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
 - Uso Geral/Standard 
 -  Hiperescala
 -  Comercialmente Crítico/Premium
@@ -66,13 +66,13 @@ A camada de serviço de hiperescala dá suporte a uma ampla variedade de cargas 
 
 A camada de serviço de hiperescala só está disponível no [modelo vCore](sql-database-service-tiers-vcore.md). Para alinhar com a nova arquitetura, o modelo de preços é um pouco diferente das camadas de serviço Uso Geral ou Comercialmente Crítico:
 
-- **Computação**:
+- **Computação:**
 
   O preço unitário de computação em hiperescala é por réplica. O preço de [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) é aplicado automaticamente às réplicas de escala de leitura. Criamos uma réplica primária e uma réplica somente leitura por banco de dados de hiperescala por padrão.  Os usuários podem ajustar o número total de réplicas, incluindo a primária de 1-5.
 
-- **Armazenamento**:
+- **Armazenamento:**
 
-  Você não precisa especificar o tamanho máximo dos dados ao configurar um banco de dados de hiperescala. No nível de hiperescala, é-lhe cobrado o armazenamento da sua base de dados com base na utilização real. O armazenamento é alocado automaticamente entre 10 GB e 100 TB, em incrementos que são dinamicamente ajustados entre 10 GB e 40 GB.  
+  Você não precisa especificar o tamanho máximo dos dados ao configurar um banco de dados de hiperescala. No escalão de hiperescala, é-lhe cobrado o armazenamento da sua base de dados com base na alocação real. O armazenamento é automaticamente atribuído entre 40 GB e 100 TB, em incrementos que são ajustados dinamicamente entre 10 GB e 40 GB. Uma base de dados de hiperescala é criada com um tamanho inicial de 10 GB e começa a crescer em 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
 
 Para obter mais informações sobre preços de hiperescala, consulte [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -222,7 +222,7 @@ Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões 
 
     No modelo, forneça as seguintes informações
 
-    > Solicitação para criar o banco de dados SQL de hiperescala do Azure em uma nova região<br/> Região: [preencha sua região solicitada]  <br/>
+    > Solicitação para criar o banco de dados SQL de hiperescala do Azure em uma nova região<br/> Região: [Preencha a sua região solicitada]  <br/>
     > Calcular SKU/total de núcleos, incluindo réplicas legíveis <br/>
     > Número de TB estimado 
     >
@@ -244,21 +244,21 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Se um banco de dados tiver um ou mais arquivos com mais de 1 TB, a migração falhará | Em alguns casos, pode ser possível contornar esse problema reduzindo os arquivos grandes para menos de 1 TB. Se estiver migrando um banco de dados que está sendo usado durante o processo de migração, verifique se nenhum arquivo tem mais de 1 TB. Use a consulta a seguir para determinar o tamanho dos arquivos de banco de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerida | No momento, não há suporte para Instância Gerenciada do Banco de Dados SQL do Azure com bancos de dados de hiperescala. |
 | Conjuntos Elásticos |  Atualmente, não há suporte para pools elásticos com a hiperescala do banco de dados SQL.|
-| A migração para o hiperescala é uma operação unidirecional no momento | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.)|
-| Migration of databases with persistent in-memory objects | Hyperscale only supports non persistent In-Memory objects (table types, native SPs and functions).  Persistent In-Memory tables and other objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.|
-| Monitorização de Alterações | Change Tracking is currently in public preview and can be enabled on new or existing Hyperscale databases. |
-| Georreplicação  | You cannot yet configure geo-replication for Azure SQL Database Hyperscale. |
-| Database Copy | You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
-| TDE/AKV Integration | Transparent Database Encryption using Azure Key Vault (commonly referred to as Bring-Your-Own-Key or BYOK) is not yet supported for Azure SQL Database Hyperscale, however TDE with Service Managed Keys is fully supported. |
-|Intelligent Database Features | With the exception of the "Force Plan" option, all other Automatic tuning options are not yet supported on Hyperscale: options may appear to be enabled, but there won't be any recommendations or actions made. |
-|Query Performance Insight | Query Performance Insights is currently not supported for Hyperscale databases. |
-| Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE is not currently supported for Hyperscale databases. |
-| Database integrity check | DBCC CHECKDB is not currently supported for Hyperscale databases. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
+| A migração para o hiperescala é uma operação unidirecional no momento | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo BACPAC ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.)|
+| Migração de bancos de dados com objetos na memória persistentes | O hiperscale dá suporte apenas a objetos não persistentes na memória (tipos de tabela, SPs nativos e funções).  As tabelas persistentes na memória e outros objetos devem ser descartados e recriados como objetos não na memória antes de migrar um banco de dados para a camada de serviço de hiperescala.|
+| Monitorização de Alterações | O Controle de Alterações está atualmente em visualização pública e pode ser habilitado em bancos de dados de hiperescala novos ou existentes. |
+| Georreplicação  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
+| Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
+| Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |
+|Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
+|Query Performance Insight | A Consulta Performance Insights não é atualmente suportada para bases de dados de hiperescala. |
+| Reduzir banco de dados | No momento, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE para bancos de dados de hiperescala. |
+| Verificação de integridade do banco de dados | No momento, não há suporte para DBCC CHECKDB em bancos de dados de hiperescala. Confira [integridade de dados no banco](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) de dados SQL do Azure para obter detalhes sobre o gerenciamento de integridade de dados no Azure SQL Database. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](sql-database-service-tier-hyperscale-faq.md).
-- For information about service tiers, see [Service tiers](sql-database-service-tiers.md)
-- See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
-- For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](sql-database-vcore-resource-limits-single-databases.md).
-- For a features and comparison list, see [SQL common features](sql-database-features.md).
+- Para obter perguntas frequentes sobre o hiperescala, consulte perguntas frequentes [sobre o subscale](sql-database-service-tier-hyperscale-faq.md).
+- Para obter informações sobre camadas de serviço, consulte [camadas de serviço](sql-database-service-tiers.md)
+- Consulte [visão geral dos limites de recursos em um servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre os limites nos níveis de servidor e assinatura.
+- Para os limites de modelo de compra de um único banco de dados, consulte [limites do modelo de compra baseado em VCORE do banco de dados SQL do Azure para um único banco de dados](sql-database-vcore-resource-limits-single-databases.md)
+- Para obter uma lista de recursos e comparação, consulte [recursos comuns do SQL](sql-database-features.md).

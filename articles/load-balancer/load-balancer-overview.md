@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/14/2019
+ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 9f824c1348420393f8fbf67bf96932e40b67bc32
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 186e8ee232fc8e0500f55404b65e00d7af696230
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264921"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760934"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 

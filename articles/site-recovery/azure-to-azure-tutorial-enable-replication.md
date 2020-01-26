@@ -2,14 +2,15 @@
 title: Configurar a recuperação de desastre de VM do Azure com o Azure Site Recovery
 description: Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 1/24/2020
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7d78064285057f6abd91c3ca95e01ec86f1a1a39
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169338"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759794"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -38,7 +39,7 @@ Para concluir este tutorial:
 Crie o cofre em qualquer região, exceto na região de origem.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. Em seguida, selecione **& ferramentas de gerenciamento** > **backup e site Recovery**.
+1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**. Em seguida, selecione **& ferramentas de gerenciamento** > **backup e site Recovery**.
 1. Em **Nome**, especifique um nome amigável para identificar o cofre. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie um grupo de recursos ou selecione um existente. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 1. Para acessar o cofre no painel, selecione **fixar no painel** e, em seguida, selecione **criar**.
@@ -75,17 +76,6 @@ Se você estiver usando um proxy de firewall baseado em URL para controlar a con
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
 Se você estiver usando um NSG (grupo de segurança de rede), crie regras de NSG baseadas em marca de serviço para acesso ao armazenamento do Azure, Azure Active Directory, serviço Site Recovery e monitoramento de Site Recovery. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
-
-> [!NOTE]
-> É recomendável sempre configurar regras NSG com marcas de serviço para acesso de saída.
-
-Para controlar a conectividade de saída usando endereços IP, permita esses endereços para firewalls baseados em IP, proxy ou regras NSG:
-
-- [Intervalos IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
-- [Intervalos de IP do Datacenter do Windows Azure na Alemanha](https://www.microsoft.com/download/details.aspx?id=54770)
-- [Intervalos de IP do Datacenter do Windows Azure na China](https://www.microsoft.com/download/details.aspx?id=42064)
-- [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-- [Endereços IP do ponto final do serviço Site Recovery](https://aka.ms/site-recovery-public-ips)
 
 ## <a name="verify-azure-vm-certificates"></a>Verificar os certificados de VM do Azure
 

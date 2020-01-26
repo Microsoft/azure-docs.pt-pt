@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
-description: Este artigo lista as perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW) de clientes e desenvolvedores
+title: Azure Synapse Analytics (ex-SQL DW) Perguntas frequentes
+description: Este artigo lista perguntas frequentes sobre a Azure Synapse Analytics (anteriormente SQL DW) de clientes e desenvolvedores
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -10,122 +10,105 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e64d184ef0fd120d1bc64ce274ee882b7938df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1a4fbfa87756914f169bb20387702cac69d8736d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708639"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759487"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
+# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (ex-SQL DW) Frequentemente fez perguntas
 
 ## <a name="general"></a>Geral
 
 P. O que é o Azure Synapse?
 
-R. O Azure Synapse é um serviço de análise ilimitado que reúne data warehousing e análise de Big Data. Ele oferece a você a liberdade de consultar dados sobre seus termos, usando recursos sem servidor sob demanda ou provisionados em escala. O Azure Synapse alia estes dois universos a uma experiência unificada para ingerir, preparar, gerir e fornecer dados a necessidades imediatas de BI e machine learning. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. Azure Synapse é um serviço de análise ilimitado que reúne armazenamento de dados e análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, utilizando recursos a pedido ou aprovisionados sem servidores - em escala. O Azure Synapse alia estes dois universos a uma experiência unificada para ingerir, preparar, gerir e fornecer dados a necessidades imediatas de BI e machine learning. Para mais informações, consulte, [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 P. O que aconteceu ao Azure SQL Data Warehouse?
 
-R. O Azure Synapse é um SQL Data Warehouse do Azure (SQL DW) evoluído. Nós tiramos a mesma data warehouse líder do setor em um nível totalmente novo de desempenho e recursos. Você pode continuar executando suas cargas de trabalho data warehouse existentes em produção hoje mesmo com o Azure Synapse e se beneficiar automaticamente dos novos recursos que estão em versão prévia. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. Azure Synapse é azure SQL Data Warehouse (SQL DW) evoluído. Levamos o mesmo armazém de dados líder da indústria para um novo nível de desempenho e capacidades. Pode continuar a executar as suas cargas de trabalho de armazém de dados existentes em produção com a Azure Synapse e beneficiar automaticamente das novas capacidades, que estão em pré-visualização. Para mais informações, consulte [o What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-P. O que é o SQL Analytics?
+P. O que é SQL Analytics?
 
-R. A análise de SQL refere-se aos recursos corporativos de data warehousing que estão geralmente disponíveis com o Azure Synapse. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. O SQL Analytics refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis com o Azure Synapse. Para mais informações, consulte, [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-P. Como fazer introdução ao Azure Synapse?
+P. Como posso começar com Azure Synapse?
 
-R. Você pode começar com uma [conta gratuita do Azure](https://azure.microsoft.com/free/sql-data-warehouse/) ou [entre em contato com as vendas para obter mais informações](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
+R. Pode começar com uma [conta azure gratuita](https://azure.microsoft.com/free/sql-data-warehouse/) ou [vendas de contato para mais informações.](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html) 
 
-P. O que o Azure Synapse oferece para segurança de dados?
+P. O que o Azure Synapse oferece para a segurança de dados?
 
-R. O Azure Synapse oferece várias soluções para proteger dados, como TDE e auditoria. Para obter mais informações, consulte [segurança].
+R. A Azure Synapse oferece várias soluções para proteger dados como o TDE e a auditoria. Para obter mais informações, consulte [segurança](sql-data-warehouse-overview-manage-security.md).
 
-P. Onde posso descobrir quais padrões legais ou de negócios o Azure Synapse está em conformidade?
+P. Onde posso descobrir quais os padrões legais ou empresariais com que a Azure Synapse está em conformidade?
 
-R. Visite a página de [conformidade da Microsoft] para várias ofertas de conformidade por produto, como SoC e ISO. Primeiro escolha por título de conformidade e, em seguida, expanda Azure na seção serviços de nuvem no escopo da Microsoft no lado direito da página para ver quais serviços estão em conformidade com o Azure Synapse.
+R. Visite a página [de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings) da Microsoft para várias ofertas de conformidade por produto como SOC e ISO. Primeiro, escolha pelo título de Compliance. Em seguida, expanda o Azure na secção de serviços de nuvem de âmbito da Microsoft no lado direito da página para ver quais os serviços que o Azure Synapse cumpre.
 
-P. Posso conectar Power BI?
+P. Posso ligar o Power BI?
 
-R. Sim! Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
+R. Sim! Embora o Power BI suporte a consulta direta com o Azure Synapse, não se destina a um grande número de utilizadores ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere utilizar o Power BI em cima dos Serviços de Análise do Azure ou do Serviço de Análise IaaS.
 
-P. Quais são os limites de capacidade da análise de SQL?
+P. Quais são os limites de capacidade da SQL Analytics?
 
-R. Consulte nossa página [limites de capacidade] atual. 
+R. Consulte a nossa página de [limites](sql-data-warehouse-service-capacity-limits.md) de capacidade atual. 
 
-P. Por que minha escala/pausa/retomada leva tanto tempo?
+P. Porque é que a minha Escala/Pausa/Currículo está a demorar tanto tempo?
 
-R. Uma variedade de fatores pode influenciar o tempo para operações de gerenciamento de computação. Um caso comum para operações de longa execução é a reversão transacional. Quando uma operação de escala ou pausa é iniciada, todas as sessões de entrada são bloqueadas e as consultas são descarregadas. Para deixar o sistema em um estado estável, as transações devem ser revertidas para que uma operação possa começar. Quanto maior o número e maior o tamanho de log das transações, mais tempo a operação será interrompida, restaurando o sistema para um estado estável.
+R. Vários fatores podem influenciar o tempo para operações de gestão de cálculo. Um caso comum para operações de longo prazo é a reversão transacional. Quando uma operação de escala ou pausa é iniciada, todas as sessões de entrada são bloqueadas e as consultas são drenadas. Para deixar o sistema num estado estável, as transações devem ser relançadas antes de iniciar uma operação. Quanto maior for o número de registos das transações, mais tempo a operação será travada restaurando o sistema para um estado estável.
 
-## <a name="user-support"></a>Suporte ao usuário
+## <a name="user-support"></a>Suporte ao utilizador
 
-P. Tenho uma solicitação de recurso, onde posso enviá-la?
+P. Tenho um pedido de recurso, onde o submeto?
 
-R. Se você tiver uma solicitação de recurso, envie-a em nossa página [UserVoice]
+R. Se tiver um pedido de funcionalidade, envie-o na nossa página [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 
 P. Como posso fazer x?
 
-R. Para obter ajuda no desenvolvimento com o Azure Synapse, você pode fazer perguntas em nossa página de [Stack Overflow] . 
+R. Para ajudar no desenvolvimento com o Azure Synapse, pode fazer perguntas na nossa página [stack Overflow.](https://stackoverflow.com/questions/tagged/azure-sqldw) 
 
-P. Como fazer enviar um tíquete de suporte?
+P. Como posso enviar um bilhete de apoio?
 
-R. [Tíquetes de suporte] podem ser arquivados por meio de portal do Azure.
+R. [Os bilhetes](sql-data-warehouse-get-started-create-support-ticket.md) de apoio podem ser arquivados através do portal Azure.
 
-## <a name="sql-languagefeature-support"></a>Suporte à linguagem/recurso SQL 
+## <a name="sql-languagefeature-support"></a>Suporte de idioma/recurso SQL 
 
-P. Quais tipos de DataTipo são suportados?
+P. Que tipos de dados são suportados?
 
-R. Consulte [tipos de dados].
+R. Ver tipos de [dados](sql-data-warehouse-tables-data-types.md).
 
-P. A quais recursos de tabela você dá suporte?
+P. Que características de mesa apoia?
 
-R. Muitos recursos têm suporte, aqueles que não têm suporte e estão documentados em [recursos de tabela sem suporte].
+R. Muitas funcionalidades são suportadas. As funcionalidades que não são suportadas podem ser encontradas em características de [mesa não suportadas](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="tooling-and-administration"></a>Ferramentas e administração
 
-P. A análise do SQL dá suporte a APIs REST?
+P. O SQL Analytics suporta APIs REST?
 
-R. Sim. A maioria das funcionalidades REST que podem ser usadas com o banco de dados SQL também está disponível com a análise de SQL. Você pode encontrar informações de API nas páginas de documentação REST ou no [msdn].
+R. Sim. A maior parte da funcionalidade REST que pode ser usada com base de dados SQL também está disponível com o SQL Analytics. Pode encontrar informações da API dentro das páginas de documentação REST ou [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 
 ## <a name="loading"></a>A carregar
 
-P. A quais drivers de cliente você dá suporte?
+P. Que clientes apoiam?
 
-R. O suporte de driver para DW pode ser encontrado na página [Cadeias de Ligação]
+R. Suporte ao condutor para SQL Analytics pode ser encontrado na página [De conexão Strings](sql-data-warehouse-connection-strings.md)
 
-P: quais formatos de arquivo são compatíveis com o polybase?
+P: Que formatos de ficheiro são suportados pela PolyBase?
 
-R: Orc, RC, parquet e texto delimitado por simples
+R: Orc, RC, Parquet e texto delimitado plano
 
-P: quais fontes de dados posso me conectar usando o polybase? 
+P: Que fontes de dados posso ligar à utilização da PolyBase? 
 
-R: [Azure data Lake Store] e [blobs de armazenamento do Azure]
+A: [Armazenamento de lagos de dados azure](sql-data-warehouse-load-from-azure-data-lake-store.md) e [blobs de armazenamento azure](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-P: a aplicação de computação é possível ao se conectar a blobs de armazenamento do Azure ou ADLS? 
+P: A pressão da computação é possível quando se conecta a Blobs de Armazenamento Azure ou ADLS? 
 
-R: não, o polybase interage apenas com os componentes de armazenamento. 
+R: Não, a PolyBase só interage com os componentes de armazenamento. 
 
-P: posso me conectar ao HDI?
+P: Posso ligar-me ao HDI?
 
-R: HDI pode usar ADLS ou WASB como a camada HDFS. Se você tiver o como sua camada HDFS, poderá carregar esses dados no SQL DW. No entanto, não é possível gerar a computação de aplicação para a instância HDI. 
+R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver ou como camada HDFS, então pode carregar esses dados em DW SQL. No entanto, não é possível gerar cálculo de push down para a instância DeI. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre o Azure Synapse como um todo, consulte nossa página de [Descrição geral] .
-
-
-<!-- Article references -->
-[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Cadeias de Ligação]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Tíquetes de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Segurança]: ./sql-data-warehouse-overview-manage-security.md
-[Conformidade da Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
-[limites de capacidade]: ./sql-data-warehouse-service-capacity-limits.md
-[tipos de dados]: ./sql-data-warehouse-tables-data-types.md
-[Recursos de tabela sem suporte]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Blobs de armazenamento do Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
-[MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Descrição geral]: ./sql-data-warehouse-overview-faq.md
+Para mais informações sobre o Azure Synapse como um todo, consulte a nossa página [de visão geral.](sql-data-warehouse-overview-faq.md)

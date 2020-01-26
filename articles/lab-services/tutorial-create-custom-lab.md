@@ -1,6 +1,6 @@
 ---
 title: Criar um laboratório com o Azure DevTest Labs | Microsoft Docs
-description: Neste início rápido, vai criar um laboratório com o Azure DevTest Labs.
+description: Neste tutorial, você cria um laboratório em Azure DevTest Labs usando o portal Azure. Um administrador de laboratório cria um laboratório, cria VMs no laboratório, e confunde políticas.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61084812"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759538"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
 
-Neste tutorial, irá realizar as seguintes ações:
+Neste tutorial, vai realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório
@@ -36,39 +36,39 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="create-a-lab"></a>Criar um laboratório
 Os passos seguintes mostram como utilizar o portal do Azure para criar um laboratório no Azure DevTest Labs. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. No menu principal no lado esquerdo, selecione **Criar recurso** (na parte superior da lista), aponte para **Ferramentas de programação** e clique em **DevTest Labs**. 
 
     ![Menu Novo DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
 1. Na janela **Criar um DevTest Lab**, realize as seguintes ações: 
     1. Em **Nome do laboratório**, introduza um nome para o laboratório. 
     2. Em **Subscrição**, selecione a subscrição na qual pretende criar o laboratório. 
-    3. Em **Grupo de recursos**, selecione **Criar novo** e introduza um nome para o grupo de recursos. 
+    3. Em **Grupo de recursos**: selecione **Criar novo** e introduza um nome para o grupo de recursos. 
     4. Em **Localização**, selecione a localização/regiãoonde pretende criar o laboratório. 
     5. Selecione **Criar**. 
     6. Selecione **Afixar ao dashboard**. Depois de criar o laboratório, poderá vê-lo no dashboard. 
 
         ![Criar uma secção de laboratório do DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
-2. Confirme se o laboratório é a criada com êxito ao observar as notificações. Selecione **Ir para recurso**.  
+2. Confirme que o laboratório é criado com sucesso olhando para as notificações. Selecione **Ir para o recurso**.  
 
     ![Notificação](./media/tutorial-create-custom-lab/creation-notification.png)
-3. Confirme que vê a **laboratório Dev/Test** página para o laboratório. 
+3. Confirme que vê a página do **Laboratório DevTest** para o seu laboratório. 
 
-    ![Home page de seu laboratório](./media/tutorial-create-custom-lab/lab-home-page.png)
+    ![Página inicial para o seu laboratório](./media/tutorial-create-custom-lab/lab-home-page.png)
 
 ## <a name="add-a-vm-to-the-lab"></a>Adicionar uma VM ao laboratório
 
 1. Na página **DevTest Lab**, selecione **+ Adicionar** na barra de ferramentas. 
 
     ![Botão Adicionar](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Sobre o **Vyberte bázi.** página, pesquise com uma palavra-chave (por exemplo: Windows, Ubuntu) e selecione uma das imagens bases na lista. 
+1. Na página **Escolher uma base**, pesquise com uma palavra-chave (por exemplo: Windows, Ubuntu) e selecione uma das imagens de base na lista. 
 1. Na página **Máquina virtual**, realize as seguintes ações: 
     1. Em **Nome da máquina virtual**, introduza um nome para a máquina virtual. 
     2. Para **Nome de utilizador**, introduza um nome para o utilizador com acesso à máquina virtual. 
-    3. Para **palavra-passe**, introduza a palavra-passe do utilizador. 
+    3. Para **obter palavra-passe,** introduza a palavra-passe para o utilizador. 
 
         ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
-1. Selecione **definições avançadas** separador.
+1. Selecione separador de **definições avançadas.**
     1. Para **Tornar esta máquina reclamável**, selecione **Sim**.
     2. Confirme que a **contagem de instâncias** está definida como **1**. Se for definida como **2**, serão criadas duas VMs com os nomes: `<base image name>00' and <base image name>01`. Por exemplo: `win10vm00` e `win10vm01`.     
     3. Selecione **submeter**. 
@@ -80,16 +80,16 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 1. Uma vez criada a VM, será apresentada na lista de **Máquinas de virtuais reclamáveis**. 
 
     > [!NOTE] 
-    > Sobre o **definições avançadas** página, pode configurar público, privado ou um endereço IP partilhado para a VM. Quando o **partilhados IP** é ativada, Azure DevTest Labs ativa automaticamente RDP para VMs do Windows e SSH para VMs do Linux. Se criar VMs com **IP público** endereços, RDP e SSH estão ativados sem quaisquer alterações de DevTest Labs.  
+    > Na página **Definições Avançadas,** pode configurar um endereço IP público, privado ou partilhado para o VM. Quando o **IP partilhado** está ativado, o Azure DevTest Labs ativa automaticamente o RDP para VMs windows e SSH para VMs Linux. Se criar VMs com endereços **IP públicos,** RDP e SSH estão ativados sem alterações dos Laboratórios DevTest.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adicionar um utilizador à função de Utilizador do Laboratório
 
 1. Selecione **Configuração e políticas** no menu esquerdo. 
 
     ![Configuração e políticas](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Selecione **controlo de acesso (IAM)** no menu e selecione **+ adicionar atribuição de função** na barra de ferramentas. 
+1. Selecione o controlo de **acesso (IAM)** do menu e selecione + Adicione a atribuição de **funções** na barra de ferramentas. 
 
-    ![Adicionar atribuição de função – botão](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
+    ![Adicionar atribuição de papéis - botão](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
 1. Na página **Adicionar permissões**, realize as seguintes ações:
     1. Em **função**, selecione **Utilizador do DevTest Labs**. 
     2. Selecione o **utilizador** que pretende adicionar. 
@@ -106,12 +106,12 @@ O próximo tutorial mostra como um utilizador do laboratório pode reivindicar e
 1. Selecione o grupo de recursos no qual criou o laboratório. 
 1. Selecione **Eliminar grupo de recursos** na barra de ferramentas. A eliminação de um grupo de recursos elimina todos os recursos no grupo, incluindo o laboratório. 
 
-    ![Grupo de recursos do laboratório](./media/tutorial-create-custom-lab/lab-resource-group.png)
+    ![Grupo de recursos de laboratório](./media/tutorial-create-custom-lab/lab-resource-group.png)
 1. Repita estes passos para eliminar o grupo de recursos adicional criado por si com o nome `<your resource group name><random numbers>`. Por exemplo: `splab3988722144001`. As VMs são criadas neste grupo de recursos em vez de serem criadas no grupo de recursos no qual existe o laboratório. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou um laboratório com uma VM e concedeu acesso ao laboratório a um utilizador. Para saber como aceder ao laboratório enquanto um utilizador do laboratório, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: O laboratório de acesso](tutorial-use-custom-lab.md)
+> [Tutorial: Aceder ao laboratório](tutorial-use-custom-lab.md)
 

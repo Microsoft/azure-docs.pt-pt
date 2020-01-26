@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 39153b05b16395cf2dfc0511efa601d1cc4da550
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749702"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756254"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Escalabilidade e metas de desempenho para contas de armazenamento de blob de página Premium
 
@@ -31,7 +31,7 @@ As contas de armazenamento de blobs de páginas Premium têm as seguintes metas 
 
 | Capacidade total da conta                            | Largura de banda total para uma conta de armazenamento com redundância local                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Capacidade do disco: 35 TB <br>Capacidade do instantâneo: 10 TB | Até 50 gigabits por segundo para entrada<sup>1</sup> + saída<sup>2</sup> |
+| Capacidade do disco: 4 TB (disco individual)/ 35 TB (total acumulado de todos os discos) <br>Capacidade do instantâneo: 10 TB | Até 50 gigabits por segundo para entrada<sup>1</sup> + saída<sup>2</sup> |
 
 <sup>1</sup> todos os dados (solicitações) que são enviados para uma conta de armazenamento
 

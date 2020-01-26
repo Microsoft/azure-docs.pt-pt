@@ -1,6 +1,6 @@
 ---
-title: Requisitos de sistema do Edge de caixa de dados do Microsoft Azure | Documentos da Microsoft
-description: Saiba mais sobre o software e os requisitos de rede para a sua caixa de dados do Azure Edge
+title: Requisitos do sistema Microsoft Azure Data Box Edge Microsoft Docs
+description: Conheça os requisitos de software e networking para o seu Azure Data Box Edge
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,31 +8,31 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756550"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757871"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda de caixa de dados do Azure
+# <a name="azure-data-box-edge-system-requirements"></a>Requisitos do sistema De Caixa de Dados Azure
 
-Este artigo descreve os requisitos de sistema importante para a sua solução de borda de caixa de dados do Microsoft Azure e para os clientes conectados à borda de caixa de dados do Azure. Recomendamos que reveja as informações cuidadosamente antes de implementar o seu limite de caixa de dados. Pode consultar novamente a essas informações conforme necessário durante a implantação e operação subseqüente.
+Este artigo descreve os requisitos importantes do sistema para a sua solução Microsoft Azure Data Box Edge e para os clientes que se conectam ao Azure Data Box Edge. Recomendamos que reveja a informação cuidadosamente antes de implementar o seu Data Box Edge. Pode remeter para esta informação conforme necessário durante a implantação e posterior operação.
 
-Os requisitos de sistema para o Edge de caixa de dados incluem:
+Os requisitos do sistema para o Limite da Caixa de Dados incluem:
 
-- **Requisitos de software para anfitriões** -descreve as plataformas suportadas, browsers para a configuração local da interface do Usuário, os clientes do SMB e quaisquer requisitos adicionais para os clientes que aceder ao dispositivo.
-- **Requisitos de rede para o dispositivo** -fornece informações sobre quaisquer requisitos de rede para a operação do dispositivo físico.
+- **Requisitos de software para anfitriões** - descreve as plataformas suportadas, navegadores para a configuração local UI, clientes SMB, e quaisquer requisitos adicionais para os clientes que acedem ao dispositivo.
+- **Requisitos** de rede para o dispositivo - fornece informações sobre quaisquer requisitos de rede para o funcionamento do dispositivo físico.
 
-## <a name="supported-os-for-clients-connected-to-device"></a>SO suportado para os clientes ligados ao dispositivo
+## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operativo suportado para clientes ligados ao dispositivo
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
-## <a name="supported-protocols-for-clients-accessing-device"></a>Protocolos suportados para os clientes a aceder ao dispositivo
+## <a name="supported-protocols-for-clients-accessing-device"></a>Protocolos suportados para clientes que acedem ao dispositivo
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
+## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
@@ -40,99 +40,99 @@ Os requisitos de sistema para o Edge de caixa de dados incluem:
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
-## <a name="supported-browsers-for-local-web-ui"></a>Browsers suportados para a IU web local
+## <a name="supported-browsers-for-local-web-ui"></a>Navegadores suportados para UI web local
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="networking-port-requirements"></a>Requisitos de porta de rede
+## <a name="networking-port-requirements"></a>Requisitos portuário de rede
 
-### <a name="port-requirements-for-data-box-edge"></a>Requisitos de portas para dados de caixa de borda
+### <a name="port-requirements-for-data-box-edge"></a>Requisitos de porta para Data Box Edge
 
-A tabela seguinte lista as portas que têm de ser aberta na firewall para permitir o tráfego de gestão, na cloud ou SMB. Nesta tabela, *no* ou *entrada* refere-se para a direção do que acesso de pedidos de cliente recebidos para o seu dispositivo. *Out* ou *saída* refere-se para a direção em que o dispositivo do Edge de caixa de dados envia dados externamente, além da implementação, por exemplo, com a Internet à saída.
+A tabela seguinte lista as portas que precisam de ser abertas na sua firewall para permitir tráfego de SMB, nuvem ou gestão. Nesta tabela, *dentro* ou *à entrada* refere-se à direção a partir da qual o cliente que entra solicita acesso ao seu dispositivo. *out* or *out refere-se* à direção em que o seu dispositivo Data Box Edge envia dados externamente, para além da implementação, por exemplo, de saída para a internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-### <a name="port-requirements-for-iot-edge"></a>Requisitos de portas para o IoT Edge
+### <a name="port-requirements-for-iot-edge"></a>Requisitos portuários para IoT Edge
 
-O Azure IoT Edge permite a comunicação de saída a partir de um dispositivo do Edge no local para a cloud do Azure através de protocolos suportados do IoT Hub. Comunicação de entrada só é necessário para cenários específicos em que o IoT Hub do Azure precisa para enviar mensagens para o dispositivo Azure IoT Edge (por exemplo, a Cloud para mensagens do dispositivo).
+O Azure IoT Edge permite a comunicação de saída de um dispositivo Edge no local para a nuvem Azure utilizando protocolos IoT Hub suportados. A comunicação de entrada só é necessária para cenários específicos em que o Hub Azure IoT precisa de empurrar mensagens para o dispositivo Azure IoT Edge (por exemplo, mensagens Cloud To Device).
 
-Utilize a seguinte tabela para a configuração da porta para os servidores que alojam o runtime do Azure IoT Edge:
+Utilize a tabela seguinte para a configuração da porta para os servidores que hospedam o tempo de execução do Edge Azure IoT:
 
-| Porta não. | Dentro ou para fora | Âmbito de porta | Necessário | Orientação |
+| Porto nº. | Dentro ou fora | Âmbito do porto | Obrigatório | Orientações |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| horizontalmente       | WAN        | Sim      | Saída aberto para o aprovisionamento do IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço).|
+| TCP 443 (HTTPS)| Fora       | WAN        | Sim      | Outbound aberto para fornecimento de IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço).|
 
-Para obter informações completas, aceda a [Firewall e regras de configuração de porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para obter informações completas, vá às regras de [configuração da Firewall e da porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 
-Os administradores de rede, muitas vezes, podem configurar regras de firewall avançado com base nos padrões de URL para filtrar a entrada e o tráfego de saída. O dispositivo de limite de caixa de dados e o serviço dependem de outros aplicativos da Microsoft, como o Azure Service Bus, controlo de acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a estas aplicações podem ser utilizados para configurar regras de firewall. É importante compreender que os padrões de URL associados a estas aplicações podem alterar. Estas alterações exigem que o administrador de rede monitorizar e atualizar as regras de firewall para o seu limite de caixa de dados como e quando necessário.
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. O seu dispositivo Data Box Edge e o serviço dependem de outras aplicações da Microsoft, como o Azure Service Bus, o Azure Ative Directory Access Control, as contas de armazenamento e os servidores microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Estas alterações exigem que o administrador de rede monitorize e atualize as regras de firewall para o seu Data Box Edge conforme e quando necessário.
 
-Recomendamos que defina as regras de firewall para tráfego de saída, com base no limite de caixa de dados fixa livremente os endereços IP, na maioria dos casos. No entanto, pode utilizar as informações abaixo para definir as regras de firewall avançado que são necessários para criar ambientes seguros.
+Recomendamos que estabeleça as suas regras de firewall para tráfego de saída, com base em endereços IP fixos Data Box Edge, liberalmente na maioria dos casos. No entanto, você pode usar as informações abaixo para definir regras de firewall avançadas que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
-> - O dispositivo (origem) IPs deve ser sempre definido para todas as interfaces de rede com capacidade de nuvem.
-> - O destino IPs deve ser definido como [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Os IPs do dispositivo (origem) devem ser sempre definidos para todas as interfaces de rede habilitadas para nuvem.
+> - Os IPs de destino devem ser definidos para [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-### <a name="url-patterns-for-gateway-feature"></a>Padrões de URL para a funcionalidade de gateway
+### <a name="url-patterns-for-gateway-feature"></a>Padrões de URL para recurso de gateway
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-feature"></a>Padrões de URL para o recurso de computação
+### <a name="url-patterns-for-compute-feature"></a>Padrões de URL para recurso computacional
 
 | Padrão de URL                      | Componente ou funcionalidade                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registo de contentor da Microsoft (obrigatório)               |
-| https://\*.azurecr.io                     | Registos de contentores de pessoal e de terceiros (opcionais) | 
-| https://\*.azure-devices.net              | Acesso do IoT Hub (obrigatório)                             | 
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registo de contentores da Microsoft (obrigatório)               |
+| https://\*.azurecr.io                     | Registos pessoais e de terceiros (opcional) | 
+| https://\*.azure-devices.net              | Acesso ioT Hub (obrigatório)                             | 
 
-### <a name="url-patterns-for-gateway-for-azure-government"></a>Padrões de URL para o gateway para o Azure Government
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Padrões de URL para gateway para Governo Azure
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-for-azure-government"></a>Padrões de URL para computação para o Azure Government
+### <a name="url-patterns-for-compute-for-azure-government"></a>Padrões de URL para computação para governo Azure
 
 | Padrão de URL                      | Componente ou funcionalidade                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registo de contentor da Microsoft (obrigatório)               |
-| https://\*.azure-devices.us              | Acesso do IoT Hub (obrigatório)           |
-| https://\*.azurecr.us                    | Registos de contentores de pessoal e de terceiros (opcionais) | 
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registo de contentores da Microsoft (obrigatório)               |
+| https://\*.azure-devices.us              | Acesso ioT Hub (obrigatório)           |
+| https://\*.azurecr.us                    | Registos pessoais e de terceiros (opcional) | 
 
-## <a name="internet-bandwidth"></a>Largura de banda de Internet
+## <a name="internet-bandwidth"></a>Largura de banda da Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
-## <a name="compute-sizing-considerations"></a>Considerações de dimensionamento de computação
+## <a name="compute-sizing-considerations"></a>Considerações de dimensionamento de cálculo
 
-Utilize a sua experiência de desenvolvimento e teste a sua solução para garantir que existe capacidade suficiente no seu dispositivo do Edge de caixa de dados e obter o desempenho ideal do seu dispositivo.
+Use a sua experiência enquanto desenvolve e testa a sua solução para garantir que há capacidade suficiente no seu dispositivo Data Box Edge e obtém o desempenho ideal do seu dispositivo.
 
-Deve considerar os fatores incluem:
+Os fatores que deve considerar incluem:
 
-- **Especificações de contentor** -pensar sobre o seguinte.
+- **Detalhes** do recipiente - Pense no seguinte.
 
-    - O número de contentores é na carga de trabalho? Poderia ter muita contentores leves versus alguns aqueles de muitos recursos.
-    - Quais são os recursos alocados a estes contentores versus o que são os recursos que estão sendo consumidos?
-    - Como muitas camadas deve partilhar os contentores?
-    - Existem contentores não utilizados? Um contentor de parada ainda ocupa de espaço em disco.
-    - Em que idioma são os contentores escritos?
-- **Tamanho dos dados processados** -a quantidade de dados serão seus contentores estar a processar? Estes dados consumirá espaço em disco ou os dados serão processados na memória?
-- **Desempenho esperado** -quais são as características de desempenho pretendido da sua solução? 
+    - Quantos contentores têm na sua carga de trabalho? Pode saqueá-lo com muitos recipientes leves contra alguns intensivos de recursos.
+    - Quais são os recursos atribuídos a estes contentores contra quais são os recursos que estão a consumir?
+    - Quantas camadas os seus contentores partilham?
+    - Há contentores não utilizados? Um contentor parado ainda ocupa o espaço do disco.
+    - Em que língua estão escritos os seus recipientes?
+- **Tamanho dos dados tratados** - Quantos dados os seus contentores vão ser processados? Estes dados consumirão espaço em disco ou os dados serão processados na memória?
+- **Desempenho esperado** - Quais são as características de desempenho desejadas da sua solução? 
 
-Para compreender e otimizar o desempenho da sua solução, poderia usar:
+Para compreender e aperfeiçoar o desempenho da sua solução, pode utilizar:
 
-- As métricas de computação disponíveis no portal do Azure. Aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **monitorização > métricas**. Examinar os **Edge de computação - utilização de memória** e **Edge de computação - percentagem de CPU** para compreender os recursos disponíveis e como são os recursos de introdução consumidos.
-- Os comandos de monitoramento disponíveis por meio da interface do PowerShell do dispositivo, tais como:
+- As métricas computadas disponíveis no portal Azure. Vá ao seu recurso Data Box Edge e depois vá para **monitorização > Métricas**. Veja o **cálculo Edge - Uso** da memória e **computação Edge - CPU percentual** para entender os recursos disponíveis e como os recursos estão a ser consumidos.
+- Os comandos de monitorização disponíveis através da interface PowerShell do dispositivo tais como:
 
-    - `dkr` estatísticas para obter uma transmissão em direto de contentor (es) de estatísticas de utilização de recursos. O comando suporta da CPU, utilização da memória, limite de memória e métricas de e/s de rede.
-    - `dkr system df` Para obter informações sobre a quantidade de espaço em disco utilizado. 
-    - `dkr image [prune]` Para limpar as imagens não utilizadas e libertar espaço.
-    - `dkr ps --size` Para ver o número aproximado de um contentor em execução. 
+    - `dkrdbe stats` obter um fluxo vivo de estatísticas de utilização de recursos de contentores. O comando suporta CPU, uso de memória, limite de memória e métricas iO da rede.
+    - `dkrdbe system df` obter informações sobre a quantidade de espaço em disco utilizado. 
+    - `dkrdbe image prune` limpar imagens não utilizadas e libertar espaço.
+    - `dkrdbe ps --size` para ver o tamanho aproximado de um recipiente de corrida. 
 
-    Para obter mais informações sobre os comandos disponíveis, aceda a [monitorizar e resolver problemas de módulos de computação](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    Para obter mais informações sobre os comandos disponíveis, vá ao Monitor e aos [módulos de computação de resolução de problemas.](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)
 
-Por fim, certifique-se de que validar a sua solução no seu conjunto de dados e quantificar o desempenho do Edge de caixa de dados antes de implementar na produção.
+Por fim, certifique-se de que valida a sua solução no seu conjunto de dados e quantifica o desempenho no Data Box Edge antes de ser implementado em produção.
 
 
 ## <a name="next-step"></a>Passo seguinte
 
-- [Implementar o seu limite de caixa de dados do Azure](data-box-edge-deploy-prep.md)
+- [Implantar seu Azure Data Box Edge](data-box-edge-deploy-prep.md)

@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Azure DevTest Labs para formação | Documentos da Microsoft
-description: Saiba como utilizar o Azure DevTest Labs para cenários de treinamento.
+title: Use azure DevTest Labs para treino Microsoft Docs
+description: Este artigo fornece passos detalhados que pode seguir para criar um laboratório para treino em Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,94 +11,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0a7ce1640636c6fba246584d098043a91990b9a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622848"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759982"
 ---
-# <a name="use-azure-devtest-labs-for-training"></a>Utilizar o Azure DevTest Labs para formação
-O Azure DevTest Labs pode ser usado para implementar muitos cenários-chave, além de programador/teste. Um desses cenários é configurar um laboratório para treinamento. Os laboratórios DevTest do Azure permite-lhe criar um laboratório em que pode fornecer modelos personalizados que cada trainee pode utilizar para criar ambientes idênticos e isoladas para treinamento. Pode aplicar políticas para garantir que os ambientes de treinamento estão disponíveis para cada trainee apenas quando precisam e contêm recursos suficientes - como máquinas virtuais - necessários para o treinamento. Por fim, pode partilhar facilmente o laboratório com os formandos, que podem aceder num só clique.
+# <a name="use-azure-devtest-labs-for-training"></a>Use azure DevTest Labs para formação
+Os Laboratórios Azure DevTest podem ser usados para implementar muitos cenários-chave, além de dev/teste. Um desses cenários é criar um laboratório para treinar. O Azure DevTest Labs permite-lhe criar um laboratório onde possa fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treino. Só é possível aplicar políticas que garantam que os ambientes de formação só estão disponíveis para cada estagiário quando necessitam e contêm recursos suficientes - como máquinas virtuais - necessários para a formação. Finalmente, você pode facilmente partilhar o laboratório com estagiários, que eles podem aceder em um clique.
 
-![Utilizar o DevTest Labs para formação](./media/devtest-lab-training-lab/devtest-lab-training.png)
+![Use Laboratórios DevTest para treino](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
-O Azure DevTest Labs cumpre os seguintes requisitos que são necessárias para realizar treinamento em qualquer ambiente virtual: 
+A Azure DevTest Labs satisfaz os seguintes requisitos que são necessários para realizar formação em qualquer ambiente virtual: 
 
-* Formandos não é possível ver as VMs criadas por outros formandos
-* Todas as máquinas de treinamento devem ser idêntica
-* Formandos rapidamente podem aprovisionar ambientes de treinamento
-* Controlar o custo, garantindo que os formandos não é possível obter as VMs de mais do que o necessário para o treinamento e também o encerramento VMs quando não estão a utilizá-los
-* Partilhe facilmente o laboratório de treinamento com cada trainee
-* Reutilizar o laboratório de treinamento e novamente
+* Estagiários não podem ver VMs criados por outros estagiários
+* Todas as máquinas de treino devem ser idênticas.
+* Os estagiários podem fornecer rapidamente os seus ambientes de formação
+* Custo de controlo garantindo que os estagiários não podem obter mais VMs do que precisam para a formação e também desligar VMs quando não estão a usá-los
+* Partilhe facilmente o laboratório de formação com cada estagiário
+* Reutilizar o laboratório de treino uma e outra vez
 
-Neste artigo, ficará a conhecer vários recursos do Azure DevTest Labs que podem ser utilizados para satisfazer os requisitos de treinamento descrito anteriormente e passos detalhados que pode seguir para configurar um laboratório para treinamento.  
+Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs que podem ser usados para atender aos requisitos de treino previamente descritos e passos detalhados que você pode seguir para configurar um laboratório para o treino.  
 
-## <a name="implementing-training-with-azure-devtest-labs"></a>Implementação de treinamento com o Azure DevTest Labs
+## <a name="implementing-training-with-azure-devtest-labs"></a>Implementação de formação com a Azure DevTest Labs
 1. **Criar o laboratório** 
    
-    Os laboratórios são o ponto de partida no Azure DevTest Labs. Depois de criar um laboratório, pode executar tarefas, tais como adicionar utilizadores (formandos) para o laboratório, definir políticas para controlar os custos, definir as imagens VM que podem criar rapidamente e muito mais.   
+    Os laboratórios são o ponto de partida nos Laboratórios Azure DevTest. Uma vez criado um laboratório, pode executar tarefas como adicionar utilizadores (estagiários) ao laboratório, definir políticas para controlar custos, definir imagens VM que podem criar rapidamente, e muito mais.   
    
-    Saiba mais ao clicar nos links na tabela a seguir:
-   
-   | Tarefa | O que irá aprender |
-   | --- | --- |
-   | [Criar um laboratório no Azure DevTest Labs](devtest-lab-create-lab.md) |Saiba como criar um laboratório no Azure DevTest Labs no portal do Azure. |
-2. **Criar VMs de treinamento em minutos com imagens do marketplace prontas a utilizar e imagens personalizadas** 
-   
-    Pode escolher prontas a utilizar imagens de uma ampla variedade de imagens no Azure Marketplace e disponibilizá-los para os formandos no laboratório. Se as imagens prontas a utilizar não atenderem às suas necessidades, pode criar uma imagem personalizada através da criação de um laboratório de VM com uma imagem pronta a utilizar do Azure Marketplace, a instalação do software que precisa para a formação e guardar a VM como imagem personalizada no laboratório. 
-   
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode imagens do Azure Marketplace de lista de permissões; pretende tornar disponível para seleção apenas as imagens para o treinamento. |
-   | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada através da pré-instalação do software que necessário para a formação, para que os formandos podem criar rapidamente uma VM com a imagem personalizada. |
-3. **Criar modelos reutilizáveis para máquinas de treinamento** 
+   | [Criar um laboratório em Azure DevTest Labs](devtest-lab-create-lab.md) |Aprenda a criar um laboratório em Azure DevTest Labs no portal Azure. |
+2. **Crie VMs de treino em minutos usando imagens de mercado prontas e imagens personalizadas** 
    
-    Uma fórmula no Azure DevTest Labs é uma lista de valores da propriedade padrão usado para criar uma VM. Pode criar uma fórmula do laboratório ao escolher uma imagem, um tamanho de VM (uma combinação de CPU e RAM) e uma rede virtual. Cada trainee pode ver a fórmula do laboratório e utilizá-lo para criar uma VM. 
+    Você pode escolher imagens prontas a partir de uma grande variedade de imagens no Mercado Azure e disponibilizá-las para os estagiários no laboratório. Se as imagens prontas não cumprirem os seus requisitos, pode criar uma imagem personalizada criando um VM de laboratório utilizando uma imagem pronta do Azure Marketplace, instalando todo o software que precisa para o treino e salvando o VM como imagem personalizada no laboratório. 
    
-    Saiba mais ao clicar nos links na tabela a seguir:
-   
-   | Tarefa | O que irá aprender |
-   | --- | --- |
-   | [Gerir fórmulas de DevTest Labs para criar VMs](devtest-lab-manage-formulas.md) |Saiba como pode criar uma fórmula, escolha de uma imagem, o tamanho VM (combinação de CPU e RAM) e uma rede virtual. |
-4. **Controlar os custos**
-   
-    Os laboratórios DevTest do Azure permite-lhe definir uma política no laboratório para especificar o número máximo de VMs que podem ser criadas por um trainee no laboratório. 
-   
-    Se estiver realizando treinamento de vários dia e pretende parar todas as VMs num determinado momento do dia e, em seguida, automaticamente reiniciá-las do dia seguinte, pode facilmente fazer através da definição de encerramento automático e início automático políticas no laboratório. 
-   
-    Por fim, quando o treinamento é concluído pode eliminar todas as VMs ao mesmo tempo ao executar um único script do PowerShell. 
-   
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) |Controlar os custos através da definição de políticas no laboratório. |
-   | [Eliminar todo o laboratório de VMs com um script do PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos os laboratórios numa única operação quando o treinamento estiver concluído. |
-5. **Partilhar o laboratório com cada trainee**
+   | [Configure imagens do Mercado Azure](devtest-lab-configure-marketplace-images.md) |Saiba como pode whitelist Imagens do Azure Marketplace; disponibilizando para seleção apenas as imagens que deseja para o treino. |
+   | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada pré-instalando o software de que necessita para o treino para que os estagiários possam criar rapidamente um VM usando a imagem personalizada. |
+3. **Criar modelos reutilizáveis para máquinas de treino** 
    
-    Laboratórios podem ser diretamente acessados usando um link que partilhar com os formandos. Os formandos nem precisa ter uma conta do Azure, desde que tenham um [conta Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Formandos não é possível ver as VMs criadas por outros formandos.  
+    Uma fórmula em Azure DevTest Labs é uma lista de valores de propriedade padrão usados para criar um VM. Você pode criar uma fórmula no laboratório escolhendo uma imagem, um tamanho VM (uma combinação de CPU e RAM) e uma rede virtual. Cada estagiário pode ver a fórmula no laboratório e usá-la para criar um VM. 
    
-    Saiba mais ao clicar nos links na tabela a seguir:
-   
-   | Tarefa | O que irá aprender |
-   | --- | --- |
-   | [Adicionar um trainee a um laboratório no Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Utilize o portal do Azure para adicionar os formandos para o laboratório de treinamento. |
-   | [Adicionar os formandos para o laboratório através de um script do PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Utilize o PowerShell para automatizar a adição de formandos para o laboratório de treinamento. |
-   | [Obtenha uma ligação para o laboratório](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Saiba como um laboratório pode ser diretamente acessado por meio de um hiperlink. |
-6. **Reutilizar o laboratório e novamente** 
-   
-    Pode automatizar a criação de laboratório, incluindo as configurações personalizadas, criando um modelo do Resource Manager e utilizá-lo para criar laboratórios idênticos e novamente. 
-   
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar um laboratório com um modelo do Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Crie laboratórios no Azure DevTest Labs com modelos do Resource Manager. |
+   | [Gerir fórmulas da DevTest Labs para criar VMs](devtest-lab-manage-formulas.md) |Saiba como pode criar uma fórmula captando uma imagem, tamanho VM (combinação de CPU e RAM) e uma rede virtual. |
+4. **Custos de controlo**
+   
+    A Azure DevTest Labs permite-lhe definir uma política no laboratório para especificar o número máximo de VMs que podem ser criados por um estagiário no laboratório. 
+   
+    Se estiver a realizar treinos de vários dias e quiser parar todos os VMs numa determinada hora do dia e depois reiniciá-los automaticamente no dia seguinte, pode facilmente fazê-lo definindo políticas de paragem automática e arranque automático no laboratório. 
+   
+    Finalmente, quando o treino estiver completo, pode eliminar todos os VMs ao mesmo tempo executando um único script PowerShell. 
+   
+    Saiba mais clicando nos links na tabela seguinte:
+   
+   | Tarefa | O que irá aprender |
+   | --- | --- |
+   | [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) |Controle os custos definindo políticas no laboratório. |
+   | [Elimine todos os VMs de laboratório usando um script PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Apague todos os laboratórios numa operação quando o treino estiver completo. |
+5. **Partilhe o laboratório com cada estagiário**
+   
+    Os laboratórios podem ser acedidos diretamente através de um link que partilha com os seus estagiários. Os seus estagiários nem sequer têm de ter uma conta Azure, desde que tenham uma [conta Microsoft.](devtest-lab-faq.md#what-is-a-microsoft-account) Os estagiários não podem ver VMs criados por outros estagiários.  
+   
+    Saiba mais clicando nos links na tabela seguinte:
+   
+   | Tarefa | O que irá aprender |
+   | --- | --- |
+   | [Adicione um estagiário a um laboratório em Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Utilize o portal Azure para adicionar estagiários ao seu laboratório de treino. |
+   | [Adicione estagiários ao laboratório usando um script PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use a PowerShell para automatizar a adição de estagiários ao seu laboratório de treino. |
+   | [Obter uma ligação para o laboratório](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Saiba como um laboratório pode ser diretamente acedido através de uma hiperligação. |
+6. **Reutilizar o laboratório uma e outra vez.** 
+   
+    Você pode automatizar a criação de laboratório, incluindo configurações personalizadas, criando um modelo de Gestor de Recursos e usando-o para criar laboratórios idênticos uma e outra vez. 
+   
+    Saiba mais clicando nos links na tabela seguinte:
+   
+   | Tarefa | O que irá aprender |
+   | --- | --- |
+   | [Crie um laboratório usando um modelo de Gestor de Recursos](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Crie laboratórios em Laboratórios Azure DevTest usando modelos de Gestor de Recursos. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

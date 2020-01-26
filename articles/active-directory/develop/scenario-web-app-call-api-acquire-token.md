@@ -1,6 +1,6 @@
 ---
-title: Obter um token em aplicativos Web que chamam APIs da Web-plataforma Microsoft Identity | Azure
-description: Saiba como criar um aplicativo Web que chama APIs da Web (adquirindo um token para o aplicativo)
+title: Obtenha um símbolo numa aplicação web que chama APIs web - plataforma de identidade microsoft / Azure
+description: Saiba como adquirir um símbolo para uma aplicação web que chama APIs web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,24 +14,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6a7f3e4e1470bc3788ceae68f035f68f05ae449
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: abf7d800eda376c21dfdd672032ddb65e27355be
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423540"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759079"
 ---
-# <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Aplicativo Web que chama APIs da Web – adquirir um token para o aplicativo
+# <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma aplicação web que chama APIs web: Adquirir um símbolo para a app
 
-Agora que você criou o objeto de aplicativo cliente, você o usará para adquirir um token para chamar uma API da Web. Em ASP.NET ou ASP.NET Core, a chamada a uma API da Web é feita no controlador. É sobre:
+Construíste o objeto de aplicação do teu cliente. Agora, vaiusá-lo para adquirir um símbolo para chamar uma API web. Em ASP.NET ou ASP.NET Core, chamar uma API web é feito no controlador:
 
-- Obter um token para a API Web usando o cache de token. Para obter esse token, você chama `AcquireTokenSilent`.
-- Chamar a API protegida com o token de acesso.
+- Obtenha um símbolo para a Web API usando a cache simbólica. Para obter este símbolo, chama-se método `AcquireTokenSilent`.
+- Chame a API protegida, passando o sinal de acesso como parâmetro.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Os métodos do controlador são protegidos por um atributo `[Authorize]` que força os usuários que estão sendo autenticados a usar o aplicativo Web. Aqui está o código que chama Microsoft Graph.
+Os métodos do controlador são protegidos por um atributo `[Authorize]` que obriga os utilizadores a serem autenticados a usar a aplicação web. Aqui está o código que chama microsoft graph:
 
 ```csharp
 [Authorize]
@@ -44,54 +43,51 @@ public class HomeController : Controller
   this.tokenAcquisition = tokenAcquisition;
  }
 
- // Code for the controller actions(see code below)
+ // Code for the controller actions (see code below)
 
 }
 ```
 
-O serviço `ITokenAcquisition` é injetado por ASP.NET por meio de injeção de dependência.
+O serviço `ITokenAcquisition` é injetado por ASP.NET utilizando a injeção de dependência.
 
-
-Aqui está um código simplificado da ação do HomeController, que obtém um token para chamar o Microsoft Graph.
+Aqui está o código simplificado para a ação do `HomeController`, que recebe um símbolo para chamar Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
 {
- // Acquire the access token
+ // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
- // use the access token to call a protected web API
+ // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
  string json = await client.GetStringAsync(url);
 }
 ```
 
-Para entender com mais detalhes o código necessário para esse cenário, consulte a etapa 2 ([2-1-chamadas de aplicativo Web Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) do tutorial [MS-Identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) .
+Para melhor compreender o código necessário para este cenário, consulte a fase 2[(2-1 Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) passo do tutorial [ms-identity-aspnetcore-webapp-tutorial.](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
 
-Há muitas complexidades adicionais, como:
+Existem outras variações complexas, tais como:
 
-- Chamando várias APIs,
-- processando o consentimento incremental e o acesso condicional.
+- Chamando várias APIs.
+- Processamento de consentimento incremental e acesso condicional.
 
-Essas etapas avançadas são processadas no capítulo 3 do tutorial [3-webapp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs)
+Estes passos avançados são cobertos no capítulo 3 do tutorial [3-WebApp-multi-APIs.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-As coisas são semelhantes em ASP.NET:
+O código para ASP.NET é semelhante ao código mostrado para ASP.NET Core:
 
-- Uma ação de controlador protegida por um atributo [autorizar] extrai a ID de locatário e a ID de usuário do membro de `ClaimsPrincipal` do controlador. (ASP.NET usa `HttpContext.User`.)
-- A partir daí, ele cria um `IConfidentialClientApplication`MSAL.NET.
+- Uma ação do controlador, protegida por um atributo [Autorizar], extrai o ID do inquilino e a identificação do utilizador do membro `ClaimsPrincipal` do controlador. (ASP.NET usa `HttpContext.User`.)
+- A partir daí, constrói um objeto `IConfidentialClientApplication` MSAL.NET.
 - Por fim, ele chama o método `AcquireTokenSilent` do aplicativo cliente confidencial.
-
-O código é semelhante ao código mostrado para ASP.NET Core.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-No exemplo de Java, o código que chama uma API está no método getUsersFromGraph [AuthPageController. java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
+Na amostra java, o código que chama a API está no método getUsersFromGraph em [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-Ele tenta chamar `getAuthResultBySilentFlow`. Se o usuário precisar dar consentimento a mais escopos, o código processará o `MsalInteractionRequiredException` para desafiar o usuário.
+O método tenta chamar `getAuthResultBySilentFlow`. Se o utilizador necessitar de consentir com mais âmbitos, o código processa o `MsalInteractionRequiredException` oobjeto para desafiar o utilizador.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")
@@ -105,8 +101,8 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
     } catch (ExecutionException e) {
         if (e.getCause() instanceof MsalInteractionRequiredException) {
 
-            // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
-            // so user can consent to new scopes
+            // If the silent call returns MsalInteractionRequired, redirect to authorization endpoint
+            // so user can consent to new scopes.
             String state = UUID.randomUUID().toString();
             String nonce = UUID.randomUUID().toString();
 
@@ -146,14 +142,14 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
     }
     return mav;
 }
-// Code omitted here.
+// Code omitted here
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-No exemplo de Python, o código que chama o Microsoft Graph está em [app. py # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+Na amostra Python, o código que chama Microsoft Graph está em [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-Ele tenta obter um token do cache de token e, em seguida, chama a API da Web depois de definir o cabeçalho Authorization. Se não puder, ele assinará novamente o usuário.
+O código tenta obter um símbolo da cache simbólica. Em seguida, depois de definir o cabeçalho de autorização, chama a Web API. Se não conseguir um símbolo, volta a entrar o utilizador.
 
 ```python
 @app.route("/graphcall")
@@ -161,7 +157,7 @@ def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()

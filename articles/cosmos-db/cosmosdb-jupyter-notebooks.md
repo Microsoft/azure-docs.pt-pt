@@ -6,14 +6,14 @@ ms.topic: overview
 ms.date: 09/22/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 5c6d7ae458c30d462c599042e254f4243daf474c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5b320485001d6cbc457d39ef193ed8c57f7161df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260876"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760288"
 ---
-# <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Suporte interno a notebooks Jupyter no Azure Cosmos DB
+# <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Suporte de cadernos jupyter incorporados em Azure Cosmos DB (pré-visualização)
 
 O Jupyter Notebook é um aplicativo Web de software livre que permite criar e compartilhar documentos que contêm código ao vivo, equações, visualizações e texto de narração. O Azure Cosmos DB dá suporte a blocos de anotações Jupyter internos para todas as APIs, como Cassandra, MongoDB, SQL, Gremlin e tabela. O suporte ao bloco de anotações interno para todos os Azure Cosmos DB APIs e modelos de dados permite executar consultas interativamente. Os notebooks Jupyter são executados nas contas do Azure Cosmos e permitem que os desenvolvedores realizem exploração de dados, limpeza de dados, transformações de dados, simulações numéricas, modelagem estatística, visualização de dados e aprendizado de máquina.
 
@@ -36,7 +36,7 @@ Os notebooks Jupyter foram desenvolvidos originalmente para aplicativos de ciên
 
 * **Documentação de exemplos de código e resultados de exploração de dados:** Se você tiver um trecho de código e desejar explicar como ele funciona em Azure Cosmos DB, com saída em tempo real, tudo ao longo do caminho, você poderá incorporá-lo em um Jupyter Notebook. O código permanecerá totalmente funcional. Você pode adicionar interatividade junto com a documentação ao mesmo tempo.
 
-* **Comandos mágicos do Cosmos:** Nos notebooks Jupyter, você pode usar comandos mágicos personalizados para Azure Cosmos DB para facilitar a computação interativa. Por exemplo, a mágica%% SQL que permite consultar um contêiner Cosmos usando a API do SQL diretamente em um notebook.
+* **Comandos mágicos do Cosmos:** Nos notebooks Jupyter, você pode usar comandos mágicos personalizados para Azure Cosmos DB para facilitar a computação interativa. Por exemplo, a magia %%sql que permite consultar um recipiente Cosmos usando API SQL diretamente em um caderno.
 
 * **Tudo em um ambiente único local:** Os notebooks Jupyter combinam código, Rich Text, imagens, vídeos, animações, equações matemáticas, plotagens, mapas, figuras interativas, widgets e interfaces gráficas do usuário em um único documento.
 

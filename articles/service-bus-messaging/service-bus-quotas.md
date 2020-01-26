@@ -1,6 +1,6 @@
 ---
-title: Cotas e limites de Barramento de Serviço do Microsoft Azure | Microsoft Docs
-description: Localize limites e cotas para o barramento de serviço do Azure.
+title: Quotas e limites de ônibus de serviço da Microsoft Azure
+description: Este artigo lista quotas básicas e limiares de estrangulamento nas mensagens azure service bus. Por exemplo - número máximo de espaços de nome por subscrição.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/27/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: ae2c55486e0489006395a1630eba0b1c3f56b5be
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 7a6d8e56d7f70d637b2c963814b66e6e7cb3a907
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561516"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759572"
 ---
 # <a name="service-bus-quotas"></a>Quotas do Service Bus
-Esta seção lista as cotas básicas e os limites de limitação no sistema de mensagens do barramento de serviço do Azure.
+Esta secção lista quotas básicas e limiares de estrangulamento nas mensagens azure service bus.
 
-## <a name="messaging-quotas"></a>Cotas de mensagens
+## <a name="messaging-quotas"></a>Quotas de mensagens
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 

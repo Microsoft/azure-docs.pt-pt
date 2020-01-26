@@ -1,5 +1,5 @@
 ---
-title: Parametrizando o mapeamento de fluxos de dados
+title: Parametrizar os fluxos de dados de mapeamento
 description: Saiba como Parametrizar um fluxo de dados de mapeamento de pipelines data factory
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746110"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760220"
 ---
-# <a name="parameterizing-mapping-data-flows"></a>Parametrizando o mapeamento de fluxos de dados
+# <a name="parameterizing-mapping-data-flows"></a>Parametrizar os fluxos de dados de mapeamento
 
 O mapeamento de fluxos de dados no Azure Data Factory dá suporte ao uso de parâmetros. Você pode definir parâmetros dentro de sua definição de fluxo de dados, que você pode usar em todas as expressões. Os valores de parâmetro podem ser definidos pelo pipeline de chamada por meio da atividade executar fluxo de dados. Você tem três opções para definir os valores nas expressões de atividade de fluxo de dados:
 
@@ -23,9 +23,6 @@ O mapeamento de fluxos de dados no Azure Data Factory dá suporte ao uso de par�
 * Use qualquer linguagem de expressão para definir um valor literal estático
 
 Use essa capacidade para tornar seus fluxos de dados de uso geral, flexíveis e reutilizáveis. Você pode parametrizar as configurações de fluxo de dados e expressões com esses parâmetros.
-
-> [!NOTE]
-> Para usar expressões de fluxo de controle de pipeline, o parâmetro de fluxo de dados deve ser do tipo cadeia de caracteres.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Criar parâmetros em um fluxo de dados de mapeamento
 

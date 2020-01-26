@@ -1,7 +1,7 @@
 ---
 title: Criar e executar scripts R simples
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Execute scripts R simples no Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia).
+description: Executar scripts R simples em Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,34 +13,39 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: a47e7a81ba486056841bdc0fe65cfd10f1b2c412
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4db4bf7c9d35d9715f24ac0480abfaad7eb7c9e6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123198"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760084"
 ---
-# <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Criar e executar scripts R simples no Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia)
+# <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Quickstart: Crie e execute scripts R simples em Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
 
-Neste guia de início rápido, você criará e executará um conjunto de scripts R simples usando a visualização pública de [serviços de Machine Learning (com R) no banco de dados SQL do Azure](sql-database-machine-learning-services-overview.md). Você aprenderá a encapsular um script R bem formado no procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) e executará o script em um banco de dados SQL.
+Neste arranque rápido, cria e executa um conjunto de scripts R utilizando serviços de aprendizagem automática (com R) na Base de Dados Azure SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-- Para executar o código de exemplo nesses exercícios, você deve primeiro ter um banco de dados SQL do Azure com Serviços de Machine Learning (com R) habilitado. Durante a visualização pública, a Microsoft integrará você e habilitará o aprendizado de máquina para seu banco de dados novo ou existente. Siga as etapas em [inscrever-se para a versão prévia](sql-database-machine-learning-services-overview.md#signup).
+- Uma [base de dados Azure SQL](sql-database-single-database-get-started.md) com uma regra de firewall ao [nível do servidor](sql-database-server-level-firewall-rule.md)
 
-- Verifique se você instalou o SSMS ( [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) mais recente). Você pode executar scripts do R usando outras ferramentas de consulta e gerenciamento de banco de dados, mas neste guia de início rápido você usará o SSMS.
+- [Serviços de Aprendizagem automática](sql-database-machine-learning-services-overview.md) com R ativado. [Inscreva-se para a pré-visualização](sql-database-machine-learning-services-overview.md#signup).
 
-- Este guia de início rápido requer que você configure uma regra de firewall no nível de servidor. Para obter informações sobre como fazer isso, consulte [criar regra de firewall no nível de servidor](sql-database-server-level-firewall-rule.md).
+- [Estúdio de Gestão de Servidores SQL](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
-## <a name="run-a-simple-script"></a>Executar um script simples
+> [!NOTE]
+> Durante a pré-visualização pública, a Microsoft irá embarcar e ativar o machine learning para a sua base de dados existente ou nova.
 
-Para executar um script R, você o passará como um argumento para o procedimento armazenado do sistema, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
+Este exemplo utiliza o procedimento armazenado [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) para embrulhar um script R bem formado.
 
-Nas etapas a seguir, você executará este script R de exemplo em seu banco de dados SQL:
+## <a name="run-a-simple-script"></a>Executar um roteiro simples
+
+Para executar um script R, passará-o como um argumento para o procedimento armazenado pelo sistema, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
+
+Nos seguintes passos, você executará este exemplo script R na sua base de dados SQL:
 
 ```r
 a <- 1
@@ -52,11 +57,11 @@ print(c(c, d))
 
 1. Abra o **SQL Server Management Studio** e ligue à sua base de dados SQL.
 
-   Se precisar de ajuda para se conectar [, consulte início rápido: Use SQL Server Management Studio para se conectar e consultar um banco de](sql-database-connect-query-ssms.md)dados SQL do Azure.
+   Se precisar de ajuda para se ligar, consulte [Quickstart: Use o Estúdio de Gestão de Servidores SQL para ligar e consultar uma base de dados Azure SQL](sql-database-connect-query-ssms.md).
 
-1. Passe o script R completo para o procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
+1. Passe o script R completo para o [procedimento sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) armazenado.
 
-   O script é passado pelo `@script` argumento. Tudo dentro do `@script` argumento deve ser um código R válido.
+   O guião é passado através do argumento `@script`. Tudo dentro do argumento `@script` deve ser válido código R.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -69,13 +74,13 @@ print(c(c, d))
     '
     ```
 
-   Se receber um erro, poderá ser porque a pré-visualização pública do Machine Learning Services (com R) não está ativada para a sua Base de Dados SQL. Consulte [pré-requisitos](#prerequisites) acima.
+   Se receber um erro, poderá ser porque a pré-visualização pública do Machine Learning Services (com R) não está ativada para a sua Base de Dados SQL. Consulte [os pré-requisitos](#prerequisites) acima.
 
    > [!NOTE]
-   > Se você for um administrador, poderá executar código externo automaticamente. Você pode conceder permissão a outros usuários usando o comando:
-   <br>**conceder executar qualquer script externo para** *nome deusuário\>. \<*
+   > Se for administrador, pode executar código externo automaticamente. Pode conceder permissão a outros utilizadores que utilizem o comando:
+   <br>**CONCESSÃO EXECUTAR QUALQUER script externo para**\<nome de utilizador *\>* .
 
-2. O resultado correto é calculado e a função `print` R retorna o resultado para a janela **mensagens** .
+2. O resultado correto é calculado e a função R `print` devolve o resultado à janela **Mensagens.**
 
    Ele deve ser semelhante a este.
 
@@ -86,9 +91,9 @@ print(c(c, d))
     0.5 2
     ```
 
-## <a name="run-a-hello-world-script"></a>Executar um script de Olá, Mundo
+## <a name="run-a-hello-world-script"></a>Executar um roteiro hello world
 
-Um script de exemplo típico é aquele que apenas gera a cadeia de caracteres "Olá, Mundo". Execute o comando a seguir.
+Um típico exemplo script é aquele que apenas produz a corda "Hello World". Executar o seguinte comando.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -98,26 +103,26 @@ WITH RESULT SETS(([Hello World] INT));
 GO
 ```
 
-As entradas para esse procedimento armazenado incluem:
+As inputs deste procedimento armazenado incluem:
 
 | | |
 |-|-|
-| @language | define a extensão de linguagem para chamar, neste caso, R |
-| @script | define os comandos passados para o tempo de execução de R. Todo o script R deve estar incluído nesse argumento, como texto Unicode. Você também pode adicionar o texto a uma variável do tipo **nvarchar** e, em seguida, chamar a variável |
-| @input_data_1 | dados retornados pela consulta, passados para o tempo de execução de R, que retorna os dados para SQL Server como um quadro de dados |
-|COM CONJUNTOS DE RESULTADOS | a cláusula define o esquema da tabela de dados retornada para SQL Server, adicionando "Olá, Mundo" como o nome da coluna, **int** para o tipo de dados |
+| @language | define a extensão da linguagem para chamar, neste caso, R |
+| @script | define os comandos passados para o tempo de execução R. Todo o seu script R deve ser incluído neste argumento, como texto Unicode. Você também poderia adicionar o texto a uma variável de **tipo nvarchar** e, em seguida, chamar a variável |
+| @input_data_1 | dados devolvidos pela consulta, passados para o tempo de execução R, que devolve os dados ao SQL Server como um quadro de dados |
+|COM CONJUNTOS DE RESULTADOS | cláusula define o esquema da tabela de dados devolvida para o SQL Server, adicionando "Hello World" como nome da coluna, **int** para o tipo de dados |
 
-O comando gera o seguinte texto:
+O comando envia o seguinte texto:
 
 | Olá, Mundo |
 |-------------|
 | 1 |
 
-## <a name="use-inputs-and-outputs"></a>Usar entradas e saídas
+## <a name="use-inputs-and-outputs"></a>Utilizar inputs e saídas
 
-Por padrão, o [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) aceita um único conjunto de dados como entrada, que normalmente você fornece na forma de uma consulta SQL válida. Em seguida, ele retorna um único quadro de dados do R como saída.
+Por predefinição, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) aceita um único conjunto de dados como entrada, que normalmente fornece sob a forma de uma consulta SQL válida. Em seguida, devolve um único quadro de dados R como saída.
 
-Por enquanto, vamos usar as variáveis de entrada e saída padrão de [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): **InputDataSet** e **OutputDataSet**.
+Por enquanto, vamos utilizar as variáveis de entrada e saída predefinidas de [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): **InputDataSet** e **OutputDataSet**.
 
 1. Crie uma pequena tabela de dados de teste.
 
@@ -135,7 +140,7 @@ Por enquanto, vamos usar as variáveis de entrada e saída padrão de [sp_execut
     GO
     ```
 
-1. Use a `SELECT` instrução para consultar a tabela.
+1. Use a declaração `SELECT` para consultar a mesa.
   
     ```sql
     SELECT *
@@ -146,7 +151,7 @@ Por enquanto, vamos usar as variáveis de entrada e saída padrão de [sp_execut
 
     ![Conteúdos da tabela RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
-1. Execute o script R a seguir. Ele recupera os dados da tabela usando a `SELECT` instrução, passa-os pelo tempo de execução do R e retorna os dados como um quadro de dados. A `WITH RESULT SETS` cláusula define o esquema da tabela de dados retornada para o banco de dado SQL, adicionando o nome da coluna *NewColName*.
+1. Executar o seguinte guião R. Recupera os dados da tabela utilizando a declaração `SELECT`, passa-os através do tempo de execução R e devolve os dados como um quadro de dados. A cláusula `WITH RESULT SETS` define o esquema da tabela de dados devolvida para a Base de Dados SQL, adicionando o nome de coluna *NewColName*.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -159,7 +164,7 @@ Por enquanto, vamos usar as variáveis de entrada e saída padrão de [sp_execut
 
     ![Saída do script R que devolve dados de uma tabela](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
-1. Agora, vamos alterar os nomes das variáveis de entrada e saída. Os nomes de variáveis de entrada e saída padrão são **InputDataSet** e **OutputDataSet**, esse script altera os nomes para **SQL_in** e **SQL_out**:
+1. Agora vamos mudar os nomes das variáveis de entrada e saída. Os nomes variáveis de entrada padrão e de saída são **InputDataSet** e **OutputDataSet,** este script muda os nomes para **SQL_in** e **SQL_out**:
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -170,14 +175,14 @@ Por enquanto, vamos usar as variáveis de entrada e saída padrão de [sp_execut
     WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
-    Observe que o R diferencia maiúsculas de minúsculas. As variáveis de entrada e saída usadas no script R (**SQL_out**, **SQL_in**) precisam corresponder aos valores definidos com `@input_data_1_name` and, incluindo maiúsculas e `@output_data_1_name`minúsculas.
+    Note que R é sensível a casos. As variáveis de entrada e saída utilizadas no script R (**SQL_out,** **SQL_in**) precisam de corresponder aos valores definidos com `@input_data_1_name` e `@output_data_1_name`, incluindo caso.
 
    > [!TIP]
    > Apenas um conjunto de dados de entrada pode ser transmitido como parâmetro e só pode ser devolvido um conjunto de dados. No entanto, pode chamar outros conjuntos de dados no código R e devolver saídas de outros tipos para além do conjunto de dados. Também pode adicionar a palavra-chave OUTPUT a qualquer parâmetro, para que seja devolvida com os resultados.
 
-1. Você também pode gerar valores usando apenas o script R sem dados de entrada (`@input_data_1` está definido como em branco).
+1. Também pode gerar valores usando o script R sem dados de entrada (`@input_data_1` está definido em branco).
 
-   O script a seguir gera o texto "Olá" e "mundo".
+   O seguinte guião produz o texto "olá" e "mundo".
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -195,7 +200,7 @@ Por enquanto, vamos usar as variáveis de entrada e saída padrão de [sp_execut
 
 ## <a name="check-r-version"></a>Verificar a versão de R
 
-Se você quiser ver qual versão do R está instalada no banco de dados SQL, execute o script a seguir.
+Se quiser ver qual a versão de R instalada na sua base de dados SQL, execute o seguinte script.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -203,7 +208,7 @@ EXECUTE sp_execute_external_script @language = N'R'
 GO
 ```
 
-A função `print` de R devolve a versão na janela **Messages** (Mensagens). Na saída de exemplo abaixo, você pode ver que o banco de dados SQL neste caso tem R versão 3.4.4 instalada.
+A função `print` de R devolve a versão na janela **Messages** (Mensagens). Na saída de exemplo abaixo, pode ver que a Base de Dados SQL neste caso tem a versão R 3.4.4 instalada.
 
 **Resultados**
 
@@ -230,7 +235,7 @@ nickname       Someone to Lean On
 
 A Microsoft disponibiliza vários pacotes de R pré-instalados com o Machine Learning Services na Base de Dados SQL.
 
-Para ver uma lista de quais pacotes do R estão instalados, incluindo informações de versão, dependências, licença e caminho de biblioteca, execute o script a seguir.
+Para ver uma lista dos quais os pacotes R são instalados, incluindo versão, dependências, licença e informações do caminho da biblioteca, executar o seguinte script.
 
 ```SQL
 EXEC sp_execute_external_script @language = N'R'
@@ -245,7 +250,7 @@ WITH result sets((
             ));
 ```
 
-A saída é de `installed.packages()` em R e retornada como um conjunto de resultados.
+A saída é de `installed.packages()` em R e é devolvida como resultado definido.
 
 **Resultados**
 
@@ -253,13 +258,13 @@ A saída é de `installed.packages()` em R e retornada como um conjunto de resul
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para criar um modelo de aprendizado de máquina usando R no banco de dados SQL, siga este guia de início rápido:
+Para criar um modelo de aprendizagem automática utilizando R na Base de Dados SQL, siga este arranque rápido:
 
 > [!div class="nextstepaction"]
-> [Criar e treinar um modelo de previsão em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia)](sql-database-quickstart-r-train-score-model.md)
+> [Criar e treinar um modelo preditivo em R com serviços de machine learning de base de dados Azure SQL (pré-visualização)](sql-database-quickstart-r-train-score-model.md)
 
-Para obter mais informações sobre o Serviços de Machine Learning do banco de dados SQL do Azure com R (versão prévia), consulte os artigos a seguir.
+Para obter mais informações sobre os Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL com R (pré-visualização), consulte os seguintes artigos.
 
-- [Banco de dados SQL do Azure Serviços de Machine Learning com R (visualização)](sql-database-machine-learning-services-overview.md)
-- [Escrever funções de R avançadas no banco de dados SQL do Azure usando Serviços de Machine Learning (versão prévia)](sql-database-machine-learning-services-functions.md)
-- [Trabalhar com dados de R e SQL no banco de Serviços de Machine Learning SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)
+- [Serviços de Machine Learning de Base de Dados Azure SQL com R (pré-visualização)](sql-database-machine-learning-services-overview.md)
+- [Escreva funções R avançadas na Base de Dados Azure SQL utilizando serviços de aprendizagem automática (pré-visualização)](sql-database-machine-learning-services-functions.md)
+- [Trabalhar com dados R e SQL nos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)](sql-database-machine-learning-services-data-issues.md)

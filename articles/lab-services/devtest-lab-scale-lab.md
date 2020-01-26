@@ -1,6 +1,6 @@
 ---
 title: Dimensionar cotas e limites em seu laboratório no Azure DevTest Labs | Microsoft Docs
-description: Saiba como dimensionar um laboratório no Azure DevTest Labs
+description: Este artigo descreve como pode escalar o seu laboratório em Laboratórios Azure DevTest. Veja as suas quotas e limites de utilização e solicite um aumento.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 231a227cbccaa4cbf74f3b13839c0ba42895cf24
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f3299c24bc751263ccd284a4fddb492fba5dd1e0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644856"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761190"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
 Enquanto trabalha no DevTest Labs, você pode observar que há alguns limites padrão para alguns recursos do Azure, que podem afetar o serviço do DevTest Labs. Esses limites são chamados de **cotas**.
@@ -26,7 +26,7 @@ Enquanto trabalha no DevTest Labs, você pode observar que há alguns limites pa
 > [!NOTE]
 > O serviço DevTest Labs não impõe nenhuma cota. As cotas que você pode encontrar são restrições padrão da assinatura geral do Azure.
 
-Você pode usar cada recurso do Azure até atingir sua cota. Cada subscrição tem quotas separadas e a utilização é controlada por subscrição.
+Você pode usar cada recurso do Azure até atingir sua cota. Cada subscrição tem quotas separadas e o uso é rastreado por subscrição.
 
 Por exemplo, cada assinatura tem uma cota padrão de 20 núcleos. Portanto, se você estiver criando VMs em seu laboratório com quatro núcleos cada, você só poderá criar cinco VMs.
 

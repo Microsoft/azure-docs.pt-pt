@@ -1,6 +1,6 @@
 ---
-title: Operações de solicitação/resposta do AMQP 1,0 no barramento de serviço do Azure
-description: Lista de Barramento de Serviço do Microsoft Azure operações baseadas em solicitação/resposta.
+title: Operações de pedido/resposta AMQP 1.0 no Ônibus de Serviço Azure
+description: Este artigo define a lista de operações baseadas em pedidos/resposta seleções amqp no Microsoft Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -11,38 +11,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: aschhab
-ms.openlocfilehash: b549aee197f35df29a982a1a86644c46b9061c63
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 338b411eade35fa357f64131c64b8ef2034c92b0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785284"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761088"
 ---
-# <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1,0 em Barramento de Serviço do Microsoft Azure: operações com base em solicitação-resposta
+# <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações baseadas em pedidos de resposta
 
-Este artigo define a lista de Barramento de Serviço do Microsoft Azure operações baseadas em solicitação/resposta. Essas informações se baseiam no rascunho de trabalho do AMQP Management versão 1,0.  
+Este artigo define a lista de operações de pedido/resposta do Microsoft Azure Service Bus. Esta informação baseia-se no projeto de funcionamento da VERSÃO 1.0 da AMQP Management Version 1.0.  
   
-Para obter um guia de protocolo AMQP 1,0 de nível de transmissão detalhado, que explica como o barramento de serviço implementa e se baseia na especificação técnica do OASIS AMQP, consulte o [AMQP 1,0 no barramento de serviço do Azure e no guia do protocolo de hubs de eventos][guia do protocolo amqp 1.0].  
+Para obter um detalhadas durante a transmissão nível AMQP 1.0 protocolo guia, que explica como o Service Bus implementa e baseia-se a especificação de técnica OASIS AMQP, consulte o [AMQP 1.0 no guia de protocolo do Service Bus do Azure e do Event Hubs][guia do protocolo amqp 1.0].  
   
 ## <a name="concepts"></a>Conceitos  
   
 ### <a name="entity-description"></a>Descrição da entidade  
 
-Uma descrição de entidade refere-se a uma classe [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription)do barramento de serviço, [classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)ou objeto de [classe SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) .  
+Uma descrição da entidade refere-se a uma classe Service Bus [QueueDescription,](/dotnet/api/microsoft.servicebus.messaging.queuedescription) [classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription), ou objeto de [classe SubscriçãoDescription.](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription)  
   
-### <a name="brokered-message"></a>Mensagem orientada  
+### <a name="brokered-message"></a>Mensagem intermediada  
 
-Representa uma mensagem no barramento de serviço, que é mapeada para uma mensagem AMQP. O mapeamento é definido no [Guia do protocolo AMQP do barramento de serviço](service-bus-amqp-protocol-guide.md).  
+Representa uma mensagem no Service Bus, que é mapeada para uma mensagem AMQP. O mapeamento é definido no guia de [protocolo saque tÁrpto](service-bus-amqp-protocol-guide.md)de autocarro de serviço .  
   
-## <a name="attach-to-entity-management-node"></a>Anexar ao nó de gerenciamento de entidades  
+## <a name="attach-to-entity-management-node"></a>Anexar ao nó de gestão de entidades  
 
-Todas as operações descritas neste documento seguem um padrão de solicitação/resposta, estão no escopo de uma entidade e exigem a anexação a um nó de gerenciamento de entidade.  
+Todas as operações descritas neste documento seguem um padrão de pedido/resposta, são anexadas a uma entidade e exigem a fixação de um nó de gestão de entidades.  
   
-### <a name="create-link-for-sending-requests"></a>Criar link para enviar solicitações  
+### <a name="create-link-for-sending-requests"></a>Criar link para envio de pedidos  
 
-Cria um link para o nó de gerenciamento para enviar solicitações.  
+Cria uma ligação ao nó de gestão para envio de pedidos.  
   
 ```
 requestLink = session.attach(
@@ -55,7 +55,7 @@ role: SENDER,
   
 ### <a name="create-link-for-receiving-responses"></a>Criar link para receber respostas  
 
-Cria um link para receber respostas do nó de gerenciamento.  
+Cria um link para receber respostas do nó de gestão.  
   
 ```
 responseLink = session.attach(
@@ -66,10 +66,10 @@ role: RECEIVER,
 
 ```
   
-### <a name="transfer-a-request-message"></a>Transferir uma mensagem de solicitação  
+### <a name="transfer-a-request-message"></a>Transfira uma mensagem de pedido  
 
-Transfere uma mensagem de solicitação.  
-Um estado de transação pode ser adicionado opcionalmente para operações que dão suporte à transação.
+Transfere uma mensagem de pedido.  
+Um estado de transação pode ser adicionado opcionalmente para operações que suportem a transação.
 
 ```
 requestLink.sendTransfer(
@@ -88,7 +88,7 @@ requestLink.sendTransfer(
 )
 ```
   
-### <a name="receive-a-response-message"></a>Receber uma mensagem de resposta  
+### <a name="receive-a-response-message"></a>Receba uma mensagem de resposta  
 
 Recebe a mensagem de resposta do link de resposta.  
   
@@ -96,7 +96,7 @@ Recebe a mensagem de resposta do link de resposta.
 responseMessage = responseLink.receiveTransfer()
 ```
   
-A mensagem de resposta está no seguinte formato:
+A mensagem de resposta está na seguinte forma:
   
 ```
 Message(
@@ -111,9 +111,9 @@ properties: {
 
 ```
   
-### <a name="service-bus-entity-address"></a>Endereço da entidade do barramento de serviço  
+### <a name="service-bus-entity-address"></a>Endereço da entidade do ônibus de serviço  
 
-As entidades do barramento de serviço devem ser abordadas da seguinte maneira:  
+As entidades de ônibus de serviço devem ser abordadas da seguinte forma:  
   
 |Tipo de entidade|Endereço|Exemplo|  
 |-----------------|-------------|-------------|  
@@ -129,477 +129,477 @@ Estende o bloqueio de uma mensagem pelo tempo especificado na descrição da ent
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:renew-lock`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:renew-lock`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
- O corpo da mensagem de solicitação deve consistir em uma seção AMQP-Value que contém um mapa com as seguintes entradas:  
+ O organismo de mensagem de pedido deve consistir numa secção de valor amqp contendo um mapa com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|matriz de UUID|Sim|Tokens de bloqueio de mensagem para renovar.|  
+|`lock-tokens`|matriz de uuid|Sim|Fichas de bloqueio de mensagem para renovar.|  
 
 > [!NOTE]
-> Os tokens de bloqueio são a propriedade `DeliveryTag` nas mensagens recebidas. Consulte o exemplo a seguir no [SDK do .net](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) que os recupera. O token também pode aparecer no ' DeliveryAnnotations ' como ' x-opt-Lock-token ', mas isso não é garantido e o `DeliveryTag` deve ser preferencial. 
+> Fichas de bloqueio são a propriedade `DeliveryTag` em mensagens recebidas. Veja o seguinte exemplo no [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) que os recupera. No entanto, o símbolo pode também figurar nas «Notações de entrega», como "x-opt-lock-token", no entanto, isso não está garantido e o `DeliveryTag` deve ser preferido. 
 > 
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou.|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção AMQP-Value que contém um mapa com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção de valor amqp contendo um mapa com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Expirações|matriz de carimbo de data/hora|Sim|Novo vencimento do token de bloqueio de mensagem correspondente aos tokens de bloqueio de solicitação.|  
+|expirações|conjunto de carimbo supor|Sim|O bloqueio de mensagem ficha nova expiração correspondente às fichas de bloqueio de pedido.|  
   
 ### <a name="peek-message"></a>Inspecionar mensagem  
 
-Inspeciona mensagens sem bloqueio.  
+Espreite mensagens sem trancar.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:peek-message`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|Longas|Sim|Número de sequência do qual iniciar a inspeção.|  
-|`message-count`|int|Sim|Número máximo de mensagens a serem inspecionadas.|  
+|`from-sequence-number`|longa|Sim|Número de sequência a partir do qual começar a espreitar.|  
+|`message-count`|int|Sim|Número máximo de mensagens para espreitar.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: nenhum conteúdo – não há mais mensagens|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – sem mais mensagens|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|mensagens|lista de mapas|Sim|Lista de mensagens nas quais cada mapa representa uma mensagem.|  
+|mensagens|lista de mapas|Sim|Lista de mensagens em que cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|message|matriz de bytes|Sim|Mensagem codificada em fio do AMQP 1,0.|  
+|message|conjunto de byte|Sim|Mensagem codificada por arame AMQP 1.0.|  
   
-### <a name="schedule-message"></a>Agendar mensagem  
+### <a name="schedule-message"></a>Mensagem de agenda  
 
-Agenda mensagens. Esta operação dá suporte à transação.
+Agenda mensagens. Esta operação suporta transações.
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:schedule-message`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:schedule-message`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|mensagens|lista de mapas|Sim|Lista de mensagens nas quais cada mapa representa uma mensagem.|  
+|mensagens|lista de mapas|Sim|Lista de mensagens em que cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|ID da mensagem|string|Sim|`amqpMessage.Properties.MessageId` como cadeia de caracteres|  
-|ID da sessão|string|Não|`amqpMessage.Properties.GroupId as string`|  
+|mensagem-id|string|Sim|`amqpMessage.Properties.MessageId` como corda|  
+|sessão-id|string|Não|`amqpMessage.Properties.GroupId as string`|  
 |chave de partição|string|Não|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
-|chave de partição via|string|Não|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|message|matriz de bytes|Sim|Mensagem codificada em fio do AMQP 1,0.|  
+|via-divisória-chave|string|Não|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|message|conjunto de byte|Sim|Mensagem codificada por arame AMQP 1.0.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou.|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um mapa com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um mapa com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|números de sequência|matriz de longo|Sim|Número de sequência de mensagens agendadas. O número de sequência é usado para cancelar.|  
+|números de sequência|conjunto de longo|Sim|Número de sequência de mensagens programadas. O número da sequência é usado para cancelar.|  
   
 ### <a name="cancel-scheduled-message"></a>Cancelar mensagem agendada  
 
-Cancela as mensagens agendadas.  
+Cancela as mensagens programadas.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:cancel-scheduled-message`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|números de sequência|matriz de longo|Sim|Números de sequência de mensagens agendadas a serem canceladas.|  
+|números de sequência|conjunto de longo|Sim|Números de sequência de mensagens programadas para cancelar.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
-|statusDescription|string|Não|Descrição do status.|   
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou.|  
+|estadoDescrição|string|Não|Descrição do estado.|   
   
-## <a name="session-operations"></a>Operações de sessão  
+## <a name="session-operations"></a>Operações de Sessão  
   
-### <a name="session-renew-lock"></a>Bloqueio de renovação de sessão  
+### <a name="session-renew-lock"></a>Sessão Renovar Bloqueio  
 
 Estende o bloqueio de uma mensagem pelo tempo especificado na descrição da entidade.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:renew-session-lock`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:renew-session-lock`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|ID da sessão|string|Sim|ID da sessão.|  
+|sessão-id|string|Sim|Id da sessão.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: nenhum conteúdo – não há mais mensagens|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – sem mais mensagens|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um mapa com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um mapa com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Ela|carimbo de data/hora|Sim|Nova expiração.|  
+|Expiração|carimbo de data/hora|Sim|Nova expiração.|  
   
-### <a name="peek-session-message"></a>Inspecionar mensagem de sessão  
+### <a name="peek-session-message"></a>Mensagem de sessão de espreitar  
 
-Inspeciona mensagens de sessão sem bloqueio.  
+Espreite as mensagens da sessão sem trancar.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:peek-message`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|número de sequência de|Longas|Sim|Número de sequência do qual iniciar a inspeção.|  
-|contagem de mensagens|int|Sim|Número máximo de mensagens a serem inspecionadas.|  
-|ID da sessão|string|Sim|ID da sessão.|  
+|from-sequence-number|longa|Sim|Número de sequência a partir do qual começar a espreitar.|  
+|contagem de mensagens|int|Sim|Número máximo de mensagens para espreitar.|  
+|sessão-id|string|Sim|Id da sessão.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: nenhum conteúdo – não há mais mensagens|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – sem mais mensagens|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um mapa com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um mapa com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|mensagens|lista de mapas|Sim|Lista de mensagens nas quais cada mapa representa uma mensagem.|  
+|mensagens|lista de mapas|Sim|Lista de mensagens em que cada mapa representa uma mensagem.|  
   
  O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|message|matriz de bytes|Sim|Mensagem codificada em fio do AMQP 1,0.|  
+|message|conjunto de byte|Sim|Mensagem codificada por arame AMQP 1.0.|  
   
-### <a name="set-session-state"></a>Definir estado da sessão  
+### <a name="set-session-state"></a>Estado de sessão de conjunto  
 
 Define o estado de uma sessão.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:set-session-state`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:set-session-state`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|ID da sessão|string|Sim|ID da sessão.|  
-|estado da sessão|matriz de bytes|Sim|Dados binários opacos.|  
+|sessão-id|string|Sim|Id da sessão.|  
+|estado de sessão|conjunto de bytes|Sim|Dados binários opacos.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-### <a name="get-session-state"></a>Obter estado da sessão  
+### <a name="get-session-state"></a>Obter Estado de Sessão  
 
 Obtém o estado de uma sessão.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:get-session-state`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:get-session-state`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|ID da sessão|string|Sim|ID da sessão.|  
+|sessão-id|string|Sim|Id da sessão.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|estado da sessão|matriz de bytes|Sim|Dados binários opacos.|  
+|estado de sessão|conjunto de bytes|Sim|Dados binários opacos.|  
   
-### <a name="enumerate-sessions"></a>Enumerar sessões  
+### <a name="enumerate-sessions"></a>Sessões enumeradas  
 
-Enumera sessões em uma entidade de mensagens.  
+Enumera sessões numa entidade de mensagens.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:get-message-sessions`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:get-message-sessions`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|hora da última atualização|carimbo de data/hora|Sim|Filtre para incluir somente as sessões atualizadas após um determinado tempo.|  
-|saltar|int|Sim|Ignorar várias sessões.|  
+|última-atualização-tempo|carimbo de data/hora|Sim|Filtrar para incluir apenas sessões atualizadas após um dado tempo.|  
+|saltar|int|Sim|Ignore uma série de sessões.|  
 |Início|int|Sim|Número máximo de sessões.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: nenhum conteúdo – não há mais mensagens|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: Sem conteúdo – sem mais mensagens|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|saltar|int|Sim|Número de sessões ignoradas se o código de status for 200.|  
-|sessões-IDs|Matriz de cadeias de caracteres|Sim|Matriz de IDs de sessão se o código de status for 200.|  
+|saltar|int|Sim|Número de sessões ignoradas se o código de estado for de 200.|  
+|sessões-ids|conjunto de cordas|Sim|Variedade de iDs de sessão se o código de estado for de 200.|  
   
-## <a name="rule-operations"></a>Operações de regra  
+## <a name="rule-operations"></a>Operações de regras  
   
-### <a name="add-rule"></a>Adicionar regra  
+### <a name="add-rule"></a>Adicionar Regra  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:add-rule`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:add-rule`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|nome da regra|string|Sim|Nome da regra, sem incluir nomes de tópicos e de assinatura.|  
-|regra-descrição|map|Sim|Descrição da regra, conforme especificado na próxima seção.|  
+|nome de regras|string|Sim|Nome da regra, sem incluir nomes de subscrição e tópicos.|  
+|descrição das regras|map|Sim|Descrição da regra especificada na secção seguinte.|  
   
-O mapa de **Descrição de regra** deve incluir as entradas a seguir, onde **SQL-Filter** e **correlação-Filter** são mutuamente exclusivos:  
+O mapa **de descrição das regras** deve incluir as seguintes entradas, onde o filtro de **sql** e **o filtro de correlação** são mutuamente exclusivos:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|filtro SQL|map|Sim|`sql-filter`, conforme especificado na próxima seção.|  
-|correlação-filtro|map|Sim|`correlation-filter`, conforme especificado na próxima seção.|  
-|SQL-regra-ação|map|Sim|`sql-rule-action`, conforme especificado na próxima seção.|  
+|sql-filter|map|Sim|`sql-filter`, conforme especificado na secção seguinte.|  
+|correlação-filtro|map|Sim|`correlation-filter`, conforme especificado na secção seguinte.|  
+|sql-rule-action|map|Sim|`sql-rule-action`, conforme especificado na secção seguinte.|  
   
-O mapa do filtro SQL deve incluir as seguintes entradas:  
+O mapa do filtro sql deve incluir as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|expressão|string|Sim|Expressão de filtro SQL.|  
+|expression|string|Sim|Expressão do filtro sql.|  
   
-O mapa **correlação-filtro** deve incluir pelo menos uma das seguintes entradas:  
+O mapa **do filtro de correlação** deve incluir pelo menos uma das seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|ID de correlação|string|Não||  
-|ID da mensagem|string|Não||  
+|correlação-id|string|Não||  
+|mensagem-id|string|Não||  
 |para|string|Não||  
-|responder para|string|Não||  
+|resposta-a|string|Não||  
 |label|string|Não||  
-|ID da sessão|string|Não||  
-|reply-to-session-ID|string|Não||  
-|tipo de conteúdo|string|Não||  
-|propriedades|map|Não|Mapeia para o barramento de serviço [BrokeredMessage. Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
+|sessão-id|string|Não||  
+|resposta-a-sessão-id|string|Não||  
+|Tipo de conteúdo|string|Não||  
+|propriedades|map|Não|Mapas para serviço bus [brokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
-O mapa **SQL-Rule-Action** deve incluir as seguintes entradas:  
+O mapa **de ação por regras sql** deve incluir as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|expressão|string|Sim|Expressão de ação SQL.|  
+|expression|string|Sim|Expressão de ação sql.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-### <a name="remove-rule"></a>Remover regra  
+### <a name="remove-rule"></a>Regra de remoção  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:remove-rule`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:remove-rule`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|nome da regra|string|Sim|Nome da regra, sem incluir nomes de tópicos e de assinatura.|  
+|nome de regras|string|Sim|Nome da regra, sem incluir nomes de subscrição e tópicos.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-### <a name="get-rules"></a>Obter regras
+### <a name="get-rules"></a>Obter Regras
 
 #### <a name="request"></a>Pedir
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:
 
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:enumerate-rules`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
 
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Início|int|Sim|O número de regras a serem buscadas na página.|  
-|saltar|int|Sim|O número de regras a serem ignoradas. Define o índice inicial (+ 1) na lista de regras. | 
+|Início|int|Sim|O número de regras para ir buscar na página.|  
+|saltar|int|Sim|O número de regras a saltar. Define o índice de partida (+1) na lista de regras. | 
 
 #### <a name="response"></a>Resposta
 
 A mensagem de resposta inclui as seguintes propriedades:
 
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|regras| matriz de mapa|Sim|Matriz de regras. Cada regra é representada por um mapa.|
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|regras| conjunto de mapa|Sim|Várias regras. Cada regra é representada por um mapa.|
 
-Cada entrada de mapa na matriz inclui as seguintes propriedades:
+Cada entrada do mapa na matriz inclui as seguintes propriedades:
 
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|regra-descrição|matriz de objetos descritos|Sim|`com.microsoft:rule-description:list` com o código AMQP descrito 0x0000013700000004| 
+|descrição das regras|conjunto de objetos descritos|Sim|`com.microsoft:rule-description:list` com amQP descrito código 0x000013700000000000004| 
 
-`com.microsoft.rule-description:list` é uma matriz de objetos descritos. A matriz inclui o seguinte:
+`com.microsoft.rule-description:list` é uma variedade de objetos descritos. A matriz inclui o seguinte:
 
-|Índice|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Índice|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-| 0 | matriz de objetos descritos | Sim | `filter` conforme especificado abaixo. |
-| 1 | matriz de objeto descrito | Sim | `ruleAction` conforme especificado abaixo. |
+| 0 | conjunto de objetos descritos | Sim | `filter` conforme especificado abaixo. |
+| 1 | conjunto de objeto descrito | Sim | `ruleAction` conforme especificado abaixo. |
 | 2 | string | Sim | nome da regra. |
 
 `filter` pode ser de qualquer um dos seguintes tipos:
 
-| Nome do descritor | Código do descritor | Valor |
+| Nome do Descritor | Código descritor | Valor |
 | --- | --- | ---|
 | `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
 | `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro de correlação |
-| `com.microsoft:true-filter:list` | 0x000001370000007 | Filtro verdadeiro que representa 1 = 1 |
-| `com.microsoft:false-filter:list` | 0x000001370000008 | Filtro falso representando 1 = 0 |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | Filtro verdadeiro que representa 1=1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | Filtro falso que representa 1=0 |
 
 `com.microsoft:sql-filter:list` é uma matriz descrita que inclui:
 
-|Índice|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Índice|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-| 0 | string | Sim | Expressão de filtro SQL |
+| 0 | string | Sim | Expressão do filtro sql |
 
 `com.microsoft:correlation-filter:list` é uma matriz descrita que inclui:
 
-|Índice (se existir)|Tipo de valor|Conteúdo do valor|  
+|Índice (se existir)|Tipo de valor|Conteúdos de Valor|  
 |---------|----------------|--------------|
 | 0 | string | ID de Correlação |
 | 1 | string | ID da mensagem |
@@ -607,103 +607,103 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 | 3 | string | Responder a |
 | 4 | string | Label |
 | 5 | string | ID de Sessão |
-| 6 | string | Responder à ID da sessão|
-| 7 | string | Tipo de conteúdo |
-| 8 | Mapa | Mapa de propriedades definidas pelo aplicativo |
+| 6 | string | Resposta ao ID da sessão|
+| 7 | string | Tipo de Conteúdo |
+| 8 | Mapa | Mapa das propriedades definidas da aplicação |
 
 `ruleAction` pode ser um dos seguintes tipos:
 
-| Nome do descritor | Código do descritor | Valor |
+| Nome do Descritor | Código descritor | Valor |
 | --- | --- | ---|
-| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Ação de regra vazia-nenhuma ação de regra presente |
-| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Ação de regra SQL |
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Ação de Regra Vazia - Nenhuma ação de regra presente |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Ação de regra sql |
 
-`com.microsoft:sql-rule-action:list` é uma matriz de objetos descritos cuja primeira entrada é uma cadeia de caracteres que contém a expressão da ação da regra SQL.
+`com.microsoft:sql-rule-action:list` é uma variedade de objetos descritos cuja primeira entrada é uma cadeia que contém a expressão da ação da regra SQL.
 
-## <a name="deferred-message-operations"></a>Operações de mensagens adiadas  
+## <a name="deferred-message-operations"></a>Operações de mensagens diferidas  
   
 ### <a name="receive-by-sequence-number"></a>Receber por número de sequência  
 
-Recebe mensagens adiadas por número de sequência.  
+Recebe mensagens diferidas por número de sequência.  
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:receive-by-sequence-number`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|números de sequência|matriz de longo|Sim|Números de sequência.|  
-|receptor-modo de liquidação|ubyte|Sim|Modo de **liquidação do destinatário** , conforme especificado no AMQP Core v 1.0.|  
+|números de sequência|conjunto de longo|Sim|Números de sequência.|  
+|receiver-settle-mode|ubyte|Sim|**Modo de assentamento** do recetor conforme especificado no núcleo AMQP v1.0.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|statusDescription|string|Não|Descrição do status.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|estadoDescrição|string|Não|Descrição do estado.|  
   
-O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de resposta deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|mensagens|lista de mapas|Sim|Lista de mensagens em que cada mapa representa uma mensagem.|  
+|mensagens|lista de mapas|Sim|Lista de mensagens onde cada mapa representa uma mensagem.|  
   
 O mapa que representa uma mensagem deve conter as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|token de bloqueio|uuid|Sim|Bloquear token se `receiver-settle-mode` for 1.|  
-|message|matriz de bytes|Sim|Mensagem codificada em fio do AMQP 1,0.|  
+|lock-token|uuid|Sim|Bloqueie ficha se `receiver-settle-mode` é 1.|  
+|message|conjunto de byte|Sim|Mensagem codificada por arame AMQP 1.0.|  
   
-### <a name="update-disposition-status"></a>Status de disposição da atualização  
+### <a name="update-disposition-status"></a>Atualizar estado de disposição  
 
-Atualiza o status de disposição de mensagens adiadas. Esta operação dá suporte a transações.
+Atualiza o estado de disposição das mensagens diferidas. Esta operação suporta transações.
   
 #### <a name="request"></a>Pedir  
 
-A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de pedido deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|Operacional|string|Sim|`com.microsoft:update-disposition`|  
-|`com.microsoft:server-timeout`|uint|Não|Tempo limite do servidor de operação em milissegundos.|  
+|operation|string|Sim|`com.microsoft:update-disposition`|  
+|`com.microsoft:server-timeout`|uint|Não|Operação tempo de funcionamento do servidor em milissegundos.|  
   
-O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
+O organismo de mensagem de pedido deve consistir numa secção **de valor amqp** contendo um **mapa** com as seguintes entradas:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|disposição-status|string|Sim|conclusão<br /><br /> Abandon<br /><br /> Suspenso|  
-|tokens de bloqueio|matriz de UUID|Sim|Tokens de bloqueio de mensagem para atualizar o status de disposição.|  
-|motivo de mensagens mortas|string|Não|Poderá ser definido se o status de disposição estiver definido como **suspenso**.|  
-|Descrição de mensagens mortas|string|Não|Poderá ser definido se o status de disposição estiver definido como **suspenso**.|  
-|Propriedades para modificar|map|Não|Lista de propriedades de mensagens orientadas do barramento de serviço a serem modificadas.|  
+|estatuto de disposição|string|Sim|concluído<br /><br /> abandonado<br /><br /> suspenso|  
+|fichas de bloqueio|matriz de uuid|Sim|Fichas de bloqueio de mensagem para atualizar o estado de disposição.|  
+|deadletter-reason|string|Não|Pode ser definido se o estado de disposição estiver definido para **ser suspenso**.|  
+|deadletter-description|string|Não|Pode ser definido se o estado de disposição estiver definido para **ser suspenso**.|  
+|propriedades-a-modificar|map|Não|Lista de propriedades de mensagens mediadas service Bus para modificar.|  
   
 #### <a name="response"></a>Resposta  
 
-A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:  
+A mensagem de resposta deve incluir as seguintes propriedades de aplicação:  
   
-|Chave|Tipo de valor|Obrigatório|Conteúdo do valor|  
+|Chave|Tipo de valor|Obrigatório|Conteúdos de Valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
-|statusDescription|string|Não|Descrição do status.|
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – sucesso, caso contrário falhou|  
+|estadoDescrição|string|Não|Descrição do estado.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o AMQP e o barramento de serviço, visite os links a seguir:
+Para saber mais sobre amqp e ônibus de serviço, visite os seguintes links:
 
-* [Visão geral do AMQP do barramento de serviço]
+* [Visão geral do ônibus de serviço AMQP]
 * [Guia do protocolo AMQP 1.0]
-* [AMQP no barramento de serviço para Windows Server]
+* [AMQP em ônibus de serviço para servidor windows]
 
-[Visão geral do AMQP do barramento de serviço]: service-bus-amqp-overview.md
+[Visão geral do ônibus de serviço AMQP]: service-bus-amqp-overview.md
 [Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP no barramento de serviço para Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP em ônibus de serviço para servidor windows]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

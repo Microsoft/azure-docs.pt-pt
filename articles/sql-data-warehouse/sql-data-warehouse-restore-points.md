@@ -1,6 +1,6 @@
 ---
-title: Pontos de restauração definidos pelo usuário
-description: Como criar um ponto de restauração SQL Data Warehouse do Azure.
+title: Pontos de restauro definidos pelo utilizador
+description: Como criar um ponto de restauro Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bf092b5b6c6eb88b565a940de56d614426e34d8e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692506"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759606"
 ---
-# <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
+# <a name="user-defined-restore-points"></a>Pontos de restauro definidos pelo utilizador
 
-Neste artigo, você aprenderá a criar um novo ponto de restauração definido pelo usuário para o Azure SQL Data Warehouse usando o PowerShell e o portal do Azure.
+Neste artigo, aprende-se a criar um novo ponto de restauro definido pelo utilizador para o Azure SQL Data Warehouse utilizando o portal PowerShell e Azure.
 
-## <a name="create-user-defined-restore-points-through-powershell"></a>Criar pontos de restauração definidos pelo usuário por meio do PowerShell
+## <a name="create-user-defined-restore-points-through-powershell"></a>Criar pontos de restauro definidos pelo utilizador através do PowerShell
 
-Para criar um ponto de restauração definido pelo usuário, use o cmdlet [New-AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] do PowerShell.
+Para criar um ponto de restauro definido pelo utilizador, utilize o cmdlet [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0) PowerShell.
 
-1. Antes de começar, certifique-se de [instalar Azure PowerShell][Install Azure PowerShell].
+1. Antes de começar, certifique-se de instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Abra o PowerShell.
-3. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
-4. Selecione a assinatura que contém o banco de dados a ser restaurado.
-5. Crie um ponto de restauração para uma cópia imediata do seu data warehouse.
+3. Ligue-se à sua conta Azure e enumere todas as subscrições associadas à sua conta.
+4. Selecione a subscrição que contém a base de dados a restaurar.
+5. Crie um ponto de restauro para uma cópia imediata do seu armazém de dados.
 
 ```Powershell
 
@@ -49,53 +49,32 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 
 ```
 
-6. Consulte a lista de todos os pontos de restauração existentes.
+6. Consulte a lista de todos os pontos de restauro existentes.
 
 ```Powershell
 # List all restore points
 Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
-## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Criar pontos de restauração definidos pelo usuário por meio do portal do Azure
+## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Criar pontos de restauro definidos pelo utilizador através do portal Azure
 
-Os pontos de restauração definidos pelo usuário também podem ser criados por meio de portal do Azure.
+Os pontos de restauro definidos pelo utilizador também podem ser criados através do portal Azure.
 
-1. Entre em sua conta do [portal do Azure][Azure portal] .
+1. Inscreva-se na sua conta [do portal Azure.](https://portal.azure.com/)
 
-2. Navegue até o SQL Data Warehouse para o qual você deseja criar um ponto de restauração.
+2. Navegue até ao Armazém de Dados SQL para o que pretende criar um ponto de restauro.
 
-3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o data warehouse não está em pausa.
+3. Selecione **visão geral** do painel esquerdo, selecione **+ Novo Ponto**de Restauro . Se o botão New Restore Point não estiver ativado, certifique-se de que o armazém de dados não está parado.
 
-    ![Novo ponto de restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
+    ![Novo ponto de restauro](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
-4. Especifique um nome para o ponto de restauração definido pelo usuário e clique em **aplicar**. Os pontos de restauração definidos pelo usuário têm um período de retenção padrão de sete dias.
+4. Especifique um nome para o seu ponto de restauro definido pelo utilizador e clique **em Aplicar**. Os pontos de restauro definidos pelo utilizador têm um período de retenção predefinido de sete dias.
 
-    ![Nome do ponto de restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
+    ![Nome do Ponto de Restauro](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Restaurar um data warehouse existente][Restore an existing data warehouse]
-- [Restaurar um data warehouse excluído][Restore a deleted data warehouse]
-- [Restaurar de um data warehouse de backup geográfico][Restore from a geo-backup data warehouse]
+- [Restaurar um armazém de dados existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar um armazém de dados eliminado](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar a partir de um armazém de dados de geo-backup](sql-data-warehouse-restore-from-geo-backup.md)
 
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[PowerShelldoc]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-<!--MSDN references-->
-[New-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

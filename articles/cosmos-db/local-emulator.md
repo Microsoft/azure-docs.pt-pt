@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: bcab5f76b95939b0a9a4232eab2bcf8b2a5fd40b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3e51db98403b507c1c34ee455cfe218ea52c529b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309987"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760577"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o emulador Cosmos do Azure para desenvolvimento e teste local
 
@@ -82,7 +82,7 @@ Quando o emulador Cosmos do Azure é iniciado, ele abre automaticamente o Azure 
 O Data Explorer indica se está disponível uma nova atualização para transferência.
 
 > [!NOTE]
-> Os dados criados em uma versão do emulador Cosmos do Azure (consulte%LOCALAPPDATA%\CosmosDBEmulator ou configurações opcionais de caminho de dados) não têm garantia de serem acessíveis ao usar uma versão diferente. Se você precisar manter seus dados por um longo prazo, é recomendável armazená-los em uma conta do Azure Cosmos, em vez de no emulador Cosmos do Azure.
+> Os dados criados numa versão do Emulador Do Cosmos do Azure (ver %LOCALAPPDATA%\CosmosDBEmulator ou definições opcionais da trajetória de dados) não estão garantidos para serem acessíveis quando utilizam uma versão diferente. Se você precisar manter seus dados por um longo prazo, é recomendável armazená-los em uma conta do Azure Cosmos, em vez de no emulador Cosmos do Azure.
 
 ## <a name="authenticating-requests"></a>Autenticar pedidos
 
@@ -103,9 +103,9 @@ Assim como ocorre com o Azure Cosmos DB, o emulador Cosmos do Azure dá suporte 
 
 ## <a name="running-on-a-local-network"></a>Executar numa rede local
 
-Pode executar o emulador numa rede local. Para habilitar o acesso à rede, especifique a opção `/AllowNetworkAccess` na [linha de comando](#command-line-syntax), que também requer que você especifique `/Key=key_string` ou `/KeyFile=file_name`. Você pode usar `/GenKeyFile=file_name` para gerar um arquivo com uma chave aleatória antecipada. Em seguida, você pode passá-lo para `/KeyFile=file_name` ou `/Key=contents_of_file`.
+Pode executar o emulador numa rede local. Para permitir o acesso à rede, especifique a opção `/AllowNetworkAccess` na [linha de comando,](#command-line-syntax)que também requer que especifique `/Key=key_string` ou `/KeyFile=file_name`. Pode usar `/GenKeyFile=file_name` para gerar um ficheiro com uma chave aleatória frontalmente. Depois podes passar isso para `/KeyFile=file_name` ou `/Key=contents_of_file`.
 
-Para habilitar o acesso à rede pela primeira vez, o usuário deve desligar o emulador e excluir o diretório de dados do emulador (%LOCALAPPDATA%\CosmosDBEmulator).
+Para permitir o acesso à rede pela primeira vez, o utilizador deve desligar o emulador e eliminar o diretório de dados do emulador (%LOCALAPPDATA%\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Desenvolver com o emulador
 
@@ -149,7 +149,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="cassandra-api"></a>API para Cassandra
 
-Inicie o emulador de um prompt de comando de administrador com "/EnableCassandraEndpoint". Como alternativa, você também pode definir a variável de ambiente `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
+Inicie o emulador de um prompt de comando de administrador com "/EnableCassandraEndpoint". Alternativamente, também pode definir a variável ambiental `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
 * [Instalar o Python 2,7](https://www.python.org/downloads/release/python-2716/)
 
@@ -179,9 +179,9 @@ Inicie o emulador de um prompt de comando de administrador com "/EnableCassandra
 
 ### <a name="gremlin-api"></a>API do Gremlin
 
-Inicie o emulador de um prompt de comando de administrador com "/EnableGremlinEndpoint". Como alternativa, você também pode definir a variável de ambiente `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Inicie o emulador de um prompt de comando de administrador com "/EnableGremlinEndpoint". Alternativamente, também pode definir a variável ambiental `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Instalar o Apache-tinkerpop-Gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
+* [Instale apache-tinkerpop-gremlin-consola-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
 * No Data Explorer do emulador, crie um banco de dados "DB1" e uma coleção "coll1"; para a chave de partição, escolha "/Name"
 
@@ -242,7 +242,7 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 |[Ajuda] |Mostra a lista dos argumentos da linha de comandos suportados.|Microsoft. Azure. Cosmos. Emulator. exe/? | |
 | GetStatus |Obtém o status do emulador Cosmos do Azure. O estado é indicado pelo código de saída: 1 = A iniciar, 2 = Em execução, 3 = Parado. Um código de saída negativo indica que ocorreu um erro. Não é produzido outro resultado. | Microsoft. Azure. Cosmos. Emulator. exe/GetStatus| |
 | Encerrar| Desliga o emulador Cosmos do Azure.| Microsoft. Azure. Cosmos. Emulator. exe/Shutdown | |
-|DataPath | Especifica o caminho onde pretende armazenar os ficheiros de dados. O valor padrão é%LocalAppdata%\CosmosDBEmulator. | Microsoft. Azure. Cosmos. Emulator. exe/DataPath =\<DataPath\> | \<datapath\>: um caminho acessível |
+|DataPath | Especifica o caminho onde pretende armazenar os ficheiros de dados. O valor predefinido é %LocalAppdata%\CosmosDBEmulator. | Microsoft. Azure. Cosmos. Emulator. exe/DataPath =\<DataPath\> | \<datapath\>: um caminho acessível |
 |Porta | Especifica o número de porta a utilizar para o emulador. O valor padrão é 8081. |Microsoft. Azure. Cosmos. Emulator. exe/Port =\<porta\> | \<porta\>: número de porta individual |
 | ComputePort | Especificado o número da porta a ser usado para o serviço de gateway de interoperabilidade de computação. A porta de investigação do ponto de extremidade HTTP do gateway é calculada como ComputePort + 79. Portanto, ComputePort e ComputePort + 79 devem estar abertos e disponíveis. O valor padrão é 8900. | Microsoft. Azure. Cosmos. Emulator. exe/ComputePort =\<ComputePort\> | \<computeport\>: número da porta única |
 | EnableMongoDbEndpoint = 3.2 | Habilita a API do MongoDB 3,2 | Microsoft. Azure. Cosmos. Emulator. exe/EnableMongoDbEndpoint = 3.2 | |
@@ -254,8 +254,8 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 | GremlinPort | Número da porta a ser usada para o ponto de extremidade Gremlin. O valor padrão é 8901. | Microsoft. Azure. Cosmos. Emulator. exe/GremlinPort =\<porta\> | \<porta\>: número de porta individual |
 |EnableTableEndpoint | Habilita o Azure API de Tabela | Microsoft. Azure. Cosmos. Emulator. exe/EnableTableEndpoint | |
 |TablePort | Número da porta a ser usada para o ponto de extremidade de tabela do Azure. O valor padrão é 8902. | Microsoft. Azure. Cosmos. Emulator. exe/TablePort =\<porta\> | \<porta\>: número de porta individual|
-| KeyFile | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | Microsoft. Azure. Cosmos. Emulator. exe/KeyFile =\<file_name\> | \<file_name\>: caminho para o arquivo |
-| ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será%LOCALAPPDATA%\CosmosDbEmulator | Microsoft. Azure. Cosmos. Emulator. exe/ResetDataPath =\<caminho > | caminho do \<\>: caminho do arquivo  |
+| KeyFile | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Caminho para o arquivo |
+| ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se não especificar um caminho, não se aplica a %LOCALAPPDATA%\CosmosDbEmulator | Microsoft. Azure. Cosmos. Emulator. exe/ResetDataPath =\<caminho > | caminho do \<\>: caminho do arquivo  |
 | StartTraces  |  Comece coletando logs de rastreamento de depuração usando LOGMAN. | Microsoft. Azure. Cosmos. Emulator. exe/StartTraces | |
 | StopTraces     | Interrompa a coleta de logs de rastreamento de depuração usando LOGMAN. | Microsoft. Azure. Cosmos. Emulator. exe/StopTraces  | |
 | StartWprTraces  |  Comece coletando logs de rastreamento de depuração usando a ferramenta de gravação de desempenho do Windows. | Microsoft. Azure. Cosmos. Emulator. exe/StartWprTraces | |
@@ -270,7 +270,7 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 | NoExplorer | Não mostrar o explorador de dados no arranque. |Microsoft. Azure. Cosmos. Emulator. exe/NoExplorer | | 
 | PartitionCount | Especifica o número máximo de contêineres particionados. Consulte [alterar o número de contêineres](#set-partitioncount) para obter mais informações. | Microsoft. Azure. Cosmos. Emulator. exe/PartitionCount =\<PartitionCount\> | \<partitionCount\>: número máximo de contêineres de partição única permitidos. O valor predefinido é 25. O máximo permitido é 250.|
 | DefaultPartitionCount| Especifica o número padrão de partições para um contêiner particionado. | Microsoft. Azure. Cosmos. Emulator. exe/DefaultPartitionCount =\<DefaultPartitionCount\> | \<defaultpartitioncount\> valor padrão é 25.|
-| AllowNetworkAccess | Permite o acesso ao emulador através de uma rede. Tem de passar também /Key=\<key_string\> oru/KeyFile=\<file_name\> para ativar o acesso à rede. | Microsoft. Azure. Cosmos. Emulator. exe/AllowNetworkAccess/Key =\<key_string\> ou Microsoft. Azure. Cosmos. Emulator. exe/AllowNetworkAccess/KeyFile =\<file_name\>| |
+| AllowNetworkAccess | Permite o acesso ao emulador através de uma rede. Tem de passar também /Key=\<key_string\> oru/KeyFile=\<file_name\> para ativar o acesso à rede. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> ou Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | Não ajuste as regras de firewall quando a opção/AllowNetworkAccess for usada. |Microsoft. Azure. Cosmos. Emulator. exe/NoFirewall | |
 | GenKeyFile | Gerar uma nova chave de autorização e guardá-la no ficheiro especificado. A chave gerada pode ser utilizada com as opções /Key ou /KeyFile. | Microsoft. Azure. Cosmos. Emulator. exe/GenKeyFile =\<caminho para o arquivo de chave\> | |
 | Consistência | Defina o nível de consistência predefinida para a conta. | Microsoft. Azure. Cosmos. Emulator. exe/Consistency =\<consistência\> | \<consistência\>: o valor tem de ser um dos seguintes [níveis de consistência](consistency-levels.md): Session, Strong, Eventual, ou BoundedStaleness. O valor predefinido é Session. |
@@ -288,7 +288,7 @@ ActivityId: 12345678-1234-1234-1234-123456789abc "
 Para alterar o número de contêineres disponíveis no emulador Cosmos do Azure, execute as seguintes etapas:
 
 1. Exclua todos os dados locais do emulador Cosmos do Azure clicando com o botão direito do mouse no ícone do **emulador Azure Cosmos DB** na bandeja do sistema e, em seguida, clicando em **Redefinir dados...** .
-2. Exclua todos os dados do emulador nesta pasta `%LOCALAPPDATA%\CosmosDBEmulator`.
+2. Elimine todos os dados do emulador nesta pasta `%LOCALAPPDATA%\CosmosDBEmulator`.
 3. Saia de todas as instâncias abertas, ao clicar com o botão direito do rato no ícone do**Emulador do Azure Cosmos DB** no tabuleiro do sistema e, em seguida, clique em **Sair**. Pode demorar um minuto para que todas as instâncias possam sair.
 4. Instale a versão mais recente do [emulador Cosmos do Azure](https://aka.ms/cosmosdb-emulator).
 5. Inicie o emulador com o sinalizador de PartitionCount, ao definir um valor <= 250. Por exemplo: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
@@ -495,7 +495,7 @@ Use as dicas a seguir para ajudar a solucionar problemas encontrados com o emula
 
 - Se instalou uma nova versão do emulador e surgirem erros, certifique-se de que repõe os dados. Você pode redefinir seus dados clicando com o botão direito do mouse no ícone do emulador Cosmos do Azure na bandeja do sistema e, em seguida, clicando em Redefinir dados.... Se isso não corrigir os erros, você poderá desinstalar o emulador e qualquer versão mais antiga do emulador, se for encontrado, remover o diretório "C:\Program Programas\azure Cosmos DB Emulator" e reinstalar o emulador. Veja [Desinstalar o emulador local](#uninstall) para obter instruções.
 
-- Se o emulador Cosmos do Azure falhar, colete os arquivos de despejo da pasta '%LOCALAPPDATA%\CrashDumps ', compacte-os e abra um tíquete de suporte na [portal do Azure](https://portal.azure.com).
+- Se o Emulador Azure Cosmos falhar, recolha ficheiros de despejo da pasta '%LOCALAPPDATA%\CrashDumps', comprima-os e abra um bilhete de apoio do [portal Azure](https://portal.azure.com).
 
 - Se você tiver falhas no `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, isso pode ser um sintoma em que os contadores de desempenho estão em um estado corrompido. Geralmente, executar o seguinte comando em um prompt de comando de administrador corrige o problema:
 

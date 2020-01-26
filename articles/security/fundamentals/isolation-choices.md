@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121952"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756165"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação melhora a eficiência por meio da multiplexação de recursos entre diferentes clientes a baixo custo. Infelizmente, ele também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura para executar seus aplicativos confidenciais e VMs que podem pertencer a um usuário arbitrário e potencialmente mal-intencionado.
@@ -73,7 +73,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 - O **leitor** pode exibir os recursos existentes do Azure.
 
-![Controlo de Acesso Baseado em Funções do Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Controlo de Acesso baseado em funções azure](./media/isolation-choices/azure-isolation-fig3.png)
 
 O restante das funções de RBAC no Azure permite o gerenciamento de recursos específicos do Azure. Por exemplo, a função colaborador da máquina virtual permite que o usuário crie e gerencie máquinas virtuais. Ele não dá acesso à rede virtual do Azure ou à sub-rede à qual a máquina virtual se conecta.
 
@@ -112,6 +112,9 @@ O Microsoft Azure fornece vários serviços de computação baseados em nuvem qu
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
+### <a name="dedicated-hosts"></a>Anfitriões dedicados
+Além dos anfitriões isolados descritos na secção anterior, o Azure também oferece anfitriões dedicados. Anfitriões dedicados em Azure é um serviço que fornece servidores físicos que podem hospedar uma ou mais máquinas virtuais, e que são dedicados a uma única subscrição azure. Os anfitriões dedicados fornecem isolamento de hardware ao nível do servidor físico. Nenhuma outra VM será colocada nos hosts. Os anfitriões dedicados são implantados nos mesmos centros de dados e partilham a mesma rede e infraestruturas de armazenamento subjacentes que outros hospedeiros não isolados. Para mais informações, consulte a visão geral detalhada dos [anfitriões dedicados ao Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & isolamento raiz do sistema operacional & VMs convidadas da VM raiz
 A plataforma de computação do Azure é baseada na virtualização de máquina, o que significa que todo o código do cliente é executado em uma máquina virtual do Hyper-V. Em cada nó do Azure (ou ponto de extremidade de rede), há um hipervisor que é executado diretamente pelo hardware e divide um nó em um número variável de VMs (máquinas virtuais) convidadas.
 
@@ -119,7 +122,7 @@ A plataforma de computação do Azure é baseada na virtualização de máquina,
 ![Hyper-V & isolamento raiz do sistema operacional & VMs convidadas da VM raiz](./media/isolation-choices/azure-isolation-fig4.jpg)
 
 
-Cada nó também tem uma VM de raiz especial, que executa o sistema operacional do host. Um limite crítico é o isolamento da máquina virtual raiz das máquinas virtuais convidadas e das máquinas virtuais convidadas umas das outras, gerenciadas pelo hipervisor e pelo sistema operacional raiz. O emparelhamento do hipervisor/sistema operacional raiz aproveita as décadas de experiência de segurança de sistema operacional da Microsoft e o aprendizado mais recente do Hyper-V da Microsoft, para fornecer isolamento forte de VMs convidadas.
+Cada nó também tem uma VM de raiz especial, que executa o sistema operacional do host. Uma fronteira crítica é o isolamento da raiz VM dos VMs convidados e dos VMs convidados uns dos outros, geridos pelo hipervisor e pela raiz oss. O emparelhamento do hipervisor/sistema operacional raiz aproveita as décadas de experiência de segurança de sistema operacional da Microsoft e o aprendizado mais recente do Hyper-V da Microsoft, para fornecer isolamento forte de VMs convidadas.
 
 A plataforma Azure utiliza um ambiente virtualizado. As instâncias de usuário operam como máquinas virtuais autônomas que não têm acesso a um servidor de host físico.
 
@@ -144,7 +147,7 @@ A coleção de hipervisor do Azure, sistema operacional raiz/FA e VMs do cliente
 A comunicação de um controlador de malha para um agente é unidirecional. O agente implementa um serviço protegido por SSL que responde apenas às solicitações do controlador. Ele não pode iniciar conexões com o controlador ou com outros nós internos privilegiados. O FC trata todas as respostas como se elas não fossem confiáveis.
 
 
-![Controlador de malha](./media/isolation-choices/azure-isolation-fig7.png)
+![Controlador de tecido](./media/isolation-choices/azure-isolation-fig7.png)
 
 O isolamento se estende da VM raiz das VMs convidadas e das VMs convidadas umas das outras. Nós de computação também são isolados de nós de armazenamento para maior proteção.
 
@@ -161,10 +164,10 @@ Há duas categorias de regras que são programadas:
 
 -   **Arquivo de configuração de função:** Isso define as listas de controle de acesso de entrada (ACLs) com base no modelo de serviço do locatário.
 
-### <a name="vlan-isolation"></a>Isolamento de VLAN
+### <a name="vlan-isolation"></a>Isolamento VLAN
 Há três VLANs em cada cluster:
 
-![Isolamento de VLAN](./media/isolation-choices/azure-isolation-fig8.jpg)
+![Isolamento VLAN](./media/isolation-choices/azure-isolation-fig8.jpg)
 
 
 -   A VLAN principal – interconecta nós de clientes não confiáveis
@@ -181,7 +184,7 @@ Como parte de seu design fundamental, Microsoft Azure separa a computação base
 
 Portanto, o armazenamento do Azure é executado em hardware separado sem conectividade de rede para a computação do Azure, exceto logicamente. Isso significa que, quando um disco virtual é criado, o espaço em disco não é alocado para sua capacidade inteira. Em vez disso, é criada uma tabela que mapeia endereços no disco virtual para áreas no disco físico e que a tabela está inicialmente vazia. **Na primeira vez que um cliente grava dados no disco virtual, o espaço no disco físico é alocado e um ponteiro para ele é colocado na tabela.**
 ### <a name="isolation-using-storage-access-control"></a>Isolamento usando o controle de acesso de armazenamento
-O **controle de acesso no armazenamento do Azure** tem um modelo de controle de acesso simples. Cada assinatura do Azure pode criar uma ou mais contas de armazenamento. Cada Conta de Armazenamento tem uma única chave secreta usada para controlar o acesso a todos os dados naquela Conta de Armazenamento.
+O **controle de acesso no armazenamento do Azure** tem um modelo de controle de acesso simples. Cada assinatura do Azure pode criar uma ou mais contas de armazenamento. Cada Conta de Armazenamento tem uma única chave secreta que é usada para controlar o acesso a todos os dados dessa Conta de Armazenamento.
 
 ![Isolamento usando o controle de acesso de armazenamento](./media/isolation-choices/azure-isolation-fig9.png)
 
@@ -196,7 +199,7 @@ Os dados de armazenamento IP podem ser protegidos contra usuários não autoriza
 
 ### <a name="encryption"></a>Encriptação
 O Azure oferece os seguintes tipos de criptografia para proteger os dados:
--   Encriptação de dados em circulação
+-   Encriptação em trânsito
 
 -   Encriptação inativa
 

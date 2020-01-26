@@ -1,6 +1,6 @@
 ---
-title: Gerenciabilidade e monitoramento-visão geral
-description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) no Azure SQL Data Warehouse.
+title: Gestão e monitorização - visão geral
+description: Monitorização e visão geral de monitorização para utilização de recursos, atividade de registo e consulta, recomendações e proteção de dados (backup e restauro) no Armazém de Dados Azure SQL.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,36 +11,26 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3bacd77f49f97bd98a5e1bee844bc80c595f5cbe
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 54dbf7bcac92f7536d4e4579045c474914264935
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685611"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760747"
 ---
-# <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Gerenciabilidade e monitoramento com o Azure SQL Data Warehouse
+# <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Gestão e monitorização com o Armazém de Dados Azure SQL
 
-Veja o que está disponível para ajudá-lo a gerenciar e monitorar SQL Data Warehouse. Os artigos a seguir destacam maneiras de otimizar o desempenho e o uso de seus data warehouse.
+Veja o que está disponível para o ajudar a gerir e monitorizar o SQL Data Warehouse. Os seguintes artigos destacam formas de otimizar o desempenho e o uso do seu armazém de dados.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-* [Saiba mais sobre o gerenciamento de computação e a elasticidade][manage compute]
-* [Entenda quais métricas e logs estão disponíveis no portal do Azure][resource utilization]
-* [Saiba mais sobre os recursos de backup e restauração][data protection]
-* [Saiba mais sobre inteligência interna e recomendações][recommendations]
-* [Saiba mais sobre os períodos de manutenção e o que está disponível para minimizar o tempo de inatividade de seus data warehouse][maintenance]
-* [Encontre diretrizes comuns de solução de problemas][troubleshoot]
+* [Conheça a gestão da computação e a elasticidade](sql-data-warehouse-manage-compute-overview.md)
+* [Entenda quais as métricas e registos disponíveis no portal Azure](sql-data-warehouse-concept-resource-utilization-query-activity.md)
+* [Saiba mais sobre as capacidades de backup e restauro](backup-and-restore.md)
+* [Conheça a inteligência incorporada e recomendações](sql-data-warehouse-concept-recommendations.md)
+* [Saiba mais sobre os períodos de manutenção e o que está disponível para minimizar o tempo de inatividade do seu armazém de dados](service-maintenance.md)
+* [Encontre orientação comum de resolução de problemas](sql-data-warehouse-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter os guias de instruções, consulte [monitorar e ajustar seu data warehouse](sql-data-warehouse-manage-monitor.md).
-
-<!--Image references-->
-
-<!--Article references-->
-[manage compute]: ./sql-data-warehouse-manage-compute-overview.md
-[resource utilization]: ./sql-data-warehouse-concept-resource-utilization-query-activity.md
-[data protection]: ./backup-and-restore.md
-[recommendations]: ./sql-data-warehouse-concept-recommendations.md
-[maintenance]: ./service-maintenance.md
-[troubleshoot]: ./sql-data-warehouse-troubleshoot.md
+Para obter guias como fazer, consulte [monitor e sintonize o seu armazém](sql-data-warehouse-manage-monitor.md)de dados .

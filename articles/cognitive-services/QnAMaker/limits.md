@@ -1,22 +1,14 @@
 ---
 title: Limites e limites - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: A ferramenta QnA Maker tem meta-limites para partes na base de dados de conhecimento e o serviço. É importante manter a sua base de dados de conhecimento dentro desses limites para testar e publicar.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/10/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381125"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760237"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -33,6 +25,15 @@ O número máximo de bases de dados de conhecimento baseia-se nos [limites da ca
  Por exemplo, se sua camada tiver 15 índices permitidos, você poderá publicar 14 bases de dados de conhecimento (1 índice por base de dados de conhecimento publicado). O índice décimo-quinto, `testkb`, é usado para todas as bases de dados de conhecimento para criação e teste.
 
 ## <a name="extraction-limits"></a>Limites de extração
+
+### <a name="file-naming-constraints"></a>Restrições de nomeação de ficheiros
+
+Os nomes dos ficheiros não podem incluir os seguintes caracteres:
+
+|Não use o caráter|
+|--|
+|`'` de cotação única|
+|`"` de cotação dupla|
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do ficheiro
 
@@ -77,7 +78,7 @@ Limites geral para o conteúdo na base de dados de conhecimento:
 * Comprimento do texto de resposta: 25.000
 * Comprimento do texto da pergunta: 1000
 * Comprimento do texto de chave/valor de metadados: 100
-* Caracteres com suporte para nome de metadados: alfabetos, dígitos e `_`
+* Caracteres suportados para nome de metadados: Alfabetos, dígitos e `_`
 * Caracteres com suporte para o valor de metadados: todos, exceto `:` e `|`
 * Comprimento do nome de ficheiro: 200
 * Formatos de ficheiro suportados: ". tsv", ". pdf", ". txt", ". docx", ". xlsx".

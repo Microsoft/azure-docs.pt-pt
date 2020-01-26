@@ -1,6 +1,6 @@
 ---
 title: Logs de diagnóstico do barramento de serviço do Azure | Microsoft Docs
-description: Saiba como configurar logs de diagnóstico para o barramento de serviço no Azure.
+description: Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis para o Azure Service Bus.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 5bdda54ef46085cb1f3e33fe1d9f60937da9706f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355216"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761003"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
 
@@ -76,8 +76,8 @@ As seguintes operações de gerenciamento são capturadas em logs operacionais:
 
 | Âmbito | Operação|
 |-------| -------- |
-| Espaço de Nomes | <ul> <li> Criar Espaço de Nomes</li> <li> Atualizar namespace </li> <li> Excluir namespace </li>  </ul> | 
-| Fila | <ul> <li> Criar Fila</li> <li> Atualizar fila</li> <li> Excluir fila </li> </ul> | 
+| Espaço de Nomes | <ul> <li> Criar espaço de nome</li> <li> Atualizar namespace </li> <li> Excluir namespace </li>  </ul> | 
+| Fila | <ul> <li> Criar fila</li> <li> Atualizar fila</li> <li> Excluir fila </li> </ul> | 
 | Tópico | <ul> <li> Criar tópico </li> <li> Atualizar tópico </li> <li> Excluir tópico </li> </ul> |
 | Subscrição | <ul> <li> Criar Subscrição </li> <li> Atualizar assinatura </li> <li> Excluir assinatura </li> </ul> |
 

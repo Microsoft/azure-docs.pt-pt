@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 555a60579c11a7ecb9b39753c5e4b35e801edeb1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 531dc62cacc044187c7800dd8abcdad282c4e633
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422167"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759948"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 
@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisa ter experiência com o [Docker Compos
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Para este tutorial, utilize o ficheiro compose do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mas irá modificá-lo ao incluir a Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis. O ficheiro de configuração pode ser encontrado em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress). Para obter as opções de configuração com suporte, consulte [Opções de Docker Compose](configure-custom-container.md#docker-compose-options).
+Para este tutorial, você usa o ficheiro de composição do [Docker,](https://docs.docker.com/compose/wordpress/#define-the-project)mas você vai modificá-lo para incluir Base de Dados Azure para MySQL, armazenamento persistente, e Redis. O ficheiro de configuração pode ser encontrado em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress). Para obter as opções de configuração com suporte, consulte [Opções de Docker Compose](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 

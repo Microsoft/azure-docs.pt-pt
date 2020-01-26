@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: e550f81a758d27491b01a13c6c0e24c6d364fb5a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: fc04e38c3d6933cde81d81d5569ed73e7506a745
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276122"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756441"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
@@ -39,9 +39,9 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 ```
 
 > [!TIP]
-> Se você quiser habilitar vários Complementos, forneça-os como uma lista separada por vírgulas. Por exemplo, para habilitar o monitoramento e o roteamento de aplicativos HTTP, use o formato `--enable-addons http_application_routing,monitoring`.
+> Se você quiser habilitar vários Complementos, forneça-os como uma lista separada por vírgulas. Por exemplo, para permitir o encaminhamento e monitorização da aplicação HTTP, utilize o formato `--enable-addons http_application_routing,monitoring`.
 
-Você também pode habilitar o roteamento HTTP em um cluster AKS existente usando o comando [AZ AKs Enable-addons][az-aks-enable-addons] . Para habilitar o roteamento HTTP em um cluster existente, adicione o parâmetro `--addons` e especifique *http_application_routing* , conforme mostrado no exemplo a seguir:
+Você também pode habilitar o roteamento HTTP em um cluster AKS existente usando o comando [AZ AKs Enable-addons][az-aks-enable-addons] . Para permitir o encaminhamento http num cluster existente, adicione o parâmetro `--addons` e especifique *http_application_routing* conforme mostrado no seguinte exemplo:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
@@ -50,7 +50,7 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 Depois que o cluster for implantado ou atualizado, use o comando [AZ AKs show][az-aks-show] para recuperar o nome da zona DNS. Esse nome é necessário para implantar aplicativos no cluster AKS.
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
 Resultado
@@ -77,7 +77,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Crie um arquivo chamado **Samples-http-Application-Routing. YAML** e copie o YAML a seguir. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS coletado na etapa anterior deste artigo.
+Crie um arquivo chamado **Samples-http-Application-Routing. YAML** e copie o YAML a seguir. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS recolhido na fase anterior deste artigo.
 
 
 ```yaml

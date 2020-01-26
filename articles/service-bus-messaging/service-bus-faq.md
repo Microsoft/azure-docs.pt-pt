@@ -1,22 +1,22 @@
 ---
 title: Perguntas frequentes (FAQ) sobre o barramento de serviço do Azure | Microsoft Docs
-description: Responde a algumas perguntas frequentes sobre o barramento de serviço do Azure.
+description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre o Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352878"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760254"
 ---
-# <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
 Este artigo aborda algumas perguntas frequentes sobre Barramento de Serviço do Microsoft Azure. Você também pode visitar as [perguntas frequentes](https://azure.microsoft.com/support/faq/) sobre o suporte do Azure para obter informações gerais sobre preços e suporte do Azure.
 
@@ -45,7 +45,7 @@ A ordenação não é garantida ao usar entidades particionadas. Caso uma parti�
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
-- Avançadas Message Queuing Protocol (AMQP)
+- Advanced Message Queuing Protocol (AMQP)
 - Protocolo de mensagens do barramento de serviço (SBMP)
 - HTTP
 
@@ -113,7 +113,7 @@ Qualquer transferência de dados dentro de uma determinada região do Azure é f
 Não, o barramento de serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as próximas perguntas frequentes.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um namespace standard do barramento de serviço. Por que vejo encargos no grupo de recursos ' $system '?
-O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $system '.
+O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se tiver um espaço de nome standard de ônibus de serviço, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/recursosGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.
 
 Esses encargos representam o encargo base por assinatura do Azure que provisionou um namespace padrão do barramento de serviço. 
 

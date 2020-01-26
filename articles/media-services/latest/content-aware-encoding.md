@@ -1,5 +1,5 @@
 ---
-title: Uma predefinição experimental para codificação com reconhecimento de conteúdo – Azure | Microsoft Docs
+title: Um preset para codificação consciente de conteúdos - Azure Media Services /
 description: Este artigo discute a codificação com reconhecimento de conteúdo no Serviços de Mídia do Microsoft Azure v3.
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 34b4386d536a9845c8a48e7e54612548367b52bc
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933472"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759351"
 ---
-# <a name="experimental-preset-for-content-aware-encoding"></a>Predefinição experimental para codificação com reconhecimento de conteúdo
+# <a name="a-preset-for-content-aware-encoding"></a>Um preset para codificação consciente do conteúdo
 
 Para preparar o conteúdo para entrega por [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), o vídeo precisa ser codificado em taxas de bits múltiplas (alta para baixa). A fim de garantir a degradação normal da qualidade, como a taxa de bits é diminuída, é a resolução do vídeo. Isso resulta em uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits; Consulte as [predefinições de codificação interna](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)dos serviços de mídia.
 

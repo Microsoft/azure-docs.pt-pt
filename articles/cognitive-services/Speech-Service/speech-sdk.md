@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ea879cbfc3b9b1d1a627add52f26a473aca53cdf
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446805"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759880"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca do SDK de Voz
 
@@ -32,6 +32,9 @@ Uma visão geral sobre os recursos e as plataformas com suporte pode ser encontr
 ## <a name="get-the-sdk"></a>Obtenha o SDK
 
 ### <a name="windows"></a>Windows
+
+> [!WARNING]
+> O SDK de Speech suporta versões posteriores do Windows 10 ou posteriores. As versões anteriores do Windows não são **suportadas**.
 
 Para Windows, oferecemos suporte os idiomas seguintes:
 

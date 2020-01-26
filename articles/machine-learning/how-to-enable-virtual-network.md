@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289617"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760861"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
 
 1. No portal do Azure, vá para o armazenamento que está anexado ao seu espaço de trabalho.
 
-   [![o armazenamento que está anexado ao espaço de trabalho Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+   [![O armazenamento que está ligado ao espaço de trabalho azure machine learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
 1. Na página **armazenamento do Azure** , selecione __firewalls e redes virtuais__.
 
@@ -72,14 +72,14 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
     >
     > Para habilitar o acesso à conta de armazenamento, visite __firewalls e redes virtuais__ para a conta de armazenamento em *um navegador da Web no cliente de desenvolvimento*. Em seguida, use a caixa de seleção __Adicionar seu endereço IP do cliente__ para adicionar o endereço IP do cliente ao __intervalo de endereços__. Você também pode usar o campo __intervalo de endereços__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Depois que o endereço IP do cliente tiver sido adicionado, ele poderá acessar a conta de armazenamento usando o SDK.
 
-   [![painel "firewalls e redes virtuais" no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+   [![O painel "Firewalls and virtual networks" no portal Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
 > [!IMPORTANT]
 > Você pode posicionar a _conta de armazenamento padrão_ para Azure Machine Learning ou _contas de armazenamento não padrão_ em uma rede virtual.
 >
 > A conta de armazenamento padrão é provisionada automaticamente quando você cria um espaço de trabalho.
 >
-> Para contas de armazenamento não padrão, o parâmetro `storage_account` na [função`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID de recurso do Azure.
+> Para contas de armazenamento não predefinidas, o parâmetro `storage_account` na [função`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar uma conta de armazenamento personalizada pelo ID de recursos Azure.
 
 ## <a name="use-azure-data-lake-storage-gen-2"></a>Usar Azure Data Lake Storage Gen 2
 
@@ -93,7 +93,7 @@ Para usar Data Lake Storage Gen 2 dentro da rede virtual do seu espaço de traba
 
 Ao usar Azure Machine Learning com Data Lake Storage Gen 2 dentro de uma rede virtual, use as seguintes diretrizes:
 
-* Se você usar o __SDK para criar um conjunto de um__e o sistema que executa o código __não estiver na rede virtual__, use o parâmetro `validate=False`. Esse parâmetro ignora a validação, o que falhará se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para obter mais informações, consulte o método [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
+* Se você usar o __SDK para criar um conjunto de um__e o sistema que executa o código __não estiver na rede virtual__, use o parâmetro `validate=False`. Esse parâmetro ignora a validação, o que falhará se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para mais informações, consulte o método [from_files().](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)
 
 * Ao usar Azure Machine Learning instância de computação ou cluster de computação para treinar um modelo usando o conjunto de um, ele deve estar na mesma rede virtual que a conta de armazenamento.
 
@@ -108,7 +108,7 @@ Para usar Azure Machine Learning recursos de experimentação com Azure Key Vaul
 
 1. Vá para o cofre de chaves associado ao espaço de trabalho.
 
-   [![o cofre de chaves associado ao espaço de trabalho Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
+   [![O cofre chave que está associado ao espaço de trabalho azure machine learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
 1. Na página **Key Vault** , no painel esquerdo, selecione __firewalls e redes virtuais__.
 
@@ -119,7 +119,7 @@ Para usar Azure Machine Learning recursos de experimentação com Azure Key Vaul
     - Em __redes virtuais__, selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual em que a computação de experimentação reside.
     - Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall__, selecione __Sim__.
 
-   [![a seção "firewalls e redes virtuais" no painel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+   [![a secção "Firewalls e redes virtuais" no painel key vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 <a id="amlcompute"></a>
 
@@ -169,7 +169,7 @@ Você não precisa especificar NSGs no nível de sub-rede, pois o serviço de lo
 
 A configuração da regra NSG na portal do Azure é mostrada nas seguintes imagens:
 
-[![as regras de NSG de entrada para Computação do Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
+[![As regras de nSG de entrada para a Computação de Aprendizagem Automática](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
 
 ![As regras NSG de saída para Computação do Machine Learning](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
@@ -179,18 +179,21 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 
 - Negue a conexão de Internet de saída usando as regras NSG.
 
-- Limitar o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure, usando a __marca de serviço__ de __armazenamento. Region_Name__ (por exemplo, Storage. eastus)
-   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. Region_Name__ (por exemplo, AzureContainerRegistry. eastus)
+- Para uma __instância de cálculo__ ou um cluster de __cálculo,__ limite o tráfego de saída aos seguintes itens:
+   - Armazenamento Azure, utilizando etiqueta de __serviço__ de __armazenamento__
+   - Registo de contentores azure, utilizando etiqueta de __serviço__ do __AzureContainerRegistry__
    - Azure Machine Learning, usando a __marca de serviço__ de __AzureMachineLearning__
-   - No caso de instância de computação, nuvem do Azure, usando a __marca de serviço__ de __AzureResourceManager__
+   
+- Para um __cálculo,__ adicione também os seguintes itens:
+   - Gestor de Recursos Azure, utilizando etiqueta de __serviço__ do __AzureResourceManager__
+   - Diretório Azure Ative, utilizando etiqueta de __serviço__ do __AzureActiveDirectory__
 
 A configuração da regra NSG na portal do Azure é mostrada na imagem a seguir:
 
-[![as regras NSG de saída para Computação do Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
+[![As regras de nsg de saída para machine learning compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Se você planeja usar imagens padrão do Docker fornecidas pela Microsoft e habilitando dependências gerenciadas pelo usuário, você também deve usar uma __marca de serviço__ de __MicrosoftContainerRegistry. Region_Name__ (por exemplo, MicrosoftContainerRegistry. eastus).
+> Se planeia utilizar imagens predefinidas do Docker fornecidas pela Microsoft e permitir dependências geridas pelo utilizador, também deve utilizar uma etiqueta de __serviço__ do __MicrosoftContainerRegistry.Region_Name__ (por exemplo, MicrosoftContainerRegistry.EastUS).
 >
 > Essa configuração é necessária quando você tem um código semelhante aos trechos a seguir como parte de seus scripts de treinamento:
 >
@@ -206,12 +209,12 @@ A configuração da regra NSG na portal do Azure é mostrada na imagem a seguir:
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Training__ do estimador
+> __Formação de estimador__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```
@@ -358,7 +361,7 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as segu
 
 1. No [portal do Azure](https://portal.azure.com), verifique se o NSG que controla a rede virtual tem uma regra de entrada habilitada para Azure Machine Learning usando __AzureMachineLearning__ como a **origem**.
 
-    [![Azure Machine Learning adicionar painel de computação](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+    [![máquina de aprendizagem de máquinas de aprendizagem adicionar painel de computação](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
 1. Selecione seu espaço de trabalho Azure Machine Learning.
 
@@ -386,7 +389,7 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as segu
    > [!IMPORTANT]
    > Mantenha as regras de saída padrão para o NSG. Para obter mais informações, consulte as regras de segurança padrão em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
-   [![uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+   [![Uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
 Você também pode usar o SDK do Azure Machine Learning para adicionar o serviço kubernetes do Azure em uma rede virtual. Se você já tiver um cluster AKS em uma rede virtual, anexe-o ao espaço de trabalho conforme descrito em [como implantar no AKs](how-to-deploy-and-where.md). O código a seguir cria uma nova instância AKS na sub-rede `default` de uma rede virtual chamada `mynetwork`:
 

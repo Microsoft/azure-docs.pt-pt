@@ -1,6 +1,6 @@
 ---
 title: Diagnosticar falhas de artefato em uma máquina virtual Azure DevTest Labs
-description: Saiba como solucionar problemas de falhas de artefato no Azure DevTest Labs.
+description: Os Laboratórios DevTest fornecem informações que pode usar para diagnosticar uma falha de artefacto. Este artigo mostra-lhe como resolver falhas de artefactos.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 50cb3138b8d79c4d60c94513d931996d667d9c01
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 7229f1ee4061eb38b7c6da09df21102ab302ab42
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170319"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760322"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefato no laboratório 
 Depois de criar um artefato, você pode verificar se ele teve êxito ou falhou. Os logs de artefato no Azure DevTest Labs fornecem informações que você pode usar para diagnosticar uma falha de artefato. Você tem algumas opções para exibir as informações de log de artefato para uma VM do Windows:
 
-* No portal do Azure
+* No portal Azure
 * Na VM
 
 > [!NOTE]

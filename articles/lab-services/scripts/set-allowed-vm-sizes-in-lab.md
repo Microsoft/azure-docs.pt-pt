@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: Conjunto permitida de tamanhos de VM no Azure Lab Services | Documentos da Microsoft'
-description: Este script do PowerShell define permitidos de tamanhos de VM no Azure Lab Services.
+title: 'Script PowerShell: Conjunto permitido tamanhos vM em Serviços de Laboratório Azure / Microsoft Docs'
+description: Estes artigos incluem um script powerShell de amostra que define tamanhos permitidos de máquina virtual (VM) em Serviços de Laboratório Azure.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,25 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c82e304d3e3d8df1206c7c05883399b74229af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160551"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760470"
 ---
-# <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Utilize o PowerShell para definir permitida de tamanhos de VM no Azure Lab Services
+# <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Use powerShell para definir tamanhos de VM permitidos em Serviços de Laboratório Azure
 
-Este script do PowerShell de exemplo define os tamanhos de máquinas de virtuais permitidas (VM) no Azure Lab Services.
+Esta amostra de conjuntos de scripts PowerShell permitiu tamanhos de máquina virtual (VM) em Serviços de Laboratório Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Um laboratório**. O script requer que tenha um laboratório existente. 
+* **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,13 +40,13 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| Find-AzResource | Procura de recursos com base em parâmetros especificados. |
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtém os recursos. |
+| Find-AzResource | Pesquisa recursos com base em parâmetros especificados. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtém recursos. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Crie um recurso. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Criar um recurso. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos do script do PowerShell do Azure Lab Services adicionais podem ser encontrados no [exemplos do PowerShell do Azure Lab Services](../samples-powershell.md).
+Exemplos adicionais de script Azure Lab Services PowerShell podem ser encontrados nos [exemplos do Azure Lab Services PowerShell](../samples-powershell.md).

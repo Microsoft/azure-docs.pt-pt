@@ -1,6 +1,6 @@
 ---
-title: Registrar um aplicativo Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como registrar um aplicativo Web que chama APIs da Web
+title: Registe uma aplicação web que ligue para a web APIs - plataforma de identidade da Microsoft Azure
+description: Saiba como registar uma aplicação web que chama APIs web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,27 +14,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 784de823e94aace6f91222c19c1ff8130c3f995f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5a57fcef3569734964bf6e8a41faa49800798f9b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962938"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759062"
 ---
-# <a name="web-app-that-calls-web-apis---app-registration"></a>Aplicativo Web que chama APIs Web-registro de aplicativo
+# <a name="a-web-app-that-calls-web-apis-app-registration"></a>Uma aplicação web que chama APIs web: Registo de aplicações
 
-Um aplicativo Web chamando APIs da Web tem o mesmo registro que os usuários de entrada de um aplicativo Web. Portanto, você precisará seguir as instruções em [aplicativo Web que faz logon de usuários – registro de aplicativo](scenario-web-app-sign-user-app-registration.md)
+Uma aplicação web que chama APIs web tem o mesmo registo que uma aplicação web que assina os utilizadores dentro Então, siga as instruções em [Uma aplicação web que assina nos utilizadores: Registo](scenario-web-app-sign-user-app-registration.md)de aplicações .
 
-No entanto, como o aplicativo Web agora chama APIs da Web, ele se torna um aplicativo cliente confidencial. É por isso que há um pouco de registro extra necessário: ele precisa compartilhar segredos (credenciais do cliente) com a plataforma Microsoft Identity.
+No entanto, como a aplicação web agora também chama APIs web, torna-se uma aplicação confidencial do cliente. É por isso que é necessário um registo extra. A aplicação deve partilhar credenciais de clientes, ou *segredos,* com a plataforma de identidade da Microsoft.
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
-## <a name="api-permissions"></a>Permissões de API
+## <a name="api-permissions"></a>Permissões DaPI
 
-Os aplicativos Web chamam APIs em nome do usuário conectado. Eles precisam solicitar permissões delegadas. Para obter detalhes, consulte [adicionar permissões para acessar APIs Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+As aplicações web ligam para APIs em nome do utilizador inscrito. Para isso, devem solicitar *permissões delegadas.* Para obter detalhes, consulte [adicionar permissões para acessar APIs da Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Configuração de código do aplicativo](scenario-web-app-call-api-app-configuration.md)
+> [Uma aplicação web que chama APIs web: Configuração de código](scenario-web-app-call-api-app-configuration.md)

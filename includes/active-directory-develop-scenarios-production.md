@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184439"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758954"
 ---
-Tornar a sua aplicação excelente:
+Faça a sua aplicação grande:
 
-- Ativar [registo](../articles/active-directory/develop/msal-logging.md).
-- Ative a telemetria.
-- Ativar [proxies e personalizar clientes HTTP](../articles/active-directory/develop/msal-net-provide-httpclient.md).
+- Ativar [a exploração madeireira](../articles/active-directory/develop/msal-logging.md).
+- Ativar a telemetria.
+- Habilite [proxies e personalize clientes http](../articles/active-directory/develop/msal-net-provide-httpclient.md).
 
 Teste a sua integração:
 
-- Utilize o [lista de verificação do Microsoft identity platform integração](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+- Utilize a lista de [verificação de integração para](../articles/active-directory/develop/identity-platform-integration-checklist.md)a plataforma de identidade da Microsoft .

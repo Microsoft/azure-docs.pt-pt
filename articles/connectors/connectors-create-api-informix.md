@@ -9,12 +9,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: ebedb68f8826642437f53e5c5fa8cd0843e7c20e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665860"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757973"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gerenciar recursos do banco de dados IBM Informix usando aplicativos lógicos do Azure
 
@@ -111,13 +111,13 @@ Este tópico mostra como usar o conector em um aplicativo lógico para processar
 
 1. Em **execução do aplicativo lógico**, selecione **detalhes da execução**.
 
-1. Na lista ações, selecione a ação com as saídas que você deseja exibir, por exemplo, **Get_tables**.
+1. Na lista de ações, selecione a ação com as saídas que pretende ver, por exemplo, **Get_tables**.
 
    Se a ação tiver sido bem-sucedida, sua propriedade **status** será marcada como **bem-sucedida**.
 
 1. Para exibir as entradas, em **link de entradas**, selecione o link de URL. Para exibir as saídas, no link de **link de saídas** , selecione o link de URL. Aqui estão algumas saídas de exemplo:
 
-   * **Obter tabelas** mostra uma lista de tabelas:
+   * **Get_tables** mostra uma lista de tabelas:
 
      ![Saídas da ação "obter tabelas"](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 
@@ -137,7 +137,7 @@ Este tópico mostra como usar o conector em um aplicativo lógico para processar
 
      ![Saídas da ação "atualizar linha"](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
-   * **Delete_row** mostra a linha excluída:
+   * **Delete_row** mostra a linha apagada:
 
      ![Saídas da ação "Excluir linha"](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 

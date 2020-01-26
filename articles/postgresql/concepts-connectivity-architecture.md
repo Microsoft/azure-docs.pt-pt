@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 6ef7736a50783388b5ec0b32c698a0e747a7fd42
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 956c734214f3ecff532d2a73f069ecaa37396109
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458440"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760543"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
@@ -42,7 +42,7 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Norte da China 2 | 40.73.50.0     |
 | Este Asiático | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | Este dos E.U.A. | 40.121.158.30, 191.238.6.43  |
-| Este dos E.U.A. 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| Este dos E.U.A. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | França Central | 40.79.137.0, 40.79.129.1  |
 | Nordeste da Alemanha | 51.4.144.100     |
 | Leste Norte da Alemanha | 51.5.144.179  |

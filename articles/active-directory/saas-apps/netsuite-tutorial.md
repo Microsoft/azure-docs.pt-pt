@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9be353e6a030708ea0b9939689d8669506d3b80
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289038"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760062"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: integrar o SSO (logon único) do Azure AD ao NetSuite
 
@@ -98,8 +98,12 @@ Para habilitar o SSO do Azure AD no portal do Azure, faça o seguinte:
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > Os valores nas URLs anteriores não são reais. Atualize-os com a URL de resposta real. Para obter o valor, entre em contato com a [equipe de suporte ao cliente do NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Você também pode consultar os formatos mostrados na seção **configuração básica do SAML** no portal do Azure.
+    * Você terá o **<`Account ID`>** valor na secção de configuração Netsuite, o que é explicado mais tarde no tutorial no passo 8 sob configuração Netsuite. Encontrará o domínio exato (como system.na0.netsuite.com neste caso).
+
+        ![Configurar o início de sessão único](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > Os valores nas URLs anteriores não são reais. Atualize-os com a URL de resposta real. Para obter o valor, entre em contato com a [equipe de suporte ao cliente do NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Você também pode consultar os formatos mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 1. O aplicativo NetSuite espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -204,7 +208,7 @@ Nesta seção, você permitirá que o usuário B. Simon use o logon único do Az
 
     b. No painel de **informações da empresa** , na coluna à direita, copie o valor da **ID da conta** .
 
-    c. Cole a **ID da conta** que você copiou da conta do NetSuite na caixa **valor do atributo** no Azure AD. 
+    c. Cole a **ID da conta** que você copiou da conta do NetSuite na caixa **valor do atributo** no Azure AD.
 
 10. Antes que os usuários possam executar o logon único no NetSuite, eles devem primeiro receber as permissões apropriadas no NetSuite. Para atribuir essas permissões, faça o seguinte:
 
@@ -264,7 +268,7 @@ Ao selecionar o bloco do NetSuite no painel de acesso, você deve entrar automat
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Experimente o NetSuite com o Azure AD](https://aad.portal.azure.com/)
 - [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

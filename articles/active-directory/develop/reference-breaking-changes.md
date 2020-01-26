@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703002"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758755"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para autenticação? 
 
@@ -40,7 +40,20 @@ O sistema de autenticação altera e adiciona funcionalidades de forma contínua
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 
-Setembro de 2019: Aplicação adicional da semântica post de acordo com as regras de análise de URL - os parâmetros duplicados desencadearão um erro e [a BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignorada.
+Nenhum agendado neste momento.  Veja abaixo as alterações que estão dentro ou estão a chegar à produção. 
+
+## <a name="february-2020"></a>Fevereiro de 2020: 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Fragmentos vazios serão anexados a cada redirecionamento HTTP a partir do ponto final de login. 
+
+**Data de funcionação**: 8 de fevereiro de 2020
+
+**Pontos finais impactados**: V1.0 e v2.0
+
+**Protocolo impactado**: Os fluxos OAuth e OIDC que utilizam response_type=consulta - isto cobre o fluxo do código de [autorização](v2-oauth2-auth-code-flow.md) em alguns casos, e o [fluxo implícito](v2-oauth2-implicit-grant-flow.md). 
+
+Quando uma resposta de autenticação for enviada de login.microsoftonline.com para uma aplicação através de redirecionamento HTTP, o serviço anexará um fragmento vazio ao URL de resposta.  Isto impede uma classe de ataques redirecionados, garantindo que o navegador elimina qualquer fragmento existente no pedido de autenticação.  Nenhuma aplicação deve ter uma dependência deste comportamento. 
+
 
 ## <a name="august-2019"></a>Agosto de 2019
 
@@ -120,7 +133,7 @@ A maioria dos clientes não precisará de mudar de comportamento para evitar est
 
 * ID de Cliente
 
-* URI de Redirecionamento
+* Redirecione uri
 
 * Tipo e modo de resposta
 

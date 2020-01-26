@@ -1,6 +1,6 @@
 ---
-title: Encaminhamento automático de entidades de mensagens do barramento de serviço do Azure | Microsoft Docs
-description: Como encadear uma fila ou assinatura do barramento de serviço a outra fila ou tópico.
+title: Entidades de mensagens Deôndetada de Serviço Azure
+description: Este artigo descreve como acorrentar uma fila de ônibus de serviço Azure ou subscrição de outra fila ou tópico.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 8b8883b579233962de61e7247e6ac1cbcb2a6d80
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390137"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761054"
 ---
-# <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeando entidades do barramento de serviço com encaminhamento automático
+# <a name="chaining-service-bus-entities-with-autoforwarding"></a>Entidades de ônibus de serviço de cadeia com auto-reencaminhamento
 
-O recurso de *encaminhamento* automático do barramento de serviço permite encadear uma fila ou assinatura a outra fila ou tópico que faz parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o barramento de serviço remove automaticamente as mensagens que são colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou tópico (destino). Ainda é possível enviar uma mensagem diretamente para a entidade de destino.
+A função de *auto-reencaminhamento* de ônibus de serviço permite-lhe acorrentar uma fila ou subscrição a outra fila ou tópico que faz parte do mesmo espaço de nome. Quando o reencaminhamento automático está ativado, o Service Bus remove automaticamente as mensagens que são colocadas na primeira fila ou subscrição (fonte) e coloca-as na segunda fila ou tópico (destino). Ainda é possível enviar uma mensagem diretamente à entidade de destino.
 
-## <a name="using-autoforwarding"></a>Usando o encaminhamento automático
+## <a name="using-autoforwarding"></a>Utilização de auto-encaminhamento
 
-Você pode habilitar o encaminhamento automático definindo as propriedades [QueueDescription. ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription. ForwardTo][SubscriptionDescription.ForwardTo] nos objetos [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] para a origem, como no exemplo a seguir:
+Pode ativar o reencaminhamento automático definindo a Descrição da [Fila.ForwardTo][QueueDescription.ForwardTo] ou [SubscriçãoDescription.ForwardTo][SubscriptionDescription.ForwardTo] nas propriedades da [Descrição][QueueDescription] da Fila ou [da SubscriçãoDos][SubscriptionDescription] objetos para a fonte, como no exemplo seguinte:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,46 +35,46 @@ srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
 ```
 
-A entidade de destino deve existir no momento em que a entidade de origem é criada. Se a entidade de destino não existir, o barramento de serviço retornará uma exceção quando solicitado a criar a entidade de origem.
+A entidade de destino deve existir no momento em que a entidade fonte é criada. Se a entidade de destino não existir, a Service Bus devolve uma exceção quando solicitada a criar a entidade fonte.
 
-Você pode usar o encaminhamento automático para escalar horizontalmente um tópico individual. O barramento de serviço limita o [número de assinaturas em um determinado tópico](service-bus-quotas.md) para 2.000. Você pode acomodar assinaturas adicionais criando tópicos de segundo nível. Mesmo que você não esteja associado à limitação do barramento de serviço no número de assinaturas, a adição de um segundo nível de tópicos pode melhorar a produtividade geral do seu tópico.
+Pode usar o auto-encaminhamento para escalar um tópico individual. O Ônibus de serviço limita o [número de subscrições num determinado tópico](service-bus-quotas.md) para 2.000. Você pode acomodar subscrições adicionais criando tópicos de segundo nível. Mesmo que não esteja vinculado à limitação do Ônibus de serviço no número de subscrições, adicionar um segundo nível de tópicos pode melhorar a entrada geral do seu tópico.
 
-![Cenário de encaminhamento automático][0]
+![Cenário de reencaminhamento automático][0]
 
-Você também pode usar o encaminhamento automático para separar remetentes de mensagens dos destinatários. Por exemplo, considere um sistema de ERP que consiste em três módulos: processamento de pedidos, gerenciamento de estoque e gerenciamento de relações com o cliente. Cada um desses módulos gera mensagens que são enfileiradas em um tópico correspondente. Alice e Bob são representantes de vendas interessados em todas as mensagens relacionadas a seus clientes. Para receber essas mensagens, Alice e Bob criam uma fila pessoal e uma assinatura em cada um dos tópicos de ERP que encaminham automaticamente todas as mensagens para sua fila.
+Também pode utilizar reencaminhamento automático para separar os remetentes de mensagens dos recetores. Por exemplo, considere um sistema ERP que consiste em três módulos: processamento de encomendas, gestão de inventário e gestão de relações com clientes. Cada um destes módulos gera mensagens que são enquecidas num tópico correspondente. Alice e Bob são representantes de vendas interessados em todas as mensagens relacionadas com os seus clientes. Para receber essas mensagens, Alice e Bob criam cada uma uma fila pessoal e uma subscrição em cada um dos tópicos erp que automaticamente reencaminhom todas as mensagens para a sua fila.
 
-![Cenário de encaminhamento automático][1]
+![Cenário de reencaminhamento automático][1]
 
-Se Alice entrar em férias, sua fila pessoal, em vez do tópico ERP, será preenchida. Nesse cenário, como um representante de vendas não recebeu nenhuma mensagem, nenhum dos tópicos de ERP atinge a cota.
+Se alice for de férias, sua fila pessoal, em vez do tema erp, preenche. Neste cenário, uma vez que um representante comercial não recebeu nenhuma mensagem, nenhum dos tópicos do ERP chegou a atingir a quota.
 
 > [!NOTE]
-> Quando o encaminhamento automático é configurado, o valor de AutoDeleteOnIdle na **origem e no destino** é definido automaticamente como o valor máximo do tipo de dados.
+> Quando o reencaminhamento automático é configurado, o valor para AutoDeleteOnIdle tanto na **Fonte como no Destino** é automaticamente definido para o valor máximo do tipo de dados.
 > 
->   - No lado da origem, o encaminhamento automático atua como uma operação de recebimento. Portanto, a origem que tem a configuração de encaminhamento automático nunca é realmente "ociosa".
->   - No lado do destino, isso é feito para garantir que sempre haja um destino para encaminhar a mensagem.
+>   - Do lado da Fonte, o reencaminhamento automático atua como uma operação de receção. Assim, a fonte que tem configuração de auto-encaminhamento nunca é realmente "ociosa".
+>   - Do lado do destino, isto é feito para garantir que há sempre um destino para encaminhar a mensagem para.
 
-## <a name="autoforwarding-considerations"></a>Considerações de encaminhamento automático
+## <a name="autoforwarding-considerations"></a>Considerações de reencaminhamento automático
 
-Se a entidade de destino acumular muitas mensagens e exceder a cota, ou se a entidade de destino estiver desabilitada, a entidade de origem adicionará as mensagens à sua fila de mensagens [mortas](service-bus-dead-letter-queues.md) até que haja espaço no destino (ou a entidade seja reabilitada). Essas mensagens continuam a residir na fila de mensagens mortas, portanto, você deve receber e processá-las explicitamente da fila de mensagens mortas.
+Se a entidade de destino acumular demasiadas mensagens e exceder a quota, ou se a entidade de destino estiver desativada, a entidade fonte adiciona as mensagens à sua [fila de cartas mortas](service-bus-dead-letter-queues.md) até que haja espaço no destino (ou a entidade seja reativada). Essas mensagens continuam a viver na fila das cartas mortas, por isso deve recebê-las e processá-las explicitamente da fila das cartas mortas.
 
-Ao encadear tópicos individuais para obter um tópico composto com muitas assinaturas, é recomendável que você tenha um número moderado de assinaturas no tópico de primeiro nível e em várias assinaturas nos tópicos de segundo nível do. Por exemplo, um tópico de primeiro nível com 20 assinaturas, cada uma delas encadeada a um tópico de segundo nível com assinaturas 200, permite maior taxa de transferência que um tópico de primeiro nível com assinaturas 200, cada uma encadeada a um tópico de segundo nível com 20 assinaturas.
+Ao acorrentar tópicos individuais para obter um tópico composto com muitas subscrições, recomenda-se que tenha um número moderado de subscrições sobre o tema do primeiro nível e muitas subscrições sobre os tópicos do segundo nível. Por exemplo, um tópico de primeiro nível com 20 subscrições, cada uma delas acorrentada a um tema de segundo nível com 200 subscrições, permite uma maior entrada do que um tópico de primeiro nível com 200 subscrições, cada uma acorrentada a um tema de segundo nível com 20 subscrições.
 
-O barramento de serviço fatura uma operação para cada mensagem encaminhada. Por exemplo, enviar uma mensagem para um tópico com 20 assinaturas, cada uma delas configurada para encaminhar mensagens para outra fila ou tópico, será cobrada como 21 operações se todas as assinaturas de primeiro nível receberem uma cópia da mensagem.
+Serviço Bus conta uma operação para cada mensagem reencaminhada. Por exemplo, o envio de uma mensagem para um tópico com 20 subscrições, cada uma delas configurada para enviar mensagens automáticas para outra fila ou tópico, é faturada como 21 operações se todas as subscrições de primeiro nível receberem uma cópia da mensagem.
 
-Para criar uma assinatura encadeada a outra fila ou tópico, o criador da assinatura deve ter permissões de **Gerenciamento** na entidade de origem e de destino. O envio de mensagens para o tópico de origem só requer permissões de **envio** no tópico de origem.
+Para criar uma subscrição que esteja acorrentada a outra fila ou tópico, o criador da subscrição deve ter permissões **de Gestão** tanto na fonte como na entidade de destino. Enviar mensagens para o tópico de origem apenas requer **Enviar** permissões sobre o tópico de origem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações detalhadas sobre o encaminhamento automático, consulte os seguintes tópicos de referência:
+Para obter informações detalhadas sobre o reencaminhamento automático, consulte os seguintes tópicos de referência:
 
-* [ForwardTo][QueueDescription.ForwardTo]
-* [QueueDescription][QueueDescription]
-* [SubscriptionDescription][SubscriptionDescription]
+* [Para a frente][QueueDescription.ForwardTo]
+* [Descrição da fila][QueueDescription]
+* [Descrição da subscrição][SubscriptionDescription]
 
-Para saber mais sobre as melhorias de desempenho do barramento de serviço, consulte 
+Para saber mais sobre melhorias de desempenho do Ônibus de serviço, consulte 
 
 * [Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus](service-bus-performance-improvements.md)
-* [Entidades de mensagens particionadas][Partitioned messaging entities].
+* [Entidades de mensagens divididas.][Partitioned messaging entities]
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

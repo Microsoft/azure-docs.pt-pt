@@ -1,18 +1,18 @@
 ---
 title: Criar um modelo do construtor de imagens do Azure (visualização)
 description: Saiba como criar um modelo para usar com o construtor de imagem do Azure.
-author: cynthn
-ms.author: cynthn
-ms.date: 07/31/2019
+author: danis
+ms.author: danis
+ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763084"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760016"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Versão prévia: criar um modelo do construtor de imagens do Azure 
 
@@ -28,11 +28,15 @@ Este é o formato de modelo básico:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             },
+             }
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
         "buildTimeoutInMinutes": <minutes>, 
+        "vmProfile": 
+            {
+            "vmSize": "<vmSize>"
+            },
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -64,6 +68,24 @@ O local é a região em que a imagem personalizada será criada. Para a visualiz
 
 ```json
     "location": "<region>",
+```
+## <a name="vmprofile"></a>vmPerfil
+Por padrão, o Image Builder utilizará um VM de construção "Standard_D1_v2", pode anular este, por exemplo, se quiser personalizar uma Imagem para um VM GPU, precisa de um tamanho DE GPU VM. Isto é opcional.
+
+```json
+ {
+    "vmSize": "Standard_D1_v2"
+ },
+```
+
+## <a name="osdisksizegb"></a>osDiskSizeGB
+
+Por padrão, o Image Builder não alterará o tamanho da imagem, utilizará o tamanho a partir da imagem de origem. Pode ajustar o tamanho do Disco OS (Win e Linux), nota, não ser muito pequeno do que o espaço mínimo necessário para o SISTEMA. Isto é opcional, e um valor de 0 significa deixar o mesmo tamanho que a imagem de origem. Isto é opcional.
+
+```json
+ {
+    "osDiskSizeGB": 100
+ },
 ```
 
 ## <a name="tags"></a>Etiquetas
@@ -135,13 +157,7 @@ Na lista de **instaladores e imagens do Red Hat Enterprise Linux Server**, você
 > Os tokens de acesso dos links são atualizados em intervalos frequentes, portanto, sempre que você quiser enviar um modelo, deverá verificar se o endereço do link do RH foi alterado.
  
 ### <a name="platformimage-source"></a>Origem do PlatformImage 
-O construtor de imagens do Azure dá suporte às seguintes imagens do Azure Marketplace:
-* Ubuntu 18.04
-* Ubuntu 16.04
-* RHEL 7,6
-* CentOS 7,6
-* Windows 2016
-* Windows 2019
+O Azure Image Builder suporta o Windows Server e o cliente, e as imagens do Linux Azure Marketplace, consulte [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) a lista completa. 
 
 ```json
         "source": {
@@ -220,7 +236,8 @@ Ao usar `customize`:
             {
                 "type": "Shell",
                 "name": "<name>",
-                "scriptUri": "<path to script>"
+                "scriptUri": "<path to script>",
+                "sha256Checksum": "<sha256 checksum>"
             },
             {
                 "type": "Shell",
@@ -246,7 +263,8 @@ O personalizador de shell dá suporte a scripts de Shell em execução, eles dev
         { 
             "type": "Shell", 
             "name": "<name>", 
-            "scriptUri": "<link to script>"        
+            "scriptUri": "<link to script>",
+            "sha256Checksum": "<sha256 checksum>"       
         }, 
     ], 
         "customize": [ 
@@ -266,7 +284,12 @@ Personalizar propriedades:
 - **nome** -nome para acompanhar a personalização 
 - **scriptUri** -URI para o local do arquivo 
 - matriz **embutida** de comandos do Shell, separados por vírgulas.
- 
+- **sha256Checksum** - Valor da verificação sha256 do ficheiro, gera-se isto localmente, e então o Image Builder verificará e validará.
+    * Para gerar o sha256Checksum, utilizando um terminal em mac/linux executado: `sha256sum <fileName>`
+
+
+Para que os comandos sejam executados com privilégios de super utilizador, devem ser pré-fixados com `sudo`.
+
 > [!NOTE]
 > Ao executar o personalizador de shell com a fonte ISO do RHEL, você precisa garantir que seu primeiro Shell de personalização manipule o registro com um servidor de direitos do Red Hat antes que ocorra qualquer personalização. Depois que a personalização for concluída, o script deverá cancelar o registro com o servidor de direitos.
 
@@ -275,12 +298,15 @@ O personalizador de reinicialização permite reiniciar uma VM do Windows e agua
 
 ```json 
      "customize": [ 
-         {
-            "type": "WindowsRestart", 
-            "restartCommand": "shutdown /r /f /t 0 /c", 
-            "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
-            "restartTimeout": "5m"
-         }],
+
+            {
+                "type": "WindowsRestart",
+                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
+                "restartTimeout": "5m"
+            }
+  
+        ],
 ```
 
 Suporte do so: Windows
@@ -300,13 +326,16 @@ O personalizador de shell dá suporte à execução de scripts do PowerShell e a
         { 
              "type": "PowerShell",
              "name":   "<name>",  
-             "scriptUri": "<path to script>" 
+             "scriptUri": "<path to script>",
+             "runElevated": "<true false>",
+             "sha256Checksum": "<sha256 checksum>" 
         },  
         { 
              "type": "PowerShell", 
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
-             "valid_exit_codes": "<exit code>" 
+             "valid_exit_codes": "<exit code>",
+             "runElevated": "<true or false>" 
          } 
     ], 
 ```
@@ -318,7 +347,11 @@ Personalizar propriedades:
 - **tipo** – PowerShell.
 - **scriptUri** -URI para o local do arquivo de script do PowerShell. 
 - **embutido** – comandos embutidos a serem executados, separados por vírgulas.
-- **valid_exit_codes** – códigos opcionais válidos que podem ser retornados do comando de script/embutido, isso evitará a falha relatada do comando script/embutido.
+- **valid_exit_codes** – Códigos opcionais e válidos que podem ser devolvidos do comando script/inline, isto evitará a falha reportada do comando script/inline.
+- **runElevated** – Opcional, booleano, suporte para executar comandos e scripts com permissões elevadas.
+- **sha256Checksum** - Valor da verificação sha256 do ficheiro, gera-se isto localmente, e então o Image Builder verificará e validará.
+    * Para gerar o sha256Checksum, usando uma PowerShell no Windows [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+
 
 ### <a name="file-customizer"></a>Personalizador de arquivo
 
@@ -330,7 +363,8 @@ O personalizador de arquivo permite que o construtor de imagens Baixe um arquivo
             "type": "File", 
              "name": "<name>", 
              "sourceUri": "<source location>",
-             "destination": "<destination>" 
+             "destination": "<destination>",
+             "sha256Checksum": "<sha256 checksum>"
          }
      ]
 ```
@@ -398,8 +432,39 @@ O construtor de imagem do Azure dá suporte a três destinos de distribuição:
 
 Você pode distribuir uma imagem para ambos os tipos de destino na mesma configuração, consulte [exemplos](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Como você pode ter mais de um destino para distribuir, o Image Builder mantém um estado para cada destino de distribuição que pode ser acessado consultando o `runOutputName`.  O `runOutputName` é um objeto que você pode consultar após a distribuição para obter informações sobre essa distribuição. Por exemplo, você pode consultar o local do VHD ou regiões em que a versão da imagem foi replicada. Essa é uma propriedade de cada destino de distribuição. O `runOutputName` deve ser exclusivo para cada destino de distribuição.
- 
+Como você pode ter mais de um destino para distribuir, o Image Builder mantém um estado para cada destino de distribuição que pode ser acessado consultando o `runOutputName`.  O `runOutputName` é um objeto que você pode consultar após a distribuição para obter informações sobre essa distribuição. Por exemplo, pode consultar a localização do VHD, ou regiões para as quais a versão de imagem foi replicada, ou a versão SIG Image criada. Essa é uma propriedade de cada destino de distribuição. O `runOutputName` deve ser exclusivo para cada destino de distribuição. Aqui está um exemplo, isto é consultar uma distribuição da Galeria de Imagem Partilhada:
+
+```bash
+subscriptionID=<subcriptionID>
+imageResourceGroup=<resourceGroup of image template>
+runOutputName=<runOutputName>
+
+az resource show \
+        --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
+        --api-version=2019-05-01-preview
+```
+
+Saída:
+```json
+{
+  "id": "/subscriptions/xxxxxx/resourcegroups/rheltest/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/rhel77",
+  "identity": null,
+  "kind": null,
+  "location": null,
+  "managedBy": null,
+  "name": "rhel77",
+  "plan": null,
+  "properties": {
+    "artifactId": "/subscriptions/xxxxxx/resourceGroups/aibDevOpsImg/providers/Microsoft.Compute/galleries/devOpsSIG/images/rhel/versions/0.24105.52755",
+    "provisioningState": "Succeeded"
+  },
+  "resourceGroup": "rheltest",
+  "sku": null,
+  "tags": null,
+  "type": "Microsoft.VirtualMachineImages/imageTemplates/runOutputs"
+}
+```
+
 ### <a name="distribute-managedimage"></a>Distribuir: managedImage
 
 A saída da imagem será um recurso de imagem gerenciada.
@@ -503,13 +568,4 @@ az resource show \
 ## <a name="next-steps"></a>Passos seguintes
 
 Há arquivos. JSON de exemplo para diferentes cenários no [GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
