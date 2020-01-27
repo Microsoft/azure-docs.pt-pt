@@ -35,21 +35,21 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Sul do Brasil | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
 | Canadá Central |40.85.224.249  |
 | Leste do Canadá | 40.86.226.166    |
-| Centro dos E.U.A. | 23.99.160.139, 13.67.215.62   |
-| Norte da China | 139.219.130.35    |
+| E.U.A. Central | 23.99.160.139, 13.67.215.62   |
+| Leste da China | 139.219.130.35    |
 | Leste da China 2 | 40.73.82.1  |
-| China Norte | 139.219.15.17    |
+| Norte da China | 139.219.15.17    |
 | Norte da China 2 | 40.73.50.0     |
-| Este Asiático | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| Este dos E.U.A. | 40.121.158.30, 191.238.6.43  |
-| Este dos E.U.A. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
+| Ásia Oriental | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
+| E.U.A. Leste | 40.121.158.30, 191.238.6.43  |
+| E.U.A. Leste 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | França Central | 40.79.137.0, 40.79.129.1  |
-| Nordeste da Alemanha | 51.4.144.100     |
+| Alemanha Central | 51.4.144.100     |
 | Leste Norte da Alemanha | 51.5.144.179  |
 | Índia Central | 104.211.96.159     |
 | Índia do Sul | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Este do Japão | 13.78.61.196, 191.237.240.43  |
+| Leste do Japão | 13.78.61.196, 191.237.240.43  |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11    |
 | Coreia do Sul Central | 52.231.32.42   |
 | Sul da Coreia do Sul | 52.231.200.86    |
@@ -65,7 +65,7 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Oeste do Reino Unido | 51.141.8.11  |
 | E.U.A. Centro-Oeste | 13.78.145.25     |
 | Europa Ocidental | 40.68.37.158, 191.237.232.75     |
-| Oeste dos E.U.A. | 104.42.238.205, 23.99.34.75  |
+| E.U.A. Oeste | 104.42.238.205, 23.99.34.75  |
 | E.U.A. Oeste 2 | 13.66.226.202  |
 ||||
 

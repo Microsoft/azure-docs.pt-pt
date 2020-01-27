@@ -21,9 +21,9 @@ O Azure Stream Analytics oferece uma linguagem de consulta do tipo SQL para a ex
 A função definida pelo usuário do .NET para trabalhos de nuvem está disponível em:
 * E.U.A. Centro-Oeste
 * Europa do Norte
-* Este dos E.U.A.
-* Oeste dos E.U.A.
-* Este dos E.U.A. 2
+* E.U.A. Leste
+* E.U.A. Oeste
+* E.U.A. Leste 2
 * Europa Ocidental
 
 Se você estiver interessado em usar esse recurso em qualquer outra região, poderá [solicitar acesso](https://aka.ms/ccodereqregion).

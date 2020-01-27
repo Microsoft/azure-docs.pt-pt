@@ -68,7 +68,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | Nome           | myAsgWebServers                                               |
     | Subscrição   | Selecione a sua subscrição.                                     |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Localização       | Este dos E.U.A.                                                       |
+    | Localização       | E.U.A. Leste                                                       |
 
 4. Conclua o passo 3 novamente, com os seguintes valores:
 
@@ -77,7 +77,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | Nome           | myAsgMgmtServers                                              |
     | Subscrição   | Selecione a sua subscrição.                                     |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Localização       | Este dos E.U.A.                                                       |
+    | Localização       | E.U.A. Leste                                                       |
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -90,7 +90,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     |Nome|myNsg|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione *myResourceGroup*.|
-    |Localização|Este dos E.U.A.|
+    |Localização|E.U.A. Leste|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associar o grupo de segurança de rede à sub-rede
 

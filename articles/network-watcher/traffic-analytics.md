@@ -85,7 +85,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Sul da Índia
 * Leste do Japão 
 * Oeste do Japão
-* Gov (US) - Virginia
+* US Gov - Virginia
 * Leste da China 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: espaços de trabalho do Log Analytics
@@ -114,7 +114,7 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * Coreia do Sul Central
 * Índia Central
 * Leste do Japão
-* Gov (US) - Virginia
+* US Gov - Virginia
 * Leste da China 2
 
 ## <a name="prerequisites"></a>Pré-requisitos

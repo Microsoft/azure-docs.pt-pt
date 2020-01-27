@@ -77,7 +77,7 @@ Você pode criar um projeto de migrações para Azure em uma série de geografia
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Government | Gov dos E.U.A. Virginia
+Azure Government | US Gov - Virginia
 Ásia-Pacífico | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil

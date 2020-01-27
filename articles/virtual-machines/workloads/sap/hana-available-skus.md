@@ -24,19 +24,19 @@ ms.locfileid: "74806648"
 
 SAP HANA no serviço do Azure (instâncias grandes) com base em carimbos de revisão 3 está disponível em várias configurações nas regiões do Azure de:
 
-- Oeste dos E.U.A.
-- Este dos E.U.A.
+- E.U.A. Oeste
+- E.U.A. Leste
 - Leste da Austrália
 - Sudeste da Austrália
 - Europa Ocidental
 - Europa do Norte
-- Este do Japão
+- Leste do Japão
 - Oeste do Japão
 
 SAP HANA no serviço do Azure (instâncias grandes) com base na revisão 4 carimbos está disponível em várias configurações nas regiões do Azure de:
 
 - E.U.A. Oeste 2
-- Este dos E.U.A.
+- E.U.A. Leste
 - E.U.A. Centro-Sul
 - Europa Ocidental
 - Europa do Norte

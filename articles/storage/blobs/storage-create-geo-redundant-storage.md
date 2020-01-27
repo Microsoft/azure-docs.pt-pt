@@ -80,7 +80,7 @@ Siga estes passos para criar uma conta de armazenamento georredundante com acess
    | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | É necessário para o exemplo funcionar. |
    |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
    |**ResourceGroup** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-   |**Localização** | Este dos E.U.A. | Escolher uma localização. |
+   |**Localização** | E.U.A. Leste | Escolher uma localização. |
 
 ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 

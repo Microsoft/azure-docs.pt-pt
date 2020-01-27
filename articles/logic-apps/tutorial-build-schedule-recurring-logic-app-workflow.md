@@ -59,7 +59,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
    | **Nome** | LA-TravelTime | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-Viajatime". |
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome da sua assinatura do Azure |
    | **Grupo de recursos** | LA-TravelTime-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), que é usado para organizar os recursos relacionados. Este exemplo usa "LA-Viagenstime-RG". |
-   | **Localização** | Oeste dos E.U.A. | Região Tnão em que armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
+   | **Localização** | E.U.A. Oeste | Região Tnão em que armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 

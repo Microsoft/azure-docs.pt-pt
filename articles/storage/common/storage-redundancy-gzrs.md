@@ -32,11 +32,11 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 - Sudeste Asiático
 - Norte da Europa
 - Europa Ocidental
-- Este do Japão
+- Leste do Japão
 - Sul do Reino Unido
-- Este dos EUA
-- Este dos EUA 2
-- Centro dos EUA
+- E.U.A Leste
+- E.U.A Leste 2
+- E.U.A. Central
 
 A Microsoft continua a habilitar GZRS e RA-GZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre as regiões com suporte.
 

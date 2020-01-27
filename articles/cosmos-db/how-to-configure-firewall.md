@@ -40,7 +40,7 @@ Quando você habilita uma política de controle de acesso IP programaticamente, 
 |------|----------|
 |Alemanha|51.4.229.218|
 |China|139.217.8.252|
-|Governo dos EUA|52.244.48.71|
+|US Gov|52.244.48.71|
 |Todas as outras regiões|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 Você pode habilitar o acesso ao portal do Azure selecionando a opção **permitir acesso de portal do Azure** , conforme mostrado na seguinte captura de tela:

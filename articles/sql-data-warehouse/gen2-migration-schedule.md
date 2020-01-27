@@ -34,10 +34,10 @@ A tabela a seguir resume por região quando a camada de computação Gen2 inferi
 | **Região** | **Gen2 inferior disponíveis** | **Início de atualizações automáticas** |
 |:--- |:--- |:--- |
 | Leste do Canadá |1º de junho de 2020 |1º de julho de 2020 |
+| Leste da China |\* |\* |
 | Norte da China |\* |\* |
-| China Norte |\* |\* |
-| Nordeste da Alemanha |\* |\* |
-| Alemanha Oeste-Central |Disponível |1 de maio de 2020 |
+| Alemanha Central |\* |\* |
+| Alemanha Centro-Oeste |Disponível |1 de maio de 2020 |
 | Oeste da Índia |Disponível |1 de maio de 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática

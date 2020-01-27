@@ -17,5 +17,5 @@ ms.locfileid: "75445816"
 | -------- | ---- | :-----------: |
 | Leste dos EUA, Europa Ocidental, oeste dos EUA 2 | Linux | K80, P100, V100 |
 | Sudeste Asiático | Linux | P100, V100|
-| Centro da Índia | Linux | V100 |
+| Índia Central | Linux | V100 |
 | Europa do Norte | Linux | K80 |

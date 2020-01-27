@@ -34,8 +34,8 @@ Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes
 
 * Américas
     * Centro-Canadá *
-    * Este dos E.U.A.
-    * Este dos E.U.A. 2
+    * E.U.A. Leste
+    * E.U.A. Leste 2
     * EUA Central norte *
     * E.U.A. Oeste 2
 * Pacífico Asiático:

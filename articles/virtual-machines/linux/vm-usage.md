@@ -75,17 +75,17 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 |    australiaeast         |    Leste da Austrália                               |
 |    australiasoutheast    |    AU Sudeste                          |
 |    brazilsouth           |    Sul BR                              |
-|    CanadaCentral         |    Canadá Central                            |
-|    CanadaEast            |    Leste do Canadá                               |
+|    CanadaCentral         |    CA Central                            |
+|    CanadaEast            |    CA Leste                               |
 |    CentralIndia          |    Índia Central                            |
 |    centralus             |    EUA Central                            |
-|    chinaeast             |    Norte da China                            |
-|    chinanorth            |    China Norte                           |
+|    chinaeast             |    Leste da China                            |
+|    chinanorth            |    Norte da China                           |
 |    eastasia              |    Ásia Oriental                             |
 |    eastus                |    EUA Leste                               |
 |    eastus2               |    EUA Leste 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
-|    GermanyNortheast      |    Nordeste da Alemanha                          |
+|    GermanyNortheast      |    DE Nordeste                          |
 |    japaneast             |    Leste do Japão                               |
 |    japanwest             |    Oeste do Japão                               |
 |    KoreaCentral          |    Coreia do Sul Central                            |

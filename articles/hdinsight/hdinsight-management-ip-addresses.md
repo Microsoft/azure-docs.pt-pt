@@ -48,35 +48,35 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 
 | País | Região | Endereços IP de origem permitidos | Destino permitido | Direção |
 | ---- | ---- | ---- | ---- | ----- |
-| Ásia | Este Asiático | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
+| Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
 | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
 | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
-| China | China Norte | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
-| &nbsp; | Norte da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
+| China | Norte da China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
+| &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
 | &nbsp; | Norte da China 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Entrada |
 | &nbsp; | Leste da China 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Entrada |
 | Europa | Europa do Norte | 52.164.210.96</br>13.74.153.132 | \*:443 | Entrada |
 | &nbsp; | Europa Ocidental| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
 | França | França Central| 20.188.39.64</br>40.89.157.135 | \*:443 | Entrada |
-| Alemanha | Nordeste da Alemanha | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
-| &nbsp; | Alemanha Nordeste | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
-| Índia | Centro da Índia | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
+| Alemanha | Alemanha Central | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
+| &nbsp; | Nordeste da Alemanha | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
+| Índia | Índia Central | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
 | &nbsp; | Sul da Índia | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
-| Japão | Este do Japão | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
+| Japão | Leste do Japão | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
 | &nbsp; | Oeste do Japão | 40.74.125.69</br>138.91.29.150 | \*:443 | Entrada |
 | Coreia | Coreia do Sul Central | 52.231.39.142</br>52.231.36.209 | \*:443 | Entrada |
 | &nbsp; | Sul da Coreia do Sul | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
 | Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
-| Estados Unidos | Centro dos E.U.A. | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
-| &nbsp; | Este dos E.U.A. | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
+| Estados Unidos | E.U.A. Central | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
+| &nbsp; | E.U.A. Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Norte | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Oeste | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
-| &nbsp; | Oeste dos E.U.A. | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
+| &nbsp; | E.U.A. Oeste | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Oeste 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
 | &nbsp; | Norte dos E.A.U. | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
 

@@ -90,7 +90,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - Sul da Índia
 - Leste do Japão
 - Oeste do Japão
-- Gov (US) - Virginia
+- US Gov - Virginia
 - Leste da China 2
 
 O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
@@ -115,7 +115,7 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 - Coreia do Sul Central
 - Índia Central
 - Leste do Japão
-- Gov (US) - Virginia
+- US Gov - Virginia
 - Leste da China 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>O NSGs permite que os logs de fluxo estejam em regiões diferentes do meu espaço de trabalho?

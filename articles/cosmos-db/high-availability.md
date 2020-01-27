@@ -81,11 +81,11 @@ Esse recurso está disponível nas seguintes regiões do Azure:
 
 - Sudeste Asiático
 
-- Este dos E.U.A.
+- E.U.A. Leste
 
-- Este dos E.U.A. 2
+- E.U.A. Leste 2
 
-- Centro dos E.U.A.
+- E.U.A. Central
 
 - Europa Ocidental
 

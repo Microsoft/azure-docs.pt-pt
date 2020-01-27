@@ -32,7 +32,7 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
-   | **Localização** | Este dos E.U.A. | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
+   | **Localização** | E.U.A. Leste | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
 
 > [!NOTE]
 > Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) , pois ele simplifica a sintaxe necessária.

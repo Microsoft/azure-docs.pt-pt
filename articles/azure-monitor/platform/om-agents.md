@@ -48,11 +48,11 @@ Antes de iniciar, examine os requisitos a seguir.
     - E.U.A. Centro-Oeste
     - Sudeste da Austrália
     - Europa Ocidental
-    - Este dos E.U.A.
+    - E.U.A. Leste
     - Sudeste Asiático
-    - Este do Japão
+    - Leste do Japão
     - Sul do Reino Unido
-    - Centro da Índia
+    - Índia Central
     - Canadá Central
     - E.U.A. Oeste 2
 

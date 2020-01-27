@@ -181,13 +181,13 @@ Configuração de teste:
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Localização|Azure<br/>Região|Previsto<br/>Distância (km)|Latência|1 sessão<br/>Largura de Banda|Máximo<br/>Largura de Banda|
 | Seattle | E.U.A. Oeste 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
-| Seattle | Oeste dos E.U.A.          |  1\.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
-| Seattle | Centro dos E.U.A.       |  2\.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
+| Seattle | E.U.A. Oeste          |  1\.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
+| Seattle | E.U.A. Central       |  2\.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
 | Seattle | E.U.A. Centro-Sul |  2\.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
 | Seattle | E.U.A. Centro-Norte |  2\.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
-| Seattle | Este dos E.U.A. 2        |  3\.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
-| Seattle | Este dos E.U.A.          |  3\.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
-| Seattle | Este do Japão       |  7\.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
+| Seattle | E.U.A. Leste 2        |  3\.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
+| Seattle | E.U.A. Leste          |  3\.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
+| Seattle | Leste do Japão       |  7\.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
 | Seattle | Sul do Reino Unido         |  7\.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
 | Seattle | Europa Ocidental      |  7\.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
 | Seattle | Leste da Austrália   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |

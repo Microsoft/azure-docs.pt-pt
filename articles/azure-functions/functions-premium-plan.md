@@ -106,13 +106,13 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
-|Centro dos E.U.A.| ✔ |  |
-|Este Asiático| ✔ |  |
-|Este dos E.U.A. | ✔ | ✔<sup>1</sup> |
-|Este dos E.U.A. 2| ✔ |  |
+|E.U.A. Central| ✔ |  |
+|Ásia Oriental| ✔ |  |
+|E.U.A. Leste | ✔ | ✔<sup>1</sup> |
+|E.U.A. Leste 2| ✔ |  |
 |França Central| ✔ |  |
-|Alemanha Oeste-Central| ✔ | |
-|Este do Japão| ✔ | ✔<sup>1</sup> |
+|Alemanha Centro-Oeste| ✔ | |
+|Leste do Japão| ✔ | ✔<sup>1</sup> |
 |Oeste do Japão| ✔ | |
 |Coreia do Sul Central| ✔ |  |
 |E.U.A. Centro-Norte| ✔ |  |
@@ -124,7 +124,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Oeste do Reino Unido| ✔ |  |
 |Europa Ocidental| ✔ | ✔<sup>1</sup> |
 |Oeste da Índia| ✔ |  |
-|Oeste dos E.U.A.| ✔ | ✔<sup>1</sup> |
+|E.U.A. Oeste| ✔ | ✔<sup>1</sup> |
 |E.U.A. Oeste 2| ✔ |  |
 
 <sup>1</sup> Redução máxima limitada a 20 instâncias.  

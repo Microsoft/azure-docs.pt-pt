@@ -140,7 +140,7 @@ Agora, está pronto para gerar a definição de OpenAPI.
     | **Nome** | Nome globalmente exclusivo | Um nome é gerado com base no nome do seu aplicativo de funções. |
     | **Subscrição** | A sua subscrição | A assinatura sob a qual esse novo recurso é criado. |  
     | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve ser definido para você. |
-    | **Localização** | Oeste dos E.U.A. | Escolha o local oeste dos EUA. |
+    | **Localização** | E.U.A. Oeste | Escolha o local oeste dos EUA. |
     | **Nome da organização** | Contoso | O nome da organização usada no portal do desenvolvedor e para notificações por email. |
     | **E-mail do administrador** | seu email | Email que recebeu notificações do sistema do gerenciamento de API. |
     | **Escalão de preço** | Consumo (visualização) | A camada de consumo está em visualização e não está disponível em todas as regiões. Para obter detalhes completos de preços, consulte a [página de preços do gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/) |

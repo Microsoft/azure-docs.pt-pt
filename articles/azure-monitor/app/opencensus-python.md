@@ -42,7 +42,7 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor global exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para hospedar Application Insights dados |
-   | **Localização** | Este dos E.U.A. | Um local perto de você ou próximo de onde seu aplicativo está hospedado |
+   | **Localização** | E.U.A. Leste | Um local perto de você ou próximo de onde seu aplicativo está hospedado |
 
 1. Selecione **Criar**.
 

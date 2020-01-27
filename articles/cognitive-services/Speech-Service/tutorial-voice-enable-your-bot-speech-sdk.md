@@ -109,7 +109,7 @@ Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourc
 
 | NAME | TIPO  | LOCALIZAÇÃO |
 |------|-------|----------|
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | E.U.A. Oeste |
 
 ### <a name="create-an-azure-app-service-plan"></a>Criar um plano do Serviço de Aplicações do Azure
 
@@ -132,8 +132,8 @@ Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourc
 
 | NAME | TIPO  | LOCALIZAÇÃO |
 |------|-------|----------|
-| SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | Oeste dos E.U.A. |
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | E.U.A. Oeste |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | E.U.A. Oeste |
 
 ## <a name="build-an-echo-bot"></a>Criar um bot de eco
 
@@ -209,9 +209,9 @@ A próxima etapa é implantar o Echo bot no Azure. Há algumas maneiras de impla
 
 | NAME | TIPO  | LOCALIZAÇÃO |
 |------|-------|----------|
-| EchoBot20190805125647 | Serviço de Aplicações | Oeste dos E.U.A. |
-| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | Oeste dos E.U.A. |
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
+| EchoBot20190805125647 | Serviço de Aplicações | E.U.A. Oeste |
+| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | E.U.A. Oeste |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | E.U.A. Oeste |
 
 ## <a name="enable-web-sockets"></a>Habilitar soquetes Web
 
@@ -251,10 +251,10 @@ Neste ponto, verifique o grupo de recursos **SpeechEchoBotTutorial-resourcegroup
 
 | NAME | TIPO  | LOCALIZAÇÃO |
 |------|-------|----------|
-| EchoBot20190805125647 | Serviço de Aplicações | Oeste dos E.U.A. |
-| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | Oeste dos E.U.A. |
+| EchoBot20190805125647 | Serviço de Aplicações | E.U.A. Oeste |
+| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | E.U.A. Oeste |
 | SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | Global |
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | E.U.A. Oeste |
 
 > [!IMPORTANT]
 > O recurso de registro de canais de bot mostrará a região global, embora você tenha selecionado oeste dos EUA. Isto era esperado.

@@ -65,7 +65,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
     |Grupo de Recursos | Localização |
     |---|---|
-    | Kafka-principal-RG | Centro dos E.U.A. |
+    | Kafka-principal-RG | E.U.A. Central |
     | Kafka-secundário-RG | E.U.A. Centro-Norte |
 
 1. Crie uma nova rede virtual **Kafka-Primary-vnet** em **Kafka-Primary-RG**. Deixe as configurações padrão.

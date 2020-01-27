@@ -34,17 +34,17 @@ O SDK de fala está disponível nessas regiões para **reconhecimento de fala**,
 
 | Região           | Parâmetro do SDK de voz | Portal de personalização de voz    |
 | ---------------- | -------------------- | ------------------------------ |
-| Oeste dos E.U.A.          | `westus`             | https://westus.cris.ai         |
+| E.U.A. Oeste          | `westus`             | https://westus.cris.ai         |
 | E.U.A. Oeste 2        | `westus2`            | https://westus2.cris.ai        |
-| Este dos E.U.A.          | `eastus`             | https://eastus.cris.ai         |
-| Este dos E.U.A. 2        | `eastus2`            | https://eastus2.cris.ai        |
-| Centro dos E.U.A.       | `centralus`          | https://centralus.cris.ai      |
+| E.U.A. Leste          | `eastus`             | https://eastus.cris.ai         |
+| E.U.A. Leste 2        | `eastus2`            | https://eastus2.cris.ai        |
+| E.U.A. Central       | `centralus`          | https://centralus.cris.ai      |
 | E.U.A. Centro-Norte | `northcentralus`     | https://northcentralus.cris.ai |
 | E.U.A. Centro-Sul | `southcentralus`     | https://southcentralus.cris.ai |
-| Centro da Índia    | `centralindia`       | https://centralindia.cris.ai   |
-| Este Asiático        | `eastasia`           | https://eastasia.cris.ai       |
+| Índia Central    | `centralindia`       | https://centralindia.cris.ai   |
+| Ásia Oriental        | `eastasia`           | https://eastasia.cris.ai       |
 | Sudeste Asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Este do Japão       | `japaneast`          | https://japaneast.cris.ai      |
+| Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
 | Coreia do Sul Central    | `koreacentral`       | https://koreacentral.cris.ai   |
 | Leste da Austrália   | `australiaeast`      | https://australiaeast.cris.ai  |
 | Canadá Central   | `canadacentral`      | https://canadacentral.cris.ai  |
@@ -59,16 +59,16 @@ As regiões disponíveis para o **reconhecimento de intenções** por meio do SD
 
 | Região global | Região           | Parâmetro do SDK de voz |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Este Asiático        | `eastasia`           |
+| Ásia          | Ásia Oriental        | `eastasia`           |
 | Ásia          | Sudeste Asiático   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
 | Europa        | Europa do Norte     | `northeurope`        |
 | Europa        | Europa Ocidental      | `westeurope`         |
-| América do Norte | Este dos E.U.A.          | `eastus`             |
-| América do Norte | Este dos E.U.A. 2        | `eastus2`            |
+| América do Norte | E.U.A. Leste          | `eastus`             |
+| América do Norte | E.U.A. Leste 2        | `eastus2`            |
 | América do Norte | E.U.A. Centro-Sul | `southcentralus`     |
 | América do Norte | E.U.A. Centro-Oeste  | `westcentralus`      |
-| América do Norte | Oeste dos E.U.A.          | `westus`             |
+| América do Norte | E.U.A. Oeste          | `westus`             |
 | América do Norte | E.U.A. Oeste 2        | `westus2`            |
 | América do Sul | Sul do Brasil     | `brazilsouth`        |
 
@@ -80,10 +80,10 @@ O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** n
 
 | Região         | Parâmetro do SDK de voz |
 | -------------- | -------------------- |
-| Oeste dos E.U.A.        | `westus`             |
+| E.U.A. Oeste        | `westus`             |
 | E.U.A. Oeste 2      | `westus2`            |
-| Este dos E.U.A.        | `eastus`             |
-| Este dos E.U.A. 2      | `eastus2`            |
+| E.U.A. Leste        | `eastus`             |
+| E.U.A. Leste 2      | `eastus2`            |
 | Europa Ocidental    | `westeurope`         |
 | Europa do Norte   | `northeurope`        |
 | Sudeste Asiático | `southeastasia`      |

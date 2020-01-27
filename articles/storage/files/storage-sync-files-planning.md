@@ -256,16 +256,16 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
-| Centro da Índia | Pune |
-| Centro dos E.U.A. | Iowa |
-| Este Asiático | RAE de Hong Kong |
-| Este dos E.U.A. | Virgínia |
+| Índia Central | Pune |
+| E.U.A. Central | Iowa |
+| Ásia Oriental | RAE de Hong Kong |
+| E.U.A. Leste | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
 | França Central | Paris |
 | Sul da França * | Marselha |
 | Coreia do Sul Central | Seul |
 | Sul da Coreia do Sul | Busan |
-| Este do Japão | Tóquio, Saitama |
+| Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaca |
 | E.U.A. Centro-Norte | Illinois |
 | Europa do Norte | Irlanda |
@@ -276,14 +276,14 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Sudeste Asiático | Singapura |
 | Sul do Reino Unido | Londres |
 | Oeste do Reino Unido | Cardiff |
-| US Gov - Texas | Arizona |
-| Gov (US) - Texas | Texas |
-| Gov dos E.U.A. Virginia | Virgínia |
+| US Gov - Arizona | Arizona |
+| US Gov - Texas | Texas |
+| US Gov - Virginia | Virgínia |
 | Norte dos E.A.U. | Dubai |
 | EAU Central * | Abu Dhabi |
 | Europa Ocidental | Países Baixos |
 | E.U.A. Centro-Oeste | Wyoming |
-| Oeste dos E.U.A. | Califórnia |
+| E.U.A. Oeste | Califórnia |
 | E.U.A. Oeste 2 | Washington |
 
 Sincronização de Arquivos do Azure dá suporte à sincronização somente com um compartilhamento de arquivos do Azure que está na mesma região que o serviço de sincronização de armazenamento.
@@ -305,15 +305,15 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Sul do Brasil        | E.U.A. Centro-Sul   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
-| Centro da Índia       | Sul da Índia        |
-| Centro dos E.U.A.          | Este dos E.U.A. 2          |
-| Este Asiático           | Sudeste Asiático     |
-| Este dos E.U.A.             | Oeste dos E.U.A.            |
-| Este dos E.U.A. 2           | Centro dos E.U.A.         |
+| Índia Central       | Sul da Índia        |
+| E.U.A. Central          | E.U.A. Leste 2          |
+| Ásia Oriental           | Sudeste Asiático     |
+| E.U.A. Leste             | E.U.A. Oeste            |
+| E.U.A. Leste 2           | E.U.A. Central         |
 | França Central      | Sul de França       |
 | Sul de França        | França Central     |
-| Este do Japão          | Oeste do Japão         |
-| Oeste do Japão          | Este do Japão         |
+| Leste do Japão          | Oeste do Japão         |
+| Oeste do Japão          | Leste do Japão         |
 | Coreia do Sul Central       | Sul da Coreia do Sul        |
 | Sul da Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
@@ -321,16 +321,16 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Norte da África do Sul  | Oeste da África do Sul  |
 | Oeste da África do Sul   | Norte da África do Sul |
 | E.U.A. Centro-Sul    | E.U.A. Centro-Norte   |
-| Sul da Índia         | Centro da Índia      |
-| Sudeste Asiático      | Este Asiático          |
+| Sul da Índia         | Índia Central      |
+| Sudeste Asiático      | Ásia Oriental          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |
 | Oeste do Reino Unido             | Sul do Reino Unido           |
-| US Gov - Texas      | Gov (US) - Texas       |
-| US Gov - Virginia         | Gov dos E.U.A. Virginia    |
-| Gov dos E.U.A. Virginia      | Gov (US) - Texas       |
+| US Gov - Arizona      | US Gov - Texas       |
+| US Gov Iowa         | US Gov - Virginia    |
+| US Gov - Virginia      | US Gov - Texas       |
 | Europa Ocidental         | Europa do Norte       |
 | E.U.A. Centro-Oeste     | E.U.A. Oeste 2          |
-| Oeste dos E.U.A.             | Este dos E.U.A.            |
+| E.U.A. Oeste             | E.U.A. Leste            |
 | E.U.A. Oeste 2           | E.U.A. Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync

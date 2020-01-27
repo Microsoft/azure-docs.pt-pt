@@ -62,7 +62,7 @@ Esses modelos de DNN estão disponíveis no momento:
   - SSD-VGG
 
 FPGAs estão disponíveis nessas regiões do Azure:
-  - Este dos E.U.A.
+  - E.U.A. Leste
   - Sudeste Asiático
   - Europa Ocidental
   - E.U.A. Oeste 2

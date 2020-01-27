@@ -120,8 +120,8 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 - Sudeste Asiático
 - Leste da Austrália
 - Sudeste da Austrália
-- Centro dos EUA
-- Este dos EUA 2
+- E.U.A. Central
+- E.U.A Leste 2
 - E.U.A. Centro-Oeste
 - E.U.A. Oeste 2
 

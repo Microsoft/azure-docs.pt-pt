@@ -44,7 +44,7 @@ Este artigo mostra como gerenciar suas zonas DNS usando o portal do Azure. Você
    |**Nome**|contoso.com|O nome da zona DNS|
    |**Subscrição**|[A sua subscrição]|Selecione uma subscrição para criar a zona DNS.|
    |**Grupo de recursos**|**Criar novo:** contosoDNSRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou. Para saber mais sobre grupos de recursos, veja o artigo de descrição geral do [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Localização**|Oeste dos E.U.A.||
+   |**Localização**|E.U.A. Oeste||
 
 > [!NOTE]
 > Esta definição refere à localização do grupo de recursos e não tem qualquer impacto na zona DNS. A localização da zona DNS é sempre "global" e não está apresentada.

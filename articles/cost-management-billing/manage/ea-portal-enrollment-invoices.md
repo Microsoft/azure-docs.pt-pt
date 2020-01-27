@@ -10,7 +10,7 @@ ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
 ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2020
 ms.locfileid: "76514362"
@@ -413,8 +413,8 @@ Para os serviços em que a zona e a região afetam os preços, a tabela seguinte
 
 | Geo | Regiões de Transferência de Dados | Regiões de CDN |
 | --- | --- | --- |
-| Zona 1 | Norte da Europa <br> Europa Ocidental <br> Oeste dos EUA <br> Este dos EUA <br> Centro Norte dos EUA <br> Centro Sul dos EUA <br> Este dos EUA 2 <br> Centro dos EUA | América do Norte <br> Europa |
-| Zona 2 | Este da Ásia-Pacífico <br> Sudeste da Ásia-Pacífico <br> Este do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Sudeste da Austrália | Ásia-Pacífico <br> Japão <br> América Latina <br> Médio Oriente/África <br> Leste da Austrália <br> Sudeste da Austrália |
+| Zona 1 | Norte da Europa <br> Europa Ocidental <br> E.U.A. Oeste <br> E.U.A Leste <br> E.U.A Centro-Norte <br> E.U.A. Centro-Sul <br> E.U.A Leste 2 <br> E.U.A. Central | América do Norte <br> Europa |
+| Zona 2 | Este da Ásia-Pacífico <br> Sudeste da Ásia-Pacífico <br> Leste do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Sudeste da Austrália | Ásia-Pacífico <br> Japão <br> América Latina <br> Médio Oriente/África <br> Leste da Austrália <br> Sudeste da Austrália |
 | Zona 3 | Sul do Brasil |   |
 
 **Tabela**  **4**  **– Regiões de Transferência de Dados**

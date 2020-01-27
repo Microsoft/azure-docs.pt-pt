@@ -66,12 +66,12 @@ O serviço HSM dedicado do Azure usa dispositivos SafeNet Luna Network HSM 7 (Mo
 
 Desde o final de março de 2019, o HSM dedicado está disponível nas 14 regiões listadas abaixo. Outras regiões são planejadas e podem ser discutidas por meio de seu representante de conta da Microsoft.
 
-* Este dos E.U.A.
-* Este dos E.U.A. 2
-* Oeste dos E.U.A.
+* E.U.A. Leste
+* E.U.A. Leste 2
+* E.U.A. Oeste
 * E.U.A. Centro-Sul
 * Sudeste Asiático
-* Este Asiático
+* Ásia Oriental
 * Europa do Norte
 * Europa Ocidental
 * Sul do Reino Unido

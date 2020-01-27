@@ -152,7 +152,7 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 | Meter | valor |
 | --- | --- |
 | Nome |simpletestdiskwrite |
-| Local desta regra de alerta |Este dos E.U.A. |
+| Local desta regra de alerta |E.U.A. Leste |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | Metricname do alerta que é criado |\PhysicalDisk (_ total) \Bytes gravações de/s. Consulte o cmdlet `Get-MetricDefinitions` sobre como recuperar os nomes de métricas exatas |

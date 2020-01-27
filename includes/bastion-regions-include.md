@@ -19,11 +19,11 @@ ms.locfileid: "76159331"
 >Estamos trabalhando duro para adicionar outras regiões. Quando uma região é adicionada, ela será adicionada a essa lista.
 >
 
-* Oeste dos E.U.A.
+* E.U.A. Oeste
 * E.U.A. Oeste 2
-* Este dos E.U.A.
-* Este dos E.U.A. 2
+* E.U.A. Leste
+* E.U.A. Leste 2
 * Europa Ocidental
 * E.U.A. Centro-Sul
 * Leste da Austrália
-* Este do Japão
+* Leste do Japão

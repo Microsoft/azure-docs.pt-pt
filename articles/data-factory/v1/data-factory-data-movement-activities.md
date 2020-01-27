@@ -94,13 +94,13 @@ Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, Dat
 
 | Geografia dos armazenamentos de dados de destino | Região do armazenamento de dados de destino | Região usada para movimentação de dados |
 |:--- |:--- |:--- |
-| Estados Unidos | Este dos E.U.A. | Este dos E.U.A. |
-| &nbsp; | Este dos E.U.A. 2 | Este dos E.U.A. 2 |
-| &nbsp; | Centro dos E.U.A. | Centro dos E.U.A. |
+| Estados Unidos | E.U.A. Leste | E.U.A. Leste |
+| &nbsp; | E.U.A. Leste 2 | E.U.A. Leste 2 |
+| &nbsp; | E.U.A. Central | E.U.A. Central |
 | &nbsp; | E.U.A. Centro-Norte | E.U.A. Centro-Norte |
 | &nbsp; | E.U.A. Centro-Sul | E.U.A. Centro-Sul |
 | &nbsp; | E.U.A. Centro-Oeste | E.U.A. Centro-Oeste |
-| &nbsp; | Oeste dos E.U.A. | Oeste dos E.U.A. |
+| &nbsp; | E.U.A. Oeste | E.U.A. Oeste |
 | &nbsp; | E.U.A. Oeste 2 | E.U.A. Oeste 2 |
 | Canadá | Leste do Canadá | Canadá Central |
 | &nbsp; | Canadá Central | Canadá Central |
@@ -110,14 +110,14 @@ Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, Dat
 | Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Ásia-Pacífico | Sudeste Asiático | Sudeste Asiático |
-| &nbsp; | Este Asiático | Sudeste Asiático |
+| &nbsp; | Ásia Oriental | Sudeste Asiático |
 | Austrália | Leste da Austrália | Leste da Austrália |
 | &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
-| Índia | Centro da Índia | Centro da Índia |
-| &nbsp; | Oeste da Índia | Centro da Índia |
-| &nbsp; | Sul da Índia | Centro da Índia |
-| Japão | Este do Japão | Este do Japão |
-| &nbsp; | Oeste do Japão | Este do Japão |
+| Índia | Índia Central | Índia Central |
+| &nbsp; | Oeste da Índia | Índia Central |
+| &nbsp; | Sul da Índia | Índia Central |
+| Japão | Leste do Japão | Leste do Japão |
+| &nbsp; | Oeste do Japão | Leste do Japão |
 | Coreia | Coreia do Sul Central | Coreia do Sul Central |
 | &nbsp; | Sul da Coreia do Sul | Coreia do Sul Central |
 

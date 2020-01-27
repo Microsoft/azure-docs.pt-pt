@@ -58,7 +58,7 @@ O recurso do Hub IoT criado usando essa configuração recusará clientes de dis
 
 Os hubs IoT que exigem o uso de TLS 1,2 podem ser criados nas seguintes regiões:
 
-* Este dos E.U.A.
+* E.U.A. Leste
 * E.U.A. Centro-Sul
 * E.U.A. Oeste 2
 

@@ -81,15 +81,15 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|Este dos E.U.A.     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Este dos E.U.A. 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Este dos E.U.A. 2     |     S8, S9, S8v2, S9v2   |    1    |
+|E.U.A. Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centro dos E.U.A.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|Oeste dos E.U.A.     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Oeste dos E.U.A.     |    S8, S9, S8v2, S9v2   |    2  |
+|E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|E.U.A. Oeste     |    S8, S9, S8v2, S9v2   |    2  |
 |E.U.A. Oeste 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
 |E.U.A. Oeste 2    |    S8, S9, S8v2, S9v2  |    1     |
 
@@ -110,7 +110,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Este do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 

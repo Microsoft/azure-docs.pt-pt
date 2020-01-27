@@ -59,10 +59,10 @@ O `type` é o tipo de recurso, que deve ser `"Microsoft.VirtualMachineImages/ima
 
 O local é a região em que a imagem personalizada será criada. Para a visualização do Image Builder, há suporte para as seguintes regiões:
 
-- Este dos E.U.A.
-- Este dos E.U.A. 2
+- E.U.A. Leste
+- E.U.A. Leste 2
 - E.U.A. Centro-Oeste
-- Oeste dos E.U.A.
+- E.U.A. Oeste
 - E.U.A. Oeste 2
 
 

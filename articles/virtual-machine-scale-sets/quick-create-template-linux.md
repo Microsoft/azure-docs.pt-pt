@@ -36,7 +36,7 @@ Para criar um dimensionamento com um modelo, tem de definir os recursos adequado
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | tipo                         | Tipo de recurso do Azure a criar                            | Microsoft.Compute/virtualMachineScaleSets |
 | nome                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
-| localização                     | A localização para criar o conjunto de dimensionamento                     | Este dos E.U.A.                                   |
+| localização                     | A localização para criar o conjunto de dimensionamento                     | E.U.A. Leste                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a criar inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de atualização de instâncias de VM quando ocorrem alterações              | Automático                                 |

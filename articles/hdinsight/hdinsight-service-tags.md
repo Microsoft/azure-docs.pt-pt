@@ -68,7 +68,7 @@ Se você preferir a opção de marca de serviço dois, e o cluster estiver local
 | Brasil | Sul do Brasil | HDInsight. BrazilSouth |
 | Coreia | Coreia do Sul Central | HDInsight. KoreaCentral |
 | &nbsp; | Sul da Coreia do Sul | HDInsight. KoreaSouth |
-| Índia | Centro da Índia | HDInsight. CentralIndia |
+| Índia | Índia Central | HDInsight. CentralIndia |
 | &nbsp; | Sul da Índia | HDInsight. SouthIndia |
 | Japão | Oeste do Japão | HDInsight. JapanWest |
 | França | França Central| HDInsight. FranceCentral |
@@ -95,16 +95,16 @@ Por exemplo, se o cluster for criado na região de `East US 2`, você precisará
 
 | País | Região | Marca de serviço |
 | ---- | ---- | ---- |
-| Estados Unidos | Este dos E.U.A. 2 | HDInsight. EastUS2 |
-| &nbsp; | Centro dos E.U.A. | HDInsight. Centralus |
+| Estados Unidos | E.U.A. Leste 2 | HDInsight. EastUS2 |
+| &nbsp; | E.U.A. Central | HDInsight. Centralus |
 | &nbsp; | NorthCentral nós | HDInsight. NorthCentralUS |
 | &nbsp; | E.U.A. Centro-Sul | HDInsight. SouthCentralUS |
-| &nbsp; | Este dos E.U.A. | HDInsight. Eastus |
-| &nbsp; | Oeste dos E.U.A. | HDInsight. Westus |
-| Japão | Este do Japão | HDInsight. JapanEast |
+| &nbsp; | E.U.A. Leste | HDInsight. Eastus |
+| &nbsp; | E.U.A. Oeste | HDInsight. Westus |
+| Japão | Leste do Japão | HDInsight. JapanEast |
 | Europa | Europa do Norte | HDInsight. NorthEurope |
 | &nbsp; | Europa Ocidental| HDInsight. WestEurope |
-| Ásia | Este Asiático | HDInsight. EastAsia |
+| Ásia | Ásia Oriental | HDInsight. EastAsia |
 | &nbsp; | Sudeste Asiático | HDInsight. SoutheastAsia |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 

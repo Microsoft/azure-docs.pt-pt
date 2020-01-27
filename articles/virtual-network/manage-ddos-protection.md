@@ -47,7 +47,7 @@ A criação de mais de um plano não é necessária para a maioria das organiza�
     |Nome           | myDdosProtectionPlan                              |
     |Subscrição   | Selecione a sua subscrição.                         |
     |Grupo de recursos | Selecione **criar novo** e insira o *myresourceattribute* |
-    |Localização       | Este dos E.U.A.                                           |
+    |Localização       | E.U.A. Leste                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Habilitar DDoS para uma nova rede virtual
 
@@ -60,7 +60,7 @@ A criação de mais de um plano não é necessária para a maioria das organiza�
     | Nome            | myVirtualNetwork                                             |
     | Subscrição    | Selecione a sua subscrição.                                    |
     | Grupo de recursos  | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
-    | Localização        | Este dos E.U.A.                                                      |
+    | Localização        | E.U.A. Leste                                                      |
     | Proteção contra DDos | Selecione **padrão** e, em seguida, em **proteção contra DDoS**, selecione **myDdosProtectionPlan**. O plano selecionado pode estar no mesmo ou em uma assinatura diferente da rede virtual, mas ambas as assinaturas devem estar associadas ao mesmo locatário de Azure Active Directory.|
 
 Não é possível mover uma rede virtual para outro grupo de recursos ou assinatura quando o padrão de DDoS está habilitado para a rede virtual. Se você precisar mover uma rede virtual com o padrão de DDoS habilitado, desabilite o padrão de DDoS primeiro, mova a rede virtual e, em seguida, habilite o padrão de DDoS. Após a movimentação, os limites de política ajustados automaticamente para todos os endereços IP públicos protegidos na rede virtual são redefinidos.

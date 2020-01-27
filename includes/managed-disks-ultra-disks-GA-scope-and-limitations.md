@@ -18,8 +18,8 @@ ms.locfileid: "74935912"
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
 - Têm suporte nas seguintes regiões, com um número variável de zonas de disponibilidade por região:
-    - Este dos E.U.A. 2
-    - Este dos E.U.A.
+    - E.U.A. Leste 2
+    - E.U.A. Leste
     - E.U.A. Oeste 2
     - Sudeste da Ásia
     - Europa do Norte

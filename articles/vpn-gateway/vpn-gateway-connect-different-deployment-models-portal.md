@@ -77,8 +77,8 @@ A tabela a seguir mostra um exemplo de como o exemplo VNets e sites locais são 
 
 | Rede Virtual | Espaço de Endereços | Região | Conecta-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |Oeste dos E.U.A. | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |Este dos E.U.A. |ClassicVNetLocal (10.0.0.0/24) |
+| ClassicVNet |(10.0.0.0/24) |E.U.A. Oeste | RMVNetLocal (192.168.0.0/16) |
+| RMVNet | (192.168.0.0/16) |E.U.A. Leste |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Seção 1-definir as configurações da VNet clássica
 
@@ -172,8 +172,8 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 
 | Rede Virtual | Espaço de Endereços | Região | Conecta-se ao site de rede local |Endereço IP público do gateway|
 |:--- |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |Oeste dos E.U.A. | RMVNetLocal (192.168.0.0/16) |O endereço IP público que é atribuído ao gateway ClassicVNet|
-| RMVNet | (192.168.0.0/16) |Este dos E.U.A. |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
+| ClassicVNet |(10.0.0.0/24) |E.U.A. Oeste | RMVNetLocal (192.168.0.0/16) |O endereço IP público que é atribuído ao gateway ClassicVNet|
+| RMVNet | (192.168.0.0/16) |E.U.A. Leste |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
 
 O gateway de rede local especifica o intervalo de endereços e o endereço IP público associado à sua VNet clássica e seu gateway de rede virtual. Se você estiver seguindo estas etapas como um exercício, consulte os valores de exemplo.
 

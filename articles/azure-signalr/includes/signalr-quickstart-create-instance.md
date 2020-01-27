@@ -31,7 +31,7 @@ A aplicação irá ligar a uma instância do SignalR Service no Azure.
     | **Nome do recurso** | Nome globalmente exclusivo | Nome que identifica a sua nova instância do SignalR Service. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
     | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova instância do SignalR Service é criada. | 
     | **[Grupo de Recursos](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual irá criar a sua instância do SignalR Service. | 
-    | **Localização** | Oeste dos E.U.A. | Escolher uma [região](https://azure.microsoft.com/regions/) próxima de si. |
+    | **Localização** | E.U.A. Oeste | Escolher uma [região](https://azure.microsoft.com/regions/) próxima de si. |
     | **Escalão de preço** | Gratuito | Experimente gratuitamente o Azure SignalR Service. |
     | **Contagem de unidades** |  Não aplicável | A contagem de unidades especifica quantas ligações a sua instância do SignalR Service pode aceitar. Pode configurar apenas no escalão Standard. |
     | **Modo de serviço** |  Sem Servidor | Para uso com Azure Functions ou a API REST. |

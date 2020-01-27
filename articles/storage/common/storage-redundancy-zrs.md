@@ -33,18 +33,18 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Norte da Europa
 - Europa Ocidental
 - França Central
-- Este do Japão
+- Leste do Japão
 - Norte da África do Sul
 - Sul do Reino Unido
-- Centro dos EUA
-- Este dos EUA
-- Este dos EUA 2
+- E.U.A. Central
+- E.U.A Leste
+- E.U.A Leste 2
 - E.U.A. Oeste 2
 
 Para contas de FileStorage (ações de ficheiropremium) e contas BlockBlobStorage (blobs de blocopremium), o ZRS está geralmente disponível nas seguintes regiões:
 
 - Europa Ocidental
-- Este dos EUA
+- E.U.A Leste
 
 A Microsoft continua a permitir o ZRS em regiões azure adicionais. Consulte regularmente a página de Atualizações de [Serviços Azure](https://azure.microsoft.com/updates/) para obter informações sobre novas regiões.
 

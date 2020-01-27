@@ -33,16 +33,16 @@ Figura 1 – pares regionais do Azure
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |EUA Centro-Sul |
 | Canadá |Canadá Central |Leste do Canadá |
-| China |China Norte |Norte da China|
+| China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
 | Europa |Europa do Norte (Irlanda) |Europa Ocidental (Países Baixos) |
 | França |França Central|Sul de França|
-| Alemanha |Alemanha Central |Alemanha Nordeste |
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
-| Coreia |Coreia do Sul Central |Coreia do Sul |
-| América do Norte |EUA Leste |Oeste dos E.U.A. |
+| Coreia |Coreia do Sul Central |Sul da Coreia do Sul |
+| América do Norte |EUA Leste |E.U.A. Oeste |
 | América do Norte |EUA Leste 2 |EUA Central |
 | América do Norte |E.U.A. Centro-Norte |EUA Centro-Sul |
 | América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
@@ -50,9 +50,9 @@ Figura 1 – pares regionais do Azure
 | RU |Reino Unido Oeste |Sul do Reino Unido |
 | Emirados Árabes Unidos | Norte dos E.A.U. | E.A.U. Central
 | Departamento de defesa dos EUA |US DoD Leste |US DoD Centro |
-| Governo dos Estados Unidos da América |Gov (US) - Arizona |Gov (US) - Texas |
-| Governo dos Estados Unidos da América |US Gov - Iowa |Gov (US) - Virginia |
-| Governo dos Estados Unidos da América |Gov (US) - Virginia |Gov (US) - Texas |
+| Governo dos Estados Unidos da América |Gov (US) - Arizona |US Gov - Texas |
+| Governo dos Estados Unidos da América |US Gov - Iowa |US Gov - Virginia |
+| Governo dos Estados Unidos da América |US Gov - Virginia |US Gov - Texas |
 
 Tabela 1-mapeamento de pares regionais do Azure
 

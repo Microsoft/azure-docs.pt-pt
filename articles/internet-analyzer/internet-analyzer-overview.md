@@ -48,7 +48,7 @@ Durante a visualização, os seguintes pontos de extremidade pré-configurados e
     * Norte dos E.A.U.
     * Reino Unido Oeste  
     * Europa Ocidental
-    * Oeste dos E.U.A. 
+    * E.U.A. Oeste 
     * EUA Oeste 2
 * **Várias combinações de regiões do Azure** 
     * Leste dos EUA, sul do Brasil 

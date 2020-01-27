@@ -67,7 +67,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Escalão de preço | Basic |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
-| Localização | Este dos E.U.A. |
+| Localização | E.U.A. Leste |
 | Unidades de Débito | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Espaço de trabalho Azure Databricks
@@ -79,7 +79,7 @@ Use o [portal do Azure para criar um serviço de Azure Databricks](https://porta
 | Nome da área de trabalho    | Escolha o nome do seu espaço de trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
-| Localização | Este dos E.U.A. |
+| Localização | E.U.A. Leste |
 | Escalão de Preço | Padrão |
 
 Quando você criou os recursos necessários, o grupo de recursos **IoTCentralAnalysis** é semelhante à captura de tela a seguir:

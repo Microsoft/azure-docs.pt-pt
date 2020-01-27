@@ -192,7 +192,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Oeste da Índia | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
 | Índia Central | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Coreia** | |
-| Coreia do Sul | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
+| Sul da Coreia do Sul | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Coreia do Sul Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **África do Sul**| |
 | Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
@@ -237,8 +237,8 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | **Governo dos Estados Unidos da América** |  |
 | Gov (US) - Arizona | 12076:51106 |
 | US Gov - Iowa | 12076:51109 |
-| Gov (US) - Virginia | 12076:51105 |
-| Gov (US) - Texas | 12076:51108 |
+| US Gov - Virginia | 12076:51105 |
+| US Gov - Texas | 12076:51108 |
 | US DoD Centro | 12076:51209 |
 | US DoD Leste | 12076:51205 |
 

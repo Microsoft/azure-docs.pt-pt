@@ -16,7 +16,7 @@ ms.locfileid: "76268223"
 | Regiões | SO | Máx. da CPU | Memória máxima (GB) |
 | -------- | :---: | :---: | :-----------: |
 | Leste da Austrália, Canadá central, EUA Central, leste dos EUA<sup>1</sup>, leste dos EUA 2, Europa setentrional, Sul EUA Central<sup>1</sup>, Sudeste Asiático, Europa Ocidental, oeste dos EUA 2<sup>1</sup> | Linux | 4 | 16 |
-| Este do Japão | Linux | 2 | 8 |
+| Leste do Japão | Linux | 2 | 8 |
 | Norte EUA Central, sul da Índia, oeste dos EUA | Linux | 2 | 3.5 |
 
 <sup>1</sup> A região na qual as implantações de grupo de contêineres em uma rede virtual está geralmente disponível para cargas de trabalho de produção. Em outras regiões, as implantações de rede virtual estão em versão prévia.

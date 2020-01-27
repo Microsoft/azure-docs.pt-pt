@@ -62,8 +62,8 @@ A tabela a seguir mostra os locais retornados para a nuvem alemã.
 
 |Localização | Nome a Apresentar |
 |----|----|
-| `germanycentral` | Nordeste da Alemanha|
-| `germanynortheast` | Alemanha Nordeste |
+| `germanycentral` | Alemanha Central|
+| `germanynortheast` | Nordeste da Alemanha |
 
 
 ## <a name="endpoint-suffix"></a>Sufixo do ponto de extremidade

@@ -60,7 +60,7 @@ Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|Gov dos E.U.A. Virginia |Gov dos E.U.A. Virginia |
+|US Gov - Virginia |US Gov - Virginia |
 
 <sup>1</sup> devido a restrições de capacidade, a região não está disponível durante a criação de novos recursos. Isso inclui um espaço de trabalho Log Analytics. No entanto, os recursos vinculados preexistentes na região devem continuar funcionando.
 

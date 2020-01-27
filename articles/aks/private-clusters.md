@@ -31,9 +31,9 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 * O CLI do Azure versão 2.0.77 ou posterior e a versão de extensão de visualização CLI do Azure AKS 0.4.18
 
 ## <a name="currently-supported-regions"></a>Regiões com suporte no momento
-* Oeste dos E.U.A.
+* E.U.A. Oeste
 * E.U.A. Oeste 2
-* Este dos E.U.A. 2
+* E.U.A. Leste 2
 * Canadá Central
 * Europa do Norte
 * Europa Ocidental

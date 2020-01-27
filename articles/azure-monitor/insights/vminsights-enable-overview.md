@@ -37,21 +37,21 @@ Antes de começar, certifique-se de que compreende as informações nas secçõe
 O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics nas seguintes regiões:
 
 - E.U.A. Centro-Oeste
-- Oeste dos E.U.A.
+- E.U.A. Oeste
 - E.U.A. Oeste 2
 - E.U.A. Centro-Sul
-- Este dos E.U.A.
+- E.U.A. Leste
 - E.U.A. Leste 2
-- Centro dos E.U.A.
+- E.U.A. Central
 - E.U.A. Centro-Norte
 - Canadá Central
 - Sul do Reino Unido
 - Europa do Norte
 - Europa Ocidental
-- Este Asiático
+- Ásia Oriental
 - Sudeste Asiático
-- Centro da Índia
-- Este do Japão
+- Índia Central
+- Leste do Japão
 - Leste da Austrália
 - Sudeste da Austrália
 

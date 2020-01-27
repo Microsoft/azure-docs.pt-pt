@@ -90,11 +90,11 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Sul do Reino Unido | `https://uksouth.api.cognitive.microsoft.com` |
 | | EUA Centro-Oeste | `https://westcentralus.api.cognitive.microsoft.com` |
 | | Europa Ocidental | `https://westeurope.api.cognitive.microsoft.com` |
-| | Oeste dos E.U.A. | `https://westus.api.cognitive.microsoft.com` |
+| | E.U.A. Oeste | `https://westus.api.cognitive.microsoft.com` |
 | | EUA Oeste 2 | `https://westus2.api.cognitive.microsoft.com` |
-| Governo dos EUA | Gov (US) - Virginia | `https://virginia.api.cognitive.microsoft.us` |
+| US Gov | US Gov - Virginia | `https://virginia.api.cognitive.microsoft.us` |
 | China | Leste da China 2 | `https://chinaeast2.api.cognitive.azure.cn` |
-| | China Norte | `https://chinanorth.api.cognitive.azure.cn` |
+| | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
 ## <a name="see-also"></a>Consultar também
 

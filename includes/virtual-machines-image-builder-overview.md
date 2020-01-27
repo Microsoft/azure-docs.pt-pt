@@ -35,10 +35,10 @@ Para a pré-visualização, estas funcionalidades são suportadas:
 
 ## <a name="regions"></a>Regiões
 O Azure Image Builder Service estará disponível para pré-visualização nestas regiões. As imagens podem ser distribuídas fora destas regiões.
-- Este dos E.U.A.
-- Este dos E.U.A. 2
+- E.U.A. Leste
+- E.U.A. Leste 2
 - E.U.A. Centro-Oeste
-- Oeste dos E.U.A.
+- E.U.A. Oeste
 - E.U.A. Oeste 2
 
 ## <a name="os-support"></a>Apoio ao OS

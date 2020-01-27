@@ -227,9 +227,9 @@ Esse recurso está disponível nas seguintes regiões:
 
 * E.U.A. Centro-Oeste
 * Europa do Norte
-* Este dos E.U.A.
-* Oeste dos E.U.A.
-* Este dos E.U.A. 2
+* E.U.A. Leste
+* E.U.A. Oeste
+* E.U.A. Leste 2
 * Europa Ocidental
 
 Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para regiões adicionais.

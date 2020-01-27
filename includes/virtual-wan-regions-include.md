@@ -40,4 +40,4 @@ A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão
 |---|---|
 | Nuvem do Governo dos EUA | US Gov Arizona, US Gov - Iowa, US Gov Texas, Gov (US) - Virginia, US DoD Central, US DoD East |
 | Leste da China | Leste da China, Leste da China 2|
-| China Norte | Norte da China, Norte da China 2 |
+| Norte da China | Norte da China, Norte da China 2 |

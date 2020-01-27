@@ -38,7 +38,7 @@ As combinações de serviços e regiões do Azure que oferecem suporte a Zonas d
 
 |                                 |Américas |              |           |           | Europa |              |          |              | Ásia-Pacífico |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
-|          |Centro dos E.U.A.|Este dos E.U.A.|Este dos E.U.A. 2|E.U.A. Oeste 2|França Central|Europa do Norte|Sul do Reino Unido|Europa Ocidental|Este do Japão|Sudeste Asiático|
+|          |E.U.A. Central|E.U.A. Leste|E.U.A. Leste 2|E.U.A. Oeste 2|França Central|Europa do Norte|Sul do Reino Unido|Europa Ocidental|Leste do Japão|Sudeste Asiático|
 | **Computação**                         |            |              |           |           |                |              |          |             |            |                |
 | Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |

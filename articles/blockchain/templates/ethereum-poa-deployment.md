@@ -107,7 +107,7 @@ Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Número de região (s)|Número de regiões para implantar a rede Consortium| 2
 Primeira região | Primeira região para implantar a rede Consortium | E.U.A. Oeste 2
-Segunda região | Segunda região para implantar a rede Consortium. Regiões adicionais ficam visíveis quando o número de regiões é dois ou mais. | Este dos E.U.A. 2
+Segunda região | Segunda região para implantar a rede Consortium. Regiões adicionais ficam visíveis quando o número de regiões é dois ou mais. | E.U.A. Leste 2
 
 Selecione **OK**.
 
@@ -162,7 +162,7 @@ Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitorização | Opção para habilitar o monitoramento | Ativar
 Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Criar novo
-Localização | A região em que a nova instância é implantada | Este dos E.U.A.
+Localização | A região em que a nova instância é implantada | E.U.A. Leste
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||N/D
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||N/D
 

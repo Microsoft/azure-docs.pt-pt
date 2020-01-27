@@ -33,8 +33,8 @@ O catálogo de dados foi projetado para usuários técnicos e não técnicos, in
 ## <a name="what-is-its-availability-by-region"></a>Qual é sua disponibilidade por região?
 Os serviços do catálogo de dados estão disponíveis no momento nos seguintes data centers:
 
-* Oeste dos E.U.A.
-* Este dos E.U.A.
+* E.U.A. Oeste
+* E.U.A. Leste
 * Europa Ocidental
 * Europa do Norte
 * Leste da Austrália

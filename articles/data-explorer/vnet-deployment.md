@@ -109,16 +109,16 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | BrazilSouth | 191.233.25.183 |
 | Canadá Central | 40.82.188.208 |
 | Leste do Canadá | 40.80.255.12 |
-| Centro da Índia | 40.81.249.251 |
-| Centro dos E.U.A. | 40.67.188.68 |
+| Índia Central | 40.81.249.251 |
+| E.U.A. Central | 40.67.188.68 |
 | EUA Central EUAP | 40.89.56.69 |
-| Este Asiático | 20.189.74.103 |
-| Este dos E.U.A. | 52.224.146.56 |
+| Ásia Oriental | 20.189.74.103 |
+| E.U.A. Leste | 52.224.146.56 |
 | E.U.A. Leste 2 | 52.232.230.201 |
 | EUAP dos EUA 2 leste | 52.253.226.110 |
 | França Central | 40.66.57.91 |
 | Sul de França | 40.82.236.24 |
-| Este do Japão | 20.43.89.90 |
+| Leste do Japão | 20.43.89.90 |
 | Oeste do Japão | 40.81.184.86 |
 | Coreia do Sul Central | 40.82.156.149 |
 | Sul da Coreia do Sul | 40.80.234.9 |
@@ -134,7 +134,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | E.U.A. Centro-Oeste | 52.159.55.120 |
 | Europa Ocidental | 51.145.176.215 |
 | Oeste da Índia | 40.81.88.112 |
-| Oeste dos E.U.A. | 13.64.38.225 |
+| E.U.A. Oeste | 13.64.38.225 |
 | E.U.A. Oeste 2 | 40.90.219.23 |
 
 #### <a name="health-monitoring-addresses"></a>Endereços de monitoramento de integridade
@@ -148,16 +148,16 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Sul do Brasil | 23.98.145.105 |
 | Canadá Central | 168.61.212.201 |
 | Leste do Canadá | 168.61.212.201 |
-| Centro da Índia | 23.99.5.162 |
-| Centro dos E.U.A. | 168.61.212.201 |
+| Índia Central | 23.99.5.162 |
+| E.U.A. Central | 168.61.212.201 |
 | EUA Central EUAP | 168.61.212.201 |
-| Este Asiático | 168.63.212.33 |
-| Este dos E.U.A. | 137.116.81.189 |
-| Este dos E.U.A. 2 | 137.116.81.189 |
+| Ásia Oriental | 168.63.212.33 |
+| E.U.A. Leste | 137.116.81.189 |
+| E.U.A. Leste 2 | 137.116.81.189 |
 | Leste dos EUA 2 EUAP | 137.116.81.189 |
 | França Central | 23.97.212.5 |
 | Sul de França | 23.97.212.5 |
-| Este do Japão | 138.91.19.129 |
+| Leste do Japão | 138.91.19.129 |
 | Oeste do Japão | 138.91.19.129 |
 | Coreia do Sul Central | 138.91.19.129 |
 | Sul da Coreia do Sul | 138.91.19.129 |
@@ -173,7 +173,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | E.U.A. Centro-Oeste | 168.61.212.201 |
 | Europa Ocidental | 23.97.212.5 |
 | Oeste da Índia | 23.99.5.162 |
-| Oeste dos E.U.A. | 23.99.5.162 |
+| E.U.A. Oeste | 23.99.5.162 |
 | E.U.A. Oeste 2 | 23.99.5.162 | 
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Endereços de ponto de extremidade de configuração Azure Monitor

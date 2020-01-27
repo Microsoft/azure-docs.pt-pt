@@ -61,7 +61,7 @@ Antes de começar, faça o seguinte:
    |Grupo de Recursos|*seu grupo de recursos*|
    |Nome da Conta|DB-vnet-serviço-ponto de extremidade|
    |API|Núcleo (SQL)|
-   |Localização|Oeste dos E.U.A.|
+   |Localização|E.U.A. Oeste|
    |Redundância geográfica|Desativar|
    |Gravações de várias regiões|Ativar|
 

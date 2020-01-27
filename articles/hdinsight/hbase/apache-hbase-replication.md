@@ -68,7 +68,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Localização | Oeste dos E.U.A. |
+| Localização | E.U.A. Oeste |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |
@@ -85,7 +85,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Localização | Este dos E.U.A. |
+| Localização | E.U.A. Leste |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |

@@ -68,7 +68,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Escalão de preço | Basic |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
-| Localização | Este dos E.U.A. |
+| Localização | E.U.A. Leste |
 | Unidades de Débito | 1 |
 
 ### <a name="stream-analytics-job"></a>Tarefa do Stream Analytics
@@ -80,7 +80,7 @@ Use o [portal do Azure para criar um trabalho de Stream Analytics](https://porta
 | Nome    | Escolha o nome do seu trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
-| Localização | Este dos E.U.A. |
+| Localização | E.U.A. Leste |
 | Ambiente de alojamento | Nuvem |
 | Unidades de transmissão em fluxo | 3 |
 
@@ -95,7 +95,7 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | Grupo de recursos | DetectStoppedDevices |
 | SO | Windows |
 | Plano de Alojamento | Plano de Consumo |
-| Localização | Este dos E.U.A. |
+| Localização | E.U.A. Leste |
 | Pilha de Runtime | .NET |
 | Armazenamento | Criar novo |
 

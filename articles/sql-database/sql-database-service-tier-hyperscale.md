@@ -170,14 +170,14 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Sudeste da Austrália
 - Sul do Brasil
 - Canadá Central
-- Centro dos E.U.A.
+- E.U.A. Central
 - Leste da China 2
 - Norte da China 2
-- Este Asiático
-- Este dos E.U.A.
+- Ásia Oriental
+- E.U.A. Leste
 - Leste dos EUA 2
 - França Central
-- Este do Japão
+- Leste do Japão
 - Oeste do Japão
 - Coreia do Sul Central
 - Sul da Coreia do Sul
@@ -189,7 +189,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Sul do Reino Unido
 - Oeste do Reino Unido
 - Europa Ocidental
-- Oeste dos E.U.A.
+- E.U.A. Oeste
 - E.U.A. Oeste 2
 
 Se desejar criar um banco de dados de hiperescala em uma região que não esteja listada como com suporte, você poderá enviar uma solicitação de integração via portal do Azure. Estamos trabalhando para expandir a lista de regiões com suporte; portanto, verifique novamente a lista de regiões mais recente.
