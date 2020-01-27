@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 09fe8396b6f0033a2c01d1ef056060a855b23d0a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772959"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761453"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de VPN (gateway de rede virtual) do Azure e um gateway de VPN de WAN virtual do Azure?
 
@@ -42,9 +42,6 @@ Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requi
 
 As soluções de conectividade definida pelo software gerem, normalmente, os respetivos dispositivos de ramo com um controlador ou um centro de aprovisionamento de dispositivos. O controlador pode utilizar APIs do Azure para automatizar a conectividade à WAN Virtual do Azure. A automação inclui o carregamento de informações de ramificação, o download da configuração do Azure, a configuração de túneis IPSec em hubs virtuais do Azure e a configuração automática do formulário de conectividade do dispositivo de ramificação para a WAN virtual do Azure. Quando você tem centenas de ramificações, é fácil conectar-se usando parceiros CPE da WAN virtual, pois a experiência de integração elimina a necessidade de configurar, configurar e gerenciar a conectividade IPsec em larga escala. Para mais informações, veja [Automatização de parceiro de WAN Virtual](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
-### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Sou obrigado a utilizar um dispositivo de parceiro preferencial?
-
-Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como a WAN virtual dá suporte a dispositivos SD-WAN?
 

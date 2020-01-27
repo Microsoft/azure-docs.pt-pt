@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: acd122668a5aa70becbf284bd064535e859ad01b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e2cb4f81e3de5e22bae3029e42ec2f67dae55424
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772850"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761390"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,15 +42,15 @@ Vamos adicionar um código que funciona como um esqueleto para nosso projeto. Le
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
 
-Antes de inicializar um objeto `IntentRecognizer`, você precisa criar uma configuração que usa a chave e o local para o recurso de previsão LUIS. 
+Antes de inicializar um objeto `IntentRecognizer`, você precisa criar uma configuração que usa a chave e o local para o recurso de previsão LUIS.
 
 > [!IMPORTANT]
-> A chave inicial e as chaves de criação não funcionarão. Você deve usar sua chave de previsão e o local que você criou anteriormente. Para obter mais informações, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition). 
+> A chave inicial e as chaves de criação não funcionarão. Você deve usar sua chave de previsão e o local que você criou anteriormente. Para obter mais informações, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
-Insira esse código no método `RecognizeIntentAsync()`. Certifique-se de atualizar esses valores: 
+Insira esse código no método `RecognizeIntentAsync()`. Certifique-se de atualizar esses valores:
 
-* Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão LUIS. 
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo local do LUIS. 
+* Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão LUIS.
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo local do LUIS.
 
 >[!TIP]
 > Se você precisar de ajuda para encontrar esses valores, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
@@ -65,22 +65,22 @@ O SDK de fala usará como padrão o reconhecimento do uso de en-US para a lingua
 
 Agora, vamos criar um `IntentRecognizer`. Esse objeto é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeIntentAsync()`, logo abaixo da sua configuração de fala.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=29-30,76)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicionar uma LanguageUnderstandingModel e tentativas
 
-Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as tentativas que você deseja que sejam reconhecidos. Vamos usar as intenções do domínio predefinido para a automação doméstica. Insira este código na instrução using da seção anterior. Certifique-se de substituir `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS. 
+Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as tentativas que você deseja que sejam reconhecidos. Vamos usar as intenções do domínio predefinido para a automação doméstica. Insira este código na instrução using da seção anterior. Certifique-se de substituir `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS.
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esse valor, consulte [criar um aplicativo Luis para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=31-35)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
 A partir do objeto `IntentRecognizer`, você chamará o método `RecognizeOnceAsync()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, depois que a frase for identificada para parar de reconhecer a fala.
 
-Dentro da instrução using, adicione este código abaixo do seu modelo: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
+Dentro da declaração de utilização, adicione este código abaixo do seu modelo: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
 ## <a name="display-recognition-results-or-errors"></a>Exibir resultados de reconhecimento (ou erros)
 
@@ -88,7 +88,7 @@ Quando o resultado do reconhecimento for retornado pelo serviço de fala, você 
 
 Dentro da instrução using, abaixo `RecognizeOnceAsync()`, adicione este código:
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=48-75)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=49-75)]
 
 ## <a name="check-your-code"></a>Verifique seu código
 
@@ -97,7 +97,7 @@ Neste ponto, seu código deve ter a seguinte aparência:
 > [!NOTE]
 > Adicionamos alguns comentários a esta versão.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-86)]
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
 
