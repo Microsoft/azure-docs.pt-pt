@@ -4,7 +4,7 @@
   items:
     - name: Sobre o Time Series Insights
       href: time-series-insights-update-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: GA do Azure Time Series Insights
@@ -91,7 +91,7 @@
           href: time-series-insights-send-events.md
         - name: Dimensionar o seu ambiente
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Formular o JSON para consultas
+        - name: Formar o JSON para entradas e consultas
           href: how-to-shape-query-json.md
         - name: Mitigar limitação
           href: time-series-insights-environment-mitigate-latency.md
@@ -107,7 +107,7 @@
           href: time-series-insights-update-how-to-troubleshoot.md
         - name: Modelação de dados
           href: time-series-insights-update-how-to-tsm.md
-        - name: Formular o JSON para consultas
+        - name: Formar o JSON para entradas e consultas
           href: time-series-insights-update-how-to-shape-events.md
         - name: Ligar ao Power BI
           href: how-to-connect-power-bi.md

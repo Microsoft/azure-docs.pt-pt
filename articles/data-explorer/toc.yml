@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: Conceitos
   items:
-    - name: Descrição geral da ingestão de dados
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: Ingestão de dados
+      items:
+        - name: Descrição geral da ingestão de dados
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: Descrição geral da visualização de dados
       href: viz-overview.md
     - name: Descrição geral da segurança
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: Ingestão em transmissão em fluxo
           href: ingest-data-streaming.md
+        - name: Com SDKs
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: SDK de Node
+              href: node-ingest-data.md
+            - name: SDK .NET Standard
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: SDK de Node
-          href: node-ingest-data.md
-        - name: SDK .NET Standard
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Copiar dados com o Azure Data Factory
-          href: data-factory-load-data.md
+        - name: Dados formatados json
+          href: ingest-json-formats.md
     - name: Consultar dados
       items:
         - name: Escrever consultas
@@ -204,6 +208,8 @@
           items:
             - name: Integração com o Data Factory
               href: data-factory-integration.md
+            - name: Copiar dados com o Azure Data Factory
+              href: data-factory-load-data.md
             - name: Cópia em massa de dados com o modelo do Azure Data Factory
               href: data-factory-template.md
             - name: Executar comandos de controlo com o Azure Data Factory

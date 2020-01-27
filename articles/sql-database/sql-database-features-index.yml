@@ -16,7 +16,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: A Base de Dados SQL do Azure é mais do que um motor de base de dados relacional clássico que lhe permite consultar dados com a linguagem SQL. As funcionalidades de base de dados da Base de Dados SQL do Azure permitem-lhe realizar operações mais poderosas e implementar cenários avançados.
+        text: A Base de Dados SQL do Azure é mais do que um motor de base de dados relacional clássico que lhe permite consultar dados com a linguagem SQL. As funcionalidades de base de dados na Base de Dados SQL do Azure permitem-lhe realizar operações mais poderosas e implementar cenários avançados.
       - type: list
         style: cards
         className: cardsM
