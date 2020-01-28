@@ -203,18 +203,18 @@ Atualmente, há suporte para o fluxo de dados Wrangling em data factories criada
 
 * Leste da Austrália
 * Canadá Central
-* Centro da Índia
-* Centro dos E.U.A.
-* Este dos E.U.A.
-* Este dos E.U.A. 2
-* Este do Japão
+* Índia Central
+* E.U.A. Central
+* E.U.A. Leste
+* E.U.A. Leste 2
+* Leste do Japão
 * Europa do Norte
 * Sudeste Asiático
 * E.U.A. Centro-Sul
 * Sul do Reino Unido
 * E.U.A. Centro-Oeste
 * Europa Ocidental
-* Oeste dos E.U.A.
+* E.U.A. Oeste
 * E.U.A. Oeste 2
 
 ### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quais são as limitações e restrições com o fluxo de dados do Wrangling?

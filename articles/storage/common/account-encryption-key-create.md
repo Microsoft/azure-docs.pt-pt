@@ -29,7 +29,7 @@ Para criar uma conta de armazenamento que dependa da chave de criptografia da co
 
 Você pode criar uma conta de armazenamento que dependa da chave de criptografia da conta para armazenamento de fila e de tabela nas seguintes regiões:
 
-- Este dos E.U.A.
+- E.U.A. Leste
 - E.U.A. Centro-Sul
 - E.U.A. Oeste 2  
 

@@ -93,16 +93,16 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 
 | Regiões de origem        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
-| Austrália Central     | Norte da China        | Sul da Índia        | Europa Ocidental        |
+| Austrália Central     | Leste da China        | Sul da Índia        | Europa Ocidental        |
 | Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
-| Leste da Austrália        | China Norte       | Este do Japão         | Oeste do Reino Unido            |
+| Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
 | Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD - Centro     |
-| Sul do Brasil          | Este Asiático         | Coreia do Sul Central      | US Gov - Arizona        |
-| Canadá Central        | Este dos E.U.A.           | Sul da Coreia do Sul        | US Gov - Texas     |
-| Leste do Canadá           | Este dos E.U.A. 2         | E.U.A. Centro-Norte   | Gov (US) - Texas       |
-| Centro da Índia         | Leste dos EUA 2 EUAP    | Europa do Norte       | Gov dos E.U.A. Virginia    |
-| Centro dos E.U.A.            | França Central    | E.U.A. Centro-Sul   | Oeste da Índia         |
-| EUA Central EUAP       | Sul de França      | E.U.A. Centro-Oeste    | Oeste dos E.U.A.            |
+| Sul do Brasil          | Ásia Oriental         | Coreia do Sul Central      | US DoD - Leste        |
+| Canadá Central        | E.U.A. Leste           | Sul da Coreia do Sul        | US Gov - Arizona     |
+| Leste do Canadá           | E.U.A. Leste 2         | E.U.A. Centro-Norte   | US Gov - Texas       |
+| Índia Central         | Leste dos EUA 2 EUAP    | Europa do Norte       | US Gov - Virginia    |
+| E.U.A. Central            | França Central    | E.U.A. Centro-Sul   | Oeste da Índia         |
+| EUA Central EUAP       | Sul de França      | E.U.A. Centro-Oeste    | E.U.A. Oeste            |
 |                       |                   |                    | E.U.A. Oeste 2          |
 
 

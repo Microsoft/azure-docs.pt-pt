@@ -72,7 +72,7 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
    **Localização** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
     --- | --- | ---
-   Centro dos E.U.A. | 40.69.144.231 | 52.165.34.144
+   E.U.A. Central | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>Regras de NSG-EUA Central
 
@@ -86,7 +86,7 @@ Essas regras são necessárias para que a replicação possa ser habilitada da r
 
    **Localização** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
     --- | --- | ---
-   Centro dos E.U.A. | 13.82.88.226 | 104.45.147.24
+   E.U.A. Central | 13.82.88.226 | 104.45.147.24
 ## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Configuração do Site Recovery falhou (151197)
 - **Causa possível** </br>
   - Não é possível estabelecer ligação a pontos finais de serviço do Azure Site Recovery.

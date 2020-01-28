@@ -54,7 +54,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
     | Definição      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusivo. |
-    | **Localização** | Oeste dos E.U.A. | Utilize a localização mais próxima de si. |
+    | **Localização** | E.U.A. Oeste | Utilize a localização mais próxima de si. |
     | **Escalão de preço** | F0 | Comece com o escalão mais baixo. Se ficar sem chamadas, aumente para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
@@ -141,7 +141,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome adequado para a sua aplicação. |
     | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos que utilizou anteriormente. |
-    | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si. |    
+    | **Localização** | E.U.A. Leste | Escolha uma localização perto de si. |    
 
 4. Depois de introduzir os valores de definições apropriadas, clique em **Criar** para criar a sua aplicação lógica. 
 

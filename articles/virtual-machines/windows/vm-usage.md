@@ -75,19 +75,19 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 |    australiaeast         |    AU Leste                               |
 |    australiasoutheast    |    AU Sudeste                          |
 |    brazilsouth           |    Sul BR                              |
-|    CanadaCentral         |    Canadá Central                            |
-|    CanadaEast            |    Leste do Canadá                               |
+|    CanadaCentral         |    CA Central                            |
+|    CanadaEast            |    CA Leste                               |
 |    CentralIndia          |    IN Central                            |
-|    e.u.a.central             |    Centro dos E.U.A.                            |
-|    chinaeast             |    Norte da China                            |
-|    chinanorth            |    China Norte                           |
-|    eastasia              |    Este Asiático                             |
-|    eastus                |    Este dos E.U.A.                               |
-|    eastus2               |    Este dos E.U.A. 2                             |
+|    e.u.a.central             |    E.U.A. Central                            |
+|    chinaeast             |    Leste da China                            |
+|    chinanorth            |    Norte da China                           |
+|    eastasia              |    Ásia Oriental                             |
+|    eastus                |    E.U.A. Leste                               |
+|    eastus2               |    E.U.A. Leste 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
-|    GermanyNortheast      |    Nordeste da Alemanha                          |
-|    japaneast             |    Este JA                               |
-|    japanwest             |    Oeste JA                               |
+|    GermanyNortheast      |    DE Nordeste                          |
+|    japaneast             |    JA Leste                               |
+|    japanwest             |    JA Oeste                               |
 |    KoreaCentral          |    KR do Sul Central                            |
 |    KoreaSouth            |    Sul KR do Sul                              |
 |    northcentralus        |    E.U.A. Centro-Norte                      |
@@ -100,15 +100,15 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 |    UKSouth2              |    Sul do Reino Unido 2                            |
 |    ukwest                |    Oeste do Reino Unido                               |
 |    USDoDCentral          |    US DoD - Centro                        |
-|    USDoDEast             |    US Gov - Arizona                           |
+|    USDoDEast             |    US DoD - Leste                           |
 |    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
 |    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
 |    E.U.A. Centro-Oeste         |    E.U.A. Centro-Oeste                       |
 |    westeurope            |    Europa Ocidental                           |
-|    WestIndia             |    Índia Ocidental                               |
-|    westus                |    Oeste dos E.U.A.                               |
+|    WestIndia             |    IN Oeste                               |
+|    westus                |    E.U.A. Oeste                               |
 |    westus2               |    E.U.A. Oeste 2                             |
 
 

@@ -145,7 +145,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
    | **Grupo de Recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente |
    | **OS** | <*seu sistema operacional*> | Selecione o sistema operacional que dá suporte à sua linguagem de programação de função favorita. Para este exemplo, selecione **Windows**. |
    | **Plano de Alojamento** | Plano de Consumo | Esta definição determina como alocar e dimensionar os recursos, como o poder de computação, para executar a aplicação de funções. Veja [Hosting plans comparison](../azure-functions/functions-scale.md) (Comparação dos planos de alojamento). |
-   | **Localização** | Oeste dos E.U.A. | A mesma região que utilizou anteriormente |
+   | **Localização** | E.U.A. Oeste | A mesma região que utilizou anteriormente |
    | **Pilha de Runtime** | Linguagem preferencial | Selecione um tempo de execução que ofereça suporte à sua linguagem de programação de função favorita. Selecione **.net** para C# e F# funções. |
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Observação:** Essa conta de armazenamento contém seus aplicativos de funções e difere de sua conta de armazenamento criada anteriormente para anexos de email. |
    | **Application Insights** | Desativar | Ativa o monitoramento de aplicativos com [Application insights](../azure-monitor/app/app-insights-overview.md), mas, para este tutorial, selecione **desabilitar** > **aplicar**. |
@@ -240,7 +240,7 @@ Depois de confirmar que a função está a funcionar, crie a aplicação lógica
    | **Nome** | LA-ProcessAttachment | O nome para a aplicação lógica |
    | **Subscrição** | <*your-Azure-subscription-name*> | A mesma subscrição do Azure que utilizou anteriormente |
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente |
-   | **Localização** | Oeste dos E.U.A. | A mesma região que utilizou anteriormente |
+   | **Localização** | E.U.A. Oeste | A mesma região que utilizou anteriormente |
    | **Log Analytics** | Desativado | Para este tutorial, selecione a configuração **desativado** . |
    ||||
 

@@ -172,7 +172,7 @@ Neste momento, você só pode acessar a configuração de `allowProtectedAppendW
 
 > [!IMPORTANT] 
 >  A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível no momento e visível somente nas seguintes regiões:
-> - Este dos E.U.A.
+> - E.U.A. Leste
 > - E.U.A. Centro-Sul
 > - E.U.A. Oeste 2
 >

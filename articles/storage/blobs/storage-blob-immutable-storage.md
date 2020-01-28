@@ -88,7 +88,7 @@ As políticas de retenção legal não podem habilitar `allowProtectedAppendWrit
 
 > [!IMPORTANT] 
 > A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível atualmente nas seguintes regiões:
-> - Este dos E.U.A.
+> - E.U.A. Leste
 > - E.U.A. Centro-Sul
 > - E.U.A. Oeste 2
 >

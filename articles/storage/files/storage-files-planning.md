@@ -212,14 +212,14 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Sul do Brasil    |LRS     |
 |Canadá Central  |LRS     |
 |Leste do Canadá     |LRS     |
-|Centro da Índia  |LRS     |
+|Índia Central  |LRS     |
 |EUA Central *   |LRS, ZRS    |
-|Este Asiático      |LRS     |
+|Ásia Oriental      |LRS     |
 |Leste dos EUA *        |LRS, ZRS|
 |Leste dos EUA 2 *      |LRS, ZRS     |
 |França Central |LRS, ZRS|
 |Sul de França   |LRS     |
-|Este do Japão     |LRS     |
+|Leste do Japão     |LRS     |
 |Oeste do Japão     |LRS     |
 |Coreia do Sul Central  |LRS     |
 |Sul da Coreia do Sul    |LRS     |
@@ -238,7 +238,7 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |E.U.A. Centro-Oeste|LRS     |
 |Europa Ocidental *    |LRS, ZRS|
 |Oeste da Índia   |LRS     |
-|Oeste dos E.U.A.        |LRS     |
+|E.U.A. Oeste        |LRS     |
 |E.U.A. Oeste 2      |LRS, ZRS|
 
 \* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).

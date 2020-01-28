@@ -112,28 +112,28 @@ Para fins de BCDR (continuidade dos negócios e recuperação de desastre), voc�
 | Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-brazilsouth01.afs.azure.net |
 | Público | Canadá Central | https:\//kailani-cac.one.microsoft.com | Leste do Canadá | https:\//tm-kailani-cac.one.microsoft.com |
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
-| Público | Centro da Índia | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
-| Público | Centro dos E.U.A. | https:\//kailani-cus.one.microsoft.com | Este dos E.U.A. 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Público | Este Asiático | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
-| Público | Este dos E.U.A. | https:\//kailani1.one.microsoft.com | Oeste dos E.U.A. | https:\//tm-kailani1.one.microsoft.com |
-| Público | Este dos E.U.A. 2 | https:\//kailani-ess.one.microsoft.com | Centro dos E.U.A. | https:\//tm-kailani-ess.one.microsoft.com |
-| Público | Este do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
-| Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Este do Japão | https:\//tm-japanwest01.afs.azure.net |
+| Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
+| Público | E.U.A. Central | https:\//kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
+| Público | E.U.A. Leste | https:\//kailani1.one.microsoft.com | E.U.A. Oeste | https:\//tm-kailani1.one.microsoft.com |
+| Público | E.U.A. Leste 2 | https:\//kailani-ess.one.microsoft.com | E.U.A. Central | https:\//tm-kailani-ess.one.microsoft.com |
+| Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
+| Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Leste do Japão | https:\//tm-japanwest01.afs.azure.net |
 | Público | Coreia do Sul Central | https:\//koreacentral01.afs.azure.net/ | Sul da Coreia do Sul | https:\//tm-koreacentral01.afs.azure.net/ |
 | Público | Sul da Coreia do Sul | https:\//koreasouth01.afs.azure.net/ | Coreia do Sul Central | https:\//tm-koreasouth01.afs.azure.net/ |
 | Público | E.U.A. Centro-Norte | https:\//northcentralus01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
 | Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
 | Público | E.U.A. Centro-Sul | https:\//southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
-| Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Centro da Índia | https:\//tm-kailani-sin.one.microsoft.com |
-| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Este Asiático | https:\//tm-kailani10.one.microsoft.com |
+| Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
+| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
 | Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
 | Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | E.U.A. Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Público | Europa Ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
-| Público | Oeste dos E.U.A. | https:\//kailani.one.microsoft.com | Este dos E.U.A. | https:\//tm-kailani.one.microsoft.com |
+| Público | E.U.A. Oeste | https:\//kailani.one.microsoft.com | E.U.A. Leste | https:\//tm-kailani.one.microsoft.com |
 | Público | E.U.A. Oeste 2 | https:\//westus201.afs.azure.net | E.U.A. Centro-Oeste | https:\//tm-westus201.afs.azure.net |
-| Administração pública | US Gov - Texas | https:\//usgovarizona01.afs.azure.us | Gov (US) - Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Administração pública | Gov (US) - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Texas | https:\//tm-usgovtexas01.afs.azure.us |
+| Administração pública | US Gov - Arizona | https:\//usgovarizona01.afs.azure.us | US Gov - Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Administração pública | US Gov - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Se você usar contas de armazenamento com redundância local (LRS) ou com redundância de zona (ZRS), você só precisará habilitar a URL listada em "URL do ponto de extremidade primário".
 

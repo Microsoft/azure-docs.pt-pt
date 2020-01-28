@@ -11,7 +11,7 @@ ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
 ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75995562"
@@ -49,23 +49,23 @@ O desconto de reserva aplica-se aos custos de débito do Azure Cosmos DB por ho
 |Azure Cosmos DB – 100 RU/s/Hora – Oeste do Reino Unido|   Oeste do Reino Unido      |    1     |
 |Azure Cosmos DB – 100 RU/s/Hora – Norte do Reino Unido |   Norte do Reino Unido    |     1    |
 |Azure Cosmos DB – 100 RU/s/Hora – Sul do Reino Unido 2|   Sul do Reino Unido 2      |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Leste 2|  Este dos EUA 2     |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Centro-Norte|   Centro Norte dos EUA      |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Oeste|   Oeste dos EUA      |     1    |
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Central| Centro dos EUA        |     1    |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Leste 2|  E.U.A Leste 2     |     1    |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Centro-Norte|   E.U.A Centro-Norte      |     1    |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Oeste|   E.U.A. Oeste      |     1    |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Central| E.U.A. Central        |     1    |
 |Azure Cosmos DB – 100 RU/s/Hora – EUA Oeste 2|   E.U.A. Oeste 2      |      1   |
 |Azure Cosmos DB – 100 RU/s/Hora – EUA Centro-Oeste|   E.U.A. Centro-Oeste      |       1  |
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Leste|   Este dos EUA      |  1       |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Leste|   E.U.A Leste      |  1       |
 |Azure Cosmos DB – 100 RU/s/Hora – Norte da África do Sul|     Norte da África do Sul    |   1      |
 |Azure Cosmos DB – 100 RU/s/Hora – Oeste da África do Sul |    Oeste da África do Sul      |    1     |
 |Azure Cosmos DB – 100 RU/s/Hora – Sul da Índia|    IN Sul     |    1,0375    |
-|Azure Cosmos DB – 100 RU/s/Hora – Leste do Canadá|   Leste do Canadá      |    1.1      |
-|Azure Cosmos DB – 100 RU/s/Hora – Leste do Japão|   Este JA      |    1,125     |
-|Azure Cosmos DB – 100 RU/s/Hora – Oeste do Japão|     Oeste JA    |   1,125       |
-|Azure Cosmos DB – 100 RU/s/Hora – Oeste da Índia|     Índia Ocidental    |    1,1375     |
+|Azure Cosmos DB – 100 RU/s/Hora – Leste do Canadá|   CA Leste      |    1.1      |
+|Azure Cosmos DB – 100 RU/s/Hora – Leste do Japão|   JA Leste      |    1,125     |
+|Azure Cosmos DB – 100 RU/s/Hora – Oeste do Japão|     JA Oeste    |   1,125       |
+|Azure Cosmos DB – 100 RU/s/Hora – Oeste da Índia|     IN Oeste    |    1,1375     |
 |Azure Cosmos DB – 100 RU/s/Hora – Índia Central|    IN Central     |  1,1375       |
 |Azure Cosmos DB – 100 RU/s/Hora – Leste da Austrália|     AU Leste    |   1,15       |
-|Azure Cosmos DB – 100 RU/s/Hora – Canadá Central|  Canadá Central       |   1.2       |
+|Azure Cosmos DB – 100 RU/s/Hora – Canadá Central|  CA Central       |   1.2       |
 |Azure Cosmos DB – 100 RU/s/Hora – França Central|   FR Central      |    1,25      |
 |Azure Cosmos DB – 100 RU/s/Hora – Sul BR|  Sul BR       |   1.5      |
 |Azure Cosmos DB – 100 RU/s/Hora – Austrália Central|   AU Central      |   1.5      |
@@ -89,8 +89,8 @@ O desconto que uma reserva abrange é calculado da seguinte forma: consumo de d�
 
 |Descrição do medidor | Região |Consumo de débito (RU/s) |Desconto de reserva aplicado às RU/s |
 |---------|---------|---------|---------|
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Centro-Norte  |   Centro Norte dos EUA  | 50 000  | 50 000  |
-|Azure Cosmos DB – 100 RU/s/Hora – EUA Oeste  |  Oeste dos EUA   |  50 000  |  50 000 |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Centro-Norte  |   E.U.A Centro-Norte  | 50 000  | 50 000  |
+|Azure Cosmos DB – 100 RU/s/Hora – EUA Oeste  |  E.U.A. Oeste   |  50 000  |  50 000 |
 
 **Cenário 2**
 

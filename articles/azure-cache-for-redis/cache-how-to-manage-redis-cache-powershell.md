@@ -92,8 +92,8 @@ ou
 
 Para criar um cache na nuvem do Azure na China, use um dos locais a seguir.
 
+* Leste da China
 * Norte da China
-* China Norte
 
 Para obter mais informações sobre a nuvem do Azure na China, consulte [AzureChinaCloud for Azure operado pela 21vianet na China](https://www.windowsazure.cn/).
 
@@ -109,8 +109,8 @@ ou
 
 Para criar um cache no Microsoft Azure Alemanha, use um dos seguintes locais.
 
+* Alemanha Central
 * Nordeste da Alemanha
-* Alemanha Nordeste
 
 Para obter mais informações sobre Microsoft Azure Alemanha, consulte [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/).
 

@@ -38,7 +38,7 @@ ms.locfileid: "75774643"
     * Escolha sua **assinatura**do Azure.
     * Para o **grupo de recursos**, você pode escolher um grupo de recursos existente na lista suspensa ou criar um novo grupo clicando em **criar novo**. Criaremos um novo grupo de recursos para este exemplo.
     * **Nome** corresponde ao nome do recurso e pode ser qualquer coisa que você escolher.
-    * A **região** será selecionada automaticamente se você escolher um grupo de recursos existente na etapa anterior. Se você optar por criar um novo grupo de recursos, também precisará escolher a região do Azure onde deseja que o recurso resida. Este dos E.U.A.
+    * A **região** será selecionada automaticamente se você escolher um grupo de recursos existente na etapa anterior. Se você optar por criar um novo grupo de recursos, também precisará escolher a região do Azure onde deseja que o recurso resida. E.U.A. Leste
 
         > [!NOTE]
         > A região onde o grupo de recursos reside é independente do local onde você deseja criar o emparelhamento com a Microsoft. Mas é uma prática recomendada organizar seus recursos de emparelhamento em grupos de recursos que residem nas regiões do Azure mais próximas. Por exemplo: para emparelhamentos no Ashburn, você pode criar um grupo de recursos no *leste dos EUA* ou no *leste dos EUA 2*

@@ -81,21 +81,21 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249      |
 | Leste do Canadá          | 40.86.226.166      |
-| Centro dos E.U.A.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
-| Norte da China           | 139.219.130.35     |
+| E.U.A. Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
+| Leste da China           | 139.219.130.35     |
 | Leste da China 2         | 40.73.82.1         |
-| China Norte          | 139.219.15.17      |
+| Norte da China          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
-| Este Asiático            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Este dos E.U.A.              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
-| Este dos E.U.A. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
+| Ásia Oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| E.U.A. Leste              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| E.U.A. Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | França Central       | 40.79.137.0, 40.79.129.1 |
-| Nordeste da Alemanha      | 51.4.144.100       |
+| Alemanha Central      | 51.4.144.100       |
 | Leste Norte da Alemanha   | 51.5.144.179       |
 | Índia Central        | 104.211.96.159     |
 | Índia do Sul          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Este do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Coreia do Sul Central        | 52.231.32.42       |
 | Sul da Coreia do Sul          | 52.231.200.86      |
@@ -111,7 +111,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Oeste do Reino Unido              | 51.141.8.11        |
 | E.U.A. Centro-Oeste      | 13.78.145.25       |
 | Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| Oeste dos E.U.A.              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| E.U.A. Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | E.U.A. Oeste 2            | 13.66.226.202      |
 |                      |                    |
 

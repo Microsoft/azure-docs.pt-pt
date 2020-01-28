@@ -75,8 +75,8 @@ A tabela a seguir mostra um exemplo de como definir seu VNets. Use os intervalos
 
 | Rede Virtual | Espaço de Endereços | Região | Conecta-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este dos E.U.A. |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos E.U.A. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |E.U.A. Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |E.U.A. Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="vnetvalues"></a>Etapa 2 – criar as redes virtuais
 
@@ -137,8 +137,8 @@ O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo sã
 
 | Rede Virtual | Espaço de Endereços | Região | Conecta-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este dos E.U.A. |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos E.U.A. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |E.U.A. Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |E.U.A. Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Localize TestVNet1 no portal do Azure. Na seção **conexões VPN** da página, clique em **Gateway**.
 
