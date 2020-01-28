@@ -1,7 +1,7 @@
 ---
 title: Personalizar navegadores & webviews (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como personalizar a experiência do navegador MSAL iOS/macOS para conectar usuários.
+description: Saiba como personalizar a experiência do navegador MSAL iOS/macOS para iniciar sessão nos utilizadores.
 services: active-directory
 author: tylermsft
 manager: CelesteDG
@@ -13,17 +13,16 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f409ff519c699ed712ec05213979d9c3308d4197
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fad3a90bd11104b4d770ddc1c527cba7d299d150
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424574"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697630"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Como: Personalizar navegadores e webviews para iOS/macOS
 
-Um navegador da Web é necessário para a autenticação interativa. No iOS, a MSAL (biblioteca de autenticação da Microsoft) usa o navegador da Web do sistema por padrão (que pode aparecer na parte superior do seu aplicativo) para fazer a autenticação interativa para conectar usuários. Usar o navegador do sistema tem a vantagem de compartilhar o estado de logon único (SSO) com outros aplicativos e com aplicativos Web.
+Um navegador da Web é necessário para a autenticação interativa. No iOS, a MSAL (biblioteca de autenticação da Microsoft) usa o navegador da Web do sistema por padrão (que pode aparecer na parte superior do seu aplicativo) para fazer a autenticação interativa para conectar usuários. A utilização do navegador do sistema tem a vantagem de partilhar o estado Single Sign On (SSO) com outras aplicações e com aplicações web.
 
 Você pode alterar a experiência Personalizando a configuração para outras opções de exibição de conteúdo da Web, como:
 

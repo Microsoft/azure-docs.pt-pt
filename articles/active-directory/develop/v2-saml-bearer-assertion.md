@@ -1,6 +1,6 @@
 ---
-title: Plataforma de identidade da Microsoft & fluxo de declaração de portador SAML | Azure
-description: Saiba como buscar dados de Microsoft Graph sem solicitar credenciais ao usuário usando o fluxo de declaração de portador SAML.
+title: Plataforma de identidade da Microsoft e fluxo de afirmação do portador da SAML / Azure
+description: Aprenda a recolher dados do Microsoft Graph sem pedir ao utilizador credenciais utilizando o fluxo de afirmação do portador SAML.
 services: active-directory
 documentationcenter: ''
 author: umeshbarapatre
@@ -17,84 +17,83 @@ ms.date: 08/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f5b983a00dfc0af2e7a40571ce58fafca5914e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964624"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700214"
 ---
-# <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML 2,0 do OAuth
-O fluxo de asserção do portador SAML 2,0 do OAuth permite solicitar um token de acesso OAuth usando uma Asserção SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma Asserção SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende de seu conteúdo para identificar o assunto da declaração para fins relacionados à segurança.
+# <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de afirmação do portador OAuth 2.0 SAML
+O fluxo de afirmação do portador OAuth 2.0 SAML permite-lhe solicitar um sinal de acesso OAuth usando uma afirmação SAML quando um cliente precisa de usar uma relação de confiança existente. A assinatura aplicada à afirmação saml fornece a autenticação da aplicação autorizada. Uma afirmação SAML é um símbolo de segurança XML emitido por um fornecedor de identidade e consumido por um prestador de serviços. O prestador de serviços baseia-se no seu conteúdo para identificar o sujeito da afirmação para fins relacionados com a segurança.
 
-A Asserção SAML é postada no ponto de extremidade do token OAuth.  O ponto de extremidade processa a asserção e emite um token de acesso com base na aprovação anterior do aplicativo. O cliente não precisa ter ou armazenar um token de atualização, nem o segredo do cliente deve ser passado para o ponto de extremidade do token.
+A afirmação saml é publicada no ponto final do símbolo OAuth.  O ponto final processa a afirmação e emite um token de acesso com base na aprovação prévia da app. O cliente não é obrigado a ter ou armazenar um token de atualização, nem o segredo do cliente é necessário para ser passado para o ponto final simbólico.
 
-O fluxo de declaração de portador SAML é útil ao buscar dados de APIs Microsoft Graph (que só dão suporte a permissões delegadas) sem solicitar credenciais ao usuário. Nesse cenário, a concessão de credenciais de cliente, que é preferida para processos em segundo plano, não funciona.
+O fluxo de afirmação do portador do SAML é útil ao recolher dados de APIs do Microsoft Graph (que apenas suportam permissões delegadas) sem solicitar credenciais ao utilizador. Neste cenário, a concessão de credenciais de cliente, que é preferida para processos de fundo, não funciona.
 
-Para aplicativos que fazem logon interativo baseado em navegador para obter uma Asserção SAML e, em seguida, deseja adicionar acesso a uma API protegida por OAuth (como Microsoft Graph), você pode fazer uma solicitação OAuth para obter um token de acesso para a API. Quando o navegador é redirecionado para o Azure AD para autenticar o usuário, o navegador pega a sessão da entrada SAML e o usuário não precisa inserir suas credenciais.
+Para aplicações que fazem sessão interativa baseada no navegador para obter uma afirmação SAML e, em seguida, querer adicionar acesso a uma API protegida OAuth (como o Microsoft Graph), você pode fazer um pedido de OAuth para obter um sinal de acesso para a API. Quando o navegador for redirecionado para a AD Azure para autenticar o utilizador, o navegador irá recolher a sessão a partir do sessão saml e o utilizador não precisa de introduzir as suas credenciais.
 
-O fluxo de declaração de portador SAML do OAuth também tem suporte para usuários que se autenticam com provedores de identidade, como Serviços de Federação do Active Directory (AD FS) (ADFS) federados para Azure Active Directory.  A Asserção SAML obtida do ADFS pode ser usada em um fluxo OAuth para autenticar o usuário.
+O fluxo de afirmação do portador Da OAuth SAML também é suportado para utilizadores autenticando com fornecedores de identidade, tais como Serviços da Federação de Diretório Ativo (ADFS) federados para o Diretório Ativo Azure.  A afirmação SAML obtida a partir da ADFS pode ser utilizada num fluxo OAuth para autenticar o utilizador.
 
-![Fluxo do OAuth](./media/v2-saml-bearer-assertion/1.png)
+![Fluxo oAuth](./media/v2-saml-bearer-assertion/1.png)
 
-## <a name="call-graph-using-saml-bearer-assertion"></a>Grafo de chamada usando a asserção de portador SAML
-Agora vamos entender como podemos realmente buscar a Asserção SAML de forma programática. Essa abordagem é testada com o ADFS. No entanto, isso funciona com qualquer provedor de identidade que dá suporte ao retorno da declaração SAML programaticamente. O processo básico é: obter uma Asserção SAML, obter um token de acesso e acessar Microsoft Graph.
+## <a name="call-graph-using-saml-bearer-assertion"></a>Gráfico de chamada usando a afirmação do portador SAML
+Agora, vamos compreender como podemos realmente obter a afirmação da SAML programaticamente. Esta abordagem é testada com ADFS. No entanto, isto funciona com qualquer fornecedor de identidade que apoie a devolução da afirmação da SAML programaticamente. O processo básico é: obtenha uma afirmação SAML, obtenha um sinal de acesso e aceda ao Microsoft Graph.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Estabeleça uma relação de confiança entre o servidor de autorização/ambiente (Microsoft 365) e o provedor de identidade ou o emissor da declaração de portador (ADFS) SAML 2,0. Para configurar o ADFS para logon único e como um provedor de identidade, você pode consultar [Este artigo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
+Estabelecer uma relação de confiança entre o servidor/ambiente de autorização (Microsoft 365) e o fornecedor de identidade, ou emitente da afirmação do portador SAML 2.0 (ADFS). Para configurar a ADFS para um único sign-on e como fornecedor de identidade, pode consultar [este artigo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
 
-Registre o aplicativo no [portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
-1. Entre na [folha de registro do aplicativo do portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Observe que estamos usando os pontos de extremidade v 2.0 para API do Graph e, portanto, precisamos registrar o aplicativo neste portal. Caso contrário, poderíamos ter usado os registros no Azure Active Directory). 
+Registe a aplicação no [portal:](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+1. Inscreva-se na [lâmina de registo da aplicação do portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (por favor, note que estamos a utilizar os pontos finais v2.0 para a API graph e, portanto, precisamos de registar a aplicação neste portal. Caso contrário, poderíamos ter usado as inscrições no diretório ativo azure). 
 1. Selecione **novo registro**.
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação: 
     1. **Nome** - Introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação.
     1. **Tipos de conta suportados** - Selecione as contas que quer que a sua aplicação suporte.
-    1. **URI de redirecionamento (opcional)** – selecione o tipo de aplicativo que você está criando, Web ou cliente público (Mobile & Desktop) e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para seu aplicativo.
+    1. **Redirecione o URI (opcional)** - Selecione o tipo de aplicação que está a construir, Web ou cliente público (mobile & desktop) e, em seguida, introduza o URI redirecionamento (ou URL de resposta) para a sua aplicação.
     1. Quando terminar, selecione **Registar**.
-1. Anote a ID do aplicativo (cliente).
-1. No painel esquerdo, selecione **certificados & segredos**. Clique em **novo segredo do cliente** na seção **segredos do cliente** . Copie o novo segredo do cliente, você não poderá recuperar quando sair da folha.
-1. No painel esquerdo, selecione **permissões de API** e, em seguida, **adicione uma permissão**. Selecione **Microsoft Graph**, **permissões delegadas**e, em seguida, selecione **tarefas. ler** , pois pretendemos usar o API do Graph do Outlook. 
+1. Tome nota da identificação da aplicação (cliente).
+1. No painel esquerdo, selecione **Certificados e segredos.** Clique em **novo segredo** de cliente na secção de segredos do **Cliente.** Copie o novo segredo do cliente, não poderá recuperar quando deixar a lâmina.
+1. No painel esquerdo, selecione **permissões API** e, em seguida, **adicione uma permissão**. Selecione **Microsoft Graph**, em seguida, **permissões delegadas**, e, em seguida, selecione **Tasks.read** já que pretendemos usar o Outlook Graph API. 
 
-Instale o [postmaster](https://www.getpostman.com/), uma ferramenta necessária para testar as solicitações de exemplo.  Posteriormente, você pode converter as solicitações em código.
+Instale o [Carteiro,](https://www.getpostman.com/)uma ferramenta necessária para testar os pedidos da amostra.  Mais tarde, pode converter os pedidos em código.
 
-### <a name="get-the-saml-assertion-from-adfs"></a>Obter a Asserção SAML do ADFS
-Crie uma solicitação POST para o ponto de extremidade do ADFS usando o envelope SOAP para buscar a Asserção SAML:
+### <a name="get-the-saml-assertion-from-adfs"></a>Obtenha a afirmação SAML da ADFS
+Crie um pedido post para o ponto final da ADFS usando o envelope SOAP para obter a afirmação SAML:
 
-![Obter Asserção SAML](./media/v2-saml-bearer-assertion/2.png)
+![Obtenha afirmação saml](./media/v2-saml-bearer-assertion/2.png)
 
 Valores de cabeçalho:
 
-![Valores de cabeçalho](./media/v2-saml-bearer-assertion/3.png)
+![Valores cabeçalho](./media/v2-saml-bearer-assertion/3.png)
 
-Corpo da solicitação do ADFS:
+Organismo de pedido da ADFS:
 
-![Corpo da solicitação do ADFS](./media/v2-saml-bearer-assertion/4.png)
+![Corpo de pedido da ADFS](./media/v2-saml-bearer-assertion/4.png)
 
-Depois que essa solicitação for lançada com êxito, você deverá receber uma Asserção SAML do ADFS. Somente os dados **SAML: Assertion** tag são necessários, converta-os na codificação Base64 para usar em solicitações posteriores.
+Uma vez publicado este pedido com sucesso, deverá receber uma afirmação SAML da ADFS. Apenas são necessários os dados da etiqueta **SAML:Afirmação,** convertê-lo em codificação base64 para utilizar em outros pedidos.
 
-### <a name="get-the-oauth2-token-using-the-saml-assertion"></a>Obter o token OAuth2 usando a Asserção SAML 
-Nesta etapa, busque um token OAuth2 usando a resposta de asserção do ADFS.
+### <a name="get-the-oauth2-token-using-the-saml-assertion"></a>Obtenha o símbolo OAuth2 usando a afirmação SAML 
+Neste passo, pegue um token OAuth2 usando a resposta de afirmação ADFS.
 
-1. Crie uma solicitação POST, conforme mostrado abaixo, com os valores de cabeçalho:
+1. Crie um pedido POST como mostrado abaixo com os valores cabeçalho:
 
-    ![Solicitação POST](./media/v2-saml-bearer-assertion/5.png)
-1. No corpo da solicitação, substitua **client_id**, **client_secret**e **asserção** (a declaração SAML codificada em base64 obteve a etapa anterior):
+    ![Pedido de correio](./media/v2-saml-bearer-assertion/5.png)
+1. No organismo do pedido, substitua **client_id**, **client_secret**, e **afirmação** (a afirmação SAML codificada base64 obteve o passo anterior):
 
     ![Corpo do pedido](./media/v2-saml-bearer-assertion/6.png)
-1. Após a solicitação bem-sucedida, você receberá um token de acesso do Azure Active Directory.
+1. Após pedido bem sucedido, receberá um sinal de acesso do diretório ativo azure.
 
-### <a name="get-the-data-with-the-oauth-token"></a>Obter os dados com o token OAuth
+### <a name="get-the-data-with-the-oauth-token"></a>Obtenha os dados com o símbolo oauth
 
-Depois de receber o token de acesso, chame as APIs do Graph (tarefas do Outlook neste exemplo). 
+Depois de receber o sinal de acesso, ligue para as APIs do Gráfico (tarefas outlook neste exemplo). 
 
-1. Crie uma solicitação GET com o token de acesso buscado na etapa anterior:
+1. Crie um pedido GET com o token de acesso recolhido no passo anterior:
 
-    ![OBTER solicitação](./media/v2-saml-bearer-assertion/7.png)
+    ![Pedido get](./media/v2-saml-bearer-assertion/7.png)
 
-1. Após a solicitação bem-sucedida, você receberá uma resposta JSON.
+1. Após pedido bem sucedido, receberá uma resposta JSON.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os diferentes [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md).
+Conheça os diferentes fluxos de [autenticação e cenários de aplicação.](authentication-flows-app-scenarios.md)

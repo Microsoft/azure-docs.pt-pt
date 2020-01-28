@@ -1,103 +1,103 @@
 ---
-title: Migrar os seus alertas Clássicos no Azure Monitor utilizando a ferramenta de migração voluntária
-description: Saiba como utilizar a ferramenta de migração voluntária para migrar as regras do alerta clássicas.
-author: snehithm
+title: Emigra os seus alertas clássicos no Monitor Azure utilizando a ferramenta de migração voluntária
+description: Aprenda a usar a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta.
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295549"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705586"
 ---
-# <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utilize a ferramenta de migração voluntária para migrar as regras do alerta clássicas
+# <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta
 
-Como [anunciado anteriormente](monitoring-classic-retirement.md), alertas Clássicos no Azure Monitor estão a ser descontinuadas em Setembro de 2019 (foi originalmente de 2019 de Julho). Uma ferramenta de migração está disponível no portal do Azure para os clientes que utilizam regras de alerta clássicas e que desejam acionar a migração propriamente ditas. Este artigo explica como utilizar a ferramenta de migração para migrar voluntariamente as regras do alerta clássicas antes da migração automática é iniciado em Setembro de 2019.
+Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal do Azure aos clientes que usam regras de alerta clássicas e que desejam disparar a migração por conta própria. Este artigo explica como usar a ferramenta de migração para migrar voluntariamente as suas regras clássicas de alerta antes do início da migração automática em setembro de 2019.
 
 > [!NOTE]
-> Devido a atraso no faseada da ferramenta de migração, tem sido a data de retirada para a migração de alertas clássicos [estendido para 31 de Agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) a contar da data originalmente anunciado de 30 de Junho de 2019.
+> Devido ao atraso na distribuição da ferramenta de migração, a data de desativação da migração de alertas clássicos foi [prorrogada para 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) da data de lançamento original de 30 de junho de 2019.
 
-## <a name="benefits-of-new-alerts"></a>Benefícios dos novos alertas
+## <a name="benefits-of-new-alerts"></a>Benefícios de novos alertas
 
-Alertas clássicos estão a ser substituídas pela nova e unificada alertas no Azure Monitor. A nova plataforma de alertas tem as seguintes vantagens:
+Os alertas clássicos estão a ser substituídos por novos alertas unificados no Monitor Azure. A nova plataforma de alertas tem os seguintes benefícios:
 
-- Pode alertar sobre uma variedade de métricas multidimensionais para o [muitos serviços do Azure mais](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- A métrica de novos alertas de suporte [regras de alerta de vários recursos](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) que reduzir significativamente a sobrecarga de gerenciamento de muitas regras.
-- O mecanismo de notificação unificada, que suporta:
-  - [Grupos de ação](action-groups.md), um mecanismo de notificação modular que funciona com todos os tipos de alerta novo (métrica, registo e o registo de atividades).
-  - Novos mecanismos de notificação, como SMS, voz e conector ITSM.
-- O [alerta experiência unificada](alerts-overview.md) coloca todos os alertas em diferentes sinais (métrica, registo e o registo de atividades) num único local.
+- Você pode alertar sobre uma variedade de métricas multidimensionais para [muitos mais serviços Azure](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+- Os novos alertas métricos suportam [regras de alerta de vários recursos](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) que reduzem consideravelmente a sobrecarga de gestão de muitas regras.
+- O mecanismo de notificação unificado, que apoia:
+  - [Grupos de ação](action-groups.md), um mecanismo modular de notificação que funciona com todos os novos tipos de alerta (registo métrico, diário e de atividade).
+  - Novos mecanismos de notificação como SMS, voz e Conector ITSM.
+- A [experiência de alerta unificada](alerts-overview.md) traz todos os alertas em diferentes sinais (registo métrico, diário e registo de atividade) para um único local.
 
 ## <a name="before-you-migrate"></a>Antes de migrar
 
-O processo de migração converte as regras de alerta clássicas para regras de alerta novos, equivalentes e cria grupos de ação. Durante a preparação, tenha em atenção os seguintes pontos:
+O processo de migração converte regras clássicas de alerta para novas regras de alerta equivalentes e cria grupos de ação. Em preparação, esteja atento aos seguintes pontos:
 
-- O formato do payload de notificação e as APIs para criar e gerir novas regras de alerta são diferentes das regras de alerta clássicas porque eles oferecem suporte a mais recursos. [Saiba como preparar a migração](alerts-prepare-migration.md).
+- Tanto o formato de carga de notificação como as APIs para criar e gerir novas regras de alerta são diferentes dos das regras clássicas de alerta porque suportam mais funcionalidades. [Aprenda a preparar-se para a migração.](alerts-prepare-migration.md)
 
-- Não não possível migrar algumas regras de alerta clássicas com a ferramenta. [Saiba quais regras não podem ser migradas e o que fazer com eles](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
-
-    > [!NOTE]
-    > O processo de migração não afetarão a avaliação de suas regras de alerta clássicas. Este irá continuar a executar e enviar alertas até serem migradas e as novas regras de alerta entram em vigor.
-
-## <a name="how-to-use-the-migration-tool"></a>Como utilizar a ferramenta de migração
-
-Para acionar a migração de suas regras de alerta clássicas no portal do Azure, siga estes passos:
-
-1. Na [portal do Azure](https://portal.azure.com), selecione **Monitor**.
-
-1. Selecione **alertas**e, em seguida, selecione **gerir regras de alerta** ou **ver alertas clássicos**.
-
-1. Selecione **migre para novas regras** para ir para a página de destino de migração. Esta página mostra uma lista de todas as suas subscrições e o respetivo estado de migração:
-
-    ![destino de migração](media/alerts-migration/migration-landing.png "migrar regras")
-
-    Todas as subscrições que podem ser migradas através da ferramenta são marcadas como **pronto para migrar**.
+- Algumas regras clássicas de alerta não podem ser migradas utilizando a ferramenta. [Saiba quais as regras que não podem ser migradas e o que fazer com elas.](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)
 
     > [!NOTE]
-    > A ferramenta de migração está a implementar em fases para todas as subscrições que utilizam regras de alerta clássicas. Nas fases iniciais da implementação do, poderá ver algumas subscrições marcadas como não está pronto para migração.
+    > O processo de migração não terá impacto na avaliação das suas regras clássicas de alerta. Continuarão a correr e a enviar alertas até que sejam migrados e as novas regras de alerta entrem em vigor.
 
-1. Selecione uma ou mais subscrições e, em seguida, selecione **pré-visualização migração**.
+## <a name="how-to-use-the-migration-tool"></a>Como usar a ferramenta de migração
 
-    A página resultante mostra os detalhes de regras de alerta clássicos que serão migrados para uma subscrição ao mesmo tempo. Também pode selecionar **transferir os detalhes de migração para esta subscrição** para obter os detalhes num formato CSV.
+Para desencadear a migração das suas regras clássicas de alerta no portal Azure, siga estes passos:
 
-    ![pré-visualização de migração](media/alerts-migration/migration-preview.png "pré-visualização migração")
+1. No [portal Azure,](https://portal.azure.com)selecione **Monitor**.
 
-1. Especifique um ou mais endereços de e-mail para receber notificações de estado de migração. Irá receber um e-mail quando a migração estiver concluída, ou se é necessária qualquer ação do utilizador.
+1. Selecione **Alertas,** e, em seguida, **selecione Gerir regras** de alerta ou ver **alertas clássicos**.
 
-1. Selecione **iniciar migração**. Ler as informações mostradas na caixa de diálogo de confirmação e confirme que está pronto para iniciar o processo de migração.
+1. **Selecione Migrar para novas regras** para ir para a página de aterragem da migração. Esta página mostra uma lista de todas as suas subscrições e o seu estado de migração:
+
+    ![migração-desembarque](media/alerts-migration/migration-landing.png "Regras de migração")
+
+    Todas as subscrições que podem ser migradas utilizando a ferramenta estão marcadas como **Prontas a migrar**.
+
+    > [!NOTE]
+    > A ferramenta de migração está a desenrolar-se por fases para todas as subscrições que usam regras clássicas de alerta. Nas primeiras fases do lançamento, poderá ver algumas subscrições marcadas como não prontas para a migração.
+
+1. Selecione uma ou mais subscrições e, em seguida, selecione **a migração de pré-visualização**.
+
+    A página resultante mostra os detalhes das regras clássicas de alerta que serão migradas para uma subscrição de cada vez. Também pode selecionar **Descarregue os detalhes da migração para esta subscrição** para obter os detalhes num formato CSV.
+
+    ![migração-pré-visualização](media/alerts-migration/migration-preview.png "Pré-visualização migração")
+
+1. Especifique um ou mais endereços de e-mail a notificar do estado de migração. Receberá e-mail quando a migração estiver completa ou se for necessária alguma ação por si.
+
+1. Selecione **Iniciar migração**. Leia as informações mostradas na caixa de diálogo de confirmação e confirme que está pronto para iniciar o processo de migração.
 
     > [!IMPORTANT]
-    > Depois de iniciar a migração para uma subscrição, não será possível editar ou criar regras de alerta clássicas para essa subscrição. Esta restrição garante que nenhuma alteração para as regras do alerta clássicas é perdida durante a migração para as novas regras. Embora não será possível alterar as regras do alerta clássicas, eles ainda irá continuar para executar e para fornecer alertas até terem sido migrados. Após a migração estar concluída para a sua subscrição, não pode mais usar regras de alerta clássicas.
+    > Depois de iniciar a migração para uma subscrição, não poderá editar ou criar regras clássicas de alerta para essa subscrição. Esta restrição garante que não se perdem alterações às suas regras clássicas de alerta durante a migração para as novas regras. Embora não consigas alterar as tuas regras clássicas de alerta, eles continuarão a correr e a prestar alertas até serem migrados. Depois da migração estar completa para a sua subscrição, já não pode utilizar regras clássicas de alerta.
 
-    ![confirmar a migração](media/alerts-migration/migration-confirm.png "confirmar iniciar migração")
+    ![migração-confirmar](media/alerts-migration/migration-confirm.png "Confirmar a migração inicial")
 
-1. Quando a migração estiver concluída, ou se é necessária qualquer ação, receberá um e-mail para os endereços que indicou anteriormente. Também periodicamente pode verificar o estado em que a página de destino de migração no portal.
+1. Quando a migração estiver concluída, ou se for necessária uma ação sua, receberá um e-mail nos endereços que forneceu anteriormente. Também pode verificar periodicamente o estado na página de aterragem da migração no portal.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Por que motivo a minha subscrição está listada como não pronto para a migração?
+### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Porque é que a minha subscrição não está pronta para a migração?
 
-A ferramenta de migração está a implementar para os clientes em fases. Nas fases iniciais, poderão ser marcadas como a maioria ou todas as subscrições **não está pronto para migração**. 
+A ferramenta de migração está a ser lançada para os clientes por fases. Nas fases iniciais, a maioria ou todas as suas subscrições podem estar marcadas como **Não prontas para a migração.** 
 
-Quando uma assinatura fica pronta para a migração, o proprietário da subscrição irá receber uma mensagem de e-mail a indicar que a ferramenta está disponível. Fique atento para esta mensagem.
+Quando uma subscrição estiver pronta para a migração, o proprietário da subscrição receberá uma mensagem de e-mail indicando que a ferramenta está disponível. Fique de olho nesta mensagem.
 
-### <a name="who-can-trigger-the-migration"></a>Quem pode acionar a migração?
+### <a name="who-can-trigger-the-migration"></a>Quem pode disparar a migração?
 
-Os utilizadores que têm a função de Contribuidor de monitorização atribuída ao nível da subscrição são capazes de acionar a migração. [Saiba mais sobre o controlo de acesso baseado em funções para o processo de migração](alerts-understand-migration.md#who-can-trigger-the-migration).
+Os utilizadores que tenham a função de Colaborador Monitorado atribuída a eles ao nível da subscrição são capazes de desencadear a migração. [Saiba mais sobre o Controlo de Acesso baseado em Papéis para o processo de migração.](alerts-understand-migration.md#who-can-trigger-the-migration)
 
 ### <a name="how-long-will-the-migration-take"></a>Quanto tempo demorará a migração?
 
-Concluir a migração para a maioria das subscrições em menos de uma hora. Pode manter o controle do progresso da migração sobre a página de destino de migração. Durante a migração, ter a garantia de que os alertas são ainda em execução no sistema de alertas clássicos ou no novo.
+A migração está concluída para a maioria das subscrições em menos de uma hora. Pode acompanhar o progresso da migração na página de aterragem da migração. Durante a migração, certifique-se de que os seus alertas ainda estão em execução no sistema de alertas clássicos ou no novo.
 
-### <a name="what-can-i-do-if-i-run-into-a-problem-during-migration"></a>O que posso fazer se eu executar um problema durante a migração?
+### <a name="what-can-i-do-if-i-run-into-a-problem-during-migration"></a>O que posso fazer se encontrar um problema durante a migração?
 
-Consulte a [guia de resolução de problemas](alerts-understand-migration.md#common-problems-and-remedies) para obter ajuda com problemas que poderá enfrentará durante a migração. Se é necessária qualquer ação do utilizador para concluir a migração, será notificado com os endereços de e-mail que indicou quando configurar a ferramenta.
+Consulte o guia de resolução de [problemas](alerts-understand-migration.md#common-problems-and-remedies) para obter ajuda com problemas que poderá enfrentar durante a migração. Se for necessária alguma ação sua para completar a migração, será notificado nos endereços de e-mail que forneceu quando configurar a ferramenta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Preparar para a migração](alerts-prepare-migration.md)
 - [Compreender como funciona a ferramenta de migração](alerts-understand-migration.md)

@@ -178,6 +178,10 @@
           items:
             - name: Cópia de segurança
               href: backup-azure-afs-automation.md
+            - name: Restauro
+              href: restore-afs-powershell.md
+            - name: Gerir
+              href: manage-afs-powershell.md
     - name: Cópia de segurança da base de dados do SAP HANA na VM do Azure
       items:
         - name: Descrição geral

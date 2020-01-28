@@ -1,6 +1,6 @@
 ---
 title: Glossário de termos
-description: Glossário de termos do banco de dados SQL do Azure
+description: Glossário de termos da Base de Dados Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,45 +10,29 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 04/26/2019
-ms.openlocfilehash: 86da4ecab387da80954c2267ddeabe32a723474c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/22/2020
+ms.openlocfilehash: 733901d38703e02ab7dbe811b0f80a1dfedf03d5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802727"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705790"
 ---
-# <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do banco de dados SQL do Azure
+# <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos da Base de Dados Azure SQL
 
-|Contexto|Termo|Mais informações|
+|Contexto|Duração|Mais informações|
 |:---|:---|:---|
-|Nome do serviço do Azure|Banco de dados SQL do Azure ou banco de dados SQL|[O serviço do banco de dados SQL do Azure](sql-database-technical-overview.md)|
-|Camada de computação|Sem servidor |[Camada de computação sem servidor](sql-database-serverless.md)
-||Aprovisionada|[Camada de computação sem servidor](sql-database-serverless.md)
-|Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
+|Serviço do Azure|Base de Dados Azure SQL ou Base de Dados SQL|[O serviço de base de dados Azure SQL](sql-database-technical-overview.md)|
+|Modelo de compra|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
+||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
+|Opção de implementação |Base de dados única|[Bases de dados individuais](sql-database-single-database.md)|
 ||Conjunto elástico|[Pool elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerenciada](sql-database-managed-instance.md)|
-|Objetos de servidor|Servidor de banco de dados SQL ou servidor de banco de dados|[Servidor de banco de dados](sql-database-servers.md)|
-||Servidor de instância gerenciada do banco de dados SQL, servidor de instância gerenciada ou servidor de instância|[Instância gerenciada](sql-database-managed-instance.md)|
-Objetos de banco de dados|Base de dados SQL do Azure|Qualquer banco de dados no banco de dados SQL do Azure|
-||Base de dados individual|Um banco de dados criado usando a opção de implantação de banco de dados único|
-||Banco de dados em pool|Um banco de dados criado dentro ou movido para um pool elástico|
-||Banco de dados de instância|Um banco de dados criado em uma instância gerenciada|
-||Banco de dados básico|Um banco de dados criado dentro ou movido para a camada de serviço básica do modelo de compra baseado em DTU|
-||Banco de dados padrão|Um banco de dados criado dentro ou movido para a camada de serviço standard do modelo de compra baseado em DTU|
-||Banco de dados Premium|Um banco de dados criado dentro ou movido para a camada de serviço Premium do modelo de compra baseado em DTU|
-||Banco de dados de uso geral|Um banco de dados criado dentro ou movido para a camada de serviço de uso geral do modelo de compra baseado em vCore|
-||Banco de dados de hiperescala|Um banco de dados criado dentro ou movido para a camada de serviço de hiperescala do modelo de compra baseado em vCore|
-||Banco de dados comercialmente crítico|Um banco de dados criado dentro ou movido para a camada de serviço comercialmente crítica do modelo de compra baseado em vCore|
-||Banco de dados provisionado|Um banco de dados configurado na camada de computação provisionada|
-|[Comprar modelos e recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
-||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
-||vCore|Um núcleo fornecido ao sistema operacional convidado pelo hipervisor.|
-||Camada de serviços|Um nível de serviço em um modelo de compra|
-||Tamanho da computação|A quantidade de recursos de computação para um único banco de dados, pool elástico ou instância gerenciada dentro de uma camada de serviço|
-||Quantidade de armazenamento|A quantidade de armazenamento disponível para um único banco de dados, pool elástico ou instância gerenciada|
-||Geração de computação|A geração do processador dentro de uma camada de serviço|
-|Regras de firewall de IP do servidor da base de dados|Regras de firewall de IP|[Regras de firewall de IP](sql-database-firewall-configure.md)|
-||Regras de firewall de IP ao nível do servidor|[Regras de firewall de IP no nível de servidor](sql-database-firewall-configure.md)|
-|| Regras de firewall de IP no nível de banco de dados|[Regras de firewall de IP no nível de banco de dados](sql-database-firewall-configure.md)|
-||Pontos de extremidade de rede virtual e regras|[Pontos finais e regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)|
+|Escalão de serviço|Básico, Standard, Premium, Propósito Geral, Hiperescala, Business Critical|Para os níveis de serviço no modelo vCore, consulte [uma única base de dados e uma piscina elástica](sql-database-service-tiers-vcore.md#service-tiers) e instância [gerida](sql-database-managed-instance.md#managed-instance-service-tiers). Para os níveis de serviço no modelo DTU, consulte o [modelo DTU](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Camada de computação|Computação sem servidor|[Computação sem servidor](sql-database-service-tiers-vcore.md#compute-tiers)
+||Computação aprovisionada|[Computação provisionada](sql-database-service-tiers-vcore.md#compute-tiers)
+|Geração de computação|Gen5, série M, série Fsv2|[Gerações de hardware](sql-database-service-tiers-vcore.md#hardware-generations)
+|Entidade do servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de banco de dados](sql-database-servers.md)|
+||SQL Base de Dados gerido servidor de instância, servidor de instância gerido ou servidor de instância|[Instância gerenciada](sql-database-managed-instance.md)|
+|Tipo de recurso|vCore|Um núcleo cpu fornecido ao recurso computacional para uma única base de dados, piscina elástica ou instância gerida.|
+||Tamanho da computação e valor de armazenamento|O tamanho do cálculo é a quantidade máxima de CPU, memória e outros recursos não relacionados com o armazenamento disponíveis para uma única base de dados, piscina elástica ou instância gerida.  O tamanho do armazenamento é a quantidade máxima de armazenamento disponível para uma única base de dados, piscina elástica ou instância gerida.  Para opções de dimensionamento no modelo vcore, consulte bases de [dados únicas vCore,](sql-database-vcore-resource-limits-single-databases.md) [piscinas elásticas vCore](sql-database-vcore-resource-limits-elastic-pools.md) e [instâncias geridas](sql-database-managed-instance-resource-limits.md).  Para opções de dimensionamento no modelo DTU, consulte bases de [dados individuais dTU](sql-database-dtu-resource-limits-single-databases.md) e [piscinas elásticas DTU](sql-database-dtu-resource-limits-elastic-pools.md).

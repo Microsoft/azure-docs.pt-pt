@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Azure AD em projetos do Visual Studio WebApi
-description: Como começar a usar o Azure Active Directory em projetos WebApi depois de se conectar ou criar um AD do Azure usando os serviços conectados do Visual Studio
+title: Começar com azure AD em projetos WebApi do Estúdio Visual
+description: Como começar a usar o Diretório Ativo Azure em projetos WebApi após ligar ou criar um Anúncio Azure usando serviços conectados do Estúdio Visual
 author: ghogen
 manager: jillfra
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
@@ -11,29 +11,28 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225940052e1f40f8050059532e4657df2b5410a3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e2216d1f489acea27bbc788c6ded21c6d9835915
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851908"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699942"
 ---
-# <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introdução ao Azure Active Directory (projetos WebApi)
+# <a name="get-started-with-azure-active-directory-webapi-projects"></a>Começar com o Diretório Ativo Azure (projetos WebApi)
 
 > [!div class="op_single_selector"]
 > - [Introdução](vs-active-directory-webapi-getting-started.md)
 > - [O que aconteceu](vs-active-directory-webapi-what-happened.md)
 
-Este artigo fornece diretrizes adicionais depois que você adicionou Active Directory a um projeto ASP.NET WebAPI por meio do comando **project > Connected Services** do Visual Studio. Se você ainda não adicionou o serviço ao seu projeto, você pode fazer isso a qualquer momento.
+Este artigo fornece orientação adicional depois de ter adicionado O Diretório Ativo a um projeto ASP.NET WebAPI através do comando **do Project > Connected Services** do Visual Studio. Se ainda não adicionou o serviço ao seu projeto, pode fazê-lo a qualquer momento.
 
-Veja [o que aconteceu com meu projeto do WebAPI?](vs-active-directory-webapi-what-happened.md) para as alterações feitas ao seu projeto ao adicionar o serviço conectado.
+Veja [o que aconteceu ao meu projeto WebAPI?](vs-active-directory-webapi-what-happened.md)
 
-## <a name="requiring-authentication-to-access-controllers"></a>Exigindo autenticação para acessar controladores
+## <a name="requiring-authentication-to-access-controllers"></a>Exigindo autenticação para aceder aos controladores
 
-Todos os controladores em seu projeto foram adornados com `[Authorize]` o atributo. Esse atributo requer que o usuário seja autenticado antes de acessar as APIs definidas por esses controladores. Para permitir que o controlador seja acessado anonimamente, remova esse atributo do controlador. Se você quiser definir as permissões em um nível mais granular, aplique o atributo a cada método que requer autorização em vez de aplicá-lo à classe do controlador.
+Todos os controladores do seu projeto foram adornados com o atributo `[Authorize]`. Este atributo exige que o utilizador seja autenticado antes de aceder às APIs definidas por estes controladores. Para permitir que o controlador seja acedido de forma anónima, remova este atributo do controlador. Se pretender definir as permissões a um nível mais granular, aplique o atributo a cada método que requer autorização em vez de a aplicar à classe de controlador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
-- [Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)
+- [Cenários de autenticação para o Diretório Ativo do Azure](authentication-scenarios.md)
+- [Adicione o sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)

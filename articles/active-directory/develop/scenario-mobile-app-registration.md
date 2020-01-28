@@ -16,13 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0684b8002dad8e0cb29bb1b7afb6ac5a2bd4d685
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33510015f4f05661ad2ea041b1fd3da0e8bfb1ed
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423782"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702084"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicativo móvel que chama APIs Web-registro de aplicativo
 
@@ -53,16 +52,16 @@ Essa experiência permitirá que seu aplicativo obtenha SSO (logon único) por m
 
 Observe que há uma experiência de visualização no portal de registro de aplicativo para ajudá-lo a calcular o URI de resposta orientado para aplicativos iOS e Android:
 
-1. No registro do aplicativo, escolha **autenticação** e seleção **Experimente a nova experiência**
+1. No registo da aplicação escolha **Autenticação** e seleção **Experimente a nova experiência**
    ![imagem](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Selecione **Adicionar plataforma**
+2. **Selecione Adicionar** plataforma
    ![imagem](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. Quando houver suporte para a lista de plataformas, selecione **iOS**
-   ![imagem](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+3. Quando a lista de plataformas for suportada, selecione **
+   ** ![imagem](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Insira a ID do pacote conforme solicitado e, em seguida, pressione **registrar**
+4. Introduza o seu id de pacote conforme solicitado e, em seguida, prima **Registre**
    ![imagem](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. O URI de redirecionamento é calculado para você.
@@ -70,7 +69,7 @@ Observe que há uma experiência de visualização no portal de registro de apli
 
 Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. O formato recomendado é o seguinte:
 
-- ***Ios***: `msauth.<BUNDLE_ID>://auth` (por exemplo, "msauth. com. suaempresa. AppName://auth")
+- ***iOS***: `msauth.<BUNDLE_ID>://auth` (por exemplo"msauth.com.yourcompany.appName://auth")
 - ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - O hash de assinatura do Android pode ser gerado usando as chaves Release ou debug por meio do comando keytool.
 

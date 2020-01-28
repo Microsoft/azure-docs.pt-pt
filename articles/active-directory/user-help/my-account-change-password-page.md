@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3981c152ba836a01daca16cd486623a9a26d86f2
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: f92df704047e1d36e69e40ce5299b8d01e48e9eb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156238"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705178"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante da página Alterar senha
 

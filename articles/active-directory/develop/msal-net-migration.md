@@ -13,13 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa2bf2bb2e77f5e543b53b583ddeeacd46de243
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424180"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695352"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrando aplicativos para o MSAL.NET
 
@@ -42,7 +41,7 @@ Se você já estiver familiarizado com o ponto de extremidade do Azure AD para d
 
 No entanto, você ainda precisará usar o ADAL.NET se seu aplicativo precisar conectar usuários com versões anteriores do [serviços de Federação do Active Directory (AD FS) (ADFS)](/windows-server/identity/active-directory-federation-services). Para obter mais informações, consulte [suporte do ADFS](https://aka.ms/msal-net-adfs-support).
 
-A imagem a seguir resume algumas das diferenças entre ADAL.NET e MSAL.NET ![código lado a lado](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
+A imagem que se segue resume algumas das diferenças entre ADAL.NET e MSAL.NET ![código lado a lado](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
 
 ### <a name="nuget-packages-and-namespaces"></a>Pacotes e namespaces do NuGet
 
@@ -74,7 +73,7 @@ Para obter mais informações sobre as diferenças entre IUser e IAccount, consu
 
 #### <a name="interaction-required-exceptions"></a>Exceções necessárias de interação
 
-MSAL.NET tem exceções mais explícitas. Por exemplo, quando a autenticação silenciosa falha no ADAL, o procedimento é capturar a exceção e procurar o `user_interaction_required` código de erro:
+MSAL.NET tem exceções mais explícitas. Por exemplo, quando a autenticação silenciosa falha na ADAL, o procedimento é apanhar a exceção e procurar o código de erro `user_interaction_required`:
 
 ```csharp
 catch(AdalException exception)

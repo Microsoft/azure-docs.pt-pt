@@ -1,5 +1,5 @@
 ---
-title: Contas da plataforma de identidade da Microsoft & perfis de locatário no Android | Azure
+title: Contas da plataforma de identidade da Microsoft e perfis de inquilinos no Android / Azure
 description: Uma visão geral das contas da plataforma de identidade da Microsoft para Android
 services: active-directory
 author: shoatman
@@ -13,43 +13,42 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2a61176f43960d14cecf4db881b94b24ae580bc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0f0f3be1647c820591923a094ef7fce86ab9672
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963890"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699449"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
 
 Este artigo fornece uma visão geral do que é um `account` na plataforma de identidade da Microsoft.
 
-A API da MSAL (biblioteca de autenticação da Microsoft) substitui o termo *usuário* pela *conta*do termo. Um dos motivos é que um usuário (agente humano ou de software) pode ter ou pode usar várias contas. Essas contas podem estar na própria organização do usuário e/ou em outras organizações das quais o usuário é membro.
+A Microsoft Authentication Library (MSAL) API substitui o *utilizador* termo pela *conta*de termo . Uma das razões é que um utilizador (agente humano ou de software) pode ter, ou pode usar, várias contas. Estas contas podem estar na própria organização do utilizador e/ou noutras organizações de que o utilizador é membro.
 
-Uma conta na plataforma Microsoft Identity consiste em:
+Uma conta na plataforma de identidade da Microsoft consiste em:
 
-- Um identificador exclusivo.  
-- Uma ou mais credenciais usadas para demonstrar a propriedade/o controle da conta.
-- Um ou mais perfis que consistem em atributos como:
-  - Imagem, nome fornecido, nome da família, título, localização do escritório
-- Uma conta tem uma fonte de autoridade ou sistema de registro. Esse é o sistema em que a conta é criada e onde as credenciais associadas a essa conta são armazenadas. Em sistemas multilocatários como a plataforma Microsoft Identity, o sistema de registro é o `tenant` em que a conta foi criada. Esse locatário também é chamado de `home tenant`.
-- As contas na plataforma de identidade da Microsoft têm os seguintes sistemas de registro:
-  - Azure Active Directory, incluindo Azure Active Directory B2C.
-  - Conta Microsoft (em tempo real).
-- Contas de sistemas de registro fora da plataforma de identidade da Microsoft são representadas na plataforma Microsoft Identity, incluindo:
-  - identidades de diretórios locais conectados (Windows Server Active Directory)
-  - identidades externas do LinkedIn, GitHub e assim por diante.
-  Nesses casos, uma conta tem um sistema de origem de registro e um sistema de registro na plataforma de identidade da Microsoft.
-- A plataforma de identidade da Microsoft permite que uma conta seja usada para acessar recursos pertencentes a várias organizações (Azure Active Directory locatários).
-  - Para registrar que uma conta de um sistema de registro (locatário do AAD A) tem acesso a um recurso em outro sistema de registro (locatário do AAD B), a conta deve ser representada no locatário em que o recurso está definido. Isso é feito criando um registro local da conta do sistema A no sistema B.
-  - Esse registro local, que é a representação da conta, está associado à conta original.
-  - MSAL expõe esse registro local como um `Tenant Profile`.
-  - O perfil do locatário pode ter atributos diferentes que são apropriados para o contexto local, como cargo, local do escritório, informações de contato, etc.
-- Como uma conta pode estar presente em um ou mais locatários, uma conta pode ter mais de um perfil.
+- Um identificador único.  
+- Uma ou mais credenciais usadas para demonstrar a propriedade/controlo da conta.
+- Um ou mais perfis constituídos por atributos como:
+  - Imagem, nome dado, nome da família, título, localização do escritório
+- Uma conta tem uma fonte de autoridade ou sistema de registo. Este é o sistema onde a conta é criada e onde as credenciais associadas a essa conta são armazenadas. Em sistemas multi-inquilinos como a plataforma de identidade da Microsoft, o sistema de registo é o `tenant` onde a conta foi criada. Este inquilino também é referido como o `home tenant`.
+- As contas na plataforma de identidade da Microsoft têm os seguintes sistemas de registo:
+  - Diretório Azure Ative, incluindo o Diretório Ativo Azure B2C.
+  - Conta Microsoft (Live).
+- As contas de sistemas de registo fora da plataforma de identidade da Microsoft estão representadas dentro da plataforma de identidade da Microsoft, incluindo:
+  - identidades de diretórios ligados no local (Diretório Ativo do Servidor do Windows)
+  - identidades externas do LinkedIn, GitHub, e assim por diante.
+  Nestes casos, uma conta tem um sistema de origem de registo e um sistema de registo dentro da plataforma de identidade da Microsoft.
+- A plataforma de identidade da Microsoft permite que uma conta seja usada para aceder a recursos pertencentes a várias organizações (inquilinos do Azure Ative Directory).
+  - Para registar que uma conta de um sistema de registo (AAD Tenant A) tem acesso a um recurso noutro sistema de registo (AAD Tenant B), a conta deve estar representada no arrendatário onde o recurso é definido. Isto é feito através da criação de um registo local da conta a partir do sistema A no sistema B.
+  - Este registo local, que é a representação da conta, está vinculado à conta original.
+  - A MSAL expõe este registo local como um `Tenant Profile`.
+  - O Perfil do Inquilino pode ter diferentes atributos adequados ao contexto local, tais como Título de Emprego, Localização do Escritório, Informações de Contacto, etc.
+- Como uma conta pode estar presente em um ou mais inquilinos, uma conta pode ter mais do que um perfil.
 
 > [!NOTE]
-> MSAL trata o sistema de conta Microsoft (Live, MSA) como outro locatário na plataforma de identidade da Microsoft. A ID do locatário do locatário do conta Microsoft é: `9188040d-6c67-4c5b-b112-36a304b66dad`
+> A MSAL trata o sistema de conta da Microsoft (Live, MSA) como outro inquilino dentro da plataforma de identidade da Microsoft. A identificação do inquilino do inquilino da conta da Microsoft é: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>Diagrama de visão geral da conta
 
@@ -57,33 +56,33 @@ Uma conta na plataforma Microsoft Identity consiste em:
 
 No diagrama acima:
 
-- A conta `bob@contoso.com` é criada no Windows Server local Active Directory (origem do registro no local).
-- A conta `tom@live.com` é criada no locatário do conta Microsoft.
-- `bob@contoso.com` tem acesso a pelo menos um recurso nos seguintes locatários Azure Active Directory:
-  - contoso.com (sistema em nuvem de registro vinculado ao sistema local de registro)
+- A conta `bob@contoso.com` é criada no Diretório Ativo do Servidor do Windows (sistema de registo de origem no local).
+- A conta `tom@live.com` é criada no inquilino da conta da Microsoft.
+- `bob@contoso.com` tem acesso a pelo menos um recurso nos seguintes inquilinos do Azure Ative Directory:
+  - contoso.com (sistema de registo em nuvem - ligado ao sistema de registo no local)
   - fabrikam.com
   - woodgrovebank.com
-  - Um perfil de locatário para `bob@contoso.com` existe em cada um desses locatários.
-- `tom@live.com` tem acesso aos recursos nos seguintes locatários da Microsoft:
+  - Existe um perfil de inquilino para `bob@contoso.com` em cada um destes inquilinos.
+- `tom@live.com` tem acesso a recursos nos seguintes inquilinos da Microsoft:
   - contoso.com
   - fabrikam.com
-  - Um perfil de locatário para `tom@live.com` existe em cada um desses locatários.
-- As informações sobre Tom e Bob em outros locatários podem ser diferentes daquelas no sistema de registro. Eles podem diferir por atributos como cargo, local do escritório e assim por diante. Eles podem ser membros de grupos e/ou funções dentro de cada organização (Azure Active Directory locatário). Nós nos referimos a essas informações como bob@contoso.com perfil de locatário.
+  - Existe um perfil de inquilino para `tom@live.com` em cada um destes inquilinos.
+- Informações sobre Tom e Bob em outros inquilinos podem diferir disso no sistema de registo. Podem diferir por atributos como título de trabalho, Localização do Escritório, e assim por diante. Podem ser membros de grupos e/ou funções dentro de cada organização (Azure Ative Directory Tenant). Referimo-nos a esta informação como bob@contoso.com perfil de inquilino.
 
-No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em locatários diferentes do Azure Active Directory. Para obter mais informações, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em diferentes inquilinos do Azure Ative Directory. Para obter mais informações, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-## <a name="accounts-and-single-sign-on-sso"></a>Contas e logon único (SSO)
+## <a name="accounts-and-single-sign-on-sso"></a>Contas e inscrição única (SSO)
 
-O cache do token MSAL armazena um *único token de atualização* por conta. Esse token de atualização pode ser usado para solicitar silenciosamente tokens de acesso de vários locatários da plataforma Microsoft Identity. Quando um agente é instalado em um dispositivo, a conta é gerenciada pelo agente e o logon único em todo o dispositivo se torna possível.
+O cache de token MSAL armazena um *único token de atualização* por conta. Este token de atualização pode ser usado para solicitar silenciosamente fichas de acesso de vários inquilinos da plataforma de identidade da Microsoft. Quando um corretor é instalado num dispositivo, a conta é gerida pelo corretor e o único sinal de inscrição em todo o dispositivo torna-se possível.
 
 > [!IMPORTANT]
-> O comportamento de token de atualização e de conta de consumidor para consumidores é diferente do restante da plataforma de identidade da Microsoft. Para obter mais informações, consulte [políticas do B2C & contas](#b2c-policies--accounts).
+> A conta Business to Consumer (B2C) e o comportamento de token de atualização diferem do resto da plataforma de identidade da Microsoft. Para mais informações, consulte [As Políticas e Contas B2C](#b2c-policies--accounts).
 
 ## <a name="account-identifiers"></a>Identificadores de conta
 
-A ID da conta MSAL não é uma ID de objeto de conta. Ele não deve ser analisado e/ou confiado para transmitir qualquer coisa além da exclusividade na plataforma de identidade da Microsoft.
+O ID da conta MSAL não é um id de objeto de conta. Não se destina a ser analisado e/ou invocado para transmitir algo que não seja a singularidade dentro da plataforma de identidade da Microsoft.
 
-Para compatibilidade com a ADAL (biblioteca de autenticação do Azure AD) e para facilitar a migração do ADAL para o MSAL, o MSAL pode pesquisar contas usando qualquer identificador válido para a conta disponível no cache MSAL.  Por exemplo, o seguinte sempre recuperará o mesmo objeto de conta para tom@live.com porque cada um dos identificadores é válido:
+Para compatibilidade com a Biblioteca de Autenticação AD Azure (ADAL), e para facilitar a migração da ADAL para a MSAL, a MSAL pode pesquisar contas utilizando qualquer identificador válido para a conta disponível na cache MSAL.  Por exemplo, o seguinte irá sempre recuperar o mesmo objeto de conta para tom@live.com porque cada um dos identificadores é válido:
 
 ```java
 // The following would always retrieve the same account object for tom@live.com because each identifier is valid
@@ -93,20 +92,20 @@ IAccount account = app.getAccount("<tom@live.com contoso user object id>");
 IAccount account = app.getAccount("<tom@live.com woodgrovebank user object id>");
 ```
 
-## <a name="accessing-claims-about-an-account"></a>Acessando declarações sobre uma conta
+## <a name="accessing-claims-about-an-account"></a>Acesso a reclamações sobre uma conta
 
-Além de solicitar um token de acesso, o MSAL também solicita sempre um token de ID de cada locatário. Ele faz isso solicitando sempre os seguintes escopos:
+Além de solicitar um sinal de acesso, a MSAL também pede sempre um sinal de identificação de cada inquilino. Fá-lo solicitando sempre os seguintes âmbitos:
 
-- OpenID
+- openid
 - profile
 
-O token de ID contém uma lista de declarações. `Claims` são pares de nome/valor sobre a conta e são usados para fazer a solicitação.
+O símbolo de identificação contém uma lista de reclamações. `Claims` são pares de nome/valor sobre a conta, e são usados para fazer o pedido.
 
-Como mencionado anteriormente, cada locatário em que uma conta existe pode armazenar informações diferentes sobre a conta, incluindo, mas não se limitando a atributos como: cargo, local do escritório e assim por diante.
+Como mencionado anteriormente, cada inquilino onde existe uma conta pode armazenar informações diferentes sobre a conta, incluindo, mas não se limitando a atributos como: título de emprego, localização do escritório, e assim por diante.
 
-Embora uma conta possa ser membro ou convidada em várias organizações, o MSAL não consulta um serviço para obter uma lista dos locatários dos quais a conta é membro. Em vez disso, o MSAL cria uma lista de locatários em que a conta está presente, como resultado de solicitações de token que foram feitas.
+Embora uma conta possa ser um membro ou hóspede em várias organizações, a MSAL não consulta um serviço para obter uma lista dos inquilinos da conta que é membro. Em vez disso, a MSAL constrói uma lista de inquilinos em que a conta está presente, em resultado de pedidos simbólicos que foram feitos.
 
-As declarações expostas no objeto Account são sempre as declarações do/{Authority} "Home locatário" para uma conta. Se essa conta não tiver sido usada para solicitar um token para seu locatário inicial, o MSAL não poderá fornecer declarações por meio do objeto Account.  Por exemplo:
+As reclamações expostas no objeto da conta são sempre as reclamações do 'inquilino da casa'/autoridade{} para uma conta. Se essa conta não foi usada para solicitar um sinal para o seu inquilino, a MSAL não pode fornecer reclamações através do objeto da conta.  Por exemplo:
 
 ```java
 // Psuedo Code
@@ -119,14 +118,14 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Para ver uma lista de declarações disponíveis no objeto Account, consulte [declarações em um id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Para ver uma lista de reclamações disponíveis no objeto da conta, consulte [as reclamações num id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
 
 > [!TIP]
-> Para incluir declarações adicionais em seu id_token, consulte a documentação de declarações opcionais em [como fornecer declarações opcionais para seu aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Para incluir reclamações adicionais no seu id_token, consulte a documentação opcional de reclamações em [Como: Fornecer reclamações opcionais à sua aplicação Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
 
-### <a name="access-tenant-profile-claims"></a>Acessar declarações de perfil de locatário
+### <a name="access-tenant-profile-claims"></a>Aceder a reclamações de perfil de inquilino
 
-Para acessar declarações sobre uma conta como aparecem em outros locatários, primeiro você precisa converter seu objeto de conta para `IMultiTenantAccount`. Todas as contas podem ser multilocatário, mas o número de perfis de locatário disponíveis via MSAL é baseado em quais locatários você solicitou tokens usando a conta atual.  Por exemplo:
+Para aceder a reclamações sobre uma conta tal como aparecem noutros inquilinos, primeiro é necessário lançar o seu objeto de conta para `IMultiTenantAccount`. Todas as contas podem ser multi-inquilinos, mas o número de perfis de inquilinos disponíveis via MSAL baseia-se nos inquilinos que solicitou fichas de utilização da conta corrente.  Por exemplo:
 
 ```java
 // Psuedo Code
@@ -137,11 +136,11 @@ multiTenantAccount.getTenantProfiles().get("tenantid for fabrikam").getClaims().
 multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().get("family_name");
 ```
 
-## <a name="b2c-policies--accounts"></a>Políticas do B2C & contas
+## <a name="b2c-policies--accounts"></a>Políticas e contas B2C
 
-Os tokens de atualização para uma conta não são compartilhados entre as políticas B2C. Como resultado, o logon único usando tokens não é possível. Isso não significa que o logon único não seja possível. Isso significa que o logon único precisa usar uma experiência interativa na qual um cookie está disponível para habilitar o logon único.
+Os tokens de atualização para uma conta não são partilhados nas políticas b2C. Como resultado, um único sinal usando fichas não é possível. Isto não significa que a única inscrição não seja possível. Significa que o único sinal tem de utilizar uma experiência interativa na qual um cookie está disponível para permitir uma única inscrição.
 
-Isso também significa que, no caso de MSAL, se você adquirir tokens usando políticas B2C diferentes, eles serão tratados como contas separadas, cada um com seu próprio identificador. Se você quiser usar uma conta para solicitar um token usando `acquireTokenSilent`, precisará selecionar a conta na lista de contas que corresponde à política que você está usando com a solicitação de token. Por exemplo:
+Isto significa também que, no caso da MSAL, se adquirir fichas utilizando diferentes políticas B2C, estas são tratadas como contas separadas - cada uma com o seu próprio identificador. Se quiser utilizar uma conta para solicitar um token usando `acquireTokenSilent`, então terá de selecionar a conta a partir da lista de contas que corresponda à política que está a usar com o pedido simbólico. Por exemplo:
 
 ```java
 // Get Account For Policy

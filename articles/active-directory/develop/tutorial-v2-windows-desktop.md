@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1864b4867b8e1367a2397c5ed2ed9a77001dadb4
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423347"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701200"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chamar a API de Microsoft Graph de um aplicativo de área de trabalho do Windows
 
@@ -30,7 +29,7 @@ Este guia demonstra como um aplicativo nativo do .NET (XAML) do Windows Desktop 
 Quando você tiver concluído o guia, seu aplicativo poderá chamar uma API protegida que usa contas pessoais (incluindo outlook.com, live.com e outros). O aplicativo também usará contas corporativas e de estudante de qualquer empresa ou organização que usa Azure Active Directory.  
 
 > [!NOTE]
-> O guia requer o Visual Studio 2015 atualização 3, o Visual Studio 2017 ou o Visual Studio 2019. Não tem nenhuma dessas versões? [Baixe o Visual Studio 2019 gratuitamente](https://www.visualstudio.com/downloads/).
+> O guia requer o Visual Studio 2015 atualização 3, o Visual Studio 2017 ou o Visual Studio 2019. Não tem nenhuma dessas versões? [Baixe o Visual Studio 2019 gratuitamente.](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 
@@ -61,7 +60,7 @@ Nesta seção, você cria um novo projeto para demonstrar como integrar um aplic
 O aplicativo que você cria com este guia exibe um botão que é usado para chamar um grafo, uma área para mostrar os resultados na tela e um botão de saída.
 
 > [!NOTE]
-> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)e pule para a [etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
+> Prefere baixar o projeto do Estúdio Visual desta amostra? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)e pule para a [etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 >
 
 Para criar seu aplicativo, faça o seguinte:
@@ -70,7 +69,7 @@ Para criar seu aplicativo, faça o seguinte:
 2. Em **modelos**, selecione **Visual C#** .
 3. Selecione **aplicativo WPF (.NET Framework)** , dependendo da versão da versão do Visual Studio que você está usando.
 
-## <a name="add-msal-to-your-project"></a>Adicionar MSAL ao seu projeto
+## <a name="add-msal-to-your-project"></a>Adicione MSAL ao seu projeto
 
 1. No Visual Studio, selecione **Ferramentas** > **Gestor de Pacotes NuGet**> **Consola do Gestor de Pacotes**.
 2. Na janela do console do Gerenciador de pacotes, Cole o seguinte comando de Azure PowerShell:
@@ -87,14 +86,14 @@ Para criar seu aplicativo, faça o seguinte:
 
 Você pode registrar seu aplicativo de uma das duas maneiras.
 
-### <a name="option-1-express-mode"></a>Opção 1: modo expresso
+### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
 
 Você pode registrar rapidamente seu aplicativo fazendo o seguinte:
 1. Vá para o [registro de aplicativo portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 
-### <a name="option-2-advanced-mode"></a>Opção 2: modo avançado
+### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
 
 Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
@@ -109,7 +108,7 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
    1. Na coluna **tipo** , selecione **cliente público/nativo (Mobile & Desktop)** .
    1. Na coluna **URI de redirecionamento** , insira `https://login.microsoftonline.com/common/oauth2/nativeclient`
 1. Selecione **Registar**.
-1. Vá para o Visual Studio, abra o arquivo *app.XAML.cs* e substitua `Enter_the_Application_Id_here` no trecho de código abaixo pela ID do aplicativo que você acabou de registrar e copiar.
+1. Vá ao Visual Studio, abra o ficheiro *App.xaml.cs* e, em seguida, substitua `Enter_the_Application_Id_here` no código abaixo com o ID da aplicação que acabou de registar e copiar.
 
     ```csharp
     private static string ClientId = "Enter_the_Application_Id_here";
@@ -346,7 +345,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Mais informações sobre a saída do usuário
 
-O método `SignOutButton_Click` remove os usuários do cache de usuário MSAL, o que instrui efetivamente o MSAL a esquecer o usuário atual para que uma solicitação futura de aquisição de um token seja bem sucedido somente se for feita para ser interativa.
+O método `SignOutButton_Click` remove os utilizadores da cache de utilizador MSAL, que efetivamente diz à MSAL para esquecer o utilizador atual, de modo a que um pedido futuro de aquisição de um símbolo só tenha sucesso se for feito para ser interativo.
 
 Embora o aplicativo neste exemplo dê suporte a usuários únicos, o MSAL dá suporte a cenários em que várias contas podem ser conectadas ao mesmo tempo. Um exemplo é um aplicativo de email em que um usuário tem várias contas.
 <!--end-collapse-->
