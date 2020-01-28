@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82bbdd7f209b2ce22225628416a07524c62f1484
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a4555ccd5e4f80b7230c1e0992219bd46153220d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156170"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704906"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configurar um endereço de email como seu método de verificação
 

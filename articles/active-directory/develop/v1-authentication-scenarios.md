@@ -17,13 +17,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 783c840c4cfe2d8a1d2533e68d14f7b4a3993e64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b6271805b9d14db9f2fdcd85d089962e9874f6ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423328"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701149"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -48,12 +47,12 @@ Eis o que precisa de saber sobre os vários componentes mostrados no diagrama:
 
 * O Azure AD é o fornecedor de identidade. O fornecedor de identidade é responsável por verificar a identidade dos utilizadores e aplicações existentes num diretório da organização e emite tokens de segurança após a autenticação com êxito desses utilizadores e aplicações.
 * Um aplicativo que deseja terceirizar a autenticação para o Azure AD deve ser registrado no Azure Active Directory (AD do Azure). O Azure AD regista e identifica exclusivamente a aplicação no diretório.
-* Os programadores podem utilizar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação ao lidar com os detalhes de protocolo por si. Para obter mais informações, consulte bibliotecas de autenticação do Microsoft Identity plataforma [v 2.0](reference-v2-libraries.md) e [bibliotecas de autenticação v 1.0](active-directory-authentication-libraries.md).
+* Os programadores podem utilizar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação ao lidar com os detalhes de protocolo por si. Para mais informações, consulte as bibliotecas de autenticação da plataforma de identidade Microsoft [v2.0](reference-v2-libraries.md) e as [bibliotecas de autenticação v1.0.](active-directory-authentication-libraries.md)
 * Após a autenticação de um utilizador, a aplicação tem de validar o token de segurança do utilizador para assegurar que a autenticação foi efetuada com êxito. Pode encontrar inícios rápidos, tutoriais e exemplos de código numa variedade de linguagens e arquiteturas que mostram o que a aplicação tem de fazer.
   * Para criar rapidamente uma aplicação e adicionar funcionalidades como obter tokens, atualizar tokens, iniciar a sessão de um utilizador, apresentar algumas informações de utilizador e muito mais, veja a secção **Inícios Rápidos** da documentação.
   * Para obter procedimentos detalhados baseados em cenários para tarefas de programador de autenticação, como obter tokens de acesso e utilizá-los em chamadas à Microsoft Graph API e outras APIs, implementar o início de sessão Microsoft com uma aplicação Web tradicional baseada no browser com o OpenID Connect e muito mais, veja a secção **Tutoriais** da documentação.
   * Para transferir exemplos de código, aceda ao [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* O fluxo de pedidos e respostas do processo de autenticação é determinado pelo protocolo de autenticação utilizado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Para obter mais informações sobre protocolos, consulte a seção **conceitos > Protocolo de autenticação** da documentação do.
+* O fluxo de pedidos e respostas do processo de autenticação é determinado pelo protocolo de autenticação utilizado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Para mais informações sobre protocolos, consulte a secção **de protocolos de autenticação** da documentação.
 
 No cenário de exemplo acima, pode classificar as aplicações de acordo com estas duas funções:
 
@@ -62,7 +61,7 @@ No cenário de exemplo acima, pode classificar as aplicações de acordo com est
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
 
-Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte do Azure AD. Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
+Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte do Azure AD. Estes fluxos podem produzir uma variedade de tokens (id_tokens, fichas de atualização, fichas de acesso) bem como códigos de autorização, e requerem diferentes fichas para fazê-los funcionar. Este gráfico fornece uma visão geral:
 
 |Flow | Requer | id_token | token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
@@ -73,7 +72,7 @@ Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos
 |[Fluxo em-nome-de](v1-oauth2-on-behalf-of-flow.md) | token de acesso| x| x| x| |
 |[Credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
 
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`. 
+Os tokens emitidos através do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador através do URL (onde `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`. 
 
 Agora que tem uma descrição geral dos conceitos básicos, continue a ler para compreender o modelo de aplicação de identidade e a API, como funciona o aprovisionamento no Azure AD e obter ligações para informações detalhadas sobre os cenários comuns suportados pelo Azure AD.
 
@@ -94,15 +93,15 @@ O Azure AD representa as aplicações que seguem um modelo específico concebido
 
 No Azure AD, um **objeto de aplicação** descreve uma aplicação como uma entidade abstrata. Os programadores trabalham com aplicações. No momento da implementação, o Azure AD utiliza um determinado objeto de aplicação como esquema para criar um **principal de serviço**, que representa uma instância concreta de uma aplicação num diretório ou inquilino. É o principal de serviço que define o que a aplicação pode realmente fazer num diretório de destino específico, quem pode utilizá-la, a que recursos tem acesso e assim por diante. O Azure AD cria um principal de serviço a partir de um objeto de aplicação por **consentimento**.
 
-O diagrama seguinte mostra um fluxo de aprovisionamento simplificado do Azure AD orientado por consentimento.  Nele, existem dois locatários (A e B), em que o locatário A possui o aplicativo, e o locatário B está instanciando o aplicativo por meio de uma entidade de serviço.  
+O diagrama seguinte mostra um fluxo de aprovisionamento simplificado do Azure AD orientado por consentimento.  Nele, existem dois inquilinos (A e B), onde o inquilino A é dono da candidatura, e o inquilino B está a instantaneamente a aplicação através de um diretor de serviço.  
 
 ![Fluxo de aprovisionamento simplificado orientado por consentimento](./media/v1-authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 Neste fluxo de aprovisionamento:
 
 1. Um usuário do locatário B tenta entrar com o aplicativo, o ponto de extremidade de autorização solicita um token para o aplicativo.
-1. As credenciais do usuário são adquiridas e verificadas para autenticação
-1. O usuário é solicitado a fornecer consentimento para que o aplicativo tenha acesso ao locatário B
+1. As credenciais do utilizador são adquiridas e verificadas para autenticação
+1. O utilizador é solicitado a dar consentimento para que a app obtenha acesso ao inquilino B
 1. O Azure AD usa o objeto de aplicativo no locatário A como um plano gráfico para criar uma entidade de serviço no locatário B
 1. O utilizador recebe o token pedido
 
@@ -146,4 +145,4 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre os [tipos de aplicativos e os cenários com suporte na plataforma de identidade da Microsoft](app-types.md)
+* Conheça os [tipos e cenários de aplicações suportados na plataforma de identidade da Microsoft](app-types.md)

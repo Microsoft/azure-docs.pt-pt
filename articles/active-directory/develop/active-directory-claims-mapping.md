@@ -13,13 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531076"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699075"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -418,7 +417,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege aplicativos de políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet do Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para seu objeto de aplicativo. Para obter mais informações sobre este cmdlet do Azure PowerShell, clique [aqui](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Os aplicativos que têm o mapeamento de declarações habilitado devem validar suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar: 
+As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólica, através da aplicação `appid={client_id}` aos seus pedidos de [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
