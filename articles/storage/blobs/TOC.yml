@@ -619,18 +619,6 @@
       items:
         - name: Analisar dados com o Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gerir blobs sem código
-          items:
-            - name: PowerShell
-              href: storage-quickstart-blobs-powershell.md
-            - name: CLI
-              href: storage-quickstart-blobs-cli.md
-        - name: Programar com blobs
-          items:
-            - name: .NET
-              href: storage-quickstart-blobs-dotnet.md
-            - name: Python
-              href: storage-quickstart-blobs-python.md
     - name: Tutoriais
       items:
         - name: 'Extrair, transformar e carregar dados com o Azure Databricks'
@@ -657,36 +645,12 @@
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Melhores práticas
           href: data-lake-storage-best-practices.md
-        - name: Camadas de acesso
-          items:
-            - name: Camadas de acesso
-              href: storage-blob-storage-tiers.md
-            - name: Gerir o Ciclo de Vida de Armazenamento de Blobs do Azure
-              href: storage-lifecycle-management-concepts.md
-        - name: Segurança
-          items:
-            - name: Descrição geral da segurança do armazenamento
-              href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Controlo de acesso
-              href: data-lake-storage-access-control.md
-        - name: Registo
-          items:
-            - name: Análise de armazenamento
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Registos de análise de armazenamento
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Manipulação de eventos
-          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Controlo de acesso (diretórios e ficheiros)
+          href: data-lake-storage-access-control.md
     - name: Procedimento
       items:
-        - name: Criar e gerir contas de armazenamento
-          items:
-            - name: Criar uma conta de armazenamento para o seu Data Lake
-              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gerir dados com o Explorador do Armazenamento
-              href: ../blobs/data-lake-storage-explorer.md
-            - name: Atualizar uma conta de armazenamento
-              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Criar uma conta de armazenamento para o seu Data Lake
+          href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Gerir diretórios, ficheiros e ACLs'
           items:
             - name: .NET
@@ -700,43 +664,7 @@
             - name: CLI
               href: data-lake-storage-directory-file-acl-cli.md
             - name: Explorador de Armazenamento
-              href: data-lake-storage-how-to-set-permissions-storage-explorer.md
-        - name: Transferir dados
-          items:
-            - name: AzCopy
-              items:
-                - name: Introdução
-                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Utilizar com o Data Lake Storage Gen2
-                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Configurar, otimizar, resolver problemas'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utilizar o Distcp
-              href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utilize o Azure Data Factory
-              href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Proteger dados
-          items:
-            - name: Configurar firewalls e redes virtuais
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Configurar chaves geridas pelo cliente para a encriptação do serviço
-              items:
-                - name: Portal
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI do Azure
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gerir direitos de acesso com RBAC
-              items:
-                - name: Portal
-                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI do Azure
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Definir permissões ao nível do ficheiro e do diretório
-              href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+              href: data-lake-storage-explorer.md
         - name: Otimizar o desempenho
           items:
             - name: Descrição geral
@@ -761,43 +689,16 @@
           href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referência
       items:
-        - name: PowerShell
-          href: /powershell/module/azure.storage
-        - name: CLI do Azure
-          href: /cli/azure/storage
         - name: .NET
-          items:
-            - name: Blobs (versão 12.x)
-              href: /dotnet/api/azure.storage.blobs
-            - name: Movimento de Dados
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Fornecedor de Recursos de Armazenamento
-              href: /dotnet/api/overview/azure/storage/management
+          href: /dotnet/api/azure.storage.files.datalake
         - name: Java
-          items:
-            - name: Blobs (versão 12.x)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
-            - name: Blobs (versão 8.x)
-              href: /java/api/com.microsoft.azure.storage.blob
-            - name: Fornecedor de Recursos de Armazenamento
-              href: /java/api/overview/azure/storage/management
-        - name: JavaScript (versão 12.x)
-          href: /javascript/api/@azure/storage-blob/
-        - name: Python (versão 12.x)
-          href: /python/api/azure-storage-blob/
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
+        - name: Python
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
+        - name: Javascript
+          href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
-          items:
-            - name: 'Blobs, Filas, Tabelas e Ficheiros'
-              href: /rest/api/storageservices
-            - name: Armazenamento do Data Lake Ger2
-              href: /rest/api/storageservices/data-lake-storage-gen2
-            - name: Fornecedor de recursos
-              href: /rest/api/storagerp
-            - name: Importação/Exportação
-              href: /rest/api/storageimportexport
-        - name: Modelo do Resource Manager
-          displayName: ARM
-          href: /azure/templates/microsoft.storage/allversions
+          href: /rest/api/storageservices/data-lake-storage-gen2
     - name: Recursos
       items:
         - name: Problemas conhecidos
