@@ -11,7 +11,7 @@ ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
 ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
 ms.locfileid: "74084301"
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
-  * EUA Central
+  * E.U.A. Central
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático

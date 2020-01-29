@@ -30,16 +30,16 @@ Você precisa do CLI do Azure versão 2.0.76 ou posterior instalado e configurad
 
 Atualmente, os clusters AKS podem ser criados usando zonas de disponibilidade nas seguintes regiões:
 
-* EUA Central
-* EUA Leste 2
-* EUA Leste
+* E.U.A. Central
+* E.U.A. Leste 2
+* E.U.A. Leste
 * França Central
 * Leste do Japão
 * Europa do Norte
 * Sudeste asiático
-* Reino Unido Sul
+* Sul do Reino Unido
 * Europa ocidental
-* EUA Oeste 2
+* E.U.A. Oeste 2
 
 As seguintes limitações se aplicam quando você cria um cluster AKS usando zonas de disponibilidade:
 

@@ -45,8 +45,8 @@ Crie dois planos do serviço de aplicativo Web em seu grupo de recursos usando a
 
 |Nome  |Sistema Operativo  |Localização  |Escalão de Preço  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|EUA Leste|Desenvolvimento/teste D1-compartilhado|
-|ASP-02     |Windows|EUA Central|Desenvolvimento/teste D1-compartilhado|
+|ASP-01     |Windows|E.U.A. Leste|Desenvolvimento/teste D1-compartilhado|
+|ASP-02     |Windows|E.U.A. Central|Desenvolvimento/teste D1-compartilhado|
 
 ## <a name="create-app-services"></a>Criar serviços de aplicativos
 
@@ -60,8 +60,8 @@ Crie dois aplicativos Web, um em cada plano do serviço de aplicativo.
 
    |Nome<br>(deve ser exclusivo em. azurewebsites.net)|Grupo de Recursos |Pilha de tempo de execução|Região|Local/plano do serviço de aplicativo
    |---------|---------|-|-|-------|
-   |App-01|Usar existente<br>Selecione seu grupo de recursos|.NET Core 2.2|EUA Leste|ASP-01 (D1)|
-   |Aplicativo-02|Usar existente<br>Selecione seu grupo de recursos|.NET Core 2.2|EUA Central|ASP-02 (D1)|
+   |App-01|Usar existente<br>Selecione seu grupo de recursos|.NET Core 2.2|E.U.A. Leste|ASP-01 (D1)|
+   |Aplicativo-02|Usar existente<br>Selecione seu grupo de recursos|.NET Core 2.2|E.U.A. Central|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Reunir alguns detalhes
 
@@ -89,8 +89,8 @@ Agora você pode criar os pontos de extremidade para os dois aplicativos Web.
 
    |Tipo  |Nome  |Destino  |Localização  |Configurações de cabeçalho personalizadas|
    |---------|---------|---------|---------|---------|
-   |Ponto de extremidade externo     |Fim-01|Endereço IP que você registrou para o app-01|EUA Leste|host:\<a URL que você registrou para o app-01\><br>Exemplo: **host: app-01.azurewebsites.net**|
-   |Ponto de extremidade externo     |Fim de 02|Endereço IP que você registrou para o aplicativo-02|EUA Central|host:\<a URL que você registrou para o app-02\><br>Exemplo: **host: app-02.azurewebsites.net**
+   |Ponto de extremidade externo     |Fim-01|Endereço IP que você registrou para o app-01|E.U.A. Leste|host:\<a URL que você registrou para o app-01\><br>Exemplo: **host: app-01.azurewebsites.net**|
+   |Ponto de extremidade externo     |Fim de 02|Endereço IP que você registrou para o aplicativo-02|E.U.A. Central|host:\<a URL que você registrou para o app-02\><br>Exemplo: **host: app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
 

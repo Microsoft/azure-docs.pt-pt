@@ -98,7 +98,7 @@ Espaço de endereço: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nome da sub-rede: padrão<br>
 Intervalo de endereços da sub-rede: 10.11.0.1/24<br>
 Grupo de recursos: ClassicRG<br>
-Localização: EUA Leste<br>
+Localização: E.U.A. Leste<br>
 GatewaySubnet: 10.11.1.0/27
 
 **Valores para TestVNet4**
@@ -108,7 +108,7 @@ Espaço de endereço: 10.41.0.0/16, 10.42.0.0/16 (opcional)<br>
 Nome da sub-rede: padrão<br>
 Intervalo de endereços da sub-rede: 10.41.0.1/24<br>
 Grupo de recursos: ClassicRG<br>
-Localização: EUA Oeste<br>
+Localização: E.U.A. Oeste<br>
 GatewaySubnet: 10.41.1.0/27
 
 **Ao criar seu VNets, tenha em mente as seguintes configurações:**

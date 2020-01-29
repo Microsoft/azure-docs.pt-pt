@@ -21,7 +21,7 @@ A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
-| América do Norte | E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |
+| América do Norte | E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |
 |América do Sul |Sul do Brasil |
 | Europa | França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |
 | Ásia | Ásia Oriental, Sudeste Asiático |
@@ -29,7 +29,7 @@ A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão
 | Austrália | Sudeste da Austrália, Leste da Austrália |
 | Governo da Austrália | Austrália Central, Austrália Central 2 |
 | Índia | Oeste da Índia, Índia Central, Sul da Índia |
-| Coreia do Sul | Centro da Coreia, Sul da Coreia do Sul |
+| Coreia do Sul | Coreia do Sul Central, Sul da Coreia do Sul |
 | África do Sul | Norte da África do Sul, oeste da África do Sul |
 
 ### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões do Azure e limites de geopolítica para nuvens nacionais
@@ -38,6 +38,6 @@ A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
-| Nuvem do Governo dos EUA | US Gov Arizona, US Gov - Iowa, US Gov Texas, Gov (US) - Virginia, US DoD Central, US DoD East |
+| Nuvem do US Gov | US Gov - Arizona, US Gov - Iowa, US Gov - Texas, US Gov - Virginia, US DoD - Centro, US DoD - Leste |
 | Leste da China | Leste da China, Leste da China 2|
 | Norte da China | Norte da China, Norte da China 2 |

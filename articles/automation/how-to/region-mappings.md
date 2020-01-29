@@ -39,7 +39,7 @@ A tabela a seguir mostra os mapeamentos com suporte:
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
-|WestEurope|WestEurope|
+|Europa Ocidental|Europa Ocidental|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 

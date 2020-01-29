@@ -27,17 +27,17 @@ Os clientes serão notificados por email e na portal do Azure bem antes de qualq
 
 A primeira rodada de migração de tráfego para gateways mais recentes está agendada para **14 de outubro de 2019** nas seguintes regiões:
 - Sul do Brasil
-- EUA Oeste
+- E.U.A. Oeste
 - Europa Ocidental
-- EUA Leste
-- EUA Central
+- E.U.A. Leste
+- E.U.A. Central
 - Sudeste Asiático
-- EUA Centro-Sul
+- E.U.A. Centro-Sul
 - Europa do Norte
-- EUA Centro-Norte
+- E.U.A. Centro-Norte
 - Oeste do Japão
 - Leste do Japão
-- EUA Leste 2
+- E.U.A. Leste 2
 - Ásia Oriental
 
 A migração de tráfego alterará o endereço IP público que o DNS resolve para o banco de dados SQL.

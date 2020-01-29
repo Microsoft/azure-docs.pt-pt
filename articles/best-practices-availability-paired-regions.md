@@ -31,7 +31,7 @@ Figura 1 – pares regionais do Azure
 | Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
-| Brasil |Sul do Brasil |EUA Centro-Sul |
+| Brasil |Sul do Brasil |E.U.A. Centro-Sul |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
@@ -42,15 +42,15 @@ Figura 1 – pares regionais do Azure
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia |Coreia do Sul Central |Sul da Coreia do Sul |
-| América do Norte |EUA Leste |E.U.A. Oeste |
-| América do Norte |EUA Leste 2 |EUA Central |
-| América do Norte |E.U.A. Centro-Norte |EUA Centro-Sul |
-| América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
+| América do Norte |E.U.A. Leste |E.U.A. Oeste |
+| América do Norte |E.U.A. Leste 2 |E.U.A. Central |
+| América do Norte |E.U.A. Centro-Norte |E.U.A. Centro-Sul |
+| América do Norte |E.U.A. Oeste 2 |E.U.A. Centro-Oeste 
 | África do Sul | Norte da África do Sul | Oeste da África do Sul
-| RU |Reino Unido Oeste |Sul do Reino Unido |
+| RU |Oeste do Reino Unido |Sul do Reino Unido |
 | Emirados Árabes Unidos | Norte dos E.A.U. | E.A.U. Central
-| Departamento de defesa dos EUA |US DoD Leste |US DoD Centro |
-| Governo dos Estados Unidos da América |Gov (US) - Arizona |US Gov - Texas |
+| Departamento de defesa dos EUA |US DoD - Leste |US DoD Centro |
+| Governo dos Estados Unidos da América |US Gov - Arizona |US Gov - Texas |
 | Governo dos Estados Unidos da América |US Gov - Iowa |US Gov - Virginia |
 | Governo dos Estados Unidos da América |US Gov - Virginia |US Gov - Texas |
 

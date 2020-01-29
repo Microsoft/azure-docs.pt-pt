@@ -49,13 +49,13 @@ Uma implantação de cache do HPC do Azure pode ajudar a acelerar cálculos de a
 
 O cache do HPC do Azure está disponível nessas regiões do Azure:
 
-* EUA Leste
-* EUA Leste 2
+* E.U.A. Leste
+* E.U.A. Leste 2
 * Europa do Norte
 * Europa Ocidental
 * Sudeste Asiático
 * Sydney
-* EUA Oeste 2
+* E.U.A. Oeste 2
 * Coreia do Sul Central
 
 Verifique a [página do produto de cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.

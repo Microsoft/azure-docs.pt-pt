@@ -8,7 +8,7 @@ ms.date: 11/05/2019
 ms.author: tamram
 ms.openlocfilehash: 40fba61b173979fb9362de73a87d6192aac9941d
 ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75995315"
@@ -33,7 +33,7 @@ Quando elimina um recurso, o desconto de reserva aplica-se automaticamente a out
 
 Os seguintes exemplos mostram como o desconto de capacidade reservada do Armazenamento do Microsoft Azure se aplica em função das implementações.
 
-Vamos supor que comprou 100 TB de capacidade reservada na região EUA Oeste 2 para o prazo de um ano. A reserva é para o armazenamento localmente redundante (LRS) na camada de acesso frequente.
+Vamos supor que comprou 100 TB de capacidade reservada na região E.U.A. Oeste 2 para o prazo de um ano. A reserva é para o armazenamento localmente redundante (LRS) na camada de acesso frequente.
 
 Vamos assumir que o custo desta reserva de amostra é de 18 540 $. Pode optar por pagar o montante total adiantado ou pagar prestações mensais fixas de 1545 $ por mês durante os próximos doze meses.
 

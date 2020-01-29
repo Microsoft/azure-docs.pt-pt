@@ -156,14 +156,14 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | **Região do Microsoft Azure** | **Comunidade de BGP regional** | **Comunidade de BGP de armazenamento** | **Comunidade BGP do SQL** | **Cosmos DB comunidade BGP** |
 | --- | --- | --- | --- | --- |
 | **América do Norte** | |
-| EUA Leste | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
-| EUA Leste 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
-| EUA Oeste | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
-| EUA Oeste 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| EUA Centro-Oeste | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
-| EUA Centro-Norte | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| EUA Centro-Sul | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| EUA Central | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| E.U.A. Leste | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| E.U.A. Leste 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
+| E.U.A. Oeste | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
+| E.U.A. Oeste 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
+| E.U.A. Centro-Oeste | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| E.U.A. Centro-Norte | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
+| E.U.A. Centro-Sul | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| E.U.A. Central | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
 | Canadá Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
 | Leste do Canadá | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **América do Sul** | |
@@ -171,8 +171,8 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | **Europa** | |
 | Europa do Norte | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
 | Europa ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
-| Reino Unido Sul | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
-| Reino Unido Oeste | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
+| Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
+| Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul de França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Ásia-Pacífico** | |
@@ -235,12 +235,12 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | **Região do Azure de Clouds Nacionais**| **Valor da comunidade BGP** |
 | --- | --- |
 | **Governo dos Estados Unidos da América** |  |
-| Gov (US) - Arizona | 12076:51106 |
+| US Gov - Arizona | 12076:51106 |
 | US Gov - Iowa | 12076:51109 |
 | US Gov - Virginia | 12076:51105 |
 | US Gov - Texas | 12076:51108 |
 | US DoD Centro | 12076:51209 |
-| US DoD Leste | 12076:51205 |
+| US DoD - Leste | 12076:51205 |
 
 
 | **Serviço nas Clouds Nacionais** | **Valor da comunidade BGP** |

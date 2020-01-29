@@ -210,7 +210,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    Por exemplo, o seguinte comando vai criar um serviço em:
 
-   * Localização: EUA Leste 2
+   * Localização: E.U.A. Centro-Oeste
    * Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nome de Grupo de Recursos: PostgresDemo
    * Nome do Serviço DMS: PostgresCLI
@@ -259,7 +259,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
     Por exemplo, o comando seguinte cria um projeto que utiliza estes parâmetros:
 
-   * Localização: EUA Centro-Oeste
+   * Localização: E.U.A. Centro-Oeste
    * Nome de Grupo de Recursos: PostgresDemo
    * Nome do Serviço: PostgresCLI
    * Nome do projeto: PGMigration

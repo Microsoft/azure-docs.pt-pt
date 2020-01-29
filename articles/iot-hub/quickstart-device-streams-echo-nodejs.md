@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Atualmente, a visualização dos fluxos de dispositivo só tem suporte para hubs IoT criados nas seguintes regiões:
 
-  * EUA Central
+  * E.U.A. Central
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático

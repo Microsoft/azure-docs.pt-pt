@@ -52,7 +52,7 @@ O domínio de exemplo usado para este tutorial é contoso.net, mas use seu próp
    |**Nome**|[o seu nome de domínio] |O nome de domínio que comprou. Este tutorial utiliza contoso.net como exemplo.|
    |**Subscrição**|[A sua subscrição]|Selecione uma subscrição na que vai criar a zona.|
    |**Grupo de recursos**|**Criar novo:** contosoRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou.<br>A localização do grupo de recursos não tem qualquer impacto na zona DNS. O local da zona DNS é sempre "global" e não é mostrado.|
-   |**Localização**|EUA Leste||
+   |**Localização**|E.U.A. Leste||
 
 ## <a name="retrieve-name-servers"></a>Obter servidores de nomes
 

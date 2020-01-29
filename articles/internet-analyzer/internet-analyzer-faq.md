@@ -67,7 +67,7 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
 * **Regiões do Azure**
     * Sul do Brasil
     * Índia Central
-    * EUA Central
+    * E.U.A. Central
     * Ásia Oriental
     * East US
     * Oeste do Japão
@@ -75,10 +75,10 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Norte da África do Sul
     * Sudeste Asiático
     * Norte dos E.A.U.
-    * Reino Unido Oeste  
+    * Oeste do Reino Unido  
     * Europa Ocidental
-    * EUA Oeste
-    * EUA Oeste 2
+    * E.U.A. Oeste
+    * E.U.A. Oeste 2
 * **Várias combinações de regiões do Azure**
     * Leste dos EUA, sul do Brasil
     * Leste dos EUA, Ásia Oriental

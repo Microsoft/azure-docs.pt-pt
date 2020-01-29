@@ -41,7 +41,7 @@ ms.locfileid: "76021316"
 <sup>4</sup> Se você atingir o limite de 800 implantações, exclua implantações do histórico que não são mais necessárias. Para excluir implantações de nível de assinatura, use [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) ou [AZ Deployment Delete](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
-> Os núcleos de máquina virtual têm um limite de total regional. Eles também têm um limite para séries regionais por tamanho, como Dv2 e F. Esses limites são aplicados separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região EUA Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Essa assinatura pode implantar 30 VMs a1 ou 30 VMs D1 ou uma combinação dos dois para não exceder um total de 30 núcleos. Um exemplo de uma combinação é de 10 VMs a1 e 20 VMs D1.  
+> Os núcleos de máquina virtual têm um limite de total regional. Eles também têm um limite para séries regionais por tamanho, como Dv2 e F. Esses limites são aplicados separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região E.U.A. Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Essa assinatura pode implantar 30 VMs a1 ou 30 VMs D1 ou uma combinação dos dois para não exceder um total de 30 núcleos. Um exemplo de uma combinação é de 10 VMs a1 e 20 VMs D1.  
 > <!-- -->
 > 
 > 

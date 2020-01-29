@@ -62,20 +62,20 @@ A análise de tráfego examina os logs de fluxo NSG brutos e captura logs reduzi
 Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
 
 * Canadá Central
-* EUA Centro-Oeste
-* EUA Leste
-* EUA Leste 2
-* EUA Centro-Norte
-* EUA Centro-Sul
-* EUA Central
-* EUA Oeste
-* EUA Oeste 2
+* E.U.A. Centro-Oeste
+* E.U.A. Leste
+* E.U.A. Leste 2
+* E.U.A. Centro-Norte
+* E.U.A. Centro-Sul
+* E.U.A. Central
+* E.U.A. Oeste
+* E.U.A. Oeste 2
 * França Central
 * Europa ocidental
 * Europa do Norte
 * Sul do Brasil
-* Reino Unido Oeste
-* Reino Unido Sul
+* Oeste do Reino Unido
+* Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
 * Ásia Oriental
@@ -92,21 +92,21 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 
 O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * Canadá Central
-* EUA Centro-Oeste
-* EUA Leste
-* EUA Leste 2
-* EUA Centro-Norte
-* EUA Centro-Sul
-* EUA Central
-* EUA Oeste
-* EUA Oeste 2
-* EUA Central
+* E.U.A. Centro-Oeste
+* E.U.A. Leste
+* E.U.A. Leste 2
+* E.U.A. Centro-Norte
+* E.U.A. Centro-Sul
+* E.U.A. Central
+* E.U.A. Oeste
+* E.U.A. Oeste 2
+* E.U.A. Central
 * França Central
 * Europa ocidental
 * Europa do Norte
 * Sul do Brasil
-* Reino Unido Oeste
-* Reino Unido Sul
+* Oeste do Reino Unido
+* Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
 * Ásia Oriental

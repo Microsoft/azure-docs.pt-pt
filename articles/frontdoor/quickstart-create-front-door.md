@@ -42,7 +42,7 @@ Este início rápido requer que tenha implementado duas instâncias de uma aplic
      | Nome           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD1* |
      | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanEastUS* e selecione **OK**. 
-     |      Localização  |   EUA Leste        |
+     |      Localização  |   E.U.A. Leste        |
     |||
 
 3. Selecione **Criar**.

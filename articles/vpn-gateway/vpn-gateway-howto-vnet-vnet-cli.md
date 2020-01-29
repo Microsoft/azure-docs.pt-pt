@@ -92,7 +92,7 @@ Utilizamos os seguintes valores nos exemplos:
 
 * Nome da VNet: TestVNet1
 * Grupo de Recursos: TestRG1
-* Localização: EUA Leste
+* Localização: E.U.A. Leste
 * TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
 * Front-End: 10.11.0.0/24
 * Back-End: 10.12.0.0/24
@@ -111,7 +111,7 @@ Utilizamos os seguintes valores nos exemplos:
 * Back-End: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Grupo de Recursos: TestRG4
-* Localização: EUA Oeste
+* Localização: E.U.A. Oeste
 * GatewayName: VNet4GW
 * IP Público: VNet4GWIP
 * VPNType: RouteBased

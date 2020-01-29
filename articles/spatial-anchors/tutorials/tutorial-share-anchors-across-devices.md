@@ -77,7 +77,7 @@ Na caixa de diálogo **Configurar plano de hospedagem** , use estas configuraç�
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Plano do Serviço de Aplicações| MySharingServicePlan | Nome do plano de serviço de aplicações. |
-| Localização | EUA Oeste | O centro de dados onde o a aplicação Web está alojada. |
+| Localização | E.U.A. Oeste | O centro de dados onde o a aplicação Web está alojada. |
 | Tamanho | Gratuito | O [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina os recursos de hospedagem. |
 
 Selecione **OK**.

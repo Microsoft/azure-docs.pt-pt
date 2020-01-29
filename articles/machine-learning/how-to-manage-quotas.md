@@ -44,7 +44,7 @@ Aqui está uma divisão os limites de quota por vários tipos de recursos na sua
 ### <a name="virtual-machines"></a>Virtual Machines
 Para cada assinatura do Azure, há um limite no número de máquinas virtuais que você pode ter em seus serviços ou autônomos. Este limite é no nível de região no total de núcleos e também numa base por família.
 
-Os núcleos de máquina virtual têm um limite de total regional e um limite regional por série de tamanho (Dv2, F etc.), os quais são impostos separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região EUA Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Esta subscrição poderá implementar 30 VMs A1, 30 VMs D1 ou uma combinação de ambas que não excedam um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
+Os núcleos de máquina virtual têm um limite de total regional e um limite regional por série de tamanho (Dv2, F etc.), os quais são impostos separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região E.U.A. Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Esta subscrição poderá implementar 30 VMs A1, 30 VMs D1 ou uma combinação de ambas que não excedam um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 

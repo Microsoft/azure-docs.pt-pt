@@ -254,7 +254,7 @@ Na guia **revisar + criar** , examine o resumo e selecione **criar** para criar 
 Pode monitorizar a implementação a partir do portal do Azure. O botão **Notificações** na parte superior do ecrã mostra o estado básico da implementação.
 
 > [!NOTE]
-> Para lhe fornecer uma ideia dos tempos da implementação, implementei uma VM do SQL para a região EUA Leste com as predefinições. Esta implementação de teste demorou aproximadamente 12 minutos a concluir. Mas poderá ter uma implementação mais lenta ou mais rápida com base na sua região e nas definições selecionadas.
+> Para lhe fornecer uma ideia dos tempos da implementação, implementei uma VM do SQL para a região E.U.A. Leste com as predefinições. Esta implementação de teste demorou aproximadamente 12 minutos a concluir. Mas poderá ter uma implementação mais lenta ou mais rápida com base na sua região e nas definições selecionadas.
 
 ## <a id="remotedesktop"></a> Abrir a VM com o Ambiente de Trabalho Remoto
 

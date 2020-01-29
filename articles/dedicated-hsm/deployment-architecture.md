@@ -29,17 +29,17 @@ O HSM dedicado do Azure fornece armazenamento de chave de criptografia no Azure.
 
 Os HSMs são distribuídos entre os data centers da Microsoft e podem ser facilmente provisionados como um par de dispositivos como a base de uma solução altamente disponível. Eles também podem ser implantados entre regiões para uma solução resiliente de desastres. As regiões com HSM dedicado disponíveis atualmente são:
 
-* EUA Leste
-* EUA Leste 2
-* EUA Oeste
-* EUA Oeste 2
-* EUA Centro-Sul
+* E.U.A. Leste
+* E.U.A. Leste 2
+* E.U.A. Oeste
+* E.U.A. Oeste 2
+* E.U.A. Centro-Sul
 * Sudeste asiático
 * Ásia Oriental
 * Europa do Norte
 * Europa ocidental
-* Reino Unido Sul
-* Reino Unido Oeste
+* Sul do Reino Unido
+* Oeste do Reino Unido
 * Canadá Central
 * Leste do Canadá
 * Leste da Austrália

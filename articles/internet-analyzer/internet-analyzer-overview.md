@@ -38,18 +38,18 @@ Durante a visualização, os seguintes pontos de extremidade pré-configurados e
 * **Regiões do Azure**
     * Sul do Brasil
     * Índia Central
-    * EUA Central
+    * E.U.A. Central
     * Ásia Oriental
-    * EUA Leste
+    * E.U.A. Leste
     * Oeste do Japão
     * Europa do Norte
     * Norte da África do Sul
     * Sudeste Asiático 
     * Norte dos E.A.U.
-    * Reino Unido Oeste  
+    * Oeste do Reino Unido  
     * Europa Ocidental
     * E.U.A. Oeste 
-    * EUA Oeste 2
+    * E.U.A. Oeste 2
 * **Várias combinações de regiões do Azure** 
     * Leste dos EUA, sul do Brasil 
     * Leste dos EUA, Ásia Oriental 

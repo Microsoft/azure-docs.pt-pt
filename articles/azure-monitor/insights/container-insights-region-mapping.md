@@ -21,8 +21,8 @@ Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em
 |**Região de cluster AKS** | **Região do espaço de trabalho Log Analytics** |
 |-----------------------|------------------------------------|
 |**Oriental** | |
-|SouthAfricaNorth |WestEurope |
-|SouthAfricaWest |WestEurope |
+|SouthAfricaNorth |Europa Ocidental |
+|SouthAfricaWest |Europa Ocidental |
 |**Austrália** | |
 |AustraliaEast |AustraliaEast |
 |AustraliaCentral |AustraliaCentral |
@@ -42,7 +42,7 @@ Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em
 |NorthEurope |NorthEurope |
 |UKSouth |UKSouth |
 |UKWest |UKSouth |
-|WestEurope |WestEurope |
+|Europa Ocidental |Europa Ocidental |
 |**Índia** | |
 |CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |

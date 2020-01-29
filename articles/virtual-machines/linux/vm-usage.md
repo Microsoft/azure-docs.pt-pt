@@ -72,44 +72,44 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 
 |    **Nome da região do Resource Manager**       |    **Local do recurso em detalhes de uso**    |
 |--------------------------|------------------------------------------|
-|    australiaeast         |    Leste da Austrália                               |
+|    australiaeast         |    AU Leste                               |
 |    australiasoutheast    |    AU Sudeste                          |
 |    brazilsouth           |    Sul BR                              |
 |    CanadaCentral         |    CA Central                            |
 |    CanadaEast            |    CA Leste                               |
-|    CentralIndia          |    Índia Central                            |
-|    centralus             |    EUA Central                            |
+|    CentralIndia          |    IN Central                            |
+|    centralus             |    E.U.A. Central                            |
 |    chinaeast             |    Leste da China                            |
 |    chinanorth            |    Norte da China                           |
 |    eastasia              |    Ásia Oriental                             |
-|    eastus                |    EUA Leste                               |
-|    eastus2               |    EUA Leste 2                             |
+|    eastus                |    E.U.A. Leste                               |
+|    eastus2               |    E.U.A. Leste 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
 |    GermanyNortheast      |    DE Nordeste                          |
-|    japaneast             |    Leste do Japão                               |
-|    japanwest             |    Oeste do Japão                               |
-|    KoreaCentral          |    Coreia do Sul Central                            |
-|    KoreaSouth            |    Sul da Coreia do Sul                              |
-|    northcentralus        |    EUA Centro-Norte                      |
+|    japaneast             |    JA Leste                               |
+|    japanwest             |    JA Oeste                               |
+|    KoreaCentral          |    KR do Sul Central                            |
+|    KoreaSouth            |    Sul KR do Sul                              |
+|    northcentralus        |    E.U.A. Centro-Norte                      |
 |    northeurope           |    Europa do Norte                          |
-|    southcentralus        |    EUA Centro-Sul                      |
+|    southcentralus        |    E.U.A. Centro-Sul                      |
 |    southeastasia         |    Sudeste asiático                        |
-|    SouthIndia            |    Sul da Índia                              |
+|    SouthIndia            |    IN Sul                              |
 |    UKNorth               |    Norte dos EUA                              |
-|    uksouth               |    Reino Unido Sul                              |
-|    UKSouth2              |    Sul do Reino Unido 2                            |
-|    ukwest                |    Reino Unido Oeste                               |
+|    uksouth               |    Sul do Reino Unido                              |
+|    UKSouth2              |    Sul do Reino Unido 2                            |
+|    ukwest                |    Oeste do Reino Unido                               |
 |    USDoDCentral          |    US DoD Centro                        |
-|    USDoDEast             |    US DoD Leste                           |
+|    USDoDEast             |    US DoD - Leste                           |
 |    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
 |    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    Virgínia de USGov                        |
-|    westcentralus         |    EUA Centro-Oeste                       |
+|    westcentralus         |    E.U.A. Centro-Oeste                       |
 |    westeurope            |    Europa ocidental                           |
-|    WestIndia             |    Oeste da Índia                               |
-|    westus                |    EUA Oeste                               |
-|    westus2               |    EUA Oeste 2                             |
+|    WestIndia             |    IN Oeste                               |
+|    westus                |    E.U.A. Oeste                               |
+|    westus2               |    E.U.A. Oeste 2                             |
 
 
 ## <a name="virtual-machine-usage-faq"></a>Perguntas frequentes sobre uso da máquina virtual

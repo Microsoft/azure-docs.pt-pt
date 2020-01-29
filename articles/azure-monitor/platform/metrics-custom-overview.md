@@ -171,17 +171,17 @@ Durante a visualização pública, a capacidade de publicar métricas personaliz
 |Região do Azure |Prefixo do ponto de extremidade regional|
 |---|---|
 | **EUA e Canadá** | |
-|EUA Centro-Oeste | https:\//westcentralus.monitoring.azure.com/ |
-|EUA Oeste 2       | https:\//westus2.monitoring.azure.com/ |
-|EUA Centro-Norte | https:\//northcentralus.monitoring.azure.com
-|EUA Centro-Sul| https:\//southcentralus.monitoring.azure.com/ |
-|EUA Central      | https:\//centralus.monitoring.azure.com |
+|E.U.A. Centro-Oeste | https:\//westcentralus.monitoring.azure.com/ |
+|E.U.A. Oeste 2       | https:\//westus2.monitoring.azure.com/ |
+|E.U.A. Centro-Norte | https:\//northcentralus.monitoring.azure.com
+|E.U.A. Centro-Sul| https:\//southcentralus.monitoring.azure.com/ |
+|E.U.A. Central      | https:\//centralus.monitoring.azure.com |
 |Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
-|EUA Leste| https:\//eastus.monitoring.azure.com/ |
+|E.U.A. Leste| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
 |Europa do Norte    | https:\//northeurope.monitoring.azure.com/ |
 |Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
-|Reino Unido Sul | https:\//uksouth.monitoring.azure.com
+|Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
 |França Central | https:\//francecentral.monitoring.azure.com |
 | **Oriental** | |
 |Norte da África do Sul | https:\//southafricanorth.monitoring.azure.com

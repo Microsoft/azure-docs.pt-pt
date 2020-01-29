@@ -101,10 +101,10 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
      |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos ProdRG|Grupo de recursos|Nome|ProductionRG|Define o nome do primeiro grupo de recursos.|
-     |Grupo de recursos ProdRG|Grupo de recursos|Localização|EUA Oeste 2|Define o local do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Localização|E.U.A. Oeste 2|Define o local do primeiro grupo de recursos.|
      |Contribuinte|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _colaborador_ dentro do primeiro grupo de recursos.|
      |Grupo de recursos PreProdRG|Grupo de recursos|Nome|PreProductionRG|Define o nome do segundo grupo de recursos.|
-     |Grupo de recursos PreProdRG|Grupo de recursos|Localização|EUA Oeste|Define o local do segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Grupo de recursos|Localização|E.U.A. Oeste|Define o local do segundo grupo de recursos.|
      |Proprietário|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _proprietário_ dentro do segundo grupo de recursos.|
      |Leitores|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _leitores_ dentro do segundo grupo de recursos.|
 

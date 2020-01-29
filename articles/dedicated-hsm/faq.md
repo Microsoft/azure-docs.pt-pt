@@ -75,7 +75,7 @@ Desde o final de março de 2019, o HSM dedicado está disponível nas 14 regiõe
 * Europa do Norte
 * Europa Ocidental
 * Sul do Reino Unido
-* Reino Unido Oeste
+* Oeste do Reino Unido
 * Canadá Central
 * Canada Este
 * Leste da Austrália

@@ -155,7 +155,7 @@ Depois que a definição do plano gráfico for publicada, você poderá atribuí
      |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestingBPLocks|Define o nome do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|EUA Oeste 2|Define o local do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A. Oeste 2|Define o local do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
      |StorageAccount|Modelo do Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|A SKU de armazenamento. O valor padrão é _Standard_LRS_.|
 
 1. Depois de inserir todos os parâmetros, selecione **atribuir** na parte inferior da página.

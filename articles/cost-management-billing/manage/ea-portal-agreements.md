@@ -10,7 +10,7 @@ ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: d748be3a304222831a55bb9319a04fba1e28e955
 ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75992364"
@@ -171,7 +171,7 @@ Se tiver encomendado uma SKU do CPP, esta destina-se a um tipo específico de co
 
 O valor comprado previamente será apresentado como um crédito na coluna “Unidades Incluídas” e a sua utilização não resultará em custos de utilização até que as “Unidades Incluídas” sejam consumidas. Uma vez consumidas, a utilização adicional será cobrada às taxas negociadas na folha de preços do cliente EA normal.
 
-A forma como os créditos são comprados baseia-se no número de computadores de uma classe por mês. Por exemplo: se tiver comprado 70 VMs A2 por ano no EUA Leste 2, não veria isto no EA Portal do mesma forma como foi comprado.
+A forma como os créditos são comprados baseia-se no número de computadores de uma classe por mês. Por exemplo: se tiver comprado 70 VMs A2 por ano no E.U.A. Leste 2, não veria isto no EA Portal do mesma forma como foi comprado.
 
 Os computadores mensais são calculados como estando em execução 744 horas por mês. Ao converter esse valor em horas seria 70 vezes 744, ou seja 52 080 horas compradas de VMs A2 por mês. Dado que no Resumo da Utilização do EA Portal, as VMs A2 são indicadas em incrementos de 100 Horas, o que iria ver seria um crédito de 520,8 (52 080/100) “Unidades Incluídas” por mês e iria ver as unidades consumidas até à data no mês. Os custos de utilização devem aparecer como zero até que as unidades consumidas mensais ultrapassem as unidades mensais incluídas.
 

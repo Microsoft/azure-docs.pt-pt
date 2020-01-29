@@ -186,7 +186,7 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os dataenters, exceto Alemanha, Sul BR, Oeste da Índia, Sul da Índia e Índia Central. 
+Disponível em todos os dataenters, exceto Alemanha, Sul do Brasil, Oeste da Índia, Sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Processadores de multimédia de codificação
 
@@ -250,7 +250,7 @@ Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 |Nome do tipo do RU|Estado|Datacenters
 |---|---|---|
 |S1|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
-|S2|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Sul BR e Oeste da Índia|
+|S2|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Sul do Brasil e Oeste da Índia|
 |S3|GA (Geographic Availability, Disponibilidade Geográfica)|Todos, exceto Oeste da Índia|
 
 ## <a name="additional-notes"></a>Notas adicionais
