@@ -503,16 +503,20 @@
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
             - name: Alertas obsoletos do Apache Ambari
               href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+            - name: Alertas de diretório do Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
             - name: Resolver problemas de um cluster do HDInsight lento ou a falhar
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Resolução de problemas do Apache Hadoop HDFS
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Resolução de problemas do Apache Hadoop YARN
               href: ./hdinsight-troubleshoot-yarn.md
+            - name: Erro de BCFile inválido do registo Yarn
+              href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
             - name: Resolver problemas de ficheiros do Data Lake Store
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
-            - name: Alertas de diretório do Apache Ambari
-              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
+            - name: Conflito de porta ao iniciar serviços
+              href: ./hadoop/troubleshoot-port-conflict.md
 - name: Apache Kafka
   items:
     - name: Descrição geral
@@ -870,5 +874,5 @@
           items:
             - name: Problemas de Autenticação ESP
               href: ./domain-joined/domain-joined-authentication-issues.md
-            - name: Não é possível iniciar sessão no Zeppelin com ESP
-              href: ./domain-joined/domain-joined-zeppelin-signin.md
+            - name: Falha ao criar o cluster com DomainNotFound
+              href: ./domain-joined/troubleshoot-domainnotfound.md

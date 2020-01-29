@@ -75,6 +75,8 @@
           href: pay-by-invoice.md
         - name: Criar subscrições adicionais
           href: create-subscription.md
+        - name: Transferir subscrições CSP
+          href: transfer-subscriptions-subscribers-csp.md
         - name: Exportar as informações de subscrição
           href: export-subscriptions.md
     - name: Gerir as subscrições do Contrato Enterprise

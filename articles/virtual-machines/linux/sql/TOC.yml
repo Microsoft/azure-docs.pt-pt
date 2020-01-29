@@ -2,10 +2,14 @@
   items:
     - name: Acerca das VMs do SQL Server do Linux
       href: sql-server-linux-virtual-machines-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar VM de SQL - Portal
       href: provision-sql-server-linux-virtual-machine.md
+- name: Tutoriais
+  items:
+    - name: Configurar um Grupo de Disponibilidade de VM do RHEL do Azure com STONITH
+      href: sql-server-linux-rhel-ha-stonith-tutorial.md
 - name: Referência
   items:
     - name: CLI do Azure

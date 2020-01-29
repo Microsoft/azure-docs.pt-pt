@@ -4,7 +4,7 @@
   items:
     - name: Acerca do Azure Digital Twins
       href: about-digital-twins.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Encontrar salas disponíveis
@@ -73,6 +73,8 @@
       href: reference-user-defined-functions-client-library.md
 - name: Recursos
   items:
+    - name: Opções de suporte e ajuda
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Exemplos do Azure Digital Twins para C# (.NET)'
       href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
     - name: API REST do Azure Digital Twins
@@ -93,3 +95,31 @@
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Vídeos
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'
+- name: Relacionado
+  items:
+    - name: Soluções
+      items:
+        - name: Aceleradores de soluções IoT
+          href: /azure/iot-suite
+        - name: Centro de IoT
+          href: /azure/iot-central/iot-support-help
+    - name: Serviços de plataforma
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Maps
+          href: /azure/azure-maps
+        - name: SDKs de Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Soluções Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do Dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

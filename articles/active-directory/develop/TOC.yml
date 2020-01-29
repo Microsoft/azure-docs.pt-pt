@@ -404,6 +404,8 @@
               href: active-directory-optional-claims.md
             - name: Configurar durações de token
               href: active-directory-configurable-token-lifetimes.md
+            - name: Processar as alterações de cookies do SameSite no browser do Chrome
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Configuração da aplicação
           items:
             - name: Novo guia de preparação de registos de aplicações do portal do Azure

@@ -378,6 +378,8 @@
   items:
     - name: CLI do Azure
       href: /cli/azure/iot
+    - name: Azure PowerShell
+      href: '/powershell/module/az.iothub#iot'
     - name: .NET (Serviço)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Dispositivos)
@@ -432,7 +434,7 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Soluções Edge
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -440,6 +442,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
+    - name: Opções de suporte e ajuda
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Exemplos de IoT do Azure para C# (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
     - name: Exemplos de IoT do Azure para Node.js

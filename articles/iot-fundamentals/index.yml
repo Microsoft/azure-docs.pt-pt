@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 2ea0087c000af2e57604109bb11b625d8ec75154
-  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+  ms.openlocfilehash: 26e2345f8228ddd5d10dd71403334c8124f899bd
+  ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74773931"
+  ms.lasthandoff: 01/28/2020
+  ms.locfileid: "76767741"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -36,6 +36,9 @@ highlightedContent:
   - title: Azure IoT no Microsoft Learn
     itemType: learn
     url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
+  - title: Opções de suporte e ajuda
+    itemType: how-to-guide
+    url: ../iot-fundamentals/iot-support-help.md
 conceptualContent:
   title: Começar a criar a sua solução de IoT
   summary: O Azure IoT oferece plataformas de IoT de cloud e de margem, bem como soluções de IoT totalmente geridas

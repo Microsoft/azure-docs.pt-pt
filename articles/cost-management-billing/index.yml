@@ -1,20 +1,19 @@
 ### YamlMime:Hub
 title: Documentação do Azure Cost Management + Faturação
-summary: O Azure Cost Management e Faturação ajuda-o a compreender a faturação do Azure, a gerir a sua conta e subscrições, a monitorizar e controlar os gastos do Azure e a otimizar a utilização de recursos. Saiba como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e agir com base em recomendações.
+summary: O Azure Cost Management e Faturação ajuda-o a compreender a faturação do Azure, a gerir a sua conta e subscrições, a monitorizar e controlar as despesas do Azure e a otimizar a utilização dos recursos. Saiba como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e agir com base em recomendações.
 metadata:
   ms.service: cost-management-billing
-  description: O Azure Cost Management e Faturação ajuda-o a compreender a faturação do Azure, a gerir a sua conta e subscrições, a monitorizar e controlar os gastos do Azure e a otimizar a utilização de recursos. Saiba como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e agir com base em recomendações.
+  description: O Azure Cost Management e Faturação ajuda-o a compreender a faturação do Azure, a gerir a sua conta e subscrições, a monitorizar e controlar as despesas do Azure e a otimizar a utilização dos recursos. Saiba como analisar os custos, criar e gerir orçamentos e exportar dados, bem como analisar e agir com base em recomendações.
   ms.topic: hub-page
   author: bandersmsft
   ms.author: banders
-  manager: dougeby
-  ms.date: 12/17/2019
-  ms.openlocfilehash: 83e05501b256848f5fd7d4f42723a64b3fc3b1fb
-  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.date: 01/24/2019
+  ms.openlocfilehash: 3ece86e6c44f616553bdc5a73d6f56baae46961f
+  ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/15/2020
-  ms.locfileid: "75983363"
+  ms.lasthandoff: 01/28/2020
+  ms.locfileid: "76773908"
 highlightedContent:
   items:
   - title: O que é o Cost Management + Faturação?
@@ -135,7 +134,10 @@ conceptualContent:
     links:
     - url: https://feedback.azure.com/forums/906772-cost-management
       itemType: how-to-guide
-      text: Pedir uma funcionalidade do serviço Cost Management
+      text: Comentários do Cost Management
+    - url: https://twitter.com/azurecostmgmt
+      itemType: how-to-guide
+      text: Cost Management no Twitter
     - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
       itemType: how-to-guide
       text: Comunidade Técnica do Azure Cost Management

@@ -342,6 +342,9 @@
           href: how-to-schedule-pipelines.md
         - name: Depurar e resolver problemas de pipelines
           href: how-to-debug-pipelines.md
+        - name: Depurar pipelines no Application Insights
+          displayname: 'pipelines, log, monitor'
+          href: how-to-debug-pipelines-application-insights.md
         - name: Pipelines do Azure para CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
