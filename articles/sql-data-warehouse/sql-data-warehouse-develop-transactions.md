@@ -1,6 +1,6 @@
 ---
-title: Usando transações
-description: Dicas para implementar transações no Azure SQL Data Warehouse para desenvolver soluções.
+title: Utilização de transações
+description: Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,87 +11,87 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a4a2eccc3c46b7f982836c73d3144f1793e5034b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903077"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846194"
 ---
-# <a name="using-transactions-in-sql-data-warehouse"></a>Usando transações no SQL Data Warehouse
-Dicas para implementar transações no Azure SQL Data Warehouse para desenvolver soluções.
+# <a name="using-transactions-in-sql-data-warehouse"></a>Utilização de transações no Armazém de Dados SQL
+Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
 
 ## <a name="what-to-expect"></a>O que esperar
-Como esperado, SQL Data Warehouse dá suporte a transações como parte da carga de trabalho de data warehouse. No entanto, para garantir que o desempenho do SQL Data Warehouse seja mantido em escala, alguns recursos são limitados em comparação com SQL Server. Este artigo destaca as diferenças e lista os outros. 
+Como seria de esperar, o SQL Data Warehouse suporta transações como parte da carga de trabalho do armazém de dados. No entanto, para garantir que o desempenho do SQL Data Warehouse é mantido à escala, algumas funcionalidades são limitadas quando comparadas com o Servidor SQL. Este artigo destaca as diferenças e lista os outros. 
 
-## <a name="transaction-isolation-levels"></a>Níveis de isolamento da transação
-SQL Data Warehouse implementa transações ACID. No entanto, o nível de isolamento do suporte transacional é limitado à leitura não confirmada; Este nível não pode ser alterado. Se a leitura não confirmada for uma preocupação, você poderá implementar vários métodos de codificação para evitar leituras sujas de dados. Os métodos mais populares usam CTAS e a alternância de partição de tabela (geralmente conhecida como padrão de janela deslizante) para impedir que os usuários consultem dados que ainda estão sendo preparados. Exibições que filtram previamente os dados também são uma abordagem popular.  
+## <a name="transaction-isolation-levels"></a>Níveis de isolamento de transações
+O SQL Data Warehouse implementa transações acidais. O nível de isolamento do apoio transacional é incumpridor para LER NÃO COMPROMETIDO.  Pode alterá-lo para LER ISOLAMENTO INSTANTÂNEO COMPROMETIDO, ligando a opção de base de dados READ_COMMITTED_SNAPSHOT para uma base de dados de utilizador quando ligado à base de dados principal.  Uma vez ativadas, todas as transações nesta base de dados são executadas sob o isolamento de INSTANTÂNEOS READ COMMITTED e a definição de READ UNCOMMITTED on session level não será honrada. Verifique as opções de CONJUNTO DE BASE DE [DADOS ALTER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obter detalhes.
 
 ## <a name="transaction-size"></a>Tamanho da transação
-Uma única transação de modificação de dados tem tamanho limitado. O limite é aplicado por distribuição. Portanto, a alocação total pode ser calculada multiplicando o limite pela contagem de distribuição. Para aproximar o número máximo de linhas na transação, divida a extremidade de distribuição pelo tamanho total de cada linha. Para colunas de comprimento variável, considere pegar um comprimento médio de coluna em vez de usar o tamanho máximo.
+Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Por conseguinte, a atribuição total pode ser calculada multiplicando o limite pela contagem de distribuição. Para aproximar o número máximo de linhas na transação, divida a tampa de distribuição pelo tamanho total de cada linha. Para colunas de comprimento variável, considere tomar um comprimento médio da coluna em vez de usar o tamanho máximo.
 
-Na tabela abaixo, foram feitas as seguintes suposições:
+No quadro abaixo foram apresentados os seguintes pressupostos:
 
 * Ocorreu uma distribuição uniforme de dados 
 * O comprimento médio da linha é de 250 bytes
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo da transação (GB) | N º de linhas por distribuição | Máximo de linhas por transação |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Filas por distribuição | Max Rows por transação |
 | --- | --- | --- | --- | --- | --- |
-| DW100c |1 |60 |60 |4 milhões |240 milhões |
-| DW200c |1.5 |60 |90 |6,000,000 |360 milhões |
-| DW300c |2,25 |60 |135 |9 milhões |540 milhões |
-| DW400c |3 |60 |180 |12 milhões |720 milhões |
-| DW500c |3,75 |60 |225 |15 milhões |900 milhões |
-| DW1000c |7,5 |60 |450 |30 milhões |1\.800.000.000 |
-| DW1500c |11,25 |60 |675 |45 milhões |2\.700.000.000 |
-| DW2000c |15 |60 |900 |60 milhões |3\.600.000.000 |
-| DW2500c |18,75 |60 |1125 |75 milhões |4\.500.000.000 |
-| DW3000c |22,5 |60 |1\.350 |90 milhões |5\.400.000.000 |
-| DW5000c |37,5 |60 |2\.250 |150 milhões |9\.000.000.000 |
-| DW6000c |45 |60 |2\.700 |180 milhões |10.800.000.000 |
-| DW7500c |56,25 |60 |3\.375 |225 milhões |13.500.000.000 |
-| DW10000c |75 |60 |4\.500 |300,000,000 |18.000.000.000 |
-| DW15000c |112,5 |60 |6\.750 |450 milhões |27.000.000.000 |
-| DW30000c |225 |60 |13.500 |900 milhões |54.000.000.000 |
+| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2500c |18,75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37,5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
+| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13.500 |900,000,000 |54,000,000,000 |
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo da transação (GB) | N º de linhas por distribuição | Máximo de linhas por transação |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Filas por distribuição | Max Rows por transação |
 | --- | --- | --- | --- | --- | --- |
-| DW100 |1 |60 |60 |4 milhões |240 milhões |
-| DW200 |1.5 |60 |90 |6,000,000 |360 milhões |
-| DW300 |2,25 |60 |135 |9 milhões |540 milhões |
-| DW400 |3 |60 |180 |12 milhões |720 milhões |
-| DW500 |3,75 |60 |225 |15 milhões |900 milhões |
-| DW600 |4,5 |60 |270 |18 milhões |1\.080.000.000 |
-| DW1000 |7,5 |60 |450 |30 milhões |1\.800.000.000 |
-| DW1200 |9 |60 |540 |36 milhões |2\.160.000.000 |
-| DW1500 |11,25 |60 |675 |45 milhões |2\.700.000.000 |
-| DW2000 |15 |60 |900 |60 milhões |3\.600.000.000 |
-| DW3000 |22,5 |60 |1\.350 |90 milhões |5\.400.000.000 |
-| DW6000 |45 |60 |2\.700 |180 milhões |10.800.000.000 |
+| DW100 |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300 |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400 |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500 |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW600 |4.5 |60 |270 |18,000,000 |1,080,000,000 |
+| DW1000 |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1200 |9 |60 |540 |36,000,000 |2,160,000,000 |
+| DW1500 |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000 |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
-O limite de tamanho de transação é aplicado por transação ou operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação tem permissão para gravar essa quantidade de dados no log. 
+O limite de tamanho da transação é aplicado por transação ou operação. Não é aplicado em todas as transações simultâneas. Portanto, cada transação é permitida a escrever esta quantidade de dados no registo. 
 
-Para otimizar e minimizar a quantidade de dados gravados no log, veja o artigo [práticas recomendadas de transações](sql-data-warehouse-develop-best-practices-transactions.md) .
+Para otimizar e minimizar a quantidade de dados escritos no registo, consulte o artigo de boas práticas das [Transações.](sql-data-warehouse-develop-best-practices-transactions.md)
 
 > [!WARNING]
-> O tamanho máximo da transação só pode ser obtido para HASH ou ROUND_ROBIN tabelas distribuídas em que a disseminação dos dados é uniforme. Se a transação estiver gravando dados de maneira distorcido para as distribuições, o limite provavelmente será alcançado antes do tamanho máximo da transação.
+> O tamanho máximo da transação só pode ser alcançado para hash ou ROUND_ROBIN tabelas distribuídas onde a propagação dos dados é igual. Se a transação estiver a escrever dados de forma distorcida para as distribuições, então é provável que o limite seja atingido antes do tamanho máximo da transação.
 > <!--REPLICATED_TABLE-->
 > 
 > 
 
-## <a name="transaction-state"></a>Estado da transação
-SQL Data Warehouse usa a função XACT_STATE () para relatar uma transação com falha usando o valor-2. Esse valor significa que a transação falhou e está marcada apenas para reversão.
+## <a name="transaction-state"></a>Estado de transação
+O SQL Data Warehouse utiliza a função XACT_STATE() para reportar uma transação falhada utilizando o valor -2. Este valor significa que a transação falhou e está marcada apenas para reversão.
 
 > [!NOTE]
-> O uso de-2 pela função XACT_STATE para denotar uma transação com falha representa um comportamento diferente para SQL Server. SQL Server usa o valor-1 para representar uma transação não confirmável. SQL Server pode tolerar alguns erros dentro de uma transação sem ter que ser marcado como não confirmável. Por exemplo `SELECT 1/0` causaria um erro, mas não forçaria uma transação em um estado não confirmado. SQL Server também permite leituras na transação não confirmável. No entanto, SQL Data Warehouse não permite que você faça isso. Se ocorrer um erro dentro de uma SQL Data Warehouse transação, ele entrará automaticamente no estado-2 e você não poderá fazer mais instruções SELECT até que a instrução tenha sido revertida. Portanto, é importante verificar se o código do aplicativo para ver se ele usa XACT_STATE (), pois talvez seja necessário fazer modificações no código.
+> O uso de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o Servidor SQL. O SQL Server utiliza o valor -1 para representar uma transação não comprometedora. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como não comprometedor. Por exemplo, `SELECT 1/0` causaria um erro, mas não forçaria uma transação num estado não comprometedor. O SQL Server também permite leituras na transação não comprometedora. No entanto, o SQL Data Warehouse não o permite fazê-lo. Se ocorrer um erro dentro de uma transação do SQL Data Warehouse, entrará automaticamente no estado -2 e não poderá efazer mais declarações selecionadas até que a declaração tenha sido relançada. Por isso, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
 > 
 > 
 
-Por exemplo, em SQL Server você pode ver uma transação semelhante à seguinte:
+Por exemplo, no SQL Server pode ver uma transação que se parece com a seguinte:
 
 ```sql
 SET NOCOUNT ON;
@@ -129,13 +129,13 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-O código anterior fornece a seguinte mensagem de erro:
+O código anterior dá a seguinte mensagem de erro:
 
-MSG 111233, nível 16, estado 1, linha 1 111233; A transação atual foi anulada e todas as alterações pendentes foram revertidas. Causa: uma transação em um estado somente reversão não foi explicitamente revertida antes de uma instrução DDL, DML ou SELECT.
+Msg 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual foi abortada e quaisquer alterações pendentes foram revertidas. Causa: Uma transação num estado só de reversão não foi explicitamente revertida antes de uma declaração dDL, DML ou SELECT.
 
-Você não obterá a saída das funções ERROR_ *.
+Não terá a saída das funções ERROR_*.
 
-Em SQL Data Warehouse o código precisa ser ligeiramente alterado:
+No Armazém de Dados SQL o código tem de ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -172,32 +172,32 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-O comportamento esperado agora é observado. O erro na transação é gerenciado e as funções ERROR_ * fornecem valores conforme o esperado.
+O comportamento esperado é agora observado. O erro na transação é gerido e as funções ERROR_* fornecem valores como esperado.
 
-Tudo o que mudou é que a reversão da transação tinha que acontecer antes da leitura das informações de erro no bloco CATCH.
+Tudo o que mudou foi que o retrocesso da transação tinha de acontecer antes da leitura das informações de erro no bloco CATCH.
 
-## <a name="error_line-function"></a>Função Error_Line ()
-Também vale a pena observar que SQL Data Warehouse não implementa nem dá suporte à função ERROR_LINE (). Se você tiver isso em seu código, precisará removê-lo para estar em conformidade com SQL Data Warehouse. Use rótulos de consulta em seu código em vez de implementar a funcionalidade equivalente. Para obter mais detalhes, consulte o artigo [rótulo](sql-data-warehouse-develop-label.md) .
+## <a name="error_line-function"></a>Error_Line() função()
+Vale também a pena notar que o SQL Data Warehouse não implementa nem suporta a função ERROR_LINE.). Se tiver isto no seu código, tem de o remover para estar em conformidade com o SQL Data Warehouse. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais detalhes, consulte [o](sql-data-warehouse-develop-label.md) artigo label.
 
-## <a name="using-throw-and-raiserror"></a>Usando THROW e RAISERROR
-THROW é a implementação mais moderna para gerar exceções em SQL Data Warehouse, mas também há suporte para RAISERROR. No entanto, há algumas diferenças que valem a pena prestar atenção.
+## <a name="using-throw-and-raiserror"></a>Utilização de THROW e RAISERROR
+O THROW é a implementação mais moderna para levantar exceções no SQL Data Warehouse, mas o RAISERROR também é suportado. No entanto, há algumas diferenças que merecem prestar atenção.
 
-* Números de mensagens de erro definidas pelo usuário não podem estar no intervalo 100.000-150.000 para THROW
-* As mensagens de erro RAISERROR são corrigidas às 50.000
-* Não há suporte para o uso de sys. messages
+* Os números de mensagens de erro definidos pelo utilizador não podem estar na gama de 100.000 - 150.000 para THROW
+* As mensagens de erro RAISERROR são fixadas em 50.000
+* O uso de sys.messages não é suportado
 
 ## <a name="limitations"></a>Limitações
-SQL Data Warehouse tem algumas outras restrições relacionadas às transações.
+O SQL Data Warehouse tem algumas outras restrições relacionadas com transações.
 
-Eles são os seguintes:
+São os seguintes:
 
-* Nenhuma transação distribuída
-* Nenhuma transação aninhada permitida
-* Não há pontos de salvamento permitidos
-* Nenhuma transação nomeada
-* Nenhuma transação marcada
-* Não há suporte para DDL, como CREATE TABLE dentro de uma transação definida pelo usuário
+* Sem transações distribuídas
+* Não são permitidas transações aninhadas
+* Não são permitidos pontos de poupança
+* Sem transações nomeadas
+* Sem transações marcadas
+* Nenhum suporte para dDL como CREATE TABLE dentro de uma transação definida pelo utilizador
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre como otimizar as transações, confira [práticas recomendadas de transações](sql-data-warehouse-develop-best-practices-transactions.md). Para saber mais sobre outras SQL Data Warehouse práticas recomendadas, consulte [SQL data warehouse práticas recomendadas](sql-data-warehouse-best-practices.md).
+Para saber mais sobre otimização de transações, consulte [as melhores práticas de Transações.](sql-data-warehouse-develop-best-practices-transactions.md) Para conhecer outras boas práticas do SQL Data Warehouse, consulte as [melhores práticas do SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

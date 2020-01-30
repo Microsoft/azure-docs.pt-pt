@@ -3,19 +3,29 @@ title: Controlar alterações com a automação do Azure
 description: A solução Controle de Alterações ajuda a identificar as alterações no software e no serviço Windows que ocorrem em seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418754"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844807"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações em seu ambiente com a solução Controle de Alterações
 
-Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução acompanha as alterações no software Windows e Linux, arquivos Windows e Linux, chaves de registro do Windows, serviços do Windows e daemons do Linux. Identificar alterações de configuração pode ajudá-lo a identificar problemas operacionais.
+Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução rastreia as seguintes alterações de configuração para ajudá-lo a identificar problemas operacionais:
+
+- Software do Windows
+- Software Linux (pacotes)
+
+    >[!NOTE]
+    >Change Tracking apenas rastreia o software que é gerido com o gestor de pacotes da distribuição.
+
+- Arquivos Windows e Linux
+- Chaves de registo de janelas
+- Serviços Windows
+- Daemons do Linux
 
 As alterações no software instalado, nos serviços do Windows, no registro e nos arquivos do Windows e nos daemons do Linux nos servidores monitorados são enviadas para o serviço de Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas na sua infraestrutura de servidor.
 
@@ -26,13 +36,13 @@ As alterações no software instalado, nos serviços do Windows, no registro e n
 
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
-* Windows Server 2008 R2 ou posterior
+* Windows Server 2008 R2 ou mais tarde
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
 
 As seguintes distribuições do Linux são oficialmente suportadas. No entanto, o agente do Linux também pode ser executado em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias têm suporte para cada versão principal listada.
 
-### <a name="64-bit"></a>64 bits
+### <a name="64-bit"></a>64-bit
 
 * CentOS 6 e 7
 * Amazon Linux 2017, 9
@@ -67,10 +77,10 @@ Para controlar as alterações nos arquivos no Windows e no Linux, os hashes MD5
 
 ### <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 
-A central de segurança do Azure adicionou o FIM (monitoramento de integridade de arquivo) criado no Azure Controle de Alterações. Embora o FIM monitore arquivos e registros apenas, a solução de Controle de Alterações completa também inclui:
+A central de segurança do Azure adicionou o FIM (monitoramento de integridade de arquivo) criado no Azure Controle de Alterações. Enquanto o FIM monitoriza apenas ficheiros e registos, a solução completa de Rastreio de Alterações também inclui:
 
 - Alterações de software
-- Serviços do Windows
+- Serviços Windows
 - Daemons do Linux
 
 Se você já tiver habilitado o FIM e quiser experimentar a solução de Controle de Alterações completa, você precisará executar as etapas a seguir. As configurações não são removidas por esse processo.
@@ -151,7 +161,7 @@ Use as etapas a seguir para configurar o rastreamento de chave do registro em co
 |Ativado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave do registro a ser rastreada.        |
 |Grupo     | Um nome de grupo para agrupar logicamente as chaves do registro.        |
-|Chave do Registo do Windows   | O caminho para verificar a chave do registro. Por exemplo: "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chave do Registo do Windows   | O caminho para verificar a chave do registro. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitações
 
@@ -159,6 +169,8 @@ Atualmente, a solução de Controle de Alterações não oferece suporte aos seg
 
 * Recursão para rastreamento de registro do Windows
 * Sistemas de arquivos de rede
+* Diferentes métodos de instalação não são rastreados
+* Os ficheiros *.exe não são rastreados para windows
 
 Outras limitações:
 
@@ -232,8 +244,8 @@ A finalidade de monitorar alterações nas chaves do registro é identificar pon
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação para programas de 32 bits executados em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados para programas de 32 bits em execução em computadores de 64 bits.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc. Semelhante à seção [Drivers] no sistema. Arquivo INI.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc para programas de 32 bits em execução em computadores de 64 bits. Semelhante à seção [Drivers] no sistema. Arquivo INI.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc. Semelhante à secção [dos condutores] no SISTEMA. Arquivo INI.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc para programas de 32 bits em execução em computadores de 64 bits. Semelhante à secção [dos condutores] no SISTEMA. Arquivo INI.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora a lista de DLLs de sistema conhecidas ou comumente usadas; Esse sistema impede que as pessoas explorem as permissões de diretório de aplicativo fracas descartando as versões do cavalo de Troia das DLLs do sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora a lista de pacotes capazes de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operacional Windows.
 
@@ -241,7 +253,7 @@ A finalidade de monitorar alterações nas chaves do registro é identificar pon
 
 Os endereços a seguir são necessários especificamente para Controle de Alterações. A comunicação com esses endereços é feita pela porta 443.
 
-|Azure Público  |Azure Government  |
+|Azure Public  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -270,7 +282,7 @@ A tabela a seguir fornece pesquisas de log de exemplo para registros de alteraç
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfigurationData<br>&#124;em que ConfigDataType = = "WindowsServices" e SvcStartupType = = "auto"<br>&#124;em que SvcState = = "Stopped"<br>&#124;resumir arg_max (TimeGenerated, *) por SoftwareName, computador         | Mostra os registros de inventário mais recentes para serviços do Windows que foram definidos como automáticos, mas foram relatados como sendo interrompidos<br>Os resultados são limitados ao registro mais recente para o SoftwareName e o computador      |
+|ConfigurationData<br>&#124;em que ConfigDataType = = "WindowsServices" e SvcStartupType = = "auto"<br>&#124;em que SvcState = = "Stopped"<br>&#124;resumir arg_max (TimeGenerated, *) por SoftwareName, Computador         | Mostra os registros de inventário mais recentes para serviços do Windows que foram definidos como automáticos, mas foram relatados como sendo interrompidos<br>Os resultados são limitados ao registro mais recente para o SoftwareName e o computador      |
 |ConfigurationChange<br>&#124;em que ConfigChangeType = = "software" e ChangeCategory = = "removida"<br>&#124;ordenar por TimeGenerated desc|Mostra os registros de alteração do software removido|
 
 ## <a name="alert-on-changes"></a>Alertar sobre alterações
@@ -305,8 +317,8 @@ Enquanto os alertas sobre alterações no arquivo de hosts são uma boa aplicaç
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Útil para controlar alterações em serviços críticos do sistema|
 |ConfigurationChange <br>&#124;em que ConfigChangeType = = "software" e ChangeCategory = = "Added"|Útil para ambientes que precisam bloquear configurações de software|
 |ConfigurationData <br>&#124;onde SoftwareName contém "agente de monitoramento" e CurrentVersion! = "8.0.11081.0"|Útil para ver quais computadores têm uma versão de software desatualizada ou não compatível instalada. Ele relata o último estado de configuração relatado, não as alterações.|
-|ConfigurationChange <br>&#124;onde RegistryKey = = @ "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar alterações em chaves antivírus cruciais|
-|ConfigurationChange <br>&#124;onde RegistryKey contém @ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Útil para controlar alterações nas configurações de firewall|
+|ConfigurationChange <br>&#124;onde o RegistryKey == @"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar alterações em chaves antivírus cruciais|
+|ConfigurationChange <br>&#124;where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parâmetros\\FirewallPolicy"| Útil para controlar alterações nas configurações de firewall|
 
 ## <a name="next-steps"></a>Passos seguintes
 

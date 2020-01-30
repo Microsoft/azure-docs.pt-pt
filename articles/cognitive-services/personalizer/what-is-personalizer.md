@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514310"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846209"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -45,8 +45,8 @@ Vários cenários de exemplo são:
 
 |Tipo de conteúdo|**Ações (com recursos)**|**Recursos de contexto**|ID da ação de recompensa retornada<br>(exibir este conteúdo)|
 |--|--|--|--|
-|Lista de notícias|a. `The president...` (National, política, [texto])<br>b. `Premier League ...` (global, esportes, [texto, imagem, vídeo])<br> c. `Hurricane in the ...` (regional, clima, [texto, imagem]|As notícias do dispositivo são lidas de<br>Mês ou temporada<br>|um `The president...`|
-|Lista de filmes|1. `Star Wars` (1977, [ação, aventura, fantasia], George Lucas)<br>2. `Hoop Dreams` (1994, [documentário, esportes], Steve James<br>3. `Casablanca` (1942, [romance, inTudo, War], Michael Curtiz)|O filme do dispositivo é observado em<br>tamanho da tela<br>Tipo de usuário<br>|3. `Casablanca`|
+|Lista de notícias|a. `The president...` (nacional, política, [texto])<br>b. `Premier League ...` (global, desporto, [texto, imagem, vídeo])<br> c. `Hurricane in the ...` (regional, clima, [texto,imagem]|As notícias do dispositivo são lidas de<br>Mês ou temporada<br>|um `The president...`|
+|Lista de filmes|1. `Star Wars` (1977, [ação, aventura, fantasia], George Lucas)<br>2. `Hoop Dreams` (1994, [documentário, desporto], Steve James<br>3. `Casablanca` (1942, [romance, drama, guerra], Michael Curtiz)|O filme do dispositivo é observado em<br>tamanho da tela<br>Tipo de usuário<br>|3. `Casablanca`|
 |Lista de produtos|i. `Product A` (3 kg, US $ $ $ $ $, entrega em 24 horas)<br>ii. `Product B` (20 kg, US $ $, 2 semanas entregues com alfândega)<br>iii. `Product C` (3 kg, US $ $ $, entrega em 48 horas)|A compra do dispositivo é lida<br>Camada de gastos do usuário<br>Mês ou temporada|ii. `Product B`|
 
 O personalizador usou o reforço Learning para selecionar a melhor ação, conhecida como _ID de ação de recompensa_, com base em uma combinação de:
@@ -99,6 +99,6 @@ Como o personalizador usa informações coletivamente quase em tempo real para r
 * [O que é o reforço Learning?](concepts-reinforcement-learning.md)
 * [Saiba mais sobre os recursos e as ações para a solicitação de classificação](concepts-features.md)
 * [Saiba como determinar a pontuação da solicitação de recompensa](concept-rewards.md)
-* [Inícios rápidos]()
-* [Tutorial]()
+* [Inícios rápidos](sdk-learning-loop.md)
+* [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Usar a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

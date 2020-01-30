@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861664"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846153"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Eventos de forma com a pré-visualização do Azure Time Series Insights
 
@@ -117,7 +117,7 @@ A instância de série temporal contém metadados de dispositivo. Esses metadado
 
 Pré-visualização do Time Series Insights une uma tabela (depois de mesclar) durante o tempo de consulta. A tabela inclui colunas adicionais, como **tipo**. O exemplo a seguir demonstra como você pode [Formatar](./time-series-insights-send-events.md#supported-json-shapes) seus dados de telemetria.
 
-| deviceId  | Tipo | L1 | ERROS DE L2 | carimbo de data/hora | Taxa de series_Flow ft3/s | series_Engine de pressão do óleo psi |
+| deviceId  | Tipo | L1 | ERROS DE L2 | carimbo de data/hora | taxa de series_Flow ft3/s | series_Engine Pressão do Petróleo psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULADOR | Sistema de bateria | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de bateria |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -128,7 +128,7 @@ No exemplo anterior, tenha em atenção os seguintes pontos:
 * Propriedades estáticas são armazenadas no Time Series Insights pré-visualização para otimizar os dados enviados através da rede.
 * Time Series Insights dados de visualização são Unidos no momento da consulta por meio da ID de série temporal definida na instância.
 * São usadas duas camadas de aninhamento. Esse número é o mais que Time Series Insights visualização dá suporte. É fundamental para evitar matrizes profundamente aninhadas.
-* Como há algumas medidas, que são enviados como propriedades separadas dentro do mesmo objeto. No exemplo, **Series_Flow taxa psi**, **Series_Engine psi de pressão do óleo**e **series_Flow taxa ft3/s** são colunas exclusivas.
+* Como há algumas medidas, que são enviados como propriedades separadas dentro do mesmo objeto. No exemplo, **series_Flow Rate PSI**, series_Engine Oil Pressure **psi**, e series_Flow **Rate ft3/s** são colunas únicas.
 
 >[!IMPORTANT]
 > Os campos de instância não são armazenados com telemetria. Eles são armazenados com metadados no modelo de série temporal.
@@ -148,7 +148,7 @@ Considere o seguinte JSON:
   "data_flow" : 1.76435072345733643
 }
 ```
-No exemplo acima, a propriedade de `data_flow` achatada apresentaria uma colisão de nomenclatura com a propriedade `data_flow`. Nesse caso, o valor da propriedade *mais recente* substituiria o anterior. Se esse comportamento apresentar um desafio para seus cenários de negócios, entre em contato com a equipe do TSI.
+No exemplo acima, a propriedade `data_flow` achatada apresentaria uma colisão de nomeação com a propriedade `data_flow`. Nesse caso, o valor da propriedade *mais recente* substituiria o anterior. Se esse comportamento apresentar um desafio para seus cenários de negócios, entre em contato com a equipe do TSI.
 
 > [!WARNING] 
 > Nos casos em que as propriedades duplicadas estão presentes na mesma carga de evento devido ao nivelamento ou outro mecanismo, o valor mais recente da propriedade é armazenado, overwritting quaisquer valores anteriores.
@@ -156,5 +156,4 @@ No exemplo acima, a propriedade de `data_flow` achatada apresentaria uma colisã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para colocar essas diretrizes em prática, leia [Azure Time Series insights sintaxe de consulta de visualização](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para o Time Series Insights API REST de visualização para acesso a dados.
-- Para saber mais sobre as formas JSON com suporte, leia [formas de JSON com suporte](./time-series-insights-send-events.md#supported-json-shapes).
+Para colocar essas diretrizes em prática, leia [Azure Time Series insights sintaxe de consulta de visualização](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para o Time Series Insights API REST de visualização para acesso a dados.

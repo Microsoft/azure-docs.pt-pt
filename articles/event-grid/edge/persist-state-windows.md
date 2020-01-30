@@ -1,6 +1,6 @@
 ---
-title: Persistir o estado no Windows – grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Persistir estado no Windows
+title: Persistir estado no Windows - Azure Event Grid IoT Edge  Microsoft Docs
+description: Persistir estado nas Janelas
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -9,27 +9,29 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 485c6d4a92539a2ba67aece319c68d31649e8045
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992265"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844620"
 ---
-# <a name="persist-state-in-windows"></a>Persistir estado no Windows
+# <a name="persist-state-in-windows"></a>Persistir estado nas Janelas
 
-Os tópicos e as assinaturas criados no módulo grade de eventos são armazenados por padrão no sistema de arquivos do contêiner. Sem persistência, se o módulo for reimplantado, todos os metadados criados serão perdidos. Para preservar os dados entre as implantações, você precisará manter os dados fora do sistema de arquivos do contêiner. Atualmente, somente os metadados são persistidos. Os eventos são armazenados na memória. Se o módulo de grade de eventos for reimplantado ou reiniciado, todos os eventos não entregues serão perdidos.
+Os tópicos e subscrições criados no módulo Event Grid são armazenados no sistema de ficheiros de contentores por padrão. Sem persistência, se o módulo for redistribuído, todos os metadados criados perder-se-ão. Para preservar os dados através de implementações e reinícios, é necessário persistir os dados fora do sistema de ficheiros de contentores. 
 
-Este artigo fornece as etapas necessárias para implantar o módulo de grade de eventos com persistência em implantações do Windows.
+Por padrão, apenas os metadados são persistidos e os eventos ainda são armazenados na memória para um melhor desempenho. Siga a secção de eventos persistais para permitir a persistência do evento também.
+
+Este artigo fornece os passos necessários para implementar o módulo De Rede de Eventos com persistência nas implementações do Windows.
 
 > [!NOTE]
->O módulo de grade de eventos é executado como um **ContainerUser** de usuário com privilégios Baixos no Windows.
+>O módulo Event Grid funciona como um utilizador de baixo privilégio **ContainerUser** no Windows.
 
-## <a name="persistence-via-volume-mount"></a>Persistência por meio de montagem de volume
+## <a name="persistence-via-volume-mount"></a>Persistência através do volume de montagem
 
-Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados para preservar dados entre implantações. Para montar um volume, você precisa criá-lo usando comandos do Docker, conceder permissões para que o contêiner possa ler, gravar nele e, em seguida, implantar o módulo. Não há nenhuma provisão para criar automaticamente um volume com as permissões necessárias no Windows. Ele precisa ser criado antes da implantação.
+[Os volumes](https://docs.docker.com/storage/volumes/) de docker são usados para preservar dados através de implementações. Para montar um volume, é necessário criá-lo utilizando comandos de estivador, dar permissões para que o recipiente possa ler, escrever e, em seguida, implantar o módulo.
 
-1. Crie um volume executando o seguinte comando:
+1. Criar um volume executando o seguinte comando:
 
     ```sh
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
@@ -40,7 +42,7 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
    ```
-1. Obtenha o diretório de host para o qual o volume é mapeado executando o comando abaixo
+1. Obtenha o diretório anfitrião para que o volume mapeia para executando o comando abaixo
 
     ```sh
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
@@ -52,7 +54,7 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
    ```
 
-   Saída de exemplo:-
+   Saída da amostra:-
 
    ```json
    [
@@ -67,32 +69,32 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
           }
    ]
    ```
-1. Adicione o grupo **usuários** ao valor apontado pelo **mountpoint** da seguinte maneira:
-    1. Inicie o explorador de arquivos.
-    1. Navegue até a pasta apontada por **mountpoint**.
-    1. Clique com o botão direito do mouse em e selecione **Propriedades**.
-    1. Selecione **segurança**.
-    1. Em * nomes de grupo ou de usuário, selecione **Editar**.
-    1. Selecione **Adicionar**, insira `Users`, selecione **verificar nomes**e selecione **OK**.
-    1. Em *permissões para usuários*, selecione **Modificar**e selecione **OK**.
-1. Usar **associações** para montar este volume e reimplantar o módulo de grade de eventos de portal do Azure
+1. Adicione o grupo **Utilizadores** ao valor apontado pela **Mountpoint** da seguinte forma:
+    1. Lançar o Explorador de Ficheiros.
+    1. Navegue para a pasta apontada por **Mountpoint**.
+    1. Clique à direita e, em seguida, selecione **Propriedades**.
+    1. Selecione **Segurança**.
+    1. Em *Nomes de grupo ou utilizador, **selecione Editar**.
+    1. **Selecione Adicionar,** introduza `Users`, selecione **'Ver Nomes'** e selecione **Ok**.
+    1. Sob *permissões para utilizadores,* selecione **Modificar**, e selecione **Ok**.
+1. Use **Binds** para montar este volume e reimplantar módulo de Rede de Eventos do portal Azure
 
    Por exemplo,
 
     ```json
         {
               "Env": [
-                "inbound:serverAuth:tlsPolicy=strict",
-                "inbound:serverAuth:serverCert:source=IoTEdge",
-                "inbound:clientAuth:sasKeys:enabled=false",
-                "inbound:clientAuth:clientCert:enabled=true",
-                "inbound:clientAuth:clientCert:source=IoTEdge",
-                "inbound:clientAuth:clientCert:allowUnknownCA=true",
-                "outbound:clientAuth:clientCert:enabled=true",
-                "outbound:clientAuth:clientCert:source=IoTEdge",
-                "outbound:webhook:httpsOnly=true",
-                "outbound:webhook:skipServerCertValidation=false",
-                "outbound:webhook:allowUnknownCA=true"
+                "inbound__serverAuth__tlsPolicy=strict",
+                "inbound__serverAuth__serverCert__source=IoTEdge",
+                "inbound__clientAuth__sasKeys__enabled=false",
+                "inbound__clientAuth__clientCert__enabled=true",
+                "inbound__clientAuth__clientCert__source=IoTEdge",
+                "inbound__clientAuth__clientCert__allowUnknownCA=true",
+                "outbound__clientAuth__clientCert__enabled=true",
+                "outbound__clientAuth__clientCert__source=IoTEdge",
+                "outbound__webhook__httpsOnly=true",
+                "outbound__webhook__skipServerCertValidation=false",
+                "outbound__webhook__allowUnknownCA=true"
               ],
               "HostConfig": {
                 "Binds": [
@@ -110,7 +112,7 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     ```
 
    >[!IMPORTANT]
-   >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico no módulo. Para o módulo de grade de eventos no Windows, ele deve ser **C:\\aplicativo\\metadataDb**.
+   >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **C:\\app\\metadadosDb**.
 
 
     Por exemplo,
@@ -118,21 +120,22 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -145,11 +148,11 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     }
     ```
 
-## <a name="persistence-via-host-directory-mount"></a>Persistência via montagem de diretório de host
+## <a name="persistence-via-host-directory-mount"></a>Persistência através do suporte de diretório anfitrião
 
-Como alternativa, você pode optar por criar um diretório no sistema host e montar esse diretório.
+Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões e montar esse diretório.
 
-1. Crie um diretório no sistema de arquivos de host executando o comando a seguir.
+1. Crie um diretório no sistema de ficheiros do anfitrião executando o seguinte comando.
 
    ```sh
    mkdir <your-directory-name-here>
@@ -160,7 +163,7 @@ Como alternativa, você pode optar por criar um diretório no sistema host e mon
    ```sh
    mkdir C:\myhostdir
    ```
-1. Use o **bindings** para montar seu diretório e reimplantar o módulo de grade de eventos do portal do Azure.
+1. Utilize **Binds** para montar o seu diretório e recolocar o módulo Da Grelha de Eventos do portal Azure.
 
     ```json
     {
@@ -173,28 +176,29 @@ Como alternativa, você pode optar por criar um diretório no sistema host e mon
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico no módulo. Para o módulo de grade de eventos no Windows, ele deve ser **C:\\aplicativo\\metadataDb**.
+    >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **C:\\app\\metadadosDb**.
 
     Por exemplo,
 
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "C:\\myhostdir:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -206,3 +210,30 @@ Como alternativa, você pode optar por criar um diretório no sistema host e mon
          }
     }
     ```
+## <a name="persist-events"></a>Persistir eventos
+
+Para permitir a persistência do evento, primeiro deve ativar a persistência de metadados através do suporte de volume ou do suporte de diretório de hospedeiro utilizando as secções acima referidas.
+
+Coisas importantes a notar sobre eventos persistentes:
+
+* Os eventos persistentes são ativados por subscrição de eventos e é opt-in uma vez que um volume ou diretório foi montado.
+* A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, deve eliminar e recriar a Subscrição do Evento.
+* Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas torna-se apenas um noticível em larga escala.
+
+Para permitir a persistência do evento numa Subscrição de Eventos, detete `persistencePolicy` para `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

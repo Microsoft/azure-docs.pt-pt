@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
 description: Saiba como usar CLI do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 10ae6d88e8a40ba4175e664ed338f0a02be7a7ca
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294490"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844046"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com a CLI
 
@@ -104,7 +104,7 @@ Se você quiser disparar um backup sob demanda para seu compartilhamento de arqu
 
 Você precisa definir os seguintes parâmetros para disparar um backup sob demanda:
 
-* **--container-Name** é o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--container-Name** é o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
 * **--Item-Name** é o nome do compartilhamento de arquivos para o qual você deseja disparar um backup sob demanda. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Retain-until** especifica a data até o momento em que você deseja manter o ponto de recuperação. O valor deve ser definido no formato de hora UTC (dd-mm-aaaa).
 

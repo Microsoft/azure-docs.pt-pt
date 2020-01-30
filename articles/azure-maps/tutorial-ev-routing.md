@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f45859370ae178fb186399fdd2648bf37f0985aa
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910912"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844756"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: rotear veículos elétricos usando o Azure Notebooks (Python)
 
-O mapas do Azure é um portfólio de APIs de serviço geoespaciais que são nativamente integrados ao Azure. Com essas APIs, os desenvolvedores, as empresas e os ISVs podem criar aplicativos com reconhecimento de local e soluções de IoT, mobilidade, logística e acompanhamento de ativos. 
+O mapas do Azure é um portfólio de APIs de serviço geoespaciais que são nativamente integrados ao Azure. Com estas APIs, desenvolvedores, empresas e ISVs podem criar aplicações conscientes da localização, IoT, mobilidade, logística e soluções de rastreio de ativos. 
 
 As APIs REST do Azure Maps podem ser chamadas de idiomas como Python e R para habilitar a análise de dados geoespaciais e cenários de aprendizado de máquina. O mapas do Azure oferece um conjunto robusto de [APIs de roteamento](https://docs.microsoft.com/rest/api/maps/route) que permitem que os usuários calculem rotas entre vários pontos de dados. Os cálculos se baseiam em várias condições, como tipo de veículo ou área alcançável. 
 
-Neste tutorial, você percorre um cenário para ajudar um driver cuja carga de bateria do veículo elétrico é baixa para encontrar a estação de cobrança mais próxima possível, com base no tempo da unidade do local do veículo.
+Neste tutorial, você anda ajuda um condutor cuja bateria de veículo elétrico é baixa. O condutor precisa de encontrar o posto de carregamento mais próximo possível da localização do veículo.
 
 Neste tutorial, irá:
 
@@ -39,15 +39,15 @@ Neste tutorial, irá:
 
 Para concluir este tutorial, primeiro você precisa criar uma conta do Azure Maps e obter sua chave primária (chave de assinatura). 
 
-Para criar uma assinatura de conta do Azure Maps no tipo de preço S1, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps com o tipo de preço S1. 
+Para criar uma subscrição de conta Azure Maps, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps). Precisa de uma subscrição de conta Azure Maps com o nível de preço S1. 
 
 Para obter a chave de assinatura primária para sua conta, siga as instruções em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
+Para obter mais informações sobre autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Criar um bloco de anotações do Azure
 
-Para acompanhar este tutorial, você precisa criar um projeto de bloco de anotações do Azure e baixar e executar o arquivo do bloco de anotações Jupyter. O arquivo de bloco de anotações contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto de bloco de anotações do Azure e carregar o documento do bloco de anotações Jupyter para ele, faça o seguinte:
+Para acompanhar este tutorial, você precisa criar um projeto de bloco de anotações do Azure e baixar e executar o arquivo do bloco de anotações Jupyter. O arquivo de bloco de anotações contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto de caderno Azure e enviar-lhe o documento do caderno Jupyter, faça os seguintes passos:
 
 1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. Para obter mais informações, consulte [início rápido: entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Na parte superior da sua página de perfil público, selecione **meus projetos**.
@@ -64,7 +64,7 @@ Para acompanhar este tutorial, você precisa criar um projeto de bloco de anota�
 
 1. Selecione **Criar**.
 
-1. Depois que o projeto for criado, baixe o [arquivo de documento do notebook Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório do bloco de anotações Jupyter do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
+1. Depois de criado o seu projeto, descarregue este ficheiro de documentos do [portátil Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório de cadernos Azure Maps Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
 1. Na lista projetos na página **meus projetos** , selecione seu projeto e, em seguida, selecione **carregar** para carregar o arquivo de documento do notebook Jupyter. 
 
@@ -72,15 +72,15 @@ Para acompanhar este tutorial, você precisa criar um projeto de bloco de anota�
 
 1. Carregue o arquivo do seu computador e, em seguida, selecione **concluído**.
 
-1. Depois que o carregamento for concluído com êxito, o arquivo será exibido na página do projeto. Selecione o arquivo para abri-lo como um notebook Jupyter.
+1. Depois que o carregamento for concluído com êxito, o arquivo será exibido na página do projeto. Clique duas vezes no ficheiro para o abrir como um caderno Jupyter.
 
-Para ajudá-lo a entender melhor a funcionalidade implementada no arquivo do bloco de anotações, é recomendável executar o código no bloco de anotações uma célula por vez. Você pode executar o código em cada célula selecionando o botão **executar** na parte superior do aplicativo do bloco de anotações.
+Para ajudá-lo a entender melhor a funcionalidade implementada no ficheiro do portátil, execute o código no caderno uma célula de cada vez. Você pode executar o código em cada célula selecionando o botão **executar** na parte superior do aplicativo do bloco de anotações.
 
   ![O botão executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
-Para executar o código no bloco de anotações, instale os pacotes no nível do projeto fazendo o seguinte:
+Para executar o código no caderno, instale pacotes ao nível do projeto fazendo os seguintes passos:
 
 1. Baixe o arquivo [*requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do bloco de anotações Jupyter do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, carregue-o em seu projeto.
 1. No dashboard do projeto, selecione **definições do projeto**. 
@@ -95,9 +95,9 @@ Para executar o código no bloco de anotações, instale os pacotes no nível do
 
 ## <a name="load-the-required-modules-and-frameworks"></a>Carregar os módulos e as estruturas necessárias
 
-Para carregar todos os módulos e estruturas necessários, execute o seguinte script:
+Para carregar todos os módulos e quadros necessários, execute o seguinte script.
 
-```python
+```Python
 import time
 import aiohttp
 import urllib.parse
@@ -106,9 +106,9 @@ from IPython.display import Image, display
 
 ## <a name="request-the-reachable-range-boundary"></a>Solicitar o limite de intervalo acessível
 
-Em nosso cenário, uma empresa de entrega de pacote tem alguns veículos elétricos em sua frota. Durante o dia, os veículos elétricos precisam ser recobrados sem a necessidade de retornar ao depósito. Toda vez que a cobrança restante atual cai para menos de uma hora (ou seja, a bateria está com pouca carga), você pesquisa um conjunto de estações de carregamento que estão dentro de um intervalo acessível e obtém as informações de limite para esse intervalo. 
+Uma empresa de entrega de pacotes tem alguns veículos elétricos na sua frota. Durante o dia, os veículos elétricos precisam ser recobrados sem a necessidade de retornar ao depósito. Sempre que a carga restante cai para menos de uma hora, procura um conjunto de postos de carregamento que estejam dentro de um alcance acessível. Essencialmente, procure um posto de carregamento quando a bateria estiver com pouca carga. E obtém-se a informação de fronteira para essa gama de postos de carregamento. 
 
-Como a empresa prefere usar rotas que exigem um equilíbrio de economia e velocidade, o routetype solicitado é o *eco*. O script a seguir chama a [API obter intervalo de rotas](https://docs.microsoft.com/rest/api/maps/route/getrouterange) do serviço de roteamento do Azure Maps usando parâmetros para o modelo de consumo do veículo. Em seguida, o script analisa a resposta para criar um objeto Polygon do formato geojson, que representa o intervalo máximo de alcançável do carro.
+Como a empresa prefere usar rotas que exigem um equilíbrio de economia e velocidade, o routetype solicitado é o *eco*. O seguinte script chama a [Gama Get Route API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) do serviço de encaminhamento Do Azure Maps. Utiliza parâmetros para o modelo de consumo do veículo. Em seguida, o script analisa a resposta para criar um objeto Polygon do formato geojson, que representa o intervalo máximo de alcançável do carro.
 
 Para determinar os limites do intervalo alcançável do veículo elétrico, execute o script na seguinte célula:
 
@@ -173,7 +173,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Carregar o intervalo acessível e os pontos de cobrança para o serviço de dados do Azure Maps
 
-Convém visualizar em um mapa as estações de cobrança e limites para o intervalo máximo acessível do veículo elétrico. Para fazer isso, carregue os dados de limite e os dados das estações de carregamento como objetos geojson no serviço de dados do Azure Maps usando a [API de carregamento de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
+Num mapa, você vai querer visualizar os postos de carregamento e o limite para a gama máxima acessível do veículo elétrico. Para tal, faça o upload dos dados de fronteira e dos postos de carregamento como objetos geojson para o Serviço de Dados do Mapa Do Azure. Utilize a [API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)de upload de dados . 
 
 Para carregar os dados de limite e de ponto de carregamento para o serviço de dados do Azure Maps, execute as duas células a seguir:
 
@@ -239,7 +239,7 @@ poiUdid = getPoiUdid["udid"]
 
 ## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Renderizar as estações de carregamento e o intervalo alcançável em um mapa
 
-Depois de carregar os dados para o serviço de dados, chame o [serviço obter imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage) do Azure Maps para renderizar os pontos de carregamento e o limite máximo de alcançável na imagem do mapa estático executando o seguinte script:
+Depois de ter enviado os dados para o serviço de dados, ligue para o [serviço](https://docs.microsoft.com/rest/api/maps/render/getmapimage)De imagem do Mapa do Mapa do Azure Maps . Este serviço é utilizado para tornar os pontos de carregamento e o limite máximo alcançável na imagem do mapa estático executando o seguinte script:
 
 ```python
 # Get boundaries for the bounding box.
@@ -281,9 +281,9 @@ display(Image(poiRangeMap))
 
 ## <a name="find-the-optimal-charging-station"></a>Encontre a estação de cobrança ideal
 
-Depois de determinar todas as possíveis estações de carregamento dentro do intervalo acessível, você deseja saber quais delas podem ser atingidas em um período mínimo de tempo. 
+Em primeiro lugar, pretende determinar todas as potenciais estações de carregamento dentro do alcance acessível. Então, quer saber qual deles pode ser alcançado num período mínimo de tempo. 
 
-O script a seguir chama a [API de roteamento de matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)do Azure Maps, que retorna para o local do veículo especificado o tempo de viagem e a distância de cada estação de cobrança. O script na próxima célula analisa a resposta para localizar a estação de cobrança acessível mais próxima em relação ao tempo.
+O seguinte guião chama a [API de Encaminhamento de Matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)de Mapas Azure . Devolve a localização especificada do veículo, o tempo de viagem e a distância a cada estação de carregamento. O script na próxima célula analisa a resposta para localizar a estação de cobrança acessível mais próxima em relação ao tempo.
 
 Para localizar a estação de cobrança acessível mais próxima que pode ser alcançada na menor quantidade de tempo, execute o script na seguinte célula:
 
@@ -336,7 +336,7 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>Visualizar a rota
 
-Para ajudar a visualizar a rota, primeiro carregue os dados de rota como um objeto geojson no serviço de dados do Azure Maps usando a [API de carregamento de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)do Azure Maps. Em seguida, você chama o serviço de renderização, [obter API de mapa de imagem](https://docs.microsoft.com/rest/api/maps/render/getmapimage), para renderizar a rota no mapa e visualizá-la.
+Para ajudar a visualizar a rota, primeiro faça o upload dos dados da rota como um objeto geojson para o Serviço de Dados do Azure Maps. Para tal, utilize a [API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)de upload de dados do Azure Maps . Em seguida, ligue para o serviço de renderização, [Obtenha API de Imagem de Mapa,](https://docs.microsoft.com/rest/api/maps/render/getmapimage)para tornar a rota no mapa, e visualizá-la.
 
 Para obter uma imagem para a rota renderizada no mapa, execute o seguinte script:
 

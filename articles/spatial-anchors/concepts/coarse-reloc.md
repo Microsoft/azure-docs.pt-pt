@@ -1,6 +1,6 @@
 ---
 title: Relocalidade grosseira
-description: Guia de início rápido de relocalização de alta.
+description: Aprenda a usar a relocalização de Coarse para encontrar âncoras perto de si.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356356"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844399"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
 
@@ -638,7 +638,7 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 
 ## <a name="expected-results"></a>Resultados esperados
 
-Dispositivos GPS de nível de consumidor normalmente são muito imprecisos. Um estudo de [Zandenbergen e Barbeau (2011)][6] relata a precisão mediana de telefones celulares com GPS assistido (A-GPS) para cerca de 7 metros – um valor grande a ser ignorado! Para considerar esses erros de medição, o serviço trata as âncoras como distribuições de probabilidade no espaço GPS. Dessa forma, uma âncora é agora a região de espaço que mais provavelmente (isto é, com mais de 95% de confiança) contém sua posição GPS verdadeira e desconhecida.
+Dispositivos GPS de nível de consumidor normalmente são muito imprecisos. Um estudo de [Zandenbergen e Barbeau (2011)][6] relata a precisão mediana de telefones celulares com GPS assistido (A-GPS) para cerca de 7 metros – um valor grande a ser ignorado! Para considerar esses erros de medição, o serviço trata as âncoras como distribuições de probabilidade no espaço GPS. Como tal, uma âncora é agora a região do espaço que mais provável (isto é, com mais de 95% de confiança) contém a sua posição verdadeira e desconhecida de GPS.
 
 O mesmo raciocínio é aplicado ao consultar com GPS. O dispositivo é representado como outra região de confiança espacial em relação à sua posição de GPS verdadeira, desconhecida. Descobrir âncoras próximas se traduz em simplesmente localizar as âncoras com regiões de confiança *próximas o suficiente* da região de confiança do dispositivo, conforme ilustrado na imagem abaixo:
 
@@ -670,7 +670,7 @@ A tabela a seguir resume os dados do sensor coletados em cada uma das plataforma
 Use a relocalização de alta utilização em um aplicativo.
 
 > [!div class="nextstepaction"]
-> [Unity](../how-tos/set-up-coarse-reloc-unity.md)
+> [Unidade](../how-tos/set-up-coarse-reloc-unity.md)
 
 > [!div class="nextstepaction"]
 > [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)

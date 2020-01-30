@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646494"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845584"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais
 
@@ -39,7 +39,7 @@ Todos os recursos do Azure são criados em uma região e uma assinatura do Azure
 
 ## <a name="subscriptions"></a>Subscrições
 
-Você pode implantar quantas redes virtuais forem necessárias em cada assinatura, até o [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm assinaturas diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações sobre assinaturas, consulte [governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+Você pode implantar quantas redes virtuais forem necessárias em cada assinatura, até o [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm assinaturas diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações sobre assinaturas, consulte [governança de assinatura](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentação
 

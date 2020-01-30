@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fabb2524547bd7837d3644d79f0023311ddccdfc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547256"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845548"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 
@@ -23,7 +23,7 @@ Este artigo explica o conceito de exclusão reversível do espaço de trabalho d
 Quando você exclui um espaço de trabalho Log Analytics, uma operação de exclusão reversível é executada para permitir a recuperação do espaço de trabalho, incluindo seus dados e agentes conectados dentro de 14 dias, se a exclusão foi acidental ou intencional. Após o período de exclusão reversível, o recurso de espaço de trabalho e seus dados são não recuperáveis – seus dados são enfileirados para exclusão permanente e completamente limpos dentro de 30 dias. O nome do espaço de trabalho é ' liberado ' e você pode usá-lo para criar um novo espaço de trabalho.
 
 > [!NOTE]
-> O comportamento de exclusão reversível não pode ser desativado. Em breve, adicionaremos uma opção para substituir a exclusão reversível ao usar uma marca ' Force ' na operação de exclusão.
+> Se pretender anular o comportamento de apagar suavemente e eliminar permanentemente o seu espaço de trabalho, siga os passos no espaço de [trabalho Permanente](#Permanent workspace delete).
 
 Você deseja ter cuidado ao excluir um espaço de trabalho porque pode haver dados e configurações importantes que podem afetar negativamente a operação do serviço. Examine quais agentes, soluções e outros serviços e fontes do Azure que armazenam seus dados em Log Analytics, como:
 
@@ -49,9 +49,9 @@ Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.mic
 1. Para entrar, vá para a [portal do Azure](https://portal.azure.com). 
 2. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho e clique em **excluir** na parte superior do painel central.
-   ![opção Excluir do painel Propriedades do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace.png)
+   ![Excluir a opção das propriedades do Espaço de Trabalho painel](media/delete-workspace/log-analytics-delete-workspace.png)
 4. Quando a janela mensagem de confirmação for exibida solicitando que você confirme a exclusão do espaço de trabalho, clique em **Sim**.
-   ![confirmar a exclusão do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+   ![Confirmar a supressão do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
@@ -89,7 +89,7 @@ Você pode recuperar um espaço de trabalho recriando-o usando o seguinte espaç
 
 * ID de Subscrição
 * Nome do grupo de recursos
-* Nome da área de trabalho
+* Nome do espaço de trabalho
 * Região
 
 ### <a name="powershell"></a>PowerShell

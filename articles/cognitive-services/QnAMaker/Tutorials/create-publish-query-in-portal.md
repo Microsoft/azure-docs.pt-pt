@@ -1,28 +1,20 @@
 ---
 title: 'Tutorial: criar, publicar e responder no QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: Este tutorial mostra como criar uma nova base de dados de conhecimento com perguntas e respostas de uma FAQ pública baseada na Web. Salve, treine e publique a base de dados de conhecimento. Depois que a base de dados de conhecimento for publicada, envie uma pergunta e receba uma resposta com um comando de ondulação. Em seguida, crie um bot e teste o bot com a mesma pergunta.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 5b2f2decf3d070da2fb58bebd424b4209f353316
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/28/2020
+ms.openlocfilehash: 07a92b0f24aa95fc4a5188f54c7194fd342409fb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447390"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844196"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: no portal de QnA Maker, crie uma base de dados de conhecimento
 
-Crie uma nova base de dados de conhecimento com perguntas e respostas de uma FAQ pública baseada na Web. Salve, treine e publique a base de dados de conhecimento. Depois que a base de dados de conhecimento for publicada, envie uma pergunta e receba uma resposta com um comando de ondulação. Em seguida, crie um bot e teste o bot com a mesma pergunta. 
+Crie uma nova base de dados de conhecimento com perguntas e respostas de uma FAQ pública baseada na Web. Salve, treine e publique a base de dados de conhecimento. Depois que a base de dados de conhecimento for publicada, envie uma pergunta e receba uma resposta com um comando de ondulação. Em seguida, crie um bot e teste o bot com a mesma pergunta.
 
-Neste tutorial, ficará a saber como: 
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma base de dados de conhecimento no portal de QnA Maker.
@@ -30,60 +22,69 @@ Neste tutorial, ficará a saber como:
 > * Publique a base de dados de conhecimento.
 > * Use a rotação para consultar a base de dados de conhecimento.
 > * Crie um bot.
- 
+
 
 > [!NOTE]
 > A versão programática deste tutorial está disponível com uma solução completa do repositório do [GitHub **Azure-Samples/cognitiva-Services-qnamaker-Csharp** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md) existente. 
+Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md) existente.
 
-## <a name="create-a-knowledge-base"></a>Criar uma base de dados de conhecimento 
+## <a name="create-a-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-1. Inicie sessão no portal do [Criador de FAQ](https://www.qnamaker.ai). 
+1. Inicie sessão no portal do [Criador de FAQ](https://www.qnamaker.ai).
 
 1. Selecione **Create a knowledge base** (Criar uma base de dados de conhecimento) no menu superior.
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
 
-1. Ignore a primeira etapa, pois você usará o serviço de QnA Maker existente. 
+1. Ignore a primeira etapa, pois você usará o serviço de QnA Maker existente.
 
-1. Selecione as configurações existentes:  
+1. Selecione as configurações existentes:
 
     |Definição|Finalidade|
     |--|--|
     |ID do diretório Microsoft Azure|Essa ID é associada à conta usada para entrar no portal do Azure e no portal de QnA Maker. |
     |Azure Subscription name|A conta de cobrança na qual você criou o recurso de QnA Maker.|
     |Azure QnA Service|O recurso do Criador de FAQ existente.|
+    |Linguagem|Linguagem usada para todas as bases de conhecimento em serviço. Não misture línguas num único recurso. Isso prejudicará a qualidade da resposta.|
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
 
 1. Insira o nome da base de dados de conhecimento, `My Tutorial kb`.
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
 
-1. Preencha sua base de dados de conhecimento com as seguintes configurações:  
+1. Preencha sua base de dados de conhecimento com as seguintes configurações:
 
     |Nome da definição|Valor da definição|Finalidade|
     |--|--|--|
+    |Permitir a extração de várias voltas|Assinalado|Permite instruções de acompanhamento.|
+    |Texto de resposta padrão|`No good answer was found.`|Devolvido quando não há correspondência com a pergunta.|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Os conteúdos de FAQ nesse URL estão formatados com uma pergunta, seguida de uma resposta. O Criador de FAQ consegue interpretar este formato para extrair perguntas e as respostas associadas.|
     |Ficheiros |_não utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
     |Personalidade de Chit-chat|AmigáveI|Isso oferece uma [personalidade](../Concepts/best-practices.md#chit-chat) amigável e casual a perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
 1. Selecione **Create your KB** (Criar a sua BDC) para concluir o processo de criação.
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
 
 ## <a name="review-save-and-train-the-knowledge-base"></a>Rever, guardar e preparar a base de dados de conhecimento
 
-1. Reveja as perguntas e repostas. A primeira página inclui as perguntas e respostas a partir do URL. 
+1. Reveja as perguntas e repostas. A primeira página inclui as perguntas e respostas a partir do URL.
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal QnA Maker](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
 
-1. Selecione a última página de perguntas e respostas na parte inferior da tabela. A página mostra perguntas e respostas da personalidade Chit-chat. 
+1. Selecione a última página de perguntas e respostas na parte inferior da tabela. A página mostra perguntas e respostas da personalidade Chit-chat.
 
 1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone **Exibir opções** e, em seguida, selecione **Mostrar metadados**. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de Chit têm os metadados **editorial: Chit-Chat** já definidos. Esses metadados são retornados para o aplicativo cliente, junto com a resposta selecionada. O aplicativo cliente, como um bot de chat, pode usar esses metadados filtrados para determinar o processamento adicional ou as interações com o usuário.
 
@@ -101,19 +102,19 @@ Depois que a base de dados de conhecimento é publicada, o ponto de extremidade 
 
 ![Captura de tela das configurações do ponto de extremidade](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-Não feche esta página de **publicação** . Você precisará dele posteriormente no tutorial para criar um bot. 
+Não feche esta página de **publicação** . Você precisará dele posteriormente no tutorial para criar um bot.
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Use a ondulação para consultar uma resposta de perguntas frequentes
 
-1. Selecione o separador **Curl**. 
+1. Selecione o separador **Curl**.
 
     ![Captura de tela da guia ondulação](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
 1. Copie o texto da guia **ondulação** e execute-o em um terminal ou linha de comando habilitado para ondulação. O valor do cabeçalho de autorização inclui o texto `Endpoint`, com um espaço à direita e depois a chave.
 
-1. Substitua `<Your question>` por `How large can my KB be?`. Esta pergunta é parecida com a pergunta `How large a knowledge base can I create?`, mas não é exatamente igual. O Criador de FAQ aplica o processamento de linguagem natural para determinar que as duas perguntas são idênticas.     
+1. Substitua `<Your question>` por `How large can my KB be?`. Esta pergunta é parecida com a pergunta `How large a knowledge base can I create?`, mas não é exatamente igual. O Criador de FAQ aplica o processamento de linguagem natural para determinar que as duas perguntas são idênticas.
 
-1. Execute o comando de ondulação e receba a resposta JSON, incluindo a pontuação e a resposta. 
+1. Execute o comando de ondulação e receba a resposta JSON, incluindo a pontuação e a resposta.
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -132,16 +133,16 @@ Não feche esta página de **publicação** . Você precisará dele posteriormen
         }
       ]
     }
-    
+
     ```
 
-    O Criador de FAQ está algo confiante com a classificação 42,81%.  
+    O Criador de FAQ está algo confiante com a classificação 42,81%.
 
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Usar a rotação para consultar uma resposta de Chit
 
-1. No terminal habilitado para ondulação, substitua `How large can my KB be?` por uma instrução bot Conversation-end do usuário, como `Thank you`.   
+1. No terminal habilitado para ondulação, substitua `How large can my KB be?` por uma instrução bot Conversation-end do usuário, como `Thank you`.
 
-1. Execute o comando de ondulação e receba a resposta JSON, incluindo a pontuação e a resposta. 
+1. Execute o comando de ondulação e receba a resposta JSON, incluindo a pontuação e a resposta.
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -172,18 +173,18 @@ Não feche esta página de **publicação** . Você precisará dele posteriormen
         }
       ]
     }
-   
+
     ```
 
-    Uma vez que a pergunta `Thank you` corresponde exatamente a uma pergunta Chit-chat, o Criador de FAQ está completamente confiante com a classificação 100. QnA Maker também retornou todas as perguntas relacionadas, bem como a propriedade de metadados que contém as informações de marca de metadados Chit-Chat.  
+    Uma vez que a pergunta `Thank you` corresponde exatamente a uma pergunta Chit-chat, o Criador de FAQ está completamente confiante com a classificação 100. QnA Maker também retornou todas as perguntas relacionadas, bem como a propriedade de metadados que contém as informações de marca de metadados Chit-Chat.
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Use a rotação para consultar a resposta padrão
 
-Qualquer pergunta que QnA Maker não tenha certeza sobre o recebe a resposta padrão. Esta resposta é configurada no portal do Azure. 
+Qualquer pergunta que QnA Maker não tenha certeza sobre o recebe a resposta padrão. Esta resposta é configurada no portal do Azure.
 
-1. No terminal habilitado para ondulação, substitua `Thank you` por `x`. 
+1. No terminal habilitado para ondulação, substitua `Thank you` por `x`.
 
-1. Execute o comando de ondulação e receba a resposta JSON, incluindo a pontuação e a resposta. 
+1. Execute o comando de ondulação e receba a resposta JSON, incluindo a pontuação e a resposta.
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -200,8 +201,8 @@ Qualquer pergunta que QnA Maker não tenha certeza sobre o recebe a resposta pad
       ]
     }
     ```
-    
-    QnA Maker retornou uma pontuação de `0`, o que significa que não há confiança. Ele também retornou a resposta padrão. 
+
+    QnA Maker retornou uma pontuação de `0`, o que significa que não há confiança. Ele também retornou a resposta padrão.
 
 ## <a name="create-a-knowledge-base-bot"></a>Criar um bot da base de dados de conhecimento
 
@@ -211,15 +212,15 @@ Para obter mais informações, consulte [criar um bot de chat com esta base de d
 
 Quando você terminar com o bot da base de dados de conhecimento, remova o grupo de recursos, `my-tutorial-rg`, para remover todos os recursos do Azure criados no processo de bot.
 
-Quando terminar com a base de dados de conhecimento, no portal do QnA Maker, selecione **minhas bases de dados de conhecimento**. Em seguida, selecione a base de dados de conhecimento, **meu tutorial KB**e selecione o ícone Excluir na extrema direita da linha.  
+Quando terminar com a base de dados de conhecimento, no portal do QnA Maker, selecione **minhas bases de dados de conhecimento**. Em seguida, selecione a base de dados de conhecimento, **meu tutorial KB**e selecione o ícone Excluir na extrema direita da linha.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja [Origens de dados suportadas](../Concepts/data-sources-supported.md) para obter mais informações sobre os formatos de ficheiro suportados. 
+Veja [Origens de dados suportadas](../Concepts/content-types.md) para obter mais informações sobre os formatos de ficheiro suportados.
 
 Saiba mais sobre as [personalidades](../Concepts/best-practices.md#chit-chat) Chit-chat.
 
-Para obter mais informações sobre a resposta predefinida, veja [Nenhuma correspondência encontrada](../Concepts/confidence-score.md#no-match-found). 
+Para obter mais informações sobre a resposta predefinida, veja [Nenhuma correspondência encontrada](../Concepts/confidence-score.md#no-match-found).
 
 > [!div class="nextstepaction"]
 > [Criar um bot de chat com esta base de dados de conhecimento](create-qna-bot.md)

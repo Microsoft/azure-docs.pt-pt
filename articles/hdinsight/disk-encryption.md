@@ -7,14 +7,14 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982500"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846115"
 ---
-# <a name="customer-managed-key-disk-encryption"></a>Criptografia de disco de chave gerenciada pelo cliente
+# <a name="customer-managed-key-disk-encryption"></a>Encriptação de discos chave gerida pelo cliente
 
 O Azure HDInsight dá suporte a chaves gerenciadas pelo cliente, também conhecidas como criptografia de Bring Your Own Key (BYOK) para dados em discos gerenciados e discos de recursos anexados a VMs do cluster HDInsight. Esse recurso permite que você use Azure Key Vault para gerenciar as chaves de criptografia que protegem dados em repouso em seus clusters HDInsight. Seus clusters podem ter uma ou mais contas de armazenamento do Azure anexadas em que as chaves de criptografia também podem ser gerenciadas pela Microsoft ou gerenciadas pelo cliente, mas o serviço de criptografia é diferente.
 
@@ -79,7 +79,7 @@ O HDInsight só dá suporte a Azure Key Vault. Se você tiver seu próprio cofre
 
     b. Em **selecionar entidade de segurança**, escolha a identidade gerenciada atribuída pelo usuário que você criou.
 
-    ![Defina selecionar entidade de segurança para política de acesso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Defina selecionar entidade de segurança para política de acesso de Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     c. Defina **as permissões de chave** para **obter**, **desencapsular chave**e **encapsular chave**.
 
@@ -100,6 +100,8 @@ Agora você está pronto para criar um novo cluster HDInsight. A chave gerenciad
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
 Durante a criação do cluster, forneça a URL de chave completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
+
+![Criar um novo cluster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b30ace8d7ae7a818611856d46b2c50ed8db06f7
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fe9cee44970da94c346caffc0d5fe76ffebf4a0b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292455"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845151"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usar a extensão da CLI para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -175,7 +175,7 @@ Os comandos a seguir demonstram como trabalhar com conjuntos de valores no Azure
     az ml dataset register -f mydataset.json
     ```
 
-    Para obter informações sobre o formato do arquivo JSON usado para definir o conjunto de dados, use `az ml dataset --show-template`.
+    Para obter informações sobre o formato do ficheiro JSON utilizado para definir o conjunto de dados, utilize `az ml dataset register --show-template`.
 
     Para obter mais informações, consulte [AZ ml DataSet Register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 
@@ -265,7 +265,7 @@ Os comandos a seguir demonstram como criar, registrar e listar Azure Machine Lea
 
 ### <a name="environment-configuration-schema"></a>Esquema de configuração do ambiente
 
-Se você usou o comando `az ml environment scaffold`, ele gera um arquivo de modelo `azureml_environment.json` que pode ser modificado e usado para criar configurações de ambiente personalizadas com a CLI. O objeto de nível superior é mapeado de forma flexível para a classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) no SDK do Python. 
+Se usou o comando `az ml environment scaffold`, gera um modelo `azureml_environment.json` ficheiro que pode ser modificado e usado para criar configurações ambientais personalizadas com o CLI. O objeto de nível superior é mapeado de forma flexível para a classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) no SDK do Python. 
 
 ```json
 {
@@ -309,7 +309,7 @@ Se você usou o comando `az ml environment scaffold`, ele gera um arquivo de mod
 }
 ```
 
-A tabela a seguir detalha cada campo de nível superior no arquivo JSON, é tipo e uma descrição. Se um tipo de objeto estiver vinculado a uma classe do SDK do Python, haverá uma correspondência de 1:1 flexível entre cada campo JSON e o nome da variável pública na classe Python. Em alguns casos, o campo pode ser mapeado para um argumento de Construtor em vez de uma variável de classe. Por exemplo, o campo `environmentVariables` é mapeado para a variável `environment_variables` na classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) .
+A tabela a seguir detalha cada campo de nível superior no arquivo JSON, é tipo e uma descrição. Se um tipo de objeto estiver vinculado a uma classe do SDK do Python, haverá uma correspondência de 1:1 flexível entre cada campo JSON e o nome da variável pública na classe Python. Em alguns casos, o campo pode ser mapeado para um argumento de Construtor em vez de uma variável de classe. Por exemplo, os mapas de campo `environmentVariables` para a variável `environment_variables` na classe [`Environment`.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py)
 
 | Campo JSON | Tipo | Descrição |
 |---|---|---|

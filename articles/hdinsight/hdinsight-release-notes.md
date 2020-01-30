@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/24/2020
+ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027769"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844688"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -23,7 +23,7 @@ Este artigo fornece informações sobre as atualizações de versão **mais rece
 
 O Azure HDInsight é um dos serviços mais populares entre clientes empresariais para análise de software livre no Azure.
 
-## <a name="release-date-01092019"></a>Data de lançamento: 01/09/2019
+## <a name="release-date-01092020"></a>Data de lançamento: 01/09/2020
 
 Esta versão se aplica tanto ao HDInsight 3,6 quanto ao 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação esteja ativa em sua região em vários dias.
 
@@ -42,7 +42,7 @@ Todos os discos gerenciados no HDInsight são protegidos com o Azure Criptografi
 ## <a name="deprecation"></a>Preterição
 Nenhuma substituição para esta versão. Para se preparar para [as futuras substituições](#upcoming-changes), confira alterações futuras.
 
-## <a name="behavior-changes"></a>Alterações de comportamento
+## <a name="behavior-changes"></a>Mudanças de comportamento
 Nenhuma alteração de comportamento para esta versão. Para se preparar para as alterações futuras, confira [alterações futuras](#upcoming-changes).
 
 ## <a name="upcoming-changes"></a>Alterações futuras
@@ -52,7 +52,7 @@ As seguintes alterações ocorrerão em versões futuras.
 Uma VM de 4 núcleos mínima é necessária para o nó de cabeçalho para garantir a alta disponibilidade e a confiabilidade dos clusters HDInsight. A partir de 6 de abril de 2020, os clientes podem escolher apenas 4 núcleos ou acima da VM como nó principal para os novos clusters HDInsight. Os clusters existentes continuarão a ser executados conforme esperado. 
 
 ### <a name="esp-spark-cluster-node-size-change"></a>Alteração do tamanho do nó do cluster do Spark do ESP 
-Na próxima versão, o tamanho mínimo de nó permitido para o cluster do Spark do ESP será alterado para Standard_D13_V2. As VMs da série a podem causar problemas de cluster ESP devido à capacidade relativamente baixa de CPU e memória. As VMs da série A serão preteridas para a criação de novos clusters ESP.
+Na próxima versão, o tamanho mínimo permitido para o cluster ESP Spark será alterado para Standard_D13_V2. As VMs da série a podem causar problemas de cluster ESP devido à capacidade relativamente baixa de CPU e memória. As VMs da série A serão preteridas para a criação de novos clusters ESP.
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrando para conjuntos de dimensionamento de máquinas virtuais do Azure
 O HDInsight agora usa máquinas virtuais do Azure para provisionar o cluster. Na próxima versão, o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os conjuntos de dimensionamento de máquinas virtuais do Azure.
@@ -65,3 +65,34 @@ O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do clu
 
 ## <a name="component-version-change"></a>Alteração de versão do componente
 Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 aqui.
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+A partir de 24 de janeiro de 2020, existe uma questão ativa em que poderá receber um erro ao tentar usar um caderno Jupyter. Use os passos abaixo para corrigir o problema. Também pode consultar este [post da MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) ou este [post StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obter informações atualizadas ou para fazer perguntas adicionais. Esta página será atualizada quando o problema for corrigido.
+
+**Erros**
+
+* ValueError: Não pode converter o caderno em v5 porque essa versão não existe
+* Erro de carregamento de caderno Um erro desconhecido ocorreu ao carregar este caderno. Esta versão pode carregar formatos de caderno v4 ou mais cedo
+
+**Motivo** 
+
+O ficheiro _version.py no cluster foi atualizado para 5.x.x em vez de 4.4.x.#.
+
+**Solução**
+
+Se criar um novo caderno Jupyter e receber um dos erros acima mencionados, execute os seguintes passos para corrigir o problema.
+
+1. Abra Ambari num navegador web indo para https://CLUSTERNAME.azurehdinsight.net, onde CLUSTERNAME é o nome do seu cluster.
+1. Em Ambari, no menu esquerdo, clique em **Jupyter,** em seguida, em **Ações de Serviço,** clique em **Parar**.
+1. ssh no cabeçada do cluster onde o serviço Jupyter está funcionando.
+1. Abra o seguinte ficheiro /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py no modo sudo.
+1. A entrada existente deve mostrar algo semelhante ao seguinte código: 
+
+    version_info = (5, 0, 3)
+
+    Modificar a entrada para: 
+    
+    version_info = (4, 4, 0)
+1. Guarde o ficheiro.
+1. Volte para Ambari, e em Ações de **Serviço,** clique em **Reiniciar Tudo**.

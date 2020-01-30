@@ -3,12 +3,12 @@ title: Descobrir aplicativos, funções e recursos em servidores locais com as m
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280769"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846310"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -28,7 +28,7 @@ Descoberta de aplicativos usando migrações para Azure: a avaliação do servid
 2. Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment a um projeto.
 4. Verifique os [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para descobrir e avaliar VMs VMware com o dispositivo de migrações para Azure.
 5. Verifique os [requisitos](migrate-appliance.md) para implantar o dispositivo de migrações para Azure.
-6. [Verifique o suporte e os requisitos](/migrate-support-matrix-vmware.md#application-discovery) para a descoberta de aplicativos.
+6. [Verifique o suporte e os requisitos](migrate-support-matrix-vmware.md#application-discovery) para a descoberta de aplicativos.
 
 ## <a name="prepare-for-app-discovery"></a>Preparar para a descoberta de aplicativos
 

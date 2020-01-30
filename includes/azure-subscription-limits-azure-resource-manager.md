@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2c5312c2e0a7121237c4d11197d90a2a5638557c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d94937a738034904413eac8b256121f14221d1ac
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021316"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845992"
 ---
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
@@ -21,16 +21,17 @@ ms.locfileid: "76021316"
 | Total de núcleos de VM por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | Total de núcleos da VM do Azure Spot por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | VM por série, como Dv2 e F, núcleos por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
-| [Coadministradores](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) por assinatura |Ilimitado. |Ilimitado. |
 | [Contas de armazenamento](../articles/storage/common/storage-account-create.md) por região por assinatura |250 |250 |
-| [Grupos de recursos](../articles/azure-resource-manager/management/overview.md) por assinatura |980 |980 |
 | [Conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2\.000 por região. |2\.000 por região. |
+| [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por subscrição |N/A<sup>3</sup> |N/A<sup>3</sup> |
+| [Serviços cloud](../articles/cloud-services/cloud-services-choose-me.md) por subscrição |N/A<sup>3</sup> |N/A<sup>3</sup> |
+| [Grupos de recursos](../articles/azure-resource-manager/management/overview.md) por assinatura |980 |980 |
 | Tamanho da solicitação da API Azure Resource Manager |4\.194.304 bytes. |4\.194.304 bytes. |
 | Marcas por assinatura<sup>2</sup> |Ilimitado. |Ilimitado. |
 | Cálculos de marca exclusivos por assinatura<sup>2</sup> | 10,000 | 10,000 |
-| [Serviços cloud](../articles/cloud-services/cloud-services-choose-me.md) por subscrição |N/A<sup>3</sup> |N/A<sup>3</sup> |
-| [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por subscrição |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Implantações em nível de assinatura](../articles/azure-resource-manager/templates/deploy-to-subscription.md) por local | 800<sup>4</sup> | 800 |
+| Assinaturas por inquilino do Diretório Ativo Azure | Ilimitado. | Ilimitado. |
+| [Coadministradores](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) por assinatura |Ilimitado. |Ilimitado. |
 
 <sup>1</sup> Os limites padrão variam de acordo com o tipo de categoria de oferta, como avaliação gratuita e pago conforme o uso, e por série, como Dv2, F e G. Por exemplo, o padrão para assinaturas de Enterprise Agreement é 350.
 

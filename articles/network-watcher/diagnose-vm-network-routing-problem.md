@@ -1,11 +1,10 @@
 ---
-title: 'Tutorial: diagnosticar um problema de roteamento de rede VM-portal do Azure'
+title: 'Tutorial: Diagnosticar um problema de encaminhamento de rede VM - Portal Azure'
 titleSuffix: Azure Network Watcher
 description: Neste tutorial, saiba como diagnosticar um problema de encaminhamento de rede de máquina virtual ao utilizar a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276052"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845219"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: diagnosticar um problema de encaminhamento de rede de máquina virtual com o Portal do Azure
 
@@ -45,8 +44,8 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
+2. Selecione **Computação** e, em seguida, **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
     |Definição|Valor|
@@ -56,7 +55,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Localização| Selecione **E.U.A. Leste**.|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -90,7 +89,7 @@ O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas 
     | Máquina virtual         | Selecionar myVm                                            |
     | Interface de rede       | myvm – o nome de interface de rede pode ser diferente.   |
     | Endereço IP de origem       | 10.0.0.4                                               |
-    | Endereço IP de destino  | 13.107.21.200-um dos endereços para < > www. Bing. com. |
+    | Endereço IP de destino  | 13.107.21.200 - Um dos endereços para <www.bing.com>. |
 
     ![Próximo salto](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
@@ -113,7 +112,7 @@ O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas 
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

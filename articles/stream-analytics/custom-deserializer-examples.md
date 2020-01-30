@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 1/28/2020
+ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553023"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845257"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entrada em qualquer formato usando desserializadores personalizados do .NET
 
@@ -39,7 +39,7 @@ Os erros ignoráveis devem ser emitidos usando `IStreamingDiagnostics` passadas 
 
 1. T é uma classe ou struct.
 1. Todos os campos públicos em T são
-    1. Um de [SByte, byte, short, ushort, int, uint, Long, DateTime, String, float, Double] ou seus equivalentes anuláveis.
+    1. Um dos [sbyte, byte, short, ushort, int, uint, long, DateTime, string, float, double] ou seus equivalentes nulos.
     1. Outra struct ou classe seguindo as mesmas regras.
     1. Matriz do tipo `T2` que segue as mesmas regras.
     1. IList`T2` em que T2 segue as mesmas regras.
@@ -80,7 +80,7 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
 
 ## <a name="deserializer-examples"></a>Exemplos de desserializador
 
-Esta seção mostra como escrever desserializadores personalizados para Protobuf e CSV. Para obter exemplos adicionais, visite [Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+Esta seção mostra como escrever desserializadores personalizados para Protobuf e CSV. Para exemplos adicionais, como o formato AVRO para Captura do Hub de Eventos, visite [o Azure Stream Analytics no GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ### <a name="protocol-buffer-protobuf-format"></a>Formato de buffer de protocolo (Protobuf)
 

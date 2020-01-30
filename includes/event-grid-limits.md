@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887822"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845962"
 ---
-Os limites a seguir se aplicam aos tópicos do sistema de grade de eventos do Azure e aos tópicos personalizados, *não* aos domínios de evento.
+Os seguintes limites aplicam-se aos tópicos do sistema Azure Event Grid e tópicos personalizados, *e não* domínios de eventos.
 
 | Recurso | Limite |
 | --- | --- |
-| Tópicos personalizados por assinatura do Azure | 100 |
-| Assinaturas de evento por tópico | 500 |
-| Taxa de publicação para um tópico personalizado (entrada) | 5\.000 eventos por segundo por tópico |
-| Solicitações de publicação | 250 por segundo |
-| Tamanho do evento | Suporte para 64 KB em disponibilidade geral (GA). O suporte para 1 MB está atualmente em versão prévia. |
+| Tópicos personalizados por subscrição do Azure | 100 |
+| Assinaturas de eventos por tópico | 500 |
+| Taxa de publicação para um tópico personalizado (ingresso) | 5\.000 eventos por segundo por tópico |
+| Publicar pedidos | 250 por segundo |
+| Tamanho do evento | 1 MB (carregado como múltiplos eventos de 64 KB) |
 
-Os limites a seguir se aplicam somente a domínios de evento.
+Os seguintes limites aplicam-se apenas aos domínios dos eventos.
 
 | Recurso | Limite |
 | --- | --- |
 | Tópicos por domínio de evento | 100.000 |
-| Assinaturas de evento por tópico em um domínio | 500 |
-| Assinaturas de evento de escopo de domínio | 50 |
-| Taxa de publicação para um domínio de evento (entrada) | 5\.000 eventos por segundo |
-| Solicitações de publicação | 250 por segundo |
-| Domínios de evento por assinatura do Azure | 100 |
+| Assinaturas de eventos por tópico dentro de um domínio | 500 |
+| Assinaturas de eventos de âmbito de domínio | 50 |
+| Taxa de publicação para um domínio de evento (ingress) | 5\.000 eventos por segundo |
+| Publicar pedidos | 250 por segundo |
+| Domínios de eventos por subscrição azure | 100 |

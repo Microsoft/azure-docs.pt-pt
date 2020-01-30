@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Este artigo descreve como diagnosticar a conectividade local por meio do gateway de VPN com a solução de problemas de recursos do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: damendo
+ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454297"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845063"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio de gateways de VPN
 
@@ -74,7 +72,7 @@ Error: On-premises device rejected Quick Mode settings. Check values.
      based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
-Você pode obter informações detalhadas do scrubbed-Wfpdiag. txt sobre o erro, como nesse caso menciona que havia `ERROR_IPSEC_IKE_POLICY_MATCH` que levam à conexão que não funciona corretamente.
+Você pode obter informações detalhadas do Scrubbed-wfpdiag.txt sobre o erro, uma vez que neste caso menciona que houve `ERROR_IPSEC_IKE_POLICY_MATCH` que levam a que a ligação não funcione corretamente.
 
 Outra configuração errada comum é a especificação de chaves compartilhadas incorretas. Se, no exemplo anterior, você tiver especificado chaves compartilhadas diferentes, o IKEErrors. txt mostrará o seguinte erro: `Error: Authentication failed. Check shared key`.
 
@@ -82,26 +80,26 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de Falha | Razão | Registo|
+| Tipo de avaria | Razão | Registo|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro. |Sim|
+| NoFault | Quando não for detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado. |Não|
-| PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
+| Manutenção Planeada |  A instância gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Não é possível acessar a instância primária do gateway. Isso acontece quando a investigação de integridade falha. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | Não|
+| PlataformaInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existe nenhuma conexão no gateway. Isso é apenas um aviso.| Não|
 | ConnectionsNotConnected | Nenhuma das conexões está conectada. Isso é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU atual de uso de gateway é > 95%. | Sim |
+| GatewayCPUUsageExceeded | O atual uso do CPU de utilização gateway é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de Falha | Razão | Registo|
+| Tipo de avaria | Razão | Registo|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro. |Sim|
+| NoFault | Quando não for detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado. |Não|
-| PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
+| Manutenção Planeada | A instância gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
 | VipUnResponsive | Não é possível acessar a instância primária do gateway. Ocorre quando a investigação de integridade falha. | Não |
 | ConnectionEntityNotFound | A configuração da conexão está ausente. | Não |

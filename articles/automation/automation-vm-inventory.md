@@ -4,18 +4,23 @@ description: Gerir uma máquina virtual com a recolha de inventário
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventário, automatização,alteração, controlo
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419818"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844824"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
-Pode ativar o controlo de inventário para uma máquina virtual do Azure a partir da página de recursos da máquina virtual. Pode recolher e ver o inventário do software, dos ficheiros, dos daemons do Linux, dos Serviços do Windows e das chaves do Registo do Windows nos seus computadores. Este método fornece uma interface de utilizador baseada no browser para definir e configurar a recolha de inventário.
+Pode ativar o controlo de inventário para uma máquina virtual do Azure a partir da página de recursos da máquina virtual. Pode recolher e visualizar as seguintes informações de inventário nos seus computadores:
+
+- Software Windows (aplicações do Windows e atualizações do Windows), serviços, ficheiros e chaves de registo
+- Daemons e ficheiros de software Linux (pacotes)
+
+Este método fornece uma interface de utilizador baseada no browser para definir e configurar a recolha de inventário.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

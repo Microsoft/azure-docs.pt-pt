@@ -1,6 +1,6 @@
 ---
-title: Publicar, assinar eventos localmente-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Publicar, assinar eventos localmente usando o webhook com a grade de eventos no IoT Edge
+title: Publique, subscreva eventos localmente - Azure Event Grid IoT Edge  Microsoft Docs
+description: Publique, subscreva eventos localmente usando Webhook com Grelha de Eventos em IoT Edge
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -9,19 +9,19 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098627"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844559"
 ---
-# <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
+# <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: Publicar, subscrever eventos localmente
 
-Este artigo orienta todas as etapas necessárias para publicar e assinar eventos usando a grade de eventos no IoT Edge.
+Este artigo percorre-o todos os passos necessários para publicar e subscrever eventos usando a Grelha de Eventos no IoT Edge.
 
 > [!NOTE]
-> Para saber mais sobre os tópicos e as assinaturas da grade de eventos do Azure, consulte [conceitos da grade de eventos](concepts.md).
+> Para conhecer tópicos e subscrições da Azure Event Grid, consulte os Conceitos de Grelha de [Eventos.](concepts.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Para concluir este tutorial, você precisará de:
@@ -47,7 +47,7 @@ Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos el
 
 ### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos serão implantados, como os dados fluem entre os módulos e as propriedades desejadas do módulo gêmeos. O portal do Azure tem um assistente que o orienta na criação de um manifesto de implantação, em vez de criar o documento JSON manualmente.  Ele tem três etapas: **Adicionar módulos**, **especificar rotas**e **examinar a implantação**.
+Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. O portal do Azure tem um assistente que o orienta na criação de um manifesto de implantação, em vez de criar o documento JSON manualmente.  Ele tem três passos: **adicionar módulos**, **especificar rotas**, e **rever implementação**.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
@@ -59,11 +59,13 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos s
    * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opções de criação de contêiner**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -77,12 +79,12 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos s
         }
     ```    
  1. Clicar em **Guardar**
- 1. Continue na próxima seção para adicionar o módulo de Azure Functions antes de implantá-los juntos.
+ 1. Continue na secção seguinte para adicionar o módulo Funções Azure antes de os colocar juntos.
 
     >[!IMPORTANT]
-    > Neste tutorial, você implantará o módulo de grade de eventos com a autenticação de cliente desabilitada e permitirá assinantes HTTP. Para cargas de trabalho de produção, recomendamos que você habilite a autenticação do cliente e permita somente assinantes HTTPs. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
+    > Neste tutorial, irá implementar o módulo Event Grid com a autenticação do cliente desativada e permitirá aos subscritores http. Para cargas de trabalho de produção, recomendamos que ative a autenticação do cliente e permita apenas subscritores HTTPs. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](security-authentication.md).
     > 
-    > Se você estiver usando uma VM do Azure como um dispositivo de borda, adicione uma regra de porta de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
+    > Se estiver a utilizar um VM Azure como dispositivo de borda, adicione uma regra de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Implantar o módulo IoT Edge do Azure function
@@ -124,19 +126,19 @@ Esta seção mostra como implantar o módulo Azure Functions IoT, que atuaria co
 
 Mantenha as rotas padrão e selecione **Avançar** para continuar na seção revisão
 
-### <a name="submit-the-deployment-request"></a>Enviar a solicitação de implantação
+### <a name="submit-the-deployment-request"></a>Submeter o pedido de implantação
 
-1. A seção revisão mostra o manifesto de implantação JSON criado com base em suas seleções na seção anterior. Confirme que você vê os dois módulos: **eventgridmodule** e **assinante** listados no JSON. 
-1. Examine as informações de implantação e, em seguida, selecione **Enviar**. Depois de enviar a implantação, você retorna para a página do **dispositivo** .
-1. Na **seção módulos**, verifique se os módulos **eventgrid** e **assinante** estão listados. E verifique se o **especificado em implantação** e **relatado por** colunas de dispositivo estão definidos como **Sim**.
+1. A seção revisão mostra o manifesto de implantação JSON criado com base em suas seleções na seção anterior. Confirme que vê ambos os módulos: **eventgridmodule** e **assinante** listado no JSON. 
+1. Reveja as suas informações de implantação, em seguida, selecione **submeter**. Depois de submeter a implementação, volte à página do **dispositivo.**
+1. Na **secção Módulos,** verifique se tanto os módulos **de eventgrid** como **de subscritores** estão listados. E, verifique se os **especificados na implementação** e **reportados pelas** colunas do dispositivo estão definidos para **Sim**.
 
     Pode levar alguns minutos para que o módulo seja iniciado no dispositivo e reportado de volta ao Hub IoT. Atualize a página para ver um status atualizado.
 
 ## <a name="create-a-topic"></a>Criar um tópico
 
-Como um editor de um evento, você precisa criar um tópico de grade de eventos. Na grade de eventos do Azure, um tópico refere-se a um ponto de extremidade em que os editores podem enviar eventos.
+Como editor de um evento, você precisa criar um tópico de grelha de eventos. Em Azure Event Grid, um tópico refere-se a um ponto final para onde as editoras podem enviar eventos.
 
-1. Crie topic. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md).
+1. Crie tópico.json com o seguinte conteúdo. Para mais detalhes sobre a carga útil, consulte a nossa [documentação da API.](api.md)
 
     ```json
         {
@@ -147,13 +149,13 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
         }
     ```
 
-1. Execute o comando a seguir para criar um tópico de grade de eventos. Confirme que você vê o código de status HTTP `200 OK`.
+1. Executar o seguinte comando para criar um tópico de grelha de eventos. Confirme que você vê o código de status HTTP `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-1. Execute o comando a seguir para verificar se o tópico foi criado com êxito. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -177,9 +179,11 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
 
 ## <a name="create-an-event-subscription"></a>Criar uma subscrição de evento
 
-Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, você precisará criar uma assinatura de grade de eventos para um tópico de interesse.
+Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, terá de criar uma subscrição da Event Grid para um tema de interesse.
 
-1. Crie Subscription. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md)
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
+1. Crie subscrição.json com o seguinte conteúdo. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md)
 
     ```json
         {
@@ -228,7 +232,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="publish-an-event"></a>Publicar um evento
 
-1. Crie Event. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md).
+1. Crie evento.json com o seguinte conteúdo. Para mais detalhes sobre a carga útil, consulte a nossa [documentação da API.](api.md)
 
     ```json
         [
@@ -245,7 +249,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
           }
         ]
     ```
-1. Execute o comando a seguir para publicar um evento.
+1. Executar o seguinte comando para publicar um evento.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01-preview
@@ -253,8 +257,8 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
 
-1. SSH ou RDP em sua VM IoT Edge.
-1. Verifique os logs do Assinante:
+1. SSH ou RDP no seu VM IoT Edge.
+1. Verifique os registos dos assinantes:
 
     No Windows, execute o seguinte comando:
 
@@ -262,7 +266,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
-   No Linux, execute o seguinte comando:
+   Em Linux, corra o seguinte comando:
 
     ```sh
     sudo docker logs subscriber
@@ -290,21 +294,22 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
 
-* Execute o comando a seguir para excluir o tópico e todas as suas assinaturas.
+* Execute o seguinte comando para apagar o tópico e todas as suas subscrições.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
-* Exclua o módulo de assinante do seu dispositivo IoT Edge.
+* Elimine o módulo de subscrição do seu dispositivo IoT Edge.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eventos publicados. Agora que você conhece as etapas básicas, consulte os seguintes artigos: 
+Neste tutorial, criou um tópico de grelha de eventos, subscrição e eventos publicados. Agora que conhece os passos básicos, consulte os seguintes artigos: 
 
-- Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
-- Criar/atualizar assinatura com [filtros](advanced-filtering.md).
-- Habilitar a persistência do módulo de grade de eventos no [Linux](persist-state-linux.md) ou no [Windows](persist-state-windows.md)
-- Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente
-- Encaminhar eventos para Azure Functions na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)
-- [Reagir a eventos de armazenamento de BLOBs em IoT Edge](react-blob-storage-events-locally.md)
+- Para resolver problemas com a utilização da Grelha de Eventos Azure na IoT Edge, consulte [o guia de resolução de problemas](troubleshoot.md).
+- Criar/atualizar subscrição com [filtros](advanced-filtering.md).
+- Ativar a persistência do módulo De Rede de Eventos no [Linux](persist-state-linux.md) [ou](persist-state-windows.md) windows
+- Siga [a documentação](configure-client-auth.md) para configurar a autenticação do cliente
+- Eventos de reencaminhamento para Funções Azure na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)
+- [Reaja aos eventos de armazenamento de Blob na Borda IoT](react-blob-storage-events-locally.md)
+- [Monitorize tópicos e subscrições no limite](monitor-topics-subscriptions.md)
 

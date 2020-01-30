@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169566"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846305"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -29,9 +29,9 @@ Os Webhooks são uma das diversas formas de receber eventos do Azure Event Grid.
 
 Como muitos outros serviços que suportam webhooks, o Event Grid requer a provar a propriedade do ponto final do Webhook, antes de iniciar a entrega de eventos para esse ponto final. Esse requisito impede que um utilizador mal intencionado sobrecarregar o ponto final com eventos. Quando utiliza qualquer um dos três serviços do Azure listados abaixo, a infraestrutura do Azure processa automaticamente esta validação:
 
-* Aplicativo lógico do Azure com [conector de grade de eventos](https://docs.microsoft.com/connectors/azureeventgrid/)
-* Automação do Azure via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
-* Azure Functions com [gatilho de grade de eventos](../azure-functions/functions-bindings-event-grid.md)
+* Aplicativos da lógica azure com [conector](https://docs.microsoft.com/connectors/azureeventgrid/) de grelha de eventos
+* Automação Azure via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Funções Azure com [gatilho da grelha](../azure-functions/functions-bindings-event-grid.md) de evento
 
 Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com o Event Grid. Event Grid suporta duas formas de validar a subscrição.
 
@@ -41,12 +41,12 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 
    A partir da versão de 2018-05-01-pré-visualização, o Event Grid suporta um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, o Event Grid envia um `validationUrl` propriedade na parte de dados do evento de validação de subscrição. Para concluir o handshake, encontrar essa URL nos dados de eventos e manualmente enviar um pedido GET para o mesmo. Pode utilizar um cliente REST ou de seu navegador da web.
 
-   A URL fornecida é válida por 5 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se você não concluir a validação manual em 5 minutos, o estado de provisionamento será definido como `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
+   O URL fornecido é válido por 5 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não completar a validação manual dentro de 5 minutos, o estado de provisionamento está definido para `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
 
-    Esse mecanismo de autenticação também exige que o ponto de extremidade do webhook retorne um código de status HTTP 200 para que ele saiba que a POSTAgem do evento de validação foi aceita antes que possa ser colocada no modo de validação manual. Em outras palavras, se o ponto de extremidade retornar 200, mas não retornar uma resposta de validação programaticamente, o modo será transferido para o modo de validação manual. Se houver um GET na URL de validação em 5 minutos, o handshake de validação será considerado com êxito.
+    Este mecanismo de autenticação também requer que o ponto final do webhook devolva um código de estado HTTP de 200 para que saiba que o POST para o evento de validação foi aceite antes de poder ser colocado no modo de validação manual. Por outras palavras, se o ponto final devolver 200, mas não devolver uma resposta de validação programáticamente, o modo é transitado para o modo de validação manual. Se houver um GET no URL de validação dentro de 5 minutos, o aperto de mão de validação é considerado um sucesso.
 
 > [!NOTE]
-> Não há suporte para o uso de certificados autoassinados para validação. Em vez disso, use um certificado assinado de uma autoridade de certificação (CA).
+> A utilização de certificados auto-assinados para validação não é suportada. Utilize um certificado assinado de uma autoridade de certificados (CA) em vez disso.
 
 ### <a name="validation-details"></a>Detalhes da validação
 
@@ -55,7 +55,7 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 * O corpo do evento tem o mesmo esquema que outros eventos do Event Grid.
 * A propriedade eventType do evento é `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * A propriedade de dados do evento inclui um `validationCode` propriedade com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
-* Os dados do evento também incluem uma propriedade `validationUrl` com uma URL para validar manualmente a assinatura.
+* Os dados do evento também incluem uma propriedade `validationUrl` com um URL para validação manual da subscrição.
 * A matriz contém apenas o evento de validação. Outros eventos são enviados numa solicitação separada depois de recuperar o código de validação.
 * Os SDKs do plano de dados de EventGrid possuem classes correspondentes para os dados de eventos de validação de subscrição e a resposta de validação de subscrição.
 
@@ -85,17 +85,17 @@ Para provar a propriedade de ponto de extremidade, retornar o código de valida�
 }
 ```
 
-Você deve retornar um código de status de resposta HTTP 200 OK. O HTTP 202 aceito não é reconhecido como uma resposta de validação de assinatura de grade de eventos válida. A solicitação HTTP deve ser concluída dentro de 30 segundos. Se a operação não for concluída dentro de 30 segundos, a operação será cancelada e poderá ser tentada novamente após 5 segundos. Se todas as tentativas falharem, elas serão tratadas como um erro de handshake de validação.
+Deve devolver um código de estado de resposta HTTP 200 OK. HTTP 202 Aceite não é reconhecido como uma resposta válida de validação de subscrição de Event Grid. O pedido http deve ser concluído dentro de 30 segundos. Se a operação não terminar dentro de 30 segundos, a operação será cancelada e poderá ser novamente tentada após 5 segundos. Se todas as tentativas falharem, será tratado como erro de aperto de mão de validação.
 
-Em alternativa, pode validar manualmente a subscrição ao enviar um pedido GET para o URL de validação. A assinatura de evento permanece em um estado pendente até ser validada. A URL de validação usa a porta 553. Se suas regras de firewall bloquearem a porta 553, talvez seja necessário atualizar as regras para um handshake manual bem-sucedido.
+Em alternativa, pode validar manualmente a subscrição ao enviar um pedido GET para o URL de validação. A subscrição de evento permanece no estado pendente até que sejam validados. O Url de validação utiliza a porta 553. Se as regras da firewall bloquearem a porta 553, as regras podem ter de ser atualizadas para um aperto de mão manual bem sucedido.
 
 Para obter um exemplo de manipular o handshake de validação de assinatura, consulte um [ C# exemplo](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Lista de Verificação
 
-Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como "a tentativa de validar o ponto de extremidade fornecido https:\//Your-Endpoint-Here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", isso indica que há uma falha no handshake de validação. Para resolver este erro, verifique se os seguintes aspetos:
+Durante a criação de subscrição de eventos, se estiver a ver uma mensagem de erro como "A tentativa de validar o ponto final fornecido https:\//your-endpoint-here falhou. Para mais detalhes, visite https:\//aka.ms/esvalidation", indica ndo que há uma falha no aperto de mão de validação. Para resolver este erro, verifique se os seguintes aspetos:
 
-* Tem controle de código da aplicação no ponto de extremidade de destino? Por exemplo, se estiver escrevendo um acionador HTTP com base em função do Azure, tem acesso ao código do aplicativo para fazer alterações ao mesmo?
+* Controla o código de aplicação em execução no ponto final do alvo? Por exemplo, se estiver escrevendo um acionador HTTP com base em função do Azure, tem acesso ao código do aplicativo para fazer alterações ao mesmo?
 * Se tiver acesso ao código do aplicativo, implemente o mecanismo de handshake ValidationCode com base, conforme mostrado no exemplo acima.
 
 * Se não tiver acesso ao código do aplicativo (por exemplo, se estiver a utilizar um serviço de terceiros que suporte webhooks), pode usar o mecanismo de manual handshake. Certifique-se de que está a utilizar a versão de API de 2018-05-01-pré-visualização ou posterior (instalar extensão da CLI do Azure do Event Grid) para receber o validationUrl no evento de validação. Para concluir o handshake de validação manual, obter o valor da `validationUrl` propriedade e visitar esse URL no seu browser. Se a validação for concluída com êxito, deverá ver uma mensagem no seu navegador da web que a validação é efetuada com êxito. Verá que provisioningState de subscrição de evento é "concluído com êxito". 
@@ -104,7 +104,7 @@ Durante a criação da assinatura do evento, se você estiver vendo uma mensagem
 
 #### <a name="azure-ad"></a>Azure AD
 
-Você pode proteger seu ponto de extremidade do webhook usando Azure Active Directory para autenticar e autorizar a grade de eventos a publicar eventos em seus pontos de extremidade. Você precisará criar um aplicativo Azure Active Directory, criar uma função e uma entidade de serviço em seu aplicativo autorizando a grade de eventos e configurar a assinatura de evento para usar o aplicativo do Azure AD. [Saiba como configurar o AAD com a grade de eventos](secure-webhook-delivery.md).
+Pode garantir o seu ponto final do webhook utilizando o Diretório Ativo Azure para autenticar e autorizar a Rede de Eventos a publicar eventos nos seus pontos finais. Terá de criar uma Aplicação de Diretório Ativo Azure, criar um princípio de papel e serviço na sua aplicação autorizando a Rede de Eventos e configurar a subscrição do evento para utilizar a Aplicação AD Azure. [Saiba como configurar a AAD com](secure-webhook-delivery.md)a Grelha de Eventos .
 
 #### <a name="query-parameters"></a>Parâmetros de consulta
 Pode proteger o seu ponto final do webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode utilizar o segredo para reconhecer que o evento é proveniente de Event Grid com permissões válidas. Grelha de eventos irá incluir esses parâmetros de consulta em cada entrega de eventos para o webhook.
@@ -209,7 +209,7 @@ Event Grid fornece duas funções incorporadas para gerir subscrições de event
 
 Pode [atribuir essas funções a um utilizador ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**Colaborador do EventGrid EventSubscription**: gerenciar operações de assinatura da grade de eventos
+**EventGrid EventSubscription Contributor**: gerencie as operações de subscrição da Rede de Eventos
 
 ```json
 [
@@ -245,7 +245,7 @@ Pode [atribuir essas funções a um utilizador ou grupo](../role-based-access-co
 ]
 ```
 
-**Leitor de EventSubscription EventGrid**: ler assinaturas de grade de eventos
+Leitor de **Subscrição de EventosGrid**: leia as subscrições da Grelha de Eventos
 
 ```json
 [
@@ -348,6 +348,10 @@ Seguem-se as definições de funções de grelha de eventos de exemplo que permi
 ```
 
 Pode criar funções personalizadas com [PowerShell](../role-based-access-control/custom-roles-powershell.md), [CLI do Azure](../role-based-access-control/custom-roles-cli.md), e [REST](../role-based-access-control/custom-roles-rest.md).
+
+## <a name="encryption-at-rest"></a>Encriptação inativa
+
+Todos os eventos ou dados escritos em disco pelo serviço Event Grid são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptado em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados são retidos é de 24 horas de adesão à política de retry da Rede de [Eventos](delivery-and-retry.md). A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o evento tem tempo de vida, o que for menor.
 
 ## <a name="next-steps"></a>Passos seguintes
 

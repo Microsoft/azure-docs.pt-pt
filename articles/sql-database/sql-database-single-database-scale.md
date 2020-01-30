@@ -1,6 +1,6 @@
 ---
-title: Dimensionar recursos de banco de dados individual
-description: Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para um único banco de dados no banco de dados SQL do Azure.
+title: Dimensione os recursos de base de dados individuais
+description: Este artigo descreve como escalar os recursos de cálculo e armazenamento disponíveis para uma única base de dados na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,73 +11,71 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 8d4917bb8956185e0cb557368fbb0c64343c0ac6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e23a4c39f93ea4de7f5dd38bb266d63ed52913cb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422552"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845854"
 ---
-# <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de banco de dados individual no banco de dados SQL do Azure
+# <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individuais na Base de Dados Azure SQL
 
-Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para um banco de dados SQL do Azure na camada de computação provisionada. Como alternativa, a [camada de computação sem servidor](sql-database-serverless.md) fornece o dimensionamento automático de computação e as listas por segundo para computação usada.
+Este artigo descreve como escalar os recursos de cálculo e armazenamento disponíveis para uma Base de Dados Azure SQL no nível de cálculo provisionado. Alternativamente, o nível de [computação sem servidor](sql-database-serverless.md) fornece a escala automática computacional e as contas por segundo para a computação utilizada.
 
-## <a name="change-compute-size-vcores-or-dtus"></a>Alterar o tamanho da computação (vCores ou DTUs)
+Depois de inicialmente escolher o número de vCores ou DTUs, pode escalar uma única base de dados para cima ou para baixo dinamicamente com base na experiência real utilizando o [portal Azure,](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server) [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase)o [Azure CLI,](/cli/azure/sql/db#az-sql-db-update)ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
-Depois de escolher inicialmente o número de vCores ou DTUs, você pode dimensionar um banco de dados individual verticalmente com base na experiência real usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), o [PowerShell](/powershell/module/az.sql/set-azsqldatabase), a [CLI do Azure](/cli/azure/sql/db#az-sql-db-update)ou a [API REST ](https://docs.microsoft.com/rest/api/sql/databases/update).
-
-O vídeo a seguir mostra a alteração dinâmica da camada de serviço e o tamanho da computação para aumentar as DTUs disponíveis para um único banco de dados.
+O vídeo seguinte mostra a alteração dinâmica do nível de serviço e do tamanho da computação para aumentar as DTUs disponíveis para uma única base de dados.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto da alteração da camada de serviço ou redimensionamento do tamanho da computação
+## <a name="impact"></a>Impacto
 
-Alterar a camada de serviço ou o tamanho da computação envolve principalmente o serviço executando as seguintes etapas:
+A alteração do nível de serviço ou do tamanho da computação envolve principalmente o serviço que executa os seguintes passos:
 
-1. Criar nova instância de computação para o banco de dados  
+1. Criar nova instância de cálculo para a base de dados  
 
-    Uma nova instância de computação é criada com a camada de serviço e o tamanho de computação solicitados. Para algumas combinações de camada de serviço e alterações de tamanho de computação, uma réplica do banco de dados deve ser criada na nova instância de computação que envolve a cópia de dados e pode influenciar de forma forte a latência geral. Independentemente do, o banco de dados permanece online durante essa etapa, e as conexões continuam a ser direcionadas para o banco de dados na instância de computação original.
+    Uma nova instância computacional é criada com o nível de serviço solicitado e tamanho da computação. Para algumas combinações de nível de serviço e alterações no tamanho da computação, uma réplica da base de dados deve ser criada no novo caso do cálculo, que envolve copiar dados e pode influenciar fortemente a latência geral. Independentemente disso, a base de dados permanece on-line durante este passo, e as ligações continuam a ser direcionadas para a base de dados na instância de cálculo original.
 
-2. Alternar o roteamento de conexões para a nova instância de computação
+2. Altere o encaminhamento de ligações para uma nova instância de cálculo
 
-    As conexões existentes com o banco de dados na instância de computação original são descartadas. Todas as novas conexões são estabelecidas com o banco de dados na nova instância de computação. Para algumas combinações de camada de serviço e alterações de tamanho de computação, os arquivos de banco de dados são desanexados e reanexados durante o comutador.  Independentemente disso, a opção pode resultar em uma breve interrupção do serviço quando o banco de dados não está disponível geralmente por menos de 30 segundos e geralmente por apenas alguns segundos. Se houver transações de longa execução em execução quando as conexões forem descartadas, a duração dessa etapa poderá levar mais tempo para recuperar as transações anuladas. A [recuperação de banco de dados acelerada](sql-database-accelerated-database-recovery.md) pode reduzir o impacto da anulação de transações de longa execução.
+    As ligações existentes à base de dados na instância de cálculo original são retiradas. Quaisquer novas ligações são estabelecidas na base de dados no novo caso do cálculo. Para algumas combinações de nível de serviço e alterações no tamanho da computação, os ficheiros de base de dados são separados e religados durante o interruptor.  Independentemente disso, o interruptor pode resultar numa breve interrupção de serviço quando a base de dados está geralmente indisponível por menos de 30 segundos e muitas vezes por apenas alguns segundos. Se houver transações de longo prazo a decorrer quando as ligações forem retiradas, a duração deste passo pode demorar mais tempo para recuperar as transações abortadas. [A recuperação acelerada da base](sql-database-accelerated-database-recovery.md) de dados pode reduzir o impacto de abortar transações de longo prazo.
 
 > [!IMPORTANT]
-> Nenhum dado é perdido durante qualquer etapa no fluxo de trabalho. Verifique se você implementou alguma [lógica de repetição](sql-database-connectivity-issues.md) nos aplicativos e componentes que estão usando o banco de dados SQL do Azure enquanto a camada de serviço é alterada.
+> Não se perdem dados durante qualquer passo no fluxo de trabalho. Certifique-se de que implementou alguma lógica de [repetição](sql-database-connectivity-issues.md) nas aplicações e componentes que estão a utilizar a Base de Dados Azure SQL enquanto o nível de serviço é alterado.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latência da alteração da camada de serviço ou redimensionamento do tamanho da computação
+## <a name="latency"></a>Latência 
 
-A latência estimada para alterar a camada de serviço ou redimensionar o tamanho de computação de um único banco de dados ou pool elástico é parametrizada da seguinte maneira:
+A latência estimada para alterar o nível de serviço ou redimensionar o tamanho do cálculo de uma única base de dados ou piscina elástica é parametrizada da seguinte forma:
 
-|Camada de serviços|Banco de dados individual básico,</br>Padrão (S0-S1)|Pool elástico básico,</br>Standard (S2-S12), </br>Em hiperescala </br>Uso Geral banco de dados individual ou pool elástico|Banco de dados único ou pool elástico Premium ou Comercialmente Crítico|
+|Escalão de serviço|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Base de dados única de propósito geral ou piscina elástica|Premium ou Business Critical única base de dados ou piscina elástica|
 |:---|:---|:---|:---|
-|**Banco de dados individual básico,</br> Standard (S0-S1)**|&bull; &nbsp;latência de tempo constante independente do espaço usado</br>&bull; &nbsp;normalmente, menos de 5 minutos|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|
-|**Pool elástico básico, </br>Standard (S2-S12), </br>hiperescala </br>Uso Geral banco de dados individual ou pool elástico**|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência de tempo constante independente do espaço usado</br>&bull; &nbsp;normalmente, menos de 5 minutos|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|
-|**Banco de dados único ou pool elástico Premium ou Comercialmente Crítico**|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|
+|**Base de dados única básica,</br> Standard (S0-S1)**|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
+|**Piscina elástica básica, </br>Standard (S2-S12), </br>Hiperescala, base de dados única </br>Propósito Geral ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
+|**Premium ou Business Critical única base de dados ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
 
 > [!TIP]
-> Para monitorar as operações em andamento, consulte: [gerenciar operações usando a API REST do SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerenciar operações usando a CLI](/cli/azure/sql/db/op), [monitorar operações usando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos do PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Para monitorizar as operações em curso, consulte: [Gerir as operações utilizando o SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Gerir as operações utilizando cli,](/cli/azure/sql/db/op) [monitorizar as operações utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Cancelando alterações na camada de serviço ou operações de redimensionamento de computação
+## <a name="cancelling-changes"></a>Cancelamento de alterações
 
-Uma operação de alteração de camada de serviço ou redimensionamento de computação pode ser cancelada.
+Uma operação de alteração de nível de serviço ou de reescalonamento de cálculo pode ser cancelada.
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Na folha visão geral do banco de dados, navegue até **notificações** e clique no bloco indicando que há uma operação em andamento:
+Na lâmina de visão geral da base de dados, navegue para **Notificações** e clique no azulejo indicando que existe uma operação em curso:
 
-![Operação em andamento](media/sql-database-single-database-scale/ongoing-operations.png)
+![Operação em curso](media/sql-database-single-database-scale/ongoing-operations.png)
 
-Em seguida, clique no botão rotulado **cancelar esta operação**.
+Em seguida, clique no botão rotulado **Cancele esta operação**.
 
-![Cancelar operação em andamento](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+![Cancelar operação em curso](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
 
 #### <a name="powershell"></a>PowerShell
 
-Em um prompt de comando do PowerShell, defina o `$resourceGroupName`, `$serverName`e `$databaseName`e, em seguida, execute o seguinte comando:
+A partir de um pedido de comando PowerShell, desloque o `$resourceGroupName`, `$serverName`e `$databaseName`, e, em seguida, executar o seguinte comando:
 
 ```powershell
 $operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
@@ -90,51 +88,55 @@ else {
 }
 ```
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerações adicionais ao alterar a camada de serviço ou redimensionar o tamanho da computação
+## <a name="additional-considerations"></a>Considerações adicionais
 
-- Se você estiver atualizando para uma camada de serviço ou tamanho de computação superior, o tamanho máximo do banco de dados não aumentará a menos que você especifique explicitamente um tamanho maior (MaxSize).
-- Para fazer o downgrade de um banco de dados, o espaço usado do banco de dados deve ser menor do que o tamanho máximo permitido da camada de serviço de destino e do tamanho de computação.
-- Ao fazer o downgrade de **Premium** para a camada **Standard** , um custo de armazenamento extra se aplicará se (1) o tamanho máximo do banco de dados tiver suporte no tamanho de computação de destino e (2) o tamanho máximo exceder o valor de armazenamento incluído do tamanho de computação de destino. Por exemplo, se um banco de dados P1 com um tamanho máximo de 500 GB for reduzido para S3, um custo de armazenamento extra será aplicado, pois o S3 dá suporte a um tamanho máximo de 1 TB e seu valor de armazenamento incluído é de apenas 250 GB. Portanto, o valor de armazenamento extra é 500 GB – 250 GB = 250 GB. Para obter o preço do armazenamento extra, consulte [preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado, reduzindo o tamanho máximo do banco de dados para o valor incluído.
-- Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, atualize seus bancos de dados secundários para a camada de serviço e o tamanho de computação desejados antes de atualizar o banco de dados primário (orientação geral para o melhor desempenho). Ao atualizar para um diferente, primeiro é necessário atualizar o banco de dados secundário.
-- Ao fazer downgrade de um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, faça o downgrade de seus bancos de dados primários para a camada de serviço e o tamanho de computação desejados antes de fazer downgrade do banco de dados secundário (orientação geral para o melhor desempenho). Ao fazer downgrade para uma edição diferente, primeiro é necessário fazer downgrade do banco de dados primário.
-- As ofertas de serviço de restauro diferem entre os vários escalões de serviço. Se você estiver fazendo downgrade para a camada **básica** , haverá um período de retenção de backup menor. Consulte [backups do banco de dados SQL do Azure](sql-database-automated-backups.md).
+- Se estiver a atualizar para um nível de serviço mais elevado ou tamanho de computação, o tamanho máximo da base de dados não aumenta a menos que especifique explicitamente um tamanho maior (tamanho máximo).
+- Para desvalorizar uma base de dados, o espaço utilizado na base de dados deve ser inferior ao tamanho máximo permitido do nível de serviço-alvo e do tamanho da computação.
+- Ao degradar-se do **Premium** para o nível **Standard,** aplica-se um custo de armazenamento extra se ambos (1) o tamanho máximo da base de dados for suportado no tamanho da computação-alvo, e (2) o tamanho máximo exceder a quantidade de armazenamento incluída do tamanho da computação-alvo. Por exemplo, se uma base de dados P1 com um tamanho máximo de 500 GB for reduzido para S3, então um custo de armazenamento extra aplica-se uma vez que o S3 suporta um tamanho máximo de 1 TB e o seu valor de armazenamento incluído é de apenas 250 GB. Assim, o valor extra de armazenamento é de 500 GB – 250 GB = 250 GB. Para obter preços de armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizado for inferior ao valor de armazenamento incluído, então este custo extra pode ser evitado reduzindo o tamanho máximo da base de dados para o valor incluído.
+- Ao atualizar uma base de dados com [geo-replicação](sql-database-geo-replication-portal.md) ativada, atualize as suas bases de dados secundárias para o nível de serviço pretendido e calcule o tamanho da computação antes de atualizar a base de dados primária (orientação geral para melhor desempenho). Quando se atualiza para uma base de dados secundária diferente, é necessário atualizar primeiro a base de dados secundária.
+- Ao degradar uma base de dados com [geo-replicação](sql-database-geo-replication-portal.md) ativada, desagrade as suas bases de dados primárias para o nível de serviço pretendido e para o tamanho da computação antes de degradar a base de dados secundária (orientação geral para melhor desempenho). Ao desvalorizar para uma edição diferente, é necessário desvalorizar a base de dados primária primeiro.
+- As ofertas de serviço de restauro diferem entre os vários escalões de serviço. Se estiver a degradar-se para o nível **Básico,** existe um período de retenção de backup mais baixo. Ver Backups de Base de [Dados Azure SQL](sql-database-automated-backups.md).
 - As novas propriedades para a base de dados não são aplicadas até que as alterações estejam concluídas.
 
-### <a name="billing-during-compute-rescaling"></a>Cobrança durante o redimensionamento de computação
+## <a name="billing"></a>Faturação 
 
-Você será cobrado por cada hora de existência de um banco de dados usando a camada de serviço mais alta + o tamanho de computação aplicado durante essa hora, independentemente do uso ou se o banco de dados esteve ativo por menos de uma hora. Por exemplo, se você criar um banco de dados individual e excluí-lo cinco minutos depois, sua fatura refletirá uma cobrança por uma hora de banco de dados.
+É cobrado por cada hora que existe uma base de dados utilizando o maior nível de serviço + tamanho de computação que se aplica durante essa hora, independentemente do uso ou se a base de dados esteve ativa por menos de uma hora. Por exemplo, se criar uma única base de dados e a eliminar cinco minutos depois, a sua conta reflete uma carga por uma hora de base de dados.
 
 ## <a name="change-storage-size"></a>Alterar o tamanho do armazenamento
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-- O armazenamento pode ser provisionado até o limite de tamanho máximo usando incrementos de 1 GB. O armazenamento de dados mínimo configurável é de 5 GB
-- O armazenamento de um único banco de dados pode ser provisionado aumentando ou diminuindo seu tamanho máximo usando o [portal do Azure](https://portal.azure.com), o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), o [PowerShell](/powershell/module/az.sql/set-azsqldatabase), a [CLI do Azure](/cli/azure/sql/db#az-sql-db-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- O banco de dados SQL aloca automaticamente 30% de armazenamento adicional para os arquivos de log e 32 GB por vCore para TempDB, mas não para exceder 384GB. O TempDB está localizado em um SSD anexado em todas as camadas de serviço.
-- O preço do armazenamento para um banco de dados individual é a soma das quantidades de armazenamento de dado e armazenamento de log multiplicada pelo preço unitário de armazenamento da camada de serviço. O custo do TempDB está incluído no preço vCore. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- O armazenamento pode ser provisionado até ao limite de tamanho máximo utilizando incrementos de 1GB. O armazenamento mínimo de dados configuráveis é de 5 GB
+- O armazenamento de uma única base de dados pode ser provisionado aumentando ou diminuindo o seu tamanho máximo utilizando o [portal Azure,](https://portal.azure.com) [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [O CLI Azure](/cli/azure/sql/db#az-sql-db-update)ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- A Base de Dados SQL atribui automaticamente 30% do armazenamento adicional para os ficheiros de registo e 32GB por vCore para TempDB, mas não excede 384GB. A TempDB está localizada num SSD anexado em todos os níveis de serviço.
+- O preço de armazenamento de uma única base de dados é a soma dos valores de armazenamento de dados e armazenamento de registos multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo do TempDB está incluído no preço vCore. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
-- O preço de DTU para um banco de dados individual inclui uma determinada quantidade de armazenamento sem custo adicional. O armazenamento extra além do valor incluído pode ser provisionado por um custo adicional até o limite de tamanho máximo em incrementos de 250 GB até 1 TB e, em seguida, em incrementos de 256 GB além de 1 TB. Para valores de armazenamento incluídos e limites de tamanho máximo, consulte [banco de dados individual: tamanhos de armazenamento e tamanhos de computação](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- O armazenamento extra para um único banco de dados pode ser provisionado aumentando seu tamanho máximo usando o portal do Azure, o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), o [PowerShell](/powershell/module/az.sql/set-azsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- O preço do armazenamento extra para um único banco de dados é a quantidade de armazenamento extra multiplicada pelo preço unitário de armazenamento extra da camada de serviço. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- O preço dTU para uma única base de dados inclui uma certa quantidade de armazenamento sem custos adicionais. Armazenamento extra para além do valor incluído pode ser provisionado para um custo adicional até o limite de tamanho máximo em incrementos de 250 GB até 1 TB, e, em seguida, em incrementos de 256 GB para além de 1 TB. Para valores de armazenamento incluídos e limites de tamanho máximo, consulte [base de dados única: tamanhos de armazenamento e tamanhos de cálculo](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- O armazenamento extra para uma única base de dados pode ser provisionado aumentando o seu tamanho máximo utilizando o portal Azure, [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [o Azure CLI](/cli/azure/sql/db#az-sql-db-update)ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- O preço do armazenamento extra para uma única base de dados é o valor extra de armazenamento multiplicado pelo preço extra de armazenamento do nível de serviço. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Restrições de P11 e P15 quando o tamanho máximo for maior que 1 TB
+### <a name="geo-replicated-database"></a>Base de dados geo-replicada
 
-Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. As seguintes considerações e limitações se aplicam aos bancos de dados P11 e P15 com um tamanho máximo maior que 1 TB:
+Para alterar o tamanho da base de dados de uma base de dados secundária replicada, altere o tamanho da base de dados primária. Esta alteração será então replicada e implementada na base de dados secundária. 
 
-- Se o tamanho máximo de um banco de dados P11 ou P15 fosse definido como um valor maior que 1 TB, ele só poderá ser restaurado ou copiado para um banco de dados P11 ou P15.  Subsequentemente, o banco de dados pode ser redimensionado para um tamanho de computação diferente, desde que a quantidade de espaço alocado no momento da operação de redimensionamento não exceda os limites de tamanho máximo do novo tamanho de computação.
-- Para cenários de replicação geográfica ativa:
-  - Configurando uma relação de replicação geográfica: se o banco de dados primário for P11 ou P15, os secundários também deverão ser P11 ou P15; o tamanho de computação inferior é rejeitado como secundários, pois eles não são capazes de dar suporte a mais de 1 TB.
-  - Atualizando o banco de dados primário em um relacionamento de replicação geográfica: alterar o tamanho máximo para mais de 1 TB em um banco de dados primário dispara a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. As limitações de região para a opção mais de 1 TB se aplicam. Se o secundário estiver em uma região que não dá suporte a mais de 1 TB, o primário não será atualizado.
-- Não há suporte para o uso do serviço de importação/exportação para carregar bancos de dados P11/P15 com mais de 1 TB. Use SqlPackage. exe para [importar](sql-database-import.md) e [Exportar](sql-database-export.md) dados.
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Restrições P11 e P15 quando o tamanho máximo é superior a 1 TB
+
+Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
+
+- Se o tamanho máximo de uma base de dados P11 ou P15 alguma vez tiver sido fixado num valor superior a 1 TB, então só pode ser restaurado ou copiado para uma base de dados P11 ou P15.  Posteriormente, a base de dados pode ser redimensionada para um tamanho de cálculo diferente, desde que a quantidade de espaço atribuído no momento da operação de rescaling não exceda os limites máximos de tamanho do novo tamanho do cálculo.
+- Para cenários de geo-replicação ativa:
+  - Criação de uma relação de geo-replicação: Se a base de dados primária for P11 ou P15, o secundário deve também ser P11 ou P15; o tamanho inferior da computação é rejeitado como secundário, uma vez que não são capazes de suportar mais de 1 TB.
+  - Atualizar a base de dados primária numa relação de geo-replicação: Alterar o tamanho máximo para mais de 1 TB numa base de dados primária desencadeia a mesma alteração na base de dados secundária. Ambas as atualizações devem ser bem sucedidas para que a alteração nas primárias entre em vigor. Aplicam-se as limitações da região para a opção mais de 1-TB. Se o secundário estiver numa região que não suporta mais de 1 TB, o primário não é atualizado.
+- Não é suportado o serviço de importação/exportação para o carregamento de bases de dados P11/P15 com mais de 1 TB. Utilize sqlPackage.exe para [importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter os limites de recursos gerais, consulte [limites de recursos baseados em vCore do banco de dados SQL-bancos](sql-database-vcore-resource-limits-single-databases.md) de dados individuais e [limites de recursos baseados em DTU do SQL Database-pools elásticos](sql-database-dtu-resource-limits-single-databases.md).
+Para obter limites globais de recursos, consulte [os limites de recursos baseados na Base de Dados SQL vCore - bases](sql-database-vcore-resource-limits-single-databases.md) de dados únicas e limites de recursos [baseados em DTU baseados na Base de Dados SQL - piscinas elásticas](sql-database-dtu-resource-limits-single-databases.md).

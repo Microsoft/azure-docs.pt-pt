@@ -3,12 +3,12 @@ title: Monitorar a integridade do cluster kubernetes com Azure Monitor para cont
 description: Este artigo descreve como você pode exibir e analisar a integridade de seus clusters AKS e não AKS com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405086"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843995"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Compreender o estado de funcionamento de um cluster do Kubernetes com o Azure Monitor para contentores
 
@@ -23,7 +23,7 @@ Para obter informações sobre como habilitar o Azure Monitor para contêineres,
 >[!NOTE]
 >Para dar suporte a clusters do mecanismo AKS, verifique se ele atende ao seguinte:
 >- Ele está usando a versão mais recente do [cliente Helm](https://helm.sh/docs/using_helm/).
->- A versão do agente em contêiner é *Microsoft/OMS: ciprod11012019*. Para atualizar o agente, consulte [atualizando o agente no cluster kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- A versão do agente em contêiner é *Microsoft/OMS: ciprod11012019*. Para atualizar o agente, consulte [atualizando o agente no cluster kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## <a name="overview"></a>Visão geral
@@ -48,13 +48,13 @@ Todos os monitores são mostrados em um layout hierárquico no painel hierarquia
 * Avalie a utilização de memória do nó e do contêiner.
 * Status de pods e nós com base no cálculo de seu estado pronto relatado pelo kubernetes.
 
-Os ícones utilizados para indicar o estado são os seguintes:
+Os ícones usados para indicar o estado são os seguintes:
 
 |Ícone|Significado|  
 |--------|-----------|  
-|![Ícone em forma de visto a verde indica um bom estado de funcionamento](./media/container-insights-health/healthyicon.png)|Êxito, o estado de funcionamento está OK (verde)|  
-|![Um triângulo amarelo acompanhado de um ponto de exclamação indica um aviso](./media/container-insights-health/warningicon.png)|Aviso (amarelo)|  
-|![Um botão vermelho com um X branco indica um estado crítico](./media/container-insights-health/criticalicon.png)|Crítico (vermelho)|  
+|![Ícone de verificação verde indica saudável](./media/container-insights-health/healthyicon.png)|Sucesso, saúde é OK (verde)|  
+|![Triângulo amarelo e marca de exclamação é aviso](./media/container-insights-health/warningicon.png)|Aviso (amarelo)|  
+|![Botão vermelho com X branco indica estado crítico](./media/container-insights-health/criticalicon.png)|Crítico (vermelho)|  
 |![Ícone de cinza](./media/container-insights-health/grayicon.png)|Desconhecido (cinza)|  
 
 ## <a name="monitor-configuration"></a>Configuração do monitor

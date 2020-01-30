@@ -1,89 +1,87 @@
 ---
-title: Solucionar problemas e monitorar gateways de VPN-automação do Azure
+title: Resolução de problemas e monitor de portais VPN - Automação Azure
 titleSuffix: Azure Network Watcher
-description: Este artigo descreve como diagnosticar a conectividade local com a automação do Azure e o observador de rede
+description: Este artigo descreve como diagnostica conectividade no local com a Automação Azure e o Observador de Rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 07847289c156aaa48b9d15c40d4135ce2cf39c10
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275915"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845035"
 ---
-# <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar gateways de VPN com a solução de problemas do observador de rede
+# <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitor de portais VPN com resolução de problemas do Observador de Rede
 
-Obter informações aprofundadas sobre o desempenho da rede é essencial para fornecer serviços confiáveis aos clientes. Portanto, é essencial detectar as condições de interrupção da rede rapidamente e tomar uma ação corretiva para reduzir a condição de interrupção. A automação do Azure permite que você implemente e execute uma tarefa de maneira programática por meio de runbooks. Usar a automação do Azure cria uma receita perfeita para executar alertas e monitoramento de rede proativo e contínuo.
+Obter informações profundas sobre o desempenho da sua rede é fundamental para fornecer serviços fiáveis aos clientes. Por conseguinte, é fundamental detetar rapidamente as condições de paragem da rede e tomar medidas corretivas para mitigar a condição de paragem. A Azure Automation permite-lhe implementar e executar uma tarefa de forma programática através de livros de execução. A utilização da Automatização Azure cria uma receita perfeita para realizar monitorização e alerta contínuos e proativos de rede.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário na imagem a seguir é um aplicativo de várias camadas, com conectividade local estabelecida usando um gateway de VPN e um túnel. Garantir que o gateway de VPN esteja em funcionamento é essencial para o desempenho dos aplicativos.
+O cenário na imagem seguinte é uma aplicação multi-camadas, com conectividade no local estabelecida usando um Gateway VPN e túnel. Garantir que o VPN Gateway está a funcionar é fundamental para o desempenho das aplicações.
 
-Um runbook é criado com um script para verificar o status da conexão do túnel VPN, usando a API de solução de problemas de recursos para verificar o status do túnel de conexão. Se o status não for íntegro, um gatilho de email será enviado aos administradores.
+Um livro de execução é criado com um script para verificar o estado de ligação do túnel VPN, utilizando a API de resolução de problemas de recursos para verificar se há estado de túnel de ligação. Se o estado não for saudável, um gatilho de e-mail é enviado aos administradores.
 
 ![Exemplo de cenário][scenario]
 
 Este cenário irá:
 
-- Criar um runbook chamando o cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting` para solucionar problemas de status de conexão
-- Vincular uma agenda ao runbook
+- Crie um livro de corridas chamando o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para o estado de ligação de resolução de problemas
+- Ligue um horário ao livro de corridas
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este cenário, você deve ter os seguintes pré-requisitos:
+Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 
-- Uma conta de automação do Azure no Azure. Verifique se a conta de automação tem os módulos mais recentes e também tem o módulo AzureRM. Network. O módulo AzureRM. Network estará disponível na Galeria de módulos se você precisar adicioná-lo à sua conta de automação.
-- Você deve ter um conjunto de credenciais configuradas na automação do Azure. Saiba mais em [segurança de automação do Azure](../automation/automation-security-overview.md)
-- Um servidor SMTP válido (Office 365, seu email local ou outro) e credenciais definidas na automação do Azure
-- Um gateway de rede virtual configurado no Azure.
-- Uma conta de armazenamento existente com um contêiner existente para armazenar os logs.
+- Uma conta de automação Azure em Azure. Certifique-se de que a conta de automação tem os módulos mais recentes e conta também com o módulo AzureRM.Network. O módulo AzureRM.Network está disponível na galeria do módulo se precisar adicioná-lo à sua conta de automação.
+- Deve ter um conjunto de credenciais configuradas na Automação Azure. Saiba mais na [segurança da Automação Azure](../automation/automation-security-overview.md)
+- Um servidor SMTP válido (Office 365, seu e-mail no local ou outro) e credenciais definidas na Automação Azure
+- Um Gateway de rede virtual configurado em Azure.
+- Uma conta de armazenamento existente com um recipiente existente para armazenar os registos.
 
 > [!NOTE]
-> A infraestrutura descrita na imagem anterior é para fins de ilustração e não é criada com as etapas contidas neste artigo.
+> A infraestrutura retratada na imagem anterior é para fins de ilustração e não são criadas com os passos contidos neste artigo.
 
 ### <a name="create-the-runbook"></a>Criar o runbook
 
-A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta Executar como. Para saber mais sobre contas Executar como, visite [autenticar Runbooks com a conta Executar como do Azure](../automation/automation-create-runas-account.md)
+O primeiro passo para configurar o exemplo é criar o livro de execução. Este exemplo usa uma conta executada. Para saber sobre contas executadas, visite [AAuthenticate Runbooks com Azure Run Como conta](../automation/automation-create-runas-account.md)
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
-Navegue até a automação do Azure no [portal do Azure](https://portal.azure.com) e clique em **Runbooks**
+Navegue para a Automação Azure no [portal Azure](https://portal.azure.com) e clique em **Runbooks**
 
-![Visão geral da conta de automação][1]
+![visão geral da conta de automação][1]
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
-Clique em **Adicionar um runbook** para iniciar o processo de criação do runbook.
+Clique **em Adicionar um livro de execução** para iniciar o processo de criação do livro de execução.
 
-![folha de runbooks][2]
+![lâmina de livros de corridas][2]
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
-Em **criação rápida**, clique em **criar um novo runbook** para criar o runbook.
+Em **Quick Create,** clique em **Criar um novo livro de execução** para criar o livro de corridas.
 
-![Adicionar uma folha de runbook][3]
+![adicionar uma lâmina de livro de corridas][3]
 
 ### <a name="step-4"></a>Passo 4
 
-Nesta etapa, damos um nome ao runbook, no exemplo, ele é chamado **Get-VPNGatewayStatus**. É importante dar um nome descritivo ao runbook e é recomendável dar a ele um nome que siga os padrões de nomenclatura padrão do PowerShell. O tipo de runbook para este exemplo é **PowerShell**, as outras opções são gráfico, fluxo de trabalho do PowerShell e fluxo de trabalho gráfico do PowerShell.
+Neste passo, damos um nome ao livro de execução, no exemplo em que se chama **Get-VPNGatewayStatus**. É importante dar ao livro de execução um nome descritivo, e recomendado dar-lhe um nome que siga os padrões padrão de nomeação powerShell. O tipo de livro de execução para este exemplo é **PowerShell**, as outras opções são Graphical, PowerShell workflow e Graphical PowerShell workflow.
 
-![folha do runbook][4]
+![lâmina de livro de corridas][4]
 
 ### <a name="step-5"></a>Passo 5
 
-Nesta etapa, o runbook é criado, o exemplo de código a seguir fornece todo o código necessário para o exemplo. Os itens no código que contêm \<valor\> precisam ser substituídos pelos valores de sua assinatura.
+Neste passo é criado o livro de execução, o seguinte exemplo de código fornece todo o código necessário para o exemplo. Os itens do código que contêm \<valor\> precisam de ser substituídos com os valores da sua subscrição.
 
-Use o código a seguir como clique em **salvar**
+Use o seguinte código como clique em **Guardar**
 
 ```powershell
 # Set these variables to the proper values for your environment
@@ -147,47 +145,47 @@ else
 
 ### <a name="step-6"></a>Passo 6
 
-Depois que o runbook é salvo, um agendamento deve ser vinculado a ele para automatizar o início do runbook. Para iniciar o processo, clique em **agendar**.
+Uma vez que o livro de execução é guardado, um horário deve ser ligado a ele para automatizar o início do livro de execução. Para iniciar o processo, clique em **Agendar**.
 
 ![Passo 6][6]
 
-## <a name="link-a-schedule-to-the-runbook"></a>Vincular uma agenda ao runbook
+## <a name="link-a-schedule-to-the-runbook"></a>Ligue um horário ao livro de corridas
 
-Uma nova agenda deve ser criada. Clique em **vincular um agendamento ao seu runbook**.
+Deve ser criado um novo horário. Clique em Link um horário para o seu livro de **execução**.
 
 ![Passo 7][7]
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
-Na folha **agenda** , clique em **criar um novo agendamento**
+Na lâmina **de Agenda,** clique em **Criar um novo horário**
 
 ![Passo 8][8]
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
-Na folha **novo agendamento** , preencha as informações de agendamento. Os valores que podem ser definidos estão na lista a seguir:
+Na **lâmina new schedule** preencha a informação do horário. Os valores que podem ser definidos estão na seguinte lista:
 
-- **Nome** -o nome amigável da agenda.
-- **Descrição** -uma descrição da agenda.
-- **Inicia** -esse valor é uma combinação de data, hora e fuso horário que compõem a hora em que a agenda é disparada.
-- **Recorrência** -esse valor determina a repetição de agendas.  Os valores válidos são **uma vez** ou **recorrentes**.
-- **Repetir a cada** -o intervalo de recorrência da agenda em horas, dias, semanas ou meses.
-- **Definir expiração** -o valor determina se a agenda deve expirar ou não. Pode ser definido como **Sim** ou **não**. Uma data e hora válidas serão fornecidas se sim for escolhido.
+- **Nome** - O nome amigável da agenda.
+- **Descrição** - Uma descrição da agenda.
+- **Início -** Este valor é uma combinação de data, hora e fuso horário que compõem o horário que o horário dispara.
+- **Recorrência** - Este valor determina a repetição dos horários.  Valores válidos são **Uma vez** ou **Recorrentes.**
+- **Recur cada -** O intervalo de recorrência do horário em horas, dias, semanas ou meses.
+- **Definir Expiração** - O valor determina se o horário deve expirar ou não. Pode ser definido para **Sim** ou **Não.** Uma data e hora válidas devem ser fornecidas se sim for escolhido.
 
 > [!NOTE]
-> Se você precisar que um runbook seja executado com mais frequência do que a cada hora, vários agendamentos deverão ser criados em intervalos diferentes (ou seja, 15, 30, 45 minutos após a hora)
+> Se precisa de ter um livro de corridas mais frequentemente do que a cada hora, vários horários devem ser criados em intervalos diferentes (ou seja, 15, 30, 45 minutos após a hora)
 
 ![Passo 9][9]
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
-Clique em salvar para salvar o agendamento no runbook.
+Clique em Guardar para guardar o horário para o livro de execução.
 
 ![Etapa 10][10]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem uma compreensão sobre como integrar a solução de problemas do observador de rede com a automação do Azure, saiba como disparar capturas de pacote em alertas de VM visitando [criar uma captura de pacote disparada por alerta com o observador de rede do Azure](network-watcher-alert-triggered-packet-capture.md).
+Agora que tem um entendimento sobre como integrar a resolução de problemas do Network Watcher com a Azure Automation, aprenda a desencadear capturas de pacotes em alertas VM visitando [Criar um alerta desencadeado pela captura de pacotes com](network-watcher-alert-triggered-packet-capture.md)o Azure Network Watcher .
 
 <!-- images -->
 [scenario]: ./media/network-watcher-monitor-with-azure-automation/scenario.png

@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982187"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844786"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Eventos de armazenamento de BLOBs de rota ponto final da web com o portal do Azure
 
@@ -41,6 +41,9 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 1. Para subscrever eventos, tem de criar uma conta de armazenamento de Blobs ou uma conta de armazenamento de fins gerais v2. Para obter mais informações, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
    ![Passos de início](./media/blob-event-quickstart-portal/provide-blob-values.png)
+
+>[!NOTE]
+> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2)** e integração de eventos de suporte **blobStorage.** **O armazenamento (propósito genral v1)** *não* suporta a integração com a Grelha de Eventos.
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 

@@ -4,12 +4,12 @@ description: Saiba quais métricas são normalmente usadas para dimensionar auto
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364599"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845574"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor métricas comuns de dimensionamento automático
 
@@ -36,7 +36,7 @@ As métricas de nível de host a seguir são emitidas por padrão para a VM do A
 - [Métricas de host para VMs Windows e Linux baseadas no Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Métricas de host para conjuntos de dimensionamento de VM Windows e Linux baseados no Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas do sistema operacional convidado as VMs do Windows baseadas no Resource Manager
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas de OS convidados para VMs baseados em Gestor de Recursos
 Quando você cria uma VM no Azure, o diagnóstico é habilitado usando a extensão de diagnóstico. A extensão de diagnóstico emite um conjunto de métricas extraídas de dentro da VM. Isso significa que você pode reduzir a escalabilidade das métricas que não são emitidas por padrão.
 
 Você pode gerar uma lista de métricas usando o comando a seguir no PowerShell.
@@ -50,32 +50,32 @@ Você pode criar um alerta para as seguintes métricas:
 | Nome da Métrica | Unidade |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Percentagem |
-| \Processor (_Total)\% tempo privilegiado |Percentagem |
-| \Processor (_Total)\% tempo de usuário |Percentagem |
-| \Processor Information (_Total) \Processor Frequency |Contagem |
+| \Processador(_Total)\% Tempo Privilegiado |Percentagem |
+| \Processador(_Total)\% Tempo de Utilização |Percentagem |
+| \Informações do processador(_Total)\Frequência do processador |Contagem |
 | \System\Processes |Contagem |
-| Contagem de \Contagem \Process (_Total) |Contagem |
-| Contagem de \Contagem \Process (_Total) |Contagem |
-| \Memory\% bytes confirmados em uso |Percentagem |
+| \Process (_Total)\Contagem de fios |Contagem |
+| \Process(_Total)\Contagem de manuseamento |Contagem |
+| \Memória\% Bytes Comprometidos em Uso |Percentagem |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Committed bytes |Bytes |
 | Limite de \Memory\Commit |Bytes |
 | \ Pagináveis bytes de paginação |Bytes |
 | \ Pagináveis bytes não paginados |Bytes |
-| \PhysicalDisk (_Total)\% tempo de disco |Percentagem |
-| \PhysicalDisk (_Total)\% tempo de leitura do disco |Percentagem |
-| \PhysicalDisk (_Total)\% tempo de gravação de disco |Percentagem |
-| \PhysicalDisk (_Total) \Bytes Transfers/s |CountPerSecond |
-| \PhysicalDisk (_Total) \Bytes leituras de segundos/s |CountPerSecond |
-| \PhysicalDisk (_Total) \Bytes gravações/s |CountPerSecond |
-| \PhysicalDisk (_Total) \Bytes de bytes/s |BytesPerSecond |
-| \PhysicalDisk (_Total) \Bytes de leitura de bytes/s |BytesPerSecond |
-| \PhysicalDisk (_Total) \Bytes de gravação de bytes/s |BytesPerSecond |
-| \PhysicalDisk (_Total) \Avg. o comprimento da fila de disco |Contagem |
-| \PhysicalDisk (_Total) \Avg. tamanho da fila de leitura do disco |Contagem |
-| Comprimento da fila de gravação de disco \PhysicalDisk (_Total) \Avg. |Contagem |
-| \LogicalDisk (_Total)\% espaço livre |Percentagem |
-| \LogicalDisk (_Total) \Megabytes livres megabytes |Contagem |
+| \_Total Tempo de disco\% |Percentagem |
+| \PhysicalDisk(_Total)\% tempo de leitura do disco |Percentagem |
+| \PhysicalDisk(_Total)\% tempo de escrita do disco |Percentagem |
+| \PhysicalDisk(_Total)\Transferências de disco/seg |CountPerSecond |
+| \PhysicalDisk(_Total)\Leituras/seg de disco |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Writes/seg |CountPerSecond |
+| \PhysicalDisk(_Total)\Discos Bytes/seg |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disco Lido Bytes/seg |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Write Bytes/seg |BytesPerSecond |
+| \PhysicalDisk(_Total)\Avg. Comprimento da fila do disco |Contagem |
+| \PhysicalDisk(_Total)\Avg. Disk Ler comprimento da fila |Contagem |
+| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Contagem |
+| \LogicalDisk(_Total)\% Espaço Livre |Percentagem |
+| \LogicalDisk(_Total)\Free Megabytes |Contagem |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas do SO convidado VMs Linux
 Quando você cria uma VM no Azure, o diagnóstico é habilitado por padrão usando a extensão de diagnóstico.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Contagem |
 | \NetworkInterface\TotalCollisions |Contagem |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Métricas da Web (farm de servidores) usadas com frequência
-Você também pode executar o dimensionamento automático com base em métricas comuns do servidor Web, como o comprimento da fila http. O nome da métrica é **HttpQueueLength**.  A seção a seguir lista as métricas disponíveis do farm de servidores (aplicativos Web).
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Métricas do Serviço de Aplicações (Quinta do Servidor) comumente utilizadas
+Você também pode executar o dimensionamento automático com base em métricas comuns do servidor Web, como o comprimento da fila http. O seu nome métrico é **HttpQueueLength**.  A secção seguinte lista as métricas de exploração de servidores disponíveis (App Service).
 
 ### <a name="web-apps-metrics"></a>Métricas de aplicativos Web
 Você pode gerar uma lista de métricas de aplicativos Web usando o comando a seguir no PowerShell.
@@ -159,8 +159,8 @@ Por exemplo, com uma conta de armazenamento clássica, a configuração de dimen
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 Para uma conta de armazenamento (não clássico), o Metrictrigger incluiria incluiria:
@@ -177,13 +177,13 @@ Você pode dimensionar por comprimento da fila do barramento de serviço, que é
 Para conjuntos de dimensionamento de VM, você pode atualizar a configuração de dimensionamento automático no modelo do Resource Manager para usar *metricname* como *ApproximateMessageCount* e passar a ID da fila de armazenamento como *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```
 
 > [!NOTE]
-> Para o barramento de serviço, o conceito de grupo de recursos não existe, mas Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato ' default-ServiceBus-[Region] '. Por exemplo, "default-ServiceBus-Lesteus", "default-ServiceBus-Oesteus", "default-ServiceBus-AustraliaEast" etc.
+> Para o barramento de serviço, o conceito de grupo de recursos não existe, mas Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos encontra-se geralmente no formato 'Default-ServiceBus-[região]. Por exemplo, "default-ServiceBus-Lesteus", "default-ServiceBus-Oesteus", "default-ServiceBus-AustraliaEast" etc.
 >
 >
 

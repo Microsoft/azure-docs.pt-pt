@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 50dd6e2387abbf5b24adcee708dd2ff387e33261
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660618"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845387"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para os serviços de nuvem do Azure: perguntas frequentes (FAQs)
 
@@ -101,7 +101,7 @@ Você pode usar os seguintes comandos do PowerShell para renovar seus certificad
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-O **Get-AzurePublishSettingsFile** criará um novo certificado de gerenciamento na **assinatura** > **certificados de gerenciamento** no portal do Azure. O nome do novo certificado é semelhante a "YourSubscriptionNam]-[CurrentDate]-Credentials".
+O **Get-AzurePublishSettingsFile** criará um novo certificado de gerenciamento na **assinatura** > **certificados de gerenciamento** no portal do Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado SSL principal (. pfx) e do certificado intermediário (. p7b)?
 
@@ -136,7 +136,7 @@ Você esgotou a cota de armazenamento local para gravar no diretório de log. 
 * Remova manualmente os arquivos de log do diretório de log.
 * Aumente o limite de cota para recursos locais.
 
-Para obter mais informações, consulte os documentos seguintes:
+Para mais informações, consulte os seguintes documentos:
 * [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 * [Logs do IIS param de gravar no serviço de nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
@@ -174,11 +174,11 @@ Consulte [novo: tempo limite de ociosidade configurável para Azure Load Balance
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Como fazer associar um endereço IP estático ao meu serviço de nuvem?
 Para configurar um endereço IP estático, você precisa criar um IP reservado. Esse IP reservado pode ser associado a um novo serviço de nuvem ou a uma implantação existente. Consulte os seguintes documentos para obter detalhes:
-* [Como criar um endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Reservar o endereço IP de um serviço de nuvem existente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associar um IP reservado a um novo serviço de nuvem](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Associar um IP reservado a uma implantação em execução](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Associar um IP reservado a um serviço de nuvem usando um arquivo de configuração de serviço](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Como criar um endereço IP reservado](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
+* [Reservar o endereço IP de um serviço de nuvem existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Associar um IP reservado a um novo serviço de nuvem](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Associar um IP reservado a uma implantação em execução](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
+* [Associar um IP reservado a um serviço de nuvem usando um arquivo de configuração de serviço](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quais são os recursos e as funcionalidades que os IPS/IDS e DDOS básico do Azure fornecem?
 O Azure tem IPS/IDS em servidores físicos de datacenter para se defender contra ameaças. Além disso, os clientes podem implantar soluções de segurança de terceiros, como firewalls de aplicativos Web, firewalls de rede, Antimalware, detecção de intrusão, sistemas de prevenção (IDS/IPS) e muito mais. Para obter mais informações, consulte [proteger seus dados e ativos e obedecer aos padrões de segurança global](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
@@ -190,7 +190,7 @@ A Microsoft monitora continuamente servidores, redes e aplicativos para detectar
 O Windows 10 e o Windows Server 2016 vêm com suporte para HTTP/2 no lado do cliente e do servidor. Se o cliente (navegador) estiver se conectando ao servidor IIS por TLS que negocia o HTTP/2 via Extensões TLS, você não precisará fazer nenhuma alteração no lado do servidor. Isso ocorre porque, por TLS, o cabeçalho H2-14 que especifica o uso de HTTP/2 é enviado por padrão. Se, por outro lado, seu cliente estiver enviando um cabeçalho de atualização para atualizar para HTTP/2, você precisará fazer a alteração abaixo no lado do servidor para garantir que a atualização funcione e que você acabe com uma conexão HTTP/2. 
 
 1. Execute regedit. exe.
-2. Navegue até a chave do registro: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Navegue na chave de registo: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Crie um novo valor DWORD chamado **DuoEnabled**.
 4. Defina seu valor como 1.
 5. Reinicie o servidor.
@@ -250,7 +250,7 @@ Para obter mais informações sobre como habilitar Application Insights para ser
 
 Para obter mais informações sobre como habilitar o log de Diagnóstico do Azure para serviços de nuvem, consulte [Configurar o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="generic"></a>Genérica
+## <a name="generic"></a>Genérico
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Como fazer adicionar "nosniff" ao meu site?
 Para impedir que os clientes sniffem os tipos MIME, adicione uma configuração em seu arquivo *Web. config* .
@@ -280,13 +280,13 @@ Use o script de inicialização do IIS do artigo [tarefas comuns de inicializaç
 Consulte [limites específicos do serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade em minha VM de serviço de nuvem mostra muito pouco espaço livre em disco?
-Esse é um comportamento esperado e não deve causar nenhum problema ao seu aplicativo. O registro em log está ativado para a unidade% approot% nas VMs de PaaS do Azure, que basicamente consome o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há várias coisas a serem consideradas que, essencialmente, transforma isso em um não problema.
+Esse é um comportamento esperado e não deve causar nenhum problema ao seu aplicativo. O diário é ligado para a unidade %approot% nos VMs Azure PaaS, que essencialmente consome o dobro da quantidade de espaço que os ficheiros normalmente assumem. No entanto, há várias coisas a serem consideradas que, essencialmente, transforma isso em um não problema.
 
-O tamanho da unidade% approot% é calculado como \<tamanho de. cspkg + tamanho máximo do diário + uma margem de espaço livre > ou 1,5 GB, o que for maior. O tamanho da VM não tem nenhuma influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
+O tamanho da unidade %approot% é calculado como \<tamanho de .cspkg + tamanho máximo do diário + uma margem de espaço livre>, ou 1,5 GB, o que for maior. O tamanho da VM não tem nenhuma influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
 
-Não há suporte para gravação na unidade% approot%. Se você estiver gravando na VM do Azure, deverá fazer isso em um recurso temporário do LocalStorage (ou outra opção, como o armazenamento de BLOBs, arquivos do Azure, etc.). Portanto, a quantidade de espaço livre na pasta% approot% não é significativa. Se você não tiver certeza de que seu aplicativo está gravando na unidade% approot%, você sempre poderá deixar que seu serviço seja executado por alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
+Não é suportado escrever para a unidade %approot%. Se você estiver gravando na VM do Azure, deverá fazer isso em um recurso temporário do LocalStorage (ou outra opção, como o armazenamento de BLOBs, arquivos do Azure, etc.). Portanto, a quantidade de espaço livre na pasta %approot% não é significativa. Se não tem a certeza se a sua aplicação está a escrever para a unidade %approot%, pode sempre deixar o seu serviço funcionar durante alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
 
-O Azure não gravará nada na unidade% approot%. Depois que o VHD é criado a partir de seu. cspkg e montado na VM do Azure, a única coisa que pode gravar nessa unidade é seu aplicativo. 
+O Azure não vai escrever nada para a unidade %approot%. Depois que o VHD é criado a partir de seu. cspkg e montado na VM do Azure, a única coisa que pode gravar nessa unidade é seu aplicativo. 
 
 As configurações de diário não são configuráveis, portanto, você não pode desativá-la.
 

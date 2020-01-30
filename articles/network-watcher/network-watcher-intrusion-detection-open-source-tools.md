@@ -1,12 +1,10 @@
 ---
-title: Executar a detecção de intrusão de rede com ferramentas de código aberto
+title: Realizar a deteção de intrusão de rede com ferramentas de código aberto
 titleSuffix: Azure Network Watcher
-description: Este artigo descreve como usar o observador de rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
+description: Este artigo descreve como usar o Azure Network Watcher e ferramentas de código aberto para realizar a deteção de intrusões de rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -14,35 +12,35 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275925"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845028"
 ---
-# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de intrusão de rede com o observador de rede e ferramentas de código aberto
+# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realizar a deteção de intrusão de rede com o Observador de Rede e ferramentas de código aberto
 
-As capturas de pacote são um componente-chave para implementar os sistemas de detecção de intrusão de rede (IDS) e executar o monitoramento de segurança de rede (NSM). Há várias ferramentas de IDS de software livre que processam capturas de pacote e procuram assinaturas de possíveis invasões de rede e atividades mal-intencionadas. Usando as capturas de pacote fornecidas pelo observador de rede, você pode analisar sua rede em busca de intrusões ou vulnerabilidades prejudiciais.
+As capturas de pacotes são um componente chave para implementar sistemas de deteção de intrusões de rede (IDS) e realizar monitorização de segurança de rede (NSM). Existem várias ferramentas IDS de código aberto que processam capturas de pacotes e procuram assinaturas de possíveis intrusões de rede e atividade maliciosa. Utilizando as capturas de pacotes fornecidas pelo Network Watcher, pode analisar a sua rede para eventuais intrusões ou vulnerabilidades nocivas.
 
-Uma dessas ferramentas de software livre é Suricata, um mecanismo de IDS que usa RuleSets para monitorar o tráfego de rede e dispara alertas sempre que eventos suspeitos ocorrem. O Suricata oferece um mecanismo multi-threaded, o que significa que ele pode executar a análise de tráfego de rede com maior velocidade e eficiência. Para obter mais detalhes sobre o Suricata e seus recursos, visite o site em https://suricata-ids.org/.
+Uma dessas ferramentas de código aberto é a Suricata, um motor IDS que usa conjuntos de regras para monitorizar o tráfego da rede e dispara alertas sempre que ocorrerem eventos suspeitos. A Suricata oferece um motor multi-roscado, o que significa que pode realizar análises de tráfego de rede com maior rapidez e eficiência. Para mais detalhes sobre a Suricata e as suas capacidades, visite o seu website em https://suricata-ids.org/.
 
 ## <a name="scenario"></a>Cenário
 
-Este artigo explica como configurar seu ambiente para executar a detecção de invasão de rede usando o observador de rede, o Suricata e a pilha elástica. O observador de rede fornece as capturas de pacote usadas para executar a detecção de intrusão na rede. O Suricata processa as capturas de pacotes e aciona alertas com base em pacotes que correspondem a seu conjunto de regras de ameaças. Esses alertas são armazenados em um arquivo de log em seu computador local. Usando a pilha elástica, os logs gerados pelo Suricata podem ser indexados e usados para criar um painel do Kibana, fornecendo uma representação visual dos logs e um meio de obter rapidamente informações sobre possíveis vulnerabilidades de rede.  
+Este artigo explica como configurar o seu ambiente para realizar a deteção de intrusões de rede usando o Network Watcher, Suricata e a Stack Elástica. O Network Watcher fornece-lhe as capturas de pacotes utilizadas para realizar a deteção de intrusões de rede. A Suricata processa as capturas do pacote e desencadeia alertas baseados em pacotes que correspondem ao seu conjunto de ameaças. Estes alertas são armazenados num ficheiro de registo na sua máquina local. Utilizando a Stack Elástica, os registos gerados pela Suricata podem ser indexados e utilizados para criar um dashboard Kibana, proporcionando-lhe uma representação visual dos registos e um meio para obter rapidamente insights sobre potenciais vulnerabilidades da rede.  
 
-![cenário de aplicativo Web simples][1]
+![cenário simples de aplicação web][1]
 
-Ambas as ferramentas de software livre podem ser configuradas em uma VM do Azure, permitindo que você execute essa análise em seu próprio ambiente de rede do Azure.
+Ambas as ferramentas de código aberto podem ser configuradas num VM Azure, permitindo-lhe realizar esta análise dentro do seu próprio ambiente de rede Azure.
 
 ## <a name="steps"></a>Passos
 
-### <a name="install-suricata"></a>Instalar o Suricata
+### <a name="install-suricata"></a>Instalar Suricata
 
 Para todos os outros métodos de instalação, visite https://suricata.readthedocs.io/en/latest/install.html
 
-1. No terminal de linha de comando de sua VM, execute os seguintes comandos:
+1. No terminal de linha de comando do seu VM executar os seguintes comandos:
 
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
@@ -50,13 +48,13 @@ Para todos os outros métodos de instalação, visite https://suricata.readthedo
     sudo sudo apt-get install suricata
     ```
 
-1. Para verificar sua instalação, execute o comando `suricata -h` para ver a lista completa de comandos.
+1. Para verificar a sua instalação, execute o comando `suricata -h` para ver a lista completa de comandos.
 
-### <a name="download-the-emerging-threats-ruleset"></a>Baixe o conjunto de regras de ameaças emergentes
+### <a name="download-the-emerging-threats-ruleset"></a>Descarregue as regras das Ameaças Emergentes
 
-Neste estágio, não temos nenhuma regra para a execução do Suricata. Você pode criar suas próprias regras se houver ameaças específicas à sua rede que deseja detectar ou se você também pode usar conjuntos de regras desenvolvidos de vários provedores, como ameaças emergentes ou regras de VRT do snort. Usamos o conjunto de regras de ameaças emergentes acessíveis gratuitamente aqui:
+Nesta fase, não temos regras para a Suricata concorrer. Pode criar as suas próprias regras se houver ameaças específicas à sua rede que gostaria de detetar, ou também pode utilizar conjuntos de regras desenvolvidos de vários fornecedores, tais como Ameaças Emergentes ou regras vrt da Snort. Utilizamos aqui as regras de ameaças emergentes livremente acessíveis:
 
-Baixe o conjunto de regras e copie-o para o diretório:
+Descarregue o conjunto de regras e copie-os para o diretório:
 
 ```
 wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
@@ -64,27 +62,27 @@ tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
 
-### <a name="process-packet-captures-with-suricata"></a>Processar capturas de pacote com Suricata
+### <a name="process-packet-captures-with-suricata"></a>Capturas de pacotes de processo com Suricata
 
-Para processar capturas de pacote usando o Suricata, execute o seguinte comando:
+Para processar capturas de pacotes usando Suricata, executar o seguinte comando:
 
 ```
 sudo suricata -c /etc/suricata/suricata.yaml -r <location_of_pcapfile>
 ```
-Para verificar os alertas resultantes, leia o arquivo Fast. log:
+Para verificar os alertas resultantes, leia o ficheiro fast.log:
 ```
 tail -f /var/log/suricata/fast.log
 ```
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar a pilha elástica
 
-Embora os logs que o Suricata produz contenham informações valiosas sobre o que está acontecendo em nossa rede, esses arquivos de log não são os mais fáceis de ler e entender. Conectando o Suricata à pilha elástica, podemos criar um painel do Kibana o que nos permite pesquisar, grafar, analisar e derivar informações de nossos logs.
+Enquanto os registos que a Suricata produz contêm informações valiosas sobre o que está a acontecer na nossa rede, estes ficheiros de registo não são os mais fáceis de ler e entender. Ao ligar a Suricata à Stack Elástica, podemos criar um dashboard Kibana que nos permite pesquisar, graphar, analisar e obter insights dos nossos registos.
 
-#### <a name="install-elasticsearch"></a>Instalar o Elasticsearch
+#### <a name="install-elasticsearch"></a>Instalar pesquisa elástica
 
-1. A pilha elástica da versão 5,0 e superior requer o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, consulte a documentação sobre o [Azure-há suporte para JDKs](https://aka.ms/azure-jdks).
+1. A Stack Elástica da versão 5.0 e acima requer Java 8. Execute o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suppored Azure](https://aka.ms/azure-jdks).
 
-1. Baixe o pacote binário correto para seu sistema:
+1. Descarregue o pacote binário correto para o seu sistema:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -92,15 +90,15 @@ Embora os logs que o Suricata produz contenham informações valiosas sobre o qu
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Outros métodos de instalação podem ser encontrados em [instalação do Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+    Outros métodos de instalação podem ser encontrados na [Instalação Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Verifique se Elasticsearch está em execução com o comando:
+1. Verifique se a Elasticsearch está a decorrer com o comando:
 
     ```
     curl http://127.0.0.1:9200
     ```
 
-    Você deverá ver uma resposta semelhante a esta:
+    Devia ver uma resposta semelhante a esta:
 
     ```
     {
@@ -117,23 +115,23 @@ Embora os logs que o Suricata produz contenham informações valiosas sobre o qu
     }
     ```
 
-Para obter mais instruções sobre como instalar a pesquisa elástica, consulte a página [instalação](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
+Para mais instruções sobre a instalação da pesquisa elástica, consulte a página [Instalação](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
 
-### <a name="install-logstash"></a>Instalar o Logstash
+### <a name="install-logstash"></a>Instalar logstash
 
-1. Para instalar o Logstash, execute os seguintes comandos:
+1. Para instalar o Logstash executar os seguintes comandos:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Em seguida, precisamos configurar o Logstash para ler a partir da saída do arquivo véspera. JSON. Crie um arquivo logstash. conf usando:
+1. Em seguida, precisamos configurar logstash para ler a partir da saída do ficheiro eve.json. Criar um ficheiro logstash.conf utilizando:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Adicione o seguinte conteúdo ao arquivo (verifique se o caminho para o arquivo véspera. JSON está correto):
+1. Adicione o seguinte conteúdo ao ficheiro (certifique-se de que o caminho para o ficheiro eve.json está correto):
 
     ```ruby
     input {
@@ -205,88 +203,88 @@ Para obter mais instruções sobre como instalar a pesquisa elástica, consulte 
     }
     ```
 
-1. Certifique-se de conceder as permissões corretas ao arquivo véspera. JSON para que Logstash possa ingerir o arquivo.
+1. Certifique-se de que dá as permissões corretas ao ficheiro eve.json para que o Logstash possa ingerir o ficheiro.
     
     ```
     sudo chmod 775 /var/log/suricata/eve.json
     ```
 
-1. Para iniciar o Logstash, execute o comando:
+1. Para iniciar o Logstash executar o comando:
 
     ```
     sudo /etc/init.d/logstash start
     ```
 
-Para obter mais instruções sobre como instalar o Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Para mais instruções sobre a instalação de Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
-### <a name="install-kibana"></a>Instalar o Kibana
+### <a name="install-kibana"></a>Instalar Kibana
 
-1. Execute os seguintes comandos para instalar o Kibana:
+1. Executar os seguintes comandos para instalar kibana:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
     tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
 
     ```
-1. Para executar o Kibana, use os comandos:
+1. Para executar Kibana, use os comandos:
 
     ```
     cd kibana-5.2.0-linux-x86_64/
     ./bin/kibana
     ```
 
-1. Para exibir a interface da Web do Kibana, navegue até `http://localhost:5601`
-1. Para esse cenário, o padrão de índice usado para os logs de Suricata é "logstash-*"
+1. Para ver a sua interface web kibana, navegue para `http://localhost:5601`
+1. Para este cenário, o padrão de índice utilizado para os troncos suricata é "logstash-*"
 
-1. Se você quiser exibir o painel do Kibana remotamente, crie uma regra de NSG de entrada permitindo o acesso à **porta 5601**.
+1. Se quiser ver o dashboard kibana remotamente, crie uma regra NSG de entrada que permita o acesso à **porta 5601**.
 
-### <a name="create-a-kibana-dashboard"></a>Criar um painel do Kibana
+### <a name="create-a-kibana-dashboard"></a>Crie um dashboard Kibana
 
-Para este artigo, fornecemos um painel de exemplo para que você exiba tendências e detalhes em seus alertas.
+Para este artigo, fornecemos um painel de amostras para que possa ver tendências e detalhes nos seus alertas.
 
-1. Baixe o arquivo do painel [aqui](https://aka.ms/networkwatchersuricatadashboard), o arquivo de visualização [aqui](https://aka.ms/networkwatchersuricatavisualization)e o arquivo de pesquisa salvo [aqui](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Descarregue o ficheiro do dashboard [aqui,](https://aka.ms/networkwatchersuricatadashboard)o ficheiro de visualização [aqui,](https://aka.ms/networkwatchersuricatavisualization)e o ficheiro de pesquisa guardado [aqui](https://aka.ms/networkwatchersuricatasavedsearch).
 
-1. Na guia **Gerenciamento** do Kibana, navegue até **objetos salvos** e importe todos os três arquivos. Em seguida, na guia **painel** , você pode abrir e carregar o painel de exemplo.
+1. Sob o separador **Gestão** de Kibana, navegue para **Saved Objects** e importe os três ficheiros. Em seguida, a partir do **separador Dashboard** pode abrir e carregar o painel de dados da amostra.
 
-Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seus próprios interesses. Leia mais sobre como criar visualizações Kibana da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html)do Kibana.
+Também pode criar as suas próprias visualizações e dashboards adaptados para métricas do seu próprio interesse. Leia mais sobre a criação de visualizações kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html)de Kibana.
 
-![painel do kibana][2]
+![tablier kibana][2]
 
-### <a name="visualize-ids-alert-logs"></a>Visualizar logs de alerta de IDS
+### <a name="visualize-ids-alert-logs"></a>Visualizar registos de alerta IDS
 
-O painel de exemplo fornece várias visualizações dos logs de alerta do Suricata:
+O painel de amostras fornece várias visualizações dos registos de alerta Suricata:
 
-1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base no local geográfico (determinado pelo IP)
+1. Alertas por GeoIP – mapa que mostra a distribuição de alertas pelo seu país/região de origem com base na localização geográfica (determinada por IP)
 
-    ![IP geográfico][3]
+    ![geo ip][3]
 
-1. 10 principais alertas – um resumo dos 10 alertas disparados mais frequentes e sua descrição. Clicar em um alerta individual filtra o painel para as informações referentes a esse alerta específico.
+1. Top 10 Alertas – um resumo dos 10 alertas mais frequentes desencadeados e a sua descrição. Clicar num alerta individual filtra o painel de instrumentos para obter as informações relativas a esse alerta específico.
 
     ![imagem 4][4]
 
-1. Número de alertas – a contagem total de alertas disparados pelo conjunto de regras
+1. Número de Alertas – a contagem total de alertas desencadeados pelo conjunto de regras
 
     ![imagem 5][5]
 
-1. 20 principais IPs/portas de origem/destino-gráficos de pizza mostrando os 20 principais IPs e portas em que os alertas foram acionados. Você pode filtrar por IPs/portas específicas para ver quantos e quais tipos de alertas estão sendo disparados.
+1. Top 20 Source/Destination IPs/Ports - gráficos de tartes mostrando os 20 melhores IPs e portas em que os alertas foram desencadeados. Pode filtrar em IPs/portas específicas para ver quantos e que tipo de alertas estão a ser desencadeados.
 
     ![imagem 6][6]
 
-1. Resumo do alerta – uma tabela que resume detalhes específicos de cada alerta individual. Você pode personalizar essa tabela para mostrar outros parâmetros de interesse de cada alerta.
+1. Resumo do alerta – uma tabela que resume detalhes específicos de cada alerta individual. Pode personalizar esta tabela para mostrar outros parâmetros de interesse para cada alerta.
 
     ![imagem 7][7]
 
-Para obter mais documentação sobre a criação de painéis e visualizações personalizadas, consulte a [documentação oficial do Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+Para obter mais documentação sobre a criação de visualizações personalizadas e dashboards, consulte a [documentação oficial de Kibana.](https://www.elastic.co/guide/en/kibana/current/introduction.html)
 
 ## <a name="conclusion"></a>Conclusão
 
-Combinando as capturas de pacote fornecidas pelo observador de rede e ferramentas de IDS de software livre, como o Suricata, você pode executar a detecção de invasão de rede para uma ampla gama de ameaças. Esses painéis permitem identificar rapidamente tendências e anomalias em sua rede, bem como se aprofundar nos dados para descobrir as causas raiz de alertas, como agentes de usuários mal-intencionados ou portas vulneráveis. Com esses dados extraídos, você pode tomar decisões informadas sobre como reagir e proteger sua rede contra tentativas de invasão prejudiciais e criar regras para evitar invasões futuras à sua rede.
+Ao combinar capturas de pacotes fornecidas pelo Network Watcher e ferramentas IDS de código aberto, como a Suricata, pode realizar a deteção de intrusões de rede para uma ampla gama de ameaças. Estes dashboards permitem-lhe detetar rapidamente tendências e anomalias dentro da sua rede, bem como investigar os dados para descobrir causas fundamentais de alertas como agentes de utilizador maliciosos ou portas vulneráveis. Com estes dados extraídos, pode tomar decisões informadas sobre como reagir e proteger a sua rede de quaisquer tentativas de intrusão prejudiciais e criar regras para evitar futuras intrusões na sua rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como disparar capturas de pacote com base em alertas visitando [usar a captura de pacote para fazer o monitoramento de rede proativo com o Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+Saiba como desencadear capturas de pacotes com base em alertas visitando a captura de [pacotes de uso para fazer monitorização proativa da rede com funções Azure](network-watcher-alert-triggered-packet-capture.md)
 
-Saiba como visualizar seus logs de fluxo do NSG com Power BI visitando [Visualizar logs do NSG fluxos com Power bi](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Saiba como visualizar os seus registos de fluxo NSG com Power BI visitando visualize os [registos de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

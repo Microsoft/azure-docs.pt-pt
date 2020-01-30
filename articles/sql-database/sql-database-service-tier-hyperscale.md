@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759504"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845898"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -72,7 +72,7 @@ A camada de serviço de hiperescala só está disponível no [modelo vCore](sql-
 
 - **Armazenamento:**
 
-  Você não precisa especificar o tamanho máximo dos dados ao configurar um banco de dados de hiperescala. No escalão de hiperescala, é-lhe cobrado o armazenamento da sua base de dados com base na alocação real. O armazenamento é automaticamente atribuído entre 40 GB e 100 TB, em incrementos que são ajustados dinamicamente entre 10 GB e 40 GB. Uma base de dados de hiperescala é criada com um tamanho inicial de 10 GB e começa a crescer em 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
+  Você não precisa especificar o tamanho máximo dos dados ao configurar um banco de dados de hiperescala. No escalão de hiperescala, é-lhe cobrado o armazenamento da sua base de dados com base na alocação real. O armazenamento é automaticamente atribuído entre 40 GB e 100 TB, em incrementos de 10 GB de 10 GB. Vários ficheiros de dados podem crescer ao mesmo tempo, se necessário. Uma base de dados de hiperescala é criada com um tamanho inicial de 10 GB e começa a crescer em 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
 
 Para obter mais informações sobre preços de hiperescala, consulte [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -110,15 +110,15 @@ Os backups são baseados em instantâneo de arquivo e, portanto, são quase inst
 
 Com a capacidade de acelerar/reduzir rapidamente os nós de computação somente leitura, a arquitetura de hiperescala permite recursos de escala de leitura significativos e também pode liberar o nó de computação primário para atender a mais solicitações de gravação. Além disso, os nós de computação podem ser escalados verticalmente de forma rápida, devido à arquitetura de armazenamento compartilhado da arquitetura de hiperescala.
 
-## <a name="create-a-hyperscale-database"></a>Criar um banco de dados de hiperescala
+## <a name="create-a-hyperscale-database"></a>Criar uma base de dados de hiperescala
 
-Um banco de dados de hiperescala pode ser criado usando o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Os bancos de dados de hiperescala estão disponíveis apenas usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+Uma base de dados de hiperescala pode ser criada utilizando o [portal Azure,](https://portal.azure.com) [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). As bases de dados de hiperescala estão disponíveis apenas utilizando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 O comando T-SQL a seguir cria um banco de dados de hiperescala. Você deve especificar a edição e o objetivo de serviço na instrução `CREATE DATABASE`. Consulte os [limites de recurso](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) para obter uma lista de objetivos de serviço válidos.
 
 ```sql
--- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Create a Hyperscale Database
+CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 Isso criará um banco de dados de hiperescala no hardware Gen5 com 4 núcleos.
@@ -130,14 +130,14 @@ Você pode mover seus bancos de dados SQL do Azure para hiperescala usando o [po
 O comando T-SQL a seguir move um banco de dados para a camada de serviço de hiperescala. Você deve especificar a edição e o objetivo de serviço na instrução `ALTER DATABASE`.
 
 ```sql
--- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Alter a database to make it a Hyperscale Database
+ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Conectar-se a uma réplica de escala de leitura de um banco de dados de hiperescala
 
-Em bancos de dados de hiperescala, o argumento `ApplicationIntent` na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica secundária somente leitura. Se o `ApplicationIntent` definido como `READONLY` e o banco de dados não tiver uma réplica secundária, a conexão será roteada para a réplica primária e usará como padrão `ReadWrite` comportamento.
+Nas bases de dados de Hiperescala, o argumento `ApplicationIntent` na cadeia de ligação fornecida pelo cliente dita se a ligação é encaminhada para a réplica de escrita ou para uma réplica secundária apenas de leitura. Se o `ApplicationIntent` definido como `READONLY` e o banco de dados não tiver uma réplica secundária, a conexão será roteada para a réplica primária e usará como padrão `ReadWrite` comportamento.
 
 ```cmd
 -- Connection string with application intent
@@ -160,7 +160,7 @@ Se você precisar restaurar um BD de hiperescala do banco de dados SQL do Azure 
 2. Siga as instruções no tópico de [restauração geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) da página sobre como restaurar bancos de dados SQL do Azure de backups automáticos.
 
 > [!NOTE]
-> Como a origem e o destino estão em regiões separadas, o banco de dados não pode compartilhar o armazenamento de instantâneos com o banco de dados de origem como em restaurações não geográficas, o que é concluído de maneira extremamente rápida.  No caso de uma restauração geográfica de um banco de dados de hiperescala, ela será uma operação de tamanho de dado, mesmo que o destino esteja na região emparelhada do armazenamento replicado geograficamente.  Isso significa que fazer uma restauração geográfica levará tempo proporcional ao tamanho do banco de dados que está sendo restaurado.  Se o destino estiver na região emparelhada, a cópia estará dentro de um datacenter, que será significativamente mais rápido do que uma cópia de longa distância pela Internet, mas ainda copiará todos os bits.
+> Como a origem e o destino estão em regiões separadas, o banco de dados não pode compartilhar o armazenamento de instantâneos com o banco de dados de origem como em restaurações não geográficas, o que é concluído de maneira extremamente rápida. No caso de uma restauração geográfica de um banco de dados de hiperescala, ela será uma operação de tamanho de dado, mesmo que o destino esteja na região emparelhada do armazenamento replicado geograficamente.  Isso significa que fazer uma restauração geográfica levará tempo proporcional ao tamanho do banco de dados que está sendo restaurado.  Se o objetivo estiver na região emparelhada, a cópia será significativamente mais rápida do que uma cópia transversal, mas continuará a ser uma operação de dimensão de dados.
 
 ## <a name=regions></a>Regiões disponíveis
 

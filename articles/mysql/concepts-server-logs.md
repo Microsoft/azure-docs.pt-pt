@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/28/2020
+ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514685"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844960"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logs de consulta lentos no banco de dados do Azure para MySQL
 No banco de dados do Azure para MySQL, o log de consultas lentas está disponível para os usuários. Não há suporte para o acesso ao log de transações. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -33,27 +33,24 @@ Os logs estão disponíveis por até sete dias a partir da criação. Se o taman
 Os logs são girados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
 
 ## <a name="configure-slow-query-logging"></a>Configurar o log de consultas lentas 
-Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina slow_query_log como ativado.
+Por padrão, o log de consultas lentas está desabilitado. Para o ativar, coloque slow_query_log para ON.
 
 Outros parâmetros que você pode ajustar incluem:
 
-- **long_query_time**: se uma consulta demorar mais do que long_query_time (em segundos) em que a consulta é registrada. A predefinição é 10 segundos.
-- **log_slow_admin_statements**: se on inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas no slow_query_log.
-- **log_queries_not_using_indexes**: determina se as consultas que não usam índices são registradas no slow_query_log
-- **log_throttle_queries_not_using_indexes**: esse parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando log_queries_not_using_indexes é definido como ON.
-- **log_output**: se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se "None", o log de consultas lentas só será gravado em Azure Monitor logs de diagnóstico. 
+- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) que a consulta é registada. O padrão é de 10 segundos.
+- **log_slow_admin_statements:** se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
+- **log_queries_not_using_indexes:** determina se as consultas que não utilizam índices estão registadas na slow_query_log
+- **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexadas que podem ser escritas no registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
+- **log_output:** se "File", permitir que o registo de consulta lenta seja escrito tanto no armazenamento do servidor local como nos registos de diagnóstico do Monitor Azure. Se "None", o log de consultas lentas só será gravado em Azure Monitor logs de diagnóstico. 
 
 > [!IMPORTANT]
-> Se as tabelas não estiverem indexadas, definir os parâmetros `log_queries_not_using_indexes` e `log_throttle_queries_not_using_indexes` como ON pode afetar o desempenho do MySQL, pois todas as consultas em execução nessas tabelas não indexadas serão gravadas no log de consultas lentas.<br><br>
-> Se você planeja registrar em log consultas lentas por um longo período de tempo, é recomendável definir `log_output` como "None". Se definido como "File", esses logs são gravados no armazenamento do servidor local e podem afetar o desempenho do MySQL. 
+> Se as suas tabelas não estiverem indexadas, a definição dos parâmetros `log_queries_not_using_indexes` e `log_throttle_queries_not_using_indexes` para ON pode afetar o desempenho do MySQL, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
+> Se planeia registar consultas lentas durante um longo período de tempo, recomenda-se definir `log_output` para "Nenhuma". Se definido como "File", esses logs são gravados no armazenamento do servidor local e podem afetar o desempenho do MySQL. 
 
 Consulte a [documentação do log de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) do MySQL para obter descrições completas dos parâmetros de log de consulta lenta.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 O banco de dados do Azure para MySQL é integrado com Azure Monitor logs de diagnóstico. Depois de habilitar os logs de consulta lentos em seu servidor MySQL, você pode optar por que eles sejam emitidos para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como habilitar os logs de diagnóstico, consulte a seção como da [documentação dos logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
-
-> [!IMPORTANT]
-> Esse recurso de diagnóstico para logs de servidor só está disponível nos [tipos de preço](concepts-pricing-tiers.md)uso geral e com otimização de memória.
 
 A tabela a seguir descreve o que está em cada log. Dependendo do método de saída, os campos incluídos e a ordem na qual eles aparecem podem variar.
 
@@ -82,11 +79,11 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
 | `server_id_s` | A ID do servidor |
-| `thread_id_s` | ID do Thread |
+| `thread_id_s` | ID da linha |
 | `\_ResourceId` | URI de recurso |
 
 > [!Note]
-> Por `sql_text`, o log será truncado se exceder 2048 caracteres.
+> Para `sql_text`, o registo será truncado se exceder 2048 caracteres.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar logs em logs de Azure Monitor
 

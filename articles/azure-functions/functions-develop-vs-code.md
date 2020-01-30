@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547426"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845395"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -65,11 +65,13 @@ A extensão Functions permite criar um projeto de aplicativo de funções, junta
 
 1. Selecione a pasta para seu projeto de aplicativo de funções e, em seguida, **Selecione um idioma para seu projeto de função**.
 
+1. Se ainda não instalou as Ferramentas Core, é-lhe pedido que **selecione uma versão** das Ferramentas Core para instalar. Escolha a versão 2.x ou uma versão posterior. 
+
 1. Selecione o modelo de função de **gatilho http** ou selecione **ignorar agora** para criar um projeto sem uma função. Você sempre pode [Adicionar uma função ao seu projeto](#add-a-function-to-your-project) posteriormente.
 
     ![Escolher o modelo do acionador HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Digite **HTTPTrigger** para o nome da função e selecione Enter e, em seguida, selecione autorização de **função** . Esse nível de autorização exige que você forneça uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade da função.
+1. Digite **httpExample** para o nome da função e selecione Enter e, em seguida, selecione a autorização **de função.** Esse nível de autorização exige que você forneça uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade da função.
 
     ![Selecionar autorização de função](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -189,6 +191,8 @@ Para saber mais, consulte a referência de [Associação de saída de armazename
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## <a name="publish-to-azure"></a>Publicar no Azure
 

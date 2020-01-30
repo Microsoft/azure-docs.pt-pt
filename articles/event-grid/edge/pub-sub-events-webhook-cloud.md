@@ -1,6 +1,6 @@
 ---
-title: Publicar, assinar eventos na nuvem – grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Publicar, assinar eventos na nuvem usando o webhook com a grade de eventos no IoT Edge
+title: Publique, subscreva eventos na cloud - Azure Event Grid IoT Edge  Microsoft Docs
+description: Publique, subscreva eventos na nuvem usando Webhook com Grelha de Eventos em IoT Edge
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -9,32 +9,32 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100314"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844599"
 ---
-# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem
+# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicar, subscrever eventos na nuvem
 
-Este artigo percorre todas as etapas necessárias para publicar e assinar eventos usando a grade de eventos no IoT Edge.
+Este artigo percorre todos os passos necessários para publicar e subscrever eventos usando a Grelha de Eventos no IoT Edge. Este tutorial utiliza e função Azure como Manipulador de Eventos. Para obter tipos de destino adicionais, consulte [os manipuladores de eventos](event-handlers.md).
 
-Consulte [conceitos da grade de eventos](concepts.md) para entender o que é um tópico e uma assinatura da grade de eventos antes de continuar.
+Consulte o [Event Grid Concepts](concepts.md) para entender o que é um tópico de grelha de eventos e subscrição antes de prosseguir.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Para concluir este tutorial, você precisará de:
 
 * **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
-* **Hub IOT do Azure e IOT Edge dispositivo** -siga as etapas no início rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) se você ainda não tiver um.
+* **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no arranque rápido dos [dispositivos](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) ou Windows se ainda não tiver um.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
-## <a name="create-an-azure-function-in-the-azure-portal"></a>Criar uma função do Azure no portal do Azure
+## <a name="create-an-azure-function-in-the-azure-portal"></a>Criar uma função Azure no portal Azure
 
-Siga as etapas descritas no [tutorial](../../azure-functions/functions-create-first-azure-function.md) para criar uma função do Azure. 
+Siga os passos descritos no [tutorial](../../azure-functions/functions-create-first-azure-function.md) para criar uma função Azure. 
 
-Substitua o trecho de código pelo código a seguir:
+Substitua o código por um código que se segue:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -58,16 +58,16 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-Em sua nova função, selecione **obter URL da função** no canto superior direito, selecione padrão (**chave de função**) e, em seguida, selecione **copiar**. Você usará o valor da URL da função posteriormente no tutorial.
+Na sua nova função, selecione **"Obter URL** de função no direito superior direito", selecione 'Tecla de**função' (Tecla de função)** e, em seguida, selecione **Copy**. Utilizará o valor URL da função mais tarde no tutorial.
 
 > [!NOTE]
-> Consulte a documentação do [Azure Functions](../../azure-functions/functions-overview.md) para obter mais exemplos e tutoriais sobre como reagir a eventos usando gatilhos de evento EventGrid.
+> Consulte a documentação das [Funções Azure](../../azure-functions/functions-overview.md) para mais amostras e tutoriais sobre a reação a eventos que um evento de eventos utilizando.
 
 ## <a name="create-a-topic"></a>Criar um tópico
 
-Como um editor de um evento, você precisa criar um tópico de grade de eventos. O tópico refere-se a um ponto de extremidade para o qual os Publicadores podem enviar eventos.
+Como editor de um evento, você precisa criar um tópico de grelha de eventos. O tópico refere-se a um ponto final para onde os editores podem enviar eventos.
 
-1. Crie topic2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie o tópico2.json com o seguinte conteúdo. Consulte a nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
 
     ```json
          {
@@ -77,12 +77,12 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
           }
         }
     ```
-1. Execute o comando a seguir para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
-1. Execute o comando a seguir para verificar se o tópico foi criado com êxito. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
@@ -106,9 +106,11 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
 
 ## <a name="create-an-event-subscription"></a>Criar uma subscrição de evento
 
-Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, os assinantes precisarão criar uma assinatura de grade de eventos em um tópico de interesse.
+Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, os subscritores terão de criar uma subscrição da grelha de eventos sobre um tema de interesse.
 
-1. Crie subscription2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
+1. Crie subscrição2.json com o seguinte conteúdo. Consulte a nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
 
     ```json
         {
@@ -124,8 +126,8 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     ```
 
    >[!NOTE]
-   > O **ponto de extremidade** especifica que o assinante é um webhook.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Essa URL corresponde ao exemplo da função do Azure que você configurou anteriormente.
-2. Execute o comando a seguir para criar a assinatura. O código de status HTTP de 200 OK deve ser retornado.
+   > O **endpointType** especifica que o assinante é um Webhook.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Este URL corresponde à amostra da Função Azure que configura mais cedo.
+2. Executar o seguinte comando para criar a subscrição. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
@@ -157,7 +159,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="publish-an-event"></a>Publicar um evento
 
-1. Crie event2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie evento2.json com o seguinte conteúdo. Consulte a nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
 
     ```json
         [
@@ -174,7 +176,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
           }
         ]
     ```
-1. Execute o comando a seguir para publicar o evento
+1. Executar o seguinte comando para publicar evento
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview
@@ -182,24 +184,25 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
 
-Você pode exibir o evento entregue no portal do Azure na opção **monitorar** da sua função.
+Pode ver o evento entregue no portal Azure sob a opção **Monitor** da sua função.
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
 
-* Execute o seguinte comando para excluir o tópico e todas as suas assinaturas
+* Executar o seguinte comando para apagar o tópico e todas as suas subscrições
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-* Exclua a função do Azure criada no portal do Azure.
+* Elimine a função Azure criada no portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eventos publicados. Agora que você conhece as etapas básicas, consulte os seguintes artigos:
+Neste tutorial, criou um tópico de grelha de eventos, subscrição e eventos publicados. Agora que conhece os passos básicos, consulte os seguintes artigos:
 
-* Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
-* Criar/atualizar assinatura com [filtros](advanced-filtering.md).
-* Configurar a persistência do módulo de grade de eventos no [Linux](persist-state-linux.md) ou no [Windows](persist-state-windows.md)
-* Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente
-* Encaminhar eventos para a grade de eventos do Azure na nuvem seguindo este [tutorial](forward-events-event-grid-cloud.md)
+* Para resolver problemas com a utilização da Grelha de Eventos Azure na IoT Edge, consulte [o guia de resolução de problemas](troubleshoot.md).
+* Criar/atualizar subscrição com [filtros](advanced-filtering.md).
+* Configurar a persistência do módulo Event Grid no [linux](persist-state-linux.md) [ou](persist-state-windows.md) windows
+* Siga [a documentação](configure-client-auth.md) para configurar a autenticação do cliente
+* Encaminhar eventos para Azure Event Grid na nuvem seguindo este [tutorial](forward-events-event-grid-cloud.md)
+* [Monitorize tópicos e subscrições no limite](monitor-topics-subscriptions.md)

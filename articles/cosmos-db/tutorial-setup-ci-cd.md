@@ -4,15 +4,15 @@ description: Tutorial sobre como configurar um fluxo de trabalho de compilação
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/23/2019
+ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e3f7bcee8969939e3c3e9d9e10b43a3eb234fd50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b05b4b44df53846a4880249785c6a5deda62f8a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441042"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846536"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -47,12 +47,17 @@ Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevO
 
    ![Selecione o projeto de equipa, o repositório e o ramo para o pipeline de compilação](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. 
+3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. Agora você tem um pipeline de construção que você pode configurar para usar a tarefa de construção de emulador Azure Cosmos DB. 
 
 > [!NOTE]
 > O pool de agentes a ser selecionado para esse CI deve ter Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Consulte o artigo [Microsoft Hosted Agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para uma seleção de pools de agentes; é recomendável começar com `Hosted VS2017`.
 
-Agora tem um pipeline de compilação que pode configurar para utilizar a tarefa de compilação do emulador do Azure Cosmos DB. 
+O emulador Azure Cosmos DB atualmente não suporta o grupo de agentes VS2019 hospedado. No entanto, o emulador já vem com VS2019 instalado e você usa-o iniciando o emulador com os seguintes cmdlets PowerShell. Se tiver algum problema ao utilizar o VS2019, contacte a equipa [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) para obter ajuda:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+Start-CosmosDbEmulator
+```
 
 ## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Adicionar a tarefa a um pipeline de compilação
 

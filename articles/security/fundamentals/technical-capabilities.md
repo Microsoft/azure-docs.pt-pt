@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: a8dd859b05c3e95a1c584a7947334dad25813122
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970659"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845355"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -57,7 +57,7 @@ As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a ti a
 
 Os benefícios de segurança do Azure Active Directory (AD do Azure) incluem a capacidade de:
 
-- Crie e faça a gestão de uma única identidade para cada utilizador em toda a sua empresa híbrida, ao manter os utilizadores, os grupos e os dispositivos sincronizados.
+- Crie e gerencie uma única identidade para cada utilizador em toda a sua empresa híbrida, mantendo os utilizadores, grupos e dispositivos em sincronização.
 
 - Forneça acesso de logon único para seus aplicativos, incluindo milhares de aplicativos SaaS previamente integrados.
 
@@ -119,7 +119,7 @@ No portal do Azure ou por meio do [portal de Azure Active Directory](https://aad
 
 O [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) é um serviço de gerenciamento de identidade global e altamente disponível para aplicativos voltados para o consumidor que pode ser dimensionado para centenas de milhões de identidades. Pode ser integrado entre plataformas móveis e Web. Os consumidores podem iniciar sessão em todas as suas aplicações através de experiências personalizáveis, utilizando as suas contas de redes sociais existentes ou criando novas credenciais.
 
-No passado, os desenvolvedores de aplicativos que desejavam [inscrever e entrar em consumidores](../../active-directory-b2c/active-directory-b2c-overview.md) em seus aplicativos teriam escrito seu próprio código. E teriam de utilizar sistemas ou bases de dados no local para armazenar os nomes de utilizador e as palavras-passe. A Azure Active Directory B2C oferece à sua organização uma maneira melhor de integrar o gerenciamento de identidade do consumidor em aplicativos com a ajuda de uma plataforma segura, baseada em padrões, e um grande conjunto de políticas extensível.
+No passado, os desenvolvedores de aplicativos que desejavam [inscrever e entrar em consumidores](../../active-directory-b2c/overview.md) em seus aplicativos teriam escrito seu próprio código. E teriam de utilizar sistemas ou bases de dados no local para armazenar os nomes de utilizador e as palavras-passe. A Azure Active Directory B2C oferece à sua organização uma maneira melhor de integrar o gerenciamento de identidade do consumidor em aplicativos com a ajuda de uma plataforma segura, baseada em padrões, e um grande conjunto de políticas extensível.
 
 Quando você usa Azure Active Directory B2C, seus consumidores podem se inscrever para seus aplicativos usando suas contas sociais existentes (Facebook, Google, Amazon, LinkedIn) ou criando novas credenciais (endereço de email e senha, ou nome de usuário e senha).
 
@@ -220,7 +220,7 @@ Os serviços com VMs IaaS (Windows ou Linux) devem usar [Azure Disk Encryption](
 
 #### <a name="paas-v2"></a>PaaS v2
 
-Os serviços em execução na PaaS v2 usando Service Fabric podem usar o Azure Disk Encryption para o conjunto de dimensionamento de máquinas virtuais [VMSS] para criptografar suas VMs de PaaS v2.
+Os serviços em execução no PaaS v2 utilizando o Service Fabric podem utilizar encriptação de disco Azure para conjunto de escala de máquina virtual [VMSS] para encriptar os seus VMs V2 PaaS.
 
 #### <a name="paas-v1"></a>PaaS v1
 
@@ -256,7 +256,7 @@ Conjuntos de dados maiores podem ser movidos em um link WAN dedicado de alta vel
 
 Se você estiver interagindo com o armazenamento do Azure por meio do portal do Azure, todas as transações ocorrerão via HTTPS. A [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) sobre HTTPS também pode ser usada para interagir com o [armazenamento do Azure](https://azure.microsoft.com/services/storage/) e o [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/).
 
-As organizações que não protegem dados em trânsito são mais suscetíveis a [ataques man-in-the-Middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e seqüestro de sessão. Esses ataques podem ser o primeiro passo para obter acesso a dados confidenciais.
+As organizações que não protegem dados em trânsito são mais suscetíveis a [ataques man-in-the-Middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e seqüestro de sessão. Estes ataques podem ser o primeiro passo para obter acesso a dados confidenciais.
 
 Você pode saber mais sobre a opção de VPN do Azure lendo o artigo [planejamento e design para o gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
@@ -432,13 +432,13 @@ O Centro de Segurança recolhe, analisa e integra automaticamente os dados de re
 
 - Alertas de segurança a partir de programas antimalware e firewalls integrados
 
-### <a name="azure-monitor"></a>Azure Monitor
+### <a name="azure-monitor"></a>Monitor Azure
 
 [Azure monitor](../../azure-monitor/overview.md) fornece ponteiros para informações sobre tipos específicos de recursos. Ele oferece visualização, consulta, roteamento, alertas, dimensionamento automático e automação nos dados da infraestrutura do Azure (log de atividades) e de cada recurso individual do Azure (logs de diagnóstico).
 
 Os aplicativos de nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça em funcionamento em um estado íntegro. Ele também ajuda a afastarr problemas em potencial ou a solucionar problemas anteriores.
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) além disso, você pode usar dados de monitoramento para obter informações detalhadas sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a manutenção do aplicativo, ou automatizar ações que, caso contrário, exigirão intervenção manual.
+![O Monitor do Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Além disso, pode utilizar dados de monitorização para obter informações profundas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a manutenção do aplicativo, ou automatizar ações que, caso contrário, exigirão intervenção manual.
 
 A auditoria da segurança de rede é vital para detectar vulnerabilidades de rede e garantir a conformidade com a segurança de ti e o modelo de governança regulatória. Com a exibição de grupo de segurança, você pode recuperar o grupo de segurança de rede e as regras de segurança configuradas, bem como as regras de segurança em vigor. Com a lista de regras aplicadas, você pode determinar as portas que estão abertas e a vulnerabilidade da rede SS.
 
@@ -452,7 +452,7 @@ O [observador de rede](../../network-watcher/network-watcher-monitoring-overview
 
 ### <a name="application-insights"></a>Estatísticas das Aplicações
 
-O [Application insights](../../azure-monitor/app/app-insights-overview.md) é um serviço de gerenciamento de desempenho de aplicativos (APM) extensível para desenvolvedores da Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, Ele inclui ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a entender o que os usuários fazem com seu aplicativo. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedados localmente ou na nuvem. Ele se integra ao seu processo de devOps e tem pontos de conexão para várias ferramentas de desenvolvimento.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, Ele inclui ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a entender o que os usuários fazem com seu aplicativo. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedados localmente ou na nuvem. Ele se integra ao seu processo de devOps e tem pontos de conexão para várias ferramentas de desenvolvimento.
 
 Monitoriza:
 

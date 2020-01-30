@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas de erros encontrados 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 6baf878a1afac011997800b78f059e254e3f2a06
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513801"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845530"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -32,7 +32,7 @@ Esta seção aborda a falha da operação de backup da máquina virtual do Azure
   * Se houver um erro com um **backup** de entrada na mensagem ou origem do evento, verifique se os backups de backup da VM IaaS do Azure foram bem-sucedidos e se um ponto de restauração foi criado com o tipo de instantâneo desejado.
   * Se o backup do Azure estiver funcionando, é provável que o problema tenha outra solução de backup.
   * Aqui está um exemplo de um erro do Visualizador de eventos 517 em que o backup do Azure estava funcionando bem, mas "Backup do Windows Server" estava falhando:<br>
-    ![Backup do Windows Server com falha](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    ![falha na reserva de backup do servidor do Windows](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Se o backup do Azure estiver falhando, procure o código de erro correspondente na seção erros comuns de backup da VM neste artigo.
 
 ## <a name="common-issues"></a>Problemas comuns
@@ -93,7 +93,7 @@ A operação de backup falhou devido a um problema com o aplicativo de **sistema
 Código de erro: ExtensionFailedVssWriterInBadState <br/>
 Mensagem de erro: falha na operação de instantâneo porque os gravadores VSS estavam em um estado inadequado.
 
-Reinicie os gravadores VSS que estão em um estado inadequado. Em um prompt de comandos com privilégios elevados, execute ```vssadmin list writers```. A saída contém todos os gravadores VSS e seu estado. Para cada gravador VSS com um estado que não é **[1] estável**, para reiniciar o gravador VSS, execute os seguintes comandos em um prompt de comando elevado:
+Reinicie os gravadores VSS que estão em um estado inadequado. Em um prompt de comandos com privilégios elevados, execute ```vssadmin list writers```. A saída contém todos os gravadores VSS e seu estado. Para cada escritor da VSS com um estado que não é **[1] Estável,** para reiniciar o escritor VSS, executar os seguintes comandos a partir de um pedido de comando elevado:
 
 * ```net stop serviceName```
 * ```net start serviceName```
@@ -103,8 +103,8 @@ Reinicie os gravadores VSS que estão em um estado inadequado. Em um prompt de c
 Código de erro: ExtensionConfigParsingFailure<br/>
 Mensagem de erro: falha ao analisar a configuração para a extensão de backup.
 
-Esse erro ocorre devido às permissões alteradas no diretório **MachineKeys** : **%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
-Execute o comando a seguir e verifique se as permissões no diretório **MachineKeys** são padrão:**icacls%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
+Este erro ocorre devido a permissões alteradas no diretório **MachineKeys:** **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Executar o seguinte comando e verificar se as permissões no diretório **MachineKeys** são predefinidas:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 
 As permissões padrão são as seguintes:
 
@@ -188,8 +188,8 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | **Código de erro**: ExtensionSnapshotBitlockerError <br/> **Mensagem de erro**: falha na operação de instantâneo com o erro de operação de serviço de cópias de sombra de volume (VSS) **esta unidade está bloqueada pelo criptografia de unidade de disco BitLocker. Você deve desbloquear esta unidade no painel de controle.** |Desative o BitLocker para todas as unidades na VM e verifique se o problema do VSS foi resolvido. |
 | **Código de erro**: VmNotInDesirableState <br/> **Mensagem de erro**: a VM não está em um estado que permita backups. |<ul><li>Se a VM estiver em um estado transitório entre **executar** e **desligar**, aguarde o estado ser alterado. Em seguida, dispare o trabalho de backup. <li> Se a VM for uma VM do Linux e usar o módulo kernel do Linux com segurança avançada, exclua o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e verifique se a extensão de backup está instalada.  |
 | O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente de VM. Em seguida, reinicie a operação. |Leia mais sobre [a instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent). |
-| **Código de erro**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: falha na operação de instantâneo devido à falha ao criar um canal de comunicação de rede seguro. | <ol><li> Abra o editor do Registro executando **regedit. exe** em um modo com privilégios elevados. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Eles estão presentes na hierarquia da chave do registro **HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft**. <li> Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>|
-| **Código de erro**: ExtensionVCRedistInstallationFailure <br/> **Mensagem de erro**: falha na operação de instantâneo devido à falha na C++ instalação do Visual redistribuível para Visual Studio 2012. | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Verifique se o valor da chave do registro que permite a instalação do serviço está definido com o valor correto. Ou seja, defina o valor **inicial** em **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** como **3** e não **4**. <br><br>Se você ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **msiexec/Unregister** seguido por **msiexec/Register** em um prompt de comandos com privilégios elevados.  |
+| **Código de erro**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: falha na operação de instantâneo devido à falha ao criar um canal de comunicação de rede seguro. | <ol><li> Abra o editor do Registro executando **regedit. exe** em um modo com privilégios elevados. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>|
+| **Código de erro**: ExtensionVCRedistInstallationFailure <br/> **Mensagem de erro**: falha na operação de instantâneo devido à falha na C++ instalação do Visual redistribuível para Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Verifique se o valor da chave do registro que permite a instalação do serviço está definido com o valor correto. Ou seja, detete **o** valor inicial em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se você ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **msiexec/Unregister** seguido por **msiexec/Register** em um prompt de comandos com privilégios elevados.  |
 
 ## <a name="jobs"></a>Tarefas
 
@@ -278,6 +278,6 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
 O DHCP deve ser habilitado dentro do convidado para que o backup da VM IaaS funcione. Se você precisar de um IP privado estático, configure-o por meio do portal do Azure ou do PowerShell. Verifique se a opção DHCP dentro da VM está habilitada.
 Obtenha mais informações sobre como configurar um IP estático por meio do PowerShell:
 
-* [Como adicionar um IP interno estático a uma VM existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Como adicionar um IP interno estático a uma VM existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * [Alterar o método de alocação para um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

@@ -4,12 +4,12 @@ description: Saiba como implantar grupos de contêineres em uma rede virtual do 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887961"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845170"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -32,7 +32,8 @@ Os grupos de contêineres implantados em uma rede virtual do Azure habilitam cen
 Certas limitações se aplicam quando você implanta grupos de contêineres em uma rede virtual.
 
 * Para implantar grupos de contêineres em uma sub-rede, a sub-rede não pode conter nenhum outro tipo de recurso. Remova todos os recursos existentes de uma sub-rede existente antes de implantar os grupos de contêineres nele, ou crie uma nova sub-rede.
-* Você não pode usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantado em uma rede virtual.
+* Não se pode usar uma [identidade gerida](container-instances-managed-identity.md) num grupo de contentores implantado numa rede virtual.
+* Não é possível permitir uma sonda de [vivacidade](container-instances-liveness-probe.md) ou uma sonda de [prontidão](container-instances-readiness-probe.md) num grupo de contentores implantado numa rede virtual.
 * Devido aos recursos de rede adicionais envolvidos, a implantação de um grupo de contêineres em uma rede virtual normalmente é mais lenta do que a implantação de uma instância de contêiner padrão.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -84,7 +85,7 @@ Você pode usar [AZ container Create][az-container-create] para implantar grupos
 
 Para implantar em uma nova rede virtual e fazer com que o Azure crie os recursos de rede para você automaticamente, especifique o seguinte ao executar a [criação de contêiner AZ][az-container-create]:
 
-* Nome da rede virtual
+* Nome de rede virtual
 * Prefixo de endereço de rede virtual no formato CIDR
 * Nome da sub-rede
 * Prefixo de endereço de sub-rede no formato CIDR
@@ -145,7 +146,7 @@ $ az container show --resource-group myResourceGroup --name appcontainer --query
 10.0.0.4
 ```
 
-Agora, defina `CONTAINER_GROUP_IP` para o IP que você recuperou com o comando `az container show` e execute o comando `az container create` a seguir. Esse segundo contêiner, *commchecker*, executa uma imagem baseada em Alpine Linux e executa `wget` em relação ao endereço IP de sub-rede privada do primeiro grupo de contêineres.
+Agora, `CONTAINER_GROUP_IP` para o IP que recuperou com o comando `az container show`, e execute o seguinte comando `az container create`. Esse segundo contêiner, *commchecker*, executa uma imagem baseada em Alpine Linux e executa `wget` em relação ao endereço IP de sub-rede privada do primeiro grupo de contêineres.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-here>
@@ -261,11 +262,11 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Se você receber um erro ao tentar remover o perfil de rede, aguarde 2-3 dias para a plataforma mitigar automaticamente o problema e tentar a exclusão novamente. Se você ainda tiver problemas ao remover o perfil de rede, [abra uma solicitação de suporte](https://azure.microsoft.com/support/create-ticket/).
+> Se receber um erro ao tentar remover o perfil de rede, permita que 3-4 dias para a plataforma atenuar automaticamente o problema e tentar a eliminação novamente. Se necessitar de eliminar imediatamente um perfil de rede, [abra um pedido](https://azure.microsoft.com/support/create-ticket/) de apoio referindo-se ao serviço Decasos de Contentores Azure.
 
 Esse recurso atualmente requer vários comandos adicionais para excluir os recursos de rede que você criou anteriormente. Se você usou os comandos de exemplo nas seções anteriores deste artigo para criar sua rede virtual e sub-rede, você pode usar o script a seguir para excluir esses recursos de rede.
 
-Antes de executar o script, defina a variável `RES_GROUP` como o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser excluídas. Atualize o nome da rede virtual se você não usou o nome `aci-vnet` sugerido anteriormente. O script é formatado para o shell bash. Se preferir outro shell, como o PowerShell ou o prompt de comando, você precisará ajustar a atribuição de variável e os acessadores de acordo.
+Antes de executar o script, detete a variável `RES_GROUP` para o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser eliminadas. Atualize o nome da rede virtual se você não usou o nome `aci-vnet` sugerido anteriormente. O script é formatado para o shell bash. Se preferir outro shell, como o PowerShell ou o prompt de comando, você precisará ajustar a atribuição de variável e os acessadores de acordo.
 
 > [!WARNING]
 > Este script exclui recursos! Ele exclui a rede virtual e todas as sub-redes que ela contém. Certifique-se de que você não precisa mais de *nenhum* dos recursos na rede virtual, incluindo todas as sub-redes que ele contém, antes de executar esse script. Depois de excluídos, **esses recursos são irrecuperáveis**.

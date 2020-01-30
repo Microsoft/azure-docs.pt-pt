@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8ec3e399459adfbb7cef9e3eafbaa024fec1589f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 26c7996d6a955a183121a59254131dcb1dc6706f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447608"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844267"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
 
@@ -120,7 +120,7 @@ Ao fazer alterações na base de dados de conhecimento e republicar, você não 
 
 1. Uma nova guia do navegador é aberta para o portal do Azure, com a página de criação do serviço de bot do Azure. Configure o serviço de bot do Azure. O bot e o QnA Maker podem compartilhar o plano do serviço de aplicativo Web, mas não podem compartilhar o aplicativo Web. Isso significa que o **nome do aplicativo** para o bot deve ser diferente do nome do aplicativo para o serviço de QnA Maker.
 
-    * **Sim**
+    * **Fazer**
         * Alterar identificador de bot-se não for exclusivo.
         * Selecione idioma do SDK. Depois que o bot for criado, você poderá baixar o código em seu ambiente de desenvolvimento local e continuar o processo de desenvolvimento.
     * **Não**
@@ -155,9 +155,8 @@ Limpe os recursos do QnA Maker e do bot Framework no portal do Azure.
 
 Para mais informações:
 
-* [Formato de redução nas respostas](../concepts/data-sources-supported.md)
-* [Testando sua redução](../concepts/data-sources-supported.md#testing-your-markdown)
-* QnA Maker [fontes de dados](../Concepts/data-sources-supported.md).
+* [Formato de redução nas respostas](../reference-markdown-format.md)
+* QnA Maker [fontes de dados](../concepts/knowledge-base.md).
 * [Definições de configuração de recurso de bot](../tutorials/create-qna-bot.md).
 
 > [!div class="nextstepaction"]

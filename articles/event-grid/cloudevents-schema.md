@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548055"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844739"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema do CloudEvents v 1.0 com a grade de eventos
 
@@ -73,7 +73,6 @@ Você pode usar a grade de eventos para entrada e saída de eventos no esquema C
 |--------------------|---------------------
 | Formato CloudEvents | Formato CloudEvents
 | Formato da grade de eventos  | Formato CloudEvents
-| Formato CloudEvents | Formato da grade de eventos
 | Formato da grade de eventos  | Formato da grade de eventos
 
 Para todos os esquemas de evento, a grade de eventos requer validação ao publicar em um tópico da grade de eventos e ao criar uma assinatura de evento. Para obter mais informações, consulte [Event Grid segurança e autenticação](security-authentication.md).
@@ -109,8 +108,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-A versão atual do CloudEvents não dá suporte ao processamento em lote de eventos. Para publicar eventos com o esquema CloudEvent em um tópico, publique cada evento individualmente.
 
 ### <a name="output-schema"></a>Esquema de saída
 
