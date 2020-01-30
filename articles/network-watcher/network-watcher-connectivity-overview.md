@@ -1,57 +1,55 @@
 ---
-title: Resolver problemas de introdução à ligação do observador de rede do Azure | Documentos da Microsoft
-description: Esta página fornece uma visão geral da capacidade de resolução de problemas de ligação de observador de rede
+title: Introdução ao Problema de Ligação de Vigilantes da Rede Azure  Microsoft Docs
+description: Esta página fornece uma visão geral da capacidade de resolução de problemas de ligação do Observador de Rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705813"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842874"
 ---
-# <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à ligação resolução de problemas no observador de rede do Azure
+# <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à resolução de problemas de ligação no Vigilante da Rede Azure
 
-Resolver problemas relacionados com a ligação de recurso do observador de rede fornece a capacidade para verificar uma ligação TCP direta de uma máquina virtual a uma máquina virtual (VM), o nome de domínio completamente qualificado (FQDN), URI, ou o endereço IPv4. Cenários de rede são complexos, eles são implementados usando grupos de segurança de rede, firewalls, rotas definidas pelo usuário e recursos fornecidos pelo Azure. Configurações complexas tornam a resolução de problemas de conectividade um desafio. Observador de rede ajuda a reduzir a quantidade de tempo para localizar e detetar problemas de conectividade. Os resultados devolvidos podem fornecer informações sobre se um problema de conectividade é devido a uma plataforma ou um problema de configuração do utilizador. Conectividade pode ser verificada com [PowerShell](network-watcher-connectivity-powershell.md), [CLI do Azure](network-watcher-connectivity-cli.md), e [REST API](network-watcher-connectivity-rest.md).
+A funcionalidade de resolução de problemas de ligação do Network Watcher fornece a capacidade de verificar uma ligação TCP direta de uma máquina virtual para uma máquina virtual (VM), nome de domínio totalmente qualificado (FQDN), URI ou endereço IPv4. Os cenários de rede são complexos, são implementados utilizando grupos de segurança de rede, firewalls, rotas definidas pelo utilizador e recursos fornecidos pelo Azure. Configurações complexas tornam problemas de conectividade de resolução de problemas desafiantes. O Network Watcher ajuda a reduzir a quantidade de tempo para encontrar e detetar problemas de conectividade. Os resultados devolvidos podem fornecer informações sobre se um problema de conectividade se deve a um problema de plataforma ou de configuração do utilizador. A conectividade pode ser verificada com [PowerShell,](network-watcher-connectivity-powershell.md) [Azure CLI](network-watcher-connectivity-cli.md)e [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Resolver problemas de ligação requer que a solucionar problemas a partir de VM tem o `AzureNetworkWatcherExtension` extensão da VM instalado. Para instalar a extensão numa VM do Windows, visite [extensão de máquina virtual de agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para visite de VM do Linux [extensão da máquina virtual de agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessário no ponto de extremidade de destino.
+> A resolução de problemas de ligação requer que o VM de que se desloque tem a extensão VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão de um Windows VM visite a extensão virtual do Agente observador de [rede Azure para windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para o Linux VM visite a extensão virtual do Agente observador de rede [Azure para o Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto final do destino.
 
 ## <a name="response"></a>Resposta
 
-A tabela seguinte mostra as propriedades devolvidas quando resolver problemas de ligação foi concluída em execução.
+A tabela seguinte mostra as propriedades devolvidas quando a sessão de problemas de ligação terminou de funcionar.
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|ConnectionStatus     | O estado da verificação de conectividade. Possíveis resultados são **Reachable** e **inacessível**.        |
-|AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Mostrado apenas se o estado de verificação está acessível)        |
-|MinLatencyInMs     | Latência mínima durante a verificação de conectividade em milissegundos. (Mostrado apenas se o estado de verificação está acessível)        |
-|MaxLatencyInMs     | Latência máxima durante a verificação de conectividade em milissegundos. (Mostrado apenas se o estado de verificação está acessível)        |
-|ProbesSent     | Número de sondas enviadas durante a verificação. Valor máximo é 100.        |
-|ProbesFailed     | Número de sondas que falharam durante a verificação. Valor máximo é 100.        |
-|Saltos     | Salto a caminho de salto de origem para destino.        |
-|Hops[].Type     | Tipo de recurso. Os valores possíveis são **origem**, **VirtualAppliance**, **VnetLocal**, e **Internet**.        |
-|Hops[].Id | Identificador exclusivo do salto.|
-|Hops[].Address | Endereço IP do salto.|
-|Hops[].ResourceId | ResourceID de salto se o salto é um recurso do Azure. Se for um recurso de internet, é ResourceID **Internet**. |
-|Hops[].NextHopIds | O identificador exclusivo do próximo salto tomado.|
-|Hops[].Issues | Uma coleção dos problemas encontrados durante a verificação desse salto. Se não houvesse nenhum problema, o valor está em branco.|
-|Hops[].Issues[].Origin | O salto atual, em que ocorreu o problema. Os valores possíveis são:<br/> **Entrada** -problema é sobre a ligação do salto anterior para o salto atual<br/>**Saída** -problema é sobre a ligação do salto atual para o próximo salto<br/>**Local** -trate de mensagens em fila o salto atual.|
-|Hops[].Issues[].Severity | A gravidade do problema detetado. Os valores possíveis são **erro** e **aviso**. |
+|Estatuto de Conexão     | O estado da verificação da conectividade. Os resultados possíveis são **alcançáveis** e **inacessíveis.**        |
+|AvgLatencyInMs     | Latência média durante o controlo de conectividade em milissegundos. (Apenas demonstrado se o estado da verificação for acessível)        |
+|MinLatencyInMs     | Latência mínima durante o controlo de conectividade em milissegundos. (Apenas demonstrado se o estado da verificação for acessível)        |
+|MaxLatencyInMs     | Latência máxima durante o controlo de conectividade em milissegundos. (Apenas demonstrado se o estado da verificação for acessível)        |
+|SondasSent     | Número de sondas enviadas durante a verificação. O valor máximo é 100.        |
+|Sondas Falhadas     | Número de sondas que falharam durante a verificação. O valor máximo é 100.        |
+|Saltos     | Pule pelo caminho do salto de fonte para destino.        |
+|Hops[].Type     | Tipo de recurso. Os valores possíveis são **Fonte,** **VirtualAppliance,** **VnetLocal**e **Internet**.        |
+|Hops[].Id | Identificador único do lúpulo.|
+|Hops[].Address | Endereço IP do lúpulo.|
+|Hops[].ResourceId | ResourceID do lúpulo se o lúpulo for um recurso Azure. Se for um recurso de internet, o ResourceID **é**internet . |
+|Hops[].NextHopIds | O identificador único do próximo salto tomado.|
+|Hops[].Issues | Uma coleção de problemas que foram encontrados durante o cheque naquele salto. Se não houver problemas, o valor está em branco.|
+|Hops[].Issues[].Origin | No salto atual, onde ocorreu a questão. Os valores possíveis são:<br/> **Entrada** - A questão está no link do salto anterior para o salto atual<br/>**Outbound** - A questão está no link do salto atual para o próximo salto<br/>**Local** - A questão está no salto atual.|
+|Hops[].Issues[].Severity | A gravidade do problema detetado. Os valores possíveis são **Erro** e **Aviso.** |
 |Hops[].Issues[].Type |O tipo de problema encontrado. Os valores possíveis são: <br/>**CPU**<br/>**Memória**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
-|Hops[].Issues[].Context |Detalhes sobre o problema encontrado.|
-|Hops[].Issues[].Context[].key |Chave do par chave-valor retornado.|
-|Hops[].Issues[].Context[].value |Valor do par chave-valor retornado.|
+|Hops[].Issues[].Context |Detalhes sobre o assunto encontrados.|
+|Hops[].Issues[].Context[].key |Chave do par de valor chave devolvido.|
+|Hops[].Issues[].Context[].value |Valor do par de valor chave devolvido.|
 
 Segue-se um exemplo de um problema encontrado num salto.
 
@@ -70,19 +68,19 @@ Segue-se um exemplo de um problema encontrado num salto.
     }
 ]
 ```
-## <a name="fault-types"></a>Tipos de falha
+## <a name="fault-types"></a>Tipos de avarias
 
-Devolve a tipos de falha sobre a ligação resolver problemas de ligação. A tabela seguinte fornece uma lista de tipos de falha atual devolvido.
+A resolução de problemas de ligação devolve tipos de falhas sobre a ligação. A tabela seguinte fornece uma lista dos tipos de avarias atuais devolvidos.
 
 |Tipo  |Descrição  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
-|Memória     | Utilização de memória elevada.       |
-|GuestFirewall     | O tráfego é bloqueado devido a uma configuração de firewall de máquina virtual.        |
-|DNSResolution     | Falha na resolução DNS para o endereço de destino.        |
-|NetworkSecurityRule    | O tráfego está bloqueado por uma regra de NSG (regra será devolvida)        |
-|UserDefinedRoute|Tráfego é interrompido devido a uma definidas pelo utilizador ou a rota de sistema. |
+|Memória     | Utilização de alta memória.       |
+|GuestFirewall     | O tráfego está bloqueado devido a uma configuração de firewall virtual da máquina.        |
+|Resolução dNS     | A resolução do DNS falhou no endereço de destino.        |
+|NetworkSecurityRule    | O tráfego é bloqueado por uma regra nsg (regra é devolvida)        |
+|UserDefinedRoute|O tráfego é diminuído devido a uma rota definida pelo utilizador ou ao sistema. |
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
-Saiba como resolver problemas de ligações com o [portal do Azure](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), o [da CLI do Azure](network-watcher-connectivity-cli.md), ou [REST API](network-watcher-connectivity-rest.md).
+Aprenda a resolver ligações utilizando o [portal Azure,](network-watcher-connectivity-portal.md) [PowerShell,](network-watcher-connectivity-powershell.md) [o Azure CLI](network-watcher-connectivity-cli.md)ou [REST API](network-watcher-connectivity-rest.md).

@@ -1,106 +1,107 @@
 ---
-title: Solicitar um aumento nos limites de cota do vCPU regional do Azure | Microsoft Docs
-description: Solicitações de aumento de cota regional
+title: Pedido de aumento dos limites de quota regional do Azure
+description: Como solicitar um aumento do limite de quota vCPU para uma região do portal Azure.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 06/07/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e262651a6e040c40dbe240ad3437eff1914aa3e5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9236989f7bbb4695db24f86a2a049f5bb58f302a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896743"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843689"
 ---
-# <a name="standard-quota-increase-limits-by-region"></a>Cota padrão: aumentar os limites por região 
+# <a name="standard-quota-increase-limits-by-region"></a>Cota padrão: aumentar os limites por região
 
 O Azure Resource Manager dá suporte a dois tipos de cotas do vCPU para máquinas virtuais:
-* *As VMs pagas conforme o uso* e as *instâncias de VM reservadas* estão sujeitas a uma *cota de vCPU padrão*.
-* As *VMs pontuais* estão sujeitas a uma *cota de vCPU Spot*. 
 
-A cota padrão do vCPU para instâncias de VM pagas conforme o uso e reservada é imposta em duas camadas para cada assinatura em cada região:
-* A primeira camada é o *limite de vCPUs regional total* (em toda a série de VMs).
-* A segunda camada é o *limite de vCPUs por VM da série* (como a vCPUs da série D).
- 
-Sempre que você implantar uma nova VM Spot, o uso total de vCPU novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, o número total de vCPUs novas e existentes implantadas em toda a série de VMs não deve exceder a cota de vCPU regional total aprovada para a assinatura. Se uma dessas cotas for excedida, a implantação da VM não será permitida. 
+* *As VMs pagas conforme o uso* e as *instâncias de VM reservadas* estão sujeitas a uma *cota de vCPU padrão*.
+* As *VMs pontuais* estão sujeitas a uma *cota de vCPU Spot*.
+
+A quota-padrão vCPU para casos de máquinas virtuais pagas e reservadas é aplicada a dois níveis para cada subscrição em cada região:
+
+* O primeiro nível é o limite total regional de *VCPUs,* em todas as séries VM.
+* O segundo nível é o *limite vCPUs da série por VM,* como o vCPUs da série D.
+
+Sempre que você implantar uma nova VM Spot, o uso total de vCPU novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Adicionalmente, o número total de vCPUs novos e existentes que são implantados em todas as séries VM não deve exceder a quota vCPU regional total aprovada para a subscrição. Se uma dessas cotas for excedida, a implantação da VM não será permitida.
 
 Você pode solicitar um aumento no limite de cota de vCPU para a série de VMs usando o portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPU regional total pelo mesmo valor.
 
 Quando você cria uma nova assinatura, o número total padrão de vCPUs regionais pode não ser igual à cota de vCPU padrão total para todas as séries de VMs individuais. Essa discrepância pode resultar em uma assinatura com cota suficiente para cada série de VM individual que você deseja implantar. Mas pode não haver cota suficiente para acomodar o total regional de vCPUs para todas as implantações. Nesse caso, você deve enviar uma solicitação para aumentar explicitamente o limite do número total de vCPUs regionais. O limite de vCPU regional total não pode exceder a cota total aprovada em todas as séries de VM para a região.
 
-Para saber mais sobre as cotas de vCPU padrão, consulte [cotas de vCPU de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e [limites de serviço e assinatura do Azure](https://aka.ms/quotalimits).
+Para saber mais sobre as quotas padrão vCPU, consulte [as quotas vCPU](../../virtual-machines/windows/quotas.md) da máquina virtual e os limites de [subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-Para saber mais sobre como aumentar os limites de vCPU de VM Spot, confira [cota de spot: aumentar os limites para todas as séries de VM](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Para saber mais sobre como aumentar os limites de vCPU de VM Spot, confira [cota de spot: aumentar os limites para todas as séries de VM](low-priority-quota.md).
 
-Você pode solicitar um aumento no limite de cota padrão do vCPU por região de uma das duas maneiras, conforme descrito nas seções a seguir.
+Pode solicitar um aumento do seu limite de quota padrão vCPU por região de duas formas.
 
-## <a name="request-a-quota-increase-by-region-from-the-help--support-pane"></a>Solicitar um aumento de cota por região do painel "ajuda + suporte"
+## <a name="request-a-quota-increase-by-region-from-help--support"></a>Solicitar um aumento de quota por região da Ajuda + apoio
 
-Para solicitar um aumento de cota de vCPU por região do painel **ajuda + suporte** , faça o seguinte: 
+Para solicitar um aumento de quota vCPU por região da **Ajuda + suporte:**
 
-1. No painel esquerdo da [portal do Azure](https://portal.azure.com), selecione **ajuda + suporte**.
+1. No menu do [portal Azure,](https://portal.azure.com) selecione **Ajuda + suporte**.
 
-   ![O link "ajuda + suporte"](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-1. No painel **ajuda + suporte** , selecione **nova solicitação de suporte**. 
+   ![O link "ajuda + suporte"](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-    ![Novo pedido de suporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+1. Em **Ajuda + suporte,** selecione **Novo pedido de suporte**.
 
-1. Na lista suspensa **tipo de problema** , selecione limites de **serviço e assinatura (cotas)** .
+    ![Novo pedido de suporte](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-   ![A lista suspensa "tipo de problema"](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+1. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)** .
 
-1. Na lista suspensa **assinatura** , selecione a assinatura cuja cota você deseja aumentar.
+   ![Selecione um tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-   ![A lista suspensa "assinatura"](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-1. Na lista suspensa **tipo de cota** , selecione **outras solicitações**.
+1. Para **Subscrição,** selecione a subscrição cuja quota pretende aumentar.
 
-   ![A lista suspensa "tipo de cota"](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Selecionar uma subscrição](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. No painel **detalhes do problema** , na caixa **Descrição** , forneça as seguintes informações adicionais: 
+1. Para o **tipo quota,** selecione **Outros Pedidos**.
 
-    a. Para o **modelo de implantação**, especifique **Resource Manager**.  
-    b. Para **região**, especifique sua região necessária (por exemplo, **leste dos EUA 2**).  
-    c. Para o **novo limite**, especifique um novo limite de vCPU para a região. Esse valor não deve exceder a soma das cotas aprovadas para a série SKU individual desta assinatura.
+   ![Selecione um tipo de quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-    ![O painel "detalhes do problema"](./media/resource-manager-core-quotas-request/regional-details.png)
+1. Selecione **Seguinte: Soluções** para abrir **DETALHES DE PROBLEMAS**. Em **Descrição,** forneça as seguintes informações:
 
-1. Selecione **salvar e continuar** para continuar criando a solicitação de suporte.
+    1. Para o **modelo de implantação**, especifique **Resource Manager**.  
+    1. Para **a Região,** especifique a sua região necessária, por exemplo, **Leste US 2**.  
+    1. Para o **novo limite**, especifique um novo limite de vCPU para a região. Esse valor não deve exceder a soma das cotas aprovadas para a série SKU individual desta assinatura.
 
-## <a name="request-a-quota-increase-by-region-from-the-subscriptions-pane"></a>Solicitar um aumento de cota por região do painel "assinaturas"
+    ![Insira detalhes para o pedido de quota](./media/resource-manager-core-quotas-request/regional-details.png)
 
-Para solicitar um aumento de cota de vCPU por região no painel de **assinaturas** , faça o seguinte: 
+1. Selecione **Review + crie** para continuar a criar o pedido de suporte.
 
-1. No painel esquerdo da [portal do Azure](https://portal.azure.com), selecione **assinaturas**.
+## <a name="request-a-quota-increase-by-region-from-subscriptions"></a>Solicitar um aumento de quota por região a partir de Assinaturas
 
-   ![O link "assinaturas"](./media/resource-manager-core-quotas-request/subscriptions.png)
+Para solicitar um aumento de quota vCPU por região a partir de **assinaturas:**
+
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Assinaturas.**
+
+   ![Ir a Assinaturas no portal Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Selecione a assinatura cuja cota você deseja aumentar.
 
-   ![O painel "assinaturas"](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Selecione uma subscrição para modificar](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
-1. No painel esquerdo da página **> nome da assinatura do\<** , selecione **uso + cotas**.
+1. No painel esquerdo, **selecione Usage + quotas**.
 
-   ![O link "uso + cotas"](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Siga o link de utilização e quotas](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
 1. No canto superior direito, selecione **solicitar aumento**.
 
-   ![Aumento da solicitação](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Selecione para aumentar a quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Na lista suspensa **tipo de cota** , selecione **outras solicitações**.
+1. Do **tipo quota,** selecione **Outros Pedidos**.
 
-   ![A lista suspensa "tipo de cota"](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Selecione o tipo de quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-1. No painel **detalhes do problema** , na caixa **Descrição** , forneça as seguintes informações adicionais: 
+1. Selecione **Seguinte: Soluções** para abrir **DETALHES DE PROBLEMAS**. Na caixa **Descrição,** forneça as seguintes informações adicionais:
 
-    a. Para o **modelo de implantação**, especifique **Resource Manager**.  
-    b. Para **região**, especifique sua região necessária (por exemplo, **leste dos EUA 2**).  
-    c. Para o **novo limite**, especifique um novo limite de vCPU para a região. Esse valor não deve exceder a soma das cotas aprovadas para a série SKU individual desta assinatura.
+    1. Para o **modelo de implantação**, especifique **Resource Manager**.  
+    1. Para **a Região,** especifique a sua região necessária, por exemplo, **Leste US 2**.  
+    1. Para o **novo limite**, especifique um novo limite de vCPU para a região. Esse valor não deve exceder a soma das cotas aprovadas para a série SKU individual desta assinatura.
 
-    ![O painel "detalhes do problema"](./media/resource-manager-core-quotas-request/regional-details.png)
+    ![Insira informações em detalhes](./media/resource-manager-core-quotas-request/regional-details.png)
 
-1. Selecione **salvar e continuar** para continuar criando a solicitação de suporte.
-
+1. Selecione **Review + crie** para continuar a criar o pedido de suporte.

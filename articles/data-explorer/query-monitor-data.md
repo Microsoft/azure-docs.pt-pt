@@ -1,99 +1,79 @@
 ---
-title: Consultar dados em Azure Monitor usando o Data Explorer do Azure (versão prévia)
-description: Neste tópico, consulte dados em Azure Monitor criando um proxy de Data Explorer do Azure para consultas entre produtos com Application Insights e Log Analytics
+title: Dados de consulta no Monitor Azure utilizando o Azure Data Explorer (Pré-visualização)
+description: Neste tópico, consulta dados no Monitor Azure através da criação de um proxy Azure Data Explorer para consultas de produtos cruzados com Insights de Aplicação e Log Analytics
 services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 43d91bff6b8b67e79a9549c1524f918166c9adc4
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 01/28/2020
+ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934000"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843594"
 ---
-# <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consultar dados em Azure Monitor usando o Data Explorer do Azure (versão prévia)
+# <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Dados de consulta no Monitor Azure utilizando o Azure Data Explorer (Pré-visualização)
 
-O cluster de proxy de Data Explorer do Azure (proxy ADX) é uma entidade que permite executar consultas entre produtos entre o Azure Data Explorer, [Application insights (ia)](/azure/azure-monitor/app/app-insights-overview)e [log Analytics (la)](/azure/azure-monitor/platform/data-platform-logs) no serviço [Azure monitor](/azure/azure-monitor/) . Você pode mapear Azure Monitor Log Analytics espaços de trabalho ou Application Insights aplicativos como um cluster de proxy. Você pode consultar o cluster de proxy usando as ferramentas de Data Explorer do Azure e consultá-lo em uma consulta entre clusters. O artigo mostra como se conectar a um cluster de proxy, adicionar um cluster de proxy ao Azure Data Explorer interface do usuário da Web e executar consultas em seus aplicativos de AI ou espaços de trabalho da LA do Azure Data Explorer.
+O cluster de proxy do Azure Data Explorer (ADX Proxy) é uma entidade que lhe permite realizar consultas de produtos cruzados entre o Azure Data Explorer, [Application Insights (IA)](/azure/azure-monitor/app/app-insights-overview)e [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) no serviço [Azure Monitor.](/azure/azure-monitor/) Pode mapear espaços de trabalho do Azure Monitor Log Analytics ou aplicações de Apps Application Insights como clusters proxy. Em seguida, pode consultar o cluster proxy usando ferramentas do Azure Data Explorer e consulte-o numa consulta de cluster transversal. O artigo mostra como se conectar a um cluster proxy, adicionar um cluster proxy ao Azure Data Explorer Web UI, e executar consultas contra as suas aplicações de IA ou espaços de trabalho de LA do Azure Data Explorer.
 
-O fluxo do proxy de Data Explorer do Azure: 
+O fluxo de procuração do Explorador de Dados Azure: 
 
-![Fluxo de proxy ADX](media/adx-proxy/adx-proxy-flow.png)
+![Fluxo de procuração ADX](media/adx-proxy/adx-proxy-flow.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!NOTE]
-> O proxy ADX está no modo de visualização. Para habilitar esse recurso, entre em contato com a equipe do [ADXProxy](mailto:adxproxy@microsoft.com) .
+> O ADX Proxy encontra-se em modo de pré-visualização. [Ligue-se ao proxy](#connect-to-the-proxy) para ativar a função proxy ADX para os seus clusters. Contacte a equipa [DaDXProxy](mailto:adxproxy@microsoft.com) com quaisquer questões.
 
-## <a name="connect-to-the-proxy"></a>Conectar-se ao proxy
+## <a name="connect-to-the-proxy"></a>Ligue-se ao representante
 
-1. Verifique se o seu cluster nativo do Azure Data Explorer (como o cluster de *ajuda* ) aparece no menu à esquerda antes de se conectar ao seu Log Analytics ou Application insights cluster.
+1. Verifique se o seu cluster nativo do Azure Data Explorer (como o cluster de *ajuda)* aparece no menu esquerdo antes de se ligar ao seu cluster Log Analytics ou Application Insights.
 
-    ![Cluster nativo do ADX](media/adx-proxy/web-ui-help-cluster.png)
+    ![Aglomerado nativo ADX](media/adx-proxy/web-ui-help-cluster.png)
 
-1. Na interface do usuário do data Explorer https://dataexplorer.azure.com/clusters) do Azure (, selecione **Adicionar cluster**.
+1. No Azure Data Explorer UI (https://dataexplorer.azure.com/clusters), **selecione Add Cluster**.
 
-1. Na janela **Adicionar cluster** :
-
-    * Adicione a URL ao cluster LA ou ia. Por exemplo: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+1. Na janela **Adicionar Cluster,** adicione o URL ao cluster LA ou IA. 
+    
+    * Para LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Para AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
     * Selecione **Adicionar**.
 
     ![Adicionar cluster](media/adx-proxy/add-cluster.png)
 
-    Se você adicionar uma conexão a mais de um cluster de proxy, dê a cada um deles um nome diferente. Caso contrário, eles terão o mesmo nome no painel esquerdo.
+    Se adicionar uma ligação a mais de um aglomerado de procuração, dê a cada um um um nome diferente. Caso contrário, todos terão o mesmo nome no painel esquerdo.
 
-1. Depois que a conexão for estabelecida, seu cluster LA ou ia será exibido no painel esquerdo com seu cluster ADX nativo. 
+1. Após a ligação ser estabelecida, o seu cluster de LA ou IA aparecerá no painel esquerdo com o seu cluster ADX nativo. 
 
-    ![Log Analytics e clusters de Data Explorer do Azure](media/adx-proxy/la-adx-clusters.png)
+    ![Log Analytics e clusters do Explorador de Dados Azure](media/adx-proxy/la-adx-clusters.png)
 
 ## <a name="run-queries"></a>Executar consultas
 
-Você pode usar o Kusto Explorer, o ADX Web Explorer, o Jupyter Kqlmagic ou a API REST para consultar os clusters de proxy. 
+Você pode executar as consultas usando ferramentas de cliente que suportam consultas Kusto, tais como: Kusto Explorer, ADX Web UI, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, Lens, REST API.
 
 > [!TIP]
-> * O nome do banco de dados deve ter o mesmo nome que o recurso especificado no cluster de proxy. Os nomes diferenciam maiúsculas de minúsculas.
-> * Em consultas entre clusters, certifique-se de que a nomenclatura de Application Insights aplicativos e espaços de trabalho do Log Analytics esteja correta.
->     * Se os nomes contiverem caracteres especiais, eles serão substituídos pela codificação de URL no nome do cluster de proxy. 
->     * Se os nomes incluírem caracteres que não atendem às [regras de nome de identificador KQL](/azure/kusto/query/schema-entities/entity-names), **-** eles serão substituídos pelo caractere de traço.
+> * O nome da base de dados deve ter o mesmo nome que o recurso especificado no cluster proxy. Os nomes são sensíveis ao caso.
+> * Em consultas de cluster seletiva, certifique-se de que o nome de aplicações De Insights de Aplicação e espaços de trabalho de Log Analytics está correto.
+>     * Se os nomes contiverem caracteres especiais, são substituídos por codificação de URL no nome do cluster proxy. 
+>     * Se os nomes incluem caracteres que não cumprem as regras de [identificação kQL,](/azure/kusto/query/schema-entities/entity-names)são substituídos pelo traço **-** personagem.
 
-### <a name="query-against-the-native-azure-data-explorer-cluster"></a>Consultar no cluster nativo do Data Explorer do Azure 
+### <a name="direct-query-from-your-la-or-ai-adx-proxy-cluster"></a>Consulta direta do seu cluster de Procuração ADX DE LA ou AI
 
-Execute consultas no cluster de Data Explorer do Azure (como a tabela *StormEvents* no cluster de *ajuda* ). Ao executar a consulta, verifique se o cluster nativo do Data Explorer do Azure está selecionado no painel esquerdo.
-
-```kusto
-StormEvents | take 10 // Demonstrate query through the native ADX cluster
-```
-
-![Consultar tabela StormEvents](media/adx-proxy/query-adx.png)
-
-### <a name="query-against-your-la-or-ai-cluster"></a>Consultar em seu cluster LA ou ia
-
-Ao executar consultas em seu cluster LA ou AL, verifique se seu cluster LA ou ia está selecionado no painel esquerdo. 
+Execute consultas no seu aglomerado de IA ou IA. Verifique se o seu cluster está selecionado no painel esquerdo. 
 
 ```kusto
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 ```
 
-![Consultar espaço de trabalho](media/adx-proxy/query-la.png)
+![Espaço de trabalho de La Consulta](media/adx-proxy/query-la.png)
 
-### <a name="query-your-la-or-ai-cluster-from-the-adx-proxy"></a>Consultar o cluster LA ou ia do proxy ADX  
+### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>Consulta cruzada do seu cluster de Procuração AI ou AI ADX e do cluster nativo ADX 
 
-Ao executar consultas em seu cluster LA ou ia do proxy, verifique se o cluster nativo do ADX está selecionado no painel esquerdo. O exemplo a seguir demonstra uma consulta do espaço de trabalho LA usando o cluster ADX nativo
-
-```kusto
-cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name').Perf
-| take 10 
-```
-
-![Consulta do proxy de Data Explorer do Azure](media/adx-proxy/query-adx-proxy.png)
-
-### <a name="cross-query-of-la-or-ai-cluster-and-the-adx-cluster-from-the-adx-proxy"></a>Consulta cruzada de cluster LA ou ia e o cluster ADX do proxy ADX 
-
-Ao executar consultas entre clusters do proxy, verifique se o cluster nativo do ADX está selecionado no painel esquerdo. Os exemplos a seguir demonstram a combinação de tabelas `union`de cluster ADX (usando) com a la espaço de trabalho.
+Quando executar consultas de cluster cruzada sacar em conjunto a partir do proxy, verifique se o seu cluster nativo ADX é selecionado no painel esquerdo. Os exemplos seguintes demonstram combinar tabelas de cluster ADX (utilizando `union`) com espaço de trabalho de LA.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -105,20 +85,20 @@ let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourceg
 union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
-![Consulta cruzada do proxy de Data Explorer do Azure](media/adx-proxy/cross-query-adx-proxy.png)
+   [consulta de cruz de ![do proxy do Explorador de Dados do Azure](media/adx-proxy/cross-query-adx-proxy.png)](media/adx-proxy/cross-query-adx-proxy.png#lightbox)
 
-Usar o [ `join` operador](/azure/kusto/query/joinoperator), em vez de Union, pode exigir [`hint`](/azure/kusto/query/joinoperator#join-hints) um para executá-lo em um cluster nativo do Azure data Explorer (e não no proxy). 
+A utilização do [operador`join`](/azure/kusto/query/joinoperator), em vez de união, pode exigir uma [`hint`](/azure/kusto/query/joinoperator#join-hints) para o executar num cluster nativo do Azure Data Explorer (e não no proxy). 
 
-## <a name="additional-syntax-examples"></a>Exemplos de sintaxe adicionais
+## <a name="additional-syntax-examples"></a>Exemplos adicionais de sintaxe
 
-As seguintes opções de sintaxe estão disponíveis ao chamar os clusters de Application Insights (ia) ou Log Analytics (LA):
+As seguintes opções de sintaxe estão disponíveis quando se ligam para os clusters Application Insights (IA) ou Log Analytics (LA):
 
-|Descrição da sintaxe  |Application Insights  |Log Analytics  |
+|Descrição da Sintaxe  |Estatísticas das Aplicações  |Log Analytics  |
 |----------------|---------|---------|
-| Banco de dados dentro de um cluster que contém apenas o recurso definido nesta assinatura (**recomendado para consultas entre clusters**) |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
-| Cluster que contém todos os aplicativos/espaços de trabalho nesta assinatura    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
-|Cluster que contém todos os aplicativos/espaços de trabalho na assinatura e que são membros deste grupo de recursos    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
-|Cluster que contém apenas o recurso definido nesta assinatura      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+| Base de dados dentro de um cluster que contém apenas o recurso definido nesta subscrição **(recomendado para consultas de cluster seletivas)** |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| Cluster que contém todas as aplicações/espaços de trabalho nesta subscrição    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
+|Cluster que contém todas as aplicações/espaços de trabalho na subscrição e são membros deste grupo de recursos    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
+|Cluster que contém apenas o recurso definido nesta subscrição      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
 
 ## <a name="next-steps"></a>Passos seguintes
 

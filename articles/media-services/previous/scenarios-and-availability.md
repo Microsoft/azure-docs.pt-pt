@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978173"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843944"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -29,7 +29,7 @@ Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, arma
 
 O AMS funciona em vários datacenters em todo o mundo. Estes datacenters são agrupados por regiões geográficas, dando-lhe a flexibilidade de escolher onde pretende criar as suas aplicações. Pode rever a [lista de regiões e as respetivas localizações](https://azure.microsoft.com/regions/). 
 
-Este tópico mostra cenários comuns para entregar seu conteúdo [ao vivo](#live_scenarios) ou sob demanda. Também mostra detalhes sobre a disponibilidade dos serviços e funcionalidades de multimédia nos datacenters.
+Este tópico mostra cenários comuns para entregar o seu conteúdo [ao vivo](#live_scenarios) ou a pedido. Também mostra detalhes sobre a disponibilidade dos serviços e funcionalidades de multimédia nos datacenters.
 
 ## <a name="overview"></a>Visão geral
 
@@ -37,7 +37,7 @@ Este tópico mostra cenários comuns para entregar seu conteúdo [ao vivo](#live
 
 Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Media Services do Azure Para obter mais informações, consulte [Criar Conta](media-services-portal-create-account.md).
 * O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
 
@@ -211,9 +211,8 @@ A Análise de Multimédia é um conjunto de componentes de voz e visão que faci
 |Indexador de Multimédia do Azure|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
 |Azure Media Motion Detector|Pré-visualização|Tudo|
 |Azure Media OCR|Pré-visualização|Tudo|
-|Azure Media Redactor|Pré-visualização|Tudo|
+|Azure Media Redactor|GA (Geographic Availability, Disponibilidade Geográfica)|Tudo|
 |Azure Media Video Thumbnails|Pré-visualização|Tudo|
-|Azure Media Indexer 2|Pré-visualização|Tudo, exceto a China e a região do Governo Federal|
 
 ### <a name="protection"></a>Proteção
 

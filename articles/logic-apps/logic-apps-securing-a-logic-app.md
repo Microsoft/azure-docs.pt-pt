@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981182"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843553"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -370,7 +370,7 @@ Para obter mais informações, consulte estas seções neste tópico:
 
 Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá definir [parâmetros de modelo](../azure-resource-manager/templates/template-parameters.md)protegidos, que são avaliados na implantação, usando os tipos `securestring` e `secureobject`. Para definir parâmetros de modelo, use a seção de `parameters` de nível superior do modelo, que é separada e diferente da seção `parameters` da definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado.
 
-Por exemplo, se você usar segredos, poderá definir e usar parâmetros de modelo protegidos que recuperem esses segredos de [Azure Key Vault](../key-vault/key-vault-overview.md) na implantação. Em seguida, você pode fazer referência ao cofre de chaves e ao segredo em seu arquivo de parâmetro. Para obter mais informações, veja estes tópicos:
+Por exemplo, se você usar segredos, poderá definir e usar parâmetros de modelo protegidos que recuperem esses segredos de [Azure Key Vault](../key-vault/key-vault-overview.md) na implantação. Em seguida, você pode fazer referência ao cofre de chaves e ao segredo em seu arquivo de parâmetro. Para mais informações, consulte estes tópicos:
 
 * [Passar valores confidenciais na implantação usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Proteger os parâmetros em modelos de Azure Resource Manager](#secure-parameters-deployment-template) mais adiante neste tópico
@@ -604,7 +604,7 @@ Aqui estão algumas maneiras que você pode proteger pontos de extremidade que r
 
 Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autenticação. Com base no gatilho ou na ação que você usa para fazer chamadas ou solicitações de saída que acessam esses pontos de extremidade, você pode selecionar entre intervalos variados de tipos de autenticação. Para garantir que você proteja todas as informações confidenciais que seu aplicativo lógico manipula, use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como usar e proteger parâmetros, consulte [acesso a entradas de parâmetro](#secure-action-parameters).
 
-| Tipo de autenticação | Suportado por |
+| Tipo de autenticação | Apoiado por |
 |---------------------|--------------|
 | [Básica](#basic-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, HTTP, HTTP + Swagger, webhook HTTP |
 | [Certificado do cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, HTTP, HTTP + Swagger, webhook HTTP |
@@ -620,7 +620,7 @@ Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autentica�
 
 ### <a name="basic-authentication"></a>Autenticação básica
 
-Se a opção [básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) estiver disponível, especifique esses valores de propriedade:
+Se a opção [básica](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) estiver disponível, especifique esses valores de propriedade:
 
 | Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
@@ -682,7 +682,7 @@ Para obter mais informações sobre como proteger serviços usando a autenticaç
 
 * [Proteger APIs usando a autenticação de certificado do cliente no gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Serviços de back-end seguros usando a autenticação de certificado do cliente no gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md)
-* [Proteger seu serviço RESTfuL usando certificados de cliente](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Proteger seu serviço RESTfuL usando certificados de cliente](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Credenciais de certificado para autenticação de aplicativo](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Usar um certificado SSL no código do aplicativo no serviço Azure App](../app-service/configure-ssl-certificate-in-code.md)
 
@@ -748,7 +748,7 @@ No gatilho ou ação que dá suporte à autenticação bruta, especifique estes 
 
 | Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | Raw | O tipo de autenticação a ser usado |
+| **Autenticação** | `type` | Sim | Cru | O tipo de autenticação a ser usado |
 | **Valor** | `value` | Sim | *autorização de <-* > de valor de cabeçalho | O valor do cabeçalho de autorização a ser usado para autenticação |
 ||||||
 

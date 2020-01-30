@@ -1,6 +1,6 @@
 ---
-title: Criar e usar um par de chaves SSH para VMs do Linux no Azure
-description: Como criar e usar um par de chaves SSH pública-privada para VMs do Linux no Azure para melhorar a segurança do processo de autenticação.
+title: Crie e use um par de chaves SSH para VMs Linux em Azure
+description: Como criar e utilizar um par de chaves público-privado SSH para VMs Linux em Azure para melhorar a segurança do processo de autenticação.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,84 +14,87 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2da8264b7a1d0ad2ec485f106457cef18f233261
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929996"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843910"
 ---
-# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: criar e usar um par de chaves SSH pública-privada para VMs do Linux no Azure
+# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Passos rápidos: Crie e use um par de chaves público-privado SSH para VMs Linux em Azure
 
-Com um par de chaves SSH (Secure Shell), você pode criar VMs (máquinas virtuais) no Azure que usam chaves SSH para autenticação, eliminando a necessidade de senhas para entrar. Este artigo mostra como gerar e usar rapidamente um par de arquivos de chave pública-privada SSH para VMs Linux. Você pode concluir essas etapas com o Azure Cloud Shell, um host macOS ou Linux, o subsistema do Windows para Linux e outras ferramentas que dão suporte ao OpenSSH. 
+Com um par de chaves de concha segura (SSH), pode criar máquinas virtuais (VMs) em Azure que utilizam chaves SSH para autenticação, eliminando a necessidade de as palavras-passe iniciarem o seu início. Este artigo mostra-lhe como gerar e usar rapidamente um par de ficheiros público-privado sSH para VMs Linux. Pode completar estes passos com o Azure Cloud Shell, um anfitrião macOS ou Linux, o Subsistema Windows para Linux e outras ferramentas que suportam o OpenSSH. 
 
 > [!NOTE]
-> As VMs criadas usando chaves SSH são, por padrão, configuradas com senhas desabilitadas, o que aumenta muito a dificuldade de ataques de adivinhação de força bruta. 
+> Os VMs criados com teclas SSH são configurados por padrão com senhas desativadas, o que aumenta consideravelmente a dificuldade de ataques de adivinhação de força bruta. 
 
-Para obter mais informações e exemplos, consulte [etapas detalhadas para criar pares de chaves SSH](create-ssh-keys-detailed.md).
+Para mais fundos e exemplos, consulte [passos detalhados para criar pares de chaves SSH](create-ssh-keys-detailed.md).
 
-Para obter outras maneiras de gerar e usar chaves SSH em um computador Windows, consulte [como usar chaves SSH com o Windows no Azure](ssh-from-windows.md).
+Para obter formas adicionais de gerar e utilizar as teclas SSH num computador Windows, consulte [como utilizar as teclas SSH com o Windows no Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
-Use o comando `ssh-keygen` para gerar arquivos de chave pública e privada SSH. Por padrão, esses arquivos são criados no diretório ~/.ssh Você pode especificar um local diferente e uma senha (*frase secreta*) opcional para acessar o arquivo de chave privada. Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
+Utilize o comando `ssh-keygen` para gerar ficheiros de chaves públicas e privadas SSH. Por padrão, estes ficheiros são criados no diretório ~/.ssh. Pode especificar uma localização diferente e uma palavra-passe opcional *(palavra-passe)* para aceder ao ficheiro chave privado. Se um par de chaves SSH com o mesmo nome existir no local dado, esses ficheiros são substituídos.
 
-O comando a seguir cria um par de chaves SSH usando a criptografia RSA e um comprimento de bit de 4096:
+O seguinte comando cria um par de chaves SSH usando encriptação RSA e um pouco de comprimento de 4096:
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Se você usar o [CLI do Azure](/cli/azure) para criar sua VM com o comando [AZ VM Create](/cli/azure/vm#az-vm-create) , você poderá, opcionalmente, gerar arquivos de chave pública e privada SSH usando a opção `--generate-ssh-keys`. Os arquivos de chave são armazenados no diretório ~/.ssh, a menos que especificado de outra forma com a opção `--ssh-dest-key-path`. A opção `--generate-ssh-keys` não substituirá os arquivos de chave existentes, em vez disso, retornando um erro. No comando a seguir, substitua *VMname* e *RGname* pelos seus próprios valores:
+Se utilizar o [Azure CLI](/cli/azure) para criar o seu VM com o comando [az vm criar,](/cli/azure/vm#az-vm-create) pode gerar opcionalmente ficheiros de chaves públicas e privadas sSH utilizando a opção `--generate-ssh-keys`. Os ficheiros-chave são armazenados no diretório ~/.ssh, salvo especificação em contrário com a opção `--ssh-dest-key-path`. A opção `--generate-ssh-keys` não sobreporá os ficheiros-chave existentes, em vez de devolver um erro. No seguinte comando, substitua *o Nome VM* e *o RGname* com os seus próprios valores:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --generate-ssh-keys 
 ```
 
-## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornecer uma chave pública SSH ao implantar uma VM
+## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Forneça uma chave pública SSH ao implementar um VM
 
-Para criar uma VM do Linux que usa chaves SSH para autenticação, especifique sua chave pública SSH ao criar a VM usando o portal do Azure, CLI do Azure, modelos de Azure Resource Manager ou outros métodos:
+Para criar um VM Linux que utilize chaves SSH para autenticação, especifique a sua chave pública SSH ao criar o VM utilizando o portal Azure, modelos Azure CLI, Azure Resource Manager ou outros métodos:
 
-* [Criar uma máquina virtual Linux com o portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Criar uma máquina virtual Linux com o CLI do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Criar uma VM do Linux usando um modelo do Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Crie uma máquina virtual Linux com o portal Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Crie uma máquina virtual Linux com o Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Crie um VM Linux usando um modelo Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Se você não estiver familiarizado com o formato de uma chave pública SSH, poderá exibir sua chave pública com o comando `cat` a seguir, substituindo `~/.ssh/id_rsa.pub` pelo caminho e nome do arquivo de chave pública, se necessário:
+Se não estiver familiarizado com o formato de uma chave pública SSH, pode exibir a sua chave pública com o seguinte comando `cat`, substituindo `~/.ssh/id_rsa.pub` pelo caminho e nome de ficheiro do seu próprio ficheiro de chaves públicas, se necessário:
 
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
-Um valor típico de chave pública é semelhante a este exemplo:
+Um valor-chave público típico parece este exemplo:
 
 ```
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
 ```
 
-Se você copiar e colar o conteúdo do arquivo de chave pública para usar no portal do Azure ou em um modelo do Resource Manager, certifique-se de não copiar nenhum espaço em branco à direita. Para copiar uma chave pública no macOS, você pode canalizar o arquivo de chave pública para **pbcopy**. Da mesma forma, no Linux, você pode canalizar o arquivo de chave pública para programas como **XCLIP**.
+Se copiar e colar o conteúdo do ficheiro de chaves públicas para utilizar no portal Azure ou num modelo de Gestor de Recursos, certifique-se de que não copia nenhum espaço branco. Para copiar uma chave pública no macOS, pode canalizar o ficheiro chave público para `pbcopy`. Da mesma forma em Linux, pode canalizar o ficheiro chave público para programas como `xclip`.
 
-A chave pública que você coloca em sua VM Linux no Azure é, por padrão, armazenada em ~/.ssh/id_rsa. pub, a menos que você tenha especificado um local diferente quando criou o par de chaves. Para usar o [CLI do Azure 2,0](/cli/azure) para criar sua VM com uma chave pública existente, especifique o valor e, opcionalmente, o local dessa chave pública usando o comando [AZ VM Create](/cli/azure/vm#az-vm-create) com a opção `--ssh-key-value`. No comando a seguir, substitua *VMname*, *RGname*e *keyfile* pelos seus próprios valores:
+A chave pública que coloca no seu Linux VM em Azure é por padrão armazenada em ~/.ssh/id_rsa.pub, a menos que tenha especificado um local diferente quando criou o par chave. Para utilizar o [Azure CLI 2.0](/cli/azure) para criar o seu VM com uma chave pública existente, especifique o valor e opcionalmente a localização desta chave pública utilizando o [az vM criar](/cli/azure/vm#az-vm-create) comando com a opção `--ssh-key-value`. No seguinte comando, substitua *o Nome VM,* *o RGname*e *o tecladoFile* com os seus próprios valores:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --ssh-key-value @keyFile
+az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub
 ```
+
+Se quiser utilizar várias teclas SSH com o seu VM, pode introduzi-las numa lista separada pelo espaço, como esta `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`.
+
 
 ## <a name="ssh-into-your-vm"></a>Aceder através de SSH à VM
 
-Com a chave pública implantada em sua VM do Azure e a chave privada em seu sistema local, use SSH em sua VM usando o endereço IP ou o nome DNS da sua VM. No comando a seguir, substitua *azureuser* e *MyVM.westus.cloudapp.Azure.com* pelo nome de usuário do administrador e pelo nome de domínio totalmente qualificado (ou endereço IP):
+Com a chave pública implantada no seu VM Azure e a chave privada no seu sistema local, SSH no seu VM utilizando o endereço IP ou o nome DNS do seu VM. No comando seguinte, substitua *o azureuser* e *o myvm.westus.cloudapp.azure.com* pelo nome de utilizador do administrador e pelo nome de domínio totalmente qualificado (ou endereço IP):
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Se você especificou uma senha quando criou o par de chaves, insira essa senha quando solicitado durante o processo de logon. A VM é adicionada ao seu arquivo ~/.ssh/known_hosts, e você não será solicitado a se conectar novamente até que a chave pública na VM do Azure seja alterada ou o nome do servidor seja removido de ~/.ssh/known_hosts.
+Se especificou uma palavra-passe quando criou o seu par de chaves, introduza essa frase-passe quando solicitada durante o processo de login. O VM é adicionado ao seu ficheiro ~/.ssh/known_hosts, e não lhe será pedido que se conecte novamente até que a chave pública das alterações do VM Do Seu Azure ou o nome do servidor seja removido de ~/.ssh/known_hosts.
 
-Se a VM estiver usando a política de acesso just-in-time, você precisará solicitar acesso antes de poder se conectar à VM. Para obter mais informações sobre a política just-in-time, consulte [gerenciar o acesso à máquina virtual usando a política just in time](../../security-center/security-center-just-in-time.md).
+Se o VM estiver a utilizar a política de acesso just-in-time, precisa de solicitar acesso antes de se ligar ao VM. Para obter mais informações sobre a política just-in-time, consulte Gerir o acesso virtual à [máquina utilizando a política de tempo justo.](../../security-center/security-center-just-in-time.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre como trabalhar com pares de chaves SSH, consulte [etapas detalhadas para criar e gerenciar pares de chaves SSH](create-ssh-keys-detailed.md).
+* Para obter mais informações sobre o trabalho com os pares de chaves SSH, consulte [passos detalhados para criar e gerir os pares de chaves SSH](create-ssh-keys-detailed.md).
 
-* Se você tiver dificuldades com as conexões SSH com as VMs do Azure, consulte [solucionar problemas de conexões SSH para uma VM Linux do Azure](troubleshoot-ssh-connection.md).
+* Se tiver dificuldades com ligações SSH a VMs Azure, consulte [ligações SSH de Troubleshoot a um VM Azure Linux](troubleshoot-ssh-connection.md).

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: b70fcb1d63636984e1d014723b50170651a553d9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0fef7d6f59b8893ff400914f491f421cddf436b7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156884"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842925"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Para instalar o ambiente do SDK do [computador local](#local), [Jupyter Notebook
 A instância de computação de Azure Machine Learning [(versão prévia)](concept-compute-instance.md) é uma estação de trabalho do Azure segura e baseada em nuvem que fornece cientistas de dados com um servidor de notebook Jupyter, JupyterLab e um ambiente de ml totalmente preparado.
 
 > [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
+> Os casos de computação estão disponíveis apenas para espaços de trabalho com um **Norte Central US**, ** East US 2**, Norte da **Europa** ou Reino **Unido Sul**.
 >Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do bloco de anotações](concept-compute-instance.md#notebookvm) .
 
 Não há nada para instalar ou configurar para uma instância de computação.  Crie uma a qualquer momento em seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo de VM do Azure. Experimente agora com este [tutorial: configurar o ambiente e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
@@ -300,7 +300,7 @@ Utilize estas definições:
 | Versão de Python |constante| 3 |
 | Pelos |constante| 2 ou superior |
 | Tipos de VM de nó de trabalho <br>(determina o número máximo de iterações simultâneas) |ML Automatizado<br>somente| VM com otimização de memória preferencial |
-| Ativar o Dimensionamento Automático |ML Automatizado<br>somente| Uncheck |
+| Ativar o Dimensionamento Automático |ML Automatizado<br>somente| Desfaça |
 
 Aguarde até que o cluster esteja em execução antes de continuar.
 
@@ -314,7 +314,7 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
    |SDK&nbsp;pacote&nbsp;extras|Origem|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Carregar ovo Python ou PyPI | azureml-sdk[databricks]|
-   |Para databricks-com-<br> recursos de ML automatizados| Carregar ovo Python ou PyPI | azureml-SDK [automl]|
+   |Para databricks-com-<br> recursos de ML automatizados| Carregar ovo Python ou PyPI | azureml-sdk[automl]|
 
    > [!Warning]
    > Nenhum outro adicional do SDK pode ser instalado. Escolha apenas uma das opções anteriores [databricks] ou [automl].
@@ -331,23 +331,23 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
 
    Considere também:
    + Na configuração do AutoML, ao usar Azure Databricks adicione os seguintes parâmetros:
-       1. o ```max_concurrent_iterations``` é baseado no número de nós de trabalho no cluster.
-        2. o ```spark_context=sc``` é baseado no contexto padrão do Spark.
+       1. ```max_concurrent_iterations``` baseia-se no número de nós dos trabalhadores no seu agrupamento.
+        2. ```spark_context=sc``` baseia-se no contexto de faísca padrão.
    + Ou, se você tiver uma versão antiga do SDK, desmarque-a do bibliotecas instalado do cluster e mude para Trash. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema após a reinicialização, desanexe e anexe novamente o cluster.
 
 Se a instalação tiver sido bem-sucedida, a biblioteca importada deverá ser semelhante a uma destas:
 
-SDK para databricks **_sem_** o aprendizado de máquina automatizado ![o sdk do Azure Machine Learning para databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK para Databricks **_sem_** machine learning automatizado ![Azure Machine Learning SDK para Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK para databricks **com** o sdk do ![de Machine Learning automatizado com o Machine Learning automatizado instalado no databricks](./media/how-to-configure-environment/automlonadb.png)
+SDK para Databricks **com** aprendizagem automática de máquinas ![SDK com machine learning automatizado instalado em Databricks](./media/how-to-configure-environment/automlonadb.png)
 
-### <a name="start-exploring"></a>Começar a explorar
+### <a name="start-exploring"></a>Comece a explorar
 
 Experimente:
 + Embora muitos blocos de anotações de exemplo estejam disponíveis, **somente [esses blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionam com Azure Databricks.**
 
-+ Importe esses exemplos diretamente do seu espaço de trabalho. Veja abaixo: ![selecione Importar](./media/how-to-configure-environment/azure-db-screenshot.png)
-![painel importar](./media/how-to-configure-environment/azure-db-import.png)
++ Importe esses exemplos diretamente do seu espaço de trabalho. Ver abaixo: ![Selecione import](./media/how-to-configure-environment/azure-db-screenshot.png)
+![Import Panel](./media/how-to-configure-environment/azure-db-import.png)
 
 + Saiba como [criar um pipeline com o databricks como a computação de treinamento](how-to-create-your-first-pipeline.md).
 
@@ -369,7 +369,7 @@ Para utilizar este ficheiro a partir do código, utilize `ws=Workspace.from_conf
 
 Você pode criar o arquivo de configuração de três maneiras:
 
-* **Use [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : para gravar um arquivo *config. JSON* . O arquivo contém as informações de configuração para seu espaço de trabalho. Você pode baixar ou copiar o *arquivo config. JSON* para outros ambientes de desenvolvimento.
+* **Utilize [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** para escrever um ficheiro *config.json.* O arquivo contém as informações de configuração para seu espaço de trabalho. Você pode baixar ou copiar o *arquivo config. JSON* para outros ambientes de desenvolvimento.
 
 * **Baixe o arquivo**: na [portal do Azure](https://ms.portal.azure.com), selecione **baixar config. JSON** na seção **visão geral** do seu espaço de trabalho.
 

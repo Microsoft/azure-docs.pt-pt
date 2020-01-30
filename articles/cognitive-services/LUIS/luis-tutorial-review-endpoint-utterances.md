@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447807"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843978"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: corrigir previsões inseguras examinando o ponto de extremidade declarações
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo declarações, recebidos por meio do ponto de extremidade HTTPS LUIS, que LUIS não tem certeza de. Você deve examinar o ponto de extremidade declarações como uma parte normal da manutenção agendada do LUIS.
@@ -46,7 +46,7 @@ Use as etapas a seguir para importar um aplicativo.
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. No [portal do Luis de visualização](https://preview.luis-ai), importe o arquivo. JSON para um novo aplicativo.
+1. No [portal do Luis de visualização](https://preview.luis.ai), importe o arquivo. JSON para um novo aplicativo.
 
 1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`.
 
@@ -89,14 +89,14 @@ Examine o ponto de extremidade declarações para uma tentativa corretamente ali
 1. Na seção **Build** do portal, selecione **examinar ponto de extremidade declarações** no painel de navegação esquerdo. A lista está filtrada para a intenção **ApplyForJob**.
 
     > [!div class="mx-imgBorder"]
-    > ![captura de tela do botão revisar ponto de extremidade declarações na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    > ![Screenshot de comentário final de comentário botão de](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
     Este expressão, `I'm looking for a job with Natural Language Processing`, não está na intenção correta.
 
 1.  Para alinhar esse expressão, na linha expressão, selecione a **intenção alinhada** correta de `GetJobInformation`. Adicione o expressão alterado ao aplicativo selecionando a marca de seleção.
 
     > [!div class="mx-imgBorder"]
-    > ![captura de tela do botão revisar ponto de extremidade declarações na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+    > ![Screenshot de comentário final de comentário botão de](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
     Examine as declarações restantes nesta tentativa, corrigindo a intenção alinhada conforme necessário. Use a tabela expressão inicial neste tutorial para exibir a intenção alinhada.
 

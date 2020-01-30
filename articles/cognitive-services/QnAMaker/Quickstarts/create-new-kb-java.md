@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: bd2e12660894f51ae4606ce3b2766f6cff821f41
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 84b70dac0c9a0edb7a634e0f6307444dcb4f6c45
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447645"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843027"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Java
 
-Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
+Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/knowledge-base.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
 
 Este início rápido chama as API do Criador de FAQ:
 * [Criar KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
@@ -53,7 +53,7 @@ Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.
 
 Defina os seguintes valores:
 
-* `<your-qna-maker-subscription-key>`-a **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal do Azure, no recurso de QnA Maker, na página início rápido. Isso não é o mesmo que a chave de ponto de extremidade de previsão.
+* `<your-qna-maker-subscription-key>` - A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isso não é o mesmo que a chave de ponto de extremidade de previsão.
 * `<your-resource-name>`-o **nome do recurso** é usado para construir a URL do ponto de extremidade de criação para criação, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Essa não é a mesma URL usada para consultar o ponto de extremidade de previsão.
 
 Não precisa de adicionar a chaveta de segurança final para terminar a classe; ela encontra-se no fragmento de código final no fim deste início rápido.

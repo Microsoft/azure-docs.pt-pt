@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc3bb6882963205e17e37f52ec9dcdffecdf9e21
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447720"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843197"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -116,9 +116,37 @@ QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e benefic
 
 Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 
-### <a name="using-a-single-search-service"></a>Usando um único serviço de pesquisa
+## <a name="using-a-single-search-service"></a>Usando um único serviço de pesquisa
 
 Se você criar um serviço QnA e suas dependências (como pesquisa) por meio do portal, um serviço de pesquisa será criado para você e vinculado ao serviço de QnA Maker. Depois que esses recursos forem criados, você poderá atualizar a configuração do serviço de aplicativo para usar um serviço de pesquisa existente anteriormente e remover o que você acabou de criar.
+
+Se você criar um serviço QnA por meio de modelos de Azure Resource Manager, poderá criar todos os recursos e controlar a criação do serviço de aplicativo para usar um serviço de pesquisa existente.
+
+
+## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configure O Fabricante qnA para usar diferentes recursos de pesquisa cognitiva
+
+Se você criar um serviço QnA e suas dependências (como pesquisa) por meio do portal, um serviço de pesquisa será criado para você e vinculado ao serviço de QnA Maker. Depois que esses recursos forem criados, você poderá atualizar a configuração do serviço de aplicativo para usar um serviço de pesquisa existente anteriormente e remover o que você acabou de criar.
+
+O recurso qnA Maker's **App Service** utiliza o recurso De pesquisa cognitiva. Para alterar o recurso de Pesquisa Cognitiva utilizado pelo Fabricante QnA, é necessário alterar a definição no portal Azure.
+
+1. Obtenha a **chave Deadministração** e o **Nome** do recurso de Pesquisa Cognitiva que pretende utilizar o Fabricante qnA.
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e encontre o Serviço de **Aplicações** associado ao seu recurso QnA Maker. Ambos com o mesmo nome.
+
+1. Selecione **Definições,** em **seguida, Configurar**. Isto mostrará todas as definições existentes para o Serviço de Aplicações do Fabricante qnA.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal Azure mostrando configurações de configuração do Serviço de Aplicações](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+
+1. Alterar os valores para as seguintes teclas:
+
+    * **AzureSearchAdminKey**
+    * **Nome AzureSearch**
+
+1. Para utilizar as novas definições, é necessário reiniciar o serviço app. Selecione **a visão geral**e, em seguida, selecione **Reiniciar**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot do portal Azure reiniciando o Serviço de Aplicações após configurações mudarem](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Se você criar um serviço QnA por meio de modelos de Azure Resource Manager, poderá criar todos os recursos e controlar a criação do serviço de aplicativo para usar um serviço de pesquisa existente.
 

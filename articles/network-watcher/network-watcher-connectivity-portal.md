@@ -1,67 +1,65 @@
 ---
-title: Solucionar problemas de conexões-portal do Azure
+title: Ligações de resolução de problemas - Portal Azure
 titleSuffix: Azure Network Watcher
-description: Saiba como usar o recurso de solução de problemas de conexão do observador de rede do Azure usando o portal do Azure.
+description: Saiba como utilizar a capacidade de resolução de problemas de ligação do Azure Network Watcher utilizando o portal Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: kumud
-ms.openlocfilehash: 5236d076939b6972946adfde3557e3534f9adf5c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e405a91b1ea541b4ed3328fdb3bf80ca82731c93
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275977"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842857"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Solucionar problemas de conexões com o observador de rede do Azure usando o portal do Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Ligações de resolução de problemas com o Vigilante da Rede Azure utilizando o portal Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI do Azure](network-watcher-connectivity-cli.md)
-> - [API REST do Azure](network-watcher-connectivity-rest.md)
+> - [API de DESCANSO Azul](network-watcher-connectivity-rest.md)
 
-Saiba como usar a solução de problemas de conexão para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.
+Aprenda a utilizar problemas de ligação para verificar se pode ser estabelecida uma ligação TCP direta de uma máquina virtual a um determinado ponto final.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha os seguintes recursos:
+Este artigo assume que tem os seguintes recursos:
 
-* Uma instância do observador de rede na região em que você deseja solucionar problemas de conexão.
-* Máquinas virtuais com as quais solucionar problemas de conexões.
+* Um exemplo de Network Watcher na região que você quer resolver uma ligação.
+* Máquinas virtuais para resolver ligações com.
 
 > [!IMPORTANT]
-> A solução de problemas de conexão exige que a VM da qual você solucionar problemas tenha a extensão de VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão em uma VM do Windows, visite [extensão da máquina virtual do agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para VM do Linux visite a [extensão da máquina virtual do agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino.
+> A resolução de problemas de ligação requer que o VM de que se desloque tem a extensão VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão de um Windows VM visite a extensão virtual do Agente observador de [rede Azure para windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para o Linux VM visite a extensão virtual do Agente observador de rede [Azure para o Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto final do destino.
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Verificar a conectividade com uma máquina virtual
+## <a name="check-connectivity-to-a-virtual-machine"></a>Verifique a conectividade com uma máquina virtual
 
-Este exemplo verifica a conectividade com uma máquina virtual de destino pela porta 80.
+Este exemplo verifica a conectividade com uma máquina virtual de destino sobre a porta 80.
 
-Navegue até o observador de rede e clique em **solucionar problemas de conexão**. Selecione a máquina virtual da qual verificar a conectividade. Na seção **destino** , escolha **selecionar uma máquina virtual** e escolha a máquina virtual correta e a porta a ser testada.
+Navegue para o seu Observador de Rede e clique em **Ligação de problemas**. Selecione a máquina virtual para verificar a conectividade. Na secção **Destino** escolha **Selecione uma máquina virtual** e escolha a máquina virtual e a porta corretas para testar.
 
-Depois de clicar em **verificar**, a conectividade entre as máquinas virtuais na porta especificada é marcada. No exemplo, a VM de destino está inacessível, uma lista de saltos é mostrada.
+Uma vez clicado em **Verificar,** verifica-se a conectividade entre as máquinas virtuais da porta especificada. No exemplo, o destino VM é inacessível, uma lista de lúpulo é mostrado.
 
-![Verificar os resultados de conectividade de uma máquina virtual][1]
+![Verifique os resultados da conectividade de uma máquina virtual][1]
 
-## <a name="check-remote-endpoint-connectivity"></a>Verificar a conectividade do ponto de extremidade remoto
+## <a name="check-remote-endpoint-connectivity"></a>Verifique a conectividade do ponto final remoto
 
-Para verificar a conectividade e a latência para um ponto de extremidade remoto, escolha o botão de opção **especificar manualmente** na seção **destino** , insira a URL e a porta e clique em **verificar**.  Isso é usado para pontos de extremidade remotos como pontos de extremidade de sites e de armazenamento.
+Para verificar a conectividade e a latência num ponto final remoto, escolha o botão de rádio **Especte manualmente** na secção **Destino,** insera o url e a porta e clique em **Verificar**.  Isto é usado para pontos finais remotos como websites e pontos finais de armazenamento.
 
-![Verificar os resultados de conectividade de um site][2]
+![Verifique os resultados da conectividade para um web site][2]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como automatizar as capturas de pacote com alertas de máquina virtual exibindo [criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba automatizar capturas de pacotes com alertas de máquina virtual ao ver [Criar um alerta desencadeado pela captura de pacotes](network-watcher-alert-triggered-packet-capture.md)
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando verificar [fluxo de IP verificar](diagnose-vm-network-traffic-filtering-problem.md)
+Descubra se determinado tráfego é permitido dentro ou fora do seu VM visitando [check IP flow verificar](diagnose-vm-network-traffic-filtering-problem.md)
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png
 [2]: ./media/network-watcher-connectivity-portal/figure2.png

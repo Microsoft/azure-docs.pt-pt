@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2019
+ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 21fc494f52b168f92da6972ee44be33b4e227a66
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046053"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843927"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Esta página fornece informações de solução de problemas comuns de Azure Load Balancer. Quando a conectividade do Load Balancer não está disponível, os sintomas mais comuns são os seguintes: 
 - As VMs por trás da Load Balancer não estão respondendo às investigações de integridade 
@@ -123,7 +121,7 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: acessando o front-end interno de Load Balancer da VM do pool de back-end Load Balancer participante
 
-Se uma Load Balancer interna for configurada em uma VNet e uma das VMs de back-end do participante estiver tentando acessar o frontend interno de Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Este cenário não é suportado. Reveja as [limitações](concepts-limitations.md#limitations) de uma discussão detalhada.
+Se uma Load Balancer interna for configurada em uma VNet e uma das VMs de back-end do participante estiver tentando acessar o frontend interno de Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Este cenário não é apoiado. Reveja as [limitações](concepts-limitations.md#limitations) de uma discussão detalhada.
 
 **Resolução** Há várias maneiras de desbloquear esse cenário, incluindo o uso de um proxy. Avalie o gateway de aplicativo ou outros proxies de terceiros (por exemplo, Nginx ou HAProxy). Para obter mais informações sobre o gateway de aplicativo, consulte [visão geral do gateway de aplicativo](../application-gateway/application-gateway-introduction.md)
 
