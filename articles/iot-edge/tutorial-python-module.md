@@ -10,44 +10,44 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e353a65544e86e702bd216db5c8b5f81f033c46a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 76e3a5027118a4f5ef49469a52e61d4b08162acd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772249"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767890"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: desenvolver e implantar um módulo de IoT Edge do Python para dispositivos Linux
 
-Use Visual Studio Code para desenvolver o código Python e implantá-lo em um dispositivo Linux em execução Azure IoT Edge. 
+Use Visual Studio Code para desenvolver o código Python e implantá-lo em um dispositivo Linux em execução Azure IoT Edge.
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial orienta você pela criação e implantação de um módulo IoT Edge que filtra dados de sensor no dispositivo IoT Edge que você configurou no guia de início rápido. Neste tutorial, ficará a saber como:    
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial orienta você pela criação e implantação de um módulo IoT Edge que filtra dados de sensor no dispositivo IoT Edge que você configurou no guia de início rápido. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Utilizar o Visual Studio Code para criar um módulo do IoT Edge com Python.
 > * Utilize o Visual Studio Code e o Docker para criar uma imagem do Docker e publicá-la no seu registo.
 > * Implemente o módulo no seu dispositivo IoT Edge.
 > * Veja os dados gerados.
 
-
-O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura que são gerados pelo seu dispositivo. Envia apenas mensagens de origem caso a temperatura seja superior a um limiar especificado. Este tipo de análise no Edge é útil para reduzir a quantidade de dados que são comunicados e armazenados na cloud. 
+O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura que são gerados pelo seu dispositivo. Envia apenas mensagens de origem caso a temperatura seja superior a um limiar especificado. Este tipo de análise no Edge é útil para reduzir a quantidade de dados que são comunicados e armazenados na cloud.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="solution-scope"></a>Escopo da solução
 
-Este tutorial demonstra como desenvolver um módulo no **Python** usando **Visual Studio Code**e como implantá-lo em um **dispositivo Linux**. IoT Edge não oferece suporte a módulos Python para dispositivos Windows. 
+Este tutorial demonstra como desenvolver um módulo no **Python** usando **Visual Studio Code**e como implantá-lo em um **dispositivo Linux**. IoT Edge não oferece suporte a módulos Python para dispositivos Windows.
 
-Use a tabela a seguir para entender suas opções de desenvolvimento e implantação de módulos Python no Linux: 
+Use a tabela a seguir para entender suas opções de desenvolvimento e implantação de módulos Python no Linux:
 
-| Python | Visual Studio Code | Visual Studio 2017/2019 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **AMD64 do Linux** | ![Usar VS Code para módulos Python no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **ARM32 do Linux** | ![Usar VS Code para módulos Python no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para desenvolvimento de contêiner do Linux: [desenvolver módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir qualquer um desses tutoriais, você deve ter os seguintes pré-requisitos em vigor: 
+Antes de começar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para desenvolvimento de contêiner do Linux: [desenvolver módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir qualquer um desses tutoriais, você deve ter os seguintes pré-requisitos em vigor:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando o Azure IOT Edge](quickstart-linux.md)
@@ -55,9 +55,9 @@ Antes de começar este tutorial, você deve ter passado pelo tutorial anterior p
 * [Visual Studio Code](https://code.visualstudio.com/) configurado com as [ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
-Para desenvolver um módulo IoT Edge no Python, instale os seguintes pré-requisitos adicionais em seu computador de desenvolvimento: 
+Para desenvolver um módulo IoT Edge no Python, instale os seguintes pré-requisitos adicionais em seu computador de desenvolvimento:
 
-* [Extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para o Visual Studio Code. 
+* [Extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para o Visual Studio Code.
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) para instalar pacotes do Python (tipicamente incluído com a instalação Python).
 
@@ -65,15 +65,16 @@ Para desenvolver um módulo IoT Edge no Python, instale os seguintes pré-requis
 >Certifique-se de que a sua pasta `bin` está no seu caminho para a plataforma. Normalmente `~/.local/` para UNIX e macOS, ou `%APPDATA%\Python` no Windows.
 
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
+
 As etapas a seguir criam um módulo IoT Edge Python usando Visual Studio Code e as ferramentas de IoT do Azure.
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto
 
-Use o VS Code para criar um modelo de solução Python que você pode criar sobre o. 
+Use o VS Code para criar um modelo de solução Python que você pode criar sobre o.
 
 1. No Visual Studio Code, selecione **Vista** > **Terminal** para abrir o terminal integrado do VS Code.
 
-1. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
+1. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code.
 
 1. Na paleta de comandos, introduza e execute o comando **Azure: Iniciar Sessão** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 
@@ -86,29 +87,28 @@ Use o VS Code para criar um modelo de solução Python que você pode criar sobr
    | Selecionar modelo de módulo | Escolha **Python Module** (Módulo de Python). |
    | Indicar um nome para o módulo | Nomeie o seu módulo **PythonModule**. |
    | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente com base no nome que você forneceu na última etapa. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br>O repositório de imagem final é semelhante a \<nome do registro\>. azurecr.io/pythonmodule. |
- 
-   ![Fornecer repositório de imagens do Docker](./media/tutorial-python-module/repository.png)
 
+   ![Fornecer repositório de imagens do Docker](./media/tutorial-python-module/repository.png)
 
 ### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
 
-O ficheiro de ambiente armazena as credenciais do seu repositório de contentor e partilha-as com o runtime do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge. 
+O ficheiro de ambiente armazena as credenciais do seu repositório de contentor e partilha-as com o runtime do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge.
 
-1. No explorador do VS Code, abra o ficheiro **.env**. 
-2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry. 
-3. Guarde o ficheiro. env. 
+1. No explorador do VS Code, abra o ficheiro **.env**.
+2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry.
+3. Guarde o ficheiro. env.
 
 ### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-Atualmente, Visual Studio Code pode desenvolver módulos Python para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
+Atualmente, Visual Studio Code pode desenvolver módulos Python para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64.
 
-1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
+1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
 
-2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão. 
+2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-Cada modelo inclui um código de exemplo, que usa dados simulados de sensor do módulo **SimulatedTemperatureSensor** e o encaminha para o Hub IOT. Nesta secção, irá adicionar o código que expande o **PythonModule** para analisar as mensagens antes de as enviar. 
+Cada modelo inclui um código de exemplo, que usa dados simulados de sensor do módulo **SimulatedTemperatureSensor** e o encaminha para o Hub IOT. Nesta secção, irá adicionar o código que expande o **PythonModule** para analisar as mensagens antes de as enviar.
 
 1. No explorador do VS Code, abra **módulos** > **PythonModule** > **main.py**.
 
@@ -127,7 +127,7 @@ Cada modelo inclui um código de exemplo, que usa dados simulados de sensor do m
     RECEIVED_MESSAGES = 0
     ```
 
-4. Substitua a função **input1_listener** pelo código a seguir:
+4. Substitua a função **input1_listener** pelo seguinte código:
 
     ```python
         # Define behavior for receiving an input message on input1
@@ -153,7 +153,7 @@ Cada modelo inclui um código de exemplo, que usa dados simulados de sensor do m
                         await module_client.send_message_to_output(input_message, "output1")
                 except Exception as ex:
                     print ( "Unexpected error in input1_listener: %s" % ex )
-        
+
         # twin_patch_listener is invoked when the module twin's desired properties are updated.
         async def twin_patch_listener(module_client):
             global TWIN_CALLBACKS
@@ -181,9 +181,9 @@ Cada modelo inclui um código de exemplo, que usa dados simulados de sensor do m
 
 6. Salve o arquivo main.py.
 
-7. No explorador do VS Code, abra o ficheiro **deployment.template.json** na área de trabalho da solução do IoT Edge. 
+7. No explorador do VS Code, abra o ficheiro **deployment.template.json** na área de trabalho da solução do IoT Edge.
 
-9. Adicione o módulo duplo **PythonModule** ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção **moduleContent**, após o módulo duplo **$edgeHub**: 
+8. Adicione o módulo duplo **PythonModule** ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção **moduleContent**, após o módulo duplo **$edgeHub**:
 
    ```json
        "PythonModule": {
@@ -195,7 +195,7 @@ Cada modelo inclui um código de exemplo, que usa dados simulados de sensor do m
 
    ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-python-module/module-twin.png)
 
-10. Salve o arquivo Deployment. Template. JSON.
+9. Salve o arquivo Deployment. Template. JSON.
 
 ## <a name="build-and-push-your-module"></a>Crie e envie por push seu módulo
 
@@ -204,17 +204,16 @@ Na seção anterior, você criou uma solução de IoT Edge e adicionou o código
 1. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal**.
 
 1. Entre no Docker digitando o seguinte comando no terminal. Entre com o nome de usuário, a senha e o servidor de logon do seu registro de contêiner do Azure. Você pode recuperar esses valores da seção **chaves de acesso** do registro no portal do Azure.
-     
+
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
    Você pode receber um aviso de segurança recomendando o uso de `--password-stdin`. Embora essa prática recomendada seja recomendada para cenários de produção, ela está fora do escopo deste tutorial. Para obter mais informações, consulte a referência de [logon do Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-2. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**.
+1. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**.
 
    O comando Build e Push inicia três operações. Primeiro, ele cria uma nova pasta na solução chamada **configuração** que contém o manifesto de implantação completa, criado sem informações no modelo de implantação e outros arquivos de solução. Em segundo lugar, ele executa `docker build` para criar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Em seguida, ele executa `docker push` para enviar por push o repositório de imagens para o registro de contêiner.
-
 
 ## <a name="deploy-modules-to-device"></a>Implantar módulos no dispositivo
 
@@ -228,9 +227,9 @@ Verifique se o dispositivo IoT Edge está em execução.
 
 3. Selecione o ficheiro **deployment.json** na pasta **config** e, em seguida, clique em **Selecionar Manifesto de Implementação do Edge**. Não utilize o ficheiro deployment.template.json.
 
-4. Clique no botão Atualizar. Você deve ver o novo **PythonModule** em execução junto com o módulo **SimulatedTemperatureSensor** e o **$edgeAgent** e **$edgeHub**. 
+4. Clique no botão Atualizar. Você deve ver o novo **PythonModule** em execução junto com o módulo **SimulatedTemperatureSensor** e o **$edgeAgent** e **$edgeHub**.
 
-## <a name="view-generated-data"></a>Ver os dados gerados
+## <a name="view-the-generated-data"></a>Ver Os dados gerados
 
 Depois de aplicar o manifesto de implementação no seu dispositivo IoT Edge, o runtime do IoT Edge no dispositivo recolhe as novas informações de implementação e começa a ser executado no mesmo. Quaisquer módulos em execução no dispositivo que não estão incluídos no manifesto de implementação são parados. Quaisquer módulos em falta do dispositivo são iniciados.
 
@@ -238,35 +237,35 @@ Pode ver o estado do seu dispositivo do IoT Edge com a secção **Dispositivos d
 
 1. No Visual Studio Code Explorer, clique com o botão direito do mouse no nome do dispositivo de IoT Edge e selecione **Iniciar Monitoramento de ponto de extremidade de evento interno**.
 
-2. Exiba as mensagens que chegam ao seu hub IoT. Pode levar algum tempo para que as mensagens cheguem, pois o dispositivo IoT Edge precisa receber sua nova implantação e iniciar todos os módulos. Em seguida, as alterações feitas no código PythonModule esperam até que a temperatura do computador atinja 25 graus antes de enviar mensagens. Ele também adiciona o **alerta** de tipo de mensagem a todas as mensagens que atingem esse limite de temperatura. 
+2. Exiba as mensagens que chegam ao seu hub IoT. Pode levar algum tempo para as mensagens chegarem. O dispositivo IoT Edge tem de receber a sua nova implementação e iniciar todos os módulos. Em seguida, as alterações feitas no código PythonModule esperam até que a temperatura do computador atinja 25 graus antes de enviar mensagens. Ele também adiciona o **alerta** de tipo de mensagem a todas as mensagens que atingem esse limite de temperatura.
 
 ## <a name="edit-the-module-twin"></a>Edite o módulo...
 
 Usamos o módulo PythonModule no manifesto de implantação para definir o limite de temperatura em 25 graus. Você pode usar o módulo "atualizar" para alterar a funcionalidade sem precisar atualizar o código do módulo.
 
-1. Em Visual Studio Code, expanda os detalhes em seu dispositivo de IoT Edge para ver os módulos em execução. 
+1. Em Visual Studio Code, expanda os detalhes em seu dispositivo de IoT Edge para ver os módulos em execução.
 
-2. Clique com o botão direito do mouse em **PythonModule** e selecione **Editar módulo**. 
+2. Clique com o botão direito do mouse em **PythonModule** e selecione **Editar módulo**.
 
-3. Localize **TemperatureThreshold** nas propriedades desejadas. Altere seu valor para uma nova temperatura de 5 graus para 10 graus acima da temperatura mais recente relatada. 
+3. Localize **TemperatureThreshold** nas propriedades desejadas. Altere seu valor para uma nova temperatura de 5 graus para 10 graus acima da temperatura mais recente relatada.
 
 4. Salve o arquivo de módulo.
 
-5. Clique com o botão direito do mouse em qualquer lugar no painel de edição do módulo e selecione **Atualizar módulo**. 
+5. Clique com o botão direito do mouse em qualquer lugar no painel de edição do módulo e selecione **Atualizar módulo**.
 
-6. Monitore as mensagens de entrada do dispositivo para a nuvem. Você deve ver as mensagens param até que o novo limite de temperatura seja atingido. 
+6. Monitore as mensagens de entrada do dispositivo para a nuvem. Você deve ver as mensagens param até que o novo limite de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
+Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 
-Caso contrário, você pode excluir as configurações locais e os recursos do Azure que você usou neste artigo para evitar cobranças. 
+Caso contrário, você pode excluir as configurações locais e os recursos do Azure que você usou neste artigo para evitar cobranças.
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Para obter exemplos de módulos de IoT Edge, incluindo o módulo de temperatura simulada, consulte [exemplos de módulo de IOT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e exemplos do SDK do [IOT Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Para obter exemplos de módulos de IoT Edge, incluindo o módulo de temperatura simulada, consulte [exemplos de módulo de IOT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e exemplos do SDK do [IOT Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios).
 
 Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 

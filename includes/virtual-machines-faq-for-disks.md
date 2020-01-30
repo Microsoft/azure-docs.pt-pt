@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359970"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887821"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos de SSD Premium do Azure.
 
@@ -145,31 +145,23 @@ As [imagens de geração 2](https://docs.microsoft.com/azure/virtual-machines/li
 
 Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses três tipos de disco, os instantâneos têm suporte para todos os tamanhos de disco (incluindo discos de até 32 TiB de tamanho). Ultra discos não oferecem suporte a instantâneos.
 
-### <a name="disk-reservation"></a>Reserva de disco
+**O que são reservas de disco Azure?**
+A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total. Para mais detalhes sobre reservas de discos Azure, consulte o nosso artigo sobre o assunto: Entenda como o seu desconto de [reserva é aplicado ao Disco Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**O que é a reserva de disco do Azure?**
-A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total.
+**Quais opções a reserva de disco do Azure oferece?** A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar através de um pagamento único à cabeça ou de pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks. 
 
-**Quais opções a reserva de disco do Azure oferece?**
-A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar através de um pagamento único à cabeça ou de pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks.
+As reservas são feitas na forma de discos, não na capacidade. Por outras palavras, quando reserva um disco P80 (32 TiB), obtém-se um único disco P80, não pode então dividir essa reserva específica em dois discos P70 (16 TiB) mais pequenos. É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
 
-As reservas são feitas na forma de discos, não na capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obtém um único disco P80, não é possível divvy essa reserva específica em dois discos menores P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
+**Como a reserva de disco do Azure é aplicada?**  
+A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de disco não pode ser aplicada a SKUs diferentes, enquanto uma instância de VM pode. Confira [salvar custos com instâncias de VM reservadas do Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM.    
 
-**Como serei cobrado pela reserva de disco do Azure?**
-- Para clientes de Enterprise Agreement (EA), o compromisso monetário do Azure será usado primeiro para comprar reservas de discos do Azure. Em cenários em que os clientes do EA usaram todo o seu compromisso monetário, as reservas de disco ainda podem ser compradas e essas compras serão faturadas para o pagamento antecipado único na próxima cobrança de excedente.
+Posso usar o meu armazenamento de dados comprado através da reserva de **discos Azure em várias regiões?**     
+A reserva de discos do Azure é adquirida para uma região e SKU específicos (como p30 no leste dos EUA 2) e, portanto, não pode ser usada fora dessas construções. Você sempre pode comprar uma reserva adicional de discos do Azure para suas necessidades de armazenamento em disco em outras regiões ou SKUs. 
 
-- Para clientes que compram por meio do Azure.com, no momento da compra, o cartão de crédito no arquivo será cobrado pelo pagamento antecipado completo (ou por pagamentos fixos mensais) da reserva de discos do Azure.
-
-**Como a reserva de disco do Azure é aplicada?**
-A reserva de discos segue um modelo semelhante às instâncias de VM (máquina virtual) reservadas. A diferença é que uma reserva de disco não pode ser aplicada a SKUs diferentes, enquanto uma instância de VM pode. Confira [salvar custos com instâncias de VM reservadas do Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obter mais informações sobre instâncias de VM. 
-
-**Posso usar meu armazenamento de dados adquirido por meio da reserva de discos do Azure em várias regiões?**
-A reserva de discos do Azure é adquirida para uma região e SKU específicos (como p30 no leste dos EUA 2) e, portanto, não pode ser usada fora dessas construções. Você sempre pode comprar uma reserva adicional de discos do Azure para suas necessidades de armazenamento em disco em outras regiões ou SKUs.
-
-**O que acontece quando minha reserva de discos do Azure expira?**
+O que acontece quando a minha reserva de **discos Azure expirar?**    
 Você receberá notificações por email 30 dias antes da expiração e novamente na data de expiração. Depois que a reserva expirar, os discos implantados continuarão a ser executados e serão cobrados com as [tarifas pagas pelo uso](https://azure.microsoft.com/pricing/details/managed-disks/)mais recentes.
 
-## <a name="ultra-disks"></a>Discos Ultra
+## <a name="ultra-disks"></a>Discos ultra
 
 **Para que devo definir a taxa de transferência de ultra Disk?**
 Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: taxa de transferência em MBps = # de IOPS * 16/1000.
@@ -234,7 +226,7 @@ Sim, o backup do Azure agora está disponível.
 Você pode criar SSD Standard discos usando modelos de Azure Resource Manager, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo do Resource Manager para criar SSD Standard discos:
 
 * *apiVersion* para Microsoft. Compute deve ser definido como `2018-04-01` (ou posterior)
-* Especifique *managedDisk. storageAccountType* como `StandardSSD_LRS`
+* Especifique *o ManagedDisk.storageAccountType* como `StandardSSD_LRS`
 
 O exemplo a seguir mostra a seção *Properties. storageProfile. osDisk* para uma VM que usa SSD Standard discos:
 
@@ -254,7 +246,7 @@ Para obter um exemplo de modelo completo de como criar um disco de SSD Standard 
 
 **Posso converter meus discos existentes em SSD Standard?**
 Sim, pode. Consulte [converter o armazenamento do Azure Managed disks de Standard para Premium e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para obter as diretrizes gerais para a conversão de Managed disks. E use o seguinte valor para atualizar o tipo de disco para SSD Standard.
--AccountType StandardSSD_LRS
+-StandardSSD_LRS de tipo de conta
 
 **Qual é o benefício de usar discos SSD Standard em vez de HDD?**
 SSD Standard discos oferecem melhor latência, consistência, disponibilidade e confiabilidade em comparação com discos de HDD. As cargas de trabalho do aplicativo funcionam muito mais suavemente em SSD Standard por isso. Observe que os discos SSD Premium são a solução recomendada para a maioria das cargas de trabalho de produção com uso intensivo de e/s.

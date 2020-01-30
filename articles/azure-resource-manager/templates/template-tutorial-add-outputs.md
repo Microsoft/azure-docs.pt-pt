@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 540e037e83d359dc67cb32f98dec0319bf490707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472983"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765736"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adicionar saídas ao seu modelo do Resource Manager
 
@@ -26,7 +26,7 @@ Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Man
 
 No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 Ele implanta uma conta de armazenamento, mas não retorna nenhuma informação sobre a conta de armazenamento. Talvez seja necessário capturar as propriedades de um novo recurso para que elas estejam disponíveis posteriormente para referência.
 
@@ -36,7 +36,7 @@ Você pode usar saídas para retornar valores do modelo. Por exemplo, pode ser �
 
 O exemplo a seguir realça a alteração em seu modelo para adicionar um valor de saída. Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
 Há alguns itens importantes a serem observados sobre o valor de saída adicionado.
 

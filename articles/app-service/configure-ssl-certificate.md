@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768470"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845924"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no serviço Azure App
 
@@ -61,6 +61,7 @@ O certificado gerenciado do serviço de aplicativo gratuito é uma solução de 
 - Não oferece suporte a certificados curinga.
 - Não dá suporte a domínios Naked.
 - Não é exportável.
+- Não suporta registos DNS A.
 
 > [!NOTE]
 > O certificado gratuito é emitido por DigiCert. Para alguns domínios de nível superior, você deve permitir explicitamente o DigiCert como um emissor de certificado criando um [registro de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor: `0 issue digicert.com`.
@@ -137,7 +138,7 @@ Na página **status da Key Vault** , clique em **repositório Key Vault** para c
 | Localização | Selecione o mesmo local que o aplicativo do serviço de aplicativo. |
 | Escalão de preço | Para obter informações, consulte [Azure Key Vault detalhes de preços](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define os aplicativos e o acesso permitido aos recursos do cofre. Você pode configurá-lo mais tarde, seguindo as etapas em [conceder a vários aplicativos acesso a um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Acesso de Rede Virtual | Restringir o acesso ao cofre para determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde, seguindo as etapas em [configurar Azure Key Vault firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
+| Acesso à Rede Virtual | Restringir o acesso ao cofre para determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde, seguindo as etapas em [configurar Azure Key Vault firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
 
 Depois de selecionar o cofre, feche a página do **repositório Key Vault** . A opção **Step 1: Store** deve mostrar uma marca de seleção verde para êxito. Mantenha a página aberta para a próxima etapa.
 

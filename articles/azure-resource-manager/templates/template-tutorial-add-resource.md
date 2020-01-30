@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472962"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765596"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: adicionar um recurso ao seu modelo do Resource Manager
 
@@ -28,7 +28,7 @@ Para adicionar uma definição de conta de armazenamento ao modelo existente, ex
 
 Substitua **{forneça um nome exclusivo}** por um nome de conta de armazenamento exclusivo. O nome da conta do Storage tem de ser exclusivo em todo o Azure. O nome deve ter apenas letras minúsculas ou números. Ele não pode ter mais de 24 caracteres. Você pode tentar um padrão de nomenclatura como usar **Store1** como um prefixo e, em seguida, adicionar suas iniciais e a data de hoje. Por exemplo, o nome que você usa pode ser semelhante a **store1abc09092019**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json?range=1-19&highlight=5-17)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
 Adivinhar um nome exclusivo para uma conta de armazenamento não é fácil e não funciona bem para automatizar grandes implantações. Posteriormente nesta série de tutoriais, você usará recursos de modelo que facilitam a criação de um nome exclusivo.
 

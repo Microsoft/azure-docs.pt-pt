@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472969"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773210"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: adicionar parâmetros ao modelo do Resource Manager
 
@@ -26,7 +26,7 @@ Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Man
 
 No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 Talvez você tenha notado que há um problema com esse modelo. O nome da conta de armazenamento é embutido em código. Você só pode usar esse modelo para implantar a mesma conta de armazenamento a cada vez. Para implantar uma conta de armazenamento com um nome diferente, você precisaria criar um novo modelo, que obviamente não é uma maneira prática de automatizar suas implantações.
 
@@ -36,7 +36,7 @@ Para tornar seu modelo reutilizável, vamos adicionar um parâmetro que você po
 
 Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
@@ -78,15 +78,15 @@ Essa maneira de lidar com atualizações significa que seu modelo pode incluir t
 
 Os parâmetros permitem-lhe personalizar a implementação, ao fornecer valores que são adaptados para um determinado ambiente. Por exemplo, você pode passar valores diferentes com base em se está implantando em um ambiente para desenvolvimento, teste e produção.
 
-O modelo anterior sempre implantou uma conta de armazenamento Standard_LRS. Talvez você queira a flexibilidade para implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir mostra as alterações para adicionar um parâmetro para a SKU. Copie todo o arquivo e cole-o em seu modelo.
+O modelo anterior sempre implementou uma conta de armazenamento Standard_LRS. Talvez você queira a flexibilidade para implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir mostra as alterações para adicionar um parâmetro para a SKU. Copie todo o arquivo e cole-o em seu modelo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
 
 ## <a name="redeploy-template"></a>Reimplementar o modelo
 
-Você está pronto para implantar novamente. Como o SKU padrão é definido como **Standard_LRS**, você não precisa fornecer um valor para esse parâmetro.
+Você está pronto para implantar novamente. Como o SKU padrão está definido para **Standard_LRS,** você não precisa fornecer um valor para esse parâmetro.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -110,7 +110,7 @@ az group deployment create \
 
 ---
 
-Para ver a flexibilidade do modelo, vamos implantá-lo novamente. Dessa vez, defina o parâmetro SKU como **Standard_GRS**. Você pode passar um novo nome para criar uma conta de armazenamento diferente ou usar o mesmo nome para atualizar sua conta de armazenamento existente. Ambas as opções funcionam.
+Para ver a flexibilidade do modelo, vamos implantá-lo novamente. Desta vez, o parâmetro SKU **Standard_GRS**. Você pode passar um novo nome para criar uma conta de armazenamento diferente ou usar o mesmo nome para atualizar sua conta de armazenamento existente. Ambas as opções funcionam.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -1,59 +1,59 @@
 ---
-title: Tutorial-configurar funções RBAC (controle de acesso baseado em função) no AKS (serviço de kubernetes do Azure) usando o Ansible
-description: Saiba como usar o Ansible para configurar o RBAC no cluster do AKS (serviço kubernetes do Azure)
-keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes, Azure Active Directory, RBAC
+title: Tutorial - Configure funções de controlo de acesso baseado em funções (RBAC) no Serviço Azure Kubernetes (AKS) utilizando ansible
+description: Saiba como usar o Ansible para configurar o RBAC no cluster Azure Kubernetes Service (AKS)
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure ative diretório, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156865"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836971"
 ---
-# <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar funções RBAC (controle de acesso baseado em função) no AKS (serviço de kubernetes do Azure) usando o Ansible
+# <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configure funções de controlo de acesso baseado em funções (RBAC) no Serviço Azure Kubernetes (AKS) utilizando ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-AKS pode ser configurado para usar o [Azure Active Directory (AD)](/azure/active-directory/) para autenticação de usuário. Uma vez configurado, você usa o token de autenticação do Azure AD para entrar no cluster AKS. O RBAC pode ser baseado na identidade de um usuário ou em uma associação de grupo de diretório.
+O AKS pode ser configurado para utilizar o [Diretório Ativo Azure (AD)](/azure/active-directory/) para autenticação do utilizador. Uma vez configurado, utilize o seu símbolo de autenticação Azure AD para assinar no cluster AKS. O RBAC pode basear-se na identidade de um utilizador ou na adesão ao grupo de diretórios.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Criar um cluster AKS habilitado para Azure AD
-> * Configurar uma função RBAC no cluster
+> * Criar um cluster AKS ativado por AD Azure
+> * Configure uma função RBAC no cluster
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Instalar o - de biblioteca do redhat OpenShift** `pip install openshift`
+- **Instale a biblioteca OpenShift RedHat** - `pip install openshift`
 
-## <a name="configure-azure-ad-for-aks-authentication"></a>Configurar o Azure AD para autenticação AKS
+## <a name="configure-azure-ad-for-aks-authentication"></a>Configure Azure AD para autenticação AKS
 
-Ao configurar o Azure AD para autenticação AKS, dois aplicativos do Azure AD são configurados. Esta operação deve ser concluída por um administrador de locatário do Azure. Para obter mais informações, consulte [integrar Azure Active Directory com AKs](/azure/aks/aad-integration#create-the-server-application). 
+Ao configurar o Azure AD para autenticação AKS, duas aplicações Azure AD estão configuradas. Esta operação deve ser concluída por um administrador de inquilinos azure. Para mais informações, consulte Integrar o [Diretório Ativo Azure com AKS.](/azure/aks/aad-integration#create-the-server-application) 
 
-No administrador de locatários do Azure, obtenha os seguintes valores:
+Do administrador de inquilinos Azure, obtenha os seguintes valores:
 
-- Segredo do aplicativo do servidor
+- Segredo de aplicativo de servidor
 - ID do aplicativo do servidor
-- ID do aplicativo cliente 
+- ID da aplicação do cliente 
 - ID do inquilino
 
-Esses valores são necessários para executar o guia estratégico de exemplo.  
+Estes valores são necessários para executar o livro de jogadas da amostra.  
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-Nesta seção, você criará um AKS com o [aplicativo Azure ad](#configure-azure-ad-for-aks-authentication).
+Nesta secção, cria-se uma AKS com a [aplicação Azure AD](#configure-azure-ad-for-aks-authentication).
 
-Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
+Aqui estão algumas notas-chave a considerar ao trabalhar com o livro de jogadas da amostra:
 
-- O guia estratégico carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se você modificá-lo, use o formato de linha única-começando com "ssh-RSA" (sem as aspas).
-- Os valores de `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
+- O livro de jogadas carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se o modificar, utilize o formato de linha única - começando com "ssh-rsa" (sem as cotações).
+- Os valores `client_id` e `client_secret` são carregados a partir de `~/.azure/credentials`, que é o ficheiro credencial predefinido. Pode definir estes valores para o seu principal de serviço ou carregar estes valores a partir de variáveis ambientais:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -115,29 +115,29 @@ Guarde o manual de procedimentos seguinte como `aks-create.yml`:
       dest: "aks-{{ name }}-kubeconfig"
 ```
 
-## <a name="get-the-azure-ad-object-id"></a>Obter a ID de objeto do Azure AD
+## <a name="get-the-azure-ad-object-id"></a>Obtenha o ID de Objeto AD Azure
 
-Para criar uma associação RBAC, primeiro você precisa obter a ID de objeto do Azure AD. 
+Para criar uma ligação RBAC, primeiro precisa obter o ID de objeto AD Azure. 
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. No campo de pesquisa na parte superior da página, digite `Azure Active Directory`. 
+1. No campo de pesquisa no topo da página, introduza `Azure Active Directory`. 
 
 1. Clique em `Enter`.
 
-1. No menu **gerenciar** , selecione **usuários**.
+1. No menu **Gerir,** selecione **Utilizadores**.
 
-1. No campo nome, pesquise sua conta.
+1. No campo de nome, procure a sua conta.
 
-1. Na coluna **nome** , selecione o link para sua conta.
+1. Na coluna **Nome,** selecione o link para a sua conta.
 
-1. Na seção **identidade** , copie a **ID de objeto**.
+1. Na secção **Identidade,** copie o ID do **Objeto**.
 
-    ![Copie a ID de objeto do Azure AD.](./media/ansible-aks-configure-rbac/ansible-aad-object-id.png)
+    ![Copie o ID do Objeto Azure AD.](./media/ansible-aks-configure-rbac/ansible-aad-object-id.png)
 
-## <a name="create-rbac-binding"></a>Criar Associação RBAC
+## <a name="create-rbac-binding"></a>Criar ligação RBAC
 
-Nesta seção, você cria uma associação de função ou de função de cluster em AKS. 
+Nesta secção, cria-se uma função vinculativa ou de cluster vinculativa no AKS. 
 
 Guarde o manual de procedimentos seguinte como `kube-role.yml`:
 
@@ -156,9 +156,9 @@ subjects:
   name: <your-aad-account>
 ```
 
-Substitua o espaço reservado `&lt;your-aad-account>` pela sua ID de [objeto](#get-the-azure-ad-object-id)de locatário do Azure AD.
+Substitua o espaço reservado `<your-aad-account>` pelo seu Id de Objeto de [Objeto](#get-the-azure-ad-object-id)de Inquilino AD Azure .
 
-Salve o guia estratégico a seguir-que implanta sua nova função no AKS como `aks-kube-deploy.yml`:
+Guarde o seguinte livro - que implementa o seu novo papel na AKS - como `aks-kube-deploy.yml`:
 
 ```yml
 - name: Apply role to AKS
@@ -167,9 +167,9 @@ Salve o guia estratégico a seguir-que implanta sua nova função no AKS como `a
       kubeconfig: "aks-{{ name }}-kubeconfig"
 ```
 
-## <a name="run-the-sample-playbook"></a>Executar o guia estratégico de exemplo
+## <a name="run-the-sample-playbook"></a>Executar o livro de jogadas da amostra
 
-Esta seção lista o manual de exemplo completo que chama as tarefas que criam neste artigo. 
+Esta secção lista o manual completo da amostra que chama as tarefas que criam neste artigo. 
 
 Guarde o manual de procedimentos seguinte como `aks-rbac.yml`:
 
@@ -198,14 +198,14 @@ Guarde o manual de procedimentos seguinte como `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-Na seção `vars`, substitua os seguintes espaços reservados pelas suas informações do Azure AD:
+Na secção `vars`, substitua os seguintes espaços reservados pela informação da AD Azure:
 
 - `<client id>`
 - `<server id>`
 - `<server secret>`
 - `<tenant id>`
 
-Execute o manual completo usando o comando `ansible-playbook`:
+Executar o manual completo usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook aks-rbac.yml
@@ -213,17 +213,17 @@ ansible-playbook aks-rbac.yml
 
 ## <a name="verify-the-results"></a>Verificar os resultados
 
-Nesta seção, você usará kubectl listar os nós que criam neste artigo.
+Nesta secção, você usa a lista kubectl os nós criados neste artigo.
 
-Digite o seguinte comando em um prompt de terminal:
+Introduza o seguinte comando num aviso terminal:
 
 ```bash
 kubectl --kubeconfig aks-aksansibletest-kubeconfig-user get nodes
 ```
 
-O comando irá direcioná-lo a uma página de autenticação. Entre com sua conta do Azure.
+O comando irá direcioná-lo para uma página de autenticação. Entre com sua conta do Azure.
 
-Uma vez autenticado, o kubectl lista os nós de maneira semelhante aos seguintes resultados:
+Uma vez autenticado, kubectl lista os nós de forma semelhante aos seguintes resultados:
 
 ```txt
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXXXX to authenticate.
@@ -237,7 +237,7 @@ aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 
 Quando não for mais necessário, exclua os recursos criados neste artigo. 
 
-Salve o código a seguir como `cleanup.yml`:
+Guarde o seguinte código `cleanup.yml`:
 
 ```yml
 ---

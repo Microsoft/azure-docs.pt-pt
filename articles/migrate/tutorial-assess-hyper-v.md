@@ -2,14 +2,14 @@
 title: Avaliar as VMs do Hyper-V para migração para o Azure com migrações para Azure | Microsoft Docs
 description: Descreve como avaliar VMs do Hyper-V locais para migração para o Azure usando as migrações para Azure.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 01/23/2020
 ms.custom: mvc
-ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029021"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845511"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar as VMs do Hyper-V com a avaliação do servidor de migrações para Azure
 
@@ -124,11 +124,11 @@ Verifique se o arquivo compactado é seguro, antes de implantá-lo.
 Importe o arquivo baixado e crie a VM.
 
 1. Depois de baixar o arquivo VHD compactado para o host Hyper-V no qual a VM do dispositivo será colocada, extraia o arquivo compactado.
-    - No local extraído, o arquivo é descompactado em uma pasta chamada **AzureMigrateAppliance_VersionNumber**.
-    - Essa pasta contém uma subpasta, também chamada de **AzureMigrateAppliance_VersionNumber**.
+    - No local extraído, o ficheiro desliga-se numa pasta chamada **AzureMigrateAppliance_VersionNumber**.
+    - Esta pasta contém uma subpasta, também chamada **AzureMigrateAppliance_VersionNumber**.
     - Essa subpasta contém três subpastas adicionais – **instantâneos**, **discos rígidos virtuais**e **máquinas virtuais**.
 
-2. Abra o Gestor de Hyper-V. Em **ações**, clique em **importar máquina virtual**.
+2. Open Hyper-V Manager. Em **ações**, clique em **importar máquina virtual**.
 
     ![Implantar VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
@@ -138,8 +138,8 @@ Importe o arquivo baixado e crie a VM.
 2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Clique depois em **Seguinte**.
 3. Em **escolher destino**, deixe a configuração padrão. Clique em **Seguinte**.
 4. Em **pastas de armazenamento**, deixe a configuração padrão. Clique em **Seguinte**.
-5. Em **escolher rede**, especifique o comutador virtual que será usado pela VM. A opção precisa de conectividade com a Internet para enviar dados para o Azure.
-6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
+5. Em **escolher rede**, especifique o comutador virtual que será usado pela VM. A opção precisa de conectividade com a Internet para enviar dados para o Azure. [Aprenda](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) a criar um interruptor virtual.
+6. Em **Resumo**, examine as configurações. Em seguida, clique em **Terminar**.
 7. No Gerenciador do Hyper-V > **máquinas virtuais**, inicie a VM.
 
 

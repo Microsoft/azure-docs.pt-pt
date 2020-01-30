@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268219"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887520"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Há três cenários que podem levar à máquina virtual no Azure ser afetada: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -43,14 +43,14 @@ As [zonas de disponibilidade](../articles/availability-zones/az-overview.md) exp
 
 Uma zona de disponibilidade em uma região do Azure é uma combinação de um **domínio de falha** e um **domínio de atualização**. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, suas VMs serão efetivamente distribuídas entre três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
-Com o Zonas de Disponibilidade, o Azure oferece um SLA de tempo de atividade de VM melhor do setor 99,99%. Ao arquitetar suas soluções para usar VMs replicadas em zonas, você pode proteger seus aplicativos e dados contra a perda de um datacenter. Se uma zona for comprometida, os aplicativos e dados replicados estarão instantaneamente disponíveis em outra zona.
+Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor tempo de uptime De SLA de 99,99% vM. Ao arquitetar suas soluções para usar VMs replicadas em zonas, você pode proteger seus aplicativos e dados contra a perda de um datacenter. Se uma zona for comprometida, os aplicativos e dados replicados estarão instantaneamente disponíveis em outra zona.
 
 ![Zonas de disponibilidade](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
 Saiba mais sobre como implantar uma VM do [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) ou [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) em uma zona de disponibilidade.
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância
-Os conjuntos de disponibilidade são outra configuração de datacenter para fornecer redundância e disponibilidade de VM. Essa configuração em um datacenter garante que, durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA de 99,95% do Azure. Para obter mais informações, veja [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+Os conjuntos de disponibilidade são outra configuração de datacenter para fornecer redundância e disponibilidade de VM. Esta configuração dentro de um datacenter garante que durante um evento de manutenção planeado ou não planeado, pelo menos uma máquina virtual está disponível e cumpre o Azure SLA de 99,95%. Para obter mais informações, veja [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
 > Evite deixar isolada uma máquina virtual de instância única num conjunto de disponibilidade. As VMs nesta configuração não se qualificam para uma garantia de SLA e enfrentam tempo de inatividade durante eventos de manutenção planejada do Azure, exceto quando uma única VM está usando o [SSDs Premium do Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Para VMs únicas usando SSDs Premium, o SLA do Azure se aplica.
@@ -60,13 +60,13 @@ A cada máquina virtual no seu conjunto de disponibilidade é atribuído um **do
 Os domínios de falha definem o grupo de máquinas virtuais que partilham a mesma origem de energia e o mesmo comutador de rede física. Por predefinição, as máquinas virtuais configuradas no seu conjunto de disponibilidade estão separadas através de até três domínios de falha para implementações do Resource Manager (dois domínios de falha para o Clássico). Embora a colocação de máquinas virtuais num conjunto de disponibilidade não proteja a sua aplicação de falhas específicas do sistema operativo ou da aplicação, limita o impacto de potenciais falhas de hardware físico, indisponibilidade de rede ou falhas de energia.
 
 <!--Image reference-->
-   ![desenho conceitual do domínio de atualização e da configuração de domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   ![desenho conceptual do domínio de atualização e configuração do domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilizar discos geridos para VMs num conjunto de disponibilidade
 Se, neste momento, utiliza VMs com discos não geridos, recomendamos vivamente que [converta as VMs no Conjunto de Disponibilidade de modo a utilizarem Discos Geridos](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
 Os [discos geridos](../articles/virtual-machines/windows/managed-disks-overview.md) proporcionam uma melhor fiabilidade para os Conjuntos de Disponibilidade ao garantir que os discos das VMs num Conjunto de Disponibilidade estão suficientemente isolados uns dos outros a fim de evitar pontos de falha únicos. Ele faz isso colocando automaticamente os discos em diferentes domínios de falha de armazenamento (clusters de armazenamento) e alinhando-os com o domínio de falha da VM. Se um domínio de falha de armazenamento falhar devido a uma falha de hardware ou de software, somente a instância de VM com discos no domínio de falha de armazenamento falhará.
-![FDs Managed disks](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
+![DF disquetes geridos](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
 > O número de domínios de falhas para os conjuntos de disponibilidade geridos varia consoante a região, dois ou três por região. Você pode ver o domínio de falha para cada região executando os scripts a seguir.
@@ -79,18 +79,19 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> Observação: em determinadas circunstâncias, pode acontecer que 2 VMs que fazem parte do mesmo Availabilityset compartilhem o mesmo FaultDomain. Isso pode ser confirmado entrando em seu Availabilityset e marcando a coluna "domínio de falha".
-> Esse comportamento pode ser observado quando a seguinte sequência ocorreu durante a implantação das VMs:
+> [!NOTE]
+> Em certas circunstâncias, 2 VMs no mesmo Conjunto de Disponibilidade podem partilhar o mesmo FaultDomain. Isto pode ser confirmado indo para o seu conjunto de disponibilidade e verificando a coluna **De domínio de falha.**
+> Isto pode ser causado rumado da seguinte sequência durante a implementação dos VMs:
 > - Implantar a 1ª VM
 > - Parar/desalocar a 1ª VM
 > - Implantar a 2ª VM nessas circunstâncias, o disco do sistema operacional da 2ª VM pode ser criado no mesmo domínio de falha que a primeira VM e, portanto, a 2ª VM também irá para o mesmo FaultDomain. 
-> Para evitar esse problema, é recomendável não parar/desalocar a VM entre suas implantações.
+> Para evitar este problema, recomenda-se não parar/desalojar os VMs entre implementações.
 
 Se você planeja usar VMs com discos não gerenciados, siga as práticas recomendadas abaixo para contas de armazenamento em que os VHDs (discos rígidos virtuais) das VMs são armazenados como [blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Manter todos os discos (SO e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Examine os [limites](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) do número de discos não gerenciados em uma conta de armazenamento do Azure** antes de adicionar mais VHDs a uma conta de armazenamento
-3. **Use uma conta de armazenamento separada para cada VM em um conjunto de disponibilidade.** Não partilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que as VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, se as práticas recomendadas acima forem seguidas ![discos não gerenciados FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
+3. **Use uma conta de armazenamento separada para cada VM em um conjunto de disponibilidade.** Não partilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que os VMs em diferentes Conjuntos de Disponibilidade partilhem contas de armazenamento se forem seguidas as melhores práticas ![DF de discos não geridos](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Usar eventos agendados para responder proativamente a eventos que afetam a VM
 
@@ -102,7 +103,7 @@ Se suas máquinas virtuais forem praticamente idênticas e atenderem à mesma fi
 Por exemplo, você pode colocar todas as máquinas virtuais no front-end de seu aplicativo executando IIS, Apache e Nginx em uma única zona de disponibilidade ou conjunto. Certifique-se de que apenas as máquinas virtuais de front-end sejam colocadas na mesma zona ou conjunto de disponibilidade. Da mesma forma, verifique se apenas as máquinas virtuais da camada de dados são colocadas em sua própria zona de disponibilidade ou conjunto, como suas máquinas virtuais SQL Server replicadas ou suas máquinas virtuais do MySQL.
 
 <!--Image reference-->
-   ![camadas de aplicativo](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ](./media/virtual-machines-common-manage-availability/application-tiers.png) de níveis de aplicação de aplicação ![
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combinar um balanceador de carga com zonas de disponibilidade ou conjuntos
 Combine o [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) com uma zona de disponibilidade ou defina para obter a maior resiliência do aplicativo. O Balanceador de Carga do Azure distribui tráfego entre várias máquinas virtuais. Para as nossas máquinas virtuais de camada Standard, o Balanceador de Carga do Azure está incluído. Nem todas as camadas de máquina virtual incluem o Balanceador de Carga do Azure. Para mais informações sobre o balanceamento de carga de máquinas virtuais, veja [Balanceamento de Carga de máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

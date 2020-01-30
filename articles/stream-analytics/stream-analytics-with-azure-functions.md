@@ -2,18 +2,17 @@
 title: Tutorial – executar Azure Functions em trabalhos do Azure Stream Analytics
 description: Neste tutorial, irá aprender a configurar Funções do Azure como um sink de saída para tarefas do Stream Analytics.
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/27/2020
+ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369325"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772881"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: executar Azure Functions de trabalhos de Azure Stream Analytics 
 
@@ -51,7 +50,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Criar uma função no Azure Functions que possa gravar dados no cache do Azure para Redis
 
-1. Veja a secção [Criar uma aplicação de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) na documentação das Funções. Esta secção explica-lhe como criar uma aplicação de funções e uma [função acionada por HTTP nas Funções do Azure](../azure-functions/functions-create-first-azure-function.md#create-function), através da linguagem de CSharp.  
+1. Veja a secção [Criar uma aplicação de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) na documentação das Funções. Esta secção explica-o como criar uma aplicação de função e uma [função desencadeada em HTTP nas Funções Azure,](../azure-functions/functions-create-first-azure-function.md#create-function)utilizando a linguagem CSharp.  
 
 2. Navegue para a função **run.csx**. Atualize-a com o seguinte código. Substitua **"\<sua cadeia de conexão do cache do Azure para Redis vai aqui\>"** com a cadeia de conexão principal do cache do Azure para Redis que você recuperou na seção anterior. 
 
@@ -149,7 +148,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
    |Opção de Importar| Pode utilizar a função da subscrição atual ou fornecer as definições manualmente se a função estiver localizada noutra subscrição. |
    |Aplicação de Funções| Nome da sua aplicação de Funções. |
    |Função| Nome da função na sua Aplicação de funções (nome da sua função run.csx).|
-   |Tamanho Máx. de Lote|Define o tamanho máximo para cada lote de saída que é enviado para sua função em bytes. Por padrão, esse valor é definido como 262.144 bytes (256 KB).|
+   |Tamanho Máx. de Lote|Define o tamanho máximo para cada lote de saída, que é enviado para a sua função em bytes. Por padrão, esse valor é definido como 262.144 bytes (256 KB).|
    |Contagem Máx. de Lotes|Especifica o número máximo de eventos em cada lote que é enviado para a função. O valor predefinido é 100. Esta propriedade é opcional.|
    |Chave|Permite-lhe utilizar uma função a partir de outra subscrição. Indique o valor da chave para aceder à sua função. Esta propriedade é opcional.|
 
@@ -168,7 +167,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Inicie o aplicativo telcodatagen. exe executando o comando a seguir na linha de comando. O comando usa o formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
+5. Inicie o aplicativo telcodatagen. exe executando o comando a seguir na linha de comando. O comando utiliza o formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
    ```cmd
    telcodatagen.exe 1000 0.2 2
@@ -187,13 +186,10 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
    Este comando deve imprimir o valor para a chave especificada:
 
    ![Captura de tela do cache do Azure para saída de Redis](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>Processamento de erros e tentativas
-Se ocorrer uma falha ao enviar eventos para as Funções do Azure, o Stream Analytics tentará novamente concluir a operação com êxito. No entanto, existem algumas falhas para as quais não são executadas tentativas, que são as seguintes:
 
- 1. HttpRequestExceptions
- 2. Entidade do Pedido Demasiado Grande (código de erro http 413)
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>Processamento de erros e tentativas
+
+Se ocorrer uma falha ao enviar eventos para funções Azure, o Stream Analytics repete a maioria das operações. Todas as exceções http são novamente experimentadas até ao sucesso, com exceção do erro http 413 (entidade demasiado grande). Uma entidade demasiado grande erro é tratada como um erro de dados que é sujeito à política de [retry ou drop](stream-analytics-output-error-policy.md).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -210,7 +206,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, irá criar uma tarefa do Stream Analytics simples que executa uma Função do Azure, para obter mais informações sobre tarefas do Stream Analytics, avance para o próximo tutorial:
+Neste tutorial, criou um simples trabalho de Stream Analytics, que gere uma Função Azure. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]
 > [Executar funções definidas pelo utilizador do JavaScript nas tarefas do Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

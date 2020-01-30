@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0680309b13bf4499f0d153f44e575c1762b54d79
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472577"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773163"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: usar o modelo exportado do portal do Azure
 
@@ -26,7 +26,7 @@ Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Man
 
 No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
 Esse modelo funciona bem para a implantação de contas de armazenamento, mas talvez você queira adicionar mais recursos a ela. Você pode exportar um modelo de um recurso existente para obter rapidamente o JSON para esse recurso.
 
@@ -36,7 +36,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 1. Selecione **criar um recurso**.
 1. Em **Pesquisar no Marketplace**, insira **plano do serviço de aplicativo**e selecione **plano do serviço de aplicativo**.  Não selecionar **plano do serviço de aplicativo (clássico)**
 1. Selecione **Criar**.
-1. introduza:
+1. Insira:
 
     - **Subscrição**: selecione a sua subscrição do Azure.
     - **Grupo de recursos**: selecione **criar novo** e especifique um nome. Forneça um nome de grupo de recursos diferente daquele que você está usando nesta série de tutoriais.
@@ -51,7 +51,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
 ## <a name="export-template"></a>Exportar modelo
 
-1. Selecione **ir para o recurso**.
+1. Selecione **Ir para o recurso**.
 
     ![Ir para recurso](./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
 
@@ -76,7 +76,7 @@ O exemplo a seguir realça as adições ao seu modelo. Ele contém o código exp
 
 Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json" range="1-77" highlight="28-31,50-69":::
 
 ## <a name="deploy-template"></a>Implementar o modelo
 

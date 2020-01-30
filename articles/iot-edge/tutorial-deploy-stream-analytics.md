@@ -7,18 +7,18 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bd1487d7922d8ea81c4b09773eed978e64cd9e8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 648eb6cdb1787e1cbdf82bd8e5c8499b0dbaf02c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457233"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772261"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: implantar Azure Stream Analytics como um módulo IoT Edge
 
 Muitas soluções de IoT usam o Analytics Services para obter informações sobre os dados conforme chegam na nuvem de dispositivos IoT. Com o Azure IoT Edge, pode utilizar a lógica do [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) e movê-la para o dispositivo propriamente dito. Ao processar os fluxos de telemetria na periferia, pode reduzir a quantidade de dados carregados, bem como o tempo que demora a reagir a informações acionáveis.
 
-O Azure IoT Edge e o Azure Stream Analytics estão integrados para que possa criar uma tarefa do Azure Stream Analytics no portal do Azure e, em seguida, implementá-la como um módulo do IoT Edge sem código adicional.  
+Azure IoT Edge e Azure Stream Analytics estão integrados para simplificar o seu desenvolvimento de carga de trabalho. Pode criar um trabalho de Azure Stream Analytics no portal Azure e depois implantá-lo como um módulo IoT Edge sem código adicional.  
 
 Azure Stream Analytics fornece uma sintaxe de consulta estruturada sofisticada para análise de dados, tanto na nuvem quanto em dispositivos IoT Edge. Para obter mais informações, consulte a [documentação do Azure Stream Analytics](../stream-analytics/stream-analytics-edge.md).
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 <center>
 
-Diagrama ![-arquitetura do tutorial, estágio e implantação do trabalho ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+Diagrama ![- Arquitetura tutorial: palco e implantação de trabalho da ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,7 +46,7 @@ Um dispositivo Azure IoT Edge:
 
 Recursos da cloud:
 
-* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Criar uma tarefa do Azure Stream Analytics
 
@@ -54,20 +54,20 @@ Nesta seção, você cria um trabalho de Azure Stream Analytics que executará a
 
 * Receber dados de seu dispositivo IoT Edge.
 * Consultar os dados de telemetria para obter valores fora de um intervalo definido.
-* Tome medidas no dispositivo IoT Edge com base nos resultados da consulta. 
+* Tome medidas no dispositivo IoT Edge com base nos resultados da consulta.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Create a storage account
 
-Quando cria um trabalho do Azure Stream Analytics para ser executado num dispositivo IoT Edge, o trabalho tem de ser armazenado de forma a poder ser chamado a partir do dispositivo. Pode utilizar uma conta de armazenamento do Azure já existente ou criar uma nova agora. 
+Quando cria um trabalho do Azure Stream Analytics para ser executado num dispositivo IoT Edge, o trabalho tem de ser armazenado de forma a poder ser chamado a partir do dispositivo. Pode utilizar uma conta de Armazenamento Azure existente, ou criar uma nova agora.
 
-1. Na portal do Azure, vá para **criar um recurso** > **armazenamento** > **conta de armazenamento**. 
+1. Na portal do Azure, vá para **criar um recurso** > **armazenamento** > **conta de armazenamento**.
 
 1. Indique os valores seguintes para criar a conta de armazenamento:
 
    | Campo | Valor |
    | ----- | ----- |
    | Subscrição | Escolha a mesma subscrição do hub IoT. |
-   | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os recursos de teste que criou durante os inícios rápidos e tutoriais do IoT Edge. Por exemplo, **IoTEdgeResources**. |
+   | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os seus recursos de teste para os quickstarts e tutoriais IoT Edge. Por exemplo, **IoTEdgeResources**. |
    | Nome | Introduza um nome exclusivo para a conta de armazenamento. |
    | Localização | Escolha uma localização perto de si. |
 
@@ -88,7 +88,7 @@ Quando cria um trabalho do Azure Stream Analytics para ser executado num disposi
    | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os recursos de teste que criou durante os inícios rápidos e tutoriais do IoT Edge. Por exemplo, **IoTEdgeResources**. |
    | Localização | Escolha uma localização perto de si. |
    | Ambiente de alojamento | Selecione **Edge**. |
- 
+
 1. Selecione **Criar**.
 
 ### <a name="configure-your-job"></a>Configurar o trabalho
@@ -105,7 +105,7 @@ Ao utilizar os três elementos, entrada, saída e consulta, esta secção cria u
 
 1. Escolha **Hub do Edge**, na lista pendente.
 
-1. No painel **Nova entrada**, introduza **temperatura** como alias de entrada. 
+1. No painel **Nova entrada**, introduza **temperatura** como alias de entrada.
 
 1. Mantenha os valores predefinidos nos outros campos e selecione **Guardar**.
 
@@ -152,7 +152,7 @@ Para preparar a implementação do trabalho do Stream Analytics num dispositivo 
 
 ## <a name="deploy-the-job"></a>Implementar a tarefa
 
-Está agora pronto para implementar a tarefa do Azure Stream Analytics no seu dispositivo IoT Edge. 
+Está agora pronto para implementar a tarefa do Azure Stream Analytics no seu dispositivo IoT Edge.
 
 Nesta secção, vai utilizar o assistente **Definir Módulos**, no portal do Azure, para criar um *manifesto de implementação*. Os manifestos de implementação são ficheiros JSON que descrevem todos os módulos que vão ser implementados num dispositivo, os registos de contentor que armazenam as imagens dos módulos, de que forma é que os módulos devem ser geridos e como é que podem comunicar entre si. O dispositivo IoT Edge obtém o respetivo manifesto de implementação no Hub IoT e, em seguida, utiliza as informações contidas no mesmo para implementar e configurar todos os módulos que lhe foram atribuídos.
 

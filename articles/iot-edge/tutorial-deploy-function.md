@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: implantar o Azure Functions como módulos-Azure IoT Edge'
-description: Neste tutorial, você desenvolverá uma função do Azure como um módulo IoT Edge e a implantará em um dispositivo de borda.
+title: 'Tutorial: Implementar funções azure como módulos - Borda Azure IoT'
+description: Neste tutorial, vai desenvolver do Azure funcionar como um módulo do IoT Edge, em seguida, implementá-la para um dispositivo de limite.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8edd6028e73690829129168d912b312247d8b880
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: e490f9a5b6801ed86ca7d594dfd6069a380d5fe5
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664119"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772294"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: implantar o Azure Functions como módulos IoT Edge
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
 
 Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial explica-lhe como criar e implementar uma função do Azure que filtra dados de sensores no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:
 
@@ -29,19 +29,19 @@ Pode utilizar as Funções do Azure para implementar código que aplica a sua l�
 
 <center>
 
-Diagrama de ![-arquitetura do tutorial, estágio e implantar o módulo de função](./media/tutorial-deploy-function/functions-architecture.png)
+Diagrama ![- Arquitetura tutorial: estágio e implantação do módulo de função](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
->Os módulos de Funções do Azure no Azure IoT Edge estão em [pré-visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+>Os módulos de Funções do Azure no Azure IoT Edge estão em [pré-visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A função do Azure que criou neste tutorial filtra os dados de temperatura que são gerados pelo seu dispositivo. A função envia apenas mensagens de origem para o Hub IoT do Azure quando a temperatura é superior a um limiar especificado. 
+A função do Azure que criou neste tutorial filtra os dados de temperatura que são gerados pelo seu dispositivo. A função envia apenas mensagens de origem para o Hub IoT do Azure quando a temperatura é superior a um limiar especificado.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para desenvolvimento de contêiner do Linux: [desenvolver módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
+Antes de começar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para desenvolvimento de contêiner do Linux: [desenvolver módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando o Azure IOT Edge](quickstart-linux.md)
@@ -49,18 +49,18 @@ Antes de começar este tutorial, você deve ter passado pelo tutorial anterior p
 * [Visual Studio Code](https://code.visualstudio.com/) configurado com as [ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
-Para desenvolver um módulo IoT Edge no com o Azure Functions, instale os seguintes pré-requisitos adicionais em seu computador de desenvolvimento: 
+Para desenvolver um módulo IoT Edge com funções Azure, instale os seguintes pré-requisitos adicionais na sua máquina de desenvolvimento:
 
 * [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [O SDK .NET Core 2.1](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função
 
-As ferramentas do Azure IoT para Visual Studio Code que você instalou nos pré-requisitos fornecem recursos de gerenciamento, bem como alguns modelos de código. Nesta secção, vai utilizar o Visual Studio Code para criar uma solução do IoT Edge que contém uma função do Azure. 
+As ferramentas Azure IoT para o Código de Estúdio Visual que instalou nos pré-requisitos fornecem capacidades de gestão, bem como alguns modelos de código. Nesta secção, vai utilizar o Visual Studio Code para criar uma solução do IoT Edge que contém uma função do Azure.
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto
 
-Crie um C# modelo de solução de função que você pode personalizar com seu próprio código.
+Crie C# um modelo de solução de função que possa personalizar com o seu próprio código.
 
 1. Abra o Visual Studio Code no computador de desenvolvimento.
 
@@ -71,10 +71,10 @@ Crie um C# modelo de solução de função que você pode personalizar com seu p
    | Campo | Valor |
    | ----- | ----- |
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
-   | Indicar um nome para a solução | Insira um nome descritivo para sua solução, como **FunctionSolution**, ou aceite o padrão. |
-   | Selecionar modelo de módulo | Escolha **Azure Functions- C#** . |
+   | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução, como **FunctionSolution**, ou aceite a predefinição. |
+   | Selecionar modelo de módulo | Escolher **as funções do Azure - C#** . |
    | Indicar um nome para o módulo | Atribua o nome **CSharpFunction** ao módulo. |
-   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. A cadeia de caracteres final é semelhante a \<nome do registro\>. azurecr.io/CSharpFunction. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. A cadeia final se parece com \<nome do registo\>.azurecr.io/CSharpFunction. |
 
    ![Fornecer repositório de imagens do Docker](./media/tutorial-deploy-function/repository.png)
 
@@ -88,19 +88,19 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 
 ### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-Atualmente, Visual Studio Code pode desenvolver módulos C para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
+Atualmente, Visual Studio Code pode desenvolver módulos C para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64.
 
-1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
+1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
 
-2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão. 
+2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
 Vamos adicionar um código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las ao Hub IoT.
 
-1. Em Visual Studio Code, abra **modules** > **CSharpFunction** > **CSharpFunction.cs**.
+1. No Código do Estúdio Visual, abram **módulos** > **CSharpFunction** > **CSharpFunction.cs**.
 
-1. Substitua o conteúdo do arquivo **CSharpFunction.cs** pelo código a seguir. Esse código recebe a telemetria sobre temperatura ambiente e máquina e apenas encaminha a mensagem para o Hub IoT se a temperatura da máquina estiver acima de um limite definido.
+1. Substitua os conteúdos do **CSharpFunction.cs** ficheiro com o código a seguir. Esse código recebe telemetria sobre o ambiente e temperatura da máquina e apenas encaminha a mensagem para o IoT Hub, se a temperatura de máquina for superior a um limiar definido.
 
    ```csharp
    using System;
@@ -145,7 +145,7 @@ Vamos adicionar um código adicional para que o módulo processe as mensagens na
                             {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                             // Add a new property to the message to indicate it is an alert.
                             filteredMessage.Properties.Add("MessageType", "Alert");
-                            // Send the message.       
+                            // Send the message.
                             await output.AddAsync(filteredMessage);
                             logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                        }
@@ -177,11 +177,11 @@ Vamos adicionar um código adicional para que o módulo processe as mensagens na
 
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
-Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **CSharpFunction** para filtrar mensagens onde a temperatura comunicada da máquina é inferior ao limiar aceitável. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
+Na secção anterior, criou uma solução IoT Edge e modificou o **CSharpFunction** para filtrar mensagens com temperaturas da máquina reportadas abaixo do limiar aceitável. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
 
-Nesta seção, você fornece as credenciais para o registro de contêiner pela segunda vez (o primeiro estava no arquivo **. env** da sua solução de IOT Edge), entrando localmente em seu computador de desenvolvimento para que Visual Studio Code possa enviar imagens por push ao registro.
+Nesta secção, fornece as credenciais para o seu registo de contentores pela segunda vez (a primeira estava no ficheiro **.env** da sua solução IoT Edge) assinando localmente a partir da sua máquina de desenvolvimento para que o Código do Estúdio Visual possa empurrar as imagens para o seu registo.
 
-1. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal**. 
+1. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal**.
 
 2. Introduza o comando seguinte no terminal integrado e inicie sessão no seu registo de contentor. Utilize o nome do utilizador e o servidor de início de sessão que copiou do registo de contentor do Azure anteriormente.
 
@@ -189,59 +189,59 @@ Nesta seção, você fornece as credenciais para o registro de contêiner pela s
     docker login -u <ACR username> <ACR login server>
     ```
 
-    Quando a senha for solicitada, Cole a senha (ela não estará visível na janela do terminal) para o registro de contêiner e pressione **Enter**.
+    Quando for solicitado a palavra-passe, cola a palavra-passe (não será visível na janela do terminal) para o registo do recipiente e prima **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
     Login Succeeded
     ```
 
-3. No explorador do VS Code, clique com o botão direito do rato no ficheiro deployment.template.json e selecione **Criar e Emitir solução do IoT Edge**. 
+3. No explorador do VS Code, clique com o botão direito do rato no ficheiro deployment.template.json e selecione **Criar e Emitir solução do IoT Edge**.
 
-Quando você informa Visual Studio Code para criar sua solução, ela primeiro pega as informações no modelo de implantação e gera um arquivo Deployment. JSON em uma nova pasta chamada **config**. Em seguida, ele executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos criam o código, colocam as funções em contentores e enviam-no para o registo de contentor que especificou quando inicializou a solução. 
+Quando diz ao Visual Studio Code para construir a sua solução, primeiro pega na informação no modelo de implementação e gera um ficheiro implementação.json numa nova pasta chamada **config**. Em seguida, executa dois comandos no terminal integrado: `docker build` e `docker push`. O comando de construção constrói o seu código e contentoriza as funções. Em seguida, o comando push empurra o código para o registo do recipiente que especificou quando inicializou a solução.
 
 ## <a name="view-your-container-image"></a>Ver a imagem de contentor
 
-O Visual Studio Code apresenta uma mensagem de êxito quando a imagem de contentor é enviada para o seu registo de contentor. Se quiser confirmar a operação bem-sucedida, pode ver a imagem no registo. 
+O Visual Studio Code apresenta uma mensagem de êxito quando a imagem de contentor é enviada para o seu registo de contentor. Se quiser confirmar a operação bem-sucedida, pode ver a imagem no registo.
 
-1. No portal do Azure, procure o registo de contentor do Azure. 
+1. No portal do Azure, procure o registo de contentor do Azure.
 2. Selecione **Repositórios**.
 3. Deverá ver o repositório **csharpfunction** na lista. Selecione este repositório para ver mais detalhes.
-4. Na secção **Etiquetas**, deverá ver a etiqueta **0.0.1-amd64**. Esta etiqueta indica a versão e a plataforma da imagem criada. Estes valores estão definidos no ficheiro module.json na pasta CSharpFunction. 
+4. Na secção **Etiquetas**, deverá ver a etiqueta **0.0.1-amd64**. Esta etiqueta indica a versão e a plataforma da imagem criada. Estes valores estão definidos no ficheiro module.json na pasta CSharpFunction.
 
 ## <a name="deploy-and-run-the-solution"></a>Implementar e executar a solução
 
-Pode utilizar o portal do Azure para implementar o seu módulo de função num dispositivo IoT Edge, como fez nos inícios rápidos. Também pode implementar e monitorizar os módulos a partir do Visual Studio Code. As seções a seguir usam as ferramentas de IoT do Azure para VS Code que foram listadas nos pré-requisitos. Instale a extensão agora, se ainda não o tiver feito. 
+Pode utilizar o portal do Azure para implementar o seu módulo de função num dispositivo IoT Edge, como fez nos inícios rápidos. Também pode implementar e monitorizar os módulos a partir do Visual Studio Code. As seguintes secções utilizam as ferramentas Azure IoT para o Código VS que constam dos pré-requisitos. Instale a extensão agora, se ainda não o tiver feito.
 
-1. No explorador do VS Code, expanda a secção **Dispositivos do Hub IoT do Azure**. 
+1. No explorador do VS Code, expanda a secção **Dispositivos do Hub IoT do Azure**.
 
-2. Carregue com o botão direito do rato no nome do seu dispositivo do IoT Edge e, em seguida, selecione **Criar Implementação para o dispositivo único**. 
+2. Carregue com o botão direito do rato no nome do seu dispositivo do IoT Edge e, em seguida, selecione **Criar Implementação para o dispositivo único**.
 
-3. Procure a pasta de solução que contém a **CSharpFunction**. Abra a pasta config, selecione o arquivo **Deployment. JSON** e escolha Selecionar o **manifesto de implantação do Edge**.
+3. Procure a pasta de solução que contém a **CSharpFunction**. Abra a pasta de configuração, selecione o **deployment.json** do ficheiro e, em seguida, escolha **selecione o manifesto de implantação do Edge**.
 
-4. Atualize a secção **Dispositivos do Hub IoT do Azure**. Você deve ver o novo **CSharpFunction** em execução junto com o módulo **SimulatedTemperatureSensor** e o **$edgeAgent** e **$edgeHub**. Pode levar alguns minutos para que os novos módulos sejam exibidos. Seu dispositivo de IoT Edge precisa recuperar suas novas informações de implantação do Hub IoT, iniciar os novos contêineres e reportar o status de volta para o Hub IoT. 
+4. Atualize a secção **Dispositivos do Hub IoT do Azure**. Deve ver o novo **CSharpFunction** a funcionar juntamente com o módulo **SimuladoSensor de Temperatura** e o **$edgeAgent** e **$edgeHub**. Pode demorar alguns momentos para que os novos módulos sejam apresentados. Dispositivo IoT Edge tem-se para obter novas informações de implementação do IoT Hub, iniciar novos contentores e, em seguida, voltar a comunicar o estado para o IoT Hub.
 
    ![Ver os módulos implementados no VS Code](./media/tutorial-deploy-function/view-modules.png)
 
-## <a name="view-generated-data"></a>Ver os dados gerados
+## <a name="view-the-generated-data"></a>Ver os dados gerados
 
-Você pode ver todas as mensagens que chegam ao seu hub IoT executando o **Hub IOT do Azure: Iniciar Monitoramento de ponto de extremidade de evento interno** na paleta de comandos.
+Pode ver todas as mensagens que chegam ao seu hub IoT executando **o Hub Azure IoT: Comece a monitorizar** o ponto final de evento incorporado na paleta de comando.
 
-Também pode filtrar para ver todas as mensagens que chegam ao seu hub IoT a partir de um dispositivo específico. Clique com o botão direito do mouse no dispositivo na seção **dispositivos do Hub IOT do Azure** e selecione **Iniciar Monitoramento do ponto de extremidade do evento interno**.
+Também pode filtrar para ver todas as mensagens que chegam ao seu hub IoT a partir de um dispositivo específico. Clique no dispositivo na secção **dispositivos Hub Azure IoT** e selecione **Start Monitoring Built-in Event Endpoint**.
 
-Para interromper o monitoramento de mensagens, execute o comando **Hub IOT do Azure: Pare de monitorar o ponto de extremidade do evento interno** na paleta de comandos. 
+Para parar de monitorizar as mensagens, execute o comando **Azure IoT Hub: Pare** de monitorizar o ponto final de evento incorporado na paleta de comando.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
+Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 
-Caso contrário, pode eliminar as configurações locais e os recursos do Azure que criou neste artigo para evitar custos. 
+Caso contrário, pode eliminar as configurações locais e os recursos do Azure que criou neste artigo para evitar custos.
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um módulo da função do Azure com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver com Azure IOT Edge para Visual Studio Code](how-to-vs-code-develop-module.md). 
+Neste tutorial, criou um módulo da função do Azure com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre como [desenvolver com o Azure IoT Edge para código de estúdio visual.](how-to-vs-code-develop-module.md)
 
 Continue para os próximos tutoriais para saber mais sobre outras formas em que o Azure IoT Edge o pode ajudar a transformar os dados em informações empresariais na periferia.
 

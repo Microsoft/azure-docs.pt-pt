@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99eb1581c03732691af5eaf9f482ca4ba0605863
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472584"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765424"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: usar modelos de início rápido do Azure
 
@@ -26,7 +26,7 @@ Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Man
 
 No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json":::
 
 Esse modelo funciona para implantar contas de armazenamento e planos do serviço de aplicativo, mas talvez você queira adicionar um site a ele. Você pode usar modelos predefinidos para descobrir rapidamente o JSON necessário para implantar um recurso.
 
@@ -45,9 +45,9 @@ Esse modelo funciona para implantar contas de armazenamento e planos do serviço
 
 Mescle o modelo de início rápido com o modelo existente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-O nome do aplicativo Web precisa ser exclusivo no Azure. Para evitar a existência de nomes duplicados, a variável **webAppPortalName** foi atualizada de **"webAppPortalName": "[Concat (Parameters (' webappname '), '-webapp ')]"** para **"webAppPortalName": "[Concat (Parameters (' webapp '), uniquestring (resourcegroup (). ID))]"** .
+O nome do aplicativo Web precisa ser exclusivo no Azure. Para evitar que os nomes duplicados, a variável **webAppPortalName** foi atualizada a partir de **"webAppPortalName": "[concat('parâmetros('webAppName'), 'webapp')"** para **"webAppPortalName": "[concat('webAppName'), uniqueString (recursoGroup().id)]"**
 
 Adicione uma vírgula ao final da definição de `Microsoft.Web/serverfarms` para separar a definição de recurso da definição de `Microsoft.Web/sites`.
 

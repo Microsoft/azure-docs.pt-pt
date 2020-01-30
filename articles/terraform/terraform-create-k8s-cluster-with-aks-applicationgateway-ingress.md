@@ -3,12 +3,12 @@ title: Tutorial-criar um controlador de entrada do gateway de aplicativo no serv
 description: Tutorial ilustrando como criar um cluster kubernetes com o serviço kubernetes do Azure com o gateway de aplicativo como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867407"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772863"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: criar um controlador de entrada do gateway de aplicativo no serviço kubernetes do Azure
 
@@ -51,7 +51,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
     cd clouddrive
     ```
 
-1. Crie um diretório denominado `terraform-aks-k8s`.
+1. Crie um diretório denominado `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -471,11 +471,11 @@ Crie um arquivo de configuração Terraform que cria todos os recursos.
 
 1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
-O código apresentado nesta seção define o nome do cluster, o local e o resource_group_name. O valor `dns_prefix`-que faz parte do FQDN (nome de domínio totalmente qualificado) usado para acessar o cluster – está definido.
+O código apresentado nesta secção define o nome do cluster, localização e resource_group_name. O valor `dns_prefix` - que faz parte do nome de domínio totalmente qualificado (FQDN) utilizado para aceder ao cluster - é definido.
 
-O registro de `linux_profile` permite que você defina as configurações que permitem a entrada nos nós de trabalho usando o SSH.
+O registo `linux_profile` permite configurar as definições que permitem a sessão nos nódosos do trabalhador utilizando o SSH.
 
-No AKS, paga apenas os nós de trabalho. O registro de `agent_pool_profile` configura os detalhes para esses nós de trabalho. O `agent_pool_profile record` inclui o número de nós de trabalho a serem criados e o tipo de nós de trabalho. Se você precisar escalar ou reduzir verticalmente o cluster no futuro, modifique o valor `count` nesse registro.
+No AKS, paga apenas os nós de trabalho. O registo `agent_pool_profile` configura os detalhes destes nódosos operários. O `agent_pool_profile record` inclui o número de nós dos trabalhadores para criar e o tipo de nós dos trabalhadores. Se você precisar escalar ou reduzir verticalmente o cluster no futuro, modifique o valor `count` nesse registro.
 
 ## <a name="create-a-terraform-output-file"></a>Criar um ficheiro de saída do Terraform
 
@@ -731,8 +731,8 @@ O código nesta seção usa o Gerenciador de pacotes [Helm](/azure/aks/kubernete
     - `armAuth.secretJSON`: necessário somente quando o tipo de segredo da entidade de serviço é escolhido (quando `armAuth.type` foi definido como `servicePrincipal`).
 
     Observações-chave:
-    - O valor de `identityResourceID` é criado no script Terraform e pode ser encontrado executando: `echo "$(terraform output identity_client_id)"`.
-    - O valor de `identityClientID` é criado no script Terraform e pode ser encontrado executando: `echo "$(terraform output identity_resource_id)"`.
+    - O valor `identityResourceID` é criado no roteiro terraforme e pode ser encontrado executando: `echo "$(terraform output identity_resource_id)"`.
+    - O valor `identityClientID` é criado no roteiro terraforme e pode ser encontrado executando: `echo "$(terraform output identity_client_id)"`.
     - O valor de `<resource-group>` é o grupo de recursos do seu gateway de aplicativo.
     - O valor de `<identity-name>` é o nome da identidade criada.
     - Todas as identidades de uma determinada assinatura podem ser listadas usando: `az identity list`.

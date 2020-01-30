@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b32b0377502697e32e56e5c8324ca287c9a3cf69
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473053"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773215"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: adicionar funções de modelo ao seu modelo do Resource Manager
 
@@ -26,13 +26,13 @@ Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Man
 
 No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
 O local da conta de armazenamento é embutido no código para **leste dos EUA**. No entanto, talvez seja necessário implantar a conta de armazenamento em outras regiões. Você está voltado para um problema de seu modelo sem flexibilidade. Você pode adicionar um parâmetro para local, mas seria ótimo se seu valor padrão fazia mais sentido do que apenas um valor embutido em código.
 
 ## <a name="use-function"></a>Usar função
 
-Se você tiver concluído o tutorial anterior nesta série, já usou uma função. Quando você adicionou **"[Parameters (' storagename ')]"** , usou a função [Parameters](template-functions-deployment.md#parameters) . Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Gerenciador de recursos resolve a sintaxe em vez de tratá-la como um valor literal.
+Se você tiver concluído o tutorial anterior nesta série, já usou uma função. Quando adicionou **"[parâmetros('storageName']",** utilizou a função [de parâmetros.](template-functions-deployment.md#parameters) Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Gerenciador de recursos resolve a sintaxe em vez de tratá-la como um valor literal.
 
 As funções adicionam flexibilidade ao modelo ao obter valores dinamicamente durante a implantação. Neste tutorial, você usa uma função para obter o local do grupo de recursos que você está usando para implantação.
 
@@ -40,7 +40,7 @@ O exemplo a seguir realça as alterações para adicionar um parâmetro chamado 
 
 Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json" range="1-44" highlight="24-27,34":::
 
 ## <a name="deploy-template"></a>Implementar o modelo
 

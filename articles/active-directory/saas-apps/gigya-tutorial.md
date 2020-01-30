@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Gigya | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Gigya.
+title: 'Tutorial: Integração do Diretório Ativo Azure com gigya Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Gigya.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,156 +15,156 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 824e9c459df75ea0307fe314fbf4118cca6e69d3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159192"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841783"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: integração do Azure Active Directory com o Gigya
+# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integração do Diretório Ativo Azure com gigya
 
-Neste tutorial, você aprenderá a integrar o Gigya com o Azure Active Directory (Azure AD).
-A integração do Gigya ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar a Gigya com o Azure Ative Directory (Azure AD).
+Integrar a Gigya com a Azure AD proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Gigya.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao Gigya (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Podes controlar em Azure AD quem tem acesso à Gigya.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Gigya (Single Sign-On) com as suas contas Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
 Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Gigya, você precisará dos seguintes itens:
+Para configurar a integração da AD Azure com a Gigya, precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Gigya
+* Gigya única subscrição ativada por sinal
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O Gigya dá suporte ao SSO iniciado por **SP**
+* Gigya apoia **SP** iniciado SSO
 
-## <a name="adding-gigya-from-the-gallery"></a>Adicionando o Gigya da Galeria
+## <a name="adding-gigya-from-the-gallery"></a>Adicionando Gigya da galeria
 
-Para configurar a integração do Gigya ao Azure AD, você precisará adicionar o Gigya da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração da Gigya em Azure AD, você precisa adicionar Gigya da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar o Gigya da galeria, execute as seguintes etapas:**
+**Para adicionar Gigya da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
 2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Gigya**, selecione **Gigya** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Gigya**, **selecione Gigya** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![Gigya na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Gigya, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Gigya.
+Nesta secção, configura e testa o single sign-on azure com gigya com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Gigya.
 
-Para configurar e testar o logon único do Azure AD com o Gigya, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sign-on azure ad com gigya, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Gigya](#configure-gigya-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do Gigya](#create-gigya-test-user)** – para ter um equivalente de Brenda Simon no Gigya que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configure Gigya Single Sign-On](#configure-gigya-single-sign-on)** - para configurar as definições de início de sessão individuais no lado da aplicação.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Crie um utilizador de teste Gigya](#create-gigya-test-user)** - para ter uma contrapartida de Britta Simon em Gigya que esteja ligada à representação do utilizador da AD Azure.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
 Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-Para configurar o logon único do Azure AD com o Gigya, execute as seguintes etapas:
+Para configurar o single sign-on azure com gigya, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Gigya** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **gigya,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
 2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
     ![Editar configuração básica de SAML](common/edit-urls.png)
 
 4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    ![Informações de logon único de domínio e URLs do Gigya](common/sp-identifier.png)
+    ![Gigya Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `http://<companyname>.gigya.com`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão: `http://<companyname>.gigya.com`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://fidm.gigya.com/saml/v2.0/<companyname>`
+    b. Na caixa de texto **identificador (Id** da entidade), escreva um URL utilizando o seguinte padrão: `https://fidm.gigya.com/saml/v2.0/<companyname>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Gigya](https://www.gigya.com/support-policy/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contacte a equipa de apoio ao [cliente gigya](https://developers.gigya.com/display/GD/Opening+A+Support+Incident) para obter estes valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de download de certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar Gigya** , copie as URLs apropriadas de acordo com seu requisito.
+6. Na secção **set up Gigya,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+    a. URL de início de sessão
 
     b. Identificador do Azure AD
 
-    c. URL de logout
+    c. URL de fim de sessão
 
-### <a name="configure-gigya-single-sign-on"></a>Configurar o logon único do Gigya
+### <a name="configure-gigya-single-sign-on"></a>Configure Gigya Single Sign-On
 
-1. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa do Gigya como administrador.
+1. Numa janela diferente do navegador web, inicie sessão no site da sua empresa Gigya como administrador.
 
-2. Acesse **configurações \> logon do SAML**e, em seguida, clique no botão **Adicionar** .
+2. Aceda às **Definições \> SAML Login**e, em seguida, clique no botão **Adicionar.**
    
-    ![Logon do SAML](./media/gigya-tutorial/ic789532.png "Logon do SAML")
+    ![SAML Login](./media/gigya-tutorial/ic789532.png "SAML Login")
 
-3. Na seção de **logon SAML** , execute as seguintes etapas:
+3. Na secção **SAML Login,** execute os seguintes passos:
    
-    ![Configuração do SAML](./media/gigya-tutorial/ic789533.png "Configuração do SAML")
+    ![Configuração SAML](./media/gigya-tutorial/ic789533.png "Configuração do SAML")
    
-    a. Na caixa de texto **nome** , digite um nome para a sua configuração.
+    a. Na caixa de texto **Name,** digite um nome para a sua configuração.
    
-    b. Na caixa de texto **emissor** , Cole o valor do **identificador do Azure ad** copiado do portal do Azure. 
+    b. Na caixa de texto **Emitente,** cola o valor do **Identificador De Ad Azure** que copiou do Portal Azure. 
    
-    c. Na caixa de texto **URL do serviço de logon único** , Cole o valor da **URL de logon** que você copiou do portal do Azure.
+    c. Na caixa de texto URL do serviço de **início de sessão simples,** colá-cola o valor do URL de **Login** que copiou do Portal Azure.
    
-    d. Na caixa de texto **formato da ID de nome** , Cole o valor do formato do identificador de **nome** copiado do portal do Azure.
+    d. No **nome ID Format** textbox, colhe o valor do **formato identificador** de nome que copiou do Portal Azure.
    
-    e. Abra seu certificado codificado em base 64 no bloco de notas baixado de portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **certificado X. 509** .
+    e. Abra o seu certificado codificado base-64 no bloco de notas descarregado do portal Azure, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **x.509 Certificate.**
    
     f. Clique em **salvar configurações**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
     ![Botão novo usuário](common/new-user.png)
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
     a. No campo **nome** , insira **brendafernandes**.
   
@@ -175,65 +175,65 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Gigya.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Gigya.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Gigya**.
+1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Gigya**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Gigya**.
+2. Na lista de aplicações, selecione **Gigya**.
 
-    ![O link do Gigya na lista de aplicativos](common/all-applications.png)
+    ![O link Gigya na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
 6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
 7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-gigya-test-user"></a>Criar usuário de teste do Gigya
+### <a name="create-gigya-test-user"></a>Criar o utilizador de teste Gigya
 
-Para permitir que os usuários do AD do Azure façam logon no Gigya, eles devem ser provisionados no Gigya. No caso do Gigya, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores da AD Azure entrem na Gigya, devem ser aprovisionados na Gigya. No caso da Gigya, o provisionamento é uma tarefa manual.
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
 
-1. Faça logon em seu site de empresa do **Gigya** como administrador.
+1. Inicie sessão no site da sua empresa **Gigya** como administrador.
 
-2. Vá para **administrador \> gerenciar usuários**e clique em **convidar usuários**.
+2. Vá ao **Administrador \> Gerir utilizadores,** e, em seguida, clique **em Convidar utilizadores**.
    
-    ![Gerenciar usuários](./media/gigya-tutorial/ic789535.png "Gerenciar usuários")
+    ![Gerir utilizadores](./media/gigya-tutorial/ic789535.png "Gerir utilizadores")
 
-3. Na caixa de diálogo convidar usuários, execute as seguintes etapas:
+3. No diálogo Utilizadores Convidados, execute os seguintes passos:
    
     ![Convidar usuários](./media/gigya-tutorial/ic789536.png "Convidar usuários")
    
-    a. Na caixa de texto **email** , digite o alias de email de uma conta de Azure Active Directory válida que você deseja provisionar.
+    a. Na caixa de texto **por e-mail,** digite o pseudónimo de e-mail de uma conta de Diretório Ativo Azure válida que pretende fornecer.
     
-    b. Clique em **convidar usuário**.
+    b. Clique em **Convidar utilizador**.
       
     > [!NOTE]
-    > O titular da conta Azure Active Directory receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa.
+    > O titular da conta Azure Ative Directory receberá um e-mail que inclui um link para confirmar a conta antes de se tornar ativa.
     > 
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar no bloco do Gigya no painel de acesso, você deverá ser conectado automaticamente ao Gigya para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Gigya no Painel de Acesso, deve ser automaticamente inscrito no Gigya para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
