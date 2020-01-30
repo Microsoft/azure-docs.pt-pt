@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 03518a1d7156d57424b28980d05bb03bfef56503
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.openlocfilehash: e566fdb18bdabe80447de9b2882cf7d57209d15e
+  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945594"
+  ms.lasthandoff: 01/29/2020
+  ms.locfileid: "76844114"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
     - text: Ciclo de vida de desenvolvimento
       url: concepts/development-lifecycle-knowledge-base.md
     - text: Origens de dados
-      url: concepts/data-sources-supported.md
+      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: Criar um bot em minutos

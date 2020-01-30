@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: ae5e3481d51a27b05afdb334e6e04c785a68c01a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447682"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843044"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Início rápido: Adicionar perguntas e respostas com o QnA Maker Portal
 
@@ -76,7 +76,7 @@ Neste procedimento, adicione outras perguntas.
 
     `What GB size can a knowledge base be?`
 
-    A resposta correta é retornada no formato de redução: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    A resposta correta é devolvida em formato de marcação: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
     Se você selecionar **inspecionar** na resposta retornada, poderá ver que mais respostas atenderam à pergunta, mas não com o mesmo alto nível de confiança.
 
@@ -86,7 +86,7 @@ Neste procedimento, adicione outras perguntas.
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Adicionar metadados para filtrar as respostas
 
-A adição de metadados a um conjunto de perguntas e respostas permite que o aplicativo cliente solicite respostas filtradas. Esse filtro é aplicado antes que o [primeiro e o segundo classificadores](../concepts/knowledge-base.md#ranker-process) sejam aplicados.
+A adição de metadados a um conjunto de perguntas e respostas permite que o aplicativo cliente solicite respostas filtradas. Esse filtro é aplicado antes que o [primeiro e o segundo classificadores](../concepts/query-knowledge-base.md#ranker-process) sejam aplicados.
 
 1. Adicione a segunda pergunta e conjunto de respostas, sem os metadados, da [primeira tabela neste guia de início rápido](#qna-table)e continue com as etapas a seguir.
 
@@ -94,12 +94,12 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
 
 1. Para o conjunto de perguntas e respostas que você acabou de adicionar, selecione **Adicionar marcas de metadados**e, em seguida, adicione o nome de `service` e o valor de `search``service:search`.
 
-1. Adicione outras marcas de metadados com o nome de `link_in_answer` e o valor de `false``link_in_answer:false`.
+1. Adicione mais uma etiqueta de metadados com o nome de `link_in_answer` e valor de `false`, `link_in_answer:false`.
 
 1. Procure a primeira resposta na tabela `How large a knowledge base can I create?`.
 1. Adicione pares de metadados para as mesmas duas marcas de metadados:
 
-    `link_in_answer`: `true`<br>
+    `link_in_answer` : `true`<br>
     `server`: `qna_maker`
 
     Agora você tem duas perguntas com as mesmas marcas de metadados com valores diferentes.
@@ -121,7 +121,7 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
     curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Observe que a pergunta é apenas uma única palavra, `size`, que pode retornar o conjunto de perguntas e respostas. A matriz de `strictFilters` informa a resposta para reduzir apenas as respostas `qna_maker`.
+    Observe que a pergunta é apenas uma única palavra, `size`, que pode retornar o conjunto de perguntas e respostas. O conjunto de `strictFilters` diz a resposta para reduzir apenas para as respostas `qna_maker`.
 
     [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
 

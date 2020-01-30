@@ -40,8 +40,6 @@
           href: role-definitions.md
         - name: Listar definições de função
           href: role-definitions-list.md
-        - name: Funções incorporadas
-          href: built-in-roles.md
     - name: Listar atribuições de função
       items:
         - name: Portal
@@ -96,6 +94,8 @@
       href: troubleshooting.md
 - name: Referência
   items:
+    - name: Funções incorporadas
+      href: built-in-roles.md
     - name: Operações do fornecedor de recursos
       href: resource-provider-operations.md
     - name: Limites do RBAC

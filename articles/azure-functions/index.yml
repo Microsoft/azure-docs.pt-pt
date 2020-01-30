@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: da29ab1936d0979de125087f9ef737cfe8d87a43
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 6cfbb7acddaf59a9b8dfd85397953f0be3b169db
+  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75433041"
+  ms.lasthandoff: 01/29/2020
+  ms.locfileid: "76846433"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:
@@ -45,11 +45,11 @@ landingContent:
     - text: Criar a sua primeira função (Java)
       url: functions-create-first-java-maven.md
     - text: Criar a sua primeira função (JavaScript)
-      url: functions-create-first-function-vs-code.md
+      url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
     - text: Criar a sua primeira função (PowerShell)
-      url: functions-create-first-function-powershell.md
+      url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
     - text: Criar a sua primeira função (Python)
-      url: functions-create-first-function-python.md
+      url: functions-create-first-function-vs-code.md?pivots=programming-language-python
   - linkListType: learn
     links:
     - text: Criar lógica sem servidor
