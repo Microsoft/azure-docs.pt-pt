@@ -1,48 +1,45 @@
 ---
-title: Analisar segurança de rede-exibição do grupo de segurança-API REST do Azure
+title: Analisar a segurança da rede - Security Group View - Azure REST API
 titleSuffix: Azure Network Watcher
-description: Este artigo descreverá como usar o PowerShell para analisar uma segurança de máquinas virtuais com o modo de exibição de grupo de segurança.
+description: Este artigo descreverá como usar o PowerShell para analisar uma segurança de máquinas virtuais com a Security Group View.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: f11e288c28274e08fdabe7fee02a099410611872
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: c9c76e9c06d4c45a096cff79dac82bb80ebe25d1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277899"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840745"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analisar sua segurança de máquina virtual com o modo de exibição de grupo de segurança usando a API REST
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analise a sua segurança da Máquina Virtual com vista de grupo de segurança usando a API REST
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [CLI do Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
-A exibição de grupo de segurança retorna regras de segurança de rede configuradas e efetivas que são aplicadas a uma máquina virtual. Esse recurso é útil para auditar e diagnosticar grupos de segurança de rede e regras configurados em uma VM para garantir que o tráfego seja corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança efetivas e aplicadas a uma máquina virtual usando a API REST
+A visão do grupo de segurança devolução de devoluções configuradas e eficazes de segurança da rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar Grupos de Segurança da Rede e regras que estão configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos-lhe como recuperar as regras de segurança eficazes e aplicadas a uma máquina virtual usando a API REST
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nesse cenário, você chama a API REST do observador de rede para obter a exibição do grupo de segurança para uma máquina virtual. ARMclient é usado para chamar a API REST usando o PowerShell. ARMClient é encontrado no Chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+Neste cenário, você liga para a API de descanso de vigilante de rede para obter a visão do grupo de segurança para uma máquina virtual. ARMclient é usado para chamar a API REST usando o PowerShell. ARMClient é encontrado no Chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede. O cenário também pressupõe que um grupo de recursos com uma máquina virtual válida exista para ser usado.
+Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede. O cenário também pressupõe que existe um Grupo de Recursos com uma máquina virtual válida para ser utilizado.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo recupera as regras de segurança efetivas e aplicadas para uma determinada máquina virtual.
+O cenário abordado neste artigo recupera as regras de segurança eficazes e aplicadas para uma determinada máquina virtual.
 
 ## <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
 
@@ -52,10 +49,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Recuperar uma máquina virtual
 
-Execute o script a seguir para retornar um máquina virtual. o código a seguir precisa de variáveis:
+Executar o seguinte script para devolver uma máquina virtual O seguinte código precisa de variáveis:
 
-- **SubscriptionId** -a ID da assinatura também pode ser recuperada com o cmdlet **Get-AzSubscription** .
-- **resourceGroupName** -o nome de um grupo de recursos que contém máquinas virtuais.
+- **subscriçãoId** - O id de subscrição também pode ser recuperado com o cmdlet **Get-AzSubscription.**
+- **recursosGroupName** - O nome de um grupo de recursos que contém máquinas virtuais.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -64,7 +61,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-As informações necessárias são a **ID** sob o tipo `Microsoft.Compute/virtualMachines` em resposta, conforme mostrado no exemplo a seguir:
+A informação necessária é o **id** sob o tipo `Microsoft.Compute/virtualMachines` em resposta, como se pode ver no seguinte exemplo:
 
 ```json
 ...,
@@ -94,9 +91,9 @@ pute/virtualMachines/{vmName}/extensions/CustomScriptExtension"
 }
 ```
 
-## <a name="get-security-group-view-for-virtual-machine"></a>Obter exibição de grupo de segurança para a máquina virtual
+## <a name="get-security-group-view-for-virtual-machine"></a>Obtenha vista de grupo de segurança para máquina virtual
 
-O exemplo a seguir solicita a exibição do grupo de segurança de uma máquina virtual de destino. Os resultados deste exemplo podem ser usados para comparar as regras e a segurança definidas pela origem para procurar descompasso de configuração.
+O exemplo que se segue solicita a visão do grupo de segurança de uma máquina virtual direcionada. Os resultados deste exemplo podem ser usados para comparar com as regras e segurança definidas pela origem para procurar a deriva de configuração.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -113,9 +110,9 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="view-the-response"></a>Exibir a resposta
+## <a name="view-the-response"></a>Ver a resposta
 
-O exemplo a seguir é a resposta retornada do comando anterior. Os resultados mostram todas as regras de segurança efetivas e aplicadas na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**e **EffectiveSecurityRules**.
+A amostra seguinte é a resposta devolvida do comando anterior. Os resultados mostram todas as regras de segurança eficazes e aplicadas na máquina virtual desagregadas em grupos de **NetworkInterfaceSecurityRules,** **DefaultSecurityRules**e **EffectiveSecurityRules**.
 
 ```json
 
@@ -185,6 +182,6 @@ O exemplo a seguir é a resposta retornada do comando anterior. Os resultados mo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite [auditoria de grupos de segurança de rede (NSG) com o observador de rede](network-watcher-security-group-view-powershell.md) para saber como automatizar a validação de grupos de segurança de rede.
+Visite os Grupos de Segurança da [Rede auditada (NSG) com](network-watcher-security-group-view-powershell.md) o Observador da Rede para saber automatizar a validação de Grupos de Segurança da Rede.
 
 

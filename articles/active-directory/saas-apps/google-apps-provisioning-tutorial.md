@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d754964ac6c16c87e6f0825b4f1a955d38fa3530
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756233"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841255"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuário
 
@@ -209,6 +209,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="common-issues"></a>Problemas comuns
 * As falhas de autorização podem ocorrer quando a conta usada para estabelecer uma conexão não é para um administrador no GSuite. Verifique se a conta usada para autorizar o acesso tem permissões de administrador em **todos os domínios** aos quais os usuários precisam ser provisionados. 
+* A Azure AD suporta utilizadores incapacitantes na GSuite para que não possam aceder à aplicação, mas não apaga utilizadores na GSuite.
 
 ## <a name="next-steps"></a>Passos seguintes
 

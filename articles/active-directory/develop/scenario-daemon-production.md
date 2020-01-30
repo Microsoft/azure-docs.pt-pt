@@ -1,5 +1,5 @@
 ---
-title: Move daemon app chamando apis web para produção - plataforma de identidade Microsoft / Azure
+title: Mova uma app daemon que chama APIs web para a produção - plataforma de identidade Microsoft / Azure
 description: Saiba como mover uma app daemon que chama APIs web para a produção
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,23 +15,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 990273e84bfceb9f4a19eae8bf5890e8303a5857
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702271"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775209"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App Daemon que chama APIs web - mude para a produção
 
 Agora que sabe adquirir e usar um símbolo para uma chamada de serviço ao serviço, aprenda a mover a sua app para a produção.
 
-## <a name="deployment---case-of-multi-tenant-daemon-apps"></a>Implantação - caso de aplicações de daemon multi-inquilinos
+## <a name="deployment---multitenant-daemon-apps"></a>Implementação - aplicações de daemon multiarrendatário
 
-Se você é um ISV criando um pedido de daemon que pode ser executado em vários inquilinos, você precisa ter certeza de que o inquilino administra:
+Se você é um ISV criando um pedido de daemon que pode ser executado em vários inquilinos, você precisa ter certeza de que o administrador inquilino:
 
-- Provisões como principal de serviço para a aplicação
-- Subvenções consentem com o pedido
+- Provisões como diretor de serviço para a aplicação.
+- Concede o consentimento ao pedido.
 
 Terá de explicar aos seus clientes como realizar estas operações. Para mais informações, consulte [Pedir consentimento para um inquilino inteiro.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)
 
@@ -39,24 +39,24 @@ Terá de explicar aos seus clientes como realizar estas operações. Para mais i
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão alguns links para saber mais:
+Aqui estão alguns links para ajudá-lo a aprender mais:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-- Se ainda não o fez, experimente o quickstart [Adquira um token e ligue para o Microsoft Graph API a partir de uma aplicação](./quickstart-v2-netcore-daemon.md)de consola utilizando a identidade da aplicação .
+- Quickstart: [Adquira um símbolo e ligue para o Microsoft Graph API a partir de uma aplicação](./quickstart-v2-netcore-daemon.md)de consola utilizando a identidade da aplicação .
 - Documentação de referência para:
-  - Aplicação de [Cliente Confidencial](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) instantânea
-  - Chamando [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)
+  - Instantaneamente [A Aplicação Confidencial do Cliente](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Chamando [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Outras amostras/tutoriais:
-  - [Microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) apresenta uma aplicação simples de consola da ememon .NET Core que exibe os utilizadores de um inquilino que consulta o Microsoft Graph.
+  - [Microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) apresenta uma aplicação simples de consola da ememon .NET Core que exibe os utilizadores de um inquilino consultando o Microsoft Graph.
 
-    ![topology](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![Topologia da aplicação daemon da amostra](media/scenario-daemon-app/daemon-app-sample.svg)
 
-    A mesma amostra também ilustra a variação com certificados.
+    A mesma amostra ilustra também uma variação com certificados:
 
-    ![topology](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![Topologia de aplicações daemon da amostra - certificados](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
-  - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) apresenta uma aplicação web ASP.NET MVC que sincroniza dados do Microsoft Graph utilizando a identidade da aplicação em vez de em nome de um utilizador. A amostra também ilustra o processo de consentimento da administração.
+  - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) apresenta uma aplicação web ASP.NET MVC que sincroniza dados do Microsoft Graph utilizando a identidade da aplicação em vez de em nome de um utilizador. Esta amostra também ilustra o processo de consentimento da administração.
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 

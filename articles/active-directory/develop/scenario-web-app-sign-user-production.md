@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 88ad32a289d499cd385f8f3095113a4b329b80f4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701540"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768112"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicação web que assina nos utilizadores: Mover-se para a produção
 
@@ -29,6 +29,13 @@ Agora que sabes como obter um símbolo para ligar para a Web APIs, aprende a mov
 
 ## <a name="next-steps"></a>Passos seguintes
 
+### <a name="same-site"></a>Mesmo site
+
+Certifique-se de que compreende possíveis problemas com novas versões do navegador Chrome
+
+> [!div class="nextstepaction"]
+> [Como lidar com as alterações de cookies do SameSite no navegador Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>Cenário para chamar APIs web
 
 Depois de a sua aplicação web ter assinado nos utilizadores, pode ligar para a Web APIs em nome dos utilizadores inscritos. Chamar APIs web da aplicação web é o objeto do seguinte cenário:
@@ -36,7 +43,7 @@ Depois de a sua aplicação web ter assinado nos utilizadores, pode ligar para a
 > [!div class="nextstepaction"]
 > [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Mergulho profundo: tutorial de aplicação web ASP.NET Core
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Mergulho profundo: tutorial de aplicação web ASP.NET Core
 
 Saiba mais sobre outras formas de assinar nos utilizadores com este tutorial ASP.NET Core: 
 
@@ -51,7 +58,7 @@ Este tutorial progressivo tem código pronto para a produção para uma aplicaç
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - Nuvens nacionais
 
-### <a name="sample-code-java-web-app"></a>Código da amostra: Java web app
+## <a name="sample-code-java-web-app"></a>Código da amostra: Java web app
 
 Saiba mais sobre a aplicação web java a partir desta amostra no GitHub: 
 

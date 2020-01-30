@@ -15,16 +15,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f96393adf0eaed8a28bc1a2ec0def6b0386bd7ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: abe4ecf77e7a65251830ff822b15f79291471202
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701982"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773343"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API web protegida
 
-Neste cenário, vamos mostrar-lhe como pode expor uma API web e como pode protegê-la para que apenas os utilizadores autenticados possam aceder à API. Você vai querer permitir que utilizadores autenticados com contas de trabalho e escola, ou contas pessoais da Microsoft para usar a sua API web.
+Neste cenário, aprende-se a expor uma API web. Também aprende como proteger a API web para que apenas os utilizadores autenticados possam aceder a ela.
+
+Para utilizar a sua API web, precisa de ativar utilizadores autenticados com contas de trabalho e de escola ou ativar contas pessoais da Microsoft.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,10 +34,10 @@ Neste cenário, vamos mostrar-lhe como pode expor uma API web e como pode proteg
 
 ## <a name="specifics"></a>Especificações
 
-Aqui estão algumas especificidades que precisa de saber para proteger apis web:
+Aqui está uma informação específica que precisa de saber para proteger as APIs web:
 
-- O registo da sua aplicação deve expor pelo menos um âmbito. A versão simbólica aceite pela sua Web API depende do sinal em audiência.
-- A configuração do código para a Web API deve validar o token que é usado ao chamar a Web API.
+- O registo da sua aplicação deve expor pelo menos um âmbito. A versão simbólica aceite pela sua Web API depende do público de inscrição.
+- A configuração do código para a Web API deve validar o token utilizado quando a Web API é chamada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

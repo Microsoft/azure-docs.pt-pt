@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452109"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774482"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
 O recurso Gerenciador de recursos de cluster do Azure Service Fabric fornece vários mecanismos para descrever um cluster:
@@ -46,7 +46,7 @@ No gráfico a seguir, colorimos todas as entidades que contribuem para domínios
 
 <center>
 
-![nós organizados por meio de domínios de falha][Image1]
+![Nós organizados através de domínios de falha][Image1]
 </center>
 
 Durante o tempo de execução, Service Fabric Gerenciador de recursos de cluster considera os domínios de falha no cluster e os layouts de planos. As réplicas com estado ou instâncias sem estado para um serviço são distribuídas para que estejam em domínios de falha separados. A distribuição do serviço entre domínios de falha garante que a disponibilidade do serviço não seja comprometida quando um domínio de falha falhar em qualquer nível da hierarquia.
@@ -62,7 +62,7 @@ Qual é a aparência dos domínios desbalanceos? O diagrama a seguir mostra dois
 
 <center>
 
-![dois layouts de cluster diferentes][Image2]
+![Dois diferentes layouts de cluster][Image2]
 </center>
 
 No Azure, a escolha de qual domínio de falha contém um nó é gerenciado para você. Mas, dependendo do número de nós que você provisiona, ainda é possível acabar com os domínios de falha que têm mais nós em relação aos outros. 
@@ -78,7 +78,7 @@ O diagrama a seguir mostra três domínios de atualização distribuídos em tr�
 
 <center>
 
-![posicionamento com domínios de falha e atualização][Image3]
+colocação ![Com domínios de falha e atualização][Image3]
 </center>
 
 Há prós e contras para ter um grande número de domínios de atualização. Mais domínios de atualização significam que cada etapa da atualização é mais granular e afeta um número menor de nós ou serviços. Menos serviços precisam ser movidos de cada vez, apresentando menos variação no sistema. Isso tende a melhorar a confiabilidade, pois o menor serviço é afetado por qualquer problema introduzido durante a atualização. Mais domínios de atualização também significam que você precisa de menos buffer disponível em outros nós para lidar com o impacto da atualização. 
@@ -99,7 +99,7 @@ Não há nenhum limite real para o número total de domínios de falha ou de atu
 
 <center>
 
-![layouts de domínios de falha e atualização][Image4]
+![Layouts de domínios de falha e upgrade][Image4]
 </center>
 
 Não há uma melhor resposta para qual layout escolher. Cada um tem prós e contras. Por exemplo, o modelo 1FD: 1UD é simples de configurar. O modelo de um domínio de atualização por modelo de nó é mais parecido com o que as pessoas estão acostumados. Durante as atualizações, cada nó é atualizado de forma independente. Isso é semelhante a como os pequenos conjuntos de computadores foram atualizados manualmente no passado.
@@ -126,7 +126,7 @@ Por exemplo, digamos que temos um cluster com seis nós, configurado com cinco d
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Agora, digamos que criemos um serviço com um valor de **TargetReplicaSetSize** (ou, para um serviço sem estado, **InstanceCount**) de cinco. As réplicas se esterram em N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como esse você criar. Mas por quê? Vamos examinar a diferença entre o layout atual e o que aconteceria se N6 fosse escolhido.
+Agora, digamos que criemos um serviço com um valor de **TargetReplicaSetSize** (ou, para um serviço sem estado, **InstanceCount**) de cinco. As réplicas se esterram em N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como esse você criar. Mas porquê? Vamos examinar a diferença entre o layout atual e o que aconteceria se N6 fosse escolhido.
 
 Aqui está o layout que obtemos e o número total de réplicas por domínio de falha e de atualização:
 
@@ -357,7 +357,7 @@ Para dar suporte a esses tipos de configuração, Service Fabric inclui marcas q
 
 <center>
 
-![cargas de trabalho diferentes para um layout de cluster][Image5]
+![diferentes cargas de trabalho para um layout de cluster][Image5]
 </center>
 
 ### <a name="built-in-node-properties"></a>Propriedades de nó interno
@@ -367,7 +367,7 @@ Por exemplo, você pode escrever uma restrição de posicionamento como `"(NodeT
 
 <center>
 
-![as restrições de posicionamento e as propriedades de nó][Image6]
+![Restrições de colocação e propriedades do nó][Image6]
 </center>
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Restrições de posicionamento e sintaxe de propriedade de nó 
@@ -375,7 +375,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Verificações condicionais para a criação de instruções específicas:
 
-  | Declaração | Sintaxe |
+  | declaração | Sintaxe |
   | --- |:---:|
   | "igual a" | "==" |
   | "diferente de" | "!=" |
@@ -386,7 +386,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Instruções booleanas para Agrupamento e operações lógicas:
 
-  | Declaração | Sintaxe |
+  | declaração | Sintaxe |
   | --- |:---:|
   | e | "&&" |
   | or | "&#124;&#124;" |
@@ -416,7 +416,7 @@ Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó
 O exemplo a seguir mostra as propriedades de nó definidas por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure. 
 
 > [!NOTE]
-> Em seu modelo de Azure Resource Manager, o tipo de nó geralmente é parametrizado. Ele ficaria assim `"[parameters('vmNodeType1Name')]"` em vez de NodeType01.
+> Em seu modelo de Azure Resource Manager, o tipo de nó geralmente é parametrizado. Pareceria `"[parameters('vmNodeType1Name')]"` em vez de NodeType01.
 >
 
 ```json
@@ -472,7 +472,7 @@ Primeiro, há a certeza de que os computadores não estão sobrecarregados. Isso
 
 Em segundo lugar, há balanceamento e otimização, que são essenciais para a execução eficiente de serviços. Ofertas de serviço econômicas ou sensíveis a desempenho não podem permitir que alguns nós fiquem quentes enquanto outros estão frios. Os nós ativos levam à contenção de recursos e ao baixo desempenho. Os nós frios representam recursos desperdiçados e aumentam os custos. 
 
-Service Fabric representa recursos como *métricas*. As métricas são qualquer recurso lógico ou físico que você deseja descrever para Service Fabric. Exemplos de métricas são "WorkQueueDepth" ou "MemoryInMb". Para obter informações sobre os recursos físicos que Service Fabric podem controlar em nós, consulte [governança de recursos](service-fabric-resource-governance.md). Para obter informações sobre como configurar métricas personalizadas e seus usos, consulte [Este artigo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric representa recursos como *métricas*. As métricas são qualquer recurso lógico ou físico que você deseja descrever para Service Fabric. Exemplos de métricas são "WorkQueueDepth" ou "MemoryInMb". Para obter informações sobre os recursos físicos que Service Fabric podem controlar em nós, consulte [governança de recursos](service-fabric-resource-governance.md). Para obter informações sobre as métricas padrão utilizadas pelo Cluster Resource Manager e como configurar métricas personalizadas, consulte [este artigo](service-fabric-cluster-resource-manager-metrics.md).
 
 As métricas são diferentes das restrições de posicionamento e das propriedades de nó. As propriedades de nó são descritores estáticos dos próprios nós. As métricas descrevem os recursos que os nós têm e que os serviços consomem quando são executados em um nó. Uma propriedade de nó pode ser **HasSSD** e pode ser definida como true ou false. A quantidade de espaço disponível no SSD e o quanto é consumido pelos serviços seria uma métrica como "DriveSpaceInMb". 
 
@@ -487,7 +487,7 @@ Durante o tempo de execução, o Gerenciador de recursos de cluster rastreia a c
 
 <center>
 
-![os nós de cluster e a capacidade][Image7]
+![Cluster nós e capacidade][Image7]
 </center>
 
 ```csharp

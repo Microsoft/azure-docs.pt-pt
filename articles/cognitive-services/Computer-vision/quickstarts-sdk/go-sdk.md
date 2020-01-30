@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/22/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e4ac76f83ad4bedb420c52606598095c66747f2d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382314"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765304"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para o go
 
-Introdução à biblioteca de cliente do Pesquisa Visual Computacional para o go. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. Pesquisa Visual Computacional fornece acesso a algoritmos avançados para processamento de imagens e retorno de informações.
+Introdução à biblioteca de cliente do Pesquisa Visual Computacional para o go. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. A Computer Vision fornece-lhe acesso a algoritmos avançados para processar imagens e devolver informações.
 
 Use a biblioteca de cliente Pesquisa Visual Computacional para ir para:
 
-* Analise uma imagem para marcas, descrição de texto, rostos, conteúdo adulto e muito mais.
-* Reconheça o texto impresso e manuscrito com a API de leitura em lote.
+* Analise uma imagem para tags, descrição de texto, rostos, conteúdo adulto e muito mais.
+* Reconheça texto impresso e manuscrito com a API de leitura do lote.
 
 [Documentação de referência](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [pacote](https://github.com/Azure/azure-sdk-for-go)
 
@@ -42,7 +42,7 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL do ponto de extremidade, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, denominado `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-go-project-directory"></a>Criar um diretório do projeto Go
 
@@ -104,7 +104,7 @@ As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional, como análise de imagem e leitura de texto. Você a instancia com suas informações de assinatura e a usa para fazer a maioria das operações de imagem.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Esse tipo contém os resultados de uma chamada de função **AnalyzeImage** . Há tipos semelhantes para cada uma das funções específicas da categoria.|
 |[ReadOperationResult](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ReadOperationResult)| Esse tipo contém os resultados de uma operação de leitura em lote. |
-|[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| Esse tipo define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Você especifica um conjunto de valores de VisualFeatureTypes dependendo de suas necessidades. |
+|[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| Esse tipo define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Especifica um conjunto de valores VisualFeatureTypes dependendo das suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -117,7 +117,7 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a Pesqui
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Esta etapa pressupõe que você [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para sua chave de pesquisa Visual computacional e ponto de extremidade, chamados `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+> Este passo pressupõe que [criou variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a sua chave e ponto final da Visão computacional, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT` respectivamente.
 
 Crie uma função `main` e adicione o código a seguir a ela para criar uma instância de um cliente com o ponto de extremidade e a chave.
 
@@ -127,7 +127,7 @@ Crie uma função `main` e adicione o código a seguir a ela para criar uma inst
 
 O código a seguir usa o objeto de cliente para analisar uma imagem remota e imprimir os resultados no console. Você pode obter uma descrição de texto, categorização, lista de marcas, objetos detectados, marcas detectadas, faces detectadas, sinalizadores de conteúdo somente para adultos, cores principais e tipo de imagem.
 
-### <a name="set-up-test-image"></a>Configurar imagem de teste
+### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
 Primeiro, salve uma referência à URL da imagem que você deseja analisar. Coloque isso dentro de sua função `main`.
 
@@ -136,7 +136,7 @@ Primeiro, salve uma referência à URL da imagem que você deseja analisar. Colo
 > [!NOTE]
 > Você também pode analisar uma imagem local. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para ver cenários que envolvem imagens locais.
 
-### <a name="specify-visual-features"></a>Especificar recursos visuais
+### <a name="specify-visual-features"></a>Especificar funcionalidades visuais
 
 As chamadas de função a seguir extraem recursos visuais diferentes da imagem de exemplo. Você definirá essas funções nas seções a seguir.
 
@@ -198,9 +198,9 @@ A função a seguir imprime os atributos de cor detectados na imagem, como as co
 
 ### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
 
-Pesquisa Visual Computacional pode usar modelos especializados para fazer mais análises sobre imagens. Para obter mais informações, consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md). 
+A Computer Vision pode utilizar modelos especializados para fazer uma análise mais aprofundada das imagens. Para obter mais informações, consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md). 
 
-O código a seguir analisa dados sobre celebridades detectados na imagem.
+O código que se segue analisa dados sobre celebridades detetadas na imagem.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_celebs)]
 
@@ -223,21 +223,21 @@ Adicione a referência de imagem de exemplo e a chamada de função em sua funç
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
 > [!NOTE]
-> Você também pode extrair texto de uma imagem local. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para ver cenários que envolvem imagens locais.
+> Também pode extrair texto de uma imagem local. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) para ver cenários que envolvem imagens locais.
 
-### <a name="call-the-read-api"></a>Chamar a API de leitura
+### <a name="call-the-read-api"></a>Ligue para a API read
 
 Defina a nova função para ler o texto, `RecognizeTextReadAPIRemoteImage`. Adicione o código abaixo, que chama o método **BatchReadFile** para a imagem fornecida. Esse método retorna uma ID de operação e inicia um processo assíncrono para ler o conteúdo da imagem.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_call)]
 
-### <a name="get-read-results"></a>Obter resultados da leitura
+### <a name="get-read-results"></a>Obter resultados de leitura
 
-Em seguida, obtenha a ID da operação retornada da chamada **BatchReadFile** e use-a com o método **GetReadOperationResult** para consultar o serviço em busca de resultados da operação. O código a seguir verifica a operação em intervalos de um segundo até que os resultados sejam retornados. Em seguida, ele imprime os dados de texto extraídos no console.
+Em seguida, obtenha a ID da operação retornada da chamada **BatchReadFile** e use-a com o método **GetReadOperationResult** para consultar o serviço em busca de resultados da operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_response)]
 
-### <a name="display-read-results"></a>Exibir resultados da leitura
+### <a name="display-read-results"></a>Mostrar Resultados de ler
 
 Adicione o código a seguir para analisar e exibir os dados de texto recuperados e concluir a definição da função.
 
@@ -263,5 +263,5 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 > [!div class="nextstepaction"]
 > [Referência de API da Pesquisa Visual Computacional (GO)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [O que é o API da Pesquisa Visual Computacional?](../Home.md)
+* [O que é Pesquisa Visual Computacional?](../Home.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

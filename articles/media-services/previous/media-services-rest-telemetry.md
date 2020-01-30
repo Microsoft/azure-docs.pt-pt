@@ -1,6 +1,6 @@
 ---
-title: Configurar a telemetria de serviços de multimédia do Azure com REST | Documentos da Microsoft
-description: Este artigo mostra-lhe como utilizar a telemetria de serviços de multimédia do Azure com a REST API....
+title: Configurar telemetria dos Serviços de Media Azure com REST Microsoft Docs
+description: Este artigo mostra-lhe como usar a telemetria dos Serviços De Mídia Azure utilizando a REST API..
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761782"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774871"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar a telemetria de serviços de multimédia do Azure com REST
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar telemetria dos Serviços de Mídia Azure com REST
 
-Este tópico descreve os passos gerais que pode dar ao configurar a telemetria de serviços de multimédia do Azure (AMS) com a REST API. 
+Este tópico descreve os passos gerais que poderá tomar ao configurar a telemetria dos Serviços De Mídia Azure (AMS) utilizando a API REST. 
 
 >[!NOTE]
->Para a explicação detalhada do que é a telemetria de AMS e como consumi-lo, consulte a [descrição geral](media-services-telemetry-overview.md) tópico.
+>Para obter a explicação detalhada do que é a telemetria da AMS e como consumi-la, consulte o tema [da visão geral.](media-services-telemetry-overview.md)
 
 Os passos descritos neste tópico são:
 
-- Obter a conta de armazenamento associada uma conta de Media Services
-- Obter os pontos finais de notificação
-- A criar um ponto de final de notificação para monitorização. 
+- Obter a conta de armazenamento associada a uma conta de Media Services
+- Obtenção dos pontos finais da notificação
+- Criação de um ponto final de notificação para monitorização. 
 
-    Para criar um ponto de final de notificação, defina o EndPointType Azuretable{0}Name (2) e endPontAddress definido para a tabela de armazenamento (por exemplo, https:\//telemetryvalidationstore.table.core.windows.net/).
+    Para criar um ponto final de notificação, coloque o EndPointType para AzureTable (2) e endPontAddress definido na tabela de armazenamento (por exemplo, https:\//telemetryvalidationstore.table.core.windows.net/).
   
-- Obter as configurações de monitorização
+- Obtenha as configurações de monitorização
 
-    Crie uma configuração de monitorização definições para os serviços que pretende monitorizar. Mais do que um definições de configuração de monitorização é permitida. 
+    Crie uma configuração de configuração de monitorização para os serviços que pretende monitorizar. Não é permitida a penas de configuração de monitorização. 
 
-- Adicionar uma configuração de monitorização
+- Adicione uma configuração de monitorização
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obter a conta de armazenamento associada uma conta de Media Services
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obtenha a conta de armazenamento associada a uma conta de Media Services
 
 ### <a name="request"></a>Pedir
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -72,12 +72,12 @@ Os passos descritos neste tópico são:
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-the-notification-endpoints"></a>Obter os pontos finais de notificação
+## <a name="get-the-notification-endpoints"></a>Obtenha os pontos finais da notificação
 
 ### <a name="request"></a>Pedir
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -105,12 +105,12 @@ Os passos descritos neste tópico são:
         }
     }
  
-## <a name="create-a-notification-endpoint-for-monitoring"></a>Criar um ponto de final de notificação para a monitorização
+## <a name="create-a-notification-endpoint-for-monitoring"></a>Criar um ponto final de notificação para monitorização
 
 ### <a name="request"></a>Pedir
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -126,7 +126,7 @@ Os passos descritos neste tópico são:
     }
 
 > [!NOTE]
-> Não se esqueça de alterar o "https:\//telemetryvalidationstore.table.core.windows.net" valor à sua conta de armazenamento.
+> Não se esqueça de alterar o valor "https:\//telemetryvalidationstore.table.core.windows.net" para a sua conta de armazenamento.
 
 ### <a name="response"></a>Resposta
 
@@ -147,12 +147,12 @@ Os passos descritos neste tópico são:
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.NotificationEndPoint"},"Id":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Name":"monitoring","Created":"\/Date(1449033042667)\/","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}}
  
-## <a name="get-the-monitoring-configurations"></a>Obter as configurações de monitorização
+## <a name="get-the-monitoring-configurations"></a>Obtenha as configurações de monitorização
 
 ### <a name="request"></a>Pedir
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -177,12 +177,12 @@ Os passos descritos neste tópico são:
     
     {"d":{"results":[]}}
 
-## <a name="add-a-monitoring-configuration"></a>Adicionar uma configuração de monitorização
+## <a name="add-a-monitoring-configuration"></a>Adicione uma configuração de monitorização
 
 ### <a name="request"></a>Pedir
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -220,12 +220,12 @@ Os passos descritos neste tópico são:
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
 
-## <a name="stop-telemetry"></a>Parar telemetria
+## <a name="stop-telemetry"></a>Parar a telemetria
 
 ### <a name="request"></a>Pedir
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -233,11 +233,11 @@ Os passos descritos neste tópico são:
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-## <a name="consuming-telemetry-information"></a>Consumo de informações de telemetria
+## <a name="consuming-telemetry-information"></a>Consumir informação sobre telemetria
 
-Para informações sobre consumo de telemetria de informações, consulte [isso](media-services-telemetry-overview.md) tópico.
+Para obter informações sobre o consumo de informação sobre telemetria, consulte [este](media-services-telemetry-overview.md) tópico.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

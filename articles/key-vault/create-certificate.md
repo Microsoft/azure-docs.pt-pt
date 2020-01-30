@@ -1,6 +1,6 @@
 ---
 title: Métodos de criação de certificados
-description: Maneiras de criar um certificado no Key Vault.
+description: Formas de criar um certificado no Cofre Chave.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,56 +9,56 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884159"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769251"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 
- Um certificado Key Vault (KV) pode ser criado ou importado em um cofre de chaves. Quando um certificado KV é criado, a chave privada é criada dentro do cofre de chaves e nunca exposta ao proprietário do certificado. Veja a seguir as maneiras de criar um certificado no Key Vault:  
+ Um certificado key vault (KV) pode ser criado ou importado para um cofre chave. Quando um certificado KV é criado, a chave privada é criada dentro do cofre chave e nunca exposta ao proprietário do certificado. Seguem-se formas de criar um certificado no Cofre Chave:  
 
--   **Criar um certificado autoassinado:** Isso criará um par de chaves pública-privada e o associará a um certificado. O certificado será assinado por sua própria chave.  
+-   **Criar um certificado auto-assinado:** Isto criará um par de chaves público-privado e associá-lo-á a um certificado. O certificado será assinado por sua própria chave.  
 
--    **Crie um novo certificado manualmente:** Isso criará um par de chaves pública-privada e gerará uma solicitação de assinatura de certificado X. 509. A solicitação de assinatura pode ser assinada pela autoridade de registro ou autoridade de certificação. O certificado X509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado KV no Key Vault. Embora esse método exija mais etapas, ele fornece maior segurança, pois a chave privada é criada e restrita a Key Vault. Isso é explicado no diagrama a seguir.  
+-    **Crie um novo certificado manualmente:** Isto criará um par de chaves público-privado e gerará um pedido de assinatura de certificado X.509. A solicitação de assinatura pode ser assinada pela autoridade de registro ou autoridade de certificação. O certificado X509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado KV no Key Vault. Embora esse método exija mais etapas, ele fornece maior segurança, pois a chave privada é criada e restrita a Key Vault. Isso é explicado no diagrama a seguir.  
 
 ![Criar um certificado com sua própria autoridade de certificação](media/certificate-authority-1.png)  
 
-As descrições a seguir correspondem às etapas de letra verde no diagrama anterior.
+As seguintes descrições correspondem aos passos com letras verdes no diagrama anterior.
 
-1. No diagrama acima, seu aplicativo está criando um certificado que começa internamente criando uma chave no cofre de chaves.
-2. Key Vault retorna ao seu aplicativo uma solicitação de assinatura de certificado (CSR)
-3. Seu aplicativo passa o CSR para a autoridade de certificação escolhida.
-4. A AC escolhida responde com um certificado X509.
-5. O aplicativo conclui a criação do novo certificado com uma fusão do certificado X509 de sua autoridade de certificação.
+1. No diagrama acima, a sua aplicação está a criar um certificado que começa internamente por criar uma chave no seu cofre chave.
+2. Key Vault devolve à sua aplicação um Pedido de Assinatura de Certificado (CSR)
+3. A sua candidatura passa a RSE para a sua CA escolhida.
+4. O seu CA escolhido responde com um Certificado X509.
+5. A sua aplicação completa a criação do novo certificado com uma fusão do Certificado X509 da sua CA.
 
--   **Crie um certificado com um provedor de emissor conhecido:** Esse método exige que você faça uma tarefa única de criar um objeto emissor. Depois que um objeto emissor é criado no cofre de chaves, seu nome pode ser referenciado na política do certificado KV. Uma solicitação para criar esse certificado KV criará um par de chaves no cofre e se comunicará com o serviço do provedor emissor usando as informações no objeto emissor referenciado para obter um certificado X509. O certificado X509 é recuperado do serviço emissor e é mesclado com o par de chaves para concluir a criação do certificado KV.  
+-   **Criar um certificado com um fornecedor de emitente conhecido:** Este método requer que faça uma tarefa única de criar um objeto emitente. Uma vez criado um objeto emitente no seu cofre chave, o seu nome pode ser referenciado na política do certificado KV. Um pedido para criar tal certificado KV criará um par chave no cofre e comunicará com o serviço de emitente fornecedor usando a informação no objeto emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço emitente e é fundido com o par chave para completar a criação do certificado KV.  
 
 ![Criar um certificado com uma autoridade de certificação Key Vault parceria](media/certificate-authority-2.png)  
 
-As descrições a seguir correspondem às etapas de letra verde no diagrama anterior.
+As seguintes descrições correspondem aos passos com letras verdes no diagrama anterior.
 
-1. No diagrama acima, seu aplicativo está criando um certificado que começa internamente criando uma chave no cofre de chaves.
-2. Key Vault envia e solicitação de certificado SSL para a autoridade de certificação.
-3. O aplicativo pesquisa, em um loop e um processo de espera, para sua Key Vault para a conclusão do certificado. A criação do certificado é concluída quando Key Vault recebe a resposta da autoridade de certificação com o certificado X509.
-4. A autoridade de certificação responde à solicitação de certificado SSL de Key Vault com um certificado SSL X509.
-5. A nova criação de certificado é concluída com a fusão do certificado X509 para a autoridade de certificação.
+1. No diagrama acima, a sua aplicação está a criar um certificado que começa internamente por criar uma chave no seu cofre chave.
+2. O Cofre chave envia um Pedido de Certificado TLS/SSL para a AC.
+3. As suas sondagens de candidatura, num processo de loop e espera, para o seu Cofre Chave para a conclusão do certificado. A criação do certificado fica completa quando a Key Vault recebe a resposta da AC com certificado x509.
+4. O CA responde ao Pedido de Certificado TLS/SSL da Key Vault com um certificado TLS/SSL X.509.
+5. A sua nova criação de certificado completa com a fusão do certificado TLS/SSL X.509 para a AC.
 
 ## <a name="asynchronous-process"></a>Processo assíncrono
-A criação de certificado KV é um processo assíncrono. Esta operação criará uma solicitação de certificado KV e retornará um código de status HTTP de 202 (aceito). O status da solicitação pode ser rastreado sondando o objeto pendente criado por essa operação. O URI completo do objeto pendente é retornado no cabeçalho de local.  
+A criação de certificados KV é um processo assíncrono. Esta operação criará um pedido de certificado KV e devolverá um código de estado http de 202 (Aceito). O estado do pedido pode ser acompanhado através da sondagem do objeto pendente criado por esta operação. O URI completo do objeto pendente é devolvido no cabeçalho LOCAL.  
 
-Quando uma solicitação para criar um certificado KV for concluída, o status do objeto pendente será alterado para "concluído" em "em andamento" e uma nova versão do certificado KV será criada. Isso se tornará a versão atual.  
+Quando um pedido de criação de um certificado KV estiver concluído, o estado do objeto pendente passará para "concluído" a partir de "inprogress", e será criada uma nova versão do certificado KV. Esta será a versão atual.  
 
 ## <a name="first-creation"></a>Primeira criação
- Quando um certificado KV é criado pela primeira vez, uma chave endereçável e um segredo também são criados com o mesmo nome do certificado. Se o nome já estiver em uso, a operação falhará com um código de status http 409 (conflito).
-A chave endereçável e o segredo obtêm seus atributos dos atributos do certificado KV. A chave endereçável e o segredo criados dessa forma são marcados como chaves e segredos gerenciados, cujo tempo de vida é gerenciado pelo Key Vault. Chaves e segredos gerenciados são somente leitura. Nota: Se um certificado KV expirar ou estiver desabilitado, a chave e o segredo correspondentes ficarão inoperáveis.  
+ Quando um certificado KV é criado pela primeira vez, uma chave e segredo endereçados também é criado com o mesmo nome do certificado. Se o nome já estiver em uso, então a operação falhará com um código de estado de http de 409 (conflito).
+A chave endereçada e o segredo obtêm os seus atributos a partir dos atributos do certificado KV. A chave endereçada e o segredo criados desta forma estão marcados como chaves e segredos geridos, cuja vida é gerida pela Key Vault. Chaves e segredos geridos são apenas leitura. Nota: Se um certificado KV expirar ou estiver desativado, a chave e o segredo correspondentes tornar-se-ão inoperáveis.  
 
- Se esta for a primeira operação para criar um certificado KV, uma política será necessária.  Uma política também pode ser fornecida com operações de criação sucessivas para substituir o recurso de política. Se uma política não for fornecida, o recurso de política no serviço será usado para criar uma próxima versão do certificado KV. Observe que, embora uma solicitação para criar uma próxima versão esteja em andamento, o certificado KV atual e o segredo e a chave endereçáveis correspondentes permanecem inalterados.  
+ Se esta for a primeira operação para criar um certificado KV, então é necessária uma apólice.  Uma política também pode ser fornecida com operações de criação sucessivas para substituir o recurso político. Se uma política não for fornecida, o recurso de política no serviço é utilizado para criar uma próxima versão do certificado KV. Note que, embora esteja em curso um pedido para criar uma próxima versão, o certificado KV atual, e a chave e segredo correspondentes, permanecem inalterados.  
 
-## <a name="self-issued-certificate"></a>Certificado emitido por conta própria
- Para criar um certificado emitido por conta própria, defina o nome do emissor como "próprio" na política de certificado, conforme mostrado no trecho a seguir da política de certificado.  
+## <a name="self-issued-certificate"></a>Certificado auto-emitido
+ Para criar um certificado auto-emitido, defino o nome emitente como "Self" na política de certificados, como mostrado no seguinte corte da política de certificados.  
 
 ```  
 "issuer": {  
@@ -67,7 +67,7 @@ A chave endereçável e o segredo obtêm seus atributos dos atributos do certifi
 
 ```  
 
- Se o nome do emissor não for especificado, o nome do emissor será definido como "desconhecido". Quando o emissor for "desconhecido", o proprietário do certificado terá que obter manualmente um certificado X509 do emissor de sua escolha e, em seguida, mesclar o certificado X509 público com o objeto pendente do certificado do cofre de chaves para concluir a criação do certificado.
+ Se o nome do emitente não for especificado, então o nome do emitente está definido para "Desconhecido". Quando o emitente for "Desconhecido", o proprietário do certificado terá de obter manualmente um certificado x509 do emitente à sua escolha, depois fundir o certificado público x509 com o certificado de cofre chave pendente para completar a criação do certificado.
 
 ```  
 "issuer": {  
@@ -76,20 +76,20 @@ A chave endereçável e o segredo obtêm seus atributos dos atributos do certifi
 
 ```  
 
-## <a name="partnered-ca-providers"></a>Provedores de autoridade de certificação parceiros
-A criação de certificado pode ser concluída manualmente ou usando um emissor "self". Key Vault também parceiros com determinados provedores de emissor para simplificar a criação de certificados. Os tipos de certificados a seguir podem ser ordenados para o Key Vault com esses provedores de emissor do parceiro.  
+## <a name="partnered-ca-providers"></a>Fornecedores de CA parceiros
+A criação de certificadopode ser concluída manualmente ou utilizando um emitente "Self". A Key Vault também é parceira de certos fornecedores de emitentes para simplificar a criação de certificados. Os seguintes tipos de certificados podem ser encomendados para o cofre chave com estes fornecedores de emitentes parceiros.  
 
 |Fornecedor|Tipo de certificado|  
 |--------------|----------------------|  
-|DigiCert|Key Vault oferece certificados SSL OV ou EV com DigiCert|
-|GlobalSign|Key Vault oferece certificados SSL OV ou EV com GlobalSign|
+|DigiCert|Key Vault oferece certificados OV ou EV SSL com DigiCert|
+|GlobalSign|Key Vault oferece certificados OV ou EV SSL com GlobalSign|
 
  Um emissor de certificado é uma entidade representada em Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
 
-Observe que quando um pedido é colocado com o provedor emissor, ele pode honrar ou substituir as extensões de certificado X509 e o período de validade do certificado com base no tipo de certificado.  
+Note que quando uma encomenda é feita com o provedor emitente, pode honrar ou anular as extensões do certificado x509 e o período de validade do certificado com base no tipo de certificado.  
 
- Nesse Requer a permissão Certificates/Create.
+ Autorização: Requer os certificados/criar permissão.
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
  - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
  - [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)

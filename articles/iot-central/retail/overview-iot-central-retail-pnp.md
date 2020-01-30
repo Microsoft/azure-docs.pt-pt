@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 8b1861b96f7ed53388d49e226bf3880bfcf657cb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895862"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773055"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
 
@@ -24,13 +24,13 @@ O Azure IoT Central é uma plataforma de aplicativo IoT que reduz a carga e o cu
 Este artigo descreve vários modelos de aplicativo IoT Central específicos do varejo. Como um Solution Builder, você pode usar esses modelos para criar soluções de IoT que otimizam as cadeias de fornecimento, melhorar as experiências de armazenamento para os clientes e acompanhar o inventário com mais eficiência.
 
 > [!div class="mx-imgBorder"]
-> Visão geral do ![Azure IoT Retail](./media/overview-iot-central-retail/retail-app-templates.png)
+> ![Azure IoT Retail Overview](./media/overview-iot-central-retail/retail-app-templates.png)
 
 As seções a seguir descrevem os recursos desses modelos de aplicativos:
 
 ## <a name="connected-logistics"></a>Logística interligada
 
-Espera-se que gastos de logística global atinjam $10.6 TN em 2020. O transporte de contas de bens para a maioria desses gastos e provedores de envio está sob pressão intensa e restrições competitivas.
+Os gastos globais de logística deverão atingir os 10,6 biliões de dólares em 2020. O transporte de contas de bens para a maioria desses gastos e provedores de envio está sob pressão intensa e restrições competitivas.
 
 Você pode usar sensores IoT para coletar e monitorar condições de ambiente, como temperatura, umidade, inclinação, choque, luz e o local de uma remessa. Você pode combinar telemetria Obtida de sensores e dispositivos IoT com outras fontes de dados, como informações sobre clima e tráfego em sistemas business intelligence baseados em nuvem.
 
@@ -45,10 +45,10 @@ Os benefícios de uma solução de logística conectada incluem:
 As capturas de tela a seguir mostram o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
 > [!div class="mx-imgBorder"]
-> ![painel de logística conectado](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
+> ![](./media/overview-iot-central-retail/connected-logistics-dashboard1.png) de painel de logística conectado
 
 > [!div class="mx-imgBorder"]
-> ![painel de logística conectado](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
+> ![](./media/overview-iot-central-retail/connected-logistics-dashboard2.png) de painel de logística conectado
 
 Para saber mais, consulte o tutorial [implantar e percorrer um modelo de aplicativo de logística conectado](./tutorial-iot-central-connected-logistics-pnp.md) .
 
@@ -56,7 +56,7 @@ Para saber mais, consulte o tutorial [implantar e percorrer um modelo de aplicat
 
 À medida que os fabricantes e varejistas estabelecem presença em todo o mundo, suas cadeias de fornecimento se ramificam e se tornam mais complexas. Os consumidores agora esperam que grandes seleções de produtos estejam disponíveis e para que essas mercadorias cheguem em um ou dois dias após a compra. Os centros de distribuição devem se adaptar a essas tendências enquanto superam as ineficiências existentes. 
 
-Hoje, uma dependência do trabalho manual significa que a separação e a embalagem das contas de 55-65% dos custos do centro de distribuição. A separação e o empacotamento manual também são normalmente mais lentos do que os sistemas automatizados, e a flutuação rápida das necessidades de equipe torna ainda mais difícil atender aos volumes de envio. Essa flutuação sazonal resulta em um grande giro da equipe e aumenta a probabilidade de erros dispendiosos.
+Hoje, uma dependência do trabalho manual significa que escolher e embalar representa 55-65% dos custos do centro de distribuição. A separação e o empacotamento manual também são normalmente mais lentos do que os sistemas automatizados, e a flutuação rápida das necessidades de equipe torna ainda mais difícil atender aos volumes de envio. Essa flutuação sazonal resulta em um grande giro da equipe e aumenta a probabilidade de erros dispendiosos.
 
 Soluções baseadas em câmeras habilitadas para IoT podem fornecer benefícios transformativos habilitando um loop de comentários digitais. Os dados de todo o centro de distribuição levam a informações acionáveis que, por sua vez, resultam em dados melhores.
 
@@ -70,7 +70,7 @@ Os benefícios de um centro de distribuição digital incluem:
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
 > [!div class="mx-imgBorder"]
-> Painel do centro de distribuição digital ![](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
+> ![](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png) do Painel de Instrumentos do Centro de Distribuição Digital
 
 Para saber mais, consulte o tutorial [implantar e percorrer um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center-pnp.md) .
 
@@ -93,7 +93,7 @@ O modelo de aplicativo é fornecido com um conjunto de modelos de dispositivo e 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
 > [!div class="mx-imgBorder"]
-> ![monitoramento de condição de análise no repositório](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+> ![](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png) de monitorização da condição de análise na loja
 
 Para saber mais, consulte o tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) .
 
@@ -116,7 +116,7 @@ O modelo de aplicativo vem com um conjunto de modelos de dispositivo e usa um co
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
 > [!div class="mx-imgBorder"]
-> ![check-out da análise na loja](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+> ![](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png) de check-out de análise na loja
 
 Para saber mais, consulte o tutorial [criar um aplicativo de análise na loja no Azure IOT central](./tutorial-in-store-analytics-create-app-pnp.md) .
 
@@ -137,7 +137,7 @@ Esse modelo de aplicativo se concentra na conectividade do dispositivo e na conf
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
 > [!div class="mx-imgBorder"]
-> Painel de gerenciamento de inventário inteligente do ![](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
+> ![smart inventory management dashboard](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
 
 Para saber mais, confira o tutorial [implantar e percorrer um modelo de aplicativo de gerenciamento de inventário inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md) .
 
@@ -158,7 +158,7 @@ O modelo de aplicativo permite que você:
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
 > [!div class="mx-imgBorder"]
-> ![centro de micro-atendimento](./media/overview-iot-central-retail/MFC-Dashboard.png)
+> ![Centro de Micro-realização](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
 Para saber mais, confira o tutorial [implantar e percorrer o modelo de aplicativo do centro de distribuição](./tutorial-iot-central-smart-inventory-management-pnp.md) .
 

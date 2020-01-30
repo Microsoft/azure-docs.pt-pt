@@ -1,6 +1,6 @@
 ---
-title: Entrega e repetição-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Entrega e nova tentativa na grade de eventos em IoT Edge.
+title: Entrega e retry - Azure Event Grid IoT Edge  Microsoft Docs
+description: Entrega e retenção em Event Grid na IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -9,70 +9,70 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100701"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841717"
 ---
 # <a name="delivery-and-retry"></a>Entrega e tentativa
 
-A grade de eventos fornece entrega durável. Ele tenta entregar cada mensagem pelo menos uma vez para cada assinatura correspondente imediatamente. Se o ponto de extremidade de um assinante não confirmar o recebimento de um evento ou se houver uma falha, a grade de eventos tentará a entrega com base em uma **agenda de repetição** fixa e uma **política de repetição**.  Por padrão, o módulo de grade de eventos entrega um evento por vez ao Assinante. A carga é, no entanto, uma matriz com um único evento. Você pode fazer com que o módulo entregue mais de um evento por vez, habilitando o recurso de envio em lote de saída. Para obter detalhes sobre esse recurso, consulte [envio em lote de saída](delivery-output-batching.md).  
+A Rede de Eventos proporciona uma entrega duradoura. Tenta entregar cada mensagem pelo menos uma vez para cada subscrição correspondente imediatamente. Se o ponto final de um assinante não reconhecer a receção de um evento ou se houver uma falha, a Rede de Eventos retenta a entrega com base num calendário fixo de **retry** e uma política de **retry**.  Por padrão, o módulo DeRede de Eventos oferece um evento de cada vez ao assinante. A carga útil é, no entanto, uma matriz com um único evento. Pode fazer com que o módulo entregue mais de um evento de cada vez, permitindo a funcionalidade de loteamento de saída. Para mais detalhes sobre esta funcionalidade, consulte o [lote de saída](delivery-output-batching.md).  
 
 > [!IMPORTANT]
->Não há suporte para persistência para dados de evento. Isso significa que a reimplantação ou reinicialização do módulo de grade de eventos fará com que você perca todos os eventos que ainda não foram entregues.
+>Não há suporte de persistência para os dados do evento. Isto significa que a recolocação ou o reinício do módulo Da Grelha de Eventos fará com que perca quaisquer eventos que ainda não estejam entregues.
 
-## <a name="retry-schedule"></a>Agenda de repetição
+## <a name="retry-schedule"></a>Horário de retry
 
-A grade de eventos aguarda até 60 segundos por uma resposta depois de entregar uma mensagem. Se o ponto de extremidade do assinante não ACK da resposta, a mensagem será enfileirada em uma de nossas filas de retirada para novas tentativas.
+A Grelha de Eventos aguarda até 60 segundos por uma resposta após a entrega de uma mensagem. Se o ponto final do assinante não responder, então a mensagem será envolta numa das nossas filas de back off para posteriores tentativas.
 
-Há duas filas de back-configure pré-configuradas que determinam o agendamento no qual uma nova tentativa será tentada. Eles são:-
+Há duas filas de back back back pré-configuradas que determinam o horário em que será tentado um novo tempo. São:
 
 | Agenda | Descrição |
 | ---------| ------------ |
 | um minuto | As mensagens que acabam aqui são tentadas a cada minuto.
-| 10 minutos | As mensagens que terminam aqui são tentadas a cada 10 minutos.
+| 10 minutos | As mensagens que acabam aqui são tentadas a cada 10 minutos.
 
 ### <a name="how-it-works"></a>Como funciona
 
-1. A mensagem chega ao módulo de grade de eventos. É feita uma tentativa de entregá-la imediatamente.
-1. Se a entrega falhar, a mensagem será enfileirada em uma fila de 1 minuto e repetida após um minuto.
-1. Se a entrega continuar a falhar, a mensagem será enfileirada na fila de 10 minutos e repetida a cada 10 minutos.
-1. As entregas são tentadas até que os limites de política bem-sucedidos ou de repetição sejam atingidos.
+1. A mensagem chega ao módulo Da Grelha de Eventos. Tenta-se entregá-lo imediatamente.
+1. Se a entrega falhar, a mensagem é gravada em fila de 1 minuto e novamente tentada após um minuto.
+1. Se a entrega continuar a falhar, a mensagem é gravada em fila de 10 minutos e novamente tentada a cada 10 minutos.
+1. As entregas são tentadas até que os limites de política de sucesso ou de novo sejam atingidos.
 
-## <a name="retry-policy-limits"></a>Limites de política de repetição
+## <a name="retry-policy-limits"></a>Limites de política de retry
 
-Há duas configurações que determinam a política de repetição. Eles são:-
+Há duas configurações que determinam a política de retry. São:
 
 * Número máximo de tentativas
-* Tempo de vida (TTL) do evento
+* Hora do evento ao vivo (TTL)
 
-Um evento será Descartado se qualquer um dos limites da política de repetição for atingido. O agendamento de repetição em si foi descrito na seção agendamento de repetição. A configuração desses limites pode ser feita para todos os assinantes ou por assinatura. A seção a seguir descreve cada um deles mais detalhadamente.
+Um evento será abandonado se um dos limites da política de repescagem for atingido. O calendário de retry em si foi descrito na secção Retry Schedule. A configuração destes limites pode ser feita quer para todos os subscritores quer por base de subscrição. A secção seguinte descreve cada uma delas é mais detalhada.
 
-## <a name="configuring-defaults-for-all-subscribers"></a>Configurando padrões para todos os assinantes
+## <a name="configuring-defaults-for-all-subscribers"></a>Configurar incumprimentos para todos os subscritores
 
-Há duas propriedades: `brokers:defaultMaxDeliveryAttempts` e `broker:defaultEventTimeToLiveInSeconds` que podem ser configuradas como parte da implantação da grade de eventos, que controla os padrões de política de repetição para todos os assinantes.
+Existem duas propriedades: `brokers__defaultMaxDeliveryAttempts` e `broker__defaultEventTimeToLiveInSeconds` que podem ser configuradas como parte da implementação da Rede de Eventos, que controla os incumprimentos da política de retry para todos os subscritores.
 
 | Nome da propriedade | Descrição |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. Valor padrão: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | TTL do evento em segundos após o qual um evento será Descartado se não for entregue. Valor padrão: **7200** segundos
+| `broker__defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. Valor predefinido: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | Evento TTL em segundos após o qual um evento será abandonado se não for entregue. Valor predefinido: **7200** segundos
 
-## <a name="configuring-defaults-per-subscriber"></a>Configurando padrões por assinante
+## <a name="configuring-defaults-per-subscriber"></a>Configurar os incumprimentos por assinante
 
-Você também pode especificar limites de política de repetição em uma base por assinatura.
-Consulte nossa [documentação de API](api.md) para obter informações sobre como configurar padrões por assinante. Os padrões de nível de assinatura substituem as configurações de nível de módulo.
+Também pode especificar limites de política de retry por subscrição.
+Consulte a nossa [documentação da API](api.md) para obter informações sobre como configurar os incumprimentos por assinante. Os predefinições do nível de subscrição sobrepõem-se às configurações do nível do módulo.
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo a seguir configura a política de repetição no módulo de grade de eventos com maxNumberOfAttempts = 3 e TTL de evento de 30 minutos
+O exemplo seguinte estabelece a política de retry no módulo De Retry Grid com maxNumberOfAttempts = 3 e Evento TTL de 30 minutos
 
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {
@@ -86,7 +86,7 @@ O exemplo a seguir configura a política de repetição no módulo de grade de e
 }
 ```
 
-O exemplo a seguir configura uma assinatura de gancho da Web com maxNumberOfAttempts = 3 e TTL do evento de 30 minutos
+O exemplo seguinte configura uma subscrição de web hook com maxNumberOfAttempts = 3 e Event TTL de 30 minutos
 
 ```json
 {

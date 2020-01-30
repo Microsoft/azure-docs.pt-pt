@@ -1,74 +1,71 @@
 ---
-title: Gerenciar capturas de pacote-Azure PowerShell
+title: Gerir capturas de pacotes - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: Esta página explica como gerenciar o recurso de captura de pacote do observador de rede usando o PowerShell
+description: Esta página explica como gerir a funcionalidade de captura de pacotes do Network Watcher usando powerShell
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3be68f6ef87ba37bcfaf418225ce7f460aed53a1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e76193a635ee723e13ea4a8a23f668b6e3d1cbb0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277887"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840881"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerenciar capturas de pacote com o observador de rede do Azure usando o PowerShell
+# <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerir capturas de pacotes com o Azure Network Watcher usando powerShell
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
-> - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
+> - [API de DESCANSO Azul](network-watcher-packet-capture-manage-rest.md)
 
-A captura de pacotes do observador de rede permite que você crie sessões de captura para controlar o tráfego de e para uma máquina virtual. Os filtros são fornecidos para a sessão de captura para garantir que você capture somente o tráfego desejado. A captura de pacotes ajuda a diagnosticar anomalias de rede de forma reativa e proativa. Outros usos incluem a coleta de estatísticas de rede, a obtenção de informações sobre invasões de rede, a depuração de comunicações cliente-servidor e muito mais. Ao ser capaz de disparar remotamente capturas de pacotes, esse recurso facilita a carga de executar uma captura de pacotes manualmente e na máquina desejada, o que economiza tempo valioso.
+A captura de pacotes do Network Watcher permite-lhe criar sessões de captura para rastrear o tráfego de e para uma máquina virtual. Os filtros são fornecidos para a sessão de captura para garantir que captura apenas o tráfego que deseja. A captura de pacotes ajuda a diagnosticar anomalias de rede tanto de forma reativa como proactiva. Outros usos incluem a recolha de estatísticas de rede, a obtenção de informação sobre intrusões de rede, para depurar comunicações de servidores de clientes e muito mais. Ao ser capaz de acionar remotamente as capturas de pacotes, esta capacidade alivia o fardo de executar uma captura manual de pacotes e sobre a máquina desejada, o que poupa tempo valioso.
 
-Este artigo orienta você pelas diferentes tarefas de gerenciamento que estão disponíveis atualmente para a captura de pacotes.
+Este artigo leva-o através das diferentes tarefas de gestão que estão atualmente disponíveis para captura de pacotes.
 
 - [**Iniciar uma captura de pacote**](#start-a-packet-capture)
 - [**Parar uma captura de pacote**](#stop-a-packet-capture)
-- [**Excluir uma captura de pacote**](#delete-a-packet-capture)
-- [**Baixar uma captura de pacote**](#download-a-packet-capture)
+- [**Eliminar uma captura de pacote**](#delete-a-packet-capture)
+- [**Descarregue uma captura de pacotes**](#download-a-packet-capture)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha os seguintes recursos:
+Este artigo assume que tem os seguintes recursos:
 
-* Uma instância do observador de rede na região em que você deseja criar uma captura de pacote
+* Uma instância de Network Watcher na região que você quer criar uma captura de pacotes
 
-* Uma máquina virtual com a extensão de captura de pacote habilitada.
+* Uma máquina virtual com a extensão de captura do pacote ativada.
 
 > [!IMPORTANT]
-> A captura de pacote requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [extensão da máquina virtual do agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para VM do Linux visite a [extensão da máquina virtual do agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura do pacote requer uma extensão virtual da máquina `AzureNetworkWatcherExtension`. Para instalar a extensão de um Windows VM visite a extensão virtual do Agente observador de [rede Azure para windows](../virtual-machines/windows/extensions-nwa.md) e para o Linux VM visite a extensão virtual do Agente observador de rede [Azure para o Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="install-vm-extension"></a>Instalar a extensão de VM
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
-O exemplo a seguir recupera as informações de extensão necessárias para executar o cmdlet `Set-AzVMExtension`. Esse cmdlet instala o agente de captura de pacote na máquina virtual convidada.
+O exemplo seguinte recupera as informações de extensão necessárias para executar o `Set-AzVMExtension` cmdlet. Este cmdlet instala o agente de captura de pacotes na máquina virtual do hóspede.
 
 > [!NOTE]
-> O cmdlet `Set-AzVMExtension` pode levar vários minutos para ser concluído.
+> O `Set-AzVMExtension` cmdlet pode demorar alguns minutos a ser concluído.
 
-Para máquinas virtuais do Windows:
+Para máquinas virtuais Windows:
 
 ```powershell
 $AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
@@ -76,7 +73,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-Para máquinas virtuais do Linux:
+Para máquinas virtuais Linux:
 
 ```powershell
 $AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
@@ -84,7 +81,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-O exemplo a seguir é uma resposta bem-sucedida após a execução do cmdlet `Set-AzVMExtension`.
+O exemplo seguinte é uma resposta bem sucedida após executar o `Set-AzVMExtension` cmdlet.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -92,15 +89,15 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK   
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
-Para garantir que o agente esteja instalado, execute o cmdlet `Get-AzVMExtension` e passe o nome da máquina virtual e o nome da extensão.
+Para garantir a instalação do agente, passe a `Get-AzVMExtension` cmdlet e passe-lhe o nome da máquina virtual e o nome de extensão.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-O exemplo a seguir é um exemplo da resposta da execução de `Get-AzVMExtension`
+A amostra que se segue é um exemplo da resposta da execução `Get-AzVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -124,27 +121,27 @@ ForceUpdateTag          :
 
 ## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacote
 
-Depois que as etapas anteriores forem concluídas, o agente de captura de pacote será instalado na máquina virtual.
+Uma vez concluídos os passos anteriores, o agente de captura do pacote é instalado na máquina virtual.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
-A próxima etapa é recuperar a instância do observador de rede. Essa variável é passada para o cmdlet `New-AzNetworkWatcherPacketCapture` na etapa 4.
+O próximo passo é recuperar a instância do Observador da Rede. Esta variável é passada para o `New-AzNetworkWatcherPacketCapture` cmdlet no passo 4.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
-Recuperar uma conta de armazenamento. Essa conta de armazenamento é usada para armazenar o arquivo de captura de pacote.
+Recuperar uma conta de armazenamento. Esta conta de armazenamento é usada para armazenar o ficheiro de captura do pacote.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
-Os filtros podem ser usados para limitar os dados armazenados pela captura de pacotes. O exemplo a seguir configura dois filtros.  Um filtro coleta o tráfego TCP de saída somente do 10.0.0.3 IP local para as portas de destino 20, 80 e 443.  O segundo filtro coleta apenas o tráfego UDP.
+Os filtros podem ser utilizados para limitar os dados armazenados pela captura do pacote. O exemplo seguinte configura dois filtros.  Um filtro recolhe tráfego de TCP de saída apenas a partir do IP local 10.0.0.3 para os portos de destino 20, 80 e 443.  O segundo filtro recolhe apenas o tráfego uDP.
 
 ```powershell
 $filter1 = New-AzPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
@@ -156,13 +153,13 @@ $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 
 ### <a name="step-4"></a>Passo 4
 
-Execute o cmdlet `New-AzNetworkWatcherPacketCapture` para iniciar o processo de captura de pacote, passando os valores necessários recuperados nas etapas anteriores.
+Executar o `New-AzNetworkWatcherPacketCapture` cmdlet para iniciar o processo de captura do pacote, passando os valores necessários recuperados nos passos anteriores.
 ```powershell
 
 New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-O exemplo a seguir é a saída esperada da execução do cmdlet `New-AzNetworkWatcherPacketCapture`.
+O exemplo seguinte é a saída esperada de executar o `New-AzNetworkWatcherPacketCapture` cmdlet.
 
 ```
 Name                    : PacketCaptureTest
@@ -200,15 +197,15 @@ Filters                 : [
 
 ```
 
-## <a name="get-a-packet-capture"></a>Obter uma captura de pacote
+## <a name="get-a-packet-capture"></a>Obtenha uma captura de pacote
 
-Executar o cmdlet `Get-AzNetworkWatcherPacketCapture`, recupera o status de uma captura de pacote em execução no momento ou concluído.
+Executar o `Get-AzNetworkWatcherPacketCapture` cmdlet, recupera o estado de uma captura de pacote atualmente em execução ou concluída.
 
 ```powershell
 Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-O exemplo a seguir é a saída do cmdlet `Get-AzNetworkWatcherPacketCapture`. O exemplo a seguir é após a conclusão da captura. O valor de PacketCaptureStatus foi interrompido, com um stopReason de excedido. Esse valor mostra que a captura de pacote foi bem-sucedida e executou seu tempo.
+O exemplo que se segue é a saída do `Get-AzNetworkWatcherPacketCapture` cmdlet. O exemplo seguinte é que após a captura estar completa. O valor PacketCaptureStatus é interrompido, com uma StopReason of TimeExceeded. Este valor mostra que a captura do pacote foi bem sucedida e correu o seu tempo.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -249,27 +246,27 @@ PacketCaptureError      : []
 
 ## <a name="stop-a-packet-capture"></a>Parar uma captura de pacote
 
-Ao executar o cmdlet `Stop-AzNetworkWatcherPacketCapture`, se uma sessão de captura estiver em andamento, ela será interrompida.
+Ao executar o `Stop-AzNetworkWatcherPacketCapture` cmdlet, se uma sessão de captura estiver em andamento, é interrompida.
 
 ```powershell
 Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
-> O cmdlet não retorna nenhuma resposta quando executado em uma sessão de captura atualmente em execução ou em uma sessão existente que já foi interrompida.
+> O cmdlet não responde quando correu numa sessão de captura em execução ou numa sessão existente que já parou.
 
-## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacote
+## <a name="delete-a-packet-capture"></a>Eliminar uma captura de pacote
 
 ```powershell
 Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
-> A exclusão de uma captura de pacote não exclui o arquivo na conta de armazenamento.
+> A eliminação de uma captura de pacote não elimina o ficheiro na conta de armazenamento.
 
-## <a name="download-a-packet-capture"></a>Baixar uma captura de pacote
+## <a name="download-a-packet-capture"></a>Descarregue uma captura de pacotes
 
-Depois que a sessão de captura de pacote for concluída, o arquivo de captura poderá ser carregado no armazenamento de BLOBs ou em um arquivo local na VM. O local de armazenamento da captura de pacote é definido na criação da sessão. Uma ferramenta conveniente para acessar esses arquivos de captura salvos em uma conta de armazenamento é Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixada aqui: https://storageexplorer.com/
+Uma vez concluída a sua sessão de captura de pacotes, o ficheiro de captura pode ser enviado para armazenamento de bolhas ou para um ficheiro local no VM. A localização de armazenamento da captura do pacote é definida na criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados numa conta de armazenamento é o Microsoft Azure Storage Explorer, que pode ser descarregado aqui: https://storageexplorer.com/
 
 Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
 
@@ -279,9 +276,9 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como automatizar as capturas de pacote com alertas de máquina virtual exibindo [criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba automatizar capturas de pacotes com alertas de máquina virtual ao ver [Criar um alerta desencadeado pela captura de pacotes](network-watcher-alert-triggered-packet-capture.md)
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando verificar [fluxo de IP verificar](diagnose-vm-network-traffic-filtering-problem.md)
+Descubra se determinado tráfego é permitido dentro ou fora do seu VM visitando [check IP flow verificar](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 

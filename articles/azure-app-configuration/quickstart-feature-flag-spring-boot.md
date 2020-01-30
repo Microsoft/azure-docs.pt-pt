@@ -1,24 +1,17 @@
 ---
-title: Início rápido para adição de sinalizadores de recurso ao Spring boot-configuração de Azure App | Microsoft Docs
-description: Um guia de início rápido para adicionar sinalizadores de recursos a aplicativos Spring boot e gerenciá-los na configuração do Azure App
-services: azure-app-configuration
-documentationcenter: ''
+title: Quickstart para adicionar bandeiras de recurso à Bota de primavera com configuração de app Azure
+description: Adicione bandeiras de funcionalidade sabotadas e gerencie-as usando a configuração da app Azure
 author: lisaguthrie
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Spring Boot
-ms.workload: tbd
-ms.date: 1/9/2019
+ms.date: 01/21/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3e82354116969b01743700485b5c2dd75b4887e4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4438851ef7ea015060926075f46822de877b85b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310072"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766446"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo Spring boot
 
@@ -32,19 +25,20 @@ As bibliotecas de gerenciamento de recursos do Spring boot estendem a estrutura 
 - Um [SDK do Java Development Kit](https://docs.microsoft.com/java/azure/jdk) com suporte com a versão 8.
 - [Apache Maven](https://maven.apache.org/download.cgi) versão 3,0 ou superior.
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-instance"></a>Criar uma instância de configuração de aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de recursos** >  **+ criar** para adicionar os seguintes sinalizadores de recurso:
+6. Selecione **Gerenciador de recursos** >  **+ Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
 
-    | Chave | Estado |
-    |---|---|
-    | Beta | Desativado |
+    > [!div class="mx-imgBorder"]
+    > ![ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
+
+    Deixe `label` indefinido por enquanto.
 
 ## <a name="create-a-spring-boot-app"></a>Criar um aplicativo Spring boot
 
-Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo projeto Spring boot.
+Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto Spring boot.
 
 1. Navegue para <https://start.spring.io/>.
 
@@ -52,27 +46,27 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
    - Gere um projeto **Maven** com **Java**.
    - Especifique uma versão do **Spring boot** que seja igual ou maior que 2,0.
-   - Especifique os nomes de **grupo** e **artefato** para seu aplicativo.
+   - Especifique os nomes de **grupo** e **artefato** para seu aplicativo.  Este artigo usa `com.example` e `demo`.
    - Adicione a dependência **da Web Spring** .
 
-3. Depois de especificar as opções anteriores, selecione **gerar projeto**. Quando solicitado, baixe o projeto para um caminho no computador local.
+3. Depois de especificar as opções anteriores, selecione **gerar projeto**. Quando solicitado, descarregue o projeto para o seu computador local.
 
-## <a name="add-feature-management"></a>Adicionar gerenciamento de recursos
+## <a name="add-feature-management"></a>Adicionar gestão de recursos
 
-1. Depois de extrair os arquivos no sistema local, seu aplicativo Spring boot simples estará pronto para edição. Localize o arquivo *pom. xml* no diretório raiz do seu aplicativo.
+1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Spring Boot está pronta para ser editada. Localize *pom.xml* no diretório raiz da sua aplicação.
 
-2. Abra o arquivo *pom. xml* em um editor de texto e adicione o iniciador de configuração do Spring Cloud do Azure e o gerenciamento de recursos à lista de `<dependencies>`:
+1. Abra o ficheiro *pom.xml* num editor de texto e adicione o seguinte à lista de `<dependencies>`.:
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.1</version>
     </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,35 +75,48 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
     ```
 
 > [!Note]
-> Há uma biblioteca de gerenciamento de recursos que não é da Web que não tem uma dependência no Spring Web. Consulte os [documentos](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) adicionais para obter diferenças. Além disso, quando não estiver usando a configuração de aplicativo, consulte [declaração de sinalizador de recurso](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management#feature-flag-declaration).
+> Há uma biblioteca de gerenciamento de recursos que não é da Web que não tem uma dependência no Spring Web. Consulte a [documentação](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) do GitHub para as diferenças.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Abra _bootstrap. Properties_ no diretório _Resources_ do seu aplicativo. Se _bootstrap. Properties_ não existir, crie-a. Adicione a seguinte linha ao arquivo.
+1. Navegue para o diretório `resources` da sua app e abra `bootstrap.properties`.  Se o ficheiro não existir, crie-o. Adicione a seguinte linha ao arquivo.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. No portal de configuração de aplicativo para seu repositório de configuração, acesse chaves de acesso. Selecione a guia chaves somente leitura. Nesta guia, copie o valor de uma das cadeias de conexão e adicione-a como uma nova variável de ambiente com o nome de variável de `APP_CONFIGURATION_CONNECTION_STRING`.
+1. No portal de configuração da aplicação para a sua loja de config, selecione `Access keys` a partir da barra lateral. Selecione o separador de teclas apenas para leitura. Copiar o valor da cadeia de ligação primária.
+
+1. Adicione a cadeia de ligação primária como uma variável ambiental utilizando o nome variável `APP_CONFIGURATION_CONNECTION_STRING`.
 
 1. Abra o arquivo Java do aplicativo principal e adicione `@EnableConfigurationProperties` para habilitar esse recurso.
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.context.properties.ConfigurationProperties;
     import org.springframework.boot.context.properties.EnableConfigurationProperties;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
 
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
     public class DemoApplication {
+
         public static void main(String[] args) {
             SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
-
-1. Crie um novo arquivo Java chamado *MessageProperties. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
+1. Crie um novo arquivo Java chamado *MessageProperties. java* no diretório do pacote do seu aplicativo.
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -124,11 +131,22 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
     }
     ```
 
-1. Crie um novo arquivo Java chamado *HelloController. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
+1. Crie um novo arquivo Java chamado *HelloController. java* no diretório do pacote do seu aplicativo. 
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.ui.Model;
+
+    import com.microsoft.azure.spring.cloud.feature.manager.FeatureManager;
+    import org.springframework.web.bind.annotation.GetMapping;
+
+
     @Controller
     @ConfigurationProperties("controller")
+
     public class HelloController {
 
         private FeatureManager featureManager;
@@ -139,13 +157,13 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabled("Beta"));
+            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta"));
             return "welcome";
         }
     }
     ```
 
-1. Crie um novo arquivo HTML chamado *Welcome. html* no diretório modelos do seu aplicativo. Adicione as seguintes linhas:
+1. Crie um novo arquivo HTML chamado *Welcome. html* no diretório modelos do seu aplicativo.
 
     ```html
     <!DOCTYPE html>
@@ -202,7 +220,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
     ```
 
-1. Crie uma nova pasta chamada CSS em estática e dentro dela um novo arquivo CSS chamado *Main. css*. Adicione as seguintes linhas:
+6. Crie uma nova pasta chamada CSS sob `static` e no seu interior um novo ficheiro CSS chamado *main.css*.
 
     ```css
     html {
@@ -237,24 +255,24 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 ## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Crie seu aplicativo Spring boot com o Maven e execute-o, por exemplo:
+1. Construa o seu aplicativo Spring Boot com maven e execute-o.
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
 
-2. Abra uma janela do navegador e vá para `https://localhost:8080`, que é a URL padrão para o aplicativo Web hospedado localmente.
+1. Abra uma janela do navegador e vá ao URL padrão para uma aplicação web hospedada localmente: `https://localhost:8080`.
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-3. No portal de configuração do aplicativo, selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
+1. No portal de configuração do aplicativo, selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
     | Chave | Estado |
     |---|---|
     | Beta | Ativado |
 
-4. Atualize a página do navegador para ver as novas definições de configuração.
+1. Atualize a página do navegador para ver as novas definições de configuração.
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 

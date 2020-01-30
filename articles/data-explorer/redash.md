@@ -1,97 +1,97 @@
 ---
-title: Visualizar Data Explorer do Azure com o retraço
-description: Neste artigo, você aprenderá a Visualizar dados no Azure Data Explorer com o conector nativo de Dash.
+title: Visualizar o Explorador de Dados Azure com o Redash
+description: Neste artigo, aprende-se a visualizar dados no Azure Data Explorer com o conector nativo Redash.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb8711bc4a6134ec740a55d9f5d5794b2de77ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588593"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773944"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualizar dados do Azure Data Explorer em Dash
+# <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualizar dados do Azure Data Explorer em Redash
 
-O [Dash](https://www.redash.io/) se conecta e consulta suas fontes de dados, cria painéis para visualizar os dados e compartilhá-los com pares. Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para retraço e, em seguida, Visualizar dados.
+[O Redash](https://redash.io/) conecta e consulta as suas fontes de dados, constrói dashboards para visualizar dados e partilhá-los com os pares. Neste artigo, aprende-se a configurar o Azure Data Explorer como fonte de dados para o Redash e, em seguida, visualizar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Criar cluster e banco de dados](create-cluster-database-portal.md).
-1. Ingerir dados, conforme explicado em [dados de exemplo de ingestão no Azure data Explorer](ingest-sample-data.md). Para obter mais opções de ingestão, consulte [visão geral da ingestão](ingest-data-overview.md).
+1. [Criar cluster e base de dados.](create-cluster-database-portal.md)
+1. Ingerir dados como explicados na [ingestão](ingest-sample-data.md)de dados da amostra no Azure Data Explorer . Para mais opções de ingestão, consulte a visão geral da [ingestão](ingest-data-overview.md).
 
 [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
-## <a name="create-azure-data-explorer-connector-in-redash"></a>Criar conector de Data Explorer do Azure em Dash 
+## <a name="create-azure-data-explorer-connector-in-redash"></a>Criar conector azure data explorer em Redash 
 
-1. Entre para [retraço](https://www.redash.io/). Selecione **introdução** para criar uma conta.
-1. Em **vamos**começar, selecione **conectar uma fonte de dados**.
+1. Inscreva-se no [Redash.](https://www.redash.io/) Selecione **Get Started** para criar uma conta.
+1. Em **Let's start**, Selecione **Ligar uma Fonte de Dados**.
 
-    ![Conectar uma fonte de dados](media/redash/connect-data-source.png)
+    ![Ligar uma fonte de dados](media/redash/connect-data-source.png)
 
-1. Na janela **criar uma nova fonte de dados** , selecione **Data Explorer do Azure (Kusto)** e, em seguida, selecione **criar**. 
+1. Em Criar uma nova janela **Data Source,** selecione **Azure Data Explorer (Kusto)** e, em seguida, selecione **Criar**. 
 
-    ![Selecionar fonte de dados do Azure Data Explorer](media/redash/select-adx-data-source.png)
+    ![Selecione fonte de dados do Explorador de Dados do Azure](media/redash/select-adx-data-source.png)
 
-1. Na janela **Data Explorer do Azure (Kusto)** , preencha o formulário a seguir e selecione **criar**.
+1. Na janela **Azure Data Explorer (Kusto),** complete o seguinte formulário e selecione **Criar**.
 
-    ![Janela de configurações do Data Explorer do Azure (Kusto)](media/redash/adx-settings-window.png)
+    ![Janela de definições do Azure Data Explorer (Kusto)](media/redash/adx-settings-window.png)
 
-1. Na janela **configurações** , selecione **salvar** e **testar conexão** para testar sua conexão de fonte de dados **do data Explorer do Azure (Kusto)** .
+1. Na janela **Definições,** selecione **Save** and **Test Connection** para testar a ligação de fonte de origem do Explorador de **Dados Do Azure (Kusto).**
 
-## <a name="create-queries-in-redash"></a>Criar consultas em Dash
+## <a name="create-queries-in-redash"></a>Criar consultas em Redash
 
-1. Na parte superior esquerda da barra, selecione **criar** > **consulta**. Clique em **nova consulta** e renomeie a consulta.
+1. Em cima à esquerda do Redash, selecione **Criar** > **Consulta**. Clique em **New Consulta** e mude o nome da consulta.
 
     ![Criar consulta](media/redash/create-query.png)
 
-1. Digite sua consulta no painel de edição superior e selecione **salvar** e **executar**. Selecione **publicar** para publicar consulta para uso futuro.
+1. Digite a sua consulta no painel de edição superior e selecione **Guardar** e **Executar**. Selecione **Publicar** para publicar consulta para uso futuro.
 
-    ![Salvar e executar consulta](media/redash/save-and-execute-query.png)
+    ![Guardar e executar consulta](media/redash/save-and-execute-query.png)
 
-    No painel esquerdo, você pode ver o nome da conexão da fonte de dados (**conector do GitHub** em nosso fluxo) no menu suspenso e as tabelas no banco de dados selecionado. 
+    No painel esquerdo, pode ver o nome de ligação de fonte de dados **(conector Github** no nosso fluxo) no menu suspenso e as tabelas na base de dados selecionada. 
 
-1. Exiba os resultados da consulta no painel central inferior. Crie uma visualização para ir com a consulta selecionando o botão **nova visualização** .
+1. Veja os resultados da consulta no painel central inferior. Crie uma visualização para acompanhar a consulta selecionando o botão **De Visualização Nova.**
 
     ![Nova visualização](media/redash/new-visualization.png)
 
-1. Na tela de visualização, selecione o **tipo de visualização** e os campos relevantes, como **X Column** e **Y Column**. **Salve** a visualização.
+1. No ecrã de visualização, selecione o Tipo de **Visualização** e os campos relevantes como **Coluna X** e **Coluna Y**. **Poupe** a visualização.
 
-    ![Configurar e salvar a visualização](media/redash/configure-visualization.png)
+    ![Configure e salve a visualização](media/redash/configure-visualization.png)
 
 ### <a name="create-a-query-using-a-parameter"></a>Criar uma consulta usando um parâmetro
 
-1. **Crie** > **consulta** para criar uma nova consulta. Adicione um parâmetro a ele usando chaves {{}}. Selecione **{{}}** para abrir a janela **Adicionar parâmetro** . Você também pode selecionar o *ícone de configurações* para modificar os atributos de um parâmetro existente e abrir a janela **< parameter_name >** . 
+1. **Crie** > **Consulta** para criar uma nova consulta. Adicione-lhe um parâmetro utilizando {{}} suportes encaracolados. Selecione **{{}}** para abrir a janela adicionar **parâmetro.** Também pode selecionar o ícone de *definições* para modificar os atributos de um parâmetro existente e abrir a janela **<parameter_name>** 
 
     ![inserir parâmetro](media/redash/insert-parameter.png)
 
-1. Nomeie o parâmetro. Selecione **tipo**: **lista suspensa baseada em consulta** no menu suspenso. Selecione **OK**
+1. Diga o seu parâmetro. Selecione **Tipo**: Lista de **dropdown baseada em consulta** do menu dropdown. Selecione **OK**
 
-    ![lista suspensa baseada em consulta](media/redash/query-based-dropdown-list.png)
+    ![consulta lista de dropdown baseado](media/redash/query-based-dropdown-list.png)
 
     > [!NOTE]
-    > A consulta usa vários valores, portanto, você deve incluir a sintaxe a seguir `| where Type in ((split('{{Type}}', ',')))`. Para obter mais informações, consulte [no operador](/azure/kusto/query/inoperator). Isso resulta em [várias opções de parâmetro de consulta no aplicativo de retraço](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
+    > A consulta utiliza vários valores, pelo que deve incluir a seguinte `| where Type in ((split('{{Type}}', ',')))`de sintaxe . Para mais informações, consulte [o operador.](/azure/kusto/query/inoperator) Isto resulta em [várias opções de parâmetros de consulta na aplicação redash](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
 
-## <a name="create-a-dashboard-in-redash"></a>Criar um painel em Dash
+## <a name="create-a-dashboard-in-redash"></a>Crie um dashboard em Redash
 
-1. Para criar seu painel, **crie** > **painel**. Como alternativa, selecione Painel existente, **painéis** > selecione um painel na lista.
+1. Para criar o seu painel de instrumentos, **Crie** > **Dashboard**. Em alternativa, selecione dashboard existente, **Dashboards** > selecione um dashboard da lista.
 
-    ![Criar painel](media/redash/create-dashboard.png)
+    ![Criar painel de instrumentos](media/redash/create-dashboard.png)
 
-1. Na janela **novo painel** , nomeie o painel e selecione **salvar**. Na janela **< Dashboard_name >** , selecione **Adicionar widget** para criar um novo widget. 
+1. Na janela **New Dashboard,** nomeie o seu painel de instrumentos e selecione **Guardar**. In **<Dashboard_name>** janela, **selecione Add Widget** para criar um novo widget. 
 
-1. Na janela **Adicionar widget** , selecione nome da consulta, **escolha Visualização**e **parâmetros**. Selecione **Adicionar ao painel**
+1. Na janela **Add Widget,** selecione o nome da consulta, **escolha visualização,** e **parâmetros**. **Selecione Adicionar ao Dashboard**
 
-   ![Escolher visualizações e adicionar ao painel](media/redash/add-widget-window.png)
+   ![Escolha visualizações e adicione ao dashboard](media/redash/add-widget-window.png)
 
-1. Selecione **edição concluída** para concluir a criação do painel.
+1. Selecione **Edição Feita para** completar a criação do dashboard.
 
-1.  No modo de edição do painel, selecione **usar filtros de nível de painel** para usar o parâmetro de **tipo** definido anteriormente.
+1.  No modo de edição do painel de instrumentos, selecione **Use filtros de nível do painel** para utilizar o parâmetro **tipo** previamente definido.
 
-    ![Concluir a criação do painel](media/redash/complete-dashboard.png)
+    ![Criação completa do dashboard](media/redash/complete-dashboard.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

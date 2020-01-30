@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314730"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838552"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -35,9 +35,9 @@ A partir da versão de API `2019-05-06`, os erros e avisos do indexador em níve
 | Propriedade | Descrição | Exemplo |
 | --- | --- | --- |
 | key | A ID do documento do documento impactado pelo erro ou aviso. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| nome | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isso é gerado pela seguinte estrutura: [Category]. [subcategoria]. [resourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projeção. KnowledgeStore. Table. mytablename |
+| nome | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isto é gerado pela seguinte estrutura: [categoria]. [subcategoria]. [resourceType]. [nome dos recursos] | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projeção. KnowledgeStore. Table. mytablename |
 | message | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
-| details | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origem, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... restante do rastreamento de pilha... |
+| details | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 fonte, func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... resto do vestígio da pilha... |
 | documentationLink | Um link para a documentação relevante com informações detalhadas para depurar e resolver o problema. Esse link geralmente apontará para uma das seções abaixo nesta página. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -146,8 +146,8 @@ O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao í
 | O documento é muito grande para ser indexado | Um documento é maior que o [tamanho máximo de solicitação de API](search-limits-quotas-capacity.md#api-request-limits) | [Como indexar grandes conjuntos de dados](search-howto-large-index.md)
 | O documento contém muitos objetos na coleção | Uma coleção em seu documento excede o [máximo de elementos em todas as coleções complexas limite](search-limits-quotas-capacity.md#index-limits) "o documento com a chave `'1000052'` tem `'4303'` objetos em coleções (matrizes JSON). No máximo `'3000'` objetos podem estar em coleções em todo o documento. Remova objetos de coleções e tente indexar o documento novamente. " | É recomendável reduzir o tamanho da coleção complexa no documento para abaixo do limite e evitar a alta utilização do armazenamento.
 | Problemas de conexão com o índice de destino (que persiste após novas tentativas) porque o serviço está em outra carga, como consulta ou indexação. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está sob carga pesada. | [Escalar verticalmente seu serviço de pesquisa](search-capacity-planning.md)
-| O serviço de pesquisa está sendo corrigido para atualização de serviço ou está no meio de uma reconfiguração de topologia. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está inoperante no momento/o serviço de pesquisa está passando por uma transição. | Configure o serviço com pelo menos 3 réplicas para a documentação de 99,9% de disponibilidade por [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
-| Falha no recurso de computação/rede subjacente (raro) | Falha ao estabelecer conexão para atualizar índice. Ocorreu uma falha desconhecida. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha.
+| O serviço de pesquisa está sendo corrigido para atualização de serviço ou está no meio de uma reconfiguração de topologia. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está inoperante no momento/o serviço de pesquisa está passando por uma transição. | Configure o serviço com pelo menos 3 réplicas para 99,9% de disponibilidade por [documentação SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+| Falha no recurso de computação/rede subjacente (raro) | Falha ao estabelecer conexão para atualizar índice. Ocorreu um falhanço desconhecido. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha.
 | Uma solicitação de indexação feita ao índice de destino não foi confirmada dentro de um período de tempo limite devido a problemas de rede. | Não foi possível estabelecer a conexão com o índice de pesquisa em tempo hábil. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha. Além disso, tente diminuir o tamanho do [lote](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) do indexador se essa condição de erro persistir.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
@@ -160,7 +160,7 @@ O documento foi lido e processado, mas devido a uma incompatibilidade na configu
 | --- | ---
 | O tipo de dados dos campos extraídos pelo indexador é incompatível com o modelo de dados do campo de índice de destino correspondente. | O campo de dados '_Data_' no documento com a chave ' 888 ' tem um valor inválido ' do tipo ' EDM. String ' '. O tipo esperado era ' Collection (EDM. String) '. |
 | Falha ao extrair qualquer entidade JSON de um valor de cadeia de caracteres. | Não foi possível analisar o valor ' do tipo ' EDM. String ' ' do campo '_Data_' como um objeto JSON. Erro: ' depois de analisar um valor, um caractere inesperado foi encontrado: ' '. Caminho '_caminho_', linha 1, posição 3162. ' |
-| Falha ao extrair uma coleção de entidades JSON de um valor de cadeia de caracteres.  | Não foi possível analisar o valor ' do tipo ' EDM. String ' ' do campo '_Data_' como uma matriz JSON. Erro: ' depois de analisar um valor, um caractere inesperado foi encontrado: ' '. Caminho ' [0] ', linha 1, posição 27. ' |
+| Falha ao extrair uma coleção de entidades JSON de um valor de cadeia de caracteres.  | Não foi possível analisar o valor ' do tipo ' EDM. String ' ' do campo '_Data_' como uma matriz JSON. Erro: ' depois de analisar um valor, um caractere inesperado foi encontrado: ' '. Caminho '[0]', linha 1, posição 27. |
 | Um tipo desconhecido foi descoberto no documento de origem. | Tipo desconhecido '_desconhecido_' não pode ser indexado |
 | Uma notação incompatível para pontos de Geografia foi usada no documento de origem. | Não há suporte para literais de cadeia de caracteres de ponto WKT. Em vez disso, use literais de ponto geojson |
 
@@ -222,8 +222,8 @@ Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá us
 
 | Razão | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| A entrada de habilidade é do tipo errado | "A entrada de habilidade necessária não era do tipo esperado `String`. Nome: `text`, origem: `/document/merged_content`. "  "A entrada de habilidade necessária não estava no formato esperado. Nome: `text`, origem: `/document/merged_content`. "  "Não é possível iterar em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`de não matriz."  "Não é possível selecionar `0` em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`não matrizes" | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera que `text` seja uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada tem `*` nas posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com `*` para matrizes. |
-| A entrada da habilidade está ausente | "A entrada de habilidade necessária está ausente. Nome: `text`, fonte: `/document/merged_content`"" valor `/document/normalized_images/0/imageTags`ausente ".  "Não é possível selecionar `0` na matriz `/document/pages` de comprimento `0`". | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, `*` extra ou ausente no caminho e certificar-se de que os documentos da fonte de dados forneçam as entradas necessárias. |
+| A entrada de habilidade é do tipo errado | "A entrada de habilidade necessária não era do tipo esperado `String`. Nome: `text`, Fonte: `/document/merged_content`."  "A entrada de habilidade necessária não estava no formato esperado. Nome: `text`, Fonte: `/document/merged_content`."  "Não pode iterar sobre `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`não-matriz."  "Incapaz de selecionar `0` em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`não matriz" | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera que `text` seja uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada tem `*` nas posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com `*` para matrizes. |
+| A entrada da habilidade está ausente | "A entrada de habilidade necessária está ausente. Nome: `text`, Fonte: `/document/merged_content`" "`/document/normalized_images/0/imageTags`de valor em falta.".  "Não é possível selecionar `0` na matriz `/document/pages` de comprimento `0`". | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, `*` extra ou ausente no caminho e certificar-se de que os documentos da fonte de dados forneçam as entradas necessárias. |
 | A entrada do código do idioma da habilidade é inválida | `languageCode` de entrada de habilidades tem os códigos de idioma a seguir `X,Y,Z`, pelo menos um deles é inválido. | Veja mais detalhes [abaixo](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
@@ -249,7 +249,7 @@ Se você souber que o conjunto de dados contém vários idiomas e, portanto, pre
 ```
 
 Aqui estão algumas referências para os idiomas com suporte no momento para cada uma das habilidades que podem produzir essa mensagem de erro:
-* [Análise de texto idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)e [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) por Análise de Texto (para a [KeyPhraseExtractionSkill,](cognitive-search-skill-keyphrases.md) [EntityRecognitionSkill,](cognitive-search-skill-entity-recognition.md) [SentimentSkill](cognitive-search-skill-sentiment.md), e [PIIDetectionSkill)](cognitive-search-skill-pii-detection.md)
 * [Idiomas com suporte do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (para o [texto TranslationSkill](cognitive-search-skill-text-translation.md))
 * [SplitSkill de texto](cognitive-search-skill-textsplit.md) Idiomas com suporte: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -288,7 +288,7 @@ Esse aviso ocorre apenas para Cosmos DB fontes de dados.
 
 O progresso incremental durante a indexação garante que, se a execução do indexador for interrompida por falhas transitórias ou por um limite de tempo de execução, o indexador poderá escolher onde parou na próxima vez em que for executado, em vez de ter que reindexar toda a coleção do zero. Isso é especialmente importante ao indexar grandes coleções.
 
-A capacidade de retomar um trabalho de indexação não concluído é o predicado em ter documentos ordenados pela coluna `_ts`. O indexador usa o carimbo de data/hora para determinar qual documento deve ser selecionado em seguida. Se a coluna `_ts` estiver ausente ou se o indexador não puder determinar se uma consulta personalizada foi ordenada por ela, o indexador será iniciado no início e você verá esse aviso.
+A capacidade de retomar um trabalho de indexação inacabado baseia-se em ter documentos encomendados pela coluna `_ts`. O indexador usa o carimbo de data/hora para determinar qual documento deve ser selecionado em seguida. Se a coluna `_ts` estiver em falta ou se o indexante não conseguir determinar se uma consulta personalizada é ordenada por ela, o indexante começa no início e verá este aviso.
 
 É possível substituir esse comportamento, permitindo o progresso incremental e suprimindo esse aviso usando a propriedade de configuração `assumeOrderByHighWatermarkColumn`.
 
@@ -303,7 +303,7 @@ O [serviço de armazenamento de tabela](https://azure.microsoft.com/services/sto
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## <a name="warning-truncated-extracted-text-to-x-characters"></a>Aviso: texto extraído truncado para caracteres X
-Os indexadores limitam a quantidade de texto que pode ser extraída de um documento. Esse limite depende do tipo de preço: 32.000 caracteres para a camada gratuita, 64.000 para básico e 4 milhões para as camadas Standard, Standard S2 e Standard S3. O texto que estava truncado não será indexado. Para evitar esse aviso, tente separar documentos com grandes quantidades de texto em vários documentos menores. 
+Os indexadores limitam a quantidade de texto que pode ser extraída de um documento. Este limite depende do nível de preços: 32.000 caracteres para o free tier, 64.000 para Basic, 4 milhões para standard, 8 milhões para standard S2 e 16 milhões para standard S3. O texto que estava truncado não será indexado. Para evitar esse aviso, tente separar documentos com grandes quantidades de texto em vários documentos menores. 
 
 Para obter mais informações, consulte [limites do indexador](search-limits-quotas-capacity.md#indexer-limits).
 

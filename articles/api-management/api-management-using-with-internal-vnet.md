@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430601"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841868"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usando o serviço de gerenciamento de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, o gerenciamento de API do Azure pode gerenciar APIs não acessíveis na Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -99,7 +99,7 @@ Quando você cria um serviço de gerenciamento de API, chamado "contosointernalv
 
    * Git: contosointernalvnet.scm.azure-api.net
 
-Para acessar esses pontos de extremidade do serviço de gerenciamento de API, você pode criar uma máquina virtual em uma sub-rede conectada à rede virtual na qual o gerenciamento de API é implantado. Supondo que o endereço IP virtual interno do seu serviço seja 10.1.0.5, você pode mapear o arquivo de hosts,%SystemDrive%\drivers\etc\hosts, da seguinte maneira:
+Para acessar esses pontos de extremidade do serviço de gerenciamento de API, você pode criar uma máquina virtual em uma sub-rede conectada à rede virtual na qual o gerenciamento de API é implantado. Assumindo que o endereço IP virtual interno para o seu serviço é de 10.1.0.5, pode mapear o ficheiro dos anfitriões, %SystemDrive%\drivers\etc\hosts, da seguinte forma:
 
    * 10.1.0.5 contosointernalvnet.azure-api.net
 
@@ -126,7 +126,7 @@ Se você usar um servidor DNS personalizado em uma rede virtual, também poderá
 
 * Um endereço IP virtual *privado* com balanceamento de carga do intervalo de sub-rede será reservado e usado para acessar os pontos de extremidade do serviço de gerenciamento de API de dentro da rede virtual. Esse endereço IP *privado* pode ser encontrado na folha de visão geral do serviço no portal do Azure. Esse endereço deve ser registrado com os servidores DNS usados pela rede virtual.
 * Um endereço IP *público* com balanceamento de carga (VIP) também será reservado para fornecer acesso ao ponto de extremidade do serviço de gerenciamento pela porta 3443. Esse endereço IP *público* pode ser encontrado na folha de visão geral do serviço no portal do Azure. O endereço IP *público* é usado somente para o tráfego do plano de controle para o ponto de extremidade `management` pela porta 3443 e pode ser bloqueado para o [ApiManagement][ServiceTags] servicetag.
-* Os endereços IP do intervalo de IPS de sub-rede (DIP) serão atribuídos a cada VM no serviço e serão usados para acessar recursos na rede virtual. Um endereço IP público (VIP) será usado para acessar recursos fora da rede virtual. Se as listas de restrição de IP forem usadas para proteger os recursos na rede virtual, todo o intervalo para a sub-rede em que o serviço de gerenciamento de API é implantado deverá ser especificado para conceder ou restringir o acesso do serviço.
+* Os endereços IP da gama IP da sub-rede (DIP) serão atribuídos a cada VM no serviço e serão utilizados para aceder a recursos dentro da rede virtual. Um endereço IP público (VIP) será usado para acessar recursos fora da rede virtual. Se forem utilizadas listas de restrições IP para garantir recursos dentro da rede virtual, toda a gama para a subrede onde o serviço de Gestão API é implementado deve ser especificada para conceder ou restringir o acesso do serviço.
 * Os endereços IP públicos e privados com balanceamento de carga podem ser encontrados na folha visão geral do portal do Azure.
 * Os endereços IP atribuídos para acesso público e privado poderão ser alterados se o serviço for removido do e, em seguida, adicionado novamente à rede virtual. Se isso acontecer, pode ser necessário atualizar os registros de DNS, as regras de roteamento e as listas de restrição de IP dentro da rede virtual.
 

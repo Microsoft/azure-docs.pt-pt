@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3401ed08a9332d4bb2735e536df33c201b28ca0e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711693"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841953"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo baseado em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários são provisionados para um aplicativo.
@@ -94,7 +94,12 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributo pa
    g. **correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 
    h. **não há correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
- 
+   
+   i. **Greater_Than.** A cláusula devolve "verdadeiro" se o atributo avaliado for superior ao valor. O valor especificado no filtro de deteção deve ser um inteiro e o atributo no utilizador deve ser um inteiro [0,1,2,...]. 
+   
+   j. **Greater_Than_OR_EQUALS.** A cláusula devolve "verdadeiro" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de deteção deve ser um inteiro e o atributo no utilizador deve ser um inteiro [0,1,2,...]. 
+
+
 >[!IMPORTANT] 
 > Os filtros includes e IsMemberOf não têm suporte. Em breve, eles serão removidos da interface do usuário.
 

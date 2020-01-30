@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704549"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842721"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -341,7 +341,7 @@ Se o script do PowerShell **FileSyncErrorsReport. ps1** mostrar falhas devido a 
 
 A tabela a seguir contém todos os caracteres Unicode Sincronização de Arquivos do Azure ainda não tem suporte.
 
-| Conjunto de carateres | Contagem de caracteres |
+| Conjunto de caracteres | Contagem de caracteres |
 |---------------|-----------------|
 | <ul><li>0x0000009D (comando do sistema operacional OSC)</li><li>0x00000090 (cadeia de controle de dispositivo DCS)</li><li>0x0000008F (SS3 único Shift 3)</li><li>0x00000081 (predefinição de octeto alta)</li><li>0x0000007F (del Delete)</li><li>0x0000008D (alimentação de linha inversa ri)</li></ul> | 6 |
 | 0x0000FDD0-0x0000FDEF (formulário de apresentação árabe-a) | 32 |
@@ -1084,7 +1084,35 @@ Se os arquivos falharem na camada para os arquivos do Azure:
        - Em um prompt de comandos com privilégios elevados, execute `fltmc`. Verifique se os drivers de filtro do sistema de arquivos StorageSync. sys e StorageSyncGuard. sys estão listados.
 
 > [!NOTE]
-> Uma ID de evento 9003 é registrada uma vez por hora no log de eventos de telemetria se um arquivo falhar na camada (um evento é registrado por código de erro). Os logs de eventos operacionais e de diagnóstico devem ser usados se forem necessárias informações adicionais para diagnosticar um problema.
+> Uma ID de evento 9003 é registrada uma vez por hora no log de eventos de telemetria se um arquivo falhar na camada (um evento é registrado por código de erro). Verifique os erros de tiering e a secção de [reparação](#tiering-errors-and-remediation) para ver se as medidas de reparação estão listadas para o código de erro.
+
+### <a name="tiering-errors-and-remediation"></a>Erros de tiering e remediação
+
+| HRESULT | HRESULT (Decimal) | Cadeia do erro | Problema | Remediação |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | O ficheiro falhou na nivelamento porque está a ser utilizado. | Nenhuma ação necessária. O ficheiro será niveado quando já não estiver a ser utilizado. |
+| 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | O ficheiro falhou na nivelamento porque é excluído por sincronização. | Nenhuma ação necessária. Os ficheiros na lista de exclusão de sincronização não podem ser nividados. |
+| 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | O ficheiro falhou em ser nivelado porque não foi encontrado no servidor. | Nenhuma ação necessária. Se o erro persistir, verifique se o ficheiro existe no servidor. |
+| 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | O ficheiro não foi nivelado porque foi eliminado na parte de ficheiro sinuosa do Azure. | Nenhuma ação necessária. O ficheiro deve ser eliminado no servidor quando a próxima sessão de sincronização de descarregamento for reparada. |
+| 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | O ficheiro não foi niveado devido a um problema de rede. | Nenhuma ação necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | O ficheiro não foi niveado devido a um problema de rede. | Nenhuma ação necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | O ficheiro não foi niveado devido ao erro negado pelo acesso. Este erro pode ocorrer se o ficheiro estiver localizado numa pasta de replicação de leitura DFS-R. | O Azure File Sync não suporta pontos finais do servidor nas pastas de replicação só de leitura do DFS-R. Consulte o [Guia de planejamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para obter mais informações. |
+| 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | O ficheiro não foi niveado devido a um problema de rede. | Nenhuma ação necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | O ficheiro não foi nivealporque o tamanho do ficheiro é inferior ao tamanho suportado. | Se a versão do agente for inferior a 9.0, o tamanho mínimo de ficheiro suportado é de 64kb. Se a versão do agente for 9.0 e mais recente, o tamanho mínimo de ficheiro suportado baseia-se no tamanho do cluster do sistema de ficheiros (tamanho de cluster do sistema de ficheiros duplo). Por exemplo, se o tamanho do cluster do sistema de ficheiros for de 4kb, o tamanho mínimo do ficheiro é de 8kb. |
+| 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | O ficheiro não foi nivelado devido a um problema de armazenamento do Azure. | Se o erro persistir, abra um pedido de apoio. |
+| 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | O ficheiro não foi niveal porque foi recolhido ao mesmo tempo. | Nenhuma ação necessária. O ficheiro será niveado quando a recolha estiver concluída e o ficheiro já não estiver a ser utilizado. |
+| 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | O ficheiro não foi nivelado porque não se sincronizou com a parte do ficheiro Azure. | Nenhuma ação necessária. O ficheiro será nivelado uma vez que tenha sincronizado com a parte de ficheiro Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | O ficheiro não foi nivelheiro porque o controlador de filtro de nível de nuvem (storagesync.sys) não está a funcionar. | Para resolver este problema, abra um pedido de comando elevado e execute o seguinte comando: armazenamento de carga fltmc <br>Se o controlador de filtro de armazenamento sincronizado não carregar ao executar o comando fltmc, desinstale o agente Desinstalação de Ficheiros Azure, reinicie o servidor e reinstale o agente Dessincronização de Ficheiros Azure. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | O ficheiro não foi nivelado devido a um espaço de disco insuficiente no volume onde o ponto final do servidor está localizado. | Para resolver este problema, liberte pelo menos 100 MB de espaço em disco no volume onde o ponto final do servidor está localizado. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | O ficheiro não foi nivelado porque não se sincronizou com a parte do ficheiro Azure. | Nenhuma ação necessária. O ficheiro será nivelado uma vez que tenha sincronizado com a parte de ficheiro Azure. |
+| 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | O ficheiro falhou porque é um ponto de reparse não suportado. | Se o ficheiro for um ponto de reanálise da deduplicação de dados, siga os passos no guia de [planeamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) para ativar o suporte à desduplicação de dados. Os ficheiros com pontos de reparse que não a Deduplicação de Dados não são suportados e não serão nividados.  |
+| 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | O ficheiro não foi niveado porque foi modificado. | Nenhuma ação necessária. O ficheiro será nivelado assim que o ficheiro modificado tiver sincronizado com a parte do ficheiro Azure. |
+| 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | O ficheiro não foi nivelado porque não se sincronizou com a parte do ficheiro Azure. | Nenhuma ação necessária. O ficheiro será nivelado uma vez que tenha sincronizado com a parte de ficheiro Azure. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | O ficheiro não foi niveado devido a um problema de rede. | Nenhuma ação necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | O ficheiro não foi niveado porque foi modificado. | Nenhuma ação necessária. O ficheiro será nivelado assim que o ficheiro modificado tiver sincronizado com a parte do ficheiro Azure. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | O ficheiro não foi niveado devido a recursos insuficientes do sistema. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Como solucionar problemas de arquivos que falham ao serem recuperados  
 Se os arquivos falharem ao serem recuperados:
@@ -1109,7 +1137,7 @@ Se os arquivos falharem ao serem recuperados:
 | 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Falha ao recuperar o arquivo porque ele não está acessível no compartilhamento de arquivos do Azure. | Para resolver esse problema, verifique se o arquivo existe no compartilhamento de arquivos do Azure. Se o arquivo existir no compartilhamento de arquivos do Azure, atualize para a versão mais recente do [agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)de sincronização de arquivos do Azure. |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Falha ao recuperar o arquivo devido a uma falha de autorização na conta de armazenamento. | Para resolver esse problema, verifique se [sincronização de arquivos do Azure tem acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Falha ao recuperar o arquivo porque o compartilhamento de arquivos do Azure não está acessível. | Verifique se o compartilhamento de arquivos existe e está acessível. Se o compartilhamento de arquivos foi excluído e recriado, execute as etapas documentadas na [sincronização, pois a seção compartilhamento de arquivos do Azure foi excluída e recriada](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) para excluir e recriar o grupo de sincronização. |
-| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Falha ao recuperar o arquivo devido a recursos do sistema insuffcient. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | O ficheiro não se reteve devido à insuficiência de recursos do sistema. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Falha ao recuperar o arquivo devido à memória insuffcient. | Se o erro persistir, investigue qual driver do modo kernel ou aplicativo está causando a condição de memória insuficiente. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Falha ao recuperar o arquivo devido a espaço em disco insuficiente. | Para resolver esse problema, libere espaço no volume movendo arquivos para um volume diferente, aumente o tamanho do volume ou Force os arquivos a serem nivelados usando o cmdlet Invoke-StorageSyncCloudTiering. |
 
@@ -1228,7 +1256,7 @@ Se o problema não for resolvido, execute a ferramenta AFSDiag:
 
 3. Para o Sincronização de Arquivos do Azure nível de rastreamento do modo kernel, insira **1** (a menos que especificado de outra forma, para criar rastreamentos mais detalhados) e pressione Enter.
 4. Para o Sincronização de Arquivos do Azure nível de rastreamento do modo de usuário, insira **1** (a menos que especificado de outra forma, para criar rastreamentos mais detalhados) e pressione Enter.
-5. Reproduza o problema. Quando tiver terminado, digite **D**.
+5. Reproduza a questão. Quando tiver terminado, digite **D**.
 6. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou.
 
 ## <a name="see-also"></a>Ver também

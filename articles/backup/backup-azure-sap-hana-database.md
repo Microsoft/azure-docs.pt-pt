@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c5df198d009f0d4a9f37a68d6b21386f06842722
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753966"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765519"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -23,6 +23,10 @@ Neste artigo, ficará a saber como:
 > * Descobrir bancos de dados
 > * Configurar backups
 > * Executar um trabalho de backup sob demanda
+
+>[!NOTE]
+>**A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure** já está disponível na pré-visualização.<br>
+>Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -132,7 +136,7 @@ Agora, habilite o backup.
     ![Selecionar itens para backup](./media/backup-azure-sap-hana-database/select-items.png)
 3. Em **política de backup** > **escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
 
-    ![Escolher política de cópia de segurança](./media/backup-azure-sap-hana-database/backup-policy.png)
+    ![Escolha a política de backup](./media/backup-azure-sap-hana-database/backup-policy.png)
 4. Depois de criar a política, no menu **backup** , clique em **habilitar backup**.
 
     ![Habilitar backup](./media/backup-azure-sap-hana-database/enable-backup.png)
@@ -207,13 +211,13 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
 1. Aguarde até que os backups completos ou de log do banco de dados sejam concluídos. Verifique o status no SAP HANA Studio/cockpit.
 2. Desabilite os backups de log e defina o catálogo de backup para o sistema de arquivos para o banco de dados relevante.
 3. Para fazer isso, clique duas vezes em systemdb **configuração** de >  > selecionar **filtro de > de banco de dados (log)** .
-4. Defina **enable_auto_log_backup** como **não**.
-5. Defina **log_backup_using_backint** como **false**.
+4. Definir **enable_auto_log_backup** para **Nº**.
+5. Coloque **log_backup_using_backint** a **Falso**.
 6. Faça um backup completo sob demanda do banco de dados.
 7. Aguarde até que o backup completo e o backup do catálogo sejam concluídos.
 8. Reverter as configurações anteriores para as do Azure:
-    * Defina **enable_auto_log_backup** como **Sim**.
-    * Defina **log_backup_using_backint** como **true**.
+    * Definir **enable_auto_log_backup** para **Sim.**
+    * Definir **log_backup_using_backint** para **true**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

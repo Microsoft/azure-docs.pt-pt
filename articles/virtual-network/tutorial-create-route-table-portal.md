@@ -5,25 +5,20 @@ description: Neste tutorial, saiba como encaminhar o tráfego de rede com uma ta
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350297"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775286"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 
@@ -48,19 +43,19 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **rede** > **tabela de rotas**.
-
-1. Em **criar tabela de rotas**, insira ou selecione estas informações:
+1. No menu portal do Azure, selecione **criar um recurso**.
+2. Na caixa de pesquisa, introduza a *tabela Rota.* Quando a **tabela Rota** aparecer nos resultados da pesquisa, selecione-a.
+3. Na página da **tabela Rota,** selecione **Criar**.
+4. Em **criar tabela de rotas**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Insira *myRouteTablePublic*. |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e selecione *OK*. |
-    | Localização | Deixe o **leste dos EUA**padrão.
+    | Localização | Selecione **E.U.A. Leste**.
     | Propagação de rota de gateway de rede virtual | Deixe o padrão **habilitado**. |
-
-1. Selecione **Criar**.
+5. Selecione **Criar**.
 
 ## <a name="create-a-route"></a>Criar uma rota
 
@@ -137,7 +132,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, você precisa criar 
 
 ### <a name="associate-myroutetablepublic-to-your-public-subnet"></a>Associar o myRouteTablePublic à sua sub-rede pública
 
-1. Selecione **Público**.
+1. Selecione **Public**.
 
 1. Em **público**, selecione **tabela de rotas** > **MyRouteTablePublic** > **salvar**.
 
@@ -165,11 +160,11 @@ NVAs são VMs que ajudam com funções de rede como roteamento e otimização de
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar Palavra-Passe | Digite a senha novamente. |
+    | Confirmar palavra-passe | Digite a senha novamente. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
-    | Portas de entrada públicas | Deixe o padrão **nenhum**.
+    | Portos de entrada pública | Selecione **Nenhum**.
     | **ECONOMIZE DINHEIRO** |  |
-    | Já tem uma licença do Windows? | Deixe o padrão **não**. |
+    | Já tem licença do Windows? | Deixe o padrão **não**. |
 
 1. Selecione **Avançar: discos**.
 
@@ -183,7 +178,7 @@ NVAs são VMs que ajudam com funções de rede como roteamento e otimização de
     | ------- | ----- |
     | Rede virtual | Deixe o **myVirtualNetwork**padrão. |
     | Subrede | Selecione **DMZ (10.0.2.0/24)** . |
-    | IP público | Selecione **Nenhuma**. Você não precisa de um endereço IP público. A VM não se conectará pela Internet.|
+    | IP público | Selecione **Nenhum**. Você não precisa de um endereço IP público. A VM não se conectará pela Internet.|
 
 1. Deixe o restante dos padrões e selecione **Avançar: gerenciamento**.
 
@@ -233,25 +228,25 @@ Conclua as etapas 1-12 de [criar um NVA](#create-an-nva). Use a maioria das mesm
 | Definição | Valor |
 | ------- | ----- |
 | **VM PÚBLICA** | |
-| INFORMAÇÕES BÁSICAS |  |
+| BÁSICOS |  |
 | Nome da máquina virtual | Insira *myVmPublic*. |
-| REDES | |
+| NETWORKING | |
 | Subrede | Selecione **público (10.0.0.0/24)** . |
 | Endereço IP público | Aceite o padrão. |
-| Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
-| Selecionar portas de entrada | Selecione **http** e **RDP**. |
+| Portos de entrada pública | Selecione **permitir portas selecionadas**. |
+| Selecione portas de entrada | Selecione **http** e **RDP**. |
 | GESTÃO | |
-| Conta de armazenamento de diagnósticos | Deixe o **mynvastorageaccount**padrão. |
+| Conta de armazenamento de diagnóstico | Deixe o **mynvastorageaccount**padrão. |
 | **VM PRIVADA** | |
-| INFORMAÇÕES BÁSICAS |  |
+| BÁSICOS |  |
 | Nome da máquina virtual | Insira *myVmPrivate*. |
-| REDES | |
+| NETWORKING | |
 | Subrede | Selecione **privado (10.0.1.0/24)** . |
 | Endereço IP público | Aceite o padrão. |
-| Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
-| Selecionar portas de entrada | Selecione **http** e **RDP**. |
+| Portos de entrada pública | Selecione **permitir portas selecionadas**. |
+| Selecione portas de entrada | Selecione **http** e **RDP**. |
 | GESTÃO | |
-| Conta de armazenamento de diagnósticos | Deixe o **mynvastorageaccount**padrão. |
+| Conta de armazenamento de diagnóstico | Deixe o **mynvastorageaccount**padrão. |
 
 Pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Não continue com o restante das etapas até que o Azure termine de criar ambas as VMs.
 

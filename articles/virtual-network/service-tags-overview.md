@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: dc64570ccf69c321f33b9689362def8c9caf975e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715404"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775255"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -79,7 +79,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **ElasticAFD** | Porta de recepção do Azure elástica. | Ambos | Não | Não |
 | **EventHub** | Hubs de eventos do Azure. | Saída | Sim | Sim |
 | **Gatewaymanager** | Tráfego de gerenciamento para implantações dedicadas ao gateway de VPN do Azure e ao gateway de aplicativo. | Entrada | Não | Não |
-| **GuestAndHybridManagement** | Configuração de convidado e automação do Azure. | Ambos | Não | Sim |
+| **GuestAndHybridManagement** | Configuração de convidado e automação do Azure. | Saída | Não | Sim |
 | **HDInsight** | Azure HDInsight. | Entrada | Sim | Não |
 | **Internet** | O espaço de endereço IP que está fora da rede virtual e acessível pela Internet pública.<br/><br/>O intervalo de endereços inclui o [espaço de endereço IP público de Propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | Não | Não |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Saída | Não | Não |

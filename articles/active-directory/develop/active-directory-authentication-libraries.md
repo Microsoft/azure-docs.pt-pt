@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 08b2ddad912fc503e7c555a8f3b35b53a2c33b05
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev
+ms.openlocfilehash: d4ff6fff807d52208cf3e99a97a2d6b7340c081d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699330"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834268"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticação de diretório ativo Azure
 

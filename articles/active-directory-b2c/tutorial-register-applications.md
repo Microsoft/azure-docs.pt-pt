@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 214797f187c1812932c00bdf2a39c5ed79e15d4b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712673"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840116"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registe uma candidatura no Diretório Ativo Azure B2C
 
-Antes de as suas [candidaturas](active-directory-b2c-apps.md) poderem interagir com o Azure Ative Directory B2C (Azure AD B2C), devem estar registados num inquilino que gere. Este tutorial mostra-lhe como registar uma aplicação web utilizando o portal Azure.
+Antes de as suas [candidaturas](application-types.md) poderem interagir com o Azure Ative Directory B2C (Azure AD B2C), devem estar registados num inquilino que gere. Este tutorial mostra-lhe como registar uma aplicação web utilizando o portal Azure.
 
 Neste artigo, vai aprender a:
 

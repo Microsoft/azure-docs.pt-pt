@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444511"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773854"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -87,7 +87,7 @@ Em seu pipeline, adicione uma [atividade de procedimento armazenado](transform-d
 
 Agende um redimensionamento da origem e do coletor do banco de BD SQL do Azure e do DW antes de executar o pipeline para aumentar a taxa de transferência e minimizar a limitação do Azure depois de atingir os limites de DTU. Depois que a execução do pipeline for concluída, redimensione os bancos de dados de volta à sua taxa de execução normal.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Somente SQL DW do Azure] Usar preparo para carregar dados em massa por meio do polybase
+### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Azure SQL DW apenas] Utilize a encenação para carregar dados a granel através da Polybase
 
 Para evitar inserções de linha por linha em seu DW, marque **habilitar o preparo** nas configurações do coletor para que o ADF possa usar o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). O polybase permite que o ADF carregue os dados em massa.
 * Ao executar a atividade de fluxo de dados de um pipeline, você precisará selecionar um BLOB ou ADLS Gen2 local de armazenamento para preparar seus dados durante o carregamento em massa.
@@ -129,6 +129,12 @@ Definir as propriedades de taxa de transferência e de lote em coletores CosmosD
 * Tamanho do lote: Calcule o tamanho da linha aproximada dos dados e verifique se o tamanho do lote de rowgroup * é menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
 * Taxa de transferência: defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
 *   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
+
+## <a name="join-performance"></a>Junte-se ao desempenho
+
+Gerir o desempenho de juntas no fluxo de dados é uma operação muito comum que irá realizar ao longo do ciclo de vida das suas transformações de dados. Na ADF, os fluxos de dados não requerem que os dados sejam classificados antes de aderirem, uma vez que estas operações são realizadas à medida que o haxixe se junta à Spark. No entanto, pode beneficiar de um melhor desempenho com a otimização "Broadcast" Join. Isto evitará baralhar empurrando para baixo o conteúdo de ambos os lados da sua relação de união para o nó de Faísca. Isto funciona bem para tabelas mais pequenas que são usadas para procurar referências. Tabelas maiores que podem não caber na memória do nó não são bons candidatos para otimização de transmissão.
+
+Outra otimização de Join é construir as suas juntas de forma a evitar a tendência da Spark para implementar juntas cruzadas. Por exemplo, quando incluir valores literais nas suas condições de adesão, a Spark pode ver isso como um requisito para executar primeiro um produto cartesiano completo, em seguida, filtrar os valores unidos. Mas se garantir que tem valores de coluna em ambos os lados da sua condição de união, pode evitar este produto cartesiano induzido pela Spark e melhorar o desempenho das suas juntas e fluxos de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

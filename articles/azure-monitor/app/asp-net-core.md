@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f54605dd5b43236a75fe73aa3b47a4e619530a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407514"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765816"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -113,10 +113,10 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    Normalmente, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica a chave de instrumentação para aplicativos implantados nos aplicativos Web do Azure.
+    Normalmente, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica a chave de instrumentação para aplicações implementadas nas Aplicações Web do Azure.
 
     > [!NOTE]
-    > Uma chave de instrumentação especificada no código vence sobre a variável de ambiente `APPINSIGHTS_INSTRUMENTATIONKEY`, que vence em outras opções.
+    > Uma chave de instrumentação especificada no código ganha sobre a variável ambiental `APPINSIGHTS_INSTRUMENTATIONKEY`, que ganha sobre outras opções.
 
 ## <a name="run-your-application"></a>Executar a aplicação
 
@@ -151,22 +151,22 @@ o `EventCounterCollectionModule` é habilitado por padrão e coletará um conjun
 
 As etapas anteriores são suficientes para ajudá-lo a começar a coletar a telemetria do lado do servidor. Se seu aplicativo tiver componentes do lado do cliente, siga as próximas etapas para começar a coletar a [telemetria de uso](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview).
 
-1. Em `_ViewImports.cshtml`, adicione injeção:
+1. Em `_ViewImports.cshtml`, adicione a injeção:
 
     ```cshtml
         @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
     ```
 
-2. No `_Layout.cshtml`, insira `HtmlHelper` no final da seção `<head>`, mas antes de qualquer outro script. Se você quiser relatar qualquer telemetria personalizada do JavaScript da página, insira-a após este trecho:
+2. Em `_Layout.cshtml`, insira `HtmlHelper` no final da secção `<head>`, mas antes de qualquer outro script. Se você quiser relatar qualquer telemetria personalizada do JavaScript da página, insira-a após este trecho:
 
     ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
     ```
 
-Os nomes de arquivo de `.cshtml` referenciados anteriormente são de um modelo de aplicativo MVC padrão. Por fim, se você quiser habilitar corretamente o monitoramento do lado do cliente para seu aplicativo, o trecho de código JavaScript deverá aparecer na seção `<head>` de cada página do aplicativo que você deseja monitorar. Você pode realizar essa meta para esse modelo de aplicativo adicionando o trecho de JavaScript a `_Layout.cshtml`. 
+Os nomes de arquivo de `.cshtml` referenciados anteriormente são de um modelo de aplicativo MVC padrão. Por fim, se você quiser habilitar corretamente o monitoramento do lado do cliente para seu aplicativo, o trecho de código JavaScript deverá aparecer na seção `<head>` de cada página do aplicativo que você deseja monitorar. Pode atingir este objetivo para este modelo de aplicação adicionando o snippet JavaScript a `_Layout.cshtml`. 
 
-Se o seu projeto não incluir `_Layout.cshtml`, você ainda poderá adicionar o [monitoramento do lado do cliente](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring). Você pode fazer isso adicionando o trecho de JavaScript a um arquivo equivalente que controla a `<head>` de todas as páginas em seu aplicativo. Ou você pode adicionar o trecho a várias páginas, mas essa solução é difícil de manter e, em geral, não é recomendável.
+Se o seu projeto não incluir `_Layout.cshtml`, ainda pode adicionar [monitorização do lado do cliente.](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring) Você pode fazer isso adicionando o trecho de JavaScript a um arquivo equivalente que controla a `<head>` de todas as páginas em seu aplicativo. Ou você pode adicionar o trecho a várias páginas, mas essa solução é difícil de manter e, em geral, não é recomendável.
 
 ## <a name="configure-the-application-insights-sdk"></a>Configurar o SDK do Application Insights
 
@@ -416,7 +416,7 @@ O metapacote `Microsoft.AspNetCore.All` 2,0 incluía o SDK do Application Insigh
 
 Sim. O suporte a recursos para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
 
-* Os contadores de desempenho têm suporte apenas no Windows.
+* O SDK recolhe balcões de [eventos](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters) no Linux porque os Contadores de [Desempenho](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters) só são suportados no Windows. A maioria das métricas são as mesmas.
 * Embora `ServerTelemetryChannel` esteja habilitado por padrão, se o aplicativo estiver sendo executado no Linux ou no MacOS, o canal não criará automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a essa limitação, a telemetria é perdida quando há problemas temporários de rede ou servidor. Para contornar esse problema, configure uma pasta local para o canal:
 
 ```csharp

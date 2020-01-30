@@ -1,7 +1,7 @@
 ---
-title: Passar um token de acesso por meio de uma política personalizada para seu aplicativo
+title: Passe um sinal de acesso através de uma política personalizada para a sua app
 titleSuffix: Azure AD B2C
-description: Saiba como você pode passar um token de acesso para provedores de identidade OAuth 2,0 como uma declaração por meio de uma política personalizada para seu aplicativo no Azure Active Directory B2C.
+description: Saiba como pode passar um sinal de acesso para fornecedores de identidade OAuth 2.0 como reivindicação através de uma política personalizada à sua aplicação no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f7122035f8d70cb91f4ec4f64e1dd4f7b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949845"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76839096"
 ---
-# <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passe um token de acesso por meio de uma política personalizada para seu aplicativo no Azure Active Directory B2C
+# <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passe um sinal de acesso através de uma política personalizada para a sua aplicação no Azure Ative Directory B2C
 
-Uma [política personalizada](active-directory-b2c-get-started-custom.md) no Azure Active Directory B2C (Azure ad B2C) fornece aos usuários de seu aplicativo uma oportunidade de se inscrever ou entrar com um provedor de identidade. Quando isso acontece, Azure AD B2C recebe um [token de acesso](active-directory-b2c-reference-tokens.md) do provedor de identidade. Azure AD B2C usa esse token para recuperar informações sobre o usuário. Você adiciona um tipo de declaração e uma declaração de saída à sua política personalizada para passar o token para os aplicativos que você registra no Azure AD B2C.
+Uma [política personalizada](custom-policy-get-started.md) no Azure Ative Directory B2C (Azure AD B2C) proporciona aos utilizadores da sua aplicação a oportunidade de se inscreverem ou inscreverem-se com um fornecedor de identidade. Quando isso acontece, o Azure AD B2C recebe um sinal de [acesso](tokens-overview.md) do fornecedor de identidade. O Azure AD B2C utiliza esse símbolo para recuperar informações sobre o utilizador. Adicione um tipo de reclamação e uma reivindicação de saída à sua política personalizada para passar o símbolo para as aplicações que regista no Azure AD B2C.
 
-Azure AD B2C dá suporte à passagem do token de acesso dos provedores de identidade [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) e [OpenID Connect](active-directory-b2c-reference-oidc.md) . Para todos os outros provedores de identidade, a declaração é retornada em branco.
+O Azure AD B2C suporta a passagem do sinal de acesso dos fornecedores de identidade [OAuth 2.0](authorization-code-flow.md) e [OpenID Connect.](openid-connect.md) Para todos os outros fornecedores de identidade, a reclamação é devolvida em branco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Sua política personalizada está configurada com um provedor de identidade OAuth 2,0 ou OpenID Connect.
+* A sua política personalizada está configurada com um fornecedor de identidade OAuth 2.0 ou OpenID Connect.
 
-## <a name="add-the-claim-elements"></a>Adicionar os elementos de declaração
+## <a name="add-the-claim-elements"></a>Adicione os elementos de reclamação
 
-1. Abra o arquivo *TrustframeworkExtensions. xml* e adicione o seguinte elemento **ClaimType** com um identificador de `identityProviderAccessToken` ao elemento **ClaimsSchema** :
+1. Abra o ficheiro *TrustframeworkExtensions.xml* e adicione o seguinte elemento **ClaimType** com um identificador de `identityProviderAccessToken` ao elemento **ClaimsSchema:**
 
     ```XML
     <BuildingBlocks>
@@ -45,7 +45,7 @@ Azure AD B2C dá suporte à passagem do token de acesso dos provedores de identi
     </BuildingBlocks>
     ```
 
-2. Adicione o elemento **OutputClaim** ao elemento **TechnicalProfile** para cada provedor de identidade OAuth 2,0 para o qual você deseja obter o token de acesso. O exemplo a seguir mostra o elemento adicionado ao perfil técnico do Facebook:
+2. Adicione o elemento **OutputClaim** ao elemento **TechnicalProfile** para cada fornecedor de identidade OAuth 2.0 para o que gostaria de ter o token de acesso. O exemplo seguinte mostra o elemento adicionado ao perfil técnico do Facebook:
 
     ```XML
     <ClaimsProvider>
@@ -61,8 +61,8 @@ Azure AD B2C dá suporte à passagem do token de acesso dos provedores de identi
     </ClaimsProvider>
     ```
 
-3. Salve o arquivo *TrustframeworkExtensions. xml* .
-4. Abra o arquivo de política de terceira parte confiável, como *SignUpOrSignIn. xml*, e adicione o elemento **OutputClaim** ao **TechnicalProfile**:
+3. Guarde o ficheiro *TrustframeworkExtensions.xml.*
+4. Abra o seu ficheiro de política de partidos de base, como *SignUpOrSignIn.xml,* e adicione o elemento **OutputClaim** ao **Perfil Técnico:**
 
     ```XML
     <RelyingParty>
@@ -76,33 +76,33 @@ Azure AD B2C dá suporte à passagem do token de acesso dos provedores de identi
     </RelyingParty>
     ```
 
-5. Salve o arquivo de política.
+5. Guarde o ficheiro político.
 
-## <a name="test-your-policy"></a>Testar sua política
+## <a name="test-your-policy"></a>Teste a sua política
 
-Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token de Azure AD B2C retornado a `https://jwt.ms` para poder revisar as declarações nele.
+Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure AD B2C seja devolvido à `https://jwt.ms` para poder rever as reclamações nele.
 
-### <a name="upload-the-files"></a>Carregar os ficheiros
+### <a name="upload-the-files"></a>Faça upload dos ficheiros
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C clicando no filtro **diretório + assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C clicando no filtro de **subscrição Do Diretório +** + no menu superior e escolhendo o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **Identity Experience Framework**.
-5. Na página políticas personalizadas, clique em **carregar política**.
-6. Selecione **substituir a política, se ela existir**, e, em seguida, procure e selecione o arquivo *TrustframeworkExtensions. xml* .
+5. Na página Políticas Personalizadas, clique na **Política de Upload**.
+6. **Selecione Sobrepor a apólice se ela existir**, e depois procurar e selecionar o ficheiro *TrustframeworkExtensions.xml.*
 7. Selecione **Upload**.
-8. Repita as etapas de 5 a 7 para o arquivo de terceira parte confiável, como *SignUpOrSignIn. xml*.
+8. Repita os passos 5 a 7 para o ficheiro de festa fiada, como *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Executar a política
 
-1. Abra a política que você alterou. Por exemplo, *B2C_1A_signup_signin*.
-2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token no exemplo abaixo, a **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Abre a política que mudaste. Por exemplo, *B2C_1A_signup_signin.*
+2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo no exemplo abaixo, o URL de **resposta** deve mostrar `https://jwt.ms`.
 3. Selecione **executar agora**.
 
-    Você verá algo semelhante ao exemplo a seguir:
+    Deve ver algo semelhante ao seguinte exemplo:
 
-    ![Token decodificado em jwt.ms com idp_access_token bloco realçado](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
+    ![Ficha descodificada em jwt.ms com bloco idp_access_token em destaque](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre tokens na [referência de token de Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Saiba mais sobre fichas na [referência token Azure Ative Directory B2C](tokens-overview.md).

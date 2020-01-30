@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9a4f5094837b0c642c4de75180039064de4e40c2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513988"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834982"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolva aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. As perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do [SDL (Microsoft Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para desenvolver um aplicativo mais seguro.
@@ -36,7 +36,7 @@ Suponha que seu aplicativo será usado de maneiras que você não pretenda usá-
 
 Antes de fazer o check-in do código, realize [revisões de código](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar a qualidade geral do código e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
 
-### <a name="perform-static-code-analysis"></a>Efetuar a análise de código estático
+### <a name="perform-static-code-analysis"></a>Realizar análise de código estático
 
 A [análise de código estático](https://www.owasp.org/index.php/Static_Code_Analysis) (também conhecida como *análise de código-fonte*) geralmente é executada como parte de uma revisão de código. A análise de código estático normalmente refere-se à execução de ferramentas de análise de código estático para encontrar possíveis vulnerabilidades em código não-em execução usando técnicas como [verificação](https://en.wikipedia.org/wiki/Taint_checking) de comparecer e [análise de fluxo de dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
@@ -89,7 +89,7 @@ Isso significa que menos pessoas têm acesso aos dados reais, o que reduz a supe
 
 Para se defender contra a força bruta e a adivinhação baseada em dicionário, você deve implementar uma política de senha forte para garantir que os usuários criem uma senha complexa (por exemplo, comprimento mínimo de 12 caracteres e exigindo caracteres alfanuméricos e especiais).
 
-Você pode usar uma estrutura de identidade para criar e impor políticas de senha. Azure AD B2C ajuda com o gerenciamento de senhas, fornecendo [políticas internas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [redefinição de senha de autoatendimento](../../active-directory-b2c/active-directory-b2c-reference-sspr.md)e muito mais.
+Você pode usar uma estrutura de identidade para criar e impor políticas de senha. Azure AD B2C ajuda com o gerenciamento de senhas, fornecendo [políticas internas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [redefinição de senha de autoatendimento](../../active-directory-b2c/user-flow-self-service-password-reset.md)e muito mais.
 
 Para se defender contra ataques em contas padrão, verifique se todas as chaves e senhas são substituíveis e se elas são geradas ou substituídas após a instalação dos recursos.
 

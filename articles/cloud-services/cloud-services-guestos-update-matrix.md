@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/15/2020
+ms.date: 1/24/2020
 ms.author: raiye
-ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122250"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765321"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões do SO convidado do Azure e matriz de compatibilidade do SDK
 Fornece informações atualizadas sobre as versões mais recentes do sistema operacional convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar o caminho de atualização antes que um sistema operacional convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* do sistema operacional convidado, conforme descrito em [configurações de atualização do SO convidado do Azure][Azure Guest OS Update Settings], não é vital que você leia esta página.
@@ -41,6 +41,9 @@ Fornece informações atualizadas sobre as versões mais recentes do sistema ope
 Não tem certeza de como atualizar seu sistema operacional convidado? Verifique [isso][cloud updates] .
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="january-24-2020"></a>**24 de janeiro de 2020**
+O SO convidado de Janeiro foi lançado. 
 
 ###### <a name="january-8-2020"></a>**8 de janeiro de 2020**
 O SO convidado de dezembro foi lançado.
@@ -115,14 +118,15 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-6.14 _201912-01 | 8 de janeiro de 2020 | Post 6,16 |  
-| WA-GUEST-OS-6.13 _201911-01 | 5 de dezembro de 2019 | Post 6,15 |  
-|~~WA-GUEST-OS-6.12 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-6.11 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-6.10 _201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019  |  
-|~~WA-GUEST-OS-6,9 _201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-6.8 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-6.7 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|  WA-GUEST-OS-6.15_202001-01  |  24 de janeiro de 2020  |  Posto 6.17  |  
+| WA-GUEST-OS-6.14_201912-01 | 8 de janeiro de 2020 | Post 6,16 |  
+|~~WA-GUEST-OS-6.13_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-6.12_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-6.11_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-6.10_201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019  |  
+|~~WA-GUEST-OS-6.9_201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-6.8_201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-6.7_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -142,14 +146,15 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-5.38 _201912-01 | 8 de janeiro de 2020 | Post 5,40 |  
-| WA-GUEST-OS-5.37 _201911-01 | 5 de dezembro de 2019 | Post 5,39 |  
-|~~WA-GUEST-OS-5.36 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-5.35 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-5.34 _201908-01~~|  4 de agosto de 2019  | 1 de novembro de 2019 |  
-|~~WA-GUEST-OS-5.33 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
-|~~WA-GUEST-OS-5.32 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-5.31 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|  WA-GUEST-OS-5.39_202001-01  |  24 de janeiro de 2020  |  Posto 5.41  |  
+| WA-GUEST-OS-5.38_201912-01 | 8 de janeiro de 2020 | Post 5,40 |  
+|~~WA-GUEST-OS-5.37_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-5.36_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-5.35_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-5.34_201908-01~~|  4 de agosto de 2019  | 1 de novembro de 2019 |  
+|~~WA-GUEST-OS-5.33_201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
+|~~WA-GUEST-OS-5.32_201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-5.31_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -166,14 +171,15 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-4.73 _201912-01 | 8 de janeiro de 2020 | Post 4,75 |  
-| WA-GUEST-OS-4.72 _201911-01 | 5 de dezembro de 2019 | Post 4,74 |  
-|~~WA-GUEST-OS-4.71 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-4.70 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-4.69 _201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019 |  
-|~~WA-GUEST-OS-4.68 _201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-4.67 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-4.66 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|  WA-GUEST-OS-4.74_202001-01  |  24 de janeiro de 2020  |  Posto 4.76  |  
+| WA-GUEST-OS-4.73_201912-01 | 8 de janeiro de 2020 | Post 4,75 |  
+|~~WA-GUEST-OS-4.72_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-4.71_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-4.70_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-4.69_201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019 |  
+|~~WA-GUEST-OS-4.68_201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-4.67_201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-4.66_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -190,14 +196,15 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-3,80 _201912-01 | 8 de janeiro de 2020 | Post 3,82 |  
-| WA-GUEST-OS-3.79 _201911-01 | 5 de dezembro de 2019 | Post 3,81 |  
-|~~WA-GUEST-OS-3.78 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-3.77 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-3.76 _201908-01~~|  4 de agosto de 2019  |  1 de novembro de 2019  |  
-|~~WA-GUEST-OS-3,75 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-3.74 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-3.73 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|  WA-GUEST-OS-3.81_202001-01  |  24 de janeiro de 2020  |  Posto 3.83  |  
+| WA-GUEST-OS-3.80_201912-01 | 8 de janeiro de 2020 | Post 3,82 |  
+|~~WA-GUEST-OS-3.79_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-3.78_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-3.77_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-3.76_201908-01~~|  4 de agosto de 2019  |  1 de novembro de 2019  |  
+|~~WA-GUEST-OS-3.75_201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-3.74_201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-3.73_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -214,14 +221,15 @@ O sistema operacional convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-2,93 _201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
-| WA-GUEST-OS-2.92 _201911-01 | 5 de dezembro de 2019 | Post 2,94 |  
-|~~WA-GUEST-OS-2.91 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-2.90 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019 |  
-|~~WA-GUEST-OS-2,88 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-2.87 _201906-01~~|8 de julho de 2019 | 4 de agosto de 2019 |
-|~~WA-GUEST-OS-2.86 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|  WA-GUEST-OS-2.94_202001-01  |  24 de janeiro de 2020  |  Posto 2.96  |  
+| WA-GUEST-OS-2.93_201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
+|~~WA-GUEST-OS-2.92_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-2.90_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-2.89_201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019 |  
+|~~WA-GUEST-OS-2.88_201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-2.87_201906-01~~|8 de julho de 2019 | 4 de agosto de 2019 |
+|~~WA-GUEST-OS-2.86_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
@@ -234,7 +242,7 @@ O sistema operacional convidado de setembro foi lançado.
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
 A lista de patches que estão incluídos em cada versão mensal do sistema operacional convidado está disponível [aqui][patches].
 
-## <a name="sdk-support"></a>Suporte de SKDs
+## <a name="sdk-support"></a>Suporte SDK
 Embora a política de desativação do [SDK do Azure][retire policy sdk] indique que apenas as versões acima de 2,2 têm suporte, as famílias de sistemas operacionais convidados específicos permitem que você use versões anteriores. Você sempre deve usar o SDK com suporte mais recente.
 
 | Família do SO convidado | Versões compatíveis do SDK |
@@ -269,7 +277,7 @@ No exemplo a seguir, 2 é a família, 12 é a versão e "REL2" é a versão.
 
 **Versão do SO convidado** -2,12 REL2
 
-**Cadeia de caracteres de configuração para esta versão** -wa-Guest-os-2.12 _201208-02
+**Cadeia de configuração para este lançamento** - WA-GUEST-OS-2.12_201208-02
 
 A cadeia de caracteres de configuração para um SO convidado tem essas mesmas informações inseridas nela, juntamente com uma data mostrando quais patches do MSRC foram considerados para essa versão. Neste exemplo, os patches do MSRC produzidos para o Windows Server 2008 R2 até e incluindo agosto de 2012 foram considerados para inclusão. Somente os patches que se aplicam especificamente a essa versão do Windows Server são incluídos. Por exemplo, se um patch do MSRC se aplicar ao Microsoft Office, ele não será incluído porque esse produto não faz parte da imagem base do Windows Server.
 

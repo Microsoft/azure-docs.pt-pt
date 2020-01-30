@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 69899f521e73cb5af1af145a0915dbe1a017f307
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 8ae78bb8c0b70e20bfe12b8dc52c02abb6030bdf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281190"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774099"
 ---
 <a name="HOLTop"></a>
 
@@ -22,6 +22,7 @@ ms.locfileid: "76281190"
 
 > [!NOTE]
 > * Este guia de início rápido usa a versão `3.0-preview` da biblioteca de cliente do Análise de Texto, que inclui uma visualização pública para [análise de sentimento](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) aprimorado e [reconhecimento de entidade nomeada (Ner)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>
 > * O código neste artigo usa o armazenamento de credenciais não protegidas por motivos de simplicidade. Para cenários de produção, é recomendável enviar cadeias de caracteres em lotes para desempenho e escalabilidade. Por exemplo, chamar `SentimentBatchAsync()` em vez de `Sentiment()`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,6 +37,9 @@ ms.locfileid: "76281190"
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
+
+> [!NOTE]
+> Também pode executar esta versão da biblioteca de clientes Text Analytics [no seu navegador.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
 
 Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele. 
 
@@ -85,7 +89,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 ## <a name="code-examples"></a>Exemplos de código
 
-* [Autenticação de Cliente](#client-authentication)
+* [Autenticação do Cliente](#client-authentication)
 * [Análise de sentimento](#sentiment-analysis) (visualização pública)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-public-preview) (visualização pública)
@@ -93,7 +97,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 * [Vinculação de entidade](#entity-linking)
 * [Extração de frases-chave](#key-phrase-extraction)
 
-## <a name="client-authentication"></a>Autenticação de Cliente
+## <a name="client-authentication"></a>Autenticação do Cliente
 
 Crie um novo objeto `TextAnalyticsClient` com sua chave e ponto de extremidade como parâmetros.
 

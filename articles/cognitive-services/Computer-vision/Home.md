@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2b80e09f086cfaa90174dc9abc5a5cd06294036e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 17dd428f79f66bc70da47527314ad43a27955c82
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770429"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772508"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -28,7 +28,7 @@ Você pode usar Pesquisa Visual Computacional em seu aplicativo por meio de um S
 
 Pesquisa Visual Computacional pode alimentar muitos cenários de DAM (gerenciamento de ativos digitais). DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos, rostos, objetos, cores visíveis e assim por diante. Ou, talvez você queira gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que elas sejam pesquisáveis. Para uma solução de DAM All-in-One usando serviços cognitivas, Pesquisa Cognitiva do Azure e relatórios inteligentes, consulte o [Guia do Solution Accelerator do Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) no github. Para outros exemplos de DAM, consulte o Pesquisa Visual Computacional repositório de [modelos de solução](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
-## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
+## <a name="analyze-images-for-insight"></a>Analisar imagens para introspeção
 
 Você pode analisar imagens para detectar e fornecer informações sobre seus recursos e características visuais. Todos os recursos na tabela a seguir são fornecidos pela API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
@@ -71,7 +71,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 
 ## <a name="data-privacy-and-security"></a>Privacidade e segurança de dados
 
-Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de Pesquisa Visual Computacional devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a [página serviços cognitivas](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na central de confiabilidade da Microsoft para saber mais.
+Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de Pesquisa Visual Computacional devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a página de [Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

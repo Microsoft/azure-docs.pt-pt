@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/06/2019
+ms.date: 01/27/2019
 ms.author: aahi
-ms.openlocfilehash: a9bfa2a51341bf60f92378f5d96a390bd1d92db1
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732783"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774145"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -23,7 +23,7 @@ O API de Análise de Texto permite que você assuma o texto não estruturado e r
 
 ### <a name="entity-linking"></a>Ligação de Entidades
 
-A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. 
+A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. A Entidade Que Liga a Wikipédia usa a [Wikipédia](https://www.wikipedia.org/) como base de conhecimento.
 
 
 ### <a name="named-entity-recognition-ner"></a>Reconhecimento de entidade nomeada (NER)
@@ -64,7 +64,7 @@ Consulte [suporte a idiomas](../language-support.md#sentiment-analysis-key-phras
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | \* N/A         | "18:30 4 de fevereiro de 2012"      |
-| DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   |
+| DateTime      | Date          | "2 de maio de 2017", "02/05/2017"   |
 | DateTime      | Tempo          | "8:00", "8:00"  |
 | DateTime      | DateRange     | "2 a 5 de maio"    |
 | DateTime      | TimeRange     | "18:00 às 19:00"     |

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bc00f348e9443384c7799bf227efd7309d6aeac2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50ac62ded92b69f44324f4f9c5eacee939159449
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702203"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834132"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de área de trabalho que chama APIs da Web: adquirir um token
 
@@ -215,7 +215,7 @@ Comentários
 
 A classe define as seguintes constantes:
 
-- ``SelectAccount`` força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o usuário tem uma sessão. Essa opção é útil quando os desenvolvedores de aplicativos desejam permitir que os usuários escolham entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Esta é a opção predefinida. Ele faz um bom trabalho de fornecer a melhor experiência possível com base nas informações disponíveis, como a conta e a presença de uma sessão para o usuário. Não a altere, a menos que você tenha um bom motivo para fazê-lo.
+- ``SelectAccount`` força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o usuário tem uma sessão. Essa opção é útil quando os desenvolvedores de aplicativos desejam permitir que os usuários escolham entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Esta opção é o padrão. Ele faz um bom trabalho de fornecer a melhor experiência possível com base nas informações disponíveis, como a conta e a presença de uma sessão para o usuário. Não a altere, a menos que você tenha um bom motivo para fazê-lo.
 - ``Consent`` permite que o desenvolvedor do aplicativo Force o consentimento do usuário, mesmo que o consentimento tenha sido concedido antes. Nesse caso, o MSAL envia `prompt=consent` para o provedor de identidade. Essa opção pode ser usada em alguns aplicativos focados em segurança em que o controle da organização exige que o usuário tenha a caixa de diálogo de consentimento sempre que o aplicativo for usado.
 - ``ForceLogin`` permite que o desenvolvedor do aplicativo solicite as credenciais ao usuário pelo serviço, mesmo que esse prompt de usuário não seja necessário. Essa opção pode ser útil para permitir que o usuário entre novamente se a aquisição de um token falhar. Nesse caso, o MSAL envia `prompt=login` para o provedor de identidade. Às vezes, ele é usado em aplicativos com foco em segurança, em que o controle da organização exige que o usuário se reconecte a cada vez que acessam partes específicas de um aplicativo.
 - ``Never`` (somente para .NET 4,5 e WinRT) não solicitará o usuário, mas tentará usar o cookie armazenado na exibição da Web oculta inserida. Para obter mais informações, consulte exibições da Web no MSAL.NET. O uso dessa opção pode falhar. Nesse caso, `AcquireTokenInteractive` gera uma exceção para notificar que uma interação de interface do usuário é necessária. Você precisará usar outro parâmetro `Prompt`.
@@ -413,13 +413,13 @@ Para conectar um usuário de domínio em um domínio ou computador ingressado no
 
 - A autoridade passada `PublicClientApplicationBuilder` precisa ser:
   - O locatário do formulário `https://login.microsoftonline.com/{tenant}/`, em que `tenant` é o GUID que representa a ID do locatário ou um domínio associado ao locatário.
-  - Para qualquer [conta corporativa e de estudante](`https://login.microsoftonline.com/organizations/`).
+  - Para qualquer trabalho e contas escolares: `https://login.microsoftonline.com/organizations/`.
   - Não há suporte para contas pessoais da Microsoft. Você não pode usar locatários/Common ou/consumers.
 
 - Como a autenticação integrada do Windows é um fluxo silencioso:
   - O usuário do seu aplicativo deve ter consentido antes de usar o aplicativo.
   - Ou, o administrador de locatário deve ter consentido anteriormente para todos os usuários no locatário para usar o aplicativo.
-  - Em outras palavras:
+  - Por outras palavras:
     - Você, como desenvolvedor, selecionou o botão **Grant** na portal do Azure por conta própria.
     - Ou então, um administrador de locatário selecionou o botão **conceder/revogar consentimento do administrador para {locatário Domain}** na guia **permissões de API** do registro do aplicativo. Para obter mais informações, consulte [adicionar permissões para acessar APIs da Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
     - Ou você forneceu uma maneira para os usuários consentirem com o aplicativo. Para obter mais informações, consulte [solicitando consentimento de usuário individual](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
@@ -554,7 +554,7 @@ Este fluxo não se aplica ao MacOS.
 
 ---
 
-## <a name="username-and-password"></a>Nome de utilizador e palavra-passe
+## <a name="username-and-password"></a>Nome de utilizador e senha
 
 Você também pode adquirir um token fornecendo o nome de usuário e a senha. Esse fluxo é limitado e não recomendado, mas ainda há casos de uso em que é necessário.
 
@@ -581,7 +581,7 @@ As seguintes restrições também se aplicam:
 
 Para obter mais informações, consulte [credenciais de senha do proprietário do recurso (ROPC) com B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
 
-### <a name="use-it"></a>use
+### <a name="use-it"></a>Use-o
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -887,7 +887,7 @@ A autenticação interativa com o Azure AD requer um navegador da Web. Para obte
 
 2. Após a autenticação bem-sucedida, o aplicativo de linha de comando recebe os tokens necessários por meio de um canal de fundo e os usa para executar as chamadas de API Web necessárias.
 
-### <a name="use-it"></a>use
+### <a name="use-it"></a>Use-o
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

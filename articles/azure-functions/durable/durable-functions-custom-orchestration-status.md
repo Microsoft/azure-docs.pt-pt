@@ -4,12 +4,12 @@ description: Saiba como configurar e usar o status de orquestração personaliza
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2b8b78f58570186a0b17eb47f8445d2ba9aa47e8
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261658"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766262"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado no Durable Functions (Azure Functions)
 
@@ -20,7 +20,7 @@ O status de orquestração personalizado permite definir um valor de status pers
 > [!NOTE]
 > Os exemplos a seguir mostram como usar o recurso de status C# personalizado no e o JavaScript. Os C# exemplos são gravados para Durable Functions 2. x e não são compatíveis com Durable Functions 1. x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-### <a name="visualize-progress"></a>Visualizar progresso
+### <a name="visualize-progress"></a>Visualizar o progresso
 
 Os clientes podem sondar o ponto de extremidade de status e exibir uma interface do usuário de progresso que visualize o estágio de execução atual. O exemplo a seguir demonstra o compartilhamento de progresso:
 
@@ -53,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence` função de orquestrador:
+`E1_HelloSequence` função orquestradora:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-função de atividade de `E1_SayHello`:
+`E1_SayHello` função de atividade:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -133,7 +133,7 @@ module.exports = async function(context, req) {
     context.log(`Started orchestration with ID = '${instanceId}'.`);
 
     let durableOrchestrationStatus = await client.getStatus(instanceId);
-    while (status.customStatus.toString() !== "London") {
+    while (durableOrchestrationStatus.customStatus.toString() !== "London") {
         await new Promise((resolve) => setTimeout(resolve, 200));
         durableOrchestrationStatus = await client.getStatus(instanceId);
     }

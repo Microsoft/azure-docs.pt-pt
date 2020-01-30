@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d6df9a35191cf9fe9c2803116d5905a74f21e964
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.openlocfilehash: bacac67ddd7f379d679a149fe9574676ae0c7567
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699483"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834429"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -73,10 +73,10 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 |Afirmação | Formato | Descrição |
 |--------|--------|-------------|
 | `typ` | Cadeia de caracteres – sempre "JWT" | Indica que o token é um JWT.|
-| `nonce` | String | Um identificador único usado para proteger contra ataques de repetição de tokens. O seu recurso pode registar este valor para proteger contra repetições. |
-| `alg` | String | Indica o algoritmo que foi usado para assinar o símbolo, por exemplo, "RS256" |
-| `kid` | String | Especifica a impressão digital para a chave pública que é usada para assinar este símbolo. Emitidos em fichas de acesso v1.0 e v2.0. |
-| `x5t` | String | Funciona da mesma forma (em uso e valor) que `kid`. `x5t` é uma reivindicação de legado emitida apenas em fichas de acesso v1.0 para fins de compatibilidade. |
+| `nonce` | Cadeia | Um identificador único usado para proteger contra ataques de repetição de tokens. O seu recurso pode registar este valor para proteger contra repetições. |
+| `alg` | Cadeia | Indica o algoritmo que foi usado para assinar o símbolo, por exemplo, "RS256" |
+| `kid` | Cadeia | Especifica a impressão digital para a chave pública que é usada para assinar este símbolo. Emitidos em fichas de acesso v1.0 e v2.0. |
+| `x5t` | Cadeia | Funciona da mesma forma (em uso e valor) que `kid`. `x5t` é uma reivindicação de legado emitida apenas em fichas de acesso v1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Declarações de carga
 
@@ -95,8 +95,8 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 | `appidacr` | "0", "1", ou "2" | Só presente em fichas v1.0. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se o ID do cliente e o segredo do cliente forem usados, o valor é "1". Se um certificado de cliente foi utilizado para autenticação, o valor é "2". |
 | `azp` | Cadeia de caracteres, um GUID | Só presente si em fichas v2.0, um substituto para `appid`. A identificação da aplicação do cliente usando o símbolo. A aplicação pode funcionar como si ou em nome de um utilizador. O ID da aplicação normalmente representa um objeto de aplicação, mas também pode representar um objeto principal de serviço em Azure AD. |
 | `azpacr` | "0", "1", ou "2" | Só presente si em fichas v2.0, um substituto para `appidacr`. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se o ID do cliente e o segredo do cliente forem usados, o valor é "1". Se um certificado de cliente foi utilizado para autenticação, o valor é "2". |
-| `preferred_username` | String | O nome de usuário primário que representa o usuário. Pode ser um endereço de email, número de telefone ou um nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode mudar ao longo do tempo. Como é mutável, esse valor não deve ser usado para tomar decisões de autorização.  No entanto, pode ser utilizado para sugestões de nome de utilizador. O âmbito `profile` é necessário para receber esta reclamação. |
-| `name` | String | Fornece um valor legível pelo homem que identifica o objeto do símbolo. O valor não é garantido ser único, é mutável, e é projetado para ser usado apenas para fins de exibição. O âmbito `profile` é necessário para receber esta reclamação. |
+| `preferred_username` | Cadeia | O nome de usuário primário que representa o usuário. Pode ser um endereço de email, número de telefone ou um nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode mudar ao longo do tempo. Como é mutável, esse valor não deve ser usado para tomar decisões de autorização.  No entanto, pode ser utilizado para sugestões de nome de utilizador. O âmbito `profile` é necessário para receber esta reclamação. |
+| `name` | Cadeia | Fornece um valor legível pelo homem que identifica o objeto do símbolo. O valor não é garantido ser único, é mutável, e é projetado para ser usado apenas para fins de exibição. O âmbito `profile` é necessário para receber esta reclamação. |
 | `scp` | String, uma lista de âmbitos separados do espaço | O conjunto de âmbitos expostos pelo seu pedido para o qual a aplicação do cliente solicitou (e recebeu) o consentimento. A sua aplicação deve verificar se estes âmbitos são válidos expostos pela sua aplicação e tomar decisões de autorização com base no valor destes âmbitos. Apenas incluído para [fichas do utilizador](#user-and-application-tokens). |
 | `roles` | Conjunto de cordas, uma lista de permissões | O conjunto de permissões expostas pela sua aplicação que o pedido ou utilizador foi autorizado a ligar. Para fichas de [aplicação,](#user-and-application-tokens)esta é utilizada durante o fluxo [de credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) no lugar dos âmbitos do utilizador.  Para os [tokens](#user-and-application-tokens) do utilizador, este é preenchido com as funções a que o utilizador foi atribuído na aplicação-alvo. |
 | `wids` | Matriz de GUIDS [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota as funções atribuídas a este utilizador em todo o número de inquilinos, a partir da secção de funções presentes na página de [funções de administrador](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Esta reclamação é configurada por aplicação, através da propriedade `groupMembershipClaims` do manifesto de [candidatura.](reference-app-manifest.md)  É necessário defini-lo para "All" ou "DirectyRole".  Não pode estar presente em fichas obtidas através do fluxo implícito devido a preocupações de comprimento simbólico. |
@@ -106,7 +106,7 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 | `sub` | Cadeia de caracteres, um GUID | A entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser utilizado para efetuar controlos de autorização com segurança, como quando o símbolo é usado para aceder a um recurso, e pode ser usado como chave nas tabelas de bases de dados. Como o assunto está sempre presente nos tokens que a Azure AD emite, recomendamos a utilização deste valor num sistema de autorização geral. O sujeito é, no entanto, um identificador em pares - é exclusivo de um determinado ID de aplicação. Portanto, se um único utilizador assinar em duas aplicações diferentes usando duas iDs de cliente diferentes, essas aplicações receberão dois valores diferentes para a reclamação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. Consulte também a reclamação `oid` (que continua a ser a mesma entre aplicações dentro de um inquilino). |
 | `oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto na plataforma de identidade da Microsoft, neste caso, uma conta de utilizador. Também pode ser utilizado para efetuar controlos de autorização com segurança e como chave nas tabelas de bases de dados. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na declaração de `oid`. Assim, `oid` podem ser usados ao fazer consultas a serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph devolverá este ID como a propriedade `id` para uma determinada [conta de utilizador](/graph/api/resources/user). Uma vez que o `oid` permite que várias aplicações se relacionem com os utilizadores, o âmbito `profile` é necessário para receber esta reclamação. Note que se um único utilizador existir em vários inquilinos, o utilizador irá conter um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador entre em cada conta com as mesmas credenciais. |
 | `tid` | Cadeia de caracteres, um GUID | Representa o inquilino da AD Azure de onde o utilizador é. Para contas corporativas e de estudante, o GUID é a ID de locatário imutável da organização à qual o usuário pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O âmbito `profile` é necessário para receber esta reclamação. |
-| `unique_name` | String | Só presente em fichas v1.0. Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido ser único dentro de um inquilino e deve ser usado apenas para fins de exibição. |
+| `unique_name` | Cadeia | Só presente em fichas v1.0. Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido ser único dentro de um inquilino e deve ser usado apenas para fins de exibição. |
 | `uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar esta reivindicação. |
 | `rh` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem utilizar esta alegação. |
 | `ver` | String, `1.0` ou `2.0` | Indica a versão do sinal de acesso. |
@@ -140,15 +140,15 @@ As seguintes reclamações serão incluídas em fichas v1.0, se aplicável, mas 
 
 | Afirmação | Formato | Descrição |
 |-----|--------|-------------|
-| `ipaddr`| String | O endereço IP a que o utilizador autenido. |
+| `ipaddr`| Cadeia | O endereço IP a que o utilizador autenido. |
 | `onprem_sid`| String, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o utilizador tenha uma autenticação no local, esta reclamação fornece o seu SID. Pode utilizar `onprem_sid` para autorização em aplicações antigas.|
 | `pwd_exp`| int, um carimbo de data/hora do UNIX | Indica quando a palavra-passe do utilizador expira. |
-| `pwd_url`| String | Um URL onde os utilizadores podem ser enviados para redefinir a sua palavra-passe. |
+| `pwd_url`| Cadeia | Um URL onde os utilizadores podem ser enviados para redefinir a sua palavra-passe. |
 | `in_corp`| boolean | Sinaliza se o cliente está fazendo logon da rede corporativa. Se não estiverem, a reclamação não está incluída. |
-| `nickname`| String | Um nome adicional para o utilizador, separado do primeiro ou do último nome.|
-| `family_name` | String | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. |
-| `given_name` | String | Fornece o primeiro ou o nome do utilizador, conforme definido no objeto utilizador. |
-| `upn` | String | O nome de utilizador do utilizador. Pode ser um número de telefone, endereço de e-mail ou corda não formatada. Só deve ser utilizado para efeitos de exibição e fornecendo indicações de nome de utilizador em cenários de reautenticação. |
+| `nickname`| Cadeia | Um nome adicional para o utilizador, separado do primeiro ou do último nome.|
+| `family_name` | Cadeia | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. |
+| `given_name` | Cadeia | Fornece o primeiro ou o nome do utilizador, conforme definido no objeto utilizador. |
+| `upn` | Cadeia | O nome de utilizador do utilizador. Pode ser um número de telefone, endereço de e-mail ou corda não formatada. Só deve ser utilizado para efeitos de exibição e fornecendo indicações de nome de utilizador em cenários de reautenticação. |
 
 #### <a name="the-amr-claim"></a>A reivindicação `amr`
 

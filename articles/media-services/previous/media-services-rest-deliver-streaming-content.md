@@ -1,6 +1,6 @@
 ---
-title: Publicar conteúdo de serviços de multimédia do Azure com REST
-description: Saiba como criar um localizador de que é utilizado para compilar um URL de transmissão em fluxo. O código usa a REST API.
+title: Publique o conteúdo dos Serviços De Mídia Azure utilizando o REST
+description: Aprenda a criar um localizador que é usado para construir um URL de streaming. O código usa a API REST.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e3c2b7f4087f0f47466eff47b22c59dad19892e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598293"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774944"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo de serviços de multimédia do Azure com REST 
+# <a name="publish-azure-media-services-content-using-rest"></a>Publique o conteúdo dos Serviços De Mídia Azure utilizando o REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -29,40 +29,40 @@ ms.locfileid: "60598293"
 > 
 > 
 
-Pode transmitir em fluxo uma MP4 definido através da criação de um localizador de transmissão em fluxo OnDemand e criação de um URL de transmissão em fluxo de velocidade de transmissão adaptável. O [codificação de um recurso de](media-services-rest-encode-asset.md) artigo mostra como a codificar numa conjunto de MP4 de velocidade de transmissão adaptável. Se o seu conteúdo é encriptado, configure a política de entrega de elementos (conforme descrito em [isso](media-services-rest-configure-asset-delivery-policy.md) artigo) antes de criar um localizador. 
+Pode transmitir um BIT4 bitrate adaptativo, criando um localizador de streaming OnDemand e construindo um URL de streaming. A [codificação de um](media-services-rest-encode-asset.md) artigo de ativo mostra como codificar um conjunto de MP4 bitrate adaptativo. Se o seu conteúdo estiver encriptado, configure a política de entrega de ativos (como descrito [neste](media-services-rest-configure-asset-delivery-policy.md) artigo) antes de criar um localizador. 
 
-Também pode utilizar um OnDemand localizador de transmissão em fluxo para criar URLs que apontam para os ficheiros MP4 que podem ser transferidos progressivamente.  
+Também pode utilizar um localizador de streaming OnDemand para construir URLs que apontam para ficheiros MP4 que podem ser descarregados progressivamente.  
 
-Este artigo mostra como criar um localizador para publicar o elemento e criar um uniforme, MPEG DASH e URLs de transmissão em fluxo HLS de transmissão em fluxo de OnDemand. Ela também mostra frequente para criar URLs de transferência progressiva.
+Este artigo mostra como criar um localizador de streaming OnDemand para publicar o seu ativo e construir um URLs de streaming Smooth, MPEG DASH e HLS. Também mostra quente para construir URLs de download progressivo.
 
-O [seguintes](#types) secção mostra os tipos de enumeração cujos valores são utilizados nas chamadas REST.   
+A [secção seguinte](#types) mostra os tipos de enum cujos valores são utilizados nas chamadas REST.   
 
 > [!NOTE]
-> Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cabeçalho específicas e os valores nos seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST do Media Services](media-services-rest-how-to-use.md).
+> Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Ligar aos Media Services
+## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
 
-Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Depois de ligar com êxito à https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de multimédia. Tem de certificar as chamadas subseqüentes para o URI de novo.
+>Depois de ligar-se com sucesso a https://media.windows.net, receberá um redirecionamento 301 especificando outro Media Services URI. Deve fazer chamadas subsequentes para o novo URI.
 
-## <a name="create-an-ondemand-streaming-locator"></a>Criar um OnDemand localizador de transmissão em fluxo
-Para criar o OnDemand localizador de transmissão em fluxo e obter os URLs, terá de fazer o seguinte:
+## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming OnDemand
+Para criar o localizador de streaming OnDemand e obter URLs, tem de fazer o seguinte:
 
-1. Se o conteúdo é encriptado, defina uma política de acesso.
-2. Crie um localizador de transmissão em fluxo de OnDemand.
-3. Se planeja transmitir em fluxo, obtenha o ficheiro de manifesto transmissão em fluxo (. ISM) no recurso. 
+1. Se o conteúdo estiver encriptado, defina uma política de acesso.
+2. Crie um localizador de streaming OnDemand.
+3. Se planeia transmitir, obtenha o ficheiro manifesto de streaming (.ism) no ativo. 
    
-   Se planeia transferir progressivamente, obter os nomes de ficheiros MP4 no elemento. 
-4. Crie URLs para o ficheiro de manifesto ou ficheiros MP4. 
-5. Não é possível criar um localizador de transmissão em fluxo com um AccessPolicy que inclui a escrita ou eliminar as permissões.
+   Se planeia descarregar progressivamente, obtenha os nomes dos ficheiros MP4 no ativo. 
+4. Construa URLs para o ficheiro manifesto ou ficheiros MP4. 
+5. Não é possível criar um localizador de streaming utilizando uma Política de Acesso que inclua a escrita ou a eliminação de permissões.
 
 ### <a name="create-an-access-policy"></a>Criar uma política de acesso
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver a utilizar sempre os mesmos dias / permissões, por exemplo, políticas para localizadores que pretendam permanecem em vigor durante muito tempo (políticas de não carregamento) de acesso. Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Pedido:
 
@@ -73,7 +73,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -99,8 +99,8 @@ Resposta:
 
     {"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### <a name="create-an-ondemand-streaming-locator"></a>Criar um OnDemand localizador de transmissão em fluxo
-Crie o localizador para o ativo especificado e a política de recurso.
+### <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming OnDemand
+Crie o localizador para a política de ativos e ativos especificado.
 
 Pedido:
 
@@ -111,7 +111,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181
@@ -137,39 +137,39 @@ Resposta:
 
     {"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"https://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"https://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### <a name="build-streaming-urls"></a>Criar URLs de transmissão em fluxo
-Utilize o **caminho** valor retornado após a criação do localizador para criar o uniforme, HLS e MPEG DASH URLs. 
+### <a name="build-streaming-urls"></a>Construir URLs de streaming
+Utilize o valor **Caminho** devolvido após a criação do localizador para construir os URLs Lisos, HLS e MPEG DASH. 
 
-Transmissão em fluxo uniforme: **Caminho** + nome de ficheiro de manifesto + "/ manifesto"
+Smooth Streaming: **Path** + manifesto nome de ficheiro + "/manifesto"
 
 exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS: **Caminho** + nome de ficheiro de manifesto + "/ manifest(format=m3u8-aapl)"
+HLS: **Caminho** + nome de ficheiro manifesto + "/manifesto(formato=m3u8-aapl)"
 
 exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-TRAÇO: **Caminho** + nome de ficheiro de manifesto + "/ manifest(format=mpd-time-csf)"
+TRAÇO: **Caminho** + nome de ficheiro manifesto + "/manifesto=mpd-time-csf)"
 
 exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-### <a name="build-progressive-download-urls"></a>Criar os URLs de transferência progressiva
-Utilize o **caminho** valor retornado após a criação do localizador para criar o URL de transferência progressiva.   
+### <a name="build-progressive-download-urls"></a>Construir URLs de descarregamento progressivo
+Utilize o valor **Caminho** devolvido após a criação do localizador para construir o URL de descarregamento progressivo.   
 
-URL: **Caminho** + nome do elemento ficheiro mp4
+URL: **Path** + ficheiro de ativo mp4 nome
 
 exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Tipos de enumeração
+## <a id="types"></a>Tipos Enum
     [Flags]
     public enum AccessPermissions
     {
@@ -193,8 +193,8 @@ exemplo:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
-[Descrição geral de REST API de operações de serviços de multimédia](media-services-rest-how-to-use.md)
+## <a name="see-also"></a>Ver também
+[Media Services operações REST API visão geral](media-services-rest-how-to-use.md)
 
-[Configurar a política de entrega de elemento](media-services-rest-configure-asset-delivery-policy.md)
+[Configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
 

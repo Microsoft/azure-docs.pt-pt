@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e3ea11f4faad204756f9e1296b5190e1f81a5cc0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122513"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772801"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento com o PowerShell
 
@@ -133,11 +133,11 @@ Para verificar a configuração de aplicativo do Azure AD e fornecer consentimen
 3. Selecione **todos os aplicativos** e pesquise o nome exclusivo do aplicativo fornecido para o script do PowerShell em [criar um Azure Active Directory registro de aplicativo](#create-an-azure-active-directory-app-registration).
 4. No painel no lado esquerdo do navegador, selecione **autenticação** e verifique se o URI de redirecionamento é o mesmo da URL do aplicativo Web para a ferramenta de gerenciamento, conforme mostrado na imagem a seguir.
    
-   [![a página de autenticação com o URI de redirecionamento inserido](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
+   [![A página de autenticação com o redirecionamento introduzido DO URI](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. No painel esquerdo, selecione **permissões de API** para confirmar que as permissões foram adicionadas. Se você for um administrador global, selecione o botão **conceder consentimento de administrador para `tenantname`** e siga os prompts de diálogo para fornecer consentimento de administrador para sua organização.
     
-    [![a página permissões de API](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
+    [![página de permissões da API](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
 
 Agora você pode começar a usar a ferramenta de gerenciamento.
 
@@ -163,4 +163,4 @@ Se você tiver problemas com a ferramenta de gerenciamento ou outras ferramentas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu como implantar e se conectar à ferramenta de gerenciamento, você pode aprender a usar a ajuda do serviço do Azure para monitorar problemas de serviço e comunicados de integridade. Para saber mais, consulte nosso [tutorial de configuração de alertas de serviço](./set-up-service-alerts.md).
+Agora que aprendeu a implementar e conectar-se com a ferramenta de gestão, pode aprender a usar a Azure Service Health para monitorizar problemas de serviço e aconselhamento de saúde. Para saber mais, consulte nosso [tutorial de configuração de alertas de serviço](./set-up-service-alerts.md).

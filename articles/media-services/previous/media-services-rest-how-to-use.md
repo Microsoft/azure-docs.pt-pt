@@ -1,6 +1,6 @@
 ---
-title: Visão geral da API REST de operações dos serviços de mídia | Microsoft Docs
-description: A API "REST de operações de serviços de mídia" é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de serviços de mídia. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
+title: Operações de Media Services REST API visão geral / Microsoft Docs
+description: A API "Media Services Operations REST" é utilizada para criar Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta de Media Services. Este artigo fornece uma visão geral da API do Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,37 +15,37 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895820"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773667"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST de operações dos serviços de mídia 
+# <a name="media-services-operations-rest-api-overview"></a>Media Services operações REST API visão geral 
 
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-A API **REST de operações dos serviços de mídia** é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta dos serviços de mídia. Para obter mais informações, consulte [referência da API REST de operações dos serviços de mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+A **Media Services Operations REST** API é utilizada para criar Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta de Media Services. Para mais informações, consulte [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
-Os serviços de mídia fornecem uma API REST que aceita o formato XML JSON ou Atom + pub. A API REST dos serviços de mídia requer cabeçalhos HTTP específicos que cada cliente deve enviar ao se conectar aos serviços de mídia, bem como um conjunto de cabeçalhos opcionais. As seções a seguir descrevem os cabeçalhos e os verbos HTTP que você pode usar ao criar solicitações e receber respostas dos serviços de mídia.
+A Media Services fornece uma API REST que aceita tanto o formato JSON como o atom+pub XML. A API dos Serviços de Media Rest requer cabeçalhos HTTP específicos que cada cliente deve enviar quando ligar aos Serviços de Media, bem como um conjunto de cabeçalhos opcionais. As seguintes secções descrevem os cabeçalhos e os verbos HTTP que pode utilizar ao criar pedidos e receber respostas dos Media Services.
 
-A autenticação para a API REST dos serviços de mídia é feita por meio de Azure Active Directory autenticação que é descrita no artigo [usar a autenticação do Azure ad para acessar a API dos serviços de mídia do Azure com REST](media-services-rest-connect-with-aad.md)
+Autenticação para o Media Services REST API é feita através da autenticação do Diretório Ativo Azure que está delineada no artigo [Utiliza a autenticação Azure AD para aceder à API azure Media Services com REST](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Considerações
 
-As considerações a seguir se aplicam ao usar REST.
+Aplicam-se as seguintes considerações ao utilizar o REST.
 
-* Ao consultar entidades, há um limite de 1000 entidades retornadas ao mesmo tempo porque o REST público v2 limita os resultados da consulta a 1000 resultados. Você precisa usar **Skip** e **Take** (.net)/ **Top** (REST), conforme descrito neste [exemplo de .net](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* Ao usar o JSON e especificar para usar a palavra-chave **__metadata** na solicitação (por exemplo, para fazer referência a um objeto vinculado), você deve definir o cabeçalho **Accept** para o [formato JSON detalhado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (consulte o exemplo a seguir). O OData não entende a propriedade **__metadata** na solicitação, a menos que você a defina como Verbose.  
+* Quando consultam entidades, há um limite de 1000 entidades devolvidas ao mesmo tempo porque o REST v2 público limita os resultados da consulta a 1000 resultados. Tem de utilizar **skip** and **take** (.NET)/ **top** (REST) conforme descrito neste [exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+* Ao utilizar o JSON e especificar utilizar a palavra-chave **__metadata** no pedido (por exemplo, para fazer referência a um objeto ligado) deve definir o cabeçalho **Aceitar** o [formato JSON Verbose](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (ver o seguinte exemplo). O Odata não entende a **propriedade __metadata** no pedido, a menos que o delicie.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.17
+        x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
@@ -55,73 +55,73 @@ As considerações a seguir se aplicam ao usar REST.
                 [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
         . . . 
 
-## <a name="standard-http-request-headers-supported-by-media-services"></a>Cabeçalhos de solicitação HTTP padrão com suporte dos serviços de mídia
-Para cada chamada feita nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir em sua solicitação e também um conjunto de cabeçalhos opcionais que talvez você queira incluir. A tabela a seguir lista os cabeçalhos necessários:
+## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard HTTP solicita cabeçalhos suportados por Media Services
+Para cada chamada que fizer nos Serviços de Media, há um conjunto de cabeçalhos necessários que deve incluir no seu pedido e também um conjunto de cabeçalhos opcionais que você pode querer incluir. A tabela abaixo enumera os cabeçalhos necessários:
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| Autorização |Portador |O portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Azure Active Directory. |
-| x-MS-Version |Decimal |2,17 (ou versão mais recente)|
+| Autorização |Portador |O portador é o único mecanismo de autorização aceite. O valor deve incluir também o sinal de acesso fornecido pelo Azure Ative Directory. |
+| x-ms-versão |Decimal |2.17 (ou versão mais recente)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
-> Como os serviços de mídia usam OData para expor suas APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em todas as solicitações; no entanto, se não forem, os serviços de mídia no momento consideram que o valor de DataServiceVersion em uso é 3,0.
+> Dado que os Serviços de Media utilizam o OData para expor as suas APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em todos os pedidos; no entanto, se não forem, então atualmente os Serviços de Media assumem que o valor dataServiceVersion em uso é de 3.0.
 > 
 > 
 
-Este é um conjunto de cabeçalhos opcionais:
+Segue-se um conjunto de cabeçalhos opcionais:
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| Date |Data da RFC 1123 |Carimbo de data/hora da solicitação |
-| Aceitar |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> -Application/Atom + XML<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca de BLOB, em que uma resposta bem-sucedida contém o fluxo de blob como a carga. |
-| Accept-Encoding |Gzip, deflate |Codificação GZIP e deflate, quando aplicável. Observação: para recursos grandes, os serviços de mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
-| Aceitar idioma |"en", "es" e assim por diante. |Especifica o idioma preferencial para a resposta. |
-| Accept-charset |Tipo de conjunto de caracteres como "UTF-8" |O padrão é UTF-8. |
-| Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não dão suporte a métodos HTTP como PUT ou DELETE usem esses métodos, encapsulados por meio de uma chamada GET. |
-| Content-Type |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
-| ID do cliente-solicitação |String |Um valor definido pelo chamador que identifica a solicitação especificada. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados em 2096b (2k). |
+| Date |Data RFC 1123 |Carimbo de tempo do pedido |
+| Aceitar |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, tais como:<p> -application/json;odata=verbose<p> - aplicação/átomo+xml<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca blob, onde uma resposta bem sucedida contém o fluxo de bolhas como a carga útil. |
+| Aceitação-Codificação |Gzip, esvaziar |Codificação GZIP e DEFLATE, quando aplicável. Nota: Para grandes recursos, os Serviços de Media podem ignorar este cabeçalho e devolver dados não comprimidos. |
+| Linguagem aceitação |"en", "es", e assim por diante. |Especifica a linguagem preferida para a resposta. |
+| Aceitar-Charset |Tipo charset como "UTF-8" |O padrão é UTF-8. |
+| Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não suportem métodos HTTP como PUT ou DELETE utilizem estes métodos, túneis através de uma chamada GET. |
+| Tipo de conteúdo |Tipo de conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
+| cliente-request-id |Cadeia |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
-## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão com suporte dos serviços de mídia
-Veja a seguir um conjunto de cabeçalhos que podem ser retornados para você dependendo do recurso que você estava solicitando e da ação que você pretende executar.
+## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta STANDARD HTTP suportados por Media Services
+Segue-se um conjunto de cabeçalhos que lhe podem ser devolvidos dependendo do recurso que solicitava e da ação que pretendia realizar.
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| ID da solicitação |String |Um identificador exclusivo para a operação atual, gerado pelo serviço. |
-| ID do cliente-solicitação |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
-| Date |Data da RFC 1123 |A data/hora em que a solicitação foi processada. |
-| Content-Type |Varia |O tipo de conteúdo do corpo da resposta. |
-| Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
+| pedido-id |Cadeia |Um identificador único para a operação atual, serviço gerado. |
+| cliente-request-id |Cadeia |Um identificador especificado pelo chamador no pedido original, se presente. |
+| Date |Data RFC 1123 |A data/hora em que o pedido foi processado. |
+| Tipo de conteúdo |Varia |O tipo de conteúdo do corpo de resposta. |
+| Codificação de conteúdos |Varia |Gzip ou esvaziar, conforme apropriado. |
 
-## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos HTTP padrão com suporte dos serviços de mídia
-A seguir está uma lista completa de verbos HTTP que podem ser usados ao fazer solicitações HTTP:
+## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos STANDARD HTTP suportados por Media Services
+Segue-se uma lista completa de verbos HTTP que podem ser utilizados ao fazer pedidos http:
 
 | Verbo | Descrição |
 | --- | --- |
-| GET |Retorna o valor atual de um objeto. |
-| POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
+| GET |Devolve o valor atual de um objeto. |
+| POST |Cria um objeto com base nos dados fornecidos ou submete um comando. |
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
-| DELETE |Exclui um objeto. |
-| MESCLE |Atualiza um objeto existente com alterações de propriedade nomeadas. |
-| HEAD |Retorna os metadados de um objeto para uma resposta GET. |
+| DELETE |Elimina um objeto. |
+| FUSÃO |Atualiza um objeto existente com alterações de propriedade nomeadas. |
+| CABEÇA |Devolve metadados de um objeto para uma resposta GET. |
 
-## <a name="discover-and-browse-the-media-services-entity-model"></a>Descobrir e procurar o modelo de entidade dos serviços de mídia
-Para tornar as entidades dos serviços de mídia mais detectáveis, a operação de $metadata pode ser usada. Ele permite que você recupere todos os tipos de entidade válidos, propriedades de entidade, associações, funções, ações e assim por diante. Ao adicionar a operação de $metadata ao final do ponto de extremidade da API REST dos serviços de mídia, você pode acessar esse serviço de descoberta.
+## <a name="discover-and-browse-the-media-services-entity-model"></a>Descubra e navegue no modelo de entidade dos Media Services
+Para tornar as entidades dos Serviços de Media mais detetáveis, a operação $metadata pode ser utilizada. Permite-lhe recuperar todos os tipos de entidades válidas, propriedades de entidades, associações, funções, ações, e assim por diante. Ao adicionar a $metadata operação ao fim do seu ponto final da Media Services REST API, pode aceder a este serviço de descoberta.
 
  /api/$metadata.
 
-Você deve acrescentar "? API-Version = 2. x" ao final do URI se desejar exibir os metadados em um navegador ou não incluir o cabeçalho x-MS-Version em sua solicitação.
+Deve anexar "?api-version=2.x" até ao final do URI se quiser ver os metadados num browser, ou não incluir o cabeçalho da versão x-ms no seu pedido.
 
-## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>Autenticar com o REST dos serviços de mídia usando Azure Active Directory
+## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>Autenticar com Media Services REST usando o Diretório Ativo Azure
 
-A autenticação na API REST é feita por meio do Azure Active Directory (AAD).
-Para obter detalhes sobre como obter os detalhes de autenticação necessários para sua conta de serviços de mídia no portal do Azure, consulte [acessar a API dos serviços de mídia do Azure com a autenticação do Azure ad](media-services-use-aad-auth-to-access-ams-api.md).
+A autenticação na API REST é feita através do Diretório Ativo Azure (AAD).
+Para mais informações sobre como obter os dados de autenticação necessários para a sua conta de Media Services a partir do Portal Azure, consulte [Aceda à API dos Serviços de Comunicação Social Azure com autenticação Azure AD.](media-services-use-aad-auth-to-access-ams-api.md)
 
-Para obter detalhes sobre como escrever código que se conecta à API REST usando a autenticação do Azure AD, consulte o artigo [usar a autenticação do Azure ad para acessar a API dos serviços de mídia do Azure com REST](media-services-rest-connect-with-aad.md).
+Para mais detalhes sobre o código de escrita que se conecta à API REST utilizando a autenticação Azure AD, consulte o artigo Utilização da [autenticação Azure AD para aceder à API azure Media Services com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber como usar a autenticação do Azure AD com a API REST dos serviços de mídia, confira [usar a autenticação do Azure ad para acessar a API dos serviços de mídia do Azure com REST](media-services-rest-connect-with-aad.md).
+Para saber como utilizar a autenticação Azure AD com Media Services REST API, consulte [a autenticação AD Azure para aceder à API azure Media Services com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

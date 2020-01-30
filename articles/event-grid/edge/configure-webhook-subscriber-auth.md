@@ -1,6 +1,6 @@
 ---
-title: Configurar a autenticação de assinante de webhook-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Configurar a autenticação do assinante do webhook
+title: Configure webhook autenticação de assinante - Azure Event Grid IoT Edge  Microsoft Docs
+description: Configurar a autenticação de subscritor do webhook
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -9,70 +9,70 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 97ed1e2ad84d895e9da0d96cd070e14acb46385d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 101dcae5870322878cec48098f2efae32cc68c14
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992486"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841735"
 ---
-# <a name="configure-webhook-subscriber-authentication"></a>Configurar a autenticação do assinante do webhook
+# <a name="configure-webhook-subscriber-authentication"></a>Configurar a autenticação de subscritor do webhook
 
-Este guia fornece exemplos de configurações possíveis de assinante de webhook para um módulo de grade de eventos. Por padrão, somente pontos de extremidade HTTPS são aceitos para assinantes do webhook. O módulo de grade de eventos será rejeitado se o assinante apresentar um certificado autoassinado.
+Este guia dá exemplos das possíveis configurações de subscritores do webhook para um módulo De Rede de Eventos. Por predefinição, apenas são aceites pontos finais HTTPS para assinantes webhook. O módulo Event Grid rejeitará se o assinante apresentar um certificado auto-assinado.
 
-## <a name="allow-only-https-subscriber"></a>Permitir somente assinante HTTPS
+## <a name="allow-only-https-subscriber"></a>Permitir apenas subscritor HTTPS
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=false"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=false"
   ]
 }
  ```
 
-## <a name="allow-https-subscriber-with-self-signed-certificate"></a>Permitir assinante HTTPS com certificado autoassinado
+## <a name="allow-https-subscriber-with-self-signed-certificate"></a>Permitir assinante HTTPS com certificado auto-assinado
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
-  ]
-}
- ```
-
->[!NOTE]
->Defina a propriedade `outbound:webhook:allowUnknownCA` como `true` somente em ambientes de teste como você normalmente pode usar certificados autoassinados. Para cargas de trabalho de produção, recomendamos que elas sejam definidas como **false**.
-
-## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir assinante HTTPS, mas ignorar validação de certificado
-
-```json
- {
-  "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=true",
-    "outbound:webhook:allowUnknownCA=false"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ]
 }
  ```
 
 >[!NOTE]
->Defina a propriedade `outbound:webhook:skipServerCertValidation` como `true` somente em ambientes de teste, pois talvez você não esteja apresentando um certificado que precise ser autenticado. Para cargas de trabalho de produção, recomendamos que elas sejam definidas como **false**
+>Detete a `outbound__webhook__allowUnknownCA` da propriedade para `true` apenas em ambientes de teste, uma vez que você normalmente pode usar certificados auto-assinados. Para cargas de trabalho de produção recomendamos que sejam configuradas como **falsas**.
 
-## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Permitir HTTP e HTTPS com certificados autoassinados
+## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir o assinante HTTPS, mas não a validação de certificados de salto
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=false",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=true",
+    "outbound__webhook__allowUnknownCA=false"
   ]
 }
  ```
 
 >[!NOTE]
->Defina a propriedade `outbound:webhook:httpsOnly` como `false` apenas em ambientes de teste, como você pode querer abrir um assinante HTTP primeiro. Para cargas de trabalho de produção, recomendamos que elas sejam definidas como **true**
+>Detete a `outbound__webhook__skipServerCertValidation` da propriedade para `true` apenas em ambientes de teste, uma vez que pode não estar a apresentar um certificado que precisa de ser autenticado. Para cargas de trabalho de produção recomendamos que sejam definidos para **falsos**
+
+## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Permitir http e HTTPS com certificados auto-assinados
+
+```json
+ {
+  "Env": [
+    "outbound__webhook__httpsOnly=false",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
+  ]
+}
+ ```
+
+>[!NOTE]
+>Detete a propriedade `outbound__webhook__httpsOnly` para `false` apenas em ambientes de teste, pois você pode querer trazer um assinante HTTP primeiro. Para cargas de trabalho de produção recomendamos que sejam definidos como **verdadeiros**

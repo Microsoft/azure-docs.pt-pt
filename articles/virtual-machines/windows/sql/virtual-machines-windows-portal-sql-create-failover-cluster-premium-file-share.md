@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965348"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772612"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -77,13 +77,15 @@ Antes de concluir as etapas neste artigo, você já deve ter:
 
 - Uma assinatura Microsoft Azure.
 - Um domínio do Windows em máquinas virtuais do Azure.
-- Uma conta que tem permissões para criar objetos em máquinas virtuais do Azure e em Active Directory.
+- Uma conta de utilizador de domínio que tem permissões para criar objetos tanto nas máquinas virtuais do Azure como no Diretório Ativo.
+- Uma conta de utilizador de domínio para executar o serviço SQL Server e com a qual pode entrar na máquina virtual com a montagem da partilha de ficheiros.  
 - Uma rede virtual do Azure e uma sub-rede com espaço de endereço IP suficiente para esses componentes:
    - Duas máquinas virtuais.
    - O endereço IP do cluster de failover.
    - Um endereço IP para cada FCI.
 - DNS configurado na rede do Azure, apontando para os controladores de domínio.
-- Um [compartilhamento de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) com base na cota de armazenamento do seu banco de dados para seus arquivos.
+- Uma partilha de [ficheiro premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) a ser utilizada como unidade agrupada, com base na quota de armazenamento da sua base de dados para os seus ficheiros de dados.
+- Se estiver no Windows Server 2012 R2 ou mais velho, precisará de outra partilha de ficheiros para usar como testemunha de partilha de ficheiros, uma vez que as testemunhas na nuvem são suportadas para o Windows 2016 e mais recentes. Pode utilizar outra partilha de ficheiros Azure, ou pode utilizar uma partilha de ficheiros numa máquina virtual separada. Se vai utilizar outra partilha de ficheiros Azure, pode montá-la com o mesmo processo que para a partilha de ficheiros premium utilizada para a sua unidade agrupada. 
 
 Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de failover. A primeira etapa é criar as máquinas virtuais.
 
@@ -138,12 +140,12 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
 1. Se você estiver usando uma das imagens de máquina virtual com base em SQL Server, remova a instância de SQL Server.
 
-   1. Em **programas e recursos**, clique com o botão direito do mouse em **Microsoft SQL Server 201_ (64 bits)** e selecione **Desinstalar/alterar**.
+   1. Em **Programas e Funcionalidades,** clique à direita **no Microsoft SQL Server 201_ (64-bits)** e selecione **Desinstalar/Alterar**.
    1. Selecione **Remover**.
    1. Selecione a instância padrão.
    1. Remova todos os recursos em **serviços mecanismo de banco de Dadoss**. Não remova os **recursos compartilhados**. Você verá algo semelhante à captura de tela a seguir:
 
-        ![Selecionar Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Selecione Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selecione **Avançar**e, em seguida, selecione **remover**.
 
@@ -180,7 +182,8 @@ Depois de criar e configurar as máquinas virtuais, você pode configurar o comp
 1. Repita essas etapas em cada VM SQL Server que participará do cluster.
 
   > [!IMPORTANT]
-  > Considere o uso de um compartilhamento de arquivos separado para arquivos de backup para salvar a capacidade de IOPS e espaço desse compartilhamento para arquivos de dados e de log. Você pode usar um compartilhamento de arquivos Premium ou Standard para arquivos de backup.
+  > - Considere o uso de um compartilhamento de arquivos separado para arquivos de backup para salvar a capacidade de IOPS e espaço desse compartilhamento para arquivos de dados e de log. Você pode usar um compartilhamento de arquivos Premium ou Standard para arquivos de backup.
+  > - Se estiver no Windows 2012 R2 ou mais velho, siga estes mesmos passos para montar a sua partilha de ficheiros que vai usar como testemunha de partilha de ficheiros. 
 
 ## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Etapa 3: configurar o cluster de failover com o compartilhamento de arquivos
 
@@ -189,7 +192,7 @@ A próxima etapa é configurar o cluster de failover. Nesta etapa, você conclui
 1. Adicione o recurso Windows Server failover clustering.
 1. Valide o cluster.
 1. Crie o cluster de failover.
-1. Crie a testemunha de nuvem.
+1. Crie a testemunha em nuvem (para Windows Server 2016 e mais recente) ou a testemunha de partilha de ficheiros (para Windows Server 2012 R2 ou mais antiga).
 
 
 ### <a name="add-windows-server-failover-clustering"></a>Adicionar clustering de failover do Windows Server
@@ -239,7 +242,7 @@ Para validar o cluster usando o PowerShell, execute o seguinte script de uma ses
 
 Depois de validar o cluster, crie o cluster de failover.
 
-### <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
+### <a name="create-the-failover-cluster"></a>Criar o cluster failover
 
 Para criar o cluster de failover, você precisa de:
 - Os nomes das máquinas virtuais que se tornarão os nós de cluster.
@@ -263,9 +266,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness"></a>Criar uma testemunha de nuvem
+### <a name="create-a-cloud-witness-win-2016-"></a>Criar uma testemunha em nuvem (Ganhar 2016 +)
 
-A testemunha de nuvem é um novo tipo de testemunha de quorum de cluster que é armazenado em um blob de armazenamento do Azure. Isso elimina a necessidade de uma VM separada que hospede um compartilhamento de testemunha.
+Se estiver no Windows Server 2016 ou melhor, terá de criar uma Testemunha de Nuvem. A testemunha de nuvem é um novo tipo de testemunha de quorum de cluster que é armazenado em um blob de armazenamento do Azure. Isto elimina a necessidade de um VM separado que acolhe uma partilha de testemunhas, ou usando uma partilha de ficheiro separada.
 
 1. [Crie uma testemunha de nuvem para o cluster de failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -273,7 +276,11 @@ A testemunha de nuvem é um novo tipo de testemunha de quorum de cluster que é 
 
 1. Salve as chaves de acesso e a URL do contêiner.
 
-1. Configure a testemunha de quorum do cluster de failover. Consulte [Configurar a testemunha de quorum na interface do usuário](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+### <a name="configure-quorum"></a>Configure quórum 
+
+Para o Windows Server 2016 e maior, configure o cluster para utilizar a testemunha em nuvem que acabou de criar. Siga todos os passos [Configure a testemunha quórum na interface do utilizador](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+
+Para o Windows Server 2012 R2 ou mais antigo, siga os mesmos passos na [Configuração da testemunha quórum na interface do utilizador](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) mas na página **'Select Quorum Witness',** selecione a opção de testemunha de partilha de **ficheiros Configurar.** Especifique a parte do ficheiro que atribuiu para ser a testemunha de partilha de ficheiros, quer seja uma que configuraste numa máquina virtual separada, ou montada a partir do Azure. 
 
 
 ## <a name="step-4-test-cluster-failover"></a>Etapa 4: testar o failover de cluster
@@ -290,13 +297,13 @@ Depois de configurar o cluster de failover, você pode criar o SQL Server FCI.
 
 1. Em **Gerenciador de cluster de failover**, verifique se todos os recursos de cluster principais estão na primeira máquina virtual. Se necessário, mova todos os recursos para esta máquina virtual.
 
-1. Localize a mídia de instalação. Se a máquina virtual usar uma das imagens do Azure Marketplace, a mídia estará localizada em `C:\SQLServer_<version number>_Full`. Selecione **instalação**.
+1. Localize a mídia de instalação. Se a máquina virtual utilizar uma das imagens do Azure Marketplace, os meios de comunicação estão localizados em `C:\SQLServer_<version number>_Full`. Selecione **instalação**.
 
 1. Na **central de instalação do SQL Server**, selecione **instalação**.
 
 1. Selecione **novo SQL Server instalação de cluster de failover**. Siga as instruções no Assistente para instalar o SQL Server FCI.
 
-   Os diretórios de dados do FCI precisam estar no compartilhamento de arquivos premium. Insira o caminho completo do compartilhamento, neste formulário: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Um aviso será exibido, informando que você especificou um servidor de arquivos como o diretório de dados. Esse aviso é esperado. Verifique se a conta com a qual você manteve o compartilhamento de arquivos é a mesma conta que o serviço SQL Server usa para evitar possíveis falhas.
+   Os diretórios de dados do FCI precisam estar no compartilhamento de arquivos premium. Insira o caminho completo do compartilhamento, neste formulário: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Um aviso será exibido, informando que você especificou um servidor de arquivos como o diretório de dados. Esse aviso é esperado. Certifique-se de que a conta de utilizador com a qual o RDP'd entra no VM quando insistiu que a parte do ficheiro é a mesma conta que o serviço SQL Server utiliza para evitar possíveis falhas.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Usar o compartilhamento de arquivos como diretórios de dados SQL":::
 
@@ -356,7 +363,7 @@ Para criar o balanceador de carga:
 
 1. Selecione **OK** para criar o pool de back-end.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma pesquisa de estado de funcionamento do balanceador de carga
+### <a name="configure-a-load-balancer-health-probe"></a>Configure uma sonda de saúde de equilíbrio de carga
 
 1. Na folha balanceador de carga, selecione **investigações de integridade**.
 
@@ -430,7 +437,7 @@ Depois de definir a investigação de cluster, você poderá ver todos os parâm
 
 ## <a name="step-8-test-fci-failover"></a>Etapa 8: testar o failover do FCI
 
-Teste o failover do FCI para validar a funcionalidade do cluster. Siga os passos seguintes:
+Teste o failover do FCI para validar a funcionalidade do cluster. Tome os seguintes passos:
 
 1. Conecte-se a um dos nós de cluster SQL Server FCI usando o RDP.
 

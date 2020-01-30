@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933445"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765401"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
@@ -39,11 +39,11 @@ Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão 
     
     1. `Azure Digital Twins`. Selecione a API de **gêmeos digital do Azure** .
 
-        [API de pesquisa ![ou gêmeos digital do Azure](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
+        [![Pesquisa API ou Gémeos Digitais Azure](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
     1. Como alternativa, pesquise por `Azure Smart Spaces Service`. Selecione a API de **serviço de espaços inteligentes do Azure** .
 
-        [API de pesquisa do ![para espaços inteligentes do Azure](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
+        [![Pesquisa API para espaços inteligentes Azure](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
     > O nome e a ID da API do Azure AD que serão exibidos dependerá do seu locatário:
@@ -52,25 +52,25 @@ Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão 
 
 1. A API selecionada aparece como **Azure digital gêmeos** no mesmo painel de **permissões de API de solicitação** . Selecione a lista suspensa **ler (1)** e, em seguida, marque a caixa de seleção **ler. gravar** . Selecione o botão **adicionar permissões** .
 
-    [![adicionar permissões de API para o Azure digital gêmeos](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![Adicionar permissões API para Gémeos Digitais Azure](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. Dependendo das configurações da sua organização, talvez seja necessário executar etapas adicionais para conceder acesso de administrador a essa API. Contate o administrador para obter mais informações. Depois que o acesso de administrador for aprovado, a coluna **consentimento de administrador necessário** no painel **permissões de API** mostrará semelhante ao seguinte para suas APIs:
 
-    [![configurar a aprovação de consentimento do administrador](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![Aprovação de consentimento do administrador da Configuração](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 1. Configure um segundo **URI de redirecionamento** para `https://www.getpostman.com/oauth2/callback`.
 
-    [![configurar um novo URI de redirecionamento do postmaster](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    [![Configurar um novo Carteiro Redirecionar URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. Para certificar-se [de que o aplicativo está registrado como um **cliente público**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra o painel de **autenticação** para o registro do aplicativo e role para baixo nesse painel. Na seção **tipo de cliente padrão** , escolha **Sim** para **tratar aplicativo como um cliente público**e clique em **salvar**.
 
     Verifique os **tokens de acesso** para habilitar a configuração **Oauth2AllowImplicitFlow** em seu manifest. JSON.
 
-    [![definição de configuração de cliente público](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+    [![configuração de configuração do cliente público](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1. Copie e mantenha a **ID do aplicativo** de seu Azure Active Directory aplicativo. Ele é usado nas etapas a seguir.
 
-   [ID do aplicativo de ![Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
+   [ID de aplicação de diretório ativo ![Azure](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
 
 
 ## <a name="obtain-an-oauth-20-token"></a>Obter um token 2,0 do OAuth
@@ -79,7 +79,6 @@ Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão 
 
 Configure e configure o postmaster para obter um token de Azure Active Directory. Posteriormente, faça uma solicitação HTTP autenticada para o Azure digital gêmeos usando o token adquirido:
 
-1. Acesse [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
 1. Verifique se a **URL de autorização** está correta. Ele deve ter o formato:
 
     ```plaintext
@@ -88,25 +87,29 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
 
     | Nome  | Substituir | Exemplo |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | O nome do seu locatário ou organização | `microsoft` |
+    | YOUR_AZURE_TENANT | O nome do seu inquilino ou organização. Use o nome amigo do homem em vez do ID alfanumérico do **seu** registo de aplicações azure Ative Directory. | `microsoft` |
 
-1. Selecione a guia **autorização** , selecione **OAuth 2,0**e, em seguida, selecione **obter novo token de acesso**.
+1. Acesse [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
+
+1. Abra o aplicativo de postmaster e clique em novo | Crie uma nova solicitação e selecione solicitar. Insira um nome de Pedido. Selecione uma coleção ou pasta para guardá-la e clique em Guardar. 
+
+1. Queremos fazer um pedido get. Selecione o separador **Autorização,** selecione OAuth 2.0 e, em seguida, selecione **Obter novo acesso token**.
 
     | Campo  | Valor |
     |---------|---------|
-    | Tipo de Concessão | `Implicit` |
-    | URL de chamada de retorno | `https://www.getpostman.com/oauth2/callback` |
-    | URL Auth | Use a **URL de autorização** da **etapa 2** |
+    | Tipo de concessão | `Implicit` |
+    | Callback URL | `https://www.getpostman.com/oauth2/callback` |
+    | Auth URL | Use a **URL de autorização** da **etapa 2** |
     | ID de Cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou reutilizado da seção anterior |
     | Âmbito | Deixar em branco |
     | Estado | Deixar em branco |
-    | Autenticação de Cliente | `Send as Basic Auth header` |
+    | Autenticação do Cliente | `Send as Basic Auth header` |
 
 1. O cliente agora deve aparecer como:
 
-    [exemplo de token de cliente do ![postmaster](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
+    [![exemplo simbólico do cliente carteiro](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
-1. Selecione **Pedir Token**.
+1. Selecione **Request Token**.
   
 1. Role para baixo e selecione **usar token**.
 
@@ -116,14 +119,14 @@ Depois de concluir as etapas anteriores, configure o postmaster para fazer uma s
 
 1. Na guia **cabeçalhos** , adicione um **tipo de conteúdo de chave de** cabeçalho de solicitação HTTP com valor `multipart/mixed`.
 
-   [![especificar várias partes do tipo de conteúdo/misto](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
+   [![Especificar o tipo de conteúdo multiparte/misto](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. Serialize dados que não são de texto em arquivos. Os dados JSON seriam salvos como um arquivo JSON.
 1. Na guia **corpo** , selecione `form-data`. 
 1. Adicione cada arquivo atribuindo um nome de **chave** , selecionando `File`.
 1. Em seguida, selecione cada arquivo no botão **escolher arquivo** .
 
-   [exemplo de corpo de formulário de cliente do ![post](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
+   [![cliente carteiro forma exemplo de corpo](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * O cliente do postmaster não exige que partes com várias partes tenham um tipo de **conteúdo** ou disposição de **conteúdo**atribuído manualmente.

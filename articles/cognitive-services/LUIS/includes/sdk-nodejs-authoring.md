@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/22/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 808fdfb04cbe3b2b9e5f2de0c653bb978196269c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 58ee74f7b01738e67f9fddd39eb4eee59cdb65b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748761"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774248"
 ---
 Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para node. js para:
 

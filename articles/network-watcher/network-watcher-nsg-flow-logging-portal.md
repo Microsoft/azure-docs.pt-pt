@@ -1,12 +1,9 @@
 ---
-title: Tutorial-registrar o fluxo de tráfego de rede de e para uma VM usando o portal do Azure
-titleSuffix: Azure Network Watcher
-description: Neste tutorial, saiba como registrar em log o fluxo de tráfego de rede de e para uma VM usando o recurso de logs de fluxo NSG do observador de rede.
+title: Registar o fluxo de tráfego de rede de/para uma VM – tutorial – portal do Azure | Microsoft Docs
+description: Saiba como registar o fluxo de tráfego de rede de/para uma VM com a capacidade dos registos de fluxo do NSG do Observador de Rede.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -16,16 +13,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 7f4466b6f6de5028db8b62389c9d5ddbdafc9d62
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280990"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841017"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
+
+> [!div class="op_single_selector"]
+> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
+> - [API REST](network-watcher-nsg-flow-logging-rest.md)
+> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, ficará a saber como:
 
@@ -61,7 +65,7 @@ A criação da VM demora alguns minutos. Não continue com os restantes passos a
 
 ## <a name="enable-network-watcher"></a>Ativar o Observador de Rede
 
-Se já tiver um observador de rede ativado na região EUA Leste, avance para [Registar o fornecedor do Insights](#register-insights-provider).
+Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para [Registar o fornecedor do Insights](#register-insights-provider).
 
 1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
 2. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
@@ -93,7 +97,10 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | Localização       | Selecione **E.U.A. Leste**.                                           |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 
-    A conta de armazenamento deve estar na mesma região que o NSG. A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada.     
+    A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG.
+
+    > [!NOTE]
+    > Embora os fornecedores microsoft.Insight e Microsoft.Network sejam atualmente suportados como serviços microsoft confiáveis para armazenamento azure, os registos NSG Flow ainda não estão totalmente a bordo. Para ativar o registo de fluxo nsg, **todas as redes** devem ainda ser selecionadas até que esta funcionalidade esteja totalmente a bordo. 
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 5. Em **REGISTOS**, selecione **Registos de fluxo do NSG**, conforme mostrado na imagem seguinte:
 
@@ -107,8 +114,9 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 9. Selecione a conta de armazenamento que criou no passo 3.
    > [!NOTE]
-   > Os logs de fluxo NSG não funcionarão com uma conta de armazenamento se:
-   > * A conta de armazenamento tem um [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+   > Os logs de fluxo do NSG não funcionarão com contas de armazenamento se:
+   > * As contas de armazenamento têm um firewall habilitado.
+   > * As contas de armazenamento têm o [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Guardar**.
 
@@ -120,10 +128,10 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
    ![Transferir os registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que configurou no passo 2 da secção [Ativar o registo de fluxo do NSG](#enable-nsg-flow-log).
-4. Em **serviço blob**, selecione **contêineres**e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent** .
+4. Sob **o serviço Blob,** selecione **Blobs**e, em seguida, selecione o recipiente **insights-logs-networksecuritygroupflowevent.**
 5. No contêiner, navegue até a hierarquia de pastas até chegar a um arquivo PT1H. JSON, conforme mostrado na imagem a seguir. Os arquivos de log são gravados em uma hierarquia de pastas que segue a seguinte convenção de nomenclatura: https://{storageAccountName}. blob. Core. Windows. net/insights-logs-networksecuritygroupflowevent/resourceName =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {year}/m = {mês}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
 
-   ![Registo do fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+   ![Registo de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Selecione **...** à direita do ficheiro PT1H.json e, em seguida, **Transferir**.
 
@@ -208,7 +216,7 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | 10.0.0.4  | Endereço IP de origem      | O endereço IP de origem do qual teve origem o fluxo. 10.0.0.4 é o endereço IP privado da VM que criou em [Criar uma VM](#create-a-vm).
 | 13.67.143.118     | Endereço IP de destino | O endereço IP de destino para o qual se destinava o fluxo.                                                                                  |
 | 44931        | Porta de origem            | A porta de origem da qual teve origem o fluxo.                                           |
-| 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Como o tráfego era destinado à porta 443, a regra chamada **UserRule_default-Allow-RDP**, no arquivo de log, processou o fluxo.                                                |
+| 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Uma vez que o tráfego se destinava ao porto 443, a regra denominada **UserRule_default-permitir-rdp**, no ficheiro de registo processou o fluxo.                                                |
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
@@ -220,4 +228,4 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a ativar o registo de fluxo do NSG para um NSG. Também aprendeu como transferir e ver os dados registados num ficheiro. Os dados não processados no ficheiro json podem ser difíceis de interpretar. Para visualizar os dados, pode utilizar a [análise de tráfego](traffic-analytics.md) do Observador de Rede, o Microsoft [Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) e outras ferramentas.
+Neste tutorial, aprendeu a ativar o registo de fluxo do NSG para um NSG. Também aprendeu como transferir e ver os dados registados num ficheiro. Os dados não processados no ficheiro json podem ser difíceis de interpretar. Para visualizar os dados do Flow Logs, pode utilizar [o Azure Traffic Analytics,](traffic-analytics.md) [o Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)e outras ferramentas. Pode experimentar métodos alternativos de ativação de registos de fluxo NSG como [powerShell,](network-watcher-nsg-flow-logging-powershell.md) [Azure CLI,](network-watcher-nsg-flow-logging-cli.md) [REST API](network-watcher-nsg-flow-logging-rest.md) e [ARM.](network-watcher-nsg-flow-logging-azure-resource-manager.md)

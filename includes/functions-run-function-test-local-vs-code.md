@@ -1,33 +1,32 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/31/2019
+ms.date: 01/12/2020
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: ebcbe7e8af7e01a9b7e75282be4e4f4ceb80b806
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f4075b8d05c179e8115ff46c9f82751817372491
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279416"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842221"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
-As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local.
+O Visual Studio Code integra-se com as [Ferramentas Core funções do Azure](../articles/azure-functions/functions-run-local.md) para permitir que execute este projeto no seu computador de desenvolvimento local antes de publicar no Azure.
 
-1. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para ligar para a sua função, prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+
+1. Se ainda não tiver instalado as ferramentas core funções do Azure, **selecione Instalar** à mão. Quando as Ferramentas Core são instaladas, a sua aplicação começa no painel **Terminal.**
 
 1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP. 
 
     ![Resultado local do Azure](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
-1. Cole o URL do pedido HTTP na barra de endereço do browser. Anexe a cadeia de consulta `?name=<yourname>` a este URL e execute o pedido. A execução é colocada em pausa quando o ponto de interrupção é atingido.
+1. Cole o URL do pedido HTTP na barra de endereço do browser. Anexar a cadeia de consulta `?name=<yourname>` a este URL e executar o pedido GET. 
 
-1. Quando continua a execução, a imagem abaixo mostra a resposta no browser ao pedido GET:
+1. Uma resposta é devolvida, que se parece com a seguinte num browser:
 
     ![Resposta da função localhost no browser](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
-1. Para parar a depuração, prima Shift + F5.
+1. Pressione o Shift + F5 para parar as Ferramentas Core e desligar o desbugger.

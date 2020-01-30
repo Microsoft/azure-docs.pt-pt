@@ -1,27 +1,27 @@
 ---
-title: Limites-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve os limites no banco de dados do Azure para PostgreSQL-servidor único, como o número de opções de mecanismo de armazenamento e conexão.
+title: Limites - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve limites na Base de Dados Azure para PostgreSQL - Servidor Único, tais como o número de opções de motor de ligação e armazenamento.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768542"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836461"
 ---
-# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL-servidor único
-As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser saber mais sobre as camadas de recurso (computação, memória, armazenamento), consulte o artigo [tipos de preço](concepts-pricing-tiers.md) .
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Único
+As seguintes secções descrevem a capacidade e os limites funcionais no serviço de base de dados. Se quiser aprender sobre os níveis de recursos (computação, memória, armazenamento), consulte o artigo dos níveis de [preços.](concepts-pricing-tiers.md)
 
 
-## <a name="maximum-connections"></a>Máximo de conexões
-O número máximo de conexões por tipo de preço e vCores são os seguintes: 
+## <a name="maximum-connections"></a>Número máximo de ligações
+O número máximo de ligações por nível de preços e vCores são mostrados abaixo. O sistema Azure requer cinco ligações para monitorizar a Base de Dados Azure para o servidor PostgreSQL. 
 
-|**Escalão de Preço**| **vCore (s)**| **Máximo de conexões** | **Máximo de conexões de usuário** |
+|**Escalão de Preço**| **vCore(s)**| **Máx. ligações** | **Ligações ao utilizador Max** |
 |---|---|---|---|
 |Basic| 1| 55 | 50|
 |Basic| 2| 105 | 100|
@@ -37,34 +37,37 @@ O número máximo de conexões por tipo de preço e vCores são os seguintes:
 |Memória Otimizada| 16| 1900| 1895|
 |Memória Otimizada| 32| 1987| 1982|
 
-Quando as conexões excederem o limite, você poderá receber o seguinte erro:
-> FATAL: Desculpe, já há muitos clientes
+Quando as ligações excederem o limite, poderá receber o erro seguinte:
+> FATAL: desculpe, muitos clientes já
 
-O sistema do Azure requer cinco conexões para monitorar o servidor do banco de dados do Azure para PostgreSQL. 
+> [!IMPORTANT]
+> Para uma melhor experiência, recomendamos que utilize um pooler de ligação como o pgBouncer para gerir eficientemente as ligações.
+
+Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10MB de memória. Além disso, criar novas ligações leva tempo. A maioria das aplicações solicita muitas ligações de curta duração, o que compõe esta situação. O resultado é menos recursos disponíveis para a sua carga de trabalho real, levando a uma diminuição do desempenho. Um pooler de ligação que diminui as ligações inativas e reutiliza as ligações existentes ajudará a evitar isso. Para saber mais, visite o nosso [post de blog.](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)
 
 ## <a name="functional-limitations"></a>Limitações funcionais
-### <a name="scale-operations"></a>Operações de escala
-- No momento, não há suporte para o dimensionamento dinâmico de e para os tipos de preço básicos.
-- Não há suporte para a redução do tamanho de armazenamento do servidor no momento.
+### <a name="scale-operations"></a>Operações de dimensionamento
+- Dimensionamento dinâmico de e para os escalões de preços básicos não é atualmente suportada.
+- O tamanho de armazenamento do servidor diminuindo não é suportado atualmente.
 
-### <a name="server-version-upgrades"></a>Atualizações de versão do servidor
-- Atualmente, não há suporte para migração automatizada entre as versões do mecanismo de banco de dados principal. Se você quiser atualizar para a próxima versão principal, faça um [despejo e restaure](./howto-migrate-using-dump-and-restore.md) -o para um servidor criado com a nova versão do mecanismo.
+### <a name="server-version-upgrades"></a>Atualização de versão do servidor
+- Migração automatizada entre as versões do motor de base de dados principal não é atualmente suportada. Se gostaria de atualizar para a próxima versão principal, dê uma [cópia de segurança e restaurar](./howto-migrate-using-dump-and-restore.md) -lo para um servidor que foi criado com a nova versão do motor.
 
-> Observe que, antes do PostgreSQL versão 10, [a política de controle de versão do PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma atualização de _versão principal_ para ser um aumento no primeiro _ou_ segundo número (por exemplo, 9,5 a 9,6 foi considerado uma atualização de versão _principal_ ).
-> A partir da versão 10, apenas uma alteração no primeiro número é considerada uma atualização de versão principal (por exemplo, 10,0 a 10,1 é uma atualização de versão _secundária_ e 10 a 11 é uma atualização de versão _principal_ ).
+> Note que antes da versão 10 do PostgreSQL, a política de [versão PostgreSQL](https://www.postgresql.org/support/versioning/) considerou que uma _grande atualização_ da versão era um aumento no primeiro _ou_ segundo número (por exemplo, 9.5 a 9.6 foi considerada uma _grande_ atualização da versão).
+> A partir da versão 10, apenas uma alteração no primeiro número é considerada uma grande atualização da versão (por exemplo, 10.0 a 10.1 é uma atualização de versão _menor,_ e 10 a 11 é uma atualização de versão _importante)._
 
-### <a name="vnet-service-endpoints"></a>Pontos de extremidade de serviço de VNet
-- O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
+### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
+- Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
-### <a name="restoring-a-server"></a>Restaurando um servidor
-- Ao usar o recurso PITR, o novo servidor é criado com as mesmas configurações de camada de preços que o servidor no qual ele se baseia.
-- O novo servidor criado durante uma restauração não tem as regras de firewall que existiam no servidor original. As regras de firewall precisam ser configuradas separadamente para esse novo servidor.
-- Não há suporte para a restauração de um servidor excluído.
+### <a name="restoring-a-server"></a>Restaurar um servidor
+- Ao utilizar a função PITR, o novo servidor é criado com as mesmas configurações de nível de preços que o servidor em que se baseia.
+- O novo servidor criado durante um restauro não tem as regras de firewall que existiam no servidor original. As regras de firewall têm de ser configuradas separadamente para este novo servidor.
+- Não é suportado restaurar um servidor foi eliminado.
 
 ### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 no Windows
-- Em alguns cenários, os caracteres UTF-8 não têm suporte completo no PostgreSQL de código-fonte aberto no Windows, o que afeta o banco de dados do Azure para PostgreSQL. Consulte o thread sobre o [Bug #15476 no arquivo PostgreSQL-Archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
+- Em alguns cenários, os caracteres UTF-8 não são suportados totalmente em código aberto PostgreSQL no Windows, que afeta a Base de Dados Azure para PostgreSQL. Consulte a linha do [Bug #15476 no arquivo postgresql](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)
-- Saiba mais sobre [as versões de banco de dados PostgreSQL com suporte](concepts-supported-versions.md)
-- Examine [como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL usando o portal do Azure](howto-restore-server-portal.md)
+- Entenda [o que está disponível em cada nível de preços](concepts-pricing-tiers.md)
+- Saiba mais sobre [versões de base de dados PostgreSQL suportadas](concepts-supported-versions.md)
+- Reveja como fazer o back up e restaurar um servidor na Base de [Dados Azure para PostgreSQL usando o portal Azure](howto-restore-server-portal.md)

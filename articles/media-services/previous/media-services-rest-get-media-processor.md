@@ -1,6 +1,6 @@
 ---
-title: Como obter uma instância de processador de multimédia com REST | Documentos da Microsoft
-description: Saiba como criar um componente de processador de multimédia para codificar, converter formato, encriptar ou desencriptar o conteúdo de mídia para serviços de multimédia do Azure.
+title: Como obter uma instância de Processador de Mídia usando REST  Microsoft Docs
+description: Saiba como criar um componente de processador de mídia para codificar, converter formato, encriptar ou desencriptar conteúdos de mídia para o Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d342cff6d322195ee88a74215f814be7d702aa5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d7b3922c9bb7eb79cd6436ba1b265714678fcc8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761981"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774910"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância de processador de multimédia
+# <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância de Processador de Mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
-Processadores de multimédia são um componente que processa um vídeo específico ou a tarefa de processamento de áudio, como a codificação, conversão de formato, encriptar ou desencriptar conteúdos de multimédia. Todas as tarefas submetidas para serviços de multimédia requerem um processador de multimédia para codificar, encriptar ou converter o conteúdo de vídeo ou áudio. 
+## <a name="overview"></a>Visão geral
+Os Processadores de Meios são um componente que lida com uma tarefa específica de processamento de vídeo ou áudio, tais como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Todas as tarefas submetidas aos Serviços de Media requerem um processador de mídia para codificar, encriptar ou converter o conteúdo de vídeo ou áudio. 
 
-## <a name="azure-media-processors"></a>Processadores de multimédia do Azure 
+## <a name="azure-media-processors"></a>Processadores de mídia Azure 
 
-O tópico seguinte fornece listas de processadores de multimédia:
+O seguinte tópico fornece listas de processadores de mídia:
 
-* [Processadores de multimédia de codificação](scenarios-and-availability.md#encoding-media-processors)
-* [Processadores de multimédia de análise](scenarios-and-availability.md#analytics-media-processors)
+* [Codificação de processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
+* [Processadores de mídia analytics](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
->Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cabeçalho específicas e os valores nos seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST do Media Services](media-services-rest-how-to-use.md).
+>Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Ligar aos Media Services
+## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
 
-Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
-## <a name="get-a-media-processor"></a>Obter um processador de multimédia
+## <a name="get-a-media-processor"></a>Obtenha um processador de mídia
 
-A chamada REST seguinte mostra como obter uma instância de processador de suporte de dados por nome (neste caso, **Media Encoder Standard**). 
+A seguinte chamada REST mostra como obter um processador de mídia por nome (neste caso, **Media Encoder Standard).** 
 
 Pedido:
 
@@ -59,7 +59,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Resposta:
@@ -88,5 +88,5 @@ Resposta:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximos Passos
-Agora que sabe como obter uma instância de processador de multimédia, vá para o [como codificar um recurso](media-services-rest-get-started.md) artigo que demonstra como utilizar o Media Encoder Standard para codificar um recurso.
+Agora que sabe como obter uma instância de processador de mídia, vá ao [artigo como codificar um artigo de Ativo](media-services-rest-get-started.md) que demonstre como usar o Media Encoder Standard para codificar um ativo.
 

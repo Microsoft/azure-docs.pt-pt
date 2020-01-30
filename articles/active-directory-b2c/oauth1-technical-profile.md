@@ -1,7 +1,7 @@
 ---
-title: Definir um perfil técnico do OAuth1 em uma política personalizada
+title: Defina um perfil técnico OAuth1 numa política personalizada
 titleSuffix: Azure AD B2C
-description: Defina um perfil técnico do OAuth 1,0 em uma política personalizada no Azure Active Directory B2C.
+description: Defina um perfil técnico OAuth 1.0 numa política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,22 +11,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951110"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840388"
 ---
-# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth1 em uma política personalizada Azure Active Directory B2C
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth1 numa política personalizada do Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornece suporte para o provedor de identidade do [protocolo OAuth 1,0](https://tools.ietf.org/html/rfc5849) . Este artigo descreve as especificidades de um perfil técnico para interagir com um provedor de declarações que dá suporte a esse protocolo padronizado. Com um perfil técnico do OAuth1, você pode federar com um provedor de identidade baseado em OAuth1, como o Twitter. A Federação com o provedor de identidade permite que os usuários entrem com suas identidades sociais ou empresariais existentes.
+O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade do [protocolo OAuth 1.0.](https://tools.ietf.org/html/rfc5849) Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado. Com um perfil técnico OAuth1, pode federar-se com um fornecedor de identidade baseado em OAuth1, como o Twitter. A federação com o fornecedor de identidade permite que os utilizadores assinem com as suas identidades sociais ou empresariais existentes.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `OAuth1`. Por exemplo, o protocolo para o perfil técnico do **Twitter-OAUTH1** é `OAuth1`.
+O **nome** atributo do elemento **protocolo** tem de ser definido para `OAuth1`. Por exemplo, o protocolo para o perfil técnico **Twitter-OAUTH1** é `OAuth1`.
 
 ```XML
 <TechnicalProfile Id="Twitter-OAUTH1">
@@ -41,20 +41,20 @@ Os elementos **InputClaims** e **InputClaimsTransformations** estão vazios ou a
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações retornadas pelo provedor de identidade OAuth1. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade contanto que você defina o atributo **DefaultValue** .
+O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo fornecedor de identidade OAuth1. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no fornecedor de identidade. Também pode incluir reclamações que não sejam devolvidas pelo fornecedor de identidade desde que detetete o atributo **DefaultValue.**
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
 
-O exemplo a seguir mostra as declarações retornadas pelo provedor de identidade do Twitter:
+O exemplo que se segue mostra as alegações devolvidas pelo fornecedor de identidade do Twitter:
 
-- A declaração de **user_id** que é mapeada para a Declaração **issuerUserId** .
-- A declaração de **screen_name** que é mapeada para a Declaração **DisplayName** .
-- A declaração de **email** sem mapeamento de nome.
+- A **user_id** alegação que está mapeada para a alegação do **emitenteUserId.**
+- A **screen_name** afirmação que está mapeada para a alegação de nome de **exibição.**
+- A reclamação **de e-mail** sem mapeamento de nome.
 
-O perfil técnico também retorna declarações que não são retornadas pelo provedor de identidade:
+O perfil técnico também devolve reclamações que não são devolvidas pelo fornecedor de identidade:
 
-- A Declaração **identityprovider** que contém o nome do provedor de identidade.
-- A declaração de **authenticationname** com um valor padrão de `socialIdpAuthentication`.
+- A **alegação do Fornecedor de Identidade** que contém o nome do fornecedor de identidade.
+- A **autenticaçãoSource** reclama com um valor predefinido de `socialIdpAuthentication`.
 
 ```xml
 <OutputClaims>
@@ -70,13 +70,13 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_id | Sim | O identificador do aplicativo do provedor de identidade. |
-| ProviderName | Não | O nome do provedor de identidade. |
-| request_token_endpoint | Sim | A URL do ponto de extremidade do token de solicitação de acordo com a RFC 5849. |
-| authorization_endpoint | Sim | A URL do ponto de extremidade de autorização de acordo com a RFC 5849. |
-| access_token_endpoint | Sim | A URL do ponto de extremidade do token de acordo com a RFC 5849. |
-| ClaimsEndpoint | Não | A URL do ponto de extremidade de informações do usuário. |
-| ClaimsResponseFormat | Não | O formato de resposta de declarações.|
+| client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
+| Nome do provedor | Não | O nome do fornecedor de identidade. |
+| request_token_endpoint | Sim | O URL do ponto final simbólico do pedido de acordo com o RFC 5849. |
+| authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 5849. |
+| access_token_endpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 5849. |
+| Ponto final de reclamações | Não | O URL do ponto final da informação do utilizador. |
+| ClaimsResponseFormat | Não | O formato de resposta a sinistros.|
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
@@ -84,17 +84,17 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Sim | O segredo do cliente do aplicativo de provedor de identidade.   |
+| client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade.   |
 
-## <a name="redirect-uri"></a>URI de Redirecionamento
+## <a name="redirect-uri"></a>Redirecione uri
 
-Ao configurar a URL de redirecionamento do seu provedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir o **locatário** pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com) e **PolicyId** pelo identificador da política (por exemplo, b2c_1a_policy). O URI de redirecionamento precisa estar em letras minúsculas. Adicione uma URL de redirecionamento para todas as políticas que usam o logon do provedor de identidade.
+Quando configurar o URL de redirecionamento do seu fornecedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir o **inquilino** pelo seu nome de inquilino (por exemplo, contosob2c.onmicrosoft.com) e **políticaId** pelo identificador da sua política (por exemplo, b2c_1a_policy). O URI redirecionado tem de estar em todas as minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizem o login do fornecedor de identidade.
 
-Se você estiver usando o domínio **b2clogin.com** em vez de **login.microsoftonline.com** , certifique-se de usar b2clogin.com em vez de login.microsoftonline.com.
+Se estiver a utilizar o domínio **b2clogin.com** em vez de **login.microsoftonline.com** certifique-se de utilizar b2clogin.com em vez de login.microsoftonline.com.
 
 Exemplos:
 
-- [Adicionar o Twitter como um provedor de identidade OAuth1 usando políticas personalizadas](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Adicione o Twitter como um fornecedor de identidade OAuth1 usando políticas personalizadas](identity-provider-twitter-custom.md)
 
 
 

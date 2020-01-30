@@ -10,13 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 70400dbf6ad94da3212990d35e9689a33e322705
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+zone_pivot_groups: programming-languages-set-ten
+ms.openlocfilehash: 89680ad61296cd225bb87d2d6b46259586304da2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717222"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774119"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Início rápido: usar a biblioteca de cliente do Análise de Texto v3
 

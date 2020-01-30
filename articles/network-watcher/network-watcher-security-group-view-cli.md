@@ -1,35 +1,32 @@
 ---
-title: Analisar a segurança de rede com o modo de exibição do grupo de segurança-CLI do Azure
+title: Analisar a segurança da rede com a Visão de Grupo de Segurança - Azure CLI
 titleSuffix: Azure Network Watcher
-description: Este artigo descreverá como usar CLI do Azure para analisar a segurança de máquinas virtuais com o modo de exibição de grupo de segurança.
+description: Este artigo descreverá como usar o Azure CLI para analisar uma segurança de máquinas virtuais com a Security Group View.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 70460d3b46baa094f227f96733f8ac98fae9285b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 73f1efc512bf031021791da8cc55bc4e7d98a812
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277838"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840780"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analise sua segurança de máquina virtual com a exibição de grupo de segurança usando CLI do Azure
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analise a sua segurança da Máquina Virtual com vista de grupo de segurança usando o Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [CLI do Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
-A exibição de grupo de segurança retorna regras de segurança de rede configuradas e efetivas que são aplicadas a uma máquina virtual. Esse recurso é útil para auditar e diagnosticar grupos de segurança de rede e regras configurados em uma VM para garantir que o tráfego seja corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e efetivas para uma máquina virtual usando CLI do Azure
+A visão do grupo de segurança devolução de devoluções configuradas e eficazes de segurança da rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar Grupos de Segurança da Rede e regras que estão configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos-lhe como recuperar as regras de segurança configuradas e eficazes a uma máquina virtual usando o Azure CLI
 
 Para executar as etapas neste artigo, você precisa [instalar a interface de linha de comando do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
@@ -39,33 +36,33 @@ Este cenário pressupõe que você já seguiu as etapas em [criar um observador 
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo recupera as regras de segurança configuradas e efetivas para uma determinada máquina virtual.
+O cenário abordado neste artigo recupera as regras de segurança configuradas e eficazes para uma determinada máquina virtual.
 
-## <a name="get-a-vm"></a>Obter uma VM
+## <a name="get-a-vm"></a>Obter um VM
 
-Uma máquina virtual é necessária para executar o cmdlet `vm list`. O comando a seguir lista as máquinas virtuais em um grupo de recursos:
+É necessária uma máquina virtual para executar o `vm list` cmdlet. O seguinte comando lista as máquinas virtuais num grupo de recursos:
 
 ```azurecli
 az vm list -resource-group resourceGroupName
 ```
 
-Depois de conhecer a máquina virtual, você pode usar o cmdlet `vm show` para obter sua ID de recurso:
+Assim que conhecer a máquina virtual, pode utilizar o `vm show` cmdlet para obter o seu recurso Id:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName
 ```
 
-## <a name="retrieve-security-group-view"></a>Recuperar exibição de grupo de segurança
+## <a name="retrieve-security-group-view"></a>Recuperar a visão do grupo de segurança
 
-A próxima etapa é recuperar o resultado da exibição do grupo de segurança.
+O próximo passo é recuperar o resultado da visão do grupo de segurança.
 
 ```azurecli
 az network watcher show-security-group-view --resource-group resourceGroupName --vm vmName
 ```
 
-## <a name="viewing-the-results"></a>Exibindo os resultados
+## <a name="viewing-the-results"></a>Visualização dos resultados
 
-O exemplo a seguir é uma resposta abreviada dos resultados retornados. Os resultados mostram todas as regras de segurança efetivas e aplicadas na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**e **EffectiveSecurityRules**.
+O exemplo seguinte é uma resposta encurtada dos resultados devolvidos. Os resultados mostram todas as regras de segurança eficazes e aplicadas na máquina virtual desagregadas em grupos de **NetworkInterfaceSecurityRules,** **DefaultSecurityRules**e **EffectiveSecurityRules**.
 
 ```json
 {
@@ -157,6 +154,6 @@ O exemplo a seguir é uma resposta abreviada dos resultados retornados. Os resul
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite [auditoria de grupos de segurança de rede (NSG) com o observador de rede](network-watcher-nsg-auditing-powershell.md) para saber como automatizar a validação de grupos de segurança de rede.
+Visite os Grupos de Segurança da [Rede auditada (NSG) com](network-watcher-nsg-auditing-powershell.md) o Observador da Rede para saber automatizar a validação de Grupos de Segurança da Rede.
 
-Saiba mais sobre as regras de segurança que são aplicadas aos recursos de rede visitando [visão geral do modo de exibição de grupo de segurança](network-watcher-security-group-view-overview.md)
+Saiba mais sobre as regras de segurança que são aplicadas aos recursos da sua rede visitando a [visão geral](network-watcher-security-group-view-overview.md) do grupo de segurança

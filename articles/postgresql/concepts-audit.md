@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747333"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842474"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -30,14 +30,14 @@ Como alternativa, você pode configurar todos os logs a serem emitidos para o se
 
 A ativação da pgAudit gera um grande volume de inícios de sessão num servidor, o que terá um impacto no desempenho e no armazenamento de registos. Recomendamos que utilize o serviço de registo de diagnósticos do Azure, que oferece opções de armazenamento de longo prazo, bem como funcionalidades de análise e alerta. Recomendamos que desligue o início de sessão padrão para reduzir o impacto sobre o desempenho de inícios de sessão adicionais:
 
-   1. Defina o parâmetro `logging_collector` como OFF. 
+   1. Defina o parâmetro `logging_collector` desligado. 
    2. Reinicie o servidor para aplicar essa alteração.
 
 Para saber como configurar o log no armazenamento do Azure, nos hubs de eventos ou nos logs de Azure Monitor, visite a seção logs de diagnóstico do [artigo logs do servidor](concepts-server-logs.md).
 
 ## <a name="installing-pgaudit"></a>Instalando o pgAudit
 
-Para instalar o pgAudit, você precisa incluí-lo nas bibliotecas de pré-carregamento compartilhadas do servidor. Uma alteração no parâmetro `shared_preload_libraries` do postgres requer a reinicialização do servidor para entrar em vigor. Você pode alterar os parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md), [CLI do Azure](howto-configure-server-parameters-using-cli.md)ou a [API REST](/rest/api/postgresql/configurations/createorupdate).
+Para instalar o pgAudit, você precisa incluí-lo nas bibliotecas de pré-carregamento compartilhadas do servidor. Uma alteração no parâmetro de `shared_preload_libraries` do Postgres requer que um servidor reinicie para fazer efeito. Você pode alterar os parâmetros usando o [portal do Azure](howto-configure-server-parameters-using-portal.md), [CLI do Azure](howto-configure-server-parameters-using-cli.md)ou a [API REST](/rest/api/postgresql/configurations/createorupdate).
 
 Usando o [portal do Azure](https://portal.azure.com):
 
@@ -53,7 +53,7 @@ Usando o [portal do Azure](https://portal.azure.com):
       ```
 
 > [!TIP]
-> Se você vir um erro, confirme que você reiniciou o servidor depois de salvar `shared_preload_libraries`.
+> Se vir um erro, confirme que reiniciou o seu servidor depois de guardar `shared_preload_libraries`.
 
 ## <a name="pgaudit-settings"></a>configurações de pgAudit
 
@@ -65,10 +65,8 @@ o pgAudit permite que você configure o log de auditoria de sessão ou objeto. O
 Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus parâmetros para iniciar o registro em log. A [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) fornece a definição de cada parâmetro. Teste os parâmetros primeiro e confirme que você está obtendo o comportamento esperado.
 
 > [!NOTE]
-> Definir `pgaudit.log_client` como ON redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Esta definição deve, normalmente, ser deixada desativada.
-
-> [!NOTE]
-> `pgaudit.log_level` só é habilitado quando `pgaudit.log_client` está ativado. Além disso, no portal do Azure, atualmente há um bug com `pgaudit.log_level`: uma caixa de combinação é mostrada, indicando que vários níveis podem ser selecionados. No entanto, apenas um nível deve ser selecionado. 
+> A definição de `pgaudit.log_client` para ON redirecionará os registos para um processo de cliente (como o psql) em vez de ser escrito para arquivar. Esta definição deve, normalmente, ser deixada desativada. <br> <br>
+> `pgaudit.log_level` só está ativado quando `pgaudit.log_client` estiver ligado.
 
 > [!NOTE]
 > No banco de dados do Azure para PostgreSQL, `pgaudit.log` não pode ser definida usando um atalho de sinal de `-` (menos), conforme descrito na documentação do pgAudit. Todas as classes de instruções necessárias (LEITURA, ESCRITA, etc.) devem ser especificadas individualmente.
@@ -76,17 +74,33 @@ Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus 
 ### <a name="audit-log-format"></a>Formato do log de auditoria
 Cada entrada de auditoria é indicada por `AUDIT:` próximo ao início da linha de log. O formato do restante da entrada é detalhado na [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o parâmetro postgres `log_line_prefix`. `log_line_prefix` é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração de `log_line_prefix` a seguir fornece carimbo de hora, nome de usuário, nome do banco de dados e ID do processo:
+Se precisar de outros campos para satisfazer os seus requisitos de auditoria, utilize o parâmetro Postgres `log_line_prefix`. `log_line_prefix` é uma cadeia que é saída no início de cada linha de registo de Postgres. Por exemplo, a seguinte definição `log_line_prefix` fornece carimbo de tempo, nome de utilizador, nome da base de dados e ID do processo:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
 ```
 
-Para saber mais sobre `log_line_prefix`, visite a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
+Para saber mais sobre `log_line_prefix`, visite a [documentação PostgreSQL.](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX)
 
 ### <a name="getting-started"></a>Introdução
 Para começar rapidamente, defina `pgaudit.log` para `WRITE`e abra os logs para examinar a saída. 
 
+## <a name="viewing-audit-logs"></a>Ver registos de auditoria
+Se estiver a utilizar ficheiros .log, os seus registos de auditoria serão incluídos no mesmo ficheiro que os registos de erros do PostgreSQL. Pode descarregar ficheiros de registo a partir do [portal](howto-configure-server-logs-in-portal.md) Azure ou [CLI](howto-configure-server-logs-using-cli.md). 
+
+Se estiver a utilizar o registo de diagnóstico Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Armazenamento Azure, consulte o artigo da conta de armazenamento de [registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Hubs de Eventos, consulte o artigo de [logs do Stream Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+
+Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na mesa são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral da consulta do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
+
+Pode usar esta consulta para começar. Pode configurar alertas com base em consultas.
+
+Procure todos os registos do Postgres para um determinado servidor no último dia
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais sobre o log no banco de dados do Azure para PostgreSQL](concepts-server-logs.md)

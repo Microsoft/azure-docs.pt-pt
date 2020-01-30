@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940996"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841034"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -43,7 +43,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 - Regra com mais de cinco expressões
 - A regra de relatórios diretos
 - Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) por exemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
@@ -79,7 +79,7 @@ A ordem das partes dentro de uma expressão é importante para evitar erros de s
 Há três tipos de propriedades que podem ser usadas para construir uma regra de associação.
 
 - Booleano
-- String
+- Cadeia
 - Coleção de cadeias de caracteres
 
 A seguir estão as propriedades do usuário que você pode usar para criar uma única expressão.
@@ -144,13 +144,13 @@ A tabela a seguir lista todos os operadores com suporte e sua sintaxe para uma �
 | Não contém |-notContains |
 | Contains |-contains |
 | Sem correspondência |-notMatch |
-| Correspondência |-correspondência |
+| às |-correspondência |
 | Em | -in |
 | Não em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Usando os operadores-in e-notIn
 
-Se você quiser comparar o valor de um atributo de usuário com um número de valores diferentes, poderá usar os operadores-in ou-notIn. Use os símbolos de colchetes "[" e "]" para começar e terminar a lista de valores.
+Se você quiser comparar o valor de um atributo de usuário com um número de valores diferentes, poderá usar os operadores-in ou-notIn. Utilize os símbolos do suporte "[" e "]" para iniciar e terminar a lista de valores.
 
  No exemplo a seguir, a expressão será avaliada como true se o valor de User. Department for igual a qualquer um dos valores na lista:
 
@@ -178,7 +178,7 @@ Os valores usados em uma expressão podem consistir em vários tipos, incluindo:
 
 * Cadeias
 * Booliano – verdadeiro, falso
-* Numbers
+* Números
 * Matrizes – matriz de números, matriz de cadeia de caracteres
 
 Ao especificar um valor dentro de uma expressão, é importante usar a sintaxe correta para evitar erros. Algumas dicas de sintaxe são:
@@ -213,7 +213,7 @@ Veja a seguir exemplos de regras de associação construídas corretamente com v
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedência de operadores
+### <a name="operator-precedence"></a>Precedência do operador
 
 Todos os operadores são listados abaixo em ordem de precedência do mais alto para o mais baixo. Os operadores na mesma linha são de precedência igual:
 
@@ -252,7 +252,7 @@ As propriedades de vários valores são coleções de objetos do mesmo tipo. Ele
 | Propriedades | Valores | Utilização |
 | --- | --- | --- |
 | assignedPlans | Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, Service, serviço de enplaneid |User. assignedPlans-Any (assignedPlan. onplanid-EQ "efb87545-963c-4e0d-99df-69c6916d9eb0"-e assignedPlan. capabilityStatus-EQ "Enabled") |
-| proxyAddresses| SMTP: alias@domain SMTP: alias@domain | (User. proxyAddresses-Any (\_-contém "contoso")) |
+| proxyAddresses| SMTP: alias@domain SMTP: alias@domain | (user.proxyAddresss -any (\_ -contém "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Usando os operadores-any e-All
 
@@ -279,11 +279,11 @@ A expressão a seguir seleciona todos os usuários que têm qualquer plano de se
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore-_-syntax"></a>Usando a sintaxe de sublinhado (\_)
+### <a name="using-the-underscore-_-syntax"></a>Utilizando a sintaxe de sublinhado (\_)
 
-A sintaxe de sublinhado (\_) corresponde a ocorrências de um valor específico em uma das propriedades de coleção de cadeia de caracteres com valores iguais para adicionar usuários ou dispositivos a um grupo dinâmico. Ele é usado com os operadores-any ou-ALL.
+A sintaxe de sublinhado (\_) corresponde a ocorrências de um valor específico numa das propriedades de recolha de cordas multivalorizadas para adicionar utilizadores ou dispositivos a um grupo dinâmico. Ele é usado com os operadores-any ou-ALL.
 
-Aqui está um exemplo de como usar o sublinhado (\_) em uma regra para adicionar membros com base em User. proxyAddress (ele funciona da mesma para User. otherMails). Essa regra adiciona qualquer usuário com endereço de proxy que contenha "contoso" ao grupo.
+Aqui está um exemplo de usar o sublinhado (\_) numa regra para adicionar membros com base em user.proxyAddress (funciona o mesmo para user.otherMails). Essa regra adiciona qualquer usuário com endereço de proxy que contenha "contoso" ao grupo.
 
 ```
 (user.proxyAddresses -any (_ -contains "contoso"))
@@ -347,10 +347,10 @@ Atributos de extensão e propriedades de extensão personalizadas têm suporte c
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-As propriedades de extensão personalizadas são sincronizadas do AD do Windows Server local ou de um aplicativo SaaS conectado e têm o formato de `user.extension_[GUID]_[Attribute]`, em que:
+As propriedades de extensão personalizada sincronizadas a partir de No local, o Windows Server AD ou a partir de uma aplicação SaaS conectada e são do formato de `user.extension_[GUID]_[Attribute]`, onde:
 
-* [GUID] é o identificador exclusivo no Azure AD para o aplicativo que criou a propriedade no Azure AD
-* [Attribute] é o nome da propriedade conforme ela foi criada
+* [GUID] é o identificador único em Azure AD para a aplicação que criou o imóvel em Azure AD
+* [Atributo] é o nome da propriedade tal como foi criado
 
 Um exemplo de uma regra que usa uma propriedade de extensão personalizada é:
 
@@ -370,7 +370,7 @@ Você também pode criar uma regra que Selecione objetos de dispositivo para ass
 > [!NOTE]
 > systemlabels é um atributo somente leitura que não pode ser definido com o Intune.
 >
-> Para o Windows 10, o formato correto do atributo deviceOSVersion é o seguinte: (Device. deviceOSVersion-EQ "10,0 (17763)"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
+> Para o Windows 10, o formato correto do atributo do dispositivoOSVersão é o seguinte: (dispositivo.deviceOSVersion -eq "10.0.17763"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
 
 Os atributos de dispositivo a seguir podem ser usados.
 
@@ -379,7 +379,7 @@ Os atributos de dispositivo a seguir podem ser usados.
  accountEnabled | verdadeiro falso | (Device. accountEnabled-EQ true)
  displayName | qualquer valor de cadeia de caracteres |(device.displayName -eq "Rob iPhone")
  deviceOSType | qualquer valor de cadeia de caracteres | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- versãoDeSODoDispositivo | qualquer valor de cadeia de caracteres | (device.deviceOSVersion -eq "9.1")
+ dispositivoSVersão | qualquer valor de cadeia de caracteres | (device.deviceOSVersion -eq "9.1")
  deviceCategory | um nome de categoria de dispositivo válido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | qualquer valor de cadeia de caracteres | (device.deviceManufacturer -eq "Samsung")
  deviceModel | qualquer valor de cadeia de caracteres | (device.deviceModel -eq "iPad Air")
@@ -389,7 +389,7 @@ Os atributos de dispositivo a seguir podem ser usados.
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | uma ID de objeto do Azure AD válida |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
- devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (Device. devicePhysicalIDs-any _ contém "[ZTDId]") (Device. devicePhysicalIds-qualquer _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-qualquer _-EQ "[PurchaseOrderId]: 76222342342")
+ devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (dispositivo.devicePhysicalIDs -any _ - contém "[ZTDId]") (dispositivo.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (dispositivo.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
  systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcar dispositivos de local de trabalho modernos | (Device. systemLabels-contém "M365Managed")
 
 > [!Note]  

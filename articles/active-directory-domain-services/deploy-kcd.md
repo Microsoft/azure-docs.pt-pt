@@ -1,6 +1,6 @@
 ---
-title: Delegação restrita de Kerberos para Azure AD Domain Services | Microsoft Docs
-description: Saiba como habilitar a KCD (delegação restrita de Kerberos com base em recursos) em um domínio gerenciado Azure Active Directory Domain Services.
+title: Kerberos constrangido delegação para serviços de domínio azure ad  Microsoft Docs
+description: Saiba como permitir a delegação limitada kerberos (KCD) num domínio gerido pelo Azure Ative Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705269"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772544"
 ---
-# <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurar a KCD (delegação restrita de Kerberos) no Azure Active Directory Domain Services
+# <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configure Kerberos constrangido delegação (KCD) em Serviços de Domínio de Diretório Ativo Azure
 
-À medida que você executa aplicativos, pode haver a necessidade desses aplicativos acessarem recursos no contexto de um usuário diferente. Active Directory Domain Services (AD DS) dá suporte a um mecanismo chamado *delegação de Kerberos* que habilita esse caso de uso. A delegação *restrita* de Kerberos (KCD) é criada nesse mecanismo para definir recursos específicos que podem ser acessados no contexto do usuário. Os domínios gerenciados do Azure Active Directory Domain Services (AD DS do Azure) são bloqueados com mais segurança em ambientes de AD DS locais tradicionais, portanto, use um KCD *baseado em recursos* mais seguro.
+À medida que executa aplicações, pode haver necessidade de essas aplicações acederem a recursos no contexto de um utilizador diferente. Ative Directory Domain Services (AD DS) apoia um mecanismo chamado *delegação Kerberos* que permite este caso de utilização. A delegação *restrita* kerberos (KCD) baseia-se então neste mecanismo para definir recursos específicos que podem ser acedidos no contexto do utilizador. Os domínios geridos pelo Azure Ative Directory (Azure AD DS) são mais seguros do que os ambientes Tradicionais aD DS no local, por isso use um KCD mais seguro *baseado em recursos.*
 
-Este artigo mostra como configurar a delegação restrita de Kerberos baseada em recursos em um domínio gerenciado AD DS do Azure.
+Este artigo mostra-lhe como configurar a delegação limitada kerberos baseada em recursos num domínio gerido pela AD DS azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,54 +35,54 @@ Para concluir este artigo, você precisa dos seguintes recursos:
 * Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
     * Se necessário, [crie e configure uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
-    * Se necessário, conclua o tutorial para [criar uma VM do Windows Server e ingresse-a em um domínio gerenciado][create-join-windows-vm] e, em seguida, [Instale as ferramentas de gerenciamento de AD DS][tutorial-create-management-vm].
+    * Se necessário, complete o tutorial para criar um VM do [Windows Server e junte-o a um domínio gerido][create-join-windows-vm] e, em seguida, instale as ferramentas de [gestão AD DS][tutorial-create-management-vm].
 * Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
 
-## <a name="kerberos-constrained-delegation-overview"></a>Visão geral da delegação restrita de Kerberos
+## <a name="kerberos-constrained-delegation-overview"></a>Kerberos limitou a visão geral da delegação
 
-A delegação de Kerberos permite que uma conta represente outra conta para acessar recursos. Por exemplo, um aplicativo Web que acessa um componente da Web de back-end pode se representar como uma conta de usuário diferente quando faz a conexão de back-end. A delegação de Kerberos não é segura, pois não limita quais recursos a conta representando pode acessar.
+A delegação da Kerberos permite que uma conta se personique outra conta para aceder aos recursos. Por exemplo, uma aplicação web que acede a um componente web de back-end pode personificar-se como uma conta de utilizador diferente quando faz a ligação de back-end. A delegação de Kerberos é insegura, uma vez que não limita os recursos a que a conta personificada pode aceder.
 
-A delegação restrita de Kerberos (KCD) restringe os serviços ou os recursos que um servidor ou aplicativo especificado pode conectar ao representar outra identidade. O KCD tradicional exige privilégios de administrador de domínio para configurar uma conta de domínio para um serviço e restringe a conta a ser executada em um único domínio.
+A delegação restrita de Kerberos (KCD) restringe os serviços ou recursos que um servidor ou aplicação especificado pode ligar quando se faz passar por outra identidade. O KCD tradicional requer privilégios de administrador de domínio para configurar uma conta de domínio para um serviço, e restringe a conta a ser executada num único domínio.
 
-O KCD tradicional também tem alguns problemas. Por exemplo, em sistemas operacionais anteriores, o administrador de serviços não tinha uma maneira útil de saber quais serviços de front-end eram delegados aos serviços de recursos que eles possuíam. Qualquer serviço de front-end que pode delegar a um serviço de recurso era um possível ponto de ataque. Se um servidor que hospedasse um serviço de front-end configurado para delegar aos serviços de recursos tiver sido comprometido, os serviços de recursos também poderão ser comprometidos.
+O KCD tradicional também tem alguns problemas. Por exemplo, em sistemas operativos anteriores, o administrador de serviços não tinha forma útil de saber quais os serviços front-end delegados aos serviços de recursos que possuíam. Qualquer serviço frontal que pudesse delegar num serviço de recursos era um potencial ponto de ataque. Se um servidor que acolhesse um serviço frontal configurado para delegar nos serviços de recursos fosse comprometido, os serviços de recursos também poderiam ser comprometidos.
 
-Em um domínio gerenciado do Azure AD DS, você não tem privilégios de administrador de domínio. Como resultado, as KCD tradicionais baseadas em contas não podem ser configuradas em um AD DS do Azure em um domínio gerenciado. Em vez disso, o KCD baseado em recursos pode ser usado, o que também é mais seguro.
+Num domínio gerido pelo Azure AD DS, não tem privilégios de administrador de domínio. Como resultado, o KCD tradicional baseado em contas não pode ser configurado num Azure AD DS um domínio gerido. Em vez disso, o KCD baseado em recursos pode ser utilizado, o que também é mais seguro.
 
-### <a name="resource-based-kcd"></a>KCD com base em recursos
+### <a name="resource-based-kcd"></a>KCD baseado em recursos
 
-O Windows Server 2012 e posterior concede aos administradores de serviço a capacidade de configurar a delegação restrita para seu serviço. Esse modelo é conhecido como KCD baseada em recursos. Com essa abordagem, o administrador de serviços de back-end pode permitir ou negar serviços de front-end específicos do uso do KCD.
+O Windows Server 2012 e, mais tarde, dá aos administradores de serviço a capacidade de configurar a delegação restrita para o seu serviço. Este modelo é conhecido como KCD baseado em recursos. Com esta abordagem, o administrador de serviço de back-end pode permitir ou negar serviços frontais específicos da utilização do KCD.
 
-O KCD baseado em recursos é configurado usando o PowerShell. Você usa os cmdlets [set-ADComputer][Set-ADComputer] ou [set-ADUser][Set-ADUser] , dependendo se a conta de representação é uma conta de computador ou uma conta de usuário/serviço.
+O KCD baseado em recursos é configurado usando powerShell. Utiliza os cmdlets [Set-ADComputer][Set-ADComputer] ou [Set-ADUser,][Set-ADUser] dependendo se a conta de representação é uma conta de computador ou uma conta de utilizador/conta de serviço.
 
-## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configurar KCD com base em recursos para uma conta de computador
+## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configure o KCD baseado em recursos para uma conta de computador
 
-Neste cenário, vamos supor que você tenha um aplicativo Web que é executado no computador chamado *contoso-webapp.aadds.contoso.com*. O aplicativo Web precisa acessar uma API da Web que é executada no computador chamado *contoso-API.aadds.contoso.com* no contexto de usuários do domínio. Conclua as seguintes etapas para configurar este cenário:
+Neste cenário, vamos assumir que tem uma aplicação web que funciona no computador chamado *contoso-webapp.aadds.contoso.com*. A aplicação web precisa de aceder a uma API web que funciona no computador chamado *contoso-api.aadds.contoso.com* no contexto dos utilizadores de domínio. Complete os seguintes passos para configurar este cenário:
 
-1. [Crie uma UO personalizada](create-ou.md). Você pode delegar permissões para gerenciar essa UO personalizada para usuários dentro do domínio gerenciado AD DS do Azure.
-1. [Domínio – ingresse nas máquinas virtuais][create-join-windows-vm], ambas que executam o aplicativo Web e a que executa a API Web, para o domínio gerenciado AD DS do Azure. Crie essas contas de computador na UO personalizada da etapa anterior.
+1. [Crie um OU personalizado.](create-ou.md) Pode delegar permissões para gerir este OU personalizado aos utilizadores dentro do domínio gerido pelo Azure AD DS.
+1. [Junte-se ao domínio das máquinas virtuais][create-join-windows-vm], tanto a que executa a aplicação web, como a que executa a Web API, para o domínio gerido pelo Azure AD DS. Crie estas contas de computador na UA personalizada a partir do passo anterior.
 
     > [!NOTE]
-    > As contas de computador para o aplicativo Web e a API Web devem estar em uma UO personalizada em que você tenha permissões para configurar KCD com base em recursos. Você não pode configurar o KCD baseado em recursos para uma conta de computador no contêiner de *computadores DC do AAD* interno.
+    > As contas do computador para a aplicação web e a Web API devem estar num OU personalizado onde você tem permissões para configurar o KCD baseado em recursos. Não é possível configurar o KCD baseado em recursos para uma conta de computador no recipiente incorporado da *AAD DC Computers.*
 
-1. Por fim, configure KCD com base em recursos usando o cmdlet do PowerShell [set-ADComputer][Set-ADComputer] . Em sua VM de gerenciamento ingressado no domínio e conectada como uma conta de usuário que seja membro do grupo de *Administradores de DC do Azure ad* , execute os cmdlets a seguir. Forneça seus próprios nomes de computador, conforme necessário:
+1. Por fim, configure o KCD baseado em recursos utilizando o cmdlet [Set-ADComputer][Set-ADComputer] PowerShell. A partir da sua VM de gestão filiada em domínio e registrado como conta de utilizador que é membro do grupo de *administradores da AD DC Azure,* executa os seguintes cmdlets. Forneça os seus próprios nomes de computador conforme necessário:
     
     ```powershell
     $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
     Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
-## <a name="configure-resource-based-kcd-for-a-user-account"></a>Configurar KCD com base em recursos para uma conta de usuário
+## <a name="configure-resource-based-kcd-for-a-user-account"></a>Configure o KCD baseado em recursos para uma conta de utilizador
 
-Neste cenário, vamos supor que você tenha um aplicativo Web que seja executado como uma conta de serviço chamada *appsvc*. O aplicativo Web precisa acessar uma API Web que é executada como uma conta de serviço chamada *backendsvc* no contexto de usuários do domínio. Conclua as seguintes etapas para configurar este cenário:
+Neste cenário, vamos assumir que tem uma aplicação web que funciona como uma conta de serviço chamada *appsvc*. A aplicação web precisa de aceder a uma API web que funciona como uma conta de serviço chamada *backendsvc* no contexto dos utilizadores de domínio. Complete os seguintes passos para configurar este cenário:
 
-1. [Crie uma UO personalizada](create-ou.md). Você pode delegar permissões para gerenciar essa UO personalizada para usuários dentro do domínio gerenciado AD DS do Azure.
-1. [Domínio – ingresse nas máquinas virtuais][create-join-windows-vm] que executam a API/recurso de back-end da Web para o domínio gerenciado AD DS do Azure. Crie sua conta de computador na UO personalizada.
-1. Crie a conta de serviço (por exemplo, ' appsvc ') usada para executar o aplicativo Web dentro da UO personalizada.
+1. [Crie um OU personalizado.](create-ou.md) Pode delegar permissões para gerir este OU personalizado aos utilizadores dentro do domínio gerido pelo Azure AD DS.
+1. [Junte-se ao domínio das máquinas virtuais][create-join-windows-vm] que executam a Web API/recurso backend para o domínio gerido pelo Azure AD DS. Crie a sua conta de computador dentro da Ou personalizada.
+1. Criar a conta de serviço (por exemplo, 'appsvc') usada para executar a aplicação web dentro da OU personalizada.
 
     > [!NOTE]
-    > Novamente, a conta de computador para a VM da API Web e a conta de serviço do aplicativo Web devem estar em uma UO personalizada em que você tenha permissões para configurar o KCD baseado em recursos. Você não pode configurar KCD com base em recursos para contas nos contêineres de *computadores DC do AAD* internos ou *usuários do AAD DC* . Isso também significa que você não pode usar contas de usuário sincronizadas do Azure AD para configurar o KCD baseado em recursos. Você deve criar e usar contas de serviço criadas especificamente no Azure AD DS.
+    > Mais uma vez, a conta do computador para a Web API VM, e a conta de serviço para a aplicação web, deve estar em um OU personalizado onde você tem permissões para configurar kcd baseado em recursos. Não é possível configurar o KCD baseado em recursos para contas nos recipientes *AAD DC Computers* ou *AAD DC Users* incorporados. Isto também significa que não pode utilizar contas de utilizador sincronizadas a partir de Azure AD para configurar o KCD baseado em recursos. Deve criar e utilizar contas de serviço especificamente criadas em DS AD Azure.
 
-1. Por fim, configure KCD com base em recursos usando o cmdlet do PowerShell [set-ADUser][Set-ADUser] . Em sua VM de gerenciamento ingressado no domínio e conectada como uma conta de usuário que seja membro do grupo de *Administradores de DC do Azure ad* , execute os cmdlets a seguir. Forneça seus próprios nomes de serviço, conforme necessário:
+1. Por fim, configure o KCD baseado em recursos utilizando o cmdlet [Set-ADUser][Set-ADUser] PowerShell. A partir da sua VM de gestão filiada em domínio e registrado como conta de utilizador que é membro do grupo de *administradores da AD DC Azure,* executa os seguintes cmdlets. Forneça os seus próprios nomes de serviço conforme necessário:
 
     ```powershell
     $ImpersonatingAccount = Get-ADUser -Identity appsvc
@@ -91,7 +91,7 @@ Neste cenário, vamos supor que você tenha um aplicativo Web que seja executado
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como a delegação funciona em Active Directory Domain Services, consulte [visão geral da delegação restrita de Kerberos][kcd-technet].
+Para saber mais sobre como a delegação trabalha em Serviços de Domínio de Diretório Ativo, consulte a [visão geral da delegação restrita kerberos.][kcd-technet]
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

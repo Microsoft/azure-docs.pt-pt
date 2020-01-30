@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com Java-banco de dados do Azure para PostgreSQL-servidor único
-description: Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados de um servidor único para PostgreSQL.
+title: Conecte-se com Java - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este quickstart fornece uma amostra de código Java que pode usar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,33 +8,34 @@ ms.custom: seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 269eb1fe744a31f1f4501c5790e06c1a5e06bab6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 566bf606b275b8e2c1f456600b46b1d7304d2ce7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767896"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768998"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início rápido: usar o Java para se conectar e consultar dados no Azure Database para PostgreSQL-servidor único
-Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação Java. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
+
+Neste arranque rápido, ligue-se a uma Base de Dados Azure para PostgreSQL utilizando uma aplicação Java. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
-- [Criar BD - Portal](quickstart-create-server-database-portal.md)
-- [Criar BD - CLI do Azure](quickstart-create-server-database-azure-cli.md)
 
-Também tem de:
-- Transferir o [Controlador PostgreSQL JDBC](https://jdbc.postgresql.org/download.html) correspondente à sua versão de Java e o Kit de programação Java.
-- Incluir o ficheiro jar do PostgreSQL JDBC (por exemplo, postgresql-42.1.1.jar) no caminho da classe da sua aplicação. Para obter mais informações, consulte [detalhes do caminho da classe](https://jdbc.postgresql.org/documentation/head/classpath.html).
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+
+- Conclusão do [Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL no portal Azure](quickstart-create-server-database-portal.md) ou [Quickstart: Criar uma Base de Dados Azure para PostgreSQL utilizando o Azure CLI](quickstart-create-server-database-azure-cli.md).
+
+- [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) - combine a sua versão de Java e o Java Development Kit.
+- [Detalhes](https://jdbc.postgresql.org/documentation/head/classpath.html) do caminho de classe - Inclua o ficheiro do frasco PostgreSQL JDBC (por exemplo postgresql-42.1.1.jar) no seu caminho de classificação de aplicação.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, selecione **todos os recursos**e procure o servidor que você criou (como **mydemoserver**).
-3. Selecione o nome do servidor.
-4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-java/azure-database-postgresql-server-name.png)
+1. No [portal Azure,](https://portal.azure.com/)procure e selecione o servidor que criou (como **o mydemoserver).**
+
+1. A partir do painel **de visão geral** do servidor, tome nota do nome de **servidor** e nome de utilizador **do Administrador**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
+
+    ![Base de Dados Azure para cadeia de ligação PostgreSQL](./media/connect-java/server-details-azure-database-postgresql.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 Utilize o código seguinte para se ligar e carregar os dados para a base de dados através da função com a instrução SQL **INSERT**. Os métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) e [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) servem para se ligar à base de dados, remover e criar a tabela. O objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) é utilizado para criar os comandos de introdução, com setString() e setInt() que unem os valores do parâmetro. O método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) executa o comando para cada conjunto de parâmetros. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367115"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840439"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Os aplicativos e as organizações podem decidir bloquear os menores de usar apl
 
 Se um usuário for identificado como um secundário, você poderá definir o fluxo do usuário em Azure AD B2C como uma das três opções:
 
-- **Envie um ID_TOKEN JWT assinado de volta para o aplicativo**: o usuário está registrado no diretório e um token é retornado para o aplicativo. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar esse método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
+- **Envie um JWT assinado id_token de volta à aplicação**: O utilizador está registado no diretório e um sinal é devolvido à aplicação. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar esse método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
 
 - **Enviar um token JSON não assinado para o aplicativo**: o Azure ad B2C notifica o aplicativo que o usuário é um secundário e fornece o status do consentimento do usuário. Em seguida, o aplicativo continua aplicando regras de negócio. Um token JSON não conclui uma autenticação bem-sucedida com o aplicativo. O aplicativo deve processar o usuário não autenticado de acordo com as declarações incluídas no token JSON, que pode incluir **nome**, **email**, **ageGroup**e **consentProvidedForMinor**.
 
@@ -56,7 +56,7 @@ Veja a seguir um exemplo de um fluxo de usuário para a coleta de consentimento 
 
 5. Quando o secundário ou o adulto revoga o consentimento, o API do Graph do Azure AD pode ser usado para alterar **consentProvidedForMinor** para **negado**. Como alternativa, o aplicativo pode optar por excluir um secundário cujo consentimento foi revogado. Opcionalmente, é possível personalizar o fluxo do usuário para que o secundário autenticado (ou o pai que está usando a conta secundária) possa revogar o consentimento. Azure AD B2C registros **consentProvidedForMinor** como **negado**.
 
-Para obter mais informações sobre **legalAgeGroupClassification**, **consentProvidedForMinor**e **ageGroup**, consulte [tipo de recurso de usuário](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Para obter mais informações sobre atributos personalizados, consulte [usar atributos personalizados para coletar informações sobre seus consumidores](active-directory-b2c-reference-custom-attr.md). Ao endereçar atributos estendidos usando o API do Graph do Azure AD, você deve usar a versão longa do atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Para obter mais informações sobre **legalAgeGroupClassification**, **consentProvidedForMinor**e **ageGroup**, consulte [tipo de recurso de usuário](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Para obter mais informações sobre atributos personalizados, consulte [usar atributos personalizados para coletar informações sobre seus consumidores](user-flow-custom-attributes.md). Quando aborda atributos estendidos utilizando a API do Gráfico AD Azure, deve utilizar a versão longa do atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Coletar dados de nascimento e país/região
 
@@ -93,15 +93,15 @@ Os **termos de uso** também podem incluir "consentimento para compartilhar dado
 
 As etapas a seguir descrevem como você pode gerenciar os termos de uso:
 
-1. Registre a aceitação dos termos de uso e a data de aceitação usando o API do Graph e os atributos estendidos. Você pode fazer isso usando fluxos de usuário internos e personalizados. Recomendamos que você crie e use os atributos **extension_termsOfUseConsentDateTime** e **extension_termsOfUseConsentVersion** .
+1. Registre a aceitação dos termos de uso e a data de aceitação usando o API do Graph e os atributos estendidos. Você pode fazer isso usando fluxos de usuário internos e personalizados. Recomendamos que crie e utilize os **atributos extension_termsOfUseConsentDateTime** e **extension_termsOfUseConsentVersion.**
 
 2. Crie uma caixa de seleção necessária rotulada "aceitar termos de uso" e registre o resultado durante a inscrição. Você pode fazer isso usando fluxos de usuário internos e personalizados.
 
 3. Azure AD B2C armazena os termos de contrato de uso e a aceitação do usuário. Você pode usar o API do Graph para consultar o status de qualquer usuário lendo o atributo de extensão que é usado para registrar a resposta (por exemplo, ler **termsOfUseTestUpdateDateTime**). Você pode fazer isso usando fluxos de usuário internos e personalizados.
 
-4. Exija a aceitação dos termos de uso atualizados comparando a data de aceitação à data da versão mais recente dos termos de uso. Você pode comparar as datas somente usando um fluxo de usuário personalizado. Use o atributo estendido **extension_termsOfUseConsentDateTime**e compare o valor com a declaração de **termsOfUseTextUpdateDateTime**. Se a aceitação for antiga, Force uma nova aceitação exibindo uma tela autodeclarada. Caso contrário, bloqueie o acesso usando a lógica de política.
+4. Exija a aceitação dos termos de uso atualizados comparando a data de aceitação à data da versão mais recente dos termos de uso. Você pode comparar as datas somente usando um fluxo de usuário personalizado. Utilize o atributo alargado **extension_termsOfUseConsentDateTime**e compare o valor com a reclamação de **termosOfUseTextUpdateDateTime**. Se a aceitação for antiga, Force uma nova aceitação exibindo uma tela autodeclarada. Caso contrário, bloqueie o acesso usando a lógica de política.
 
-5. Exigir aceitação dos termos de uso atualizados comparando o número de versão da aceitação ao número de versão aceito mais recente. Você pode comparar os números de versão somente usando um fluxo de usuário personalizado. Use o atributo estendido **extension_termsOfUseConsentDateTime**e compare o valor com a declaração de **extension_termsOfUseConsentVersion**. Se a aceitação for antiga, Force uma nova aceitação exibindo uma tela autodeclarada. Caso contrário, bloqueie o acesso usando a lógica de política.
+5. Exigir aceitação dos termos de uso atualizados comparando o número de versão da aceitação ao número de versão aceito mais recente. Você pode comparar os números de versão somente usando um fluxo de usuário personalizado. Utilize o **atributo**alargado extension_termsOfUseConsentDateTime e compare o valor com o pedido de **extension_termsOfUseConsentVersion**. Se a aceitação for antiga, Force uma nova aceitação exibindo uma tela autodeclarada. Caso contrário, bloqueie o acesso usando a lógica de política.
 
 Você pode capturar a aceitação dos termos de uso nos seguintes cenários:
 

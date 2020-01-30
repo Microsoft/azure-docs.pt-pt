@@ -1,33 +1,33 @@
 ---
-title: Compreender a linguagem de consulta do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do desenvolvedor – descrição do IoT Hub semelhante a SQL utilizada para obter informações sobre o dispositivo/módulo duplos e tarefas do seu hub IoT de linguagem de consulta.
+title: Compreenda a linguagem de consulta do Azure IoT Hub  Microsoft Docs
+description: Guia de desenvolvedores - descrição da linguagem de consulta IoT Hub semelhante ao SQL usada para obter informações sobre gémeos dispositivo/módulo e trabalhos do seu hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450066"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767723"
 ---
-# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do IoT Hub para twins de dispositivo e o módulo, tarefas e encaminhamento de mensagens
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub consulta linguagem para dispositivo e módulo gémeos, empregos e encaminhamento de mensagens
 
-O IoT Hub fornece uma poderosa linguagem de tipo SQL para obter informações sobre [dispositivos duplos](iot-hub-devguide-device-twins.md), [duplos de módulo](iot-hub-devguide-module-twins.md), [tarefas](iot-hub-devguide-jobs.md), e [deencaminhamentodemensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
+O IoT Hub fornece uma poderosa linguagem semelhante ao SQL para recuperar informações sobre [gémeos dispositivos,](iot-hub-devguide-device-twins.md) [gémeos módulos,](iot-hub-devguide-module-twins.md) [empregos](iot-hub-devguide-jobs.md)e [encaminhamento de mensagens.](iot-hub-devguide-messages-d2c.md) Este artigo apresenta:
 
-* Uma introdução para os principais recursos da linguagem de consulta do IoT Hub, e
-* A descrição detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta para o encaminhamento de mensagens, consulte [consultas de encaminhamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
+* Uma introdução às principais características da linguagem de consulta IoT Hub, e
+* A descrição detalhada da língua. Para mais detalhes sobre a linguagem de consulta para o encaminhamento de mensagens, consulte [consultas no encaminhamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de gémeos de dispositivo e módulo
 
-[Dispositivos duplos](iot-hub-devguide-device-twins.md) e [duplos de módulo](iot-hub-devguide-module-twins.md) pode conter objetos JSON arbitrários como etiquetas e propriedades. IoT Hub permite-lhe para consulta dispositivos duplos e duplos de módulo como um único documento JSON que contém todas as informações de duplo.
+[Gémeos dispositivos](iot-hub-devguide-device-twins.md) e gémeos de [módulos](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como etiquetas e propriedades. O IoT Hub permite-lhe consultar gémeos e módulos gémeos como um único documento JSON contendo todas as informações gémeas.
 
-Suponha, por exemplo, que o gémeos de dispositivo do hub IoT tem a seguinte estrutura (módulo duplo seria semelhante apenas com um moduleId adicional):
+Assuma, por exemplo, que os gémeos do seu dispositivo hub IoT têm a seguinte estrutura (o módulo twin seria semelhante apenas com um módulo adicionalId):
 
 ```json
 {
@@ -79,25 +79,25 @@ Suponha, por exemplo, que o gémeos de dispositivo do hub IoT tem a seguinte est
 }
 ```
 
-### <a name="device-twin-queries"></a>Consultas de gémeos de dispositivo
+### <a name="device-twin-queries"></a>Consultas gémeas do dispositivo
 
-IoT Hub expõe os twins do dispositivo como uma coleção de documentos chamada **dispositivos**. Por exemplo, a consulta seguinte obtém o conjunto completo de dispositivos duplos:
+O IoT Hub expõe os gémeos do dispositivo como uma coleção de documentos chamada **dispositivos.** Por exemplo, a seguinte consulta recupera todo o conjunto de gémeos dispositivo:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Os SDKs IoT do Azure](iot-hub-devguide-sdks.md) suportar a paginação de resultados grandes.
+> [Os SDKs Azure IoT](iot-hub-devguide-sdks.md) suportam a paging de grandes resultados.
 
-IoT Hub permite-lhe obter dispositivos duplos com condições arbitrárias de filtragem. Por exemplo receber o dispositivo twins onde o **location.region** etiqueta está definida como **E.U.A.** utilize a seguinte consulta:
+O IoT Hub permite-lhe recuperar gémeos dispositivos filtrando com condições arbitrárias. Por exemplo, para receber gémeos dispositivos onde a etiqueta **local.região** é definida para **os EUA** use a seguinte consulta:
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Operadores booleanos e comparações aritméticas são também suportadas. Por exemplo, para obter dispositivos duplos localizados nos Estados Unidos e configurado para enviar telemetria inferior a cada minuto, utilize a seguinte consulta:
+Os operadores booleanos e as comparações aritméticas também são apoiadas. Por exemplo, para recuperar gémeos dispositivos localizados nos EUA e configurados para enviar telemetria menos de cada minuto, use a seguinte consulta:
 
 ```sql
 SELECT * FROM devices
@@ -105,23 +105,23 @@ SELECT * FROM devices
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-Como uma conveniência, também é possível utilizar as constantes de matriz com o **IN** e **NIN** operadores (não em). Por exemplo, para obter os dispositivos duplos que reportam Wi-Fi ou de conectividade com fio utilizam a seguinte consulta:
+Como conveniência, também é possível utilizar constantes de matriz com os operadores **IN** e **NIN** (não in). Por exemplo, para recuperar gémeos dispositivos que reportam WiFi ou conectividade com fios usam a seguinte consulta:
 
 ```sql
 SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-Muitas vezes, é necessário identificar todos os dispositivos duplos, que contêm uma propriedade específica. IoT Hub suporta a função `is_defined()` para esta finalidade. Por exemplo, para obter dispositivos duplos, que definem o `connectivity` propriedade utilize a seguinte consulta:
+É muitas vezes necessário identificar todos os gémeos dispositivoque contêm uma propriedade específica. O IoT Hub suporta a função `is_defined()` para este fim. Por exemplo, para recuperar gémeos dispositivoque definem a `connectivity` propriedade use a seguinte consulta:
 
 ```SQL
 SELECT * FROM devices
   WHERE is_defined(properties.reported.connectivity)
 ```
 
-Consulte a [cláusula WHERE](iot-hub-devguide-query-language.md#where-clause) secção para obter a referência completa das capacidades de filtragem.
+Consulte a secção [da cláusula WHERE](iot-hub-devguide-query-language.md#where-clause) para obter a referência completa das capacidades de filtragem.
 
-Agrupamento e agregações também são suportadas. Por exemplo, para localizar a contagem de dispositivos em cada Estado de configuração de telemetria, utilize a seguinte consulta:
+O agrupamento e as agregações também são apoiados. Por exemplo, para encontrar a contagem de dispositivos em cada estado de configuração da telemetria, utilize a seguinte consulta:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -130,7 +130,7 @@ SELECT properties.reported.telemetryConfig.status AS status,
   GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Esta consulta do agrupamento irá devolver um resultado semelhante ao seguinte exemplo:
+Esta consulta de agrupamento devolveria um resultado semelhante ao seguinte exemplo:
 
 ```json
 [
@@ -149,29 +149,29 @@ Esta consulta do agrupamento irá devolver um resultado semelhante ao seguinte e
 ]
 ```
 
-Neste exemplo, três dispositivos comunicados configuração com êxito, dois ainda estiverem sendo aplicadas a configuração e um comunicou um erro.
+Neste exemplo, três dispositivos relataram uma configuração bem sucedida, dois ainda estão a aplicar a configuração, e um relatou um erro.
 
-Consultas de projeção permitem aos programadores devolver apenas as propriedades que ele está preocupado. Por exemplo obter a hora da última atividade de todos os desconectados dispositivos utilize a seguinte consulta:
+As consultas de projeção permitem que os desenvolvedores devolvam apenas as propriedades com que se preocupam. Por exemplo, para recuperar o último tempo de atividade de todos os dispositivos desligados, utilize a seguinte consulta:
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
-### <a name="module-twin-queries"></a>Consultas do módulo duplo
+### <a name="module-twin-queries"></a>Consultas gémeas do módulo
 
-Consulta de duplos de módulo é semelhante à consulta de dispositivos duplos, mas usando um namespace/coleção diferente; em vez de partir **dispositivos**, consultar a partir do **devices.modules**:
+A consulta em gémeos módulos é semelhante à consulta em gémeos dispositivo, mas usando um espaço de recolha/nome diferente; em vez de **dispositivos,** consulta-se a partir de **dispositivos.módulos:**
 
 ```sql
 SELECT * FROM devices.modules
 ```
 
-Não é permitido junção entre os dispositivos e coleções de devices.modules. Se quiser duplos de módulo de consulta em todos os dispositivos, fazê-lo com base em etiquetas. Esta consulta devolverá todos os duplos de módulo em todos os dispositivos com o estado de verificação:
+Não permitimos a adesão entre os dispositivos e dispositivos.as coleções de módulos. Se quiser consultar gémeos de módulos através de dispositivos, faça-o com base em etiquetas. Esta consulta devolverá todos os gémeos do módulo em todos os dispositivos com o estado de digitalização:
 
 ```sql
 SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
-Esta consulta devolverá todos os duplos de módulo com o estado de verificação, mas apenas em determinado subconjunto de dispositivos:
+Esta consulta devolverá todos os gémeos do módulo com o estado de digitalização, mas apenas no subconjunto especificado de dispositivos:
 
 ```sql
 SELECT * FROM devices.modules
@@ -179,11 +179,11 @@ SELECT * FROM devices.modules
   AND deviceId IN ['device1', 'device2']
 ```
 
-### <a name="c-example"></a>Exemplo do c#
+### <a name="c-example"></a>C#exemplo
 
-A funcionalidade de consulta está exposta pelos [c# SDK do serviço](iot-hub-devguide-sdks.md) no **RegistryManager** classe.
+A funcionalidade de consulta é exposta pelo [ C# serviço SDK](iot-hub-devguide-sdks.md) na classe **RegistryManager.**
 
-Eis um exemplo de uma consulta simples:
+Aqui está um exemplo de uma simples consulta:
 
 ```csharp
 var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
@@ -197,15 +197,15 @@ while (query.HasMoreResults)
 }
 ```
 
-O **consulta** objeto é instanciado com um tamanho de página (até 100). Em seguida, várias páginas são obtidas ao chamar o **GetNextAsTwinAsync** métodos várias vezes.
+O objeto **de consulta** é instantâneo com um tamanho de página (até 100). Em seguida, várias páginas são recuperadas ligando para os métodos **GetNextAsTwinAsync** várias vezes.
 
-O objeto de consulta expõe várias **seguinte** valores, consoante a opção de desserialização necessárias para a consulta. Por exemplo, objetos de dispositivo duplo ou tarefa sem formatação JSON ou quando o uso de projeções.
+O objeto de consulta expõe vários valores **Seguintes,** dependendo da opção de desserialização exigida pela consulta. Por exemplo, dispositivo twin ou job objects, ou JSON simples ao utilizar projeções.
 
-### <a name="nodejs-example"></a>Exemplo de node. js
+### <a name="nodejs-example"></a>Exemplo de Nó.js
 
-A funcionalidade de consulta está exposta pela [serviço do Azure IoT SDK para node. js](iot-hub-devguide-sdks.md) no **Registro** objeto.
+A funcionalidade de consulta é exposta pelo [serviço Azure IoT SDK para Node.js](iot-hub-devguide-sdks.md) no objeto **de registo.**
 
-Eis um exemplo de uma consulta simples:
+Aqui está um exemplo de uma simples consulta:
 
 ```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
@@ -226,20 +226,20 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-O **consulta** objeto é instanciado com um tamanho de página (até 100). Em seguida, várias páginas são obtidas ao chamar o **nextAsTwin** método várias vezes.
+O objeto **de consulta** é instantâneo com um tamanho de página (até 100). Em seguida, várias páginas são recuperadas chamando o **método asTwin seguinte** várias vezes.
 
-O objeto de consulta expõe várias **seguinte** valores, consoante a opção de desserialização necessárias para a consulta. Por exemplo, objetos de dispositivo duplo ou tarefa sem formatação JSON ou quando o uso de projeções.
+O objeto de consulta expõe vários valores **Seguintes,** dependendo da opção de desserialização exigida pela consulta. Por exemplo, dispositivo twin ou job objects, ou JSON simples ao utilizar projeções.
 
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos duplos. Se as consultas a gémeos de dispositivos individuais por ID, utilize a API de gémeos de dispositivo de obter. Esta API sempre contém os valores mais recentes e tem limites de conjunto superior.
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em gémeos dispositivos. Se consultar gémeos de dispositivo individual por ID, utilize o [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir a API REST diretamente ou utilizar a funcionalidade equivalente num dos [SDKs de Serviço Hub Azure IoT](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
-Comparações são atualmente suportadas apenas entre tipos primitivos (não existem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` só é suportada se essas propriedades têm valores primitivos.
+Atualmente, as comparações são suportadas apenas entre tipos primitivos (sem objetos), por exemplo, `... WHERE properties.desired.config = properties.reported.config` só é suportada se essas propriedades tiverem valores primitivos.
 
-## <a name="get-started-with-jobs-queries"></a>Introdução às consultas de tarefas
+## <a name="get-started-with-jobs-queries"></a>Começar com consultas de emprego
 
-[Tarefas](iot-hub-devguide-jobs.md) proporcionam uma forma de realizar operações em conjuntos de dispositivos. Cada dispositivo duplo contém as informações de tarefas do qual é a parte de uma coleção denominada **tarefas**.
+[Os postos](iot-hub-devguide-jobs.md) de trabalho fornecem uma forma de executar operações em conjuntos de dispositivos. Cada gémeo dispositivo contém a informação dos trabalhos de que faz parte de uma coleção chamada **jobs**.
 
 ```json
 {
@@ -270,25 +270,25 @@ Comparações são atualmente suportadas apenas entre tipos primitivos (não exi
 }
 ```
 
-Atualmente, esta coleção é consultável como **devices.jobs** no IoT Hub a linguagem de consulta.
+Atualmente, esta coleção é consultada como **devices.jobs** na linguagem de consulta IoT Hub.
 
 > [!IMPORTANT]
-> Atualmente, a propriedade de tarefas nunca é devolvida ao consultar dispositivos duplos. Ou seja, as consultas que contêm "a partir de dispositivos". A propriedade de tarefas só pode ser acessada diretamente com consultas com `FROM devices.jobs`.
+> Atualmente, a propriedade de empregos nunca é devolvida quando se consultam gémeos dispositivos. Ou seja, consultas que contêm "dispositivos from". A propriedade de emprego somente só pode ser acedida diretamente com consultas usando `FROM devices.jobs`.
 >
 >
 
-Por exemplo, para obter todas as tarefas (últimos e agendadas) que afetam um único dispositivo, pode usar a seguinte consulta:
+Por exemplo, para obter todos os empregos (passadoe programado) que afetam um único dispositivo, pode utilizar a seguinte consulta:
 
 ```sql
 SELECT * FROM devices.jobs
   WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
-Observe como esta consulta fornece o estado de específicos de dispositivos (e, possivelmente, a resposta do método direto) de cada tarefa retornada.
+Note como esta consulta fornece o estado específico do dispositivo (e possivelmente a resposta do método direto) de cada trabalho devolvido.
 
-Também é possível filtrar com condições booleanas arbitrárias em todas as propriedades de objeto na **devices.jobs** coleção.
+Também é possível filtrar com condições booleanar arbitrárias em todas as propriedades do objeto na coleção **devices.jobs.**
 
-Por exemplo, para obter todos os dispositivos concluído de tarefas de atualização do duplo que foram criadas depois de Setembro de 2016 para um dispositivo específico, use a seguinte consulta:
+Por exemplo, para recuperar todos os trabalhos de atualização de twin update do dispositivo concluídos que foram criados após setembro de 2016 para um dispositivo específico, use a seguinte consulta:
 
 ```sql
 SELECT * FROM devices.jobs
@@ -298,7 +298,7 @@ SELECT * FROM devices.jobs
     AND devices.jobs.createdTimeUtc > '2016-09-01'
 ```
 
-Também pode obter os resultados por dispositivo de uma única tarefa.
+Também pode recuperar os resultados por dispositivo de um único trabalho.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -307,15 +307,15 @@ SELECT * FROM devices.jobs
 
 ### <a name="limitations"></a>Limitações
 
-Atualmente, a consulta no **devices.jobs** não suportam:
+Atualmente, as consultas sobre **devices.jobs** não suportam:
 
-* Projeções, por conseguinte, apenas `SELECT *` é possível.
-* Condições que se referem para o dispositivo duplo, além de propriedades da tarefa (consulte a secção anterior).
-* Efetuar agregações, como contagem, média, agrupar por.
+* As projeções, portanto, só `SELECT *` é possível.
+* Condições que se referem ao dispositivo twin para além das propriedades de trabalho (ver a secção anterior).
+* Realizando agregações, tais como contagem, avg, grupo por.
 
-## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta do IoT Hub
+## <a name="basics-of-an-iot-hub-query"></a>Fundamentos de uma consulta do IoT Hub
 
-Todas as consultas do IoT Hub é composta por de SELECT e cláusulas, com WHERE opcional e as cláusulas GROUP BY. Cada consulta é executada numa coleção de documentos JSON, por exemplo, dispositivos duplos. A cláusula FROM indica a coleção de documentos a ser iterado em (**dispositivos**, **devices.modules**, ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com as agregações, os resultados deste passo são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, é gerada uma linha conforme especificado na cláusula SELECT.
+Todas as consultas ioT Hub consistem em cláusulas SELECT e FROM, com cláusulas opcionais de ONDE e GROUP BY. Todas as consultas são executadas numa coleção de documentos JSON, por exemplo, gémeos dispositivos. A cláusula FROM indica que a recolha de documentos será iterada em **(dispositivos,** **dispositivos.módulos,** ou **devices.jobs).** Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados deste passo são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, gera-se uma linha conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -324,22 +324,22 @@ SELECT <select_list>
   [GROUP BY <group_specification>]
 ```
 
-## <a name="from-clause"></a>Cláusula FROM
+## <a name="from-clause"></a>Da cláusula
 
-O **partir < from_specification >** cláusula pode assumir apenas três valores: **A partir de dispositivos** para dispositivos duplos da consulta, **de devices.modules** para duplos de módulo de consulta, ou **de devices.jobs** para detalhes da consulta tarefa por dispositivo.
+A cláusula **FROM <from_specification>** pode assumir apenas três **valores: Desde dispositivos** a gémeos de dispositivos de consulta, **dispositivos.módulos** a gémeos de módulos de consulta, ou DE **devices.jobs** a consultas de trabalho por dispositivo detalhes.
 
-## <a name="where-clause"></a>Cláusula WHERE
+## <a name="where-clause"></a>ONDE a cláusula
 
-O **em que < filter_condition >** cláusula é opcional. Especifica uma ou mais condições que o JSON documentos na coleção FROM tem de cumprir para ser incluído como parte do resultado. Qualquer documento JSON tem de avaliar as condições especificadas como "true" a serem incluídos no resultado.
+A cláusula **WHERE <filter_condition>** é opcional. Especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte do resultado. Qualquer documento JSON deve avaliar as condições especificadas para "verdadeiro" a incluir no resultado.
 
-As condições permitidas são descritas na seção [expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
+As condições permitidas são descritas na secção [Expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>Cláusula SELECT
 
-O **SELECT < select_list >** é obrigatória e especifica quais os valores são obtidos a partir da consulta. Especifica os valores JSON para ser usado para gerar novos objetos JSON.
-Para cada elemento do subconjunto filtrado (e, opcionalmente, agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON. Este objeto é construído com os valores especificados na cláusula SELECT.
+O **SELECT <select_list>** é obrigatório e especifica quais os valores recuperados da consulta. Especifica os valores JSON a utilizar para gerar novos objetos JSON.
+Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON. Este objeto é construído com os valores especificados na cláusula SELECT.
 
-Segue-se a gramática de cláusula SELECT:
+Segue-se a gramática da cláusula SELECT:
 
 ```
 SELECT [TOP <max number>] <projection list>
@@ -361,13 +361,13 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refere-se a qualquer propriedade do documento JSON da coleção de FROM. Alguns exemplos das cláusulas SELECT podem ser encontrados na introdução com a secção de consultas de gémeos de dispositivo.
+**Attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. Alguns exemplos de cláusulas SELECT podem ser encontrados no Início com a secção de consultas gémeas do dispositivo.
 
-Atualmente, seleção cláusulas diferentes **SELECIONE*** só são suportadas nas consultas de agregação em dispositivos duplos.
+Atualmente, as cláusulas de seleção diferentes do **SELECT*** são suportadas apenas em consultas agregadas em gémeos dispositivos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
 
-O **GROUP BY < group_specification >** cláusula é uma etapa opcional que é executado depois do filtro especificado na cláusula WHERE e antes da projecção especificada em SELECT. Grupos de documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados conforme especificado na cláusula SELECT.
+O **grupo BY <group_specification>** cláusula é um passo opcional que executa após o filtro especificado na cláusula WHERE, e antes da projeção especificada no SELECT. Agrupa documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados, conforme especificado na cláusula SELECT.
 
 Um exemplo de uma consulta usando GROUP BY é:
 
@@ -378,7 +378,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-A sintaxe formal para GROUP BY é:
+A sintaxe formal para group BY é:
 
 ```
 GROUP BY <group_by_element>
@@ -387,22 +387,22 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-**Attribute_name** refere-se a qualquer propriedade do documento JSON da coleção de FROM.
+**Attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM.
 
-Atualmente, a cláusula GROUP BY só é suportada quando as consultas a gémeos de dispositivo.
+Atualmente, a cláusula GROUP BY só é suportada na consulta de gémeos dispositivos.
 
 > [!IMPORTANT]
-> O termo `group` atualmente é tratado como uma palavra-chave especial nas consultas. No caso, utilize `group` como o nome de propriedade, considere envolvente, Retos duplo para evitar erros, por exemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+> O termo `group` é atualmente tratado como uma palavra-chave especial em consultas. No caso de usar `group` como nome de propriedade, considere rodeá-la com parênteses duplos para evitar erros, por exemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
 
-Num alto nível, uma *expressão*:
+A um nível elevado, uma *expressão:*
 
-* Avalia a uma instância de um tipo JSON (por exemplo, booleano, número, cadeia de caracteres, matriz ou objeto).
-* É definido por dados provenientes do documento JSON de dispositivo e constantes com operadores internos e as funções de manipulação.
+* Avalia uma instância do tipo JSON (como Boolean, número, corda, matriz ou objeto).
+* É definido pela manipulação de dados provenientes do documento JSON do dispositivo e constantes utilizando operadores e funções incorporados.
 
-*Condições* são expressões avaliadas como um booleano. Qualquer constante diferente booleano **true** é considerado **falso**. Esta regra inclui **nulo**, **indefinido**, qualquer instância do objeto ou matriz, qualquer cadeia de caracteres e o valor de booleano **false**.
+*As condições* são expressões que avaliam um Boolean. Qualquer constante diferente do **booleano verdadeiro** é considerado **falso.** Esta regra inclui **nulo,** **indefinido,** qualquer objeto ou instância de matriz, qualquer corda, e o **falso**Boolean .
 
 A sintaxe para expressões é:
 
@@ -432,20 +432,20 @@ A sintaxe para expressões é:
 <array_constant> ::= '[' <constant> [, <constant>]+ ']'
 ```
 
-Para compreender o que quer dizer cada símbolo a sintaxe de expressões, consulte a tabela seguinte:
+Para entender o que cada símbolo nas expressões sintaxe significa, consulte a seguinte tabela:
 
 | Símbolo | Definição |
 | --- | --- |
-| attribute_name | Qualquer propriedade do documento JSON no **FROM** coleção. |
-| binary_operator | Qualquer operador binário listado na [operadores](#operators) secção. |
-| function_name| Qualquer função listada na [funções](#functions) secção. |
-| decimal_literal |Um número de vírgula flutuante expressado na notação decimal. |
-| hexadecimal_literal |Um número expressos pela seqüência de caracteres "0x" seguido de uma cadeia de caracteres de dígitos hexadecimais. |
-| string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma seqüência de zero ou mais carateres Unicode ou seqüências de escape. Literais de cadeia de caracteres encontram-se entre aspas simples ou aspas duplas. Permitido escapa: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por 4 dígitos hexadecimais. |
+| attribute_name | Qualquer propriedade do documento JSON na coleção **FROM.** |
+| binary_operator | Qualquer operador binário listado na secção [Operadores.](#operators) |
+| function_name| Qualquer função listada na secção [Funções.](#functions) |
+| decimal_literal |Um carro alegórico expresso em notação decimal. |
+| hexadecimal_literal |Um número expresso pela corda '0x' seguido de uma série de dígitos hexadecimais. |
+| string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma seqüência de zero ou mais carateres Unicode ou seqüências de escape. Os literais de cordas são incluídos em citações únicas ou citações duplas. Fugas permitidas: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por 4 dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
 
-São suportados os seguintes operadores:
+Há suporte para os seguintes operadores:
 
 | Família | Operadores |
 | --- | --- |
@@ -455,53 +455,53 @@ São suportados os seguintes operadores:
 
 ### <a name="functions"></a>Funções
 
-Ao consultar twins e tarefas, que o único suportado é a função:
+Ao consultar gémeos e empregos, a única função apoiada é:
 
 | Função | Descrição |
 | -------- | ----------- |
-| IS_DEFINED(Property) | Devolve um valor booleano que indica se a propriedade foi atribuída um valor (incluindo `null`). |
+| IS_DEFINED (imóvel) | Devolve uma Boolean indicando se a propriedade foi atribuída um valor (incluindo `null`). |
 
-Em condições de rotas, são suportadas as seguintes funções de matemática:
+Nas condições das rotas, são suportadas as seguintes funções matemáticas:
 
 | Função | Descrição |
 | -------- | ----------- |
 | ABS(x) | Devolve o valor absoluto (positivo) da expressão especificada numérico. |
-| EXP(x) | Devolve o valor exponencial da expressão especificada numérico (e ^ x). |
-| Power(x,y) | Devolve o valor da expressão especificada à potência especificada (x ^ y).|
-| SQUARE(x) | Devolve o quadrado do valor numérico especificado. |
-| CEILING(x) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
-| FLOOR(x) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
-| SIGN(x) | Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.|
+| EXP(x) | Devolve o valor exponencial da expressão numérica especificada (e^x). |
+| POWER (x,y) | Devolve o valor da expressão especificada à potência especificada (x^y).|
+| QUADRADO (x) | Devolve o quadrado do valor numérico especificado. |
+| TETO(x) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
+| PISO (x) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
+| SINAL(x) | Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.|
 | SQRT(x) | Devolve a raiz quadrada do valor numérico especificado. |
 
-Em condições de rotas, são suportadas as funções de conversão e verificação de tipo seguintes:
+Nas condições das rotas, são suportadas as seguintes funções de verificação e fundição de tipo:
 
 | Função | Descrição |
 | -------- | ----------- |
-| AS_NUMBER | Converte a cadeia de entrada para um número. `noop` Se a entrada é um número; `Undefined` se a cadeia de caracteres não representa um número.|
+| AS_NUMBER | Converte a cadeia de entrada para um número. `noop` se a entrada for um número; `Undefined` se a corda não representar um número.|
 | IS_ARRAY | Devolve um valor Booleano indicando se o tipo da expressão especificada é uma matriz. |
 | IS_BOOL | Devolve um valor Booleano indicando se o tipo da expressão especificada é um booleano. |
 | IS_DEFINED | Devolve um valor booleano que indica se a propriedade foi atribuída um valor. |
 | IS_NULL | Devolve um valor Booleano indicando se o tipo da expressão especificada é nulo. |
 | IS_NUMBER | Devolve um valor Booleano indicando se o tipo da expressão especificada é um número. |
 | IS_OBJECT | Devolve um valor Booleano indicando se o tipo da expressão especificada é um objeto JSON. |
-| IS_PRIMITIVE | Devolve um valor Booleano indicando se o tipo da expressão especificada é um primitivo (string, booleano, numéricos, ou `null`). |
+| IS_PRIMITIVE | Devolve um valor booleano indicando se o tipo da expressão especificada é primitivo (corda, booleano, numérico ou `null`). |
 | IS_STRING | Devolve um valor Booleano indicando se o tipo da expressão especificada é uma cadeia de caracteres. |
 
-Em condições de rotas, são suportadas as seguintes funções de cadeia de caracteres:
+Nas condições das rotas, são suportadas as seguintes funções de cadeia:
 
 | Função | Descrição |
 | -------- | ----------- |
-| CONCAT(x, y, …) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
-| LENGTH(x) | Devolve o número de carateres da expressão de cadeia especificada.|
-| LOWER(x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
-| UPPER(x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas. |
-| SUBCADEIA (cadeia de caracteres, início [, comprimento]) | Devolve a parte de uma expressão de cadeia de caracteres a partir da posição caractere especificado baseado em zero e continua ao comprimento especificado, ou ao fim da cadeia de caracteres. |
-| INDEX_OF (string, fragmento) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada.|
+| CONCAT (x, y, ...) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
+| COMPRIMENTO (x) | Devolve o número de carateres da expressão de cadeia especificada.|
+| INFERIOR(x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
+| UPPER (x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas. |
+| SUBSTRING (corda, início [,comprimento]) | Devolve a parte de uma expressão de cadeia de caracteres a partir da posição caractere especificado baseado em zero e continua ao comprimento especificado, ou ao fim da cadeia de caracteres. |
+| INDEX_OF (corda, fragmento) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada.|
 | STARTS_WITH(x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia começa com a segunda. |
 | ENDS_WITH(x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia termina com a segunda. |
-| CONTAINS(x,y) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
+| CONTÉM(x,y) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como executar consultas nas suas aplicações através de [do Azure IoT SDKs](iot-hub-devguide-sdks.md).
+Saiba como executar consultas nas suas apps utilizando [SDKs Azure IoT](iot-hub-devguide-sdks.md).

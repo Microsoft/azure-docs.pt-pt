@@ -1,54 +1,51 @@
 ---
-title: Visualizar logs de fluxo NSG – pilha elástica
+title: Visualizar os registos de fluxo nsg - Stack Elástica
 titleSuffix: Azure Network Watcher
-description: Gerencie e analise os logs de fluxo do grupo de segurança de rede no Azure usando o observador de rede e a pilha elástica.
+description: Gerir e analisar os registos de fluxo do grupo de segurança da rede em Azure utilizando o Observador de Rede e a Stack Elástica.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277751"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840643"
 ---
-# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo do NSG do observador de rede do Azure usando ferramentas de código aberto
+# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualize os registos de fluxo NSG do Observador de Rede Azure utilizando ferramentas de código aberto
 
-Os logs de fluxo do grupo de segurança de rede fornecem informações que podem ser usadas para entender o tráfego IP de entrada e saída em grupos de segurança de rede. Esses logs de fluxo mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, 5 informações de tupla sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo) e se o tráfego foi permitido ou negado.
+Os registos de fluxo do Grupo de Segurança da Rede fornecem informações que podem ser usadas, compreendem o tráfego IP em Grupos de Segurança da Rede. Estes registos de fluxo mostram fluxos de saída e de entrada por regra, o NIC a que o fluxo se aplica, 5 informações de tuple sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
 
-Esses logs de fluxo podem ser difíceis de analisar manualmente e obter informações do. No entanto, há várias ferramentas de código-fonte aberto que podem ajudar a visualizar esses dados. Este artigo fornecerá uma solução para visualizar esses logs usando a pilha elástica, que permitirá que você indexe e visualize rapidamente seus logs de fluxo em um painel do Kibana.
+Estes registos de fluxo podem ser difíceis de analisar manualmente e obter insights de. No entanto, existem várias ferramentas de código aberto que podem ajudar a visualizar estes dados. Este artigo fornecerá uma solução para visualizar estes troncos usando a Stack Elástica, que lhe permitirá indexar e visualizar rapidamente os seus registos de fluxo num dashboard kibana.
 
 > [!Warning]  
-> As etapas a seguir funcionam com os logs de fluxo versão 1. Para obter detalhes, consulte [introdução ao log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções a seguir não funcionarão com a versão 2 dos arquivos de log, sem modificação.
+> Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais detalhes, consulte [Introdução à exploração de fluxos de registo para grupos de segurança](network-watcher-nsg-flow-logging-overview.md)da rede . As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
 ## <a name="scenario"></a>Cenário
 
-Neste artigo, configuraremos uma solução que permitirá que você visualize os logs de fluxo do grupo de segurança de rede usando a pilha elástica.  Um plug-in de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs de fluxo. Em seguida, usando a pilha elástica, os logs de fluxo serão indexados e usados para criar um painel do Kibana para visualizar as informações.
+Neste artigo, vamos criar uma solução que lhe permitirá visualizar os registos de fluxo do Network Security Group utilizando a Stack Elástica.  Um plugin de entrada logstash obterá os registos de fluxo diretamente a partir da bolha de armazenamento configurada para conter os registos de fluxo. Em seguida, utilizando a Stack Elástica, os registos de fluxo serão indexados e utilizados para criar um dashboard Kibana para visualizar a informação.
 
 ![cenário][scenario]
 
 ## <a name="steps"></a>Passos
 
-### <a name="enable-network-security-group-flow-logging"></a>Habilitar o log de fluxo do grupo de segurança de rede
-Para este cenário, você deve ter o log de fluxo do grupo de segurança de rede habilitado em pelo menos um grupo de segurança de rede em sua conta. Para obter instruções sobre como habilitar os logs de fluxo de segurança de rede, consulte o seguinte artigo [introdução ao log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
+### <a name="enable-network-security-group-flow-logging"></a>Ativar a exploração de fluxo do Grupo de Segurança da Rede
+Para este cenário, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado em pelo menos um Grupo de Segurança de Rede na sua conta. Para obter instruções sobre a ativação de registos de fluxo de segurança da rede, consulte o seguinte artigo [Introdução ao fluxo de registo sinuoso para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar a pilha elástica
-Conectando os logs de fluxo do NSG com a pilha elástica, podemos criar um painel do Kibana o que nos permite pesquisar, grafar, analisar e derivar informações de nossos logs.
+Ao ligar os registos de fluxo nsg com a Stack Elástica, podemos criar um dashboard Kibana que nos permite pesquisar, graph, analisar e obter insights dos nossos registos.
 
-#### <a name="install-elasticsearch"></a>Instalar o Elasticsearch
+#### <a name="install-elasticsearch"></a>Instalar pesquisa elástica
 
-1. A pilha elástica da versão 5,0 e superior requer o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, consulte a documentação sobre o [Azure-há suporte para JDKs](https://aka.ms/azure-jdks).
-2. Baixe o pacote binário correto para seu sistema:
+1. A Stack Elástica da versão 5.0 e acima requer Java 8. Execute o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suppored Azure](https://aka.ms/azure-jdks).
+2. Descarregue o pacote binário correto para o seu sistema:
 
    ```bash
    curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -56,15 +53,15 @@ Conectando os logs de fluxo do NSG com a pilha elástica, podemos criar um paine
    sudo /etc/init.d/elasticsearch start
    ```
 
-   Outros métodos de instalação podem ser encontrados em [instalação do Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+   Outros métodos de instalação podem ser encontrados na [Instalação Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-3. Verifique se Elasticsearch está em execução com o comando:
+3. Verifique se a Elasticsearch está a decorrer com o comando:
 
     ```bash
     curl http://127.0.0.1:9200
     ```
 
-    Você deverá ver uma resposta semelhante a esta:
+    Devia ver uma resposta semelhante a esta:
 
     ```json
     {
@@ -81,23 +78,23 @@ Conectando os logs de fluxo do NSG com a pilha elástica, podemos criar um paine
     }
     ```
 
-Para obter mais instruções sobre como instalar a pesquisa elástica, consulte [as instruções de instalação](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+Para mais instruções sobre a instalação de procura elástica, consulte as instruções de [instalação](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
-### <a name="install-logstash"></a>Instalar o Logstash
+### <a name="install-logstash"></a>Instalar logstash
 
-1. Para instalar o Logstash, execute os seguintes comandos:
+1. Para instalar o Logstash executar os seguintes comandos:
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-2. Em seguida, precisamos configurar o Logstash para acessar e analisar os logs de fluxo. Crie um arquivo logstash. conf usando:
+2. Em seguida, precisamos configurar logstash para aceder e analisar os registos de fluxo. Criar um ficheiro logstash.conf utilizando:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-3. Adicione o seguinte conteúdo ao arquivo:
+3. Adicione o seguinte conteúdo ao ficheiro:
 
    ```
    input {
@@ -160,93 +157,93 @@ Para obter mais instruções sobre como instalar a pesquisa elástica, consulte 
    }  
    ```
 
-Para obter mais instruções sobre como instalar o Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
+Para mais instruções sobre a instalação do Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
-### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalar o plug-in de entrada Logstash para o armazenamento de BLOBs do Azure
+### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instale o plugin de entrada Logstash para armazenamento de blob Azure
 
-Esse plug-in Logstash permitirá que você acesse diretamente os logs de fluxo de sua conta de armazenamento designada. Para instalar esse plug-in, no diretório de instalação padrão do Logstash (neste caso,,/usr/share/logstash/bin), execute o comando:
+Este plugin logstash permitir-lhe-á aceder diretamente aos registos de fluxo da sua conta de armazenamento designada. Para instalar este plugin, a partir do diretório de instalação de Logstash predefinido (neste caso/usr/share/logstash/bin) executar o comando:
 
 ```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
-Para iniciar o Logstash, execute o comando:
+Para iniciar o Logstash executar o comando:
 
 ```bash
 sudo /etc/init.d/logstash start
 ```
 
-Para obter mais informações sobre esse plug-in, consulte a [documentação](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
+Para mais informações sobre este plugin, consulte a [documentação](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### <a name="install-kibana"></a>Instalar o Kibana
+### <a name="install-kibana"></a>Instalar Kibana
 
-1. Execute os seguintes comandos para instalar o Kibana:
+1. Executar os seguintes comandos para instalar kibana:
 
    ```bash
    curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
    tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
    ```
 
-2. Para executar o Kibana, use os comandos:
+2. Para executar Kibana, use os comandos:
 
    ```bash
    cd kibana-5.2.0-linux-x86_64/
    ./bin/kibana
    ```
 
-3. Para exibir a interface da Web do Kibana, navegue até `http://localhost:5601`
-4. Para esse cenário, o padrão de índice usado para os logs de fluxo é "NSG-Flow-logs". Você pode alterar o padrão de índice na seção "saída" do seu arquivo logstash. conf.
-5. Se você quiser exibir o painel do Kibana remotamente, crie uma regra de NSG de entrada permitindo o acesso à **porta 5601**.
+3. Para ver a sua interface web kibana, navegue para `http://localhost:5601`
+4. Para este cenário, o padrão de índice utilizado para os registos de fluxo é "nsg-flow-logs". Pode alterar o padrão de índice na secção "output" do seu ficheiro logstash.conf.
+5. Se quiser ver o dashboard kibana remotamente, crie uma regra NSG de entrada que permita o acesso à **porta 5601**.
 
-### <a name="create-a-kibana-dashboard"></a>Criar um painel do Kibana
+### <a name="create-a-kibana-dashboard"></a>Crie um dashboard Kibana
 
-Um painel de exemplo para exibir tendências e detalhes em seus alertas é mostrado na figura a seguir:
+Um painel de amostras para visualizar tendências e detalhes nos seus alertas é mostrado na imagem seguinte:
 
 ![figura 1][1]
 
-Baixe o [arquivo do painel](https://aka.ms/networkwatchernsgflowlogdashboard), o [arquivo de visualização](https://aka.ms/networkwatchernsgflowlogvisualizations)e o [arquivo de pesquisa salvo](https://aka.ms/networkwatchernsgflowlogsearch).
+Descarregue o ficheiro do painel de [instrumentos,](https://aka.ms/networkwatchernsgflowlogdashboard)o ficheiro de [visualização](https://aka.ms/networkwatchernsgflowlogvisualizations)e o [ficheiro de pesquisa guardado.](https://aka.ms/networkwatchernsgflowlogsearch)
 
-Na guia **Gerenciamento** do Kibana, navegue até **objetos salvos** e importe todos os três arquivos. Em seguida, na guia **painel** , você pode abrir e carregar o painel de exemplo.
+Sob o separador **Gestão** de Kibana, navegue para **Saved Objects** e importe os três ficheiros. Em seguida, a partir do **separador Dashboard** pode abrir e carregar o painel de dados da amostra.
 
-Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seus próprios interesses. Leia mais sobre como criar visualizações Kibana da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html)do Kibana.
+Também pode criar as suas próprias visualizações e dashboards adaptados para métricas do seu próprio interesse. Leia mais sobre a criação de visualizações kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html)de Kibana.
 
-### <a name="visualize-nsg-flow-logs"></a>Visualizar logs de fluxo de NSG
+### <a name="visualize-nsg-flow-logs"></a>Visualizar os registos de fluxo nsg
 
-O painel de exemplo fornece várias visualizações dos logs de fluxo:
+O painel de amostras fornece várias visualizações dos registos de fluxo:
 
-1. Fluxos por decisão/direção em gráficos de série temporal que mostram o número de fluxos no período de tempo. Você pode editar a unidade de tempo e o alcance dessas duas visualizações. Fluxos por decisão mostram a proporção de decisões permitidas ou negadas feitas, enquanto os fluxos por direção mostram a proporção do tráfego de entrada e de saída. Com esses elementos visuais, você pode examinar as tendências de tráfego ao longo do tempo e procurar por picos ou padrões incomuns.
+1. Flows by Decision/Direction Over Time - gráficos da série de tempo que mostram o número de fluxos durante o período de tempo. Pode editar a unidade de tempo e o tempo de ambas estas visualizações. Os fluxos por decisão mostram a proporção de decisões de permitir ou negar tomadas, enquanto os Fluxos por Direção mostram a proporção de tráfego de entrada e saída. Com estes visuais pode examinar as tendências de tráfego ao longo do tempo e procurar por quaisquer picos ou padrões incomuns.
 
-   ![Figura 2][2]
+   ![figura2][2]
 
-2. Fluxos por porta de destino/origem – gráficos de pizza que mostram a divisão de fluxos para suas respectivas portas. Com essa exibição, você pode ver as portas usadas com mais frequência. Se você clicar em uma porta específica dentro do gráfico de pizza, o restante do painel será filtrado para os fluxos dessa porta.
+2. Fluxos por Destination/Source Port – gráficos de tartes que mostram a quebra de fluxos para as respetivas portas. Com esta vista pode ver as portas mais usadas. Se clicar numa porta específica dentro do gráfico de tartes, o resto do painel de instrumentos filtrar-se-á até aos fluxos dessa porta.
 
-   ![figure3][3]
+   ![figura3][3]
 
-3. Número de fluxos e o tempo de log mais antigo – as métricas mostram o número de fluxos registrados e a data do log mais antigo capturado.
+3. Número de Fluxos e Tempo de Registo Mais Antigo – métricas que mostram o número de fluxos registados e a data do primeiro registo capturado.
 
-   ![figure4][4]
+   ![figura4][4]
 
-4. Flui por NSG e regra – um grafo de barras mostrando a distribuição de fluxos em cada NSG, bem como a distribuição de regras em cada NSG. A partir daqui, você pode ver quais NSG e regras geraram mais tráfego.
+4. Flui por NSG e Regra – um gráfico de barras que mostra a distribuição de fluxos dentro de cada NSG, bem como a distribuição de regras dentro de cada NSG. A partir daqui você pode ver quais NSG e regras geraram mais tráfego.
 
-   ![figure5][5]
+   ![figura5][5]
 
-5. 10 principais IPs de origem/destino – gráficos de barras mostrando os 10 principais IPs de origem e de destino. Você pode ajustar esses gráficos para mostrar mais ou menos IPs principais. A partir daqui, você pode ver os IPs que ocorrem com mais frequência, bem como a decisão de tráfego (permitir ou negar) sendo feita em direção a cada IP.
+5. Top 10 Source/Destination IPs – gráficos de barras que mostram os 10 melhores IPs de origem e destino. Pode ajustar estes gráficos para mostrar iPs mais ou menos topo. A partir daqui pode ver os IPs mais comuns, bem como a decisão de tráfego (permitir ou negar) ser tomada em direção a cada IP.
 
-   ![figure6][6]
+   ![figura6][6]
 
-6. Tuplas de fluxo – esta tabela mostra as informações contidas em cada tupla de fluxo, bem como sua NGS e regra correspondentes.
+6. Flow Tuples – esta tabela mostra-lhe as informações contidas em cada túnica de fluxo, bem como a sua correspondente NGS e regra.
 
-   ![figure7][7]
+   ![figura7][7]
 
-Usando a barra de consulta na parte superior do painel, você pode filtrar o painel com base em qualquer parâmetro dos fluxos, como ID de assinatura, grupos de recursos, regra ou qualquer outra variável de interesse. Para obter mais informações sobre filtros e consultas do Kibana, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
+Utilizando a barra de consulta na parte superior do painel de instrumentos, pode filtrar o painel de instrumentos com base em qualquer parâmetro dos fluxos, tais como ID de subscrição, grupos de recursos, regra ou qualquer outra variável de interesse. Para mais informações sobre as consultas e filtros de Kibana, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## <a name="conclusion"></a>Conclusão
 
-Ao combinar os logs de fluxo do grupo de segurança de rede com a pilha elástica, criamos uma maneira avançada e personalizável de Visualizar nosso tráfego de rede. Esses painéis permitem que você possa obter e compartilhar informações rapidamente sobre o tráfego de rede, bem como filtrar e investigar todas as anomalias em potencial. Usando o Kibana, você pode personalizar esses painéis e criar visualizações específicas para atender às necessidades de segurança, auditoria e conformidade.
+Ao combinar os registos de fluxo do Grupo de Segurança da Rede com a Stack Elástica, temos uma forma poderosa e personalizável de visualizar o nosso tráfego de rede. Estes dashboards permitem-lhe obter rapidamente e partilhar informações sobre o tráfego da sua rede, bem como filtrar e investigar eventuais anomalias. Utilizando a Kibana, pode adaptar estes dashboards e criar visualizações específicas para atender a quaisquer necessidades de segurança, auditoria e conformidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como visualizar seus logs de fluxo do NSG com Power BI visitando [Visualizar logs do NSG fluxos com Power bi](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Saiba como visualizar os seus registos de fluxo NSG com Power BI visitando visualize os [registos de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 <!--Image references-->
 

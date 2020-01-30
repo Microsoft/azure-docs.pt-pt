@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: f7a1ff63f39777c1f7a83190adae2991138a11d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464052"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774450"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autônomo no Windows usando a segurança do Windows
 Para impedir o acesso não autorizado a um Cluster Service Fabric, você deve proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança de nó para nó e de cliente para nó usando a segurança do Windows no arquivo *ClusterConfig. JSON* .  O processo corresponde à etapa configurar segurança de [criar um cluster autônomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para obter mais informações sobre como Service Fabric usa a segurança do Windows, consulte [cenários de segurança de cluster](service-fabric-cluster-security.md).
@@ -52,7 +52,7 @@ O arquivo de configuração *ClusterConfig. gMSA. Windows. Multimachine. JSON* d
 | IsAdmin |Defina como true para especificar que o usuário de domínio tenha acesso de cliente de administrador ou false para acesso de cliente de usuário. |
 
 > [!NOTE]
-> O valor de ClustergMSAIdentity está no formato "mysfgmsa@mydomain".
+> O valor clustergMSAIdentidade deve estar em formato "mysfgmsa@mydomain".
 
 [A segurança de nó para nó](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **ClustergMSAIdentity** quando o Service Fabric precisa ser executado em gMSA. Para criar relações de confiança entre nós, eles devem estar cientes uns dos outros. Isso pode ser feito de duas maneiras diferentes: Especifique a conta de serviço gerenciado de grupo que inclui todos os nós no cluster ou especifique o grupo de computadores de domínio que inclui todos os nós no cluster. É altamente recomendável usar a abordagem [gMSA (conta de serviço gerenciado de grupo)](https://technet.microsoft.com/library/hh831782.aspx) , especialmente para clusters maiores (mais de 10 nós) ou para clusters que provavelmente aumentarão ou diminuirão.  
 Essa abordagem não requer a criação de um grupo de domínio para o qual os administradores de cluster receberam direitos de acesso para adicionar e remover membros. Essas contas também são úteis para o gerenciamento automático de senhas. Para obter mais informações, consulte [introdução com contas de serviço gerenciado de grupo](https://technet.microsoft.com/library/jj128431.aspx).  

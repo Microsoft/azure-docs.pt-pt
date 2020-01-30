@@ -1,6 +1,6 @@
 ---
-title: Visão geral das contas de usuário no Azure Active Directory B2C
-description: Saiba mais sobre os tipos de contas de usuário que podem ser usados no Azure Active Directory B2C.
+title: Visão geral das contas dos utilizadores no Diretório Ativo Azure B2C
+description: Conheça os tipos de contas de utilizador que podem ser utilizadas no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,78 +10,78 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620463"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840065"
 ---
-# <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuário no Azure Active Directory B2C
+# <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Diretório Ativo Azure B2C
 
-No Azure Active Directory B2C (Azure AD B2C), há vários tipos de contas que podem ser criadas. Azure Active Directory, Active Directory B2B e Active Directory B2C compartilhamento nos tipos de contas de usuário que podem ser usados.
+No Azure Ative Directory B2C (Azure AD B2C), existem vários tipos de contas que podem ser criadas. O Diretório Ativo Azure, o Diretório Ativo B2B e o Diretório Ativo B2C partilham os tipos de contas de utilizador que podem ser utilizadas.
 
-Os seguintes tipos de contas estão disponíveis:
+Estão disponíveis os seguintes tipos de contas:
 
-- **Conta corporativa** – uma conta corporativa pode acessar recursos em um locatário e, com uma função de administrador, pode gerenciar locatários.
-- **Conta de convidado** -uma conta de convidado só pode ser uma conta Microsoft ou um usuário Azure Active Directory que possa ser usado para acessar aplicativos ou gerenciar locatários.
-- **Conta de consumidor** -uma conta de consumidor é usada por um usuário dos aplicativos que você registrou com Azure ad B2C. As contas de consumidor podem ser criadas por:
-  - O usuário que está passando por um fluxo de usuário de inscrição em um aplicativo Azure AD B2C
-  - Usando o Azure AD API do Graph
+- **Conta** de trabalho - Uma conta de trabalho pode aceder a recursos num inquilino, e com uma função de administrador, pode gerir os inquilinos.
+- Conta de **hóspedes** - Uma conta de hóspedes só pode ser uma conta Microsoft ou um utilizador do Azure Ative Directory que pode ser usado para aceder a aplicações ou gerir inquilinos.
+- **Conta** de consumo - Uma conta de consumo é utilizada por um utilizador das aplicações que registou no Azure AD B2C. As contas dos consumidores podem ser criadas por:
+  - O utilizador que passa por um fluxo de utilizador de inscrição numa aplicação Azure AD B2C
+  - Utilização da APi do gráfico azure AD
   - Utilizar o portal do Azure
 
-## <a name="work-account"></a>Conta corporativa
+## <a name="work-account"></a>Conta de trabalho
 
-Uma conta corporativa é criada da mesma maneira para todos os locatários com base no Azure AD. Para criar uma conta de trabalho, você pode usar as informações em [início rápido: adicionar novos usuários a Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Uma conta corporativa é criada usando a **nova** opção de usuário na portal do Azure.
+Uma conta de trabalho é criada da mesma forma para todos os inquilinos com base em Azure AD. Para criar uma conta de trabalho, pode utilizar a informação em [Quickstart: Adicionar novos utilizadores ao Azure Ative Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). É criada uma conta de trabalho utilizando a nova escolha **do utilizador** no portal Azure.
 
-Ao adicionar uma nova conta de trabalho, você precisa considerar as seguintes definições de configuração:
+Quando adicionar uma nova conta de trabalho, tem de considerar as seguintes definições de configuração:
 
-- **Nome** e **nome de usuário** -a propriedade **Name** contém o dado e o sobrenome do usuário. O **nome de usuário** é o identificador que o usuário insere para entrar. O nome de usuário inclui o domínio completo. A parte do nome de domínio do nome de usuário deve ser o nome de domínio padrão inicial *your-domain.onmicrosoft.com*ou um nome de [domínio personalizado](../active-directory/fundamentals/add-custom-domain.md) verificado e não federado, como *contoso.com*.
-- **Perfil** -a conta é configurada com um perfil de dados do usuário. Você tem a oportunidade de inserir nome, sobrenome, cargo e nome do departamento. Você pode editar o perfil depois que a conta é criada.
-- **Grupos** – use um grupo para executar tarefas de gerenciamento, como atribuir licenças ou permissões a vários usuários ou dispositivos de uma vez. Você pode colocar a nova conta em um [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente em seu locatário.
-- **Função de diretório** – você precisa especificar o nível de acesso que a conta de usuário tem aos recursos em seu locatário. Os seguintes níveis de permissão estão disponíveis:
+- **Nome** e Nome do **Utilizador** - A propriedade **Nome** contém o dado e sobrenome do utilizador. O **nome Utilizador** é o identificador que o utilizador introduz para iniciar sessão. O nome do utilizador inclui o domínio completo. A porção de nome de domínio do nome do utilizador deve ser o nome de domínio padrão inicial *your-domain.onmicrosoft.com,* ou um nome de [domínio personalizado](../active-directory/fundamentals/add-custom-domain.md) verificado e não federado, como *contoso.com*.
+- **Perfil** - A conta é configurada com um perfil de dados do utilizador. Tem a oportunidade de inserir um primeiro nome, apelido, cargo e nome de departamento. Pode editar o perfil após a criação da conta.
+- **Grupos** - Utilize um grupo para executar tarefas de gestão, tais como a atribuição de licenças ou permissões a vários utilizadores ou dispositivos ao mesmo tempo. Você pode colocar a nova conta em um [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no seu inquilino.
+- Papel de **diretório** - Você precisa especificar o nível de acesso que a conta de utilizador tem aos recursos do seu inquilino. Estão disponíveis os seguintes níveis de permissão:
 
-    - **Usuário** -os usuários podem acessar recursos atribuídos, mas não podem gerenciar a maioria dos recursos de locatário.
-    - **Administrador global** -os administradores globais têm controle total sobre todos os recursos de locatário.
-    - **Administrador limitado** – selecione a função administrativa ou as funções para o usuário. Para obter mais informações sobre as funções que podem ser selecionadas, consulte [atribuindo funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+    - **Utilizador** - Os utilizadores podem aceder aos recursos atribuídos, mas não conseguem gerir a maioria dos recursos dos inquilinos.
+    - **Administrador global** - Os administradores globais têm total controlo sobre todos os recursos dos inquilinos.
+    - **Administrador limitado** - Selecione as funções ou funções administrativas para o utilizador. Para obter mais informações sobre as funções que podem ser selecionadas, consulte as funções de [administrador de atribuição no Diretório Ativo azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-### <a name="create-a-work-account"></a>Criar uma conta corporativa
+### <a name="create-a-work-account"></a>Criar uma conta de trabalho
 
-Você pode usar as seguintes informações para criar uma nova conta de trabalho:
+Pode utilizar as seguintes informações para criar uma nova conta de trabalho:
 
 - [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
-### <a name="update-a-user-profile"></a>Atualizar um perfil de usuário
+### <a name="update-a-user-profile"></a>Atualizar um perfil de utilizador
 
-Você pode usar as seguintes informações para atualizar o perfil de um usuário:
+Pode utilizar as seguintes informações para atualizar o perfil de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
-### <a name="reset-a-password-for-a-user"></a>Redefinir uma senha para um usuário
+### <a name="reset-a-password-for-a-user"></a>Redefinir uma palavra-passe para um utilizador
 
-Você pode usar as seguintes informações para redefinir a senha de um usuário:
+Pode utilizar as seguintes informações para redefinir a palavra-passe de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
-## <a name="guest-user"></a>Usuário convidado
+## <a name="guest-user"></a>Utilizador convidado
 
-Você pode convidar usuários externos para seu locatário como um usuário convidado. Um cenário típico para convidar um usuário convidado para seu locatário de Azure AD B2C é compartilhar responsabilidades de administração. Para obter um exemplo de como usar uma conta de convidado, consulte [Propriedades de um usuário de colaboração Azure Active Directory B2B](../active-directory/b2b/user-properties.md).
+Pode convidar utilizadores externos para o seu inquilino como utilizador convidado. Um cenário típico para convidar um utilizador convidado para o seu inquilino Azure AD B2C é partilhar responsabilidades administrativas. Para um exemplo de utilização de uma conta de hóspedes, consulte [Propriedades de um utilizador de colaboração Azure Ative Directory B2B](../active-directory/b2b/user-properties.md).
 
-Ao convidar um usuário convidado para seu locatário, você fornece o endereço de email do destinatário e uma mensagem que descreve o convite. O link do convite leva o usuário para a página de consentimento em que o botão de **introdução** está selecionado e a revisão das permissões é aceita. Se uma caixa de entrada não estiver anexada ao endereço de email, o usuário poderá navegar até a página de consentimento acessando uma página da Microsoft usando as credenciais convidadas. O usuário é forçado a resgatar o convite da mesma forma que clicar no link no email. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Quando convida um utilizador convidado para o seu inquilino, fornece o endereço de e-mail do destinatário e uma mensagem descrevendo o convite. O link de convite leva o utilizador à página de consentimento onde é selecionado o botão **Get Started** e a revisão das permissões é aceite. Se uma caixa de entrada não estiver anexada ao endereço de e-mail, o utilizador pode navegar para a página de consentimento indo para uma página da Microsoft usando as credenciais convidadas. O utilizador é então obrigado a resgatar o convite da mesma forma que clicar no link no e-mail. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Você também pode usar a [API Microsoft Graph](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) para convidar um usuário convidado.
+Também pode utilizar a [API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) do Microsoft Graph para convidar um utilizador convidado.
 
-## <a name="consumer-user"></a>Usuário do consumidor
+## <a name="consumer-user"></a>Utilizador de consumo
 
-O usuário do consumidor pode entrar em aplicativos protegidos por Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure. O usuário consumidor pode usar uma conta local ou contas federadas, como o Facebook ou o Twitter. Uma conta de consumidor é criada usando um [fluxo de usuário de inscrição ou de entrada](../active-directory-b2c/active-directory-b2c-reference-policies.md), usando o API do Graph do Azure ad ou usando o portal do Azure.
+O utilizador pode iniciar sessão em aplicações garantidas pelo Azure AD B2C, mas não pode aceder a recursos Azure, como o portal Azure. O utilizador pode utilizar uma conta local ou contas federadas, como facebook ou Twitter. Uma conta de consumo é criada utilizando um fluxo de utilizador de [inscrição ou de inscrição,](user-flow-overview.md)utilizando a API do Gráfico AD Azure, ou utilizando o portal Azure.
 
-Você pode especificar os dados que são coletados quando uma conta de usuário do consumidor é criada usando atributos de usuário personalizados. Para obter mais informações, consulte [definir atributos personalizados no Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
+Pode especificar os dados recolhidos quando uma conta de utilizador é criada utilizando atributos de utilizador personalizados. Para mais informações, consulte [Definir atributos personalizados no Diretório Ativo Azure B2C](user-flow-custom-attributes.md).
 
-Você pode usar as informações na seção **criar contas de usuário do consumidor** em [usar o API do Graph do Azure ad](active-directory-b2c-devquickstarts-graph-dotnet.md) para criar uma conta de consumidor do Azure ad B2C. Você também pode usar as informações na seção **atualizar contas de usuário do consumidor** no mesmo artigo para gerenciar as propriedades da conta.
+Pode utilizar a informação na secção de contas de utilizador do **consumidor Create** da Utilização da API do Gráfico [Azure AD](manage-user-accounts-graph-api.md) para criar uma conta de consumo Azure AD AD B2C. Também pode utilizar a informação na secção de contas de utilizador do **consumidor atualizar** no mesmo artigo para gerir as propriedades da conta.
 
-### <a name="migrate-consumer-user-accounts"></a>Migrar contas de usuário do consumidor
+### <a name="migrate-consumer-user-accounts"></a>Migrar contas de utilizadores de consumo
 
-Talvez você precise migrar contas de usuário de consumidor existentes de qualquer provedor de identidade para Azure AD B2C. Para obter mais informações, consulte [migração do usuário](active-directory-b2c-user-migration.md) ou [migrar usuários com identidades sociais](active-directory-b2c-social-migration.md).
+Poderá ter a necessidade de migrar as contas de utilizador de consumo existentes de qualquer fornecedor de identidade para o Azure AD B2C. Para mais informações, consulte a [Migração](user-migration.md) do Utilizador ou [os utilizadores migrados com identidades sociais](migrate-social-identities.md).

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863898"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774431"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -33,7 +33,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Hyper-V (em execução sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (incluindo a instalação do Server Core), Windows Server 2012 R2 com as atualizações mais recentes | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com Azure Site Recovery e planejar atualizar o sistema operacional, siga a [documentação](upgrade-2012R2-to-2016.md) de diretrizes. 
-Hyper-V (executando com Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (executando com Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/> Nota: A falha na localização alternativa não é suportada para os anfitriões do Windows Server 2019.
 
 
 ## <a name="replicated-vms"></a>VMs replicadas
@@ -51,8 +51,8 @@ Sistema operativo convidado | Qualquer SO convidado [com suporte para o Azure](h
 
 **Ação** | **Detalhes**
 --- | ---
-Redimensionar disco na VM Hyper-V replicada | Não suportado. Desabilite a replicação, faça a alteração e, em seguida, reabilite a replicação para a VM.
-Adicionar disco na VM Hyper-V replicada | Não suportado. Desabilite a replicação, faça a alteração e, em seguida, reabilite a replicação para a VM.
+Redimensionar disco na VM Hyper-V replicada | Não suportado. Desative a replicação, faça a alteração e, em seguida, reative a replicação para o VM.
+Adicionar disco na VM Hyper-V replicada | Não suportado. Desative a replicação, faça a alteração e, em seguida, reative a replicação para o VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede do Hyper-V
 
@@ -102,7 +102,7 @@ Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 
 --- | --- | ---
 VMDK | N/D | N/D
 VHD/VHDX | Sim | Sim
-VM de 2ª Geração | Sim | Sim
+Geração 2 VM | Sim | Sim
 EFI/UEFI<br></br>A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.| Sim | Sim
 Disco de cluster compartilhado | Não | Não
 Disco criptografado | Não | Não
@@ -111,7 +111,7 @@ SMB 3.0 | Não | Não
 RDM | N/D | N/D
 Disco > 1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: setor lógico e físico de 4K | Sem suporte: Gen 1/Gen 2 | Sem suporte: Gen 1/Gen 2
-Disco: 4K lógico e 512 bytes de setor físico | Sim |  Sim
+Disco: 4K lógico e 512 bytes sector físico | Sim |  Sim
 LVM (gerenciamento de volume lógico). O LVM tem suporte apenas em discos de dados. O Azure fornece apenas um único disco do sistema operacional. | Sim | Sim
 Volume com disco distribuído > 1 TB | Sim | Sim
 Espaços de Armazenamento | Não | Não
@@ -125,16 +125,16 @@ Vários caminhos (MPIO) | Sim | Sim
 --- | --- | ---
 Armazenamento localmente redundante | Sim | Sim
 Armazenamento georredundante | Sim | Sim
-Armazenamento georredundante com acesso de leitura | Sim | Sim
+Armazenamento geo-redundante de acesso de leitura | Sim | Sim
 Armazenamento frio | Não | Não
 Armazenamento dinâmico| Não | Não
 Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
-Serviço de importação/exportação | Não | Não
-Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
-Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e reabilitar a recuperação de desastres. | Não
+Serviço de Importação/Exportação | Não | Não
+Contas de Armazenamento Azure com firewall ativada | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
+Modificar conta de armazenamento | Não. A conta de armazenamento-alvo Azure não pode ser modificada após a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure
@@ -157,8 +157,8 @@ Tamanho do disco do sistema operacional | Até 2.048 GB para VMs de geração 1.
 Contagem de disco do sistema operacional | 1 | A verificação de pré-requisitos falhará se não houver suporte.
 Contagem de disco de dados | 16 ou menos  | A verificação de pré-requisitos falhará se não houver suporte.
 Tamanho do VHD do disco de dados | Até 4.095 GB | A verificação de pré-requisitos falhará se não houver suporte.
-Placas de rede | São suportados vários adaptadores |
-VHD Partilhado | Não suportado | A verificação de pré-requisitos falhará se não houver suporte.
+Adaptadores de rede | São suportados vários adaptadores |
+VHD compartilhado | Não suportado | A verificação de pré-requisitos falhará se não houver suporte.
 Disco FC | Não suportado | A verificação de pré-requisitos falhará se não houver suporte.
 Formato de disco rígido | VHD <br/><br/> VHDX | Site Recovery converte automaticamente VHDX em VHD quando você faz failover para o Azure. Quando você realiza o failback para o local, as máquinas virtuais continuam a usar o formato VHDX.
 BitLocker | Não suportado | O BitLocker deve ser desabilitado antes de habilitar a replicação para uma VM.

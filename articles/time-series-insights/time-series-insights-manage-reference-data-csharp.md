@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8ce9a874ea81d3e48db1f46c13dece13dabbed6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2bdd11c3b53b650e636d53942fcb94142de556b2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544808"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772834"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gerenciar dados de referência do GA para um ambiente de Azure Time Series Insights usandoC#
 
@@ -31,9 +31,9 @@ Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
 
 1. [Crie um conjunto de dados de referência](time-series-insights-add-reference-data-set.md) em seu ambiente. Use o seguinte esquema de dados de referência:
 
-   | Nome da tecla | Tipo |
+   | Nome-chave | Tipo |
    | --- | --- |
-   | uuid | String | 
+   | uuid | Cadeia | 
 
 1. Configure seu ambiente de Azure Time Series Insights para Azure Active Directory conforme descrito em [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` como o **URI de redirecionamento**.
 
@@ -116,11 +116,12 @@ namespace CsharpTsiMsalGaSample
         internal static string AadClientApplicationId = "#PLACEHOLDER#";
         internal static string[] AadScopes = new string[] { "https://api.timeseries.azure.com//user_impersonation" };
         internal static string AadRedirectUri = "http://localhost:8080/";
-        internal static string AadAuthenticationAuthority = "https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/";
+        internal static string AadTenantName = "#PLACEHOLDER#";
+        internal static string AadAuthenticationAuthority = "https://login.microsoftonline.com/" + AadTenantName + ".onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/";
 
         private static async Task<string> AcquireAccessTokenAsync()
         {
-            if (AadClientApplicationId == "#PLACEHOLDER#" || AadScopes.Length == 0 || AadRedirectUri == "#PLACEHOLDER#" || AadAuthenticationAuthority.StartsWith("#PLACEHOLDER#"))
+            if (AadClientApplicationId == "#PLACEHOLDER#" || AadScopes.Length == 0 || AadRedirectUri == "#PLACEHOLDER#" || AadTenantName.StartsWith("#PLACEHOLDER#"))
             {
                 throw new Exception($"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started"} to update the values of 'AadClientApplicationId', 'AadScopes', 'AadRedirectUri', and 'AadAuthenticationAuthority'.");
             }
@@ -149,7 +150,7 @@ namespace CsharpTsiMsalGaSample
         // System.Net.HttpClient helper to wrap HTTP POST made to the GA Reference Data API
         private static async Task<HttpResponseMessage> AsyncHttpPostRequestHelper(HttpClient httpClient, string input)
         {
-             if (EnvironmentFqdn == "#PLACEHOLDER#" || EnvironmentReferenceDataSetName == "#PLACEHOLDER#")
+             if (EnvironmentFqdn.StartsWith("#PLACEHOLDER#") || EnvironmentReferenceDataSetName == "#PLACEHOLDER#")
              {
                 throw new Exception($"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'EnvironmentFqdn' and 'EnvironmentReferenceDataSetName'.");
              }

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
-ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/24/2020
+ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450691"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765752"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
 
@@ -20,19 +20,28 @@ Estas perguntas frequentes sobre disponibilidade geral abordam as alterações q
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>Atualizações para Azure Monitor para VMs
 
-Estamos planejando lançar uma nova versão do Azure Monitor para VMs em janeiro de 2020. Os clientes que habilitam os monitores do Azure para VMs após essa versão recebem automaticamente a nova versão, mas os clientes existentes que já estão usando Azure Monitor para VMs serão solicitados a fazer a atualização. Estas perguntas frequentes e nossa documentação oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
+Lançámos uma nova versão do Monitor Azure para VMs. Os clientes que permitem o Azure Monitors para VMs passarão a receber a nova versão, mas os clientes existentes que já utilizam o Monitor Azure para VMs serão solicitados a fazer upgrade. Estas perguntas frequentes e nossa documentação oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
 
-Com essa atualização, Azure Monitor para VMs dados de desempenho são armazenados na mesma tabela `InsightsMetrics` que [Azure monitor para contêineres](container-insights-overview.md)e torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. As nossas vistas de desempenho também serão atualizadas para utilizarem esta nova tabela.
+Com esta atualização, os dados de desempenho do Azure Monitor para VMs são armazenados na mesma tabela *InsightsMetrics* que o [Azure Monitor para contentores,](container-insights-overview.md)o que facilita a consulta dos dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. 
 
-Estamos migrando para novos tipos de dados para nossos conjuntos de dados de conexão. Essa alteração ocorrerá em dezembro de 2019 e será anunciada em um blog de atualização do Azure. Os dados armazenados em `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, que são tabelas de log personalizadas, serão movidos para os tipos de dados dedicados chamados `VMComputer` e `VMProcess`. Ao migrar para tipos de dados dedicados, eles recebem prioridade para a ingestão de dados e o esquema de tabela será padronizado entre todos os clientes.
+Nas próximas semanas ou duas, as nossas opiniões de desempenho também serão atualizadas para usar esta nova tabela.
 
 Percebemos que fazer com que os clientes existentes atualizem as causas de interrupção para o fluxo de trabalho, e é por isso que optamos por fazê-lo agora em visualização pública, em vez de depois depois do GA.
 
+
 ## <a name="what-is-changing"></a>O que está mudando?
 
-Atualmente, quando você conclui o processo de integração para Azure Monitor para VMs, você habilita a solução de Mapa do Serviço no espaço de trabalho selecionado para armazenar os dados de monitoramento e, em seguida, configura os contadores de desempenho para os dados que coletamos de suas VMs. Lançaremos uma nova solução, chamada **VMInsights**, que inclui recursos adicionais para coleta de dados junto com um novo local para armazenar esses dados em seu espaço de trabalho de log Analytics.
+Lançámos uma nova solução, chamada VMInsights, que inclui capacidades adicionais para a recolha de dados, juntamente com uma nova localização para armazenar estes dados no seu espaço de trabalho Log Analytics. 
 
-Nosso processo atual de usar contadores de desempenho em seu espaço de trabalho Log Analytics envia os dados para a tabela `Perf`. Essa nova solução envia os dados para uma tabela chamada `InsightsMetrics` que também é usada pelo Azure Monitor para contêineres. Esse esquema de tabela nos permite armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela perf.
+No passado, permitimos a solução ServiceMap no seu espaço de trabalho e configuramos contadores de desempenho no seu espaço de trabalho Log Analytics para enviar os dados para a tabela *Perf.* Esta nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é usada pelo Azure Monitor para contentores. Este esquema de tabela permite-nos armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela *Perf.*
+
+
+## <a name="how-do-i-upgrade"></a>Como faço upgrade?
+Cada VM que necessite de upgrade será identificado no separador **Get Started** no Monitor Azure para VMs no portal Azure. Pode atualizar um único VM ou selecionar vários para atualizar em conjunto. Utilize o seguinte comando para atualizar utilizando o PowerShell:
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>O que devo fazer sobre os contadores de desempenho em meu espaço de trabalho se eu instalar a solução VMInsights?
 
@@ -44,11 +53,11 @@ Depois de atualizarmos nossa interface do usuário para usar os dados na tabela 
 >Se você tiver regras de alerta que referenciem esses contadores na tabela `Perf`, será necessário atualizá-los para fazer referência a novos dados armazenados na tabela `InsightsMetrics`. Consulte nossa documentação para obter exemplos de consultas de log que você pode usar para fazer referência a esta tabela.
 >
 
-Se decidir manter os contadores de desempenho habilitados, você será cobrado pelos dados ingeridos e armazenados na tabela de `Perf` com base em [preços de Log Analytics [(https://azure.microsoft.com/pricing/details/monitor/).
+Se decidir manter os contadores de desempenho ativados, será faturado pelos dados ingeridos e armazenados na tabela `Perf` com base no [Preço do Log Analytics[https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>Como essa alteração afetará minhas regras de alerta?
 
-Se você tiver criado [alertas de log](../platform/alerts-unified-log.md) que consultam a tabela de `Perf` que direciona os contadores de desempenho que foram habilitados no espaço de trabalho, você deve atualizar essas regras para fazer referência à tabela `InsightsMetrics` em vez disso. Essa orientação também se aplica a qualquer regra de pesquisa de log usando `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, porque esses conjuntos de dados estão sendo movidos para as tabelas `VMComputer` e `VMProcess`.
+Se você tiver criado [alertas de log](../platform/alerts-unified-log.md) que consultam a tabela de `Perf` que direciona os contadores de desempenho que foram habilitados no espaço de trabalho, você deve atualizar essas regras para fazer referência à tabela `InsightsMetrics` em vez disso. Esta orientação aplica-se também a quaisquer regras de pesquisa de registos utilizando `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, porque esses conjuntos de dados estão a mover-se para tabelas `VMComputer` e `VMProcess`.
 
 Atualizaremos essas perguntas frequentes e nossa documentação para incluir regras de alerta de pesquisa de log de exemplo para os conjuntos de dados que coletamos.
 
@@ -64,23 +73,23 @@ Tudo bem. Você verá prompts na portal do Azure ao exibir Azure Monitor para VM
 
 Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados na tabela de `InsightsMetrics`. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do Azure Monitor para VMs.
 
-As alterações para mover dados de `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão Mapa do Serviço e Azure Monitor para VMs, para que você ainda precise planejar essa atualização.
+As alterações para mover dados de `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão tanto o Service Map como o Azure Monitor para VMs, pelo que ainda precisa de planear esta atualização.
 
 Se você optar por não atualizar para a solução **VMInsights** , continuaremos a fornecer versões herdadas de nossas pastas de trabalho de desempenho que se referem aos dados na tabela `Perf`.  
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>Os conjuntos de dados de Mapa do Serviço também serão armazenados em InsightsMetrics?
 
-Os conjuntos de dados não serão duplicados se você usar ambas as soluções. As duas ofertas compartilham os conjuntos de dados que serão armazenados em `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort` tabelas para armazenar os conjuntos de dados do mapa que coletamos.  
+Os conjuntos de dados não serão duplicados se você usar ambas as soluções. Ambas as ofertas partilham os conjuntos de dados que serão armazenados em `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort` tabelas para armazenar os conjuntos de dados do mapa que recolhemos.  
 
 A tabela `InsightsMetrics` armazenará a VM, o processo e os conjuntos de dados de serviço que coletamos e só serão populados se você estiver usando Azure Monitor para VMs e a solução de informações de VM. A solução Mapa do Serviço não coletará ou armazenará dados na tabela `InsightsMetrics`.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>Serei uma cobrança dupla se eu tiver as soluções Mapa do Serviço e VMInsights em meu espaço de trabalho?
 
-Não, as duas soluções compartilham os conjuntos de dados do mapa que armazenamos em `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort`. Você não será cobrado duas vezes por esses dados se tiver as duas soluções em seu espaço de trabalho.
+Não, as duas soluções partilham os conjuntos de dados do mapa que armazenamos em `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort`. Você não será cobrado duas vezes por esses dados se tiver as duas soluções em seu espaço de trabalho.
 
 ## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Se eu remover a solução Mapa do Serviço ou VMInsights, ela removerá meus dados?
 
-Não, as duas soluções compartilham os conjuntos de dados do mapa que armazenamos em `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort`. Se você remover uma das soluções, esses conjuntos de dados perceberão que ainda há uma solução em vigor que usa os dados e ela permanece no espaço de trabalho Log Analytics. Você precisa remover ambas as soluções do seu espaço de trabalho para que os dados sejam removidos dela.
+Não, as duas soluções partilham os conjuntos de dados do mapa que armazenamos em `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection`e `VMBoundPort`. Se você remover uma das soluções, esses conjuntos de dados perceberão que ainda há uma solução em vigor que usa os dados e ela permanece no espaço de trabalho Log Analytics. Você precisa remover ambas as soluções do seu espaço de trabalho para que os dados sejam removidos dela.
 
 ## <a name="when-will-this-update-be-released"></a>Quando esta atualização será lançada?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981820"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768399"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos para o armazenamento de BLOBs com capacidade reservada
 
@@ -54,7 +54,7 @@ Para comprar a capacidade reservada:
 
 - Você deve estar na função de **proprietário** de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 - Para assinaturas empresariais, **adicionar instâncias reservadas** deve estar habilitada no portal de ea. Ou, se essa configuração estiver desabilitada, você deverá ser um administrador de EA na assinatura.
-- Para o programa CSP (provedor de soluções na nuvem), somente agentes de administração ou agentes de vendas podem comprar Azure Cosmos DB capacidade reservada.
+- Para o programa Cloud Solution Provider (CSP), apenas agentes de administração ou agentes de vendas podem comprar capacidade reservada ao Armazenamento Azure Blob.
 
 ## <a name="determine-required-capacity-before-purchase"></a>Determinar a capacidade necessária antes da compra
 
@@ -85,7 +85,7 @@ Siga estas etapas para comprar a capacidade reservada:
    | **Redundância** | A opção de redundância para a reserva. As opções incluem *LRS*, *ZRS*, *grs*e *ra-GZRS*. Para obter mais informações sobre as opções de redundância, consulte [redundância de armazenamento do Azure](../common/storage-redundancy.md). |
    | **Frequência de cobrança** | Indica com que frequência a conta é cobrada pela reserva. As opções incluem *mensalmente* ou *antecipadamente*. |
    | **Tamanho** | A região em que a reserva está em vigor. |
-   |**Termo**  | Um ano ou três anos.   |
+   |**Prazo**  | Um ano ou três anos.   |
 
 1. Depois de selecionar os parâmetros para sua reserva, o portal do Azure exibirá o custo. O portal também mostra a porcentagem de desconto sobre a cobrança paga conforme o uso.
 

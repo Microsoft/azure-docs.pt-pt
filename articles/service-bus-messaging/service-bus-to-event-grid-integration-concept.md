@@ -1,10 +1,9 @@
 ---
 title: Descrição Gera de integração do Azure Service Bus para o Event Grid | Microsoft Docs
-description: Descrição de mensagens do Service Bus e integração do Event Grid
+description: Este artigo fornece uma descrição de como as mensagens Azure Service Bus se integram com a Azure Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072140"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773483"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -39,7 +38,7 @@ Para ativar a funcionalidade, precisa dos seguintes itens:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se tem acesso de contribuinte
-Aceda ao seu espaço de nomes do Service Bus e, em seguida, selecione **controlo de acesso (IAM)** e selecione **atribuições de funções** separador. Certifique-se de que tem o acesso de contribuinte ao espaço de nomes. 
+Aceda ao seu espaço de nome service Bus e, em seguida, selecione o controlo de **acesso (IAM)** , e selecione o separador de **tarefas de role.** 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de eventos
 
@@ -118,7 +117,7 @@ Se quiser receber eventos apenas de, por exemplo, uma fila ou uma subscrição n
 
 Pode criar subscrições do Event Grid para espaços de nomes do Service Bus de três formas diferentes:
 
-* No portal do Azure
+* No portal Azure
 * Na [CLI do Azure](#azure-cli-instructions)
 * No [PowerShell](#powershell-instructions)
 
@@ -153,7 +152,7 @@ namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-Se estiver a utilizar o BASH 
+Se estiver a usar a BASH 
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
@@ -173,9 +172,9 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-A partir daqui, pode explorar as outras opções de configuração ou testar que eventos estão a fluir.
+A partir daqui, você pode explorar as outras opções de configuração ou testar que os eventos estão fluindo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha [exemplos](service-bus-to-event-grid-integration-example.md) do Service Bus e Event Grid.
 * Saiba mais sobre o [Event Grid](https://docs.microsoft.com/azure/event-grid/).

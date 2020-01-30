@@ -1,6 +1,6 @@
 ---
-title: Atualização in-loco do SQL Server Edition
-description: Saiba como alterar a edição de sua VM SQL Server no Azure.
+title: Mudança no lugar da edição do SQL Server
+description: Saiba como alterar a edição da sua máquina virtual SQL Server em Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -10,85 +10,89 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/26/2019
+ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1db45097b0416b680571cb47ec1d9b52f9275c43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7d096f721869e43e9a860733d0f6893f224a6776
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022205"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772575"
 ---
-# <a name="perform-an-in-place-upgrade-of-a-sql-server-edition-on-an-azure-vm"></a>Executar uma atualização in-loco de uma edição do SQL Server em uma VM do Azure
+# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
 
-Este artigo descreve como alterar a edição do SQL Server em uma máquina virtual do Windows no Azure. 
+Este artigo descreve como alterar a edição do SQL Server numa máquina virtual do Windows em Azure. 
 
-A edição do SQL Server é determinada pela chave do produto (Product Key) e é especificada com o processo de instalação. A edição determina quais [recursos](/sql/sql-server/editions-and-components-of-sql-server-2017) estão disponíveis no produto SQL Server. Você pode alterar a edição do SQL Server com a mídia de instalação e fazer o downgrade para reduzir o custo ou atualizar para habilitar mais recursos.
+A edição do SQL Server é determinada pela chave do produto, e é especificada durante o processo de instalação utilizando os meios de instalação. A edição dita quais as [funcionalidades](/sql/sql-server/editions-and-components-of-sql-server-2017) disponíveis no produto SQL Server. Pode alterar a edição do SQL Server com os meios de instalação e reduzir para reduzir custos ou upgrade satisfaça para permitir mais funcionalidades.
 
-Se você atualizou a edição do SQL Server usando a mídia de instalação após o registro com o provedor de recursos de VM do SQL, para atualizar a cobrança do Azure de acordo, defina a propriedade SQL Server Edition do recurso de VM do SQL da seguinte maneira:
-
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). 
-1. Vá para o recurso de máquina virtual SQL Server. 
-1. Em **configurações**, selecione **Configurar**. Em seguida, selecione a edição desejada do SQL Server na lista suspensa em **edição**. 
-
-   ![Alterar metadados de edição](media/virtual-machines-windows-sql-change-edition/edition-change-in-portal.png)
-
-1. Examine o aviso que diz que você deve alterar a edição de SQL Server primeiro e que a propriedade de edição deve corresponder à edição de SQL Server. 
-1. Selecione **aplicar** para aplicar as alterações de metadados de edição. 
-
+Uma vez que a edição do SQL Server tenha sido alterada internamente para o SQL Server VM, deve então atualizar a propriedade de edição do SQL Server no portal Azure para efeitos de faturação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer uma alteração in-loco da edição do SQL Server, você precisará do seguinte: 
+Para fazer uma alteração na edição do SQL Server, precisa do seguinte: 
 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
-- Uma [vm SQL Server no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada com o [provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Instale a mídia com a edição desejada do SQL Server. Os clientes que têm o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter a mídia de instalação do [centro de licenciamento por volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm o Software Assurance podem usar a mídia de instalação de um Azure Marketplace SQL Server imagem de VM que tem a edição desejada.
+- Um VM de [servidor SQL no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado com o fornecedor de recursos [SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md).
+- Configurar meios com a **edição desejada** do SQL Server. Os clientes que possuem [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem Software Assurance podem utilizar os suportes de configuração a partir de uma imagem VM Do Servidor Azure Marketplace SQL que tem a sua edição desejada (tipicamente localizada em `c:\SQLInstalls`). 
 
 
 ## <a name="upgrade-an-edition"></a>Atualizar uma edição
 
 > [!WARNING]
-> Atualizar a edição do SQL Server reiniciará o serviço para SQL Server, juntamente com quaisquer serviços associados, como Analysis Services e R Services. 
+> A atualização da edição do SQL Server reiniciará o serviço para o SQL Server, juntamente com quaisquer serviços associados, como serviços de análise e Serviços de R. 
 
-Para atualizar SQL Server, obtenha a mídia de instalação do SQL Server para a edição desejada do SQL Server e, em seguida, faça o seguinte:
+Para atualizar a edição do SQL Server, obtenha os meios de configuração do SQL Server para a edição desejada do SQL Server e, em seguida, faça o seguinte:
 
-1. Abra o setup. exe da mídia de instalação do SQL Server. 
-1. Vá para **manutenção** e escolha a opção de **atualização de edição** . 
+1. Abra configuração.exe a partir dos meios de instalação do Servidor SQL. 
+1. Vá à **Manutenção** e escolha a opção Upgrade da **Edição.** 
 
-   ![Seleção para atualizar a edição do SQL Server](media/virtual-machines-windows-sql-change-edition/edition-upgrade.png)
+   ![Seleção para upgrade da edição do SQL Server](media/virtual-machines-windows-sql-change-edition/edition-upgrade.png)
 
-1. Selecione **Avançar** até chegar à página **pronto para atualizar a edição** e, em seguida, selecione **Atualizar**. A janela de instalação pode parar de responder por alguns minutos, enquanto a alteração está sendo efetivada. Uma página **completa** confirmará que a atualização de edição foi concluída. 
+1. Selecione **Seguinte** até chegar à página **Ready to upgrade e,** em seguida, selecione **Upgrade**. A janela de configuração pode parar de responder durante alguns minutos enquanto a mudança está a produzir efeito. Uma página **Completa** confirmará que a atualização da sua edição está concluída. 
 
-Depois que a edição do SQL Server for atualizada, modifique a propriedade de edição da máquina virtual SQL Server no portal do Azure, conforme mostrado anteriormente. Isso atualizará os metadados e a cobrança associados a essa VM.
+Depois da edição do SQL Server ser atualizada, modifique a propriedade da edição da máquina virtual SQL Server no portal Azure. Isto irá atualizar os metadados e faturação associados a este VM.
 
-## <a name="downgrade-an-edition"></a>Fazer downgrade de uma edição
+## <a name="downgrade-an-edition"></a>Downgrade uma edição
 
-Para fazer downgrade da edição do SQL Server, você precisa desinstalar completamente o SQL Server e reinstalá-lo novamente com a mídia de instalação da edição desejada.
+Para desvalorizar a edição do SQL Server, é necessário desinstalar completamente o SQL Server e reinstalá-lo novamente com os meios de configuração de edição pretendidos. 
 
 > [!WARNING]
-> A desinstalação de SQL Server pode incorrer em tempo de inatividade adicional. 
+> Desinstalar o Servidor SQL pode incorrer em tempo de inatividade adicional. 
 
-Você pode fazer downgrade da edição do SQL Server seguindo estas etapas:
+Pode desvalorizar a edição do SQL Server seguindo estes passos:
 
-1. Faça backup de todos os bancos de dados, incluindo os bancos de dados do sistema. 
-1. Mover bancos de dados do sistema (Mestre, modelo e msdb) para um novo local. 
-1. Desinstale completamente SQL Server e todos os serviços associados. 
-1. Reinicie a máquina virtual. 
-1. Instale SQL Server usando a mídia com a edição desejada do SQL Server.
-1. Instale os service packs e as atualizações cumulativas mais recentes.  
-1. Substitua os novos bancos de dados do sistema que foram criados durante a instalação com os bancos de dados do sistema que você moveu anteriormente para um local diferente. 
+1. Recue todas as bases de dados, incluindo as bases de dados do sistema. 
+1. Mova as bases de dados do sistema (mestre, modelo e msdb) para um novo local. 
+1. Desinstale completamente o Servidor SQL e todos os serviços associados. 
+1. Reiniciar a máquina virtual. 
+1. Instale o Servidor SQL utilizando os meios de comunicação com a edição desejada do Servidor SQL.
+1. Instale os mais recentes pacotes de serviços e atualizações cumulativas.  
+1. Substitua as novas bases de dados do sistema que foram criadas durante a instalação com as bases de dados do sistema que anteriormente se mudou para um local diferente. 
 
-Depois que a edição do SQL Server for rebaixada, modifique a propriedade de edição da máquina virtual SQL Server no portal do Azure, conforme mostrado anteriormente. Isso atualizará os metadados e a cobrança associados a essa VM.
+Depois da edição do SQL Server ser desvalorizada, modifique a propriedade da edição da máquina virtual SQL Server no portal Azure. Isto irá atualizar os metadados e faturação associados a este VM.
+
+## <a name="change-edition-in-portal"></a>Alterar edição no portal 
+
+Depois de ter mudado a edição do SQL Server utilizando os meios de instalação e ter registado o seu VM SQL Server com o fornecedor de [recursos SQL VM,](virtual-machines-windows-sql-register-with-resource-provider.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para isso, siga estes passos: 
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Vá ao seu recurso virtual SQL Server. 
+1. Em **definições,** **selecione Configurar**. Em seguida, selecione a sua edição desejada do SQL Server a partir da lista de lançamentos em **Edição**. 
+
+   ![Alterar metadados de edição](media/virtual-machines-windows-sql-change-edition/edition-change-in-portal.png)
+
+1. Reveja o aviso que diz que deve alterar primeiro a edição do SQL Server e que a propriedade da edição deve corresponder à edição do SQL Server. 
+1. Selecione **Aplicar** para aplicar as alterações de metadados da sua edição. 
+
 
 ## <a name="remarks"></a>Observações
 
-- A propriedade de edição para a VM SQL Server deve corresponder à edição da instância de SQL Server instalada para todas as máquinas virtuais de SQL Server, incluindo os tipos de licenças pré-pago e traga sua própria licença.
-- Se você descartar o recurso de VM SQL Server, voltará para a configuração de edição embutida em código da imagem.
-- A capacidade de alterar a edição é um recurso do provedor de recursos de VM do SQL. A implantação de uma imagem do Azure Marketplace por meio do portal do Azure registra automaticamente uma VM SQL Server com o provedor de recursos. No entanto, os clientes que estiverem instalando automaticamente SQL Server precisarão [registrar manualmente sua VM SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Adicionar uma VM SQL Server a um conjunto de disponibilidade requer a recriação da VM. Todas as VMs adicionadas a um conjunto de disponibilidade voltarão para a edição padrão e a edição precisará ser modificada novamente.
+- A propriedade de edição para o SQL Server VM deve corresponder à edição da instância SQL Server instalada para todas as máquinas virtuais do SQL Server, incluindo tanto os tipos de licenças pay-as-you-go e bring-your-your-own-license.
+- Se deixar cair o seu recurso VM Do Servidor SQL, voltará à definição de edição codificada da imagem.
+- A capacidade de alterar a edição é uma característica do fornecedor de recursos SQL VM. A implantação de uma imagem do Azure Marketplace por meio do portal do Azure registra automaticamente uma VM SQL Server com o provedor de recursos. No entanto, os clientes que se auto-instalam no SQL Server terão de registar manualmente o seu VM do [Servidor SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
+- Adicionar uma VM SQL Server a um conjunto de disponibilidade requer a recriação da VM. Quaisquer VMs adicionados a um conjunto de disponibilidade sairá de volta à edição padrão, e a edição terá de ser modificada novamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

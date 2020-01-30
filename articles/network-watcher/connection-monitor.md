@@ -1,10 +1,9 @@
 ---
-title: Tutorial – monitorar a comunicação de rede usando o portal do Azure
-description: Neste tutorial, saiba como monitorar a comunicação de rede entre duas máquinas virtuais com o recurso de monitor de conexão do observador de rede do Azure.
+title: Tutorial - Monitor comunicação de rede utilizando o portal Azure
+description: Neste tutorial, aprenda a monitorizar a comunicação de rede entre duas máquinas virtuais com a capacidade de monitor de ligação do Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419691"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834659"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 
@@ -45,7 +44,7 @@ Crie duas VMs.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione um sistema operativo. Neste tutorial, é utilizado o **Windows Server 2016 Datacenter**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
@@ -56,7 +55,7 @@ Crie duas VMs.
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Localização| Selecione **E.U.A. Leste**.|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, selecione **Extensões**. Selecione **Adicionar extensão** e selecione **Agente do Observador de Rede para Windows**, conforme mostra a imagem seguinte:
@@ -73,11 +72,11 @@ Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com 
 
 |Passo|Definição|Valor|
 |---|---|---|
-| 1 | Selecione uma versão do **servidor Ubuntu** |                                                                         |
+| 1 | Selecione uma versão do **Ubuntu Server** |                                                                         |
 | 3 | Nome                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
 | 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
-| 6 | Extensões                            | **Agente do observador de rede para Linux**                                             |
+| 6 | Extensões                            | **Agente de observadores de rede para Linux**                                             |
 
 A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implementação antes de continuar com os restantes passos.
 
@@ -86,7 +85,7 @@ A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implem
 Crie um monitor de ligação para monitorizar a comunicação através da porta TCP 22 de *myVm1* para *myVm2*.
 
 1. No lado esquerdo do portal, selecione **Todos os serviços**.
-2. Comece a escrever *observador de rede* na caixa **Filtro**. Quando a opção **Observador de Rede** aparecer nos resultados de pesquisa, selecione-a.
+2. Comece a escrever *observador de rede* na caixa **Filtro**. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 3. Em **MONITORIZAÇÃO**, selecione **Monitor de ligação**.
 4. Selecione **+ Adicionar**.
 5. Introduza ou selecione as informações da ligação que pretende monitorizar e, em seguida, selecione **Adicionar**. No exemplo apresentado na imagem seguinte, a ligação monitorizada é da VM *myVm1* para a VM *myVm2* através da porta 22:
@@ -168,7 +167,7 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

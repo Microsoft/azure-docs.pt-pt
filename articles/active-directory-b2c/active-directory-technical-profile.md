@@ -1,7 +1,7 @@
 ---
-title: Definir um perfil técnico do Azure AD em uma política personalizada
+title: Defina um perfil técnico da AD Azure numa política personalizada
 titleSuffix: Azure AD B2C
-description: Defina um perfil técnico Azure Active Directory em uma política personalizada no Azure Active Directory B2C.
+description: Defina um perfil técnico azure Ative Directory numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,35 +11,35 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949563"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835798"
 ---
-# <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de Azure Active Directory em uma política personalizada de Azure Active Directory B2C
+# <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de Diretório Ativo Azure numa política personalizada azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) fornece suporte para o gerenciamento de usuários do Azure Active Directory. Este artigo descreve as especificidades de um perfil técnico para interagir com um provedor de declarações que dá suporte a esse protocolo padronizado.
+O Azure Ative Directory B2C (Azure AD B2C) presta suporte à gestão de utilizadores do Diretório Ativo Azure. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Todos os perfis técnicos do Azure AD incluem o perfil técnico do **AAD-comum** . Os seguintes perfis técnicos não especificam o protocolo porque o protocolo está configurado no perfil técnico **comum do AAD** :
+Todos os perfis técnicos da AD Azure incluem o perfil técnico **AAD-Common.** Os seguintes perfis técnicos não especificam o protocolo porque o protocolo está configurado no perfil técnico **AAD-Common:**
 
-- **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingAlternativeSecurityId-NOERROR** -pesquisa uma conta social no diretório.
-- **AAD-UserWriteUsingAlternativeSecurityId** -crie uma nova conta social.
-- **AAD-UserReadUsingEmailAddress** -pesquisa uma conta local no diretório.
-- **AAD-UserWriteUsingLogonEmail** -crie uma nova conta local.
-- **AAD-UserWritePasswordUsingObjectId** -atualiza uma senha de uma conta local.
-- **AAD-UserWriteProfileUsingObjectId** -atualiza um perfil de usuário de uma conta local ou social.
-- **AAD-UserReadUsingObjectId** -Leia um perfil de usuário de uma conta local ou social.
-- **AAD-UserWritePhoneNumberUsingObjectId** -grava o número de telefone MFA de uma conta local ou social
+- **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Procure uma conta social no diretório.
+- **AAD-UserWriteUsingAlternativeSecurityId** - Criar uma nova conta social.
+- **AAD-UserReadUsingEmailAddress** - Procure uma conta local no diretório.
+- **AAD-UserWriteUsingLogonEmail** - Criar uma nova conta local.
+- **AAD-UserWritePasswordUsingObjectId** - Atualize uma palavra-passe de uma conta local.
+- **AAD-UserWriteProfileUsingObjectId** - Atualize um perfil de utilizador de uma conta local ou social.
+- **AAD-UserReadUsingObjectId** - Leia um perfil de utilizador de uma conta local ou social.
+- **AAD-userWriteNumberUsingObjectId** - Escreva o número de telefone do MFA de uma conta local ou social
 
-O exemplo a seguir mostra o perfil técnico do **AAD-comum** :
+O exemplo que se segue mostra o perfil técnico **AAD-Common:**
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -60,25 +60,25 @@ O exemplo a seguir mostra o perfil técnico do **AAD-comum** :
 
 Os seguintes perfis técnicos incluem **InputClaims** para contas sociais e locais:
 
-- Os perfis técnicos da conta social **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserWriteUsingAlternativeSecurityId** incluem a Declaração **AlternativeSecurityId** . Essa declaração contém o identificador de usuário da conta social.
-- A conta local perfis técnicos **AAD-UserReadUsingEmailAddress** e **AAD-UserWriteUsingLogonEmail** inclui a declaração de **email** . Essa declaração contém o nome de entrada da conta local.
-- Os perfis técnicos unificados (locais e sociais) **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**e **AAD-UserWritePhoneNumberUsingObjectId** incluem a Declaração **ObjectID** . O identificador exclusivo de uma conta.
+- Os perfis técnicos da conta social **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserWriteUsingAlternativeSecurityId** incluem a alegação **AlternativeSecurityId.** Esta alegação contém o identificador de utilizador da conta social.
+- Os perfis técnicos da conta local **AAD-UserReadUsingEmailAddress** e **AAD-UserWriteLogonEmail** inclui a reclamação de **e-mail.** Esta alegação contém o nome de inscrição da conta local.
+- Os perfis técnicos unificados (locais e sociais) **AAD-UserReadUsingObjectId**, **AAD-userWritePasswordUsingObjectId**, **AAD-userWriteObjectId**, e **AAD-userWriteNumberUsingObjectId** inclui a alegação **objectid.** O identificador único de uma conta.
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas.
+O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **de transformação inputClaims** que são usados para modificar as reclamações de entrada ou gerar novos.
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações retornadas pelo perfil técnico do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido em Azure Active Directory. Você também pode incluir declarações que não são retornadas pelo Azure Active Directory, desde que você defina o atributo `DefaultValue`.
+O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo perfil técnico da AD Azure. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure. Também pode incluir reclamações que não são devolvidas pelo Diretório Ativo Azure, desde que detetete o `DefaultValue` atributo.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
 
-Por exemplo, o perfil técnico do **AAD-UserWriteUsingLogonEmail** cria uma conta local e retorna as seguintes declarações:
+Por exemplo, o perfil técnico **AAD-UserWriteUseLogonEmail** cria uma conta local e devolve as seguintes reclamações:
 
-- **ObjectID**, que é o identificador da nova conta
-- **newuser**, que indica se o usuário é novo
-- **authenticationname**, que define a autenticação para `localAccountAuthentication`
-- **userPrincipalName**, que é o nome principal do usuário da nova conta
-- **signInNames. EmailAddress**, que é o nome de entrada da conta, semelhante à declaração de entrada de **email**
+- **objectId**, que é identificador da nova conta
+- **newUser**, que indica se o utilizador é novo
+- **autenticaçãoSource**, que define a autenticação para `localAccountAuthentication`
+- **userPrincipalName**, que é o nome principal do utilizador da nova conta
+- **signNames.emailAddress**, que é o nome de entrada na conta, semelhante à reclamação de entrada de **e-mail**
 
 ```xml
 <OutputClaims>
@@ -90,11 +90,11 @@ Por exemplo, o perfil técnico do **AAD-UserWriteUsingLogonEmail** cria uma cont
 </OutputClaims>
 ```
 
-## <a name="persistedclaims"></a>PersistedClaims
+## <a name="persistedclaims"></a>Reclamações Persistidas
 
-O elemento **PersistedClaims** contém todos os valores que devem ser persistidos pelo Azure AD com informações de mapeamento possíveis entre um tipo de declaração já definido na seção ClaimsSchema na política e o nome do atributo do Azure AD.
+O elemento **PersistedClaims** contém todos os valores que devem ser persponiados pela Azure AD com possíveis informações de mapeamento entre um tipo de reclamação já definido na secção ClaimsSchema na política e no nome de atributo azure AD.
 
-O perfil técnico do **AAD-UserWriteUsingLogonEmail** , que cria uma nova conta local, persiste com as seguintes declarações:
+O perfil técnico **AAD-UserWriteUseLogonEmail,** que cria uma nova conta local, persiste na sequência de reclamações:
 
 ```XML
   <PersistedClaims>
@@ -110,22 +110,22 @@ O perfil técnico do **AAD-UserWriteUsingLogonEmail** , que cria uma nova conta 
   </PersistedClaims>
 ```
 
-O nome da declaração é o nome do atributo do Azure AD, a menos que o atributo **PartnerClaimType** seja especificado, que contém o nome do atributo do Azure AD.
+O nome da reclamação é o nome do atributo AD Azure, a menos que seja especificado o atributo **PartnerClaimType,** que contém o nome do atributo Azure AD.
 
 ## <a name="requirements-of-an-operation"></a>Requisitos de uma operação
 
-- Deve haver exatamente um elemento **InputClaim** no recipiente de declarações para todos os perfis técnicos do Azure AD.
-- Se a operação for `Write` ou `DeleteClaims`, ela também deverá aparecer em um elemento **PersistedClaims** .
-- O valor da Declaração **userPrincipalName** deve estar no formato de `user@tenant.onmicrosoft.com`.
-- A Declaração **DisplayName** é necessária e não pode ser uma cadeia de caracteres vazia.
+- Deve haver exatamente um elemento **De InputClaim** no saco de reclamações para todos os perfis técnicos da AD Azure.
+- Se a operação for `Write` ou `DeleteClaims`, então também deve aparecer num elemento **PersistedClaims.**
+- O valor da reclamação do **utilizadorPrincipalName** deve estar no formato de `user@tenant.onmicrosoft.com`.
+- A alegação de nome de **exibição** é necessária e não pode ser uma corda vazia.
 
-## <a name="azure-ad-technical-provider-operations"></a>Operações do provedor técnico do Azure AD
+## <a name="azure-ad-technical-provider-operations"></a>Operações de prestador técnico da Azure AD
 
 ### <a name="read"></a>Leitura
 
-A operação de **leitura** lê dados sobre uma única conta de usuário. Para ler os dados do usuário, você precisa fornecer uma chave como uma declaração de entrada, como **ObjectID**, **userPrincipalName**, **signInNames** (qualquer tipo, nome de usuário e conta baseada em email) ou **alternativeSecurityId**.
+A operação **Read** lê dados sobre uma única conta de utilizador. Para ler os dados dos utilizadores, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName,** **signInNames** (qualquer tipo, nome do utilizador e conta baseada em e-mail) ou **segurança ida em alternativa**.
 
-O seguinte perfil técnico lê dados sobre uma conta de usuário usando o objectId do usuário:
+O perfil técnico seguinte lê dados sobre uma conta de utilizador utilizando o objectid do utilizador:
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -155,9 +155,9 @@ O seguinte perfil técnico lê dados sobre uma conta de usuário usando o object
 
 ### <a name="write"></a>Escrita
 
-A operação de **gravação** cria ou atualiza uma única conta de usuário. Para gravar uma conta de usuário, você precisa fornecer uma chave como uma declaração de entrada, como **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**ou **alternativeSecurityId**.
+A operação **Write** cria ou atualiza uma única conta de utilizador. Para escrever uma conta de utilizador, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName**, **signNames.emailAddress**, ou **alternativaSecurityId**.
 
-O seguinte perfil técnico cria uma nova conta social:
+O perfil técnico seguinte cria uma nova conta social:
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -197,9 +197,9 @@ O seguinte perfil técnico cria uma nova conta social:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-A operação **DeleteClaims** limpa as informações de uma lista de declarações fornecida. Para excluir informações de declarações, você precisa fornecer uma chave como uma declaração de entrada, como **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress** ou **alternativeSecurityId**.
+A operação **DeleteClaims** iliba as informações de uma lista de reclamações fornecidas. Para eliminar informações de reclamações, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName**, **signNames.emailAddress** ou **alternativeSecurityId**.
 
-O seguinte perfil técnico exclui declarações:
+O perfil técnico seguinte elimina as reclamações:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -220,9 +220,9 @@ O seguinte perfil técnico exclui declarações:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-A operação **DeleteClaimsPrincipal** exclui uma única conta de usuário do diretório. Para excluir uma conta de usuário, você precisa fornecer uma chave como uma declaração de entrada, como **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress** ou **alternativeSecurityId**.
+A operação **DeleteClaimsPrincipal** elimina uma única conta de utilizador do diretório. Para eliminar uma conta de utilizador, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId**, **userPrincipalName**, **signNames.emailAddress** ou **alternativeSecurityId**.
 
-O seguinte perfil técnico exclui uma conta de usuário do diretório usando o nome principal do usuário:
+O perfil técnico seguinte elimina uma conta de utilizador do diretório utilizando o nome principal do utilizador:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -237,7 +237,7 @@ O seguinte perfil técnico exclui uma conta de usuário do diretório usando o n
 </TechnicalProfile>
 ```
 
-O seguinte perfil técnico exclui uma conta de usuário social usando o **alternativeSecurityId**:
+O perfil técnico seguinte elimina uma conta de utilizador social utilizando **alternativaSSecurityId:**
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
@@ -255,13 +255,13 @@ O seguinte perfil técnico exclui uma conta de usuário social usando o **altern
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou `DeleteClaimsPrincipal`. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Gerar um erro se o objeto de usuário não existir no diretório. Valores possíveis: `true` ou `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Não | Se um erro for gerado (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem a ser mostrada ao usuário se o objeto do usuário não existir. O valor pode ser [localizado](localization.md).|
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Gerar um erro se o objeto de usuário já existir. Valores possíveis: `true` ou `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se um erro for gerado (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique a mensagem a ser mostrada ao usuário se o objeto do usuário já existir. O valor pode ser [localizado](localization.md).|
-| ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
-| ClientId | Não | O identificador do cliente para acessar o locatário como terceiros. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) |
+| Operação | Sim | A operação a ser realizada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou `DeleteClaimsPrincipal`. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Levante um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false`. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. O valor pode ser [localizado.](localization.md)|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Levante um erro se o objeto do utilizador já existir. Valores possíveis: `true` ou `false`.|
+| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se for levantado um erro (ver RaiseErrorIfClaimsPrincipalAlreadyExists aatribuição), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador já existir. O valor pode ser [localizado.](localization.md)|
+| ApplicationObjectId | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para mais informações, consulte [Use atributos personalizados numa política](custom-policy-custom-attributes.md)de edição de perfil personalizado. |
+| ClientId | Não | O cliente identifica o inquilino como terceiro. Para mais informações, consulte [Use atributos personalizados numa política de edição de perfil personalizado](custom-policy-custom-attributes.md) |
 
 
 

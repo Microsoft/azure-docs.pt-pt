@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289531"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772039"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -131,7 +131,7 @@ Se isso não funcionar e você estiver descobrindo servidores VMware:
 
 ## <a name="vm-data-not-in-portal"></a>Dados da VM não estão no portal
 
-Se as VMs descobertas não aparecerem no portal, aguarde alguns minutos. Leva até 30 minutos para que os dados descobertos apareçam no Portal. Se não houver dados após 30 minutos, tente atualizar, da seguinte maneira
+Se os VM saem descobertos não aparecem no portal ou se os dados vm estão desatualizados, aguarde alguns minutos. Leva até 30 minutos para que as alterações nos dados de configuração VM descobertos apareçam no portal. Pode levar algumas horas para que as alterações nos dados da aplicação apareçam. Se não houver dados depois deste tempo, tente refrescar,como se segue
 
 1. Em **servidores** > **avaliação do servidor de migrações para Azure**, selecione **visão geral**.
 2. Em **gerenciar**, selecione **integridade do agente**.
@@ -148,7 +148,7 @@ As migrações para Azure dão suporte à descoberta de aplicativos, funções e
 
 Erros típicos de descoberta de aplicativo são resumidos na tabela.
 
-**Error** | **Motivo** | **Ação**
+**Erro** | **Motivo** | **Ação**
 --- | --- | --- | ---
 10000: "não é possível descobrir os aplicativos instalados no servidor". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
 10001: "não é possível recuperar os aplicativos instalados no servidor". | Erro interno-alguns arquivos ausentes no dispositivo. | Contacte o Suporte da Microsoft.
@@ -166,7 +166,8 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 9009: "não é possível recuperar os aplicativos instalados no servidor". | Pode ocorrer se as configurações de UAC (controle de conta de usuário) do Windows no servidor forem restritivas e impedir a descoberta de aplicativos instalados. | Procure configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para um dos dois níveis inferiores.
 9010: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
 8084: "não é possível descobrir aplicativos devido ao erro do VMware: <Exception from VMware>" | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer se uma exceção for lançada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Pesquise a mensagem na documentação do [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga as etapas para corrigir. Se você não puder corrigir, entre em contato com o suporte da Microsoft.
-
+9012: "Incapaz de descobrir as aplicações instaladas no servidor" | O problema pode ocorrer devido a um erro interno.  | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
+9013: "Incapaz de descobrir as aplicações instaladas no servidor" | Um novo perfil temporário é criado cada vez que há login no VM.  | Certifique-se de que não é criado um perfil temporário para o utilizador convidado fornecido.
 
 
 

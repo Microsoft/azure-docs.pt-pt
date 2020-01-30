@@ -3,18 +3,18 @@ title: Renderizar dados personalizados em um mapa de rasterização | Mapas do M
 description: Neste artigo, você aprenderá a renderizar dados personalizados em um mapa de rasterização usando o serviço de imagem estática do Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/29/2019
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911462"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766047"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
 
@@ -29,7 +29,7 @@ Para renderizar os pinos, rótulos e sobreposições de geometria personalizados
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps
 
-Para concluir os procedimentos deste artigo, primeiro você precisa criar uma conta do Azure Maps e fazer com que você mapeie a chave de conta. Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
+Para completar os procedimentos neste artigo, primeiro é necessário criar uma conta Azure Maps e obter a chave da conta dos mapas. Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Renderizar anotações com rótulos e uma imagem personalizada
@@ -43,7 +43,7 @@ Para renderizar anotações com rótulos e uma imagem personalizada, conclua est
 
 1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo**. Na janela **criar nova** , selecione **coleção**. Nomeie a coleção e selecione o botão **criar** . 
 
-2. Para criar a solicitação, selecione **novo** novamente. Na janela **criar nova** , selecione **solicitação**. Insira um **nome de solicitação** para as anotações, selecione a coleção que você criou na etapa anterior como o local no qual salvar a solicitação e, em seguida, selecione **salvar**.
+2. Para criar a solicitação, selecione **novo** novamente. Na janela **criar nova** , selecione **solicitação**. Introduza um **nome de pedido** para os pinos. Selecione a coleção que criou no passo anterior como a localização para guardar o pedido e, em seguida, selecione **Guardar**.
     
     ![Criar uma solicitação no postmaster](./media/how-to-render-custom-data/postman-new.png)
 
@@ -142,13 +142,13 @@ Você também pode obter o caminho e fixar as informações de localização usa
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Copie seu URI de status e acrescente o parâmetro Subscription-Key a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps que você usou para carregar os dados. O formato do URI de status deve ser semelhante ao seguinte:
+5. Copie o seu estado URI e ateste o parâmetro de chave de subscrição com o valor da chave de subscrição da sua conta Azure Maps. Utilize a mesma chave de subscrição de conta que usou para fazer o upload dos dados. O formato do URI de status deve ser semelhante ao seguinte:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Para obter o, udId abra uma nova guia no aplicativo de postmaster e selecione obter método HTTP na guia Construtor e faça uma solicitação GET no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId.
+6. Para obter o udId, abra um novo separador na aplicação Postman e selecione o método GET HTTP no separador construtor e faça um pedido GET no estado URI. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId.
 
    ```JSON
    {
@@ -156,7 +156,7 @@ Você também pode obter o caminho e fixar as informações de localização usa
    }
    ```
 
-7. Use o valor `udId` recebido da API de carregamento de dados para renderizar recursos no mapa. Para fazer isso, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método HTTP GET na guia Construtor e insira essa URL para fazer uma solicitação GET:
+7. Use o valor `udId` recebido da API de carregamento de dados para renderizar recursos no mapa. Para fazer isso, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método GET HTTP no separador construtor, substitua a {chave de subscrição} e {udId} com os seus valores e introduza este URL para fazer um pedido GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Você pode modificar a aparência de um polígono usando modificadores de estilo
 > O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
 
-Você pode fazer anotações e seus rótulos maiores ou menores usando o modificador `sc` estilo de escala. Esse modificador usa um valor maior que zero. Um valor de 1 é a escala padrão. Valores maiores que 1 farão com que os Pins sejam maiores, e valores menores que 1 diminuirão os menores. Para obter mais informações sobre modificadores de estilo, consulte [parâmetros de caminho de serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Pode modificar a aparência dos pinos adicionando modificadores de estilo. Por exemplo, para fazer pinos e respetivas etiquetas maiores ou menores, utilize o modificador `sc` "estilo de escala". Esse modificador usa um valor maior que zero. Um valor de 1 é a escala padrão. Valores maiores que 1 farão com que os Pins sejam maiores, e valores menores que 1 diminuirão os menores. Para obter mais informações sobre modificadores de estilo, consulte [parâmetros de caminho de serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Siga estas etapas para renderizar um círculo e anotações com rótulos personalizados:
@@ -206,6 +206,18 @@ Siga estas etapas para renderizar um círculo e anotações com rótulos persona
     Aqui está a imagem de resposta:
 
     ![Renderizar um círculo com anotações personalizadas](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. Para alterar a cor dos pinos do último passo, mude o modificador de estilo "co". Olhe para `pins=default|la15+50|al0.66|lc003C62|co002D62|`, a cor atual seria especificada como #002D62 em CSS. Digamos que quer mudá-lo para #41d42a. Escreva o novo valor de cor após o especificador "co", como este: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Faça um novo pedido GET:
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Aqui está a imagem de resposta depois de mudar as cores dos pinos:
+
+    ![Renderizar um círculo com pinos atualizados](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+Da mesma forma, pode alterar, adicionar e remover outros modificadores de estilo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

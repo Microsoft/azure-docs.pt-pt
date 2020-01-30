@@ -10,44 +10,41 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/15/2020
+ms.date: 01/24/2020
 ms.author: raiye
-ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 89fd16b6afadee75678b76381739c12a31dc1a07
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122139"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765367"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Response Center) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao sistema operacional convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
 
 ## <a name="january-2020-guest-os"></a>SO convidado de janeiro de 2020
 
->[!NOTE]
->Atualmente, o SO convidado de Janeiro está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição for concluída, essa versão será disponibilizada para atualizações manuais por meio dos arquivos de configuração e portal do Azure. Os patches a seguir estão incluídos no SO convidado de Janeiro. Esta lista está sujeita a alterações.
-
 | Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-01  |  [4532960]  |  Segurança do Windows  | 2.94 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2.94 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534314]  |  Segurança do Windows  | 2.94 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532958]  |  Segurança do Windows  | 3,81 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532963]  |  Segurança do Windows  | 3,81 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3,81 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534288]  |  Segurança do Windows  | 3,81 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532961]  |  Segurança do Windows  | 4,74 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4532962]  |  Segurança do Windows  | 4,74 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4,74 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534309]  |  Segurança do Windows  | 4,74 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4494175]  |  Microcódigo v3  | 5,39 | 29/08/2019 |
-|  Rel 20-01  |  [4534271]  |  LCU  | 5,39 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4494174]  |  V4 de microcódigo  | 6,15 | 29/08/2019 |
-|  Rel 20-01  |  [4532947]  |  Segurança do Windows  | 6,15 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4534273]  |  LCU  | 6,15 | 14 de janeiro de 2020 |
-|  Rel 20-01  |  [4530734]  |  Não segurança  | 2.94 | 10 de dezembro de 2019 |
-|  Rel 20-01  |  [4530691]  |  Não segurança   | 3,81 | 10 de dezembro de 2019 |
-|  Rel 20-01  |  [4530702]  |  Não segurança  | 4,74 | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4532960]  |  Segurança do Windows  | [2.94] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534314]  |  Segurança do Windows  | [2.94] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532958]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532963]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534288]  |  Segurança do Windows  | [3.81] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532961]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4532962]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534309]  |  Segurança do Windows  | [4.74] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4494175]  |  Microcódigo v3  | [5.39] | 29 de agosto de 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4494174]  |  V4 de microcódigo  | [6.15] | 29 de agosto de 2019 |
+|  Rel 20-01  |  [4532947]  |  Segurança do Windows  | [6.15] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de janeiro de 2020 |
+|  Rel 20-01  |  [4530734]  |  Não segurança  | [2.94] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4530691]  |  Não segurança   | [3.81] | 10 de dezembro de 2019 |
+|  Rel 20-01  |  [4530702]  |  Não segurança  | [4.74] | 10 de dezembro de 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -68,6 +65,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 [4530734]: https://support.microsoft.com/kb/4530734
 [4530691]: https://support.microsoft.com/kb/4530691
 [4530702]: https://support.microsoft.com/kb/4530702
+[6.15]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.39]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.74]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.94]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="december-2019-guest-os"></a>SO convidado de dezembro de 2019
@@ -216,10 +218,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 |  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 e 4.7.2   |  [6,11]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4516044]  |  Atualização cumulativa mais recente   |  [5,35]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4516064]  |  Segurança do Windows   |  [4,70]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4,70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514350]  |  .Quadro líquido 3.5   |  [4,70]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4,70]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4516062]  |  Segurança do Windows   |  [3,77]  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3,77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514349]  |  .Quadro líquido 3.5   |  [3,77]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3,77]  |  10 de setembro de 2019  |
 |  Rel 19-09   |  [4516033]  |  Segurança do Windows   |  [2,90]  |  12 de setembro de 2019  |
 |  Rel 19-09   |  [4512488]  |  Não segurança   |  [4,70]  |  13 de agosto de 2019  |
@@ -484,7 +486,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 19-03 | [4489907] | Flash | 3,71, 4,64, 5,29, 6,5 | 12 de março de 2019 |
 | Rel 19-03 | [4489885] | Segurança do Windows | 2,84 | 12 de março de 2019 |
 | Rel 19-03 | [4489884] | Segurança do Windows | 3,71 | 12 de março de 2019 |
-| Rel 19-03 | [4489883] | Segurança do Windows | 4,64 | 12 de março de 2019 |
+| Rel 19-03 | [4489883] | Segurança do Windows | 4.64 | 12 de março de 2019 |
 | Rel 19-03 | [4489882] | Segurança do Windows 10 | 5,29 | 12 de março de 2019 |
 | Rel 19-03 | [4489899] | Segurança do Windows 10 | 6.5 | 12 de março de 2019 |
 | Rel 19-03 | [4486563] | ROLLUP não relacionado à segurança de fevereiro | 2,84 | 12 de fevereiro de 2019 |
@@ -493,9 +495,9 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 19-03 | [4487025] | ROLLUP não relacionado à segurança de fevereiro | 3,71 | 12 de fevereiro de 2019 |
 | Rel 19-03 | [4483456] | ROLLUP do .NET 3. x sem segurança de fevereiro | 3,71 | 12 de fevereiro de 2019 |
 | Rel 19-03 | [4483454] | ROLLUP do .NET 4. x sem segurança de fevereiro | 3,71 | 12 de fevereiro de 2019 |
-| Rel 19-03 | [4487000] | ROLLUP não relacionado à segurança de fevereiro | 4,64 | 12 de fevereiro de 2019 |
-| Rel 19-03 | [4483459] | ROLLUP do .NET 3. x sem segurança de fevereiro | 4,64 | 12 de fevereiro de 2019 |
-| Rel 19-03 | [4483453] | ROLLUP do .NET 4. x sem segurança de fevereiro | 4,64 | 12 de fevereiro de 2019 |
+| Rel 19-03 | [4487000] | ROLLUP não relacionado à segurança de fevereiro | 4.64 | 12 de fevereiro de 2019 |
+| Rel 19-03 | [4483459] | ROLLUP do .NET 3. x sem segurança de fevereiro | 4.64 | 12 de fevereiro de 2019 |
+| Rel 19-03 | [4483453] | ROLLUP do .NET 4. x sem segurança de fevereiro | 4.64 | 12 de fevereiro de 2019 |
 | Rel 19-03 | [4485447] | Atualização da pilha de manutenção de fevereiro | 5,29 | 12 de fevereiro de 2019 |
 | Rel 19-03 | [4486459] | Atualização de fuso horário | 2,84, 3,71, 4,64 | 12 de fevereiro de 2019 |
 
@@ -527,24 +529,24 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 19-02 | [4486564] | Segurança do Windows | 2,83 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4483483] | Segurança do .NET 3.5.1 | 2,83 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4483474] | Segurança do .NET 4.5.2 | 2,83 | 12 de fevereiro de 2019 |
-| Rel 19-02 | [4486993] | Segurança do Windows | 3,70 | 12 de fevereiro de 2019 |
-| Rel 19-02 | [4483481] | Segurança do .NET 3,5 | 3,70 | 12 de fevereiro de 2019 |
-| Rel 19-02 | [4483473] | Segurança do .NET 4.5.2 | 3,70 | 12 de fevereiro de 2019 |
-| Rel 19-02 | [4487028] | Segurança do Windows | 4,63 | 12 de fevereiro de 2019 |
-| Rel 19-02 | [4483484] | Segurança do .NET 3,5 | 4,63 | 12 de fevereiro de 2019 |
-| Rel 19-02 | [4483472] | Segurança do .NET 4.5.2 | 4,63 | 12 de fevereiro de 2019 |
+| Rel 19-02 | [4486993] | Segurança do Windows | 3.70 | 12 de fevereiro de 2019 |
+| Rel 19-02 | [4483481] | Segurança do .NET 3,5 | 3.70 | 12 de fevereiro de 2019 |
+| Rel 19-02 | [4483473] | Segurança do .NET 4.5.2 | 3.70 | 12 de fevereiro de 2019 |
+| Rel 19-02 | [4487028] | Segurança do Windows | 4.63 | 12 de fevereiro de 2019 |
+| Rel 19-02 | [4483484] | Segurança do .NET 3,5 | 4.63 | 12 de fevereiro de 2019 |
+| Rel 19-02 | [4483472] | Segurança do .NET 4.5.2 | 4.63 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4487026] | Segurança do Windows | 5.28 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4487044] | Segurança do Windows | 6.4 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4483452] | .NET 3,5, segurança 4.7.2 | 6.4 | 12 de fevereiro de 2019 |
 | N/A | [4480970] | ROLLUP não relacionado à segurança de janeiro | 2,83 | 8 de janeiro de 2019 |
 | N/A | [4483483] | ROLLUP de Janeiro não relacionado à segurança .NET 3.5.1  | 2,83 | 8 de janeiro de 2019 |
 | N/A | [4480059] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET  | 2,83 | 8 de janeiro de 2019 |
-| N/A | [4480975] | ROLLUP não relacionado à segurança de janeiro | 3,70 | 8 de janeiro de 2019 |
-| N/A | [4480061] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 3,70 | 8 de janeiro de 2019 |
-| N/A | [4480058] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 3,70 | 8 de janeiro de 2019 |
-| N/A | [4480963] | ROLLUP não relacionado à segurança de janeiro | 4,63 | 8 de janeiro de 2019 |
-| N/A | [4480064] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 4,63 | 8 de janeiro de 2019 |
-| N/A | [4480057] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 4,63 | 8 de janeiro de 2019 |
+| N/A | [4480975] | ROLLUP não relacionado à segurança de janeiro | 3.70 | 8 de janeiro de 2019 |
+| N/A | [4480061] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 3.70 | 8 de janeiro de 2019 |
+| N/A | [4480058] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 3.70 | 8 de janeiro de 2019 |
+| N/A | [4480963] | ROLLUP não relacionado à segurança de janeiro | 4.63 | 8 de janeiro de 2019 |
+| N/A | [4480064] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 4.63 | 8 de janeiro de 2019 |
+| N/A | [4480057] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 4.63 | 8 de janeiro de 2019 |
 
 [4486474]: https://support.microsoft.com/kb/4486474
 [4487038]: https://support.microsoft.com/kb/4487038
@@ -735,19 +737,19 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Segurança do Windows 10 | 5,23 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457145] | Somente segurança do Windows | 2,78 | 11 de setembro de 2018 |
-| Rel 18-09 | [4457140] | Somente segurança do Windows | 3,65 | 11 de setembro de 2018 |
+| Rel 18-09 | [4457140] | Somente segurança do Windows | 3.65 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457143] | Somente segurança do Windows | 4.58 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457055], [4457030] | Segurança do .NET 3,5, 4,5 | 2,78 | 11 de setembro de 2018 |
-| Rel 18-09 | [4457053], [4457029] | Segurança do .NET 3,5, 4. x | 3,65 | 11 de setembro de 2018 |
+| Rel 18-09 | [4457053], [4457029] | Segurança do .NET 3,5, 4. x | 3.65 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457056], [4457028] | Segurança do .NET 3,5, 4. x | 4.58 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457146] | Flash | 3,65, 4,58, 5,23 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457426] | Internet Explorer | 2,78, 3,65, 4,58 | 11 de setembro de 2018 |
 | N/A | [4343900] | ROLLUP não relacionado à segurança de agosto | 2,78 | 14 de agosto de 2018 |
 | N/A | [4344152] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 2,78 | 14 de agosto de 2018 |
 | N/A | [4344149] | ROLLUP de não segurança do .NET 4x de agosto | 2,78 | 14 de agosto de 2018 |
-| N/A | [4343901] | ROLLUP não relacionado à segurança de agosto | 3,65 | 14 de agosto de 2018 |
-| N/A | [4344150] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 3,65 | 14 de agosto de 2018 |
-| N/A | [4344148] | ROLLUP de não segurança do .NET 4x de agosto | 3,65 | 14 de agosto de 2018 |
+| N/A | [4343901] | ROLLUP não relacionado à segurança de agosto | 3.65 | 14 de agosto de 2018 |
+| N/A | [4344150] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 3.65 | 14 de agosto de 2018 |
+| N/A | [4344148] | ROLLUP de não segurança do .NET 4x de agosto | 3.65 | 14 de agosto de 2018 |
 | N/A | [4343898] | ROLLUP não relacionado à segurança de agosto | 4.58 | 14 de agosto de 2018 |
 | N/A | [4344153] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 4.58 | 14 de agosto de 2018 |
 | N/A | [4344147] | ROLLUP de não segurança do .NET 4x de agosto | 4.58 | 14 de agosto de 2018 |
@@ -845,13 +847,13 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Segurança do Windows 10 |5,18 |10 de abril de 2018 |
 | Rel 18-04 | [4093108] |Somente segurança do Windows |2,73 |10 de abril de 2018 |
-| Rel 18-04 | [4093122] |Somente segurança do Windows |3,60 |10 de abril de 2018 |
+| Rel 18-04 | [4093122] |Somente segurança do Windows |3.60 |10 de abril de 2018 |
 | Rel 18-04 | [4093115] |Somente segurança do Windows |4,53 |10 de abril de 2018 |
 | Rel 18-04 | [4092946] |Internet Explorer |2,73, 3,60, 4,53 |10 de abril de 2018 |
 | Rel 18-04 | [4093110] |Flash |3,60, 4,53, 5,18 |10 de abril de 2018 |
 | N/A | [4088875] |ROLLUP não relacionado à segurança de março |2,73 |13 de março de 2018 |
 | N/A | [4099950] |Pré-requisito de Rollup de não segurança de março|2,73 |13 de março de 2018 |
-| N/A | [4088877] |ROLLUP não relacionado à segurança de março |3,60 |13 de março de 2018 |
+| N/A | [4088877] |ROLLUP não relacionado à segurança de março |3.60 |13 de março de 2018 |
 | N/A | [4088876] |ROLLUP não relacionado à segurança de março |4,53 |13 de março de 2018 |
 
 ## <a name="march-2018-guest-os"></a>SO convidado de março de 2018
@@ -875,10 +877,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-02 | [4074736] |Internet Explorer |2,71, 3,58, 4,51 |13 de fevereiro de 2018 |
 | Rel 18-02 | [4074595] |Flash |3,58, 4,51, 5,16 |13 de fevereiro de 2018 |
 | N/A | [4056894] |ROLLUP não relacionado à segurança de janeiro |2,71 |4 de janeiro de 2018 |
-| N/A | [4056896] |ROLLUP não relacionado à segurança de janeiro |3,58 |4 de janeiro de 2018 |
+| N/A | [4056896] |ROLLUP não relacionado à segurança de janeiro |3.58 |4 de janeiro de 2018 |
 | N/A | [4056895] |ROLLUP não relacionado à segurança de janeiro |4,51 |4 de janeiro de 2018 |
 | N/A | [4054176], [4054172] |ROLLUP .NET de janeiro |2,71 |4 de janeiro de 2018 |
-| N/A | [4054175], [4054171] |ROLLUP .NET de janeiro |3,58 |4 de janeiro de 2018 |
+| N/A | [4054175], [4054171] |ROLLUP .NET de janeiro |3.58 |4 de janeiro de 2018 |
 | N/A | [4054177], [4054170] |ROLLUP .NET de janeiro |4,51 |4 de janeiro de 2018 |
 
 ## <a name="january-2018-guest-os"></a>SO convidado de janeiro de 2018
@@ -939,7 +941,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-09 | [4038782] |Atualizações do Windows 10 |5.11 |12 de setembro de 2017 |
 | Rel 17-09 | [4038779], [4038786], [4038793] |Somente segurança do Windows |2.66, 3.53, 4.46 |12 de setembro de 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Atualização do .NET de setembro |2.66, 3.53, 4.46 |12 de setembro de 2017 |
-| Rel 17-09 | [4036586] |Internet Explorer |2.66, 3.53, 4.46 |12 de setembro de 2017 |
+| Rel 17-09 | [4036586] |Explorador de Internet |2.66, 3.53, 4.46 |12 de setembro de 2017 |
 | CVE-2017-8704 | [4038782] |Denial of Service (DoS) |5.11 |12 de setembro de 2017 |
 | N/A | [4034664] |ROLLUP não relacionado à segurança de agosto  |2.66 |8 de agosto de 2017 |
 | N/A | [4034665] |ROLLUP não relacionado à segurança de agosto |5.11 |8 de agosto de 2017 |
@@ -1036,7 +1038,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-04 |  [4015546]  |Somente segurança do Windows |2.61 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015547]  |Somente segurança do Windows |4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015548]  |Somente segurança do Windows |3.48 | 11 de abril de 2017 |
-| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014661]  |Explorador de Internet |2.61, 3.48, 4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |Segurança do .NET |4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4014564]; [4014572]; [4014549] |Segurança do .NET |3.48 | 11 de abril de 2017 |
 | Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Segurança do .NET |2.61 | 11 de abril de 2017 |
@@ -1052,7 +1054,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="march-2017-guest-os"></a>SO convidado de março de 2017
 | Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| Rel 17-03 |  [4013429] |Melhoramentos e correções | 5.5 | 14 de março de 2017 |
+| Rel 17-03 |  [4013429] |Melhorias e correções | 5.5 | 14 de março de 2017 |
 | Rel 17-03 |  [4012212] |Atualização de qualidade apenas de segurança de março de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
 | Rel 17-03 |  [4012213] |Atualização de qualidade apenas de segurança de março de 2017 para Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
 | Rel 17-03 |  [4012214] |Atualização de qualidade apenas de segurança de março de 2017 para Windows Server 2012|3.47 |14 de março de 2017 |
@@ -1071,7 +1073,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="december-2016-guest-os"></a>SO convidado de dezembro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-144 |[3204059] |Atualização de Segurança Cumulativa para o Internet Explorer |2.58, 3.46, 4.39 |13 de dezembro de 2016 |
+| MS16-144 |[3204059] |Atualização cumulativa de segurança para o Internet Explorer |2.58, 3.46, 4.39 |13 de dezembro de 2016 |
 | MS16-145 |[3204062] |Atualização de segurança cumulativa para o Microsoft Edge |5.4 |13 de dezembro de 2016 |
 | MS16-146 |[3204066]   |Atualização de segurança para o componente gráfico da Microsoft|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
 | MS16-147 |[3204063]   |Atualização de segurança para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
@@ -1098,7 +1100,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-138 |[3199647] |Atualização de segurança do disco rígido virtual da Microsoft |5.3, 4.38, 3.45 |8 de novembro de 2016 |
 | MS16-139 |[3199720] |Atualização de segurança para o kernel do Windows |2.57 |8,2016 de novembro |
 | MS16-140 |[3193479] |Atualização de segurança para o Gerenciador de inicialização |5.3, 4.38, 3.45 |8 de novembro de 2016 |
-| MS16-142 |[3198467] |Atualização de Segurança Cumulativa para o Internet Explorer |2.57, 4.38, 5.3 |8 de novembro de 2016 |
+| MS16-142 |[3198467] |Atualização cumulativa de segurança para o Internet Explorer |2.57, 4.38, 5.3 |8 de novembro de 2016 |
 | N/A |[3192321] |Turquia termina com observância de hora de verão |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
 | N/A |[3185330] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2.57 |8 de novembro de 2016 |
 | N/A |[3192403] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de novembro de 2016 |
@@ -1113,7 +1115,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="october-2016-guest-os"></a>SO convidado de outubro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-118 |[3192887] |Atualização de Segurança Cumulativa para o Internet Explorer |4.37, 3.44, 2.56 |11 de outubro de 2016 |
+| MS16-118 |[3192887] |Atualização cumulativa de segurança para o Internet Explorer |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-120 |[3192884] |Atualização de segurança para o componente gráfico da Microsoft |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-123 |[3192892] |Atualização de segurança para drivers do modo kernel |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-124 |[3193227] |Atualização de segurança para o registro do Windows |4.37, 3.44, 2.56 |11 de outubro de 2016 |
@@ -1128,7 +1130,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="september-2016-guest-os"></a>SO convidado de setembro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-104 |[3183038] |Atualização de Segurança Cumulativa para o Internet Explorer |4.36, 3.43, 2.55 |13 de setembro de 2016 |
+| MS16-104 |[3183038] |Atualização cumulativa de segurança para o Internet Explorer |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | MS16-106 |[3185848] |Atualização de segurança para o componente gráfico da Microsoft |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | MS16-110 |[3178467] |Atualização de segurança para o Windows |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | MS16-111 |[3186973] |Atualização de segurança para o kernel do Windows |4.36, 3.43, 2.55 |13 de setembro de 2016 |
@@ -1145,7 +1147,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="august-2016-guest-os"></a>SO convidado de agosto de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-095 |[3177356] |Atualização de Segurança Cumulativa para o Internet Explorer |4.35, 3.42, 2.54 |9 de agosto de 2016 |
+| MS16-095 |[3177356] |Atualização cumulativa de segurança para o Internet Explorer |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-097 |[3177393] |Atualização de segurança para o componente gráfico da Microsoft |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-098 |[3178466] |Atualização de segurança para drivers do modo kernel do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-100 |[3179577] |Atualização de segurança para inicialização segura |4.35, 3.42 |9 de agosto de 2016 |
@@ -1159,7 +1161,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="july-2016-guest-os"></a>SO convidado de julho de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-084 |[3169991] |Atualização de Segurança Cumulativa para o Internet Explorer |4.34, 3.41, 2.53 |12 de julho de 2016 |
+| MS16-084 |[3169991] |Atualização cumulativa de segurança para o Internet Explorer |4.34, 3.41, 2.53 |12 de julho de 2016 |
 | MS16-087 |[3170005] |Atualização de segurança para o spooler de impressão da Microsoft |4.34, 3.41, 2.53 |12 de julho de 2016 |
 | MS16-090 |[3171481] |Atualização de segurança para drivers de modo kernel |4.34, 3.41, 2.53 |12 de julho de 2016 |
 | MS16-091 |[3170048] |Atualização de segurança para .NET Framework |4.34, 3.41, 2.53 |12 de julho de 2016 |
@@ -1177,7 +1179,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Atualização de segurança para .NET Framework resolver o bypass do recurso de segurança |4.33, 3.40, 2.52 |14 de Junho de 2016 |
 | Aconselhamento |[3155527] |Atualizar para conjuntos de codificação para FalseStart |4.33, 3.40 |14 de Junho de 2016 |
-| MS16-063 |[3163649] |Atualização de Segurança Cumulativa para o Internet Explorer |4.33, 3.40, 2.52 |14 de Junho de 2016 |
+| MS16-063 |[3163649] |Atualização cumulativa de segurança para o Internet Explorer |4.33, 3.40, 2.52 |14 de Junho de 2016 |
 | MS16-069 |[3163640] |Atualização de segurança cumulativa para JScript e VBScript |2.52 |14 de Junho de 2016 |
 | MS16-071 |[3164065] |Atualização de segurança para o servidor DNS do Microsoft Windows |4.33, 3.40 |14 de Junho de 2016 |
 | MS16-072 |[3163622] |Atualização de segurança para Política de Grupo |4.33, 3.40, 2.52 |14 de Junho de 2016 |
@@ -1202,7 +1204,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="may-2016-guest-os"></a>Sistema operacional convidado 2016 de maio
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-051 |[3155533] |Atualização de Segurança Cumulativa para o Internet Explorer |4.32, 3.39, 2.51 |10 de maio de 2016 |
+| MS16-051 |[3155533] |Atualização cumulativa de segurança para o Internet Explorer |4.32, 3.39, 2.51 |10 de maio de 2016 |
 | MS16-053 |[3156764] |Atualização de segurança cumulativa para JScript e VBScript |2.51 |10 de maio de 2016 |
 | MS16-055 |[3156754] |Atualização de segurança para o componente gráfico da Microsoft |4.32, 3.39, 2.51 |10 de maio de 2016 |
 | MS16-057 |[3156987] |Atualização de segurança para o Shell do Windows |4.32 |10 de maio de 2016 |
@@ -1220,7 +1222,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="april-2016-guest-os"></a>SO convidado de abril de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-037 |[3148531] |Atualização de Segurança Cumulativa para o Internet Explorer |4.31, 3.38, 2.50 |12 de abril de 2016 |
+| MS16-037 |[3148531] |Atualização cumulativa de segurança para o Internet Explorer |4.31, 3.38, 2.50 |12 de abril de 2016 |
 | MS16-039 |[3148522] |Atualização de segurança para o componente gráfico da Microsoft |4.31, 3.38, 2.50 |12 de abril de 2016 |
 | MS16-040 |[3148541] |Atualização de segurança para o Microsoft XML Core Service |4.31, 3.38, 2.50 |12 de abril de 2016 |
 | MS16-044 |[3146706] |Atualização de segurança para o Windows OLE |4.31, 3.38, 2.50 |12 de abril de 2016 |
@@ -1231,7 +1233,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="march-2016-guest-os"></a>SO convidado de março de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-023 |[3142015] |Atualização de Segurança Cumulativa para o Internet Explorer |4.30, 3.37, 2.49 |8 de março de 2016 |
+| MS16-023 |[3142015] |Atualização cumulativa de segurança para o Internet Explorer |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-026 |[3143148] |Atualização de segurança para fontes gráficas para abordar a execução remota de código |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-027 |[3143146] |Atualizações de segurança do Windows Media Player para resolver a execução remota de código |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-028 |[3143081] |Atualização de segurança para a biblioteca PDF do Microsoft Windows para abordar a execução remota de código |4.30, 3.37 |8 de março de 2016 |
@@ -1244,7 +1246,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="february-2016-guest-os"></a>SO convidado de fevereiro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-009 |[3134220] |Atualização de Segurança Cumulativa para o Internet Explorer |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| MS16-009 |[3134220] |Atualização cumulativa de segurança para o Internet Explorer |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-013 |[3134811] |Atualização de segurança para o diário do Windows para abordar a execução remota de código |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-014 |[3134228] |Atualização de segurança para o Microsoft Windows para abordar a execução remota de código |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-016 |[3136041] |Atualização de segurança para o WebDAV para tratar da elevação de privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
@@ -1259,7 +1261,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="january-2016-guest-os"></a>SO convidado de janeiro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS16-001 |[3124903] |Atualização de Segurança Cumulativa para o Internet Explorer |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
+| MS16-001 |[3124903] |Atualização cumulativa de segurança para o Internet Explorer |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-003 |[3125540] |Atualização de segurança cumulativa para JScript e VBScript |2.47 |12 de janeiro de 2016 |
 | MS16-005 |[3124584] |Atualização de segurança para drivers do modo kernel do Windows para tratar da execução remota de código |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-007 |[3124901] |Atualização de segurança do Microsoft Windows para abordar a execução remota de código |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
@@ -1272,7 +1274,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="december-2015-guest-os"></a>SO convidado de dezembro de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-124 |[3116180] |Atualização de Segurança Cumulativa para o Internet Explorer |4.27, 3.34, 2.46 |8 de dezembro de 2015 |
+| MS15-124 |[3116180] |Atualização cumulativa de segurança para o Internet Explorer |4.27, 3.34, 2.46 |8 de dezembro de 2015 |
 | MS15-126 |[3116178] |Atualização de segurança para Microsoft VBScript e JScript para abordar a execução remota de código |2.46 |8 de dezembro de 2015 |
 | MS15-127 |[3100465] |Atualização de segurança para o DNS do Microsoft Windows para endereçar a execução remota de código |4.27, 3.34, 2.46 |8 de dezembro de 2015 |
 | MS15-128 |[3104503] |Atualizações de segurança do componente gráfico da Microsoft para abordar a execução remota de código |4.27, 3.34, 2.46 |8 de dezembro de 2015 |
@@ -1284,7 +1286,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="november-2015-guest-os"></a>SO convidado de novembro de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-112 |[3104517] |Atualização de Segurança Cumulativa para o Internet Explorer |4.26, 3.33, 2.45 |10 de novembro de 2015 |
+| MS15-112 |[3104517] |Atualização cumulativa de segurança para o Internet Explorer |4.26, 3.33, 2.45 |10 de novembro de 2015 |
 | MS15-114 |[3100213] |Atualização de segurança para o diário do Windows para abordar a execução remota de código |2.45 |10 de novembro de 2015 |
 | MS15-115 |[3105864] |Atualização de segurança do Microsoft Windows para abordar a execução remota de código |4.26, 3.33, 2.45 |10 de novembro de 2015 |
 | MS15-117 |[3101722] |Atualização de segurança para NDIS para tratar da elevação de privilégio |2.45 |10 de novembro de 2015 |
@@ -1298,7 +1300,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="october-2015-guest-os"></a>SO convidado de outubro de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-106 |[3096441] |Atualização de Segurança Cumulativa para o Internet Explorer |4.25, 3.32, 2.44 |13 de outubro de 2015 |
+| MS15-106 |[3096441] |Atualização cumulativa de segurança para o Internet Explorer |4.25, 3.32, 2.44 |13 de outubro de 2015 |
 | MS15-108 |[3089659] |Atualização de segurança para JScript e VBScript para tratar da execução de código remota em potencial |2.44 |13 de outubro de 2015 |
 | MS15-109 |[3096443] |Atualização de segurança para o Shell do Windows para abordar a execução remota de código |4.25, 3.32, 2.44 |13 de outubro de 2015 |
 | MS15-111 |[3096447] |Atualização de segurança para o kernel do Windows para tratar da elevação de privilégio |4.25, 3.32, 2.44 |13 de outubro de 2015 |
@@ -1308,7 +1310,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Atualização de segurança para o Internet Explorer |4.24, 3.31, 2.43 |8 de setembro de 2015 |
-| MS15-094 |[3089548] |Atualização de Segurança Cumulativa para o Internet Explorer |4.24, 3.31, 2.43 |8 de setembro de 2015 |
+| MS15-094 |[3089548] |Atualização cumulativa de segurança para o Internet Explorer |4.24, 3.31, 2.43 |8 de setembro de 2015 |
 | MS15-096 |[3072595] |Vulnerabilidade no serviço Active Directory pode permitir negação de serviço |4.24, 3.31, 2.43 |8 de setembro de 2015 |
 | MS15-097 |[3089656] |Vulnerabilidades no componente gráfico da Microsoft podem permitir a elevação de privilégio |4.24, 3.31, 2.43 |8 de setembro de 2015 |
 | MS15-098 |[3089669] |Vulnerabilidades no diário do Windows podem permitir a execução remota de código |4.24, 3.31, 2.43 |8 de setembro de 2015 |
@@ -1319,19 +1321,19 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="august-2015-guest-os"></a>SO convidado de agosto de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-079 |[3082442] |Atualização de Segurança Cumulativa para o Internet Explorer |4.23, 3.30, 2.42 |11 de agosto de 2015 |
+| MS15-079 |[3082442] |Atualização cumulativa de segurança para o Internet Explorer |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-080 |[3078662] |Vulnerabilidades no componente gráfico da Microsoft podem permitir a execução remota de código |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-082 |[3080348] |Vulnerabilidades no RDP podem permitir a execução remota de código |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-084 |[3080129] |Vulnerabilidades no XML Core Services podem permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-085 |[3082487] |Vulnerabilidade no Gerenciador de montagem pode permitir a elevação de privilégio |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-088 |[3082458] |A passagem de parâmetro de linha de comando não segura pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de agosto de 2015 |
-| MS15-089 |[3060716] |As Vulnerabilidades no Microsoft Windows Podem Permitir a Elevação de Privilégios |4.23, 3.30, 2.42 |11 de agosto de 2015 |
+| MS15-089 |[3060716] |Vulnerabilidades no Microsoft Windows podem permitir elevação de privilégios |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-090 |[3076949] |Vulnerabilidade no WebDAV pode permitir a divulgação de informações |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 
 ## <a name="july-2015-guest-os"></a>SO convidado de julho de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-065 |[3076321] |Atualização de Segurança Cumulativa para o Internet Explorer |4.22, 3.29, 2.41 |14 de julho de 2015 |
+| MS15-065 |[3076321] |Atualização cumulativa de segurança para o Internet Explorer |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-066 |[3072604] |Vulnerabilidade no VBScript pode permitir a execução remota de código |2.41 |14 de julho de 2015 |
 | MS15-067 |[3073094] |Vulnerabilidade no RDP pode permitir a execução remota de código |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-068 |[3072000] |Vulnerabilidade no Windows Hyper-V pode permitir a execução remota de código |4.22, 3.29, 2.41 |14 de julho de 2015 |
@@ -1348,7 +1350,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="june-2015-guest-os"></a>SO convidado de junho de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-056 |[3058515] |Atualização de Segurança Cumulativa para o Internet Explorer |4.21, 3.28, 2.40 |9 de junho de 2015 |
+| MS15-056 |[3058515] |Atualização cumulativa de segurança para o Internet Explorer |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-057 |[3033890] |Vulnerabilidade no Windows Media Player pode permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-060 |[3059317] |Vulnerabilidade nos controles comuns da Microsoft pode permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-061 |[3057839] |Vulnerabilidades nos drivers do modo kernel do Windows podem permitir a elevação de privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
@@ -1358,7 +1360,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="may-2015-guest-os"></a>Sistema operacional convidado 2015 de maio
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-043 |[3049563] |Atualização de Segurança Cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |12 de Maio de 2015 |
+| MS15-043 |[3049563] |Atualização cumulativa de segurança para o Internet Explorer |4.20, 3.27, 2.39 |12 de Maio de 2015 |
 | MS15-044 |[3057110] |Vulnerabilidades nos drivers de fontes da Microsoft podem permitir a execução remota de código |4.20, 3.27, 2.39 |12 de Maio de 2015 |
 | MS15-045 |[3046002] |Vulnerabilidade no diário do Windows pode permitir a execução remota de código |4.20, 3.27, 2.39 |12 de Maio de 2015 |
 | MS15-048 |[3057134] |Vulnerabilidades no .NET Framework podem permitir a elevação de privilégio |4.20, 3.27, 2.39 |12 de Maio de 2015 |
@@ -1368,15 +1370,15 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS15-053 |[3057263] |Vulnerabilidades no mecanismo de script JScript e VBScript podem permitir o bypass do recurso de segurança |4.20, 3.27, 2.39 |12 de Maio de 2015 |
 | MS15-054 |[3051768] |Vulnerabilidade no formato de arquivo do console de gerenciamento Microsoft pode permitir negação de serviço |4.20, 3.27, 2.39 |12 de Maio de 2015 |
 | MS15-055 |[3061518] |Vulnerabilidade no Schannel pode permitir que o recurso de segurança ignore a divulgação de informações importantes |4.20, 3.27, 2.39 |12 de Maio de 2015 |
-| MS15-032 |[3038314] |Atualização de Segurança Cumulativa para o Internet Explorer |4.20, 3.27, 2.39 |17 de abril de 2015 |
+| MS15-032 |[3038314] |Atualização cumulativa de segurança para o Internet Explorer |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-035 |[3046306] |Vulnerabilidade no componente gráfico da Microsoft pode permitir a execução remota de código |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-037 |[3046269] |Vulnerabilidade no Windows Agendador de Tarefas pode permitir a elevação de privilégio |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-038 |[3049576] |Vulnerabilidades no Microsoft Windows poderiam permitir a elevação de privilégio importante |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-039 |[3046482] |Vulnerabilidade no XML Core Services pode permitir o bypass do recurso de segurança |4.20, 3.27, 2.39 |17 de abril de 2015 |
-| MS15-040 |[3045711] |A Vulnerabilidade no ADFS Pode Permitir a Divulgação de Informações |4.20, 3.27, 2.39 |17 de abril de 2015 |
+| MS15-040 |[3045711] |Vulnerabilidade no ADFS poderia permitir divulgação de informação |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-041 |[3048010] |Vulnerabilidade no .NET Framework pode permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de abril de 2015 |
-| MS15-042 |[3047234] |A Vulnerabilidade no Windows Hyper-V Pode Permitir a Negação de Serviço |4.20, 3.27, 2.39 |17 de abril de 2015 |
-| N/D |[3045755] |Atualização para Melhorar a Autenticação de PKU2U |4.20, 3.27, 2.39 |17 de abril de 2015 |
+| MS15-042 |[3047234] |Vulnerabilidade no Windows Hyper-V poderia permitir negação de serviço |4.20, 3.27, 2.39 |17 de abril de 2015 |
+| N/D |[3045755] |Atualização para melhorar a autenticação PKU2U |4.20, 3.27, 2.39 |17 de abril de 2015 |
 
 ## <a name="april-2015-guest-os"></a>SO convidado de abril de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1386,7 +1388,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="march-2015-guest-os"></a>SO convidado de março de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-018 |[3032359] |Atualização de Segurança Cumulativa para o Internet Explorer |4.18, 3.25, 2.37 |N/A |
+| MS15-018 |[3032359] |Atualização cumulativa de segurança para o Internet Explorer |4.18, 3.25, 2.37 |N/A |
 | MS15-019 |[3040297] |Vulnerabilidade no mecanismo de script VBScript pode permitir a execução remota de código |4.18, 3.25, 2.37 |N/A |
 | MS15-020 |[3041836] |Vulnerabilidades no Windows podem permitir a execução remota de código |4.18, 3.25, 2.37 |N/A |
 | MS15-021 |[3032323] |Vulnerabilidades o driver de fonte Adobe pode permitir a execução remota de código |4.18, 3.25, 2.37 |N/A |
@@ -1425,7 +1427,7 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS15-006 |[3004365] |Vulnerabilidade no Relatório de Erros do Windows pode permitir o bypass do recurso de segurança |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-007 |[3014029] |Vulnerabilidade no servidor de políticas de rede RADIUS pode causar negação de serviço |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-008 |[3019215] |Vulnerabilidade no driver de modo de kernel do Windows pode permitir a elevação de privilégio |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS14-080 |[3008923] |Atualização de Segurança Cumulativa para o Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS14-080 |[3008923] |Atualização cumulativa de segurança para o Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Vulnerabilidade no serviço telnet do Windows pode causar a execução remota de código |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Vulnerabilidade no serviço telnet do Windows pode causar a execução remota de código |4.16, 3.23, 2.35 |Jan 19 2015 |
 

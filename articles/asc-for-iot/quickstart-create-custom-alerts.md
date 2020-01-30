@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: criar alertas personalizados para a central de segurança do Azure para IoT'
-description: Entenda, crie e atribua alertas de dispositivo personalizados para a central de segurança do Azure para o serviço de segurança de IoT.
+title: 'Quickstart: Criar alertas personalizados para o Centro de Segurança Azure para ioT'
+description: Compreenda, crie e atribua alertas de dispositivos personalizados para o Azure Security Center para o serviço de segurança IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 992dd7b85dee0774b8388ae22fe18377ca9e5691
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664841"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766452"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Início rápido: criar alertas personalizados
+# <a name="quickstart-create-custom-alerts"></a>Quickstart: Criar alertas personalizados
 
 
-O uso de grupos de segurança e alertas personalizados aproveita totalmente as informações de segurança de ponta a ponta e o conhecimento de dispositivo categórico para garantir uma melhor segurança em sua solução de IoT. 
+Utilizando grupos de segurança personalizados e alertas, tira o máximo partido das informações de segurança e do conhecimento categórico do dispositivo para garantir uma melhor segurança em toda a sua solução IoT. 
 
 ## <a name="why-use-custom-alerts"></a>Por que usar alertas personalizados? 
 
-Você conhece melhor seus dispositivos IoT.
+Conhece melhor os seus dispositivos ioT.
 
-Para os clientes que entendem totalmente seu comportamento de dispositivo esperado, a central de segurança do Azure para IoT permite que você traduza essa compreensão em uma política de comportamento de dispositivo e alerte qualquer desvio do comportamento esperado e normal.
+Para os clientes que compreendem plenamente o comportamento esperado do dispositivo, o Azure Security Center for IoT permite traduzir este entendimento numa política de comportamento do dispositivo e alertar para qualquer desvio do comportamento normal esperado.
 
 ## <a name="security-groups"></a>Grupos de segurança
 
-Os grupos de segurança permitem que você defina grupos lógicos de dispositivos e gerencie seu estado de segurança de forma centralizada.
+Os grupos de segurança permitem-lhe definir grupos lógicos de dispositivos e gerir o seu estado de segurança de forma centralizada.
 
-Esses grupos podem representar dispositivos com hardware específico, dispositivos implantados em um determinado local ou qualquer outro grupo adequado às suas necessidades específicas.
+Estes grupos podem representar dispositivos com hardware específico, dispositivos implantados num determinado local, ou qualquer outro grupo adequado às suas necessidades específicas.
 
-Os grupos de segurança são definidos por uma propriedade de marca de dispositivo de entrelaçamento chamada grupo de **segurança**. Por padrão, cada solução de IoT no Hub IoT tem um grupo de segurança chamado **padrão**. Altere o valor da propriedade The **Security** Group para alterar o grupo de segurança de um dispositivo.
+Os grupos de segurança são definidos por uma propriedade de twin tag de dispositivo chamada **SecurityGroup**. Por padrão, cada solução IoT no IoT Hub tem um grupo de segurança chamado **padrão**. Altere o valor da propriedade **securityGroup** para alterar o grupo de segurança de um dispositivo.
  
 Por exemplo:
 
@@ -64,51 +64,28 @@ Por exemplo:
   }, 
 ```
 
-Use grupos de segurança para agrupar seus dispositivos em categorias lógicas. Depois de criar os grupos, atribua-os aos alertas personalizados de sua escolha, para a solução de segurança de IoT de ponta a ponta mais eficaz. 
+Utilize grupos de segurança para agrupar os seus dispositivos em categorias lógicas. Depois de criar os grupos, atribua-os aos alertas personalizados da sua escolha, para a solução de segurança IoT mais eficaz. 
 
-## <a name="customize-an-alert"></a>Personalizar um alerta
+## <a name="customize-an-alert"></a>Personalize um alerta
 
-1. Abra o Hub IoT. 
-2. Clique em **alertas personalizados** na seção **segurança** . 
-3. Escolha um grupo de segurança ao qual você deseja aplicar a personalização. 
-4. Clique em **Adicionar um alerta personalizado**.
-5. Selecione um alerta personalizado na lista suspensa. 
-6. Edite as propriedades necessárias e clique em **OK**.
-7. Certifique-se de clicar em **salvar**. Sem salvar o novo alerta, o alerta será excluído na próxima vez que você fechar o Hub IoT.
+1. Abra o seu Hub IoT. 
+2. Clique em **alertas Personalizados** na secção **de Segurança.** 
+3. Escolha um grupo de segurança ao qual deseja aplicar a personalização. 
+4. Clique **em Adicionar um alerta personalizado**.
+5. Selecione um alerta personalizado da lista de abandono. 
+6. Editar as propriedades necessárias, clique em **OK**.
+7. Certifique-se de clicar em **SAVE**. Sem guardar o novo alerta, o alerta é apagado da próxima vez que fechar o IoT Hub.
 
  
 ## <a name="alerts-available-for-customization"></a>Alertas disponíveis para personalização
 
-A tabela a seguir fornece um resumo dos alertas disponíveis para personalização.
-
-
-| Gravidade | Nome | Fonte de dados | Descrição | Correção sugerida|
-|---|---|---|---|---|
-| Baixo      | Alerta personalizado – número de mensagens de nuvem para dispositivo no protocolo AMQP está fora do intervalo permitido          | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
-| Baixo      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo AMQP está fora do intervalo permitido | Hub IoT     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitadas pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
-| Baixo      | Alerta personalizado-o número de mensagens do dispositivo para a nuvem no protocolo AMQP está fora do intervalo permitido      | Hub IoT     | A quantidade de dispositivo para mensagens na nuvem (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|   |
-| Baixo      | Alerta personalizado-o número de invocações de método direto está fora do intervalo permitido | Hub IoT     | A quantidade de invocações de método direto em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
-| Baixo      | Alerta personalizado-o número de carregamentos de arquivo está fora do intervalo permitido | Hub IoT     | A quantidade de carregamentos de arquivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.| |
-| Baixo      | Alerta personalizado-o número de mensagens de nuvem para o dispositivo no protocolo HTTP está fora do intervalo permitido | Hub IoT     | A quantidade de mensagens da nuvem para o dispositivo (protocolo HTTP) em uma janela de tempo não está no intervalo permitido configurado                                  |
-| Baixo      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo HTTP não está no intervalo permitido | Hub IoT     | A quantidade de mensagens de nuvem para dispositivo (protocolo HTTP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido. |
-| Baixo      | Alerta personalizado-o número de mensagens do dispositivo para a nuvem no protocolo HTTP está fora do intervalo permitido | Hub IoT| A quantidade de dispositivo para mensagens de nuvem (protocolo HTTP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|    |
-| Baixo      | Alerta personalizado – número de mensagens de nuvem para dispositivo no protocolo MQTT está fora do intervalo permitido | Hub IoT     | A quantidade de mensagens de nuvem para dispositivo (protocolo MQTT) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|   |
-| Baixo      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo MQTT está fora do intervalo permitido | Hub IoT     | A quantidade de mensagens de nuvem para dispositivo (protocolo MQTT) rejeitada pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido. |
-| Baixo      | Alerta personalizado-o número de mensagens do dispositivo para a nuvem no protocolo MQTT está fora do intervalo permitido          | Hub IoT     | A quantidade de dispositivo para mensagens na nuvem (protocolo MQTT) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|
-| Baixo      | Alerta personalizado-o número de limpezas de fila de comando está fora do intervalo permitido                               | Hub IoT     | A quantidade de limpezas de fila de comando em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
-| Baixo      | Alerta personalizado-o número de atualizações do módulo de atualização está fora do intervalo permitido                                       | Hub IoT     | A quantidade de atualizações de conjunto de módulos em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|
-| Baixo      | Alerta personalizado-o número de operações não autorizadas está fora do intervalo permitido  | Hub IoT     | A quantidade de operações não autorizadas em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|
-| Baixo      | Alerta personalizado-o número de conexões ativas está fora do intervalo permitido  | Agente       | O número de conexões ativas em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|  Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigno ou mal-intencionada. Se for mal-intencionado, remova o possível malware e entenda a origem. Se for benigno, adicione a origem à lista de conexões permitidas.  |
-| Baixo      | Alerta personalizado-conexão de saída criada para um IP que não é permitido                             | Agente       | Uma conexão de saída foi criada para um IP que está fora da sua lista de IPs permitidos. |Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigno ou mal-intencionada. Se for mal-intencionado, remova o possível malware e entenda a origem. Se for benigno, adicione a origem à lista de IPs permitidos.                        |
-| Baixo      | Alerta personalizado-o número de logons locais com falha está fora do intervalo permitido                               | Agente       | A quantidade de logons locais com falha em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido. |   |
-| Baixo      | Alerta personalizado-logon de um usuário que não está na lista de usuários permitidos | Agente       | Um usuário local fora da lista de usuários permitidos, conectado ao dispositivo.|  Se você estiver salvando dados brutos, navegue até sua conta do log Analytics e use os dados para investigar o dispositivo, identifique a origem e, em seguida, corrija a lista de permissões/bloqueios para essas configurações. Se você não estiver salvando dados brutos no momento, vá para o dispositivo e corrija a lista de permissões/bloqueios para essas configurações.|
-| Baixo      | Alerta personalizado-um processo foi executado e não é permitido | Agente       | Um processo que não é permitido foi executado no dispositivo. |Se você estiver salvando dados brutos, navegue até sua conta do log Analytics e use os dados para investigar o dispositivo, identifique a origem e, em seguida, corrija a lista de permissões/bloqueios para essas configurações. Se você não estiver salvando dados brutos no momento, vá para o dispositivo e corrija a lista de permissões/bloqueios para essas configurações.  |
+O Azure Security Center for IoT oferece um grande número de alertas que podem ser personalizados de acordo com as suas necessidades específicas. Reveja a tabela de [alerta personalizável](concept-customizable-security-alerts.md) para a gravidade do alerta, fonte de dados, descrição e as nossas etapas de reparação sugeridas se e quando cada alerta for recebido. 
 |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avance para o próximo artigo para saber como implantar um agente de segurança...
+Avançar para o próximo artigo para aprender a implantar um agente de segurança...
 
 > [!div class="nextstepaction"]
-> [Implantar um agente de segurança](how-to-deploy-agent.md)
+> [Implante um agente de segurança](how-to-deploy-agent.md)

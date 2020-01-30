@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: HT
+ms.openlocfilehash: e520c9a1e9d40c318b8e2b69801bf5cc600e16bb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760339"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772047"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -44,20 +44,20 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | E.U.A. Leste | 40.121.158.30, 191.238.6.43  |
 | E.U.A. Leste 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | França Central | 40.79.137.0, 40.79.129.1  |
-| Alemanha Central | 51.4.144.100     |
+| Nordeste da Alemanha | 51.4.144.100     |
 | Leste Norte da Alemanha | 51.5.144.179  |
 | Índia Central | 104.211.96.159     |
 | Índia do Sul | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
 | Leste do Japão | 13.78.61.196, 191.237.240.43  |
-| Oeste do Japão | 104.214.148.156, 191.238.68.11    |
+| Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.7, 40.74.96.6 |
 | Coreia do Sul Central | 52.231.32.42   |
 | Sul da Coreia do Sul | 52.231.200.86    |
 | E.U.A. Centro-Norte | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa do Norte | 40.113.93.91, 191.235.193.75    |
 | Norte da África do Sul  | 102.133.152.0    |
 | Oeste da África do Sul | 102.133.24.0   |
-| E.U.A. Centro-Sul |13.66.62.124, 23.98.162.75   |
+| E.U.A. Centro-Sul |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Sudeste Asiático | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | E.A.U. Central | 20.37.72.64  |
 | Norte dos E.A.U. | 65.52.248.0    |

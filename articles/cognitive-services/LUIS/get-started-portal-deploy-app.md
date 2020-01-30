@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448077"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772485"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: implantar um aplicativo no portal do LUIS
 
@@ -45,7 +45,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
    |Local de criação|**E.U.A. Oeste**|A região do Azure para criação.|
    |Tipo de preço de criação|**F0**|O tipo de preço padrão para criação.|
    |Local do tempo de execução|**E.U.A. Oeste**|A região do Azure para consultas de ponto de extremidade de previsão.|
-   |Tipo de preço de tempo de execução|**S0**|Esse tipo de preço fornece sites de tráfego intenso.|
+   |Tipo de preço de tempo de execução|**S0**|Este nível de preços fornece sites de alto tráfego.|
    | | | |
 
 
@@ -74,6 +74,9 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 1. Conclua as mesmas etapas para adicionar a chave de criação ao seu aplicativo.
 
 1. Localize a nova linha na tabela para o novo recurso de previsão e copie a URL do ponto de extremidade. Ele é construído corretamente para fazer uma solicitação de `HTTP GET` ao ponto de extremidade da API do LUIS para uma previsão.
+
+> [!TIP]
+> Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL de exemplo adicionando o parâmetro de `log=true` consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
@@ -135,7 +138,7 @@ O navegador mostra a resposta:
 
 Para ver esse mesmo nível de informação no painel de teste, você deve publicar o aplicativo. Depois que o aplicativo for publicado, selecione **comparar com publicado** no painel de teste. Use a **exibição mostrar JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar as alterações para o aplicativo atual em que está trabalhando com um aplicativo que é publicado no ponto de extremidade.
 
-[![comparar a edição atual versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Comparar atualmente a edição versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

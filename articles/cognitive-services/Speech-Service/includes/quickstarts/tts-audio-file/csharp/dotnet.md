@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72086f1df2b497a722b2752b56a32e6c269fe32d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468576"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768135"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -185,7 +185,7 @@ namespace helloworld
 
 Agora você está pronto para criar seu aplicativo e testar a síntese de fala usando o serviço de fala.
 
-1. **Compile o código** -na barra de menus do Visual Stuio, escolha **Compilar** > **Compilar solução**.
+1. **Compilar o código** -na barra de menus do Visual Studio, escolha **Compilar** > **Compilar solução**.
 2. **Inicie seu aplicativo** -na barra de menus, escolha **depurar** > **Iniciar Depuração** ou pressione **F5**.
 3. **Iniciar síntese** -o texto é convertido em fala e salvo nos dados de áudio especificados.
 

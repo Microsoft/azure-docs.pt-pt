@@ -3,12 +3,12 @@ title: Matriz de suporte de cópia de segurança do SAP HANA
 description: Neste artigo, saiba mais sobre os cenários e limitações com suporte ao usar o backup do Azure para fazer backup de bancos de dados SAP HANA em VMs do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 2063da4c5210cace41454d8bdc5b12e636ba76cd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 82d844385290ab0dc2953537c1f9a3387dd7b2b2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705654"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842636"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -33,7 +33,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Cenário**               | **Configurações com suporte**                                | **Configurações sem suporte**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA em execução somente em VMs Linux do Azure                    | HLI (HANA Large instances)                                   |
-| **Áreas geográficas**                   | **GA:**<br />**Europa** – Europa Ocidental, Norte da Europa, França Central, França Sul, Reino Unido Sul, Reino Unido Oeste, Alemanha Norte, Alemanha West Central, Suíça Norte, Suíça Oeste<br />**Ásia-Pacífico** – Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul<br /><br>**previsualizar:**<br />**Américas** – Centro dos EUA, Leste dos EUA 2, Leste dos EUA, Norte Central DOS, Centro-Sul dos EUA, Oeste DOS 2, Oeste dos EUA, Oeste dos EUA, Canadá Central, Canadá Leste, Brasil Sul<br />**Ásia-Pacífico** - Ásia Oriental, Sudeste Asiático, Índia Central, Índia do Sul | China Leste, China Norte, China Leste2, China Norte 2, Índia Ocidental, Suíça Central Norte, África do Sul Norte, África do Sul Oeste, Emirados Emirados Unidos Norte, Emirados Unidos Central, Regiões do Governo Azure |
+| **Áreas geográficas**                   | **GA:**<br />**Europa** – Europa Ocidental, Norte da Europa, França Central, Reino Unido Sul, Reino Unido Oeste, Alemanha Norte, Alemanha West Central, Suíça Norte, Suíça West<br />**Ásia-Pacífico** – Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul<br /><br>**previsualizar:**<br />**Américas** – Centro dos EUA, Leste dos EUA 2, Leste dos EUA, Norte Central DOS, Centro-Sul dos EUA, Oeste DOS 2, Oeste dos EUA, Oeste dos EUA, Canadá Central, Canadá Leste <br />**Ásia-Pacífico** - Ásia Oriental, Sudeste Asiático, Índia Central, Índia do Sul | China Leste, China Norte, China Leste2, China Norte 2, Índia Ocidental, Suíça Central Norte, África do Sul Norte, África do Sul Oeste, Emirados Emirados Unidos Norte, Emirados Unidos Central, Regiões do Governo Azure, França Sul, Brasil Sul |
 | **Versões do sistema operacional**            | SLES 12 com SP2, SP3 ou SP4                                | SLES 15, RHEL                                                |
 | **Versões do HANA**          | SDC no HANA 1. x, MDC no HANA 2. x < = SPS04 Rev 44            | -                                                            |
 | **Implantações do HANA**       | SAP HANA em uma única VM do Azure-escalar somente verticalmente               | Expandir                                                    |

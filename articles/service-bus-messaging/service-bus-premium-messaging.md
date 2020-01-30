@@ -1,6 +1,6 @@
 ---
-title: Camadas Premium e Standard do barramento de serviço do Azure | Microsoft Docs
-description: Escalões de Mensagens Standard e Premium do Service Bus
+title: Azure Service Bus premium e níveis padrão
+description: Este artigo descreve níveis standard e premium do Azure Service Bus. Compara estes níveis e proporciona diferenças técnicas.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: cc783dc4b2bf49724f4a2c7ab9cd9904ded2c703
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ef3cc8d4c7354b43389244e72c2dbc5899b8db25
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352863"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774557"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -80,8 +80,8 @@ Há vários fatores a serem levados em consideração ao decidir o número de un
 
 - Comece com ***1 ou 2 unidades de mensagens*** alocadas para seu namespace.
 - Estudar as métricas de uso da CPU dentro das [métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics) para seu namespace.
-    - Se o uso da CPU estiver ***abaixo de 20%***, você poderá ***reduzir verticalmente*** o número de unidades de mensagens alocadas para o namespace.
-    - Se o uso da CPU estiver ***acima de 70%***, seu aplicativo se beneficiará do ***aumento*** do número de unidades de mensagens alocadas para o namespace.
+    - Se o uso de CPU for inferior a ***20%,*** poderá ***reduzir*** o número de unidades de mensagens atribuídas ao seu espaço de nome.
+    - Se o uso do CPU for superior a ***70%,*** a sua aplicação beneficiará de ***aumentar*** o número de unidades de mensagens atribuídas ao seu espaço de nome.
 
 O processo de dimensionamento dos recursos alocados para um namespace do barramento de serviço pode ser automatizado usando [Runbooks de automação do Azure](../automation/automation-quickstart-create-runbook.md).
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2b74830463702e7de02d00bcfe88521fce2c803
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: caa7cbed7c56b63bcbf5ad8f287ab6cf32575c15
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932036"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840303"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -23,7 +23,7 @@ ms.locfileid: "75932036"
 
 O elemento **RelyingParty** especifica o percurso do usuário a ser aplicado à solicitação atual para Azure Active Directory B2C (Azure ad B2C). Ele também especifica a lista de declarações que o aplicativo RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo RP, como um aplicativo Web, móvel ou de área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir uma senha ou editar um perfil. Vários aplicativos podem usar a mesma política de RP e um único aplicativo pode usar várias políticas. Todos os aplicativos RP recebem o mesmo token com declarações e o usuário passa pela mesma jornada do usuário.
 
-O exemplo a seguir mostra um elemento **RelyingParty** no arquivo de política de *B2C_1A_signup_signin* :
+O exemplo seguinte mostra um elemento **RelyingParty** no ficheiro de política *B2C_1A_signup_signin:*
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -84,7 +84,7 @@ O elemento opcional **RelyingParty** contém os seguintes elementos:
 
 O elemento `DefaultUserJourney` especifica uma referência ao identificador do percurso do usuário que geralmente é definido na política de base ou extensões. Os exemplos a seguir mostram a jornada do usuário de inscrição ou de entrada especificada no elemento **RelyingParty** :
 
-Política de *B2C_1A_signup_signin* :
+*B2C_1A_signup_signin* política:
 
 ```XML
 <RelyingParty>
@@ -92,7 +92,7 @@ Política de *B2C_1A_signup_signin* :
   ...
 ```
 
-*B2C_1A_TrustFrameWorkBase* ou *B2C_1A_TrustFrameworkExtensionPolicy*:
+*B2C_1A_TrustFrameWorkBase* ou *B2C_1A_TrustFrameworkExtensionPolicy:*
 
 ```XML
 <UserJourneys>
@@ -125,7 +125,7 @@ O elemento **logon único** contém no seguinte atributo:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Âmbito | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application`ou `Policy`. O valor `Suppressed` indica que o comportamento é suprimido. Por exemplo, no caso de uma sessão de logon único, nenhuma sessão é mantida para o usuário e o usuário sempre será solicitado a fornecer uma seleção de provedor de identidade. O valor `TrustFramework` indica que o comportamento é aplicado a todas as políticas na estrutura de confiança. Por exemplo, um usuário navegando por duas viagens de política para uma estrutura de confiança não é solicitado para uma seleção de provedor de identidade. O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por duas viagens de política para um locatário não é solicitado para uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que faz a solicitação. Por exemplo, um usuário navegando por duas viagens de política para um aplicativo não é solicitado para uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário navegando por duas viagens de política para uma estrutura confiável é solicitado a fornecer uma seleção de provedor de identidade ao alternar entre as políticas. |
-| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. Definir o valor como 0 desativa a funcionalidade KMSI. Para obter mais informações, consulte [Mantenha-me conectado](active-directory-b2c-reference-kmsi-custom.md). |
+| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. Definir o valor como 0 desativa a funcionalidade KMSI. Para obter mais informações, consulte [Mantenha-me conectado](custom-policy-keep-me-signed-in.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -140,7 +140,7 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 | ServerEnabled | Sim | Valores possíveis: `true` ou `false`. Se `true`, o enviará o JSON UserJourneyRecorder existente como um evento personalizado para Application Insights. |
 | TelemetryVersion | Sim | O valor deve ser `1.0.0`. |
 
-Para obter mais informações, consulte [coletando logs](active-directory-b2c-troubleshoot-custom.md)
+Para obter mais informações, consulte [coletando logs](troubleshoot-with-application-insights.md)
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
@@ -162,7 +162,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 | --------- | -------- | ----------- |
 | Nome | Sim | O nome do par chave-valor. |
 
-Para obter mais informações, consulte [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](active-directory-b2c-ui-customization-custom-dynamic.md)
+Para obter mais informações, consulte [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](custom-policy-ui-customization-dynamic.md)
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

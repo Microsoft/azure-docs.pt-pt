@@ -3,40 +3,40 @@ title: Níveis de zoom e grade de bloco | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre níveis de zoom e grade de blocos em mapas de Microsoft Azure.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910779"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765843"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grelha de mosaico
 
-Mapas do Azure usam o sistema de coordenadas de projeção Mercator esférica (EPSG: 3857). Uma projeção é o modelo matemático usado para transformar o globo esférico em um mapa simples. A projeção esférica Mercator estende o mapa no polos para criar um mapa quadrado. Isso distorce significativamente a escala e a área do mapa, mas tem duas propriedades importantes que superam essa distorção:
+Mapas do Azure usam o sistema de coordenadas de projeção Mercator esférica (EPSG: 3857). Uma projeção é o modelo matemático usado para transformar o globo esférico em um mapa simples. A projeção esférica do Mercator estende o mapa nos polos para criar um mapa quadrado. Esta projeção distorce significativamente a escala e a área do mapa, mas tem duas propriedades importantes que superam esta distorção:
 
-- É uma projeção em conformidade, o que significa que preserva a forma de objetos relativamente pequenos. Isso é especialmente importante ao mostrar imagens aéreas, pois queremos evitar distorcer a forma de edifícios. Os edifícios quadrados devem aparecer quadrados, não retangulares.
-- É uma projeção cilíndrica, o que significa que o norte e o sul são sempre retos e inferiores, e o oeste e o leste são sempre retos e à direita. 
+- É uma projeção em conformidade, o que significa que preserva a forma de objetos relativamente pequenos. A preservação da forma de pequenos objetos é especialmente importante quando se mostra imagens aéreas. Por exemplo, queremos evitar distorcer a forma dos edifícios. Os edifícios quadrados devem aparecer quadrados, não retangulares.
+- É uma projeção cilíndrica. Norte e sul estão sempre para cima e para baixo, e oeste e leste são sempre à esquerda e à direita. 
 
-Para otimizar o desempenho da recuperação e exibição do mapa, o mapa é dividido em blocos quadrados. O SDK do mapas do Azure usa blocos que têm um tamanho de 512 x 512 pixels para mapas de estrada e 256 x 256 pixels menores para imagens de satélite. O Azure Maps fornece blocos de rasterização e de vetor para 23 níveis de zoom, numerados de 0 a 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco:
+Para otimizar o desempenho da recuperação e exibição do mapa, o mapa é dividido em blocos quadrados. O SDK do mapas do Azure usa blocos que têm um tamanho de 512 x 512 pixels para mapas de estrada e 256 x 256 pixels menores para imagens de satélite. O Azure Maps fornece azulejos raster e vetoriais para 23 níveis de zoom, numerados de 0 a 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco:
 
 <center>
 
-bloco do mapa do World ![](./media/zoom-levels-and-tile-grid/world0.png)</center>
+](./media/zoom-levels-and-tile-grid/world0.png)</center> de azulejos do mapa do mundo ![
 
 O nível de zoom 1 usa quatro blocos para renderizar o mundo: 2 x 2 quadrado
 
 <center>
 
-![layout de bloco de mapa 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+![](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center> de layout de azulejos de mapa 2x2
 
 Cada nível de zoom adicional cria quatro vezes os blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2<sup>zoom.</sup> O nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>ou 4.194.304 x 4.194.304 blocos (17.592.186.044.416 blocos no total).
 
-Os controles de mapa interativos do Azure Maps para Web e Android dão suporte a níveis de zoom 25 níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estejam disponíveis nos níveis de zoom, quando os blocos estão disponíveis.
+Os controlos de mapas interativos do Azure Maps para web e Android suportam 25 níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estejam disponíveis nos níveis de zoom, quando os blocos estão disponíveis.
 
 A tabela a seguir fornece a lista completa de valores para níveis de zoom em que o tamanho do bloco é de 512 pixels quadrado:
 
@@ -70,7 +70,7 @@ A tabela a seguir fornece a lista completa de valores para níveis de zoom em qu
 
 ## <a name="pixel-coordinates"></a>Coordenadas de pixel
 
-Depois de escolher a projeção e a escala para usar em cada nível de zoom, podemos converter coordenadas geográficas em coordenadas de pixel. A largura e a altura totais de pixels de uma imagem de mapa do mundo para um nível de zoom específico podem ser calculadas como:
+Depois de escolher a projeção e a escala para usar em cada nível de zoom, podemos converter coordenadas geográficas em coordenadas de pixel. A largura total do pixel e a altura de uma imagem de mapa do mundo para um determinado nível de zoom é calculada como:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -82,9 +82,11 @@ Como a largura e a altura do mapa são diferentes em cada nível de zoom, são a
 
 <center>
 
-Mapa de ![mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Mapa mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Considerando a latitude e a longitude em graus e o nível de detalhes, as coordenadas XY do pixel podem ser calculadas da seguinte maneira:
+</center>
+
+Dada a latitude e longitude em graus, e o nível de detalhe, as coordenadas pixel XY são calculadas da seguinte forma:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -94,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Presume-se que os valores de latitude e longitude estejam na Datum do WGS 84. Embora o mapas do Azure use uma projeção esférica, é importante converter todas as coordenadas geográficas em uma referência comum, e WGS 84 foi escolhido como a referência. O valor de longitude é considerado para variar de-180 a + 180 graus e o valor de latitude deve ser recortado para variar de-85, 5112878 a 85, 5112878. Isso evita uma singularidade no polos e faz com que o mapa projetado seja quadrado.
+Presume-se que os valores de latitude e longitude estejam na Datum do WGS 84. Mesmo que o Azure Maps use uma projeção esférica, é importante converter todas as coordenadas geográficas num datum comum. WGS 84 é o datum selecionado. O valor da longitude é assumido para variar entre -180 graus e +180 graus, e o valor de latitude deve ser cortado para variar de -85.05112878 a 85.05112878. Aderindo a estes valores evita uma singularidade nos polos, e garante que o mapa projetado é uma forma quadrada.
 
 ## <a name="tile-coordinates"></a>Coordenadas do bloco
 
-Para otimizar o desempenho da recuperação e exibição do mapa, o mapa renderizado é cortado em blocos. Como o número de pixels difere em cada nível de zoom, então o número de blocos:
+Para otimizar o desempenho da recuperação e exibição do mapa, o mapa renderizado é cortado em blocos. O número de pixels e o número de azulejos diferem a cada nível de zoom:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -110,7 +112,7 @@ Cada bloco recebe coordenadas XY que variam de (0, 0) no canto superior esquerdo
 
 <center>
 
-Mapa de ![de coordenadas de bloco](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+mapa ![das coordenadas de azulejos](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
 
 Dada um par de coordenadas XY de pixel, você pode determinar facilmente as coordenadas XY do bloco do bloco que contém o pixel:
 
@@ -120,13 +122,13 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Os blocos são chamados por nível de zoom e pelas coordenadas x e y correspondentes à posição do bloco na grade para esse nível de zoom.
+Os azulejos são chamados pelo nível de zoom. As coordenadas x e y correspondem à posição do azulejo na grelha para esse nível de zoom.
 
-Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma posição fixa em seu bloco. Isso significa que o número de blocos necessários para exibir um determinado extensão de território depende do posicionamento específico da grade de zoom do mundo. Por exemplo, se houver dois pontos 900 metros de distância, *pode* levar apenas três blocos para exibir uma rota entre eles no nível de zoom 17. No entanto, se o ponto ocidental estiver à direita de seu bloco e o ponto do leste à esquerda de seu bloco, poderá levar quatro blocos:
+Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma posição fixa em seu bloco. Como resultado, o número de azulejos necessários para exibir uma determinada extensão de território depende da colocação específica da grelha de zoom no mapa mundial. Por exemplo, se houver dois pontos 900 metros de distância, *pode* levar apenas três blocos para exibir uma rota entre eles no nível de zoom 17. No entanto, se o ponto ocidental estiver à direita de seu bloco e o ponto do leste à esquerda de seu bloco, poderá levar quatro blocos:
 
 <center>
 
-![escala de demonstração de zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+![escala de demo zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
 
 Depois que o nível de zoom é determinado, os valores x e y podem ser calculados. O bloco superior esquerdo em cada grade de zoom é x = 0, y = 0; o bloco inferior direito está em x = 2<sup>zoom-1</sup>, y = 2<sup>zoom-1</sup>.
 
@@ -134,7 +136,7 @@ Aqui está a grade de zoom para o nível de zoom 1:
 
 <center>
 
-![grade de zoom para o nível de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+![grelha de zoom para o nível de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
 
 ## <a name="quadkey-indices"></a>Índices de Quadkey
 
@@ -157,7 +159,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 <center>
 
-![pirâmide de bloco Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+![](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center> de pirâmide de azulejoquadkey
 
 Por fim, `quadkeys` fornecer uma chave de índice unidimensional que geralmente preserva a proximidade dos blocos no espaço XY. Em outras palavras, dois blocos que têm coordenadas XY próximas geralmente têm `quadkeys` que são relativamente próximos juntos. Isso é importante para otimizar o desempenho do banco de dados, pois os blocos vizinhos geralmente são solicitados em grupos, e é desejável manter esses blocos nos mesmos blocos de disco, a fim de minimizar o número de leituras de disco.
 

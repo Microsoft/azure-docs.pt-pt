@@ -4,27 +4,24 @@ titleSuffix: Azure Network Watcher
 description: Este artigo explica como usar o recurso de logs de fluxo NSG do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 509545443bc08e8613d5f7a9ba7f33d2a90684b8
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.author: damendo
+ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830518"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841000"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo para grupos de segurança de rede
 
-Os registos do fluxo do grupo de segurança de rede (NSG) são uma funcionalidade do Observador de Rede que lhe permite visualizar informações sobre a entrada e saída de tráfego IP através de um NSG. Os registos do fluxo são escritos no formato JSON e mostram os fluxos de entrada e saída por regra, a interface de rede (NIC) à qual o fluxo se aplica, informações de cinco cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado e, na Versão 2, informações de débito (Bytes e Pacotes).
+Os registos de fluxo do grupo de segurança de rede (NSG) são uma característica do Observador de Rede que lhe permite visualizar informações sobre ingresse e egress TRÁFEGO IP através de um NSG. Os registos de fluxo são escritos em formato JSON, e mostram fluxos de saída e de entrada por regra, a interface de rede (NIC) a que o fluxo se aplica a informações de 5-tuple sobre o fluxo (Fonte/destino IP, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado, e na versão 2, informações de entrada (Bytes e Pacotes).
 
 
 ![Visão geral dos logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)

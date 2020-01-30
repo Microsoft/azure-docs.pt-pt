@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f920df20a8dc1cace76f641ce1c71f9b91a30bf4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 70253e66903916bde05f9e6e55e3c0609cb4a146
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867678"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841119"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: treinar e implantar um modelo da CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,7 +60,7 @@ O diretório `examples/cli-train-deploy` do projeto contém os seguintes arquivo
 * `.azureml\mnist.runconfig`: um arquivo de __configuração de execução__ . Esse arquivo define o ambiente de tempo de execução necessário para treinar o modelo. Neste exemplo, ele também monta os dados usados para treinar o modelo no ambiente de treinamento.
 * `scripts\train.py`: o script de treinamento. Esse arquivo treina o modelo.
 * `scripts\utils.py`: um arquivo auxiliar usado pelo script de treinamento.
-* `.azureml\conda_dependencies.yml`: define as dependências de software necessárias para executar o script de treinamento.
+* `.azureml\conda_dependencies.yml`: Define as dependências de software necessárias para executar o script de treino.
 * `dataset.json`: a definição de DataSet. Usado para registrar o conjunto de MNIST no espaço de trabalho do Azure Machine Learning.
 
 ### <a name="deployment-files"></a>Arquivos de implantação
@@ -68,7 +68,7 @@ O diretório `examples/cli-train-deploy` do projeto contém os seguintes arquivo
 O repositório contém os seguintes arquivos, que são usados para implantar o modelo treinado como um serviço Web:
 
 * `aciDeploymentConfig.yml`: um arquivo de __configuração de implantação__ . Esse arquivo define o ambiente de hospedagem necessário para o modelo.
-* `inferenceConfig.yml`: um arquivo de configuration__ de inferência. Esse arquivo define o ambiente de software usado pelo serviço para pontuar dados com o modelo.
+* `inferenceConfig.yml`: Um ficheiro de configuration__ de inferência. Esse arquivo define o ambiente de software usado pelo serviço para pontuar dados com o modelo.
 * `score.py`: um script Python que aceita dados de entrada, classifica-os usando o modelo e, em seguida, retorna uma resposta.
 * `scoring-env.yml`: as dependências Conda necessárias para executar o modelo e `score.py` script.
 * `testdata.json`: um arquivo de dados que pode ser usado para testar o serviço Web implantado.
@@ -201,7 +201,7 @@ A saída desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Este comando cria um novo destino de computação chamado `cpu`, com um máximo de quatro nós. O tamanho da VM selecionado fornece uma VM com um recurso de GPU. Para obter informações sobre o tamanho da VM, consulte [tipos e tamanhos de VM].
+Este comando cria um novo destino de computação chamado `cpu`, com um máximo de quatro nós. O tamanho da VM selecionado fornece uma VM com um recurso de GPU. Para obter informações sobre o tamanho vm, consulte [tipos e tamanhos VM].
 
 > [!IMPORTANT]
 > O nome do destino de computação (`cpu` nesse caso), é importante; Ele é referenciado pelo arquivo de `.azureml/mnist.runconfig` usado na próxima seção.
@@ -246,7 +246,7 @@ A saída desse comando é semelhante ao JSON a seguir:
 > [!IMPORTANT]
 > Copie o valor da entrada `id`, pois ele é usado na próxima seção.
 
-Para conferir um modelo mais abrangente para o arquivo JSON que descreve um conjunto de informações, use o seguinte comando:
+Para ver um modelo mais abrangente para um conjunto de dados, utilize o seguinte comando:
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -288,9 +288,9 @@ data:
 
 Altere o valor da entrada `id` para corresponder ao valor retornado quando você registrou o conjunto de um. Esse valor é usado para carregar os dados no destino de computação durante o treinamento.
 
-Esse YAML faz o seguinte:
+Este YAML resulta nas seguintes ações durante o treino:
 
-* Monta o DataSet (com base na ID do conjunto de um) no ambiente de treinamento e armazena o caminho para o ponto de montagem na variável de ambiente `mnist`..
+* Monta o conjunto de dados (com base na identificação do conjunto de dados) no ambiente de treino, e armazena o caminho para o ponto de montagem na variável ambiente `mnist`.
 * Passa o local dos dados (ponto de montagem) dentro do ambiente de treinamento para o script usando o argumento `--data-folder`.
 
 O arquivo runconfig também contém informações usadas para configurar o ambiente usado pela execução de treinamento. Se você inspecionar esse arquivo, verá que ele faz referência ao destino de computação `cpu-compute` que você criou anteriormente. Ele também lista o número de nós a serem usados ao treinar (`"nodeCount": "4"`) e contém uma seção `"condaDependencies"` que lista os pacotes do python necessários para executar o script de treinamento.
@@ -298,7 +298,7 @@ O arquivo runconfig também contém informações usadas para configurar o ambie
 > [!TIP]
 > Embora seja possível criar manualmente um arquivo runconfig, aquele neste exemplo foi criado usando o arquivo `generate-runconfig.py` incluído no repositório. Esse arquivo Obtém uma referência ao DataSet registrado, cria uma configuração de execução programaticamente e, em seguida, persiste no arquivo.
 
-Para obter mais informações sobre arquivos de configuração de execução, consulte [configurar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)ou fazer referência a esse [arquivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) para ver o esquema completo de um runconfig.
+Para obter mais informações sobre os ficheiros de configuração de execução, consulte [Configurar e utilizar alvos de cálculo para treino](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)de modelos . Para obter uma referência completa da JSON, consulte o [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Enviar a execução de treinamento
 
@@ -323,7 +323,7 @@ Accuracy is 0.9185
 
 Esse texto é registrado no script de treinamento e exibe a precisão do modelo. Outros modelos terão métricas de desempenho diferentes.
 
-Se você inspecionar o script de treinamento, observará que ele também usa o valor alfa ao armazenar o modelo treinado para `outputs/sklearn_mnist_model.pkl`.
+Se inspecionar o script de treino, notará que também utiliza o valor alfa quando armazena o modelo treinado para `outputs/sklearn_mnist_model.pkl`.
 
 O modelo foi salvo no diretório `./outputs` no destino de computação em que foi treinado. Nesse caso, a instância de computação Azure Machine Learning na nuvem do Azure. O processo de treinamento carrega automaticamente o conteúdo do diretório `./outputs` do destino de computação em que o treinamento ocorre em seu espaço de trabalho do Azure Machine Learning. Ele é armazenado como parte do experimento (`myexperiment` neste exemplo).
 
@@ -335,7 +335,7 @@ Para registrar o modelo diretamente da versão armazenada em seu experimento, us
 az ml model register -n mymodel -f runoutput.json --asset-path "outputs/sklearn_mnist_model.pkl" -t registeredmodel.json
 ```
 
-Esse comando registra o arquivo de `outputs/sklearn_mnist_model.pkl` criado pela execução de treinamento como um novo registro de modelo chamado `mymodel`. O `--assets-path` faz referência a um caminho em um experimento. Nesse caso, as informações de teste e execução são carregadas do arquivo `runoutput.json` criado pelo comando de treinamento. O `-t registeredmodel.json` cria um arquivo JSON que faz referência ao novo modelo registrado criado por esse comando e é usado por outros comandos da CLI que funcionam com modelos registrados.
+Este comando regista o ficheiro `outputs/sklearn_mnist_model.pkl` criado pela execução de formação como um novo modelo de registo denominado `mymodel`. O `--assets-path` faz referência a um caminho em um experimento. Nesse caso, as informações de teste e execução são carregadas do arquivo `runoutput.json` criado pelo comando de treinamento. O `-t registeredmodel.json` cria um arquivo JSON que faz referência ao novo modelo registrado criado por esse comando e é usado por outros comandos da CLI que funcionam com modelos registrados.
 
 A saída desse comando é semelhante ao JSON a seguir:
 
@@ -364,7 +364,7 @@ az ml model download -i "mymodel:1" -t .
 az ml model register -n mymodel -p "sklearn_mnist_model.pkl"
 ```
 
-O primeiro comando baixa o modelo registrado no diretório atual. O nome do arquivo é `sklearn_mnist_model.pkl`, que é o arquivo referenciado quando você registrou o modelo. O segundo comando registra o modelo local (`-p "sklearn_mnist_model.pkl"`) com o mesmo nome do registro anterior (`mymodel`). Desta vez, os dados JSON retornados listam a versão como 2.
+O primeiro comando baixa o modelo registrado no diretório atual. O nome do ficheiro é `sklearn_mnist_model.pkl`, que é o ficheiro referenciado quando registou o modelo. O segundo comando regista o modelo local (`-p "sklearn_mnist_model.pkl"`) com o mesmo nome que o registo anterior (`mymodel`). Desta vez, os dados JSON retornados listam a versão como 2.
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
@@ -379,7 +379,9 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 Este comando implanta um novo serviço chamado `myservice`, usando a versão 1 do modelo que você registrou anteriormente.
 
-O arquivo de `inferenceConfig.yml` fornece informações sobre como executar a inferência, como o script de entrada (`score.py`) e as dependências de software. Para obter mais informações sobre a estrutura desse arquivo, consulte o [esquema de configuração de inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com o Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+O ficheiro `inferenceConfig.yml` fornece informações sobre como utilizar o modelo para inferência. Por exemplo, refere o script de entrada (`score.py`) e as dependências do software. 
+
+Para obter mais informações sobre a estrutura desse arquivo, consulte o [esquema de configuração de inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com o Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 O `aciDeploymentConfig.yml` descreve o ambiente de implantação usado para hospedar o serviço. A configuração de implantação é específica para o tipo de computação que você usa para a implantação. Nesse caso, uma instância de contêiner do Azure é usada. Para obter mais informações, consulte o [esquema de configuração de implantação](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
@@ -430,7 +432,7 @@ az ml service run -n myservice -d @testdata.json
 > az ml service run -n myservice -d `@testdata.json
 > ```
 
-A resposta do comando é semelhante a `[ 3 ]`.
+A resposta do comando é semelhante à `[ 3 ]`.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

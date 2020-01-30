@@ -1,108 +1,108 @@
 ---
-title: Modelo de implantação clássico do Azure | Microsoft Docs
-description: Modelo de implantação clássico do Azure
+title: Modelo de implantação clássico do Azure
+description: O modelo de implantação Classic, agora substituído pelo modelo Degestor de Recursos, impõe um limite global de quota vCPU para VMs e conjuntos de escala de máquinas virtuais.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 06/20/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: d8f4bf04251347c44ea1692cfdda2602e23117f4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897055"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835634"
 ---
 # <a name="classic-deployment-model"></a>Modelo de implementação clássica
 
-O modelo de implantação clássico é o modelo de implantação do Azure de geração mais antiga. Ele impõe um limite de cota de vCPU global para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais. O modelo de implantação clássico não é mais recomendado e agora é substituído pelo modelo do Resource Manager. 
+O modelo de implantação clássico é o modelo de implantação do Azure de geração mais antiga. Ele impõe um limite de cota de vCPU global para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais. O modelo de implantação clássico não é mais recomendado e agora é substituído pelo modelo do Resource Manager.
 
-Para saber mais sobre esses dois modelos de implantação e as vantagens de usar o Resource Manager, consulte o [Resource Manager e](../../azure-resource-manager/management/deployment-models.md) a página de implantação clássica.
- 
-Quando uma nova assinatura é criada, uma cota padrão de vCPUs é atribuída a ela. Sempre que uma nova VM for implantada usando o modelo de implantação clássico, a soma do uso de vCPU novo e existente em todas as regiões não deverá exceder a cota vCPU aprovada para o modelo de implantação clássico.
- 
-Saiba mais sobre cotas na página de [limites de serviço e assinatura do Azure](https://aka.ms/quotalimits) .
+Para saber mais sobre estes dois modelos de implementação e as vantagens de usar o Gestor de Recursos, consulte O Gestor de Recursos e a [implantação clássica.](../../azure-resource-manager/management/deployment-models.md)
 
-Você pode solicitar um aumento no limite de cota de vCPU para o modelo de implantação clássico por meio da folha ' ajuda + suporte ' ou da folha ' usos + cota ' no Portal.
+Quando uma nova assinatura é criada, uma cota padrão de vCPUs é atribuída a ela. Sempre que uma nova máquina virtual deve ser implantada utilizando o modelo de implantação Classic, a soma da utilização vCPU nova e existente em todas as regiões não deve exceder a quota vCPU aprovada para o modelo de implantação Classic.
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>A solicitação por série de VM vCPU aumento de cota no nível da assinatura usando a folha **ajuda + suporte**
+Para saber mais sobre quotas, consulte [limites de subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-Siga as instruções abaixo para criar uma solicitação de suporte por meio da folha ' ajuda + suporte ' do Azure disponível no portal do Azure. 
+Pode solicitar um aumento do limite de quota vCPU para o modelo de implantação Classic. Utilize ajuda **+ suporte** ou **utilização + quotas** no portal Azure.
 
-1. Em https://portal.azure.com, selecione **ajuda + suporte**.
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-help--support"></a>Pedido por VM série vCPU aumento de quota ao nível de subscrição usando Ajuda + suporte
 
-   ![Ajuda + Suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-2.  Selecione **Novo pedido de suporte**. 
+Siga as instruções abaixo para criar uma solicitação de suporte usando **ajuda + suporte** no portal do Azure.
 
-      ![Novo pedido de suporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+1. No menu do [portal Azure,](https://portal.azure.com) selecione **Ajuda + suporte**.
 
-3. Na lista suspensa tipo de problema, escolha **limites de serviço e assinatura (cotas)** .
+   ![Selecione Ajuda + suporte no portal Azure](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-   ![Lista suspensa tipo de problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+1. Selecione **Novo pedido de suporte**.
 
-4. Selecione a subscrição que precisa de uma quota maior.
+   ![Criar um novo pedido de apoio no portal Azure](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-   ![Selecionar notícias de assinatura](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-5. Selecione **computação – limite de assinatura de VM (núcleos-vCPUs) aumentos** no menu suspenso **tipo de cota** . 
+1. No **tipo emissão,** escolha limites de **serviço e subscrição (quotas)** .
+
+   ![Selecione quotas como o tipo de emissão](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+
+1. Selecione a assinatura cuja cota você deseja aumentar.
+
+   ![Selecione subscrição para a qual aumentar uma quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+
+1. Para o **tipo quota,** selecione O limite de **subscrição Compute -VM (cores-vCPUs) aumenta**.
+
+   ![Selecione o tipo de quota para aumentar](./media/resource-manager-core-quotas-request/select-quota-type.png)
+
+1. Selecione **Seguinte: Soluções** para abrir **DETALHES DE PROBLEMAS**. Selecione **Fornecer detalhes** para fornecer informações adicionais.
+
+   ![Forneça detalhes para ajudar o seu pedido](./media/resource-manager-core-quotas-request/provide-details-link.png)
+
+1. Em **detalhes de Quota,** selecione **Classic** e selecione um **Local**.
+
+   ![Adicione detalhes, incluindo o modelo de implantação e localização](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+
+1. Para a **família SKU,** selecione uma ou mais famílias SKU para aumentar.
+
+   ![Especifique a família SKU para aumentar](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+
+1. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque o SKU da **família SKU** ou selecione o ícone "X" de devoluções. Depois de introduzir uma quota para cada família SKU, selecione **Guardar e Continuar** em dados de **Quota** para continuar com o pedido de apoio.
+
+   ![Solicitar novos limites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usage--quotas"></a>Pedido por vM série vCPU quota aumentar ao nível de subscrição usando utilização + quotas
+
+Siga as instruções abaixo para criar um pedido de apoio utilizando **o Uso + quotas** no portal Azure.
+
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Assinaturas.**
+
+   ![Ir a Assinaturas no portal Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+
+1. Selecione a assinatura cuja cota você deseja aumentar.
+
+   ![Selecione subscrição para modificar](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+
+1. Selecione **uso + cotas**.
+
+   ![Selecione utilização e quotas para uma subscrição](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+
+1. No canto superior direito, selecione **solicitar aumento**.
+
+   ![Selecione para aumentar a quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+
+1. Selecione O limite de **subscrição Compute-VM (cores-vCPUs) aumenta** à medida que o **tipo de quota**.
 
    ![Selecionar tipo de cota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. Em **detalhes do problema**, forneça informações adicionais para ajudar a processar sua solicitação clicando em **fornecer detalhes**.
+1. Selecione **Seguinte: Soluções** para abrir **DETALHES DE PROBLEMAS**. Selecione **Fornecer detalhes** para fornecer informações adicionais.
 
-   ![Fornecer detalhes](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Forneça detalhes para o seu pedido](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-7. No painel **detalhes da cota** , selecione clássico e selecione um local.
+1. Em **detalhes de Quota**, selecione **Classic** e a **Location**.
 
-   ![Detalhes da cota DM](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+   ![Selecione detalhes de quota, incluindo modelo de implementação e localização](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-8. Selecione as **famílias de SKU** que exigem um aumento. 
+1. Selecione uma ou mais famílias SKU para um aumento.
 
-   ![Família de SKU](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+   ![Selecione família SKU para aumentar](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-9. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque a SKU da lista suspensa da família de SKUs ou clique no ícone descartar "x". Depois de inserir a cota desejada para cada família de SKUs, clique em **salvar e continue** no painel detalhes da cota para continuar com a criação da solicitação de suporte.
+1. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque o SKU da **família SKU** ou selecione o ícone "X" de devoluções. Depois de introduzir uma quota para cada família SKU, selecione **Guardar e Continuar** em dados de **Quota** para continuar com o pedido de apoio.
 
-   ![Novos limites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
-
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Solicitação por série de VM vCPU aumento de cota no nível da assinatura usando **usos +** folha de cota
-
-Siga as instruções abaixo usando para criar uma solicitação de suporte por meio da folha ' uso + cota ' do Azure disponível no portal do Azure. 
-
-1. Em https://portal.azure.com, selecione **assinaturas**.
-
-   ![Subscrições](./media/resource-manager-core-quotas-request/subscriptions.png)
-
-2. Selecione a subscrição que precisa de uma quota maior.
-
-   ![Selecionar subscrição](./media/resource-manager-core-quotas-request/select-subscription.png)
-
-3. Selecionar **uso + cotas**
-
-   ![Selecionar uso e cotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
-
-4. No canto superior direito, selecione **solicitar aumento**.
-
-   ![Aumento da solicitação](./media/resource-manager-core-quotas-request/request-increase.png)
-
-5. Selecione **computação – o limite de assinatura de VM (núcleos-vCPUs) aumenta** como o tipo de cotação. 
-
-   ![Preencher formulário](./media/resource-manager-core-quotas-request/select-quota-type.png)
-   
-6. Em **detalhes do problema**, forneça informações adicionais para ajudar a processar sua solicitação clicando em **fornecer detalhes**.
-
-   ![Fornecer detalhes](./media/resource-manager-core-quotas-request/provide-details.png)
-
-7. No painel **detalhes da cota** , selecione clássico e selecione um local.
-
-   ![Detalhes da cota DM](./media/resource-manager-core-quotas-request/quota-details-classic.png)
-
-8. Selecione as **famílias de SKU** que exigem um aumento. 
-
-   ![Família de SKU](./media/resource-manager-core-quotas-request/sku-family-classic.png)
-
-9. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque a SKU da lista suspensa da família de SKUs ou clique no ícone descartar "x". Depois de inserir a cota desejada para cada família de SKUs, clique em **salvar e continue** no painel detalhes da cota para continuar com a criação da solicitação de suporte.
-
-   ![Novos limites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+   ![Insira nova quota](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 

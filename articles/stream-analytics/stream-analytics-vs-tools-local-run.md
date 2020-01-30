@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: c4854d050cce18082def436243a669ba09c474ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 34c8555356d5c0142d7b677c8119fe66806ab064
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369665"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834914"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testar Stream Analytics consultas localmente com o Visual Studio
 
@@ -24,7 +24,7 @@ Use este guia de [início rápido](stream-analytics-quick-create-vs.md) para apr
 
 No projeto Azure Stream Analytics, clique duas vezes em **script. asaql** para abrir o script no editor. Você pode compilar a consulta para ver se há erros de sintaxe. O editor de consultas dá suporte ao IntelliSense, à coloração de sintaxe e a um marcador de erro.
 
-![Editor de consultas](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-query-01.png)
+![Editor de consulta](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-query-01.png)
  
 ### <a name="add-local-input"></a>Adicionar entrada local
 
@@ -36,7 +36,7 @@ Na janela pop-up, selecione dados de exemplo do caminho local e **salve**.
    
 ![Adicionar entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
-Um arquivo chamado **local_EntryStream. JSON** é adicionado automaticamente à sua pasta entradas.
+Um ficheiro chamado **local_EntryStream.json** é adicionado automaticamente à pasta de entrada.
    
 ![Lista de arquivos da pasta de entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-03.png)
    
@@ -57,7 +57,7 @@ Verifique os resultados na pasta local.
 ![Resultado da pasta local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-03.png)
    
 
-### <a name="sample-input"></a>Entrada de exemplo
+### <a name="sample-input"></a>Entrada da amostra
 Você também pode coletar dados de entrada de exemplo de suas fontes de entrada para um arquivo local. Clique com o botão direito do mouse no arquivo de configuração de entrada e selecione **dados de exemplo**. 
 
 ![Dados de Exemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
@@ -71,7 +71,6 @@ Você pode ver o progresso na janela de **saída** .
 ![Saída de dados de exemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-
 
 * [Início rápido: criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)

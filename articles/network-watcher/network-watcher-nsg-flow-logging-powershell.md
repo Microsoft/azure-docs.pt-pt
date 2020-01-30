@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo do grupo de segurança de rede no observador de rede do Azure com o PowerShell
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 2b42f829add4e6227ae8a46fa5d4da359e6bae14
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: damendo
+ms.openlocfilehash: 9612afdb63c6988c0027f003caeacd456b5e50e2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454234"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840949"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurando logs de fluxo do grupo de segurança de rede com o PowerShell
 

@@ -1,7 +1,7 @@
 ---
-title: Mover uma API Web protegida para produção | Azure
+title: Mover uma API web protegida para a produção  Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar uma API Web protegida (mover para produção).
+description: Aprenda a construir uma API web protegida (mude-se para a produção).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,36 +15,33 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4111945d11fd9b42ae8a7daba9ec993a875a5fd0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 229f49255fbc72f74f07b1e7098417d136f35c27
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423720"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775180"
 ---
-# <a name="protected-web-api---move-to-production"></a>API Web protegida-mover para produção
+# <a name="protected-web-api---move-to-production"></a>API da web protegida - mude para a produção
 
-Agora que você sabe como proteger sua API Web, veja como você pode movê-la para produção.
+Agora que sabe como proteger a sua API web, eis como pode movê-la para a produção.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como chamar APIs downstream:
+Aprenda a chamar uma API a jusante.
 
 > [!div class="nextstepaction"]
-> [Cenário-API da Web chama APIS downstream](scenario-web-api-call-api-overview.md)
+> [Cenário - Web API chama APIs a jusante](scenario-web-api-call-api-overview.md)
 
-
-Saiba mais com tutoriais e exemplos:
-
+Saiba mais com tutoriais e amostras.
 
 > [!div class="nextstepaction"]
-> [Chamando uma API protegida usando o daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+> [Chamando uma API protegida usando um daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
-> [Tutorial da API Web do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [tutorial de API web ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [Exemplo de API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [ASP.NET amostra de API web](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

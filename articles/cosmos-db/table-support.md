@@ -1,19 +1,19 @@
 ---
-title: Suporte ao armazenamento de tabelas do Azure no Azure Cosmos DB
-description: Saiba como Azure Cosmos DB as tabelas de armazenamento do API de Tabela e do Azure funcionam juntas compartilhando o mesmo modelo de dados de tabela em operações
+title: Suporte de armazenamento de mesa azure em Azure Cosmos DB
+description: Saiba como as tabelas de armazenamento Da API e azure da Azure Da mesa de armazenamento Azure Cosmos funcionam em conjunto partilhando o mesmo modelo de dados de tabela uma operação
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 12/02/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 4f742ce34ec429f0fc822562c1ad4ad07f3e7965
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 82397e49e473b8660dfada54a0e05cafe0da4120
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870433"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770676"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Programar com a API de Tabela do Azure Cosmos DB e o armazenamento de Tabelas do Azure
 
@@ -25,13 +25,13 @@ A API de Tabela do Azure Cosmos DB e o armazenamento de Tabelas do Azure partilh
 
 Neste momento, a [API de Tabela do Azure Cosmos DB](table-introduction.md) tem quatro SDKs disponíveis para programação: 
 
-* [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): SDK do .net. Essa biblioteca tem como destino .NET Standard e tem as mesmas classes e assinaturas de método que o SDK de armazenamento público do [Windows Azure](https://www.nuget.org/packages/WindowsAzure.Storage), mas também tem a capacidade de se conectar a contas de Azure Cosmos DB usando o API de tabela. Os usuários da biblioteca de .NET Framework [Microsoft. Azure. CosmosDB. Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) são recomendados para atualizar para [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) , pois ele está no modo de manutenção e será preterido em breve.
+* [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): .NET SDK. Esta biblioteca tem como alvo .NET Standard e tem as mesmas classes e assinaturas de métodos que o [Público Windows Azure Storage SDK,](https://www.nuget.org/packages/WindowsAzure.Storage)mas também tem a capacidade de se conectar às contas DoM Do MB da Azure utilizando a API de Mesa. Os utilizadores da biblioteca .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) são recomendados para fazer upgrade para [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) como está em modo de manutenção e será depreciado em breve.
 
-* [SDK do Python](table-sdk-python.md): o novo SDK do Python Azure Cosmos DB é o único SDK que dá suporte ao armazenamento de tabelas do Azure em Python. Este SDK liga ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB.
+* [Python SDK](table-sdk-python.md): O novo Azure Cosmos DB Python SDK é o único SDK que suporta o armazenamento da Mesa Azure em Python. Este SDK liga ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB.
 
-* [SDK do Java](table-sdk-java.md): este SDK do armazenamento do Azure tem a capacidade de se conectar a contas de Azure Cosmos DB usando o API de tabela.
+* [Java SDK](table-sdk-java.md): Este SDK de Armazenamento Azure tem a capacidade de se ligar às contas DoM APi da Azure Cosmos utilizando a Tabela API.
 
-* [SDK do node. js](table-sdk-nodejs.md): este SDK do armazenamento do Azure tem a capacidade de se conectar a contas de Azure Cosmos DB usando o API de tabela.
+* [Node.js SDK](table-sdk-nodejs.md): Este SDK de Armazenamento Azure tem a capacidade de se ligar às contas DoM Do MDS da Azure utilizando a Tabela API.
 
 
 Estão disponíveis informações adicionais sobre como trabalhar com a API de Tabela no artigo [FAQ: Programar com a API de Tabela](faq.md#table).
@@ -41,7 +41,7 @@ Estão disponíveis informações adicionais sobre como trabalhar com a API de T
 O armazenamento de Tabelas do Azure tem estes SDKs disponíveis para programação:
 
 - [SDK .NET WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/). Esta biblioteca permite-lhe funcionar com o serviço de Tabelas de armazenamento.
-- [SDK Python](https://github.com/Azure/azure-cosmos-table-python). O SDK da tabela Azure Cosmos DB para Python dá suporte ao serviço de armazenamento de tabelas (porque o armazenamento de tabelas do Azure e os API de Tabela de Cosmos DB compartilham os mesmos recursos e funcionalidades e, em um esforço para fatorar nossos esforços de desenvolvimento de SDK, recomendamos o uso desse SDK).
+- [SDK Python](https://github.com/Azure/azure-cosmos-table-python). O Azure Cosmos DB Table SDK for Python suporta o serviço de armazenamento de mesa (porque o Azure Table Storage e o Cosmos DB's Table API partilham as mesmas funcionalidades e funcionalidades, e num esforço para fatorizar os nossos esforços de desenvolvimento sDK, recomendamos a utilização deste SDK).
 - [SDK do Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java). Este SDK do Armazenamento do Azure fornece uma biblioteca de cliente no Java para consumir o armazenamento de Tabelas do Azure.
 - [SDK Node.js](https://github.com/Azure/azure-storage-node). Este SDK fornece um pacote Node.js e uma biblioteca de cliente JavaScript compatível com o browser para consumir o serviço de Tabelas de armazenamento.
 - [Módulo PowerShell do AzureRmStorageTable](https://www.powershellgallery.com/packages/AzureRmStorageTable). Este módulo PowerShell tem cmdlets para trabalhar com Tabelas de armazenamento.

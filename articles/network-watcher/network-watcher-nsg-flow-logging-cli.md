@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo do grupo de segurança de rede no observador de rede do Azure com o CLI do Azure
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 21026a3de2b9feb11bc84cbdb60d4a363bd5a05c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: damendo
+ms.openlocfilehash: 285d19dbd0e7b8a94eada66f837d33b787006f09
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454272"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840966"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurando logs de fluxo do grupo de segurança de rede com o CLI do Azure
 

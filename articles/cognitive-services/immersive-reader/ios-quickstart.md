@@ -6,14 +6,14 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 7f46f7697207fe194f4fb7c3584c40c87abdb727
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9003eb85938cc3afaad7fef341b1ed2826e8fbc9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514209"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841614"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Início rápido: criar um aplicativo iOS que inicie o leitor de imersão (Swift)
 

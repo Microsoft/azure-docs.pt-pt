@@ -1,19 +1,19 @@
 ---
 title: Como consultar dados de tabela no Azure Cosmos DB?
 description: Saiba consultar os dados armazenados na conta API da Tabela API da Tabela Azure Cosmos DB utilizando filtros OData e consultas LINQ
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9502829dcf7b49675b67e05cb923e28f378859d1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760169"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770492"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre as capacidades avançadas do Azure Cosmos DB
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dados de entidade no contentor. Não tem qualquer um destas? Conclua o [início rápido de cinco minutos](create-table-dotnet.md) ou o [tutorial do programador](tutorial-develop-table-dotnet.md) para criar uma conta e povoar a base de dados.
+Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dados de entidade no contentor. Não tem qualquer um destes? Conclua o [início rápido de cinco minutos](create-table-dotnet.md) ou o [tutorial do programador](tutorial-develop-table-dotnet.md) para criar uma conta e povoar a base de dados.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Consultar em PartitionKey e RowKey
 Uma vez que as propriedades PartitionKey e RowKey formam a chave primária de uma entidade, pode utilizar a seguinte sintaxe especial para identificar a entidade: 

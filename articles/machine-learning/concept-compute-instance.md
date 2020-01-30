@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974097"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769106"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação Azure Machine Learning?
 
@@ -83,7 +83,7 @@ Os pacotes do Python são todos instalados no ambiente **python 3,6-AzureML** .
 
 As instâncias de computação normalmente são usadas como ambientes de desenvolvimento.  Eles também podem ser usados como um destino de computação para treinamento e inferência para desenvolvimento e teste.  Para tarefas grandes, um [cluster de computação Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) com recursos de dimensionamento de vários nós é uma opção de destino de computação melhor.
 
-### <a name="installing-packages"></a>Instalar os pacotes
+### <a name="installing-packages"></a>Instalação de pacotes
 
 Você pode instalar pacotes diretamente em um Jupyter notebook ou RStudio:
 
@@ -117,7 +117,7 @@ Em seu espaço de trabalho no Azure Machine Learning Studio, selecione **computa
 
 Você pode executar as seguintes ações:
 
-* Crie uma instância de computação. Especifique o nome, o tipo de VM do Azure, incluindo GPUs, habilite/desabilite o acesso SSH e defina as configurações de rede virtual opcionalmente. Você também pode criar uma instância diretamente de blocos de anotações integrados, portal do Azure, modelo do Resource Manager ou SDK do Azure Machine Learning. A cota de núcleos dedicados por região que se aplica à criação da instância de computação é unificada e compartilhada com Azure Machine Learning cota de cluster de computação.
+* Crie uma instância de computação. Especifique o nome, tipo Azure VM, incluindo GPUs (por favor note que o tipo VM não pode ser alterado após a criação), ativar/desativar o acesso sSH e configurar opcionalmente as definições de rede virtual. Você também pode criar uma instância diretamente de blocos de anotações integrados, portal do Azure, modelo do Resource Manager ou SDK do Azure Machine Learning. A cota de núcleos dedicados por região que se aplica à criação da instância de computação é unificada e compartilhada com Azure Machine Learning cota de cluster de computação.
 * Atualizar a guia instâncias de computação
 * Iniciar, parar e reiniciar uma instância de computação
 * Excluir uma instância de computação
@@ -138,7 +138,7 @@ Você também pode criar uma instância
 
 A cota de núcleos dedicados por região, que se aplica à criação da instância de computação é unificada e compartilhada com Azure Machine Learning cota de cluster de treinamento. 
 
-## <a name="compute-target"></a>Destino de Computação
+## <a name="compute-target"></a>Alvo computacional
 
 As instâncias de computação podem ser usadas como um [destino de computação de treinamento](concept-compute-target.md#train) semelhante a Azure Machine Learning clusters de treinamento de computação. Provisione uma VM de várias GPUs para executar trabalhos de treinamento distribuídos usando os estimadores TensorFlow/PyTorch. Você também pode criar uma configuração de execução e usá-la para executar seu experimento na instância de computação. Você pode usar a instância de computação como um destino de implantação de inferência local para cenários de teste/depuração.
 

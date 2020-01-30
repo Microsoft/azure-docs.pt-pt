@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 162597bf3d02cdfe53d321185b326bfbb1f6bd0d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712764"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773440"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -99,7 +99,7 @@ O **TechnicalProfile** contém os seguintes elementos:
 | OutputClaimsTransformations | 0:1 | Uma lista de referências definidas anteriormente para transformações de declarações que devem ser executadas depois que as declarações são recebidas do provedor de declarações. |
 | ValidationTechnicalProfiles | 0: n | Uma lista de referências a outros perfis técnicos que o perfil técnico usa para fins de validação. Para obter mais informações, consulte [validação do perfil técnico](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controla a produção do nome da entidade em tokens em que o nome da entidade é especificado separadamente das declarações. Por exemplo, OAuth ou SAML.  |
-| Incluir InSso | 0:1 |  Se a utilização deste perfil técnico deve aplicar um comportamento de inscrição única (SSO) para a sessão, ou, em vez disso, exigir interação explícita. Valores possíveis: `true` (predefinido) ou `false`. |
+| Incluir InSso | 0:1 |  Se a utilização deste perfil técnico deve aplicar um comportamento de inscrição única (SSO) para a sessão, ou, em vez disso, exigir interação explícita. Este elemento é válido apenas em perfis Autoafirmado utilizados dentro de um perfil técnico de Validação. Valores possíveis: `true` (predefinido) ou `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico do qual você deseja que todas as declarações de entrada e saída sejam adicionadas a este perfil técnico. O perfil técnico referenciado deve ser definido no mesmo arquivo de política. |
 | IncludeTechnicalProfile |0:1 | Um identificador de um perfil técnico do qual você deseja que todos os dados sejam adicionados a este perfil técnico. O perfil técnico referenciado deve existir no mesmo arquivo de política. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil técnico diferente a ser usado para o gerenciamento de sessão. |

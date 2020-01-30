@@ -1,6 +1,6 @@
 ---
 title: Usar filas do barramento de serviço do Azure no node. js usando o pacote Azure-SB
-description: 'Início rápido: saiba como usar filas do barramento de serviço no Azure de um aplicativo node. js.'
+description: Saiba como criar aplicações Node.js para enviar mensagens e receber mensagens de uma fila de ônibus de serviço Azure usando o pacote azure-sb.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462179"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773513"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Início rápido: usar filas do barramento de serviço no Azure com node. js e o pacote Azure-SB
 
@@ -76,7 +76,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para se conectar ao barramento de serviço. Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta ao chamar `createServiceBusService`.
+O módulo Azure lê a variável ambiental `AZURE_SERVICEBUS_CONNECTION_STRING` obter informações necessárias para ligar ao Bus de Serviço. Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta ao chamar `createServiceBusService`.
 
 Para obter um exemplo de como definir as variáveis de ambiente no [portal do Azure][Azure portal] para um site do Azure, consulte [aplicativo Web do node. js com armazenamento][Node.js Web Application with Storage].
 

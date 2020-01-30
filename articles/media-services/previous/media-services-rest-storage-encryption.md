@@ -1,6 +1,6 @@
 ---
-title: Encriptar o seu conteúdo com encriptação de armazenamento através da API REST do AMS
-description: Saiba como encriptar o seu conteúdo com encriptação de armazenamento com APIs de REST do AMS.
+title: Encriptar o seu conteúdo com encriptação de armazenamento usando ams REST API
+description: Saiba como encriptar o seu conteúdo com encriptação de armazenamento utilizando APIs AMS REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 30ac6a94142c9b9d987fb3fd32b3483cc6dc130c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867600"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773591"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento 
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Media Services v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
-É altamente recomendado para encriptar o conteúdo localmente utilizando a encriptação de AES-256 bits e, em seguida, carregue-o ao armazenamento do Azure onde estão armazenados encriptados em inatividade.
+É altamente recomendado encriptar o seu conteúdo localmente usando encriptação de bit AES-256 e, em seguida, carregá-lo para o Armazenamento Azure onde é armazenado encriptado em repouso.
 
-Este artigo fornece uma descrição geral da encriptação de armazenamento do AMS e mostra-lhe como carregar o conteúdo do armazenamento criptografado:
+Este artigo dá uma visão geral da encriptação do armazenamento AMS e mostra-lhe como carregar o conteúdo encriptado de armazenamento:
 
 * Crie uma chave de conteúdo.
-* Crie um elemento. Configurar o AssetCreationOption para StorageEncryption ao criar o elemento.
+* Criar um Ativo. Delineie a Opção de Criação de Ativos para storageEncryption ao criar o Ativo.
   
-     Encriptados ativos estão associados com chaves de conteúdo.
-* Ligar a chave de conteúdo para o elemento.  
-* Defina os parâmetros relacionados com a encriptação nas entidades AssetFile.
+     Os ativos encriptados estão associados a chaves de conteúdo.
+* Ligue a chave de conteúdo ao ativo.  
+* Defina os parâmetros relacionados com a encriptação nas entidades Do AssetFile.
 
 ## <a name="considerations"></a>Considerações 
 
-Se quiser fornecer um recurso de criptografado de armazenamento, é necessário configurar a política de entrega de elementos. Antes do seu elemento pode ser transmitido em fluxo, o servidor de transmissão em fluxo remove a encriptação de armazenamento e transmite os seus conteúdos através da política de entrega especificado. Para obter mais informações, consulte [configurar políticas de entrega de elemento](media-services-rest-configure-asset-delivery-policy.md).
+Se pretender entregar um ativo encriptado de armazenamento, tem de configurar a política de entrega do ativo. Antes de o seu ativo poder ser transmitido, o servidor de streaming remove a encriptação de armazenamento e transmite o seu conteúdo utilizando a política de entrega especificada. Para mais informações, consulte [a Configuração de Políticas de Entrega](media-services-rest-configure-asset-delivery-policy.md)de Ativos .
 
-Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cabeçalho específicas e os valores nos seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST do Media Services](media-services-rest-how-to-use.md). 
+Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md). 
 
 ### <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
@@ -56,30 +56,30 @@ Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cab
 
 <sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
 
-## <a name="connect-to-media-services"></a>Ligar aos Media Services
+## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
 
-Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="storage-encryption-overview"></a>Descrição geral da encriptação de armazenamento
-Aplica-se da encriptação de armazenamento do AMS **AES-CTR** encriptação do modo para o arquivo inteiro.  O modo de AES-CTR é uma codificação de bloco que pode criptografar os dados de comprimento arbitrário sem necessidade de preenchimento. Ele opera por meio da criptografia um bloco de contador com o algoritmo AES e, em seguida, fazer um XOR gerúndio a saída do AES com os dados para criptografar ou descriptografar.  O bloco de contador utilizado é construído ao copiar o valor da InitializationVector para bytes 0 a 7 do valor de contador e bytes 8 a 15 do valor do contador estão definidos como zero. O bloco de 16 bytes contador bytes 8 a 15 (ou seja, os bytes menos significativos) são utilizados como um inteiro não assinado de 64 bits simple que é incrementado em um para cada bloco subsequente de dados processados e é mantido na ordem de bytes de rede. Se este número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF), em seguida, incrementando-repõe o contador de bloco para zero (bytes 8 a 15) sem afetar as outras partes do contador (ou seja, a bytes 0 a 7) de 64.   Para manter a segurança de criptografia de modo AES CTR, o valor de InitializationVector para um identificador de chave de determinado para cada chave de conteúdo deve ser exclusivo para cada ficheiro e de ficheiros devem ser inferior a 2 ^ 64 blocos de comprimento.  Este valor exclusivo é garantir que um valor de contador jamais é reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, consulte [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (o artigo wiki utiliza o termo "Valor de uso único", em vez de "InitializationVector").
+## <a name="storage-encryption-overview"></a>Visão geral da encriptação do armazenamento
+A encriptação de armazenamento AMS aplica encriptação do modo **AES-CTR** a todo o ficheiro.  O modo AES-CTR é uma cifra de bloco que pode encriptar dados de comprimento arbitrário sem necessidade de enchimento. Opera encriptando um bloco de contra-bloqueio com o algoritmo AES e, em seguida, XOR-ing a saída de AES com os dados para encriptar ou desencriptar.  O bloco de contra-bloqueio utilizado é construído copiando o valor do Vetor de Inicialização para bytes 0 a 7 do valor de contra-contador e os bytes 8 a 15 do valor de contador estão definidos para zero. Do bloco de balcão de 16 bytes, os bytes 8 a 15 (isto é, os bytes menos significativos) são usados como um simples suporte não assinado de 64 bits que é incrementado por um para cada bloco subsequente de dados processados e é mantido em ordem byte de rede. Se este inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFFFFFfFF), então incrementá-lo repõe o contador de blocos para zero (bytes 8 a 15) sem afetar os outros 64 bits do contador (isto é, bytes 0 a 7).   A fim de manter a segurança da encriptação do modo AES-CTR, o valor do Vetor de Inicialização para um determinado identificador chave para cada chave de conteúdo deve ser único para cada ficheiro e os ficheiros devem ter menos de 2^64 blocos de comprimento.  Este valor único é garantir que um contra-valor nunca é reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, consulte [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (o artigo wiki usa o termo "Nonce" em vez de "Vetor de Inicialização").
 
-Uso **encriptação do armazenamento** para encriptar o seu conteúdo transparente localmente utilizando AES-256 bit criptografia e, em seguida, carregue-o ao armazenamento do Azure onde estão armazenados encriptados em inatividade. Os elementos protegidos com encriptação de armazenamento são desencriptados automaticamente e colocados no sistema de ficheiros encriptados antes da codificação e opcionalmente encriptados novamente antes de carregar novamente como um novo elemento de saída. O principal motivo para a encriptação de armazenamento é quando deseja proteger os ficheiros de suporte de dados de entrada de alta qualidade com uma encriptação forte Inativos no disco.
+Utilize **encriptação** de armazenamento para encriptar o seu conteúdo limpo localmente usando encriptação de bitS AES-256 e, em seguida, carregá-lo para o Armazenamento Azure onde é armazenado encriptado em repouso. Os ativos protegidos com encriptação de armazenamento são automaticamente desencriptados e colocados num sistema de ficheiros encriptado antes da codificação, e opcionalmente reencriptados antes de serem reencriptados como um novo ativo de saída. O principal caso de utilização para encriptação de armazenamento é quando pretende proteger os seus ficheiros de mídia de entrada de alta qualidade com encriptação forte em repouso no disco.
 
-Para fornecer um recurso de criptografado de armazenamento, é necessário configurar a política de entrega de elementos, para que os serviços de multimédia, saiba como deseja distribuir os seus conteúdos. Antes do seu elemento pode ser transmitido em fluxo, o servidor de transmissão em fluxo remove a encriptação de armazenamento e transmite os seus conteúdos através da política de entrega especificado (por exemplo, AES, encriptação comum ou sem encriptação).
+Para entregar um ativo encriptado de armazenamento, tem de configurar a política de entrega do ativo para que os Serviços de Media saibam como pretende entregar o seu conteúdo. Antes de o seu ativo poder ser transmitido, o servidor de streaming remove a encriptação do armazenamento e transmite o seu conteúdo utilizando a política de entrega especificada (por exemplo, AES, encriptação comum ou nenhuma encriptação).
 
-## <a name="create-contentkeys-used-for-encryption"></a>Criar ContentKeys utilizada para encriptação
-Encriptados ativos estão associados com as chaves de encriptação de armazenamento. Crie a chave de conteúdo a ser utilizada para encriptação antes de criar os ficheiros de recursos. Esta secção descreve como criar uma chave de conteúdo.
+## <a name="create-contentkeys-used-for-encryption"></a>Criar ContentKeys usados para encriptação
+Os ativos encriptados estão associados a chaves de encriptação de armazenamento. Crie a chave de conteúdo a ser usada para encriptação antes de criar os ficheiros de ativos. Esta secção descreve como criar uma chave de conteúdo.
 
-Seguem-se os passos gerais para gerar chaves de conteúdo associado a recursos que pretende que sejam encriptados. 
+Seguem-se passos gerais para gerar chaves de conteúdo que associa com ativos que pretende ser encriptados. 
 
-1. Para a encriptação de armazenamento, gere aleatoriamente uma chave AES de 32 bytes. 
+1. Para encriptação de armazenamento, gera aleatoriamente uma chave AES de 32 bytes. 
    
-    A chave AES de 32 bytes é a chave de conteúdo para o seu elemento, o que significa que todos os ficheiros associados essa necessidade de recurso a utilizar a mesma chave de conteúdo durante a desencriptação. 
-2. Chamar o [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) métodos para obter o certificado X.509 correto, que deve ser usado para criptografar a chave de conteúdo.
-3. Encripte a chave de conteúdo com a chave pública do certificado X.509. 
+    A Chave AES de 32 bytes é a chave de conteúdo para o seu ativo, o que significa que todos os ficheiros associados a esse ativo precisam de usar a mesma chave de conteúdo durante a desencriptação. 
+2. Ligue para os métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o certificado X.509 correto que deve ser usado para encriptar a sua chave de conteúdo.
+3. Criptografe a sua chave de conteúdo com a chave pública do Certificado X.509. 
    
-   SDK .NET dos Media Services utiliza RSA com OAEP quando fazendo a criptografia.  Pode ver um exemplo de .NET no [EncryptSymmetricKeyData função](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Crie um valor de soma de verificação calculado com o identificador de chave e a chave de conteúdo. O exemplo seguinte do .NET calcula a soma de verificação usando a parte GUID de identificador de chave e a chave de conteúdo claro.
+   Media Services .NET SDK usa RSA com OAEP ao fazer a encriptação.  Pode ver um exemplo .NET na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Criar um valor de verificação calculado utilizando a chave de identificação e chave de conteúdo. O exemplo .NET que se segue calcula o controlo utilizando a parte GUID do identificador chave e a chave de conteúdo clara.
 
     ```csharp
             public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -109,22 +109,22 @@ Seguem-se os passos gerais para gerar chaves de conteúdo associado a recursos q
             }
     ```
 
-5. Criar a chave de conteúdo com o **EncryptedContentKey** (convertido na cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, e **soma de verificação** valores que recebeu nos passos anteriores.
+5. Crie a chave de conteúdo com a Chave de **Conteúdo Encriptado** (convertida em cadeia codificada por base64), **ProtectionKeyId,** **ProtectionKeyType**, **ContentKeyType**e **Checksum** valores que recebeu em etapas anteriores.
 
-    Para a encriptação de armazenamento, as seguintes propriedades devem ser incluídas no corpo do pedido.
+    Para encriptação de armazenamento, as seguintes propriedades devem ser incluídas no organismo de pedido.
 
-    Propriedade do corpo do pedido    | Descrição
+    Solicitar propriedade do corpo    | Descrição
     ---|---
-    Id | O ID de ContentKey é gerado com o seguinte formato, "nb:kid:UUID:\<novo GUID >".
-    ContentKeyType | O tipo de chave de conteúdo é um número inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.
-    EncryptedContentKey | Vamos criar um novo valor de chave conteúdo que é um valor de 256 bits (32 bytes). A chave for encriptada com o certificado X.509 encriptação de armazenamento que obtemos dos serviços de multimédia do Microsoft Azure ao executar um pedido HTTP GET para os métodos de GetProtectionKey e GetProtectionKeyId. Por exemplo, consulte o seguinte código do .NET: os **EncryptSymmetricKeyData** método definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | Esta é a proteção da chave ID para o certificado X.509 encriptação de armazenamento que foi utilizado para encriptar a nossa chave de conteúdo.
-    ProtectionKeyType | Este é o tipo de encriptação da chave de proteção que foi usada para criptografar a chave de conteúdo. Este valor é StorageEncryption(1) para o nosso exemplo.
-    Checksum |A MD5 calculada soma de verificação para a chave de conteúdo. Ele é calculado ao encriptar o ID de conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a soma de verificação.
+    Id | O ID ContentKey é gerado utilizando o seguinte formato, "nb:kid:UUID:\<NEW GUID>".
+    ContentKeyType | O tipo de chave de conteúdo é um inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.
+    EncryptedContentKey | Criamos um novo valor-chave de conteúdo que é um valor de 256 bits (32 bytes). A chave é encriptada utilizando o certificado de encriptação de armazenamento X.509 que recuperamos dos Serviços de Media Microsoft Azure executando um pedido HTTP GET para os Métodos GetProtectionKeyId e GetProtectionKey. Como exemplo, consulte o seguinte código .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtectionKeyId | Este é o ID da chave de proteção para o certificado de encriptação de armazenamento X.509 que foi usado para encriptar a nossa chave de conteúdo.
+    ProtectionKeyType | Este é o tipo de encriptação para a chave de proteção que foi usada para encriptar a chave de conteúdo. Este valor é StorageEncryption(1) para o nosso exemplo.
+    Chequeum |O MD5 calculou a verificação da chave de conteúdo. É calculado encriptando o ID do conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a verificação.
 
 
-### <a name="retrieve-the-protectionkeyid"></a>Obter o ProtectionKeyId
-O exemplo seguinte mostra como recuperar o ProtectionKeyId, um thumbprint do certificado, para o certificado que tem de utilizar ao encriptar a chave de conteúdo. Efetue este passo para se certificar de que já tiver o certificado apropriado no seu computador.
+### <a name="retrieve-the-protectionkeyid"></a>Recuperar o ProtectionKeyId
+O exemplo que se segue mostra como recuperar o ProtectionKeyId, uma impressão digital do certificado, para o certificado que deve utilizar ao encriptar a sua chave de conteúdo. Faça este passo para se certificar de que já tem o certificado apropriado na sua máquina.
 
 Pedido:
 
@@ -134,7 +134,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Resposta:
@@ -154,8 +154,8 @@ Resposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Obter o ProtectionKey para o ProtectionKeyId
-O exemplo seguinte mostra como obter o certificado X.509 com o ProtectionKeyId recebido no passo anterior.
+### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Recuperar a Chave de Proteção para o ProtectionKeyId
+O exemplo que se segue mostra como recuperar o certificado X.509 utilizando o ProtectionKeyId que recebeu no passo anterior.
 
 Pedido:
 
@@ -165,7 +165,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,11 +189,11 @@ Resposta:
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
 ### <a name="create-the-content-key"></a>Criar a chave de conteúdo
-Depois de obter o certificado X.509 e utilizada a sua chave pública para criptografar a chave de conteúdo, criar um **ContentKey** entity e defina sua propriedade valores em conformidade.
+Depois de ter recuperado o certificado X.509 e ter usado a sua chave pública para encriptar a chave de conteúdo, criar uma entidade **ContentKey** e definir os seus valores de propriedade em conformidade.
 
-Um dos valores que tem de definir quando criar o conteúdo chave é o tipo. Quando utilizar a encriptação de armazenamento, o valor deve ser definido como '1'. 
+Um dos valores que deve definir quando criar a chave de conteúdo é o tipo. Ao utilizar encriptação de armazenamento, o valor deve ser definido para '1'. 
 
-O exemplo seguinte mostra como criar uma **ContentKey** com um **ContentKeyType** definido para a encriptação de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a chave de proteção ID é o thumbprint do certificado X.509.  
+O exemplo seguinte mostra como criar um **ContentKey** com um conjunto **ContentKeyType** para encriptação de armazenamento ("1") e o **conjunto ProtectionKeyType** para "0" para indicar que o ID da chave de proteção é a impressão digital do certificado X.509.  
 
 Pedir
 
@@ -205,7 +205,7 @@ Pedir
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -242,10 +242,10 @@ Resposta:
     "ProtectionKeyType":0,
     "Checksum":"calculated checksum"}
 
-## <a name="create-an-asset"></a>Criar um elemento
-O exemplo seguinte mostra como criar um elemento.
+## <a name="create-an-asset"></a>Criar um ativo
+O exemplo que se segue mostra como criar um ativo.
 
-**Pedido de HTTP**
+**Pedido http**
 
     POST https://media.windows.net/api/Assets HTTP/1.1
     Content-Type: application/json
@@ -254,14 +254,14 @@ O exemplo seguinte mostra como criar um elemento.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
 
-**Resposta de HTTP**
+**Resposta HTTP**
 
-Se tiver êxito, é devolvida a seguinte resposta:
+Se for bem sucedido, devolve-se a seguinte resposta:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -289,8 +289,8 @@ Se tiver êxito, é devolvida a seguinte resposta:
        "StorageAccountName":"storagetestaccount001"
     }
 
-## <a name="associate-the-contentkey-with-an-asset"></a>Associe o ContentKey com um elemento
-Depois de criar o ContentKey, associá-la com o seu elemento usando a operação de $links, conforme mostrado no exemplo a seguir:
+## <a name="associate-the-contentkey-with-an-asset"></a>Associar o ContentKey a um Ativo
+Depois de criar o ContentKey, associe-o ao seu Ativo utilizando a operação $links, como mostra o seguinte exemplo:
 
 Pedido:
 
@@ -301,7 +301,7 @@ Pedido:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -311,13 +311,13 @@ Resposta:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Criar um AssetFile
-O [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entidade representa um ficheiro de vídeo ou áudio que é armazenado num contentor de Blobs. Um ficheiro de elemento é sempre associado a um elemento e um elemento pode conter um ou muitos arquivos de recurso. A tarefa de codificador de serviços de multimédia falha se um objeto de ficheiro de recurso não está associado um ficheiro digital num contentor de Blobs.
+A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio que é armazenado num recipiente de bolha. Um ficheiro de ativo está sempre associado a um ativo, e um ativo pode conter um ou muitos ficheiros de ativos. A tarefa Do Codificador de Serviços de Media falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de blob.
 
-O **AssetFile** instância e o ficheiro de multimédia real são dois objetos distintos. A instância de AssetFile contém metadados sobre o ficheiro de multimédia, ao passo que o ficheiro de suporte de dados contém o conteúdo de mídia real.
+A instância **AssetFile** e o ficheiro de mídia real são dois objetos distintos. A instância AssetFile contém metadados sobre o ficheiro de mídia, enquanto o ficheiro de mídia contém o conteúdo real dos meios de comunicação.
 
-Depois de carregar o ficheiro de multimédia digital para um contentor de BLOBs, que irá utilizar o **intercalar** pedido HTTP para atualizar o AssetFile com informações sobre seu arquivo de mídia (não mostrado neste artigo). 
+Depois de enviar o seu ficheiro de mídia digital para um recipiente blob, utilizará o pedido **MERGE** HTTP para atualizar o AssetFile com informações sobre o seu ficheiro de mídia (não mostrados neste artigo). 
 
-**Pedido de HTTP**
+**Pedido http**
 
     POST https://media.windows.net/api/Files HTTP/1.1
     Content-Type: application/json
@@ -326,7 +326,7 @@ Depois de carregar o ficheiro de multimédia digital para um contentor de BLOBs,
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     Content-Length: 164
 
@@ -343,7 +343,7 @@ Depois de carregar o ficheiro de multimédia digital para um contentor de BLOBs,
        "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
     }
 
-**Resposta de HTTP**
+**Resposta HTTP**
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache

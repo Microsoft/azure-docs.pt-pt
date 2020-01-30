@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 74bd22de81e385a4fbd9129a70616e24b594b0b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441325"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771526"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design da tabela de armazenamento de tabelas do Azure: tabelas escalonáveis e de alto desempenho
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Para criar tabelas escalonáveis e de alto desempenho, você deve considerar uma variedade de fatores, incluindo custo. Se você tiver criado anteriormente esquemas para bancos de dados relacionais, essas considerações serão familiares para você. Mas embora haja algumas semelhanças entre o armazenamento de tabelas do Azure e os modelos relacionais, também há muitas diferenças importantes. Essas diferenças normalmente levam a diferentes designs que podem parecer um contador intuitivo ou errado para alguém familiarizado com bancos de dados relacionais, mas isso faz sentido se você estiver criando um repositório de chave/valor NoSQL, como o armazenamento de tabelas.
+Para criar tabelas dimensionáveis e de alto desempenho, tem de considerar uma variedade de fatores, incluindo o custo. Se tiver criado anteriormente esquemas para bases de dados relacionais, estará familiarizado com estas considerações. No entanto, embora existam algumas semelhanças entre o Armazenamento de tabelas do Azure e os modelos relacionais, também há muitas diferenças importantes. Estas diferenças levam normalmente a diferentes designs que podem parecer incorretos ou não intuitivos para alguém familiarizado com bases de dados relacionais, mas isso faz sentido se estiver a criar um arquivo de chaves/valores NoSQL, como o Armazenamento de tabelas.
 
 O armazenamento de tabela foi projetado para dar suporte a aplicativos em escala de nuvem que podem conter bilhões de entidades ("linhas" na terminologia do banco de dados relacional) ou para conjuntos de dados que devem dar suporte a grandes volumes de transações. Portanto, você precisa pensar de maneira diferente sobre como armazenar seus dados e entender como funciona o armazenamento de tabelas. Um armazenamento de dados NoSQL bem projetado pode permitir que sua solução seja dimensionada muito além (e com um custo menor) do que uma solução que usa um banco de dados relacional. Este guia ajuda-o com estes tópicos.  
 
@@ -193,7 +193,7 @@ Um bom ponto de partida para permitir que você leia os dados com eficiência é
 ### <a name="how-your-choice-of-partitionkey-and-rowkey-affects-query-performance"></a>Como sua escolha de `PartitionKey` e `RowKey` afeta o desempenho da consulta
 Os exemplos a seguir pressupõem que o armazenamento de tabela está armazenando entidades de funcionário com a seguinte estrutura (a maioria dos exemplos omite a propriedade `Timestamp` para fins de clareza):  
 
-| Nome da coluna | Data type |
+| nome da coluna | Data type |
 | --- | --- |
 | `PartitionKey` (nome do departamento) |Cadeia |
 | `RowKey` (ID do funcionário) |Cadeia |
@@ -423,7 +423,7 @@ O armazenamento de tabela indexa automaticamente as entidades usando os valores 
 Se você também quiser localizar uma entidade de funcionário com base no valor de outra propriedade, como endereço de email, deverá usar uma verificação de partição menos eficiente para encontrar uma correspondência. Isso ocorre porque o armazenamento de tabela não fornece índices secundários. Além disso, não há nenhuma opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem `RowKey`.  
 
 #### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, você pode armazenar várias cópias de cada entidade, com cada cópia usando um valor de `RowKey` diferente. Se você armazenar uma entidade com as estruturas a seguir, poderá recuperar com eficiência entidades de funcionário com base no endereço de email ou na ID de funcionário. Os valores de prefixo para `RowKey`, `empid_`e `email_` permitem consultar um único funcionário ou um intervalo de funcionários, usando um intervalo de endereços de email ou IDs de funcionários.  
+Para contornar a falta de índices secundários, você pode armazenar várias cópias de cada entidade, com cada cópia usando um valor de `RowKey` diferente. Se você armazenar uma entidade com as estruturas a seguir, poderá recuperar com eficiência entidades de funcionário com base no endereço de email ou na ID de funcionário. Os valores prefixos para `RowKey`, `empid_`, e `email_` permitem-lhe consultar um único colaborador, ou um leque de colaboradores, utilizando uma série de endereços de e-mail ou iDs de empregados.  
 
 ![Gráfico mostrando a entidade Employee com valores variados de RowKey][7]
 
@@ -434,8 +434,8 @@ Os dois critérios de filtro a seguir (um pesquisado por ID de funcionário e um
 
 Se você consultar um intervalo de entidades de funcionário, poderá especificar um intervalo classificado em ordem de ID de funcionário ou um intervalo classificado em ordem de endereço de email. Consulta para entidades com o prefixo apropriado na `RowKey`.  
 
-* Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de 000100 a 000199, use: $filter = (PartitionKey EQ ' Sales ') e (RowKey ge ' empid_000100 ') e (RowKey Le ' empid_000199 ')  
-* Para localizar todos os funcionários do departamento de vendas com um endereço de email que começa com a letra "a", use: $filter = (PartitionKey EQ ' Sales ') e (RowKey ge ' email_a ') e (RowKey lt ' email_b ')  
+* Para encontrar todos os colaboradores do departamento de Vendas com identificação de empregado na gama 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail a começar pela letra "a", use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'email_a') e (RowKey lt 'email_b')  
   
 A sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de tabela. Para obter mais informações, consulte [consultar entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -483,7 +483,7 @@ Se pretender conseguir localizar uma entidade de funcionários com base no valor
 Você está prevendo um alto volume de transações em relação a essas entidades e deseja minimizar o risco de a taxa de armazenamento de tabela limitar seu cliente.  
 
 #### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, você pode armazenar várias cópias de cada entidade, com cada cópia usando valores diferentes de `PartitionKey` e `RowKey`. Se você armazenar uma entidade com as estruturas a seguir, poderá recuperar com eficiência entidades de funcionário com base no endereço de email ou na ID de funcionário. Os valores de prefixo para `PartitionKey`, `empid_`e `email_` permitem que você identifique qual índice deseja usar para uma consulta.  
+Para contornar a falta de índices secundários, você pode armazenar várias cópias de cada entidade, com cada cópia usando valores diferentes de `PartitionKey` e `RowKey`. Se você armazenar uma entidade com as estruturas a seguir, poderá recuperar com eficiência entidades de funcionário com base no endereço de email ou na ID de funcionário. Os valores prefixos para `PartitionKey`, `empid_`, e `email_` permitem identificar que índice pretende utilizar para uma consulta.  
 
 ![Gráfico mostrando entidade de funcionário com índice primário e entidade de funcionário com índice secundário][10]
 
@@ -494,8 +494,8 @@ Os dois critérios de filtro a seguir (um pesquisado por ID de funcionário e um
 
 Se você consultar um intervalo de entidades de funcionário, poderá especificar um intervalo classificado em ordem de ID de funcionário ou um intervalo classificado em ordem de endereço de email. Consulta para entidades com o prefixo apropriado na `RowKey`.  
 
-* Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificado na ordem de ID do funcionário, use: $Filter = (PartitionKey EQ ' empid_Sales ') e (RowKey ge ' 000100 ') e (RowKey Le ' 000199 ')  
-* Para localizar todos os funcionários do departamento de vendas com um endereço de email que começa com "a", classificado em ordem de endereço de email, use: $filter = (PartitionKey EQ ' email_Sales ') e (RowKey ge ' a ') e (RowKey lt ' b ')  
+* Para encontrar todos os colaboradores do departamento de Vendas com identificação de empregado na gama **000100** a **000199**, ordenado por ordem de identificação dos funcionários, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que comece com "a", classificado na ordem de endereço de e-mail, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
 Observe que a sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de tabela. Para obter mais informações, consulte [consultar entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -715,7 +715,7 @@ $filter = (PartitionKey eq "Vendas") e (RowKey ge "empid_000123") e (RowKey lt '
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Você deve usar um caractere separador adequado que facilita a análise do valor `RowKey`: por exemplo, **000123_2012**.  
+* Deve utilizar um carácter separador adequado que facilite a análise do valor `RowKey`: por exemplo, **000123_2012**.  
 * Você também está armazenando essa entidade na mesma partição que outras entidades que contêm dados relacionados para o mesmo funcionário. Isso significa que você pode usar o EGTs para manter a consistência forte.
 * Você deve considerar com que frequência você consultará os dados para determinar se esse padrão é apropriado. Por exemplo, se você acessar os dados de revisão com pouca frequência e os dados principais do funcionário com frequência, deverá mantê-los como entidades separadas.  
 

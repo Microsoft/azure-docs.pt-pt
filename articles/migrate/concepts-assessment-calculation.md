@@ -3,19 +3,19 @@ title: Avaliações em migrações para Azure
 description: Saiba mais sobre as avaliações nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029116"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833333"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Sobre avaliações em migrações para Azure
 
 Este artigo descreve como as avaliações são calculadas nas [migrações para Azure: avaliação do servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool). Você executa avaliações em grupos de computadores locais, para descobrir se eles estão prontos para migração para migrações para Azure.
 
 ## <a name="how-do-i-run-an-assessment"></a>Como fazer executar uma avaliação?
-Você pode executar uma avaliação usando as migrações para Azure: avaliação do servidor ou outra ferramenta do Azure ou de terceiros. Depois de criar um projeto de migrações para Azure, você adiciona a ferramenta necessária. [Saiba mais] (how-to-add-tool-first-time.md
+Você pode executar uma avaliação usando as migrações para Azure: avaliação do servidor ou outra ferramenta do Azure ou de terceiros. Depois de criar um projeto de migrações para Azure, você adiciona a ferramenta necessária. [Saiba mais](how-to-add-tool-first-time.md)
 
 ### <a name="collect-compute-data"></a>Coletar dados de computação
 
@@ -79,13 +79,13 @@ Aqui está o que está incluído em uma avaliação em migrações para Azure: a
 --- | ---
 **Localização de destino** | O local para o qual você deseja migrar. Atualmente, a avaliação do servidor dá suporte a essas regiões do Azure de destino:<br/><br/> Leste da Austrália, sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Índia central, EUA Central, Leste da China, Norte da China, Ásia Oriental, leste dos EUA, leste dos dos EUA 2, Alemanha central, Alemanha nordeste, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov Arizona, US Gov Texas, US Gov-Virgínia, West EUA Central, Europa Ocidental, oeste da Índia, oeste dos EUA e West dos EUA 2.
 *Disco de armazenamento de destino (no estado em que está sendo dimensionado)* * | O tipo de discos a ser usado para armazenamento no Azure. <br/><br/> Especifique o disco de armazenamento de destino como gerenciado Premium, padrão de SSD gerenciado ou HDD padrão gerenciado.
-**Disco de armazenamento de destino (dimensionamento baseado em desempenho)** | Especifique o tipo de disco de armazenamento de destino como automático, gerenciado Premium, HDD padrão gerenciado ou SSD padrão gerenciado.<br/><br/> **Automático**: a recomendação de disco baseia-se nos dados de desempenho dos discos (as operações de entrada/saída por segundo (IOPS) e taxa de transferência).<br/><br/>**Premium/Standard**: a avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se você quiser obter um SLA de VM de instância única de 99,9%, considerando o uso de Managed disks Premium. Isso garante que todos os discos na avaliação sejam recomendados como discos gerenciados Premium.<br/><br/> O Azure Migrate só suporta discos geridos para avaliação de migrações.
+**Disco de armazenamento de destino (dimensionamento baseado em desempenho)** | Especifique o tipo de disco de armazenamento de destino como automático, gerenciado Premium, HDD padrão gerenciado ou SSD padrão gerenciado.<br/><br/> **Automático**: a recomendação de disco baseia-se nos dados de desempenho dos discos (as operações de entrada/saída por segundo (IOPS) e taxa de transferência).<br/><br/>**Premium/Standard**: a avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se quiser atingir uma única instância VM SLA de 99,9%, considerando a utilização de discos geridos por prémios. Isso garante que todos os discos na avaliação sejam recomendados como discos gerenciados Premium.<br/><br/> O Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Instâncias reservadas (RIs)** | Especifique [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure, para que as estimativas de custo na avaliação tomem os descontos de ri em conta.<br/><br/> Atualmente, o RIs tem suporte apenas para ofertas pagas conforme o uso nas migrações para Azure.
 **Critérios de dimensionamento** | Usado para dimensionar o tamanho correto da VM no Azure.<br/><br/> Use como está o dimensionamento, ou o dimensionamento baseado em desempenho.
 **Histórico de desempenho** | Usado com o dimensionamento baseado em desempenho. Especifique a duração usada ao avaliar dados de desempenho.
 **Utilização de percentil** | Usado com o dimensionamento baseado em desempenho. Especifica o valor percentual do exemplo de desempenho a ser usado para o dimensionamento correto. 
 **Série das VMs** | Especifique a série de VMs do Azure que você deseja considerar para o dimensionamento correto. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista ou série.
-**Fator de conforto** | Buffer usado durante a avaliação. Aplicado na parte superior dos dados de utilização do computador para VMs (CPU, memória, disco e rede). Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0 x, o resultado é uma VM de quatro núcleos.
+**Fator de conforto** | Buffer usado durante a avaliação. Aplicado na parte superior dos dados de utilização do computador para VMs (CPU, memória, disco e rede). Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, um VM de 10 núcleos com 20% de utilização normalmente resulta num VM de dois núcleos. Com um fator de conforto de 2,0 x, o resultado é uma VM de quatro núcleos.
 **Oferta** | Exibe a [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está registrado. A avaliação do servidor estima o custo de acordo.
 **Moeda** | Moeda de cobrança da sua conta.
 **Desconto (%)** | Lista quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A predefinição é 0%.
@@ -124,7 +124,7 @@ A avaliação do servidor revisa as seguintes propriedades da VM local para dete
 --- | --- | ---
 **Tipo de inicialização** | O Azure dá suporte a VMs com um tipo de inicialização de BIOS, não UEFI. | Condicionalmente pronto se o tipo de inicialização for UEFI.
 **Núcleos** | O número de núcleos nos computadores deve ser igual ou menor que o número máximo de núcleos (128) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão os núcleos utilizados para comparação. Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados sem aplicar o fator de conforto. | Pronto se for menor ou igual a limites.
-**Memória** | O tamanho da memória do computador deve ser igual ou menor que a memória máxima (3892 gigabytes [GB] na série M do Azure Standard_M128m&nbsp;<sup>2</sup>) permitida para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a memória utilizada para comparação. Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a memória alocada será usada sem aplicar o fator de conforto.<br/><br/> | Pronto se estiver dentro dos limites.
+**Memória** | O tamanho da memória da máquina deve ser igual ou inferior à memória máxima (3892 gigabytes [GB] na série Azure M Standard_M128m&nbsp;<sup>2</sup>) permitida para um VM Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a memória utilizada para comparação. Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a memória alocada será usada sem aplicar o fator de conforto.<br/><br/> | Pronto se estiver dentro dos limites.
 **Disco de armazenamento** | O tamanho alocado de um disco deve ser de 32 TB ou menos. Embora o Azure dê suporte a discos de 64 TB com discos SSD Ultra, migre o Azure: a avaliação do servidor atualmente verifica 32 TB como os limites de tamanho do disco, pois ele ainda não oferece suporte ao SSD Ultra. <br/><br/> O número de discos anexados ao computador deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Pronto se estiver dentro dos limites.
 **Redes** | Um computador deve ter 32 ou menos NICs (interfaces de rede) conectados a ele. | Pronto se estiver dentro dos limites.
 
@@ -136,7 +136,7 @@ Juntamente com as propriedades da VM, a avaliação do servidor examina o sistem
 
 A lógica a seguir é usada pela avaliação do servidor para identificar a prontidão do Azure com base no sistema operacional.
 
-**Sistema operativo** | **Detalhes** | **Status de preparação do Azure**
+**Sistema Operativo** | **Detalhes** | **Status de preparação do Azure**
 --- | --- | ---
 Windows Server 2016 & todos os SPs | O Azure fornece suporte completo. | Preparado para o Azure
 Windows Server 2012 R2 & todos os SPs | O Azure fornece suporte completo. | Preparado para o Azure

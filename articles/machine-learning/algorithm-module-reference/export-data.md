@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7f8d3bb6452ee3260e5a89feb37c374418fc6943
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c83bfc4a3ec8d1163669f28dfde64c63e7c6ff89
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312163"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775077"
 ---
 # <a name="export-data-module"></a>Exportar módulo de dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para salvar os resultados, dados intermediários e dados de trabalho de seus pipelines em destinos de armazenamento em nuvem fora Azure Machine Learning. 
 
@@ -29,7 +29,7 @@ Este módulo dá suporte à exportação de dados para os seguintes serviços de
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Antes de exportar seus dados, primeiro você precisa registrar um armazenamento de um datastore em seu espaço de trabalho Azure Machine Learning. Para obter mais informações, consulte [como acessar dados](../how-to-access-data.md).
+Antes de exportar seus dados, primeiro você precisa registrar um armazenamento de um datastore em seu espaço de trabalho Azure Machine Learning. Para mais informações, consulte os dados do Access nos serviços de [armazenamento do Azure.](../how-to-access-data.md)
 
 ## <a name="how-to-configure-export-data"></a>Como configurar dados de exportação
 
@@ -39,7 +39,7 @@ Antes de exportar seus dados, primeiro você precisa registrar um armazenamento 
 
 1. Selecione **exportar dados** para abrir o painel **Propriedades** .
 
-1. Para o **repositório de armazenamento**, selecione um repositório de armazenamento existente na lista suspensa. Você também pode criar um novo repositório de armazenamento. Verifique como visitando [o como acessar os dados](../how-to-access-data.md)
+1. Para o **repositório de armazenamento**, selecione um repositório de armazenamento existente na lista suspensa. Você também pode criar um novo repositório de armazenamento. Verifique como visitando dados do Access nos serviços de [armazenamento do Azure.](../how-to-access-data.md)
 
 1. Defina o caminho no repositório de dados no qual gravar o dado. 
 

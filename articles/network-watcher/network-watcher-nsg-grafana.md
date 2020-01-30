@@ -1,12 +1,10 @@
 ---
-title: Gerenciar logs de fluxo do NSG usando o Grafana
+title: Gerir os registos de fluxo nsg usando Grafana
 titleSuffix: Azure Network Watcher
-description: Gerencie e analise os logs de fluxo do grupo de segurança de rede no Azure usando o observador de rede e o Grafana.
+description: Gerir e analisar os registos de fluxo do grupo de segurança da rede em Azure utilizando o Network Watcher e o Grafana.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
+author: damendo
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
@@ -15,42 +13,42 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: mareat
-ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277948"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840915"
 ---
-# <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerenciar e analisar logs de fluxo do grupo de segurança de rede usando o observador de rede e o Grafana
+# <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar registos de fluxo do Grupo de Segurança da Rede usando o Network Watcher e o Grafana
 
-[Os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser usadas para entender o tráfego IP de entrada e saída em interfaces de rede. Esses logs de fluxo mostram os fluxos de entrada e saída em uma base de regra por NSG, a NIC à qual o fluxo se aplica, informações de 5 tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo) e se o tráfego foi permitido ou negado.
+Os registos de fluxo do [Network Security Group (NSG)](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser usadas para compreender o tráfego IP nas interfaces da rede. Estes registos de fluxo mostram fluxos de saída e de entrada numa base de regra NSG, o NIC a que o fluxo se aplica a, 5-tuple informações sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
 
 > [!Warning]  
-> As etapas a seguir funcionam com os logs de fluxo versão 1. Para obter detalhes, consulte [introdução ao log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções a seguir não funcionarão com a versão 2 dos arquivos de log, sem modificação.
+> Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais detalhes, consulte [Introdução à exploração de fluxos de registo para grupos de segurança](network-watcher-nsg-flow-logging-overview.md)da rede . As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
-Você pode ter muitos NSGs em sua rede com o log de fluxo habilitado. Essa quantidade de dados de registro em log torna difícil analisar e obter informações de seus logs. Este artigo fornece uma solução para gerenciar centralmente esses logs de fluxo do NSG usando o Grafana, uma ferramenta de gráfico de software livre, o ElasticSearch, um mecanismo de pesquisa e análise distribuída e Logstash, que é um pipeline de processamento de dados do lado do servidor de software livre.  
+Pode ter muitos NSGs na sua rede com o registo de fluxos ativado. Esta quantidade de dados de registo torna complicado analisar e obter informações dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo NSG usando grafana, uma ferramenta de grafismo de código aberto, ElasticSearch, um motor de pesquisa e análise distribuído, e Logstash, que é um pipeline de processamento de dados do lado do servidor de fonte aberta.  
 
 ## <a name="scenario"></a>Cenário
 
-Os logs de fluxo NSG são habilitados usando o observador de rede e são armazenados no armazenamento de BLOBs do Azure. Um plug-in Logstash é usado para conectar e processar logs de fluxo do armazenamento de BLOBs e enviá-los ao ElasticSearch.  Depois que os logs de fluxo são armazenados em ElasticSearch, eles podem ser analisados e visualizados em painéis personalizados no Grafana.
+Os registos de fluxo NSG são ativados utilizando o Network Watcher e são armazenados no armazenamento de blob Azure. Um plugin logstash é usado para ligar e processar registos de fluxo do armazenamento blob e enviá-los para ElasticSearch.  Uma vez armazenados os registos de fluxo em ElasticSearch, podem ser analisados e visualizados em dashboards personalizados em Grafana.
 
-![Grafana do observador de rede NSG](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
+![NSG Network Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
 
 ## <a name="installation-steps"></a>Etapas de instalação
 
-### <a name="enable-network-security-group-flow-logging"></a>Habilitar o log de fluxo do grupo de segurança de rede
+### <a name="enable-network-security-group-flow-logging"></a>Ativar a exploração de fluxo do Grupo de Segurança da Rede
 
-Para este cenário, você deve ter o log de fluxo do grupo de segurança de rede habilitado em pelo menos um grupo de segurança de rede em sua conta. Para obter instruções sobre como habilitar os logs de fluxo de segurança de rede, consulte o seguinte artigo [introdução ao log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
+Para este cenário, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado em pelo menos um Grupo de Segurança de Rede na sua conta. Para obter instruções sobre a ativação de registos de fluxo de segurança da rede, consulte o seguinte artigo [Introdução ao fluxo de registo sinuoso para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
 
-### <a name="setup-considerations"></a>Considerações sobre a instalação
+### <a name="setup-considerations"></a>Considerações de configuração
 
-Neste exemplo, Grafana, ElasticSearch e Logstash são configurados em um servidor Ubuntu 16, 4 LTS implantado no Azure. Essa configuração mínima é usada para executar todos os três componentes – todos eles estão em execução na mesma VM. Essa configuração só deve ser usada para cargas de trabalho de teste e não críticas. Logstash, Elasticsearch e Grafana podem ser arquitetados para dimensionar de forma independente em várias instâncias. Para obter mais informações, consulte a documentação para cada um desses componentes.
+Neste exemplo Grafana, ElasticSearch e Logstash estão configurados num Ubuntu 16.04 LTS Server implantado em Azure. Esta configuração mínima é utilizada para executar os três componentes – todos eles estão a funcionar no mesmo VM. Esta configuração só deve ser utilizada para testes e cargas de trabalho não críticas. Logstash, Elasticsearch e Grafana podem ser arquitetados para escalar independentemente em muitos casos. Para mais informações, consulte a documentação para cada um destes componentes.
 
-### <a name="install-logstash"></a>Instalar o Logstash
+### <a name="install-logstash"></a>Instalar logstash
 
-Use Logstash para mesclar os logs de fluxo formatados em JSON para um nível de tupla de fluxo.
+Utilize logstash para aplainar os troncos de fluxo formatadoJOn para um nível de fluxo de tuple.
 
 1. Para instalar o Logstash, execute os seguintes comandos:
 
@@ -59,13 +57,13 @@ Use Logstash para mesclar os logs de fluxo formatados em JSON para um nível de 
     sudo dpkg -i logstash-5.2.0.deb
     ```
 
-2. Configure o Logstash para analisar os logs de fluxo e enviá-los para o ElasticSearch. Crie um arquivo Logstash. conf usando:
+2. Configure o Logstash para analisar os registos de fluxo e envie-os para o ElásticoSearch. Criar um ficheiro Logstash.conf utilizando:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-3. Adicione o seguinte conteúdo ao arquivo. Altere o nome da conta de armazenamento e a chave de acesso para refletir os detalhes da sua conta de armazenamento:
+3. Adicione o seguinte conteúdo ao ficheiro. Altere o nome da conta de armazenamento e a chave de acesso para refletir os detalhes da sua conta de armazenamento:
 
    ```bash
     input {
@@ -139,27 +137,27 @@ Use Logstash para mesclar os logs de fluxo formatados em JSON para um nível de 
     }
    ```
 
-O arquivo de configuração Logstash fornecido é composto por três partes: a entrada, o filtro e a saída.
-A seção de entrada designa a fonte de entrada dos logs que o Logstash processará – nesse caso, usaremos um plug-in de entrada "azureblob" (instalado nas próximas etapas) que nos permitirá acessar os arquivos JSON do log de fluxo NSG armazenados no armazenamento de BLOBs. 
+O ficheiro config Logstash fornecido é composto por três partes: a entrada, filtro e saída.
+A secção de entrada designa a fonte de entrada dos registos que o Logstash irá processar – neste caso, vamos utilizar um plugin de entrada "azureblob" (instalado nos próximos passos) que nos permitirá aceder aos ficheiros JSON de log de fluxo NSG armazenados no armazenamento de blob. 
 
-Em seguida, a seção de filtro mescla cada arquivo de log de fluxo para que cada tupla de fluxo individual e suas propriedades associadas se tornem um evento Logstash separado.
+A secção do filtro achata cada ficheiro de registo de fluxo para que cada estple de fluxo individual e as suas propriedades associadas se tornem um evento de Logstash separado.
 
-Por fim, a seção de saída encaminha cada evento Logstash para o servidor ElasticSearch. Fique à vontade para modificar o arquivo de configuração Logstash de acordo com suas necessidades específicas.
+Finalmente, a secção de saída reencaminha cada evento de Logstash para o servidor ElasticSearch. Sinta-se à vontade para modificar o ficheiro config Logstash de acordo com as suas necessidades específicas.
 
-### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalar o plug-in de entrada Logstash para o armazenamento de BLOBs do Azure
+### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instale o plugin de entrada Logstash para armazenamento de Blob Azure
 
-Esse plug-in Logstash permite que você acesse diretamente os logs de fluxo de sua conta de armazenamento de BLOBs designada. Para instalar esse plug-in, no diretório de instalação padrão do Logstash (neste caso,,/usr/share/logstash/bin), execute o comando:
+Este plugin logstash permite-lhe aceder diretamente aos registos de fluxo da sua conta de armazenamento de blob designada. Para instalar esta ficha, a partir do diretório de instalação de Logstash predefinido (neste caso/usr/share/logstash/bin) executa o comando:
 
 ```bash
 cd /usr/share/logstash/bin
 sudo ./logstash-plugin install logstash-input-azureblob
 ```
 
-Para obter mais informações sobre esse plug-in, consulte [plug-in de entrada do Logstash para BLOBs de armazenamento do Azure](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
+Para mais informações sobre esta ficha, consulte plugin de [entrada Logstash para Blobs de Armazenamento Azure](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### <a name="install-elasticsearch"></a>Instalar o ElasticSearch
+### <a name="install-elasticsearch"></a>Instalar ElásticoSearch
 
-Você pode usar o script a seguir para instalar o ElasticSearch. Para obter informações sobre como instalar o ElasticSearch, consulte [pilha elástica](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
+Pode utilizar o seguinte script para instalar o ElasticSearch. Para obter informações sobre a instalação de ElasticSearch, consulte [Elastic Stack](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
 
 ```bash
 apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen -y
@@ -172,9 +170,9 @@ systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
 ```
 
-### <a name="install-grafana"></a>Instalar o Grafana
+### <a name="install-grafana"></a>Instalar Grafana
 
-Para instalar e executar o Grafana, execute os seguintes comandos:
+Para instalar e executar grafana, executar os seguintes comandos:
 
 ```bash
 wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_4.5.1_amd64.deb
@@ -183,29 +181,29 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-Para obter informações adicionais de instalação, consulte [instalando no Debian/Ubuntu](https://docs.grafana.org/installation/debian/).
+Para obter informações adicionais sobre a instalação, consulte [a instalação em Debian / Ubuntu](https://docs.grafana.org/installation/debian/).
 
-#### <a name="add-the-elasticsearch-server-as-a-data-source"></a>Adicionar o servidor ElasticSearch como uma fonte de dados
+#### <a name="add-the-elasticsearch-server-as-a-data-source"></a>Adicione o servidor ElasticSearch como fonte de dados
 
-Em seguida, você precisa adicionar o índice ElasticSearch que contém os logs de fluxo como uma fonte de dados. Você pode adicionar uma fonte de dados selecionando **Adicionar fonte de dados** e concluindo o formulário com as informações relevantes. Uma amostra dessa configuração pode ser encontrada na seguinte captura de tela:
+Em seguida, é necessário adicionar o índice ElasticSearch contendo registos de fluxo como fonte de dados. Pode adicionar uma fonte de dados selecionando **adicionar fonte** de dados e preenchendo o formulário com as informações relevantes. Uma amostra desta configuração pode ser encontrada na seguinte imagem:
 
 ![Adicionar origem de dados](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
-#### <a name="create-a-dashboard"></a>Criar um painel
+#### <a name="create-a-dashboard"></a>Criar um dashboard
 
-Agora que você configurou com êxito o Grafana para ler do índice ElasticSearch que contém os logs de fluxo do NSG, você pode criar e personalizar painéis. Para criar um novo painel, selecione **criar seu primeiro painel**. A configuração de gráfico de exemplo a seguir mostra os fluxos segmentados pela regra NSG:
+Agora que configuraste grafana com sucesso para ler a partir do índice ElasticSearch contendo registos de fluxo NSG, pode criar e personalizar dashboards. Para criar um novo dashboard, selecione **Criar o seu primeiro dashboard**. A configuração do gráfico de amostra seguem mostrar fluxos segmentados pela regra NSG:
 
-![Grafo de painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
+![Gráfico do painel de instrumentos](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 
-A captura de tela a seguir descreve um grafo e um gráfico mostrando os principais fluxos e sua frequência. Os fluxos também são mostrados pela regra e pelos fluxos do NSG por decisão. O Grafana é altamente personalizável, portanto, é aconselhável que você crie painéis para atender às suas necessidades específicas de monitoramento. O exemplo a seguir mostra um painel típico:
+A imagem que se segue mostra um gráfico e gráfico mostrando os fluxos superiores e a sua frequência. Os fluxos também são mostrados pela regra do NSG e fluxos por decisão. Grafana é altamente personalizável, por isso é aconselhável criar dashboards para atender às suas necessidades específicas de monitorização. O exemplo que se segue mostra um dashboard típico:
 
-![Grafo de painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Gráfico do painel de instrumentos](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusão
 
-Ao integrar o observador de rede com o ElasticSearch e o Grafana, agora você tem uma maneira centralizada e conveniente de gerenciar e visualizar os logs de fluxo de NSG, bem como outros dados. O Grafana tem vários outros recursos avançados de grafação que também podem ser usados para gerenciar ainda mais os logs de fluxo e entender melhor o tráfego de rede. Agora que você tem uma instância Grafana configurada e conectada ao Azure, sinta-se à vontade para continuar a explorar as outras funcionalidades que ele oferece.
+Ao integrar o Network Watcher com ElasticSearch e Grafana, tem agora uma forma conveniente e centralizada de gerir e visualizar registos de fluxo nsg, bem como outros dados. Grafana tem uma série de outras funcionalidades de grafismo poderosas que também podem ser usadas para gerir ainda mais os registos de fluxo e entender melhor o tráfego da sua rede. Agora que tem uma instância grafana configurada e ligada ao Azure, sinta-se livre para continuar a explorar a outra funcionalidade que oferece.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre como usar o [observador de rede](network-watcher-monitoring-overview.md).
+- Saiba mais sobre a utilização do Observador de [Rede](network-watcher-monitoring-overview.md).
 

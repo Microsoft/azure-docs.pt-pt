@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978063"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842440"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -69,7 +69,7 @@ Leia também o [SAP Help portal for SAP lama](https://help.sap.com/viewer/p/SAP_
 * Se você entrar em hosts gerenciados, certifique-se de não bloquear os sistemas de arquivos de serem desmontados  
   Se você entrar em máquinas virtuais do Linux e alterar o diretório de trabalho para um diretório em um ponto de montagem, por exemplo,/usr/sap/AH1/ASCS00/exe, o volume não poderá ser desmontado e uma falha de reutilização ou despreparação.
 
-* Certifique-se de desabilitar CLOUD_NETCONFIG_MANAGE em máquinas virtuais SUSE SLES Linux. Para obter mais detalhes, consulte [SuSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+* Certifique-se de que desativa as CLOUD_NETCONFIG_MANAGE nas máquinas virtuais SUSE SLES Linux. Para obter mais detalhes, consulte [SuSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
 ## <a name="set-up-azure-connector-for-sap-lama"></a>Configurar o conector do Azure para SAP LaMa
 
@@ -87,7 +87,7 @@ O conector do Azure pode usar uma entidade de serviço para autorizar contra Mic
 1. Clique em novo registro
 1. Insira um nome e clique em registrar
 1. Selecione o novo aplicativo e clique em certificados & segredos na guia Configurações
-1. Crie um novo segredo do cliente, insira uma descrição para uma nova chave, selecione quando o segredo deve exire e clique em salvar
+1. Crie um novo segredo de cliente, insira uma descrição para uma nova chave, selecione quando o segredo deve expirar e clique em Guardar
 1. Anote o valor. Ele é usado como a senha para a entidade de serviço
 1. Anote o ID da aplicação. Ele é usado como o nome de usuário da entidade de serviço
 
@@ -127,7 +127,7 @@ Na configuração do conector do Azure para SAP LaMa, selecione ' usar identidad
 Abra o site do SAP LaMa e navegue até infraestrutura. Acesse a guia gerenciadores de nuvem e clique em Adicionar. Selecione o Adaptador de Nuvem de Microsoft Azure e clique em Avançar. Introduza as seguintes informações:
 
 * Rótulo: escolha um nome para a instância do conector
-* Nome de usuário: ID do aplicativo da entidade de serviço ou ID da identidade atribuída ao usuário da máquina virtual. Consulte [usando um sistema ou uma identidade atribuída pelo usuário] para obter mais informações
+* Nome de usuário: ID do aplicativo da entidade de serviço ou ID da identidade atribuída ao usuário da máquina virtual. Consulte [Utilização de um Sistema ou Identidade Atribuída ao Utilizador] para obter mais informações
 * Senha: chave/senha da entidade de serviço. Você pode deixar esse campo vazio se usar um sistema ou uma identidade atribuída pelo usuário.
 * URL: manter https://management.azure.com/ padrão
 * Intervalo de monitoramento (segundos): deve ser pelo menos 300
@@ -155,7 +155,7 @@ Você pode implantar manualmente uma nova máquina virtual ou usar um dos modelo
 
 Verifique se o usuário \<hanasid > ADM, \<sapsid > ADM e os SAPs de grupo existem no computador de destino com a mesma ID e GID ou use LDAP. Habilite e inicie o servidor NFS nas máquinas virtuais que devem ser usadas para executar o SAP NetWeaver (A) SCS.
 
-### <a name="manual-deployment"></a>Implantação manual
+### <a name="manual-deployment"></a>Implantação Manual
 
 O SAP LaMa se comunica com a máquina virtual usando o agente de host do SAP. Se você implantar as máquinas virtuais manualmente ou não usar o modelo de Azure Resource Manager do repositório de início rápido, certifique-se de instalar o agente de host do SAP e as extensões adaptáveis do SAP mais recentes. Para obter mais informações sobre os níveis de patch necessários para o Azure, consulte a observação do SAP [2343511].
 
@@ -248,9 +248,9 @@ Os modelos têm os seguintes parâmetros:
 
 * sapsysGid: a ID do grupo do Linux do grupo de SAPS. Não é necessário para o Windows.
 
-* _artifactsLocation: o URI de base, em que os artefatos exigidos por esse modelo estão localizados. Quando o modelo é implantado usando os scripts que o acompanha, um local privado na assinatura será usado e esse valor será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
+* _artifactsLocation: A base URI, onde estão localizados artefactos exigidos por este modelo. Quando o modelo é implantado usando os scripts que o acompanha, um local privado na assinatura será usado e esse valor será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
 
-* _artifactsLocationSasToken: o sasToken necessário para acessar _artifactsLocation. Quando o modelo for implantado usando os scripts que o acompanha, um sasToken será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
+* _artifactsLocationSasToken: O sasToken necessário para aceder _artifactsLocation. Quando o modelo for implantado usando os scripts que o acompanha, um sasToken será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -277,7 +277,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 Execute SWPM e use *ah1-ASCs* para o *nome de host da instância ASCs*.
 
 ![Linux][Logo_Linux] Linux  
-Adicione o seguinte parâmetro de perfil ao perfil do agente de host do SAP, que está localizado em/usr/SAP/hostctrl/exe/host_profile. Para obter mais informações, consulte SAP Note [2628497].
+Adicione o seguinte parâmetro de perfil ao perfil do Agente hospedeiro SAP, que está localizado em /usr/sap/hostctrl/exe/host_profile. Para obter mais informações, consulte SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
@@ -288,13 +288,13 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 > Essa funcionalidade ainda é nem GA. Para obter mais informações, consulte SAP Note [2815988] (visível somente para clientes de visualização).
 Abra um incidente SAP no componente BC-VCM-LVM-HYPERV e solicite ingressar no adaptador de armazenamento LaMa para Azure NetApp Files visualização
 
-O seja fornece NFS para Azure. No contexto do SAP LaMa, isso simplifica a criação de instâncias ASCS (ABAP central Services) e a instalação subsequente de servidores de aplicativos. Anteriormente, a instância ASCS tinha que agir como servidor NFS e o parâmetro acosprep/nfs_paths precisava ser adicionado à host_profile do SAP Hostagent.
+O seja fornece NFS para Azure. No contexto do SAP LaMa, isso simplifica a criação de instâncias ASCS (ABAP central Services) e a instalação subsequente de servidores de aplicativos. Anteriormente, a instância ASCS também tinha de funcionar como servidor NFS e o parâmetro acosprep/nfs_paths teve de ser adicionado ao host_profile do Hostagent SAP.
 
 #### <a name="anf-is-currently-available-in-these-regions"></a>O seja está disponível atualmente nestas regiões:
 
 Leste da Austrália, EUA Central, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Europa Ocidental e oeste dos EUA 2.
 
-#### <a name="network-requirements"></a>Requisitos de Rede
+#### <a name="network-requirements"></a>Requisitos de rede
 
 O seja requer uma sub-rede delegada que deve fazer parte da mesma VNET que os servidores SAP. Aqui está um exemplo para essa configuração.
 Esta tela mostra a criação da VNET e a primeira sub-rede:
@@ -366,7 +366,7 @@ Após a instalação bem-sucedida, o sistema deve ser descoberto no SAP LaMa.
 
 Os pontos de montagem devem ser assim para o ASCS e a instância do as:
 
-![pontos de montagem do SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
+![pontos de montagem SAP LaMa em LaMa ](media/lama/sap-lama-ascs.png) (Este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
 
 
 #### <a name="install-sap-hana"></a>Instalar o SAP HANA
@@ -401,7 +401,7 @@ Antes de iniciar o SWPM (Gerenciador de provisionamento de software) SAP, você 
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di-0 -n 255.255.255.128
 ```
 
-É recomendável usar bancos de parâmetros de perfil do SAP NetWeaver/HDB/hdb_use_ident para definir a identidade usada para localizar a chave no USERSTORE do HDB. Você pode adicionar esse parâmetro manualmente após a instalação da instância do banco de dados com SWPM ou executar SWPM com
+Recomenda-se utilizar o parâmetro de perfil SAP NetWeaver dbs/hdb/hdb_use_ident para definir a identidade que é usada para encontrar a chave na userstore HDB. Você pode adicionar esse parâmetro manualmente após a instalação da instância do banco de dados com SWPM ou executar SWPM com
 
 ```bash
 # from https://blogs.sap.com/2015/04/14/sap-hana-client-software-different-ways-to-set-the-connectivity-data/
@@ -438,7 +438,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-as
 
 Execute SWPM e use *AS1-ASCs* para o *nome de host da instância ASCs*.
 
-#### <a name="install-sql-server"></a>Instalar o SQL Server
+#### <a name="install-sql-server"></a>Instalar o Servidor SQL
 
 Você precisa adicionar o endereço IP do nome de host virtual do banco de dados a uma interface de rede. A maneira recomendada é usar sapacext. Se você montar o endereço IP usando o sapacext, certifique-se de remontar o endereço IP após uma reinicialização.
 
@@ -447,7 +447,7 @@ Você precisa adicionar o endereço IP do nome de host virtual do banco de dados
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Execute a instalação da instância do banco de dados do SWPM na máquina virtual do SQL Server. Use SAPINST_USE_HOSTNAME =*AS1-DB* para substituir o nome do host usado para se conectar ao SQL Server. Se você implantou a máquina virtual usando o modelo de Azure Resource Manager, certifique-se de definir o diretório usado para os arquivos de dados de banco de dados para *C:\sql\data* e o arquivo de log de banco de dados para *C:\sql\log*.
+Execute a instalação da instância do banco de dados do SWPM na máquina virtual do SQL Server. Utilize SAPINST_USE_HOSTNAME=*as1-db* para anular o nome de anfitrião usado para ligar ao SQL Server. Se você implantou a máquina virtual usando o modelo de Azure Resource Manager, certifique-se de definir o diretório usado para os arquivos de dados de banco de dados para *C:\sql\data* e o arquivo de log de banco de dados para *C:\sql\log*.
 
 Certifique-se de que o usuário *NT AUTHORITY\SYSTEM* tenha acesso ao SQL Server e tenha a função de servidor *sysadmin*. Para obter mais informações, consulte a observação do SAP [1877727] e [2562184].
 
@@ -467,8 +467,8 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-discover"></a>Erros e avisos durante a descoberta
 
 * A permissão SELECT foi negada
-  * O [Driver de SQL Server ODBC] [SQL Server] A permissão SELECT foi negada no objeto ' log_shipping_primary_databases ', banco de dados ' msdb ', esquema ' dbo '. [SOAPFaultException]  
-  A permissão SELECT foi negada no objeto ' log_shipping_primary_databases ', banco de dados ' msdb ', esquema ' dbo '.
+  * [Microsoft] [ODBC SQL Server Driver] [SQL Server] A permissão SELECT foi negada no objeto 'log_shipping_primary_databases', base de dados 'msdb', schema 'dbo'. [SOAPFaultException]  
+  A permissão SELECT foi negada no objeto 'log_shipping_primary_databases', base de dados 'msdb', schema 'dbo'.
   * Solução  
     Verifique se o *NT AUTHORITY\SYSTEM* pode acessar o SQL Server. Consulte a observação do SAP [2562184]
 
@@ -477,7 +477,7 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 
 * Uma exceção foi gerada na validação do USERSTORE do HDB  
   * consulte o Visualizador de log  
-    com. SAP. NW. LM. ACI. monitor. API. Validation. RuntimeValidationException: exceção no validador com a ID ' RuntimeHDBConnectionValidator ' (validação: ' VALIDATION_HDB_USERSTORE '): não foi possível recuperar o hdbuserstore  
+    com.sap.nw.lm.aci.monitor.api.validação.RuntimeValidação: Exceção em validador com ID 'RuntimeHDBConnectionValidator' (Validação: 'VALIDATION_HDB_USERSTORE'): Não conseguiu recuperar a hdbuserstore  
     O USERSTORE do HANA não está no local correto
   * Solução  
     Verifique se o/usr/sap/AH1/hdbclient/install/installation.ini está correto
@@ -485,31 +485,31 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-a-system-copy"></a>Erros e avisos durante uma cópia do sistema
 
 * Ocorreu um erro ao validar a etapa de provisionamento do sistema
-  * Causado por: com. SAP. NW. LM. ACI. Engine. base. API. util. Exception. HAOperationException chamando '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-r ' | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-R
+  * Causada por: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN 1 -f 50 -h hn1-db -o nível=0\;status=5\;porta=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;porta=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
   * Solução  
     Fazer backup de todos os bancos de dados no sistema HANA de origem
 
 * *Início* da etapa de cópia do sistema da instância do banco de dados
-  * Falha na operação ' 000D3A282BC91EE8A1D76CF1F92E2944 ' do agente de host (OperationException. FaultCode: ' 127 ', mensagem: ' falha na execução do comando. : [Microsoft] [driver ODBC SQL Server] [SQL Server] o usuário não tem permissão para alterar o banco de dados ' AS2 ', o banco de dados não existe ou o banco de dados não está em um estado que permita verificações de acesso. ')
+  * Falha na operação ' 000D3A282BC91EE8A1D76CF1F92E2944 ' do agente de host (OperationException. FaultCode: ' 127 ', mensagem: ' falha na execução do comando. : [Microsoft][ODBC SQL Server Driver][SQL Server]O utilizador não tem permissão para alterar a base de dados 'AS2', a base de dados não existe, ou a base de dados não está num estado que permite verificações de acesso.')
   * Solução  
     Verifique se o *NT AUTHORITY\SYSTEM* pode acessar o SQL Server. Consulte a observação do SAP [2562184]
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Erros e avisos durante um clone do sistema
 
 * Erro ao tentar registrar o agente de instância na etapa *registro forçado e iniciar o agente de instância* do servidor de aplicativos ou ASCS
-  * Erro ao tentar registrar o agente de instância. (RemoteException: ' falha ao carregar dados de instância do perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0 ': não é possível acessar o perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0 ': nenhum arquivo ou diretório. ')
+  * Erro ao tentar registrar o agente de instância. (RemoteException: 'Falha em carregar dados de instância sapmnt\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': Não pode aceder ao perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0": Não pode aceder ao perfil '  as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No tal ficheiro ou diretório.')
   * Solução  
-   Verifique se o compartilhamento sapmnt no ASCS/SCS tem acesso completo para SAP_AS1_GlobalAdmin
+   Certifique-se de que a parte sapmnt no ASCS/SCS tem acesso total para SAP_AS1_GlobalAdmin
 
 * Erro na etapa *habilitar proteção de inicialização para clone*
-  * Falha ao abrir o arquivo '\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0 ' causa: nenhum arquivo ou diretório desse tipo
+  * Falha em abrir o ficheiro '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Causa: Não existe tal ficheiro ou diretório
   * Solução  
     A conta de computador do servidor de aplicativos precisa de acesso de gravação ao perfil
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>Erros e avisos durante a criação da replicação do sistema
 
 * Exceção ao clicar em criar replicação do sistema
-  * Causado por: com. SAP. NW. LM. ACI. Engine. base. API. util. Exception. HAOperationException chamando '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-r ' | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-R
+  * Causada por: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN 1 -f 50 -h hn1-db -o nível=0\;status=5\;porta=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;porta=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
   * Solução  
     Testar se sapacext pode ser executado como `<hanasid`> ADM
 
@@ -533,16 +533,16 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erros e avisos durante a instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: getProfileDir
-  * ERRO: (último erro relatado pela etapa: capturada ESAPinstException na chamada do módulo: validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir ' relatou um erro: o nó \\\as1-ascs\sapmnt\AS1\SYS\profile não existe. Iniciar o SAPinst no modo interativo para resolver esse problema)
+  * ERRO: (Último erro relatado pelo passo: Caught ESAPinstException in module call: Validator of step ' NW_DI indind, indind, 0. NW_GetSidFromProfiles indind, indind, NW_readProfileDirindindindindindindindindindindreadProfile0getProfileDir' relatou um erro: O nó \\\as1-ascs\sapmnt\AS1\SYS\perfil não existe. Iniciar o SAPinst no modo interativo para resolver esse problema)
   * Solução  
     Verifique se o SWPM está em execução com um usuário que tem acesso ao perfil. Este usuário pode ser configurado no assistente de instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: askUnicode
-  * ERRO: (último erro relatado pela etapa: capturada ESAPinstException na chamada do módulo: validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode ' relatou um erro: iniciar SAPinst no modo interativo para resolver esse problema)
+  * ERRO: (Último erro relatado pelo passo: Caught ESAPinstException in module call: Validator of step ' NW_DI indind, indind, 0. NW_GetSidFromProfiles indind, indind, NW_getUnicode indindindindindindindindind, indind, relatou um erro: Iniciar o SAPinst em modo interativo para resolver este problema)
   * Solução  
     Se você usar um kernel SAP recente, o SWPM não poderá determinar se o sistema é mais um sistema Unicode usando o servidor de mensagens do ASCS. Consulte a observação do SAP [2445033] para obter mais detalhes.  
     Esse problema será corrigido em um novo pacote de suporte/patch do SAP LaMa.  
-    Defina o parâmetro de perfil OS_UNICODE = UC no perfil padrão do seu sistema SAP para contornar esse problema.
+    Defina o parâmetro de perfil OS_UNICODE=uc no perfil predefinido do seu sistema SAP para contornar este problema.
 
 * Erro ao executar a etapa SAPinst: dCheckGivenServer
   * Erro ao executar a etapa SAPinst: dCheckGivenServer "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p > instalação foi cancelada pelo usuário. \</p>
@@ -555,15 +555,15 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
     Verifique se o Microsoft ODBC driver for SQL Server está instalado na máquina virtual na qual você deseja instalar o servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: copyScripts
-  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: erro 13 (0x0000000d) (permissão negada) na execução da chamada do sistema ' fopenU ' com o parâmetro (\\\ AS1-ASCs/sapmnt/AS1/SYS/exe/UC/NTAMD64/strdbs. cmd, w), linha (494) no arquivo (\ Bas/Bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), rastreamento de pilha:  
+  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: Erro 13 (0x00000000d) (Permissão negada) na execução da chamada do sistema 'fopenU' com parâmetro (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linha (494) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), traço de pilha:  
   CThrThread. cpp: 85: CThrThread:: threadFunction ()  
   CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
   CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  
   EJSController. cpp: 179: EJSControllerImpl:: executeScript ()  
   JSExtension. HPP: 1136: CallFunctionBase:: Call ()  
-  iaxxcfile. cpp: 183: iastring CIaOsFileConnect:: callMemberFunction (iastring const & name, args_t const & args)  
-  iaxxcfile. cpp: 1849: iastring CIaOsFileConnect:: newFileStream (args_t const & _args)  
-  iaxxbfile. cpp: 773: CIaOsFile:: newFileStream_impl (4)  
+  iaxxcfile.cpp: 183: iastring CIaOsFileConnect::callMemberFunction (iastring const& name, args_t const& args)  
+  iaxxcfile.cpp: 1849: iastring CIaOsFileConnect::newFileStream(args_t const& _args)  
+  iaxxbfile.cpp: 773: CIaOsFile::newFileStream_impl(4)  
   syxxcfile. cpp: 233: CSyFileImpl:: openStream (ISyFile:: eFileOpenMode)  
   syxxcfstrm. cpp: 29: CSyFileStreamImpl:: CSyFileStreamImpl (CSyFileStream *, iastring, ISyFile:: eFileOpenMode)  
   syxxcfstrm. cpp: 265: CSyFileStreamImpl:: Open ()  
@@ -573,7 +573,7 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
     Verifique se o SWPM está em execução com um usuário que tem acesso ao perfil. Este usuário pode ser configurado no assistente de instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: askPasswords
-  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: erro 5 (0x00000005) (acesso negado.) na execução da chamada do sistema ' NetValidatePasswordPolicy ' com parâmetro (...), linha (359) no arquivo (\ Bas/Bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), rastreamento de pilha:  
+  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: Erro 5 (0x000000005) (O acesso é negado.) na execução da chamada de sistema 'NetValidatePasswordPolicy' com parâmetro (...), linha (359) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), traço de pilha:  
   CThrThread. cpp: 85: CThrThread:: threadFunction ()  
   CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
   CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  
@@ -584,9 +584,9 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
   DarkModeDialog. cpp: 85: DarkModeDialog:: Submit ()  
   EJSController. cpp: 179: EJSControllerImpl:: executeScript ()  
   JSExtension. HPP: 1136: CallFunctionBase:: Call ()  
-  iaxxcaccount. cpp: 107: iastring CIaOsAccountConnect:: callMemberFunction (iastring const & name, args_t const & args)  
-  iaxxcaccount. cpp: 1186: iastring CIaOsAccountConnect:: validatePasswordPolicy (args_t const & _args)  
-  iaxxbaccount. cpp: 430: CIaOsAccount:: validatePasswordPolicy_impl ()  
+  iaxxcaccount.cpp: 107: iastring CIaOsAccountConnect::callMemberFunction (iastring const& name, args_t const& args)  
+  iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validarPasswordPolicy(args_t const& _args)  
+  iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
   synxcaccmg. cpp: 297: ISyAccountMgt::P asswordValidationMessage CSyAccountMgtImpl:: validatePasswordPolicy (saponazure, * * * * *) const)
   * Solução  
     Certifique-se de adicionar uma regra de host em etapa de *isolamento* para permitir a comunicação da VM para o controlador de domínio

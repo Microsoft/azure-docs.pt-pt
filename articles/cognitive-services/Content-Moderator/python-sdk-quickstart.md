@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 931e6e35df520f4a0ab35dfb6067654f9d08ed9d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 31cdc9663283b580acc10e7ac8d5a77f9036a7a8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448280"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772360"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Início rápido: biblioteca de cliente Content Moderator para Python
 
@@ -45,7 +45,7 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir seu recurso no [portal do Azure](https://portal.azure.com/)
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL do ponto de extremidade, denominada `CONTENT_MODERATOR_SUBSCRIPTION_KEY` e `CONTENT_MODERATOR_ENDPOINT`, respectivamente.
+Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, denominado `CONTENT_MODERATOR_SUBSCRIPTION_KEY` e `CONTENT_MODERATOR_ENDPOINT`, respectivamente.
  
 ### <a name="create-a-python-script"></a>Criar um script Python
 
@@ -101,7 +101,7 @@ Crie uma instância de um cliente com o ponto de extremidade e a chave. Crie um 
 
 ## <a name="moderate-text"></a>Texto moderado
 
-O código a seguir usa um cliente Content Moderator para analisar um corpo de texto e imprimir os resultados no console. Primeiro, crie um **text_files/** pasta na raiz do seu projeto e adicione um arquivo *content_moderator_text_moderation. txt* . Adicione seu próprio texto a este arquivo ou use o seguinte texto de exemplo:
+O código a seguir usa um cliente Content Moderator para analisar um corpo de texto e imprimir os resultados no console. Em primeiro lugar, crie uma **text_files/pasta** na raiz do seu projeto e adicione um ficheiro *content_moderator_text_moderation.txt.* Adicione seu próprio texto a este arquivo ou use o seguinte texto de exemplo:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
@@ -122,7 +122,7 @@ O código a seguir mostra como gerenciar uma lista de termos personalizados para
 
 ### <a name="get-sample-text"></a>Obter texto de exemplo
 
-Para usar este exemplo, você deve criar um **text_files/** pasta na raiz do seu projeto e adicionar um arquivo *content_moderator_term_list. txt* . Esse arquivo deve conter um texto orgânica que será verificado em relação à lista de termos. Você pode usar o seguinte texto de exemplo:
+Para utilizar esta amostra, tem de criar uma **text_files/pasta** na raiz do seu projeto e adicionar um ficheiro *content_moderator_term_list.txt.* Esse arquivo deve conter um texto orgânica que será verificado em relação à lista de termos. Você pode usar o seguinte texto de exemplo:
 
 ```
 This text contains the terms "term1" and "term2".
@@ -242,7 +242,7 @@ O código a seguir adiciona todas as suas imagens à lista.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagelist_add)]
 
-Defina a função auxiliar **add_images** em outro lugar em seu script.
+Defina a **função add_images** ajudante em outro lugar do seu script.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagelist_addhelper)]
 

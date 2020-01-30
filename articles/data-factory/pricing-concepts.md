@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: ee5acc97e4b05a0e93f4ceee8c04b400da211b49
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552139"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769499"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços Data Factory por meio de exemplos
 
@@ -51,10 +51,10 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 **Preço do cenário total: $0.16811**
 
 - Operações de Data Factory = **$0.01**
-  - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+  - Ler/Escrever = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorização = 2\*000005 = $0,00001 [1 Monitorização = $0,25/50000 = 0,000005]
 - Execução de &amp; de orquestração de pipeline = **$0.168**
-  - Execuções de atividade = 001\*2 = 0, 2 [1 Run = $1/1000 = 0, 1]
+  - Corridas de Atividade = 001\*2 = 0,002 [1 corrida = $1/1000 = 0,001]
   - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Copiar dados e transformar com Azure Databricks por hora
@@ -83,10 +83,10 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 **Preço do cenário total: $0.16916**
 
 - Operações de Data Factory = **$0.12**
-  - Leitura/gravação = 11\*00001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 3\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+  - Ler/Escrever = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorização = 3\*000005 = $0,00001 [1 Monitorização = $0,25/50000 = 0,000005]
 - Execução de &amp; de orquestração de pipeline = **$0.16904**
-  - Execuções de atividade = 001\*3 = 0, 3 [1 Run = $1/1000 = 0, 1]
+  - Corridas de Atividade = 001\*3 = 0,003 [1 corrida = $1/1000 = 0,001]
   - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
   - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
 
@@ -118,10 +118,10 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 **Preço do cenário total: $0.17020**
 
 - Operações de Data Factory = **$0.13**
-  - Leitura/gravação = 11\*00001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 4\*000005 = $0.02 [1 monitoramento = $0,25/50000 = 0, 5]
+  - Ler/Escrever = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorização = 4\*000005 = $0,00002 [1 Monitorização = $0,25/50000 = 0,000005]
 - Execução de &amp; de orquestração de pipeline = **$0.17007**
-  - Execuções de atividade = 001\*4 = 0, 4 [1 Run = $1/1000 = 0, 1]
+  - Corridas de Atividade = 001\*4 = 0,004 [1 corrida = $1/1000 = 0,001]
   - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
   - Atividade de pipeline = $0.03 (rateado por 1 minuto de tempo de execução. $0,002/hora em Azure Integration Runtime)
   - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
@@ -156,13 +156,13 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 | Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 16 núcleos de computação geral com TTL de 10 |
 | Monitorar a suposição de pipeline: apenas 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
-**Preço do cenário total: $0.3011**
+**Preço total do cenário: $1.4631**
 
 - Operações de Data Factory = **$0.01**
-  - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+  - Ler/Escrever = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorização = 2\*000005 = $0,00001 [1 Monitorização = $0,25/50000 = 0,000005]
 - Execução de &amp; de orquestração de pipeline = **$1.463**
-  - Execuções de atividade = 001\*2 = 0, 2 [1 Run = $1/1000 = 0, 1]
+  - Corridas de Atividade = 001\*2 = 0,002 [1 corrida = $1/1000 = 0,001]
   - Atividades de fluxo de dados = $1.461 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.274/hora em Azure Integration Runtime com 16 núcleos de computação geral
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: c77e89c509f10155ddc27e92f09465959b629f67
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7a77a54dc59ec427bf6abdf8fc1d410533b5be44
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979209"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771890"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure cosmos com Azure Key Vault
 
 > [!NOTE]
-> Neste momento, você deve solicitar acesso para usar esse recurso. Para fazer isso, entre em contato com [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+> Neste momento, você deve solicitar acesso para usar esse recurso. Para isso, contacte [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
 Os dados armazenados em sua conta do Azure cosmos são criptografados de forma automática e direta. O Azure Cosmos DB oferece duas opções para gerenciar as chaves usadas para criptografar os dados em repouso:
 
@@ -193,7 +193,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="is-there-any-additional-charge-when-using-customer-managed-keys"></a>Há algum custo adicional ao usar chaves gerenciadas pelo cliente?
 
-Sim. Para considerar a carga de computação adicional necessária para gerenciar a criptografia e a descriptografia de dados com chaves gerenciadas pelo cliente, todas as operações executadas na conta do Azure Cosmos consomem um aumento de 25% em [unidades de solicitação](./request-units.md).
+Sim. Para responder à carga de cálculo adicional que é necessária para gerir a encriptação de dados e a desencriptação com chaves geridas pelo cliente, todas as operações executadas contra a conta Azure Cosmos consomem um aumento de 25% nas [Unidades de Pedido.](./request-units.md)
 
 ### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>Quais dados são criptografados com as chaves gerenciadas pelo cliente?
 

@@ -1,6 +1,6 @@
 ---
-title: ClaimsProviders - Azure Active Directory B2C | Documentos da Microsoft
-description: Especifique o elemento de ClaimsProvider de uma política personalizada no Azure Active Directory B2C.
+title: ClaimsProviders - Diretório Ativo Azure B2C  Microsoft Docs
+description: Especifique o elemento ClaimsProvider de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511512"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836019"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um fornecedor de afirmações contém um conjunto de [perfis técnicos](technicalprofiles.md). Cada fornecedor de afirmações tem de ter um ou mais perfis técnicos que determinam os pontos finais e os protocolos necessários para comunicar com o fornecedor de afirmações. Um fornecedor de afirmações pode ter vários perfis técnicos. Por exemplo, vários perfis técnicos poderão ser definidos porque o fornecedor de afirmações suporta vários protocolos, vários pontos de extremidade com diferentes capacidades ou libera afirmações diferentes em níveis diferentes de garantia. Pode ser aceitável para libertar afirmações confidenciais no percurso do utilizador de um, mas não em outro.
+Um fornecedor de sinistros contém um conjunto de [perfis técnicos.](technicalprofiles.md) Cada provedor de declarações deve ter um ou mais perfis técnicos que determinam os pontos de extremidade e os protocolos necessários para se comunicar com o provedor de declarações. Um provedor de declarações pode ter vários perfis técnicos. Por exemplo, vários perfis técnicos podem ser definidos porque o fornecedor de sinistros suporta múltiplos protocolos, vários pontos finais com diferentes capacidades, ou liberta diferentes reclamações em diferentes níveis de garantia. Pode ser aceitável lançar reclamações sensíveis numa viagem de utilizador, mas não noutra.
 
 ```XML
 <ClaimsProviders>
@@ -39,23 +39,23 @@ Um fornecedor de afirmações contém um conjunto de [perfis técnicos](technica
 </ClaimsProviders>
 ```
 
-O **ClaimsProviders** elemento contém o seguinte elemento:
+O elemento **ClaimsProviders** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsProvider | 1:n | Um fornecedor de afirmações acreditada que pode ser otimizado em várias jornadas de utilizador. |
+| ClaimsProvider | 1: n | Um fornecedor de sinistros acreditado que pode ser alavancado em várias viagens de utilizador. |
 
 ## <a name="claimsprovider"></a>ClaimsProvider
 
-O **ClaimsProvider** elemento contém elementos subordinados:
+O elemento **ClaimsProvider** contém os seguintes elementos infantis:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | Uma cadeia de caracteres que contém o nome de domínio para o fornecedor de afirmações. Por exemplo, se o seu fornecedor de afirmações inclui o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de afirmações, a menos que substituído pelo perfil de técnico. O nome de domínio também pode ser referenciado num **domain_hint**. Para obter mais informações, consulte a **redirecionar início de sessão para um fornecedor de redes sociais** secção [configurar direto início de sessão através do Azure Active Directory B2C](direct-signin.md). |
-| displayName | 0:1 | Uma cadeia que contém o nome do fornecedor de afirmações que pode ser apresentado aos utilizadores. |
-| [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportado pelo fornecedor de afirmação |
+| Domain | 0:1 | Uma cadeia que contém o nome de domínio para o fornecedor de reclamações. Por exemplo, se o seu fornecedor de reclamações incluir o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de sinistros, a menos que seja ultrapassado pelo perfil técnico. O nome de domínio também pode ser referenciado num **domain_hint**. Para mais informações, consulte o **redirecionamento para uma** secção de prestador social de configuração de entrada direta utilizando o [Diretório Ativo Azure B2C](direct-signin.md). |
+| DisplayName | 1:1 | Uma cadeia que contém o nome do fornecedor de sinistros que pode ser exibida aos utilizadores. |
+| [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportados pelo prestador de sinistros |
 
-**ClaimsProvider** organiza os seus perfis técnicos a inter-relação entre o fornecedor de afirmações. O exemplo seguinte mostra o fornecedor de afirmações do Azure Active Directory com os perfis de técnicos do Azure Active Directory:
+**A ClaimsProvider** organiza a forma como os seus perfis técnicos se relacionam com o prestador de sinistros. O exemplo seguinte mostra o fornecedor de sinistros Azure Ative Directory com os perfis técnicos do Diretório Ativo Azure:
 
 ```XML
 <ClaimsProvider>
@@ -93,7 +93,7 @@ O **ClaimsProvider** elemento contém elementos subordinados:
 </ClaimsProvider>
 ```
 
-O exemplo seguinte mostra o fornecedor de afirmações do Facebook com o **Facebook OAUTH** perfil técnico.
+O exemplo que se segue mostra o fornecedor de reclamações do Facebook com o perfil técnico **Facebook-OAUTH.**
 
 ```XML
 <ClaimsProvider>

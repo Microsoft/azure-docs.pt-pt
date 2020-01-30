@@ -4,12 +4,12 @@ description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: fc0c3127594fe3ca90b0a66ce548f471c55f4e5f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 8125f6d98151f91faaccef512e4bcfd2946fcdd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156476"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773122"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -24,6 +24,10 @@ Neste artigo, você aprenderá a:
 > * Criar e configurar um cofre.
 > * Descubra bancos de dados e configure backups.
 > * Configure a proteção automática para bancos de dados.
+
+>[!NOTE]
+>**A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure** já está disponível na pré-visualização.<br>
+>Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -100,7 +104,7 @@ Evite usar os seguintes elementos em nomes de banco de dados:
 
 * Espaços à direita e à esquerda
 * Pontos de exclamação à direita (!)
-* Colchetes de fechamento (])
+* Suportes quadrados de fecho (])
 * Ponto e vírgula '; '
 * Barra '/'
 
@@ -231,8 +235,8 @@ Para criar uma política de backup:
 6. No menu **política de backup completo** , selecione **OK** para aceitar as configurações.
 7. Para adicionar uma política de backup diferencial, selecione **backup diferencial**.
 
-   ![configurações de intervalo de intervalo de retenção](./media/backup-azure-sql-database/retention-range-interval.png)
-   ![abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+   definições de intervalo de intervalo de retenção de ![](./media/backup-azure-sql-database/retention-range-interval.png)
+   ![Abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
 8. Em **política de backup diferencial**, selecione **habilitar** para abrir os controles de frequência e retenção.
 
@@ -247,7 +251,7 @@ Para criar uma política de backup:
 
     ![Editar a política de backup de log](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. No menu **política de backup** , escolha se deseja habilitar a **compactação de backup do SQL** ou não. Esta opção está desativada por predefinição. Se habilitada, SQL Server enviará um fluxo de backup compactado para o VDI.  Observe que o backup do Azure substitui os padrões de nível de instância pela cláusula COMPRESSION/NO_COMPRESSION dependendo do valor desse controle.
+13. No menu **política de backup** , escolha se deseja habilitar a **compactação de backup do SQL** ou não. Esta opção é desativada por defeito. Se habilitada, SQL Server enviará um fluxo de backup compactado para o VDI.  Por favor, note que a Backup Azure substitui os incumprimentos de nível de instância com a cláusula COMPRESSION/NO_COMPRESSION dependendo do valor deste controlo.
 
 14. Depois de concluir as edições na política de backup, selecione **OK**.
 

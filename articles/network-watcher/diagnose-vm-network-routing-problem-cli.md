@@ -1,11 +1,10 @@
 ---
-title: Diagnosticar um problema de roteamento de rede VM-CLI do Azure
+title: Diagnosticar um problema de encaminhamento de rede VM - Azure CLI
 titleSuffix: Azure Network Watcher
-description: Neste artigo, você aprenderá a diagnosticar um problema de roteamento de rede de máquina virtual usando o recurso de próximo salto do observador de rede do Azure.
+description: Neste artigo, aprende-se a diagnosticar um problema de encaminhamento de rede de máquinas virtuais utilizando a próxima capacidade de lúpulo do Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,24 +15,24 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276096"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834686"
 ---
-# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de roteamento de rede de máquina virtual-CLI do Azure
+# <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de encaminhamento de rede de máquinas virtuais - Azure CLI
 
-Neste artigo, você implanta uma VM (máquina virtual) e, em seguida, verifica as comunicações para um endereço IP e uma URL. Determine a causa de uma falha de comunicação e como pode resolvê-la.
+Neste artigo, implementa uma máquina virtual (VM) e, em seguida, verifica as comunicações para um endereço IP e URL. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI, execute `az login` para criar uma ligação com o Azure. Os comandos da CLI neste artigo são formatados para serem executados em um shell bash.
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI, execute `az login` para criar uma ligação com o Azure. Os comandos cli neste artigo são formatados para correr em uma concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -57,11 +56,11 @@ A criação da VM demora alguns minutos. Não continue com os restantes passos a
 
 ## <a name="test-network-communication"></a>Testar a comunicação de rede
 
-Para testar a comunicação de rede com o observador de rede, você deve primeiro habilitar um observador de rede na região em que a VM que você deseja testar está e, em seguida, usar o recurso de próximo salto do observador de rede para testar a comunicação.
+Para testar a comunicação da rede com o Observador de Rede, primeiro deve ativar um observador de rede na região em que o VM que pretende testar e, em seguida, utilizar a próxima capacidade de lúpulo do Network Watcher para testar a comunicação.
 
 ### <a name="enable-network-watcher"></a>Ativar o observador de rede
 
-Se você já tiver um observador de rede habilitado na região leste dos EUA, pule para [usar o próximo salto](#use-next-hop). Use o comando [AZ Network vigia configure](/cli/azure/network/watcher#az-network-watcher-configure) para criar um observador de rede na região leste dos EUA:
+Se já tem um observador de rede ativado na região leste dos EUA, salte para use o [próximo lúpulo](#use-next-hop). Utilize o comando configurado de um observador de [rede Az](/cli/azure/network/watcher#az-network-watcher-configure) para criar um observador de rede na região leste dos EUA:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -72,7 +71,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Utilizar o próximo salto
 
-O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas personalizadas que substituem as rotas predefinidas. Por vezes, as rotas personalizadas podem causar falhas na comunicação. Para testar o roteamento de uma VM, use [AZ Network Watcher mostrar-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) para determinar o próximo salto de roteamento quando o tráfego for destinado a um endereço específico.
+O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas personalizadas que substituem as rotas predefinidas. Por vezes, as rotas personalizadas podem causar falhas na comunicação. Para testar o encaminhamento de um VM, use o [show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) do observador da rede Az para determinar o próximo salto de encaminhamento quando o tráfego está destinado a um endereço específico.
 
 Teste a comunicação de saída a partir da VM para um dos endereços IP para www.bing.com:
 
@@ -86,7 +85,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Depois de alguns segundos, a saída informa que o **nextHopType** é a **Internet**e que o **RouteTableId** é a rota do **sistema**. Esse resultado permite que você saiba que há uma rota válida para o destino.
+Após alguns segundos, a saída informa-o de que o **próximo HopType** **é**internet , e que o **routeTableId** é **a Rota**do Sistema . Este resultado permite-lhe saber que existe uma rota válida para o destino.
 
 Teste a comunicação de saída da VM para 172.31.0.100:
 
@@ -100,11 +99,11 @@ az network watcher show-next-hop \
   --out table
 ```
 
-A saída retornada informa que **nenhum** é o **nextHopType**, e que o **routeTableId** também é a rota do **sistema**. Este resultado permite-lhe saber que, embora exista uma rota de sistema válida para o destino, não há um próximo salto para encaminhar o tráfego para o destino.
+A saída devolvida informa-o de que **Nenhum** é o **próximo HopType,** e que o **routeTableId** também é **A Rota**do Sistema . Este resultado permite-lhe saber que, embora exista uma rota de sistema válida para o destino, não há um próximo salto para encaminhar o tráfego para o destino.
 
 ## <a name="view-details-of-a-route"></a>Ver detalhes de uma rota
 
-Para analisar ainda mais o roteamento, examine as rotas efetivas para a interface de rede com o comando [AZ Network NIC show-efetivo-Route-Table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) :
+Para analisar ainda mais o encaminhamento, reveja as rotas eficazes para a interface da rede com o comando de tabela de rota sin [iveis da rede az:](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -112,7 +111,7 @@ az network nic show-effective-route-table \
   --name myVmVMNic
 ```
 
-O texto a seguir está incluído na saída retornada:
+O seguinte texto está incluído na saída devolvida:
 
 ```azurecli
 {
@@ -130,9 +129,9 @@ O texto a seguir está incluído na saída retornada:
 },
 ```
 
-Quando você usou o comando `az network watcher show-next-hop` para testar a comunicação de saída para 13.107.21.200 em [usar o próximo salto](#use-next-hop), a rota com o **addressPrefix** 0.0.0.0/0 * * foi usada para rotear o tráfego para o endereço, pois nenhuma outra rota na saída inclui o endereço. Por predefinição, todos os endereços não especificados no prefixo de endereço de outra rota são encaminhados para a Internet.
+Quando utilizou o comando `az network watcher show-next-hop` para testar a comunicação de saída para 13.107.21.200 em [Utilização seguinte,](#use-next-hop)a rota com o **endereçoPrefix** 0.0.0.0/0** foi utilizada para encaminhar o tráfego para o endereço, uma vez que nenhuma outra rota na saída inclui o endereço. Por predefinição, todos os endereços não especificados no prefixo de endereço de outra rota são encaminhados para a Internet.
 
-Quando você usou o comando `az network watcher show-next-hop` para testar a comunicação de saída para 172.31.0.100 no entanto, o resultado informava que não havia nenhum tipo do próximo salto. Na saída retornada, você também verá o seguinte texto:
+No entanto, quando usou o comando `az network watcher show-next-hop` para testar a comunicação de saída para 172.31.0.100, o resultado informou-o de que não havia um próximo tipo de lúpulo. Na saída devolvida, consulte também o seguinte texto:
 
 ```azurecli
 {
@@ -150,7 +149,7 @@ Quando você usou o comando `az network watcher show-next-hop` para testar a com
 },
 ```
 
-Como você pode ver na saída do comando `az network watcher nic show-effective-route-table`, embora haja uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, **nextHopType** é **nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, você adicionou o intervalo de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure altera o **nextHopType** para a **rede virtual** para a rota. Uma verificação, em seguida, mostraria **rede virtual** como o **nextHopType**.
+Como pode ver na saída do comando `az network watcher nic show-effective-route-table`, embora exista uma rota padrão para o prefixo 172.16.0.0.0/12, que inclui o endereço 172.31.0.100, o **próximo HopType** é **Nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, adicionou a gama de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure muda o **próximo HopType** para **a rede Virtual** para a rota. Uma verificação mostraria então a **rede Virtual** como o **próximo HopType**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -162,6 +161,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você criou uma VM e um roteamento de rede diagnosticado da VM. Aprendeu que o Azure cria várias rotas predefinidas e testa o encaminhamento para dois destinos diferentes. Saiba mais sobre o [encaminhamento no Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar rotas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+Neste artigo, criou um VM e diagnosticou o encaminhamento de rede a partir do VM. Aprendeu que o Azure cria várias rotas predefinidas e testa o encaminhamento para dois destinos diferentes. Saiba mais sobre o [encaminhamento no Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar rotas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-Para conexões de VM de saída, você também pode determinar a latência e o tráfego de rede permitido e negado entre a VM e um ponto de extremidade usando a funcionalidade de [solução de problemas de conexão](network-watcher-connectivity-cli.md) do observador de rede. Você pode monitorar a comunicação entre uma VM e um ponto de extremidade, como um endereço IP ou URL, ao longo do tempo usando o recurso de monitor de conexão do observador de rede. Para saber como, consulte [monitorar uma conexão de rede](connection-monitor.md).
+Para ligações VM de saída, também pode determinar a latência e o tráfego de rede permitido e negado entre o VM e um ponto final utilizando a capacidade de resolução de problemas de [ligação](network-watcher-connectivity-cli.md) do Network Watcher. Pode monitorizar a comunicação entre um VM e um ponto final, como um endereço IP ou URL, ao longo do tempo utilizando a capacidade do monitor de ligação do Observador de Rede. Para saber como, consulte [monitor uma ligação de rede](connection-monitor.md).

@@ -1,103 +1,100 @@
 ---
 title: Visualizar padrões de tráfego de rede com ferramentas de código aberto
 titleSuffix: Azure Network Watcher
-description: Esta página descreve como usar a captura de pacotes do observador de rede com o Capanalysis para visualizar os padrões de tráfego de e para suas VMs.
+description: Esta página descreve como usar a captura de pacotes do Network Watcher com a Capanalysis para visualizar padrões de tráfego de e para os seus VMs.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277769"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840660"
 ---
-# <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de código-fonte aberto
+# <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizar padrões de tráfego de rede de e para os seus VMs utilizando ferramentas de código aberto
 
-As capturas de pacote contêm dados de rede que permitem a realização de análise forense de rede e inspeção profunda de pacotes. Há muitas ferramentas de código aberto que você pode usar para analisar capturas de pacote para obter informações sobre sua rede. Uma dessas ferramentas é a CapAnalysis, uma ferramenta de visualização de captura de pacotes de código aberto. Visualizar dados de captura de pacote é uma maneira valiosa de rapidamente obter informações sobre padrões e anomalias em sua rede. As visualizações também fornecem um meio de compartilhar essas informações de uma maneira facilmente consumível.
+As capturas de pacotes contêm dados de rede que lhe permitem realizar a recolha forense da rede e uma inspeção profunda de pacotes. Existem muitas ferramentas de origem abertas que pode usar para analisar capturas de pacotes para obter informações sobre a sua rede. Uma dessas ferramentas é a CapAnalysis, uma ferramenta de visualização de captura de pacotes de código aberto. Visualizar dados de captura de pacotes é uma forma valiosa de obter rapidamente insights sobre padrões e anomalias dentro da sua rede. As visualizações também fornecem um meio de partilhar tais insights de uma forma facilmente consumível.
 
-O observador de rede do Azure fornece a capacidade de capturar dados, permitindo que você execute capturas de pacote em sua rede. Este artigo fornece uma orientação sobre como Visualizar e obter informações de capturas de pacote usando o CapAnalysis com o observador de rede.
+O Vigilante da Rede Azure fornece-lhe a capacidade de capturar dados, permitindo-lhe realizar capturas de pacotes na sua rede. Este artigo, fornece uma caminhada sobre como visualizar e obter insights a partir de capturas de pacotes usando CapAnalysis com Network Watcher.
 
 ## <a name="scenario"></a>Cenário
 
-Você tem um aplicativo Web simples implantado em uma VM no Azure deseja usar ferramentas de código-fonte aberto para visualizar seu tráfego de rede para identificar rapidamente os padrões de fluxo e quaisquer anomalias possíveis. Com o observador de rede, você pode obter uma captura de pacote do seu ambiente de rede e armazená-lo diretamente em sua conta de armazenamento. CapAnalysis pode então ingerir a captura de pacotes diretamente do blob de armazenamento e visualizar seu conteúdo.
+Tem uma aplicação web simples implantada num VM em Azure que pretende utilizar ferramentas de código aberto para visualizar o seu tráfego de rede para identificar rapidamente padrões de fluxo e eventuais anomalias. Com o Network Watcher, pode obter uma captura de pacotes do ambiente da sua rede e armazená-lo diretamente na sua conta de armazenamento. O CapAnalysis pode então ingerir a captura do pacote diretamente a partir da bolha de armazenamento e visualizar o seu conteúdo.
 
 ![cenário][1]
 
 ## <a name="steps"></a>Passos
 
-### <a name="install-capanalysis"></a>Instalar o CapAnalysis
+### <a name="install-capanalysis"></a>Instalar capAnalysis
 
-Para instalar o CapAnalysis em uma máquina virtual, você pode consultar as instruções oficiais aqui https://www.capanalysis.net/ca/how-to-install-capanalysis.
-Para acessar o CapAnalysis remotamente, você precisa abrir a porta 9877 em sua VM adicionando uma nova regra de segurança de entrada. Para obter mais informações sobre a criação de regras em grupos de segurança de rede, consulte [criar regras em um NSG existente](../virtual-network/manage-network-security-group.md#create-a-security-rule). Depois que a regra tiver sido adicionada com êxito, você poderá acessar o CapAnalysis de `http://<PublicIP>:9877`
+Para instalar o CapAnalysis numa máquina virtual, pode consultar as instruções oficiais aqui https://www.capanalysis.net/ca/how-to-install-capanalysis.
+Para aceder remotamente à CapAnalysis, é necessário abrir a porta 9877 no seu VM adicionando uma nova regra de segurança de entrada. Para mais informações sobre a criação de regras em Grupos de Segurança de Rede, consulte a [Create rules in a existinte NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). Uma vez adicionada a regra com sucesso, deverá poder aceder ao CapAnalysis a partir de `http://<PublicIP>:9877`
 
-### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Usar o observador de rede do Azure para iniciar uma sessão de captura de pacote
+### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Use o Vigilante da Rede Azure para iniciar uma sessão de captura de pacotes
 
-O observador de rede permite que você capture pacotes para acompanhar o tráfego de entrada e saída de uma máquina virtual. Você pode consultar as instruções em [gerenciar capturas de pacote com o observador de rede](network-watcher-packet-capture-manage-portal.md) para iniciar uma sessão de captura de pacote. Uma captura de pacote pode ser armazenada em um blob de armazenamento para ser acessada pelo CapAnalysis.
+O Network Watcher permite-lhe capturar pacotes para rastrear o tráfego dentro e fora de uma máquina virtual. Pode consultar as instruções da [Manage packet captures com o Network Watcher](network-watcher-packet-capture-manage-portal.md) para iniciar uma sessão de captura de pacotes. Uma captura de pacote pode ser armazenada numa bolha de armazenamento a ser acedida pela CapAnalysis.
 
-### <a name="upload-a-packet-capture-to-capanalysis"></a>Carregar uma captura de pacote para o CapAnalysis
-Você pode carregar diretamente uma captura de pacote realizada pelo observador de rede usando a guia "importar da URL" e fornecendo um link para o blob de armazenamento em que a captura de pacote está armazenada.
+### <a name="upload-a-packet-capture-to-capanalysis"></a>Faça upload de uma captura de pacote para CapAnalysis
+Pode fazer o upload direto de uma captura de pacotes tirada pelo observador de rede utilizando o separador "Importar de URL" e fornecer um link para a bolha de armazenamento onde a captura do pacote é armazenada.
 
-Ao fornecer um link para CapAnalysis, certifique-se de acrescentar um token SAS à URL do blob de armazenamento.  Para fazer isso, navegue até assinatura de acesso compartilhado da conta de armazenamento, designe as permissões permitidas e pressione o botão gerar SAS para criar um token. Em seguida, você pode acrescentar o token SAS à URL do blob de armazenamento de captura de pacote.
+Ao fornecer um link para o CapAnalysis, certifique-se de anexar um token SAS ao URL blob de armazenamento.  Para isso, navegue para a assinatura de acesso partilhado a partir da conta de armazenamento, designe as permissões permitidas e prima o botão Generate SAS para criar um símbolo. Em seguida, pode anexar o token SAS ao URL blob de armazenamento de captura de pacotes.
 
-A URL resultante será semelhante à seguinte URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+O URL resultante será parecido com o seguinte URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
-### <a name="analyzing-packet-captures"></a>Analisando capturas de pacote
+### <a name="analyzing-packet-captures"></a>Analisar capturas de pacotes
 
-O CapAnalysis oferece várias opções para visualizar a captura de pacotes, cada uma fornecendo análise de uma perspectiva diferente. Com esses resumos visuais, você pode entender suas tendências de tráfego de rede e identificar rapidamente qualquer atividade incomum. Alguns desses recursos são mostrados na lista a seguir:
+O CapAnalysis oferece várias opções para visualizar a captura do seu pacote, cada uma fornecendo análises de uma perspetiva diferente. Com estes resumos visuais, você pode entender as suas tendências de tráfego de rede e rapidamente detetar qualquer atividade incomum. Algumas destas funcionalidades são mostradas na seguinte lista:
 
 1. Tabelas de fluxo
 
-    Esta tabela fornece a lista de fluxos nos dados do pacote, o carimbo de data/hora associado aos fluxos e os vários protocolos associados ao fluxo, bem como o IP de origem e de destino.
+    Esta tabela dá-lhe a lista de fluxos nos dados do pacote, o carimbo de tempo associado aos fluxos e os vários protocolos associados ao fluxo, bem como fonte e destino IP.
 
-    ![página de fluxo do capanalysis][5]
+    ![página de fluxo de capanálise][5]
 
 1. Visão geral do protocolo
 
-    Esse painel permite que você veja rapidamente a distribuição do tráfego de rede nos vários protocolos e regiões geográficas.
+    Este painel permite-lhe ver rapidamente a distribuição do tráfego de rede através dos vários protocolos e geografias.
 
-    ![Visão geral do protocolo capanalysis][6]
+    ![visão geral do protocolo capanalysis][6]
 
 1. Estatísticas
 
-    Esse painel permite exibir estatísticas de tráfego de rede – bytes enviados e recebidos dos IPs de origem e de destino, fluxos para cada um dos IPs de origem e de destino, o protocolo usado para vários fluxos e a duração dos fluxos.
+    Este painel permite-lhe visualizar as estatísticas de tráfego da rede – bytes enviados e recebidos de IPs de origem e destino, fluxos para cada um dos IPs de origem e destino, protocolo utilizado para vários fluxos e duração dos fluxos.
 
-    ![Estatísticas de capanalysis][7]
+    ![estatísticas da capanálise][7]
 
-1. um mapa geográfico
+1. Geomap
 
-    Esse painel fornece uma exibição de mapa do tráfego de rede, com cores dimensionando para o volume de tráfego de cada país/região. Você pode selecionar países/regiões realçados para exibir estatísticas de fluxo adicionais, como a proporção de dados enviados e recebidos de IPs nesse país/região.
+    Este painel proporciona-lhe uma visão de mapa do tráfego da sua rede, com cores a escalar para o volume de tráfego de cada país/região. Pode selecionar países/regiões destacados para visualizar estatísticas de fluxos adicionais, como a proporção de dados enviados e recebidos de IPs nesse país/região.
 
-    ![um mapa geográfico][8]
+    ![geomapa][8]
 
 1. Filtros
 
-    O CapAnalysis fornece um conjunto de filtros para análise rápida de pacotes específicos. Por exemplo, você pode optar por filtrar os dados por protocolo para obter informações específicas sobre esse subconjunto de tráfego.
+    O CapAnalysis fornece um conjunto de filtros para uma análise rápida de pacotes específicos. Por exemplo, pode optar por filtrar os dados por protocolo para obter informações específicas sobre esse subconjunto de tráfego.
 
     ![filtros][11]
 
-    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para saber mais sobre todos os recursos do CapAnalysis.
+    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para saber mais sobre todas as capacidades do CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusão
 
-O recurso de captura de pacotes do observador de rede permite que você capture os dados necessários para executar a perícia de rede e entenda melhor o tráfego de rede. Nesse cenário, mostramos como as capturas de pacote do observador de rede podem ser facilmente integradas com ferramentas de visualização de código aberto. Usando ferramentas de código-fonte aberto, como o CapAnalysis, para visualizar capturas de pacotes, você pode executar uma inspeção profunda de pacotes e identificar rapidamente as tendências dentro do tráfego de rede.
+A funcionalidade de captura de pacotes do Network Watcher permite-lhe capturar os dados necessários para realizar os forenses da rede e compreender melhor o tráfego da sua rede. Neste cenário, mostrámos como as capturas de pacotes do Network Watcher podem ser facilmente integradas com ferramentas de visualização de código aberto. Ao utilizar ferramentas de código aberto, como o CapAnalysis para visualizar capturas de pacotes, pode realizar uma inspeção profunda de pacotes e identificar rapidamente as tendências dentro do tráfego da sua rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os logs de fluxo do NSG, visite [logs de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md)
+Para saber mais sobre os registos de fluxo nsg, visite [registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 
-Saiba como visualizar seus logs de fluxo do NSG com Power BI visitando [Visualizar logs do NSG fluxos com Power bi](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Saiba como visualizar os seus registos de fluxo NSG com Power BI visitando visualize os [registos de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

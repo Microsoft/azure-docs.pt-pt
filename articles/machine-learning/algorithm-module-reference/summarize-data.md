@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 01/27/2020
+ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546491"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841272"
 ---
 # <a name="summarize-data"></a>Resumir Dados
 
@@ -46,7 +46,7 @@ O módulo calcula as pontuações importantes para cada coluna e retorna uma lin
 
 O relatório do módulo pode incluir as estatísticas a seguir. 
 
-|Nome da coluna|Descrição|
+|nome da coluna|Descrição|
 |------|------|  
 |**Funcionalidade**|Nome da coluna|
 |**Contar**|Contagem de todas as linhas|
@@ -59,17 +59,31 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 |**Primeiro quartil**|Valor no primeiro quartil|
 |**Cuja**|Valor da coluna mediana|
 |**terceiro quartil**|Valor no terceiro quartil|
-|**Mode**|Modo de valores de coluna|
+|**Modo**|Modo de valores de coluna|
 |**Intervalo**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
 |**Variação de amostra**|Variação para a coluna; consulte a observação|
 |**Desvio padrão de exemplo**|Desvio padrão para a coluna; consulte a observação|
 |**Distorção de exemplo**|Distorção para a coluna; consulte a observação|
 |**Curtose de amostra**|Curtose da coluna; consulte a observação|
-|**P 0,5**|0,5% percentil|
+|**P 0,5**|Percentil de 0,5%|
 |**P1**|1% percentil|
-|**P5**|5% percentil|
+|**P5**|Percentil de 5%|
 |**P95**|95% percentil|
 |**P 99,5**|99,5% percentil |
+
+## <a name="technical-notes"></a>Notas técnicas
+
+- Para colunas não numéricas, apenas os valores para Conde, contagem de valor único e contagem de valor em falta são calculados. Para outras estatísticas, um valor nulo é devolvido.
+
+- As colunas que contêm valores booleanos são processadas usando estas regras:
+
+    - Ao calcular Min, um e lógico e é aplicado.
+    
+    - Ao calcular Max, um OR lógico é aplicado
+    
+    - Ao calcular Range, o módulo verifica primeiro se o número de valores únicos na coluna é igual a 2.
+    
+    - Ao calcular qualquer estatística que exija cálculos de pontoflutuante, os valores do True são tratados como 1.0, e os valores de Falso são tratados como 0.0.
 
 ## <a name="next-steps"></a>Passos seguintes
 

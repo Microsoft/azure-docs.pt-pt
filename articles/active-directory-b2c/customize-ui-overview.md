@@ -1,7 +1,7 @@
 ---
 title: Personalizar a interface de utilizador
 titleSuffix: Azure AD B2C
-description: Saiba como personalizar a interface do usuário para seus aplicativos que usam Azure Active Directory B2C.
+description: Saiba como personalizar a interface de utilizador para as suas aplicações que utilizam o Azure Ative Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,87 +11,89 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949411"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841238"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
+# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
 
-A identidade visual e a personalização da interface do usuário que o Azure Active Directory B2C (Azure AD B2C) exibe para seus clientes ajuda a fornecer uma experiência de usuário direta em seu aplicativo. Essas experiências incluem a inscrição, a entrada, a edição de perfil e a redefinição de senha. Este artigo apresenta os métodos de personalização da interface do usuário para fluxos de usuário e políticas personalizadas.
+Branding e personalizar a interface de utilizador que o Azure Ative Directory B2C (Azure AD B2C) exibe aos seus clientes ajuda a proporcionar uma experiência perfeita ao utilizador na sua aplicação. Estas experiências incluem a inscrição, inscrição, edição de perfis e redefinição de palavras-passe. Este artigo introduz os métodos de personalização da interface do utilizador (UI) tanto para fluxos de utilizadores como para políticas personalizadas.
 
-## <a name="ui-customization-in-different-scenarios"></a>Personalização da interface do usuário em cenários diferentes
+## <a name="ui-customization-in-different-scenarios"></a>Personalização da UI em diferentes cenários
 
-Há várias maneiras de personalizar a interface do usuário de seu aplicativo, cada um apropriado para cenários diferentes.
+Existem várias formas de personalizar o UI do utilizador experimenta a sua aplicação, cada uma adequada para diferentes cenários.
 
 ### <a name="user-flows"></a>Fluxos do utilizador
 
-Se você usar [fluxos de usuário](active-directory-b2c-reference-policies.md), poderá alterar a aparência de suas páginas de fluxo de usuário usando modelos de *layout de página*internos ou usando seu próprio HTML e CSS. Os dois métodos são discutidos posteriormente neste artigo.
+Se utilizar [os fluxos](user-flow-overview.md)de utilizador, pode alterar a aparência das páginas de fluxo do utilizador utilizando modelos de layout de *página incorporados,* ou utilizando o seu próprio HTML e CSS. Ambos os métodos são discutidos mais tarde neste artigo.
 
-Você usa o [portal do Azure](tutorial-customize-ui.md) para configurar a personalização da interface do usuário para fluxos de usuários.
+Utiliza o [portal Azure](tutorial-customize-ui.md) para configurar a personalização da UI para os fluxos de utilizadores.
 
 ### <a name="custom-policies"></a>Políticas personalizadas
 
-Se você estiver usando [políticas personalizadas](active-directory-b2c-overview-custom.md) para fornecer inscrição ou entrada, redefinição de senha ou edição de perfil em seu aplicativo, use [arquivos de política para personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md).
+Se estiver a utilizar [políticas personalizadas](custom-policy-overview.md) para fornecer inscrição ou inscrição, reset de palavra-passe ou edição de perfil na sua aplicação, utilize [ficheiros de política para personalizar o UI](custom-policy-ui-customization.md).
 
-Se você precisar fornecer conteúdo dinâmico com base na decisão de um cliente, use políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](active-directory-b2c-ui-customization-custom-dynamic.md) , dependendo de um parâmetro enviado em uma cadeia de caracteres de consulta. Por exemplo, você pode alterar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro que você passa de seu aplicativo Web ou móvel.
+Se precisar de fornecer conteúdo dinâmico com base na decisão do cliente, utilize políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization-dynamic.md) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro que passa da sua aplicação web ou móvel.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
-Você pode habilitar o código JavaScript do lado do cliente tanto em [fluxos de usuário](user-flow-javascript-overview.md) quanto em [políticas personalizadas](page-layout.md).
+Pode ativar o código JavaScript do lado do cliente tanto nos [fluxos](user-flow-javascript-overview.md) do utilizador como nas [políticas personalizadas.](page-layout.md)
 
-### <a name="sign-in-only-ui-customization"></a>Personalização da interface do usuário somente de entrada
+### <a name="sign-in-only-ui-customization"></a>Assine apenas a personalização da UI
 
-Se você estiver fornecendo somente entrada, junto com sua página de redefinição de senha e emails de verificação que o acompanham, use as mesmas etapas de personalização usadas para uma [página de entrada do Azure ad](../active-directory/fundamentals/customize-branding.md).
+Se estiver a fornecer apenas o sessão, juntamente com a página de reset da palavra-passe e os e-mails de verificação, utilize os mesmos passos de personalização que são utilizados para uma [página de entrada de Anúncio sinuoso Azure.](../active-directory/fundamentals/customize-branding.md)
 
-Se os clientes tentarem editar seu perfil antes de entrar, eles serão redirecionados para uma página que você personalizar usando as mesmas etapas que são usadas para personalizar a página de entrada do Azure AD.
+Se os clientes tentarem editar o seu perfil antes de iniciarem sessão, são redirecionados para uma página que personaliza utilizando os mesmos passos que são usados para personalizar a página de entrada de ad.a.
 
 ## <a name="page-layout-templates"></a>Modelos de layout de página
 
-Os fluxos de usuário fornecem vários modelos internos que você pode escolher para dar às suas páginas de experiência do usuário uma aparência profissional. Esses modelos de layout também podem e servem como ponto de partida para sua própria personalização.
+Os fluxos de utilizador fornecem vários modelos incorporados que pode escolher para dar ao seu utilizador páginas de experiência um visual profissional. Estes modelos de layout também podem e servem como ponto de partida para a sua própria personalização.
 
-Em **Personalizar** no menu à esquerda, selecione **layouts de página** e, em seguida, selecione **modelo**.
+Em **'Personalizar'** no menu esquerdo, selecione **os layouts da página** e, em seguida, selecione **Modelo**.
 
-![Lista suspensa seleção de modelos na página fluxo do usuário do portal do Azure](media/customize-ui-overview/template-selection.png)
+![Queda da seleção do modelo na página de fluxo do utilizador do portal Azure](media/customize-ui-overview/template-selection.png)
 
-Em seguida, selecione um modelo na lista. Aqui estão exemplos das páginas de entrada para cada modelo:
+Em seguida, selecione um modelo da lista. Aqui estão exemplos das páginas de inscrição para cada modelo:
 
-| Azul-marinho | Cinza-acinzentado | Clássico |
+| Oceano Azul | Cinza de ardósia | Clássico |
 |:-:|:-:|:-:|
-|![Exemplo do modelo azul do oceano renderizado na página de entrada de inscrição](media/customize-ui-overview/template-ocean-blue.png)|![Exemplo do modelo cinza-acinzentado renderizado na página de entrada de inscrição](media/customize-ui-overview/template-slate-gray.png)|![Exemplo do modelo clássico renderizado na página de entrada de inscrição](media/customize-ui-overview/template-classic.png)|
+|![Exemplo do modelo Ocean Blue renderizado no sinal de inscrição na página](media/customize-ui-overview/template-ocean-blue.png)|![Exemplo do modelo De Ardósia Cinza renderizado no sinal de inscrição na página](media/customize-ui-overview/template-slate-gray.png)|![Exemplo do modelo clássico renderizado no sinal de inscrição na página](media/customize-ui-overview/template-classic.png)|
 
-Quando você escolhe um modelo, o layout selecionado é aplicado a todas as páginas em seu fluxo de usuário e o URI para cada página é visível no campo **URI de página personalizada** .
+Quando escolhe um modelo, o layout selecionado é aplicado a todas as páginas do fluxo do utilizador, e o URI para cada página é visível no campo URI da **página Personalizada.**
 
-## <a name="custom-html-and-css"></a>HTML e CSS personalizados
+## <a name="custom-html-and-css"></a>HTML personalizado e CSS
 
-Azure AD B2C executa o código no navegador do cliente usando uma abordagem chamada [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/).
+Se desejar desenhar o seu próprio layout de política com o seu HTML e CSS personalizados, pode fazê-lo trocando o toggle "Use o conteúdo de página personalizado" para cada um dos nomes de Layout presentes na sua política. Siga as instruções abaixo relativas às configurações de layout personalizadas:
 
-No tempo de execução, o conteúdo é carregado de uma URL que você especifica em seu fluxo de usuário ou política personalizada. Cada página na experiência do usuário carrega seu conteúdo da URL que você especificar para essa página. Depois que o conteúdo é carregado de sua URL, ele é mesclado com um fragmento de HTML inserido por Azure AD B2C e, em seguida, a página é exibida para o cliente.
+O Azure AD B2C executa o código no navegador do seu cliente utilizando uma abordagem chamada [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/).
 
-Examine as diretrizes a seguir antes de usar seus próprios arquivos HTML e CSS para personalizar a interface do usuário:
+No prazo de execução, o conteúdo é carregado a partir de um URL que especifica no fluxo do utilizador ou na política personalizada. Cada página na experiência do utilizador carrega o seu conteúdo a partir do URL que especifica para essa página. Depois de o conteúdo ser carregado a partir do seu URL, é fundido com um fragmento HTML inserido pelo Azure AD B2C, e depois a página é exibida ao seu cliente.
 
-- Azure AD B2C **mescla** o conteúdo HTML em suas páginas. Não copie e tente alterar o conteúdo padrão que o Azure AD B2C fornece. É melhor criar seu conteúdo HTML do zero e usar o conteúdo padrão como referência.
-- O **JavaScript** pode ser incluído em seu conteúdo personalizado para [fluxos de usuário](user-flow-javascript-overview.md) e [políticas personalizadas](javascript-samples.md).
-- **As versões de navegador** com suporte são:
+Reveja as seguintes orientações antes de utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI:
+
+- O Azure AD B2C **funde** o conteúdo HTML nas suas páginas. Não copie e tente alterar o conteúdo predefinido que o Azure AD B2C fornece. É melhor construir o seu conteúdo HTML de raiz e usar o conteúdo predefinido como referência.
+- **O JavaScript** pode ser incluído no seu conteúdo personalizado tanto para [fluxos](user-flow-javascript-overview.md) de utilizador como [para políticas personalizadas.](javascript-samples.md)
+- As **versões** de navegador suportadas são:
   - Internet Explorer 11, 10 e Microsoft Edge
-  - Suporte limitado para o Internet Explorer 9 e 8
-  - Google Chrome 42,0 e superior
-  - Mozilla Firefox 38,0 e superior
-- Não inclua **marcas de formulário** em seu HTML. As marcas de formulário interferem com as operações de POSTAgem geradas pelo HTML injetadas por Azure AD B2C.
+  - Suporte limitado para Internet Explorer 9 e 8
+  - Google Chrome 42.0 e acima
+  - Mozilla Firefox 38.0 e acima
+- Não inclua **etiquetas** de formulário no seu HTML. As etiquetas de formulário interferem com as operações POST geradas pelo HTML injetadas pelo Azure AD B2C.
 
-### <a name="where-do-i-store-ui-content"></a>Onde armazenar o conteúdo da interface do usuário?
+### <a name="where-do-i-store-ui-content"></a>Onde guardo conteúdo ui?
 
-Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do usuário, você pode hospedar o conteúdo da interface do usuário em qualquer ponto de extremidade HTTPS publicamente disponível que ofereça suporte a CORS. Por exemplo, [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md), servidores Web, CDNS, AWS S3 ou sistemas de compartilhamento de arquivos.
+Ao utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI, pode hospedar o seu conteúdo uI em qualquer ponto final HTTPS disponível publicamente que suporte o CORS. Por exemplo, [armazenamento De Blob Azure,](../storage/blobs/storage-blobs-introduction.md)servidores web, CDNs, AWS S3 ou sistemas de partilha de ficheiros.
 
-O ponto importante é que você hospeda o conteúdo em um ponto de extremidade HTTPS disponível publicamente com CORS habilitado. Você deve usar uma URL absoluta ao especificá-la em seu conteúdo.
+O importante é que você hospeda o conteúdo num ponto final HTTPS disponível publicamente com CORS habilitado. Deve utilizar um URL absoluto quando o especificar no seu conteúdo.
 
-## <a name="get-started-with-custom-html-and-css"></a>Introdução ao HTML e CSS personalizados
+## <a name="get-started-with-custom-html-and-css"></a>Começar com HTML e CSS personalizados
 
-Comece a usar seu próprio HTML e CSS em suas páginas de experiência do usuário seguindo estas diretrizes.
+Começa a usar o seu próprio HTML e CSS nas páginas da experiência do utilizador seguindo estas orientações.
 
-- Crie conteúdo HTML bem formado com um elemento de `<div id="api"></div>` vazio localizado em algum lugar na `<body>`. Esse elemento marca onde o conteúdo do Azure AD B2C é inserido. O exemplo a seguir mostra uma página mínima:
+- Crie conteúdo HTML bem formado com um elemento `<div id="api"></div>` vazio localizado algures no `<body>`. Este elemento marca onde o conteúdo Azure AD B2C é inserido. O exemplo seguinte mostra uma página mínima:
 
     ```html
     <!DOCTYPE html>
@@ -107,7 +109,7 @@ Comece a usar seu próprio HTML e CSS em suas páginas de experiência do usuár
     </html>
     ```
 
-- Use o CSS para estilizar os elementos da interface do usuário que Azure AD B2C inserções em sua página. O exemplo a seguir mostra um arquivo CSS simples que também inclui configurações para os elementos HTML injetados de inscrição:
+- Utilize CSS para modelar os elementos UI que o Azure AD B2C insere na sua página. O exemplo seguinte mostra um simples ficheiro CSS que também inclui definições para os elementos HTML injetados de inscrição:
 
     ```css
     h1 {
@@ -132,35 +134,35 @@ Comece a usar seu próprio HTML e CSS em suas páginas de experiência do usuár
     }
     ```
 
-- Hospede seu conteúdo em um ponto de extremidade HTTPS (com CORS permitido). Ambos os métodos de solicitação GET e OPTIONS devem ser habilitados durante a configuração do CORS.
-- Crie ou edite um fluxo de usuário ou uma política personalizada para usar o conteúdo que você criou.
+- Hospedar o seu conteúdo num ponto final HTTPS (com o CORS permitido). Tanto os métodos de pedido GET como OPTIONS devem ser ativados ao configurar o CORS.
+- Crie ou edite um fluxo de utilizador ou uma política personalizada para utilizar o conteúdo que criou.
 
-### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmentos de HTML do Azure AD B2C
+### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmentos HTML de Azure AD B2C
 
-A tabela a seguir lista os fragmentos HTML que Azure AD B2C mescla no elemento `<div id="api"></div>` localizado em seu conteúdo.
+A tabela seguinte lista os fragmentos HTML que o Azure AD B2C se funde no elemento `<div id="api"></div>` localizado no seu conteúdo.
 
 | Página inserida | Descrição do HTML |
 | ------------- | ------------------- |
-| Seleção do provedor de identidade | Contém uma lista de botões para provedores de identidade que o cliente pode escolher durante a inscrição ou entrada. Esses botões incluem provedores de identidade social, como o Facebook, o Google ou contas locais (com base no endereço de email ou no nome de usuário). |
-| Inscrição na conta local | Contém um formulário para a inscrição de conta local com base em um endereço de email ou um nome de usuário. O formulário pode conter diferentes controles de entrada, como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
-| Inscrição em conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou o Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
-| Inscrição ou entrada unificada | O lida com a inscrição e a entrada de clientes que podem usar provedores de identidade social, como Facebook, Google ou contas locais. |
-| Autenticação multifator | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
-| Erro | Fornece informações de erro para o cliente. |
+| Seleção de fornecedores de identidade | Contém uma lista de botões para fornecedores de identidade que o cliente pode escolher durante o sessão ou o inscreveu-se. Estes botões incluem fornecedores de identidade social como Facebook, Google ou contas locais (com base no endereço de e-mail ou nome do utilizador). |
+| Inscrição na conta local | Contém um formulário para inscrição de conta local com base num endereço de e-mail ou num nome de utilizador. O formulário pode conter diferentes controlos de entrada, tais como caixa de entrada de texto, caixa de entrada de palavra-passe, botão de rádio, caixas de entrega seletivas únicas e caixas de verificação multi-selecionadas. |
+| Inscrição na conta social | Pode aparecer ao inscrever-se usando uma conta existente de um fornecedor de identidade social, como o Facebook ou o Google. É usado quando devem ser recolhidas informações adicionais do cliente através de um formulário de inscrição. |
+| Inscrição unificada ou inscrição | Lida com o sign-up e o sign-in de clientes que podem usar fornecedores de identidade social, como facebook, Google ou contas locais. |
+| Autenticação multifator | Os clientes podem verificar os seus números de telefone (utilizando texto ou voz) durante o registo ou o check-in. |
+| Erro | Fornece informações de erro ao cliente. |
 
-## <a name="localize-content"></a>Conteúdo de localização
+## <a name="localize-content"></a>Conteúdo localize
 
-Você localiza o conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário Azure ad B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect `ui-locales` para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
+Localiza o seu conteúdo HTML permitindo a [personalização](user-flow-language-customization.md) da linguagem no seu inquilino Azure AD B2C. Ativar esta funcionalidade permite que o Azure AD B2C encaminhou o parâmetro OpenID Connect `ui-locales` para o seu ponto final. O seu servidor de conteúdo pode utilizar este parâmetro para fornecer páginas HTML específicas do idioma.
 
-O conteúdo pode ser extraído de locais diferentes com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará o correto se usar o valor de curinga `{Culture:RFC5646}`.
+O conteúdo pode ser retirado de diferentes lugares com base no local que é usado. No seu ponto final ativado pelo CORS, cria uma estrutura de pasta para hospedar conteúdo para idiomas específicos. Chamará o certo se usar o valor wildcard `{Culture:RFC5646}`.
 
-Por exemplo, o URI da página personalizada pode ser semelhante a:
+Por exemplo, a sua página personalizada URI pode parecer:
 
 ```HTTP
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
-Você pode carregar a página em francês Obtendo conteúdo de:
+Pode carregar a página em francês puxando conteúdo de:
 
 ```HTTP
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
@@ -168,15 +170,15 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="examples"></a>Exemplos
 
-Você pode encontrar vários arquivos de modelo de exemplo no repositório [B2C-AzureBlobStorage-Client](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) no github.
+Pode encontrar vários ficheiros de modelo de amostra no repositório [B2C-AzureBlobStorage-Client](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) no GitHub.
 
-Os arquivos HTML e CSS de exemplo nos modelos estão localizados no diretório [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates) .
+Os ficheiros HTML e CSS da amostra nos modelos estão localizados no diretório [/sample_templates.](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você estiver usando **fluxos de usuário**, você pode começar a personalizar sua interface de usuário com o tutorial:
+- Se estiver a utilizar fluxos de **utilizadores,** pode começar a personalizar o seu UI com o tutorial:
 
-    [Personalize a interface do usuário de seus aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md).
-- Se você estiver usando **políticas personalizadas**, poderá começar a personalizar a interface do usuário com o artigo:
+    [Personalize a interface de utilizador das suas aplicações no Diretório Ativo Azure B2C](tutorial-customize-ui.md).
+- Se estiver a usar **políticas personalizadas,** pode começar a personalizar a UI com o artigo:
 
-    [Personalize a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+    [Personalize a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C](custom-policy-ui-customization.md).

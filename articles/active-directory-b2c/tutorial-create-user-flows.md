@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cc492b29fd6bc4a820543740e9d1962fc74f2cfc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21a3597a8c3675a060359b5e4feb9561e02f0149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425514"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840150"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: criar fluxos de usuário no Azure Active Directory B2C
 
-Em seus aplicativos, você pode ter [fluxos de usuário](active-directory-b2c-reference-policies.md) que permitem que os usuários se inscrevam, entrem ou gerenciem seu perfil. Você pode criar vários fluxos de usuário de diferentes tipos em seu locatário Azure Active Directory B2C (Azure AD B2C) e usá-los em seus aplicativos, conforme necessário. Os fluxos de usuário podem ser reutilizados em todos os aplicativos.
+Em seus aplicativos, você pode ter [fluxos de usuário](user-flow-overview.md) que permitem que os usuários se inscrevam, entrem ou gerenciem seu perfil. Você pode criar vários fluxos de usuário de diferentes tipos em seu locatário Azure Active Directory B2C (Azure AD B2C) e usá-los em seus aplicativos, conforme necessário. Os fluxos de usuário podem ser reutilizados em todos os aplicativos.
 
 Neste artigo, vai aprender a:
 
@@ -63,12 +63,12 @@ O fluxo de usuário de inscrição e entrada lida com experiências de inscriç�
 
     ![Página de seleção de atributos e declarações com três declarações selecionadas](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Clique em **criar** para adicionar o fluxo de usuário. Um prefixo de *B2C_1* é anexado automaticamente ao nome.
+1. Clique em **criar** para adicionar o fluxo de usuário. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 1. Selecione o fluxo de usuário que você criou para abrir sua página de visão geral e, em seguida, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**e selecione **inscrever-se agora**.
 
     ![Página executar fluxo de usuário no portal com o botão Executar fluxo de usuário realçado](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
@@ -87,12 +87,12 @@ Se você quiser permitir que os usuários editem seu perfil em seu aplicativo, u
 1. Insira um **nome** para o fluxo de usuário. Por exemplo, *profileediting1*.
 1. Para **provedores de identidade**, selecione **entrada de conta local**.
 1. Para **atributos de usuário**, escolha os atributos que você deseja que o cliente possa editar em seu perfil. Por exemplo, selecione **Mostrar mais**e, em seguida, escolha os atributos e as declarações para **nome de exibição** e **cargo**. Clique em **OK**.
-1. Clique em **criar** para adicionar o fluxo de usuário. Um prefixo de *B2C_1* é anexado automaticamente ao nome.
+1. Clique em **criar** para adicionar o fluxo de usuário. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 1. Selecione o fluxo de usuário que você criou para abrir sua página de visão geral e, em seguida, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**e entre com a conta que você criou anteriormente.
 1. Agora você tem a oportunidade de alterar o nome de exibição e o cargo do usuário. Clique em **Continue** (Continuar). O token é retornado para `https://jwt.ms` e deve ser exibido para você.
 
@@ -106,12 +106,12 @@ Para permitir que os usuários do seu aplicativo redefinam sua senha, use um flu
 1. Para **provedores de identidade**, habilite **Redefinir senha usando endereço de email**.
 1. Em declarações do aplicativo, clique em **Mostrar mais** e escolha as declarações que você deseja que sejam retornadas nos tokens de autorização enviados de volta para seu aplicativo. Por exemplo, selecione **ID de Objeto do Utilizador**.
 1. Clique em **OK**.
-1. Clique em **criar** para adicionar o fluxo de usuário. Um prefixo de *B2C_1* é anexado automaticamente ao nome.
+1. Clique em **criar** para adicionar o fluxo de usuário. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 1. Selecione o fluxo de usuário que você criou para abrir sua página de visão geral e, em seguida, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**, verifique o endereço de email da conta que você criou anteriormente e selecione **continuar**.
 1. Agora você tem a oportunidade de alterar a senha do usuário. Altere a senha e selecione **continuar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.
 

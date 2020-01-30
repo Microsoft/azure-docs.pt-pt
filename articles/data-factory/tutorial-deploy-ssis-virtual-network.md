@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 593ceb884e751ca3115b08baf0c9c7e802057f54
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864989"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841102"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurar um IR (tempo de execução de integração) do SSIS (Azure-SQL Server Integration Services) para ingressar em uma rede virtual
 
@@ -44,7 +44,7 @@ As etapas incluem:
     
         O Azure-SSIS IR precisa criar determinados recursos de rede no mesmo grupo de recursos que a rede virtual. Esses recursos incluem:
         - Um Azure Load Balancer, com o nome *\<Guid >-azurebatch-cloudserviceloadbalancer*
-        - Um grupo de segurança de trabalho de rede, com o nome *\<GUID >-azurebatch-cloudservicenetworksecuritygroup
+        - Um grupo de segurança de rede, com o nome *\<Guid>-azurebatch-cloudservicenetworksecuritygroup
         - Um endereço IP público do Azure, com o nome-azurebatch-cloudservicepublicip
     
         Esses recursos serão criados quando o Azure-SSIS IR for iniciado. Eles serão excluídos quando o Azure-SSIS IR for interrompido. Para evitar o bloqueio da Azure-SSIS IR de parar, não reutilize esses recursos de rede em seus outros recursos.
@@ -66,7 +66,7 @@ As etapas incluem:
 
 ## <a name="configure-a-virtual-network"></a>Configurar uma rede virtual
 
-Use o portal do Azure para uma rede virtual antes de tentar adicionar uma Azure-SSIS IR a ela.
+Utilize o portal Azure para configurar uma rede virtual antes de tentar aderir a um IR Azure-SSIS.
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, somente esses navegadores da Web dão suporte à interface do usuário do Data Factory.
 

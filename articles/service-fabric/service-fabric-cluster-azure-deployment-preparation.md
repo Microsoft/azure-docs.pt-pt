@@ -3,12 +3,12 @@ title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463329"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834455"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
@@ -37,9 +37,59 @@ O tamanho mínimo das VMs para cada tipo de nó é determinado pela [camada de d
 
 O número mínimo de VMs para o tipo de nó primário é determinado pela [camada de confiabilidade][reliability] que você escolher.
 
-Consulte as recomendações mínimas para [tipos de nós primários](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [cargas de trabalho com estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e [cargas de trabalho sem estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
+Consulte as recomendações mínimas para [tipos de nós primários](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [cargas de trabalho com estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e [cargas de trabalho sem estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
 Um número mínimo de nós deve ser baseado no número de réplicas do aplicativo/serviços que você deseja executar nesse tipo de nó.  O [planejamento de capacidade para aplicativos Service Fabric](service-fabric-capacity-planning.md) ajuda a estimar os recursos de que você precisa para executar seus aplicativos. Você sempre pode dimensionar o cluster para cima ou para baixo mais tarde para ajustar a carga de trabalho do aplicativo em alteração. 
+
+#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Utilize discos efémeros de OS para conjuntos de escala de máquinas virtuais
+
+*Os discos Ephemeral OS* são armazenamento criado na máquina virtual local (VM), e não guardados para armazenamento azure remoto. São recomendados para todos os tipos de nó de tecido de serviço (primário e secundário), porque em comparação com os discos operativos persistentes tradicionais, discos efémeros osso:
+
+* Reduzir a latência de leitura/escrita para o disco OS
+* Permitir operações de gestão de nó de reset/reimagem mais rápidas
+* Reduzir os custos globais (os discos são gratuitos e não incorrem em custos adicionais de armazenamento)
+
+Os discos Ephemeral OS não são uma característica específica do Tecido de Serviço, mas sim uma característica dos conjuntos de *escala de máquinas virtuais* Azure que são mapeados para tipos de nó de tecido de serviço. A sua utilização com tecido de serviço requer o seguinte no modelo do gestor de recursos azure do seu cluster:
+
+1. Certifique-se de que os tipos do nó especificam tamanhos de [VM Azure suportados](../virtual-machines/windows/ephemeral-os-disks.md) para discos Efémeros OS e que o tamanho vm tem tamanho de cache suficiente para suportar o seu tamanho de disco OS (ver *Nota* abaixo.) Por exemplo:
+
+    ```xml
+    "vmNodeType1Size": {
+        "type": "string",
+        "defaultValue": "Standard_DS3_v2"
+    ```
+
+    > [!NOTE]
+    > Certifique-se de selecionar um tamanho VM com um tamanho de cache igual ou superior ao tamanho do disco OS do próprio VM, caso contrário a sua implantação Azure pode resultar em erro (mesmo que seja inicialmente aceite).
+
+2. Especifique uma versão virtual de conjunto de escala de máquina (`vmssApiVersion`) de `2018-06-01` ou posteriormente:
+
+    ```xml
+    "variables": {
+        "vmssApiVersion": "2018-06-01",
+    ```
+
+3. Na secção de conjunto de escala de máquina virtual do seu modelo de implementação, especifique `Local` opção para `diffDiskSettings`:
+
+    ```xml
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "virtualMachineProfile": {
+            "storageProfile": {
+                "osDisk": {
+                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
+                        "caching": "ReadOnly",
+                        "createOption": "FromImage",
+                        "diffDiskSettings": {
+                            "option": "Local"
+                        },
+                }
+            }
+        }
+    ```
+
+Para mais informações e mais opções de configuração, consulte [discos Ephemeral OS para VMs Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selecione os níveis de durabilidade e confiabilidade para o cluster
 A camada de durabilidade é usada para indicar ao sistema os privilégios que suas VMs têm com a infraestrutura subjacente do Azure. No tipo de nó primário, esse privilégio permite que Service Fabric Pause qualquer solicitação de infraestrutura de nível de VM (como uma reinicialização de VM, reimagem de VM ou migração de VM) que afete os requisitos de quorum para os serviços do sistema e seus serviços com estado. Nos tipos de nó não primários, esse privilégio permite que Service Fabric Pause quaisquer solicitações de infraestrutura de nível de VM (como reinicialização de VM, reimagem de VM e migração de VM) que afetem os requisitos de quorum para seus serviços com estado.  Para obter as vantagens dos diferentes níveis e recomendações sobre qual nível usar e quando, consulte [as características de durabilidade do cluster][durability].

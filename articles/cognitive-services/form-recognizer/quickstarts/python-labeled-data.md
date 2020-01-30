@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/16/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9b9600c1ccb9fb9a87d4c98e4e9042ed71029057
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 43dec74b75b5c2e2844f89655e17c31d62a9df1b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473886"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774167"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treinar um modelo de reconhecimento de formulário com rótulos usando a API REST e o Python
 
@@ -43,12 +43,12 @@ Para treinar um modelo usando dados rotulados, você precisará dos seguintes ar
 
 Todos esses arquivos devem ocupar a mesma subpasta e estar no seguinte formato:
 
-* input_file1. pdf 
-* input_file1. pdf. OCR. JSON
-* input_file1. pdf. Labels. JSON 
-* input_file2. pdf 
-* input_file2. pdf. OCR. JSON
-* input_file2. pdf. Labels. JSON
+* input_file1.pdf 
+* input_file1.pdf.ocr.json
+* input_file1.pdf.labels.json 
+* input_file2.pdf 
+* input_file2.pdf.ocr.json
+* input_file2.pdf.labels.json
 * ...
 
 > [!TIP]
@@ -193,7 +193,7 @@ Para cada formulário de origem, o arquivo de rótulo correspondente deve ter o 
 Para treinar um modelo com dados rotulados, chame a API de **[modelo personalizado de treinamento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** executando o seguinte código Python. Antes de executar o código, faça estas alterações:
 
 1. Substitua `<Endpoint>` pela URL do ponto de extremidade do recurso de reconhecimento de formulário.
-1. Substitua `<SAS URL>` pela URL da assinatura de acesso compartilhado (SAS) do contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Verifique se as permissões de **leitura** e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na seção **URL** . Ele deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Substitua `<SAS URL>` pela URL da assinatura de acesso compartilhado (SAS) do contêiner de armazenamento de BLOBs do Azure. Para recuperar a URL SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Substitua `<Blob folder name>` pelo nome da pasta no contêiner de BLOB em que os dados de entrada estão localizados. Ou, se os dados estiverem na raiz, deixe em branco e remova o campo `"prefix"` do corpo da solicitação HTTP.
 
 ```python

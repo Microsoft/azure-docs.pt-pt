@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: a1b6adc37d78e3fa73d7ae70237d678af6b9dc99
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045969"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769456"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início rápido: habilitar SSH e RDP em um fluxo de dispositivo do Hub IoT C# usando um aplicativo proxy (versão prévia)
 
@@ -22,7 +22,7 @@ ms.locfileid: "76045969"
 
 Microsoft Azure Hub IoT atualmente dá suporte a fluxos de dispositivo como um [recurso de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Os [fluxos de dispositivo do Hub IOT](iot-hub-device-streams-overview.md) permitem que aplicativos de serviço e de dispositivo se comuniquem de maneira segura e amigável ao firewall. Este guia de início rápido C# envolve dois aplicativos que permitem que o tráfego do aplicativo cliente-servidor (como Secure Shell [SSH] e protocolo RDP [RDP] seja enviado por meio de um fluxo de dispositivo que é estabelecido por meio de um hub IOT. Para obter uma visão geral da configuração, consulte [exemplo de aplicativo de proxy local para SSH ou RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
+Os [fluxos de dispositivo do Hub IOT](iot-hub-device-streams-overview.md) permitem que aplicativos de serviço e de dispositivo se comuniquem de maneira segura e amigável ao firewall. Este guia de arranque C# rápido envolve duas aplicações que permitem que o tráfego de aplicações do servidor cliente (como Secure Shell [SSH] e Remote Desktop Protocol [RDP] seja enviado através de um fluxo de dispositivos que é estabelecido através de um hub IoT. Para obter uma visão geral da configuração, consulte [exemplo de aplicativo de proxy local para SSH ou RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Este artigo descreve primeiro a instalação do SSH (usando a porta 22) e descreve como modificar a porta da instalação para o RDP. Como os fluxos de dispositivo são independentes de aplicativo e de protocolo, o mesmo exemplo pode ser modificado para acomodar outros tipos de tráfego de aplicativo. Essa modificação geralmente envolve apenas a alteração da porta de comunicação para aquela usada pelo aplicativo pretendido.
 
@@ -51,7 +51,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
-  * E.U.A. Central
+  * Centro dos E.U.A.
   * EUA Central EUAP
   * Sudeste Asiático
   * Europa do Norte
@@ -72,7 +72,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    az extension add --name azure-cli-iot-ext
    ```
 
-* [Baixe o projeto C# de exemplo](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)e extraia o arquivo zip.
+* [Descarregue as amostras Azure IoT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)e extraia o arquivo ZIP.
 
 * Uma conta de usuário e uma credencial válidas no dispositivo (Windows ou Linux) usadas para autenticar o usuário.
 
@@ -190,7 +190,7 @@ Saída do console no lado do serviço (o aplicativo de proxy local do serviço e
 
 ![Saída do aplicativo de proxy local de serviço](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Saída do console no aplicativo de proxy local do dispositivo, que se conecta ao daemon SSH em *ip_address: 22*:
+Saída de consola na aplicação proxy local do dispositivo, que se liga ao daemon SSH em *IP_address:22*:
 
 ![Saída do aplicativo de proxy local do dispositivo](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

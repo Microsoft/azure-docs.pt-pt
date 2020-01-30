@@ -1,148 +1,148 @@
 ---
-title: Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
-description: Este artigo descreve como criar e usar bancos de dados, contêineres e itens no Azure Cosmos DB.
+title: Trabalhe com bases de dados, contentores e itens em Azure Cosmos DB
+description: Este artigo descreve como criar e usar bases de dados, contentores e itens em Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786950"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768009"
 ---
-# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
+# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhe com bases de dados, contentores e itens em Azure Cosmos DB
 
-Depois de criar uma [conta de Azure Cosmos DB](account-overview.md) em sua assinatura do Azure, você pode gerenciar os dados em sua conta Criando bancos de dados, contêineres e itens. Este artigo descreve cada uma dessas entidades. 
+Depois de criar uma [conta do Azure Cosmos DB](account-overview.md) na sua subscrição do Azure, pode gerir dados na sua conta através da criação de bases de dados, contentores e itens. Este artigo descreve cada uma dessas entidades. 
 
-A imagem a seguir mostra a hierarquia de entidades diferentes em uma conta de Azure Cosmos DB:
+A imagem seguinte mostra a hierarquia de diferentes entidades numa conta Azure Cosmos DB:
 
-![Entidades de conta do Azure Cosmos](./media/databases-containers-items/cosmos-entities.png)
+![Entidades de conta do Cosmos do Azure](./media/databases-containers-items/cosmos-entities.png)
 
 ## <a name="azure-cosmos-databases"></a>Bases de dados do Azure Cosmos
 
-Você pode criar um ou vários bancos de dados do Azure Cosmos em sua conta. Um banco de dados é análogo a um namespace. Um banco de dados é a unidade de gerenciamento para um conjunto de contêineres de Cosmos do Azure. A tabela a seguir mostra como um banco de dados Cosmos do Azure é mapeado para várias entidades específicas de API:
+Pode criar uma ou várias bases de dados azure cosmos na sua conta. Uma base de dados é análoga a um espaço de nome. Uma base de dados é a unidade de gestão de um conjunto de contentores Azure Cosmos. A tabela seguinte mostra como uma base de dados do Cosmos do Azure está mapeada para várias entidades de API específicas:
 
-| Entidade Cosmos do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Entidade Azure Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Banco de dados Cosmos do Azure | Base de Dados | keyspace | Base de Dados | Base de Dados | N/D |
+|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | Base de Dados | N/D |
 
 > [!NOTE]
-> Com contas de API de Tabela, quando você cria sua primeira tabela, um banco de dados padrão é criado automaticamente em sua conta do Azure Cosmos.
+> Com as contas API da Tabela, quando cria a sua primeira tabela, uma base de dados padrão é criada automaticamente na sua conta Azure Cosmos.
 
-### <a name="operations-on-an-azure-cosmos-database"></a>Operações em um banco de dados Cosmos do Azure
+### <a name="operations-on-an-azure-cosmos-database"></a>Operações num banco de dados do Cosmos do Azure
 
-Você pode interagir com um banco de dados Cosmos do Azure com as APIs Cosmos do Azure, conforme descrito na tabela a seguir:
+Pode interagir com uma base de dados Azure Cosmos com APIs Azure Cosmos conforme descrito na tabela seguinte:
 
 | Operação | CLI do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerar todos os bancos de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | N/D | N/D |
-|Ler banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | N/D | N/D |
-|Criar novo banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | N/D | N/D |
-|Atualizar banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | N/D | N/D |
+|Enumerar todos os bancos de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
+|Base de dados de leitura| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
+|Criar nova base de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
+|Atualizar base de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
 
 
 ## <a name="azure-cosmos-containers"></a>Contentores do Azure Cosmos
 
-Um contêiner Cosmos do Azure é a unidade de escalabilidade para taxa de transferência e armazenamento provisionados. Um contêiner é particionado horizontalmente e, em seguida, replicado em várias regiões. Os itens que você adiciona ao contêiner e a taxa de transferência que você provisiona sobre ele são automaticamente distribuídos em um conjunto de partições lógicas com base na chave de partição. Para saber mais sobre particionamento e chaves de partição, consulte [Particionar dados](partition-data.md). 
+Um recipiente Azure Cosmos é a unidade de escalabilidade tanto para o fornecimento de entrada e armazenamento. Um contentor é particionado horizontalmente e, em seguida, replicado em várias regiões. Os itens que adiciona ao recipiente e a entrada que você disponibiliza nele são distribuídos automaticamente através de um conjunto de divisórias lógicas com base na chave de partição. Para saber mais sobre divisórias e chaves de partição, consulte [dados de partição](partition-data.md). 
 
-Ao criar um contêiner Cosmos do Azure, você configura a taxa de transferência em um dos seguintes modos:
+Quando cria um recipiente Azure Cosmos, configura a entrada num dos seguintes modos:
 
-* **Modo de taxa de transferência provisionado dedicado**: a taxa de transferência provisionada em um contêiner é exclusivamente reservada para esse contêiner e é apoiada pelos SLAs. Para saber mais, confira [como provisionar a taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
+* Modo de **produção aprovisionado dedicado**: A entrada disponibilizada num recipiente é exclusivamente reservada para esse contentor e é apoiada pelos SLAs. Para saber mais, veja [como fornecer a entrada num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
 
-* **Modo de produtividade provisionada compartilhada**: esses contêineres compartilham a taxa de transferência provisionada com os outros contêineres no mesmo banco de dados (excluindo contêineres que foram configurados com taxa de transferência provisionada dedicada). Em outras palavras, a taxa de transferência provisionada no banco de dados é compartilhada entre todos os contêineres de "produtividade compartilhada". Para saber mais, confira [como provisionar a taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
+* Modo de **entrada aprovisionado partilhado**: Estes recipientes partilham a entrada aprovisionada com os outros contentores na mesma base de dados (excluindo os contentores que foram configurados com uma entrada disponibilizada dedicada). Por outras palavras, a entrada prevista na base de dados é partilhada entre todos os recipientes de "entrada partilhada". Para saber mais, consulte como fornecer a entrada numa base de [dados Azure Cosmos.](how-to-provision-database-throughput.md)
 
 > [!NOTE]
-> Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. Para mudar do modo de débito dedicado para o modo de débito partilhado (e vice-versa) após o contentor ser criado, precisará de criar um novo contentor e migrar os dados para esse contentor. Você pode migrar os dados usando o Azure Cosmos DB recurso de feed de alterações.
+> Só é possível configurar a entrada partilhada e dedicada apenas quando criar a base de dados e o recipiente. Para mudar do modo de débito dedicado para o modo de débito partilhado (e vice-versa) após o contentor ser criado, precisará de criar um novo contentor e migrar os dados para esse contentor. Pode migrar os dados utilizando a funcionalidade de alimentação de mudança de DB Do Azure Cosmos.
 
-Um contêiner Cosmos do Azure pode ser dimensionado de forma elástica, independentemente de você criar contêineres usando modos de taxa de transferência provisionada ou compartilhadas.
+Um recipiente Azure Cosmos pode escalar elástico, quer crie recipientes utilizando modos de entrada de fornecimento dedicados ou partilhados.
 
-Um contêiner Cosmos do Azure é um contêiner de itens independente de esquema. Os itens em um contêiner podem ter esquemas arbitrários. Por exemplo, um item que representa uma pessoa e um item que representa um automóvel pode ser colocado no *mesmo contêiner*. Por padrão, todos os itens que você adiciona a um contêiner são indexados automaticamente sem a necessidade de um índice explícito ou gerenciamento de esquema. Você pode personalizar o comportamento de indexação Configurando a [política de indexação](index-overview.md) em um contêiner. 
+Um contentor do Cosmos do Azure é um contentor de esquema desconhecido de itens. Itens num recipiente podem ter esquemia arbitrária. Por exemplo, um item que represente uma pessoa e um item que represente um automóvel pode ser colocado no *mesmo recipiente*. Por padrão, todos os itens que adiciona a um recipiente são automaticamente indexados sem necessitar de uma gestão explícita de índice ou esquema. Pode personalizar o comportamento de indexação configurando a política de [indexação](index-overview.md) num recipiente. 
 
-Você pode definir [TTL (vida útil)](time-to-live.md) em itens selecionados em um contêiner Cosmos do Azure ou para todo o contêiner para limpar normalmente esses itens do sistema. Azure Cosmos DB exclui automaticamente os itens quando eles expiram. Ele também garante que uma consulta executada no contêiner não retorne os itens expirados em um limite fixo. Para saber mais, consulte [Configurar TTL em seu contêiner](how-to-time-to-live.md).
+Você pode definir [Time to Live (TTL)](time-to-live.md) em itens selecionados em um recipiente Azure Cosmos ou para que todo o recipiente expurgar graciosamente esses itens do sistema. A Azure Cosmos DB elimina automaticamente os itens quando expiram. Também garante que uma consulta realizada no recipiente não devolve os itens expirados dentro de um limite fixo. Para saber mais, consulte [configure TTL no seu recipiente](how-to-time-to-live.md).
 
-Você pode usar o [feed de alterações](change-feed.md) para assinar o log de operações que é gerenciado para cada partição lógica do seu contêiner. O feed de alterações fornece o log de todas as atualizações executadas no contêiner, juntamente com as imagens anteriores e posteriores dos itens. Para obter mais informações, consulte [criar aplicativos reativos usando o feed de alterações](serverless-computing-database.md). Você também pode configurar a duração da retenção para o feed de alterações usando a política do feed de alterações no contêiner. 
+Pode utilizar [o feed](change-feed.md) de alteração para subscrever o registo de operações que é gerido para cada partição lógica do seu recipiente. A alteração do feed fornece o registo de todas as atualizações efetuadas no recipiente, juntamente com as imagens antes e posteriores dos itens. Para mais informações, consulte [Construir aplicações reativas utilizando](serverless-computing-database.md)o feed de mudança . Também pode configurar a duração da retenção para o feed de mudança utilizando a política de alimentação de mudança no recipiente. 
 
-Você pode registrar [procedimentos armazenados, gatilhos, UDFs (funções definidas pelo usuário)](stored-procedures-triggers-udfs.md)e [procedimentos de mesclagem](how-to-manage-conflicts.md) para seu contêiner Cosmos do Azure. 
+Pode registar [procedimentos armazenados, gatilhos, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md)e [fundir procedimentos](how-to-manage-conflicts.md) para o seu recipiente Azure Cosmos. 
 
-Você pode especificar uma [restrição de chave exclusiva](unique-keys.md) em seu contêiner Cosmos do Azure. Ao criar uma política de chave exclusiva, você garante a exclusividade de um ou mais valores por chave de partição lógica. Se você criar um contêiner usando uma política de chave exclusiva, nenhum item novo ou atualizado com valores que duplicar os valores especificados pela restrição UNIQUE KEY poderá ser criado. Para saber mais, consulte [restrições de chave exclusivas](unique-keys.md).
+Pode especificar uma [restrição de chave única](unique-keys.md) no seu recipiente Azure Cosmos. Ao criar uma política de chaves exclusivas, garantir a exclusividade de um ou mais valores por chave de partição lógica. Se criar um recipiente utilizando uma política-chave única, não podem ser criados itens novos ou atualizados com valores que dupliquem os valores especificados pela restrição de chave única. Para obter mais informações, consulte [restrições de chave exclusivas](unique-keys.md).
 
-Um contêiner Cosmos do Azure é especializado em entidades específicas de API, conforme mostrado na tabela a seguir:
+Um contentor Azure Cosmos é especializado em entidades específicas da API, como mostra a seguinte tabela:
 
-| Entidade Cosmos do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Entidade Azure Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Contêiner Cosmos do Azure | Contentor | Tabelas | Coleção | Graph | Tabelas |
+|Contentor do Cosmos do Azure | Contentor | Tabelas | Coleção | Graph | Tabelas |
 
-### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um contêiner Cosmos do Azure
+### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um contentor do Cosmos do Azure
 
-Um contêiner Cosmos do Azure tem um conjunto de propriedades definidas pelo sistema. Dependendo de qual API você usa, algumas propriedades podem não ser diretamente expostas. A tabela a seguir descreve a lista de propriedades definidas pelo sistema:
+Um recipiente Azure Cosmos tem um conjunto de propriedades definidas pelo sistema. Dependendo da API que utiliza, algumas propriedades podem não estar diretamente expostas. O quadro seguinte descreve a lista de propriedades definidas pelo sistema:
 
-| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo usuário | Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador | Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_RID | Gerado pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não |
-|ETag de \_ | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|\_TS | Gerado pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não |
-|\_Self | Gerado pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não |
-|ID | Configurável pelo usuário | Nome exclusivo definido pelo usuário do contêiner | Sim | Sim | Sim | Sim | Sim |
-|indexingPolicy | Configurável pelo usuário | Fornece a capacidade de alterar o caminho do índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
-|TimeToLive | Configurável pelo usuário | Fornece a capacidade de excluir itens automaticamente de um contêiner após um período de tempo definido. Para obter detalhes, consulte [vida útil](time-to-live.md). | Sim | Não | Não | Não | Sim |
-|changeFeedPolicy | Configurável pelo usuário | Usado para ler alterações feitas em itens em um contêiner. Para obter detalhes, consulte o [feed de alterações](change-feed.md). | Sim | Não | Não | Não | Sim |
-|uniqueKeyPolicy | Configurável pelo usuário | Usado para garantir a exclusividade de um ou mais valores em uma partição lógica. Para obter mais informações, consulte [Unique Key Constraints](unique-keys.md). | Sim | Não | Não | Não | Sim |
+|\_livrar | Gerado pelo sistema | Identificador exclusivo do contentor | Sim | Não | Não | Não | Não |
+|\_veado | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
+|\_ts | Gerado pelo sistema | Última timestamp atualizado do contentor | Sim | Não | Não | Não | Não |
+|\_si mesmo | Gerado pelo sistema | Endereçável URI do contentor | Sim | Não | Não | Não | Não |
+|ID | Configurável pelo utilizador | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
+|indexingPolicy | Configurável pelo utilizador | Fornece a capacidade de alterar a trajetória do índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
+|TimeToLive | Configurável pelo utilizador | Fornece a capacidade de apagar automaticamente os itens de um recipiente após um período de tempo definido. Para mais detalhes, consulte [Time to Live](time-to-live.md). | Sim | Não | Não | Não | Sim |
+|changeFeedPolicy | Configurável pelo utilizador | Utilizado para ler as alterações efetuadas aos itens num contentor. Para mais detalhes, consulte [Alterar feed](change-feed.md). | Sim | Não | Não | Não | Sim |
+|uniqueKeyPolicy | Configurável pelo utilizador | Usado para garantir a singularidade de um ou mais valores numa partição lógica. Para mais informações, consulte [constrangimentos de chaves únicos.](unique-keys.md) | Sim | Não | Não | Não | Sim |
 
-### <a name="operations-on-an-azure-cosmos-container"></a>Operações em um contêiner Cosmos do Azure
+### <a name="operations-on-an-azure-cosmos-container"></a>Operações num contentor do Cosmos do Azure
 
-Um contêiner Cosmos do Azure dá suporte às seguintes operações quando você usa qualquer uma das APIs Cosmos do Azure:
+Um contentor Azure Cosmos suporta as seguintes operações quando utiliza qualquer uma das APIs do Cosmos Do Azure:
 
 | Operação | CLI do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerar contêineres em um banco de dados | Sim | Sim | Sim | Sim | N/D | N/D |
-| Ler um contêiner | Sim | Sim | Sim | Sim | N/D | N/D |
-| Criar um novo contêiner | Sim | Sim | Sim | Sim | N/D | N/D |
-| Atualizar um contêiner | Sim | Sim | Sim | Sim | N/D | N/D |
+| Enumerar contentores numa base de dados | Sim | Sim | Sim | Sim | N/D | N/D |
+| Ler um contentor | Sim | Sim | Sim | Sim | N/D | N/D |
+| Criar um novo recipiente | Sim | Sim | Sim | Sim | N/D | N/D |
+| Atualizar um recipiente | Sim | Sim | Sim | Sim | N/D | N/D |
 | Eliminar um contentor | Sim | Sim | Sim | Sim | N/D | N/D |
 
-## <a name="azure-cosmos-items"></a>Itens Cosmos do Azure
+## <a name="azure-cosmos-items"></a>Itens do Cosmos do Azure
 
-Dependendo de qual API você usa, um item Cosmos do Azure pode representar um documento em uma coleção, uma linha em uma tabela ou um nó ou borda em um grafo. A tabela a seguir mostra o mapeamento de entidades específicas de API para um item Cosmos do Azure:
+Dependendo de qual API você usa, um item Cosmos do Azure pode representar um documento em uma coleção, uma linha em uma tabela ou um nó ou borda em um grafo. A tabela seguinte mostra o mapeamento de entidades específicas da API para um item Azure Cosmos:
 
 | Entidade Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Item Cosmos do Azure | Documento | Fila | Documento | Nó ou borda | Item |
+|Item do Cosmos do Azure | Documento | linha | Documento | Nó ou borda | Item |
 
 ### <a name="properties-of-an-item"></a>Propriedades de um item
 
-Cada item Cosmos do Azure tem as seguintes propriedades definidas pelo sistema. Dependendo de qual API você usa, alguns deles podem não ser expostos diretamente.
+Cada item Azure Cosmos tem as seguintes propriedades definidas pelo sistema. Dependendo da API que usas, algumas delas podem não estar diretamente expostas.
 
-| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo usuário| Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador| Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|ID de \_ | Gerado pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
-|ETag de \_ | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
-|\_TS | Gerado pelo sistema | Carimbo de data/hora da última atualização do item | Sim | Não | Não | Não | Não |
-|\_Self | Gerado pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
-|ID | O | Nome exclusivo definido pelo usuário em uma partição lógica. | Sim | Sim | Sim | Sim | Sim |
-|Propriedades arbitrárias definidas pelo usuário | Definidas pelo utilizador | Propriedades definidas pelo usuário representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Sim | Sim | Sim | Sim | Sim |
+|\_livrar | Gerado pelo sistema | Identificador único do item | Sim | Não | Não | Não | Não |
+|\_veado | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
+|\_ts | Gerado pelo sistema | Carimbo de tempo da última atualização do item | Sim | Não | Não | Não | Não |
+|\_si mesmo | Gerado pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
+|ID | Qualquer um dos | Nome único definido pelo utilizador numa partição lógica. | Sim | Sim | Sim | Sim | Sim |
+|Arbitrárias propriedades definidas pelo utilizador | Definidas pelo utilizador | Propriedades definidas pelo utilizador representadas na representação nativa da API (incluindo JSON, BSON e CQL) | Sim | Sim | Sim | Sim | Sim |
 
 > [!NOTE]
-> A exclusividade da propriedade `id` é imposta somente dentro de cada partição lógica. Vários documentos podem ter a mesma propriedade de `id` com valores de chave de partição diferentes.
+> A singularidade da propriedade `id` só é aplicada dentro de cada partição lógica. Vários documentos podem ter a mesma propriedade `id` com diferentes valores-chave de partição.
 
-### <a name="operations-on-items"></a>Operações em itens
+### <a name="operations-on-items"></a>Operações nos itens
 
-Os itens Cosmos do Azure dão suporte às seguintes operações. Você pode usar qualquer uma das APIs do Azure Cosmos para executar as operações.
+Os itens da Azure Cosmos suportam as seguintes operações. Você pode usar qualquer uma das APIs Azure Cosmos para realizar as operações.
 
 | Operação | CLI do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inserir, substituir, excluir, Upsert, ler | Não | Sim | Sim | Sim | Sim | Sim |
+| Inserir, substituir, eliminar, Upsert, leitura | Não | Sim | Sim | Sim | Sim | Sim |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre estas tarefas e conceitos:
+Conheça estas tarefas e conceitos:
 
-* [Provisionar taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md)
-* [Provisionar a taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md)
-* [Trabalhar com partições lógicas](partition-data.md)
-* [Configurar TTL em um contêiner Cosmos do Azure](how-to-time-to-live.md)
-* [Criar aplicativos reativos usando o feed de alterações](change-feed.md)
-* [Configurar uma restrição de chave exclusiva em seu contêiner Cosmos do Azure](unique-keys.md)
+* [Provisão para uma base de dados Azure Cosmos](how-to-provision-database-throughput.md)
+* [Provisão de entrada num recipiente Azure Cosmos](how-to-provision-container-throughput.md)
+* [Trabalhar com divisórias lógicas](partition-data.md)
+* [Configure TTL em um recipiente Azure Cosmos](how-to-time-to-live.md)
+* [Construir aplicações reativas utilizando o feed de mudança](change-feed.md)
+* [Configure uma restrição de chave única no seu recipiente Azure Cosmos](unique-keys.md)

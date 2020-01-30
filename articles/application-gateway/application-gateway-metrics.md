@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12759deb3e1775b5170d40cc609fe8c6226bf0d6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a8882a810d18d06b33d6382bd8bd86ffe75b39d8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704583"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766818"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -22,7 +22,9 @@ O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure
 
 ### <a name="timing-metrics"></a>Métricas de tempo
 
-As métricas a seguir relacionadas ao tempo da solicitação e resposta estão disponíveis. Ao analisar essas métricas para um ouvinte específico, você pode determinar se a lentidão no aplicativo devido à WAN, ao gateway de aplicativo, à rede entre o gateway de aplicativo e o aplicativo de back-end ou o desempenho do aplicativo de back-end.
+O Application Gateway fornece várias métricas de tempo incorporadas relacionadas com o pedido e resposta que são todas medidas em milissegundos. 
+
+![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -30,28 +32,41 @@ As métricas a seguir relacionadas ao tempo da solicitação e resposta estão d
 
 - **Tempo de conexão de back-end**
 
-  Tempo gasto estabelecendo uma conexão com um aplicativo de back-end. Isto inclui a latência da rede, bem como o tempo devida pela pilha de TCP do servidor de backend para estabelecer novas ligações. No caso da SSL, também inclui o tempo gasto em aperto de mão. 
+  Tempo gasto a estabelecer uma ligação com o pedido de backend. 
+
+  Isto inclui a latência da rede, bem como o tempo devida pela pilha de TCP do servidor de backend para estabelecer novas ligações. No caso da SSL, também inclui o tempo gasto em aperto de mão. 
 
 - **Tempo de resposta do primeiro byte do back-end**
 
-  Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o primeiro byte do cabeçalho de resposta. Isto aproxima-se da soma do tempo de *ligação backend* e tempo de resposta da aplicação backend (o tempo que o servidor demorou a gerar conteúdo, potencialmente buscar consultas de base de dados, e começar a transferir a resposta de volta para o Gateway de aplicação)
+  Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o primeiro byte do cabeçalho de resposta. 
+
+  Isto aproxima-se da soma do tempo de *ligação backend*, tempo tomado pelo pedido de chegar ao backend do Application Gateway, tempo tomado pela aplicação backend para responder (o tempo que o servidor demorou a gerar conteúdo, potencialmente buscar consultas de base de dados), e o tempo dedo pela primeira vez pela resposta para chegar ao Gateway de aplicação a partir do backend.
 
 - **Tempo de resposta do último byte do back-end**
 
-  Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o último byte do corpo de resposta. Isto aproxima-se da soma do tempo de resposta do *backend first byte* e do tempo de transferência de dados (este número pode variar muito dependendo do tamanho dos objetos solicitados e da latência da rede do servidor)
+  Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o último byte do corpo de resposta. 
+
+  Isto aproxima-se da soma do tempo de resposta do *backend first byte* e do tempo de transferência de dados (este número pode variar muito dependendo do tamanho dos objetos solicitados e da latência da rede do servidor).
 
 - **Tempo total do gateway de aplicativo**
 
-  Tempo médio que leva para que uma solicitação seja processada e sua resposta seja enviada. Isto é calculado em média do intervalo a partir do momento em que o Application Gateway recebe o primeiro byte de um pedido HTTP para o momento em que a operação de envio de resposta termina Isto aproxima a soma do tempo de processamento do Gateway de Aplicação e o *backend último tempo* de resposta byte
+  O tempo médio que leva para que um pedido seja recebido, processado e a sua resposta seja enviada. 
+
+  Este é o intervalo a partir do momento em que o Application Gateway recebe o primeiro byte do pedido HTTP para o momento em que o byte de última resposta foi enviado ao cliente. Isto inclui o tempo de processamento tomado pelo Application Gateway, o *backend último tempo*de resposta, tempo detempo decretado pela Application Gateway para enviar toda a resposta e o *Cliente RTT*.
 
 - **RTT do cliente**
 
-  Tempo médio de ida e volta entre clientes e o gateway de aplicativo. Essa métrica indica quanto tempo leva para estabelecer conexões e retornar confirmações. 
-
-Estas métricas podem ser usadas para determinar se o abrandamento observado se deve ao Gateway de Aplicação, à saturação da pilha de pilhas TCP de rede e backend do servidor, ao desempenho da aplicação de backend ou ao tamanho de um ficheiro grande.
-Por exemplo, Se houver um pico no tempo de resposta do backend primeiro byte mas o tempo de ligação backend é constante, então pode ser inferido que a porta de entrada da Aplicação para apoiar a latência, bem como o tempo necessário para estabelecer a ligação é estável e o pico é causado devido a um n aumento do tempo de resposta da aplicação backend. Da mesma forma, se o pico no primeiro tempo de resposta do byte Backend estiver associado a um pico correspondente no tempo de ligação backend, então pode ser deduzido que a rede ou a pilha de TCP do servidor saturaram. Se notar um pico no tempo de resposta do byte Backend, mas o tempo de resposta do backend é constante, então provavelmente o pico é devido a um ficheiro maior sendo solicitado. Da mesma forma, se o tempo total do gateway da aplicação for muito mais do que o tempo de resposta do byte backend, então pode ser um sinal de estrangulamento de desempenho no Gateway de Aplicação.
+  Tempo médio de ida e volta entre clientes e o gateway de aplicativo.
 
 
+
+Estas métricas podem ser usadas para determinar se a desaceleração observada se deve à rede de clientes, ao desempenho do Application Gateway, à rede de backend e à saturação da pilha de pilhas TCP do servidor de backend, ao desempenho da aplicação de backend ou ao tamanho de um ficheiro grande.
+
+Por exemplo, Se houver um pico na tendência de tempo de *resposta backend primeiro byte,* mas a tendência de tempo de *ligação Backend* é estável, então pode ser inferido que a porta de aplicação para apoiar a latência e o tempo necessário para estabelecer a ligação é estável, e o pico é causado devido a um aumento do tempo de resposta da aplicação backend. Por outro lado, se o pico no primeiro tempo de resposta do *byte Backend* estiver associado a um pico correspondente no tempo de *ligação backend*, então pode ser deduzido que a rede entre o Application Gateway e o servidor backend ou a pilha de TCP do servidor de backend saturou. 
+
+Se notar um pico no tempo de resposta do *byte Backend,* mas o tempo de resposta do *byte backend é* estável, então pode ser deduzido que o pico é devido a um ficheiro maior sendo solicitado.
+
+Da mesma forma, se o tempo total do *gateway da Aplicação* tiver um pico mas o tempo de *resposta do backend é* estável, então pode ser um sinal de estrangulamento de desempenho no Gateway de Aplicação ou um estrangulamento na rede entre o cliente e o Application Gateway. Além disso, se o *cliente RTT* também tem um pico correspondente, então isso indica que a degradação se deve à rede entre cliente e Gateway de Aplicação.
 
 ### <a name="application-gateway-metrics"></a>Métricas do gateway de aplicativo
 
@@ -112,11 +127,11 @@ Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
 
 - **Contagem de hosts íntegros**
 
-  O número de back-ends que são determinados íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
+  O número de back-ends que são determinados íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
 
 - **Contagem de hosts não íntegros**
 
-  O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar hosts não íntegros em um pool de back-end específico.
+  O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v1
 
@@ -158,11 +173,11 @@ Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
 
 - **Contagem de hosts íntegros**
 
-  O número de back-ends que são determinados íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar hosts íntegros/não íntegros em um pool de back-end específico.
+  O número de back-ends que são determinados íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
 
 - **Contagem de hosts não íntegros**
 
-  O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar hosts não íntegros em um pool de back-end específico.
+  O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
 
 ## <a name="metrics-visualization"></a>Visualização de métricas
 

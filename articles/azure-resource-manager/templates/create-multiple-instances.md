@@ -3,12 +3,12 @@ title: Implantar várias instâncias de recursos
 description: Use a operação de cópia e as matrizes em um modelo de Azure Resource Manager para iterar várias vezes ao implantar recursos.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 54d406771f64d97a3ba564556be6dc49677a732d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 0250f5ee64c91d8d75ad246271ab31324a2553f8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121986"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836934"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager
 
@@ -205,6 +205,10 @@ O exemplo a seguir mostra como aplicar `copy` à propriedade datadisks em uma m�
 
 Observe que, ao usar `copyIndex` dentro de uma iteração de propriedade, você deve fornecer o nome da iteração. Você não precisa fornecer o nome quando usado com a iteração de recurso.
 
+> [!NOTE]
+> A iteração imobiliária também suporta um argumento compensado. A contrapartida deve ser seguida do nome da iteração, como o copyIndex('dataDisks', 1).
+>
+
 O Resource Manager expande a matriz de `copy` durante a implantação. O nome da matriz se torna o nome da propriedade. Os valores de entrada se tornam as propriedades do objeto. O modelo implantado se torna:
 
 ```json
@@ -299,6 +303,10 @@ Você pode usar a iteração de recurso e Propriedade juntas. Referencie a itera
 ## <a name="variable-iteration"></a>Iteração de variável
 
 Para criar várias instâncias de uma variável, use a propriedade `copy` na seção variáveis. Você cria uma matriz de elementos construídos com base no valor na propriedade `input`. Você pode usar a propriedade `copy` dentro de uma variável ou no nível superior da seção de variáveis. Ao usar `copyIndex` dentro de uma iteração variável, você deve fornecer o nome da iteração.
+
+> [!NOTE]
+> A iteração variável também suporta um argumento compensado. A contrapartida deve ser seguida do nome da iteração, como o copyIndex ('diskNames', 1).
+>
 
 Para obter um exemplo simples de criação de uma matriz de valores de cadeia de caracteres, consulte [copiar modelo de matriz](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 

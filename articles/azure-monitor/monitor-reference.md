@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: d605b852d37af3b1e2ef0868084f3c0b99c24784
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263426"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765728"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -42,7 +42,7 @@ As soluções são baseadas em consultas de log e exibições personalizadas par
 |:---|:---|
 | [Integridade do agente](insights/solution-agenthealth.md) | Analise a integridade e a configuração dos agentes de Log Analytics. |
 | [Gestão de alertas](platform/alert-management-solution.md) | Analise os alertas coletados de System Center Operations Manager, Nagios ou Zabbix. |
-| [Mapa do Serviço](insights/service-map.md) | Descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. A mesma funcionalidade é fornecida em   |
+| [Mapa do Serviço](insights/service-map.md) | Descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. |
 
 
 
@@ -70,7 +70,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Gateway da Aplicação | Sim | Sim | Não |  |
 |Serviço de atestado | Não | Não | Não |  |
 |Automatização | Sim | Sim | Não |  |
-|Azure Service Manager (RDFE) | Não | Não | Não |  |
+|Gestor de Serviços Azure (RDFE) | Não | Não | Não |  |
 |Backup | Não | Sim | Não |  |
 |Bastion | Não | Não | Não |  |
 |Batch | Sim | Sim | Não |  |
@@ -88,13 +88,13 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Cost Management | Não | Não | Não |  |
 |Data Box | Não | Não | Não |  |
 |Gen2 do catálogo de dados | Não | Não | Não |  |
-|Data Explorer | Sim | Sim | Não |  |
+|Explorador de Dados | Sim | Sim | Não |  |
 |Gestor de Dados | Sim | Sim | Não |  |
 |Data Factory v2 | Não | Sim | Não |  |
-|Data Share | Não | Não | Não |  |
-|Database for MariaDB | Sim | Sim | Não |  |
-|Base de Dados para MySQL | Sim | Sim | Não |  |
-|Base de Dados para PostgreSQL | Sim | Sim | Não |  |
+|Partilha de Dados | Não | Não | Não |  |
+|Base de dados para MariaDB | Sim | Sim | Não |  |
+|Base de dados para MySQL | Sim | Sim | Não |  |
+|Base de dados para PostgreSQL | Sim | Sim | Não |  |
 |Serviço de Migração de Bases de Dados | Não | Não | Não |  |
 |Databricks | Não | Sim | Não |  |
 |Proteção contra DDoS | Sim | Sim | Não |  |
@@ -125,7 +125,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Mapas  | Não | Não | Não |  |
 |Serviços de Multimédia | Sim | Sim | Não |  |
 |Microsoft Flow | Não | Não | Não |  |
-|Ambiente de Trabalho Gerido da Microsoft | Não | Não | Não |  |
+|Microsoft Managed Desktop | Não | Não | Não |  |
 |Microsoft PowerApps | Não | Não | Não |  |
 |Microsoft Social Engagement | Não | Não | Não |  |
 |Microsoft Stream | Sim | Sim | Não |  |
@@ -163,7 +163,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Gestor de Tráfego | Sim | Sim | Não |  |
 |Impressão universal | Não | Não | Não |  |
 |Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
-|Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
+|Virtual Machines | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
 |Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
 |Rede virtual-logs de fluxo NSG | Não | Sim | Não |  |
 |Gateway de VPN | Sim | Sim | Não |  |
@@ -178,7 +178,7 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log A
 | [Automatização do Azure](/azure/automation/) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Consulte [controle de alterações](../automation/change-tracking.md) e [Gerenciamento de atualizações](../automation/automation-update-management.md). |
 | [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Consulte [relatórios centrais para a proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro de Segurança do Azure](/azure/security-center/) | Colete e analise eventos de segurança e execute a análise de ameaças. Consulte [coleta de dados na central de segurança do Azure](/azure/security-center/security-center-enable-data-collection) |
-| [Azure Sentinel](/azure/sentinel/) | Conecta-se a fontes diferentes, incluindo o Office 365 e a trilha de nuvem do Amazon Web Services. Consulte [conectar fontes de dados](/azure/sentinel/connect-data-sources). |
+| [Sentinela-azul](/azure/sentinel/) | Conecta-se a fontes diferentes, incluindo o Office 365 e a trilha de nuvem do Amazon Web Services. Consulte [conectar fontes de dados](/azure/sentinel/connect-data-sources). |
 | [Análise do Cofre de Chaves](insights/azure-key-vault.md) | Analise Azure Key Vault logs do AuditEvent. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma configuração de diagnóstico para enviar logs para Azure Monitor. Consulte [enviar dados de log para armazenamento, hubs de eventos ou log Analytics no Intune (versão prévia)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Rede  | [Monitor de desempenho de rede](insights/network-performance-monitor.md) -monitore a conectividade de rede e o desempenho para pontos de extremidade de serviço e de aplicativo.<br>[Aplicativo Azure gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) -analise os logs e as métricas do gateway de aplicativo Azure.<br>[Análise de tráfego](/azure/network-watcher/traffic-analytics) -analisa os logs de fluxo do NSG (grupo de segurança de rede) do observador de rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. |
@@ -187,7 +187,7 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log A
 | [Surface Hub](insights/surface-hubs.md) | Acompanhe a integridade e o uso de dispositivos Surface Hub. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Colete dados de agentes de Operations Manager conectando seu grupo de gerenciamento ao Azure Monitor. Consulte [conectar Operations Manager ao Azure monitor](platform/om-agents.md)<br> Avalie o risco e a integridade de seu grupo de gerenciamento de System Center Operations Manager com Operations Manager solução de [avaliação](insights/scom-assessment.md) . |
 | [Salas do Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gerenciamento integrado de ponta a ponta de dispositivos de salas do Microsoft Teams. |
-| [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Crie, teste e distribua aplicativos e, em seguida, monitore seu status e uso. Consulte [começar a analisar seu aplicativo móvel com app Center e Application insights](learn/mobile-center-quickstart.md). |
+| [Centro de Aplicações de Estúdio Visual](https://docs.microsoft.com/appcenter/) | Crie, teste e distribua aplicativos e, em seguida, monitore seu status e uso. Consulte [começar a analisar seu aplicativo móvel com app Center e Application insights](learn/mobile-center-quickstart.md). |
 | Windows | [Conformidade de Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) – avalie as atualizações da área de trabalho do Windows.<br>[Análise de desktop](https://docs.microsoft.com/configmgr/desktop-analytics/overview) -integra-se com Configuration Manager para fornecer informações e inteligência para tomar decisões mais informadas sobre a prontidão de atualização de seus clientes Windows. |
 
 

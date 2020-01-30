@@ -7,14 +7,14 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 48e74f7dd6fa6f2c7fafe10797a301b3d4cc7f1d
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69ff58d6cdabe49000b00afecfc6b4ad1a3f2daa
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045236"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841851"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: criar um aplicativo iOS que inicia o leitor de imersão com o conteúdo de uma foto (Swift)
 
@@ -57,7 +57,7 @@ A maneira mais fácil de usar o SDK do leitor de imersão é via CocoaPods. Para
   end
 ```
 4. No terminal, no diretório do seu projeto do Xcode, execute o comando `pod install` para instalar o Pod do SDK do leitor de imersão.
-5. Adicione `import immersive_reader_sdk` a todos os arquivos que precisam referenciar o SDK.
+5. Adicione `import immersive_reader_sdk` a todos os ficheiros que precisam de fazer referência ao SDK.
 6. Certifique-se de abrir o projeto abrindo o arquivo de `.xcworkspace` e não o arquivo de `.xcodeproj`.
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação do Azure AD
@@ -84,8 +84,8 @@ Renomeie ViewController. Swift para PictureLaunchViewController. Swift e substit
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Defina o esquema de arquivo no Xcode selecionando um simulador ou um destino do dispositivo.
-![esquema de arquivo morto](./media/ios/xcode-archive-scheme.png)<br/>
-![selecionar](./media/ios/xcode-select-target.png) de destino
+![esquema de arquivo](./media/ios/xcode-archive-scheme.png)<br/>
+![selecione](./media/ios/xcode-select-target.png) alvo
 
 No Xcode, pressione CTRL + R ou clique no botão reproduzir para executar o projeto e o aplicativo deverá ser iniciado no simulador ou dispositivo especificado.
 

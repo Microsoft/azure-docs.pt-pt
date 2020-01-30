@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: f05be2725ef766bb1e5fd7f2624e754a2e21698a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563178"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772150"
 ---
 # <a name="iot-hub-ip-addresses"></a>Endereços IP do Hub IoT
 
@@ -30,9 +30,11 @@ Os prefixos de endereço IP dos pontos de extremidade públicos do Hub IoT são 
 
 * Ao adicionar regras de permissão na configuração de firewall de seus dispositivos, é melhor fornecer [portas específicas usadas por protocolos aplicáveis](./iot-hub-devguide-protocols.md#port-numbers).
 
-* Os prefixos de endereço IP do Hub IoT estão sujeitos a alterações. Essas alterações são publicadas periodicamente por meio de marcas de serviço antes de entrar em vigor. Portanto, é importante que você desenvolva processos para recuperar e usar regularmente as marcas de serviço mais recentes. Esse processo pode ser automatizado por meio da [API de descoberta de marcas de serviço](../virtual-network/service-tags-overview.md#service-tags-on-premises).
+* Os prefixos de endereço IP do Hub IoT estão sujeitos a alterações. Essas alterações são publicadas periodicamente por meio de marcas de serviço antes de entrar em vigor. Portanto, é importante que você desenvolva processos para recuperar e usar regularmente as marcas de serviço mais recentes. Esse processo pode ser automatizado por meio da [API de descoberta de marcas de serviço](../virtual-network/service-tags-overview.md#service-tags-on-premises). Note que a descoberta de etiquetas de serviço API ainda está em pré-visualização e em alguns casos pode não produzir a lista completa de tags e endereços IP. Até que a API esteja geralmente disponível, considere utilizar as etiquetas de [serviço no formato JSON descarregado.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 
 
-* Use o *AzureIoTHub. [ nome da região]* para identificar os prefixos IP usados pelos pontos de extremidade do Hub IOT em uma região específica. Para considerar a recuperação de desastres do Datacenter ou o [failover regional](iot-hub-ha-dr.md) , verifique se a conectividade com os prefixos de IP da região de par geográfico de seu hub IOT também está habilitada.
+* Use o *AzureIoTHub. nome da região]* etiqueta para identificar prefixos IP utilizados por pontos finais do hub IoT numa região específica. Para considerar a recuperação de desastres do Datacenter ou o [failover regional](iot-hub-ha-dr.md) , verifique se a conectividade com os prefixos de IP da região de par geográfico de seu hub IOT também está habilitada.
+
+* A criação de regras de firewall no IoT Hub pode bloquear a conectividade necessária para executar comandos Azure CLI e PowerShell contra o seu Hub IoT. Para evitar isto, pode adicionar regras de ALLOW para os prefixos de endereço IP dos seus clientes para reativar os clientes CLI ou PowerShell para comunicar com o seu Hub IoT.  
 
 
 ## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas

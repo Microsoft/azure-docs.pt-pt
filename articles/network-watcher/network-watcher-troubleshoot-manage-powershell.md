@@ -1,28 +1,25 @@
 ---
-title: Solucionar problemas de gateway e conexões de VNet do Azure-Azure PowerShell
+title: Troubleshoot Azure VNet gateway e conexões - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: Esta página explica como usar o cmdlet do PowerShell para solucionar problemas do observador de rede do Azure
+description: Esta página explica como usar o problema do Observador de Rede Azure PowerShell cmdlet
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: 4e65be8254710beffc6cc042316305d8d64c43c3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 478b6cffb6fbb2be7a87b9b61d5b7e2ee71a74c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277837"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840711"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Solucionar problemas de gateway de rede virtual e conexões usando o PowerShell do observador de rede do Azure
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Troubleshoot Virtual Network Gateway e Connections usando O Observador de Rede Azure PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -30,7 +27,7 @@ ms.locfileid: "74277837"
 > - [CLI do Azure](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
-O observador de rede fornece muitos recursos que se relacionam com a compreensão de seus recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. A solução de problemas de recursos pode ser chamada por meio do portal, do PowerShell, da CLI ou da API REST. Quando chamado, o observador de rede inspeciona a integridade de um gateway de rede virtual ou uma conexão e retorna suas descobertas.
+O Network Watcher fornece muitas capacidades no que diz respeito à compreensão dos seus recursos de rede em Azure. Uma destas capacidades é a resolução de problemas de recursos. A resolução de problemas de recursos pode ser chamada através do portal PowerShell, CLI ou REST API. Quando chamado, o Observador de Rede inspeciona a saúde de um Gateway de Rede Virtual ou de uma Ligação e devolve as suas descobertas.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -39,31 +36,31 @@ O observador de rede fornece muitos recursos que se relacionam com a compreensã
 
 Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
-Para obter uma lista de tipos de gateway com suporte, visite [tipos de gateway com suporte](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+Para uma lista de visitas de tipos de gateway suportados, os tipos de [Gateway suportados](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-A solução de problemas de recursos fornece a capacidade de solucionar problemas que surgem com gateways de rede virtual e conexões. Quando uma solicitação é feita para a solução de problemas de recursos, os logs são consultados e inspecionados. Quando a inspeção for concluída, os resultados serão retornados. As solicitações de solução de problemas de recursos são solicitações de execução longa, o que pode levar vários minutos para retornar um resultado. Os logs da solução de problemas são armazenados em um contêiner em uma conta de armazenamento que é especificada.
+A resolução de problemas de recursos fornece os problemas de resolução de problemas de capacidade que surgem com Gateways e Conexões de Rede Virtual. Quando é feito um pedido para a resolução de problemas de recursos, os registos estão a ser consultados e inspecionados. Quando a inspeção estiver concluída, os resultados são devolvidos. Os pedidos de resolução de problemas de recursos são pedidos de longa duração, que podem demorar vários minutos a devolver um resultado. Os registos de resolução de problemas são guardados num recipiente numa conta de armazenamento especificada.
 
-## <a name="retrieve-network-watcher"></a>Recuperar observador de rede
+## <a name="retrieve-network-watcher"></a>Observador de rede de recuperação
 
-A primeira etapa é recuperar a instância do observador de rede. A variável `$networkWatcher` é passada para o cmdlet `Start-AzNetworkWatcherResourceTroubleshooting` na etapa 4.
+O primeiro passo é recuperar a instância do Observador da Rede. A variável `$networkWatcher` é passada para o `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet no passo 4.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
 ```
 
-## <a name="retrieve-a-virtual-network-gateway-connection"></a>Recuperar uma conexão de gateway de rede virtual
+## <a name="retrieve-a-virtual-network-gateway-connection"></a>Recuperar uma ligação de gateway de rede virtual
 
-Neste exemplo, a solução de problemas de recursos está sendo executada em uma conexão. Você também pode passá-lo para um gateway de rede virtual.
+Neste exemplo, a resolução de problemas de recursos está a ser remeter-se numa Ligação. Também pode passar-lhe um Portal de Rede Virtual.
 
 ```powershell
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 
-A solução de problemas de recursos retorna dados sobre a integridade do recurso; ela também salva os logs em uma conta de armazenamento a ser revisada. Nesta etapa, criaremos uma conta de armazenamento, se existir uma conta de armazenamento existente, você poderá usá-la.
+A resolução de problemas de recursos devolve dados sobre a saúde do recurso, também guarda registos para uma conta de armazenamento a ser revista. Neste passo, criamos uma conta de armazenamento, se existir uma conta de armazenamento existente, pode utilizá-la.
 
 ```powershell
 $sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
@@ -71,25 +68,25 @@ Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.S
 $sc = New-AzStorageContainer -Name logs
 ```
 
-## <a name="run-network-watcher-resource-troubleshooting"></a>Executar solução de problemas de recursos do observador de rede
+## <a name="run-network-watcher-resource-troubleshooting"></a>Executar Network Watcher resolução de problemas de recursos
 
-Você soluciona problemas de recursos com o cmdlet `Start-AzNetworkWatcherResourceTroubleshooting`. Passamos o cmdlet do objeto observador de rede, a ID da conexão ou o gateway de rede virtual, a ID da conta de armazenamento e o caminho para armazenar os resultados.
+Tu atiras recursos com o `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. Passamos o cmdlet o objeto Observador de Rede, o Id da Ligação ou O Gateway da Rede Virtual, o id da conta de armazenamento e o caminho para armazenar os resultados.
 
 > [!NOTE]
-> O cmdlet `Start-AzNetworkWatcherResourceTroubleshooting` é de longa execução e pode levar alguns minutos para ser concluído.
+> O `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet é longo de execução e pode demorar alguns minutos a ser concluído.
 
 ```powershell
 Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
-Depois de executar o cmdlet, o observador de rede revisa o recurso para verificar a integridade. Ele retorna os resultados para o Shell e armazena os logs dos resultados na conta de armazenamento especificada.
+Uma vez executado o cmdlet, o Observador de Rede revê o recurso para verificar a saúde. Devolve os resultados à concha e armazena registos dos resultados na conta de armazenamento especificada.
 
-## <a name="understanding-the-results"></a>Compreendendo os resultados
+## <a name="understanding-the-results"></a>Compreender os resultados
 
-O texto da ação fornece orientação geral sobre como resolver o problema. Se uma ação puder ser executada para o problema, será fornecido um link com diretrizes adicionais. No caso em que não há nenhuma orientação adicional, a resposta fornece a URL para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o que está incluído, visite [visão geral de solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
+O texto de ação fornece orientações gerais sobre a forma de resolver a questão. Se for possível tomar uma medida para a questão, é fornecida uma ligação com orientações adicionais. No caso de não existir orientação adicional, a resposta fornece o url para abrir um caso de suporte.  Para mais informações sobre as propriedades da resposta e o que está incluído, visite a visão geral do [Network Watcher Troubleshoot](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar arquivos de contas de armazenamento do Azure, consulte Introdução ao [armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é Gerenciador de Armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre o download de ficheiros de contas de armazenamento azure, consulte o Get started com o [armazenamento Azure Blob utilizando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se as configurações tiverem sido alteradas para interromper a conectividade VPN, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para rastrear o grupo de segurança de rede e as regras de segurança que podem estar em questão.
+Se foram alteradas as definições que impedem a conectividade VPN, consulte [a Manage Network Security Groups](../virtual-network/manage-network-security-group.md) para localizar o grupo de segurança da rede e as regras de segurança que possam estar em causa.

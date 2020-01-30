@@ -1,7 +1,7 @@
 ---
 title: Examinar usuário declarações-LUIS
 titleSuffix: Azure Cognitive Services
-description: Examine o declarações capturado pelo aprendizado ativo para selecionar entidades de intenção e marca para declarações do mundo de leitura; aceitar alterações, treinar e publicar.
+description: Rever as declarações capturadas pela aprendizagem ativa para selecionar as intenções e marcar entidades para as expressões do mundo de leitura; aceitar mudanças, treinar e publicar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: ed0b9450217b06ff145641d9e268ccee28ee49b2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710596"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775127"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
@@ -27,6 +27,22 @@ O processo de revisão do ponto de extremidade declarações para previsões cor
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
 Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e valor `log=true` QueryString.
+
+Utilize o portal LUIS para construir a consulta de ponto final correto.
+
+1. No [portal DE pré-visualização LUIS,](https://preview.luis.ai/)selecione a sua aplicação na lista de aplicações.
+1. Vá à secção **Gerir** e, em seguida, selecione **os recursos Azure**.
+1. Para o recurso de previsão atribuído, selecione **parâmetros**de consulta de alteração .
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilize o portal LUIS para guardar registos, que é necessário para a aprendizagem ativa.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Alternar **Guarde os registos** e, em seguida, guarde selecionando **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilize o portal LUIS para guardar registos, que é necessário para a aprendizagem ativa.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     Esta ação altera o URL de exemplo adicionando o parâmetro de `log=true` consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Corrigir previsões de intenção para alinhar declarações
 

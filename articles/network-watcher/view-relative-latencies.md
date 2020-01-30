@@ -3,25 +3,21 @@ title: Exibir latências relativas a regiões do Azure de locais específicos | 
 description: Saiba como exibir latências relativas entre provedores de Internet para regiões do Azure de locais específicos.
 services: network-watcher
 documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: damendo
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: kumud
+ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: edbc6f9ce4c1434fa27989f053c108914a151320
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745770"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840541"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Exibir a latência relativa para regiões do Azure de locais específicos
 
@@ -136,7 +132,7 @@ Os dados estão disponíveis para provedores de serviços de Internet específic
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Os dados só estão disponíveis para os países/regiões, Estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificou o *NetworkWatcher_eastus* o observador de rede em um grupo de recursos chamado *NetworkWatcherRG*, mas você pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um, concluindo as tarefas em [criar um observador de rede](#create-a-network-watcher). 
+Os dados só estão disponíveis para os países/regiões, Estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificao o observador de rede *NetworkWatcher_eastus* num grupo de recursos chamado *NetworkWatcherRG,* mas pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um, concluindo as tarefas em [criar um observador de rede](#create-a-network-watcher). 
 
 Depois de executar o comando anterior, você pode filtrar a saída retornada especificando valores válidos para **país**, **estado**e **cidade**, se desejado.  Por exemplo, para exibir a lista de provedores de serviços de Internet disponíveis em Seattle, Washington, na Estados Unidos, digite o seguinte comando:
 

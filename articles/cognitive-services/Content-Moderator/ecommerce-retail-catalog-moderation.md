@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5ee96cd0cf8ca33cae785bc15eb824332dcb3c9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5e74eda9e30c536c0eba4e847019344c87e10cce
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382162"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774343"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: imagens de produtos de comércio eletrônico moderadas com o Azure Content Moderator
 
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 - Um conjunto de imagens para cada rótulo que o classificador de Visão Personalizada usará (neste caso, brinquedos, canetas e sinalizadores dos EUA).
 
-## <a name="create-a-review-team"></a>Criar uma equipe de revisão
+## <a name="create-a-review-team"></a>Criar uma equipa de revisão
 
 Consulte o guia de início rápido do [Content moderator na Web](quick-start.md) para obter instruções sobre como se inscrever na [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipe de revisão. Anote o valor da **ID da equipe** na página **credenciais** .
 
@@ -65,7 +65,7 @@ Este tutorial usa três serviços cognitivas; Portanto, ele requer três chaves 
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Você precisará atualizar os campos de `___Key` com os valores de suas chaves de assinatura e alterar os campos de `___Uri` para as URLs de ponto de extremidade corretas (você obterá a chave de Visão Personalizada e o ponto de extremidade posteriormente). Você pode encontrar esses valores nas guias **início rápido** de cada recurso do Azure. Preencha a parte `YOURTEAMID` do campo `ReviewUri` com a ID da equipe de revisão criada anteriormente. Você preencherá a parte final do campo `CustomVisionUri` mais tarde.
+Terá de atualizar os campos `___Key` com os valores das suas chaves de subscrição, e terá de alterar os campos de `___Uri` para os URLs de ponto final corretos (receberá a tecla Visão Personalizada e o ponto final mais tarde). Você pode encontrar esses valores nas guias **início rápido** de cada recurso do Azure. Preencha a parte `YOURTEAMID` do campo `ReviewUri` com a ID da equipe de revisão criada anteriormente. Você preencherá a parte final do campo `CustomVisionUri` mais tarde.
 
 [!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
