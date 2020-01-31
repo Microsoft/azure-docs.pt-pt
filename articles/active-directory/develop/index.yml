@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: e15eb958c301d0a7d3795743668e269058ae63d3
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: e1520aa235daf415a9bb0e94c19bdac7cdacdac2
+  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74842531"
+  ms.lasthandoff: 01/29/2020
+  ms.locfileid: "76834234"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -70,13 +70,17 @@ landingContent:
       url: quickstart-v2-aspnet-core-webapp.md
     - text: ASP.NET
       url: quickstart-v2-aspnet-webapp.md
+    - text: Java
+      url: quickstart-v2-java-webapp.md
+    - text: Python
+      url: quickstart-v2-python-webapp.md
   - linkListType: tutorial
     links:
     - text: Núcleo de ASP.NET
       url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
   - linkListType: download
     links:
-    - text: Exemplos - ASP.NET Core, ASP.NET
+    - text: Exemplos - ASP.NET Core, ASP.NET, Java, Python
       url: sample-v2-code.md#web-applications
 - title: Criar uma aplicação Web que chama APIs Web
   linkLists:
@@ -84,13 +88,19 @@ landingContent:
     links:
     - text: Descrição geral do cenário
       url: scenario-web-app-call-api-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Java
+      url: quickstart-v2-java-webapp.md
+    - text: Python
+      url: quickstart-v2-python-webapp.md
   - linkListType: tutorial
     links:
     - text: Núcleo de ASP.NET
       url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial
   - linkListType: download
     links:
-    - text: Exemplos - ASP.NET Core, ASP.NET, Node.js, Ruby
+    - text: Exemplos - ASP.NET Core, ASP.NET, Node.js, Ruby, Java, Python
       url: sample-v2-code.md#web-applications
 - title: Criar uma API Web protegida
   linkLists:
@@ -116,6 +126,8 @@ landingContent:
     links:
     - text: API Web ASP.NET Core que chama o Microsoft Graph
       url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph
+    - text: API Web Java que chama o Microsoft Graph
+      url: https://github.com/Azure-Samples/ms-identity-java-webapi
 - title: Criar uma aplicação de ambiente de trabalho que chama APIs Web
   linkLists:
   - linkListType: get-started
@@ -136,7 +148,7 @@ landingContent:
       url: tutorial-v2-windows-uwp.md
   - linkListType: download
     links:
-    - text: Exemplo - .NET, .NET Core
+    - text: Exemplo - .NET, .NET Core, Java, Python
       url: sample-v2-code.md#desktop-and-mobile-public-client-apps
 - title: Criar uma aplicação daemon que chama APIs Web
   linkLists:
@@ -152,7 +164,7 @@ landingContent:
       url: https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp
   - linkListType: download
     links:
-    - text: Exemplos - consola ASP.NET, ASP.NET Web
+    - text: Exemplos - consola ASP.NET, ASP.NET Web, Java, Python
       url: sample-v2-code.md#daemon-applications
 - title: Criar uma aplicação móvel que chama APIs Web
   linkLists:

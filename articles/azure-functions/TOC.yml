@@ -10,29 +10,28 @@
       href: functions-compare-logic-apps-ms-flow-webjobs.md
     - name: Opções do plano de alojamento
       href: functions-scale.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
-    - name: 'Criar função - C#'
-      href: functions-create-your-first-function-visual-studio.md
-    - name: Criar função - Java
-      href: functions-create-first-java-maven.md
-    - name: Criar função - JavaScript
-      href: functions-create-first-function-vs-code.md
-    - name: Criar função - PowerShell
-      href: functions-create-first-function-powershell.md
-    - name: Criar função - Python
-      href: functions-create-first-function-python.md
-    - name: Ligar aos serviços
+    - name: Criar função
+      expanded: true
       items:
-        - name: 'Armazenamento - C#'
-          href: functions-add-output-binding-storage-queue-vs.md
-        - name: Armazenamento - Java
-          href: functions-add-output-binding-storage-queue-java.md
-        - name: Armazenamento - JavaScript
+        - name: Visual Studio Code
+          href: /azure/azure-functions/functions-create-first-function-vs-code
+        - name: Visual Studio
+          href: functions-create-your-first-function-visual-studio.md
+        - name: Linha de comandos
+          href: functions-create-first-azure-function-azure-cli.md
+        - name: Maven (Java)
+          href: functions-create-first-java-maven.md
+    - name: Ligar ao armazenamento
+      items:
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Armazenamento - Python
-          href: functions-add-output-binding-storage-queue-python.md
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Maven (Java)
+          href: functions-add-output-binding-storage-queue-java.md
 - name: Tutoriais
   items:
     - name: Funções com Aplicações Lógicas
@@ -160,7 +159,7 @@
                 - name: Portal do Azure
                   href: functions-create-first-azure-function.md
                 - name: Linha de comandos
-                  href: functions-create-first-azure-function-azure-cli.md
+                  href: create-cli.md
                 - name: Visual Studio
                   href: create-visual-studio.md
                 - name: Visual Studio Code

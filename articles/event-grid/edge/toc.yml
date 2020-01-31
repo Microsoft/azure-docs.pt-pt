@@ -24,6 +24,8 @@
   items:
     - name: Conceitos do Event Grid
       href: concepts.md
+    - name: Processadores de eventos e destinos
+      href: event-handlers.md
     - name: Segurança e autenticação
       href: security-authentication.md
     - name: Esquemas de eventos
@@ -42,6 +44,8 @@
           href: persist-state-linux.md
         - name: Windows
           href: persist-state-windows.md
+    - name: Monitorizar tópicos e subscrições
+      href: monitor-topics-subscriptions.md
     - name: Configurar protocolos de API
       href: configure-api-protocol.md
     - name: Configurar a autenticação de cliente
@@ -60,3 +64,5 @@
       href: configure-event-grid.md
     - name: Esquema de configuração de Módulo Duplo
       href: twin-json.md
+    - name: Notas de Versão
+      href: release-notes.md

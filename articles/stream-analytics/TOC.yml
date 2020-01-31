@@ -65,6 +65,7 @@
       items:
         - name: Compreender e ajustar as Unidades de Transmissão em Fluxo
           href: stream-analytics-streaming-unit-consumption.md
+          displayName: 'scale, performance'
         - name: Melhorar o desempenho das consultas
           href: stream-analytics-parallelization.md
         - name: Reparticionar a introdução de dados
@@ -176,6 +177,8 @@
           href: stream-analytics-live-data-local-testing.md
         - name: Ver tarefas no Visual Studio
           href: stream-analytics-vs-tools.md
+        - name: Depurar consultas com o diagrama de trabalhos
+          href: debug-locally-using-job-diagram.md
         - name: Desenvolver uma tarefa do Edge
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configurar os pipelines CI/CD

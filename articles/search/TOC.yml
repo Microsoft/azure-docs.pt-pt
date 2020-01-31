@@ -400,6 +400,8 @@
           href: cognitive-search-skill-conditional.md
         - name: Extração de documentos
           href: cognitive-search-skill-document-extraction.md
+        - name: Deteção de PII
+          href: cognitive-search-skill-pii-detection.md
     - name: Competências personalizadas
       items:
         - name: API Web personalizada
