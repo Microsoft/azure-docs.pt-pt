@@ -4,9 +4,9 @@ title: Documentação da Pré-visualização da Configuração da Aplicação Az
 metadata:
   title: 'Documentação da Configuração da Aplicação Azure - Tutoriais, Referência da API'
   description: O Azure App Configuration é um serviço gerida que ajuda os programadores a centralizar as suas definições de aplicações e de funcionalidades de forma simples e segura.
-  author: yegu-ms
+  author: lisaguthrie
   manager: maiye
-  ms.author: yegu
+  ms.author: lcozzens
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 04/19/2019

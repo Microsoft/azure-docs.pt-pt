@@ -125,7 +125,7 @@ Vamos supor que você crie um contêiner Cosmos do Azure no oeste dos EUA. O con
 
 Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de várias regiões, em que todas elas são graváveis (multimestre config). Para simplificar, vamos pressupor que o tamanho do armazenamento permaneça constante e não mude e omita-o aqui para manter o exemplo mais simples. A taxa de transferência provisionada durante o mês variada da seguinte maneira (supondo 30 dias ou 720 horas): 
 
-[0-100 horas]:  
+[0-100 horas]\:  
 
 * Criamos uma conta do Azure Cosmos de três regiões (oeste dos EUA, leste dos EUA, Europa Setentrional), onde todas as regiões são graváveis 
 
@@ -135,7 +135,7 @@ Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de v
 
 * Criamos um contêiner (C1) com taxa de transferência dedicada 20 K RU/seg 
 
-[101-200 horas]:  
+[101-200 horas]\:  
 
 * O banco de dados foi expandido (D1) para 50 K RU/seg 
 
@@ -143,11 +143,11 @@ Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de v
 
 * Nós excluímos o contêiner (C1)  
 
-[201-300 horas]:  
+[201-300 horas]\:  
 
 * Criamos o contêiner (C1) novamente com a taxa de transferência dedicada 20 K RU/seg 
 
-[301-400 horas]:  
+[301-400 horas]\:  
 
 * Removemos uma das regiões da conta do Azure Cosmos (n º de regiões graváveis agora é 2) 
 
@@ -157,13 +157,13 @@ Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de v
 
 * Excluímos o contêiner (C1) novamente 
 
-[401-500 horas]:  
+[401-500 horas]\:  
 
 * Reduzimos o banco de dados (D2) para 10K RU/seg  
 
 * Criamos o contêiner (C1) novamente com a taxa de transferência dedicada 20 K RU/seg 
 
-[501-700 horas]:  
+[501-700 horas]\:  
 
 * Aumentamos o banco de dados (D1) para 20 K RU/seg  
 
@@ -171,7 +171,7 @@ Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de v
 
 * Excluímos o contêiner (C1) novamente  
 
-[701-720 horas]:  
+[701-720 horas]\:  
 
 * Aumentamos o banco de dados (D2) para 50 K RU/seg  
 
@@ -239,8 +239,8 @@ A sua fatura total (sem a capacidade reservada) seria (supondo 30 dias ou 720 ho
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Valor cobrado (por hora)**| **Valor cobrado (mensalmente)**|
 |----|----|----|----|----|
-|Este dos E.U.A.|$0.08 |50 K|$4|$2880 |
-|Este do Japão|$0.09 |50 K| $4.50 |$3240 |
+|E.U.A. Leste|$0.08 |50 K|$4|$2880 |
+|Leste do Japão|$0.09 |50 K| $4.50 |$3240 |
 |Total|||$8.50|$6120 |
 
 Em vez disso, vamos considerar que você comprou a capacidade reservada. Você pode comprar capacidade reservada para 100-K RU/seg com o preço de $56064 por um ano (com 20% de desconto) ou $6.40 por hora. Consulte preços de capacidade reservada na [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
@@ -253,8 +253,8 @@ O que você adquiriu efetivamente é um crédito de $8 por hora, para 100 K RU/s
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Valor cobrado (por hora)**| **Valor cobrado (mensalmente)**|
 |----|----|----|----|----|
-|Este dos E.U.A.|$0.08 |50 K|$4|$2880 |
-|Este do Japão|$0.09 |50 K| $4.50 |$3240 |
+|E.U.A. Leste|$0.08 |50 K|$4|$2880 |
+|Leste do Japão|$0.09 |50 K| $4.50 |$3240 |
 |||Pay as you go|$8.50|$6120|
 |Capacidade de Reserva Comprada|$0.64 (20% de desconto) |100 RU/seg ou $8 de capacidade adquirida previamente |-$8|-$5760 |
 |Fatura Líquida|||$0.50 |$360 |

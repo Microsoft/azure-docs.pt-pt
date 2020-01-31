@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 09/05/2019
-  ms.openlocfilehash: defff242971a55d48b595b441c9dd3d420462801
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 01/29/2020
+  ms.openlocfilehash: 5f2a1c8eb89979358f5db2a1364ee88fabfde9da
+  ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75437090"
+  ms.lasthandoff: 01/31/2020
+  ms.locfileid: "76906329"
 landingContent:
 - title: Acerca dos Hubs de Eventos
   linkLists:
@@ -86,13 +86,13 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: .NET Core
-      url: event-hubs-dotnet-standard-getstarted-send.md
+      url: get-started-dotnet-standard-send-v2.md
     - text: Java
       url: event-hubs-java-get-started-send.md
     - text: Python
-      url: event-hubs-python-get-started-send.md
+      url: get-started-python-send-v2.md
     - text: Node.js
-      url: event-hubs-node-get-started-send.md
+      url: get-started-node-send-v2.md
     - text: Apache Kafka
       url: event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs
     - text: Apache Storm (apenas receber)
@@ -112,7 +112,7 @@ landingContent:
     - text: Utilizar o modelo do Resource Manager
       url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
     - text: Ativar a recolha a partir de uma aplicação Python
-      url: event-hubs-capture-python.md
+      url: get-started-capture-python-v2.md
 - title: Processar eventos
   linkLists:
   - linkListType: tutorial
