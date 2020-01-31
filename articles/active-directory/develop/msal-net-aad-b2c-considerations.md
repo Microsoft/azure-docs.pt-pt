@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695709"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834200"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -176,7 +176,7 @@ A suposições sugeridas é usar o [Caching by Policy](#acquire-a-token-to-apply
 Em alternativa, pode utilizar a `tid` reivindicação, se estiver a utilizar as [políticas personalizadas B2C,](https://aka.ms/ief)pois fornece a capacidade de devolver reclamações adicionais à aplicação. Para saber mais sobre a [Transformação de Reclamações](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "Desaparecido da resposta simbólica"
-Uma opção é utilizar a alegação de "nome" como nome de utilizador preferido. O processo é mencionado neste [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) &> "Na coluna de reclamação de Retorno, escolha as reclamações que deseja devolvidas nos tokens de autorização enviados de volta para a sua aplicação após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione 'Nome de exibição, Código Postal'."
+Uma opção é utilizar a alegação de "nome" como nome de utilizador preferido. O processo é mencionado neste [B2C doc](../../active-directory-b2c/user-flow-overview.md) &> "Na coluna de reclamação de Retorno, escolha as reclamações que deseja devolvidas nos tokens de autorização enviados de volta para a sua aplicação após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione 'Nome de exibição, Código Postal'."
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
