@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690395"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769176"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -200,7 +200,7 @@ Load Balancer é um serviço de passagem (não encerra as conexões TCP) e o flu
 
 Os datagramas UDP serão entregues aos pontos de extremidade de back-end íntegros.
 
-UDP é sem ligações e não existe nenhum Estado de fluxo controlado por UDP. Se qualquer investigação de integridade do ponto de extremidade de back-end falhar, os fluxos UDP existentes poderão ser movidos para outra instância íntegra no pool de back-end.
+UDP é sem ligações e não existe nenhum Estado de fluxo controlado por UDP. Se alguma sonda de saúde do backend failing, os fluxos uDP existentes irão mover-se para outro caso saudável na piscina de backend.
 
 Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, os fluxos UDP existentes irão terminar para básico e Standard balanceadores de carga.
 
