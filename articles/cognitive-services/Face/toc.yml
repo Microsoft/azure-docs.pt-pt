@@ -13,6 +13,8 @@
           href: Quickstarts/csharp-sdk.md
         - name: SDK Python
           href: QuickStarts/python-sdk.md
+        - name: SDK Go
+          href: QuickStarts/go-sdk.md
     - name: Utilizar a API REST
       items:
         - name: Detetar rostos numa imagem

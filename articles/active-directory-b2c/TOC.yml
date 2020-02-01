@@ -382,6 +382,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
     - name: Definições de cookies
       href: cookie-definitions.md
+      displayName: 'cookies, SameSite'
     - name: Códigos de erro
       href: error-codes.md
     - name: Disponibilidade de região e residência dos dados
