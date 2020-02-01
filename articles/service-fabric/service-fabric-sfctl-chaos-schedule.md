@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-agenda de caos sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o agendamento de caos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639178"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906182"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir o cronograma de caos.
@@ -71,9 +71,10 @@ O caos agendará automaticamente as execuções com base na programação de cao
 
 ### <a name="examples"></a>Exemplos
 
-O comando a seguir define um agendamento (supondo que a agenda atual tem a versão 0) que começa em 2016-01-01 e expira em 2038-01-01 que executa o caos 24 horas do dia, 7 dias por semana. O caos será agendado no cluster para esse período.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+O comando a seguir define um agendamento (supondo que a agenda atual tem a versão 0) que começa em 2016-01-01 e expira em 2038-01-01 que executa o caos 24 horas do dia, 7 dias por semana.
+O caos será agendado no cluster para esse período.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -134,6 +135,8 @@ O comando a seguir define um agendamento (supondo que a agenda atual tem a vers�
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

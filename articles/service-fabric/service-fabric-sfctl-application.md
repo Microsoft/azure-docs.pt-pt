@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-aplicativo sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar aplicativos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645417"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906206"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Criar, excluir e gerenciar aplicativos e tipos de aplicativos.
@@ -47,9 +47,9 @@ Cria um aplicativo Service Fabric usando a descrição especificada.
 
 |Argumento|Descrição|
 | --- | --- |
-| --App-Name [obrigatório] | O nome do aplicativo, incluindo o esquema de URI ' Fabric\:'. |
-| --App-Type [obrigatório] | O nome do tipo de aplicativo encontrado no manifesto do aplicativo. |
-| --App-Version [obrigatório] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
+| --nome da aplicação [Obrigatório] | O nome do aplicativo, incluindo o esquema de URI ' Fabric\:'. |
+| --tipo de app [Obrigatório] | O nome do tipo de aplicativo encontrado no manifesto do aplicativo. |
+| --versão de apps [Necessária] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
 | --max-node-count | O número máximo de nós em que Service Fabric reservará a capacidade para este aplicativo. Observe que isso não significa que os serviços desse aplicativo serão colocados em todos esses nós. |
 | --métricas | Uma lista codificada em JSON de descrições de métrica de capacidade do aplicativo. Uma métrica é definida como um nome, associada a um conjunto de capacidades para cada nó no qual o aplicativo existe. |
 | --min-contagem de nós | O número mínimo de nós em que Service Fabric reservará a capacidade para este aplicativo. Observe que isso não significa que os serviços desse aplicativo serão colocados em todos esses nós. |
@@ -75,7 +75,7 @@ Um aplicativo deve ser criado antes que possa ser excluído. A exclusão de um a
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
 | --force-remove | Remova um aplicativo ou serviço Service Fabric de modo forçado sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para forçar a exclusão de um aplicativo ou serviço para o qual a exclusão está atingindo o tempo limite devido a problemas no código de serviço que impedem o fechamento normal das réplicas. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
@@ -98,8 +98,8 @@ Essa consulta retornará informações do aplicativo do sistema se a ID do aplic
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --node-Name [obrigatório] | O nome do nó. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --nome do nó [Obrigatório] | O nome do nó. |
 | --include-estado de integridade | Inclua o estado de integridade de uma entidade. Se esse parâmetro for false ou não for especificado, o estado de integridade retornado será "Unknown". Quando definido como true, a consulta entra em paralelo ao nó e ao serviço do sistema de integridade antes que os resultados sejam mesclados. Como resultado, a consulta é mais cara e pode levar mais tempo. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
@@ -122,11 +122,11 @@ Obtém as informações sobre a integridade de um aplicativo implantado em um Se
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --node-Name [obrigatório] | O nome do nó. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --nome do nó [Obrigatório] | O nome do nó. |
 | --deployed-service-packages-health-state-filter | Permite a filtragem dos objetos de estado de integridade do pacote de serviço implantados retornados no resultado da consulta de integridade do aplicativo implantada com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente pacotes de serviço implantados que correspondem ao filtro são retornados. Todos os pacotes de serviço implantados são usados para avaliar o estado de integridade agregado do aplicativo implantado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, o estado de integridade dos pacotes de serviço com o valor OK (2) e Warning (4) será retornado.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor OK (2) e Warning (4) serão retornados.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --Exclude-Statistics-Health | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. False por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, aviso e erro. |
+| --Exclude-Statistics-Health | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. false por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, aviso e erro. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -148,7 +148,7 @@ Obtém a lista de aplicativos implantados em um nó de Service Fabric. Os result
 
 |Argumento|Descrição|
 | --- | --- |
-| --node-Name [obrigatório] | O nome do nó. |
+| --nome do nó [Obrigatório] | O nome do nó. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --include-estado de integridade | Inclua o estado de integridade de uma entidade. Se esse parâmetro for false ou não for especificado, o estado de integridade retornado será "Unknown". Quando definido como true, a consulta entra em paralelo ao nó e ao serviço do sistema de integridade antes que os resultados sejam mesclados. Como resultado, a consulta é mais cara e pode levar mais tempo. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
@@ -173,10 +173,10 @@ Retorna o estado integridade do aplicativo do Service Fabric. Os relatórios de 
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
 | --deployed-applications-health-state-filter | Permite a filtragem dos objetos de estado de integridade dos aplicativos implantados retornados no resultado da consulta de integridade do aplicativo com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os aplicativos implantados que correspondem ao filtro serão retornados. Todos os aplicativos implantados são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, o estado de integridade dos aplicativos implantados com o valor OK (2) e Warning (4) será retornado.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor OK (2) e Warning (4) serão retornados.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --Exclude-Statistics-Health | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. False por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, aviso e erro. |
+| --Exclude-Statistics-Health | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. false por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, aviso e erro. |
 | --services-health-state-filter | Permite a filtragem dos objetos de estado de integridade dos serviços retornados no resultado da consulta de integridade de serviços com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os serviços que correspondem ao filtro são retornados. Todos os serviços são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, o estado de integridade dos serviços com o valor OK (2) e Warning (4) será retornado.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
@@ -199,7 +199,7 @@ Retorna as informações sobre o aplicativo que foi criado ou no processo de cri
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
 | --Exclude-parâmetros de aplicativo | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
@@ -248,7 +248,7 @@ Retorna as informações de carga sobre o aplicativo que foi criado ou no proces
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -270,8 +270,8 @@ A resposta contém o XML do manifesto do aplicativo como uma cadeia de caractere
 
 |Argumento|Descrição|
 | --- | --- |
-| --tipo de aplicativo-nome [obrigatório] | O nome do tipo de aplicativo. |
-| --tipo de aplicativo-versão [obrigatório] | A versão do tipo de aplicativo. |
+| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de aplicativo. |
+| --aplicação-tipo-versão [Obrigatório] | A versão do tipo de aplicativo. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -320,11 +320,11 @@ Relata o estado de integridade do aplicativo Service Fabric especificado. O rela
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere '\~'. Por exemplo, se o nome do aplicativo for ' Fabric\:/MyApp/App1 ', a identidade do aplicativo será ' MyApp\~App1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores. |
-| --Health-Property [obrigatório] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir a flexibilidade do reporter para categorizar a condição de estado que dispara o relatório. Por exemplo, um reporter com SourceID "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para que ele possa relatar a propriedade "AvailableDisk" nesse nó. O mesmo Reporter pode monitorar a conectividade do nó, para que possa relatar uma propriedade "Connectivity" no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade separados para o nó especificado. Junto com SourceID, a propriedade identifica exclusivamente as informações de integridade. |
-| --Estado de integridade [obrigatório] | Os valores possíveis incluem\: "Invalid", "OK", "Warning", "Error", "Unknown". |
-| --Source-ID [obrigatório] | O nome de origem que identifica o componente de cliente/Watchdog/sistema que gerou as informações de integridade. |
-| --Descrição | A descrição das informações de integridade. <br><br> Ele representa o texto livre usado para adicionar informações legíveis ao relatório. O comprimento máximo da cadeia de caracteres para a descrição é de 4096 caracteres. Se a cadeia de caracteres fornecida for maior, ela será truncada automaticamente. Quando truncado, os últimos caracteres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é de 4096 caracteres. A presença do marcador indica para os usuários que o truncamento ocorreu. Observe que, quando truncado, a descrição tem menos de 4096 caracteres a partir da cadeia de caracteres original. |
+| --application-id [Obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere '\~'. Por exemplo, se o nome do aplicativo for ' Fabric\:/MyApp/App1 ', a identidade do aplicativo será ' MyApp\~App1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores. |
+| --propriedade de saúde [Necessária] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir a flexibilidade do reporter para categorizar a condição de estado que dispara o relatório. Por exemplo, um reporter com SourceID "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para que ele possa relatar a propriedade "AvailableDisk" nesse nó. O mesmo Reporter pode monitorar a conectividade do nó, para que possa relatar uma propriedade "Connectivity" no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade separados para o nó especificado. Junto com SourceID, a propriedade identifica exclusivamente as informações de integridade. |
+| --estado de saúde [Obrigatório] | Os valores possíveis incluem\: "Invalid", "OK", "Warning", "Error", "Unknown". |
+| --source-id [Obrigatório] | O nome de origem que identifica o componente de cliente/Watchdog/sistema que gerou as informações de integridade. |
+| --Descrição | A descrição das informações de integridade. <br><br> Ele representa o texto livre usado para adicionar informações legíveis ao relatório. O comprimento máximo da cadeia de caracteres para a descrição é de 4096 caracteres. Se a cadeia de caracteres fornecida for maior, ela será truncada automaticamente. Quando truncados, os últimos caracteres da descrição contêm um marcador "[Truncado]", e o tamanho total da corda é de 4096 caracteres. A presença do marcador indica para os usuários que o truncamento ocorreu. Observe que, quando truncado, a descrição tem menos de 4096 caracteres a partir da cadeia de caracteres original. |
 | --imediato | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado para um aplicativo Service Fabric gateway, que encaminha para o repositório de integridade. Se Immediate for definido como true, o relatório será enviado imediatamente do gateway HTTP para o repositório de integridade, independentemente das configurações do cliente de malha que o aplicativo de gateway HTTP está usando. Isso é útil para relatórios críticos que devem ser enviados assim que possível. Dependendo do tempo e de outras condições, o envio do relatório ainda poderá falhar, por exemplo, se o gateway HTTP estiver fechado ou se a mensagem não alcançar o gateway. Se Immediate for definido como false, o relatório será enviado com base nas configurações do cliente de integridade do gateway HTTP. Portanto, ele será em lote de acordo com a configuração do HealthReportSendInterval. Essa é a configuração recomendada porque permite que o cliente de integridade Otimize as mensagens de relatório de integridade para o repositório de integridade, bem como o processamento do relatório de integridade. Por padrão, os relatórios não são enviados imediatamente. |
 | --remove-when-expired | Valor que indica se o relatório será removido do repositório de integridade quando ele expirar. <br><br> Se definido como true, o relatório será removido do repositório de integridade depois de expirar. Se definido como false, o relatório será tratado como um erro quando expirado. O valor dessa propriedade é false por padrão. Quando os clientes relatam periodicamente, eles devem definir RemoveWhenExpired false (padrão). Dessa forma, o relator tem problemas (por exemplo, deadlock) e não pode relatar, a entidade é avaliada com erro quando o relatório de integridade expira. Isso sinaliza a entidade como estando em estado de integridade de erro. |
 | --sequence-number | O número de sequência deste relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência do relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
@@ -350,7 +350,7 @@ Retorna as informações sobre os tipos de aplicativo que são provisionados ou 
 
 |Argumento|Descrição|
 | --- | --- |
-| --tipo de aplicativo-nome [obrigatório] | O nome do tipo de aplicativo. |
+| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de aplicativo. |
 | --tipo de aplicativo-versão | A versão do tipo de aplicativo. |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --Exclude-parâmetros de aplicativo | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
@@ -401,8 +401,8 @@ Esta operação só poderá ser executada se todas as instâncias do aplicativo 
 
 |Argumento|Descrição|
 | --- | --- |
-| --tipo de aplicativo-nome [obrigatório] | O nome do tipo de aplicativo. |
-| --tipo de aplicativo-versão [obrigatório] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
+| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de aplicativo. |
+| --aplicação-tipo-versão [Obrigatório] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
 | --Async-Parameter | O sinalizador que indica se o desprovisionamento deve ocorrer de forma assíncrona. Quando definido como true, a operação de desprovisionamento retorna quando a solicitação é aceita pelo sistema e a operação de desprovisionamento continua sem nenhum limite de tempo limite. O valor predefinido é false. No entanto, é recomendável defini-lo como true para pacotes de aplicativos grandes que foram provisionados. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
@@ -425,9 +425,9 @@ Valida os parâmetros de atualização de aplicativo fornecidos e inicia a atual
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --versão do aplicativo [obrigatório] | A versão do tipo de aplicativo de destino (encontrada no manifesto do aplicativo) para a atualização do aplicativo. |
-| --parâmetros [obrigatório] | Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo. |
+| --application-id [Obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --versão de aplicação [Necessária] | A versão do tipo de aplicativo de destino (encontrada no manifesto do aplicativo) para a atualização do aplicativo. |
+| --parâmetros [obrigatórios] | Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo. |
 | --default-serviço-integridade-política | Especificação codificada em JSON da política de integridade usada por padrão para avaliar a integridade de um tipo de serviço. |
 | --ação de falha | A ação a ser executada quando uma atualização monitorada encontra política de monitoramento ou violações de política de integridade. |
 | --Force-Restart | Reinicie processos de modo forçado durante a atualização, mesmo quando a versão do código não tiver sido alterada. |
@@ -462,8 +462,8 @@ Retoma uma atualização de aplicativo Service Fabric manual não monitorada. Se
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --Upgrade-Domain-Name [obrigatório] | O nome do domínio de atualização no qual a atualização deve ser retomada. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --upgrade-nome de domínio [Obrigatório] | O nome do domínio de atualização no qual a atualização deve ser retomada. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -485,7 +485,7 @@ Inicia a reversão da atualização do aplicativo atual para a versão anterior.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -507,7 +507,7 @@ Retorna informações sobre o estado da atualização mais recente do aplicativo
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -529,10 +529,13 @@ Opcionalmente, exiba o progresso do carregamento de cada arquivo no pacote. O pr
 
 |Argumento|Descrição|
 | --- | --- |
-| --caminho [obrigatório] | Caminho para o pacote de aplicativo local. |
+| --caminho [Obrigatório] | Caminho para o pacote de aplicativo local. |
+| -compressa | Aplicável apenas aos pacotes de aplicações service Fabric. Crie uma nova pasta contendo o pacote de aplicação comprimido para a localização predefinida, ou para a localização especificada pelo parâmetro de localização comprimido, e, em seguida, carregue a pasta recém-criada. <br><br> Se já existir um ficheiro comprimido gerado por sfctl, será substituído se esta bandeira estiver definida. Um erro será devolvido se o diretório não for um pacote de aplicação. Se já for um pacote de aplicação comprimido, a pasta será copiada como está. Por predefinição, o pacote de aplicação comprimido recém-criado será eliminado após um upload bem sucedido. Se o upload não for bem sucedido, por favor limpe manualmente a embalagem comprimido conforme necessário. A eliminação não remove quaisquer dirs vazios que possam ter sido criados se o parâmetro de localização comprimido refere-se a diretórios inexistentes. |
+| --localização comprimido | A localização para colocar o pacote de aplicação comprimido. <br><br> Se não for fornecida qualquer localização, o pacote comprimido será colocado sob uma pasta recém-criada chamada sfctl_compressed_temp sob o directório-mãe especificado no argumento do caminho. Por exemplo, se o argumento do caminho tiver o valor C\:/FolderA/AppPkg, então o pacote comprimido será adicionado a C\:/FolderA/sfctl_compressed_temp/AppPkg. |
 | --imagestore-string | Armazenamento de imagens de destino para carregar o pacote de aplicativos.  A malha de\: padrão\:ImageStore. <br><br> Para carregar em um local de arquivo, inicie esse parâmetro com ' file\:'. Caso contrário, o valor deverá ser a cadeia de conexão do repositório de imagens, como o valor padrão. |
+| -manter-se comprimido | Quer mantenha ou não o pacote comprimido gerado na conclusão do upload bem-sucedido. <br><br> Se não estiver definido, então, após a conclusão bem sucedida, os pacotes de aplicações comprimidos serão eliminados. Se o upload não tiver sido bem sucedido, então o pacote de aplicação será sempre mantido no diretório de saída para recarregar. |
 | --mostrar-progresso | Mostrar o progresso do upload de arquivo para pacotes grandes. |
-| --Timeout-t | O tempo limite total em segundos. O upload falhará e retornará um erro depois que a duração do tempo limite de carregamento for aprovada. Esse tempo limite se aplica a todo o pacote de aplicativo, e os tempos limite de arquivo individual serão iguais à duração do tempo limite restante.  Padrão\: 300. |
+| --Timeout-t | O tempo limite total em segundos. O upload falhará e retornará um erro depois que a duração do tempo limite de carregamento for aprovada. Esse tempo limite se aplica a todo o pacote de aplicativo, e os tempos limite de arquivo individual serão iguais à duração do tempo limite restante. O timeout não inclui o tempo necessário para comprimir o pacote de aplicações.  Padrão\: 300. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

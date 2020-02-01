@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 61bc77e7ac7671cd439eedea25eac11c91457aa9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f76d94cc50d1451835bd14577efc8f68acb0390
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838722"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901591"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -97,7 +97,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **du datamena** |Suportadas |Suportadas | Dubai2 |
 | **eir** |Suportadas |Suportadas |Dublin|
 | **[13 comunicações globais](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Suportadas |Suportadas |Singapura, Singapura2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportadas |Suportadas |Amsterdã, Atlanta, Chicago, Dallas, Dublin, Geneva, RAE de Hong Kong, Londres, London2, Los Angeles, Melbourne, Miami, Nova York, Osaka, Paris, são Paulo, Seattle, vale do silício, Cingapura, Estocolmo, Sydney, Tóquio, Toronto, Washington, D.c. |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportadas |Suportadas |Amesterdão, Atlanta, Chicago, Dallas, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Melbourne, Miami, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC |
 | **Etisalat dos EAU** |Suportadas |Suportadas |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportadas |Suportadas |Amsterdã, Amsterdam2, Dublin, Londres |
 | **FarEasTone** |Suportadas |Suportadas |Taipé|
@@ -210,6 +210,8 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](https://www.nextdc.com/)
   * [PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure) 
+  * [Teraco](https://www.teraco.co.za/platform-teraco/africa-cloud-exchange/)
+
 * Solicite ao seu fornecedor de conectividade para expandir a sua rede para a localização de peering que pretende.
   * Certifique-se de que o fornecedor de conectividade expande a sua conectividade para um estado de elevada disponibilidade, de forma a não existirem pontos únicos de falha.
 * Organize um circuito ExpressRoute com a troca como o seu fornecedor de conectividade para se ligar à Microsoft.

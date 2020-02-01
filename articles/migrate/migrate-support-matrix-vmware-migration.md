@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e33811563063c0f8eb94b9927d07596d51cd45e4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030227"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901535"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -24,7 +24,7 @@ Você pode migrar VMs VMware de duas maneiras:
 
 Examine [Este artigo](server-migrate-overview.md) para descobrir qual método você deseja usar.
 
-## <a name="migration-limitations"></a>Limitações da migração
+## <a name="migration-limitations"></a>Limitações de migração
 
 - Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10.
 - Para a migração sem agente do VMware, você pode executar até 100 replicações simultaneamente.
@@ -123,7 +123,15 @@ Quando você configura o dispositivo de replicação usando o modelo OVA forneci
 
 - Saiba mais sobre [os requisitos do dispositivo de replicação](migrate-replication-appliance.md#appliance-requirements) para VMware.
 - O MySQL deve estar instalado no dispositivo. Saiba mais sobre [as opções de instalação](migrate-replication-appliance.md#mysql-installation).
-- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) que o dispositivo de replicação precisa acessar.
+- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) e [portas]() que o aparelho de replicação precisa de aceder.
+
+## <a name="agent-based-ports"></a>Portas baseadas em agentes
+
+**Dispositivo** | **ligação**
+--- | ---
+VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local (servidor de configuração) na porta HTTPS 443 de entrada, para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
+Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
+Servidor de processo | O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.<br/> Por padrão, o servidor de processo é executado no dispositivo de replicação.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -132,13 +140,13 @@ Todas as VMs locais replicadas para o Azure devem atender aos requisitos de VM d
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operativo convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. | A verificação falhará se não houver suporte.
-Arquitetura do sistema operacional convidado | 64 bits. | A verificação falhará se não houver suporte.
+Arquitetura do sistema operacional convidado | 64-bit. | A verificação falhará se não houver suporte.
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falhará se não houver suporte.
 Contagem de disco do sistema operacional | 1 | A verificação falhará se não houver suporte.
 Contagem de disco de dados | 64 ou menos. | A verificação falhará se não houver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falhará se não houver suporte.
-Placas de rede | Há suporte para vários adaptadores. |
-VHD Partilhado | Não suportado. | A verificação falhará se não houver suporte.
+Adaptadores de rede | Há suporte para vários adaptadores. |
+VHD compartilhado | Não suportado. | A verificação falhará se não houver suporte.
 Disco FC | Não suportado. | A verificação falhará se não houver suporte.
 BitLocker | Não suportado. | O BitLocker deve ser desabilitado antes de habilitar a replicação para um computador.
 o nome da VM | De 1 a 63 caracteres.<br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina em Site Recovery.

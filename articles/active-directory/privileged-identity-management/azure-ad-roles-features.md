@@ -7,6 +7,7 @@ author: curtand
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +16,12 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2b27e1ca9c1f6f8dfec1bd2bce4ad09c599cae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69c633dd3e28047d542e16a58211f997669188f0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480895"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896423"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Recursos de gerenciamento para funções do Azure AD no Privileged Identity Management
 
@@ -56,7 +57,7 @@ As duas ações iniciadas pelo usuário exigem uma aprovação de um administrad
 
 Quando os clientes tiverem a versão atualizada distribuída para sua organização do Azure AD, a API do Graph existente deixará de funcionar. Você deve fazer a transição para usar o [API do Graph para funções de recurso do Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerenciar funções do Azure AD usando essa API, troque `/azureResources` por `/aadroles` na assinatura e use a ID de diretório para o `resourceId`.
 
-Nós experimentamos o nosso melhor para entrar em contato com todos os clientes que estão usando a API anterior para que eles saibam sobre essa alteração antes do tempo. Se sua organização do Azure AD foi movida para a nova versão e você ainda depende da API antiga, acesse a equipe em pim_preview@microsoft.com.
+Nós experimentamos o nosso melhor para entrar em contato com todos os clientes que estão usando a API anterior para que eles saibam sobre essa alteração antes do tempo. Se a sua organização Azure AD foi transferida para a nova versão e ainda depende da antiga API, contacte a equipa em pim_preview@microsoft.com.
 
 ## <a name="powershell-change"></a>Alteração do PowerShell
 

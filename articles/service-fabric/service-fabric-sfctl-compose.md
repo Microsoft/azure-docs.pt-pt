@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-sfctl Compose
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para Docker Compose aplicativos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 3a9fa142dd45674e4a3e88745acffef225b80a64
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1e40ca4e3c5ec8b7566646aa7ef723bd4c9e45a1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645400"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906127"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Crie, exclua e gerencie aplicativos Docker Compose.
@@ -34,8 +34,8 @@ Cria uma implantação de Service Fabric compor.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | O nome da implementação. |
-| --File-Path [obrigatório] | Caminho para o arquivo de Docker Compose de destino. |
+| --nome de implantação [Obrigatório] | O nome da implementação. |
+| --caminho de arquivo [Obrigatório] | Caminho para o arquivo de Docker Compose de destino. |
 | --criptografado-aprovado | Em vez de solicitar uma senha de registro de contêiner, use uma frase secreta já criptografada. |
 | --aprovado | Solicitará uma senha para o registro de contêiner. |
 | --Timeout-t | Padrão\: 60. |
@@ -83,7 +83,7 @@ Exclui uma implantação existente de composição de Service Fabric.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | A identidade da implantação. |
+| --nome de implantação [Obrigatório] | A identidade da implantação. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -105,7 +105,7 @@ Retorna o status da implantação de composição que foi criada ou no processo 
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | A identidade da implantação. |
+| --nome de implantação [Obrigatório] | A identidade da implantação. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -127,8 +127,8 @@ Valida os parâmetros de atualização fornecidos e inicia a atualização da im
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | O nome da implementação. |
-| --File-Path [obrigatório] | Caminho para o arquivo do Docker Compose de destino. |
+| --nome de implantação [Obrigatório] | O nome da implementação. |
+| --caminho de arquivo [Obrigatório] | Caminho para o arquivo do Docker Compose de destino. |
 | --default-svc-type-health-map | O dicionário codificado em JSON que descreve a política de integridade usada para avaliar a integridade dos serviços. |
 | --criptografado-aprovado | Em vez de solicitar uma senha de registro de contêiner, use uma frase secreta já criptografada. |
 | --ação de falha | Os valores possíveis incluem\: ' invalid ', ' Rollback ', ' manual '. |
@@ -140,7 +140,7 @@ Valida os parâmetros de atualização fornecidos e inicia a atualização da im
 | --replica-set-check | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando houver problemas inesperados. <br><br> Quando esse tempo limite expirar, o processamento do domínio de atualização continuará independentemente dos problemas de perda de disponibilidade. O tempo limite é redefinido no início de cada domínio de atualização. Os valores válidos estão entre 0 e 42949672925, inclusive. |
 | --svc-type-health-map | Lista de objetos codificados em JSON que descrevem as políticas de integridade usadas para avaliar a integridade de diferentes tipos de serviço. |
 | --Timeout-t | Padrão\: 60. |
-| --unhealthy-app | A porcentagem máxima permitida de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos sejam não íntegros, esse valor seria 10. A porcentagem representa a porcentagem máxima tolerada de aplicativos que podem não estar íntegros antes que o cluster seja considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como aviso. Isso é calculado dividindo o número de aplicativos não íntegros no número total de instâncias do aplicativo no cluster. |
+| --unhealthy-app | A porcentagem máxima permitida de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% das aplicações não sejam saudáveis, este valor seria de 10. A porcentagem representa a porcentagem máxima tolerada de aplicativos que podem não estar íntegros antes que o cluster seja considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como aviso. Isso é calculado dividindo o número de aplicativos não íntegros no número total de instâncias do aplicativo no cluster. |
 | --tempo limite do domínio de atualização | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a falha seja executada. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
 | --tipo de atualização | Padrão\: sem interrupção. |
 | --modo de atualização | Os valores possíveis incluem\: ' invalid ', ' UnmonitoredAuto ', ' UnmonitoredManual ', ' Monitored '.  Padrão\: UnmonitoredAuto. |
@@ -167,7 +167,7 @@ Reverta uma atualização de implantação de composição do Service Fabric.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | A identidade da implantação. |
+| --nome de implantação [Obrigatório] | A identidade da implantação. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -189,7 +189,7 @@ Retorna as informações sobre o estado da atualização da implantação do Com
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | A identidade da implantação. |
+| --nome de implantação [Obrigatório] | A identidade da implantação. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais

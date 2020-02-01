@@ -1,6 +1,6 @@
 ---
-title: Acessar a API dos serviços de mídia do Azure-CLI do Azure | Microsoft Docs
-description: Siga as etapas deste artigo de instruções para acessar a API dos serviços de mídia do Azure.
+title: Aceda à API - Azure Media Services API - Azure CLI Microsoft Docs
+description: Siga os passos deste artigo de como aceder à API dos Serviços de Comunicação Social.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,31 +12,32 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d66b3e1b6ed2c8eef9f5cd21c0657648ad550ebe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 06ca26ee9a8af7f49aba6a48a1831d30d5886851
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896162"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896346"
 ---
-# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acessar a API dos serviços de mídia do Azure com o CLI do Azure
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Access Azure Media Services API com o Azure CLI
  
-Para usar a autenticação de entidade de serviço do Azure AD para se conectar à API dos serviços de mídia do Azure, seu aplicativo precisa solicitar um token do Azure AD que tenha os seguintes parâmetros:
+Para utilizar a autenticação principal do serviço Azure AD para ligar à API azure Media Services, a sua aplicação necessita de solicitar um token Azure AD que tenha os seguintes parâmetros:
 
-* Ponto de extremidade de locatário do Azure AD
-* URI de recurso dos serviços de mídia
-* URI de recurso para serviços de mídia REST
-* Valores de aplicativo do Azure AD: a ID do cliente e o segredo do cliente
+* Ponto final do inquilino da AD Azure
+* Recurso uri dos Serviços de Media
+* Recursos URI para Serviços de Mídia REST
+* Valores de aplicação Azure AD: o ID do cliente e o segredo do cliente
 
-Para obter uma explicação detalhada, consulte [acessando as APIs do Media Services V3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
+> [!IMPORTANT]
+> Para uma explicação detalhada, reveja o acesso aos Serviços de [Media v3 APIs](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
-Este artigo mostra como usar o CLI do Azure para criar um aplicativo do Azure AD e uma entidade de serviço e obter os valores necessários para acessar os recursos dos serviços de mídia do Azure.
+Este artigo mostra-lhe como usar o Azure CLI para criar uma aplicação e diretor de serviço saqueado do Azure AD e obter os valores necessários para aceder aos recursos da Azure Media Services.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 [Criar uma conta de Media Services](create-account-cli-how-to.md).
 
-Lembre-se de lembrar os valores que você usou para o nome do grupo de recursos e o nome da conta dos serviços de mídia.
+Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta Media Services.
  
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -44,22 +45,22 @@ Lembre-se de lembrar os valores que você usou para o nome do grupo de recursos 
 
 ## <a name="see-also"></a>Ver também
 
-- [Dimensionar unidades reservadas de mídia-CLI](media-reserved-units-cli-how-to.md)
-- [Criar uma conta dos serviços de mídia-CLI](create-account-cli-how-to.md) 
-- [Redefinir credenciais da conta-CLI](cli-reset-account-credentials.md)
-- [Criar ativos-CLI](cli-create-asset.md)
-- [Carregar um arquivo-CLI](cli-upload-file-asset.md)
-- [Criar transformações-CLI](cli-create-transform.md)
-- [Codificar com uma transformação personalizada-CLI](custom-preset-cli-howto.md)
-- [Criar trabalhos-CLI](cli-create-jobs.md)
-- [Criar EventGrid-CLI](job-state-events-cli-how-to.md)
-- [Publicar um ativo-CLI](cli-publish-asset.md)
-- [Filter-CLI](filters-dynamic-manifest-cli-howto.md)
+- [Unidades Reservadas de Meios de Escala - CLI](media-reserved-units-cli-how-to.md)
+- [Criar uma conta de Media Services - CLI](create-account-cli-how-to.md) 
+- [Repor credenciais de conta - CLI](cli-reset-account-credentials.md)
+- [Criar ativos - CLI](cli-create-asset.md)
+- [Faça upload de um ficheiro - CLI](cli-upload-file-asset.md)
+- [Criar transformações - CLI](cli-create-transform.md)
+- [Codificar com uma transformação personalizada - CLI](custom-preset-cli-howto.md)
+- [Criar empregos - CLI](cli-create-jobs.md)
+- [Criar EventGrid - CLI](job-state-events-cli-how-to.md)
+- [Publicar um ativo - CLI](cli-publish-asset.md)
+- [Filtro - CLI](filters-dynamic-manifest-cli-howto.md)
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O ponto de extremidade de streaming do qual você deseja transmitir conteúdo deve estar no estado executando. O comando da CLI a seguir inicia o ponto de extremidade de streaming padrão:
+O Ponto Final de Streaming a partir do qual pretende transmitir conteúdo tem de estar no estado de Execução. O seguinte comando CLI inicia o seu ponto final de streaming padrão:
 
 `az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
 

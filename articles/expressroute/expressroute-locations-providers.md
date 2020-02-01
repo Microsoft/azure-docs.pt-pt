@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 02e2c0472a6ba7449229a5de5c6d8948be064644
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c4124f46e1b900e240858e4dcd332f13ba0950ec
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845784"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901607"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -205,7 +205,7 @@ Se você for remoto e não tiver conectividade de fibra ou se quiser explorar ou
 | **Cidade do Cabo** | Teraco | MTN |
 | **Chicago** | Equinix| Coroa Castle, espectro Enterprise, windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, coroa Castle, dados encontrados, espectro empresarial, transtelco |
-| **Frankfurt** | Interxion | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
+| **Frankfurt** | Interxion | BICS, Cinia, Equinix, Nianet, QSC AG, Telekom Deutschland GmbH |
 | **Hamburgo** | Equinix | Cinia |
 | **Rae de Hong Kong** | Equinix | Diretor, Macroview Telecom |
 | **Joanesburgo** | Teraco | MTN |

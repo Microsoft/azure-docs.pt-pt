@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-eventos sfctl
 description: Descreve os comandos Service Fabric CLI sfctl Events.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 35dfbdb3f8b84e797d35c8d7ec1020509f7e8b57
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466043"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906100"
 ---
 # <a name="sfctl-events"></a>eventos de sfctl
 Recupere eventos do repositório de eventos (se o serviço EventStore já estiver instalado).
@@ -42,8 +42,8 @@ A resposta é uma lista de objetos ApplicationEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -68,8 +68,8 @@ A resposta é uma lista de objetos NodeEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -94,8 +94,8 @@ A resposta é uma lista de objetos PartitionEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -120,8 +120,8 @@ A resposta é uma lista de objetos irregulares.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -146,9 +146,9 @@ A resposta é uma lista de objetos ApplicationEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Application-ID [obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -173,8 +173,8 @@ A resposta é uma lista de objetos ClusterEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -199,9 +199,9 @@ A resposta é uma lista de objetos NodeEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --node-Name [obrigatório] | O nome do nó. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --nome do nó [Obrigatório] | O nome do nó. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -226,9 +226,9 @@ A resposta é uma lista de objetos ReplicaEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --Partition-ID [obrigatório] | A identidade da partição. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --partição-id [Obrigatório] | A identidade da partição. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -253,9 +253,9 @@ A resposta é uma lista de objetos PartitionEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --Partition-ID [obrigatório] | A identidade da partição. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --partição-id [Obrigatório] | A identidade da partição. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -280,10 +280,10 @@ A resposta é uma lista de objetos ReplicaEvent.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --Partition-ID [obrigatório] | A identidade da partição. |
-| --ID da réplica [obrigatório] | O identificador da réplica. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --partição-id [Obrigatório] | A identidade da partição. |
+| --replica-id [Obrigatório] | O identificador da réplica. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
@@ -308,9 +308,9 @@ A resposta é uma lista de objetos irregulares.
 
 |Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --Service-ID [obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o esquema de URI "Fabric\:". A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "Fabric\:/MyApp/App1/svc1", a identidade do serviço será "MyApp\~App1\~svc1" na versão 6.0 e superiores, e "MyApp/App1/svc1" nas versões anteriores. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim do tempo-utc [Obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o esquema de URI "Fabric\:". A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "Fabric\:/MyApp/App1/svc1", a identidade do serviço será "MyApp\~App1\~svc1" na versão 6.0 e superiores, e "MyApp/App1/svc1" nas versões anteriores. |
+| --início-tempo-utc [Obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
 | --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
 | --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |

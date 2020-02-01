@@ -4,12 +4,12 @@ description: Como implantar e configurar a rede do consórcio do Fabric do Micro
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 59e13b671f68c29271227d481b41562256d66fd6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 93f78f2c8bc32a2012e5635e0daec10b8c51d167
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289650"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901630"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 
@@ -268,7 +268,7 @@ Execute o comando abaixo para baixar todos os arquivos e pacotes necessários:
 ```bash-interactive
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/application/setup.sh | bash
 ```
-Esse comando leva tempo para carregar todos os pacotes. Após a execução bem-sucedida do comando, você poderá ver uma pasta `node_modules` no diretório atual. Todos os pacotes necessários são carregados na pasta `node_modules`.
+Esse comando leva tempo para carregar todos os pacotes. Após a execução bem sucedida do comando, pode ver uma pasta `node_modules` no diretório atual. Todos os pacotes necessários são carregados na pasta `node_modules`.
 
 ### <a name="generate-connection-profile-and-admin-profile"></a>Gerar perfil de conexão e perfil de administrador
 
@@ -466,7 +466,7 @@ npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <que
 
 ```
 
-Passe o nome da função de consulta e a lista de argumentos separados por vírgulas em `<queryFunction>` e `<queryFuncArgs>` respectivamente. Novamente, levando `fabcar` chaincode como referência, para consultar todos os carros no conjunto de estado do mundo `<queryFunction>` como `"queryAllCars"` e `<queryArgs>' to `"" ".
+Passe o nome da função de consulta e a lista de argumentos separados por vírgulas em `<queryFunction>` e `<queryFuncArgs>` respectivamente. Mais uma vez, tomando `fabcar` código de corrente como referência, para consultar todos os carros do estado mundial definido`<queryFunction>` para `"queryAllCars"` e `<queryArgs>` para `""`.
 
 Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando
 
