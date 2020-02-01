@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 14b902014305899260ba7d7d9eb0f13afaf64733
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d5dd1c1271c2b7100b40f6cd0f6410b3c151adc0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774157"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900212"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com Python
 
 Neste guia de início rápido, você usará a API REST do reconhecedor do Azure Form com Python para treinar e pontuar formulários para extrair pares de chave-valor e tabelas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-> [!IMPORTANT]
-> Este guia de início rápido usa a API do Forms Recognizer v 2.0. Se sua assinatura não estiver na região `West US 2` ou `West Europe`, você precisará usar a API v 1.0. Em vez disso, siga o guia de [início rápido v 1.0](./python-train-extract-v1.md) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

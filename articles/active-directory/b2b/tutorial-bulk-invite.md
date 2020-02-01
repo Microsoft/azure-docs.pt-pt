@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425031"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908841"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: convidar em massa usuários de colaboração B2B do Azure AD (versão prévia)
 
@@ -27,6 +27,7 @@ ms.locfileid: "75425031"
 
 > [!NOTE]
 > A partir de 12/22/2019, o recurso de convidar usuários em massa (versão prévia) foi temporariamente desabilitado.
+> Não existe atualmente uma data conhecida para quando esta funcionalidade será reativada. 
 
 Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabalhar com parceiros externos, pode convidar múltiplos utilizadores convidados para a sua organização ao mesmo tempo. Neste tutorial, você aprenderá a usar o portal do Azure para enviar convites em massa a usuários externos. Deve fazer o seguinte:
 
@@ -90,7 +91,7 @@ Execute o seguinte comando:
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Você deve ver os usuários que convidou listados, com um UPN (nome principal do usuário) no formato *emailaddress*#EXT #\@*domínio*. Por exemplo, *lstokes_fabrikam. com # ext #\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
+Você deve ver os usuários que convidou listados, com um UPN (nome principal do usuário) no formato *emailaddress*#EXT #\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

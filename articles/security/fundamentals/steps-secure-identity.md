@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973919"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903582"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -28,8 +28,8 @@ Esta lista de verificação ajudará você a implantar rapidamente as ações re
 * Fortaleça suas credenciais.
 * Reduza a área da superfície de ataque.
 * Automatize a resposta a ameaças.
-* Aumente a conscientização da auditoria e do monitoramento.
-* Permita a segurança mais previsível e completa do usuário final com auto-ajuda.
+* Utilize a inteligência na nuvem.
+* Ativar o self-service do utilizador final.
 
 Certifique-se de manter o controle de quais recursos e etapas estão completos durante a leitura desta lista de verificação.
 
@@ -81,7 +81,7 @@ Você pode usar o [PowerShell para impedir que as senhas expirem](../../active-d
 Se sua organização usa uma solução de identidade híbrida com autenticação de passagem ou Federação, você deve habilitar a sincronização de hash de senha pelos dois motivos a seguir:
 
 * O relatório [usuários com credenciais vazadas](../../active-directory/reports-monitoring/concept-risk-events.md) no gerenciamento do AD do Azure avisa você sobre os pares de nome de usuário e senha, que foram expostos na "Web escura". Um volume incrível de senhas é vazado por meio de phishing, malware e reutilização de senha em sites de terceiros que são violados posteriormente. A Microsoft encontra muitas dessas credenciais vazadas e lhe dirá, neste relatório, se elas corresponderem às credenciais em sua organização – mas somente se você [habilitar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você pode alternar para usar a autenticação de [nuvem usando a sincronização de hash de senha](choose-ad-authn.md). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo o Office 365. Nesse caso, a equipe de ti não precisará recorrer a contas de email pessoais para compartilhar dados até que a interrupção local seja resolvida.
+* No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você pode alternar para usar a autenticação de [nuvem usando a sincronização de hash de senha](choose-ad-authn.md). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo o Office 365. Neste caso, os funcionários de TI não precisarão de recorrer a contas de e-mail pessoais para partilhar dados até que a paralisação no local seja resolvida.
 
 Saiba mais sobre como funciona a [sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) .
 
@@ -116,7 +116,7 @@ Usando a mentalidade supor a violação, você deve reduzir o impacto das creden
 
 É importante entender as várias experiências de [consentimento de aplicativos do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), os [tipos de permissões e o consentimento](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)e suas implicações na postura de segurança de sua organização. Por padrão, todos os usuários no Azure AD podem conceder aplicativos que aproveitam a plataforma de identidade da Microsoft para acessar os dados da sua organização. Embora permitir que os usuários consentissem por si só permita que os usuários adquiram facilmente aplicativos úteis que se integram ao Microsoft 365, ao Azure e a outros serviços, ele pode representar um risco se não for usado e monitorado com cuidado.
 
-A Microsoft recomenda [desabilitar operações futuras de consentimento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ajudar a reduzir a área de superfície e atenuar esse risco. Se o consentimento do usuário final for desabilitado, as concessões de consentimento anteriores ainda serão respeitadas, mas todas as operações de consentimento futuras deverão ser executadas por um administrador. O consentimento do administrador pode ser solicitado pelos usuários por meio de um [fluxo de trabalho de solicitação de consentimento de administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado ou por seus próprios processos de suporte. Antes de desabilitar essa funcionalidade, é recomendável revisar seu log de auditoria para entender a quais aplicativos os usuários estão consentindo e planejar a alteração de acordo. Para aplicativos que você deseja permitir que todos os usuários acessem, considere [conceder consentimento em nome de todos os usuários](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), certificando-se de que os usuários que ainda não consentiram individualmente possam acessar o aplicativo. Se você não quiser que esses aplicativos estejam disponíveis para todos os usuários em todos os cenários, use a [atribuição de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) e o [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para restringir o acesso do usuário aos aplicativos.
+A Microsoft recomenda [desabilitar operações futuras de consentimento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ajudar a reduzir a área de superfície e atenuar esse risco. Se o consentimento do usuário final for desabilitado, as concessões de consentimento anteriores ainda serão respeitadas, mas todas as operações de consentimento futuras deverão ser executadas por um administrador. O consentimento do administrador pode ser solicitado pelos usuários por meio de um [fluxo de trabalho de solicitação de consentimento de administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado ou por seus próprios processos de suporte. Antes de desativar o consentimento do utilizador final, use as [nossas recomendações](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) para planear esta mudança na sua organização. Para aplicativos que você deseja permitir que todos os usuários acessem, considere [conceder consentimento em nome de todos os usuários](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), certificando-se de que os usuários que ainda não consentiram individualmente possam acessar o aplicativo. Se você não quiser que esses aplicativos estejam disponíveis para todos os usuários em todos os cenários, use a [atribuição de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) e o [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para restringir o acesso do usuário aos aplicativos.
 
 Verifique se os usuários podem solicitar aprovação de administrador para novos aplicativos para reduzir o conflito do usuário, minimizar o volume de suporte e impedir que os usuários se inscrevam em aplicativos que usam credenciais não Azure AD. Depois de você regulamentar suas operações de consentimento, os administradores devem auditar as permissões do aplicativo e consentidas regularmente.
 
@@ -134,7 +134,7 @@ O [Azure ad Privileged Identity Management (PIM)](../../active-directory/privile
 
 Habilite o Azure AD PIM e exiba os usuários aos quais foram atribuídas funções administrativas e remova as contas desnecessárias nessas funções. Para usuários com privilégios restantes, mova-os de permanente para qualificado. Por fim, estabeleça políticas apropriadas para garantir quando elas precisam obter acesso a essas funções privilegiadas, elas podem fazer isso com segurança, com o controle de alteração necessário.
 
-Como parte da implantação do processo de conta com privilégios, siga a [prática recomendada para criar pelo menos duas contas de emergência](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) para garantir que você tenha acesso ao AD do Azure se você se bloquear.
+Como parte da implementação do seu processo privilegiado de conta, siga as [melhores práticas para criar pelo menos duas contas de emergência](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) para garantir que ainda tem acesso ao Azure AD se se trancar.
 
 ## <a name="step-3---automate-threat-response"></a>Etapa 3 – automatizar a resposta contra ameaças
 
@@ -152,7 +152,7 @@ O risco de entrada é a probabilidade de alguém que não o proprietário da con
 
 ![Entrar de IPs anônimos](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>Etapa 4-aumentar sua conscientização
+## <a name="step-4---utilize-cloud-intelligence"></a>Passo 4 - Utilizar a inteligência em nuvem
 
 A auditoria e o registro em log de eventos relacionados à segurança e alertas relacionados são componentes essenciais de uma estratégia de proteção eficiente. Os logs e relatórios de segurança fornecem um registro eletrônico de atividades suspeitas e ajudam você a detectar padrões que podem indicar a tentativa ou a penetração externa bem-sucedida da rede e ataques internos. Você pode usar a auditoria para monitorar a atividade do usuário, a conformidade regulatória do documento, a análise forense e muito mais. Os alertas fornecem notificações de eventos de segurança.
 
@@ -180,7 +180,7 @@ Azure AD Identity Protection fornece dois relatórios importantes que você deve
 
 Os usuários podem ser induzidos a navegar para um site comprometido ou aplicativos que obterão acesso às informações de perfil e aos dados do usuário, como seu email. Um ator mal-intencionado pode usar as permissões consentidas recebidas para criptografar o conteúdo da caixa de correio e solicitar um resgate para obter novamente os dados da caixa de correio. [Os administradores devem revisar e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões fornecidas pelos usuários ou desabilitar a capacidade dos usuários de dar consentimento por padrão.
 
-Além de auditar as permissões fornecidas pelos usuários, ele pode ajudar a tentar e localizar especificamente [aplicativos OAuth arriscados ou indesejados](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), que é uma funcionalidade disponível para ambientes Premium.
+Além de auditar as permissões dadas pelos utilizadores, pode [localizar aplicações OAuth arriscadas ou indesejadas](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) em ambientes premium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Etapa 5 – habilitar o autoatendimento do usuário final
 
@@ -192,11 +192,11 @@ A [SSPR (redefinição de senha de autoatendimento)](../../active-directory/auth
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar o acesso ao aplicativo e ao grupo de autoatendimento
 
-O Azure AD fornece a capacidade de não administradores gerenciarem o acesso a recursos, usando grupos de segurança, grupos do Office 365, funções de aplicativo e catálogos de pacotes de acesso.  O [Gerenciamento de grupo de autoatendimento](../../active-directory/users-groups-roles/groups-self-service-management.md) permite que os proprietários do grupo gerenciem seus próprios grupos, sem a necessidade de atribuir uma função administrativa. Os usuários também podem criar e gerenciar grupos do Office 365 sem depender de administradores para lidar com suas solicitações e os grupos não utilizados expiram automaticamente.  O [Gerenciamento de direitos do Azure ad](../../active-directory/governance/entitlement-management-overview.md) permite ainda mais delegação e visibilidade, com fluxos de trabalho de solicitação de acesso abrangentes e expiração automática.  Você pode delegar a não-administradores a capacidade de configurar seus próprios pacotes de acesso para grupos, equipes, aplicativos e sites do SharePoint Online que eles possuem, com políticas personalizadas para quem é necessário para aprovar o acesso, incluindo a configuração de funcionários gerentes e patrocinadores de parceiros de negócios como aprovadores.
+A Azure AD oferece a capacidade de os não administradores gerirem o acesso aos recursos, utilizando grupos de segurança, grupos do Office 365, funções de aplicação e catálogos de pacotes de acesso.  O [Gerenciamento de grupo de autoatendimento](../../active-directory/users-groups-roles/groups-self-service-management.md) permite que os proprietários do grupo gerenciem seus próprios grupos, sem a necessidade de atribuir uma função administrativa. Os usuários também podem criar e gerenciar grupos do Office 365 sem depender de administradores para lidar com suas solicitações e os grupos não utilizados expiram automaticamente.  O [Gerenciamento de direitos do Azure ad](../../active-directory/governance/entitlement-management-overview.md) permite ainda mais delegação e visibilidade, com fluxos de trabalho de solicitação de acesso abrangentes e expiração automática.  Você pode delegar a não-administradores a capacidade de configurar seus próprios pacotes de acesso para grupos, equipes, aplicativos e sites do SharePoint Online que eles possuem, com políticas personalizadas para quem é necessário para aprovar o acesso, incluindo a configuração de funcionários gerentes e patrocinadores de parceiros de negócios como aprovadores.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar revisões de acesso do Azure AD
 
-Com as [revisões de acesso do Azure ad](../../active-directory/governance/access-reviews-overview.md), você pode gerenciar o pacote de acesso e as associações de grupo, o acesso a aplicativos empresariais e as atribuições de função com privilégios para garantir que você mantenha um padrão de segurança.  A supervisão regular dos próprios usuários, proprietários de recursos e outros revisores garante que os usuários não mantenham o acesso por longos períodos de tempo quando não precisarem mais dele.
+Com as [revisões de acesso do Azure ad](../../active-directory/governance/access-reviews-overview.md), você pode gerenciar o pacote de acesso e as associações de grupo, o acesso a aplicativos empresariais e as atribuições de função com privilégios para garantir que você mantenha um padrão de segurança.  A supervisão regular dos próprios utilizadores, proprietários de recursos e outros revisores garantem que os utilizadores não mantêm o acesso por longos períodos de tempo quando já não precisam.
 
 ## <a name="summary"></a>Resumo
 
@@ -205,7 +205,7 @@ Há muitos aspectos em uma infraestrutura de identidade segura, mas esta lista d
 * Fortaleça suas credenciais.
 * Reduza a área da superfície de ataque.
 * Automatize a resposta a ameaças.
-* Aumente a conscientização da auditoria e do monitoramento.
+* Utilize a inteligência na nuvem.
 * Permita a segurança mais previsível e completa do usuário final com auto-ajuda.
 
 Agradecemos o quão sério você assume a segurança da identidade e esperamos que este documento seja um roteiro útil para uma postura mais segura para sua organização.
@@ -214,4 +214,4 @@ Agradecemos o quão sério você assume a segurança da identidade e esperamos q
 
 Se você precisar de assistência para planejar e implantar as recomendações, consulte os [planos de implantação de projetos do Azure ad](https://aka.ms/deploymentplans) para obter ajuda.
 
-Se você tiver certeza de que todas essas etapas estão completas, use a [Pontuação segura de identidade](../../active-directory/fundamentals/identity-secure-score.md)da Microsoft, que manterá você atualizado com as [práticas recomendadas](identity-management-best-practices.md) e ameaças de segurança mais recentes.
+Se estiver confiante de que todos estes passos estão completos, utilize a [Pontuação De Identidade Segura](../../active-directory/fundamentals/identity-secure-score.md)da Microsoft , que o manterá atualizado com as [mais recentes boas práticas](identity-management-best-practices.md) e ameaças à segurança.

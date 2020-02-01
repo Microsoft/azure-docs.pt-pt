@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b606566fa2b8154eb9ac8fda97d3c3ae81cd3447
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4b5ac2e899de33614fa30b1f4baf0e85efec26bb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767424"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898849"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -194,7 +194,7 @@ Não utilize. Essa função é atribuída automaticamente ao serviço de Azure A
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Gravadores de diretório](#directory-writers-permissions)
 
-Esta é uma função herdada que deve ser atribuída a aplicativos que não dão suporte à [estrutura de consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ele não deve ser atribuído a nenhum usuário.
+Esta é uma função herdada que deve ser atribuída a aplicativos que não dão suporte à [estrutura de consentimento](../develop/quickstart-register-app.md). Ele não deve ser atribuído a nenhum usuário.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Administrador do Dynamics 365 administrador/CRM](#crm-service-administrator-permissions)
 

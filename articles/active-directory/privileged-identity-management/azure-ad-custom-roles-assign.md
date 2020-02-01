@@ -1,12 +1,13 @@
 ---
-title: Atribuir uma função personalizada do Azure AD no Privileged Identity Management (PIM) | Microsoft Docs
-description: Como atribuir uma função personalizada do Azure AD para o Privileged Identity Management de atribuição (PIM)
+title: Atribuir um papel personalizado da AD Azure na Gestão de Identidade Privilegiada (PIM)  Microsoft Docs
+description: Como atribuir uma função personalizada da AD Azure para a atribuição de Gestão de Identidade Privilegiada (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,69 +16,69 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c4963e6563db166566cff41d381295a8a9e576b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7a1ec6ddf4f10aa2e03656eb6a3d92ead0d74922
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756364"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896579"
 ---
-# <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir uma função personalizada do Azure AD no Privileged Identity Management
+# <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir um papel personalizado da AD Azure na Gestão de Identidade Privilegiada
 
-Este artigo mostra como usar o PIM (Privileged Identity Management) para criar atribuições just-in-time e Bound-time a funções personalizadas criadas para gerenciar aplicativos na experiência administrativa do Azure Active Directory (AD do Azure).
+Este artigo diz-lhe como usar a Gestão de Identidade Privilegiada (PIM) para criar uma atribuição justa e limitada ao tempo para funções personalizadas criadas para gerir aplicações na experiência administrativa do Azure Ative Directory (Azure AD).
 
-- Para obter mais informações sobre como criar funções personalizadas para delegar o gerenciamento de aplicativos no Azure AD, consulte [funções de administrador personalizadas no Azure Active Directory (versão prévia)](../users-groups-roles/roles-custom-overview.md).
-- Se você ainda não usou o Privileged Identity Management, obtenha mais informações em [começar a usar o Privileged Identity Management](pim-getting-started.md).
+- Para obter mais informações sobre a criação de papéis personalizados para delegar a gestão de aplicações em Azure AD, consulte as funções de [administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
+- Se ainda não utilizou a Gestão de Identidade Privilegiada, obtenha mais informações no [Start use A Gestão](pim-getting-started.md)de Identidade Privilegiada.
 - Para obter informações sobre como conceder a outro administrador acesso para gerenciar Privileged Identity Management, consulte [conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a visualização. Assim que o recurso estiver disponível, o gerenciamento de função ocorrerá na experiência de funções internas.
+> As funções personalizadas da Azure AD não estão integradas com as funções de diretório incorporada durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de papéis terá lugar na experiência de papéis incorporados.
 
 ## <a name="assign-a-role"></a>Atribuir uma função
 
-Privileged Identity Management pode gerenciar funções personalizadas que você pode criar no gerenciamento de aplicativo do Azure Active Directory (AD do Azure).  As etapas a seguir fazem uma atribuição qualificada a uma função de diretório personalizada.
+A Gestão de Identidade Privilegiada pode gerir funções personalizadas que pode criar na gestão de aplicações do Azure Ative Directory (Azure AD).  Os seguintes passos fazem uma atribuição elegível para um papel de diretório personalizado.
 
-1. Entre em [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal do Azure com uma conta de usuário atribuída à função de administrador de função com privilégios.
-1. Selecione **funções personalizadas do Azure AD (versão prévia)** .
+1. Inscreva-se na [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal Azure com uma conta de utilizador que é atribuída ao papel de administrador de funções privilegiada.
+1. Selecione **funções personalizadas Azure AD (Pré-visualização)** .
 
-    ![Selecione a visualização de funções personalizadas do Azure AD para ver as atribuições de função qualificadas](./media/azure-ad-custom-roles-assign/view-custom.png)
+    ![Selecione visualização de funções personalizadas da Azure AD para ver atribuições de papéis elegíveis](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. Selecione **funções** para ver uma lista de funções personalizadas para aplicativos do Azure AD.
+1. Selecione **Funções** para ver uma lista de funções personalizadas para aplicações Azure AD.
 
-    ![Selecione funções ver a lista de atribuições de função qualificadas](./media/azure-ad-custom-roles-assign/view-roles.png)
+    ![Selecione Roles ver a lista de atribuições de funções elegíveis](./media/azure-ad-custom-roles-assign/view-roles.png)
 
-1. Selecione **Adicionar membro** para abrir a página atribuição.
-1. Para restringir o escopo da atribuição de função a um único aplicativo, selecione **escopo** para especificar um escopo de aplicativo.
+1. Selecione **Adicionar membro** para abrir a página de atribuição.
+1. Para restringir o âmbito da atribuição de funções a uma única aplicação, selecione **Scope** para especificar um âmbito de aplicação.
 
-    ![restringir o escopo de atribuições de função qualificadas no Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
+    ![restringir o âmbito das atribuições de funções elegíveis na AD Azure](./media/azure-ad-custom-roles-assign/set-scope.png)
 
-1. Selecione **selecionar uma função** para abrir a lista **selecionar uma função** .
+1. **Selecione Selecione uma função** para abrir a lista de **funções.**
 
-    ![Selecione a função qualificada a ser atribuída a um usuário](./media/azure-ad-custom-roles-assign/select-role.png)
+    ![selecionar a função elegível para atribuir a um utilizador](./media/azure-ad-custom-roles-assign/select-role.png)
 
-1. Selecione uma função que você deseja atribuir e clique em **selecionar**. A lista **selecionar um membro** é aberta.
+1. Selecione uma função que você deseja atribuir e clique em **selecionar**. Abre-se a lista **de membros Select.**
 
-    ![Selecione o usuário ao qual você está atribuindo a função](./media/azure-ad-custom-roles-assign/select-member.png)
+    ![selecione o utilizador a quem está atribuindo o papel](./media/azure-ad-custom-roles-assign/select-member.png)
 
-1. Selecione um usuário que você deseja atribuir à função e, em seguida, clique em **selecionar**. A lista de **configurações de associação** é aberta.
+1. Selecione um utilizador que deseja atribuir à função e, em seguida, clique em **Selecionar**. A lista de **definições de Membros** abre.
 
-    ![Definir o tipo de atribuição de função como qualificado ou ativo](./media/azure-ad-custom-roles-assign/membership-settings.png)
+    ![Definir o tipo de atribuição de funções para elegível ou ativo](./media/azure-ad-custom-roles-assign/membership-settings.png)
 
-1. Na página **configurações de associação** , selecione **qualificado** ou **ativo**:
+1. Na página de **definições** de Membro, selecione **Elegível** ou **Ativo:**
 
-    - Atribuições **qualificadas** exigem que o usuário atribuído à função execute uma ação antes que possa usar a função. As ações podem incluir a passagem de uma verificação de autenticação multifator, fornecendo uma justificativa de negócios ou solicitando aprovação de aprovadores designados.
-    - Atribuições **ativas** não exigem que o usuário atribuído execute qualquer ação para usar a função. Os usuários ativos têm os privilégios atribuídos à função em todos os momentos.
+    - As atribuições **elegíveis** requerem que o utilizador designado para a função execute uma ação antes de poder utilizar a função. As ações podem incluir a aprovação de um controlo de autenticação de vários fatores, a justificação do negócio ou o pedido de aprovação dos aprovadores designados.
+    - As atribuições **ativas** não requerem que o utilizador designado execute qualquer ação para utilizar a função. Os utilizadores ativos têm sempre os privilégios atribuídos ao papel.
 
-1. Se a caixa de seleção **permanente** estiver presente e disponível (dependendo das configurações de função), você poderá especificar se a atribuição é permanente. Marque a caixa de seleção para tornar a atribuição permanentemente qualificada ou permanentemente atribuída. Desmarque a caixa de seleção para especificar uma duração de atribuição.
-1. Para criar a nova atribuição de função, clique em **salvar** e em **Adicionar**. Uma notificação do status do processo de atribuição é exibida.
+1. Se a caixa de verificação **Permanente** estiver presente e disponível (dependendo das definições de funções), pode especificar se a atribuição é permanente. Selecione a caixa de verificação para tornar a atribuição permanentemente elegível ou permanentemente atribuída. Limpe a caixa de verificação para especificar a duração da atribuição.
+1. Para criar a nova atribuição de funções, clique em **Guardar** **e,** em seguida, adicionar . É apresentada uma notificação do estado do processo de atribuição.
 
-Para verificar a atribuição de função, em uma função aberta, selecione **atribuições**  > **atribuir** e verifique se a atribuição de função está corretamente identificada como qualificada ou ativa.
+Para verificar a atribuição de funções, em funções abertas, selecione **Atribuições** > **Atribuir** e verifique se a sua atribuição de funções está devidamente identificada como elegível ou ativa.
 
- ![Verifique se a atribuição de função está visível como qualificada ou ativa](./media/azure-ad-custom-roles-assign/verify-assignments.png)
+ ![Verifique se a atribuição de funções é visível como elegível ou ativa](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
+- [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-assign.md)
 - [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-configure.md)
 - [Definições de função no Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

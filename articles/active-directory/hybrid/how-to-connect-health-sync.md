@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245477"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897200"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorizar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para informações sobre como monitorizar o AD FS com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Adicionalmente, para informações sobre como monitorizar os Serviços de Domínio do Active Directory com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
@@ -63,24 +64,24 @@ Esta funcionalidade fornece uma tendência gráfica do número de alterações q
 
 ![Latência de sincronização](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report"></a>Relatório de erros de sincronização ao nível do objeto
+## <a name="object-level-synchronization-error-report"></a>Relatório de erro de sincronização do nível do objeto
 Esta funcionalidade fornece um relatório sobre erros de sincronização que podem ocorrer quando os dados de identidade são sincronizados entre o Windows Server AD e o Azure AD com o Azure AD Connect.
 
 * O relatório abrange os erros registados pelo cliente de sincronização (Azure AD Connect versão 1.1.281.0 ou superior)
 * Inclui os erros que ocorreram na última operação de sincronização no motor de sincronização. ("Exportar" no Azure AD Connector.)
 * O agente de sincronização do Azure AD Connect Health tem de ter conectividade de saída para os pontos finais necessários para o relatório incluir os dados mais recentes.
-* O relatório é **atualizado após 30 minutos** através dos dados carregados pelo agente de sincronização do Azure AD Connect Health. Fornece as principais capacidades seguintes
+* O relatório é **atualizado após cada 30 minutos** utilizando os dados enviados pelo agente Azure AD Connect Health para sincronização. Fornece as seguintes capacidades-chave
 
   * Categorização de erros
   * Lista de objetos com o erro por categoria
   * Todos os dados sobre os erros num único local
   * Comparação lado a lado de objetos com o erro devido a um conflito
-  * Transferir o relatório de erros como CSV
+  * Descarregue o relatório de erro como CVS
 
 ### <a name="categorization-of-errors"></a>Categorização de Erros
 O relatório categoriza os erros de sincronização existentes nas seguintes categorias:
 
-| Category | Descrição |
+| Categoria | Descrição |
 | --- | --- |
 | Atributo Duplicado |Erros quando o Azure AD Connect tenta criar ou atualizar objetos com valores duplicados de um ou mais atributos no Azure AD que têm de ser exclusivos num Inquilino, como proxyAddresses e UserPrincipalName. |
 | Erro de Correspondência de Dados |Erros quando existe falha na correspondência de objetos que resulta em erros de sincronização. |
@@ -112,12 +113,12 @@ Ao selecionar o botão "Exportação", pode transferir um ficheiro CSV com todos
 ### <a name="diagnose-and-remediate-sync-errors"></a>Diagnosticar e corrigir erros de sincronização 
 Para cenários de erro de sincronização de atributo duplicado específico que envolvem uma atualização de Âncora de Origem do utilizador, pode corrigi-los diretamente no portal. Leia mais sobre [Diagnosticar e resolver erros de sincronização de atributo duplicado](how-to-connect-health-diagnose-sync-errors.md)
 
-## <a name="related-links"></a>Ligações relacionadas
+## <a name="related-links"></a>Hiperligações relacionadas
 * [Resolver problemas de erros durante a sincronização](tshoot-connect-sync-errors.md)
 * [Resiliência de Atributos Duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
+* [Azure AD Connect Health Operations (Operações do Azure AD Connect Health)](how-to-connect-health-operations.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
 * [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)

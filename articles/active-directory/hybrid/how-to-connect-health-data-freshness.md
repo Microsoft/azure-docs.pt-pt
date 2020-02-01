@@ -1,12 +1,13 @@
 ---
-title: Azure AD Connect Health-alerta os dados do serviço de integridade não está atualizado | Microsoft Docs
-description: Este documento descreve a causa do alerta "os dados do serviço de integridade não estão atualizados" e como solucioná-los.
+title: Azure AD Connect Health - Os dados do serviço de saúde não estão atualizados em alerta / Microsoft Docs
+description: Este documento descreve a causa do alerta "Os dados do serviço de saúde não estão atualizados" e como os resolver.
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
 manager: SamuelD
 editor: ''
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,60 +15,60 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41c1c102e88e1712d561874aef87a6f22ed250a9
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430209"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897175"
 ---
-# <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta os dados do serviço de integridade não estão atualizados
+# <a name="health-service-data-is-not-up-to-date-alert"></a>Dados do serviço de saúde não estão atualizados alerta
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-Os agentes nos computadores locais que Azure AD Connect Health monitora periodicamente carregam dados para o serviço de Azure AD Connect Health. Se o serviço não receber dados de um agente, as informações apresentadas pelo portal ficarão obsoletas. Para realçar o problema, o serviço irá gerar o alerta os **dados do serviço de integridade não está atualizado** . Esse alerta é gerado quando o serviço não recebe dados completos nas últimas duas horas.  
+Os agentes nas máquinas no local que o Azure AD Connect Health monitoriza periodicamente fazem o upload de dados para o Serviço de Saúde Azure AD Connect. Se o serviço não receber dados de um agente, a informação que o portal apresenta será estadre. Para destacar o problema, o serviço irá elevar os dados do serviço de **Saúde não está atualizado** de alerta. Este alerta é gerado quando o serviço não recebeu dados completos nas últimas duas horas.  
 
-- O alerta de status de **aviso** será acionado se o serviço de integridade tiver recebido apenas os tipos de dados **parciais** enviados do servidor nas últimas duas horas. O alerta de status de aviso não dispara notificações por email para destinatários configurados. 
-- O alerta de status de **erro** será acionado se o serviço de integridade não tiver recebido nenhum tipo de dados do servidor nas últimas duas horas. O alerta de status de erro dispara notificações por email aos destinatários configurados.
+- O alerta de alerta de **alerta** dispara se o Serviço de Saúde tiver recebido apenas tipos de dados **parciais** enviados do servidor nas últimas duas horas. O alerta de estado de alerta não desencadeia notificações de e-mail para destinatários configurados. 
+- O estado de **erro** alerta incêndios se o Serviço de Saúde não tiver recebido quaisquer tipos de dados do servidor nas últimas duas horas. O alerta de estado de erro desencadeia notificações de e-mail para destinatários configurados.
 
-O serviço Obtém os dados de agentes que estão em execução nos computadores locais, dependendo do tipo de serviço. A tabela a seguir lista os agentes que são executados no computador, o que eles fazem e os tipos de dados que o serviço gera. Em alguns casos, há vários serviços envolvidos no processo, portanto, qualquer um deles poderia ser o culpado. 
+O serviço obtém os dados dos agentes que estão a funcionar nas máquinas no local, dependendo do tipo de serviço. A tabela seguinte lista os agentes que funcionam na máquina, o que fazem e os tipos de dados que o serviço gera. Em alguns casos, existem vários serviços envolvidos no processo, por isso qualquer um deles pode ser o culpado. 
 
-## <a name="understanding-the-alert"></a>Noções básicas sobre o alerta
+## <a name="understanding-the-alert"></a>Compreender o alerta
 
-A folha **detalhes do alerta** mostra quando o alerta ocorreu e foi detectado pela última vez. Um processo em segundo plano que é executado a cada duas horas gera e reavalia o alerta. No exemplo a seguir, o alerta inicial ocorreu em 03/10 às 9:59. O alerta ainda existia em 03/12 às 10:00, quando o alerta foi avaliado novamente. A folha também detalha a hora em que o Serviço de Integridade recebeu por último um determinado tipo de dados. 
+A lâmina **de alerta detalha** quando o alerta ocorreu e foi detetada pela última vez. Um processo de fundo que funciona de duas em duas horas gera e reavalia o alerta. No exemplo seguinte, o alerta inicial ocorreu às 03/10 às 9h59. O alerta ainda existia às 03/12 às 10h00 quando o alerta foi novamente avaliado. A lâmina também detalha a hora em que o Serviço de Saúde recebeu pela última vez um determinado tipo de dados. 
  
- ![Detalhes do alerta de Azure AD Connect Health](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
+ ![Azure AD Connect Health alerta detalhes](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
-A tabela a seguir mapeia os tipos de serviço para os tipos de dados necessários correspondentes:
+Os seguintes tipos de serviço de mapas de tabelas aos tipos de dados correspondentes:
 
-| Tipo de serviço | Agente (nome do serviço do Windows) | Objetivo | Tipo de dados gerado  |
+| Tipo de serviço | Agente (nome do Serviço Windows) | Finalidade | Tipo de dados gerado  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (sincronização) | Serviço de Informações do Azure AD Connect Health Sincronização | Coletar informações específicas do AAD Connect (conectores, regras de sincronização, etc.) | - AadSyncService-SynchronizationRules <br />  -AadSyncService-conectores <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Serviço de Monitorização do Azure AD Connect Health Sincronização | Coletar contadores de desempenho específicos do AAD Connect, rastreamentos de ETW, arquivos | Contador de desempenho |
-| AD DS | Serviço de Informações do Azure AD Connect Health AD DS | Executar testes sintéticos, coletar informações de topologia, metadados de replicação |  -Adds-TopologyInfo-JSON <br /> -Common-TestData-JSON (cria os resultados de teste)   | 
-|  | Serviço de Monitorização do Azure AD Connect Health AD DS | Coletar contadores de desempenho específicos do ADDS, rastreamentos de ETW, arquivos | -Contador de desempenho  <br /> -Common-TestData-JSON (carrega os resultados de teste)  |
-| AD FS | Serviço de Diagnóstico do Azure AD Connect Health AD FS | Executar testes sintéticos | TestResult (cria os resultados de teste) | 
-| | Serviço de Informações do Azure AD Connect Health AD FS  | Coletar métricas de uso do ADFS | Adfs-UsageMetrics |
-| | Serviço de Monitorização do Azure AD Connect Health AD FS | Coletar contadores de desempenho específicos do ADFS, rastreamentos de ETW, arquivos | TestResult (carrega os resultados de teste) |
+| Ligação Azure AD (Sincronização) | Serviço de Informações do Azure AD Connect Health Sincronização | Recolher informações específicas de ligação AAD (conectores, regras de sincronização, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Conectores <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Serviço de Monitorização do Azure AD Connect Health Sincronização | Recolher contadores de perf específicos de Ligação AAD, vestígios eTW, ficheiros | Contador de desempenho |
+| AD DS | Serviço de Informações do Azure AD Connect Health AD DS | Realizar testes sintéticos, recolher informações de topologia, replicar metadados |  - Acrescenta-TopologyInfo-Json <br /> - Common-TestData-Json (cria os resultados dos testes)   | 
+|  | Serviço de Monitorização do Azure AD Connect Health AD DS | Recolher contadores perf específicos de ADDS, vestígios eTW, ficheiros | - Contador de desempenho  <br /> - Common-TestData-Json (faz upload dos resultados dos testes)  |
+| AD FS | Serviço de Diagnóstico do Azure AD Connect Health AD FS | Realizar testes sintéticos | TestResult (cria os resultados dos testes) | 
+| | Serviço de Informações do Azure AD Connect Health AD FS  | Recolher métricas de utilização aDFS | Adfs-UsageMetrics |
+| | Serviço de Monitorização do Azure AD Connect Health AD FS | Recolher contadores de perf específicos da ADFS, vestígios eTW, ficheiros | TestResult (carrega os resultados dos testes) |
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas 
 
-As etapas necessárias para diagnosticar o problema são fornecidas abaixo. A primeira é um conjunto de verificações básicas que são comuns a todos os tipos de serviço. 
+Os passos necessários para diagnosticar a questão são dados abaixo. A primeira é um conjunto de verificações básicas que são comuns a todos os Tipos de Serviço. 
 
 > [!IMPORTANT] 
-> Este alerta segue a [política de retenção de dados](reference-connect-health-user-privacy.md#data-retention-policy) do Connect Health
+> Este alerta segue a política de [retenção](reference-connect-health-user-privacy.md#data-retention-policy) de dados connect Health
 
-* Verifique se as versões mais recentes dos agentes estão instaladas. Exibir o [histórico de versões](reference-connect-health-version-history.md). 
-* Verifique se os serviços do Azure AD Connect Health Agents estão **em execução** no computador. Por exemplo, o Connect Health para AD FS deve ter três serviços.
-  ![verificar Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
+* Certifique-se de que as versões mais recentes dos agentes estão instaladas. Ver história de [lançamento.](reference-connect-health-version-history.md) 
+* Certifique-se de que os serviços de Agentes de Saúde Azure AD Connect estão **a funcionar** na máquina. Por exemplo, a Connect Health for AD FS deve ter três serviços.
+  ![verificar a](./media/how-to-connect-health-agent-install/install5.png) de saúde azure AD Connect
 
-* Certifique-se de seguir e atender à [seção de requisitos](how-to-connect-health-agent-install.md#requirements).
-* Use a [ferramenta de conectividade de teste](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) para descobrir problemas de conectividade.
-* Se você tiver um proxy HTTP, siga estas [etapas de configuração](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
+* Certifique-se de que vai até ao encontro da [secção de requisitos](how-to-connect-health-agent-install.md#requirements).
+* Utilize [a ferramenta](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) de conectividade de teste para descobrir problemas de conectividade.
+* Se tiver um Http Proxy, siga estes [passos de configuração](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se qualquer uma das etapas acima identificou um problema, corrija-o e aguarde a resolução do alerta. O processo de segundo plano de alerta é executado a cada 2 horas, portanto, levará até 2 horas para resolver o alerta. 
+Se algum dos passos acima identificado um problema, corrija-o e aguarde que o alerta seja resolvido. O processo de fundo de alerta decorre a cada 2 horas, pelo que levará até 2 horas para resolver o alerta. 
 
-* [Azure AD Connect Health política de retenção de dados](reference-connect-health-user-privacy.md#data-retention-policy)
-* [Azure AD Connect Health FAQ (FAQ do Azure AD Connect Health)](reference-connect-health-faq.md)
+* [Política de retenção de dados da Azure AD Connect Health](reference-connect-health-user-privacy.md#data-retention-policy)
+* [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)

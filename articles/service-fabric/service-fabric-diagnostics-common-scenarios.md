@@ -1,16 +1,14 @@
 ---
 title: Cenários comuns do Azure Service Fabric diagnosticar
 description: Saiba mais sobre como solucionar problemas comuns de monitoramento e diagnóstico nos aplicativos Service Fabric do Azure.
-author: srrengar
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645791"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906945"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
@@ -47,7 +45,7 @@ As soluções neste artigo usarão as ferramentas a seguir. Recomendamos que voc
 1. No mesmo Application Insights recurso, você pode filtrar "solicitações" em vez de exceções e exibir todas as solicitações feitas
 2. Se você estiver usando o SDK do Application Insights Service Fabric, poderá ver uma representação visual de seus serviços conectados entre si e o número de solicitações bem-sucedidas e com falha. À esquerda, clique em "mapa do aplicativo"
 
-    Folha de mapa de aplicativo ![AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![mapa de aplicativos de AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![App App Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![App Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Para obter mais informações sobre o mapa do aplicativo, visite a [documentação do mapa do aplicativo](../azure-monitor/app/app-map.md)
 
@@ -112,7 +110,7 @@ Na mesma exibição com todos os grafos, você verá alguns blocos para o desemp
 
      ![Contadores de desempenho de Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
-4. Isso permitirá que você veja como sua infraestrutura está lidando com suas cargas de trabalho e defina alertas relevantes com base na utilização de recursos. Por exemplo – talvez você queira definir um alerta se a utilização total do processador ficar acima de 90% ou abaixo de 5%. O nome do contador que você usaria para isso é "% de tempo do processador". Você pode fazer isso criando uma regra de alerta para a seguinte consulta:
+4. Isso permitirá que você veja como sua infraestrutura está lidando com suas cargas de trabalho e defina alertas relevantes com base na utilização de recursos. Por exemplo – pode querer estabelecer um alerta se a utilização total do Processador for superior a 90% ou abaixo de 5%. O contranome que usaria para isto é "% tempo de processador". Você pode fazer isso criando uma regra de alerta para a seguinte consulta:
 
     ```kusto
     Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
@@ -134,6 +132,7 @@ Verifique esses links para obter a lista completa de contadores de desempenho em
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Procure erros de ativação do pacote de código comum](./service-fabric-diagnostics-code-package-errors.md)
 * [Configurar alertas no ia](../azure-monitor/app/alerts.md) para ser notificado sobre alterações no desempenho ou no uso
 * A [detecção inteligente no Application insights](../azure-monitor/app/proactive-diagnostics.md) executa uma análise proativa da telemetria que está sendo enviada ao ia para avisá-lo sobre possíveis problemas de desempenho
 * Saiba mais sobre [alertas](../log-analytics/log-analytics-alerts.md) de Azure monitor logs para auxiliar na detecção e no diagnóstico.

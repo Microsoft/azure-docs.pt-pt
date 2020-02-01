@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666827"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905111"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico a partir de modelos predefinidos
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
    | **Subscrição** | *o-nome-da-sua-subscrição-do-Azure* | Selecione a subscrição do Azure que pretende utilizar. | 
    | **Grupo de recursos** | *o-nome-do-seu-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) para este aplicativo lógico e organize todos os recursos associados a este aplicativo. | 
    | **Localização** | *a-região-do-seu-datacenter-do-Azure* | Selecione a região do datacenter para implementar a sua aplicação lógica, como, por exemplo, E.U.A. Oeste. | 
-   | **Log Analytics** | **Desativado** (padrão) ou **ativado** | Ative o [log de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio de [logs de Azure monitor](../log-analytics/log-analytics-overview.md). Requer que você já tenha um espaço de trabalho Log Analytics. | 
+   | **Log Analytics** | **Desativado** (padrão) ou **ativado** | Instale [o registo de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para a sua aplicação lógica utilizando [registos do Monitor Azure](../log-analytics/log-analytics-overview.md). Requer que você já tenha um espaço de trabalho Log Analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Afixar ao dashboard**. Desta forma, a aplicação lógica aparece automaticamente no seu dashboard do Azure e abre-se após a implementação. Escolha **Criar**.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d0e830aaca4f952f75c220b4f482ce831883b058
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749597"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905566"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente de Sincronização de Arquivos do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -35,9 +35,9 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 | Pacote cumulativo de atualizações de junho de 2019- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Suportadas |
 | Pacote cumulativo de atualizações 2019 de maio- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Suportadas |
 | Versão V6- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Suportadas |
-| Pacote cumulativo de atualizações de abril de 2019- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de abril de 2019 | Suportadas |
-| Pacote cumulativo de atualizações de março de 2019- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Suportadas |
-| Versão V5- [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Suportadas |
+| Pacote cumulativo de atualizações de abril de 2019- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de abril de 2019 | Suportado - Versão do agente expirará em 12 de fevereiro de 2020 |
+| Pacote cumulativo de atualizações de março de 2019- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Suportado - Versão do agente expirará em 12 de fevereiro de 2020 |
+| Versão V5- [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Suportado - Versão do agente expirará em 12 de fevereiro de 2020 |
 | Versão v4 | 4.0.1.0 - 4.3.0.0 | N/A | Sem suporte-as versões do agente expiraram em 6 de novembro de 2019 |
 | Versão v3 | 3.1.0.0-3.4.0.0 | N/A | Sem suporte-as versões do agente expiraram em 19 de agosto de 2019 |
 | Agentes de pré-lançamento | 1.1.0.0-3.0.13.0 | N/A | Sem suporte-as versões do agente expiraram em 1º de outubro de 2018 |
@@ -60,7 +60,7 @@ As notas de versão a seguir são para a versão 9.0.0.0 do agente de Sincroniza
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas corrigidos
 
 - Suporte à restauração de autoatendimento
-    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para saber mais, consulte .  
+    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para saber mais, ver  
 [Restauração de autoatendimento por meio de versões anteriores e VSS (serviço de cópias de sombra de volume)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Suporte para tamanhos maiores de compartilhamento de arquivos 
@@ -216,7 +216,7 @@ As notas de versão a seguir são para a versão 7.2.0.0 do agente de Sincroniza
 
 Lista de problemas corrigidos nesta versão:  
 - O agente de sincronização de armazenamento (FileSyncSvc) falhará se a configuração de proxy for nula.
-- O ponto de extremidade do servidor iniciará BCDR (erro 0x80c80257-ECS_E_BCDR_IN_PROGRESS) se vários pontos de extremidades no servidor tiverem o mesmo nome.
+- O ponto final do servidor iniciará o BCDR (erro 0x80c80257 - ECS_E_BCDR_IN_PROGRESS) se vários pontos finais no servidor tiverem o mesmo nome.
 - Melhorias de confiabilidade em camadas de nuvem.
 
 ## <a name="agent-version-7100"></a>Versão do agente 7.1.0.0
@@ -317,7 +317,7 @@ As notas de versão a seguir são para a versão 6.2.0.0 do agente de Sincroniza
 
 Lista de problemas corrigidos nesta versão:  
 - Depois de criar um ponto de extremidade do servidor, o alto uso da CPU pode ocorrer quando o recall em segundo plano está baixando arquivos para o servidor
-- As operações de camadas de sincronização e de nuvem podem falhar com o erro ECS_E_SERVER_CREDENTIAL_NEEDED devido à expiração do token
+- As operações de sincronização e de nidamento de nuvem podem falhar com erros ECS_E_SERVER_CREDENTIAL_NEEDED devido à expiração do token
 - A rechamada de um arquivo poderá falhar se a URL para baixar o arquivo contiver caracteres reservados 
 
 ## <a name="agent-version-6100"></a>Versão do agente 6.1.0.0
@@ -413,9 +413,9 @@ Lista de problemas corrigidos nesta versão:
 As notas de versão a seguir são para a versão 5.1.0.0 do agente de Sincronização de Arquivos do Azure lançado em 7 de março de 2019. Essas notas são além das notas de versão listadas para a versão 5.0.2.0.
 
 Lista de problemas corrigidos nesta versão:  
-- Os arquivos podem falhar ao serem sincronizados com o erro 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) se a enumeração de alteração estiver falhando no servidor
-- Se uma sessão ou arquivo de sincronização receber um erro 0x80072F78 (WININET_E_INVALID_SERVER_RESPONSE), a sincronização tentará agora a operação novamente
-- Os arquivos podem falhar ao serem sincronizados com o erro 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- Os ficheiros podem falhar na sincronização com o erro 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) se a enumeração da alteração estiver a falhar no servidor
+- Se uma sessão de sincronização ou ficheiro receber um erro 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), o sync irá agora voltar a tentar a operação.
+- Os ficheiros podem não sincronizar com o erro 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
 - O uso de memória alta pode ocorrer ao rechamar arquivos
 - Aprimoramentos de telemetria em camadas de nuvem 
 
@@ -426,7 +426,7 @@ As notas de versão a seguir são para a versão 5.0.2.0 do agente de Sincroniza
 
 - Suporte para a nuvem do Azure governamental
   - Adicionamos suporte de visualização para a nuvem do Azure governamental. Isso requer uma assinatura de lista branca e um download de agente especial da Microsoft. Para obter acesso à versão prévia, envie-nos um email diretamente em [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
-- Suporte Para a Eliminação de Dados Duplicados
+- Suporte para Deduplicação de Dados
     - A eliminação de duplicação de dados agora tem suporte total com camadas de nuvem habilitadas no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, via Data Box)
     - Migre facilmente grandes quantidades de dados para Sincronização de Arquivos do Azure por meio de qualquer meio que você escolher. Você pode escolher Azure Data Box, AzCopy e até mesmo serviços de migração de terceiros. Não há necessidade de usar grandes quantidades de largura de banda para colocar seus dados no Azure, no caso de Data Box – simplesmente envie-os para lá! Para saber mais, confira [transferência de dados documentos offline](https://aka.ms/AFS/OfflineDataTransfer).

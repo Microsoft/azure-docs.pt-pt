@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841238"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908951"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
 
@@ -31,6 +31,9 @@ Existem várias formas de personalizar o UI do utilizador experimenta a sua apli
 Se utilizar [os fluxos](user-flow-overview.md)de utilizador, pode alterar a aparência das páginas de fluxo do utilizador utilizando modelos de layout de *página incorporados,* ou utilizando o seu próprio HTML e CSS. Ambos os métodos são discutidos mais tarde neste artigo.
 
 Utiliza o [portal Azure](tutorial-customize-ui.md) para configurar a personalização da UI para os fluxos de utilizadores.
+
+> [!TIP]
+> Se pretender modificar apenas o logótipo do banner, imagem de fundo e cor de fundo das páginas de fluxo do utilizador, pode experimentar a funcionalidade de [marca da Empresa (pré-visualização)](#company-branding-preview) descrita mais tarde neste artigo.
 
 ### <a name="custom-policies"></a>Políticas personalizadas
 
@@ -149,6 +152,60 @@ A tabela seguinte lista os fragmentos HTML que o Azure AD B2C se funde no elemen
 | Inscrição unificada ou inscrição | Lida com o sign-up e o sign-in de clientes que podem usar fornecedores de identidade social, como facebook, Google ou contas locais. |
 | Autenticação multifator | Os clientes podem verificar os seus números de telefone (utilizando texto ou voz) durante o registo ou o check-in. |
 | Erro | Fornece informações de erro ao cliente. |
+
+## <a name="company-branding-preview"></a>Marca da empresa (pré-visualização)
+
+Pode personalizar as páginas de fluxo do utilizador com um logotipo de banner, imagem de fundo e cor de fundo utilizando a marca Azure Ative Directory [Company](../active-directory/fundamentals/customize-branding.md).
+
+Para personalizar as páginas de fluxo do utilizador, configura primeiro a marca da empresa no Diretório Ativo Do Azure, depois ativa-a nos layouts da página dos fluxos do utilizador em Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### <a name="configure-company-branding"></a>Configurar o branding da empresa
+
+Comece por definir o logotipo do banner, imagem de fundo e cor de fundo dentro **da marca da Empresa.**
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Under **Manage**, selecione **marca da Empresa.**
+1. Siga os passos em Adicionar marca à página de entrada de [diretório sinuoso Azure Ative Diretório da sua organização](../active-directory/fundamentals/customize-branding.md).
+
+Tenha em mente estas coisas quando configura ruminar a marca da empresa no Azure AD B2C:
+
+* A marca da empresa em Azure AD B2C está atualmente limitada à imagem de **fundo,** **logotipo do banner**e personalização de cores de **fundo.** As outras propriedades no painel de marca da empresa, por exemplo, as das **definições Avançadas,** não são *suportadas.*
+* Nas páginas de fluxo do utilizador, a cor de fundo é mostrada antes da imagem de fundo ser carregada. Recomendamos que escolha uma cor de fundo que corresponda de perto às cores da sua imagem de fundo para uma experiência de carregamento mais suave.
+* O logótipo do banner aparece nos e-mails de verificação enviados aos seus utilizadores quando iniciam um fluxo de utilizador de inscrição.
+
+### <a name="enable-branding-in-user-flow-pages"></a>Ativar a marca nas páginas de fluxo do utilizador
+
+Depois de configurar a marca da empresa, ative-a nos fluxos de utilizador.
+
+1. No menu esquerdo do portal Azure, **selecione Azure AD B2C**.
+1. Em **Termos de Políticas,** selecione **fluxos de utilizador (políticas)** .
+1. Selecione o fluxo de utilizador para o qual deseja ativar a marca da empresa. A marca da empresa não é **suportada** para o *Sign in v1* e *profile editando* tipos de fluxo de utilizador v1.
+1. Em **Custom**, selecione **layouts de página,** e, em seguida, selecione o layout que gostaria de marcar. Por exemplo, selecione **Unificado inscrever-se ou iniciar sessão na página**.
+1. Para a versão de layout da **página (Pré-visualização)** , escolha a versão **1.2.0** ou superior.
+1. Selecione **Guardar**.
+
+Se quiser marcar todas as páginas no fluxo do utilizador, delineie a versão de layout da página para cada layout de página no fluxo do utilizador.
+
+![Seleção de layout de página em Azure AD B2C no portal Azure](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+Este exemplo anotado mostra um logotipo de banner personalizado e imagem de fundo em um *Sign up e sinal na* página de fluxo do utilizador que usa o modelo Ocean Blue:
+
+![Página de inscrição/inscrição de marca servida por Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### <a name="use-company-branding-assets-in-custom-html"></a>Utilize os ativos de marca da empresa em HTML personalizado
+
+Para utilizar os ativos de marca da sua empresa em HTML personalizado, adicione as seguintes etiquetas fora da etiqueta `<div id="api">`:
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+A fonte de imagem é substituída pela da imagem de fundo e do logotipo do banner. Conforme descrito na secção [Get started com secção HTML e CSS personalizada,](#get-started-with-custom-html-and-css) use as classes CSS para modelar e posicionar os ativos na página .
 
 ## <a name="localize-content"></a>Conteúdo localize
 

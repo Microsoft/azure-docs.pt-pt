@@ -1,28 +1,28 @@
 ---
 title: Criar um dicionário de erros de cluster
 description: Saiba como criar um dicionário de erros de cluster.
-ms.reviewer: hrasheed
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
-ms.openlocfilehash: ee9ed5374b12c3130d952770a4be6a759e37339a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156867"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905493"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: erros de criação de cluster
 
 Este artigo descreve as resoluções para erros que podem surgir durante a criação de clusters.
 
 > [!NOTE]
-> Os três primeiros erros descritos neste artigo são erros de validação. Eles podem ocorrer quando um produto Azure HDInsight usa a classe **CsmDocument_2_0** .
+> Os três primeiros erros descritos neste artigo são erros de validação. Podem ocorrer quando um produto Azure HDInsight utiliza a classe **CsmDocument_2_0.**
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: ImplementaçãoDocument 'CsmDocument_2_0' falhou na validação
 
 ### <a name="error"></a>Erro
 
@@ -44,15 +44,15 @@ O serviço HDInsight não pode acessar a URL de ação de script que você forne
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: ImplementaçãoDocument 'CsmDocument_2_0' falhou na validação
 
 ### <a name="error"></a>Erro
 
-"O local da ação de script não pode ser acessado URI: \<SCRIPT_ACTION_URL\>"
+"A localização da Ação de Script não pode ser acedida a URI: \<SCRIPT_ACTION_URL\>"
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"O URI de script fornecido \<SCRIPT_URI\> está em ADLS, mas este cluster não tem uma entidade de armazenamento do data Lake
+"O roteiro dado URI \<SCRIPT_URI\> está no ADLS, mas este cluster não tem nenhum diretor de armazenamento de dados de lagos"
 
 ### <a name="cause"></a>Causa
 
@@ -64,11 +64,11 @@ Adicione a conta Azure Data Lake Storage Gen 1 correspondente ao cluster. Além 
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
+## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: ImplementaçãoDocument 'CsmDocument_2_0' falhou na validação
 
 ### <a name="error"></a>Erro
 
-"O tamanho da VM '\<CUSTOMER_SPECIFIED_VM_SIZE\>' fornecido na solicitação é inválido ou não tem suporte para a função '\<\>de função '. Os valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\>".
+"O tamanho do VM '\<CUSTOMER_SPECIFIED_VM_SIZE\>' fornecido no pedido é inválido ou não suportado para o papel '\<ROLE\>'. Valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\>."
 
 ### <a name="cause"></a>Causa
 
@@ -84,7 +84,7 @@ A mensagem de erro lista os valores válidos para o tamanho da VM. Selecione um 
 
 ### <a name="error"></a>Erro
 
-"O VirtualNetworkId não é válido. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>' * "
+"O VirtualNetworkId não é válido. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>'*'
 
 ### <a name="cause"></a>Causa
 
@@ -108,15 +108,15 @@ Aqui está um exemplo de uma ID de rede virtual:
 
 ### <a name="error"></a>Erro
 
-"Falha na implantação do cluster devido a um erro na ação de script personalizado. Ações com falha: \<SCRIPT_NAME\>, acesse a interface do usuário do Ambari para depurar ainda mais a falha. "
+"Falha na implantação do cluster devido a um erro na ação de script personalizado. Ações Falhadas: \<SCRIPT_NAME\>, Por favor, vá à Ambari UI para desinbugimar ainda mais o fracasso."
 
 ### <a name="cause"></a>Causa
 
-O script personalizado que você forneceu durante a solicitação criar cluster é executado depois que o cluster é implantado com êxito. Esse código de erro indica que um erro surgiu durante a execução do script personalizado chamado \<SCRIPT_NAME\>.
+O script personalizado que você forneceu durante a solicitação criar cluster é executado depois que o cluster é implantado com êxito. Este código de erro indica que surgiu um erro durante a execução do script personalizado chamado \<SCRIPT_NAME\>.
 
 ### <a name="resolution"></a>Resolução
 
-Como o script é seu script personalizado, recomendamos que você solucione o problema e execute o script novamente, se necessário. Para solucionar problemas de falha de script, examine os logs na pasta/var/lib/ambari-Agent/*. Ou abra a página **operações** na interface do usuário do amAmbari e selecione a operação **run_customscriptaction** para exibir os detalhes do erro.
+Como o script é seu script personalizado, recomendamos que você solucione o problema e execute o script novamente, se necessário. Para solucionar problemas de falha de script, examine os logs na pasta/var/lib/ambari-Agent/*. Ou abra a página **operações** na UI Ambari e, em seguida, selecione a operação **run_customscriptaction** para visualizar os detalhes do erro.
 
 ---
 
@@ -124,7 +124,7 @@ Como o script é seu script personalizado, recomendamos que você solucione o pr
 
 ### <a name="error"></a>Erro
 
-"A versão de esquema do metastore do \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> no banco de dados \<database_name\> é incompatível com a versão do cluster \<CLUSTER_VERSION do"
+"A \<\> METASTORE_MAJOR_VERSION versão\>de  META_STORE_TYPE META_STORE_TYPE\> Metastore \<na base de dados \<DATABASE_NAME\> é incompatível com a versão de cluster \<CLUSTER_VERSION "
 
 ### <a name="cause"></a>Causa
 
@@ -161,7 +161,7 @@ Se você planeja usar grupos de segurança de rede para controlar o tráfego de 
 
 ### <a name="error"></a>Erro
 
-"A identidade gerenciada não tem permissões na conta de armazenamento. Verifique se a função ' proprietário de dados do blob de armazenamento ' está atribuída à identidade gerenciada para a conta de armazenamento. Armazenamento:/subscriptions/\<ID da assinatura\>/resourceGroups/\< nome do grupo de recursos\>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento\>, identidade gerenciada:/subscriptions/\<ID da assinatura\>/resourceGroups//\< nome do grupo de recursos\>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/\<nome da identidade gerenciada do usuário\>"
+"A identidade gerenciada não tem permissões na conta de armazenamento. Verifique se a função ' proprietário de dados do blob de armazenamento ' está atribuída à identidade gerenciada para a conta de armazenamento. Armazenamento: /subscrições/ \<ID de subscrição\> /recursosGroups/\< Nome de grupo de recursos\> /fornecedores/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Identidade Gerida: /subscrições/ \<Id de assinatura\> /recursosGroups/ / /\< Nome de grupo de recursos\> /fornecedores/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
 
 ### <a name="cause"></a>Causa
 
@@ -182,7 +182,7 @@ Para obter mais informações, consulte [configurar permissões para a identidad
 
 ### <a name="error"></a>Erro
 
-"As regras de segurança no grupo de segurança de rede/subscriptions/\<SubscriptionId\>/resourceGroups/< nome do grupo de recursos\> padrão/provedores/Microsoft. Network/networkSecurityGroups/\<nome do grupo de segurança de rede\> configurado com a sub-rede/subscriptions/\<SubscriptionId\>/resourceGroups/\<nome do grupo de recursos\> RG-westeurope-vnet-tomtom-default/Providers/Microsoft. Network/virtualNetworks/\<virtual O nome da rede\>/Subnets/\<nome da sub-rede\> não permite a entrada necessária e/ou a conectividade de saída. Para obter mais informações, visite [planejar uma rede virtual para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)ou contate o suporte. "
+"As regras de segurança do Grupo de Segurança da Rede /subscrições/\<SubscriçãoID\>/recursosGroups/<Nome do Grupo de Recursos\> padrão/fornecedores/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configurado com subnet /subscrições/\<SubscriçãoID\>/resourceGroups/\<Resource Group\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Nome da rede\>/subnets/\<nome da sub-rede\> não permite a conectividade de entrada e/ou saída necessária. Para obter mais informações, visite [planejar uma rede virtual para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)ou contate o suporte. "
 
 ### <a name="cause"></a>Causa
 
@@ -210,7 +210,7 @@ Normalmente, esse erro é gerado quando há um problema transitório ou uma inte
 
 ### <a name="resolution"></a>Resolução
 
-Verifique a página de [status do Azure](https://status.azure.com/status) para qualquer interrupção do Azure que possa afetar a implantação do cluster. Se não houver interrupções, repita a implantação do cluster.
+Verifique a página de [status do Azure](https://status.azure.com) para qualquer interrupção do Azure que possa afetar a implantação do cluster. Se não houver interrupções, repita a implantação do cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 

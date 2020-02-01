@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294104"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898883"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de entrada 
 
@@ -143,6 +143,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |53002|O aplicativo usado não é um aplicativo aprovado para acesso condicional. Para obter acesso, o utilizador tem de utilizar uma das aplicações na lista de aplicações aprovadas.|
 |53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O utilizador tem de concluir o processo de registo na autenticação multifator antes de aceder a este conteúdo. O utilizador deve registar-se na autenticação multifator.|
+|53032|O Acount foi bloqueado devido às políticas de Proteção de Identidade da AD Azure.|
 |65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização ao administrador do seu inquilino para agir em nome da Aplicação :Y para o Recurso : Z.|
 |65004|O utilizador recusou dar autorização para aceder à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|
 |65005|A lista de acesso a recursos necessária para a aplicação não contém aplicações detetáveis pelo recurso ou a aplicação cliente pediu acesso a um recurso que não foi especificado nesta lista de acesso a recursos necessária ou o serviço Graph devolveu um pedido inválido ou o recurso não foi encontrado. Se a aplicação suportar SAML, poderá ter configurado a aplicação com o identificador (Entidade) incorreto. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
@@ -184,7 +185,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |90010|Não há suporte para a solicitação por vários motivos. Por exemplo, a solicitação é feita usando um método de solicitação sem suporte (há suporte apenas para o método POST) ou o algoritmo de assinatura de token que foi solicitado não tem suporte. Contacte o programador da aplicação.|
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente, contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se você tem todos os parâmetros necessários para a solicitação de logon. |
 |90051| Token de delegação inválido. Foi especificada uma ID de nuvem nacional inválida ({cloudid}).|
-|90072| É necessário adicionar primeiro a conta como um utilizador externo no inquilino. Saia e entre novamente com uma conta diferente do Azure AD.|
+|90072| A conta tem de ser adicionada como utilizador externo no inquilino primeiro. Saia e entre novamente com uma conta diferente do Azure AD.|
 |90094| O aplicativo solicitou permissões às quais o usuário conectado não tem permissão para consentir e o usuário foi bloqueado. |
 |90095| O aplicativo solicitou permissões às quais o usuário conectado não tem permissão para consentir, e o usuário recebeu o formulário [solicitação de consentimento de administrador](../manage-apps/configure-admin-consent-workflow.md) . |
 |500011| A entidade de recurso chamada <site address> não foi encontrada no locatário denominado <tenant ID>. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Poderá ter enviado o pedido de autenticação para o inquilino errado.|
@@ -197,7 +198,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |900432|Não há suporte para o cliente confidencial na solicitação de nuvem cruzada.|
 |5000811|Não é possível verificar a assinatura de token SAML. O identificador de chave de assinatura não corresponde a nenhuma chave registrada válida.|
 |7000215|Foi fornecido um segredo do cliente inválido.|
-|7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
+|7000218|O organismo de pedido deve conter o seguinte parâmetro: «client_assertion» ou "client_secret".|
 
 
 ## <a name="next-steps"></a>Passos seguintes

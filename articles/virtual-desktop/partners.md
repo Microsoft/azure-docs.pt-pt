@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/30/2020
 ms.author: helohr
-ms.openlocfilehash: e525976edee08097d75605ea1921d0552ed02785
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841068"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906906"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -38,6 +38,14 @@ Como um provedor aprovado, os benefícios da área de trabalho virtual do Window
 
 - [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+## <a name="10zig"></a>10ZiG
+
+![Logotipo 10ZiG](./media/partners/10zig.png)
+
+A Tecnologia 10ZiG, com hardware e software de cliente de ponta Fino e Zero, é um parceiro de longa data com a Microsoft e um parceiro dedicado do Microsoft Azure e do Windows Virtual Desktop. 10ZiG Windows 10 IoT Clientes Finos baseados em IoT são poderosos, fiáveis e pontos finais acessíveis para todos os multiutilizadores do Windows Virtual Desktop. O Software 10ZiG Manager fornece uma gestão e implementação excecionais sem limitações de licença sem custos adicionais. A Equipa Tech 10ZiG, o Programa de Garantia Antecipada e as demonstrações sem aborrecimentos são uma solução de suporte multi-sessão de multi-sessões do Windows Virtual Desktop na nuvem.
+
+A liderança do mercado mundial da 10ZiG em dispositivos endpoint Thin e Zero Client e software de gestão para desktops virtuais é exemplificada pela forma como funcionam para os seus clientes. O hardware thin client vem com funcionalidades e opções de benefícios cuidadosamente construídas para garantir que os clientes recebem os dispositivos Cliente certos com base nas suas necessidades. A 10ZiG personaliza os seus dispositivos para se adaptar em ambientes de clientes com clientes baseados no Windows e com base em Linux que proporcionam o melhor desempenho possível em ambientes de trabalho virtuais, dentro e fora da nuvem.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -133,6 +141,14 @@ O liquide Essentials estende o valor da área de trabalho virtual do Windows com
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Acesse o site do parceiro](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="liquit"></a>Liquit
+
+![Logotipo liquit](./media/partners/liquit.png)
+
+O software de agregação e entrega de aplicações Liquit permite às empresas e fornecedores de serviços conectarem-se e combinarem com todas as back-ends do espaço de trabalho (Citrix, VMWare, Windows Virtual Desktop, RDP e Legacy) e oferecer um cliente personalizado e consistente experiência, independentemente do local onde residem as aplicações do cliente. Quando um cliente publica o ícone inteligente, a Liquit decide onde iniciar a aplicação com base na localização, dispositivo e direitos de perfil do cliente.
+
+Como parceiro de integração certificado, a Liquit ajuda a acelerar a transição para a nuvem sem um atraso de rasgo e substituição. O Windows Virtual Desktop pode facilmente ligar-se a um ambiente existente, criar um espaço de trabalho e fornecer o ambiente de trabalho. Em seguida, pode tirar o seu tempo migrando de plataformas antigas e fazer alterações no back-end sem que os seus utilizadores percebam. Obtenha uma experiência consistente de utilizador final, infraestrutura flexível e mantenha o controlo das suas aplicações, independentemente de onde estejam.
+
 ## <a name="login-vsi"></a>VSI de logon
 
 ![Logotipo do VSI de logon](./media/partners/loginvsi.png)
@@ -202,6 +218,16 @@ O RDPSoft é um parceiro de área de trabalho virtual do Windows que fornece sol
 As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administração da área de trabalho virtual do Windows. Os recursos de gerenciamento Premium simplificam a delegação de tarefas de gerenciamento de área de trabalho virtual do Windows para suporte à equipe de desk fornecendo assistência remota, sessão de usuário e gerenciamento de processos. Ao mesmo tempo, o Área de Trabalho Remota Commander Suite coleta métricas avançadas sobre desempenho e carga por usuário, atividade e auditoria do usuário, qualidade de conexão da área de trabalho virtual do Windows (latência e largura de banda), licenciamento e segurança em um SQL do Azure central instância do banco de dados para revisão. Com o RDPSoft, os amplos relatórios históricos e os painéis abrangentes são apenas um clique.
 
 - [Vá para o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
+## <a name="sepago"></a>sepago
+
+![logotipo sepago](./media/partners/sepago.png)
+
+sepago foi fundada em 2002 por quatro amigos em Colónia. Hoje, a sepago é uma consultoria de gestão de TI com um número cada vez maior de sepagistas, com localizações em toda a Alemanha em Colónia, Munique e Hamburgo. sepago são especialistas em provisionamento automatizado de aplicações, virtualização, soluções em nuvem e segurança de TI. o sepago suporta empresas de média dimensão e grandes empresas a caminho da transformação digital e garante que os utilizadores podem trabalhar de forma segura e eficiente.
+
+O laboratório de inovação e desenvolvimento da sepago constrói soluções inteligentes utilizando tecnologias de big data e IA. Estas soluções focam-se em melhorar o negócio, a experiência do utilizador e as administrações de produtos parceiros como o Windows Virtual Desktop.
+
+- [Vá para o site do parceiro](https://www.sepago.de/wvd-value-add-tools/)
 
 ## <a name="thinprint"></a>ThinPrint
 

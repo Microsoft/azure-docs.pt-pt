@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric – gateway de malha sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos do gateway de malha.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 86e63f88cf1412b54fad6f9e386a1a5052463917
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3e398ff8a1a0a28fd9d0650a7c9d18ba04817d33
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646165"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906010"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 Obter e excluir recursos do gateway de malha.
@@ -32,7 +32,7 @@ Exclui o recurso de gateway identificado pelo nome.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome do recurso de gateway. |
+| --nome -n [Obrigatório] | O nome do recurso de gateway. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -68,7 +68,7 @@ Obtém as informações sobre o recurso de gateway com o nome fornecido. As info
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome do recurso de gateway. |
+| --nome -n [Obrigatório] | O nome do recurso de gateway. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

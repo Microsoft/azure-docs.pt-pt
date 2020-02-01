@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712536"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908858"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integre a sua infraestrutura de NPS existente com autenticação de vários fatores Azure
 
@@ -192,6 +192,23 @@ Se o seu certificado de computador anterior tiver expirado e tiver sido gerado u
 
 > [!NOTE]
 > Se utilizar os seus próprios certificados em vez de gerar certificados com o script PowerShell, certifique-se de que se alinham com a convenção de nomeação nPS. O nome do assunto deve ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>Passos adicionais do Governo da Microsoft Azure
+
+Para os clientes que utilizam a nuvem do Governo Azure, são necessários os seguintes passos de configuração adicionais em cada servidor NPS:
+
+1. Editor **de Registo** Aberto no servidor NPS.
+1. Navegue para `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Desdefinir os seguintes valores-chave:
+
+    | Chave de registo       | Valor |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Repita os dois passos anteriores para definir os valores-chave do registo para cada servidor NPS.
+1. Reiniciar o serviço NPS para cada servidor NPS.
+
+    Para obter um impacto mínimo, retire cada servidor NPS da rotação NLB um de cada vez e aguarde que todas as ligações escorram.
 
 ### <a name="certificate-rollover"></a>Substituição de certificado
 

@@ -1,28 +1,24 @@
 ---
-title: 'Início rápido: reconhecer fala, intenções e entidades, serviço de fala em Python'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f2a46b8a0868aaa1097dd7f1ae738a2a3e06e3b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9bc514c32d97958d8ab154dc2c5533747f380e86
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772910"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900540"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* Se este for seu primeiro projeto Python, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">criar um projeto de exemplo vazio</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale o SDK de fala para seu ambiente de desenvolvimento</a>.
+* Se este é o seu primeiro projeto Python, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">criar um projeto <span class="docon docon-navigate-external x-hidden-focus"> </span>de amostra vazia. </a>
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale o SDK de <span class="docon docon-navigate-external x-hidden-focus"> </span>Discurso para o seu ambiente </a>de desenvolvimento.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar um aplicativo LUIS para reconhecimento de intenção
 
@@ -65,7 +61,7 @@ Agora, vamos criar um `IntentRecognizer`. Insira este código logo abaixo da sua
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicionar uma LanguageUnderstandingModel e tentativas
 
-Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as tentativas que você deseja que sejam reconhecidos. Vamos usar as intenções do domínio predefinido para a automação doméstica. 
+Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as tentativas que você deseja que sejam reconhecidos. Vamos usar as intenções do domínio predefinido para a automação doméstica.
 
 Insira este código abaixo do `IntentRecognizer`. Certifique-se de substituir `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS. 
 
@@ -76,7 +72,7 @@ Insira este código abaixo do `IntentRecognizer`. Certifique-se de substituir `"
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-A partir do objeto `IntentRecognizer`, você chamará o método `recognize_once()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, depois que a frase for identificada para parar de reconhecer a fala.
+Pelo `IntentRecognizer` objeto, vai chamar o método `recognize_once()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, depois que a frase for identificada para parar de reconhecer a fala.
 
 Insira este código abaixo do seu modelo:
 
@@ -86,11 +82,11 @@ Insira este código abaixo do seu modelo:
 
 Quando o resultado do reconhecimento for retornado pelo serviço de fala, você desejará fazer algo com ele. Vamos mantê-lo simples e imprimir o resultado no console.
 
-Abaixo de sua chamada para `recognize_once()`, adicione este código: [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
+Abaixo a sua chamada para `recognize_once()`, adicione este código: [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
 ## <a name="check-your-code"></a>Verifique seu código
 
-Neste ponto, seu código deve ter a seguinte aparência:  
+Neste ponto, seu código deve ter a seguinte aparência:
 
 > [!NOTE]
 > Adicionamos alguns comentários a esta versão.
@@ -99,7 +95,7 @@ Neste ponto, seu código deve ter a seguinte aparência:
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
 
-Execute o exemplo do console do ou do no IDE:
+Executar a amostra a partir da consola ou no seu IDE:
 
 ```
 python quickstart.py

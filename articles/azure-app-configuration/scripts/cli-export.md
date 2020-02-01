@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Fornece informações e scripts de exemplo para exportar de um repositório de configuração Azure App
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 ms.service: azure-app-configuration
@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: azure-app-configuration
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 28066fcea50180189cff7f9af790908c52a4a261
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cdefaa60c9e7a1aab418042c037ef76b63e7804
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433606"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898667"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportar de um repositório de configuração Azure App
 

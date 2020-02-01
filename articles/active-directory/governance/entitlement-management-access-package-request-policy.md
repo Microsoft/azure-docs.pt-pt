@@ -1,6 +1,6 @@
 ---
-title: Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
-description: Saiba como alterar as configurações de solicitação e aprovação de um pacote do Access no gerenciamento de direitos Azure Active Directory.
+title: Alterar as definições de pedido e aprovação para um pacote de acesso na gestão de direitos da AD Azure - Diretório Ativo Azure
+description: Saiba como alterar as definições de pedido e aprovação para um pacote de acesso na gestão de direitos do Diretório Ativo Azure.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,36 +16,39 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174672"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897610"
 ---
-# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições de pedido e aprovação para um pacote de acesso na gestão de direitos da AD Azure
 
-Como um Gerenciador de pacotes do Access, você pode alterar os usuários que podem solicitar um pacote do Access a qualquer momento editando a política ou adicionando uma nova política. Você também pode alterar as configurações de aprovação.
+Como gestor de pacotes de acesso, pode alterar os utilizadores que podem solicitar um pacote de acesso a qualquer momento, editando a apólice ou adicionando uma nova política. Também pode alterar as definições de aprovação.
 
-Este artigo descreve como alterar as configurações de solicitação e aprovação para um pacote do Access existente.
+Este artigo descreve como alterar as definições de pedido e aprovação para um pacote de acesso existente.
 
-## <a name="choose-between-one-or-multiple-polices"></a>Escolha entre uma ou várias políticas
+## <a name="choose-between-one-or-multiple-polices"></a>Escolha entre uma ou várias polícias
 
-A maneira de especificar quem pode solicitar um pacote de acesso é com uma política. Ao criar um pacote do Access, você especifica a configuração de solicitação e aprovação que cria uma política. A maioria dos pacotes de acesso terá uma única política, mas um único pacote de acesso pode ter várias políticas. Você criaria várias políticas para um pacote de acesso se quiser permitir que diferentes conjuntos de usuários recebam atribuições com diferentes configurações de solicitação e aprovação. Por exemplo, uma única política não pode ser usada para atribuir usuários internos e externos ao mesmo pacote de acesso. No entanto, você pode criar duas políticas no mesmo pacote de acesso, uma para usuários internos e outra para usuários externos. Se houver várias políticas que se aplicam a um usuário, elas serão solicitadas no momento da solicitação para selecionar a política à qual desejam ser atribuídos. O diagrama a seguir mostra um pacote de acesso com duas políticas.
+A forma como especifica quem pode solicitar um pacote de acesso é com uma apólice. Ao criar um pacote de acesso, especifice o pedido e a definição de aprovação que cria uma política. A maioria dos pacotes de acesso terá uma única política, mas um único pacote de acesso pode ter múltiplas políticas. Criaria múltiplas políticas para um pacote de acesso se pretendesse permitir que diferentes conjuntos de utilizadores recebessem atribuições com diferentes definições de pedido e aprovação. Por exemplo, uma única política não pode ser utilizada para atribuir aos utilizadores internos e externos o mesmo pacote de acesso. No entanto, pode criar duas políticas no mesmo pacote de acesso -- uma para utilizadores internos e outra para utilizadores externos. Se existirem múltiplas políticas aplicáveis a um utilizador, serão solicitadas no momento do seu pedido para selecionar a política a que gostariam de ser atribuídas. O diagrama seguinte mostra um pacote de acesso com duas políticas.
 
-![Várias políticas em um pacote do Access](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
+![Múltiplas políticas num pacote de acesso](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
 
 | Cenário | Número de políticas |
 | --- | --- |
-| Quero que todos os usuários em meu diretório tenham as mesmas configurações de solicitação e aprovação para um pacote de acesso | Só |
-| Quero que todos os usuários em determinadas organizações conectadas possam solicitar um pacote de acesso | Só |
-| Quero permitir usuários em meu diretório e também usuários fora do meu diretório para solicitar um pacote de acesso | Vários |
-| Desejo especificar configurações de aprovação diferentes para alguns usuários | Vários |
-| Quero que alguns usuários acessem as atribuições de pacote para expirar enquanto outros usuários podem estender seu acesso | Vários |
+| Quero que todos os utilizadores do meu diretório tenham as mesmas definições de pedido e aprovação para um pacote de acesso | 1 |
+| Quero que todos os utilizadores de certas organizações conectadas possam solicitar um pacote de acesso | 1 |
+| Quero permitir que os utilizadores do meu diretório e também utilizadores fora do meu diretório solicitem um pacote de acesso | Vários |
+| Quero especificar diferentes definições de aprovação para alguns utilizadores | Vários |
+| Quero que alguns utilizadores acedam a tarefas de pacotes para expirar enquanto outros utilizadores podem estender o seu acesso | Vários |
 
-### <a name="open-an-existing-policy-of-request-and-approval-settings"></a>Abrir uma política existente de configurações de solicitação e aprovação
+Para obter informações sobre a lógica prioritária que é usada quando se aplicam várias políticas, consulte [Múltiplas políticas.](entitlement-management-troubleshoot.md#multiple-policies
+)
 
-Para alterar as configurações de solicitação e aprovação de um pacote do Access, você precisa abrir a política correspondente. Siga estas etapas para abrir as configurações de solicitação e aprovação para um pacote do Access.
+### <a name="open-an-existing-policy-of-request-and-approval-settings"></a>Abrir uma política de definições de pedido e aprovação existentes
+
+Para alterar as definições de pedido e aprovação para um pacote de acesso, é necessário abrir a política correspondente. Siga estas medidas para abrir as definições de pedido e aprovação para um pacote de acesso.
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
@@ -53,23 +56,23 @@ Para alterar as configurações de solicitação e aprovação de um pacote do A
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Clique em **políticas** e, em seguida, clique na política que você deseja editar.
+1. Clique em **Políticas** e, em seguida, clique na política que pretende editar.
 
-    O painel detalhes da política é aberto na parte inferior da página.
+    O painel de detalhes da Política abre na parte inferior da página.
 
-    ![Pacote de acesso-painel detalhes da política](./media/entitlement-management-shared/policy-details.png)
+    ![Pacote de acesso - Painel de detalhes de política](./media/entitlement-management-shared/policy-details.png)
 
 1. Clique em **Editar** para editar a política.
 
-    ![Pacote de acesso-editar política](./media/entitlement-management-shared/policy-edit.png)
+    ![Pacote de acesso - Editar política](./media/entitlement-management-shared/policy-edit.png)
 
-1. Clique na guia **solicitações** para abrir as configurações de solicitação e aprovação.
+1. Clique no separador **Pedidos** para abrir as definições de pedido e aprovação.
 
-1. Execute as etapas em uma das seções de solicitação a seguir.
+1. Execute os passos numa das seguintes secções de pedido.
 
-### <a name="add-a-new-policy-of-request-and-approval-settings"></a>Adicionar uma nova política de configurações de solicitação e aprovação
+### <a name="add-a-new-policy-of-request-and-approval-settings"></a>Adicione uma nova política de definições de pedido e aprovação
 
-Se você tiver um conjunto de usuários que deve ter diferentes configurações de solicitação e aprovação, provavelmente precisará criar uma nova política. Siga estas etapas para começar a adicionar uma nova política a um pacote do Access existente.
+Se tiver um conjunto de utilizadores que deverão ter diferentes definições de pedido e aprovação, provavelmente terá de criar uma nova política. Siga estes passos para começar a adicionar uma nova política a um pacote de acesso existente.
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
@@ -77,21 +80,21 @@ Se você tiver um conjunto de usuários que deve ter diferentes configurações 
 
 1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Clique em **políticas** e em **Adicionar política**.
+1. Clique em **Políticas** **e,** em seguida, adicionar a política .
 
-1. Digite um nome e uma descrição para a política.
+1. Digite um nome e uma descrição para a apólice.
 
     ![Criar política com nome e descrição](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
 1. Clique em **Avançar** para abrir a guia **solicitações** .
 
-1. Execute as etapas em uma das seções de solicitação a seguir.
+1. Execute os passos numa das seguintes secções de pedido.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
-Se você estiver editando uma política, clique em **Atualizar**. Se você estiver adicionando uma nova política, clique em **criar**.
+Se estiver a editar uma política clique em **Atualizar**. Se estiver a adicionar uma nova política, clique em **Criar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Alterar as configurações do ciclo de vida de um pacote de acesso](entitlement-management-access-package-lifecycle-policy.md)
-- [Exibir solicitações para um pacote de acesso](entitlement-management-access-package-requests.md)
+- [Alterar as definições de ciclo de vida para um pacote de acesso](entitlement-management-access-package-lifecycle-policy.md)
+- [Ver pedidos de um pacote de acesso](entitlement-management-access-package-requests.md)

@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-volume de malha sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir recursos de volume.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: e77c98bf384278b0bf27bb0f30f425375093ffab
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645315"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905905"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Obter e excluir recursos de volume.
@@ -32,7 +32,7 @@ Exclui o recurso de volume identificado pelo nome.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome do volume. |
+| --nome -n [Obrigatório] | O nome do volume. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -68,7 +68,7 @@ Obtém as informações sobre o recurso de volume com o nome fornecido. As infor
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome do volume. |
+| --nome -n [Obrigatório] | O nome do volume. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

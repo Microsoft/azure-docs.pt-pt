@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-sfctl rpm
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o serviço do Gerenciador de reparo.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639093"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904940"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço do Gerenciador de reparo.
@@ -32,7 +32,7 @@ Esta API dá suporte à plataforma Service Fabric; Ele não deve ser usado diret
 
 |Argumento|Descrição|
 | --- | --- |
-| --Task-ID [obrigatório] | A ID da tarefa de reparo. |
+| --task-id [Obrigatório] | A ID da tarefa de reparo. |
 | --versão | O número da versão atual da tarefa de reparo. Se for diferente de zero, a solicitação só terá sucesso se esse valor corresponder à versão real atual da tarefa de reparo. Se for zero, nenhuma verificação de versão será executada. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -54,7 +54,7 @@ Esta API dá suporte à plataforma Service Fabric; Ele não deve ser usado diret
 
 |Argumento|Descrição|
 | --- | --- |
-| --Task-ID [obrigatório] | A ID da tarefa de reparo concluída a ser excluída. |
+| --task-id [Obrigatório] | A ID da tarefa de reparo concluída a ser excluída. |
 | --versão | O número da versão atual da tarefa de reparo. Se for diferente de zero, a solicitação só terá sucesso se esse valor corresponder à versão real atual da tarefa de reparo. Se for zero, nenhuma verificação de versão será executada. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -77,7 +77,7 @@ Esta API dá suporte à plataforma Service Fabric; Ele não deve ser usado diret
 |Argumento|Descrição|
 | --- | --- |
 | --executor-filter | O nome do executor de reparo cujas tarefas reivindicadas devem ser incluídas na lista. |
-| --Estado-filtro | Um bit ou dos valores a seguir, especificando quais Estados de tarefa devem ser incluídos na lista de resultados. <br> 1-criado <br>2-declarado  <br>4-preparando  <br>8-aprovado  <br>16-executando  <br>32-restaurando  <br>64-concluído |
+| --Estado-filtro | Um bit ou dos valores a seguir, especificando quais Estados de tarefa devem ser incluídos na lista de resultados. <ul><li>1-criado</li><li>2 - Reclamado</li><li>4 - Preparação</li><li>8 - Aprovado</li><li>16 - Execução</li><li>32 - Restauro</li><li>64-concluído</li></ul>
 | --ID-da-tarefa-filtro | O prefixo da ID da tarefa de reparo a ser correspondido. |
 
 ### <a name="global-arguments"></a>Argumentos globais

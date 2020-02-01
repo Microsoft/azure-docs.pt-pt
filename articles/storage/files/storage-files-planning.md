@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771620"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906265"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -132,7 +132,7 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 |102.400     | 100.000 | Até 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
-> O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base no teste interno com 8 tamanhos de e/s de leitura/gravação de KiB, uma única máquina virtual do Windows, *F16s_v2 padrão*, conectada ao compartilhamento de arquivos Premium em SMB poderia alcançar IOPS de leitura de 20 mil e IOPS de gravação de 15.000. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
+> O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base em testes internos com 8 tamanhos de IO de leitura/escrita KiB, uma única máquina virtual do Windows, *Standard F16s_v2*, ligada à partilha de ficheiros premium sobre SMB poderia atingir IOPS de leitura de 20K e 15K escrever IOPS. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
 
 #### <a name="bursting"></a>Bursting
 
@@ -174,7 +174,7 @@ As seções a seguir descrevem as diferenças entre as diferentes opções de re
 > [!Warning]  
 > Se você estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, não deverá iniciar o failover da conta de armazenamento. Se a fizer, fará com que a sincronização deixe de funcionar e poderá também causar perdas de dados inesperadas em caso de ficheiros com novo escalão. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de forma que seja compatível com Sincronização de Arquivos do Azure.
 
-O GRS (armazenamento com redundância geográfica) foi projetado para fornecer pelo menos a durabilidade da 99.99999999999999% (16 9) de objetos em um determinado ano, replicando seus dados para uma região secundária que está a centenas de quilômetros de distância da região primária. Se sua conta de armazenamento tiver o GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável.
+O armazenamento geo-redundante (GRS) foi concebido para fornecer pelo menos 99.99999999999% (16 9's) durabilidade de objetos ao longo de um determinado ano, replicando os seus dados para uma região secundária que está a centenas de milhas da região primária. Se sua conta de armazenamento tiver o GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável.
 
 Se você optar pelo armazenamento com redundância geográfica com acesso de leitura (RA-GRS), deverá saber que o arquivo do Azure não oferece suporte ao armazenamento com redundância geográfica com acesso de leitura (RA-GRS) em qualquer região no momento. Os compartilhamentos de arquivos na conta de armazenamento RA-GRS funcionam como no GRS contas e são cobrados preços GRS.
 
@@ -186,7 +186,7 @@ As regiões primária e secundária gerenciam réplicas em domínios de falha e 
 
 Tenha esses pontos em mente ao decidir qual opção de replicação usar:
 
-* O armazenamento com redundância de zona geográfica (GZRS) (visualização) fornece alta disponibilidade junto com a durabilidade máxima, replicando os dados de forma síncrona em três zonas de disponibilidade do Azure e, em seguida, replicando os dados de maneira assíncrona para a região secundária. Você também pode habilitar o acesso de leitura para a região secundária. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. Para obter mais informações sobre o GZRS, consulte [armazenamento com redundância de zona geográfica para alta disponibilidade e durabilidade máxima (versão prévia)](../common/storage-redundancy-gzrs.md).
+* O armazenamento com redundância de zona geográfica (GZRS) (visualização) fornece alta disponibilidade junto com a durabilidade máxima, replicando os dados de forma síncrona em três zonas de disponibilidade do Azure e, em seguida, replicando os dados de maneira assíncrona para a região secundária. Você também pode habilitar o acesso de leitura para a região secundária. A GZRS foi concebida para fornecer pelo menos 99.9999999999999999999999999% (16 9's) durabilidade de objetos durante um determinado ano. Para obter mais informações sobre o GZRS, consulte [armazenamento com redundância de zona geográfica para alta disponibilidade e durabilidade máxima (versão prévia)](../common/storage-redundancy-gzrs.md).
 * O ZRS (armazenamento com redundância de zona) fornece alta disponibilidade com replicação síncrona e pode ser uma opção melhor para alguns cenários do que GRS. Para obter mais informações sobre o ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
 * A replicação assíncrona envolve um atraso desde o momento em que os dados são gravados na região primária, até quando eles são replicados para a região secundária. No caso de um desastre regional, as alterações que ainda não foram replicadas para a região secundária poderão ser perdidas se esses dados não puderem ser recuperados da região primária.
 * Com o GRS, a réplica não está disponível para acesso de leitura ou gravação, a menos que a Microsoft inicie um failover para a região secundária. No caso de um failover, você terá acesso de leitura e gravação a esses dados após a conclusão do failover. Para obter mais informações, consulte [diretrizes de recuperação de desastre](../common/storage-disaster-recovery-guidance.md).
@@ -201,49 +201,14 @@ Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos 
 
 ### <a name="regional-availability"></a>Disponibilidade regional
 
-Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões de até 5 TiB. Em determinadas regiões, elas estão disponíveis com um limite de TiB de 100, essas regiões são listadas na tabela a seguir:
+As ações de ficheiros standard com limite de capacidade de 100 TiB estão disponíveis globalmente em todas as regiões do Azure -
 
-|Região |Redundância com suporte |
-|-------|---------|
-|Austrália Central    |LRS     |
-|Austrália Central 2    |LRS     |
-|Leste da Austrália |LRS     |
-|Sudeste da Austrália|LRS |
-|Sul do Brasil    |LRS     |
-|Canadá Central  |LRS     |
-|Leste do Canadá     |LRS     |
-|Índia Central  |LRS     |
-|EUA Central *   |LRS, ZRS    |
-|Ásia Oriental      |LRS     |
-|Leste dos EUA *        |LRS, ZRS|
-|Leste dos EUA 2 *      |LRS, ZRS     |
-|França Central |LRS, ZRS|
-|Sul de França   |LRS     |
-|Leste do Japão     |LRS     |
-|Oeste do Japão     |LRS     |
-|Coreia do Sul Central  |LRS     |
-|Sul da Coreia do Sul    |LRS     |
-|E.U.A. Centro-Norte |LRS   |
-|Europa do Norte   |LRS     |
-|Sul da Índia    |LRS     |
-|E.U.A. Centro-Sul |LRS     |
-|Sudeste Asiático |LRS, ZRS|
-|Norte da Suíça    |LRS     |
-|Oeste da Suíça    |LRS     |
-|E.A.U. Central    |LRS     |
-|Norte dos E.A.U.    |LRS     |
-|Norte do Reino Unido   |LRS, ZRS    |
-|Sul do Reino Unido    |LRS     |
-|Oeste do Reino Unido    |LRS     |
-|E.U.A. Centro-Oeste|LRS     |
-|Europa Ocidental *    |LRS, ZRS|
-|Oeste da Índia   |LRS     |
-|E.U.A. Oeste        |LRS     |
-|E.U.A. Oeste 2      |LRS, ZRS|
+- LRS: Todas as regiões, exceto a África do Sul Norte e África do Sul Oeste.
+   - As nuvens nacionais (Governo, Alemanha, China) são suportadas através da PowerShell e da Azure Command Line Interface (CLI). Sem suporte do portal. 
+   - Leste dos EUA, LESTE DOS EUA, Europa Ocidental: Todas as novas contas são apoiadas. Um pequeno número de contas existentes não concluiu o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
 
-\* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
-
-Para nos ajudar a priorizar novas regiões e recursos, preencha esta [pesquisa](https://aka.ms/azurefilesatscalesurvey).
+- ZRS: Todas as regiões, exceto japão Leste, Norte da Europa, África do Sul Norte.
+- GRS/GZRS: Não suportado.
 
 ### <a name="enable-and-create-larger-file-shares"></a>Habilitar e criar compartilhamentos de arquivos maiores
 

@@ -4,16 +4,16 @@ description: Utilizar implementações automática no Azure IoT Edge para gerir 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/12/2019
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 406830add1891a058e9b43fccb8435aa4d339ed0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548684"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76895960"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas do IoT Edge para dispositivos individuais ou em escala
 
@@ -61,7 +61,7 @@ A condição de destino é avaliada continuamente durante o tempo de vida da imp
 
 Por exemplo, você tem uma implantação com uma condição de destino Tags. Environment = ' prod '. Quando iniciar a implementação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O status do agente de IoT Edge mostra 10 dispositivos no total, 10 respostas bem-sucedidas, 0 respostas de falha e 0 respostas pendentes. Agora, adicionar cinco dispositivos mais com tags.environment = 'prod'. O serviço detecta a alteração e o status do agente de IoT Edge se torna 15 dispositivos no total, 10 respostas bem-sucedidas, 0 respostas de falha e 5 respostas pendentes enquanto ele é implantado nos cinco novos dispositivos.
 
-Utilize qualquer condição booleana em etiquetas de gémeos de dispositivo ou deviceId para selecionar os dispositivos de destino. Se pretender utilizar a condição com etiquetas, tem de adicionar "etiquetas":{} secção no dispositivo duplo no mesmo nível que propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md)
+Utilize qualquer condição Boolean em etiquetas duplas do dispositivo, propriedades reportadas de dispositivos twin ou dispositivoId para selecionar os dispositivos-alvo. Se pretender utilizar a condição com etiquetas, tem de adicionar "etiquetas":{} secção no dispositivo duplo no mesmo nível que propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exemplos de condições de destino:
 
@@ -70,10 +70,11 @@ Exemplos de condições de destino:
 * tags.Environment = 'prod' e tags.location = 'westus'
 * tags.Environment = 'prod' OR tags.location = 'westus'
 * tags.Operator = "João" e tags.environment = 'prod' não deviceId = 'linuxprod1'
+* propriedades.reported.devicemodel = '4000x'
 
-Aqui estão alguns restringe ao construir uma condição de destino:
+Considere estes constrangimentos quando construir uma condição-alvo:
 
-* No dispositivo duplo, pode criar apenas uma condição de destino usando marcas ou deviceId.
+* No dispositivo twin, só é possível construir uma condição de destino utilizando tags, propriedades reportadas ou dispositivoId.
 * Aspas não são permitidas em qualquer parte a condição de destino. Utilize plicas.
 * Aspas representam os valores da condição de destino. Por conseguinte, tem de escapar a aspa de segurança com outro aspa se faz parte do nome do dispositivo. Por exemplo, para um dispositivo de destino chamado `operator'sDevice`, escrever `deviceId='operator''sDevice'`.
 * Números, letras e os seguintes carateres são permitidos valores de condição de destino: `-:.+%_#*?!(),=@;$`.
@@ -92,8 +93,8 @@ Por padrão, todas as implantações se reportam em quatro métricas:
 
 * **Direcionado** mostra os dispositivos IOT Edge que correspondem à condição de direcionamento de implantação.
 * **Aplicado** mostra os dispositivos de IOT Edge de destino que não são direcionados por outra implantação de prioridade mais alta.
-* **Relatando êxito** mostra os dispositivos IOT Edge que relataram ao serviço que os módulos foram implantados com êxito.
-* **Falha de relatório** mostra os dispositivos IOT Edge que relataram ao serviço que um ou mais módulos não foram implantados com êxito. Para continuar a investigar o erro, ligar remotamente a esses dispositivos e ver os ficheiros de registo.
+* **Reportando o sucesso** mostra os dispositivos IoT Edge que reportaram que os módulos foram implantados com sucesso.
+* **Reporte Falha** mostra os dispositivos IoT Edge que reportaram que um ou mais módulos não foram implantados com sucesso. Para continuar a investigar o erro, ligar remotamente a esses dispositivos e ver os ficheiros de registo.
 
 Além disso, você pode definir suas próprias métricas personalizadas para ajudar a monitorar e gerenciar a implantação.
 
@@ -112,7 +113,7 @@ Implantações em camadas são implantações automáticas que podem ser combina
 
 Implantações em camadas têm os mesmos componentes básicos que qualquer implantação automática. Eles direcionam dispositivos com base em marcas no dispositivo gêmeos e fornecem a mesma funcionalidade em relação a rótulos, métricas e relatórios de status. Implantações em camadas também têm prioridades atribuídas a elas, mas em vez de usar a prioridade para determinar qual implantação é aplicada a um dispositivo, a prioridade determina como várias implantações são classificadas em um dispositivo. Por exemplo, se duas implantações em camadas tiverem um módulo ou uma rota com o mesmo nome, a implantação em camadas com a prioridade mais alta será aplicada enquanto a prioridade mais baixa for substituída.
 
-Os módulos de tempo de execução do sistema, edgeAgent e edgeHub, não são configurados como parte de uma implantação em camadas. Qualquer dispositivo IoT Edge de destino de uma implantação em camadas precisa de uma implantação automática padrão aplicada a ele primeiro para fornecer a base sobre a qual as implantações em camadas podem ser adicionadas.
+Os módulos de tempo de execução do sistema, edgeAgent e edgeHub, não são configurados como parte de uma implantação em camadas. Qualquer dispositivo IoT Edge visado por uma implementação em camadas precisa de uma implementação automática padrão aplicada primeiro. A implantação automática fornece a base sobre a qual podem ser adicionadas implantações em camadas.
 
 Um dispositivo IoT Edge pode aplicar apenas uma implantação automática padrão, mas pode aplicar várias implantações automáticas em camadas. Todas as implantações em camadas direcionadas a um dispositivo devem ter uma prioridade mais alta do que a implantação automática para esse dispositivo.
 
@@ -141,7 +142,7 @@ Por exemplo, em uma implantação padrão, você pode adicionar o módulo sensor
 }
 ```
 
-Em uma implantação em camadas direcionando os mesmos dispositivos ou um subconjunto dos mesmos dispositivos, talvez você queira adicionar uma propriedade adicional que informe ao sensor simulado para enviar mensagens 1000 e, em seguida, parar. Você não quer substituir as propriedades existentes, portanto, você cria uma nova seção dentro das propriedades desejadas chamada `layeredProperties`, que contém a nova propriedade:
+Numa implementação em camadas que visa alguns ou todos os mesmos dispositivos, pode adicionar uma propriedade que diga ao sensor simulado para enviar 1000 mensagens e depois parar. Você não quer substituir as propriedades existentes, portanto, você cria uma nova seção dentro das propriedades desejadas chamada `layeredProperties`, que contém a nova propriedade:
 
 ```json
 "SimulatedTemperatureSensor": {
@@ -184,7 +185,7 @@ Uma implementação faseada é executada nas seguintes fases e passos:
 
 Implementações podem ser revertidas caso receberá erros ou configurações incorretas. Como uma implantação define a configuração de módulo absoluta para um dispositivo IoT Edge, uma implantação adicional também deve ser direcionada para o mesmo dispositivo em uma prioridade mais baixa, mesmo se a meta for remover todos os módulos.  
 
-A exclusão de uma implantação não remove os módulos dos dispositivos de destino. Deve haver outra implantação que defina uma nova configuração para os dispositivos, mesmo se for uma implantação vazia.
+Eliminar uma implementação não remove os módulos dos dispositivos direcionados. Deve haver outra implantação que defina uma nova configuração para os dispositivos, mesmo se for uma implantação vazia.
 
 Execute reversões a seguinte sequência:
 

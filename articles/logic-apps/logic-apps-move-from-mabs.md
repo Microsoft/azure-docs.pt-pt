@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666657"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905428"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre seus aplicativos e soluções dos serviços BizTalk para os aplicativos lógicos do Azure
 
@@ -41,7 +41,7 @@ Esta tabela mapeia os recursos dos serviços BizTalk para aplicativos lógicos.
 | Estágio de transformação    | Ação de transformação      | Converter mensagens XML de um formato para outro |
 | Estágio de decodificação       | Ação de decodificação de arquivo simples | Converter de arquivo simples em XML |
 | Estágio de codificação       | Ação de codificação de arquivo simples | Converter de XML em arquivo simples |
-| Inspetor de Mensagem  | Azure Functions ou aplicativos de API | Executar código personalizado em suas integrações |
+| Inspetor de Mensagens  | Azure Functions ou aplicativos de API | Executar código personalizado em suas integrações |
 | Ação de rota       | Condição ou comutador | Rotear mensagens para um dos conectores especificados |
 |||| 
 
@@ -125,7 +125,7 @@ Ao contrário dos serviços BizTalk, essas ações são dissociadas dos protocol
 
 ## <a name="manage-and-monitor"></a>Gerir e monitorizar
 
-Nos serviços BizTalk, um portal dedicado fornecia recursos de controle para monitorar e solucionar problemas. Os aplicativos lógicos fornecem recursos mais avançados de rastreamento e monitoramento por meio do [portal do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md)e inclui um aplicativo móvel para ficar atento às coisas quando você está em movimento.
+Nos serviços BizTalk, um portal dedicado fornecia recursos de controle para monitorar e solucionar problemas. A Logic Apps fornece capacidades de rastreio e monitorização mais ricas para [monitorizar aplicações lógicas no portal Azure](../logic-apps/monitor-logic-apps.md), e inclui uma aplicação móvel para manter um olho nas coisas quando está em movimento.
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 

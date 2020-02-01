@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457077"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906977"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência-cotas e limitação do Hub IoT
 
@@ -101,12 +101,13 @@ O Hub IoT impõe outros limites operacionais:
 | Pontos de extremidade adicionais | Os hubs de SKU pagos podem ter 10 pontos de extremidade adicionais. Os hubs SKU gratuitos podem ter um ponto de extremidade adicional. |
 | Consultas de roteamento de mensagens | Os hubs de SKU pagos podem ter 100 consultas de roteamento. Os hubs SKU gratuitos podem ter cinco consultas de roteamento. |
 | Melhoramentos das mensagens | Os hubs de SKU pagos podem ter até 10 aprimoramentos de mensagens. Os hubs de SKU gratuitos podem ter até 2 aprimoramentos de mensagens.|
-| Mensagens de dispositivo para cloud | Tamanho máximo de mensagem de 256 KB |
+| Mensagens dispositivo-a-nuvem | Tamanho máximo de mensagem de 256 KB |
 | Mensagens da nuvem para o dispositivo<sup>1</sup> | Tamanho máximo de mensagem de 64 KB. O máximo de mensagens pendentes para entrega é de 50 por dispositivo. |
 | Método direto<sup>1</sup> | O tamanho máximo do payload de método direto é 128 KB. |
 | Configurações automáticas de dispositivo e módulo<sup>1</sup> | configurações de 100 por Hub SKU pago. 20 configurações por Hub SKU gratuito. |
 | IoT Edge implantações automáticas<sup>1</sup> | 20 módulos por implantação. 100 implantações (incluindo implantações em camadas) por Hub SKU pago. 10 implantações por Hub SKU gratuito. |
 | Gêmeos<sup>1</sup> | O tamanho máximo das seções desejadas e das propriedades relatadas são 32 KB. O tamanho máximo da seção de marcas é 8 KB. |
+| Políticas de acesso partilhado | Número máximo de políticas de acesso partilhado é de 16 |
 
 <sup>1</sup> Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [como escolher o Hub IOT correto](iot-hub-scaling.md).
 

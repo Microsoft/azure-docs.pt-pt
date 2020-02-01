@@ -3,12 +3,12 @@ title: Funções de modelo – recursos
 description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 9021d7419820a9d321658c2b1fea8edb7e79b9a0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b8d0a3e60654c9d3f951c6f288ea904bb4c0d50b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773241"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900642"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -479,7 +479,7 @@ Utilize `'Full'` quando necessitar de valores do recurso que não fazem parte do
     "tenantId": "[subscription().tenantId]",
     "accessPolicies": [
       {
-        "tenantId": "[reference(reosurceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.tenantId]",
+        "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.tenantId]",
         "objectId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.principalId]",
         "permissions": {
           "keys": [

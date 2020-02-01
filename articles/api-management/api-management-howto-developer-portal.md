@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045574"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898842"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal do desenvolvedor do gerenciamento de API do Azure
 
@@ -213,6 +213,18 @@ Esse erro é mostrado quando uma chamada de `GET` para `https://<management-endp
 Se o serviço de gerenciamento de API estiver em uma VNet, consulte a pergunta de conectividade de VNet acima.
 
 A falha de chamada também pode ser causada por um certificado SSL, que é atribuído a um domínio personalizado e não é confiável para o navegador. Como uma mitigação, você pode remover o ponto de extremidade de gerenciamento domínio personalizado-o gerenciamento de API voltará ao ponto de extremidade padrão com um certificado confiável.
+
+### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
+
+| Browser                     | Suportadas       |
+|-----------------------------|-----------------|
+| Apple Safari                | Sim<sup>1</sup> |
+| Google Chrome               | Sim<sup>1</sup> |
+| Microsoft Edge              | Sim<sup>1</sup> |
+| Microsoft Internet Explorer | Não              |
+| Mozilla Firefox             | Sim<sup>1</sup> |
+
+ <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>
 
 ## <a name="next-steps"></a>Passos seguintes
 

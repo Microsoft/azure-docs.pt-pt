@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760016"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905756"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Versão prévia: criar um modelo do construtor de imagens do Azure 
 
@@ -317,6 +317,8 @@ Personalizar propriedades:
 - **restartCheckCommand** – comando para verificar se a reinicialização foi bem-sucedida (opcional). 
 - **restartTimeout** -tempo limite de reinicialização especificado como uma cadeia de magnitude e unidade. Por exemplo, `5m` (5 minutos) ou `2h` (2 horas). O padrão é: ' 5 min '
 
+### <a name="linux-restart"></a>Reinício do Linux  
+No entanto, não existe um personalizador Linux Restart, se estiver a instalar controladores ou componentes que exijam um reinício, pode instalá-los e invocar um reinício utilizando o personalizadora Shell, existindo um intervalo de 20min SSH para o VM de construção.
 
 ### <a name="powershell-customizer"></a>Personalizador do PowerShell 
 O personalizador de shell dá suporte à execução de scripts do PowerShell e ao comando embutido, os scripts devem ser publicamente acessíveis para que o IB possa acessá-los.

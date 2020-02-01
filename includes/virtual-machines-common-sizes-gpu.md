@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: b9637265d263a75949d5a70c3e4f0ce06044d93c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 0f15a6a277020d593465fa0aa78fc434413c4545
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902050"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909149"
 ---
 Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas disponíveis com uma ou várias GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho com uso intensivo de computação, gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda da rede também estão incluídas para cada tamanho neste agrupamento.
 
@@ -109,13 +109,13 @@ As instâncias de NDv2 fornecem um desempenho excelente para cargas de trabalho 
 
 De forma crucial, o NDv2 é criado para expansão computacionalmente intensa (aproveitando 8 GPUs por VM) e escalar horizontalmente (aproveitando várias VMs trabalhando juntas) cargas de trabalho. A série NDv2 agora dá suporte à rede de back-end Gigabit InfiniBand EDR de 100, semelhante àquela disponível na série HB da VM HPC, para permitir o clustering de alto desempenho para cenários paralelos, incluindo treinamento distribuído para ia e ML. Essa rede de back-end dá suporte a todos os principais protocolos InfiniBand, incluindo aqueles empregados pelas bibliotecas NCCL2 da NVIDIA, permitindo um clustering contínuo de GPUs.
 
-> Ao [habilitar a InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) na VM ND40rs_v2, use o driver 4.7-1.0.0.1 Mellanox ofed.
+> Ao [ativar a InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) no ND40rs_v2 VM, utilize o condutor 4.7-1.1.0.0.1 Mellanox OFED.
 
-> Devido à maior memória da GPU, o novo ND40rs_v2 VM requer o uso de [VMs de geração 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e imagens do Marketplace. 
+> Devido ao aumento da memória gpu, o novo ND40rs_v2 VM requer a utilização de [VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) de Geração 2 e imagens de mercado. 
 
 > [Inscreva-se para solicitar acesso antecipado à visualização da máquina virtual NDv2.](https://aka.ms/AzureNDrv2Preview)
 
-> Observação: o ND40s_v2 incluindo 16 GB de memória por GPU não está mais disponível para visualização e foi substituído pelo ND40rs_v2 atualizado.
+> Nota: O ND40s_v2 com 16 GB de memória por GPU já não está disponível para pré-visualização e foi substituído pela ND40rs_v2 atualizada.
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | Débito máximo do disco não colocado em cache: IOPS/MBps | Largura de banda máxima da rede | NICs máximos |
@@ -157,7 +157,7 @@ Cada GPU em instâncias NV vem com uma licença de grade. Essa licença oferece 
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário em GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | NICs máximos | Estações de trabalho virtuais | Aplicações Virtuais |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |380 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
@@ -175,9 +175,9 @@ Cada GPU em instâncias de NVv3 vem com uma licença de grade. Essa licença ofe
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário em GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs máximos | Estações de trabalho virtuais | Aplicações Virtuais | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV12s_v3 |12 |112 |320 | 1 | 8 | 12 | 20000/200 | 4 | 1 | 25 |
-| Standard_NV24s_v3 |24 |224 |640 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
-| Standard_NV48s_v3 |48 |448 |1280 | 4 | 32 | 32 | 80000/800 | 8 | 4 | 100 |
+| Standard_NV12s_v3 |12 |112 |336 | 1 | 8 | 12 | 20000/200 | 4 | 1 | 25 |
+| Standard_NV24s_v3 |24 |224 |672 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
+| Standard_NV48s_v3 |48 |448 |1344 | 4 | 32 | 32 | 80000/800 | 8 | 4 | 100 |
 
 1 GPU = metade de uma placa M60.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: 934c99c25ca37526ac31fd9bbaf58623fdbdf166
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 236f79c9060a0d6fdcb0f558373d02f32eba7abb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764392"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905600"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas no Azure HDInsight
 
@@ -45,6 +45,10 @@ As identidades geridas são usadas no Azure HDInsight em vários cenários. Cons
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity) (Armazenamento do Azure Data Lake Gen2)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Traga a sua própria chave (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
+
+## <a name="faq"></a>FAQ
+### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>O que acontece se eu apagar a identidade gerida após a criação do cluster?
+O seu aglomerado terá problemas quando a identidade gerida for necessária. Não existe atualmente forma de atualizar ou alterar a idenidade de gestão após a criação do cluster. Por conseguinte, a nossa recomendação é que a identidade gerida não seja eliminada durante o período de execução do cluster. Em alternativa, pode recriar o cluster e atribuir uma nova identidade gerida.
 
 ## <a name="next-steps"></a>Passos seguintes
 

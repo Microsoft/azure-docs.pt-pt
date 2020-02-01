@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 5a3a7d79e43a4e0b4a160837be4d7f3cc33f4a91
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8d43965e87ab57d9f0c79c6661a761b06ccb7073
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911944"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902111"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando Python
 
@@ -110,13 +110,16 @@ Se o resultado contiver `provisioningState` com o valor `Succeeded`, o cluster f
     databaseName="mykustodatabase"
     
     database_operations = kusto_management_client.databases 
-    _database = Database(location=location,
+    _database = ReadWriteDatabase(location=location,
                         soft_delete_period=softDeletePeriod,
                         hot_cache_period=hotCachePeriod)
     
     #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
     poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
+
+        [!NOTE]
+        If you are using Python version 0.4.0 or below, use Database instead of ReadWriteDatabase.
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|

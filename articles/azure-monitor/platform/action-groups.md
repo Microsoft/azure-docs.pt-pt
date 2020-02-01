@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659836"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901482"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ação no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Azure Monitor e alertas de integridade do serviço usam grupos de ação para notificar os usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ações ou grupos de ação diferentes, dependendo dos requisitos do usuário. Você pode configurar até 2.000 grupos de ação em uma assinatura.
@@ -72,12 +72,12 @@ Depois de criar um grupo de ações, ele fica visível na seção **grupos de a�
 > [!NOTE]
 > Consulte [limites de serviço de assinatura para o monitoramento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) de limites numéricos em cada um dos itens abaixo.  
 
-### <a name="automation-runbook"></a>Runbook de Automatização
+### <a name="automation-runbook"></a>Livro de Execução da Automação
 Consulte os [limites do serviço de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para limites em cargas de runbook.
 
 Você pode ter um número limitado de ações de runbook em um grupo de ações. 
 
-### <a name="azure-app-push-notifications"></a>Notificações Push da aplicação do Azure
+### <a name="azure-app-push-notifications"></a>Notificações push da aplicação Azure
 Você pode ter um número limitado de ações de aplicativo do Azure em um grupo de ação.
 
 ### <a name="email"></a>E-mail
@@ -88,13 +88,13 @@ Os emails serão enviados dos endereços de email a seguir. Verifique se a filtr
 
 Você pode ter um número limitado de ações de email em um grupo de ações. Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>Enviar e-mail de Função do Azure Resource Manager
+### <a name="email-azure-resource-manager-role"></a>Papel de Gestor de Recursos Azure de e-mail
 Envie um email para os membros da função da assinatura.
 
 Você pode ter um número limitado de ações de email em um grupo de ações. Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 ### <a name="function"></a>Função
-As chaves de função para aplicativos de funções configuradas como ações são lidas por meio da API do functions, que atualmente requer que os aplicativos de função v2 definam a configuração do aplicativo "AzureWebJobsSecretStorageType" como "Files". Para obter mais informações, consulte [alterações no gerenciamento de chaves no functions v2]( https://aka.ms/funcsecrets).
+Chama um ponto final de gatilho HTTP existente nas [funções azure](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 Você pode ter um número limitado de ações de função em um grupo de ações.
 

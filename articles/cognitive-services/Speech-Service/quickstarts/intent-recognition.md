@@ -1,22 +1,22 @@
 ---
 title: 'Início rápido: reconhecer fala, intenções e entidades – serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará o SDK de fala para reconhecer de forma interativa a fala de dados de áudio capturados de um microfone.
+description: Neste arranque rápido, utilizará o SDK do Discurso para reconhecer interativamente a fala a partir de dados áudio capturados a partir de um microfone.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9dd8a4d9d8dddb7ee8c8a34673ea635748927584
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: aed998c5980b390d0c1cdafe6ac9ea9d28bc51f6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660542"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900380"
 ---
 # <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Início rápido: reconhecer fala, intenções e entidades com Reconhecimento vocal (LUIS)
 

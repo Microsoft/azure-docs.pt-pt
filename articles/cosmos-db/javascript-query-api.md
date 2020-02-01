@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com API de consulta integrada do JavaScript no Azure Cosmos DB
+title: Trabalho com javaScript consulta integrada API em Procedimentos e Gatilhos Azure Cosmos DB Armazenados
 description: Este artigo apresenta os conceitos da API de consulta integrada à linguagem JavaScript para criar procedimentos armazenados e gatilhos no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445319"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901832"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta JavaScript no Azure Cosmos DB
 
-Além de emitir consultas usando a API do SQL no Azure Cosmos DB, o [SDK do lado do servidor Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) permite que você execute consultas otimizadas usando uma interface JavaScript. Você não precisa estar ciente da linguagem SQL para usar essa interface JavaScript. A API de consulta JavaScript permite que você crie consultas programaticamente passando funções de predicado em sequência de chamadas de função, com uma sintaxe familiar a ECMAScript5'ss internas de matriz e bibliotecas JavaScript populares como Lodash. As consultas são analisadas pelo tempo de execução do JavaScript e executadas com eficiência usando índices Azure Cosmos DB.
+Além de emitir consultas utilizando o SQL API em Azure Cosmos DB, o [SDK](https://azure.github.io/azure-cosmosdb-js-server/) do lado do servidor Cosmos DB fornece uma interface JavaScript para realizar consultas otimizadas em Procedimentos e Gatilhos Da Cosmos DB Stored. Você não precisa estar ciente da linguagem SQL para usar essa interface JavaScript. A API de consulta JavaScript permite que você crie consultas programaticamente passando funções de predicado em sequência de chamadas de função, com uma sintaxe familiar a ECMAScript5'ss internas de matriz e bibliotecas JavaScript populares como Lodash. As consultas são analisadas pelo tempo de execução do JavaScript e executadas com eficiência usando índices Azure Cosmos DB.
 
 ## <a name="supported-javascript-functions"></a>Funções JavaScript com suporte
 
@@ -29,11 +29,11 @@ Além de emitir consultas usando a API do SQL no Azure Cosmos DB, o [SDK do lado
 |`pluck([propertyName] [, options] [, callback])`|Esta função é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.|
 |`sortBy([predicate] [, options] [, callback])`|Produz um novo conjunto de documentos classificando os documentos no fluxo do documento de entrada em ordem crescente usando o predicado fornecido. Esta função tem um comportamento semelhante a uma cláusula ORDER BY em SQL.|
 |`sortByDescending([predicate] [, options] [, callback])`|Produz um novo conjunto de documentos classificando os documentos no fluxo do documento de entrada em ordem decrescente usando o predicado fornecido. Esta função tem um comportamento semelhante a uma cláusula ORDER BY x DESC em SQL.|
-|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Executa uma autojunção com matriz interna e adiciona resultados de ambos os lados como tuplas à projeção de resultado. Por exemplo, ingressar em um documento de pessoa com Person. pets produzirá tuplas [pessoas, animais]. Isso é semelhante ao SelectMany no LINK do .NET.|
+|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Executa uma autojunção com matriz interna e adiciona resultados de ambos os lados como tuplas à projeção de resultado. Por exemplo, juntar-se a um documento de pessoa com pessoa.animais de estimação produziria tuples [pessoa, animal de estimação]. Isso é semelhante ao SelectMany no LINK do .NET.|
 
 Quando incluídos no interior do predicado de e/ou o Seletor de funções, as construções de JavaScript seguintes serão automaticamente otimizadas para ser executado diretamente no Azure Cosmos DB índices:
 
-- Operadores simples: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
+- Operadores simples: `=` `+` `>>>!` `>>` `<<` `||` `>=` `<=` `>` `<` `!===` `!=` `==` `&` `%` `*` `-`  `/`  `|` `^`    `===` `&&`       `~`
 - Literais, incluindo o literal de objeto: {}
 - var, retorno
 
@@ -49,7 +49,7 @@ Para obter mais informações, consulte a [documentação de JavaScript do lado 
 A tabela seguinte apresenta várias consultas SQL e as consultas de JavaScript correspondentes. Assim como acontece com as consultas SQL, as propriedades (por exemplo, item.id) diferenciam maiúsculas de minúsculas.
 
 > [!NOTE]
-> `__` (sublinhado duplo) é um alias a ser `getContext().getCollection()` ao usar a API de consulta JavaScript.
+> `__` (double-underscore) é um pseudónimo para `getContext().getCollection()` ao utilizar a API de consulta JavaScript.
 
 |**SQL**|**API de consulta JavaScript**|**Descrição**|
 |---|---|---|

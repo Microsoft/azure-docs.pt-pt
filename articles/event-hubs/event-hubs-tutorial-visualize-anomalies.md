@@ -8,19 +8,19 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/20/2019
-ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437151"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906395"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
 Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estiverem enviando transações de cartão de crédito e você precisar capturar em qualquer lugar em que tenha várias transações em vários países/regiões dentro de um intervalo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
 
-Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, vai ler o fluxo de dados em tempo real com o Azure Stream Analytics, que separa as transações válidas das transações inválidas e, em seguida, vai utilizar o Power BI para identificar visualmente as transações que estão identificadas como inválidas.
+Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Depois lê-se o fluxo de dados em tempo real com o Azure Stream Analytics, que separa as transações válidas das transações inválidas e, em seguida, utiliza o Power BI para identificar visualmente as transações que são marcadas como inválidas.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -156,21 +156,21 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Executar a aplicação para produzir dados de evento de teste
 
-Os [exemplos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) de Hubs de Eventos incluem uma [aplicação de deteção de anomalias](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) que produz os dados de teste. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
+As amostras do Event Hubs [no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluem uma aplicação do Detetor de Anomalias que produz dados de teste para si. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
 
 1. Transfira os [exemplos de Hubs de Eventos do Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) do GitHub e deszipe o ficheiro localmente.
+2. Navegue para a pasta **\azure-event-hubs-master\samples\DotNet\\** pasta. 
+3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector\\** e clique em **anomalyDetector.sln** para abrir a solução no Estúdio Visual. 
 
-2. Aceda à pasta \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ e faça duplo clique em AnomalyDetector.sln para abrir a solução no Visual Studio. 
-
+    Para utilizar a versão antiga da amostra que utiliza o antigo pacote Microsoft.Azure.EventHubs, abra a solução a partir da pasta **Microsoft.Azure.EventHubs\AnomalyDetector.** 
 3. Abra o ficheiro Program.cs e substitua **Event Hubs connection string** pela cadeia de ligação que guardou quando executou o script. 
-
 4. Substitua **Event Hub name** pelo nome do seu hub de eventos. Clique em F5 para executar a aplicação. A aplicação começa a enviar eventos para o hub de eventos e continua até ter enviado 1000 eventos. Existem alguns casos em que a aplicação precisa de estar a ser executada para que possa obter os dados. Estes casos são indicados nas instruções seguintes, quando necessário.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurar o Azure Stream Analytics
 
 Agora, pode transmitir dados em fluxo para o seu hub de eventos. Para utilizar esses dados numa visualização do Power BI, comece por configurar uma tarefa do Stream Analytics para obter os dados que, em seguida, são fornecidos para a visualização do Power BI.
 
-### <a name="create-the-stream-analytics-job"></a>Criar a tarefa do Stream Analytics
+### <a name="create-the-stream-analytics-job"></a>Criar tarefa do Stream Analytics
 
 1. No portal do Azure, clique em **Criar um recurso**. Escreva **stream analytics** na caixa de pesquisa e prima **Enter**. Selecione **Tarefa do Stream Analytics**. Clique em **Criar** no painel de tarefas do Stream Analytics. 
 
@@ -221,7 +221,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 
-1. Em **Topologia da Tarefa**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
+1. Em **Topologia de Tarefas**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
 
 2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
@@ -245,7 +245,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 Esta consulta serve para obter os dados que, por fim, são enviados para a visualização do Power BI. Utiliza **contosoinputs** e **contosooutputs**, que definiu anteriormente quando configurou a tarefa. Esta consulta obtém as transações de cartão de crédito que considera fraudulentas, que são transações nas quais o mesmo número de cartão de crédito tem várias transações em diferentes localizações no mesmo intervalo de cinco segundos.
 
-1. Em **Topologia da Tarefa**, clique em **Consulta**.
+1. Em **Topologia de Tarefas**, clique em **Consulta**.
 
 2. Substitua a consulta pela seguinte: 
 
@@ -306,7 +306,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
    ![Captura de ecrã da especificação do nome do dashboard.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. Na página do Dashboard, clique em **Adicionar mosaico**, selecione **Dados de Transmissão em Fluxo Personalizados** na secção **DADOS EM TEMPO REAL** e, em seguida, clique em **Seguinte**.
+7. Na página do Dashboard, clique em **Adicionar azulejos,** selecione **Dados de Streaming Personalizados** na secção **DADOS EM TEMPO REAL** e, em seguida, clique **em Seguinte**.
 
    ![Captura de ecrã da especificação da origem do mosaico.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 58ee74f7b01738e67f9fddd39eb4eee59cdb65b6
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e4bba00d6506684a3baf345806bdaa340f6970ca
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774248"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909182"
 ---
 Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para node. js para:
 
@@ -189,7 +189,7 @@ Publique o aplicativo LUIS usando o método [app. publish](https://docs.microsof
 
 ## <a name="delete-a-language-understanding-app"></a>Excluir um aplicativo Reconhecimento vocal
 
-Publique o aplicativo LUIS usando o método [app. deleteMethod](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) . Isso exclui o aplicativo atual.
+Elimine a aplicação LUIS utilizando o método [app.deleteMethod.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) Isso exclui o aplicativo atual.
 
 [!code-javascript[Publish LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringDeleteApp&highlight=2)]
 

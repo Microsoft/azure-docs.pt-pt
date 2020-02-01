@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977818"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899107"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados por Application Insights e Log Analytics
 O serviço de [informações aplicativo azures](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário saber esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -56,6 +56,14 @@ Configuração de Status Monitor – necessária somente ao fazer alterações.
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços da qual os [testes de disponibilidade na Web](../../azure-monitor/app/monitor-web-app-availability.md) são executados. Se você quiser executar testes da Web em seu aplicativo, mas seu servidor Web estiver restrito a servir clientes específicos, você terá que permitir o tráfego de entrada de nossos servidores de teste de disponibilidade.
+
+Se estiver a utilizar os Grupos de Segurança da Rede Azure, basta adicionar uma **regra de porta de entrada** para permitir o tráfego a partir de testes de disponibilidade de Insights de Aplicação, selecionando a Etiqueta de **Serviço** como **Fonte** e **AplicaçãoInsightsDisponibilidade como** etiqueta de **serviço Fonte**.
+
+>[!div class="mx-imgBorder"]
+>![Sob definições, selecione as regras de segurança de entrada e, em seguida, selecione adicionar na parte superior do separador ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![Adicione](./media/ip-addresses/add-inbound-security-rule2.png) de separadores de regra de segurança de entrada
 
 Abra as portas 80 (http) e 443 (https) para o tráfego de entrada desses endereços (os endereços IP são agrupados por local):
 

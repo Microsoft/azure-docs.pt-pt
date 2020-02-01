@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/20/2019
-ms.openlocfilehash: 5ada5db0d9f3ea72eab93796d20023d89b7dd1ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/29/2020
+ms.openlocfilehash: 4c73a1e314888d99f4a5beea997265d28077e847
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889258"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898614"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: extrair, transformar e carregar dados usando Azure Databricks
 
@@ -63,7 +63,7 @@ Conclua estas tarefas antes de iniciar este tutorial:
 
       Se você preferir usar uma lista de controle de acesso (ACL) para associar a entidade de serviço a um arquivo ou diretório específico, referencie o [controle de acesso em Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
+   * Ao executar os passos nos [valores Get para assinar na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colhe o ID do inquilino, o ID da aplicação e os valores secretos num ficheiro de texto. Você precisará delas em breve.
 
 * Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
@@ -73,17 +73,17 @@ Certifique-se de concluir os pré-requisitos deste tutorial.
 
    Antes de começar, você deve ter estes itens de informação:
 
-   : heavy_check_mark: o nome do banco de dados, o nome do servidor de banco de dados, o nome de usuário e a senha do seu SQL data warehouse do Azure.
+   :heavy_check_mark: O nome da base de dados, o nome do servidor de base de dados, o nome do utilizador e a palavra-passe do seu armazém de dados Azure SQL.
 
-   : heavy_check_mark: a chave de acesso da sua conta de armazenamento de BLOBs.
+   :heavy_check_mark: A chave de acesso da sua conta de armazenamento blob.
 
-   : heavy_check_mark: o nome da sua conta de armazenamento de Data Lake Storage Gen2.
+   :heavy_check_mark: O nome da sua conta de armazenamento gen2 de armazenamento data Lake.
 
-   : heavy_check_mark: a ID de locatário da sua assinatura.
+   :heavy_check_mark: A identificação do inquilino da sua assinatura.
 
-   : heavy_check_mark: a ID de aplicativo do aplicativo que você registrou com Azure Active Directory (Azure AD).
+   :heavy_check_mark: O ID da aplicação que registou no Azure Ative Directory (Azure AD).
 
-   : heavy_check_mark: a chave de autenticação para o aplicativo que você registrou com o Azure AD.
+   :heavy_check_mark: A chave de autenticação da aplicação que registou na Azure AD.
 
 ## <a name="create-an-azure-databricks-service"></a>Criar um serviço de Azure Databricks
 
@@ -129,7 +129,7 @@ Nesta seção, você cria um serviço de Azure Databricks usando o portal do Azu
 
     * Introduza um nome para o cluster.
 
-    * Certifique-se de marcar a caixa de seleção **terminar depois de \_\_ minutos de inatividade** . Se o cluster não estiver sendo usado, forneça uma duração (em minutos) para encerrar o cluster.
+    * Certifique-se de que seleciona o **'Terminar' após \_\_ minutos da caixa de verificação de inatividade.** Se o cluster não estiver sendo usado, forneça uma duração (em minutos) para encerrar o cluster.
 
     * Selecione **Criar cluster**. Depois que o cluster estiver em execução, você poderá anexar blocos de anotações ao cluster e executar trabalhos do Spark.
 
@@ -171,23 +171,23 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
    ```scala
    val storageAccountName = "<storage-account-name>"
    val appID = "<app-id>"
-   val password = "<password>"
+   val secret = "<secret>"
    val fileSystemName = "<file-system-name>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type." + storageAccountName + ".dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type." + storageAccountName + ".dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id." + storageAccountName + ".dfs.core.windows.net", "" + appID + "")
-   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + password + "")
+   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + secret + "")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint." + storageAccountName + ".dfs.core.windows.net", "https://login.microsoftonline.com/" + tenantID + "/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://" + fileSystemName  + "@" + storageAccountName + ".dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Nesse bloco de código, substitua os valores de espaço reservado `<app-id>`, `<password>`, `<tenant-id>`e `<storage-account-name>` nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `<file-system-name>` por qualquer nome que você deseja dar ao sistema de arquivos.
+6. Neste bloco de código, substitua os valores `<app-id>`, `<secret>`, `<tenant-id>`e `<storage-account-name>` espaço reservado neste bloco de código supor os valores recolhidos ao completar os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `<file-system-name>` por qualquer nome que você deseja dar ao sistema de arquivos.
 
-   * O `<app-id>`e `<password>` são do aplicativo que você registrou com o Active Directory como parte da criação de uma entidade de serviço.
+   * Os `<app-id>`e `<secret>` são da app que registou com diretório ativo como parte da criação de um diretor de serviço.
 
    * O `<tenant-id>` é de sua assinatura.
 
@@ -242,7 +242,7 @@ Na célula, pressione **Shift + Enter** para executar o código.
 
 ## <a name="transform-data-in-azure-databricks"></a>Transformar dados no Azure Databricks
 
-Os dados brutos de exemplo **small_radio_json arquivo. JSON** capturam o público-alvo de uma estação de rádio e têm uma variedade de colunas. Nesta seção, você transforma os dados para recuperar apenas as colunas específicas do conjunto.
+Os dados da amostra crua **small_radio_json ficheiro.json** captura o público para uma estação de rádio e tem uma variedade de colunas. Nesta seção, você transforma os dados para recuperar apenas as colunas específicas do conjunto.
 
 1. Primeiro, recupere apenas as colunas **FirstName**, **LastName**, **sexo**, **Location**e **Level** a partir do dataframe que você criou.
 
@@ -368,7 +368,7 @@ Como mencionado anteriormente, o conector de SQL Data Warehouse usa o armazename
    ```
 
    > [!NOTE]
-   > Este exemplo usa o sinalizador `forward_spark_azure_storage_credentials`, que faz com que SQL Data Warehouse acesse dados do armazenamento de BLOBs usando uma chave de acesso. Esse é o único método de autenticação com suporte.
+   > Esta amostra utiliza a bandeira `forward_spark_azure_storage_credentials`, o que faz com que o SQL Data Warehouse aceda a dados do armazenamento de blob utilizando uma Chave de Acesso. Esse é o único método de autenticação com suporte.
    >
    > Se o armazenamento de BLOBs do Azure estiver restrito a selecionar redes virtuais, SQL Data Warehouse requer [identidade de serviço gerenciada em vez de chaves de acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso causará o erro "esta solicitação não está autorizada a executar esta operação".
 
@@ -386,7 +386,7 @@ Depois de concluir o tutorial, você pode encerrar o cluster. No espaço de trab
 
 ![Parar um cluster do databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se estiver inativo durante o tempo especificado.
+Se não encerrar manualmente o cluster, para automaticamente, desde que selecione o **Terminate após \_\_ minutos de** caixa de verificação de inatividade quando criou o cluster. Nesse caso, o cluster será interrompido automaticamente se estiver inativo durante o tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

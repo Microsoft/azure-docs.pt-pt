@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e37ff6e1bde594014510880492c2572ad1634400
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972836"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904409"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -176,6 +176,9 @@ Se a localização da definição é r:
 
 Utilizar **displayName** e **Descrição** para identificar a definição de política e fornecer contexto para quando é utilizado. **DisplayName** tem um comprimento máximo de _128_ caracteres e a **Descrição** é de um comprimento máximo de _512_ caracteres.
 
+> [!NOTE]
+> Durante a criação ou atualização de uma definição de política, **id,** **tipo,** e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. Buscar a definição de política via SDK devolve as propriedades **id**, **type**, e **nome** como parte do JSON, mas cada uma delas são informações apenas de leitura relacionadas com a definição de política.
+
 ## <a name="policy-rule"></a>regra de política
 
 A regra de política é composta por **se** e **, em seguida,** blocos. Na **se** bloco, define uma ou mais condições que especificar quando a política é imposta. Pode aplicar operadores lógicos para estas condições para definir exatamente o cenário para uma política.
@@ -270,15 +273,15 @@ São suportados os seguintes campos:
 - `tags['<tagName>']`
   - Essa sintaxe de colchete dá suporte a nomes de marca que têm pontuação, como um hífen, um ponto final ou um espaço.
   - Em que **\<tagName\>** é o nome da etiqueta para validar a condição para.
-  - Exemplos: `tags['Acct.CostCenter']` em que **Acct. CostCenter** é o nome da marca.
+  - Exemplos: `tags['Acct.CostCenter']` onde **acct.CostCenter** é o nome da etiqueta.
 - `tags['''<tagName>''']`
   - Essa sintaxe de colchetes dá suporte a nomes de marca que têm apóstrofos na saída, com apóstrofos duplos.
   - Em que **'\<tagName\>'** é o nome da marca para validar a condição.
-  - Exemplo: `tags['''My.Apostrophe.Tag''']` onde **' My. apóstrofo. tag '** é o nome da marca.
+  - Exemplo: `tags['''My.Apostrophe.Tag''']` onde **'My.Apostrophe.Tag'** é o nome da etiqueta.
 - aliases de propriedade - para obter uma lista, consulte [Aliases](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`e `tags[tag.with.dots]` ainda são formas aceitáveis de declarar um campo de marcas. No entanto, as expressões preferenciais são as listadas acima.
+> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda são formas aceitáveis de declarar um campo de etiquetas. No entanto, as expressões preferenciais são as listadas acima.
 
 #### <a name="use-tags-with-parameters"></a>Usar marcas com parâmetros
 
@@ -415,7 +418,7 @@ A estrutura da expressão de **contagem** é:
 As propriedades a seguir são usadas com **Count**:
 
 - **Count. Field** (obrigatório): contém o caminho para a matriz e deve ser um alias de matriz. Se a matriz estiver ausente, a expressão será avaliada como _falsa_ sem considerar a expressão de condição.
-- **Count. Where** (opcional): a expressão de condição para avaliar individualmente cada [\[\*\]](#understanding-the--alias) membro da matriz de alias de **Count. Field**. Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro dessa propriedade.
+- **contagem.quando** (opcional): A expressão da condição para avaliar individualmente cada [\[\*\] membro](#understanding-the--alias) da matriz do **conde.field**. Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro dessa propriedade.
   Os [operadores lógicos](#logical-operators) podem ser usados dentro dessa propriedade para criar requisitos complexos de avaliação.
 - **condição de\<\>** (obrigatório): o valor é comparado com o número de itens que atendeu à **contagem.** expressão de condição WHERE. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
 
@@ -567,8 +570,8 @@ Todas as [funções de modelo do Resource Manager](../../../azure-resource-manag
 As funções a seguir estão disponíveis para uso em uma regra de política, mas diferem do uso em um modelo de Azure Resource Manager:
 
 - AddDays (dateTime, numberOfDaysToAdd)
-  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 ' yyyy-mm-ddThh: mm: SS. fffffffZ '
-  - **numberOfDaysToAdd**: [obrigatório] número inteiro de dias para adicionar
+  - **dataTempo**: [Obrigatório] string - String in the Universal ISO 8601 DateTime formato 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **númeroOfDaysToAdd**: [Obrigatório] inteiro - Número de dias para adicionar
 - utcNow () – ao contrário de um modelo do Resource Manager, ele pode ser usado fora de defaultValue.
   - Retorna uma cadeia de caracteres que é definida como a data e a hora atuais no formato universal ISO 8601 DateTime ' YYYY-MM-ddTHH: mm: SS. fffffffZ '
 
@@ -655,15 +658,15 @@ A lista de aliases está sempre a aumentar. Para localizar os aliases são atual
 
 ### <a name="understanding-the--alias"></a>Noções básicas sobre o alias [*]
 
-Vários dos aliases que estão disponíveis têm uma versão que aparece como um nome ' normal ' e outro que tem **\[\*\]** anexado a ele. Por exemplo:
+Vários dos pseudónimos disponíveis têm uma versão que aparece como um nome 'normal' e outra que **\[\*\]** ligados a ele. Por exemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 O alias ' normal ' representa o campo como um único valor. Esse campo é para cenários de comparação de correspondência exata quando o conjunto inteiro de valores deve ser exatamente o mesmo definido, nem mais nem menos.
 
-O alias **\[\*\]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Para cenários mais complexos, use a expressão de condição de [contagem](#count) . Usando o **ipRules\[\*\]** , um exemplo seria validar que cada _ação_ seja _negada_, mas não se preocupe com quantas regras existem ou qual é o _valor_ de IP.
-Esta regra de exemplo verifica se há correspondências de **ipRules\[\*\]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
+O **\[\*\]** pseudónimo permite comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Para cenários mais complexos, use a expressão de condição de [contagem](#count) . Utilizando **o ipRules\[\*\]** , um exemplo seria validar que cada _ação_ é _Deny_, mas não se preocupando com quantas regras existem ou qual é o _valor_ IP.
+Esta regra da amostra verifica quaisquer partidas de **ipRules\[\* \]valor de** **10.0.4.1** e aplica o **efeitoType** apenas se não encontrar pelo menos uma correspondência:
 
 ```json
 "policyRule": {
@@ -687,7 +690,7 @@ Esta regra de exemplo verifica se há correspondências de **ipRules\[\*\]. Valu
 
 
 
-Para obter mais informações, consulte [avaliando o alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Para mais informações, consulte [a avaliação do pseudónimo [\*].](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
 ## <a name="initiatives"></a>Iniciativas
 

@@ -1,12 +1,13 @@
 ---
-title: O Azure AD Connect Health - diagnosticar duplicados erros de sincronização de atributo | Documentos da Microsoft
-description: Este documento descreve o processo de diagnóstico de erros de sincronização de atributo duplicado e uma correção potencial dos cenários de objeto órfão diretamente a partir do portal do Azure.
+title: Azure AD Connect Health - Diagnosticar erros duplicados de sincronização do atributo Microsoft Docs
+description: Este documento descreve o processo de diagnóstico de erros de sincronização de atributos duplicados e uma possível correção dos cenários de objetoórfão diretamente do portal Azure.
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,145 +15,145 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702561"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897187"
 ---
-# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e resolver erros de sincronização de atributo duplicado
+# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e remediar erros de sincronização duplicados de atributos
 
-## <a name="overview"></a>Descrição geral
-Para realçar os erros de sincronização a demorar mais uma etapa, o Azure Active Directory (Azure AD) Connect Health apresenta a remediação de gestão personalizada. Ele resolve os erros de sincronização de atributo duplicado e correções de objetos que ficarão órfãos do Azure AD.
+## <a name="overview"></a>Visão geral
+Dando um passo mais longe para destacar erros de sincronização, o Azure Ative Directory (Azure AD) Connect Health introduz a reparação de self-service. Resolve problemas duplicados erros de sincronização de atributos e corrige objetos órfãos de Azure AD.
 A funcionalidade de diagnóstico tem estes benefícios:
-- Ele fornece um procedimento de diagnóstico que restringe os erros de sincronização de atributo duplicado. Além de oferecer correções específicas.
-- Ele aplica-se uma correção para cenários dedicadas do Azure AD para resolver o erro numa única etapa.
-- Nenhuma atualização ou a configuração é necessária para ativar esta funcionalidade.
-Para obter mais informações sobre o Azure AD, consulte [resiliência de atributos de sincronização e duplicação de identidade](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
+- Fornece um procedimento de diagnóstico que reduz os erros duplicados de sincronização de atributos. E dá correções específicas.
+- Aplica uma correção para cenários dedicados da AD Azure para resolver o erro num único passo.
+- Não é necessária nenhuma atualização ou configuração para ativar esta funcionalidade.
+Para obter mais informações sobre a AD Azure, consulte a sincronização de identidade e duplicar a resiliência do [atributo.](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 
 ## <a name="problems"></a>Problemas
 ### <a name="a-common-scenario"></a>Um cenário comum
-Quando **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique** ocorrem erros de sincronização, é comum ver uma **UserPrincipalName** ou **Endereços proxy** conflito no Azure AD. Poderá ajudar a resolver os erros de sincronização ao atualizar o objeto de origem em conflito do lado no local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, esta imagem indica que dois usuários têm um conflito de seus **UserPrincipalName**. Ambos são **Joe.J\@contoso.com**. Os objetos em conflito são colocados em quarentena no Azure AD.
+Quando os erros de sincronização **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique** acontecem, é comum ver um **userprincipalName** ou **proxy Addresss** entrar em conflito em Azure AD. Pode resolver os erros de sincronização atualizando o objeto de origem conflituoso do lado no local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, esta imagem indica que dois utilizadores têm um conflito do seu **Nome Principal**de Utilizador . Ambos são **Joe.J\@contoso.com.** Os objetos contraditórios estão em quarentena em Azure D.C.
 
-![Diagnosticar o cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
+![Diagnosticar cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
 ### <a name="orphaned-object-scenario"></a>Cenário de objeto órfão
-Ocasionalmente, pode achar que um utilizador existente perde a **âncora de origem**. A eliminação de objeto de origem aconteceu no Active Directory no local. Mas a alteração do sinal de eliminação nunca foi sincronizada com o Azure AD. Esta perda acontece por motivos como os problemas de motor de sincronização ou migração de domínio. Quando o mesmo objeto é restaurado ou recriado, logicamente, um utilizador existente deve ser o utilizador para sincronizar a partir da **âncora de origem**. 
+Ocasionalmente, pode descobrir que um utilizador existente perde a **Âncora Fonte**. A eliminação do objeto de origem aconteceu no local do Diretório Ativo. Mas a mudança do sinal de eliminação nunca foi sincronizada para a AD Azure. Esta perda ocorre por razões como problemas de sincronização do motor ou migração de domínios. Quando o mesmo objeto for restaurado ou recriado, logicamente, um utilizador existente deve ser o utilizador a sincronizar a partir da **Âncora Fonte**. 
 
-Quando um utilizador existente é um objeto apenas na cloud, também pode ver o utilizador em conflito sincronizada com o Azure AD. O utilizador não pode ser correspondido sincronizadas para o objeto existente. Não é possível direto para remapear os **âncora de origem**. Veja mais informações sobre o [base de dados de conhecimento existente](https://support.microsoft.com/help/2647098). 
+Quando um utilizador existente é um objeto apenas na nuvem, também pode ver o utilizador conflituoso sincronizado com a AD Azure. O utilizador não pode ser comparado em sincronização com o objeto existente. Não há forma direta de remapear a **Âncora De Origem.** Veja mais sobre a base de [conhecimento existente.](https://support.microsoft.com/help/2647098) 
 
-Por exemplo, o objeto existente no Azure AD preserva a licença de Joe. Um objeto recentemente sincronizado com outro **âncora de origem** ocorre num Estado de atributo duplicado no Azure AD. As alterações de Joe no Active Directory no local não serão aplicadas ao utilizador original do João (objeto existente) no Azure AD.  
+Como exemplo, o objeto existente em Azure AD preserva a licença de Joe. Um objeto recém-sincronizado com uma **âncora de origem** diferente ocorre num estado de atributo duplicado em Azure AD. As alterações para Joe no ative directory não serão aplicadas ao utilizador original de Joe (objeto existente) em Azure AD.  
 
-![Diagnosticar o cenário de sincronização de objeto órfão de erro](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnosticar erro de sincronização cenário órfão de objeto](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
-## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Diagnóstico e resolução de problemas de passos no Connect Health 
-A funcionalidade de diagnóstico suporta objetos de utilizador com os seguintes atributos duplicados:
+## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Passos de diagnóstico e resolução de problemas na Connect Health 
+A função de diagnóstico suporta objetos do utilizador com os seguintes atributos duplicados:
 
-| Nome de atributo | Tipos de erros de sincronização|
+| Nome do atributo | Tipos de erros de sincronização|
 | ------------------ | -----------------|
-| UserPrincipalName | QuarantinedAttributeValueMustBeUnique ou AttributeValueMustBeUnique | 
-| ProxyAddresses | QuarantinedAttributeValueMustBeUnique ou AttributeValueMustBeUnique | 
+| UserPrincipalName | QuarentenaAtribuieValueMustBeUnique ou AttributeValueMustBeUnique | 
+| ProxyAddresss | QuarentenaAtribuieValueMustBeUnique ou AttributeValueMustBeUnique | 
 | SipProxyAddress | AttributeValueMustBeUnique | 
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Para aceder a esta funcionalidade, **Administrador Global** permissão, ou **contribuinte** permissão a partir das definições de RBAC, é necessário.
+> Para aceder a esta funcionalidade, é necessária a permissão global da **Administração,** ou autorização do **Colaborador** a partir das definições RBAC.
 >
 
-Siga os passos a partir do portal do Azure para restringir os detalhes do erro de sincronização e a fornecer soluções mais específicas:
+Siga os passos do portal Azure para reduzir os detalhes do erro de sincronização e fornecer soluções mais específicas:
 
-![Passos de diagnóstico de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
+![Etapas de diagnóstico de erro sincronizado](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
 
-No portal do Azure, tome algumas providências para identificar cenários de fixable específicos:  
-1.  Verifique os **diagnosticar estado** coluna. O estado é apresentado se existe uma forma possível para corrigir um erro de sincronização diretamente a partir do Azure Active Directory. Em outras palavras, um fluxo de resolução de problemas existe que pode restringir o caso de erro e potencialmente corrigi-lo.
+A partir do portal Azure, tome algumas medidas para identificar cenários específicos reparáveis:  
+1.  Verifique a coluna de estado do **diagnóstico.** O estado mostra se há uma maneira possível de corrigir um erro de sincronização diretamente do Diretório Ativo Azure. Por outras palavras, existe um fluxo de resolução de problemas que pode reduzir o caso de erro e potencialmente corrigi-lo.
 
-| Estado | O que significa? |
+| Estado | O que isso significa? |
 | ------------------ | -----------------|
-| Não foi iniciada | Ainda não visitou este processo de diagnóstico. Consoante o resultado de diagnóstico, há uma possível maneira de corrigir o erro de sincronização diretamente no portal. |
-| Correção manual obrigatória | O erro não se ajusta os critérios de correções disponíveis no portal. Qualquer um dos tipos de objeto em conflito não são usuários, ou que já utilizou os passos de diagnóstico, e nenhuma resolução de correção estava disponível no portal. No último caso, uma correção do lado no local ainda é uma das soluções. [Leia mais sobre locais correções](https://support.microsoft.com/help/2647098). | 
-| Sincronização pendente | Foi aplicada uma correção. O portal está a aguardar o próximo ciclo de sincronização limpar o erro. |
+| Não começou | Não visitou este processo de diagnóstico. Dependendo do resultado do diagnóstico, há uma forma potencial de corrigir o erro de sincronização diretamente do portal. |
+| Correção Manual Necessária | O erro não se enquadra nos critérios das correções disponíveis no portal. Ou os tipos de objetos conflituosos não são utilizadores, ou já passou pelos passos de diagnóstico, e não estava disponível nenhuma resolução de correção a partir do portal. Neste último caso, uma correção do lado no local continua a ser uma das soluções. [Leia mais sobre correções no local](https://support.microsoft.com/help/2647098). | 
+| Sincronização pendente | Foi aplicada uma correção. O portal aguarda o próximo ciclo de sincronização para limpar o erro. |
 
   >[!IMPORTANT]
-  > A coluna de estado de diagnóstico irá repor após cada ciclo de sincronização. 
+  > A coluna de estado de diagnóstico será redefinida após cada ciclo de sincronização. 
   >
 
-1. Selecione o **diagnosticar** botão sob os detalhes do erro. Irá responder a algumas perguntas e identificar os detalhes do erro de sincronização. Respostas às perguntas ajudam a identificar um caso de objeto órfão.
+1. Selecione o botão **Diagnosticar** sob os detalhes do erro. Responderá a algumas perguntas e identificará os detalhes do erro de sincronização. As respostas às perguntas ajudam a identificar um caso de objeto órfão.
 
-1. Se um **fechar** botão não aparece no final de diagnóstico, há nenhuma correção rápida disponível no portal com base em suas respostas. Consulte a solução mostrada no último passo. Correções no local ainda são as soluções. Selecione o **fechar** botão. O estado de erro de sincronização atual muda para **correção Manual obrigatória**. O estado permanece durante o ciclo de sincronização atual.
+1. Se um botão **Close** aparecer no final dos diagnósticos, não há uma correção rápida disponível no portal com base nas suas respostas. Consulte a solução mostrada no último passo. As correções a partir do local ainda são as soluções. Selecione o botão **Fechar.** O estado do erro de sincronização atual muda para a **correção manual necessária**. O estado permanece durante o ciclo de sincronização atual.
 
-1. Depois de um caso de objeto órfão for identificado, pode corrigir os atributos duplicados erros de sincronização diretamente no portal. Para acionar o processo, selecione o **aplicar correção** botão. O estado das atualizações de erro de sincronização atual para **pendentes sincronização**.
+1. Após a identificação de um caso de objeto órfão, pode corrigir os erros de sincronização de atributos duplicados diretamente do portal. Para desencadear o processo, selecione o botão **Aplicar Corrigir.** O estado das atualizações de erro de sincronização atual para **sincronização pendente**.
 
 1. Após o próximo ciclo de sincronização, o erro deve ser removido da lista.
 
-## <a name="how-to-answer-the-diagnosis-questions"></a>Como responder às perguntas de diagnóstico 
-### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>O utilizador existir no Active Directory no local?
+## <a name="how-to-answer-the-diagnosis-questions"></a>Como responder às questões de diagnóstico 
+### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>O utilizador existe no seu Diretório Ativo no local?
 
-Essa pergunta tenta identificar o objeto de origem do utilizador existente do Active Directory no local.  
-1. Verifique se o Azure Active Directory tem um objeto com o fornecido **UserPrincipalName**. Se não estiver, responder **não**.
-2. Se assim for, verifique se o objeto ainda está no âmbito para sincronização.  
-   - Pesquisar no espaço conector do Azure AD utilizando o DN.
-   - Se o objeto se encontra no **adicionar pendente** de estado, responder **não**. O Azure AD Connect não é possível ligar o objeto para o objeto à direita do Azure AD.
-   - Se o objeto não for encontrado, responder **Sim**.
+Esta questão tenta identificar o objeto de origem do utilizador existente a partir do Diretório Ativo no local.  
+1. Verifique se o Diretório Ativo azure tem um objeto com o **nome principal**do utilizador fornecido . Se não, responda **Não.**
+2. Se o fizer, verifique se o objeto ainda está no âmbito da sincronização.  
+   - Procure no espaço do conector Azure AD utilizando o DN.
+   - Se o objeto for encontrado no estado **Pendente adicionar,** responda **Nº**. O Azure AD Connect não pode ligar o objeto ao objeto Azure AD direito.
+   - Se o objeto não for encontrado, responda **Sim.**
 
-Nestes exemplos, a pergunta tenta identificar se **Joe Jackson** ainda existe no Active Directory no local.
-Para o **cenário comum**, ambos os utilizadores **Joe Johnson** e **Joe Jackson** estão presentes no Active Directory no local. Os objetos em quarentena são dois utilizadores diferentes.
+Nestes exemplos, a questão tenta identificar se **Joe Jackson** ainda existe no local Ative Directory.
+Para o **cenário comum,** tanto os utilizadores **Joe Johnson** como Joe **Jackson** estão presentes no ative directory no local. Os objetos em quarentena são dois utilizadores diferentes.
 
-![Diagnosticar o cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
+![Diagnosticar cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
-Para o **cenário de objeto órfão**, apenas o utilizador único **Joe Johnson** está presente no Active Directory no local:
+Para o cenário de **objeto órfão,** apenas o único utilizador **Joe Johnson** está presente no local Ative Directory:
 
-![Diagnosticar o objeto órfão de erro de sincronização * utilizador existe * cenário](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnosticar erro de sincronização objeto órfão *o cenário do utilizador existe*](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
-### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Ambas estas contas pertencem ao mesmo utilizador?
-Essa pergunta verifica um utilizador em conflito de entrada e o objeto de utilizador existente no Azure AD para ver se eles pertencem ao mesmo utilizador.  
-1. O objeto em conflito recentemente está sincronizado com o Azure Active Directory. Compare os atributos de objectos:  
+### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Ambas as contas pertencem ao mesmo utilizador?
+Esta questão verifica um utilizador em conflito e o objeto de utilizador existente em Azure AD para ver se pertencem ao mesmo utilizador.  
+1. O objeto conflituoso está recentemente sincronizado com o Diretório Ativo Azure. Compare os atributos dos objetos:  
    - Nome a Apresentar
-   - Nome Principal de utilizador
+   - Nome Principal de Utilizador
    - ID de objeto
-2. Se não for compará-los do Azure AD, verifique se o Active Directory tem objetos com o fornecido **UserPrincipalNames**. Resposta **não** se encontrar ambos.
+2. Se o Azure AD não os comparar, verifique se o Diretório Ativo tem objetos com os **Nomes de Utilizadores**fornecidos . Responda **não** se encontrar os dois.
 
-No exemplo a seguir, os dois objetos pertencem ao mesmo utilizador **Joe Johnson**.
+No exemplo seguinte, os dois objetos pertencem ao mesmo utilizador **Joe Johnson.**
 
-![Diagnosticar o objeto órfão de erro de sincronização * mesmo utilizador * cenário](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnosticar erro de sincronização objeto órfão *mesmo cenário de utilizador*](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
 
-## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>O que acontece depois da correção é aplicada no cenário de objeto órfão
-Com base nas respostas às perguntas anteriores, verá a **aplicar correção** botão quando existe uma correção do Azure AD. Neste caso, o objeto no local está a sincronizar com um Azure inesperado objeto do AD. Os dois objetos são mapeados, utilizando o **âncora de origem**. O **aplicar correção** alteração tem estes ou passos semelhantes:
-1. Atualizações a **âncora de origem** para o objeto correto no Azure AD.
-2. Elimina o objeto em conflito no Azure AD, se estiver presente.
+## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>O que acontece depois da correção é aplicado no cenário do objeto órfão
+Com base nas respostas às perguntas anteriores, verá o botão **Apply Fix** quando houver uma correção disponível a partir de Azure AD. Neste caso, o objeto no local está sincronizando-se com um objeto ad ad azul inesperado. Os dois objetos são mapeados utilizando a **Âncora Fonte**. A alteração **Apply Fix** toma estes ou passos semelhantes:
+1. Atualiza a **Âncora Fonte** ao objeto correto em Azure AD.
+2. Elimina o objeto conflituoso em Azure AD se estiver presente.
 
-![Diagnosticar o erro de sincronização após a correção](./media/how-to-connect-health-diagnose-sync-errors/IIdFixAfterFix.png)
+![Diagnosticar erro de sincronização após a correção](./media/how-to-connect-health-diagnose-sync-errors/IIdFixAfterFix.png)
 
 >[!IMPORTANT]
-> O **aplicar correção** alteração aplica-se apenas a casos de objeto órfão.
+> A alteração **Apply Fix** aplica-se apenas a casos de objetos órfãos.
 >
 
-Depois dos passos anteriores, o usuário pode acessar o recurso original, o que é uma ligação para um objeto existente. O **diagnosticar o estado** atualizações do valor na vista de lista **sincronização pendente**. O erro de sincronização será resolvido após a próxima sincronização. Connect irá de estado de funcionamento não mostrar mais o erro de sincronização resolvido na vista de lista.
+Após os passos anteriores, o utilizador pode aceder ao recurso original, que é uma ligação a um objeto existente. O valor **do estado** do diagnóstico na lista visualiza atualizações para **Sincronização Pendente**. O erro de sincronização será resolvido após a próxima sincronização. A Connect Health deixará de mostrar o erro de sincronização resolvido na vista da lista.
 
 ## <a name="failures-and-error-messages"></a>Falhas e mensagens de erro
-**Utilizador com o atributo em conflito é programável eliminada no Azure Active Directory. Certifique-se de que o utilizador é difícil eliminado antes da repetição.**  
-O utilizador com o atributo em conflito no Azure AD deve ser limpos antes de poder aplicar a correção. Confira [como eliminar o utilizador permanentemente no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de repetir a correção. O utilizador também serão automaticamente eliminado permanentemente após 30 dias no estado de eliminado de forma recuperável. 
+**O utilizador com atributo conflituoso é eliminado suavemente no Diretório Ativo Azure. Certifique-se de que o utilizador está duramente apagado antes de voltar a tentar.**  
+O utilizador com atributo conflituoso em Azure AD deve ser limpo antes de poder aplicar a correção. Verifique [como eliminar o utilizador permanentemente em Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de voltar a tentar a correção. O utilizador também será automaticamente eliminado permanentemente após 30 dias em estado suave apagado. 
 
-**Não é suportada a âncora de origem de atualização para o utilizador com base na cloud no seu inquilino.**  
-Utilizador com base na cloud no Azure AD não deve ter a âncora de origem. Atualizar a âncora de origem não é suportada neste caso. Correção manual não é necessária no local. 
+**A atualização da âncora de origem para o utilizador baseado em nuvem no seu inquilino não é suportada.**  
+O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. A atualização da âncora de origem não é suportada neste caso. A correção manual é necessária a partir do local. 
 
 ## <a name="faq"></a>FAQ
-**P.** O que acontece durante a execução do **aplicar correção** falhar?  
-**R.** Se falhar a execução, é possível que o Azure AD Connect está em execução um erro de exportação. Atualize a página de portal e tente novamente após a próxima sincronização. Ciclo de sincronização a predefinição é 30 minutos. 
+**P.** O que acontece se a execução da **Correção de Aplicação** falhar?  
+**R.** Se a execução falhar, é possível que o Azure AD Connect esteja a cometer um erro de exportação. Refresque a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 
 
-**P.** E se o **objeto existente** deve ser o objeto a eliminar?  
-**R.** Se o **objeto existente** deve ser eliminado, o processo não envolve uma alteração de **âncora de origem**. Normalmente, pode corrigi-lo do Active Directory no local. 
+**P.** E se o **objeto existente** for o objeto a ser eliminado?  
+**R.** Se o **objeto existente** for eliminado, o processo não implica uma alteração da Âncora **de Origem**. Normalmente, pode consertá-lo a partir do Diretório Ativo no local. 
 
 
-**P.** Permissão um utilizador ter de aplicar a correção?  
-**R.** **Administrador global**, ou **contribuinte** partir das definições de RBAC, tem permissão para acessar o diagnóstico e resolução de problemas do processo.
+**P.** Que permissão precisa um utilizador para aplicar a correção?  
+**R.** **A Global Admin**, ou **Colaborador a** partir das definições rBAC, tem permissão para aceder ao processo de diagnóstico e resolução de problemas.
 
 
-**P.** É necessário que configurar o Azure AD Connect ou atualizar o agente do Azure AD Connect Health para esta funcionalidade?  
-**R.** Não, o processo de diagnóstico é um recurso completo com base na cloud.
+**P.** Tenho de configurar o Azure AD Connect ou atualizar o agente Azure AD Connect Health para esta funcionalidade?  
+**R.** Não, o processo de diagnóstico é uma característica completa baseada na nuvem.
 
 
-**P.** Se o objeto existente for programável eliminada, o processo de diagnóstico fará o objeto de Active Directory novamente?  
-**R.** Não, a correção não atualizar atributos de objetos que **âncora de origem**.
+**P.** Se o objeto existente for apagado suavemente, o processo de diagnóstico tornará o objeto ativo novamente?  
+**R.** Não, a correção não atualiza os atributos do objeto para além da **Âncora de Origem**.

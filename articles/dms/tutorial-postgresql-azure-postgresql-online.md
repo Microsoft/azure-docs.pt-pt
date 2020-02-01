@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 0d9685f18d4a2995ae2dffa16a39da1ec65b4945
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ee5863497ce067d2ff056c3fc1c64b00d3004cd8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771041"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903917"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 
@@ -26,7 +26,7 @@ Você pode usar o serviço de migração de banco de dados do Azure para migrar 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> * Migre o esquema de exemplo usando o utilitário pg_dump.
+> * Migrar o esquema da amostra usando pg_dump utilidade.
 > * Criar uma instância do Azure Database Migration Service.
 > * Utilizar o Azure Database Migration Service para criar um projeto de migração.
 > * Executar a migração.
@@ -78,7 +78,7 @@ Para concluir este tutorial, precisa de:
 * Ative a replicação lógica no ficheiro postgresql.config e defina os seguintes parâmetros:
 
   * wal_level = **logical**
-  * max_replication_slots = [número de Slots], configuração recomendada para **cinco Slots**
+  * max_replication_slots = [número de slots], recomendar a definição de **cinco slots**
   * max_wal_senders = [número de tarefas simultâneas] – O parâmetro max_wal_senders define o número de tarefas simultâneas que podem ser executadas, definição recomendada de **10 tarefas**
 
 ## <a name="migrate-the-sample-schema"></a>Migrar o esquema de exemplo
@@ -205,18 +205,18 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 2. Aprovisione uma instância do DMS ao executar o seguinte comando:
 
    ```
-   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
    Por exemplo, o seguinte comando vai criar um serviço em:
 
-   * Localização: E.U.A. Centro-Oeste
+   * Localização: E.U.A. Leste 2
    * Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nome de Grupo de Recursos: PostgresDemo
    * Nome do Serviço DMS: PostgresCLI
 
    ```
-   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name Premium_4vCores
    ```
 
    Demora cerca de 10 a 12 minutos para criar a instância do serviço DMS.

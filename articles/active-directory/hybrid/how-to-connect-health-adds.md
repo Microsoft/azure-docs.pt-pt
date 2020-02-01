@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,15 +16,15 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f30f4f16ad879468a424d6e5cbe81e68b7c33d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350685"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897308"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Utilizar o Azure AD Connect Health com o AD DS
-A seguinte documentação é específica para monitorizar os Serviços de Domínio do Active Directory com o Azure AD Connect Health. As versões suportadas do AD DS são: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
+A seguinte documentação é específica para monitorizar os Serviços de Domínio do Active Directory com o Azure AD Connect Health. As versões suportadas do AD DS são Windows Server Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
 
 Para obter informações sobre como monitorizar o AD FS com o Azure AD Connect Health, veja [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Além disso, para obter informações sobre como monitorizar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, veja [Utilizar o Azure AD Connect Health para Sincronização](how-to-connect-health-sync.md).
 
@@ -55,12 +56,12 @@ Esta funcionalidade fornece as tendências gráficas de diferentes contadores de
 
 Por predefinição, podemos pré-selecionar quatro contadores de desempenho. No entanto, pode incluir outros clicando no comando de filtro e selecionando ou desmarcando contadores de desempenho pretendidos. Além disso, pode fazer duplo clique num gráfico de contador de desempenho específico para abrir um painel novo, que inclui os pontos de dados para cada um dos controladores de domínio monitorizados.
 
-## <a name="related-links"></a>Ligações relacionadas
+## <a name="related-links"></a>Hiperligações relacionadas
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
+* [Azure AD Connect Health Operations (Operações do Azure AD Connect Health)](how-to-connect-health-operations.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
-* [Azure AD Connect Health FAQ (FAQ do Azure AD Connect Health)](reference-connect-health-faq.md)
+* [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)
 * [Histórico das Versões do Azure AD Connect Health](reference-connect-health-version-history.md)
 

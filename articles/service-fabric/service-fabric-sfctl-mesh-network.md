@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric – rede de malha sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos de rede de malha.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 2d9d86d41dc031cca2730011c2322e9feb30c827
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646131"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905989"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Obter e excluir recursos de rede de malha.
@@ -32,7 +32,7 @@ Exclui o recurso de rede identificado pelo nome.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome da rede. |
+| --nome -n [Obrigatório] | O nome da rede. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -68,7 +68,7 @@ Obtém as informações sobre o recurso de rede com o nome fornecido. As informa
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome da rede. |
+| --nome -n [Obrigatório] | O nome da rede. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

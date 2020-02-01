@@ -1,18 +1,18 @@
 ---
-title: Exemplo de implantação do PCI-DSS v 3.2.1 Blueprint
-description: Implante as etapas para o cartão de pagamento do setor de informações de Data Security padrão v 3.2.1 Blueprint, incluindo detalhes do parâmetro de artefato Blueprint.
-ms.date: 06/24/2019
+title: Implementar amostra de planta PCI-DSS v3.2.1
+description: Implemente etapas para a amostra de segurança de dados da indústria do cartão de pagamento v3.2.1, incluindo detalhes do parâmetro do artefacto de plantas.
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: aa641b35f1a7533a13803e7984c83df2f3268de6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546558"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905555"
 ---
-# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar a amostra do PCI-DSS v 3.2.1 Blueprint
+# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementar a amostra de planta PCI-DSS v3.2.1
 
-Para implantar a amostra do plano gráfico do Azure Blueprints PCI-DSS v 3.2.1, as etapas a seguir devem ser executadas:
+Para implantar a amostra de plantas de plantas Azure PCI-DSS v3.2.1, devem ser tomadas as seguintes etapas:
 
 > [!div class="checklist"]
 > - Criar um novo plano gráfico por meio do exemplo
@@ -25,15 +25,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
-1. Encontre o exemplo de plano gráfico **PCI-DSS v 3.2.1** em _outros exemplos_ e selecione **usar este exemplo**.
+1. Encontre a amostra de planta **PCI-DSS v3.2.1** em _outras amostras_ e selecione **Utilize esta amostra**.
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do plano gráfico**: forneça um nome para sua cópia do exemplo de plano gráfico PCI-DSS v 3.2.1.
+   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de planta PCI-DSS v3.2.1.
    - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
 
 1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
@@ -42,19 +42,19 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 ## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
 
-Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo Blueprint pode ser personalizada para seu ambiente e precisa, mas essa modificação pode movê-lo para fora do padrão PCI-DSS v 3.2.1.
+Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la da norma PCI-DSS v3.2.1.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
-1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo de plano gráfico PCI-DSS v 3.2.1". Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **notas de alteração** tais como "Primeira versão publicada a partir da amostra de plantas PCI-DSS v3.2.1." Em seguida, selecione **publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
 Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
@@ -93,19 +93,19 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[visualização\] auditoria de PCI v 3.2.1: controles de 2018 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de Política|Lista de tipos de recursos | Configuração de diagnóstico de auditoria para tipos de recursos selecionados. O valor padrão é que todos os recursos estão selecionados| 
-|Localizações permitidas|Atribuição de Política|Lista de locais permitidos|Lista de locais de data center permitidos para qualquer recurso a ser implantado. Essa lista é personalizável para os locais do Azure desejados globalmente. Selecione os locais que você deseja permitir.| 
-|Locais permitidos para grupos de recursos|Atribuição de Política |Local permitido |Essa política permite restringir os locais em que sua organização pode criar grupos de recursos. Utilize para impor os requisitos de conformidade geográfica.| 
-|Implantar a auditoria em servidores SQL|Atribuição de Política|Dias de retenção|Retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 
-|Implantar a auditoria em servidores SQL|Atribuição de Política|Nome do grupo de recursos para a conta de armazenamento|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região).| 
+|\[Preview\] Audit I3.2.1:2018 controles e implementam extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de Política|Lista de Tipos de Recursos | Audite a definição de diagnóstico para tipos de recursos selecionados. Valor padrão é todos os recursos são selecionados| 
+|Localizações permitidas|Atribuição de Política|Lista de locais permitidos|Lista de localizações de centros de dados permitidas para qualquer recurso a ser implantado. Esta lista é personalizável para as localizações desejadas do Azure a nível global. Selecione locais que deseja permitir.| 
+|Locais permitidos para grupos de recursos|Atribuição de Política |Localização permitida |Esta política permite-lhe restringir os locais em que a sua organização pode criar grupos de recursos. Utilize para impor os requisitos de conformidade geográfica.| 
+|Implantar a auditoria em servidores SQL|Atribuição de Política|Dias de retenção|Retenção de dados em número de dias. O valor predefinido é de 180, mas o PCI requer 365.| 
+|Implantar a auditoria em servidores SQL|Atribuição de Política|Nome do grupo de recursos para conta de armazenamento|A auditoria escreve eventos de base de dados para um registo de auditoria na sua conta de Armazenamento Azure (será criada uma conta de armazenamento em cada região onde é criado um Servidor SQL que será partilhado por todos os servidores dessa região).| 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou as etapas para implantar o exemplo de plano gráfico PCI-DSS v 3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
+Agora que reviu os passos para implementar a amostra de plantas PCI-DSS v3.2.1, visite os seguintes artigos para saber sobre a visão geral e o mapeamento de controlo:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 Blueprint-visão geral](./index.md)
-> [PCI-DSS v 3.2.1 Blueprint – mapeamento de controle](./control-mapping.md)
+> [PcI-DSS v3.2.1 - Visão geral](./index.md)
+> [planta PCI-DSS v3.2.1 - Mapeamento](./control-mapping.md) de controlo
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: migrar dados de evento para SQL Data Warehouse-hubs de eventos do Azure'
-description: 'Tutorial: Este tutorial mostra como capturar dados do seu hub de eventos para um data warehouse do SQL usando uma função do Azure disparada por uma grade de eventos.'
+title: 'Tutorial: Migrar dados do evento para o Armazém de Dados SQL - Hubs de Eventos Azure'
+description: 'Tutorial: Este tutorial mostra-lhe como capturar dados do seu centro de eventos para um armazém de dados SQL utilizando uma função Azure desencadeada por uma grelha de eventos.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718883"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905685"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: migrar dados capturados dos hubs de eventos para um SQL Data Warehouse usando a grade de eventos e Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrate capturou dados de Hubs de Eventos para um Armazém de Dados SQL usando a Grelha de Eventos e Funções Azure
 
 A [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) de Hubs de Eventos é a forma mais simples de entregar dados transmitidos nos Hubs de Eventos para um armazenamento de Blobs do Azure ou o arquivo do Azure Data Lake. Pode, em seguida, processar e entregar os dados para outros destinos de armazenamento à sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, irá aprender a capturar dados do seu hub de eventos para um armazém de dados SQL, através de uma função do Azure acionada por uma [grelha de eventos](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -26,7 +26,7 @@ A [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overv
 *   Em seguida, vai criar uma subscrição do Azure Event Grid com o espaço de nomes dos Hubs de Eventos como origem e o ponto final de Função do Azure como o seu destino.
 *   Sempre que um novo ficheiro Avro for entregue no blob de Armazenamento do Azure pela funcionalidade de Captura dos Hubs de Eventos, o Event Grid notifica a Função do Azure com o URI de blob. A Função, em seguida, migra dados do blob para um armazém de dados do SQL.
 
-Neste tutorial, vai realizar as seguintes ações: 
+Neste tutorial, irá realizar as seguintes ações: 
 
 > [!div class="checklist"]
 > * Implementar a infraestrutura
@@ -39,10 +39,12 @@ Neste tutorial, vai realizar as seguintes ações:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Visual studio 2019](https://www.visualstudio.com/vs/). Ao instalar, certifique-se de que instala as cargas de trabalho seguintes: desenvolvimento de ambiente de trabalho .NET, desenvolvimento do Azure, desenvolvimento de ASP.NET e Web, desenvolvimento de Node.js, desenvolvimento de Python
-- Transferir o [exemplo Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). A solução de exemplo contém os seguintes componentes:
+- [Estúdio visual 2019.](https://www.visualstudio.com/vs/) Ao instalar, certifique-se de que instala as cargas de trabalho seguintes: desenvolvimento de ambiente de trabalho .NET, desenvolvimento do Azure, desenvolvimento de ASP.NET e Web, desenvolvimento de Node.js, desenvolvimento de Python
+- Descarregue a [amostra Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) A solução de amostra contém os seguintes componentes:
     - *WindTurbineDataGenerator* – um editor simples que envia dados de turbina eólica de exemplo para um hub de eventos com a Captura ativada
     - *FunctionDWDumper* – uma Função do Azure que recebe uma notificação do Event Grid quando um ficheiro Avro é capturado para o blob de Armazenamento do Azure. Ele recebe o caminho do URI do blob, lê os seus conteúdos e envia estes dados para um SQL Data Warehouse.
+
+    Esta amostra utiliza o mais recente pacote Azure.Messaging.EventHubs. Pode encontrar aqui a amostra antiga que utiliza o [pacote](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)Microsoft.Azure.EventHubs . 
 
 ### <a name="deploy-the-infrastructure"></a>Implementar a infraestrutura
 Utilize o Azure PowerShell ou a CLI do Azure para implementar a infraestrutura necessária para este tutorial com este [modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Este modelo cria os seguintes recursos:
@@ -63,7 +65,7 @@ As secções seguintes oferecem os comandos da CLI do Azure e do Azure PowerShel
 - Servidor SQL do Azure
 - Utilizador SQL (e palavra-passe)
 - Base de dados SQL do Azure
-- Storage do Azure 
+- Armazenamento do Azure 
 - Aplicação de Funções do Azure
 
 Estes scripts demoram algum tempo a criar todos os artefactos do Azure. Aguarde até que o script seja concluído antes de continuar. Se a implementação falhar por algum motivo, elimine o grupo de recursos, corrija o problema comunicado e volte a executar o comando. 
@@ -106,7 +108,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Publicar o código na Aplicação de Funções
 
-1. Abra a solução *EventHubsCaptureEventGridDemo. sln* no Visual Studio 2019.
+1. Abra a solução *EventHubsCaptureEventGridDemo.sln* no Visual Studio 2019.
 
 1. No Explorador de Soluções, clique com o botão direito do rato em *FunctionEGDWDumper* e selecione **Publicar**.
 

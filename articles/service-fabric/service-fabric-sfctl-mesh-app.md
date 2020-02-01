@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-aplicativo de malha sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar Service Fabric recursos de aplicativo de malha.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 96f628cb1a54b0c68f81bbafea42e5b9313f42ec
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645383"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906073"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 Obter e excluir recursos do aplicativo.
@@ -32,7 +32,7 @@ Exclui o recurso de aplicativo identificado pelo nome.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome da aplicação. |
+| --nome -n [Obrigatório] | O nome da aplicação. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -68,7 +68,7 @@ Obtém as informações sobre o recurso de aplicativo com o nome fornecido. As i
 
 |Argumento|Descrição|
 | --- | --- |
-| --Name-n [obrigatório] | O nome da aplicação. |
+| --nome -n [Obrigatório] | O nome da aplicação. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

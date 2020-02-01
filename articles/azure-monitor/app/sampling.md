@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281075"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899071"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -354,7 +354,7 @@ Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem são
 
 2. Pode especificar um `sampler` como parte da configuração do `Tracer`. Se nenhum amostra explícito for fornecido, o `ProbabilitySampler` será usado por padrão. O `ProbabilitySampler` usaria uma taxa de 1/10000 por padrão, o que significa que uma das solicitações de 10000 será enviada para Application Insights. Se quiser especificar uma taxa de amostragem, veja abaixo.
 
-Para especificar a taxa de amostragem, verifique se o `Tracer` especifica um amostra com uma taxa de amostragem entre 0,0 e 1,0, inclusive. Uma taxa de amostragem de 1,0 representa 100%, o que significa que todas as suas solicitações serão enviadas como telemetria para Application Insights.
+Para especificar a taxa de amostragem, verifique se o `Tracer` especifica um amostra com uma taxa de amostragem entre 0,0 e 1,0, inclusive. Uma taxa de amostragem de 1.0 representa 100%, o que significa que todos os seus pedidos serão enviados como telemetria para Application Insights.
 
 ```python
 tracer = Tracer(
@@ -372,7 +372,7 @@ As páginas da Web baseadas em JavaScript podem ser configuradas para usar Appli
 Ao [configurar suas páginas da Web baseadas em JavaScript para Application insights](javascript.md), modifique o trecho de código JavaScript que você obtém do portal de Application insights.
 
 > [!TIP]
-> Em aplicativos ASP.NET com JavaScript incluído, o trecho normalmente entra em `_Layout.cshtml`.
+> Em ASP.NET aplicações com JavaScript incluídas, o corte normalmente vai em `_Layout.cshtml`.
 
 Insira uma linha como `samplingPercentage: 10,` antes da chave de instrumentação:
 
@@ -418,7 +418,7 @@ Como outros tipos de amostragem, o algoritmo retém os itens de telemetria relac
 
 Os pontos de dados descartados por amostragem não estão disponíveis em nenhum recurso Application Insights, como a [exportação contínua](../../azure-monitor/app/export-telemetry.md).
 
-A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa está em operação. A amostragem adaptável é habilitada por padrão quando o SDK do ASP.NET ou o SDK do ASP.NET Core está sendo usado, ou quando Application Insights está habilitado no [serviço Azure app](azure-web-apps.md) ou usando status monitor. Quando a telemetria é recebida pelo ponto de extremidade de serviço Application Insights, ela examina a telemetria e, se a taxa de amostragem for relatada para menos de 100% (o que indica que a telemetria está sendo amostrada), a taxa de amostragem de ingestão definida será ignorada.
+A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa está em operação. A amostragem adaptável é habilitada por padrão quando o SDK do ASP.NET ou o SDK do ASP.NET Core está sendo usado, ou quando Application Insights está habilitado no [serviço Azure app](azure-web-apps.md) ou usando status monitor. Quando a telemetria é recebida pelo ponto final do serviço Application Insights, examina a telemetria e se a taxa de amostragem for reportada como inferior a 100% (o que indica que a telemetria está a ser amostrada) então a taxa de amostragem de ingestão que definiu é ignorada.
 
 > [!WARNING]
 > O valor mostrado no bloco do portal indica o valor que você definiu para amostragem de ingestão. Ele não representa a taxa de amostragem real se qualquer tipo de amostragem do SDK (amostragem adaptável ou de taxa fixa) estiver em operação.
@@ -531,7 +531,7 @@ A precisão da aproximação depende em grande parte da porcentagem de amostrage
 
 *Há certos eventos raros que sempre quero ver. Como posso obtê-los após o módulo de amostragem?*
 
-* A melhor maneira de conseguir isso é escrever um [personalizada telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizado, que define o `SamplingPercentage` como 100 no item de telemetria que você deseja reter, conforme mostrado abaixo. À medida que inicializadores são garantidos para serem executados antes dos processadores de telemetria (incluindo amostragem), isso garante que todas as técnicas de amostragem ignorem esse item de quaisquer considerações de amostragem.
+* A melhor maneira de conseguir isso é escrever um [personalizada telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizado, que define o `SamplingPercentage` como 100 no item de telemetria que você deseja reter, conforme mostrado abaixo. À medida que inicializadores são garantidos para serem executados antes dos processadores de telemetria (incluindo amostragem), isso garante que todas as técnicas de amostragem ignorem esse item de quaisquer considerações de amostragem. Os iniciantes de telemetria personalizados estão disponíveis no ASP.NET SDK, no ASP.NET Core SDK, no JavaScript SDK e no Java SDK. Por exemplo, pode configurar um inicializador de telemetria utilizando o SDK ASP.NET:
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer

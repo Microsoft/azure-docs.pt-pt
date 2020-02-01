@@ -1,28 +1,24 @@
 ---
-title: 'Início rápido: reconhecer fala, intenções e entidades, serviço de fala Java'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a6bf8bb558e82fefbbe6ff306f628a4b449a4e83
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761433"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900476"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* Se este for seu primeiro projeto Java (JRE), use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">criar um projeto de exemplo vazio</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Instale o SDK de fala para seu ambiente de desenvolvimento</a>.
+* Se este é o seu primeiro projeto Java (JRE), use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">criar um projeto <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>de amostra vazia.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Instale o SDK de <span class="docon docon-navigate-external x-hidden-focus"> </span>Discurso para o seu ambiente </a>de desenvolvimento.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar um aplicativo LUIS para reconhecimento de intenção
 
@@ -96,7 +92,7 @@ Insira este código abaixo da sua chamada para `recognizeOnceAsync()`: [!code-ja
 
 ## <a name="check-your-code"></a>Verifique seu código
 
-Neste ponto, seu código deve ter a seguinte aparência:  
+Neste ponto, seu código deve ter a seguinte aparência:
 
 > [!NOTE]
 > Adicionamos alguns comentários a esta versão.
@@ -105,7 +101,7 @@ Neste ponto, seu código deve ter a seguinte aparência:
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
 
-Prima F11 ou selecione **Executar** > **Depurar**.
+Prima <kbd>F11</kbd>, ou selecione **Executar** > **Debug**.
 Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e registados na janela da consola.
 
 ## <a name="next-steps"></a>Passos seguintes

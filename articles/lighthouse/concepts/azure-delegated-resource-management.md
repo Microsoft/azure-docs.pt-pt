@@ -1,14 +1,14 @@
 ---
 title: Gestão de recursos delegados do Azure
 description: Os serviços gerenciados oferecem aos provedores de serviços para vender ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
-ms.date: 01/17/2020
+ms.date: 01/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263919"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904312"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
@@ -44,7 +44,7 @@ Em um alto nível, veja como funciona o gerenciamento de recursos delegado do Az
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Suporte para gerenciamento de recursos delegados do Azure
 
-Se precisar de ajuda relacionada ao gerenciamento de recursos delegado do Azure, você poderá abrir uma solicitação de suporte no portal do Azure. Para **tipo de problema**, escolha **técnico**. Selecione uma assinatura e, em seguida, selecione **Gerenciamento de recursos delegado** (em **monitoramento & gerenciamento**).
+Se precisar de ajuda relacionada ao gerenciamento de recursos delegado do Azure, você poderá abrir uma solicitação de suporte no portal do Azure. Para **tipo de problema**, escolha **técnico**. Selecione uma subscrição e, em seguida, selecione **Farol** (em **Monitorização e Gestão).**
 
 ## <a name="next-steps"></a>Passos seguintes
 

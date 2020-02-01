@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 211dafd1ad3e30d37cfee926a7c93ba541037f62
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2e05f0cb46e1e54ced5911c0a78dd026dbb7f4fa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749501"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905597"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 
@@ -51,7 +51,7 @@ Consulte a seção [destinos de escala da conta de armazenamento do Azure](#azur
 ### <a name="file-share-and-file-scale-targets"></a>Destinos de escala de arquivo e compartilhamento de arquivos
 
 > [!NOTE]
-> Compartilhamentos de arquivos padrão maiores que 5 TiB têm certas limitações e restrições regionais.
+> As ações de ficheiros padrão superiores a 5 TiB têm certas limitações.
 > Para obter uma lista de limitações, informações regionais e instruções para habilitar esses tamanhos maiores de compartilhamento de arquivos, consulte a seção [integrado a compartilhamentos de arquivos maiores](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
@@ -113,5 +113,5 @@ Como um guia Geral para a sua implementação, deve manter algumas coisas em men
 
 ## <a name="see-also"></a>Ver também
 
-- [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
+- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

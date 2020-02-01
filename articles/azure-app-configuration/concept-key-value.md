@@ -1,17 +1,17 @@
 ---
 title: Chave de configuração de Azure App-repositório de valor
 description: Uma visão geral de como os dados de configuração são armazenados na configuração do Azure App.
-author: yegu-ms
-ms.author: yegu
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 11e019e276944e0c3f50d604420046979b5f3fbb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: fbb30b0a290011a5edfb05c1de9b5d4717a5f733
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495283"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898700"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 

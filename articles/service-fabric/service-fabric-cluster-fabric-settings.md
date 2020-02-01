@@ -3,12 +3,12 @@ title: Alterar as configurações de Cluster Service Fabric do Azure
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772130"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905198"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar configurações de Cluster Service Fabric
 Este artigo descreve as várias configurações de malha para o Cluster Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizar as configurações por meio do [portal do Azure](https://portal.azure.com) ou usando um modelo de Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig. JSON* e realizando uma atualização de configuração no cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -27,7 +27,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|Cadeia de caracteres, o padrão é "nenhum"|Estático| Isso não valida o certificado do servidor; a solicitação foi concluída com sucesso. Consulte config ServiceCertificateThumbprints para obter a lista separada por vírgulas de impressões digitais dos certificados remotos que o proxy reverso pode confiar. Consulte config ServiceCommonNameAndIssuer para obter o nome da entidade e a impressão digital do emissor dos certificados remotos que o proxy reverso pode confiar. Para saber mais, consulte [conexão segura de proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, o padrão é 16384 |Dinâmico| Fornece o tamanho de para a parte em bytes usados para ler o corpo. |
-|CrlCheckingFlag|uint, o padrão é 0x40000000 |Dinâmico| Sinalizadores para validação de cadeia de certificados de serviço/aplicativo; por exemplo, CRL verificando 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY configuração como 0 desabilita a verificação de CRL a lista completa de valores com suporte é documentada por dwFlags de CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|uint, o padrão é 0x40000000 |Dinâmico| Bandeiras para validação da cadeia de certificados de pedido/serviço; por exemplo, a CRL a verificar 0x1000000000CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x2000000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x4000000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x8000000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Definição para 0 desativar a verificação de CRL A lista completa dos valores suportados é documentada pelo dwFlags of CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. o padrão é 120 |Dinâmico|Especifique TimeSpan em segundos.  Fornece o tempo limite de solicitação padrão para as solicitações HTTP sendo processadas no gateway de aplicativo http. |
 |ForwardClientCertificate|bool, o padrão é FALSE|Dinâmico|Quando definido como false, o proxy reverso não solicitará o certificado do cliente. Quando definido como true, o proxy reverso solicitará o certificado do cliente durante o handshake de SSL e encaminhará a cadeia de caracteres de formato PEM codificado em base64 para o serviço em um cabeçalho chamado X-Client-Certificate. o serviço pode falhar a solicitação com o código de status apropriado Depois de inspecionar os dados do certificado. Se isso for verdadeiro e o cliente não apresentar um certificado, o proxy reverso encaminhará um cabeçalho vazio e permitirá que o serviço manipule o caso. O proxy reverso funcionará como uma camada transparente. Para saber mais, confira [Configurar a autenticação de certificado do cliente](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |Cadeia de caracteres, o padrão é "nenhum" |Estático| Indica o tipo de credenciais de segurança a ser usado no ponto de extremidade do gateway de aplicativo http os valores válidos são None/X509. |
@@ -86,9 +86,10 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |ReplicaSetCheckTimeoutRollbackOverride |Tempo em segundos, o padrão é 1200 |Dinâmico| Especifique TimeSpan em segundos. Se ReplicaSetCheckTimeout for definido como o valor máximo de DWORD; em seguida, ele é substituído pelo valor dessa configuração para fins de reversão. O valor usado para roll forward nunca é substituído. |
 |SkipRollbackUpdateDefaultService | Bool, o padrão é false |Dinâmico|O CM ignorará a reversão dos serviços padrão atualizados durante a reversão da atualização do aplicativo. |
 |StandByReplicaKeepDuration | Tempo em segundos, o padrão é (3600,0 \* 2)|Não permitido|Especifique TimeSpan em segundos. O StandByReplicaKeepDuration para Clustermanager. |
-|TargetReplicaSetSize |Int, o padrão é 7 |Não permitido|O TargetReplicaSetSize para Clustermanager. |
+|TargetReplicaSetSize |int, o padrão é 7 |Não permitido|O TargetReplicaSetSize para Clustermanager. |
 |UpgradeHealthCheckInterval |Tempo em segundos, o padrão é 60 |Dinâmico|A frequência de verificações de status de integridade durante um aplicativo monitorado atualiza |
 |UpgradeStatusPollInterval |Tempo em segundos, o padrão é 60 |Dinâmico|A frequência de sondagem do status de atualização do aplicativo. Esse valor determina a taxa de atualização para qualquer chamada GetApplicationUpgradeProgress |
+|Pedido de Cliente Completo | Bool, o padrão é false |Dinâmico| Complete o pedido do cliente quando aceite pela CM. |
 
 ## <a name="common"></a>Common
 
@@ -109,7 +110,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
 | **Parâmetro** | **Valores permitidos** |**Atualizar política**| **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|KeyDoubleValueMap, o padrão é None|Dinâmico|Determina o número de nós livres que são necessários para considerar o cluster desfragmentado, especificando o percentual no intervalo [0,0-1,0] ou o número de nós vazios como número > = 1,0 |
+|PropertyGroup|KeyDoubleValueMap, o padrão é None|Dinâmico|Determina o número de nós livres que são necessários para considerar o cluster desfragmentado, especificando ou por cento no intervalo [0.0 - 1.0] ou número de nós vazios como número >= 1.0 |
 
 ## <a name="diagnostics"></a>Diagnósticos
 
@@ -118,19 +119,19 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |AdminOnlyHttpAudit |Bool, o padrão é true | Dinâmico | Exclua as solicitações HTTP que não afetam o estado do cluster da auditoria. Existentes somente as solicitações do tipo "GET" são excluídas; Mas isso está sujeito a alterações. |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, o padrão é true | Dinâmico |Se a representação é necessária ou não ao acessar armazenamentos de diagnóstico em nome do aplicativo. |
 |AppEtwTraceDeletionAgeInDays |Int, o padrão é 3 | Dinâmico |Número de dias após o qual excluimos arquivos ETL antigos que contêm rastreamentos de ETW do aplicativo. |
-|ApplicationLogsFormatVersion |Int, o padrão é 0 | Dinâmico |Versão do formato de logs de aplicativo. Os valores com suporte são 0 e 1. A versão 1 inclui mais campos do registro de evento do ETW que a versão 0. |
+|ApplicationLogsFormatVersion |int, o padrão é 0 | Dinâmico |Versão do formato de logs de aplicativo. Os valores com suporte são 0 e 1. A versão 1 inclui mais campos do registro de evento do ETW que a versão 0. |
 |AuditHttpRequests |Bool, o padrão é false | Dinâmico | Ativar ou desativar a auditoria HTTP. A finalidade da auditoria é ver as atividades que foram executadas no cluster; incluindo quem iniciou a solicitação. Observe que se trata de um registro em log de melhor tentativa; e a perda de rastreamento pode ocorrer. As solicitações HTTP com a autenticação "usuário" não são registradas. |
 |CaptureHttpTelemetry|Bool, o padrão é true | Dinâmico | Ativar ou desativar a telemetria HTTP. A finalidade da telemetria é para que Service Fabric seja capaz de capturar dados de telemetria para ajudar a planejar o trabalho futuro e identificar áreas problemáticas. A telemetria não registra nenhum dado pessoal ou o corpo da solicitação. A telemetria captura todas as solicitações HTTP, exceto se configuradas de outra forma. |
-|ClusterId |String | Dinâmico |A ID exclusiva do cluster. Isso é gerado quando o cluster é criado. |
-|ConsumerInstances |String | Dinâmico |A lista de instâncias de consumidor DCA. |
+|ClusterId |Cadeia | Dinâmico |A ID exclusiva do cluster. Isso é gerado quando o cluster é criado. |
+|ConsumerInstances |Cadeia | Dinâmico |A lista de instâncias de consumidor DCA. |
 |DiskFullSafetySpaceInMB |Int, o padrão é 1024 | Dinâmico |Espaço em disco restante em MB para proteger contra o uso do DCA. |
 |EnableCircularTraceSession |Bool, o padrão é false | Estático |Sinalizador indica se as sessões de rastreamento circular devem ser usadas. |
 |EnablePlatformEventsFileSink |Bool, o padrão é false | Estático |Habilitar/desabilitar eventos de plataforma sendo gravados no disco |
 |Ativar telemetria |Bool, o padrão é true | Dinâmico |Isso vai habilitar ou desabilitar a telemetria. |
 |FailuresOnlyHttpTelemetry | Bool, o padrão é false | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; capturar apenas solicitações com falha. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
-|HttpTelemetryCapturePercentage | int, o padrão é 50 | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; capturar apenas uma porcentagem aleatória de solicitações. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
+|HttpTelemetryCapturePercentage | Int, o padrão é 50 | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; capturar apenas uma porcentagem aleatória de solicitações. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
 |MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmico |Cota de disco em MB para arquivos de log Windows Fabric. |
-|ProducerInstances |String | Dinâmico |A lista de instâncias de produtor do DCA. |
+|ProducerInstances |Cadeia | Dinâmico |A lista de instâncias de produtor do DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores permitidos** |**Atualizar política**| **Orientação ou descrição resumida** |
@@ -168,7 +169,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|ActivationMaxFailureCount |Int, o padrão é 10 |Dinâmico|Essa é a contagem máxima para a qual o sistema tentará novamente a ativação com falha antes de desistir. |
+|ActivationMaxFailureCount |int, o padrão é 10 |Dinâmico|Essa é a contagem máxima para a qual o sistema tentará novamente a ativação com falha antes de desistir. |
 |ActivationMaxRetryInterval |Tempo em segundos, o padrão é 300 |Dinâmico|Especifique TimeSpan em segundos. Intervalo máximo de repetição para ativação. Em cada falha contínua, o intervalo de repetição é calculado como min (ActivationMaxRetryInterval; Contagem de falhas contínuas * ActivationRetryBackoffInterval). |
 |ActivationRetryBackoffInterval |Tempo em segundos, o padrão é 5 |Dinâmico|Especifique TimeSpan em segundos. Intervalo de retirada em cada falha de ativação; em cada falha de ativação contínua, o sistema tentará novamente a ativação até o MaxActivationFailureCount. O intervalo de repetição em cada tentativa é um produto de falha de ativação contínua e o intervalo de retirada da ativação. |
 |EnableRestartManagement |Bool, o padrão é false |Dinâmico|Isso é para habilitar a reinicialização do servidor. |
@@ -192,12 +193,12 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |ClusterX509FindValue |Cadeia de caracteres, o padrão é "" |Dinâmico|Valor do filtro de pesquisa usado para localizar o certificado do cluster. |
 |ClusterX509FindValueSecondary |Cadeia de caracteres, o padrão é "" |Dinâmico|Valor do filtro de pesquisa usado para localizar o certificado do cluster. |
 |ClusterX509StoreName |Cadeia de caracteres, o padrão é "My" |Dinâmico|Nome do repositório de certificados X. 509 que contém o certificado de cluster para proteger a comunicação dentro do cluster. |
-|EndApplicationPortRange |Int, o padrão é 0 |Estático|End (não inclusivo) das portas de aplicativo gerenciadas pelo subsistema de hospedagem. Obrigatório se EndpointFilteringEnabled for true na hospedagem. |
+|EndApplicationPortRange |int, o padrão é 0 |Estático|End (não inclusivo) das portas de aplicativo gerenciadas pelo subsistema de hospedagem. Obrigatório se EndpointFilteringEnabled for true na hospedagem. |
 |ServerAuthX509FindType |Cadeia de caracteres, o padrão é "FindByThumbprint" |Dinâmico|Indica como pesquisar o certificado do servidor no repositório especificado pelo valor com suporte ServerAuthX509StoreName: FindByThumbprint; FindBySubjectName. |
 |ServerAuthX509FindValue |Cadeia de caracteres, o padrão é "" |Dinâmico|Valor do filtro de pesquisa usado para localizar o certificado do servidor. |
 |ServerAuthX509FindValueSecondary |Cadeia de caracteres, o padrão é "" |Dinâmico|Valor do filtro de pesquisa usado para localizar o certificado do servidor. |
 |ServerAuthX509StoreName |Cadeia de caracteres, o padrão é "My" |Dinâmico|Nome do repositório de certificados X. 509 que contém o certificado do servidor para o serviço entrée. |
-|StartApplicationPortRange |Int, o padrão é 0 |Estático|Início das portas de aplicativo gerenciadas pelo subsistema de hospedagem. Obrigatório se EndpointFilteringEnabled for true na hospedagem. |
+|StartApplicationPortRange |int, o padrão é 0 |Estático|Início das portas de aplicativo gerenciadas pelo subsistema de hospedagem. Obrigatório se EndpointFilteringEnabled for true na hospedagem. |
 |StateTraceInterval |Tempo em segundos, o padrão é 300 |Estático|Especifique TimeSpan em segundos. O intervalo para rastrear o status do nó em cada nó e os nós em FM/FMM. |
 |UserRoleClientX509FindType |Cadeia de caracteres, o padrão é "FindByThumbprint" |Dinâmico|Indica como pesquisar o certificado no repositório especificado pelo valor com suporte UserRoleClientX509StoreName: FindByThumbprint; FindBySubjectName. |
 |UserRoleClientX509FindValue |Cadeia de caracteres, o padrão é "" |Dinâmico|Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
@@ -208,16 +209,16 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|AllowNodeStateRemovedForSeedNode|Bool, o padrão é FALSE |Dinâmico|Sinalizador para indicar se é permitido remover o estado do nó de um nó semente |
+|AllowNodeStateRemovedForSeedNode|bool, o padrão é FALSE |Dinâmico|Sinalizador para indicar se é permitido remover o estado do nó de um nó semente |
 |BuildReplicaTimeLimit|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (3600)|Dinâmico|Especifique TimeSpan em segundos. O limite de tempo para a criação de uma réplica com estado; após o qual um relatório de integridade de aviso será iniciado |
-|ClusterPauseThreshold|int, o padrão é 1|Dinâmico|Se o número de nós no sistema ficar abaixo desse valor, então o posicionamento; balanceamento de carga; e o failover é interrompido. |
+|ClusterPauseThreshold|Int, o padrão é 1|Dinâmico|Se o número de nós no sistema ficar abaixo desse valor, então o posicionamento; balanceamento de carga; e o failover é interrompido. |
 |CreateInstanceTimeLimit|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (300)|Dinâmico|Especifique TimeSpan em segundos. O limite de tempo para a criação de uma instância sem estado; após o qual um relatório de integridade de aviso será iniciado |
-|ExpectedClusterSize|int, o padrão é 1|Dinâmico|Quando o cluster é inicialmente iniciado; o FM aguardará que esse número de nós se reporte antes de começar a colocar outros serviços; incluindo os serviços do sistema como nomenclatura. Aumentar esse valor aumenta o tempo que leva um cluster para ser inicializado; mas impede que os nós iniciais fiquem sobrecarregados e também as movimentações adicionais que serão necessárias à medida que mais nós ficarem online. Esse valor geralmente deve ser definido como uma pequena fração do tamanho inicial do cluster. |
+|ExpectedClusterSize|Int, o padrão é 1|Dinâmico|Quando o cluster é inicialmente iniciado; o FM aguardará que esse número de nós se reporte antes de começar a colocar outros serviços; incluindo os serviços do sistema como nomenclatura. Aumentar esse valor aumenta o tempo que leva um cluster para ser inicializado; mas impede que os nós iniciais fiquem sobrecarregados e também as movimentações adicionais que serão necessárias à medida que mais nós ficarem online. Esse valor geralmente deve ser definido como uma pequena fração do tamanho inicial do cluster. |
 |ExpectedNodeDeactivationDuration|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (60,0 \* 30)|Dinâmico|Especifique TimeSpan em segundos. Essa é a duração esperada para um nó concluir a desativação no. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (60,0 \* 30)|Dinâmico|Especifique TimeSpan em segundos. Essa é a duração esperada para que um nó seja atualizado durante a atualização Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (60,0 \* 30)|Dinâmico|Especifique TimeSpan em segundos. Essa é a duração esperada para que todas as réplicas sejam atualizadas em um nó durante a atualização do aplicativo. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, o padrão é TRUE|Dinâmico|Se definido como true; as réplicas com um tamanho de conjunto de réplicas de destino de 1 terão permissão para serem movidas durante a atualização. |
-|MinReplicaSetSize|int, o padrão é 3|Não permitido|Esse é o tamanho mínimo do conjunto de réplicas para o FM. Se o número de réplicas ativas do FM cair abaixo desse valor; o FM rejeitará as alterações no cluster até que pelo menos o número mínimo de réplicas seja recuperado |
+|MinReplicaSetSize|Int, o padrão é 3|Não permitido|Esse é o tamanho mínimo do conjunto de réplicas para o FM. Se o número de réplicas ativas do FM cair abaixo desse valor; o FM rejeitará as alterações no cluster até que pelo menos o número mínimo de réplicas seja recuperado |
 |PlacementConstraints|Cadeia de caracteres, o padrão é ""|Não permitido|Quaisquer restrições de posicionamento para as réplicas do Gerenciador de failover |
 |PlacementTimeLimit|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (600)|Dinâmico|Especifique TimeSpan em segundos. O limite de tempo para atingir a contagem de réplica de destino; após o qual um relatório de integridade de aviso será iniciado |
 |QuorumLossWaitDuration |Tempo em segundos, o padrão é MaxValue |Dinâmico|Especifique TimeSpan em segundos. Essa é a duração máxima para a qual permitimos que uma partição esteja em um estado de perda de quorum. Se a partição ainda estiver em perda de quorum após essa duração; a partição é recuperada da perda de quorum considerando as réplicas inativas como perdidas. Observe que isso pode potencialmente causar perda de dados. |
@@ -237,7 +238,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |CompletedActionKeepDurationInSeconds | Int, o padrão é 604800 |Estático| Isso é aproximadamente por quanto tempo manter as ações que estão em um estado terminal. Isso também depende do StoredActionCleanupIntervalInSeconds; como o trabalho para limpeza só é feito nesse intervalo. 604800 é de 7 dias. |
 |DataLossCheckPollIntervalInSeconds|int, o padrão é 5|Estático|Esse é o tempo entre as verificações que o sistema executa enquanto aguarda a perda de dados acontecer. O número de vezes que o número de perda de dados será verificado por iteração interna é DataLossCheckWaitDurationInSeconds/this. |
 |DataLossCheckWaitDurationInSeconds|int, o padrão é 25|Estático|A quantidade total de tempo; em segundos; o sistema aguardará a perda de dados. Isso é usado internamente quando a API StartPartitionDataLossAsync () é chamada. |
-|MinReplicaSetSize |Int, o padrão é 0 |Estático|O MinReplicaSetSize para FaultAnalysisService. |
+|MinReplicaSetSize |int, o padrão é 0 |Estático|O MinReplicaSetSize para FaultAnalysisService. |
 |PlacementConstraints | Cadeia de caracteres, o padrão é ""|Estático| O PlacementConstraints para FaultAnalysisService. |
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático|Especifique TimeSpan em segundos. O QuorumLossWaitDuration para FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, o padrão é 600|Estático|Esse parâmetro é usado quando a API de perda de dados é chamada. Ele controla por quanto tempo o sistema aguardará que uma réplica seja descartada depois que a réplica for invocada internamente. |
@@ -245,7 +246,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60*24*7) minutos |Estático|Especifique TimeSpan em segundos. O StandByReplicaKeepDuration para FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, o padrão é 3600 |Estático|É com que frequência o repositório será limpo. Somente ações em um estado de terminal; e a conclusão de pelo menos CompletedActionKeepDurationInSeconds atrás será removida. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, o padrão é 3600 |Estático|É com que frequência a loja será auditada para limpeza; Se o número de eventos for maior que 30000; a limpeza será iniciada. |
-|TargetReplicaSetSize |Int, o padrão é 0 |Estático|NOT_PLATFORM_UNIX_START o TargetReplicaSetSize para FaultAnalysisService. |
+|TargetReplicaSetSize |int, o padrão é 0 |Estático|NOT_PLATFORM_UNIX_START O TargetReplicaSetSize para FaultAnalysisService. |
 
 ## <a name="federation"></a>de Federação
 
@@ -258,7 +259,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|AcceptChunkUpload|Bool, o padrão é TRUE|Dinâmico|Configuração para determinar se o serviço de repositório de arquivos aceita carregamento de arquivo baseado em partes ou não durante a cópia do pacote de aplicativos. |
+|AcceptChunkUpload|bool, o padrão é TRUE|Dinâmico|Configuração para determinar se o serviço de repositório de arquivos aceita carregamento de arquivo baseado em partes ou não durante a cópia do pacote de aplicativos. |
 |AnonymousAccessEnabled | Bool, o padrão é true |Estático|Habilitar/desabilitar o acesso anônimo aos compartilhamentos FileStoreService. |
 |CommonName1Ntlmx509CommonName|Cadeia de caracteres, o padrão é ""|Estático| O nome comum do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
 |CommonName1Ntlmx509StoreLocation|Cadeia de caracteres, o padrão é "LocalMachine"|Estático|O local de armazenamento do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
@@ -309,15 +310,15 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool, o padrão é false |Estático|Política de avaliação de integridade do cluster: os avisos são tratados como erros. |
-|MaxPercentUnhealthyApplications | Int, o padrão é 0 |Estático|Política de avaliação de integridade do cluster: porcentagem máxima de aplicativos não íntegros permitidos para que o cluster seja íntegro. |
-|MaxPercentUnhealthyNodes | Int, o padrão é 0 |Estático|Política de avaliação de integridade do cluster: o percentual máximo de nós não íntegros permitidos para o cluster ser íntegro. |
+|MaxPercentUnhealthyApplications | int, o padrão é 0 |Estático|Política de avaliação de integridade do cluster: porcentagem máxima de aplicativos não íntegros permitidos para que o cluster seja íntegro. |
+|MaxPercentUnhealthyNodes | int, o padrão é 0 |Estático|Política de avaliação de integridade do cluster: o percentual máximo de nós não íntegros permitidos para o cluster ser íntegro. |
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|int, o padrão é 10|Estático|Política de avaliação de integridade da atualização do cluster: porcentagem máxima de nós Delta não íntegros permitidos para o cluster estar íntegro |
-|MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, o padrão é 15|Estático|Política de avaliação de integridade da atualização do cluster: porcentagem máxima de Delta de nós não íntegros em um domínio de atualização permitido para o cluster ser íntegro |
+|MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, o padrão é 15|Estático|Política de avaliação de integridade da atualização do cluster: porcentagem máxima de Delta de nós não íntegros em um domínio de atualização permitido para o cluster ser íntegro |
 
 ## <a name="hosting"></a>Alojamento
 
@@ -341,12 +342,12 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |DefaultContainerRepositoryPassword|Cadeia de caracteres, o padrão é ""|Estático|Credenciais de senha padrão usadas em vez de credenciais especificadas em ApplicationManifest. xml|
 |DefaultContainerRepositoryPasswordType|Cadeia de caracteres, o padrão é ""|Estático|Quando não for uma cadeia de caracteres vazia, o valor poderá ser "Encrypted" ou "SecretsStoreRef".|
 |DefaultDnsSearchSuffixEmpty|bool, o padrão é FALSE|Estático|Por padrão, o nome do serviço é anexado ao nome DNS da it para serviços de contêiner. Esse recurso interrompe esse comportamento para que nada seja acrescentado ao nome DNS da it por padrão no caminho de resolução.|
-|DeploymentMaxFailureCount|int, o padrão é 20| Dinâmico|A implantação do aplicativo será repetida por DeploymentMaxFailureCount vezes antes de falhar a implantação desse aplicativo no nó.| 
+|DeploymentMaxFailureCount|Int, o padrão é 20| Dinâmico|A implantação do aplicativo será repetida por DeploymentMaxFailureCount vezes antes de falhar a implantação desse aplicativo no nó.| 
 |DeploymentMaxRetryInterval| TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (3600)|Dinâmico| Especifique TimeSpan em segundos. Intervalo máximo de repetição para a implantação. Em cada falha contínua, o intervalo de repetição é calculado como min (DeploymentMaxRetryInterval; Contagem de falhas contínuas * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (10)|Dinâmico|Especifique TimeSpan em segundos. Intervalo de retirada para a falha de implantação. Em cada falha de implantação contínua, o sistema tentará novamente a implantação até o MaxDeploymentFailureCount. O intervalo de repetição é um produto de falha de implantação contínua e o intervalo de retirada da implantação. |
 |DisableContainers|bool, o padrão é FALSE|Estático|Configuração para desabilitar contêineres – usado em vez de DisableContainerServiceStartOnContainerActivatorOpen que é uma configuração preterida |
 |DisableDockerRequestRetry|bool, o padrão é FALSE |Dinâmico| Por padrão, o it se comunica com DD (Docker Dameon) com um tempo limite de "DockerRequestTimeout" para cada solicitação HTTP enviada a ele. Se DD não responder dentro desse período de tempo; It reenviará a solicitação se a operação de nível superior ainda tiver o tempo restante.  Com o contêiner HyperV; O DD às vezes leva muito mais tempo para exibir o contêiner ou desativá-lo. Nesses casos, DD a solicitação atinge o tempo limite da perspectiva do it e tenta a operação novamente. Às vezes, isso parece adicionar mais pressão ao DD. Essa configuração permite desabilitar essa repetição e aguardar que o DD responda. |
-|DnsServerListTwoIps | Bool, o padrão é FALSE | Estático | Esses sinalizadores adicionam o servidor DNS local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
+|DnsServerListTwoIps | bool, o padrão é FALSE | Estático | Esses sinalizadores adicionam o servidor DNS local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
 | DoNotInjectLocalDnsServer | bool, o padrão é FALSE | Estático | Impede que o tempo de execução Insira o IP local como servidor DNS para contêineres. |
 |EnableActivateNoWindow| bool, o padrão é FALSE|Dinâmico| O processo ativado é criado em segundo plano sem qualquer console. |
 |EnableContainerServiceDebugMode|bool, o padrão é TRUE|Estático|Habilitar/desabilitar registro em log para contêineres do Docker.  Somente Windows.|
@@ -394,19 +395,19 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático| Especifique TimeSpan em segundos. O QuorumLossWaitDuration para ImageStoreService. |
 |ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60,0 \* 30 |Estático|Especifique TimeSpan em segundos. O ReplicaRestartWaitDuration para ImageStoreService. |
 |StandByReplicaKeepDuration | Tempo em segundos, o padrão é 3600,0 \* 2 |Estático| Especifique TimeSpan em segundos. O StandByReplicaKeepDuration para ImageStoreService. |
-|TargetReplicaSetSize | Int, o padrão é 7 |Estático|O TargetReplicaSetSize para ImageStoreService. |
+|TargetReplicaSetSize | int, o padrão é 7 |Estático|O TargetReplicaSetSize para ImageStoreService. |
 
 ## <a name="ktllogger"></a>KtlLogger
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, o padrão é 1 |Dinâmico|Sinalizador que indica se as configurações de memória devem ser configuradas de forma automática e dinâmica. Se for zero, as definições de configuração de memória serão usadas diretamente e não serão alteradas com base nas condições do sistema. Se houver, as configurações de memória serão configuradas automaticamente e poderão ser alteradas com base nas condições do sistema. |
-|MaximumDestagingWriteOutstandingInKB | Int, o padrão é 0 |Dinâmico|O número de KB para permitir que o log compartilhado avance antecipadamente do log dedicado. Use 0 para indicar que não há limite.
+|MaximumDestagingWriteOutstandingInKB | int, o padrão é 0 |Dinâmico|O número de KB para permitir que o log compartilhado avance antecipadamente do log dedicado. Use 0 para indicar que não há limite.
 |SharedLogId |Cadeia de caracteres, o padrão é "" |Estático|GUID exclusivo para o contêiner de log compartilhado. Use "" se estiver usando o caminho padrão na raiz de dados de malha. |
 |SharedLogPath |Cadeia de caracteres, o padrão é "" |Estático|Caminho e nome do arquivo para o local para colocar o contêiner de log compartilhado. Use "" para usar o caminho padrão na raiz de dados de malha. |
 |SharedLogSizeInMB |Int, o padrão é 8192 |Estático|O número de MB a serem alocados no contêiner de log compartilhado. |
 |SharedLogThrottleLimitInPercentUsed|int, o padrão é 0 | Estático | A porcentagem de uso do log compartilhado que induzirá a limitação. O valor deve estar entre 0 e 100. Um valor de 0 implica o uso do valor percentual padrão. Um valor de 100 não implica nenhuma limitação. Um valor entre 1 e 99 especifica a porcentagem de uso de log acima da qual ocorrerá a limitação; por exemplo, se o log compartilhado for 10 GB e o valor for 90, a limitação ocorrerá quando 9GB estiver em uso. O uso do valor padrão é recomendado.|
-|WriteBufferMemoryPoolMaximumInKB | Int, o padrão é 0 |Dinâmico|O número de KB para permitir que o pool de memória do buffer de gravação cresça até. Use 0 para indicar que não há limite. |
+|WriteBufferMemoryPoolMaximumInKB | int, o padrão é 0 |Dinâmico|O número de KB para permitir que o pool de memória do buffer de gravação cresça até. Use 0 para indicar que não há limite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, o padrão é 8388608 |Dinâmico|O número de KB para alocar inicialmente para o pool de memória do buffer de gravação. Use 0 para indicar que nenhum padrão de limite deve ser consistente com SharedLogSizeInMB abaixo. |
 
 ## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
@@ -420,10 +421,10 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | --- | --- | --- | --- |
 |AutomaticUnprovisionInterval|TimeSpan, o padrão é Common:: TimeSpan:: FromMinutes (5)|Dinâmico|Especifique TimeSpan em segundos. O intervalo de limpeza permitido para cancelar o registro do tipo de aplicativo durante a limpeza automática do tipo de aplicativo.|
 |AzureStorageMaxConnections | Int, o padrão é 5000 |Dinâmico|O número máximo de conexões simultâneas com o armazenamento do Azure. |
-|AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmico|O número máximo de threads de trabalho em paralelo. |
+|AzureStorageMaxWorkerThreads | int, o padrão é 25 |Dinâmico|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, o padrão é 6000 |Dinâmico|Especifique TimeSpan em segundos. Tempo limite para a operação XStore ser concluída. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSE |Dinâmico|Habilita ou desabilita a limpeza automática do pacote de aplicativos no provisionamento bem-sucedido. |
-|CleanupUnusedApplicationTypes|Bool, o padrão é FALSE |Dinâmico|Essa configuração, se habilitada, permite cancelar automaticamente o registro de versões de tipo de aplicativo não utilizadas, ignorando as três versões não utilizadas mais recentes, reduzindo assim o espaço em disco ocupado pelo repositório de imagens. A limpeza automática será disparada no final do provisionamento bem-sucedido para esse tipo de aplicativo específico e também será executada periodicamente uma vez por dia para todos os tipos de aplicativos. O número de versões não utilizadas a serem ignoradas é configurável usando o parâmetro "MaxUnusedAppTypeVersionsToKeep". |
+|CleanupUnusedApplicationTypes|bool, o padrão é FALSE |Dinâmico|Essa configuração, se habilitada, permite cancelar automaticamente o registro de versões de tipo de aplicativo não utilizadas, ignorando as três versões não utilizadas mais recentes, reduzindo assim o espaço em disco ocupado pelo repositório de imagens. A limpeza automática será disparada no final do provisionamento bem-sucedido para esse tipo de aplicativo específico e também será executada periodicamente uma vez por dia para todos os tipos de aplicativos. O número de versões não utilizadas a serem ignoradas é configurável usando o parâmetro "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, o padrão é false |Estático| Essa configuração nos permite habilitar ou desabilitar a validação da soma de verificação durante o provisionamento do aplicativo. |
 |DisableServerSideCopy | Bool, o padrão é false |Estático|Essa configuração habilita ou desabilita a cópia do pacote de aplicativos no lado do servidor no ImageStore durante o provisionamento do aplicativo. |
 |ImageCachingEnabled | Bool, o padrão é true |Estático|Essa configuração nos permite habilitar ou desabilitar o Caching. |
@@ -451,24 +452,24 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|GatewayServiceDescriptionCacheLimit |Int, o padrão é 0 |Estático|O número máximo de entradas mantidas no cache de descrição de serviço LRU no gateway de nomenclatura (definido como 0 para sem limite). |
+|GatewayServiceDescriptionCacheLimit |int, o padrão é 0 |Estático|O número máximo de entradas mantidas no cache de descrição de serviço LRU no gateway de nomenclatura (definido como 0 para sem limite). |
 |MaxClientConnections |Int, o padrão é 1000 |Dinâmico|O número máximo permitido de conexões de cliente por gateway. |
 |MaxFileOperationTimeout |Tempo em segundos, o padrão é 30 |Dinâmico|Especifique TimeSpan em segundos. O tempo limite máximo permitido para a operação do serviço de repositório de arquivos. As solicitações que especificam um tempo limite maior serão rejeitadas. |
 |MaxIndexedEmptyPartitions |Int, o padrão é 1000 |Dinâmico|O número máximo de partições vazias que permanecerão indexadas no cache de notificação para sincronizar clientes de reconexão. Todas as partições vazias acima desse número serão removidas do índice em ordem de versão de pesquisa crescente. A reconexão de clientes ainda pode sincronizar e receber atualizações de partição vazias perdidas; Mas o protocolo de sincronização torna-se mais caro. |
 |MaxMessageSize |Int, o padrão é 4\*1024\*1024 |Estático|O tamanho máximo da mensagem para comunicação de nó de cliente ao usar o nome. Atenuação de ataque DOS; o valor padrão é 4 MB. |
-|MaxNamingServiceHealthReports | Int, o padrão é 10 |Dinâmico|O número máximo de operações lentas que o serviço de repositório de nomeação relata como não íntegro de uma só vez. Se for 0; todas as operações lentas são enviadas. |
+|MaxNamingServiceHealthReports | int, o padrão é 10 |Dinâmico|O número máximo de operações lentas que o serviço de repositório de nomeação relata como não íntegro de uma só vez. Se for 0; todas as operações lentas são enviadas. |
 |MaxOperationTimeout |Tempo em segundos, o padrão é 600 |Dinâmico|Especifique TimeSpan em segundos. O tempo limite máximo permitido para operações do cliente. As solicitações que especificam um tempo limite maior serão rejeitadas. |
 |MaxOutstandingNotificationsPerClient |Int, o padrão é 1000 |Dinâmico|O número máximo de notificações pendentes antes de um registro de cliente ser fechado forçosamente pelo Gateway. |
 |MinReplicaSetSize | Int, o padrão é 3 |Não permitido| O número mínimo de réplicas de Serviço de Nomenclatura necessárias para gravar no para concluir uma atualização. Se houver menos réplicas do que esta ativa no sistema, o sistema de confiabilidade negará atualizações para o repositório de Serviço de Nomenclatura até que as réplicas sejam restauradas. Esse valor nunca deve ser maior do que o TargetReplicaSetSize. |
-|PartitionCount |Int, o padrão é 3 |Não permitido|O número de partições do repositório de Serviço de Nomenclatura a ser criado. Cada partição possui uma única chave de partição que corresponde ao seu índice; Portanto, chaves de partição [0; PartitionCount] existe. Aumentar o número de partições de Serviço de Nomenclatura aumenta a escala que o Serviço de Nomenclatura pode executar ao diminuir a quantidade média de dados mantidos por qualquer conjunto de réplicas de backup; a um custo de maior utilização de recursos (desde que as réplicas de serviço PartitionCount * ReplicaSetSize precisem ser mantidas).|
+|PartitionCount |Int, o padrão é 3 |Não permitido|O número de partições do repositório de Serviço de Nomenclatura a ser criado. Cada partição possui uma única chave de partição que corresponde ao seu índice; assim, chaves de partição [0; PartitionCount] existem. Aumentar o número de partições de Serviço de Nomenclatura aumenta a escala que o Serviço de Nomenclatura pode executar ao diminuir a quantidade média de dados mantidos por qualquer conjunto de réplicas de backup; a um custo de maior utilização de recursos (desde que as réplicas de serviço PartitionCount * ReplicaSetSize precisem ser mantidas).|
 |PlacementConstraints | Cadeia de caracteres, o padrão é "" |Não permitido| Restrição de posicionamento para o Serviço de Nomenclatura. |
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Não permitido| Especifique TimeSpan em segundos. Quando um Serviço de Nomenclatura entra em perda de quorum; Esse temporizador é iniciado. Quando ele expirar, o FM considerará as réplicas como perdidas; e tentar recuperar o quorum. Não que isso possa resultar em perda de dados. |
 |RepairInterval | Tempo em segundos, o padrão é 5 |Estático| Especifique TimeSpan em segundos. Intervalo no qual o reparo de inconsistência de nomenclatura entre o proprietário da autoridade e o proprietário do nome será iniciado. |
 |ReplicaRestartWaitDuration | Tempo em segundos, o padrão é (60,0 * 30)|Não permitido| Especifique TimeSpan em segundos. Quando uma réplica de Serviço de Nomenclatura fica inativa; Esse temporizador é iniciado. Quando ele expirar, o FM começará a substituir as réplicas que estão inativas (ele ainda não as considera perdidas). |
-|ServiceDescriptionCacheLimit | Int, o padrão é 0 |Estático| O número máximo de entradas mantidas no cache de descrição do serviço LRU no serviço de repositório de nomes (definido como 0 para sem limite). |
+|ServiceDescriptionCacheLimit | int, o padrão é 0 |Estático| O número máximo de entradas mantidas no cache de descrição do serviço LRU no serviço de repositório de nomes (definido como 0 para sem limite). |
 |ServiceNotificationTimeout |Tempo em segundos, o padrão é 30 |Dinâmico|Especifique TimeSpan em segundos. O tempo limite usado ao entregar notificações de serviço ao cliente. |
 |StandByReplicaKeepDuration | Tempo em segundos, o padrão é 3600,0 * 2 |Não permitido| Especifique TimeSpan em segundos. Quando uma réplica de Serviço de Nomenclatura retorna de um estado inativo; Ele pode já ter sido substituído. Esse temporizador determina por quanto tempo o FM manterá a réplica em espera antes de descartar. |
-|TargetReplicaSetSize |Int, o padrão é 7 |Não permitido|O número de conjuntos de réplicas para cada partição do repositório de Serviço de Nomenclatura. O aumento do número de conjuntos de réplicas aumenta o nível de confiabilidade das informações no repositório de Serviço de Nomenclatura; diminuindo a alteração de que as informações serão perdidas como resultado de falhas de nó; a um custo de maior carga em Windows Fabric e o tempo necessário para realizar atualizações nos dados de nomenclatura.|
+|TargetReplicaSetSize |int, o padrão é 7 |Não permitido|O número de conjuntos de réplicas para cada partição do repositório de Serviço de Nomenclatura. O aumento do número de conjuntos de réplicas aumenta o nível de confiabilidade das informações no repositório de Serviço de Nomenclatura; diminuindo a alteração de que as informações serão perdidas como resultado de falhas de nó; a um custo de maior carga em Windows Fabric e o tempo necessário para realizar atualizações nos dados de nomenclatura.|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
 | **Parâmetro** | **Valores permitidos** |**Atualizar política**| **Orientação ou descrição resumida** |
@@ -504,22 +505,22 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|Contadores |String | Dinâmico |Lista separada por vírgulas de contadores de desempenho a serem coletados. |
+|Balcões |Cadeia | Dinâmico |Lista separada por vírgulas de contadores de desempenho a serem coletados. |
 |IsEnabled |Bool, o padrão é true | Dinâmico |Sinalizador indica se a coleta do contador de desempenho no nó local está habilitada. |
 |MaxCounterBinaryFileSizeInMB |Int, o padrão é 1 | Dinâmico |Tamanho máximo (em MB) para cada arquivo binário do contador de desempenho. |
-|NewCounterBinaryFileCreationIntervalInMinutes |Int, o padrão é 10 | Dinâmico |Intervalo máximo (em segundos) após o qual um novo arquivo binário do contador de desempenho é criado. |
+|NewCounterBinaryFileCreationIntervalInMinutes |int, o padrão é 10 | Dinâmico |Intervalo máximo (em segundos) após o qual um novo arquivo binário do contador de desempenho é criado. |
 |SamplingIntervalInSeconds |Int, o padrão é 60 | Dinâmico |Intervalo de amostragem para os contadores de desempenho que estão sendo coletados. |
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de afinidade: 0: difícil; 1: Soft; negativo: ignorar. |
-|ApplicationCapacityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar. |
+|AffinityConstraintPriority | int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de afinidade: 0: difícil; 1: Soft; negativo: ignorar. |
+|ApplicationCapacityConstraintPriority | int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar. |
 |AutoDetectAvailableResources|bool, o padrão é TRUE|Estático|Essa configuração irá disparar a detecção automática de recursos disponíveis no nó (CPU e memória) quando essa configuração for definida como true – vamos ler as capacidades reais e corrigi-las se o usuário especificou capacidades de nó inválidas ou não as definir se essa configuração estiver definida como false.  rastrear um aviso de que o usuário especificou capacidades de nó inválidos; Mas não os corrigiremos; o que significa que o usuário deseja ter as capacidades especificadas como > do que o nó realmente tem ou se as capacidades estão indefinidas; Ele assumirá capacidade ilimitada |
 |BalancingDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmico|Especifique TimeSpan em segundos. Não comece a balancear as atividades dentro desse período depois de adicionar um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, o padrão é 120 |Dinâmico|Especifique TimeSpan em segundos. Não comece a balancear as atividades dentro desse período após um evento de nó inativo. |
-|CapacityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar. |
+|CapacityConstraintPriority | int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes consecutivas que os movimentos ResourceBalancerdos são removidos antes que os diagnósticos sejam realizados e os avisos de integridade sejam emitidos. Negativo: nenhum aviso emitido sob essa condição. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmico| Especifique TimeSpan em segundos. DDo não corrigir violações de restrição FaultDomain e UpgradeDomain nesse período depois de adicionar um novo nó. |
 |ConstraintFixPartialDelayAfterNodeDown | Tempo em segundos, o padrão é 120 |Dinâmico| Especifique TimeSpan em segundos. Não corrija as violações de restrição FaultDomain e UpgradeDomain dentro desse período após um evento de nó inativo. |
@@ -530,7 +531,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |DetailedPartitionListLimit | Int, o padrão é 15 |Dinâmico| Define o número de partições por entrada de diagnóstico para uma restrição a ser incluída antes do truncamento no diagnóstico. |
 |DetailedVerboseHealthReportLimit | Int, o padrão é 200 | Dinâmico|Define o número de vezes que uma réplica não posicionada precisa ser persistentemente desalocada antes que os relatórios de integridade detalhados sejam emitidos. |
 |EnforceUserServiceMetricCapacities|bool, o padrão é FALSE | Estático |Habilita a proteção dos serviços de malha. Todos os serviços de usuário estão em um objeto de trabalho/CGroup e limitados à quantidade especificada de recursos. Isso precisa ser estático (requer reinicialização de FabricHost) como criação/remoção de objeto de trabalho do usuário e limites de configuração em Done durante o Open do host de malha. |
-|FaultDomainConstraintPriority | Int, o padrão é 0 |Dinâmico| Determina a prioridade da restrição de domínio de falha: 0: difícil; 1: Soft; negativo: ignorar. |
+|FaultDomainConstraintPriority | int, o padrão é 0 |Dinâmico| Determina a prioridade da restrição de domínio de falha: 0: difícil; 1: Soft; negativo: ignorar. |
 |GlobalMovementThrottleCountingInterval | Tempo em segundos, o padrão é 600 |Estático| Especifique TimeSpan em segundos. Indique o comprimento do intervalo passado para controlar os movimentos de réplica por domínio (usados junto com GlobalMovementThrottleThreshold). Pode ser definido como 0 para ignorar totalmente a limitação global. |
 |GlobalMovementThrottleThreshold | Uint, o padrão é 1000 |Dinâmico| Número máximo de movimentos permitidos na fase de balanceamento no intervalo passado indicado por GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, o padrão é 0 | Dinâmico|Número máximo de movimentações permitidas na fase de balanceamento no intervalo passado indicado por GlobalMovementThrottleCountingInterval. 0 indica nenhum limite. |
@@ -539,7 +540,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |GlobalMovementThrottleThresholdPercentageForBalancing|duplo, o padrão é 0|Dinâmico|Número máximo de movimentações permitidas na fase de balanceamento (expresso como porcentagem do número total de réplicas em PLB) no intervalo passado indicado por GlobalMovementThrottleCountingInterval. 0 indica nenhum limite. Se isso e GlobalMovementThrottleThresholdForBalancing forem especificados; em seguida, é usado um limite mais conservador.|
 |InBuildThrottlingAssociatedMetric | Cadeia de caracteres, o padrão é "" |Estático| O nome da métrica associada para essa limitação. |
 |InBuildThrottlingEnabled | Bool, o padrão é false |Dinâmico| Determine se a limitação no Build está habilitada. |
-|InBuildThrottlingGlobalMaxValue | Int, o padrão é 0 |Dinâmico|O número máximo de réplicas em compilação permitidas globalmente. |
+|InBuildThrottlingGlobalMaxValue | int, o padrão é 0 |Dinâmico|O número máximo de réplicas em compilação permitidas globalmente. |
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, o padrão é false | Dinâmico|Determina se qualquer tipo de atualização de unidade de failover deve interromper a execução de balanceamento rápido ou lento. Com a execução de balanceamento "false" especificada será interrompida se FailoverUnit: for criado/excluído; tem réplicas ausentes; local da réplica primária alterado ou número alterado de réplicas. A execução de balanceamento não será interrompida em outros casos – se FailoverUnit: tiver réplicas extras; sinalizador de réplica alterado; alterada somente a versão de partição ou qualquer outro caso. |
 |MinConstraintCheckInterval | Tempo em segundos, o padrão é 1 |Dinâmico| Especifique TimeSpan em segundos. Define a quantidade mínima de tempo que deve passar antes de duas rodas de verificação de restrição consecutivas. |
 |MinLoadBalancingInterval | Tempo em segundos, o padrão é 5 |Dinâmico| Especifique TimeSpan em segundos. Define a quantidade mínima de tempo que deve passar antes de dois arredondamentos de balanceamento consecutivos. |
@@ -550,24 +551,26 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |MoveParentToFixAffinityViolation | Bool, o padrão é false |Dinâmico| Configuração que determina se as réplicas pai podem ser movidas para corrigir as restrições de afinidade.|
 |PartiallyPlaceServices | Bool, o padrão é true |Dinâmico| Determina se todas as réplicas de serviço no cluster serão colocadas "tudo ou nada" dadas os nós adequados limitados para eles.|
 |PlaceChildWithoutParent | Bool, o padrão é true | Dinâmico|Configuração que determina se a réplica de serviço filho pode ser colocada se nenhuma réplica pai estiver ativa. |
-|PlacementConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de posicionamento: 0: difícil; 1: Soft; negativo: ignorar. |
+|PlacementConstraintPriority | int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de posicionamento: 0: difícil; 1: Soft; negativo: ignorar. |
 |PlacementConstraintValidationCacheSize | Int, o padrão é 10000 |Dinâmico| Limita o tamanho da tabela usada para validação rápida e cache de expressões de restrição de posicionamento. |
 |PlacementSearchTimeout | Tempo em segundos, o padrão é 0,5 |Dinâmico| Especifique TimeSpan em segundos. Ao colocar serviços; Pesquise pelo menos esse tempo antes de retornar um resultado. |
 |PLBRefreshGap | Tempo em segundos, o padrão é 1 |Dinâmico| Especifique TimeSpan em segundos. Define a quantidade mínima de tempo que deve passar antes de o PLB atualizar o estado novamente. |
 |PreferredLocationConstraintPriority | Int, o padrão é 2| Dinâmico|Determina a prioridade da restrição de local preferencial: 0: difícil; 1: Soft; 2: otimização; negativo: ignorar |
 |PreferUpgradedUDs|bool, o padrão é FALSE|Dinâmico|Ativa e desativa a lógica que prefere mover para o UDs já atualizado. A partir do it 7,0, o valor padrão desse parâmetro é alterado de TRUE para FALSE.|
 |PreventTransientOvercommit | Bool, o padrão é false | Dinâmico|Determina se PLB conta imediatamente em recursos que serão liberados pelas movimentações iniciadas. Por padrão; PLB pode iniciar a movimentação e a movimentação no mesmo nó que pode criar uma sobreconfirmação transitória. Definir esse parâmetro como true impedirá que esses tipos de excesso de confirmações e de desfragmentação sob demanda (também conhecido como placementWithMove) sejam desabilitados. |
-|ScaleoutCountConstraintPriority | Int, o padrão é 0 |Dinâmico| Determina a prioridade da restrição de contagem de scale out: 0: Hard; 1: Soft; negativo: ignorar. |
+|ScaleoutCountConstraintPriority | int, o padrão é 0 |Dinâmico| Determina a prioridade da restrição de contagem de scale out: 0: Hard; 1: Soft; negativo: ignorar. |
 |SwapPrimaryThrottlingAssociatedMetric | Cadeia de caracteres, o padrão é ""|Estático| O nome da métrica associada para essa limitação. |
 |SwapPrimaryThrottlingEnabled | Bool, o padrão é false|Dinâmico| Determine se a limitação de troca primária está habilitada. |
-|SwapPrimaryThrottlingGlobalMaxValue | Int, o padrão é 0 |Dinâmico| O número máximo de réplicas de troca primária permitidas globalmente. |
+|SwapPrimaryThrottlingGlobalMaxValue | int, o padrão é 0 |Dinâmico| O número máximo de réplicas de troca primária permitidas globalmente. |
 |TraceCRMReasons |Bool, o padrão é true |Dinâmico|Especifica se é para rastrear os motivos para os movimentos emitidos pelo CRM para o canal de eventos operacionais. |
 |UpgradeDomainConstraintPriority | Int, o padrão é 1| Dinâmico|Determina a prioridade da restrição de domínio de atualização: 0: difícil; 1: Soft; negativo: ignorar. |
 |UseMoveCostReports | Bool, o padrão é false | Dinâmico|Instrui o LB a ignorar o elemento de custo da função de Pontuação; resultando em um número potencialmente grande de movimentações para um posicionamento com balanceamento melhor. |
 |UseSeparateSecondaryLoad | Bool, o padrão é true | Dinâmico|Configuração que determina se a carga secundária diferente é usada. |
 |ValidatePlacementConstraint | Bool, o padrão é true |Dinâmico| Especifica se a expressão PlacementConstraint para um serviço é validada quando a ServiceDescription de um serviço é atualizada. |
-|ValidatePrimaryPlacementConstraintOnPromote| Bool, o padrão é TRUE |Dinâmico|Especifica se a expressão PlacementConstraint para um serviço é avaliada para a preferência primária no failover. |
+|ValidatePrimaryPlacementConstraintOnPromote| bool, o padrão é TRUE |Dinâmico|Especifica se a expressão PlacementConstraint para um serviço é avaliada para a preferência primária no failover. |
 |VerboseHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes que uma réplica deve ficar não alocada antes que um aviso de integridade seja relatado para ele (se o relatório de integridade detalhado estiver habilitado). |
+|NodeLoadsOperationalTracingEnabled | Bool, o padrão é true |Dinâmico|Config que permite vestígios estruturais operacionais no Nó Load na loja de eventos. |
+|Intervalo de rastreio operacional nonótol | TimeSpan, o padrão é comum:TimeSpan:FromSeconds (20) | Dinâmico|Especifique TimeSpan em segundos. O intervalo com o qual rastrear cargas de nó para loja de eventos para cada domínio de serviço. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
@@ -578,8 +581,8 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |GracefulReplicaShutdownMaxDuration|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (120)|Dinâmico|Especifique TimeSpan em segundos. A duração pela qual o sistema aguardará antes de encerrar os hosts de serviço que têm réplicas que estão presas no fechamento. Se esse valor for definido como 0, as réplicas não serão instruídas a fechar.|
 |NodeDeactivationMaxReplicaCloseDuration | Tempo em segundos, o padrão é 900 |Dinâmico|Especifique TimeSpan em segundos. A duração pela qual o sistema aguardará antes de encerrar os hosts de serviço que têm réplicas presas em fechamento durante a desativação do nó. |
 |PeriodicApiSlowTraceInterval | Tempo em segundos, o padrão é 5 minutos |Dinâmico| Especifique TimeSpan em segundos. PeriodicApiSlowTraceInterval define o intervalo em que as chamadas de API lentas serão rerastreadas pelo monitor de API. |
-|ReplicaChangeRoleFailureRestartThreshold|int, o padrão é 10|Dinâmico| Inteiro. Especifique o número de falhas de API durante a promoção primária após a qual a ação de mitigação automática (reinicialização de réplica) será aplicada. |
-|ReplicaChangeRoleFailureWarningReportThreshold|int, o padrão é 2147483647|Dinâmico| Inteiro. Especifique o número de falhas de API durante a promoção primária após o qual o relatório de integridade de aviso será gerado.|
+|ReplicaChangeRoleFailureRestartThreshold|int, o padrão é 10|Dinâmico| O Integer. Especifique o número de falhas de API durante a promoção primária após a qual a ação de mitigação automática (reinicialização de réplica) será aplicada. |
+|ReplicaChangeRoleFailureWarningReportThreshold|int, o padrão é 2147483647|Dinâmico| O Integer. Especifique o número de falhas de API durante a promoção primária após o qual o relatório de integridade de aviso será gerado.|
 |ServiceApiHealthDuration | Tempo em segundos, o padrão é 30 minutos |Dinâmico| Especifique TimeSpan em segundos. ServiceApiHealthDuration define por quanto tempo esperamos que uma API de serviço seja executada antes de relatar que ela não está íntegra. |
 |ServiceReconfigurationApiHealthDuration | Tempo em segundos, o padrão é 30 |Dinâmico| Especifique TimeSpan em segundos. ServiceReconfigurationApiHealthDuration define por quanto tempo aguardamos que uma API de serviço seja executada antes de relatar não íntegro. Isso se aplica a chamadas de API que afetam a disponibilidade.|
 
@@ -588,10 +591,10 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, o padrão é Common:: TimeSpan:: FromMilliseconds (15)|Estático|Especifique TimeSpan em segundos. Determina a quantidade de tempo que o replicador aguarda depois de receber uma operação antes de enviar de volta uma confirmação. Outras operações recebidas durante esse período de tempo terão suas confirmações enviadas de volta em uma única mensagem-> reduzindo o tráfego de rede, mas potencialmente reduzindo a taxa de transferência do replicador.|
 |MaxCopyQueueSize|uint, o padrão é 1024|Estático|Esse é o valor máximo que define o tamanho inicial para a fila que mantém as operações de replicação. Observe que ele deve ser uma potência de 2. Se, durante o tempo de execução, a fila crescer para essa operação de tamanho será limitada entre os replicadores primários e secundários.|
-|MaxPrimaryReplicationQueueMemorySize|uint, o padrão é 0|Estático|Esse é o valor máximo da fila de replicação primária em bytes.|
+|MaxPrimaryReplicationQueueMemorySize|Uint, o padrão é 0|Estático|Esse é o valor máximo da fila de replicação primária em bytes.|
 |MaxPrimaryReplicationQueueSize|uint, o padrão é 1024|Estático|Este é o número máximo de operações que podem existir na fila de replicação primária. Observe que ele deve ser uma potência de 2.|
 |MaxReplicationMessageSize|uint, o padrão é 52428800|Estático|Tamanho máximo da mensagem de operações de replicação. O padrão é 50 MB.|
-|MaxSecondaryReplicationQueueMemorySize|uint, o padrão é 0|Estático|Esse é o valor máximo da fila de replicação secundária em bytes.|
+|MaxSecondaryReplicationQueueMemorySize|Uint, o padrão é 0|Estático|Esse é o valor máximo da fila de replicação secundária em bytes.|
 |MaxSecondaryReplicationQueueSize|uint, o padrão é 2048|Estático|Este é o número máximo de operações que podem existir na fila de replicação secundária. Observe que ele deve ser uma potência de 2.|
 |QueueHealthMonitoringInterval|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (30)|Estático|Especifique TimeSpan em segundos. Esse valor determina o período de tempo usado pelo replicador para monitorar qualquer evento de integridade de aviso/erro nas filas de operação de replicação. Um valor de ' 0 ' desabilita o monitoramento de integridade |
 |QueueHealthWarningAtUsagePercent|uint, o padrão é 80|Estático|Esse valor determina o uso da fila de replicação (em porcentagem) após o qual relatamos um aviso sobre o alto uso da fila. Fazemos isso após um intervalo de carência de QueueHealthMonitoringInterval. Se o uso da fila cair abaixo dessa porcentagem no intervalo de carência|
@@ -662,7 +665,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |ClusterCredentialType|Cadeia de caracteres, o padrão é "nenhum"|Não permitido|Indica o tipo de credenciais de segurança a ser usado para proteger o cluster. Os valores válidos são "None/X509/Windows" |
 |ClusterIdentities|Cadeia de caracteres, o padrão é ""|Dinâmico|Identidades do Windows de nós de cluster; usado para autorização de associação de cluster. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou nome de grupo |
 |ClusterSpn|Cadeia de caracteres, o padrão é ""|Não permitido|Nome da entidade de serviço do cluster; Quando a malha é executada como um usuário de domínio único (conta de usuário do gMSA/domínio). É o SPN de ouvintes de concessão e ouvintes em fabric. exe: ouvintes de Federação; ouvintes de replicação interna; ouvinte do serviço de runtime e ouvinte de gateway de nomenclatura. Isso deve ser deixado vazio quando a malha é executada como contas da máquina; Nesse caso, conectando o SPN do ouvinte de computação do endereço de transporte do ouvinte. |
-|CrlCheckingFlag|uint, o padrão é 0x40000000|Dinâmico|Sinalizador de validação de cadeia de certificados padrão; pode ser substituído por um sinalizador específico do componente; por exemplo, Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY configuração como 0 desabilita a verificação de CRL a lista completa de valores com suporte é documentada por dwFlags de CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|CrlCheckingFlag|uint, o padrão é 0x40000000|Dinâmico|Bandeira de validação de cadeia de certificados predefinido; Podem ser sobremontados por uma bandeira específica dos componentes; por exemplo, Federação/X509CertChainFlags 0x100000000CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x200000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x400000000CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x8000000000CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Definição para 0 desativar a VERIFICAção de CRL A lista completa dos valores suportados é documentada por dwFlags of CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|TimeSpan, o padrão é Common:: TimeSpan:: FromMinutes (15)|Dinâmico|Especifique TimeSpan em segundos. Por quanto tempo a verificação da CRL está desabilitada para um determinado certificado após encontrar um erro offline; Se o erro de CRL offline puder ser ignorado. |
 |CrlOfflineHealthReportTtl|TimeSpan, o padrão é Common:: TimeSpan:: FromMinutes (1440)|Dinâmico|Especifique TimeSpan em segundos. |
 |DisableFirewallRuleForDomainProfile| bool, o padrão é TRUE |Estático| Indica se a regra de firewall não deve ser habilitada para o perfil de domínio |
@@ -829,11 +832,11 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | --- | --- | --- | --- |
 |ContainerNetworkName|Cadeia de caracteres, o padrão é ""| Estático |O nome da rede a ser usada ao configurar uma rede de contêiner.|
 |ContainerNetworkSetup|bool, o padrão é FALSE| Estático |Se uma rede de contêiner deve ser configurada.|
-|FabricDataRoot |String | Não permitido |Service Fabric diretório raiz de dados. O padrão para o Azure é d:\svcfab |
-|FabricLogRoot |String | Não permitido |Diretório raiz de log do Service Fabric. É aí que os logs e rastreamentos do it são colocados. |
+|FabricDataRoot |Cadeia | Não permitido |Service Fabric diretório raiz de dados. O padrão para o Azure é d:\svcfab |
+|FabricLogRoot |Cadeia | Não permitido |Diretório raiz de log do Service Fabric. É aí que os logs e rastreamentos do it são colocados. |
 |NodesToBeRemoved|Cadeia de caracteres, o padrão é ""| Dinâmico |Os nós que devem ser removidos como parte da atualização de configuração. (Somente para implantações autônomas)|
-|ServiceRunAsAccountName |String | Não permitido |O nome da conta sob a qual executar o serviço de host de malha. |
-|SkipContainerNetworkResetOnReboot|bool, o padrão é FALSE|NotAllowed|Se a redefinição da rede de contêiner deve ser ignorada na reinicialização.|
+|ServiceRunAsAccountName |Cadeia | Não permitido |O nome da conta sob a qual executar o serviço de host de malha. |
+|SkipContainerNetworkResetOnReboot|bool, o padrão é FALSE|Não Permitido|Se a redefinição da rede de contêiner deve ser ignorada na reinicialização.|
 |SkipFirewallConfiguration |Bool, o padrão é false | Não permitido |Especifica se as configurações de firewall precisam ser definidas pelo sistema ou não. Isso se aplicará somente se você estiver usando o Firewall do Windows. Se você estiver usando firewalls de terceiros, deverá abrir as portas para o sistema e os aplicativos a serem usados |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
@@ -856,7 +859,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |MaxCopyQueueSize |Uint, o padrão é 16384 | Estático |Esse é o valor máximo que define o tamanho inicial para a fila que mantém as operações de replicação. Observe que ele deve ser uma potência de 2. Se, durante o tempo de execução, a fila crescer para essa operação de tamanho será limitada entre os replicadores primários e secundários. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, o padrão é 0 | Estático |Esse é o valor máximo da fila de replicação primária em bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, o padrão é 8192 | Estático |Este é o número máximo de operações que podem existir na fila de replicação primária. Observe que ele deve ser uma potência de 2. |
-|MaxReplicationMessageSize |Uint, o padrão é 52428800 | Estático | Tamanho máximo da mensagem de operações de replicação. O padrão é 50 MB. |
+|MaxReplicationMessageSize |uint, o padrão é 52428800 | Estático | Tamanho máximo da mensagem de operações de replicação. O padrão é 50 MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, o padrão é 0 | Estático |Esse é o valor máximo da fila de replicação secundária em bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, o padrão é 16384 | Estático |Este é o número máximo de operações que podem existir na fila de replicação secundária. Observe que ele deve ser uma potência de 2. |
 |ReplicatorAddress |Cadeia de caracteres, o padrão é "localhost: 0" | Estático | O ponto de extremidade na forma de uma cadeia de caracteres-' IP: Port ', que é usada pelo Windows Fabric Replicator para estabelecer conexões com outras réplicas a fim de enviar/receber operações. |
@@ -875,14 +878,14 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, o padrão é true |Estático| Ação de sondagem e atualização automática com base em um arquivo de estado de meta. |
-|AutoupgradeInstallEnabled|Bool, o padrão é FALSE|Estático|Sondagem automática, provisionamento e instalação de ação de atualização de código com base em um arquivo de estado de meta.|
+|AutoupgradeInstallEnabled|bool, o padrão é FALSE|Estático|Sondagem automática, provisionamento e instalação de ação de atualização de código com base em um arquivo de estado de meta.|
 |GoalStateExpirationReminderInDays|int, o padrão é 30|Estático|Define o número de dias restantes após o qual o lembrete de estado de meta deve ser mostrado.|
-|MinReplicaSetSize |Int, o padrão é 0 |Estático |O MinReplicaSetSize para UpgradeOrchestrationService.|
+|MinReplicaSetSize |int, o padrão é 0 |Estático |O MinReplicaSetSize para UpgradeOrchestrationService.|
 |PlacementConstraints | Cadeia de caracteres, o padrão é "" |Estático| O PlacementConstraints para UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático| Especifique TimeSpan em segundos. O QuorumLossWaitDuration para UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60 minutos|Estático| Especifique TimeSpan em segundos. O ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
 |StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60*24*7 minutos |Estático| Especifique TimeSpan em segundos. O StandByReplicaKeepDuration para UpgradeOrchestrationService. |
-|TargetReplicaSetSize |Int, o padrão é 0 |Estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
+|TargetReplicaSetSize |int, o padrão é 0 |Estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, o padrão é false | Estático|Configuração para fazer a atualização de código exigir aprovação do administrador antes de continuar. |
 
 ## <a name="upgradeservice"></a>UpgradeService

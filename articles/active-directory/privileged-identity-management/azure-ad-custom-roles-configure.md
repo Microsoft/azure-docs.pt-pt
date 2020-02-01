@@ -1,12 +1,13 @@
 ---
-title: Configurar funções personalizadas do Azure AD no Privileged Identity Management (PIM) | Microsoft Docs
-description: Como configurar funções personalizadas do Azure AD no Privileged Identity Management (PIM)
+title: Configure Azure AD funções personalizadas em Gestão de Identidade Privilegiada (PIM) Microsoft Docs
+description: Como configurar funções personalizadas da Azure AD na Gestão de Identidade Privilegiada (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,86 +16,86 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d5a7fe20a53baa86f43703c97fb8437fbb0fcd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 82d0c001ecea4c3afbcb800b68246b628c130ff2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756403"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896542"
 ---
-# <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
+# <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configure Funções personalizadas da AD Azure na Gestão de Identidade Privilegiada
 
-Um administrador de função com privilégios pode alterar as configurações de função que se aplicam a um usuário quando eles ativam sua atribuição a uma função personalizada e a outros administradores de aplicativo que estão atribuindo funções personalizadas.
+Um administrador privilegiado pode alterar as definições de funções que se aplicam a um utilizador quando ativam a sua atribuição a uma função personalizada e a outros administradores de aplicações que estão a atribuir funções personalizadas.
 
 ## <a name="open-role-settings"></a>Abrir configurações de função
 
 Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
-1. Entre em [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal do Azure com uma conta de usuário atribuída à função de administrador de função com privilégios.
-1. Selecione **funções personalizadas do Azure AD (versão prévia)** .
+1. Inscreva-se na [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal Azure com uma conta de utilizador que é atribuída ao papel de administrador de funções privilegiada.
+1. Selecione **funções personalizadas Azure AD (Pré-visualização)** .
 
-    ![Selecione a visualização de funções personalizadas do Azure AD para ver as atribuições de função qualificadas](./media/azure-ad-custom-roles-configure/settings-list.png)
+    ![Selecione visualização de funções personalizadas da Azure AD para ver atribuições de papéis elegíveis](./media/azure-ad-custom-roles-configure/settings-list.png)
 
-1. Selecione **configuração** para abrir a página **configurações** . Selecione a função para as configurações que você deseja configurar.
-1. Selecione **Editar** para abrir a página **configurações de função** .
+1. Selecione **Definição** para abrir a página **Definições.** Selecione a função para as definições que pretende configurar.
+1. Selecione **Editar** para abrir a página de definições de **funções.**
 
-    ![Abrir a função personalizada do Azure AD para editar as configurações](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Abra a função personalizada da AD Azure para editar definições](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
-## <a name="role-settings"></a>Configurações de função
+## <a name="role-settings"></a>Definições de funções
 
-Há várias configurações que você pode configurar.
+Existem várias definições que pode configurar.
 
 ### <a name="assignment-duration"></a>Duração da atribuição
 
-Você pode escolher entre duas opções de duração de atribuição para cada tipo de atribuição (qualificado ou ativo) ao definir as configurações para uma função. Essas opções se tornam a duração máxima padrão quando um membro é atribuído à função no Privileged Identity Management.
+Pode escolher entre duas opções de duração de atribuição para cada tipo de atribuição (elegíveis ou ativas) quando configurar as definições para uma função. Estas opções tornam-se a duração máxima padrão quando um membro é atribuído ao papel na Gestão de Identidade Privilegiada.
 
-Você pode escolher uma dessas opções de duração de atribuição *qualificadas* .
+Pode escolher uma destas opções de duração de atribuição *elegíveis.*
 
-- **Permitir atribuição qualificada permanente**: os administradores podem atribuir uma associação qualificada permanente.
-- **Expirar atribuição qualificada após**: os administradores podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificada.
+- **Permitir a atribuição permanente elegível**: Os administradores podem atribuir a destmissão permanente elegível.
+- **Caducar a atribuição elegível após**: Os administradores podem exigir que todas as atribuições elegíveis tenham uma data de início e fim especificada.
 
-Além disso, você pode escolher uma dessas opções de duração de atribuição *ativas* :
+Além disso, pode escolher uma destas opções de duração de atribuição *ativa:*
 
-- **Permitir atribuição ativa permanente**: os administradores podem atribuir uma associação ativa permanente.
-- **Expirar atribuição ativa após**: os administradores podem exigir que todas as atribuições ativas tenham uma data de início e de término especificada.
+- **Permitir a atribuição ativa permanente**: Os administradores podem atribuir a destmissão permanente.
+- **Expirar a atribuição ativa após**: Os administradores podem exigir que todas as atribuições ativas tenham uma data de início e fim especificada.
 
 ### <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
 
 Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure para dois cenários distintos.
 
-- **Exigir autenticação multifator na atribuição ativa**
+- **Exigir autenticação multi-factor na atribuição ativa**
 
-  Se você quiser atribuir um membro a uma função por uma duração curta (um dia, por exemplo), pode ser muito lento para exigir que os membros atribuídos solicitem a ativação. Nesse cenário, Privileged Identity Management não pode impor a autenticação multifator quando o usuário ativa sua atribuição de função, pois elas já estão ativas na função desde o momento em que são atribuídas. Para garantir que o administrador que está atendendo à atribuição seja quem eles dizem que eles são, selecione a caixa de **atribuição exigir autenticação multifator no Active** .
+  Se quiser atribuir apenas um membro a um papel por uma curta duração (um dia, por exemplo), pode ser demasiado lento para exigir que os membros designados solicitem a ativação. Neste cenário, a Gestão de Identidade Privilegiada não pode impor a autenticação de vários fatores quando o utilizador ativa a sua atribuição de funções, porque já estão ativas no papel a partir do momento em que são atribuídos. Para garantir que o administrador que cumpre a atribuição é quem eles dizem ser, selecione a **Autenticação De Vários Fatores exigir na** caixa de atribuição ativa.
 
-- **Exigir autenticação multifator na ativação**
+- **Exigir autenticação de vários fatores na ativação**
 
-  Você pode exigir que usuários qualificados atribuídos a uma função se registrem na autenticação multifator do Azure antes que possam ser ativados. Esse processo garante que o usuário que está solicitando a ativação seja quem dizem que eles estão com certeza razoável. Impor essa opção protege funções críticas em situações em que a conta de usuário pode ter sido comprometida. Para exigir que um membro qualificado execute a autenticação multifator do Azure antes da ativação, selecione a caixa **exigir autenticação multifator no modo de ativação** .
+  Pode exigir utilizadores elegíveis atribuídos a uma função de inscrição na Autenticação Multi-Factor Azure antes de poderem ser ativados. Este processo garante que o utilizador que está a solicitar a ativação é quem diz ser com certeza razoável. A aplicação desta opção protege funções críticas em situações em que a conta de utilizador pode ter sido comprometida. Para exigir que um membro elegível execute a autenticação de multi-factores Azure antes da ativação, selecione a **autenticação de vários fatores na caixa de ativação.**
 
 Para obter mais informações, consulte [autenticação multifator e Privileged Identity Management](pim-how-to-require-mfa.md).
 
 ### <a name="activation-maximum-duration"></a>Duração máxima da ativação
 
-Use o controle deslizante **duração máxima de ativação** para definir o tempo máximo, em horas, que uma função permanece ativa antes de expirar. Esse valor pode ser de, 1 e 24 horas.
+Use o controle deslizante **duração máxima de ativação** para definir o tempo máximo, em horas, que uma função permanece ativa antes de expirar. Este valor pode ser de 1 e 24 horas.
 
 ### <a name="require-justification"></a>Exigir justificação
 
-Você pode exigir que os membros insiram uma justificativa na atribuição ativa ou quando eles forem ativados. Para exigir justificação, marque a caixa de seleção **exigir justificação de inatividade** ou **requerer justificativa na ativação** .
+Pode exigir que os membros introduzam uma justificação na atribuição ativa ou quando ativam. Para exigir justificação, selecione a **justificação exigir na** caixa de verificação de atribuição ativa ou a justificação exigir na caixa de **ativação.**
 
 ### <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 
 Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 
-1. Selecione a caixa de seleção **exigir aprovação para ativar** .
-1. Selecione **selecionar aprovadores** para abrir a lista **selecionar um membro ou grupo** .
+1. Selecione a **aprovação exigir para ativar a** caixa de verificação.
+1. Selecione **os aprovadores para** abrir a lista **de membros ou grupos.**
 
-    ![Abrir a função personalizada do Azure AD para editar as configurações](./media/azure-ad-custom-roles-configure/select-approvers.png)
+    ![Abra a função personalizada da AD Azure para editar definições](./media/azure-ad-custom-roles-configure/select-approvers.png)
 
-1. Selecione pelo menos um membro ou grupo e clique em **selecionar**. Você deve selecionar pelo menos um Aprovador. Não há aprovadores padrão. Suas seleções aparecerão na lista de aprovadores selecionados.
-1. Depois de especificar as configurações de função, selecione **Atualizar** para salvar as alterações.
+1. Selecione pelo menos um membro ou grupo e, em seguida, clique em **Selecionar**. Você deve selecionar pelo menos um Aprovador. Não há aprovadores padrão. Suas seleções aparecerão na lista de aprovadores selecionados.
+1. Depois de especificar as definições de função, selecione **'Actualizar'** para guardar as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
+- [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-assign.md)
 - [Atribuir uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
 - [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Definições de função no Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

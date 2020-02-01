@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/29/2020
+ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844688"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905224"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -68,7 +68,7 @@ Nenhuma alteração de versão de componente para esta versão. Você pode encon
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-A partir de 24 de janeiro de 2020, existe uma questão ativa em que poderá receber um erro ao tentar usar um caderno Jupyter. Use os passos abaixo para corrigir o problema. Também pode consultar este [post da MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) ou este [post StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obter informações atualizadas ou para fazer perguntas adicionais. Esta página será atualizada quando o problema for corrigido.
+A partir de 29 de janeiro de 2020, existe uma questão ativa em que poderá receber um erro ao tentar usar um caderno Jupyter. Use os passos abaixo para corrigir o problema. Também pode consultar este [post da MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) ou este [post StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obter informações atualizadas ou para fazer perguntas adicionais. Esta página será atualizada quando o problema for corrigido.
 
 **Erros**
 
@@ -77,22 +77,26 @@ A partir de 24 de janeiro de 2020, existe uma questão ativa em que poderá rece
 
 **Motivo** 
 
-O ficheiro _version.py no cluster foi atualizado para 5.x.x em vez de 4.4.x.#.
+O ficheiro _version.py no cluster foi atualizado para 5.x.x em vez de 4.4.x.## ou Ambari precisa de ser reiniciado.
 
 **Solução**
 
 Se criar um novo caderno Jupyter e receber um dos erros acima mencionados, execute os seguintes passos para corrigir o problema.
 
-1. Abra Ambari num navegador web indo para https://CLUSTERNAME.azurehdinsight.net, onde CLUSTERNAME é o nome do seu cluster.
+1. Abra Ambari num navegador web indo para `https://CLUSTERNAME.azurehdinsight.net`, onde CLUSTERNAME é o nome do seu cluster.
 1. Em Ambari, no menu esquerdo, clique em **Jupyter,** em seguida, em **Ações de Serviço,** clique em **Parar**.
 1. ssh no cabeçada do cluster onde o serviço Jupyter está funcionando.
 1. Abra o seguinte ficheiro /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py no modo sudo.
-1. A entrada existente deve mostrar algo semelhante ao seguinte código: 
+1. Verifique o valor da version_info.
+1. Se o valor da version_info for definido para: 
 
     version_info = (5, 0, 3)
 
-    Modificar a entrada para: 
+    Em seguida, modificar a entrada para: 
     
     version_info = (4, 4, 0)
-1. Guarde o ficheiro.
+
+    E guarde o ficheiro. 
+
+    Se version_info já está definido para (4, 4, 0), então continue para o próximo passo, pois apenas Ambari precisa ser reiniciado, não são necessárias alterações adicionais.
 1. Volte para Ambari, e em Ações de **Serviço,** clique em **Reiniciar Tudo**.

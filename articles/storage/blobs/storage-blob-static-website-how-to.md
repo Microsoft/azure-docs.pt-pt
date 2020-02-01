@@ -1,38 +1,38 @@
 ---
-title: Hospedar um site estático no armazenamento do Azure
-description: Saiba como servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner em uma conta do Azure Storage GPv2.
+title: Hospedar um site estático no Armazenamento Azure
+description: Saiba como servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente de um recipiente numa conta Azure Storage GPv2.
 author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489091"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906616"
 ---
-# <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no armazenamento do Azure
+# <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Armazenamento Azure
 
-Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner em uma conta do Azure Storage GPv2. Para saber mais, confira [Hospedagem de site estático no armazenamento do Azure](storage-blob-static-website.md).
+Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente de um recipiente numa conta Azure Storage GPv2. Para saber mais, consulte site [estático hospedado no Armazenamento Azure.](storage-blob-static-website.md)
 
-Este artigo mostra como habilitar a hospedagem estática de sites usando o portal do Azure, o CLI do Azure ou o PowerShell.
+Este artigo mostra-lhe como permitir a hospedagem de websites estáticos utilizando o portal Azure, o Azure CLI ou powerShell.
 
 <a id="portal" />
 
 ## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-Para obter um tutorial passo a passo, consulte [tutorial: hospedar um site estático no armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+Para um tutorial passo a passo, consulte [Tutorial: Hospedar um site estático no Armazenamento blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-Depois de habilitar a hospedagem de site estático, você pode exibir as páginas do seu site em um navegador usando a URL pública do site.
+Depois de ativar o alojamento em sites estáticos, pode ver as páginas do seu site a partir de um browser utilizando o URL público do site.
 
 <a id="portal-find-url" />
 
-### <a name="find-the-website-url-by-using-the-azure-portal"></a>Localize a URL do site usando o portal do Azure
+### <a name="find-the-website-url-by-using-the-azure-portal"></a>Encontre o URL do site utilizando o portal Azure
 
-No painel que aparece ao lado da página Visão geral da conta da sua conta de armazenamento, selecione **site estático**. A URL do seu site aparece no campo **ponto de extremidade primário** .
+No painel que aparece ao lado da página geral da conta da sua conta de armazenamento, selecione **Site Estático**. O URL do seu site aparece no campo **final primário.**
 
 ![Métrica de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -40,9 +40,9 @@ No painel que aparece ao lado da página Visão geral da conta da sua conta de a
 
 ## <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Você pode habilitar a hospedagem de site estático usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Pode ativar o alojamento em sites estáticos utilizando a Interface de [Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-1. Primeiro, abra o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)ou, se você tiver [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o CLI do Azure localmente, abra um aplicativo de console de comando, como o Windows PowerShell.
+1. Primeiro, abra a [Shell Azure Cloud](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
 2. Se sua identidade estiver associada a mais de uma assinatura, defina sua assinatura ativa para a assinatura da conta de armazenamento que hospedará seu site estático.
 
@@ -52,7 +52,7 @@ Você pode habilitar a hospedagem de site estático usando a [CLI (interface de 
 
    Substitua o valor do espaço reservado `<subscription-id>` pela ID da sua assinatura.
 
-3. Habilitar Hospedagem de site estático.
+3. Ativar o alojamento em sites estáticos.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -60,16 +60,16 @@ Você pode habilitar a hospedagem de site estático usando a [CLI (interface de 
 
    * Substitua o valor do espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-   * Substitua o espaço reservado `<error-document-name>` pelo nome do documento de erro que será exibido aos usuários quando um navegador solicitar uma página no site que não existe.
+   * Substitua o `<error-document-name>` espaço reservado pelo nome do documento de erro que aparecerá para os utilizadores quando um navegador solicitar uma página no seu site que não existe.
 
-   * Substitua o espaço reservado `<index-document-name>` pelo nome do documento de índice. Este documento é normalmente "index. html".
+   * Substitua o espaço reservado `<index-document-name>` com o nome do documento do índice. Este documento é comumente "index.html".
 
-4. Carregue objetos no contêiner de *$Web* de um diretório de origem.
+4. Faça upload de objetos para o recipiente *$web* a partir de um diretório de origem.
 
    > [!NOTE]
-   > Se você estiver usando Azure Cloud Shell, certifique-se de adicionar um caractere de escape `\` ao fazer referência ao contêiner `$web` (por exemplo: `\$web`). Se você estiver usando uma instalação local do CLI do Azure, não precisará usar o caractere de escape.
+   > Se estiver a utilizar a Azure Cloud Shell, certifique-se de adicionar um personagem de fuga `\` ao referir-se ao recipiente `$web` (por exemplo: `\$web`). Se estiver a usar uma instalação local do Azure CLI, então não terá de usar o personagem de fuga.
 
-   Este exemplo pressupõe que você está executando comandos de Azure Cloud Shell sessão.
+   Este exemplo pressupõe que está a executar comandos da sessão Azure Cloud Shell.
 
    ```azurecli-interactive
    az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
@@ -77,20 +77,20 @@ Você pode habilitar a hospedagem de site estático usando a [CLI (interface de 
 
    * Substitua o valor do espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-   * Substitua o espaço reservado `<source-path>` por um caminho para o local dos arquivos que você deseja carregar.
+   * Substitua o espaço reservado `<source-path>` por um caminho para a localização dos ficheiros que pretende carregar.
 
    > [!NOTE]
-   > Se você estiver usando uma instalação de local do CLI do Azure, poderá usar o caminho para qualquer local no computador local (por exemplo: `C:\myFolder`.
+   > Se estiver a utilizar uma instalação de localização do Azure CLI, então pode utilizar o caminho para qualquer local no seu computador local (por exemplo: `C:\myFolder`.
    >
-   > Se estiver usando Azure Cloud Shell, você precisará fazer referência a um compartilhamento de arquivos que é visível para o Cloud Shell. Esse local pode ser o compartilhamento de arquivos do compartilhamento de nuvem em si ou um compartilhamento de arquivos existente que você monta da Cloud Shell. Para saber como fazer isso, consulte [arquivos de persistência em Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+   > Se estiver a usar a Azure Cloud Shell, terá de fazer referência a uma partilha de ficheiros que seja visível para a Cloud Shell. Esta localização pode ser a parte de ficheiro da Cloud partilhar-se ou uma partilha de ficheiros existente que montas a partir da Cloud Shell. Para aprender a fazer isto, consulte [ficheiros Persist em Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
 <a id="cli-find-url" />
 
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>Localize a URL do site usando o CLI do Azure
+### <a name="find-the-website-url-by-using-the-azure-cli"></a>Encontre o URL do site utilizando o Azure CLI
 
-Você pode exibir o conteúdo de um navegador usando a URL pública do site.
+Pode ver conteúdo a partir de um browser utilizando o URL público do site.
 
-Localize a URL usando o seguinte comando:
+Encontre o URL utilizando o seguinte comando:
 
 ```azurecli-interactive
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
@@ -98,17 +98,17 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Substitua o valor do espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-* Substitua o valor do espaço reservado `<resource-group-name>` pelo nome do seu grupo de recursos.
+* Substitua o valor `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
 
 <a id="powershell" />
 
 ## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Você pode habilitar a hospedagem de site estático usando o módulo Azure PowerShell.
+Pode ativar o alojamento estático do site utilizando o módulo PowerShell Azure.
 
-1. Abra uma janela de comando do Windows PowerShell.
+1. Abra uma janela de comando Windows PowerShell.
 
-2. Verifique se você tem Azure PowerShell módulo AZ versão 0,7 ou posterior.
+2. Verifique se tem o módulo Azure PowerShell Az versão 0.7 ou posterior.
 
    ```powershell
    Get-InstalledModule -Name Az -AllVersions | select Name,Version
@@ -131,28 +131,28 @@ Você pode habilitar a hospedagem de site estático usando o módulo Azure Power
 
    Substitua o valor do espaço reservado `<subscription-id>` pela ID da sua assinatura.
 
-5. Obtenha o contexto da conta de armazenamento que define a conta de armazenamento que você deseja usar.
+5. Obtenha o contexto da conta de armazenamento que define a conta de armazenamento que pretende utilizar.
 
    ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
    $ctx = $storageAccount.Context
    ```
 
-   * Substitua o valor do espaço reservado `<resource-group-name>` pelo nome do seu grupo de recursos.
+   * Substitua o valor `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
 
    * Substitua o valor do espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-6. Habilitar Hospedagem de site estático.
+6. Ativar o alojamento em sites estáticos.
 
    ```powershell
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Substitua o espaço reservado `<error-document-name>` pelo nome do documento de erro que será exibido aos usuários quando um navegador solicitar uma página no site que não existe.
+   * Substitua o `<error-document-name>` espaço reservado pelo nome do documento de erro que aparecerá para os utilizadores quando um navegador solicitar uma página no seu site que não existe.
 
-   * Substitua o espaço reservado `<index-document-name>` pelo nome do documento de índice. Este documento é normalmente "index. html".
+   * Substitua o espaço reservado `<index-document-name>` com o nome do documento do índice. Este documento é comumente "index.html".
 
-7. Carregue objetos no contêiner de *$Web* de um diretório de origem.
+7. Faça upload de objetos para o recipiente *$web* a partir de um diretório de origem.
 
     ```powershell
     # upload a file
@@ -162,24 +162,24 @@ Você pode habilitar a hospedagem de site estático usando o módulo Azure Power
     -Context $ctx
      ```
 
-   * Substitua o valor do espaço reservado `<path-to-file>` pelo caminho totalmente qualificado para o arquivo que você deseja carregar (por exemplo: `C:\temp\index.html`).
+   * Substitua o valor do espaço reservado `<path-to-file>` pelo caminho totalmente qualificado para o ficheiro que pretende carregar (por exemplo: `C:\temp\index.html`).
 
-   * Substitua o valor do espaço reservado `<blob-name>` pelo nome que você deseja dar ao blob resultante (por exemplo: `index.html`).
+   * Substitua o valor do espaço reservado `<blob-name>` pelo nome que pretende dar à bolha resultante (por exemplo: `index.html`).
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>Localizar a URL do site usando o PowerShell
+### <a name="find-the-website-url-by-using-powershell"></a>Encontre o URL do site usando powerShell
 
-Você pode exibir o conteúdo de um navegador usando a URL pública do site.
+Pode ver conteúdo a partir de um browser utilizando o URL público do site.
 
-Localize a URL usando o seguinte comando:
+Encontre o URL utilizando o seguinte comando:
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Substitua o valor do espaço reservado `<resource-group-name>` pelo nome do seu grupo de recursos.
+* Substitua o valor `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
 
 * Substitua o valor do espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
@@ -187,44 +187,39 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-## <a name="enable-metrics-on-static-website-pages"></a>Habilitar métricas em páginas de site estáticos
+## <a name="enable-metrics-on-static-website-pages"></a>Ativar métricas em páginas de site estático
 
 Depois de habilitar as métricas, as estatísticas de tráfego nos arquivos no contêiner de **$Web** são relatadas no painel de métricas.
 
-1. Clique em **configurações** > **monitorar** **métricas**de > .
+1. Clique em **Definições** > **monitorizar** **métricas** > .
 
-   Os dados de métricas são gerados pela conexão a diferentes APIs de métricas. O portal exibe apenas os membros da API usados em um determinado intervalo de tempo para se concentrar apenas em membros que retornam dados. Para garantir que você seja capaz de selecionar o membro de API necessário, a primeira etapa é expandir o intervalo de tempo.
+   Os dados das métricas são gerados ligando-se a diferentes APIs métricas. O portal apenas apresenta membros DaPI utilizados dentro de um determinado período de tempo de forma a concentrar-se apenas nos membros que devolvem dados. De forma a garantir que é capaz de selecionar o membro API necessário, o primeiro passo é expandir o prazo.
 
-2. Clique no botão intervalo de tempo e selecione **últimas 24 horas** e, em seguida, clique em **aplicar**.
+2. Clique no botão de tempo e selecione **Last 24 horas** e, em seguida, clique **em Aplicar**.
 
-   ![Intervalo de tempo de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
+   ![Gama de tempo métricas de métricas de sites estáticos de armazenamento azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. Selecione **blob** na lista suspensa *namespace* .
+3. Selecione **Blob** a partir do *Namespace* drop down.
 
-   ![Namespace de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
+   ![Azure Storage site estática métricas nomespace](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
-4. Em seguida, selecione a métrica de **saída** .
+4. Em seguida, selecione a métrica **Egress.**
 
    ![Métrica de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Selecione **sum** no seletor de *agregação* .
+5. Selecione **Soma** do seletor de *agregação.*
 
-   ![Agregação de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
+   ![Agregação de métricas de sites estáticos de armazenamento azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Clique no botão **Adicionar filtro** e escolha **nome da API** no seletor de *Propriedade* .
+6. Clique no botão **'Adicionar'** e escolha o **nome API** do seletor *de propriedade.*
 
-   ![Nome da API de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
+   ![Azure Storage site estática métricas Nome API](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. Marque a caixa ao lado de **GetWebContent** no seletor de *valores* para preencher o relatório de métricas.
+7. Verifique a caixa ao lado do **GetWebContent** no seletor *de Valores* para preencher o relatório de métricas.
 
-   ![Métricas de sites estáticos do armazenamento do Azure GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
+   ![Métricas de sites estáticos de armazenamento azure GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Alojamento de site estático no Armazenamento do Azure](storage-blob-static-website.md)
-* [Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)
-* [Configurar um nome de domínio personalizado para seu BLOB ou ponto de extremidade da Web](storage-custom-domain-name.md)
-* [Funções do Azure](/azure/azure-functions/functions-overview)
-* [Serviço de Aplicações do Azure](/azure/app-service/overview)
-* [Crie seu primeiro aplicativo Web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* Aprenda a configurar um domínio personalizado com o seu site estático. Consulte um domínio personalizado para um ponto final de [armazenamento De Blob Azure](storage-custom-domain-name.md).
+

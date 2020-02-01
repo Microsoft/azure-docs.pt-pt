@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-pacote de código de malha sfctl-log
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter logs para um pacote de códigos especificado.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 78edc9bb36b711f72300942bc9900b0fde7c51d2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f8665e75e4c921a3305c9965601e2ee0825c8995
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646148"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906042"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 Obtenha os logs do contêiner do pacote de códigos especificado para a réplica de serviço fornecida.
@@ -30,10 +30,10 @@ Obtém os logs do contêiner do pacote de códigos especificado da réplica de s
 
 |Argumento|Descrição|
 | --- | --- |
-| --App-Name--nome-do-aplicativo [obrigatório] | O nome da aplicação. |
-| --Code-Package-Name [obrigatório] | O nome do pacote de códigos do serviço. |
-| --nome da réplica [obrigatório] | Nome da réplica de Service Fabric. |
-| --Service-Name [obrigatório] | O nome do serviço. |
+| --nome da aplicação --nome da aplicação [Obrigatório] | O nome da aplicação. |
+| --código-pacote-nome [Obrigatório] | O nome do pacote de códigos do serviço. |
+| --réplica -nome [Obrigatório] | Nome da réplica de Service Fabric. |
+| --nome do serviço [Obrigatório] | O nome do serviço. |
 | --cauda | Número de linhas a serem mostradas do final dos logs. O padrão é 100. ' todos ' para mostrar os logs completos. |
 
 ### <a name="global-arguments"></a>Argumentos globais

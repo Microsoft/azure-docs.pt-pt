@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 01/15/2020
+ms.date: 01/29/2020
 ms.author: mlearned
-ms.openlocfilehash: 5df7a8a639c87f90df0d3d22f84c4e93ac81e3a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 661ed72265b81f47cbe8e9cf26595632360ec352
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028304"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898805"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no serviço kubernetes do Azure (AKS)
 
@@ -92,7 +92,7 @@ az network dns record-set a add-record \
 ```
 
 > [!NOTE]
-> Opcionalmente, você pode configurar um FQDN para o endereço IP do controlador de entrada em vez de um domínio personalizado.
+> Opcionalmente, você pode configurar um FQDN para o endereço IP do controlador de entrada em vez de um domínio personalizado. Note que esta amostra é para uma concha bash.
 > 
 > ```azurecli-interactive
 > # Public IP address of your ingress controller
@@ -194,7 +194,7 @@ helm install aks-helloworld-two azure-samples/aks-helloworld \
 
 Os dois aplicativos agora estão em execução no cluster kubernetes. No entanto, eles são configurados com um serviço do tipo `ClusterIP` e não são acessíveis pela Internet. Para torná-los publicamente disponíveis, crie um recurso de entrada do kubernetes. O recurso de entrada configura as regras que roteiam o tráfego para um dos dois aplicativos.
 
-No exemplo a seguir, o tráfego para o endereço *Hello-World-ingress. MY_CUSTOM_DOMAIN* é roteado para o serviço *AKs-HelloWorld* . Tráfego para o endereço *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* é roteado para o serviço *AKs-HelloWorld-dois* . Tráfego para *Hello-World-Ingres. MY_CUSTOM_DOMAIN/static* é roteado para o serviço chamado *AKs-HelloWorld* para ativos estáticos.
+No exemplo seguinte, o tráfego para o endereço *olá-ingresso mundial. MY_CUSTOM_DOMAIN* é encaminhado para o serviço *aks-helloworld.* Tráfego para o endereço *olá-world-ingress. MY_CUSTOM_DOMAIN/hello-world-two* é encaminhado para o serviço *aks-helloworld-two.* Tráfego para *hello-world-ingress. MY_CUSTOM_DOMAIN/estática* é encaminhado para o serviço chamado *aks-helloworld* para ativos estáticos.
 
 Crie um arquivo chamado `hello-world-ingress.yaml` usando o exemplo abaixo YAML. Atualize os *hosts* e o *host* para o nome DNS que você criou em uma etapa anterior.
 
@@ -269,7 +269,7 @@ tls-secret   True    tls-secret   11m
 
 ## <a name="test-the-ingress-configuration"></a>Testar a configuração de entrada
 
-Abra um navegador da Web para *Hello-World-ingress. MY_CUSTOM_DOMAIN* do controlador de entrada do kubernetes. Observe que você está Redirecionado para usar HTTPS e o certificado é confiável e o aplicativo de demonstração é mostrado no navegador da Web. Adicione o caminho */Hello-World-Two* e observe que o segundo aplicativo de demonstração com o título personalizado é mostrado.
+Abra um navegador web para *hello-world-ingress. MY_CUSTOM_DOMAIN* do seu controlador de ingresso Kubernetes. Observe que você está Redirecionado para usar HTTPS e o certificado é confiável e o aplicativo de demonstração é mostrado no navegador da Web. Adicione o caminho */Hello-World-Two* e observe que o segundo aplicativo de demonstração com o título personalizado é mostrado.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

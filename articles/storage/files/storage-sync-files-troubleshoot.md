@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842721"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906916"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -1102,7 +1102,7 @@ Se os arquivos falharem na camada para os arquivos do Azure:
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | O ficheiro não foi nivelado devido a um problema de armazenamento do Azure. | Se o erro persistir, abra um pedido de apoio. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | O ficheiro não foi niveal porque foi recolhido ao mesmo tempo. | Nenhuma ação necessária. O ficheiro será niveado quando a recolha estiver concluída e o ficheiro já não estiver a ser utilizado. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | O ficheiro não foi nivelado porque não se sincronizou com a parte do ficheiro Azure. | Nenhuma ação necessária. O ficheiro será nivelado uma vez que tenha sincronizado com a parte de ficheiro Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | O ficheiro não foi nivelheiro porque o controlador de filtro de nível de nuvem (storagesync.sys) não está a funcionar. | Para resolver este problema, abra um pedido de comando elevado e execute o seguinte comando: armazenamento de carga fltmc <br>Se o controlador de filtro de armazenamento sincronizado não carregar ao executar o comando fltmc, desinstale o agente Desinstalação de Ficheiros Azure, reinicie o servidor e reinstale o agente Dessincronização de Ficheiros Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | O ficheiro não foi nivelheiro porque o controlador de filtro de nível de nuvem (storagesync.sys) não está a funcionar. | Para resolver este problema, abra um pedido de comando elevado e execute o seguinte comando: `fltmc load storagesync`<br>Se o controlador de filtro de armazenamento sincronizado não carregar ao executar o comando fltmc, desinstale o agente Desinstalação de Ficheiros Azure, reinicie o servidor e reinstale o agente Dessincronização de Ficheiros Azure. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | O ficheiro não foi nivelado devido a um espaço de disco insuficiente no volume onde o ponto final do servidor está localizado. | Para resolver este problema, liberte pelo menos 100 MB de espaço em disco no volume onde o ponto final do servidor está localizado. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | O ficheiro não foi nivelado porque não se sincronizou com a parte do ficheiro Azure. | Nenhuma ação necessária. O ficheiro será nivelado uma vez que tenha sincronizado com a parte de ficheiro Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | O ficheiro falhou porque é um ponto de reparse não suportado. | Se o ficheiro for um ponto de reanálise da deduplicação de dados, siga os passos no guia de [planeamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) para ativar o suporte à desduplicação de dados. Os ficheiros com pontos de reparse que não a Deduplicação de Dados não são suportados e não serão nividados.  |

@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Fornece informações e scripts de exemplo para importar para um repositório de configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 ms.service: azure-app-configuration
@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: azure-app-configuration
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 28c04859f23b3a560166aa62ac903e1204fc5d97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb661e6d4497a85cf2ef445fc39774e93a04cc99
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413295"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899410"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importar para um repositório de configurações Azure App
 

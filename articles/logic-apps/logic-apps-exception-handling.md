@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965939"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906690"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções nos aplicativos lógicos do Azure
 
@@ -71,8 +71,8 @@ Ou, você pode especificar manualmente a política de repetição na seção `in
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*retry-policy-type*> | String | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`ou `exponential` |
-| <*retry-interval*> | String | O intervalo de repetição em que o valor deve usar o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimo e máximo diferentes. |
+| <*retry-policy-type*> | Cadeia | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`ou `exponential` |
+| <*retry-interval*> | Cadeia | O intervalo de repetição em que o valor deve usar o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimo e máximo diferentes. |
 | <*retry-attempts*> | Número inteiro | O número de tentativas de repetição, que devem estar entre 1 e 90 |
 ||||
 
@@ -80,8 +80,8 @@ Ou, você pode especificar manualmente a política de repetição na seção `in
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*de intervalo mínimo*> | String | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
-| <*de intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*de intervalo mínimo*> | Cadeia | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*de intervalo máximo*> | Cadeia | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
 Aqui estão mais informações sobre os diferentes tipos de política.
@@ -174,7 +174,7 @@ Para garantir que uma ação ainda possa ser executada apesar do status da sua p
 
 ### <a name="customize-run-after-behavior"></a>Personalizar o comportamento "executar após"
 
-Você pode personalizar o comportamento "executar após" de uma ação para que a ação seja executada quando o status da predecessora for `Succeeded`, `Failed`, `Skipped`, `TimedOut`ou qualquer um desses status. Por exemplo, para enviar um email após a ação `Add_a_row_into_a_table` predecessora do Excel online é marcada `Failed`, em vez de `Succeeded`, altere o comportamento "executar após" seguindo qualquer uma das etapas:
+Você pode personalizar o comportamento "executar após" de uma ação para que a ação seja executada quando o status da predecessora for `Succeeded`, `Failed`, `Skipped`, `TimedOut`ou qualquer um desses status. Por exemplo, enviar um e-mail após a ação do antecessor `Add_a_row_into_a_table` Excel Online é marcada `Failed`, em vez de `Succeeded`, alterar o comportamento "correr atrás" seguindo qualquer passo:
 
 * Na exibição Design, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurar execução após**.
 
@@ -267,9 +267,9 @@ Embora a captura de falhas de um escopo seja útil, você também pode querer o 
 
 A função [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fornece contexto sobre os resultados de todas as ações em um escopo. A função `result()` aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém todos os resultados da ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o objeto `actions()`, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode facilmente emparelhar uma expressão de `@result()` com a propriedade `runAfter`.
 
-Para executar uma ação para cada ação em um escopo que tenha um resultado de `Failed` e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma expressão `@result()` com uma ação [**Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o loop de `For_each`.
+Para executar uma ação para cada ação em um escopo que tenha um resultado de `Failed` e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma expressão `@result()` com uma ação [**Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Pode pegar na matriz filtrada do resultado e realizar uma ação para cada falha utilizando o laço `For_each`.
 
-Veja um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para todas as ações que falharam no escopo "My_Scope":
+Aqui está um exemplo, seguido de uma explicação detalhada, que envia um pedido http post com o órgão de resposta para quaisquer ações que falharam dentro do âmbito "My_Scope":
 
 ```json
 "Filter_array": {
@@ -312,21 +312,21 @@ Veja um exemplo, seguido por uma explicação detalhada, que envia uma solicita�
 
 Aqui está uma explicação detalhada que descreve o que acontece neste exemplo:
 
-1. Para obter o resultado de todas as ações dentro de "My_Scope", a ação **Filtrar matriz** usa esta expressão de filtro: `@result('My_Scope')`
+1. Para obter o resultado de todas as ações dentro de "My_Scope", a ação **Filter Array** utiliza esta expressão de filtro: `@result('My_Scope')`
 
-1. A condição da **matriz de filtro** é qualquer `@result()` item que tenha um status igual a `Failed`. Essa condição filtra a matriz que tem todos os resultados da ação de "My_Scope" para uma matriz com apenas os resultados da ação com falha.
+1. A condição da **matriz de filtro** é qualquer `@result()` item que tenha um status igual a `Failed`. Esta condição filtra a matriz que tem todos os resultados de ação de "My_Scope" até uma matriz com apenas os resultados de ação falhados.
 
-1. Execute uma ação de loop de `For_each` nas saídas de *matriz filtradas* . Esta etapa executa uma ação para cada resultado de ação com falha que foi anteriormente filtrado.
+1. Execute uma ação de loop `For_each` nas saídas filtradas da *matriz.* Esta etapa executa uma ação para cada resultado de ação com falha que foi anteriormente filtrado.
 
-   Se uma única ação no escopo falhar, as ações no loop de `For_each` são executadas apenas uma vez. Várias ações com falha causam uma ação por falha.
+   Se uma única ação no âmbito falhar, as ações no ciclo `For_each` só funcionam uma vez. Várias ações com falha causam uma ação por falha.
 
-1. Envie um HTTP POST no corpo de resposta do item de `For_each`, que é a expressão `@item()['outputs']['body']`.
+1. Envie um POST HTTP sobre o organismo de resposta do artigo `For_each`, que é a expressão `@item()['outputs']['body']`.
 
    A forma `@result()` item é igual à forma `@actions()` e pode ser analisada da mesma maneira.
 
-1. Inclua dois cabeçalhos personalizados com o nome da ação com falha (`@item()['name']`) e a ID de rastreamento do cliente em execução com falha (`@item()['clientTrackingId']`).
+1. Inclua dois cabeçalhos personalizados com o nome de ação falhado (`@item()['name']`) e o ID de rastreio do cliente falhado (`@item()['clientTrackingId']`).
 
-Para referência, aqui está um exemplo de um único item de `@result()`, mostrando as propriedades `name`, `body`e `clientTrackingId` que são analisadas no exemplo anterior. Fora de uma ação de `For_each`, `@result()` retorna uma matriz desses objetos.
+Para referência, aqui está um exemplo de um único item de `@result()`, mostrando as propriedades `name`, `body`e `clientTrackingId` que são analisadas no exemplo anterior. Fora de uma ação `For_each`, `@result()` devolve uma série destes objetos.
 
 ```json
 {
@@ -358,11 +358,11 @@ Para referência, aqui está um exemplo de um único item de `@result()`, mostra
 }
 ```
 
-Para executar diferentes padrões de manipulação de exceção, você pode usar as expressões descritas anteriormente neste artigo. Você pode optar por executar uma única ação de tratamento de exceção fora do escopo que aceita toda a matriz filtrada de falhas e remover a ação de `For_each`. Você também pode incluir outras propriedades úteis da resposta `\@result()` conforme descrito anteriormente.
+Para executar diferentes padrões de manipulação de exceção, você pode usar as expressões descritas anteriormente neste artigo. Pode optar por executar uma única ação de manipulação de exceção fora do âmbito que aceita toda a gama filtrada de falhas e remover a ação `For_each`. Você também pode incluir outras propriedades úteis da resposta `\@result()` conforme descrito anteriormente.
 
-## <a name="azure-diagnostics-and-metrics"></a>Diagnóstico do Azure e métricas
+## <a name="set-up-azure-monitor-logs"></a>Configurar logs de Azure Monitor
 
-Os padrões anteriores são uma ótima maneira de lidar com erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentes da própria execução. O [diagnóstico do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fornece uma maneira simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os status de execução e ação, para uma conta de armazenamento do Azure ou um hub de eventos criado com os [hubs de eventos do Azure](../event-hubs/event-hubs-about.md).
+Os padrões anteriores são uma ótima maneira de lidar com erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentes da própria execução. [O Azure Monitor](../azure-monitor/overview.md) fornece uma forma simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os estados de execução e ação, para um espaço de [trabalho log Analytics,](../azure-monitor/platform/data-platform-logs.md)conta de armazenamento [Azure,](../storage/blobs/storage-blobs-overview.md)ou Hubs de [Eventos Azure.](../event-hubs/event-hubs-about.md)
 
 Para avaliar os status de execução, você pode monitorar os logs e as métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção potencial é transmitir todos os eventos por meio de hubs de eventos para [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics, você pode escrever consultas dinâmicas com base em quaisquer anomalias, médias ou falhas dos logs de diagnóstico. Você pode usar Stream Analytics para enviar informações para outras fontes de dados, como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 

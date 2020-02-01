@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427021"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899843"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -21,15 +21,20 @@ Quando você cria um serviço de Pesquisa Cognitiva do Azure, um [recurso é cri
 
 A maioria dos clientes começa com a camada gratuita para que eles possam avaliar o serviço. Após a avaliação, é comum criar um segundo serviço em uma das camadas mais altas para implantações de desenvolvimento e produção.
 
-Embora todas as camadas, incluindo a camada gratuita, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem determinar a necessidade de camadas mais altas. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
+## <a name="feature-availability-by-tier"></a>Disponibilidade de funcionalidades por nível
 
-> [!NOTE] 
-> A exceção à paridade de recursos é [indexadores](search-indexer-overview.md), que não estão disponíveis em S3 HD.
->
+Quase todas as funcionalidades estão disponíveis em todos os níveis, incluindo o Free, mas uma funcionalidade ou fluxo de trabalho que seja intensivo de recursos pode não funcionar bem a menos que lhe dê capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 
-## <a name="available-tiers"></a>Escalões disponíveis
+A tabela seguinte descreve as restrições de características relacionadas com o nível.
 
-As camadas refletem as características do hardware que hospeda o serviço (em vez de recursos) e são diferenciadas por:
+| Funcionalidade | Limitações |
+|---------|-------------|
+| [indexadores](search-indexer-overview.md) | Os indexadores não estão disponíveis no S3 HD. |
+| [Chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível no free tier. |
+
+## <a name="tiers-skus"></a>Níveis (SKUs)
+
+As camadas são diferenciadas por:
 
 + Quantidade de índices e indexadores que você pode criar
 + Tamanho e velocidade das partições (armazenamento físico)
@@ -80,7 +85,7 @@ Para [aprimorar o ia](cognitive-search-concept-intro.md), você deve planejar [a
 |-----------|----------------|
 | Quebra de documentos, extração de texto | Gratuito |
 | Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas dos seus documentos. Em uma [configuração de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageaction** é o parâmetro que dispara a extração de imagem. Se **imageaction** for definido como "None" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagem está documentada na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) do Azure pesquisa cognitiva.|
-| [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa que se você executou a tarefa usando serviços cognitivas diretamente. |
+| [Competências cognitivas incorporadas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa que se você executou a tarefa usando serviços cognitivas diretamente. |
 | Competências personalizadas | Uma habilidade personalizada é A funcionalidade que você fornece. O custo de usar uma habilidade personalizada depende totalmente de se o código personalizado está chamando outros serviços medidos. |
 
 <a name="search-units"></a>
@@ -97,9 +102,9 @@ A taxa de cobrança é por hora por SU. Cada camada tem uma taxa progressivament
 
 A maioria dos clientes traz apenas uma parte da capacidade total online, mantendo o restante em reserva. Para cobrança, o número de partições e réplicas que você coloca online, calculadas pela fórmula SU, determina o que você paga por hora.
 
-## <a name="how-to-manage-and-reduce-costs"></a>Como gerenciar e reduzir custos
+## <a name="how-to-manage-costs"></a>Como gerir custos
 
-Além das seguintes sugestões, visite [cobrança e gerenciamento de custos](https://docs.microsoft.com/azure/billing/billing-getting-started).
+As seguintes sugestões podem ajudá-lo a manter os custos no mínimo:
 
 - Crie todos os recursos na mesma região, ou no menor número de regiões possível, para minimizar ou eliminar encargos de largura de banda.
 
@@ -109,7 +114,11 @@ Além das seguintes sugestões, visite [cobrança e gerenciamento de custos](htt
 
 - Escalar verticalmente para operações com uso intensivo de recursos, como indexação, e reajustar verticalmente para cargas de trabalho de consulta regular. Comece com a configuração mínima do Azure Pesquisa Cognitiva (uma SU composta de uma partição e uma réplica) e, em seguida, monitore a atividade do usuário para identificar os padrões de uso que indicariam a necessidade de mais capacidade. Se houver um padrão previsível, você poderá sincronizar a escala com a atividade (você precisaria escrever código para automatizar isso).
 
-Não é possível desligar um serviço de pesquisa para reduzir sua fatura. Os recursos dedicados estão sempre operacionais, alocados para seu uso exclusivo durante o tempo de vida do seu serviço. Em termos do próprio serviço, a única maneira de reduzir sua conta é reduzir as réplicas e partições para um nível que ainda fornece desempenho aceitável e [conformidade de SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou criar um serviço em uma camada mais baixa (as tarifas de S1 por hora são menores do que as taxas S2 ou S3). Supondo que você provisione seu serviço na extremidade inferior de suas projeções de carga, se você ultrapassar o serviço, poderá criar um segundo serviço em camadas maior, recriar os índices no segundo serviço e, em seguida, excluir o primeiro.
+Além disso, visite [a Faturação e a gestão](https://docs.microsoft.com/azure/billing/billing-getting-started) de custos para ferramentas e funcionalidades incorporadas relacionadas com os gastos.
+
+Encerrar um serviço de busca temporariamente não é possível. Os recursos dedicados estão sempre operacionais, alocados para seu uso exclusivo durante o tempo de vida do seu serviço. A eliminação de um serviço é permanente e também elimina os seus dados associados.
+
+Em termos do próprio serviço, a única maneira de reduzir sua conta é reduzir as réplicas e partições para um nível que ainda fornece desempenho aceitável e [conformidade de SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou criar um serviço em uma camada mais baixa (as tarifas de S1 por hora são menores do que as taxas S2 ou S3). Supondo que você provisione seu serviço na extremidade inferior de suas projeções de carga, se você ultrapassar o serviço, poderá criar um segundo serviço em camadas maior, recriar os índices no segundo serviço e, em seguida, excluir o primeiro.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Como avaliar os requisitos de capacidade
 

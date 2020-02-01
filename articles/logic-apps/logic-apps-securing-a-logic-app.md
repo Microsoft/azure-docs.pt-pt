@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 73b8a559eddec51dbc01f1d55f70414360ff2956
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843553"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898426"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -324,7 +324,7 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
 #### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considerações ao ocultar entradas e saídas
 
-* Quando você protege as entradas ou saídas em um gatilho ou ação, os aplicativos lógicos não enviam os dados protegidos para o Azure Log Analytics. Além disso, você não pode adicionar [Propriedades rastreadas](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) a esse gatilho ou ação para monitoramento.
+* Quando você protege as entradas ou saídas em um gatilho ou ação, os aplicativos lógicos não enviam os dados protegidos para o Azure Log Analytics. Além disso, você não pode adicionar [Propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitoramento.
 
 * A [API dos aplicativos lógicos para manipular o histórico de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/) não retorna saídas seguras.
 
@@ -806,7 +806,7 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Automatizar a implantação para aplicativos lógicos do Azure](logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitorizar as aplicações lógicas](logic-apps-monitor-your-logic-apps.md)  
-* [Diagnosticar problemas e falhas do aplicativo lógico](logic-apps-diagnosing-failures.md)  
-* [Automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizar a implantação para aplicativos lógicos do Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [Monitorizar aplicações lógicas](../logic-apps/monitor-logic-apps-log-analytics.md)  
+* [Diagnosticar problemas e falhas do aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md)  
+* [Automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

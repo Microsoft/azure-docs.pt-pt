@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 506c518e8bdd889c585feb92f2a6baee8ba0147c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 662f8c2a4184e858d33dc40effed363ef3ec17e5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979088"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904953"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implantar modelos de Azure Resource Manager para aplicativos lógicos do Azure
 
@@ -41,7 +41,7 @@ Por exemplo, as seguintes informações serão solicitadas depois que você entr
 * Um URI de teste
 * Aceitação dos termos e condições especificados
 
-Para obter mais informações, veja estes tópicos:
+Para mais informações, consulte estes tópicos:
 
 * [Visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)
 * [Implantar recursos com modelos de Azure Resource Manager e o portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
@@ -62,7 +62,7 @@ Para implantar em um *grupo de recursos específico do Azure*, use o seguinte co
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para obter mais informações, veja estes tópicos:
+Para mais informações, consulte estes tópicos:
 
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
@@ -77,7 +77,7 @@ Para implantar em um *grupo de recursos específico do Azure*, use o seguinte co
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para obter mais informações, veja estes tópicos:
+Para mais informações, consulte estes tópicos:
 
 * [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
@@ -128,4 +128,4 @@ Se você usar uma [entidade de serviço](../active-directory/develop/app-objects
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Monitorizar aplicações lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Monitorizar aplicações lógicas](../logic-apps/monitor-logic-apps.md)

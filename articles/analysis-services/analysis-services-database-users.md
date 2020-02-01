@@ -1,95 +1,95 @@
 ---
-title: Gerenciar usuários e funções de banco de dados no Azure Analysis Services | Microsoft Docs
-description: Saiba como gerenciar usuários e funções de banco de dados em um servidor de Analysis Services no Azure.
+title: Gerir funções de base de dados e utilizadores em Serviços de Análise Azure  Microsoft Docs
+description: Saiba como gerir funções de base de dados e utilizadores num servidor de Serviços de Análise em Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147007"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901487"
 ---
-# <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
+# <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
-No nível do banco de dados modelo, todos os usuários devem pertencer a uma função. As funções definem os usuários com permissões específicas para o banco de dados modelo. Qualquer usuário ou grupo de segurança adicionado a uma função deve ter uma conta em um locatário do Azure AD na mesma assinatura que o servidor. 
+Ao nível da base de dados do modelo, todos os utilizadores devem pertencer a um papel. As funções definem os utilizadores com permissões específicas para a base de dados do modelo. Qualquer utilizador ou grupo de segurança adicionado a uma função deve ter uma conta num inquilino DaD Azure na mesma subscrição que o servidor. 
 
-A maneira como você define as funções é diferente dependendo da ferramenta usada, mas o efeito é o mesmo.
+A forma como define funções é diferente dependendo da ferramenta que utiliza, mas o efeito é o mesmo.
 
-As permissões de função incluem:
-*  **Administrador** -os usuários têm permissões completas para o banco de dados. As funções de banco de dados com permissões de administrador são diferentes dos administradores de servidor.
-*  **Process** -os usuários podem se conectar e executar operações de processo no banco de dados, e analisar o modelo de dado do banco.
-*  **Leia** -os usuários podem usar um aplicativo cliente para se conectar e analisar os dados do modelo de banco.
+As permissões de funções incluem:
+*  **Administrador** - Os utilizadores têm permissões completas para a base de dados. As funções de base de dados com permissões do Administrador são diferentes dos administradores do servidor.
+*  **Processo** - Os utilizadores podem ligar e executar operações de processo na base de dados e analisar dados de base de dados de modelos.
+*  **Ler** - Os utilizadores podem usar uma aplicação do cliente para conectar e analisar dados de base de dados de modelos.
 
-Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no Visual Studio com projetos Analysis Services. Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL ( [linguagem de script de modelo de tabela](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
+Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando o Role Manager em Visual Studio com projetos de Serviços de Análise. Quando implantado num servidor, utiliza o Estúdio de Gestão de Servidores SQL (SSMS), serviços de [análise PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou Linguagem de [Scripts de Modelo Tabular](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
 
-Os **grupos de segurança** devem ser [habilitados para email](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade `MailEnabled` definida como `True`. Ao especificar um grupo por endereço de email, use `obj:groupid@tenantid`.
+**Os grupos** de segurança devem ser [ativados por correio](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a `MailEnabled` imóvel definida para `True`. Ao especificar um grupo por endereço de e-mail, utilize `obj:groupid@tenantid`.
 
 
-## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerenciar funções e usuários no Visual Studio  
+## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerir papéis e utilizadores no Estúdio Visual  
   
-1.  No **Gerenciador de modelos de tabela**, clique com o botão direito do mouse em **funções**.  
+1.  No **Tabular Model Explorer,** clique direito **em Papéis**.  
   
 2.  No **Gestor de Funções**, clique em **Nova**.  
   
-3.  Digite um nome para a função.  
+3.  Escreva um nome para o papel.  
   
-     Por padrão, o nome da função padrão é numerado incrementalmente para cada nova função. É recomendável que você digite um nome que identifique claramente o tipo de membro, por exemplo, gerentes de finanças ou especialistas de recursos humanos.  
+     Por predefinição, o nome da função padrão é incrementalmente numerado para cada nova função. Recomenda-se que escreva um nome que identifique claramente o tipo de membro, por exemplo, Gestores de Finanças ou Especialistas em Recursos Humanos.  
   
 4.  Selecione uma das seguintes permissões:  
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhum**|Os membros não podem modificar o esquema do modelo e não podem consultar dados.|  
-    |**Leitura**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema do modelo.|  
-    |**Leitura e processo**|Os membros podem consultar dados (com base em filtros em nível de linha) e executar processar e processar todas as operações, mas não podem modificar o esquema do modelo.|  
-    |**Process**|Os membros podem executar processar e processar todas as operações. Não é possível modificar o esquema do modelo e não é possível consultar dados.|  
-    |**Administradores**|Os membros podem modificar o esquema do modelo e consultar todos os dados.|   
+    |**Nenhum**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar os dados.|  
+    |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
+    |**Ler e Processar**|Os membros podem consultar dados (com base em filtros ao nível da linha) e executar o Processo e o Processo Todas as operações, mas não podem modificar o esquema do modelo.|  
+    |**Process**|Os membros podem executar processando e processar todas as operações. Não é possível ler ou modificar o esquema do modelo e não pode consultar dados.|  
+    |**Administrador**|Os membros podem modificar o esquema do modelo e consultar todos os dados.|   
   
-5.  Se a função que você está criando tiver a permissão ler ou ler e processar, você poderá adicionar filtros de linha usando uma fórmula DAX. Clique na guia **filtros de linha** , selecione uma tabela, clique no campo **filtro Dax** e digite uma fórmula DAX.
+5.  Se o papel que está a criar tiver permissão de Leitura ou Leitura e Processo, pode adicionar filtros de linha utilizando uma fórmula DAX. Clique no separador **Filtros de Linha,** depois selecione uma tabela, clique no campo **de filtro DAX** e, em seguida, digite uma fórmula DAX.
   
-6.  Clique em **membros** > **Adicionar externo**.  
+6.  Clique em **Membros** > **adicionar externo**.  
   
-8.  Em **Adicionar membro externo**, insira usuários ou grupos no seu locatário do Azure ad por endereço de email. Depois de clicar em OK e fechar o Gerenciador de funções, as funções e os membros da função aparecerão no Gerenciador de modelos de tabela. 
+8.  Em **Adicionar Membro Externo,** insira utilizadores ou grupos no seu inquilino Azure AD por endereço de e-mail. Depois de clicar em OK e fechar role Manager, as funções e membros de papéis aparecem no Tabular Model Explorer. 
  
-     ![Funções e usuários no Gerenciador de modelos de tabela](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
+     ![Papéis e utilizadores no Tabular Model Explorer](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
-9. Implante em seu servidor de Azure Analysis Services.
+9. Implemente para o seu servidor De serviços de análise Azure.
 
 
-## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Para adicionar ou gerenciar funções e usuários no SSMS
+## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Para adicionar ou gerir funções e utilizadores em SSMS
 
-Para adicionar funções e usuários a um banco de dados modelo implantado, você deve estar conectado ao servidor como um administrador de servidor ou já em uma função de banco de dados com permissões de administrador.
+Para adicionar funções e utilizadores a uma base de dados de modelos implementado, deve estar ligado ao servidor como administrador do Servidor ou já numa função de base de dados com permissões de administrador.
 
-1. Em objeto explorador, clique com o botão direito do mouse em **funções** > **nova função**.
+1. Em Object Exporer, os **papéis** do clique direito > **novo papel.**
 
-2. Em **criar função**, insira um nome de função e uma descrição.
+2. In **Create Role,** insira um nome e descrição de papel.
 
 3. Selecione uma permissão.
 
    |Permissão|Descrição|  
    |----------------|-----------------|  
-   |**Controle total (administrador)**|Os membros podem modificar o esquema do modelo, processar e consultar todos os dados.| 
-   |**Processar banco de dados**|Os membros podem executar processar e processar todas as operações. Não é possível modificar o esquema do modelo e não é possível consultar dados.|  
-   |**Leitura**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema do modelo.|  
+   |**Controlo total (Administrador)**|Os membros podem modificar o esquema do modelo, processar e consultar todos os dados.| 
+   |**Base de dados de processos**|Os membros podem executar processando e processar todas as operações. Não pode modificar o esquema do modelo e não pode consultar dados.|  
+   |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
   
-4. Clique em **Associação**, em seguida, insira um usuário ou grupo no seu locatário do Azure ad por endereço de email.
+4. Clique em **Adesão**e, em seguida, insira um utilizador ou grupo no seu inquilino Azure AD por endereço de e-mail.
 
      ![Adicionar utilizador](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
-5. Se a função que você está criando tiver permissão de leitura, você poderá adicionar filtros de linha usando uma fórmula DAX. Clique em **filtros de linha**, selecione uma tabela e, em seguida, digite uma fórmula DAX no campo **filtro Dax** . 
+5. Se o papel que está a criar tiver permissão de leitura, pode adicionar filtros de linha utilizando uma fórmula DAX. Clique em **Filtros de Linha,** selecione uma tabela e, em seguida, digite uma fórmula DAX no campo **filtro DAX.** 
 
-## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e usuários usando um script TMSL
+## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e utilizadores utilizando um script TMSL
 
-Você pode executar um script TMSL na janela XMLA no SSMS ou usando o PowerShell. Use o comando [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) e o objeto [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) .
+Pode executar um script TMSL na janela XMLA no SSMS ou utilizando o PowerShell. Utilize o comando [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) e o objeto [Funções.](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl)
 
-**Exemplo de script TMSL**
+**Script TMSL da amostra**
 
-Neste exemplo, um usuário externo B2B e um grupo são adicionados à função de analista com permissões de leitura para o banco de dados SalesBI. O usuário externo e o grupo devem estar no mesmo locatário do Azure AD.
+Nesta amostra, um utilizador externo B2B e um grupo são adicionados ao papel de Analista com permissões de Leitura para a base de dados SalesBI. Tanto o utilizador externo como o grupo devem estar no mesmo inquilino Azure AD.
 
 ```
 {
@@ -117,39 +117,39 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função d
 }
 ```
 
-## <a name="to-add-roles-and-users-by-using-powershell"></a>Para adicionar funções e usuários usando o PowerShell
+## <a name="to-add-roles-and-users-by-using-powershell"></a>Para adicionar funções e utilizadores utilizando o PowerShell
 
-O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gerenciamento de banco de dados específicos de tarefas e o cmdlet Invoke-ASCmd de uso geral que aceita uma consulta ou script de TMSL (linguagem de script de modelo de tabela). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
+O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gestão de base de dados específicos de tarefas e o cmdlet invoca-ASCmd de propósito geral que aceita uma consulta ou script de script de script de modelo tabular (TMSL). Os seguintes cmdlets são utilizados para gerir funções de base de dados e utilizadores.
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de banco de dados.| 
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remover um membro de uma função de banco de dados.|   
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
 |[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
 
-Os filtros de linha definem quais linhas em uma tabela podem ser consultadas por membros de uma função específica. Os filtros de linha são definidos para cada tabela em um modelo usando fórmulas DAX.  
+Os filtros de linha definem quais as linhas de uma mesa que podem ser consultadas por membros de um papel particular. Os filtros de linha são definidos para cada tabela num modelo utilizando fórmulas DAX.  
   
-Os filtros de linha podem ser definidos somente para funções com permissões de leitura e leitura e processo. Por padrão, se um filtro de linha não estiver definido para uma tabela específica, os membros poderão consultar todas as linhas na tabela, a menos que a filtragem cruzada se aplique de outra tabela.
+Os filtros de linha só podem ser definidos para funções com permissões de Leitura e Leitura e Processo. Por predefinição, se um filtro de linha não for definido para uma determinada tabela, os membros podem consultar todas as linhas da tabela, a menos que a filtragem cruzada se aplique a partir de outra tabela.
   
- Os filtros de linha exigem uma fórmula DAX, que deve ser avaliada como um valor TRUE/FALSE, para definir as linhas que podem ser consultadas por membros dessa função específica. Linhas não incluídas na fórmula DAX não podem ser consultadas. Por exemplo, a tabela Customers com a seguinte expressão de filtros de linha, *= Customers [Country] = "usa"* , os membros da função Sales só podem ver os clientes nos EUA.  
+ Os filtros de linha requerem uma fórmula DAX, que deve avaliar para um valor VERDADEIRO/FALSO, para definir as linhas que podem ser consultadas por membros desse papel específico. As filas não incluídas na fórmula DAX não podem ser consultadas. Por exemplo, a tabela Clientes com a seguinte expressão de filtros de linha, *=Clientes [País] = "EUA",* os membros da função De venda só podem ver clientes nos EUA.  
   
-Os filtros de linha se aplicam às linhas especificadas e linhas relacionadas. Quando uma tabela tem várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros Filers de linha definidos para tabelas relacionadas, por exemplo:  
+Os filtros de remo aplicam-se às linhas especificadas e às linhas relacionadas. Quando uma mesa tem múltiplas relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filetes de linha definidos para tabelas relacionadas, por exemplo:  
   
-|Tabela|Expressão DAX|  
+|Tabelas|Expressão DAX|  
 |-----------|--------------------|  
-|Região|= Region [país] = "EUA"|  
-|ProductCategory|= ProductCategory [name] = "bicicletas"|  
-|Transações|= Transações [ano] = 2016|  
+|Região|=Região[País]="EUA"|  
+|Categoria de Produtos|=Categoria de Produto[Nome]="Bicicletas"|  
+|Transações|=Transações[Ano]=2016|  
   
- O efeito líquido é que os membros podem consultar linhas de dados em que o cliente está nos EUA, a categoria do produto é bicicletas e o ano é 2016. Os usuários não podem consultar transações fora dos EUA, transações que não são bicicletas ou transações que não estão em 2016, a menos que sejam membros de outra função que concede essas permissões.
+ O efeito líquido é que os membros podem consultar filas de dados onde o cliente está nos EUA, a categoria do produto é bicicletas, e o ano é 2016. Os utilizadores não podem consultar transações fora dos EUA, transações que não são bicicletas, ou transações não em 2016, a menos que sejam membros de outra função que conceda essas permissões.
   
- Você pode usar o filtro, *= false ()* , para negar o acesso a todas as linhas de uma tabela inteira.
+ Pode utilizar o filtro, *=FALSE()* para negar o acesso a todas as linhas para uma mesa inteira.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-  [Gerenciar administradores de servidor](analysis-services-server-admins.md)   
-  [Gerenciar Azure Analysis Services com o PowerShell](analysis-services-powershell.md)  
-  [Referência de TMSL (linguagem de script de modelo de tabela)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [Gerir os administradores do servidor](analysis-services-server-admins.md)   
+  [Gerir serviços de análise azure com powerShell](analysis-services-powershell.md)  
+  [Referência tabular modelo scripting (TMSL)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
 

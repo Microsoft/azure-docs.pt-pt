@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 111fab880887b54b2415d433bda2368c951381bd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770174"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901226"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no Hot Path usando hubs de eventos
 Diagnóstico do Azure fornece maneiras flexíveis de coletar métricas e logs de VMs (máquinas virtuais) de serviços de nuvem e transferir resultados para o armazenamento do Azure. A partir do período de março de 2016 (SDK 2,9), você pode enviar diagnósticos para fontes de dados personalizadas e transferir dados de caminho quente em segundos usando os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -181,7 +181,7 @@ No exemplo acima, o coletor é aplicado ao nó pai **PerformanceCounters** na hi
 }
 ```
 
-No exemplo anterior, o coletor é aplicado a apenas três contadores: **solicitações enfileiradas**, **solicitações rejeitadas**e **% de tempo do processador**.  
+No exemplo anterior, o lavatório é aplicado apenas a três balcões: **Pedidos em fila,** **pedidos rejeitados**e **tempo de processador %** .  
 
 O exemplo a seguir mostra como um desenvolvedor pode limitar a quantidade de dados enviados para serem as métricas críticas que são usadas para a integridade desse serviço.  
 
@@ -201,7 +201,7 @@ Neste exemplo, o coletor é aplicado aos logs e é filtrado somente para rastrea
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implantar e atualizar um aplicativo de serviços de nuvem e configuração de diagnóstico
 O Visual Studio fornece o caminho mais fácil para implantar o aplicativo e a configuração do coletor de hubs de eventos. Para exibir e editar o arquivo, abra o arquivo *. wadcfgx* no Visual Studio, edite-o e salve-o. O caminho é **projeto de serviço de nuvem** > **funções** >  **(roleName)**  > **Diagnostics. wadcfgx**.  
 
-Neste ponto, todas as ações de implantação e atualização de implantação no Visual Studio, no Visual Studio Team System e em todos os comandos ou scripts baseados no MSBuild e usam o destino **/t: publish** incluem o *. wadcfgx* no processo de empacotamento. Além disso, as implantações e atualizações implantam o arquivo no Azure usando a extensão apropriada do agente de Diagnóstico do Azure em suas VMs.
+Neste momento, todas as ações de atualização de implementação e implementação no Visual Studio, Visual Studio Team System, e todos os comandos ou scripts que são baseados na MSBuild e usam o alvo `/t:publish` incluem o *.wadcfgx* no processo de embalagem. Além disso, as implantações e atualizações implantam o arquivo no Azure usando a extensão apropriada do agente de Diagnóstico do Azure em suas VMs.
 
 Depois de implantar o aplicativo e Diagnóstico do Azure configuração, você verá imediatamente a atividade no painel do hub de eventos. Isso indica que você está pronto para passar para a exibição dos dados de caminho inativo no cliente de escuta ou na ferramenta de análise de sua escolha.  
 
@@ -215,13 +215,72 @@ Na figura a seguir, o painel de hubs de eventos mostra o envio íntegro de dados
 >
 
 ## <a name="view-hot-path-data"></a>Exibir dados de Hot-Path
-Conforme discutido anteriormente, há muitos casos de uso para escutar e processar dados de hubs de eventos.
+Conforme discutido anteriormente, há muitos casos de uso para escutar e processar dados de hubs de eventos. Uma abordagem simples é criar um pequeno aplicativo de console de teste para escutar o Hub de eventos e imprimir o fluxo de saída. 
 
-Uma abordagem simples é criar um pequeno aplicativo de console de teste para escutar o Hub de eventos e imprimir o fluxo de saída. Você pode colocar o código a seguir, que é explicado em mais detalhes em introdução [aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)) em um aplicativo de console.  
+#### <a name="net-sdk-latest-500-or-latertablatest"></a>[.NET SDK mais recente (5.0.0 ou mais tarde)](#tab/latest)
+Você pode colocar o código a seguir, que é explicado em mais detalhes em introdução [aos hubs de eventos](../../event-hubs/get-started-dotnet-standard-send-v2.md)) em um aplicativo de console.
 
-Observe que o aplicativo de console deve incluir o [pacote NuGet do host do processador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
+```csharp
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
+namespace Receiver1204
+{
+    class Program
+    {
+        private static readonly string ehubNamespaceConnectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
+        private static readonly string eventHubName = "EVENT HUB NAME";
+        private static readonly string blobStorageConnectionString = "AZURE STORAGE CONNECTION STRING";
+        private static readonly string blobContainerName = "BLOB CONTAINER NAME";
 
-Lembre-se de substituir os valores entre colchetes angulares na função **principal** pelos valores de seus recursos.   
+        static async Task Main()
+        {
+            // Read from the default consumer group: $Default
+            string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
+
+            // Create a blob container client that the event processor will use 
+            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
+
+            // Create an event processor client to process events in the event hub
+            EventProcessorClientOptions options = new EventProcessorClientOptions { }
+            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
+
+            // Register handlers for processing events and handling errors
+            processor.ProcessEventAsync += ProcessEventHandler;
+            processor.ProcessErrorAsync += ProcessErrorHandler;
+
+            // Start the processing
+            await processor.StartProcessingAsync();
+
+            // Wait for 10 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            // Stop the processing
+            await processor.StopProcessingAsync();
+        }
+
+        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            return Task.CompletedTask;
+        }
+
+        static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+        {
+            Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+            Console.WriteLine(eventArgs.Exception.Message);
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+#### <a name="net-sdk-legacy-410-or-earliertablegacy"></a>[.NET SDK legacy (4.1.0 ou anterior)](#tab/legacy)
+
+Você pode colocar o código a seguir, que é explicado em mais detalhes em introdução [aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)) em um aplicativo de console. Note que a aplicação da consola deve incluir o [pacote Nuget anfitrião](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)do processador de eventos . Lembre-se de substituir os valores entre colchetes angulares na função **principal** pelos valores de seus recursos.   
 
 ```csharp
 //Console application code for EventHub test client
@@ -303,6 +362,7 @@ namespace EventHubListener
     }
 }
 ```
+---
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Solucionar problemas de coletores de hubs de eventos
 * O Hub de eventos não mostra a atividade de entrada ou saída do evento conforme o esperado.
@@ -310,7 +370,7 @@ namespace EventHubListener
     Verifique se o Hub de eventos foi provisionado com êxito. Todas as informações de conexão na seção **PrivateConfig** de *. wadcfgx* devem corresponder aos valores de seu recurso, como visto no Portal. Verifique se você tem uma política de SAS definida ("SendRule" no exemplo) no portal e se a permissão de *envio* foi concedida.  
 * Após uma atualização, o Hub de eventos não mostra mais a atividade de entrada ou saída de eventos.
 
-    Primeiro, verifique se o Hub de eventos e as informações de configuração estão corretos, conforme explicado anteriormente. Às vezes, o **PrivateConfig** é redefinido em uma atualização de implantação. A correção recomendada é fazer todas as alterações em *. wadcfgx* no projeto e, em seguida, enviar por push uma atualização completa do aplicativo. Se isso não for possível, verifique se a atualização de diagnóstico envia por push um **PrivateConfig** completo que inclui a chave SAS.  
+    Em primeiro lugar, certifique-se de que o centro de eventos e as informações de configuração estão corretas, conforme explicado anteriormente. Às vezes, o **PrivateConfig** é redefinido em uma atualização de implantação. A correção recomendada é fazer todas as alterações em *. wadcfgx* no projeto e, em seguida, enviar por push uma atualização completa do aplicativo. Se isso não for possível, verifique se a atualização de diagnóstico envia por push um **PrivateConfig** completo que inclui a chave SAS.  
 * Tentei as sugestões e o Hub de eventos ainda não está funcionando.
 
     Tente examinar a tabela de armazenamento do Azure que contém logs e erros para Diagnóstico do Azure si mesmo: **WADDiagnosticInfrastructureLogsTable**. Uma opção é usar uma ferramenta como [Gerenciador de armazenamento do Azure](https://www.storageexplorer.com) para se conectar a essa conta de armazenamento, exibir essa tabela e adicionar uma consulta de carimbo de data/hora nas últimas 24 horas. Você pode usar a ferramenta para exportar um arquivo. csv e abri-lo em um aplicativo como o Microsoft Excel. O Excel facilita a pesquisa de cadeias de caracteres de cartão de chamada, como **EventHubs**, para ver qual erro é relatado.  
@@ -386,7 +446,7 @@ O *inconfiguration. Cloud. cscfg* complementar para este exemplo é semelhante a
 </ServiceConfiguration>
 ```
 
-As configurações de JSON equivalentes para máquinas virtuais são as seguintes:
+As configurações JSON equivalentes para máquinas virtuais são as seguintes:
 
 Configurações públicas:
 ```JSON

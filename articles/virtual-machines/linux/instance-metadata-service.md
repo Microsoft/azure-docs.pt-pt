@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: ad3f9329ce79812e908fd15037e2054ca5a8906e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 5b3f3eea4d23d84d684648d19fb67258d1ea2050
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045154"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906992"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -126,13 +126,13 @@ As solicitações também devem conter um cabeçalho `Metadata: true` para garan
 
 Se houver um elemento de dados não encontrado ou uma solicitação malformada, o serviço de metadados de instância retornará erros HTTP padrão. Por exemplo:
 
-Código de Estado de HTTP | Razão
+Código de Estado HTTP | Razão
 ----------------|-------
 200 OK |
 400 solicitação inadequada | Cabeçalho de `Metadata: true` ausente ou formato ausente ao consultar um nó folha
 404 Não Encontrado | O elemento solicitado não existe
 método 405 não permitido | Há suporte apenas para `GET` solicitações
-429 número excessivo de solicitações | A API atualmente dá suporte a um máximo de 5 consultas por segundo
+429 Pedidos A Mais | A API atualmente dá suporte a um máximo de 5 consultas por segundo
 Erro de serviço 500     | Tentar novamente após algum tempo
 
 ### <a name="examples"></a>Exemplos
@@ -474,7 +474,7 @@ placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/vi
 plano | [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e publicador para uma VM se for uma imagem do Azure Marketplace | 2018-04-02
 platformUpdateDomain |  [Atualizar domínio](manage-availability.md) no qual a VM está sendo executada | 2017-04-02
 platformFaultDomain | [Domínio de falha](manage-availability.md) em que a VM está sendo executada | 2017-04-02
-em WMI | Provedor da VM | 2018-10-01
+fornecedor | Provedor da VM | 2018-10-01
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
 publicador | Editor da imagem da VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para sua máquina virtual | 2017-08-01
@@ -542,7 +542,7 @@ O blob de assinatura é uma versão do documento assinada [PKCS7](https://aka.ms
 
 Os metadados da instância podem ser recuperados no Windows por meio do utilitário PowerShell `curl`:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 

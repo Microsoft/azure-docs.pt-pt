@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c2acd09df51b942a08a85d96d907e064367377a7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026159"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900291"
 ---
 # <a name="azure-batch-best-practices"></a>Práticas recomendadas do lote do Azure
 
@@ -67,7 +67,7 @@ O tempo de vida do pool pode variar dependendo do método de alocação e das op
 
 As falhas de alocação de pool podem ocorrer a qualquer momento durante a primeira alocação ou redimensionamentos subsequentes. Isso pode ser devido à esgotamento de capacidade temporária em uma região ou falhas em outros serviços do Azure nos quais o lote depende. Sua cota principal não é uma garantia, mas sim um limite.
 
-### <a name="unplanned-downtime"></a>Período de indisponibilidade não planeado
+### <a name="unplanned-downtime"></a>Tempo de inatividade não planeado
 
 É possível que os pools do lote tenham eventos de tempo de inatividade no Azure. Isso é importante para ter em mente ao planejar e desenvolver seu cenário ou fluxo de trabalho para o lote.
 
@@ -112,7 +112,7 @@ As tarefas são unidades individuais de trabalho que compõem um trabalho. As ta
 ### <a name="task-execution"></a>Execução da tarefa
 
 - **Escolhendo o máximo de tarefas por nó**  
-    O lote dá suporte a tarefas de sobrecarregar em nós (executando mais tarefas do que um nó tem núcleos). Cabe a você garantir que suas tarefas se ajustem aos nós no pool. Por exemplo, você pode ter uma experiência degradada se tentar agendar oito tarefas, cada uma consumindo 25% de uso da CPU em um nó (em um pool com `maxTasksPerNode = 8`).
+    O lote dá suporte a tarefas de sobrecarregar em nós (executando mais tarefas do que um nó tem núcleos). Cabe a você garantir que suas tarefas se ajustem aos nós no pool. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina com `maxTasksPerNode = 8`).
 
 ### <a name="designing-for-retries-and-re-execution"></a>Design para repetições e reexecução
 
@@ -152,3 +152,15 @@ Embora seja raro, uma tarefa pode ser repetida internamente devido a falhas no n
 ### <a name="security-isolation"></a>Isolamento de segurança
 
 Para fins de isolamento, se o seu cenário exigir o isolamento de trabalhos uns dos outros, você deverá isolar esses trabalhos fazendo com que eles estejam em pools separados. Um pool é o limite de isolamento de segurança no lote e, por padrão, dois pools não são visíveis ou são capazes de se comunicar entre si. Evite usar contas do lote separadas como meio de isolamento.
+
+## <a name="moving"></a>Movendo-se
+
+### <a name="move-batch-account-across-regions"></a>Mover a conta batch através de regiões 
+
+Existem vários cenários em que você gostaria de mover a sua conta de Lote existente de uma região para outra. Por exemplo, talvez queira mover-se para outra região como parte do planeamento de recuperação de desastres.
+
+As contas do Lote Azure não podem ser transferidas de uma região para outra. No entanto, pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente da sua conta Batch.  Em seguida, pode encenar o recurso noutra região exportando a conta do Lote para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantar o modelo para a nova região. Depois de fazer o upload do modelo para a nova região, terá de recriar certificados, horários de trabalho e pacotes de aplicações. Para comprometer as alterações e completar o movimento da conta 'Lote', lembre-se de eliminar a conta original do Lote ou o grupo de recursos.  
+
+Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor métricas com suporte por tipo de recurso
-description: Lista de métricas disponíveis para cada tipo de recurso com Azure Monitor.
+title: Azure Monitor supported metrics by resource type
+description: List of metrics available for each resource type with Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 0210317ef74433b740feb043a1cc4f1f9bc2ef57
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310786"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901149"
 ---
-# <a name="supported-metrics-with-azure-monitor"></a>Métricas com suporte com Azure Monitor
+# <a name="supported-metrics-with-azure-monitor"></a>Supported metrics with Azure Monitor
 
-O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo o gráfico delas no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. Abaixo está uma lista completa de todas as métricas disponíveis atualmente com o pipeline de métrica do Azure Monitor. Outras métricas podem estar disponíveis no portal ou usando APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis usando o pipeline de métrica de Azure Monitor consolidado. Para consultar e acessar essas métricas, use a [versão de api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
 > *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
-> Para obter uma lista de métricas de plataforma exportáveis por meio de configurações de diagnóstico, consulte [Este artigo](metrics-supported-export-diagnostic-settings.md).
+> For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
 
 
 
@@ -33,27 +33,27 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|Contagem|Média|QPU. Intervalo de 0-100 para S1, 0-200 para S2 e 0-400 para S4|ServerResourceType|
-|memory_metric|Memória|Bytes|Média|A memória. Intervalo de 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|ServerResourceType|
-|private_bytes_metric|Bytes Privados|Bytes|Média|Bytes privados.|ServerResourceType|
-|virtual_bytes_metric|Bytes Virtuais|Bytes|Média|Bytes virtuais.|ServerResourceType|
-|TotalConnectionRequests|Total de solicitações de conexão|Contagem|Média|Total de solicitações de conexão. Essas são entradas.|ServerResourceType|
-|SuccessfullConnectionsPerSec|Conexões com êxito por segundo|CountPerSecond|Média|Taxa de conclusões de conexão com êxito.|ServerResourceType|
-|TotalConnectionFailures|Total de falhas de conexão|Contagem|Média|Total de tentativas de conexão com falha.|ServerResourceType|
-|CurrentUserSessions|Sessões de usuário atuais|Contagem|Média|Número atual de sessões de usuário estabelecidas.|ServerResourceType|
-|QueryPoolBusyThreads|Threads ocupados do pool de consulta|Contagem|Média|Número de threads ocupados no pool de threads de consulta.|ServerResourceType|
-|CommandPoolJobQueueLength|Comprimento da fila de trabalhos do pool de comandos|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|ServerResourceType|
-|ProcessingPoolJobQueueLength|Tamanho da fila de trabalhos do pool de processamento|Contagem|Média|Número de trabalhos que não são de e/s na fila do pool de threads de processamento.|ServerResourceType|
-|CurrentConnections|Conexão: conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|ServerResourceType|
-|CleanerCurrentPrice|Memória: preço atual do limpador|Contagem|Média|Preço atual da memória, $/byte/time, normalizado para 1000.|ServerResourceType|
-|CleanerMemoryShrinkable|Memória: memória de limpeza recolhida|Bytes|Média|Quantidade de memória, em bytes, sujeita a limpeza pelo limpador de segundo plano.|ServerResourceType|
-|CleanerMemoryNonshrinkable|Memória: memória de limpeza não reduzida|Bytes|Média|Quantidade de memória, em bytes, não sujeita a limpeza pelo limpador de segundo plano.|ServerResourceType|
-|MemoryUsage|Memória: uso de memória|Bytes|Média|Uso de memória do processo do servidor conforme usado no cálculo do preço de memória de limpeza. Igual ao contador Process\PrivateBytes mais o tamanho dos dados mapeados na memória, ignorando qualquer memória que foi mapeada ou alocada pelo VertiPaq (mecanismo analítico na memória) xVelocity excedendo o limite de memória do mecanismo xVelocity.|ServerResourceType|
-|MemoryLimitHard|Memória: limite de memória rígido|Bytes|Média|Limite de memória rígido, do arquivo de configuração.|ServerResourceType|
-|MemoryLimitHigh|Memória: limite de memória alto|Bytes|Média|Limite de memória alto, do arquivo de configuração.|ServerResourceType|
-|MemoryLimitLow|Memória: limite de memória baixo|Bytes|Média|Limite de memória baixo, do arquivo de configuração.|ServerResourceType|
-|MemoryLimitVertiPaq|Memória: limite de memória VertiPaq|Bytes|Média|Limite na memória, do arquivo de configuração.|ServerResourceType|
-|Quota|Memória: cota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como concessão de memória ou reserva de memória.|ServerResourceType|
+|qpu_metric|QPU|Contagem|Média|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|ServerResourceType|
+|memory_metric|Memória|Bytes|Média|A memória. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|ServerResourceType|
+|private_bytes_metric|Bytes Privados|Bytes|Média|Private bytes.|ServerResourceType|
+|virtual_bytes_metric|Virtual Bytes|Bytes|Média|Virtual bytes.|ServerResourceType|
+|TotalConnectionRequests|Total Connection Requests|Contagem|Média|Total connection requests. These are arrivals.|ServerResourceType|
+|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Média|Rate of successful connection completions.|ServerResourceType|
+|TotalConnectionFailures|Total Connection Failures|Contagem|Média|Total failed connection attempts.|ServerResourceType|
+|CurrentUserSessions|Current User Sessions|Contagem|Média|Current number of user sessions established.|ServerResourceType|
+|QueryPoolBusyThreads|Query Pool Busy Threads|Contagem|Média|Number of busy threads in the query thread pool.|ServerResourceType|
+|CommandPoolJobQueueLength|Command Pool Job Queue Length|Contagem|Média|Number of jobs in the queue of the command thread pool.|ServerResourceType|
+|ProcessingPoolJobQueueLength|Processing Pool Job Queue Length|Contagem|Média|Number of non-I/O jobs in the queue of the processing thread pool.|ServerResourceType|
+|CurrentConnections|Connection: Current connections|Contagem|Média|Current number of client connections established.|ServerResourceType|
+|CleanerCurrentPrice|Memory: Cleaner Current Price|Contagem|Média|Current price of memory, $/byte/time, normalized to 1000.|ServerResourceType|
+|CleanerMemoryShrinkable|Memory: Cleaner Memory shrinkable|Bytes|Média|Amount of memory, in bytes, subject to purging by the background cleaner.|ServerResourceType|
+|CleanerMemoryNonshrinkable|Memory: Cleaner Memory nonshrinkable|Bytes|Média|Amount of memory, in bytes, not subject to purging by the background cleaner.|ServerResourceType|
+|MemoryUsage|Memory: Memory Usage|Bytes|Média|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory which was mapped or allocated by the xVelocity in-memory analytics engine (VertiPaq) in excess of the xVelocity engine Memory Limit.|ServerResourceType|
+|MemoryLimitHard|Memory: Memory Limit Hard|Bytes|Média|Hard memory limit, from configuration file.|ServerResourceType|
+|MemoryLimitHigh|Memory: Memory Limit High|Bytes|Média|High memory limit, from configuration file.|ServerResourceType|
+|MemoryLimitLow|Memory: Memory Limit Low|Bytes|Média|Low memory limit, from configuration file.|ServerResourceType|
+|MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Média|In-memory limit, from configuration file.|ServerResourceType|
+|Quota|Memory: Quota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como concessão de memória ou reserva de memória.|ServerResourceType|
 |QuotaBlocked|Memória: cota bloqueada|Contagem|Média|Número atual de solicitações de cota que são bloqueadas até que outras cotas de memória sejam liberadas.|ServerResourceType|
 |VertiPaqNonpaged|Memória: VertiPaq não paginável|Bytes|Média|Bytes de memória bloqueados no conjunto de trabalho para uso pelo mecanismo na memória.|ServerResourceType|
 |VertiPaqPaged|Memória: VertiPaq paginável|Bytes|Média|Bytes de memória paginável em uso para dados na memória.|ServerResourceType|
@@ -215,7 +215,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |CpuUsagePercentageInDouble|Porcentagem de uso da CPU|Percentagem|Máximo|Porcentagem de uso da CPU|Nó|
-|MemoryUsage|Utilização da memória|Bytes|Média|Utilização da memória|Nó|
+|MemoryUsage|Utilização de Memória|Bytes|Média|Utilização de Memória|Nó|
 |MemoryLimit|Limite de memória|Bytes|Média|Limite de memória|Nó|
 |MemoryUsagePercentageInDouble|Porcentagem de uso da memória|Percentagem|Média|Porcentagem de uso da memória|Nó|
 |StorageUsage|Uso do armazenamento|Bytes|Média|Uso do armazenamento|Nó|
@@ -684,7 +684,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Os|Utilização do CPU|Contagem|Média|Uso da CPU em todos os núcleos em milicores.|containerName|
-|MemoryUsage|Utilização da memória|Bytes|Média|Uso total de memória em byte.|containerName|
+|MemoryUsage|Utilização de Memória|Bytes|Média|Uso total de memória em byte.|containerName|
 |NetworkBytesReceivedPerSecond|Bytes de rede recebidos por segundo|Bytes|Média|Os bytes de rede recebidos por segundo.|Nenhuma|
 |NetworkBytesTransmittedPerSecond|Bytes de rede transmitidos por segundo|Bytes|Média|Os bytes de rede transmitidos por segundo.|Nenhuma|
 
@@ -1789,7 +1789,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |DeadletteredMessages|Contagem de mensagens mortas em uma fila/tópico.|Contagem|Média|Contagem de mensagens mortas em uma fila/tópico.|EntityName|
 |ScheduledMessages|Contagem de mensagens agendadas em uma fila/tópico.|Contagem|Média|Contagem de mensagens agendadas em uma fila/tópico.|EntityName|
 |NamespaceCpuUsage|CPU|Percentagem|Máximo|Métrica de uso de CPU do namespace Premium do barramento de serviço.|Réplica|
-|NamespaceMemoryUsage|Utilização da memória|Percentagem|Máximo|Métrica de uso de memória do namespace Premium do barramento de serviço.|Réplica|
+|NamespaceMemoryUsage|Utilização de Memória|Percentagem|Máximo|Métrica de uso de memória do namespace Premium do barramento de serviço.|Réplica|
 |CPUXNS|CPU (preterido)|Percentagem|Máximo|Métrica de uso de CPU do namespace Premium do barramento de serviço. Essa métrica é preterida. Em vez disso, use a métrica de CPU (NamespaceCpuUsage).|Réplica|
 |WSXNS|Uso de memória (preterido)|Percentagem|Máximo|Métrica de uso de memória do namespace Premium do barramento de serviço. Essa métrica foi preterida. Use a métrica de uso de memória (NamespaceMemoryUsage) em vez disso.|Réplica|
 
@@ -1851,8 +1851,8 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se somente a data warehouses.|Nenhuma|
 |cache_hit_percent|Porcentagem de acesso ao cache|Percentagem|Máximo|Porcentagem de acesso ao cache. Aplica-se somente a data warehouses.|Nenhuma|
 |cache_used_percent|Percentual de cache usado|Percentagem|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Nenhuma|
-|sqlserver_process_core_percent|Porcentagem de núcleo do processo de SQL Server|Percentagem|Máximo|Uso da CPU como uma porcentagem do processo do BD SQL. Não aplicável a data warehouses.|Nenhuma|
-|sqlserver_process_memory_percent|Porcentagem de memória de processo SQL Server|Percentagem|Máximo|Uso de memória como uma porcentagem do processo do BD SQL. Não aplicável a data warehouses.|Nenhuma|
+|sqlserver_process_core_percent|Porcentagem de núcleo do processo de SQL Server|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo. Atualmente disponível apenas para bases de dados sem servidores.|Nenhuma|
+|sqlserver_process_memory_percent|Porcentagem de memória de processo SQL Server|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo. Atualmente disponível apenas para bases de dados sem servidores.|Nenhuma|
 |tempdb_data_size|Tamanho do arquivo de dados tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes. Não aplicável a data warehouses.|Nenhuma|
 |tempdb_log_size|Tamanho do arquivo de log de tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes. Não aplicável a data warehouses.|Nenhuma|
 |tempdb_log_used_percent|Log de porcentagem de tempdb usado|Percentagem|Máximo|Log de porcentagem de tempdb usado. Não aplicável a data warehouses.|Nenhuma|

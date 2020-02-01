@@ -2,19 +2,19 @@
 title: 'Início rápido: reconhecer a fala de um arquivo de áudio, serviço de fala em Python'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: chlandsi
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: chlandsi
-ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/30/2020
+ms.author: dapine
+ms.openlocfilehash: bcf0679d83becfb3c4ae900769c0a42dc1359e5d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76038144"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909115"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,8 +23,8 @@ Antes de começar, certifique-se de:
 > [!div class="checklist"]
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
 > * [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md)
+> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
+> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -32,7 +32,7 @@ Antes de começar, certifique-se de:
 
 As atualizações do pacote do kit de fala do SDK do Speech são distribuídas por meio do PyPI e anunciadas nas [notas de versão](~/articles/cognitive-services/Speech-Service/releasenotes.md).
 Se uma nova versão estiver disponível, você poderá atualizá-la com o comando `pip install --upgrade azure-cognitiveservices-speech`.
-Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
+Verifique qual a versão atualmente instalada inspecionando a variável `azure.cognitiveservices.speech.__version__`.
 
 Se você tiver um problema ou se não tiver um recurso, consulte [Opções de suporte e ajuda](~/articles/cognitive-services/Speech-Service/support.md).
 

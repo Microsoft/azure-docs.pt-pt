@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719341"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901911"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar o Azure Cosmos DB e o Azure App Service Web Apps com um modelo de Gestor de recursos do Azure
 Este tutorial mostra-lhe como utilizar um modelo Azure Resource Manager para implementar e integrar [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), uma [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) aplicação web e um exemplo de aplicação web.
@@ -69,7 +69,7 @@ Agora vamos implementar seu primeiro modelo.
    ![Captura de ecrã da implementação do modelo da interface do Usuário](./media/create-website/TemplateDeployment6.png)
 7. Quando a implementação estiver concluída, é aberto o painel do grupo de recursos.
    ![Captura de ecrã do painel do grupo de recursos](./media/create-website/TemplateDeployment7.png)  
-8. Para utilizar a aplicação, navegue para o URL da aplicação web (no exemplo acima, o URL seria http://mydemodocdbwebapp.azurewebsites.net).  Verá a seguinte aplicação web:
+8. Para utilizar a aplicação, navegue para o URL da aplicação web (no exemplo acima, o URL seria `http://mydemodocdbwebapp.azurewebsites.net`).  Verá a seguinte aplicação web:
    
    ![Exemplo de aplicação de lista de tarefas](./media/create-website/image2.png)
 9. Vá em frente e criar algumas das tarefas na aplicação web e, em seguida, regressar ao painel do grupo de recursos no portal do Azure. Clique no recurso de conta do Azure Cosmos DB na lista de recursos e, em seguida, clique em **Data Explorer**.

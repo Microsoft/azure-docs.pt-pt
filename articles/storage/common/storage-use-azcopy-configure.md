@@ -4,16 +4,16 @@ description: Configurar, otimizar e solucionar problemas do AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371399"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905274"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -21,18 +21,18 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar BLO
 
 > [!NOTE]
 > Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
-> - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+> - [Começar com a AzCopy](storage-use-azcopy-v10.md)
 > - [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
 > - [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
 > - [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
-## <a name="configure-proxy-settings"></a>Configurar definições de proxy
+## <a name="configure-proxy-settings"></a>Configurar definições de procuração
 
-Para definir as configurações de proxy para AzCopy, defina a variável de ambiente `https_proxy`. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
+Para configurar as definições de procuração para AzCopy, detete a variável ambiente `https_proxy`. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | Em um prompt de comando, use: `set https_proxy=<proxy IP>:<proxy port>`<br> No PowerShell, use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | Numa utilização rápida de comando: `set https_proxy=<proxy IP>:<proxy port>`<br> Na utilização powerShell: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -41,6 +41,14 @@ Atualmente, o AzCopy não dá suporte a proxies que exigem autenticação com NT
 ## <a name="optimize-performance"></a>Otimizar o desempenho
 
 Você pode obter o desempenho do benchmark e, em seguida, usar comandos e variáveis de ambiente para encontrar uma compensação ideal entre o consumo de recursos e o desempenho.
+
+Esta secção ajuda-o a executar estas tarefas de otimização:
+
+> [!div class="checklist"]
+> * Executar testes de benchmark
+> * Otimizar taxa de transferência
+> * Otimizar o uso de memória 
+> * Otimizar a sincronização de ficheiros
 
 ### <a name="run-benchmark-tests"></a>Executar testes de benchmark
 
@@ -73,7 +81,7 @@ Você pode usar o sinalizador `cap-mbps` em seus comandos para inserir um teto n
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-A taxa de transferência pode diminuir ao transferir arquivos pequenos. Você pode aumentar a taxa de transferência definindo a variável de ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
+A taxa de transferência pode diminuir ao transferir arquivos pequenos. Pode aumentar a entrada definindo a variável ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
 
 Se o computador tiver menos de 5 CPUs, o valor dessa variável será definido como `32`. Caso contrário, o valor padrão é igual a 16 multiplicado pelo número de CPUs. O valor padrão máximo dessa variável é `3000`, mas você pode definir manualmente esse valor como maior ou menor. 
 
@@ -89,7 +97,7 @@ Antes de definir essa variável, recomendamos que você execute um teste de par�
 
 ### <a name="optimize-memory-use"></a>Otimizar o uso de memória
 
-Defina a variável de ambiente `AZCOPY_BUFFER_GB` para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use ao baixar e carregar arquivos.
+Detete a variável ambiente `AZCOPY_BUFFER_GB` para especificar a quantidade máxima da memória do seu sistema que pretende que o AzCopy utilize ao descarregar e carregar ficheiros.
 Expresse esse valor em gigabytes (GB).
 
 | Sistema operativo | Comando  |
@@ -98,13 +106,21 @@ Expresse esse valor em gigabytes (GB).
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
+### <a name="optimize-file-synchronization"></a>Otimizar a sincronização de ficheiros
+
+O comando [de sincronização](storage-ref-azcopy-sync.md) identifica todos os ficheiros no destino e, em seguida, compara os nomes dos ficheiros e os últimos selos de tempo modificados antes de iniciar a operação de sincronização. Se tiver um grande número de ficheiros, então pode melhorar o desempenho eliminando este processamento frontal. 
+
+Para isso, utilize o comando de cópia de [azcópia](storage-ref-azcopy-copy.md) e coloque a bandeira `--overwrite` para `ifSourceNewer`. O AzCopy irá comparar ficheiros à medida que são copiados sem realizar quaisquer digitalizações e comparações frontais. Isto fornece uma vantagem de desempenho nos casos em que há um grande número de ficheiros para comparar.
+
+O comando de [cópia azcopy](storage-ref-azcopy-copy.md) não apaga ficheiros do destino, por isso, se pretender eliminar ficheiros no destino quando já não existam na fonte, utilize o comando de [sincronização azcopy](storage-ref-azcopy-sync.md) com a bandeira `--delete-destination` definida num valor de `true` ou `prompt`. 
+
 ## <a name="troubleshoot-issues"></a>Resolver problemas
 
 O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas em potencial. 
 
 Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
-Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
+Por predefinição, os ficheiros de registo e plano estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou `$HOME$\.azcopy` diretório no Mac e Linux, mas pode alterar esse local se quiser.
 
 > [!IMPORTANT]
 > Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão redação no início do arquivo de log.
@@ -159,7 +175,7 @@ Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabal
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar o local do plano e dos arquivos de log
 
-Por padrão, os arquivos de plano e de log estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux. Você pode alterar esse local.
+Por predefinição, os ficheiros de planoe de registo estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows, ou no `$HOME$\.azcopy` diretório em Mac e Linux. Você pode alterar esse local.
 
 ### <a name="change-the-location-of-plan-files"></a>Alterar o local dos arquivos de plano
 

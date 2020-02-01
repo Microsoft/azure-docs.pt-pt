@@ -1,17 +1,17 @@
 ---
 title: Usar ações do GitHub com a sincronização de configuração do Azure App
 description: Usar ações do GitHub para disparar uma atualização para sua instância de configuração de aplicativo quando as ações definidas forem executadas em um repositório GitHub
-author: jpconnock
-ms.author: jeconnoc
+author: lisaguthrie
+ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 1b7586e6321318a3fe4566e8c744c17a1d7ee179
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310625"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899618"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizar a instância de configuração do aplicativo usando as ações do GitHub
 Azure App configuração usa ações do GitHub para atualizar uma instância de configuração de aplicativo quando disparada por uma ação executada em um repositório GitHub. Você pode aproveitar os fluxos de trabalho do GitHub para atualizar a configuração do aplicativo, permitindo a integração das atualizações de configuração do aplicativo no mesmo fluxo de trabalho usado para atualizar o código do aplicativo.
@@ -28,10 +28,10 @@ A [documentação](https://help.github.com/actions/automating-your-workflow-with
 Para começar a usar essa ação do GitHub, vá para o repositório e selecione a guia **ações** . Localize e selecione a ação do GitHub no Marketplace pesquisando "sincronização de configuração do Azure app". 
 
 > [!div class="mx-imgBorder"]
-> ![selecione a guia ação](media/find-github-action.png)
+> ![Selecione o separador Action](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
-> ![selecione a ação syn de configuração de aplicativo](media/app-configuration-sync-action.png)
+> ![Selecione a configuração da aplicação syn Action](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronizar arquivos de configuração após um envio por push
 Essa ação sincroniza Azure App arquivos de configuração quando uma alteração é enviada por push para `appsettings.json`. Quando um desenvolvedor faz e envia uma alteração para `appsettings.json`, a ação de sincronização de configuração de aplicativo atualiza a instância de configuração de aplicativo com os novos valores.
@@ -189,12 +189,12 @@ Os parâmetros de entrada especificam os dados usados pela ação durante o temp
 | configurationFile | Sim | Caminho para o arquivo de configuração no repositório, em relação à raiz do repositório.  Os padrões glob têm suporte e podem incluir vários arquivos. |
 | format | Sim | Formato de arquivo do arquivo de configuração.  Os formatos válidos são: JSON, YAML, Properties. |
 | connectionString | Sim | Cadeia de conexão para a instância de configuração do aplicativo. A cadeia de conexão deve ser armazenada como um segredo no repositório do GitHub e somente o nome do segredo deve ser usado no fluxo de trabalho. |
-| separator | Sim | Separador usado ao mesclar o arquivo de configuração para pares de chave-valor.  Os valores válidos são:. , ; : - _ __ / |
+| separador | Sim | Separador usado ao mesclar o arquivo de configuração para pares de chave-valor.  Os valores válidos são:. , ; : - _ __ / |
 | prefix | Não | Prefixo a ser adicionado ao início das chaves. |
 | label | Não | Rótulo usado ao definir pares de chave-valor. Se não for especificado, será usado um rótulo nulo. |
 | Strict | Não | Um valor booliano que determina se o modo estrito está habilitado. O valor predefinido é false. |
 | Detalhado | Não | Profundidade máxima para mesclar o arquivo de configuração.  A profundidade deve ser um número positivo.  O padrão não terá nenhuma profundidade máxima. |
-| etiquetas | Não | Especifica a marca definida em pares chave-valor.  O formato esperado é uma forma em cadeias de um objeto JSON da seguinte forma: {[propertyName: String]: String;} Cada nome de propriedade-valor torna-se uma marca. |
+| etiquetas | Não | Especifica a marca definida em pares chave-valor.  O formato esperado é uma forma stringizada de um objeto JSON da seguinte forma: { [propertyName: string]: string; } Cada valor de nome de propriedade torna-se uma etiqueta. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

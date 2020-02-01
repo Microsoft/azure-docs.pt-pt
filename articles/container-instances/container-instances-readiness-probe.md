@@ -1,26 +1,29 @@
 ---
-title: Configurar investigação de preparação na instância de contêiner
-description: Saiba como configurar uma investigação para garantir que os contêineres nas instâncias de contêiner do Azure recebam solicitações somente quando estiverem prontos
+title: Configurar sonda de prontidão na instância do recipiente
+description: Saiba como configurar uma sonda para garantir que os contentores em Casos de Contentores Azure recebam pedidos apenas quando estiverem prontos
 ms.topic: article
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533568"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901849"
 ---
 # <a name="configure-readiness-probes"></a>Configurar pesquisas readiness
 
-Para aplicativos em contêineres que atendem ao tráfego, talvez você queira verificar se o contêiner está pronto para lidar com solicitações de entrada. As instâncias de contêiner do Azure dão suporte a investigações de preparação para incluir configurações para que seu contêiner não possa ser acessado sob determinadas condições. A investigação de preparação se comporta como uma [investigação de preparação de kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). Por exemplo, um aplicativo de contêiner pode precisar carregar um conjunto de dados grande durante a inicialização e você não deseja que ele receba solicitações durante esse tempo.
+Para aplicações contentorizadas que servem o tráfego, é melhor verificar se o seu contentor está pronto para lidar com os pedidos de entrada. As instâncias de contentores Azure suportam sondas de prontidão para incluir configurações para que o seu recipiente não possa ser acedido sob determinadas condições. A sonda de prontidão comporta-se como uma sonda de [prontidão kubernetes.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) Por exemplo, uma aplicação de contentores pode precisar de carregar um grande conjunto de dados durante o arranque, e você não quer que receba pedidos durante este tempo.
 
-Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de prontidão, para que um contêiner só receba tráfego quando a investigação tiver sucesso.
+Este artigo explica como implantar um grupo de contentores que inclui uma sonda de prontidão, para que um contentor só receba tráfego quando a sonda for bem sucedida.
 
-As instâncias de contêiner do Azure também dão suporte a [testes de vida](container-instances-liveness-probe.md), que podem ser configurados para fazer com que um contêiner não íntegro seja reiniciado automaticamente.
+As instâncias de contentores Azure também suportam sondas de [vivacidade,](container-instances-liveness-probe.md)que pode configurar para fazer com que um recipiente pouco saudável reinicie automaticamente.
 
-## <a name="yaml-configuration"></a>Configuração do YAML
+> [!NOTE]
+> Atualmente não é possível utilizar uma sonda de prontidão num grupo de contentores implantado numa rede virtual.
 
-Por exemplo, crie um arquivo de `readiness-probe.yaml` com o trecho a seguir que inclui uma investigação de prontidão. Esse arquivo define um grupo de contêineres que consiste em um contêiner que executa um pequeno aplicativo Web. O aplicativo é implantado a partir da imagem de `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esse aplicativo de contêiner também é demonstrado em guias de início rápido, como [implantar uma instância de contêiner no Azure usando o CLI do Azure](container-instances-quickstart.md).
+## <a name="yaml-configuration"></a>Configuração YAML
+
+Como exemplo, crie um ficheiro `readiness-probe.yaml` com o seguinte corte que inclua uma sonda de prontidão. Este ficheiro define um grupo de contentores que consiste num contentor que executa uma pequena aplicação web. A aplicação é implantada a partir do público `mcr.microsoft.com/azuredocs/aci-helloworld` imagem. Esta aplicação de contentores também é demonstrada em arranques rápidos, como implementar uma instância de [contentores em Azure utilizando o Azure CLI](container-instances-quickstart.md).
 
 ```yaml
 apiVersion: 2018-10-01
@@ -58,47 +61,47 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-### <a name="start-command"></a>Comando iniciar
+### <a name="start-command"></a>Iniciar o comando
 
-O arquivo YAML inclui um comando inicial a ser executado quando o contêiner é iniciado, definido pela propriedade `command` que aceita uma matriz de cadeias de caracteres. Este comando simula uma hora em que o aplicativo Web é executado, mas o contêiner não está pronto. Primeiro, ele inicia uma sessão do Shell e executa um comando `node` para iniciar o aplicativo Web. Ele também inicia um comando para dormir por 240 segundos, após o qual ele cria um arquivo chamado `ready` dentro do diretório `/tmp`:
+O ficheiro YAML inclui um comando inicial a ser executado quando o recipiente começa, definido pela propriedade `command` que aceita uma série de cordas. Este comando simula uma época em que a aplicação web funciona, mas o recipiente não está pronto. Primeiro, inicia uma sessão de conchas e executa um comando `node` para iniciar a aplicação web. Também inicia um comando para dormir durante 240 segundos, após o qual cria um ficheiro chamado `ready` dentro do diretório `/tmp`:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 ```
 
-### <a name="readiness-command"></a>Comando de preparação
+### <a name="readiness-command"></a>Comando de prontidão
 
-Esse arquivo YAML define um `readinessProbe` que dá suporte a um comando de prontidão de `exec` que atua como a verificação de preparação. Este exemplo de comando de preparação testa a existência do arquivo de `ready` no diretório `/tmp`.
+Este ficheiro YAML define um `readinessProbe` que suporta um comando de prontidão `exec` que funciona como verificação de prontidão. Este exemplo de testes de comando de prontidão para a existência do ficheiro `ready` no diretório `/tmp`.
 
-Quando o arquivo de `ready` não existe, o comando de preparação é encerrado com um valor diferente de zero; o contêiner continua em execução, mas não pode ser acessado. Quando o comando for encerrado com êxito com o código de saída 0, o contêiner estará pronto para ser acessado. 
+Quando o ficheiro `ready` não existe, o comando de prontidão sai com um valor não zero; o recipiente continua a funcionar, mas não pode ser acedido. Quando o comando sai com sucesso com o código de saída 0, o recipiente está pronto para ser acedido. 
 
-A propriedade `periodSeconds` designa que o comando de preparação deve ser executado a cada 5 segundos. A investigação de preparação é executada durante o tempo de vida do grupo de contêineres.
+A propriedade `periodSeconds` designa o comando de prontidão deve executar a cada 5 segundos. A sonda de prontidão funciona durante toda a vida do grupo de contentores.
 
-## <a name="example-deployment"></a>Exemplo de implantação
+## <a name="example-deployment"></a>Implantação de exemplo
 
-Execute o seguinte comando para implantar um grupo de contêineres com a configuração YAML anterior:
+Executar o seguinte comando para implantar um grupo de contentores com a configuração YAML anterior:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file readiness-probe.yaml
 ```
 
-## <a name="view-readiness-checks"></a>Exibir verificações de preparação
+## <a name="view-readiness-checks"></a>Ver verificações de prontidão
 
-Neste exemplo, durante os primeiros 240 segundos, o comando de preparação falha quando verifica a existência do `ready` arquivo. O código de status retornado sinaliza que o contêiner não está pronto.
+Neste exemplo, durante os primeiros 240 segundos, o comando de prontidão falha quando verifica a existência do ficheiro `ready`. O código de estado devolveu sinais de que o contentor não está pronto.
 
-Esses eventos podem ser exibidos no portal do Azure ou CLI do Azure. Por exemplo, o portal mostra eventos do tipo `Unhealthy` são disparados na falha do comando de preparação. 
+Estes eventos podem ser vistos a partir do portal Azure ou Do CLI Azure. Por exemplo, o portal mostra eventos de tipo `Unhealthy` são desencadeados após a falha do comando de prontidão. 
 
-![Evento de não integridade do portal][portal-unhealthy]
+![Portal evento pouco saudável][portal-unhealthy]
 
-## <a name="verify-container-readiness"></a>Verificar preparação do contêiner
+## <a name="verify-container-readiness"></a>Verificar a prontidão do contentor
 
-Depois de iniciar o contêiner, você pode verificar se ele não está acessível inicialmente. Após o provisionamento, obtenha o endereço IP do grupo de contêineres:
+Depois de iniciar o recipiente, pode verificar se não está acessível inicialmente. Após o fornecimento, obtenha o endereço IP do grupo de contentores:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name readinesstest --query "ipAddress.ip" --out tsv
 ```
 
-Tente acessar o site enquanto a investigação de prontidão falhar:
+Tente aceder ao site enquanto a sonda de prontidão falha:
 
 ```bash
 wget <ipAddress>
@@ -112,7 +115,7 @@ Connecting to 192.0.2.1... connected.
 HTTP request sent, awaiting response... 
 ```
 
-Após 240 segundos, o comando de preparação é executado com sucesso, sinalizando que o contêiner está pronto. Agora, quando você executa o comando `wget`, ele é bem sucedido:
+Após 240 segundos, o comando de prontidão é bem sucedido, sinalizando que o recipiente está pronto. Agora, quando dirige o comando `wget`, tem sucesso:
 
 ```
 $ wget 192.0.2.1
@@ -127,15 +130,15 @@ index.html.1                       100%[========================================
 2019-10-15 16:49:38 (113 MB/s) - ‘index.html.1’ saved [1663/1663] 
 ```
 
-Quando o contêiner estiver pronto, você também poderá acessar o aplicativo Web navegando até o endereço IP usando um navegador da Web.
+Quando o recipiente estiver pronto, também pode aceder à aplicação web navegando para o endereço IP através de um navegador web.
 
 > [!NOTE]
-> A investigação de preparação continua a ser executada durante o tempo de vida do grupo de contêineres. Se o comando de preparação falhar em um momento posterior, o contêiner novamente se tornará inacessível. 
+> A sonda de prontidão continua a funcionar durante toda a vida do grupo de contentores. Se o comando de prontidão falhar mais tarde, o recipiente torna-se novamente inacessível. 
 > 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma investigação de prontidão pode ser útil em cenários que envolvem grupos de vários contêineres que consistem em contêineres dependentes. Para obter mais informações sobre cenários de vários contêineres, consulte [grupos de contêineres em instâncias de contêiner do Azure](container-instances-container-groups.md).
+Uma sonda de prontidão pode ser útil em cenários que envolvam grupos multi-contentores que consistem em contentores dependentes. Para obter mais informações sobre cenários multi-contentores, consulte grupos de [contentores em instâncias de contentores de Azure](container-instances-container-groups.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-readiness-probe/readiness-probe-failed.png

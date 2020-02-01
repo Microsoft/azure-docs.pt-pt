@@ -1,26 +1,29 @@
 ---
-title: Configurar investigação de vida na instância de contêiner
-description: Saiba como configurar testes de vida para reiniciar contêineres não íntegros em instâncias de contêiner do Azure
+title: Configurar sonda de vivacidade na instância do recipiente
+description: Saiba como configurar sondas de vivacidade para reiniciar recipientes pouco saudáveis em Instâncias de Contentores De Azure
 ms.topic: article
 ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481678"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901908"
 ---
 # <a name="configure-liveness-probes"></a>Configurar as pesquisas liveness
 
-Os aplicativos em contêineres podem ser executados por longos períodos de tempo, resultando em Estados desfeitos que talvez precisem ser reparados reiniciando o contêiner. As instâncias de contêiner do Azure dão suporte a investigações de vida para que você possa configurar seus contêineres dentro do grupo de contêineres para reiniciar se a funcionalidade crítica não estiver funcionando. A investigação de tempo de vida se comporta como uma [investigação de vida kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+As aplicações contentorizadas podem ser executadas por longos períodos de tempo, resultando em estados avariados que podem ter de ser reparados reiniciando o recipiente. As instâncias de contentores Azure suportam sondas de vivacidade para que possa configurar os seus contentores dentro do seu grupo de contentores para reiniciar se a funcionalidade crítica não estiver a funcionar. A sonda de vivacidade comporta-se como uma [sonda kubernetes de vivacidade.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 
-Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de tempo de vida, demonstrando a reinicialização automática de um contêiner não íntegro simulado.
+Este artigo explica como implantar um grupo de contentores que inclui uma sonda de vivacidade, demonstrando o reinício automático de um recipiente simulado e pouco saudável.
 
-As instâncias de contêiner do Azure também dão suporte a [investigações de preparação](container-instances-readiness-probe.md), que podem ser configuradas para garantir que o tráfego atinja um contêiner somente quando ele estiver pronto para ele.
+As instâncias de contentores Azure também suportam sondas de [prontidão,](container-instances-readiness-probe.md)que pode configurar para garantir que o tráfego chega a um contentor apenas quando está pronto para o mesmo.
 
-## <a name="yaml-deployment"></a>Implantação do YAML
+> [!NOTE]
+> Atualmente não é possível utilizar uma sonda de vivacidade num grupo de contentores implantado numa rede virtual.
 
-Crie um arquivo de `liveness-probe.yaml` com o trecho a seguir. Esse arquivo define um grupo de contêineres que consiste em um contêiner NGNIX que eventualmente se torna não íntegro.
+## <a name="yaml-deployment"></a>Implantação yAML
+
+Crie um ficheiro `liveness-probe.yaml` com o seguinte corte. Este ficheiro define um grupo de contentores que consiste num contentor NGNIX que eventualmente se torna insalubre.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -52,53 +55,53 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Execute o seguinte comando para implantar esse grupo de contêineres com a configuração YAML acima:
+Executar o seguinte comando para implantar este grupo de contentores com a configuração YAML acima:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name livenesstest -f liveness-probe.yaml
 ```
 
-### <a name="start-command"></a>Comando iniciar
+### <a name="start-command"></a>Iniciar o comando
 
-A implantação define um comando inicial a ser executado quando o contêiner começa a ser executado pela primeira vez, definido pela propriedade `command`, que aceita uma matriz de cadeias de caracteres. Neste exemplo, ele iniciará uma sessão de bash e criará um arquivo chamado `healthy` dentro do diretório `/tmp` passando este comando:
+A implementação define um comando inicial a ser executado quando o recipiente começa a funcionar, definido pela propriedade `command`, que aceita uma variedade de cordas. Neste exemplo, iniciará uma sessão de bash e criará um ficheiro chamado `healthy` dentro do diretório `/tmp`, passando este comando:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Em seguida, ele será suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entrará em uma suspensão de 10 minutos.
+ Em seguida, dormirá durante 30 segundos antes de apagar o ficheiro e, em seguida, entra num sono de 10 minutos.
 
-### <a name="liveness-command"></a>Comando de vida
+### <a name="liveness-command"></a>Comando de vivacidade
 
-Essa implantação define um `livenessProbe` que dá suporte a um comando de `exec` de tempo de vida que atua como a verificação de tempo de vida. Se esse comando for encerrado com um valor diferente de zero, o contêiner será encerrado e reiniciado, sinalizando que o arquivo de `healthy` não pôde ser encontrado. Se esse comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
+Esta implantação define um `livenessProbe` que suporta um comando de `exec` de vivacidade que funciona como a verificação de vivacidade. Se este comando sair com um valor não nulo, o contentor será morto e reiniciado, sinalizando que o ficheiro `healthy` não foi encontrado. Se este comando sair com sucesso com o código de saída 0, não serão tomadas medidas.
 
-A propriedade `periodSeconds` designa que o comando de vida deve ser executado a cada 5 segundos.
+A propriedade `periodSeconds` designa o comando de vivacidade deve executar a cada 5 segundos.
 
-## <a name="verify-liveness-output"></a>Verificar a saída de vida
+## <a name="verify-liveness-output"></a>Verificar a produção de vivacidade
 
-Nos primeiros 30 segundos, o arquivo de `healthy` criado pelo comando Iniciar existe. Quando o comando de tempo de vida verifica a existência do `healthy` arquivo, o código de status retorna um zero, sinalizando o êxito e, portanto, não ocorre uma reinicialização.
+Nos primeiros 30 segundos, o ficheiro `healthy` criado pelo comando inicial existe. Quando o comando de vivacidade verifica a existência do ficheiro `healthy`, o código de estado devolve um zero, sinalizando o sucesso, pelo que não ocorre qualquer reinício.
 
-Após 30 segundos, a `cat /tmp/healthy` começará a falhar, fazendo com que eventos não íntegros e de eliminação ocorram.
+Após 30 segundos, o `cat /tmp/healthy` começará a falhar, causando eventos pouco saudáveis e matando.
 
-Esses eventos podem ser exibidos no portal do Azure ou CLI do Azure.
+Estes eventos podem ser vistos a partir do portal Azure ou Do CLI Azure.
 
-![Evento de não integridade do portal][portal-unhealthy]
+![Portal evento pouco saudável][portal-unhealthy]
 
-Ao exibir os eventos no portal do Azure, os eventos do tipo `Unhealthy` serão disparados após a falha do comando de vida. O evento subsequente será do tipo `Killing`, significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
+Ao visualizar os eventos no portal Azure, eventos de tipo `Unhealthy` serão desencadeados com a falha do comando de vida. O evento seguinte será de tipo `Killing`, significando a eliminação de um recipiente para que um reinício possa começar. A contagem de reinício para os incrementos do recipiente cada vez que este evento ocorre.
 
-As reinicializações são concluídas no local para que os recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
+Os reinícios são concluídos no local para que recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
 
-![Contador de reinicialização do portal][portal-restart]
+![Contador de reinício do portal][portal-restart]
 
-Se a investigação de vida falhar continuamente e disparar muitas reinicializações, o contêiner entrará em um atraso de retirada exponencial.
+Se a sonda de vivacidade falhar continuamente e desencadear demasiados recomeços, o seu recipiente entrará num atraso exponencial de recuo.
 
-## <a name="liveness-probes-and-restart-policies"></a>Testes de vida e políticas de reinicialização
+## <a name="liveness-probes-and-restart-policies"></a>Sondas de vivacidade e políticas de reinício
 
-As políticas de reinicialização substituem o comportamento de reinicialização acionado por investigações de vida. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. Em vez disso, o grupo de contêineres aderirá à política de reinicialização do grupo de contêineres de `Never`.
+As políticas de reinício sobressaem o comportamento de reinício desencadeado por sondas de vivacidade. Por exemplo, se definir uma `restartPolicy = Never` *e* uma sonda de vivacidade, o grupo de contentores não reiniciará devido a uma verificação de vivacidade falhada. Em vez disso, o grupo de contentores aderirá à política de reinício de `Never`do grupo de contentores.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Cenários baseados em tarefas podem exigir uma investigação de vida para habilitar reinicializações automáticas se uma função de pré-requisito não estiver funcionando corretamente. Para obter mais informações sobre como executar contêineres baseados em tarefas, consulte [executar tarefas em contêineres em instâncias de contêiner do Azure](container-instances-restart-policy.md).
+Os cenários baseados em tarefas podem exigir uma sonda de vivacidade para permitir o reinício automático se uma função pré-requisito não estiver a funcionar corretamente. Para obter mais informações sobre a execução de contentores baseados em [tarefas, consulte executar tarefas contentorizadas em instâncias de contentores Azure](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

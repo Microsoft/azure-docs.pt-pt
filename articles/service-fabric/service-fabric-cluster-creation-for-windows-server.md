@@ -5,15 +5,15 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: fbaea9324d82e22a1ab3c6c03a9ebec045bea64b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463230"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903378"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
-Você pode usar o Azure Service Fabric para criar clusters Service Fabric em máquinas virtuais ou computadores que executam o Windows Server. Isso significa que você pode implantar e executar Service Fabric aplicativos em qualquer ambiente que contenha um conjunto de computadores Windows Server interconectados, seja no local ou em qualquer provedor de nuvem. O Service Fabric fornece um pacote de instalação para criar clusters Service Fabric chamados de pacote autônomo do Windows Server. Os clusters tradicionais de Service Fabric no Azure estão disponíveis como um serviço gerenciado, enquanto os clusters de Service Fabric autônomos são de autoatendimento.
+Você pode usar o Azure Service Fabric para criar clusters Service Fabric em máquinas virtuais ou computadores que executam o Windows Server. Isso significa que você pode implantar e executar Service Fabric aplicativos em qualquer ambiente que contenha um conjunto de computadores Windows Server interconectados, seja no local ou em qualquer provedor de nuvem. O Service Fabric fornece um pacote de instalação para criar clusters Service Fabric chamados de pacote autônomo do Windows Server. Os clusters tradicionais de Service Fabric no Azure estão disponíveis como um serviço gerenciado, enquanto os clusters de Service Fabric autônomos são de autoatendimento. Para mais informações sobre as diferenças, consulte [Comparar os clusters De Tecido solado azure e autónomos.](./service-fabric-deploy-anywhere.md)
 
 Este artigo orienta você pelas etapas para criar um Cluster Service Fabric autônomo.
 

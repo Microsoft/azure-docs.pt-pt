@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: fabb2524547bd7837d3644d79f0023311ddccdfc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 038cfe04193b734bd26ed0ffd4dec5ae9b267c22
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845548"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901269"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 
@@ -23,7 +23,7 @@ Este artigo explica o conceito de exclusão reversível do espaço de trabalho d
 Quando você exclui um espaço de trabalho Log Analytics, uma operação de exclusão reversível é executada para permitir a recuperação do espaço de trabalho, incluindo seus dados e agentes conectados dentro de 14 dias, se a exclusão foi acidental ou intencional. Após o período de exclusão reversível, o recurso de espaço de trabalho e seus dados são não recuperáveis – seus dados são enfileirados para exclusão permanente e completamente limpos dentro de 30 dias. O nome do espaço de trabalho é ' liberado ' e você pode usá-lo para criar um novo espaço de trabalho.
 
 > [!NOTE]
-> Se pretender anular o comportamento de apagar suavemente e eliminar permanentemente o seu espaço de trabalho, siga os passos no espaço de [trabalho Permanente](#Permanent workspace delete).
+> Se pretender anular o comportamento de apagar suavemente e eliminar permanentemente o seu espaço de trabalho, siga os passos no espaço de [trabalho Permanente](#permanent-workspace-delete).
 
 Você deseja ter cuidado ao excluir um espaço de trabalho porque pode haver dados e configurações importantes que podem afetar negativamente a operação do serviço. Examine quais agentes, soluções e outros serviços e fontes do Azure que armazenam seus dados em Log Analytics, como:
 
@@ -63,7 +63,7 @@ O método de exclusão reversível pode não se ajustar em alguns cenários, com
 
 
 > [!IMPORTANT]
-> Tenha cuidado ao excluir permanentemente seu espaço de trabalho, pois a operação é irreversível, e seu espaço de trabalho e seus dados não serão recuperáveis.
+> Utilize o espaço de trabalho permanente para eliminar a operação com cuidado, uma vez que é irreversível e não poderá recuperar o seu espaço de trabalho e os seus dados.
 
 No momento, a exclusão de espaço de trabalho permanente pode ser executada via API REST.
 
@@ -80,6 +80,7 @@ Para excluir permanentemente seu espaço de trabalho, use os [espaços de trabal
 > DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
 > Authorization: Bearer eyJ0eXAiOiJKV1Qi….
 > ```
+Onde 'eyJ0eXAiOiJKV1Qi...' representa o símbolo de autorização completa.
 
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
 

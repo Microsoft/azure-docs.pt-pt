@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841017"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896444"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
 
@@ -97,10 +97,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | Localização       | Selecione **E.U.A. Leste**.                                           |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 
-    A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG.
-
-    > [!NOTE]
-    > Embora os fornecedores microsoft.Insight e Microsoft.Network sejam atualmente suportados como serviços microsoft confiáveis para armazenamento azure, os registos NSG Flow ainda não estão totalmente a bordo. Para ativar o registo de fluxo nsg, **todas as redes** devem ainda ser selecionadas até que esta funcionalidade esteja totalmente a bordo. 
+    A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG.
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 5. Em **REGISTOS**, selecione **Registos de fluxo do NSG**, conforme mostrado na imagem seguinte:
 
@@ -114,9 +111,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 9. Selecione a conta de armazenamento que criou no passo 3.
    > [!NOTE]
-   > Os logs de fluxo do NSG não funcionarão com contas de armazenamento se:
-   > * As contas de armazenamento têm um firewall habilitado.
-   > * As contas de armazenamento têm o [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+   > Os Registos de Fluxo NSG não funcionam com contas de armazenamento que tenham espaço de [nome hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) ativado.
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Guardar**.
 

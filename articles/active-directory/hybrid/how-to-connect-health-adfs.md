@@ -9,6 +9,7 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,15 +18,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350481"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897273"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
-A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sincronização) com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health para Sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Active Directory com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health com AD DS](how-to-connect-health-adds.md).
+A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sync) com a Azure AD Connect Health, consulte a utilização da Saúde de [Ligação AD Azure para Sincronização](how-to-connect-health-sync.md). Adicionalmente, para obter informações sobre a monitorização dos Serviços de Domínio do Diretório Ativo com a Azure AD Connect Health, consulte a utilização da [Azure AD Connect Health com a AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Alertas do AD FS
 A secção Alertas do Azure AD Connect Health apresenta a lista de alertas ativos. Cada alerta inclui informações relevantes, os passos de resolução e ligações para a documentação relacionada.
@@ -46,33 +47,33 @@ A Análise de Utilização do Azure AD Connect Health analisa o tráfego de aute
 
 Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para alterar o agrupamento, clique com o botão direito do rato no gráfico de análise de utilização e selecione Editar Gráfico. Em seguida, pode especificar o intervalo de tempo, selecionar outra métrica e alterar o agrupamento. Pode ver a distribuição do tráfego de autenticação com base em diferentes “métricas” e agrupar cada uma com os parâmetros “agrupar por” relevantes descritos na secção seguinte:
 
-**Métrica: Total de pedidos** - Total o número de pedidos processados por servidores do AD FS.
+**Métrica: Total de Pedidos** - o número total de pedidos processados pelos servidores do AD FS.
 
 |Agrupar por | O que significa agrupamento e por que motivo é útil? |
 | --- | --- |
-| Todos | Apresenta a contagem do número total de pedidos processados por todos os servidores do AD FS.|
-| Aplicação | Agrupa o total de pedidos com base na entidade confiadora visada. Este agrupamento é útil para entender que aplicação está a receber que percentagem do tráfego total. |
-|  Servidor |Agrupa o total de pedidos com base no servidor que os processou. Este agrupamento é útil para entender a distribuição de carga do tráfego total.
+| Tudo | Apresenta a contagem do número total de pedidos processados por todos os servidores do AD FS.|
+| Candidatura | Agrupa o total de pedidos com base na entidade confiadora visada. Este agrupamento é útil para entender que aplicação está a receber que percentagem do tráfego total. |
+|  Server |Agrupa o total de pedidos com base no servidor que os processou. Este agrupamento é útil para entender a distribuição de carga do tráfego total.
 | Associação à área de trabalho |Agrupa o total de pedidos consoante sejam provenientes de dispositivos que estão associados à área de trabalho (conhecidos). Este agrupamento é útil para entender se os recursos são acedidos através de dispositivos que são desconhecidos da infraestrutura de identidade. |
-|  Método de Autenticação | Agrupa o total de pedidos com base no método de autenticação utilizado para a autenticação. Este agrupamento é útil para entender o método de autenticação comum que é utilizado para autenticação. Seguem-se os métodos de autenticação possíveis <ol> <li>Autenticação Integrada do Windows (Windows)</li> <li>Autenticação Baseada em Formulários (Formulários)</li> <li>SSO (Início de Sessão Único)</li> <li>Autenticação de Certificados X509 (Certificado)</li> <br>Se os servidores de federação receberem o pedido com um Cookie de SSO, esse pedido é contabilizado como SSO (Início de Sessão Único). Nestes casos, se o cookie for válido, o utilizador não é solicitado a fornecer credenciais e obtém acesso totalmente integrado à aplicação. Este comportamento é comum se tiver várias entidades confiadoras protegidas pelos servidores de federação. |
-| Localização de rede | Agrupa o total de pedidos com base na localização na rede do utilizador. Pode ser intranet ou extranet. Este agrupamento é útil para saber que percentagem do tráfego provêm da intranet versus a extranet. |
+|  Método de autenticação | Agrupa o total de pedidos com base no método de autenticação utilizado para a autenticação. Este agrupamento é útil para entender o método de autenticação comum que é utilizado para autenticação. Seguem-se os métodos de autenticação possíveis <ol> <li>Autenticação Integrada do Windows (Windows)</li> <li>Autenticação Baseada em Formulários (Formulários)</li> <li>SSO (Início de Sessão Único)</li> <li>Autenticação de Certificados X509 (Certificado)</li> <br>Se os servidores de federação receberem o pedido com um Cookie de SSO, esse pedido é contabilizado como SSO (Início de Sessão Único). Nestes casos, se o cookie for válido, o utilizador não é solicitado a fornecer credenciais e obtém acesso totalmente integrado à aplicação. Este comportamento é comum se tiver várias entidades confiadoras protegidas pelos servidores de federação. |
+| Localização na Rede | Agrupa o total de pedidos com base na localização na rede do utilizador. Pode ser intranet ou extranet. Este agrupamento é útil para saber que percentagem do tráfego provêm da intranet versus a extranet. |
 
 
-**Métrica: Total de pedidos falhados** -o número total de pedidos falhados processados pelo serviço de Federação. (Esta métrica só está disponível no AD FS para o Windows Server 2012 R2)
-
-|Agrupar por | O que significa agrupamento e por que motivo é útil? |
-| --- | --- |
-| Tipo de Erro | Mostra o número de erros com base em tipos de erros predefinidos. Este agrupamento é útil para entender os tipos comuns de erros. <ul><li>Nome de utilizador incorreta ou palavra-passe: Erros devido a nome de utilizador incorreta ou a palavra-passe.</li> <li>"Bloqueio de extranet": Falhas devido a pedidos recebida de um utilizador que foi bloqueado da extranet </li><li> "Palavra-passe expirada": Falhas devido a utilizadores iniciar sessão com uma palavra-passe expirada.</li><li>"Conta desativada": Falhas devido a utilizadores iniciar sessão com uma conta desabilitada.</li><li>"Autenticação do dispositivo": Falhas devido a utilizadores que não se autenticam utilizando a autenticação do dispositivo.</li><li>"Autenticação de certificados de utilizador": Falhas devido a utilizadores que não se autenticam devido a um certificado inválido.</li><li>"MFA": Falhas devido utilizadores que não se autenticam utilizando o multi-factor Authentication.</li><li>"Outras credenciais": "Autorização de emissão": Falhas devido a falhas de autorização.</li><li>"Delegação de emissão": Falhas devido a erros de delegação de emissão.</li><li>"Aceitação de token": Falhas devido ao ADFS rejeitar o token de um fornecedor de identidade de terceiros.</li><li>"Protocol": Falha devido a erros de protocolo.</li><li>"Desconhecido": Captura todas as. Todas as outras falhas que não se encaixem nas categorias definidas.</li> |
-| Servidor | Agrupa os erros com base no servidor. Este agrupamento é útil para entender a distribuição de erros pelos servidores. Uma distribuição desigual pode indicar um servidor num estado defeituoso. |
-| Localização de rede | Agrupa os erros com base na localização na rede dos pedidos (intranet vs. extranet). Este agrupamento é útil para entender o tipo de pedidos que estão a falhar. |
-|  Aplicação | Agrupa as falhas com base na aplicação de destino (entidade confiadora). Este agrupamento é útil para compreender que aplicação de destino está a ter o maior número de erros. |
-
-**Métrica: O número de utilizadores** – média número de utilizadores exclusivos em autenticação ativa com o AD FS
+**Métrica: Pedidos Falhados Totais** - o número total de pedidos falhados processados pelo serviço de federação. (Esta métrica só está disponível no AD FS para o Windows Server 2012 R2)
 
 |Agrupar por | O que significa agrupamento e por que motivo é útil? |
 | --- | --- |
-|Todos |Esta métrica disponibiliza uma contagem do número médio de utilizadores que utilizam o serviço de federação no intervalo de tempo selecionado. Os utilizadores não são agrupados. <br>A média depende do intervalo de tempo selecionado. |
-| Aplicação |Agrupa o número médio de utilizadores com base na aplicação de destino (entidade confiadora). Este agrupamento é útil para entender quantos utilizadores estão a utilizar que aplicação. |
+| Tipo de Erro | Mostra o número de erros com base em tipos de erros predefinidos. Este agrupamento é útil para entender os tipos comuns de erros. <ul><li>Nome de Utilizador ou Palavra-passe Incorretos: erros devido a nome de utilizador ou palavra-passe incorretos.</li> <li>“Bloqueio de Extranet”: falhas devido a pedidos recebidos de um utilizador que foi bloqueado da extranet </li><li> “Palavra-passe Expirada”: falhas devido a utilizadores que iniciam sessão com uma palavra-passe expirada.</li><li>“Conta Desativada”: falhas devido a utilizadores que iniciam sessão com uma conta desativada.</li><li>“Autenticação do Dispositivo”: falhas devido a utilizadores que não se autenticam utilizando a Autenticação do Dispositivo.</li><li>“Autenticação do Certificado de Utilizador”: falhas devido a utilizadores que não se autenticam devido a um certificado inválido.</li><li>“MFA”: falhas devido a utilizadores que não se autenticam com o Multi-Factor Authentication.</li><li>“Outras Credenciais”: “Autorização de Emissão”: falhas devido a falhas de autorização.</li><li>“Delegação de Emissão”: falhas devido a erros de delegação de emissão.</li><li>“Aceitação de Token”: falhas devido ao AD FS rejeitar o token de um Fornecedor de Identidade de terceiros.</li><li>“Protocolo”: falha devido a erros de protocolo.</li><li>“Desconhecido”: cobre tudo. Todas as outras falhas que não se encaixem nas categorias definidas.</li> |
+| Server | Agrupa os erros com base no servidor. Este agrupamento é útil para entender a distribuição de erros pelos servidores. Uma distribuição desigual pode indicar um servidor num estado defeituoso. |
+| Localização na Rede | Agrupa os erros com base na localização na rede dos pedidos (intranet vs. extranet). Este agrupamento é útil para entender o tipo de pedidos que estão a falhar. |
+|  Candidatura | Agrupa as falhas com base na aplicação de destino (entidade confiadora). Este agrupamento é útil para compreender que aplicação de destino está a ter o maior número de erros. |
+
+**Métrica: Contagem do Utilizador** - número médio de utilizadores exclusivos em autenticação ativa com o AD FS
+
+|Agrupar por | O que significa agrupamento e por que motivo é útil? |
+| --- | --- |
+|Tudo |Esta métrica disponibiliza uma contagem do número médio de utilizadores que utilizam o serviço de federação no intervalo de tempo selecionado. Os utilizadores não são agrupados. <br>A média depende do intervalo de tempo selecionado. |
+| Candidatura |Agrupa o número médio de utilizadores com base na aplicação de destino (entidade confiadora). Este agrupamento é útil para entender quantos utilizadores estão a utilizar que aplicação. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitorização de Desempenho do AD FS
 A Monitorização de Desempenho do Azure AD Connect Health fornece informações de monitorização sobre métricas. Ao selecionar a caixa Monitorização, é apresentado um painel novo com informações detalhadas sobre as métricas.
@@ -84,7 +85,7 @@ Ao selecionar a opção Filtrar no topo do painel, pode filtrar por servidor par
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Principais 50 Utilizadores com inícios de sessão falhados por Nome de Utilizador/Palavra-passe
 Uma das razões comuns para um pedido de autenticação falhado num servidor do AD FS é um pedido com credenciais inválidas, ou seja, um nome de utilizador ou palavra-passe incorreto. Normalmente, acontece aos utilizadores devido a palavras-passe complexas, palavras-passe esquecidas ou erros ortográficos.
 
-No entanto, existem outros motivos que podem resultar num número inesperado de pedidos a serem processados pelos servidores do AD FS, tais como: Um aplicativo que caches de credenciais de utilizador e estas expiram ou um utilizador mal intencionado a tentar iniciar sessão numa conta com uma série de palavras-passe bem conhecidas. Estes dois exemplos são motivos válidos que podem levar a um aumento nos pedidos.
+Contudo, existem outros motivos que podem resultar num número inesperado de pedidos que os seus servidores AD FS têm de processar, como, por exemplo, uma aplicação que coloque em cache as credenciais do utilizador e estas expiram ou um utilizador malicioso que tenta iniciar sessão numa conta com uma série de palavras-passe bem conhecidas. Estes dois exemplos são motivos válidos que podem levar a um aumento nos pedidos.
 
 O Azure AD Connect Health para ADFS fornece um relatório sobre os principais 50 utilizadores com tentativas de início de sessão falhadas devido a palavra-passe ou nome de utilizador inválido. Este relatório é obtido através do processamento dos eventos de auditoria gerados por todos os servidores AD FS nos farms.
 
@@ -117,8 +118,8 @@ O relatório disponibiliza as seguintes informações:
 > [!NOTE]
 > Este relatório é atualizado automaticamente a cada 12 horas com novas informações recolhidas nesse período de tempo. Sendo assim, as tentativas de início de sessão nas últimas 12 horas poderão não estar incluídas no relatório.
 
-## <a name="related-links"></a>Ligações relacionadas
+## <a name="related-links"></a>Hiperligações relacionadas
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Relatório de IP arriscado](how-to-connect-health-adfs-risky-ip.md)
+* [Relatório IP arriscado](how-to-connect-health-adfs-risky-ip.md)
 

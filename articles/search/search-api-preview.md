@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/04/2020
-ms.openlocfilehash: 940ada83aeabf4bf8746ad5f90592e0917f7b403
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/15/2020
+ms.openlocfilehash: 71c6879f467823ab01f4c60ac4d9f26cffcd4eea
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844450"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896112"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST do serviço de Pesquisa Cognitiva do Azure – versão 2019-05-06-visualização
 
@@ -22,8 +22,11 @@ Este artigo descreve a versão `api-version=2019-05-06-Preview` da API REST do s
 > [!NOTE]
 > Os recursos de visualização estão disponíveis para teste e experimentação com o objetivo de coletar comentários e estão sujeitos a alterações. Aconselhamos enfaticamente o uso de APIs de visualização em aplicativos de produção.
 
+## <a name="features-in-2019-05-06-preview"></a>Características em 2019-05-06-Pré-visualização
 
-## <a name="new-in-2019-05-06-preview"></a>Novo no 2019-05-06-Preview
+Esta secção lista as funcionalidades com o estado de pré-visualização. A maioria foi adicionada na atuais API de pré-visualização 2019-05-06, mas alguns como `moreLikeThis` são de versões de pré-visualização anteriores que chegaram à mais recente API de pré-visualização. 
+
+Uma vez que uma função de pré-visualização se torne geralmente disponível, é removida desta lista. Pode consultar [atualizações](https://azure.microsoft.com/updates/?product=search) de serviço ou [O que há de novo](whats-new.md) para anúncios relativos à disponibilidade geral.
 
 + O [enriquecimento incremental (visualização)](cognitive-search-incremental-indexing-conceptual.md) adiciona o cache a um pipeline de enriquecimento, permitindo que você reutilize a saída existente se uma modificação direcionada, como uma atualização de um conjunto de qualificações ou outro objeto, não alterar o conteúdo. O Caching aplica-se somente a documentos aprimorados produzidos por um configurador de qualificações.
 
@@ -33,13 +36,11 @@ Este artigo descreve a versão `api-version=2019-05-06-Preview` da API REST do s
 
 + A [loja de conhecimento](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseado em ia. A estrutura de dados física existe no armazenamento de BLOBs do Azure e no armazenamento de tabelas do Azure, e é criada e populada quando você executa um indexador que tem um associador cognitiva. A definição de uma loja de conhecimento é especificada em uma definição de contratação de habilidades. Na definição da loja de conhecimento, você controla as estruturas físicas de seus dados por meio de elementos de *projeção* que determinam como os dados são formatados, se os dados são armazenados no armazenamento de tabelas ou no armazenamento de BLOBs e se há várias exibições.
 
-## <a name="earlier-preview-features"></a>Recursos anteriores de visualização
-
-Os recursos anunciados em versões anteriores ainda estão em visualização pública. Se você estiver chamando uma API com uma versão de API de visualização anterior, poderá continuar a usar essa versão ou alternar para `2019-05-06-Preview` sem alterações no comportamento esperado.
-
 + o [parâmetro de consulta moreLikeThis](search-more-like-this.md) localiza documentos que são relevantes para um documento específico. Este recurso está em versões anteriores. 
 
-+ A [indexação de BLOBs CSV](search-howto-index-csv-blobs.md) cria um documento por linha, em oposição a um documento por blob de texto.
+## <a name="earlier-preview-features"></a>Recursos anteriores de visualização
+
+As funcionalidades anunciadas em pré-visualizações anteriores, caso não tenham transitado para a disponibilidade geral, ainda estão em pré-visualização pública. Se você estiver chamando uma API com uma versão de API de visualização anterior, poderá continuar a usar essa versão ou alternar para `2019-05-06-Preview` sem alterações no comportamento esperado.
 
 ## <a name="how-to-call-a-preview-api"></a>Como chamar uma API de visualização
 

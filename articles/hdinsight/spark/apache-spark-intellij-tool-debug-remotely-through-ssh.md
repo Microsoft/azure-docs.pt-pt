@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 36e665f889ece48661a859e1a9a44f23aec08c37
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 6e3cf8fa70d6abe8005fe2d2de059c0a3944ff81
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548887"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905313"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar Apache Spark aplicativos em um cluster HDInsight com Azure Toolkit for IntelliJ por meio de SSH
 
@@ -25,7 +25,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 * Para usuários do Windows: enquanto você está executando o aplicativo local do Spark escalar em um computador Windows, você pode obter uma exceção, conforme explicado no [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils. exe está ausente no Windows.
 
-    Para resolver esse erro, [Baixe o executável](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\WinUtils\bin**. Em seguida, adicione a variável de ambiente **HADOOP_HOME**e defina o valor da variável como **C:\WinUtils**.
+    Para resolver este erro, descarregue `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável ambiental **HADOOP_HOME,** e detetete o valor da variável para **C:\WinUtils**.
 
 * [INTELLIJ Idea](https://www.jetbrains.com/idea/download/#section=windows) (a Community Edition é gratuita).
 
@@ -65,21 +65,21 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 1. Selecione **Concluir**. Pode levar alguns minutos para que o projeto fique disponível. Observe o canto inferior direito do progresso.
 
-1. Expanda seu projeto e navegue até **src** > **principal** > **escala** de > de **amostra**. Clique duas vezes em **SparkCore_WasbIOTest**.
+1. Expanda seu projeto e navegue até **src** > **principal** > **escala** de > de **amostra**. Clique duplo **SparkCore_WasbIOTest**.
 
 ## <a name="perform-local-run"></a>Executar execução local
 
-1. No script de **SparkCore_WasbIOTest** , clique com o botão direito do mouse no editor de scripts e selecione a opção **Executar ' SparkCore_WasbIOTest '** para executar a execução local.
+1. A partir do guião **SparkCore_WasbIOTest,** clique no editor de script seletiva e, em seguida, selecione a opção **Executar 'SparkCore_WasbIOTest'** para executar a execução local.
 
 1. Quando a execução local for concluída, você poderá ver o arquivo de saída salvo em seus **dados** atuais do explorador de projeto >  **__padrão__** .
 
     ![Resultado da execução local do projeto IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
-1. Nossas ferramentas definiram a configuração de execução local padrão automaticamente quando você executa a execução local e a depuração local. Abra a configuração **[Spark no hdinsight] xxx** no canto superior direito, você pode ver o **[Spark no hdinsight] xxx** já criado em **Apache Spark no HDInsight**. Alterne para a guia **executar localmente** .
+1. Nossas ferramentas definiram a configuração de execução local padrão automaticamente quando você executa a execução local e a depuração local. Abra a configuração **[Spark on HDInsight] XXX** no canto superior direito, pode ver a **[Faísca no HDInsight]XXX** já criada sob **Apache Spark no HDInsight**. Alterne para a guia **executar localmente** .
 
     ![Executar IntelliJ executar configurações de depuração local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
-    - [Variáveis de ambiente](#prerequisites): se você já definiu a variável de ambiente do sistema **HADOOP_HOME** como **C:\WinUtils**, ela pode detectar automaticamente que não há necessidade de adicionar manualmente.
+    - [Variáveis ambientais](#prerequisites): Se já definir a variável ambiente do sistema **HADOOP_HOME** a **C:\WinUtils,** pode detetar automaticamente que não é necessário adicionar manualmente.
     - [Local do WinUtils. exe](#prerequisites): se você não tiver definido a variável de ambiente do sistema, poderá encontrar o local clicando em seu botão.
     - Basta escolher uma das duas opções e elas não são necessárias no MacOS e no Linux.
 
@@ -87,9 +87,9 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 ## <a name="perform-local-debugging"></a>Executar depuração local
 
-1. Abra o script **SparkCore_wasbloTest** , defina pontos de interrupção.
+1. Abra o roteiro **SparkCore_wasbloTest,** definir breakpoints.
 
-1. Clique com o botão direito do mouse no editor de scripts e selecione a opção **depurar ' [Spark no HDInsight] xxx '** para executar a depuração local.
+1. Clique no editor de scripts e, em seguida, selecione a opção **Debug '[Spark on HDInsight]XXX'** para executar depuração local.
 
 ## <a name="perform-remote-run"></a>Executar execução remota
 

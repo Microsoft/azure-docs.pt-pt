@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019c2f8a13a80de395803ca1782e578c049a7923
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549351"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909045"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento do Azure AD Connect Cloud
 Este artigo fornece orientação sobre como escolher e usar o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect como sua solução de identidade.
@@ -29,6 +29,9 @@ Você precisa do seguinte para usar Azure AD Connect provisionamento de nuvem:
 - Uma conta de administrador global para seu locatário do Azure AD.
 - Um servidor local para o agente de provisionamento com o Windows 2012 R2 ou posterior.
 - Configurações de firewall local.
+
+>[!NOTE]
+>Atualmente, o agente de provisionamento só pode ser instalado em servidores de língua inglesa. A instalação de um pacote de língua inglesa num servidor não inglês não é uma suver válida e resultará na não instalação do agente. 
 
 O restante do documento fornece instruções passo a passo para esses pré-requisitos.
 
@@ -85,7 +88,7 @@ Para habilitar o TLS 1,2, siga estas etapas.
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Reinicie o servidor.
+1. Reiniciar o servidor.
 
 
 ## <a name="next-steps"></a>Passos seguintes 

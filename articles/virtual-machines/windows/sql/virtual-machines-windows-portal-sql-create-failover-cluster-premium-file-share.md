@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772612"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906796"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -185,7 +185,7 @@ Depois de criar e configurar as máquinas virtuais, você pode configurar o comp
   > - Considere o uso de um compartilhamento de arquivos separado para arquivos de backup para salvar a capacidade de IOPS e espaço desse compartilhamento para arquivos de dados e de log. Você pode usar um compartilhamento de arquivos Premium ou Standard para arquivos de backup.
   > - Se estiver no Windows 2012 R2 ou mais velho, siga estes mesmos passos para montar a sua partilha de ficheiros que vai usar como testemunha de partilha de ficheiros. 
 
-## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Etapa 3: configurar o cluster de failover com o compartilhamento de arquivos
+## <a name="step-3-configure-the-failover-cluster"></a>Passo 3: Configure o cluster failover
 
 A próxima etapa é configurar o cluster de failover. Nesta etapa, você concluirá as seguintes subetapas:
 

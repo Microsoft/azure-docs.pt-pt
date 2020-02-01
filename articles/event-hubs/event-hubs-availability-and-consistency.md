@@ -4,7 +4,6 @@ description: Como fornecer a quantidade máxima de disponibilidade e consistênc
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
@@ -12,19 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 01/29/2020
 ms.author: shvija
-ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 808e813ad90626acec893a021634566f091c895f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273682"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904476"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de eventos
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Os Hubs de eventos do Azure utiliza um [modelo de criação de partições](event-hubs-scalability.md#partitions) para melhorar a disponibilidade e paralelização dentro de um hub de eventos único. Por exemplo, se um hub de eventos tem quatro partições, e um nessas partições é movido de um servidor para outro numa operação de balanceamento de carga, ainda pode enviar e receber de três outras partições. Além disso, a ter mais de partições permite-lhe ter os leitores mais simultâneos processar os seus dados, melhorar o débito agregado. Compreender as implicações de criação de partições e ordenação num sistema distribuído, é um aspeto fundamental do design da solução.
 
 Para ajudar a explicar o equilíbrio entre a ordenação e a disponibilidade, consulte a [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como o Teorema do Brewer. Este Teorema aborda a escolha entre consistência, disponibilidade e tolerância de partição. Ele declara que para os sistemas particionados por rede existe sempre variação entre a consistência e disponibilidade.
@@ -49,20 +47,57 @@ Com esta configuração, tenha em atenção que, se a partição específica par
 
 Uma solução possível para garantir a ordenação, ao maximizar o tempo, também seria agregar eventos como parte de seu aplicativo de processamento de eventos. A maneira mais fácil de realizar isso é carimbo seu evento com uma propriedade de número de sequência personalizada. O código seguinte mostra um exemplo:
 
+#### <a name="azuremessagingeventhubs-500-or-latertablatest"></a>[Azure.Messaging.EventHubs (5.0.0 ou mais tarde)](#tab/latest)
+
 ```csharp
-// Get the latest sequence number from your application
+// create a producer client that you can use to send events to an event hub
+await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
+{
+    // get the latest sequence number from your application
+    var sequenceNumber = GetNextSequenceNumber();
+
+    // create a batch of events 
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+
+    // create a new EventData object by encoding a string as a byte array
+    var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+
+    // set a custom sequence number property
+    data.Properties.Add("SequenceNumber", sequenceNumber);
+
+    // add events to the batch. An event is a represented by a collection of bytes and metadata. 
+    eventBatch.TryAdd(data);
+
+    // use the producer client to send the batch of events to the event hub
+    await producerClient.SendAsync(eventBatch);
+}
+```
+
+#### <a name="microsoftazureeventhubs-410-or-earliertabold"></a>[Microsoft.Azure.EventHubs (4.1.0 ou mais cedo)](#tab/old)
+```csharp
+// Create an Event Hubs client
+var client = new EventHubClient(connectionString, eventHubName);
+
+//Create a producer to produce events
+EventHubProducer producer = client.CreateProducer();
+
+// Get the latest sequence number from your application 
 var sequenceNumber = GetNextSequenceNumber();
+
 // Create a new EventData object by encoding a string as a byte array
 var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+
 // Set a custom sequence number property
 data.Properties.Add("SequenceNumber", sequenceNumber);
+
 // Send single message async
-await eventHubClient.SendAsync(data);
+await producer.SendAsync(data);
 ```
+---
 
 Neste exemplo envia o evento para uma das partições disponíveis no seu hub de eventos e define o número de sequência correspondente a partir da sua aplicação. Esta solução requer o estado ser mantidos pelo seu aplicativo de processamento, mas dá seu remetentes um ponto final que é mais provável que esteja disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral de serviço de Hubs de eventos](event-hubs-what-is-event-hubs.md)

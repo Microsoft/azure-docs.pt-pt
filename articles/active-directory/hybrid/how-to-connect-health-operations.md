@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57bc60cab7e6980f7051af6fc4685bd2a426f4ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ef908429d359020282920d73480a472bfde0aa60
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422420"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897153"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações de Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure Active Directory (Azure AD) Connect Health.
@@ -71,7 +72,7 @@ Azure AD Connect Health para Serviços de Federação do Active Directory (AD FS
 
 1. Abra a folha do **servidor** na folha da **lista de servidores** selecionando o nome do servidor a ser removido.
 2. Na folha do **servidor** , na barra de ação, clique em **excluir**.
-Captura de tela do ![Azure AD Connect Health excluir servidor](./media/how-to-connect-health-operations/DeleteServer2.png)
+![Screenshot do Azure AD Connect Health apagam](./media/how-to-connect-health-operations/DeleteServer2.png) do servidor
 3. Confirme digitando o nome do servidor na caixa de confirmação.
 4. Clique em **Eliminar**.
 
@@ -96,7 +97,7 @@ Quando você estiver excluindo uma instância de serviço, lembre-se do seguinte
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Para excluir uma instância de serviço do serviço de Azure AD Connect Health
 1. Abra a folha de **serviço** na folha **lista de serviços** selecionando o identificador de serviço (nome do farm) que você deseja remover. 
 2. Na folha **serviço** , na barra de ação, clique em **excluir**. 
-![captura de tela do serviço Azure AD Connect Health excluir](./media/how-to-connect-health-operations/DeleteServer.png)
+![Screenshot da Azure AD Connect Health elimina mato de serviço](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirme digitando o nome do serviço na caixa de confirmação (por exemplo: sts.contoso.com).
 4. Clique em **Eliminar**.
    <br><br>
@@ -131,15 +132,15 @@ Para permitir que um usuário acesse o nível de *todas as instâncias de servi�
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Etapa 2: adicionar usuários e grupos e atribuir funções
 1. Na seção **Configurar** , clique em **usuários**.<br>
-   ![captura de tela da barra lateral Azure AD Connect Health recurso](./media/how-to-connect-health-operations/startRBAC.png)
+   ![Screenshot da barra lateral de recursos Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Selecione **Adicionar**.
 3. No painel **selecionar uma função** , selecione uma função (por exemplo, **proprietário**).<br>
-   ![captura de tela de Azure AD Connect Health janela de usuários do RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Screenshot do Azure AD Connect Health RBAC Utilizadores janela](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digite o nome ou o identificador do usuário ou grupo de destino. Você pode selecionar um ou mais usuários ou grupos ao mesmo tempo. Clique em **Selecionar**.
-   ![captura de tela de Azure AD Connect Health janela de usuários do RBAC](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot do Azure AD Connect Health RBAC Utilizadores janela](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selecione **OK**.<br>
 6. Depois que a atribuição de função for concluída, os usuários e grupos aparecerão na lista.<br>
-   ![captura de tela de Azure AD Connect Health janela de usuários do RBAC, com novos usuários realçados](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Screenshot da janela de utilizadores do Azure AD Connect Health RBAC, com novos utilizadores em destaque](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Agora, os usuários e grupos listados têm acesso, de acordo com suas funções atribuídas.
 
@@ -152,7 +153,7 @@ Agora, os usuários e grupos listados têm acesso, de acordo com suas funções 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: compartilhar o local da folha com usuários ou grupos
 1. Depois de atribuir permissões, um usuário pode acessar Azure AD Connect Health acessando [aqui](https://aka.ms/aadconnecthealth).
 2. Na folha, o usuário pode fixar a folha ou partes diferentes dela no painel. Basta clicar no ícone **fixar no painel** .<br>
-   ![captura de tela da folha Azure AD Connect Health PIN do RBAC, com o ícone de pino realçado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Screenshot da lâmina de pino RBAC de ligação a saúde azure, com ícone de pino destacado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Um usuário com a função de leitor atribuída não é capaz de obter Azure AD Connect Health extensão do Azure Marketplace. O usuário não pode executar a operação "criar" necessária para fazer isso. O usuário ainda pode chegar à folha acessando o link anterior. Para uso posterior, o usuário pode fixar a folha no painel.
@@ -161,7 +162,7 @@ Agora, os usuários e grupos listados têm acesso, de acordo com suas funções 
 
 ### <a name="remove-users-or-groups"></a>Remover usuários ou grupos
 Você pode remover um usuário ou grupo adicionado ao Azure AD Connect Health RBAC. Basta clicar com o botão direito do mouse no usuário ou grupo e selecionar **remover**.<br>
-![captura de tela de Azure AD Connect Health janela de usuários do RBAC, com remover realçado](./media/how-to-connect-health-operations/RBAC_remove.png)
+![Screenshot da janela de utilizadores do Azure AD Connect Health RBAC, com remover destacado](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Fim da seção RBAC)
 

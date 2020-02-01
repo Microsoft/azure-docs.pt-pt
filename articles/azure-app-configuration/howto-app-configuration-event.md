@@ -5,21 +5,20 @@ description: Neste tutorial, você aprende a configurar Azure App assinaturas de
 services: azure-app-configuration
 documentationcenter: ''
 author: jimmyca
-manager: yegu
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/30/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a80f931f2060d421483b9e26940985091c9bb5c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433694"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899692"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início rápido: rotear Azure App eventos de configuração para um ponto de extremidade da Web com CLI do Azure
 
@@ -41,7 +40,7 @@ Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num gru
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` no local *westus* .  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
+O exemplo seguinte cria um grupo de recursos chamado `<resource_group_name>` na localização *westus.*  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
@@ -49,7 +48,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration"></a>Criar uma configuração de aplicativo
 
-Substitua `<appconfig_name>` por um nome exclusivo para a configuração do aplicativo e `<resource_group_name>` com o grupo de recursos que você criou anteriormente. O nome deve ser exclusivo porque é usado como um nome DNS.
+Substitua `<appconfig_name>` por um nome único para a configuração da sua app e `<resource_group_name>` com o grupo de recursos que criou anteriormente. O nome deve ser exclusivo porque é usado como um nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -101,7 +100,7 @@ Verifique a aplicação Web novamente e repare que um evento de validação de s
 
 ## <a name="trigger-an-app-configuration-event"></a>Disparar um evento de configuração de aplicativo
 
-Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor de chave usando o `<appconfig_name>` do anterior.
+Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor-chave usando o `<appconfig_name>` de antes.
 
 ```azurecli-interactive
 az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes

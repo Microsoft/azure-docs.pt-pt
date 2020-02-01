@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bca780eb31a16d3854a2e4dfac821d5a68e9ca43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719352"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905523"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e failover de conta (versão prévia)
 
@@ -126,21 +126,6 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 - E.U.A. Oeste 2
 
 A versão prévia destina-se apenas ao uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estão disponíveis no momento.
-
-### <a name="register-for-the-preview"></a>Registrar-se para a versão prévia
-
-Para se registrar para a versão prévia, execute os seguintes comandos no PowerShell. Certifique-se de substituir o espaço reservado entre colchetes por sua própria ID de assinatura:
-
-```powershell
-Connect-AzAccount -SubscriptionId <subscription-id>
-Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
-Pode levar de 5-7 dias para receber aprovação para a versão prévia. Para verificar se o registro foi aprovado, execute o seguinte comando:
-
-```powershell
-Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 

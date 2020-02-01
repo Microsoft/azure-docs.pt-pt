@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8b0e7d717ed5c06600adf261f7ce5b44f572adf9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6e9eddbec3cdc46c04f9c9ae78f937e20bfa8270
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774261"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901990"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Início rápido: extrair dados de recebimento usando a API REST do reconhecedor de formulário com ondulação
 
 Neste guia de início rápido, você usará a API REST do reconhecedor do Azure Form com a rotação para extrair e identificar informações relevantes nos recibos de vendas dos EUA.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-> [!IMPORTANT]
-> Este guia de início rápido usa a API do Forms Recognizer v 2.0. Se sua assinatura não estiver na região `West US 2` ou `West Europe`, você precisará usar a API v 1.0. Em vez disso, siga o guia de [início rápido v 1.0](./curl-train-extract-v1.md) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

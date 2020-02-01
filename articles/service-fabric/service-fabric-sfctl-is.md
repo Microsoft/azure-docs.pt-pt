@@ -1,16 +1,16 @@
 ---
 title: CLI do Azure Service Fabric-sfctl é
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar a infraestrutura do.
+description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar a infraestrutura do.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c3c98e8da0c2a5449296a0fd108977ec0633f83d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639127"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906089"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consultar e enviar comandos para o serviço de infraestrutura.
@@ -31,7 +31,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 |Argumento|Descrição|
 | --- | --- |
-| --comando [obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
+| --comando [Obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
 | --service-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema de URI ' Fabric\:'. Esse parâmetro é necessário apenas para o cluster que tem mais de uma instância do serviço de infraestrutura em execução. |
 | --Timeout-t | Padrão\: 60. |
 
@@ -54,7 +54,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 |Argumento|Descrição|
 | --- | --- |
-| --comando [obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
+| --comando [Obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
 | --service-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema de URI ' Fabric\:'. Esse parâmetro é necessário apenas para o cluster que tem mais de uma instância do serviço de infraestrutura em execução. |
 | --Timeout-t | Padrão\: 60. |
 

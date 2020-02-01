@@ -1,16 +1,16 @@
 ---
 title: CLI do Azure Service Fabric-sfctl Store
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para executar operações de nível de arquivo no repositório de imagens cluster.
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para realizar operações de nível de ficheiro na loja de imagem cluster.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 64a8ea963afa9e20dfafb71db69b2baf66959369
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645264"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905619"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Execute operações básicas de nível de arquivo no repositório de imagens do cluster.
@@ -32,7 +32,7 @@ Exclui o conteúdo do repositório de imagens existente que está sendo encontra
 
 |Argumento|Descrição|
 | --- | --- |
-| --content-Path [obrigatório] | Caminho relativo para o arquivo ou a pasta no repositório de imagens de sua raiz. |
+| --content-path [Obrigatório] | Caminho relativo para o arquivo ou a pasta no repositório de imagens de sua raiz. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -75,7 +75,7 @@ Retorna as informações sobre o conteúdo do repositório de imagens no content
 
 |Argumento|Descrição|
 | --- | --- |
-| --content-Path [obrigatório] | Caminho relativo para o arquivo ou a pasta no repositório de imagens de sua raiz. |
+| --content-path [Obrigatório] | Caminho relativo para o arquivo ou a pasta no repositório de imagens de sua raiz. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais

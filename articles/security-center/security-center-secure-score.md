@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 79154a13722654ef5cbbe7ac99bb67d4b761fe60
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156663"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903440"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar sua pontuação segura na central de segurança do Azure
 
@@ -34,7 +34,7 @@ Com tantos serviços que oferecem benefícios de segurança, muitas vezes é dif
 ## <a name="secure-score-calculation"></a>Cálculo de Pontuação segura
 
 A central de segurança imita o trabalho de um analista de segurança, examinando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação.
-A central de segurança do Azure revisa constantemente as recomendações ativas e calcula sua pontuação segura com base nelas, a pontuação de uma recomendação é derivada de suas práticas recomendadas de gravidade e segurança que afetarão a segurança da sua carga de trabalho.
+O Azure Security Center revê constantemente as suas recomendações ativas e calcula a sua pontuação segura com base nelas, a pontuação de uma recomendação deriva da sua gravidade e das melhores práticas de segurança que mais afetarão a sua segurança na carga de trabalho.
 
 A central de segurança também fornece uma **Pontuação segura geral**. 
 

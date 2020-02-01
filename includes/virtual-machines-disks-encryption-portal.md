@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973387"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909163"
 ---
 ### <a name="portal"></a>Portal
 
@@ -24,7 +24,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 1. Entre no [portal do Azure](https://portal.azure.com/) e procure Key Vault
 1. Procure e selecione **cofres de chaves**.
 
-    [![SSE-Key-Vault-portal-Search. png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
+    [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > Seu cofre de chaves do Azure, conjunto de criptografia de disco, VM, discos e instantâneos devem estar na mesma região e assinatura para que a implantação tenha sucesso.
@@ -77,6 +77,7 @@ Duas notificações devem ser exibidas e bem sucedidos. Isso permitirá que voc�
 Agora que você criou e configurou o cofre de chaves e o conjunto de criptografia de disco, você pode implantar uma VM usando a criptografia.
 O processo de implantação de VM é semelhante ao processo de implantação padrão, as únicas diferenças são que você precisa implantar a VM na mesma região que seus outros recursos e optar por usar uma chave gerenciada pelo cliente.
 
+1. Abra o [link conjuntos de criptografia de disco](https://aka.ms/diskencryptionsets).
 1. Pesquise **máquinas virtuais** e selecione **+ Adicionar** para criar uma VM.
 1. Na guia **básico** , selecione a mesma região que o conjunto de criptografia de disco e Azure Key Vault.
 1. Preencha os outros valores na guia **básico** como desejar.
@@ -96,6 +97,7 @@ Para gerenciar e configurar a criptografia de disco em seus discos existentes, v
 > [!CAUTION]
 > Habilitar a criptografia de disco em qualquer disco anexado a uma VM exigirá que você interrompa a VM.
 
+1. Abra o [link conjuntos de criptografia de disco](https://aka.ms/diskencryptionsets).
 1. Navegue até uma VM que está na mesma região que um de seus conjuntos de criptografia de disco.
 1. Abra a VM e selecione **parar**.
 

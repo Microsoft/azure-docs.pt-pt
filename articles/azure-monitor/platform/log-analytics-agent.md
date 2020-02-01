@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/24/2019
-ms.openlocfilehash: 8e563ae095cf39cdce3e671d4099d2bf1592100a
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/29/2020
+ms.openlocfilehash: d43b580f60f5ae8d2782cf9762b02aa1360e5a40
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513631"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901197"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Coletar dados de log com o agente de Log Analytics
 
@@ -85,13 +85,13 @@ A partir do versões lançadas em Agosto de 2018, estamos a efetuar as seguintes
 
 A tabela a seguir realça os pacotes necessários para distribuições do Linux com suporte em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote obrigatório |Descrição |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
-|Openssl    | Bibliotecas OpenSSL | 1,0. x ou 1.1. x |
-|Curl | enrolando o cliente Web | 7.15.5 |
+|Abre-nis    | Bibliotecas OpenSSL | 1,0. x ou 1.1. x |
+|Caracol | enrolando o cliente Web | 7.15.5 |
 |Python-ctypes | | 
-|PAM | Módulos de Autenticação Incorporável | | 
+|PAM | Módulos de autenticação pluggable | | 
 
 >[!NOTE]
 >O rsyslog ou o syslog-ng são necessários para coletar mensagens de syslog. O daemon de syslog padrão na versão 5 da versão do Oracle Linux, CentOS e Red Hat Enterprise Linux (sysklog) não é suportado para a recolha de eventos do syslog. Para coletar dados de syslog desta versão dessas distribuições, o daemon rsyslog deve ser instalado e configurado para substituir o sysklog.
@@ -106,6 +106,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
+|OMS*.azure.com |Porta 443 |Saída |Sim |
 |*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.blob.core.windows.net |Porta 443 |Saída|Sim |  
