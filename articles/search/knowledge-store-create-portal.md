@@ -7,18 +7,18 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
-ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/29/2020
+ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563474"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904900"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início rápido: criar um repositório de conhecimento do Azure Pesquisa Cognitiva no portal do Azure
 
 > [!IMPORTANT] 
-> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> A loja de conhecimento está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 O repositório de conhecimento é um recurso do Azure Pesquisa Cognitiva que persiste a saída de um pipeline de habilidades cognitivas para análises subsequentes ou processamento de downstream. 
 
@@ -34,7 +34,7 @@ Este guia de início rápido usa o Azure Pesquisa Cognitiva, o armazenamento de 
 
 Como a carga de trabalho é tão pequena, os serviços cognitivas são tocados nos bastidores para fornecer processamento gratuito para até 20 transações diariamente quando invocado do Azure Pesquisa Cognitiva. Desde que você use os dados de exemplo que fornecemos, você pode ignorar a criação ou anexação de um recurso de serviços cognitivas.
 
-1. [Baixe HotelReviews_Free. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Esses dados são dados de revisão do Hotel salvos em um arquivo CSV (origina-se de Kaggle.com) e contêm 19 partes de comentários do cliente sobre um único hotel. 
+1. [Baixe HotelReviews_Free.csv.](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D) Esses dados são dados de revisão do Hotel salvos em um arquivo CSV (origina-se de Kaggle.com) e contêm 19 partes de comentários do cliente sobre um único hotel. 
 
 1. [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [localize uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) em sua assinatura atual. Você usará o armazenamento do Azure para o conteúdo bruto a ser importado e a loja de conhecimento que é o resultado final.
 
@@ -81,9 +81,9 @@ Na página Visão geral do serviço de pesquisa, clique em **importar dados** na
 Nesta etapa do assistente, você criará um configurador de habilidades com aprimoramentos de habilidades cognitivas. Os dados de origem consistem em análises de clientes em várias linguagens. As habilidades relevantes para esse conjunto de dados incluem extração de frases-chave, detecção de opiniões e tradução de texto. Em uma etapa posterior, esses aprimoramentos serão "projetados" em uma loja de conhecimento como tabelas do Azure.
 
 1. Expanda **anexar serviços cognitivas**. **Gratuito (aprimoramentos limitados)** é selecionado por padrão. Você pode usar esse recurso porque o número de registros em HotelReviews-Free. csv é 19 e esse recurso gratuito permite até 20 transações por dia.
-1. Expanda **Adicionar habilidades cognitivas**.
+1. Expandir **Adicionar enriquecimentos**.
 1. Para o **nome do skillset**, insira `hotel-reviews-ss`.
-1. Em **campo de dados de origem**, selecione **reviews_text**.
+1. Para **o campo de dados Fonte,** selecione **reviews_text**.
 1. Para **nível de granularidade de enriquecimento**, selecione **páginas (partes de 5000 caracteres)**
 1. Selecione essas habilidades cognitivas:
     + **Extrair expressões-chave**
@@ -93,11 +93,11 @@ Nesta etapa do assistente, você criará um configurador de habilidades com apri
       ![Criar um habilidades](media/knowledge-store-create-portal/hotel-reviews-ss.png "Criar um conjunto de competências")
 
 1. Expanda **salvar aprimoramentos na loja de conhecimento**.
-1. Insira a **cadeia de conexão da conta de armazenamento** que você salvou em uma etapa anterior.
 1. Selecione estas **projeções de tabela do Azure**:
     + **Documento**
     + **Páginas**
     + **Frases-chave**
+1. Insira a **cadeia de conexão da conta de armazenamento** que você salvou em uma etapa anterior.
 
     ![Configurar o repositório de conhecimento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurar o repositório de conhecimento")
 

@@ -6,39 +6,29 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 01/28/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 193fe96d3e98b2917d9228784b93a9335406283f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2a303070b7240bddfd4803ed3d4d796fa52fdef5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771756"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906639"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks
+# <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
 
-Este guia de início rápido mostra como executar um trabalho de Apache Spark usando Azure Databricks para executar a análise de dados armazenados em uma conta de armazenamento com Azure Data Lake Storage Gen2 habilitado.
-
-Como parte do trabalho do Spark, você analisará uma assinatura de canal de rádio para obter informações sobre o uso gratuito/pago com base em dados demográficos.
-
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Neste arranque rápido, executa um trabalho da Apache Spark utilizando os Azure Databricks para realizar análises em dados armazenados numa conta de armazenamento. Como parte do trabalho do Spark, você analisará uma assinatura de canal de rádio para obter informações sobre o uso gratuito/pago com base em dados demográficos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie uma conta de armazenamento Data Lake Gen2. Consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-  Cole o nome da conta de armazenamento em um arquivo de texto. Você precisará dela em breve.
+* O nome da sua conta de armazenamento do Lago De dados Azure Gen2. Crie uma conta de armazenamento de Gen2 de armazenamento de lago de [dados Azure.](data-lake-storage-quickstart-create-account.md)
 
-* Crie uma entidade de serviço. Consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-  Há algumas coisas específicas que você precisará fazer ao executar as etapas nesse artigo.
-
-  : heavy_check_mark: ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
+* O ID do inquilino, o ID da aplicação e a palavra-passe de um diretor de serviço Azure com um papel atribuído de **Storage Blob Data Contributor**. [Criar um diretor de serviço.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
   > [!IMPORTANT]
-  > Certifique-se de atribuir a função no escopo da conta de armazenamento Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos ou à assinatura pai, mas receberá erros relacionados a permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
-
-  : heavy_check_mark: ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
+  > Atribuir o papel no âmbito da conta de armazenamento gen2 de armazenamento do Lago de Dados. Você pode atribuir uma função ao grupo de recursos ou à assinatura pai, mas receberá erros relacionados a permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -92,7 +82,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databricks e, em seguida, executar fragmentos de código para configurar a conta de armazenamento.
 
-1. No [portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
+1. No [Portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
 
 2. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
@@ -202,7 +192,7 @@ Quando tiver concluído este artigo, você poderá encerrar o cluster. Na área 
 
 ![Parar um cluster do databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Parar um cluster do databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
+Se não encerrar manualmente o cluster que para automaticamente, desde que selecione o **'Terminate' após \_\_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,33 +3,30 @@ title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azur
 description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, você usa a biblioteca de cliente de armazenamento v 2.1 para Python para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/11/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122683"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906435"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v 2.1 para Python
+# <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Quickstart: Gerir bolhas com Python v2.1 SDK
 
-Neste artigo, você usa o Python para carregar, baixar e listar blobs de blocos em um contêiner no armazenamento de BLOBs do Azure. Os BLOBs são apenas objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivo. Os BLOBs no armazenamento do Azure são diferentes de compartilhamentos de arquivos, tabelas sem esquema e filas de mensagens.  Para obter mais informações, consulte [introdução ao armazenamento do Azure](/azure/storage/common/storage-introduction).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+Neste arranque rápido, aprende-se a gerir bolhas usando python. As bolhas são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, meios de streaming e dados de arquivo. Você vai carregar, descarregar e listar bolhas, e você vai criar e apagar recipientes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma conta do Armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/).
+- [Azure Storage SDK para Python](https://github.com/Azure/azure-sdk-for-python).
 
-Verifique se você tem os seguintes pré-requisitos adicionais instalados:
-
-* [Python](https://www.python.org/downloads/)
-
-* [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python)
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
@@ -97,8 +94,8 @@ O programa de exemplo cria um arquivo de teste na pasta *documentos* , carrega o
 
 1. Antes de continuar, vá para a pasta *documentos* e verifique os dois arquivos.
 
-    * *QuickStart_\<identificador exclusivo\>*
-    * *QuickStart_ de\<de identificador exclusivo\>_DOWNLOADED*
+    * *QuickStart_\<\> de identificação universalmente única*
+    * *QuickStart_\<_DOWNLOADED\>de identificação universalmente única*
 
 1. Pode abri-los e ver que são idênticos.
 
@@ -145,7 +142,7 @@ O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de
 
 Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório ao nome de ficheiro no disco local. Em seguida, pode utilizar o método `create_blob_from_path` para carregar o ficheiro para o caminho especificado. 
 
-O código de exemplo cria um arquivo local que o sistema usa para o upload e o download, armazenando o arquivo que o sistema carrega como *full_path_to_file* e o nome do blob como *local_file_name*. Este exemplo carrega o arquivo em seu contêiner chamado `quickstartblobs`:
+O código da amostra cria um ficheiro local que o sistema utiliza para o upload e download, armazenando o ficheiro que o sistema envia como *full_path_to_file* e o nome da bolha como *local_file_name*. Este exemplo carrega o arquivo em seu contêiner chamado `quickstartblobs`:
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -170,7 +167,7 @@ Pode utilizar diversos métodos de carregamento com o armazenamento de Blobs. Po
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-O código a seguir cria um `generator` para o método `list_blobs`. O código percorre a lista de BLOBs no contêiner e imprime seus nomes no console.
+O código seguinte cria uma `generator` para o método `list_blobs`. O código percorre a lista de BLOBs no contêiner e imprime seus nomes no console.
 
 ```python
 # List the blobs in the container.
@@ -183,8 +180,8 @@ for blob in generator:
 ### <a name="download-the-blobs"></a>Transferir os blobs
 
 
-Baixe BLOBs em seu disco local usando o método `get_blob_to_path`.
-O código a seguir baixa o blob que você carregou anteriormente. O sistema acrescenta *_DOWNLOADED* ao nome do blob para que você possa ver os dois arquivos no disco local.
+Descarregue as bolhas para o seu disco local utilizando o método `get_blob_to_path`.
+O código a seguir baixa o blob que você carregou anteriormente. O sistema adere *_DOWNLOADED* ao nome blob para que possa ver ambos os ficheiros no seu disco local.
 
 ```python
 # Download the blob(s).

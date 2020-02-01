@@ -4,13 +4,17 @@ description: 'Compare os serviços em nuvem da Microsoft que são otimizados par
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f2c498b55e7c7cc84a047343d084e1f54569dd2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409841"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898933"
 ---
+> [!NOTE]
+> O Microsoft Flow é agora power automate. Para obter mais informações, veja este [blogue](https://aka.ms/flow-now-pa).
+> 
+> Este conteúdo será atualizado para refletir a mudança de marca nos próximos dias.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação corretos no Azure
 
 Este artigo compara os seguintes serviços cloud do Microsoft:
@@ -58,7 +62,7 @@ Pode combinar serviços ao criar uma orquestração, chamar funções de aplica�
 | Ações | Cada atividade é uma função do Azure; escrever código para funções de atividades |[Grande coleção de ações preparadas](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | Monitorização | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | Logs de [portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Gestão | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
-| Contexto de execução | Pode ser executado [localmente](functions-runtime-overview.md) ou na nuvem | São executadas apenas na cloud|
+| Contexto de execução | Pode ser executado [localmente](functions-runtime-overview.md) ou na nuvem | Corre apenas na nuvem|
 
 <a name="function"></a>
 

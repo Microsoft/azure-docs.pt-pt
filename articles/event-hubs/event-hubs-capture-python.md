@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: e81871e27c04f8a43f678110d7f44cc9c3be149c
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: c6c27a269abfd6fbf29ec7bbb0980d764abaa242
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940749"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904500"
 ---
-# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Guia de início rápido: captura de hubs de eventos: Python
+# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Quickstart: Event Hubs Capture walkthrough: Python (versão azure-eventhub 1)
 
 Captura é uma funcionalidade dos Hubs de eventos do Azure. Você pode usar a captura para entregar automaticamente os dados de streaming em seu hub de eventos para uma conta de armazenamento de BLOBs do Azure de sua escolha. Esse recurso facilita o processamento em lotes em dados de streaming em tempo real. Este artigo descreve como utilizar a captura de Hubs de eventos com o Python. Para obter mais informações sobre a captura de hubs de eventos, consulte [capturar eventos por meio dos hubs de eventos do Azure][Overview of Event Hubs Capture].
 
 Este tutorial usa o [SDK do Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso de captura. O programa *Sender.py* envia telemetria de ambiente simulada para os hubs de eventos no formato JSON. O Hub de eventos usa o recurso de captura para gravar esses dados no armazenamento de BLOBs em lotes. O aplicativo *capturereader.py* lê esses BLOBs, cria um arquivo de acréscimo para cada um dos dispositivos e grava os dados em arquivos *. csv* em cada dispositivo.
 
-> [!IMPORTANT]
-> Este guia de início rápido usa a versão 1 do SDK do Python de hubs de eventos do Azure. Se você for novo nos hubs de eventos do Azure, use a versão 5 do SDK do Python. Para obter um início rápido que usa a versão 5 do SDK do Python, consulte [Este artigo](get-started-capture-python-v2.md). Se você precisar migrar o código existente da versão 1 para a versão 5, consulte o [Guia de migração](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+> [!WARNING]
+> Este quickstart é para a versão 1 do Azure Event Hubs Python SDK. Recomendamos que [emigra](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md) o seu código para a [versão 5 do Python SDK](get-started-capture-python-v2.md).
 
 Neste tutorial, você: 
 

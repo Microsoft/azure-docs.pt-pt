@@ -6,29 +6,29 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 08/29/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 7d481b115650c72df95f7516bb3b39411201bf83
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 257af309ebdb9080c3cd60b8b89a2c992ecf5145
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864009"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906583"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Início rápido: carregar, listar e excluir BLOBs usando o SDK do V10 de armazenamento do Azure para JavaScript/HTML no navegador
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Quickstart: Gerir bolhas com JavaScript v10 SDK no navegador
 
-Neste guia de início rápido, você aprenderá a usar o [V10 do SDK de armazenamento do Azure para JavaScript-biblioteca de BLOBs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) para gerenciar BLOBs do código JavaScript executado inteiramente no navegador. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage.
+Neste arranque rápido, aprende-se a gerir bolhas utilizando o código JavaScript que funciona inteiramente no navegador. As bolhas são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, meios de streaming e dados de arquivo. Utilizará as medidas de segurança necessárias para garantir o acesso protegido à sua conta de armazenamento blob.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
-
-As bibliotecas de cliente JavaScript do armazenamento do Azure não funcionarão diretamente do sistema de arquivos e devem ser servidas de um servidor Web. Este tópico usa o [node. js](https://nodejs.org) para iniciar um servidor básico. Se preferir não instalar o nó, você poderá usar qualquer outro meio de execução de um servidor Web local.
-
-Para seguir as etapas de depuração, você precisará [Visual Studio Code](https://code.visualstudio.com) e o [depurador para o Chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou o [depurador para a extensão do Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) .
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma conta do Armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- Um servidor local. Este artigo usa [node.js](https://nodejs.org) para abrir um servidor básico.
+- [Visual Studio Code](https://code.visualstudio.com).
+- Uma extensão de código VS para depuração do navegador, como [Debugger para Chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou [Debugger para Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurar regras de CORS da conta de armazenamento
 

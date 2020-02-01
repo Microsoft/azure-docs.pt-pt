@@ -2,18 +2,18 @@
 title: Início rápido para configuração de Azure App com ASP.NET Core | Microsoft Docs
 description: Início rápido para uso da configuração de Azure App com aplicativos ASP.NET Core
 services: azure-app-configuration
-author: jpconnock
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/21/2020
-ms.author: jeconnoc
-ms.openlocfilehash: 782c18344732362dee96842bcc7c9a6c4ed14a68
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: lcozzens
+ms.openlocfilehash: 657edbac67a53952ab79aee74b63c59a44b7de18
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711230"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898655"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo ASP.NET Core com a configuração Azure App
 

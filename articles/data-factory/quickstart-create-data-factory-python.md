@@ -13,31 +13,38 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 62455b395e6cad3ccf7650534d92d94a6a0a2417
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1f799c8f2e2b209e9939845047c61d50bc1a244d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977481"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898526"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>Início rápido: criar um Azure Data Factory e um pipeline usando o Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Criar uma fábrica de dados e um oleoduto usando python
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-python.md)
 
-Este início rápido descreve como utilizar o Python para criar uma fábrica de dados do Azure. O pipeline nesta fábrica de dados copia dados de uma pasta para outra pasta num armazenamento de blobs do Azure.
+Neste arranque rápido, cria-se uma fábrica de dados utilizando python. O gasoduto desta fábrica de dados copia dados de uma pasta para outra pasta no armazenamento do Azure Blob.
 
-O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).
+A Azure Data Factory é um serviço de integração de dados baseado na nuvem que permite criar fluxos de trabalho baseados em dados para orquestrar e automatizar o movimento de dados e a transformação de dados. Utilizando a Azure Data Factory, pode criar e programar fluxos de trabalho baseados em dados, chamados oleodutos.
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Os oleodutos podem ingerir dados de lojas de dados díspares. Os oleodutos processam ou transformam dados utilizando serviços de computação como O Hadoop Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de saída em lojas de dados como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
-* **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que vai utilizar em passos posteriores: **ID da aplicação**, **chave de autenticação** e **ID de inquilino**. Atribua a aplicação à função "**Contribuidor**", seguindo as instruções no mesmo artigo.
+* Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-### <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).
+
+* [Explorador de Armazenamento Azure](https://storageexplorer.com/) (opcional).
+
+* [Uma aplicação no Diretório Ativo Azure.](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) Tome nota dos seguintes valores a utilizar em etapas posteriores: ID da **aplicação,** **chave de autenticação,** e ID do **arrendatário**. Atribuir candidatura ao papel **de Contribuinte** seguindo instruções no mesmo artigo.
+
+## <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
 
 1. Inicie o Bloco de notas. Copie o texto seguinte e guarde-o como **input.txt** no disco.
 

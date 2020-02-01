@@ -4,18 +4,18 @@ description: Crie e implemente o código Python sem servidor estoirar para a nuv
 ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 01c586c9077fd8cf244d7e26fe55252cc455c6fb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710955"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898574"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Início rápido: criar uma função Python disparada por HTTP no Azure
 
 Neste artigo, utiliza ferramentas de linha de comando para criar uma função Python que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
 
-Também há uma [versão baseada em Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) deste artigo.
+Também há uma [versão baseada em Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -207,7 +207,7 @@ Para implementar o seu código de função para o Azure, precisa de criar três 
 
 Usa comandos Azure CLI para criar estes itens. Cada comando fornece saída JSON após a conclusão.
 
-1. Se ainda não o fez, inicie sessão no Azure com o comando [de login az:](/cli/azure/group#az-login)
+1. Se ainda não o fez, inicie sessão no Azure com o comando [de login az:](/cli/azure/reference-index#az-login)
 
     ```azurecli
     az login

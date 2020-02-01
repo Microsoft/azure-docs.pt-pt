@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75425087"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
@@ -59,10 +59,10 @@ Azure AD Connect sincronização sincroniza as alterações que ocorrem em seu d
 ## <a name="create-custom-user-inbound-rule"></a>Criar regra de entrada de usuário personalizada
 
  1. Inicie o editor de sincronização no menu do aplicativo na área de trabalho, conforme mostrado abaixo:</br>
- ![menu do editor de regras de sincronização](media/how-to-cloud-custom-user-rule/user8.png)</br>
+ ![Sincronização Do menu do editor](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Selecione **entrada** na lista suspensa para direção e clique em **Adicionar nova regra**.
- ![regra personalizada](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![](media/how-to-cloud-custom-user-rule/user1.png) de regras personalizadas</br>
  
  3. Na página **Descrição** , insira o seguinte e clique em **Avançar**:
 
@@ -74,7 +74,7 @@ Azure AD Connect sincronização sincroniza as alterações que ocorrem em seu d
     **Tipo de link:** Em<br>
     **Precedência:** Forneça um valor que seja exclusivo no sistema<br>
     **Marca:** Deixar este vazio<br>
-    ![regra personalizada](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![](media/how-to-cloud-custom-user-rule/user2.png) de regras personalizadas</br>
  
  4. Na página **filtro de escopo** , insira a UO ou o grupo de segurança que você deseja que o piloto se baseie.  Para filtrar na UO, adicione a parte da UO do nome distinto. Essa regra será aplicada a todos os usuários que estiverem nessa UO.  Portanto, se DN terminar com "OU = CPUs, DC = contoso, DC = com, você adicionará esse filtro.  Clique depois em **Seguinte**. 
 
@@ -87,14 +87,14 @@ Azure AD Connect sincronização sincroniza as alterações que ocorrem em seu d
  
  5. Na página regras de **junção** , clique em **Avançar**.
  6. Na página **transformações** , adicione uma transformação constante: Flow true para o atributo cloudNoFlow. Clique em **Adicionar**.
- ![regra personalizada](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![](media/how-to-cloud-custom-user-rule/user4.png) de regras personalizadas</br>
 
 As mesmas etapas precisam ser seguidas para todos os tipos de objeto (usuário, grupo e contato). Repita as etapas por AD Connector configurado/por floresta do AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Criar regra de saída de usuário personalizada
 
  1. Selecione **saída** na lista suspensa para direção e clique em **Adicionar regra**.
- ![regra personalizada](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![](media/how-to-cloud-custom-user-rule/user5.png) de regras personalizadas</br>
  
  2. Na página **Descrição** , insira o seguinte e clique em **Avançar**:
 
@@ -110,7 +110,7 @@ As mesmas etapas precisam ser seguidas para todos os tipos de objeto (usuário, 
     ![Regra personalizada](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. Na página **filtro de escopo** , escolha **cloudNoFlow** igual **true**. Clique depois em **Seguinte**.
- ![regra personalizada](media/how-to-cloud-custom-user-rule/user7.png)</br>
+ ![](media/how-to-cloud-custom-user-rule/user7.png) de regras personalizadas</br>
  
  4. Na página regras de **junção** , clique em **Avançar**.
  5. Na página **transformações** , clique em **Adicionar**.
@@ -146,9 +146,9 @@ Para verificar se o agente está sendo visto pelo Azure, siga estas etapas:
 ![Portal do Azure](media/how-to-install/install6.png)</br>
 
 3.  Na tela **provisionamento do Azure AD (versão prévia)** , clique em **examinar todos os agentes**.
-![o provisionamento do Azure AD](media/how-to-install/install7.png)</br>
+![](media/how-to-install/install7.png) de fornecimento de anúncios Azure</br>
  
-4. Na **tela agentes de provisionamento locais** , você verá os agentes que você instalou.  Verifique se o agente em questão está selecionado e se está marcado como **desabilitado**.  O agente é desabilitado por padrão ![agentes de provisionamento](media/how-to-install/verify1.png)</br>
+4. Na **tela agentes de provisionamento locais** , você verá os agentes que você instalou.  Verifique se o agente em questão está selecionado e se está marcado como **desabilitado**.  O agente é desativado por padrão ![agentes de provisionamento](media/how-to-install/verify1.png)</br>
 
 ### <a name="on-the-local-server"></a>No servidor local
 Para verificar se o agente está em execução, siga estas etapas:
@@ -164,7 +164,7 @@ Use as seguintes etapas para configurar o provisionamento:
  1. Entre no portal do AD do Azure.
  2. Clique em **Azure Active Directory**
  3. Clique em **Azure ad Connect**
- 4. Selecione **gerenciar provisionamento (visualização)** 
+ 4. Selecione **Gerir o fornecimento (Pré-visualização)** 
  ![](media/how-to-configure/manage1.png)</br>
  5.  Clique em **nova configuração**
  ![](media/tutorial-single-forest/configure1.png)</br>
@@ -182,7 +182,7 @@ Use as seguintes etapas para configurar o provisionamento:
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Verificar se os usuários são provisionados pelo provisionamento de nuvem
 Agora, você verificará se os usuários que você tinha em nosso diretório local foram sincronizados e agora existem no locatário do Azure AD.  Lembre-se de que isso pode levar algumas horas para ser concluído.  Para verificar se os usuários estão Provisionando por provisionamento de nuvem, siga estas etapas:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com) e inicie sessão com uma conta que tenha uma subscrição do Azure.
+1. Navegue no [portal Azure](https://portal.azure.com) e inscreva-se com uma conta que tenha uma subscrição Azure.
 2. À esquerda, selecione **Azure Active Directory**
 3. Clique em **Azure ad Connect**
 4. Clique em **gerenciar provisionamento (versão prévia)**
@@ -201,7 +201,7 @@ Azure AD Connect sincronização sincroniza as alterações que ocorrem em seu d
 >[!NOTE] 
 >Se você estiver executando seu próprio Agendador personalizado para a sincronização do AAD Connect, habilite o Agendador. 
 
-## <a name="something-went-wrong"></a>Algo correu mal
+## <a name="something-went-wrong"></a>Alguma coisa correu mal.
 Caso o piloto não funcione conforme o esperado, você poderá voltar para a configuração de sincronização do Azure AD Connect seguindo as etapas abaixo:
 1.  Desabilite a configuração de provisionamento no portal do Azure. 
 2.  Desabilite todas as regras de sincronização personalizadas criadas para provisionamento de nuvem usando a ferramenta sincronizar editor de regra. A desabilitação deve causar sincronização completa em todos os conectores.

@@ -1,17 +1,17 @@
 ---
 title: Início rápido para adição de sinalizadores de recurso a ASP.NET Core
 description: Adicionar sinalizadores de recurso a ASP.NET Core aplicativos e gerenciá-los usando Azure App configuração
-author: jpconnock
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
-ms.author: jeconnoc
-ms.openlocfilehash: 6858648bc07546f30d4ebb92150c52f8c7729acd
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: lcozzens
+ms.openlocfilehash: fda0e8072984a25b33731a775780231538e92e3d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260293"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898694"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -31,7 +31,7 @@ As bibliotecas de gerenciamento de recursos do .NET Core estendem a estrutura co
 6. Selecione **Gerenciador de recursos** >  **+ Adicionar** para adicionar um sinalizador de recurso chamado `Beta`.
 
     > [!div class="mx-imgBorder"]
-    > ![habilitar sinalizador de recurso chamado beta](media/add-beta-feature-flag.png)
+    > ![ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
     Deixe `label` indefinido por enquanto.
 
@@ -102,7 +102,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 1. Adicione um segredo denominado **ConnectionStrings: AppConfig** ao Gerenciador de segredo.
 
-    Esse segredo contém a cadeia de conexão para acessar seu repositório de configuração de aplicativo. Substitua o valor `<your_connection_string>` no comando a seguir pela cadeia de conexão para o repositório de configuração do aplicativo.
+    Esse segredo contém a cadeia de conexão para acessar seu repositório de configuração de aplicativo. Substitua o valor `<your_connection_string>` no seguinte comando com a cadeia de ligação para a sua loja de configuração de aplicações.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
@@ -270,13 +270,13 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     }
     ```
 
-1. Abra *_ViewImports. cshtml* no diretório *views* e adicione o auxiliar de marca do Gerenciador de recursos:
+1. Abra *_ViewImports.cshtml* no diretório *Views* e adicione o ajudante de etiqueta de gestor de funcionalidades:
 
     ```html
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Abra *_Layout. cshtml* nas *exibições*\\diretório *compartilhado* e substitua o código de barra de `<nav>` em `<body>` > `<header>` pelo seguinte código:
+1. Abra *_Layout.cshtml* no diretório de *opinião*\\*partilhado* e substitua o código de barras `<nav>` sob `<body>` > `<header>` pelo seguinte código:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -337,7 +337,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     ![Localizar o botão de visualização da Web](./media/quickstarts/cloud-shell-web-preview.png)
 
     Seu navegador deve exibir uma página semelhante à imagem abaixo.
-    ](./media/quickstarts/aspnet-core-feature-flag-local-before.png) local de inicialização do aplicativo ![QuickStart
+    ![app Quickstart lançam](./media/quickstarts/aspnet-core-feature-flag-local-before.png) local
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
