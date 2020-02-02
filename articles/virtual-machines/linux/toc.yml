@@ -423,6 +423,8 @@
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Elevada disponibilidade
           href: manage-availability.md
+        - name: Alterar o conjunto de disponibilidade
+          href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Criar um grupo de colocação em proximidade
           items:
             - name: CLI
