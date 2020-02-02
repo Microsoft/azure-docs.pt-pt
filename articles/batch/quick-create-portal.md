@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Azure - Executar Trabalho do Batch - Portal
-description: Aprenda rapidamente a executar um trabalho do Batch com o portal do Azure.
+description: Aprenda a usar o portal Azure para criar uma conta Batch, um conjunto de nós de computação, e um trabalho que executa tarefas básicas na piscina.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 9a166d20e402ed7b23fda4745c50aaf1a505b3aa
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029407"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932271"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: Executar a sua primeira tarefa do Batch no portal do Azure
 
@@ -114,11 +114,11 @@ Depois de criar uma tarefa, o Batch coloca em fila para a execução no conjunto
 
 Para criar uma segunda tarefa, volte ao passo 1. Introduza outro **ID de Tarefa**, mas especifique uma linha de comandos idêntica. Se a primeira tarefa ainda estiver em execução, o Batch começa a segunda tarefa no outro nó do conjunto.
 
-## <a name="view-task-output"></a>Ver resultado das tarefas
+## <a name="view-task-output"></a>Ver o resultado das tarefas
 
 As tarefas de exemplo anteriores são concluídas em poucos minutos. Para ver o resultado de uma tarefa concluída, selecione **Ficheiros no nó** e selecione o ficheiro `stdout.txt`. Este ficheiro mostra o resultado padrão da tarefa. Os conteúdos são semelhantes ao seguinte:
 
-![Ver resultado das tarefas][task_output]
+![Ver o resultado das tarefas][task_output]
 
 O conteúdo mostra as variáveis de ambiente do Azure Batch que estão definidas no nó. Quando criar os seus próprios trabalhos e as suas próprias tarefas do Batch, pode referenciar estas variáveis de ambiente nas linhas de comandos de tarefas e nas aplicações e scripts executados pelas linhas de comandos.
 

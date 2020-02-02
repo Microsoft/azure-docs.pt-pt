@@ -1,6 +1,6 @@
 ---
 title: O que é o Centro de Segurança do Azure? | Microsoft Docs
-description: Esta página descreve os principais benefícios da central de segurança – descobrindo seu estado de segurança e melhorando-o com a cobertura de recursos locais e de nuvem.
+description: Esta página descreve os principais benefícios do Security Center - descobrir o seu estado de segurança, e melhorá-lo com cobertura de cloud e recursos on-prem.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,136 +14,138 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558623"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939441"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
-A central de segurança do Azure é um sistema de gerenciamento de segurança de infraestrutura unificado que fortalece a postura de segurança de seus data centers e fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem, sejam elas no Azure ou não, bem como no local.
+O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados, e fornece proteção avançada contra ameaças em todas as suas cargas de trabalho híbridas na nuvem - quer estejam em Azure ou não - bem como nas instalações.
 
-Manter seus recursos seguros é um esforço conjunto entre seu provedor de nuvem, o Azure e você, o cliente. Você precisa certificar-se de que suas cargas de trabalho estejam protegidas enquanto você passa para a nuvem e, ao mesmo tempo, quando você passa para IaaS (infraestrutura como serviço) há mais responsabilidade do cliente do que havia no PaaS (plataforma como serviço) e SaaS (software como serviço). A central de segurança do Azure fornece as ferramentas necessárias para proteger sua rede, proteger seus serviços e verificar se você está sobre sua postura de segurança.
+Manter os seus recursos seguros é um esforço conjunto entre o seu fornecedor de nuvem, o Azure, e você, o cliente. Tem de se certificar de que as suas cargas de trabalho estão seguras à medida que se desloca para a nuvem, e ao mesmo tempo, quando se muda para o IaaS (infraestrutura como serviço) há mais responsabilidade do cliente do que havia no PaaS (plataforma como serviço) e no SaaS (software como serviço). O Azure Security Center fornece-lhe as ferramentas necessárias para endurecer a sua rede, proteger os seus serviços e certificar-se de que está em cima da sua postura de segurança.
 
-A central de segurança do Azure aborda os três desafios de segurança mais urgentes:
+O Azure Security Center aborda os três desafios de segurança mais urgentes:
 
--   **Alteração rápida de cargas de trabalho** – é tanto uma força quanto um desafio da nuvem. Por um lado, os usuários finais são capacitados a fazer mais. No outro, como você garante que os serviços em constante mudança que as pessoas estão usando e que a criação sejam de acordo com seus padrões de segurança e sigam as práticas recomendadas de segurança?
+-   **Trabalhos** de trabalho em rápida mudança – É simultaneamente uma força e um desafio da nuvem. Por um lado, os utilizadores finais têm poderes para fazer mais. Por outro lado, como garantir que os serviços em constante mudança que as pessoas estão a usar e criar estão à altura dos seus padrões de segurança e a seguir as melhores práticas de segurança?
 
--   **Ataques cada vez mais sofisticados** – sempre que você executa suas cargas de trabalho, os ataques continuam sendo mais sofisticados. Você precisa proteger suas cargas de trabalho de nuvem pública, que são, na verdade, uma carga de trabalho voltada para a Internet que pode deixá-lo ainda mais vulnerável se você não seguir as práticas recomendadas de segurança.
+-   **Ataques cada vez mais sofisticados** - Onde quer que faças as tuas cargas de trabalho, os ataques continuam a tornar-se mais sofisticados. Você tem que garantir as suas cargas de trabalho em nuvem pública, que são, na verdade, uma carga de trabalho virada para a Internet que pode deixá-lo ainda mais vulnerável se não seguir as melhores práticas de segurança.
 
--   As **habilidades de segurança estão em um fornecimento curto** : o número de alertas de segurança e sistemas de alerta ultrapassa o número de administradores com o plano de fundo necessário e a experiência para garantir que seus ambientes estejam protegidos. Manter-se atualizado com os ataques mais recentes é um desafio constante, o que torna impossível permanecer em vigor, enquanto o mundo da segurança é uma primeira constante mudança.
+-   **As competências** de segurança são escassas - O número de alertas de segurança e sistemas de alerta supera em muito o número de administradores com o passado e experiência necessários para garantir que os seus ambientes estão protegidos. Manter-se atualizado com os ataques mais recentes é um desafio constante, tornando impossível manter-se no lugar enquanto o mundo da segurança é uma frente em constante mudança.
 
-Para ajudá-lo a se proteger contra esses desafios, a central de segurança fornece as ferramentas para:
+Para ajudá-lo a proteger-se contra estes desafios, o Security Center fornece-lhe as ferramentas para:
 
--   **Fortaleça a postura de segurança**: a central de segurança avalia seu ambiente e permite que você compreenda o status de seus recursos e se eles são seguros.
+-   **Fortalecer**a postura de segurança : O Security Center avalia o seu ambiente e permite-lhe compreender o estado dos seus recursos e se estão seguros.
 
--   **Proteger contra ameaças**: a central de segurança avalia suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de detecção de ameaças.
+-   **Proteja contra ameaças**: O Centro de Segurança avalia as suas cargas de trabalho e levanta recomendações de prevenção de ameaças e alertas de deteção de ameaças.
 
--   **Fique seguro mais rápido**: na central de segurança, tudo é feito na velocidade da nuvem. Como é integrado nativamente, a implantação da central de segurança é fácil, fornecendo a você o provisionamento automático e a proteção com os serviços do Azure.
+-   **Fique seguro mais rápido:** No Centro de Segurança, tudo é feito em velocidade de nuvem. Por ser integrado de forma nativa, a implantação do Security Center é fácil, proporcionando-lhe o fornecimento automático e proteção com os serviços Azure.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="architecture"></a>Arquitetura
 
-Como a central de segurança é parte nativa do Azure, os serviços de PaaS no Azure, incluindo Service Fabric, bancos de dados SQL e contas de armazenamento, são monitorados e protegidos pela central de segurança sem precisar de nenhuma implantação.
+Como o Security Center faz parte do Azure, os serviços PaaS em Azure - incluindo tecido de serviço, bases de dados SQL e contas de armazenamento - são monitorizados e protegidos pelo Security Center sem necessitar de qualquer implantação.
 
-Além disso, a central de segurança protege servidores não Azure e máquinas virtuais na nuvem ou localmente, para servidores Windows e Linux, instalando o Microsoft Monitoring Agent neles. As máquinas virtuais do Azure são provisionadas automaticamente na central de segurança.
+Além disso, o Security Center protege servidores não-Azure e máquinas virtuais na nuvem ou nas instalações, tanto para servidores Windows como Linux, instalando o Microsoft Monitoring Agent nos mesmos. As máquinas virtuais Azure são auto-aprovisionadas no Centro de Segurança.
 
-Os eventos coletados dos agentes e do Azure estão correlacionados no mecanismo de análise de segurança para fornecer recomendações personalizadas (tarefas de proteção), que você deve seguir para garantir que suas cargas de trabalho sejam seguras e alertas de detecção de ameaças. Você deve investigar esses alertas assim que possível para garantir que ataques mal-intencionados não estejam ocorrendo em suas cargas de trabalho.
+Os eventos recolhidos dos agentes e do Azure estão correlacionados no motor de análise de segurança para lhe fornecer recomendações personalizadas (tarefas de endurecimento), que deve seguir para garantir que as suas cargas de trabalho estão seguras e alertas de deteção de ameaças. Deve investigar esses alertas o mais rapidamente possível para garantir que ataques maliciosos não estão a ocorrer nas suas cargas de trabalho.
 
-Quando você habilita a central de segurança, a política de segurança interna à central de segurança é refletida em Azure Policy como uma iniciativa interna na categoria da central de segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da central de segurança (camadas gratuitas ou Standard). A iniciativa interna contém apenas políticas de auditoria. Para obter mais informações sobre as políticas da central de segurança no Azure Policy, consulte [trabalhando com políticas de segurança](tutorial-security-policy.md).
+Quando permite o Centro de Segurança, a política de segurança incorporada no Centro de Segurança reflete-se na Política Azure como uma iniciativa construída na categoria Centro de Segurança. A iniciativa incorporada é automaticamente atribuída a todas as subscrições registadas do Centro de Segurança (níveis gratuitos ou standard). A iniciativa incorporada contém apenas políticas de auditoria. Para obter mais informações sobre as políticas do Centro de Segurança na Política Azure, consulte Trabalhar com políticas de [segurança.](tutorial-security-policy.md)
 
 ## <a name="strengthen-security-posture"></a>Reforçar a postura de segurança
 
-A central de segurança do Azure permite reforçar sua postura de segurança. Isso significa que ele ajuda a identificar e executar as tarefas de proteção recomendadas como práticas recomendadas de segurança e implementá-las em seus computadores, serviços de dados e aplicativos. Isso inclui o gerenciamento e a imposição de suas políticas de segurança e a garantia de que as máquinas virtuais do Azure, os servidores não Azure e os serviços de PaaS do Azure estão em conformidade. A central de segurança fornece as ferramentas de que você precisa para ter uma visão geral de suas cargas de trabalho, com visibilidade focada em seu espaço de segurança de rede. 
+O Azure Security Center permite-lhe reforçar a sua postura de segurança. Isto significa que o ajuda a identificar e executar as tarefas de endurecimento recomendadas como boas práticas de segurança e implementá-las através das suas máquinas, serviços de dados e aplicações. Isto inclui gerir e aplicar as suas políticas de segurança, e garantir que as suas máquinas virtuais Azure, servidores não-Azure e serviços Azure PaaS estão em conformidade. O Security Center fornece-lhe as ferramentas necessárias para ter uma visão de pássaro sobre as suas cargas de trabalho, com visibilidade focada na sua propriedade de segurança de rede. 
 
-### <a name="manage-organization-security-policy-and-compliance"></a>Gerenciar a conformidade e a política de segurança da organização
+### <a name="manage-organization-security-policy-and-compliance"></a>Gerir a política e conformidade da organização
 
-É uma segurança básica saber e certificar-se de que suas cargas de trabalho são seguras e começa com a existência de políticas de segurança personalizadas em vigor. Como todas as políticas na central de segurança são criadas sobre os controles de política do Azure, você está obtendo todo o alcance e a flexibilidade de uma **solução de política de nível mundial**. Na central de segurança, você pode definir suas políticas para executar em grupos de gerenciamento, entre assinaturas e até mesmo para um locatário inteiro.
+É uma garantia básica para saber e certificar-se de que as suas cargas de trabalho estão seguras, e começa com políticas de segurança personalizadas em vigor. Como todas as políticas no Security Center são construídas em cima dos controlos políticos do Azure, você está recebendo toda a gama e flexibilidade de uma **solução política de classe mundial**. No Security Center, pode definir as suas políticas para funcionar em grupos de gestão, através de subscrições e até mesmo para um inquilino inteiro.
 
 ![Dashboard Centro de Segurança](media/security-center-intro/sc-dashboard.png)
 
-A central de segurança ajuda a **identificar assinaturas de ti de sombra**. Ao examinar as assinaturas rotuladas como **não cobertas** em seu painel, você pode saber imediatamente quando há assinaturas recém-criadas e garantir que elas sejam cobertas por suas políticas e protegidas pela central de segurança do Azure.
+O Security Center ajuda-o a **identificar as assinaturas shadow IT**. Ao olhar para as subscrições não **abrangidas** pelo seu painel de instrumentos, pode saber imediatamente quando existem subscrições recém-criadas e certificar-se de que estão abrangidas pelas suas políticas e protegidas pelo Azure Security Center.
 
-![Painel de política da central de segurança](media/security-center-intro/sc-policy-dashboard.png)
+![Painel de política do Centro de Segurança](media/security-center-intro/sc-policy-dashboard.png)
 
-Os recursos de monitoramento avançados na central de segurança também permitem que você **acompanhe e gerencie a conformidade e a governança ao longo do tempo**. A **conformidade geral** fornece uma medida de quanto suas assinaturas são compatíveis com as políticas associadas à sua carga de trabalho. 
+As capacidades avançadas de monitorização no Centro de Segurança também permitem **rastrear e gerir o cumprimento e a governação ao longo do tempo.** O **cumprimento geral** fornece-lhe uma medida de quanto as suas subscrições estão em conformidade com as políticas associadas à sua carga de trabalho. 
 
-![Política da central de segurança ao longo do tempo](media/security-center-intro/sc-policy-time.png)
+![Política do Centro de Segurança ao longo do tempo](media/security-center-intro/sc-policy-time.png)
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
-A central de segurança descobre continuamente novos recursos que estão sendo implantados em suas cargas de trabalho e avalia se eles estão configurados de acordo com as práticas recomendadas de segurança, caso contrário, eles são sinalizados e você obtém uma lista priorizada de recomendações sobre o que Você precisa corrigir o para proteger seus computadores.
+O Security Center descobre continuamente novos recursos que estão a ser implantados nas suas cargas de trabalho e avalia se estão configurados de acordo com as melhores práticas de segurança, se não, estão sinalizados e obtém uma lista prioritária de recomendações para o que precisa de corrigir para proteger as suas máquinas.
 
-Uma das ferramentas mais poderosas que a central de segurança fornece para monitorar continuamente o status de segurança de sua rede é o **mapa de rede**. O mapa permite que você veja a topologia de suas cargas de trabalho, para que você possa ver se cada nó está configurado corretamente. Você pode ver como os nós estão conectados, o que ajuda a bloquear conexões indesejadas que podem facilitar o deslizamento de um invasor na rede.
+Uma das ferramentas mais poderosas que o Security Center fornece para monitorizar continuamente o estado de segurança da sua rede é o **mapa da Rede**. O mapa permite-lhe ver a topologia das suas cargas de trabalho, para que possa ver se cada nó está devidamente configurado. Pode ver como os seus nós estão conectados, o que o ajuda a bloquear ligações indesejadas que podem potencialmente facilitar a vida de um intruso ao longo da sua rede.
 
-![Mapa de rede da central de segurança](media/security-center-intro/sc-net-map.png)
+![Mapa da rede do Centro de Segurança](media/security-center-intro/sc-net-map.png)
 
-A central de segurança facilita a mitigação de alertas de segurança mais uma etapa, adicionando uma **Pontuação segura**. As pontuações seguras agora estão associadas a cada recomendação que você recebe para ajudá-lo a entender a importância de cada recomendação para sua postura geral de segurança. Isso é crucial para permitir que você **priorize seu trabalho de segurança**.
+O Centro de Segurança facilita a mitigação dos alertas de segurança um passo mais fácil, adicionando uma **pontuação Secure**. As pontuações seguras estão agora associadas a cada recomendação que recebe para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral. Isto é crucial para lhe permitir **priorizar o seu trabalho**de segurança.
 
-![Pontuação segura da central de segurança](media/security-center-intro/sc-secure-score.png)
+![Pontuação segura do Centro de Segurança](media/security-center-intro/sc-secure-score.png)
 
-### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimize e aprimore a segurança Configurando os controles recomendados
+### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimize e melhore a segurança configurando controlos recomendados
 
-O coração do valor da central de segurança do Azure está em suas recomendações. As recomendações são adaptadas para as questões de segurança específicas encontradas em suas cargas de trabalho, e a central de segurança faz com que o administrador de segurança trabalhe para você, não apenas encontrando suas vulnerabilidades, mas fornece instruções específicas sobre como eliminá-las.
+O coração do valor do Azure Security Center reside nas suas recomendações. As recomendações são adaptadas às preocupações de segurança específicas encontradas nas suas cargas de trabalho, e o Security Center faz o trabalho de segurança para si, não só encontrando as suas vulnerabilidades, mas fornecendo-lhe instruções específicas para como se livrar delas.
 
-![Recomendações da central de segurança](media/security-center-intro/sc-recommendations.png)
+![Recomendações do Centro de Segurança](media/security-center-intro/sc-recommendations.png)
 
-Dessa forma, a central de segurança permite não apenas definir políticas de segurança, mas aplicar padrões de configuração seguros em seus recursos.
+Desta forma, o Security Center permite não só definir políticas de segurança, mas aplicar padrões de configuração seguros em todos os seus recursos.
 
-As recomendações ajudam a reduzir a superfície de ataque em cada um de seus recursos. Isso inclui máquinas virtuais do Azure, servidores não Azure e serviços de PaaS do Azure, como contas de armazenamento e SQL e mais, onde cada tipo de recurso é avaliado de forma diferente e tem seus próprios padrões.
+As recomendações ajudam-no a reduzir a superfície de ataque em cada um dos seus recursos. Isto inclui máquinas virtuais Azure, servidores não-Azure e serviços Azure PaaS, como contas SQL e Armazenamento e muito mais - onde cada tipo de recurso é avaliado de forma diferente e tem os seus próprios padrões.
 
-![Exemplo de recomendação da central de segurança](media/security-center-intro/sc-recommendation-example.png)
+![Exemplo de recomendação do Centro de Segurança](media/security-center-intro/sc-recommendation-example.png)
 
 ## <a name="protect-against-threats"></a>Proteger contra ameaças
 
-A proteção contra ameaças da central de segurança permite que você detecte e impeça ameaças na camada de IaaS (infraestrutura como serviço), servidores não Azure, bem como para PaaS (plataformas como serviço) no Azure.
+A proteção contra ameaças do Security Center permite detetar e prevenir ameaças na Infraestruturas como camada de Serviço (IaaS), servidores não-Azure, bem como para plataformas como serviço (PaaS) em Azure.
 
-A proteção contra ameaças da central de segurança inclui a análise de eliminação de cadeias de fusão, que correlaciona automaticamente os alertas em seu ambiente com base na análise do Cyber Kill Chain, para ajudá-lo a entender melhor a história de uma campanha de ataque, onde ele começou e o que tipo de impacto que ele tinha em seus recursos.
+A proteção contra ameaças do Security Center inclui a análise da cadeia de morte de fusão, que correlaciona automaticamente alertas no seu ambiente com base na análise da cadeia de morte cibernética, para ajudá-lo a entender melhor a história completa de uma campanha de ataque, onde começou e o que tipo de impacto que teve nos seus recursos.
 
 
 
-![Recomendação de ataque da central de segurança](media/security-center-intro/sc-attack-recommendation.png)
+![Recomendação de ataque do Centro de Segurança](media/security-center-intro/sc-attack-recommendation.png)
 
 ### <a name="advanced-threat-protection"></a>Proteção avançada contra ameaças
 
-Com a central de segurança, você obtém integração nativa com a proteção avançada contra ameaças do Windows Defender pronta para uso. Isso significa que, sem nenhuma configuração, seus servidores e máquinas virtuais do Windows são totalmente integrados às recomendações e avaliações da central de segurança. A detecção avançada de ameaças também é oferecida para servidores e máquinas virtuais Linux.
+Com o Security Center, obtém-se integração nativa com o Windows Defender Advanced Threat Protection fora da caixa. Isto significa que, sem qualquer configuração, as suas máquinas virtuais e servidores do Windows estão totalmente integrados com as recomendações e avaliações do Security Center. A deteção avançada de ameaças também é oferecida fora da caixa para máquinas virtuais linux e servidores.
 
-Além disso, a central de segurança permite automatizar políticas de controle de aplicativos em ambientes de servidor. Os controles de aplicativo adaptáveis na central de segurança habilitam a lista de permissões do aplicativo de ponta a ponta em seus servidores Windows. Você não precisa criar as regras e violações de verificação, tudo isso é feito automaticamente para você.
+Além disso, o Security Center permite automatizar as políticas de controlo de aplicações em ambientes de servidores. Os controlos de aplicação adaptativa no Security Center permitem a listagem de aplicações de ponta a ponta nos seus servidores Windows. Não precisas de criar as regras e verificar violações, é tudo feito automaticamente por ti.
 
-### <a name="protect-paas"></a>Proteger PaaS
+### <a name="protect-paas"></a>Proteger paaS
 
-A central de segurança ajuda a detectar ameaças nos serviços de PaaS do Azure. Você pode detectar ameaças direcionadas aos serviços do Azure, incluindo serviço de Azure App, SQL do Azure, conta de armazenamento do Azure e mais serviços de dados. Você também pode aproveitar a integração nativa com a UEBA (análise comportamental de entidade e usuário do Microsoft Cloud App Security) para executar a detecção de anomalias nos logs de atividades do Azure.
+O Centro de Segurança ajuda-o a detetar ameaças nos serviços do Azure PaaS. Pode detetar ameaças dirigidas a serviços Azure, incluindo o Azure App Service, Azure SQL, Conta de Armazenamento Azure e mais serviços de dados. Também pode aproveitar a integração nativa com o Utilizador e Entidade Comportamental da Microsoft Cloud App Security (UEBA) para realizar a deteção de anomalias nos seus registos de atividade do Azure.
 
 ### <a name="block-brute-force-attacks"></a>Bloquear ataques de força bruta
 
-A central de segurança ajuda a limitar a exposição a ataques de força bruta. Ao reduzir o acesso a portas de máquina virtual, usando o acesso just-in-time à VM, você pode proteger sua rede impedindo o acesso desnecessário. Você pode definir políticas de acesso seguro em portas selecionadas, somente para usuários autorizados, intervalos de endereços IP de origem permitidos ou endereços IP e por um período limitado.
+O Centro de Segurança ajuda-o a limitar a exposição a ataques de força bruta. Ao reduzir o acesso às portas de máquinas virtuais, utilizando o acesso VM just-in-time, pode endurecer a sua rede evitando um acesso desnecessário. Pode definir políticas de acesso segura em portas selecionadas, apenas para utilizadores autorizados, intervalos de endereços IP de origem ou endereços IP, e por um período limitado de tempo.
 
-![Força bruta da central de segurança](media/security-center-intro/sc-brute-force.png)
+![Força bruta do Centro de Segurança](media/security-center-intro/sc-brute-force.png)
 
-### <a name="protect-data-services"></a>Proteger serviços de dados
+### <a name="protect-data-services"></a>Proteger os serviços de dados
 
-A central de segurança inclui recursos que ajudam a executar a classificação automática de seus dados no SQL do Azure. Você também pode obter avaliações de possíveis vulnerabilidades em serviços de armazenamento e SQL do Azure e recomendações sobre como atenuá-las.
+O Security Center inclui capacidades que o ajudam a realizar a classificação automática dos seus dados no Azure SQL. Também pode obter avaliações de potenciais vulnerabilidades em serviços Azure SQL e Armazenamento, e recomendações sobre como atenuá-las.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteger cargas de trabalho de nuvem híbrida e IoT
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteja as cargas de trabalho em nuvem ioT e híbrida
 
-A central de segurança do Azure para IoT (Internet das Coisas) simplifica a proteção de carga de trabalho híbrida fornecendo visibilidade e controle unificados, prevenção de ameaças adaptáveis e detecção de ameaças inteligentes e resposta entre cargas de trabalho em execução no Edge, no local, em Azure e em outras nuvens. Para obter mais informações, consulte [central de segurança do Azure para IOT](https://docs.microsoft.com/azure/asc-for-iot/).
+O Azure Security Center for IoT (Internet of Things) simplifica a proteção da carga de trabalho híbrida, proporcionando visibilidade e controlo unificados, prevenção de ameaças adaptativas e deteção e resposta inteligentes de ameaças através de cargas de trabalho que funcionam no limite, no local, Azure, e em outras nuvens. Para mais informações, consulte [o Azure Security Center para ioT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Fique seguro mais rápido
 
-A integração nativa do Azure (incluindo logs de Azure Policy e Azure Monitor) combinada com a integração direta com outras soluções de segurança da Microsoft, como Microsoft Cloud App Security e proteção avançada contra ameaças do Windows Defender, ajuda a garantir que seu a solução de segurança é abrangente e simples de carregar e distribuir.
+Integração Native Azure (incluindo registos Azure Policy e Azure Monitor) combinada com integração perfeita com outras soluções de segurança da Microsoft, tais como Microsoft Cloud App Security e Windows Defender Advanced Threat Protection ajudam a certificar-se de que o seu a solução de segurança é abrangente, bem como simples de embarcar e sair.
 
-Além disso, você pode estender a solução completa além do Azure para cargas de trabalho em execução em outras nuvens e em data centers locais.
+Além disso, pode estender a solução completa para além do Azure a cargas de trabalho que correm noutras nuvens e em centros de dados no local.
 
-### <a name="automatically-discover-and-onboard-azure-resources"></a>Descubra e integre automaticamente os recursos do Azure
+### <a name="automatically-discover-and-onboard-azure-resources"></a>Descubra automaticamente e a bordo os recursos do Azure
 
-A central de segurança fornece integração nativa e integrada com os recursos do Azure e do Azure. Isso significa que você pode reunir uma história de segurança completa envolvendo Azure Policy e políticas internas da central de segurança em todos os seus recursos do Azure e garantir que tudo seja aplicado automaticamente a recursos recentemente descobertos ao criá-los no Azure.
+O Centro de Segurança proporciona uma integração nativa e perfeita com recursos Azure e Azure. Isso significa que você pode reunir uma história completa de segurança envolvendo política azure e políticas do Centro de Segurança incorporado em todos os seus recursos Azure, e certifique-se de que tudo é automaticamente aplicado aos recursos recém-descobertos à medida que os cria em Azure.
 
-Coleta de log extensiva – os logs do Windows e do Linux são todos utilizados no mecanismo de análise de segurança e usados para criar recomendações e alertas.
+Extensa recolha de registos - os registos do Windows e do Linux são todos alavancados no motor de análise de segurança e utilizados para criar recomendações e alertas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
-- O escalão de preço Gratuito do Centro de Segurança está ativado com a sua subscrição do Azure. Para tirar partido da gestão de segurança avançada e das capacidades de deteção de ameaças, tem de atualizar para o escalão de preço Standard. A camada Standard pode ser tentada gratuitamente. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.
+- O escalão de preço Gratuito do Centro de Segurança está ativado com a sua subscrição do Azure. Para tirar partido da gestão de segurança avançada e das capacidades de deteção de ameaças, tem de atualizar para o escalão de preço Standard. O nível Standard pode ser experimentado gratuitamente. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.
 - Se está pronto para ativar o Centro de Segurança Standard agora, o [Início rápido: Incluir a sua subscrição do Azure no Centro de Segurança Standard](security-center-get-started.md) acompanha-o ao longo dos passos.
 

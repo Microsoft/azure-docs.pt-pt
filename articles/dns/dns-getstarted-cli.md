@@ -1,27 +1,27 @@
 ---
-title: 'Início rápido: criar uma zona DNS do Azure e CLI do Azure de registro'
+title: 'Quickstart: Criar uma zona EDN Azure e gravar - Azure CLI'
 titleSuffix: Azure DNS
 description: Início Rápido - Saiba como criar uma zona DNS e o registar no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com a CLI do Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: 14d47a82ec6b5ec0ede626748216889a6943bfa6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072166"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937203"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: criar uma zona DNS do Azure e registar com a CLI do Azure
 
 Este artigo explica-lhe os passos para criar a primeira zona DNS e registar com a CLI 1.0 do Azure, que está disponível para Windows, Mac e Linux. Também pode executar estes passos com o [portal do Azure](dns-getstarted-portal.md) ou com o [Azure PowerShell](dns-getstarted-powershell.md).
 
-Uma zona DNS serve para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Por fim, para publicar a zona DNS na Internet, tem de configurar os servidores de nomes do domínio. Cada um destes passos está descrito abaixo.
+Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Por fim, para publicar a zona DNS na Internet, tem de configurar os servidores de nomes do domínio. Cada um destes passos está descrito abaixo.
 
-O DNS do Azure também dá suporte a zonas DNS privadas. Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
+O Azure DNS também suporta zonas privadas de DNS. Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -39,7 +39,7 @@ az group create --name MyResourceGroup --location "East US"
 
 Uma zona DNS é criada ao utilizar o comando `az network dns zone create`. Para ver a ajuda deste comando, escreva `az network dns zone create -h`.
 
-O exemplo a seguir cria uma zona DNS chamada *contoso. xyz* no grupo de recursos *MyResource*Group. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
+O exemplo seguinte cria uma zona DNS chamada *contoso.xyz* no grupo de recursos *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -49,7 +49,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda com os registos A, veja `azure network dns record-set A add-record -h`.
 
-O exemplo a seguir cria um registro com o nome relativo "www" na zona DNS "contoso. xyz" no grupo de recursos "MyResource Group". O nome totalmente qualificado do conjunto de registros é "www. contoso. xyz". O tipo de registro é "A", com o endereço IP "10.10.10.10", e um TTL padrão de 3600 segundos (1 hora).
+O exemplo seguinte cria um registo com o nome relativo "www" na Zona DNS "contoso.xyz" no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de discos é "www.contoso.xyz". O tipo de disco é "A", com endereço IP "10.10.10.10.10", e um TTL predefinido de 3600 segundos (1 hora).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -65,19 +65,19 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
 ## <a name="test-the-name-resolution"></a>Testar a resolução de nomes
 
-Agora que você tem uma zona DNS de teste com um registro ' A ' de teste, você pode testar a resolução de nome com uma ferramenta chamada *nslookup*. 
+Agora que tem uma zona de DNS de teste com um registo 'A' de teste, pode testar a resolução de nomecom uma ferramenta chamada *nslookup*. 
 
 **Para testar a resolução de nomes DNS:**
 
-1. Execute o seguinte cmdlet para obter a lista de servidores de nomes para sua zona:
+1. Execute o seguinte cmdlet para obter a lista de servidores de nome para a sua zona:
 
    ```azurecli
    az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
    ```
 
-1. Copie um dos nomes de servidor de nomes da saída da etapa anterior.
+1. Copie um dos nomes do servidor de nome sada da saída do passo anterior.
 
-1. Abra um prompt de comando e execute o seguinte comando:
+1. Abra um pedido de comando e executar o seguinte comando:
 
    ```
    nslookup www.contoso.xyz <name server name>
@@ -89,11 +89,11 @@ Agora que você tem uma zona DNS de teste com um registro ' A ' de teste, você 
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
    ```
 
-   Você deverá ver algo parecido com a tela a seguir:
+   Devia ver algo como o seguinte ecrã:
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome de host **www\.contoso. xyz** é resolvido para **10.10.10.10**, assim como você o configurou. Esse resultado verifica se a resolução de nomes está funcionando corretamente.
+O nome de anfitrião **www\.contoso.xyz** resolve-se em **10.10.10.10.10**, tal como o configura. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
 

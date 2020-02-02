@@ -1,6 +1,6 @@
 ---
-title: Conectar-se usando Java-banco de dados do Azure para MySQL
-description: Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados de um banco de dado do Azure para MySQL.
+title: Conecte-se usando Java - Base de Dados Azure para MySQL
+description: Este quickstart fornece uma amostra de código Java que pode usar para ligar e consultar dados de uma base de dados Azure para base de dados MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -8,38 +8,43 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 12/02/2019
-ms.openlocfilehash: 5f463434261dd782bb180f55986cc0f05c71cbe9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18a61c215f6c10bb399beaa83ec53ad2ebc62970
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770752"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938975"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Início rápido: usar o Java para se conectar e consultar dados no Azure Database para MySQL
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para MySQL
 
-Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando um aplicativo Java e o driver JDBC [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
+Neste arranque rápido, liga-se a uma Base de Dados Azure para mySQL utilizando uma aplicação Java e o controlador JDBC MariaDB Connector/J. Em seguida, utiliza declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados das plataformas Mac, Ubuntu Linux e Windows. 
+
+Este tópico pressupõe que está familiarizado com o desenvolvimento usando Java, mas é novo em trabalhar com a Base de Dados Azure para o MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
-   - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
-   - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-2. Confirmar que a segurança de ligação da sua Base de Dados do Azure para MySQL é configurada com a firewall aberta e as definições de SSL ajustadas para que a sua aplicação seja iniciada com sucesso.
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma base de dados Azure para servidor MySQL. [Crie uma base de dados Azure para servidor MySQL utilizando o portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [crie uma base de dados Azure para o servidor MySQL utilizando o Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+- A Base de Dados Azure para a segurança da ligação MySQL está configurada com as definições de ligação ssl abertas e ssl configuradas para a sua aplicação.
 
-3. Obtenha o conector do MariaDB Connector/J usando uma das seguintes abordagens:
-   - Use o pacote Maven [MariaDB-Java-Client](https://search.maven.org/search?q=a:mariadb-java-client) para incluir a [dependência MariaDB-Java-Client](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) no arquivo POM para seu projeto.
-   - Baixe o driver JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e inclua o arquivo JAR JDBC (por exemplo MariaDB-Java-Client-2.4.3. jar) no classpath do aplicativo. Se tiver problemas com caminhos de classe, consulte a documentação do seu ambiente relativamente às especificações de caminho da classe, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+## <a name="obtain-the-mariadb-connector"></a>Obtenha o conector MariaDB
+
+Obtenha o [conector MariaDB/J](https://mariadb.com/kb/en/library/mariadb-connector-j/) utilizando uma das seguintes abordagens:
+   - Utilize o pacote Maven [mariadb-java-cliente](https://search.maven.org/search?q=a:mariadb-java-client) para incluir a [dependência mariadb-java-cliente](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) no ficheiro POM para o seu projeto.
+   - Descarregue o controlador JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e inclua o ficheiro jDBC (por exemplo, mariadb-java-cliente-2.4.3.jar) no seu percurso de classe de aplicação. Consulte a documentação do seu ambiente para especificidades do caminho de classe, tais como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
+
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, selecione **todos os recursos**e procure o servidor que você criou (como **mydemoserver**).
+2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**, e depois procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  ![Nome do servidor da Base de Dados do Azure para o MySQL](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
+
 Utilize o código seguinte para se ligar e carregar os dados através da função com a instrução SQL **INSERT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e execute () são utilizados para cancelar e criar a tabela. O objeto prepareStatement é utilizado para criar os comandos de introdução, com setString() e setInt() que unem os valores do parâmetro. O método executeUpdate() executa o comando para cada conjunto de parâmetros para inserir os valores. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
@@ -142,7 +147,8 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Ler dados
-Utilize o código seguinte para ler os dados com a instrução SQL **SELECT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [createStatement ()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e executeQuery () são usados para conectar e executar a instrução SELECT. Os resultados são processados usando um objeto ResultSet. 
+
+Utilize o código seguinte para ler os dados com a instrução SQL **SELECT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [criamStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e executoQuery() são utilizados para ligar e executar a declaração selecionada. Os resultados são processados utilizando um objeto ResultSet. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 
@@ -229,6 +235,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Atualizar dados
+
 Utilize o código seguinte para alterar os dados com a instrução SQL **UPDATE**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a instrução update. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
@@ -311,7 +318,8 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Eliminar dados
-Utilize o código seguinte para remover os dados com a instrução SQL **DELETE**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL.  Os métodos [prepareStatement ()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e ExecuteUpdate () são usados para preparar e executar a instrução DELETE. 
+
+Utilize o código seguinte para remover os dados com a instrução SQL **DELETE**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL.  Os métodos [de preparação DeStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a declaração de exclusão. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 

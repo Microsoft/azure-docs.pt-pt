@@ -1,8 +1,8 @@
 ---
-title: 'Início rápido: criar um perfil para alta disponibilidade de aplicativos-Azure PowerShell-Gerenciador de tráfego do Azure'
-description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de tráfego para criar um aplicativo Web altamente disponível.
+title: Quickstart:Criar um perfil para a elevada disponibilidade de aplicações - Azure PowerShell - Gestor de Tráfego Azure
+description: Este artigo de arranque rápido descreve como criar um perfil de Gestor de Tráfego para construir uma aplicação web altamente disponível.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2019
-ms.author: allensu
-ms.openlocfilehash: 01749c2bd9091449e11e4dd30e88d2fe7d0df78b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 0ab7392b4fa6e248d51392706fedaed156344a99
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483759"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934807"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Início rápido: criar um perfil do Gerenciador de tráfego para um aplicativo Web altamente disponível usando Azure PowerShell
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando o Azure PowerShell
 
-Este guia de início rápido descreve como criar um perfil do Gerenciador de tráfego que fornece alta disponibilidade para seu aplicativo Web.
+Este quickstart descreve como criar um perfil de Gestor de Tráfego que proporciona alta disponibilidade para a sua aplicação web.
 
-Neste guia de início rápido, você criará duas instâncias de um aplicativo Web. Cada um deles está sendo executado em uma região diferente do Azure. Você criará um perfil do Gerenciador de tráfego com base na [prioridade do ponto de extremidade](traffic-manager-routing-methods.md#priority-traffic-routing-method). O perfil direciona o tráfego do usuário para o site primário que está executando o aplicativo Web. O Gerenciador de tráfego monitora continuamente o aplicativo Web. Se o site primário não estiver disponível, ele fornecerá o failover automático para o site de backup.
+Neste arranque rápido, irá criar duas instâncias de uma aplicação web. Cada um deles está a funcionar numa região de Azure diferente. Criará um perfil de Gestor de Tráfego baseado na [prioridade do ponto final.](traffic-manager-routing-methods.md#priority-traffic-routing-method) O perfil direciona o tráfego do utilizador para o site principal que executa a aplicação web. O Gestor de Tráfego monitoriza continuamente a aplicação web. Se o site principal não estiver disponível, fornece falha automática ao site de backup.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um Grupo de Recursos
-Crie um grupo de recursos usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
+Crie um grupo de recursos utilizando o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name MyResourceGroup -Location $Location1
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 
-Crie um perfil do Gerenciador de tráfego usando [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) que direciona o tráfego do usuário com base na prioridade do ponto de extremidade.
+Crie um perfil de Gestor de Tráfego utilizando [o New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) que direciona o tráfego do utilizador com base na prioridade do ponto final.
 
 ```azurepowershell-interactive
 
@@ -65,12 +65,12 @@ New-AzTrafficManagerProfile `
 -MonitorPort 80
 ```
 
-## <a name="create-web-apps"></a>Criar aplicativos Web
+## <a name="create-web-apps"></a>Criar aplicações web
 
-Para este guia de início rápido, você precisará de duas instâncias de um aplicativo Web implantado em duas regiões diferentes do Azure (*oeste dos EUA* e *leste dos EUA*). Cada um servirá como pontos de extremidade primários e de failover para o Gerenciador de tráfego.
+Para este arranque rápido, você precisará de dois casos de uma aplicação web implantada em duas regiões azure diferentes (*Oeste dos EUA* e Leste dos *EUA).* Cada um servirá como pontos finais primários e falhados para o Gestor de Tráfego.
 
-### <a name="create-web-app-service-plans"></a>Criar planos do serviço de aplicativo Web
-Crie planos de serviço de aplicativo Web usando [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) para as duas instâncias do aplicativo Web que serão implantadas em duas regiões diferentes do Azure.
+### <a name="create-web-app-service-plans"></a>Criar planos de serviço de aplicações web
+Crie planos de serviço sinuoso utilizando [o New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) para as duas instâncias da aplicação web que irá implementar em duas regiões azure diferentes.
 
 ```azurepowershell-interactive
 
@@ -85,8 +85,8 @@ New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName MyResourceGroup -
 New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
-### <a name="create-a-web-app-in-the-app-service-plan"></a>Criar um aplicativo Web no plano do serviço de aplicativo
-Crie duas instâncias do aplicativo Web usando [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) nos planos do serviço de aplicativo nas regiões *oeste dos EUA* e *leste dos EUA* do Azure.
+### <a name="create-a-web-app-in-the-app-service-plan"></a>Criar uma Aplicação Web no Plano de Serviço de Aplicações
+Crie duas instâncias a aplicação web usando [new-AzWebApp](/powershell/module/az.websites/new-azwebapp) nos planos do Serviço de Aplicações nas regiões *Oeste dos EUA* e East *US* Azure.
 
 ```azurepowershell-interactive
 $App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
@@ -95,9 +95,9 @@ $App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
-Adicione os dois aplicativos Web como pontos de extremidade do Gerenciador de tráfego usando [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ao perfil do Gerenciador de tráfego da seguinte maneira:
-- Adicione o aplicativo Web localizado na região *oeste dos EUA* do Azure como o ponto de extremidade primário para rotear todo o tráfego do usuário. 
-- Adicione o aplicativo Web localizado na região *leste dos EUA* do Azure como o ponto de extremidade de failover. Quando o ponto de extremidade primário não está disponível, o tráfego roteia automaticamente para o ponto de extremidade de failover.
+Adicione as duas Aplicações Web como pontos finais do Gestor de Tráfego utilizando [o New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) para o perfil do Gestor de Tráfego da seguinte forma:
+- Adicione a Aplicação Web localizada na região *west us* azure como o principal ponto final para direcionar todo o tráfego de utilizadores. 
+- Adicione a Aplicação Web localizada na região *east us* azure como o ponto final de failover. Quando o ponto final principal não está disponível, o tráfego automaticamente se encaminha para o ponto final de falha.
 
 ```azurepowershell-interactive
 New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
@@ -117,25 +117,25 @@ New-AzTrafficManagerEndpoint -Name "$App2Name-$Location2" `
 
 ## <a name="test-traffic-manager-profile"></a>Testar o perfil do Gestor de Tráfego
 
-Nesta seção, você verificará o nome de domínio do seu perfil do Gerenciador de tráfego. Você também configurará o ponto de extremidade primário como indisponível. Por fim, você verá que o aplicativo Web ainda está disponível. É porque o Traffic Manager envia o tráfego para o ponto de extremidade de failover.
+Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de Tráfego. Também configurará o ponto final principal para não estar disponível. Finalmente, pode ver que a aplicação da web ainda está disponível. É porque o Gestor de Tráfego envia o tráfego para o ponto final do fracasso.
 
 ### <a name="determine-the-dns-name"></a>Determinar o nome DNS
 
-Determine o nome DNS do perfil do Gerenciador de tráfego usando [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
+Determine o nome DNS do perfil do Gestor de Tráfego utilizando [o Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
 
 ```azurepowershell-interactive
 Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
 -ResourceGroupName MyResourceGroup
 ```
 
-Copie o valor **RelativeDnsName** . O nome DNS do seu perfil do Gerenciador de tráfego é *http://<* relativednsname *>. trafficmanager. net*. 
+Copie o valor **relativodnsnome.** O nome DNS do seu perfil de Traffic Manager é *http://<* relativednsname *>.trafficmanager.net*. 
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
-1. Em um navegador da Web, insira o nome DNS do seu perfil do Gerenciador de tráfego (*http://<* relativednsname *>. trafficmanager. net*) para exibir o site padrão do seu aplicativo Web.
+1. Num navegador web, introduza o nome DNS do seu perfil de Traffic Manager *(http://<* relativednsname *>.trafficmanager.net*) para ver o website predefinido da sua Web App.
 
     > [!NOTE]
-    > Neste cenário de início rápido, todas as solicitações são roteadas para o ponto de extremidade primário. Ele é definido como **prioridade 1**.
-2. Para exibir o failover do Gerenciador de tráfego em ação, desabilite o site primário usando [Disable-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint).
+    > Neste cenário de arranque rápido, todos os pedidos de rota para o ponto final primário. Está definido para a **Prioridade 1**.
+2. Para ver o failover do Traffic Manager em ação, desative o seu site principal utilizando o [Desactivador-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint).
 
    ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
@@ -144,12 +144,12 @@ Copie o valor **RelativeDnsName** . O nome DNS do seu perfil do Gerenciador de t
     -ResourceGroupName MyResourceGroup `
     -Force
    ```
-3. Copie o nome DNS do seu perfil do Gerenciador de tráfego (*http://<* relativednsname *>. trafficmanager. net*) para exibir o site em uma nova sessão do navegador da Web.
-4. Verifique se o aplicativo Web ainda está disponível.
+3. Copie o nome DNS do seu perfil de Traffic Manager *(http://<* relativednsname *>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
+4. Verifique se a aplicação da web ainda está disponível.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar, exclua os grupos de recursos, aplicativos Web e todos os recursos relacionados usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando terminar, elimine os grupos de recursos, aplicações web e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
@@ -157,7 +157,7 @@ Remove-AzResourceGroup -Name MyResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um perfil do Gerenciador de tráfego que fornece alta disponibilidade para seu aplicativo Web. Para saber mais sobre o tráfego de roteamento, continue para os tutoriais do Gerenciador de tráfego.
+Neste arranque rápido, criou um perfil de Gestor de Tráfego que proporciona uma elevada disponibilidade para a sua aplicação web. Para saber mais sobre o tráfego de encaminhamento, continue para os tutoriais do Gestor de Tráfego.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md) (Tutoriais do Gestor de Tráfego)

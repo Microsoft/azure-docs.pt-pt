@@ -1,51 +1,51 @@
 ---
-title: Bastiões do Azure | Microsoft Docs
-description: Saiba mais sobre a bastiões do Azure
+title: Bastião Azure Microsoft Docs
+description: Saiba mais sobre o Bastião Azure
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 12/09/2019
+ms.date: 01/31/2020
 ms.author: cherylmc
-ms.openlocfilehash: 785d9da57171e60f5762a1449c24f9c767be3bc9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 96f5ecc0fb675835f129f40d83c592f42d222ce4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972805"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938315"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
-O serviço de bastiões do Azure é um novo serviço de PaaS totalmente gerenciado por plataforma que você provisiona dentro de sua rede virtual. Ele fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre SSL. Ao ligar através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
+O serviço Azure Bastion é um novo serviço PaaS totalmente gerido pela plataforma que você disponibiliza dentro da sua rede virtual. Fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre o SSL. Ao ligar através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
 
- A bastiões fornece conectividade segura de RDP e SSH para todas as VMs na rede virtual em que ela é provisionada. Usar a bastiões do Azure protege suas máquinas virtuais contra a exposição de portas RDP/SSH para o mundo exterior enquanto ainda fornece acesso seguro usando RDP/SSH. Com a bastiões do Azure, você se conecta à máquina virtual diretamente do portal do Azure. Você não precisa de um cliente adicional, agente ou parte do software.
+ A Bastion fornece conectividade segura de RDP e SSH a todos os VMs da rede virtual em que é aprovisionado. A utilização do Azure Bastion protege as suas máquinas virtuais de expor portas RDP/SSH ao mundo exterior, ao mesmo tempo que proporciona acesso seguro utilizando RDP/SSH. Com o Azure Bastion, ligue-se à máquina virtual diretamente do portal Azure. Não precisa de um cliente, agente ou peça de software adicional.
 
 ## <a name="architecture"></a>Arquitetura
 
-A bastiões do Azure é implantada em sua rede virtual e, uma vez implantada, fornece a experiência RDP/SSH segura para todas as máquinas virtuais em sua rede virtual. Depois de provisionar um serviço de bastiões do Azure em sua rede virtual, a experiência de RDP/SSH estará disponível para todas as suas VMs na mesma rede virtual. A implantação é por rede virtual, não por assinatura/conta ou máquina virtual.
+O Azure Bastion está implantado na sua rede virtual e, uma vez implementado, fornece a experiência segura RDP/SSH para todas as máquinas virtuais da sua rede virtual. Uma vez que você disponibilize um serviço Azure Bastion na sua rede virtual, a experiência RDP/SSH está disponível para todos os seus VMs na mesma rede virtual. A implementação é por rede virtual, não por subscrição/conta ou máquina virtual.
 
-RDP e SSH são alguns dos meios fundamentais pelos quais você pode se conectar às suas cargas de trabalho em execução no Azure. Expor portas RDP/SSH pela Internet não é desejado e é visto como uma superfície de ameaça significativa. Isso geralmente ocorre devido a vulnerabilidades de protocolo. Para conter essa superfície de ameaça, você pode implantar hosts de bastiões (também conhecidos como servidores de salto) no lado público da rede de perímetro. Os servidores host bastião são projetados e configurados para resistir a ataques. Os servidores bastiões também fornecem conectividade RDP e SSH para as cargas de trabalho que estão atrás da bastiões, bem como dentro da rede.
+RDP e SSH são alguns dos meios fundamentais através dos quais pode ligar-se às suas cargas de trabalho em funcionamento em Azure. Expor portas RDP/SSH através da Internet não é desejado e é visto como uma superfície de ameaça significativa. Isto deve-se muitas vezes a vulnerabilidades protocolares. Para conter esta superfície de ameaça, pode implantar anfitriões de bastião (também conhecidos como servidores de salto) no lado público da sua rede de perímetro. Os servidores de anfitriões do Bastião são projetados e configurados para resistir a ataques. Os servidores bastion também fornecem conectividade RDP e SSH às cargas de trabalho que estão atrás do bastião, bem como mais dentro da rede.
 
 ![arquitetura](./media/bastion-overview/architecture.png)
 
-Esta figura mostra a arquitetura de uma implantação de bastiões do Azure. Neste diagrama:
+Esta figura mostra a arquitetura de uma implantação do Azure Bastion. Neste diagrama:
 
-* O host de bastiões é implantado na rede virtual.
+* O anfitrião bastião está implantado na rede virtual.
 * O usuário se conecta ao portal do Azure usando qualquer navegador HTML5.
-* O usuário seleciona a máquina virtual à qual se conectar.
-* Com um único clique, a sessão RDP/SSH é aberta no navegador.
+* O utilizador seleciona a máquina virtual para se ligar.
+* Com um único clique, a sessão RDP/SSH abre no navegador.
 * Nenhum IP público é necessário na VM do Azure.
 
 ## <a name="key-features"></a>Principais funcionalidades
 
-Os seguintes recursos estão disponíveis:
+Estão disponíveis as seguintes funcionalidades:
 
-* **RDP e SSH diretamente no portal do Azure:** Você pode acessar diretamente a sessão RDP e SSH diretamente no portal do Azure usando uma experiência simples de clique único.
-* **Sessão remota sobre SSL e passagem de firewall para RDP/SSH:** A bastiões do Azure usa um cliente Web baseado em HTML5 que é transmitido automaticamente para seu dispositivo local, para que você obtenha sua sessão RDP/SSH sobre SSL na porta 443, permitindo que você percorra firewalls corporativos com segurança.
-* **Nenhum IP público necessário na VM do Azure:** A bastiões do Azure abre a conexão RDP/SSH para sua máquina virtual do Azure usando o IP privado em sua VM. Você não precisa de um IP público em sua máquina virtual.
-* **Sem complicações no gerenciamento de NSGs:** A bastiões do Azure é um serviço de PaaS de plataforma totalmente gerenciado do Azure que é protegido internamente para fornecer conectividade RDP/SSH segura. Você não precisa aplicar nenhum NSGs na sub-rede de bastiões do Azure. Como a bastiões do Azure se conecta às suas máquinas virtuais por meio de IP privado, você pode configurar seu NSGs para permitir RDP/SSH somente de bastiões do Azure. Isso elimina a complicação de gerenciar NSGs cada vez que você precisa se conectar com segurança às suas máquinas virtuais.
-* **Proteção contra verificação de porta:** Como você não precisa expor suas máquinas virtuais para a Internet pública, suas VMs são protegidas contra a verificação de porta por usuários não autorizados e mal-intencionados localizados fora de sua rede virtual.
-* **Proteja-se contra explorações de dia zero. Proteção em apenas um lugar:** a bastiões do Azure é um serviço de PaaS totalmente gerenciado por plataforma. Como ele reside no perímetro da sua rede virtual, você não precisa se preocupar em proteger cada uma das máquinas virtuais em sua rede virtual. A plataforma Azure protege contra explorações de dia zero mantendo a bastiões do Azure protegida e sempre atualizada para você.
+* **RDP e SSH diretamente no portal Azure:** Pode chegar diretamente à sessão rdp e SSH diretamente no portal Azure usando uma experiência perfeita de clique.
+* **Sessão Remota sobre SSL e firewall transversal para RDP/SSH:** A Azure Bastion utiliza um cliente web baseado em HTML5 que é automaticamente transmitido para o seu dispositivo local, para que obtenha a sua sessão RDP/SSH sobre a SSL na porta 443, permitindo-lhe atravessar firewalls corporativos de forma segura.
+* **Não é necessário ip público no Azure VM:** A Azure Bastion abre a ligação RDP/SSH à sua máquina virtual Azure utilizando IP privado no seu VM. Não precisa de um IP público na sua máquina virtual.
+* **Sem aborrecimentos na gestão de NSGs:** Azure Bastion é um serviço paaS de plataforma totalmente gerido do Azure que é endurecido internamente para fornecer-lhe conectividade RDP/SSH segura. Não precisas de aplicar nsgs na subnet azure bastion. Como a Azure Bastion se conecta às suas máquinas virtuais em IP privado, pode configurar os seus NSGs para permitir apenas RDP/SSH a partir do Azure Bastion. Isto remove o incómodo de gerir nsgs cada vez que precisa de se ligar de forma segura às suas máquinas virtuais.
+* **Proteção contra** a varredura portuária: Uma vez que não precisa de expor as suas máquinas virtuais à Internet pública, os seus VMs estão protegidos contra a verificação de portas por utilizadores fraudulentos e maliciosos localizados fora da sua rede virtual.
+* **Proteja-se contra façanhas de zero dias. Endurecimento num só local:** O Azure Bastion é um serviço PaaS totalmente gerido pela plataforma. Como está no perímetro da sua rede virtual, não precisa de se preocupar em endurecer cada uma das máquinas virtuais da sua rede virtual. A plataforma Azure protege contra explorações de dia zero mantendo o Bastião Azure endurecido e sempre atualizado para si.
 
 ## <a name="faq"></a>FAQ
 
@@ -53,5 +53,5 @@ Os seguintes recursos estão disponíveis:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Crie um recurso do host de bastiões do Azure](bastion-create-host-portal.md).
+* [Crie um recurso de acolhimento do Azure Bastion.](bastion-create-host-portal.md)
 * Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) do Azure.

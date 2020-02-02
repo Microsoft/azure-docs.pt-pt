@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Azure - Executar Tarefa do Batch - CLI
-description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure.
+description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure. Crie e gerea recursos Azure a partir da linha de comando ou em scripts.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 73dc180b905dd8a7e2f0d2b09666e91cced771fb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029491"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932244"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 
@@ -31,7 +31,7 @@ Se optar por instalar e usar a CLI localmente, este início rápido requer a exe
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eualeste2*.
+O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -39,7 +39,7 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Pode associar uma conta de Armazenamento do Microsoft Azure à sua conta do Batch. Apesar de não ser obrigatório para este início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create) para criar uma conta de armazenamento no seu grupo de recursos.
 
@@ -137,7 +137,7 @@ az batch task show \
 
 A saída do comando inclui muitos detalhes, mas tome nota do `exitCode` da linha de comandos de tarefas e o `nodeId`. Um `exitCode` de 0 indica que a linha de comandos da tarefa foi concluída com êxito. O `nodeId` indica o ID do nó no conjunto no qual a tarefa foi executada.
 
-## <a name="view-task-output"></a>Ver resultado das tarefas
+## <a name="view-task-output"></a>Ver o resultado das tarefas
 
 Para listar os ficheiros criados por uma tarefa num nó de computação, utilize o comando [az batch task file list](/cli/azure/batch/task). O comando seguinte lista os ficheiros criados por *mytask1*: 
 

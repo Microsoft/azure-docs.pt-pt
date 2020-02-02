@@ -5,25 +5,52 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 01/16/2020
+ms.date: 01/30/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0abaf807737a09ebcab496ab794205f5cd0eebe7
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: bc48daed4f20af7c275d651820cf9b17a8e24d41
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76159331"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938320"
 ---
 >[!NOTE]
 >Estamos trabalhando duro para adicionar outras regiões. Quando uma região é adicionada, ela será adicionada a essa lista.
 >
 
-* E.U.A. Oeste
-* E.U.A. Oeste 2
+**Américas**
+* Sul do Brasil
+* Canadá Central
+* E.U.A. Central
 * E.U.A. Leste
 * E.U.A. Leste 2
-* Europa Ocidental
+* E.U.A. Centro-Norte
 * E.U.A. Centro-Sul
+* E.U.A. Centro-Oeste
+* E.U.A. Oeste
+* E.U.A. Oeste 2
+
+**Europa**
+* França Central
+* Europa do Norte
+* Leste da Noruega
+* Sul do Reino Unido
+* Oeste do Reino Unido
+* Europa Ocidental
+
+**Ásia-Pacífico**
+* Austrália Central 2
 * Leste da Austrália
+* Sudeste da Austrália
+* Ásia Oriental
 * Leste do Japão
+* Oeste do Japão
+* Coreia do Sul Central
+* Sul da Coreia do Sul
+* Sudeste Asiático
+* Oeste da Índia
+
+**Médio Oriente e África**
+* Norte da África do Sul
+* E.A.U. Central

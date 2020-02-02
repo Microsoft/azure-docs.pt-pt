@@ -2,30 +2,30 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: azure-app-configuration
-author: yegu
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 12/04/2019
-ms.author: yegu
+ms.date: 1/31/2020
+ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: 711b807372404815e5ba57b95def91429a1925dc
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3eb77799b1845112e9f7e5ca0b65d790625fd529
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875578"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961579"
 ---
-Se você planeja continuar para o próximo tutorial, mantenha os recursos criados neste guia de início rápido para que você possa reutilizá-los.
+Se pretende continuar para o próximo tutorial, guarde os recursos que criou neste arranque rápido para que possa reutilizá-los.
 
-Se você tiver concluído o aplicativo de exemplo de início rápido, exclua os recursos do Azure criados neste guia de início rápido para evitar cobranças.
+Se terminar com a aplicação de amostra sintetizadora, elimine os recursos Azure que criou neste arranque rápido para evitar encargos.
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele são excluídos permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se você criou os recursos para hospedar esse exemplo dentro de um grupo de recursos que contém os recursos que deseja manter, exclua cada recurso individualmente de seu respectivo painel em vez de excluir o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele são permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se criou os recursos para hospedar esta amostra dentro de um grupo de recursos que contém recursos que pretende manter, elimine cada recurso individualmente do seu respetivo painel em vez de eliminar o grupo de recursos.
 
-1. Entre no [portal do Azure](https://portal.azure.com)e selecione **grupos de recursos**.
-1. Na caixa **Filtrar por nome** , digite o nome do seu grupo de recursos. 
-1. Na lista de resultados, selecione o grupo de recursos e clique com o botão direito do mouse na linha ou use o botão de **reticências** ( **...** ) para abrir o menu de contexto.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e selecione **Grupos de Recursos.**
+1. Na caixa **de nome filter** by, introduza o nome do seu grupo de recursos. 
+1. Na lista de resultados, selecione o grupo de recursos e clique na linha ou clique na linha ou use o botão **de elipse** **(...** ) para abrir o menu de contexto.
 1. Selecione **Eliminar grupo de recursos**.
-1. É-lhe pedido que confirme a eliminação do grupo de recursos. Insira o nome do grupo de recursos a ser confirmado e selecione **excluir**.
+1. É-lhe pedido que confirme a eliminação do grupo de recursos. Insira o nome do seu grupo de recursos para confirmar e selecione **Eliminar**.
 
-Após alguns instantes, o grupo de recursos e todos os seus recursos serão excluídos.
+Após alguns momentos, o grupo de recursos e todos os seus recursos são eliminados.
