@@ -2,13 +2,13 @@
 title: Configurar sonda de prontidão na instância do recipiente
 description: Saiba como configurar uma sonda para garantir que os contentores em Casos de Contentores Azure recebam pedidos apenas quando estiverem prontos
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901849"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935683"
 ---
 # <a name="configure-readiness-probes"></a>Configurar pesquisas readiness
 
@@ -23,7 +23,7 @@ As instâncias de contentores Azure também suportam sondas de [vivacidade,](con
 
 ## <a name="yaml-configuration"></a>Configuração YAML
 
-Como exemplo, crie um ficheiro `readiness-probe.yaml` com o seguinte corte que inclua uma sonda de prontidão. Este ficheiro define um grupo de contentores que consiste num contentor que executa uma pequena aplicação web. A aplicação é implantada a partir do público `mcr.microsoft.com/azuredocs/aci-helloworld` imagem. Esta aplicação de contentores também é demonstrada em arranques rápidos, como implementar uma instância de [contentores em Azure utilizando o Azure CLI](container-instances-quickstart.md).
+Como exemplo, crie um ficheiro `readiness-probe.yaml` com o seguinte corte que inclua uma sonda de prontidão. Este ficheiro define um grupo de contentores que consiste num contentor que executa uma pequena aplicação web. A aplicação é implantada a partir do público `mcr.microsoft.com/azuredocs/aci-helloworld` imagem. Esta aplicação contentorizada também é demonstrada na [implantação de um contentor em Azure utilizando o Azure CLI](container-instances-quickstart.md) e outros quickstarts.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Iniciar o comando
 
-O ficheiro YAML inclui um comando inicial a ser executado quando o recipiente começa, definido pela propriedade `command` que aceita uma série de cordas. Este comando simula uma época em que a aplicação web funciona, mas o recipiente não está pronto. Primeiro, inicia uma sessão de conchas e executa um comando `node` para iniciar a aplicação web. Também inicia um comando para dormir durante 240 segundos, após o qual cria um ficheiro chamado `ready` dentro do diretório `/tmp`:
+A implantação inclui uma propriedade `command` que define um comando inicial que funciona quando o contentor começa a funcionar. Esta propriedade aceita uma variedade de cordas. Este comando simula uma época em que a aplicação web funciona, mas o recipiente não está pronto. 
+
+Primeiro, inicia uma sessão de conchas e executa um comando `node` para iniciar a aplicação web. Também inicia um comando para dormir durante 240 segundos, após o qual cria um ficheiro chamado `ready` dentro do diretório `/tmp`:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

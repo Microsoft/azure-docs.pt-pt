@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843927"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935482"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
-Esta página fornece informações de solução de problemas comuns de Azure Load Balancer. Quando a conectividade do Load Balancer não está disponível, os sintomas mais comuns são os seguintes: 
+Esta página fornece informações de resolução de problemas para questões básicas e standard comuns do Equilíbrio de Carga Azure. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer visão geral](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+
+Quando a conectividade do Load Balancer não está disponível, os sintomas mais comuns são os seguintes: 
+
 - As VMs por trás da Load Balancer não estão respondendo às investigações de integridade 
 - As VMs por trás da Load Balancer não estão respondendo ao tráfego na porta configurada
 
@@ -124,6 +127,10 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 Se uma Load Balancer interna for configurada em uma VNet e uma das VMs de back-end do participante estiver tentando acessar o frontend interno de Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Este cenário não é apoiado. Reveja as [limitações](concepts-limitations.md#limitations) de uma discussão detalhada.
 
 **Resolução** Há várias maneiras de desbloquear esse cenário, incluindo o uso de um proxy. Avalie o gateway de aplicativo ou outros proxies de terceiros (por exemplo, Nginx ou HAProxy). Para obter mais informações sobre o gateway de aplicativo, consulte [visão geral do gateway de aplicativo](../application-gateway/application-gateway-introduction.md)
+
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintoma: Não pode alterar a porta de backend para a regra LB existente de um equilibrista de carga que tem o Conjunto de Escala VM implantado na piscina de backend. 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa : A porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde para equilibrador de carga referenciada por Conjunto de Balança VM.
+**Resolução** Para alterar a porta, pode remover a sonda de saúde atualizando o Conjunto de Escala VM, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
 
 ## <a name="additional-network-captures"></a>Capturas de rede adicionais
 Se você decidir abrir um caso de suporte, colete as informações a seguir para uma resolução mais rápida. Escolha uma única VM de back-end para executar os seguintes testes:

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a4140ffc0d4e97afabb1c3080951eeb75c792a8c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887520"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961555"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Há três cenários que podem levar à máquina virtual no Azure ser afetada: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -53,7 +53,7 @@ Saiba mais sobre como implantar uma VM do [Windows](../articles/virtual-machines
 Os conjuntos de disponibilidade são outra configuração de datacenter para fornecer redundância e disponibilidade de VM. Esta configuração dentro de um datacenter garante que durante um evento de manutenção planeado ou não planeado, pelo menos uma máquina virtual está disponível e cumpre o Azure SLA de 99,95%. Para obter mais informações, veja [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Evite deixar isolada uma máquina virtual de instância única num conjunto de disponibilidade. As VMs nesta configuração não se qualificam para uma garantia de SLA e enfrentam tempo de inatividade durante eventos de manutenção planejada do Azure, exceto quando uma única VM está usando o [SSDs Premium do Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Para VMs únicas usando SSDs Premium, o SLA do Azure se aplica.
+> Uma única máquina virtual numa única instância definida por si mesma deve utilizar Premium SSD ou Ultra Disk para todos os discos e discos de dados do sistema operativo, de modo a se qualificar para o SLA para conectividade Máquina Virtual de pelo menos 99,9%.
 
 A cada máquina virtual no seu conjunto de disponibilidade é atribuído um **domínio de atualização** e um **domínio de falha** pela plataforma Azure subjacente. Para um conjunto de disponibilidade especificado, cinco domínios de atualização não configuráveis pelo utilizador são atribuídos por predefinição (as implementações do Resource Manager podem então ser aumentadas para fornecer até 20 domínios de atualização), para indicar os grupos de máquinas virtuais e o hardware físico subjacente que podem ser reiniciados ao mesmo tempo. Quando são configuradas mais de cinco máquinas virtuais num conjunto de disponibilidade único, a sexta máquina virtual é colocada no mesmo domínio de atualização da primeira máquina virtual, a sétima no mesmo domínio de atualização da segunda máquina virtual, e assim sucessivamente. A ordem dos domínios de atualização que estão a ser reiniciados não pode continuar sequencialmente durante a manutenção planeada, sendo que apenas um domínio de atualização é reiniciado de cada vez. Um domínio de atualização reiniciado dispõe de 30 minutos para realizar a recuperação antes de a manutenção ser iniciada num domínio de atualização diferente.
 

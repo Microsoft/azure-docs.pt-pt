@@ -1,18 +1,18 @@
 ---
 title: Hospedar zonas de pesquisa de DNS inversa no DNS do Azure
 description: Saiba como usar o DNS do Azure para hospedar as zonas de pesquisa inversa de DNS para seus intervalos de IP
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: allensu
-ms.openlocfilehash: 6052934e15d6975265c9eded459eea4446c9eee1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.author: rohink
+ms.openlocfilehash: 97390ab3dbaeff4d6c8cc6648692efd62fc121df
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277960"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932512"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hospedar zonas de pesquisa de DNS inversa no DNS do Azure
 

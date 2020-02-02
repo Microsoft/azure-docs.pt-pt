@@ -1,68 +1,68 @@
 ---
-title: Métricas e alertas no Gerenciador de tráfego do Azure
-description: Neste artigo, Aprenda as métricas e os alertas disponíveis para o Gerenciador de tráfego no Azure.
+title: Métricas e Alertas no Gestor de Tráfego Azure
+description: Neste artigo, conheça as métricas e alertas disponíveis para O Gestor de Tráfego em Azure.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
-ms.author: allensu
-ms.openlocfilehash: 7e374e11053f0a1baabed72fdb240b34e2107b2a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 521e6ac605d187c0f95545611a17a86cfda6e1dd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038072"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938592"
 ---
-# <a name="traffic-manager-metrics-and-alerts"></a>Métricas e alertas do Gerenciador de tráfego
+# <a name="traffic-manager-metrics-and-alerts"></a>Métricas e alertas do Gestor de Tráfego
 
-O Gerenciador de tráfego fornece balanceamento de carga baseado em DNS que inclui vários métodos de roteamento e opções de monitoramento de ponto de extremidade. Este artigo descreve as métricas e os alertas associados que estão disponíveis para os clientes. 
+O Traffic Manager fornece-lhe um equilíbrio de carga baseado em DNS que inclui múltiplos métodos de encaminhamento e opções de monitorização de pontos finais. Este artigo descreve as métricas e os alertas associados que estão disponíveis para os clientes. 
 
-## <a name="metrics-available-in-traffic-manager"></a>Métricas disponíveis no Gerenciador de tráfego 
+## <a name="metrics-available-in-traffic-manager"></a>Métricas disponíveis no Gestor de Tráfego 
 
-O Gerenciador de tráfego fornece as seguintes métricas por perfil que os clientes podem usar para entender o uso do Gerenciador de tráfego e o status de seus pontos de extremidade sob esse perfil.  
+O Traffic Manager fornece as seguintes métricas por perfil que os clientes podem usar para compreender a sua utilização do Gestor de Tráfego e o estado dos seus pontos finais sob esse perfil.  
 
-### <a name="queries-by-endpoint-returned"></a>Consultas por ponto de extremidade retornadas
-Use [essa métrica](../azure-monitor/platform/metrics-supported.md) para exibir o número de consultas processadas por um perfil do Gerenciador de tráfego durante um período especificado. Você também pode exibir as mesmas informações em uma granularidade de nível de ponto de extremidade que ajuda você a entender quantas vezes um ponto de extremidade foi retornado nas respostas de consulta do Gerenciador de tráfego.
+### <a name="queries-by-endpoint-returned"></a>Consultas por endpoint devolvidos
+Utilize [esta métrica](../azure-monitor/platform/metrics-supported.md) para visualizar o número de consultas que um perfil do Gestor de Tráfego processa durante um período determinado. Também pode ver a mesma informação a um nível final de granularidade que o ajuda a entender quantas vezes um ponto final foi devolvido nas respostas de consulta do Gestor de Tráfego.
 
-No exemplo a seguir, a Figura 1 exibe todas as respostas de consulta que o perfil do Gerenciador de tráfego retorna. 
+No exemplo seguinte, a Figura 1 exibe todas as respostas de consulta que o perfil do Gestor de Tráfego devolve. 
 
   
-![Exibição agregada de todas as consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Vista agregada de todas as consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figura 1: exibição agregada com todas as consultas*
+*Figura 1: Vista agregada com todas as consultas*
   
-A Figura 2 exibe as mesmas informações, no entanto, é dividida por pontos de extremidade. Como resultado, você pode ver o volume de respostas de consulta no qual um ponto de extremidade específico foi retornado.
+A figura 2 apresenta a mesma informação, no entanto, é dividida por pontos finais. Como resultado, pode ver o volume de respostas de consulta em que um ponto final específico foi devolvido.
 
-![Métricas do Gerenciador de tráfego-exibição dividida de volume de consulta por ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
+![Métricas do Gestor de Tráfego - vista dividida do volume de consulta por ponto final](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figura 2: exibição dividida com o volume de consulta mostrado por ponto de extremidade retornado*
+*Figura 2: Vista dividida com volume de consulta mostrado por ponto final devolvido*
 
-## <a name="endpoint-status-by-endpoint"></a>Status do ponto de extremidade por ponto de extremidade
-Use [essa métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) para entender o status de integridade dos pontos de extremidade no perfil. São necessários dois valores:
- - Use **1** se o ponto de extremidade estiver ativo.
- - Use **0** se o ponto de extremidade estiver inativo.
+## <a name="endpoint-status-by-endpoint"></a>Estado do ponto final por ponto final
+Utilize [esta métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) para compreender o estado de saúde dos pontos finais do perfil. São precisos dois valores:
+ - use **1** se o ponto final estiver para cima.
+ - use **0** se o ponto final estiver para baixo.
 
-Essa métrica pode ser mostrada como um valor de agregação que representa o status de todas as métricas (Figura 3) ou pode ser dividida (consulte a Figura 4) para mostrar o status de pontos de extremidade específicos. Se o primeiro, se o nível de agregação for selecionado como **Méd**, o valor dessa métrica será a média aritmética do status de todos os pontos de extremidade. Por exemplo, se um perfil tiver dois pontos de extremidade e apenas um estiver íntegro, essa métrica terá um valor de **0,50** , como mostrado na Figura 3. 
-
-
-![Métricas do Gerenciador de tráfego-exibição composta de status do ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
-
-*Figura 3: exibição composta da métrica de status do ponto de extremidade – agregação "média" selecionada*
+Esta métrica pode ser mostrada como um valor agregado que representa o estado de todas as métricas (Figura 3), ou pode ser dividida (ver Figura 4) para mostrar o estado de pontos finais específicos. Se o primeiro, se o nível de agregação for selecionado como **Avg,** o valor desta métrica é a média aritmética do estado de todos os pontos finais. Por exemplo, se um perfil tem dois pontos finais e apenas um é saudável, então esta métrica tem um valor de **0,50** como mostrado na Figura 3. 
 
 
-![Métricas do Gerenciador de tráfego-exibição dividida de status do ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
+![Métricas do Gestor de Tráfego - visão composta do estado do ponto final](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figura 4: exibição dividida de métricas de status do ponto de extremidade*
+*Figura 3: Vista composta da métrica do estado do ponto final – agregação "Avg" selecionada*
 
-Você pode consumir essas métricas por meio do portal do [serviço Azure monitor](../azure-monitor/platform/metrics-supported.md), [API REST](https://docs.microsoft.com/rest/api/monitor/), [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor)e [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), ou por meio da seção métricas da experiência do portal do Gerenciador de tráfego.
 
-## <a name="alerts-on-traffic-manager-metrics"></a>Alertas sobre métricas do Gerenciador de tráfego
-Além de processar e exibir as métricas do Gerenciador de tráfego, Azure Monitor permite que os clientes configurem e recebam alertas associados a essas métricas. Você pode escolher quais condições precisam ser atendidas nessas métricas para que um alerta ocorra, com que frequência essas condições precisam ser monitoradas e como os alertas devem ser enviados a você. Para obter mais informações, consulte a [documentação de alertas do Azure monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+![Métricas do Gestor de Tráfego - visão dividida do estado do ponto final](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
+
+*Figura 4: Visão dividida das métricas do estado do ponto final*
+
+Pode consumir estas métricas através do portal do [serviço Azure Monitor,](../azure-monitor/platform/metrics-supported.md) [REST API,](https://docs.microsoft.com/rest/api/monitor/) [Azure CLI](https://docs.microsoft.com/cli/azure/monitor)e [Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.applicationinsights)ou através da secção de métricas da experiência do portal do Gestor de Tráfego.
+
+## <a name="alerts-on-traffic-manager-metrics"></a>Alertas sobre métricas do Gestor de Tráfego
+Além de processar e exibir métricas do Traffic Manager, o Azure Monitor permite aos clientes configurar e receber alertas associados a estas métricas. Pode escolher quais as condições que devem ser satisfeitas nestas métricas para que ocorra um alerta, quantas vezes essas condições precisam de ser monitorizadas e como os alertas devem ser enviados para si. Para mais informações, consulte [o Monitor Azure alerta a documentação.](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre o [serviço de Azure monitor](../azure-monitor/platform/metrics-supported.md)
-- Saiba como [criar um gráfico usando Azure monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)
+- Saiba mais sobre [o serviço Azure Monitor](../azure-monitor/platform/metrics-supported.md)
+- Saiba como [criar um gráfico usando o Monitor Azure](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

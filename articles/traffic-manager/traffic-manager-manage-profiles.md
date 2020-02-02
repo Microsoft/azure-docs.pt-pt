@@ -1,9 +1,9 @@
 ---
 title: Gerir perfis no Traffic Manager do Azure | Microsoft Docs
-description: Este artigo ajuda-o a criar, desativar, ativar e eliminar um perfil do Gestor de tráfego do Azure.
+description: Este artigo ajuda-o a criar, desativar, ativar e eliminar um perfil do Gestor de Tráfego Azure.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
-ms.author: allensu
-ms.openlocfilehash: 8ec30a4d3f02505e764cd6f8dcec42c56d11ed27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071102"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938614"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
 
@@ -68,7 +68,7 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 3. Clique em **Descrição geral** > **Eliminar**.
 4. Confirme para eliminar o perfil do Gestor de Tráfego.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar um ponto final](traffic-manager-endpoints.md)
 * [Configure Priority routing method](traffic-manager-configure-priority-routing-method.md) (Configurar o método de encaminhamento Prioritário)

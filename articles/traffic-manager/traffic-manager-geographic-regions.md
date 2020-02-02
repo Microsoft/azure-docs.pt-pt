@@ -1,9 +1,9 @@
 ---
-title: Hierarquia de país/região usada pelo roteamento geográfico – Gerenciador de tráfego do Azure
-description: Este artigo lista a hierarquia de país/região usada pelo tipo de roteamento geográfico do Gerenciador de tráfego do Azure
+title: Hierarquia país/região utilizada por encaminhamento geográfico - Gestor de Tráfego Azure
+description: Este artigo lista a hierarquia País/Região utilizada pelo tipo de encaminhamento do Gestor de Tráfego Azure Geographic
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,75 +11,75 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: allensu
-ms.openlocfilehash: 13f4101c17d78a59e8cde724863d237ba888e6a4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037213"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938635"
 ---
-# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região usada pelo Gerenciador de tráfego do Azure para o método de roteamento de tráfego geográfico
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia país/região utilizada pelo Gestor de Tráfego Azure para o método de encaminhamento de tráfego geográfico
 
-Este artigo lista os países e regiões usados pelo método de roteamento de tráfego **geográfico** no Gerenciador de tráfego do Azure. Você também pode obter essas informações programaticamente chamando a [API REST do Gerenciador de tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Este artigo lista os países e regiões utilizados pelo método de encaminhamento de tráfego **geográfico** em Azure Traffic Manager. Também pode obter esta informação programáticamente, ligando para a API REST Do Gestor de [Tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
-- MUNDO (mundo)
+- MUNDO (Mundo)
 
-    - GEO-EU (Europa)
+    - GEO-UE (Europa)
 
         - AD (Andorra)
 
-        - AL (Albânia)
+        - AL(Albânia)
 
-        - AT (Áustria)
+        - AT(Áustria)
 
         - AX (Ilhas Åland)
 
         - BA (Bósnia e Herzegovina)
 
-        - SER (Bélgica)
+        - BE(Bélgica)
 
-        - BG (Bulgária)
+        - BG(Bulgária)
 
-        - POR (Belarus)
+        - BY (Bielorrússia)
 
-        - CH (Suíça)
+        - CH(Suíça)
 
-        - CY (Chipre)
+        - CY(Chipre)
 
-        - CZ (República Tcheca)
+        - CZ (República Checa)
 
-        - DE (Alemanha)
+        - DE(Alemanha)
 
         - DK(Denmark)
 
-        - EE (Estônia)
+        - EE (Estónia)
 
-        - ES (Espanha)
+        - ES(Espanha)
 
-        - FI (Finlândia)
+        - FI(Finlândia)
 
-        - FO (Ilhas Faroés)
+        - FO (Ilhas Faroé)
 
         - FR (França)
 
         - GB (Reino Unido)
 
-        - GG (Guernsey)
+        - GG(Guernsey)
 
         - GI (Gibraltar)
 
         - GR (Grécia)
 
-        - HR (Croácia)
+        - HR(Croácia)
 
         - HU (Hungria)
 
         - IE (Irlanda)
 
-        - IM (ilha de Man)
+        - IM (Ilha de Man)
 
-        - É (Islândia)
+        - Is (Islândia)
 
         - TI (Itália)
 
@@ -89,29 +89,29 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - LT (Lituânia)
 
-        - LU (Luxemburgo)
+        - LU(Luxemburgo)
 
-        - LV (Letônia)
+        - LV (Letónia)
 
         - MC(Monaco)
 
-        - MD (Moldova)
+        - MD (Moldávia)
 
-        - Eu (Montenegro)
+        - ME (Montenegro)
 
-        - MK (nordeste da Macedônia)
+        - MK (Macedónia do Norte)
 
         - MT(Malta)
 
-        - NL (Países Baixos)
+        - NL(Países Baixos)
 
-        - Não (Noruega)
+        - NO(Noruega)
 
-        - PL (Polônia)
+        - PL(Polónia)
 
-        - PT (Portugal)
+        - PT(Portugal)
 
-        - RO (Romênia)
+        - RO (Roménia)
 
         - RS (Sérvia)
 
@@ -119,76 +119,76 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - SE (Suécia)
 
-        - SI (Eslovênia)
+        - SI (Eslovénia)
 
-        - SJ (Svalbard)
+        - SJ(Svalbard)
 
         - SK (Eslováquia)
 
-        - SM (San Marino)
+        - SM (São Marino)
 
         - UA (Ucrânia)
-            - Região de Crimeia
+            - Região da Crimeia
 
-        - VA (cidade do Vaticano)
+        - VA (Cidade do Vaticano)
 
-        - XJ (Jan Mayen)
+        - XJ(jan Mayen)
 
         - XK(Kosovo)
 
-    - GEO-ME (Oriente Médio)
+    - GEO-ME (Médio Oriente)
 
         - AE (Emirados Árabes Unidos)
 
-        - BH (Bahrein)
+        - BH(Bahrein)
 
-        - IL (Israel)
+        - IL(Israel)
 
-        - IQ (Iraque)
+        - QI (Iraque)
 
-        - IR (Irã)
+        - IR (Irão)
 
-        - JO (Jordânia)
+        - JO(Jordânia)
 
         - KW (Kuwait)
 
         - LB (Líbano)
 
-        - OM (Omã)
+        - OM(Omã)
 
-        - PS (Autoridade Palestina)
+        - PS (Autoridade Palestiniana)
 
-        - P e r (catar)
+        - QA (Qatar)
 
         - SY (Síria)
 
         - SA (Arábia Saudita)
 
-        - TR (Turquia)
+        - TR(Turquia)
 
-        - YE (Iêmen)
+        - Ye (Iémen)
 
-    - Área geográfica (América do Norte/América Central/Caribe)
+    - GEO-NA (América do Norte / América Central / Caraíbas)
 
         - AG (Antígua e Barbuda)
 
-        - IA (Anguila)
+        - IA(Anguilla)
 
-        - AW (Aruba)
+        - AW(Aruba)
 
         - BB(Barbados)
 
-        - BL (São Bartolomeu)
+        - BL (São Barthélemy)
 
-        - BM (Bermuda)
+        - BM (Bermudas)
 
-        - BQ (Bonaire)
+        - BQ(Bonaire)
 
         - BS (Bahamas)
 
-        - POR (Belize)
+        - BZ (Belize)
 
-        - CA (Canadá)
+        - CA(Canadá)
 
             - CA-AB (Alberta)
 
@@ -196,43 +196,43 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
             - CA-MB (Manitoba)
 
-            - CA-NB (novo Brunswick)
+            - CA-NB (New Brunswick)
 
-            - CA-NL (Newfoundland e Labrador)
+            - CA-NL (Terra Nova e Labrador)
 
             - CA-NS (Nova Escócia)
 
-            - CA-NT (territórios do noroeste)
+            - CA-NT (Territórios do Noroeste)
 
             - CA-NU (Nunavut)
 
-            - CA-ativado (Ontário)
+            - CA-ON (Ontário)
 
-            - CA-PE (ilha do Príncipe Edward)
+            - CA-PE (Ilha do Príncipe Eduardo)
 
             - CA-QC (Québec)
 
             - CA-SK (Saskatchewan)
 
-            - CA-YT (território do Yukon)
+            - CA-YT (Território Yukon)
 
-        - CR (Costa Rica)
+        - CR(Costa Rica)
 
         - CU (Cuba)
 
-        - PV (CuraÃ § ao)
+        - CW (Curaã§ao)
 
         - DM(Dominica)
 
-        - FAZER (República Dominicana)
+        - DO (República Dominicana)
 
-        - GD (Granada)
+        - GD(Granada)
 
-        - GL (Groenlândia)
+        - GL(Gronelândia)
 
         - GP (Guadalupe)
 
-        - GT (Guatemala)
+        - GT(Guatemala)
 
         - HN (Honduras)
 
@@ -240,13 +240,13 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - JM (Jamaica)
 
-        - KN (São Cristóvão e Névis)
+        - KN (São Cristóvão e Nevis)
 
-        - KY (Ilhas Cayman)
+        - KY (Ilhas Caimão)
 
         - LC (Santa Lúcia)
 
-        - MF (Saint Martin)
+        - MF (São Martinho)
 
         - MQ (Martinica)
 
@@ -254,25 +254,25 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - MX (México)
 
-        - NI (Nicarágua)
+        - NI (Ninicarágua)
 
-        - PA (Panamá)
+        - PA(Panamá)
 
-        - PM (São Pedro e Miquelon)
+        - PM (Saint Pierre e Miquelon)
 
         - PR (Porto Rico)
 
         - SV(El Salvador)
 
-        - SX (Santo Maarten)
+        - SX (Sint Maarten)
 
-        - TC (Ilhas Turks e Caicos)
+        - TC (Ilhas Turcas e Caicos)
 
         - TT (Trinidad e Tobago)
 
-        - UM (territórios insulares dos EUA)
+        - UM (Ilhas Periféricas dos EUA)
 
-        - US (Estados Unidos)
+        - EUA (Estados Unidos)
 
             - US-AK(Alaska)
 
@@ -284,19 +284,19 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
             - EUA-CA (Califórnia)
 
-            - EUA-CO (Colorado)
+            - US-CO (Colorado)
 
-            - US-CT (Connecticut)
+            - EUA-CT (Connecticut)
 
-            - US-DC (distrito de Colúmbia)
+            - EUA-DC (Distrito de Columbia)
 
             - EUA-DE (Delaware)
 
-            - US-FL (Flórida)
+            - EUA-FL (Florida)
 
-            - US-GA (Geórgia)
+            - EUA-GA (Geórgia)
 
-            - US-HI (Havaí)
+            - US-HI (Havai)
 
             - EUA-IA (Iowa)
 
@@ -304,75 +304,75 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
             - US-IL (Illinois)
 
-            - EUA-em (Indiana)
+            - US-IN (Indiana)
 
             - US-KS(Kansas)
 
             - US-KY(Kentucky)
 
-            - US-LA (Louisiana)
+            - EUA-LA (Louisiana)
 
             - US-MA(Massachusetts)
 
             - US-MD (Maryland)
 
-            - US-ME (Maine)
+            - EUA-ME (Maine)
 
             - US-MI (Michigan)
 
             - US-MN(Minnesota)
 
-            - US-MO (Missouri)
+            - EUA-MO (Missouri)
 
             - US-MS(Mississippi)
 
             - US-MT (Montana)
 
-            - US-NC (Carolina do Norte)
+            - EUA-NC (Carolina do Norte)
 
-            - US-ND (Dakota do Norte)
+            - EUA-ND (Dakota do Norte)
 
-            - US-NE (Nebraska)
+            - EUA-NE (Nebraska)
 
-            - US-NH (novo Hampshire)
+            - EUA-NH (New Hampshire)
 
             - EUA-NJ (Nova Jersey)
 
-            - US-NM (Novo México)
+            - EUA-NM (Novo México)
 
             - US-NV(Nevada)
 
-            - US-NY (Nova York)
+            - EUA-NY (Nova Iorque)
 
-            - EUA – OH (Ohio)
+            - US-OH (Ohio)
 
             - EUA-OK (Oklahoma)
 
-            - EUA-ou (Oregon)
+            - EUA-OR (Oregon)
 
-            - US-PA (Pensilvânia)
+            - EUA-PA (Pensilvânia)
 
-            - EUA-RI (Ilha Rhode)
+            - EUA-RI (Rhode Island)
 
-            - US-SC (Carolina do Sul)
+            - EUA-SC (Carolina do Sul)
 
-            - US-SD (Dakota do Sul)
+            - EUA-SD (Dakota do Sul)
 
             - US-TN(Tennessee)
 
             - US-TX(Texas)
 
-            - US-UT (Utah)
+            - EUA-UT (Utah)
 
-            - US-VA (Virgínia)
+            - EUA-VA (Virgínia)
 
-            - US-VT (Vermont)
+            - EUA-VT (Vermont)
 
             - US-WA(Washington)
 
             - US-WI(Wisconsin)
 
-            - US-WV (Virgínia Ocidental)
+            - EUA-WV (Virgínia Ocidental)
 
             - US-WY(Wyoming)
 
@@ -380,17 +380,17 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - VG (Ilhas Virgens Britânicas)
 
-        - VI (Ilhas Virgens dos EUA)
+        - VI (Ilhas Virgens Americanas)
 
-        - XE (Santo Eustáquio)
+        - XE (Sint Eustatius)
 
         - XS(Saba)
 
     - GEO-AS (Ásia)
 
-        - AF (Afeganistão)
+        - AF(Afeganistão)
 
-        - AM (Armênia)
+        - AM (Arménia)
 
         - AZ (Azerbaijão)
 
@@ -400,21 +400,21 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - BT (Butão)
 
-        - CC (Ilhas Cocos (Keeling))
+        - CC (Ilhas De Cocos (Keeling)
 
         - CN(China)
 
-        - CX (Ilha Christmas)
+        - CX (Ilha de Natal)
 
         - GE (Geórgia)
 
-        - HK (RAE de Hong Kong)
+        - HK (Hong Kong SAR)
 
         - ID (Indonésia)
 
-        - IN (Índia)
+        - IN(Índia)
 
-        - E/s (território britânico do Oceano Índico)
+        - IO (Território britânico do Oceano Índico)
 
         - JP (Japão)
 
@@ -436,39 +436,39 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - MN (Mongólia)
 
-        - MO (RAE de Macau)
+        - MO (RAEm de Macau)
 
         - MV (Maldivas)
 
-        - MY (Malásia)
+        - My(Malásia)
 
         - NP (Nepal)
 
-        - PH (Filipinas)
+        - PH(Filipinas)
 
-        - CP (Paquistão)
+        - PK (Paquistão)
 
-        - SG (Cingapura)
+        - SG (Singapura)
 
-        - TH (Tailândia)
+        - TH(Tailândia)
 
-        - TJ (Tadjiquistão)
+        - TJ (Tajiquistão)
 
-        - TL (Timor_Leste)
+        - TL(Timor_Leste)
 
-        - TM (Turcomenistão)
+        - TM (Turquemenistão)
 
         - TW (Taiwan)
 
-        - UZ (Uzbequistão)
+        - UZ(Uzbequistão)
 
-        - VN (Vietnã)
+        - VN (Vietname)
 
     - GEO-AF (África)
 
         - AO(Angola)
 
-        - BF (Burquina Faso)
+        - BF(Burkina Faso)
 
         - BI (Burundi)
 
@@ -482,19 +482,19 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - CF (República Centro-Africana)
 
-        - CI (Côte d' Ivoire)
+        - CI (Costa do Marfim)
 
         - CM (Camarões)
 
-        - CV (cabo verde)
+        - CV (Cabo Verde)
 
         - DJ(Djibouti)
 
         - DZ (Argélia)
 
-        - Por exemplo (Egito)
+        - EG (Egito)
 
-        - ER (Eritreia)
+        - ER(Eritreia)
 
         - ET (Etiópia)
 
@@ -510,37 +510,37 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - GW (Guinea_Bissau)
 
-        - KE (Quênia)
+        - KE(Quénia)
 
-        - KM (Ilhas Comores)
+        - KM (Comores)
 
         - LR (Libéria)
 
         - LS (Lesoto)
 
-        - LY (Líbia)
+        - LY(Líbia)
 
         - MA (Marrocos)
 
         - MG(Madagascar)
 
-        - ML (Mali)
+        - ML(Mali)
 
-        - MR (Mauritânia)
+        - MR(Mauritânia)
 
-        - MU (Maurício)
+        - MU (Maurícia)
 
-        - MW (Malaui)
+        - MW (Malawi)
 
         - MZ (Moçambique)
 
-        - NA (Namíbia)
+        - NA(Namíbia)
 
         - NE (Níger)
 
-        - NG (Nigéria)
+        - NG(Nigéria)
 
-        - RE (Réunion)
+        - RE(Reunião)
 
         - RW (Ruanda)
 
@@ -548,13 +548,13 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - SD (Sudão)
 
-        - SH (Santa Helena, ascensão, Tristão da Cunha)
+        - SH (Santa Helena, Ascensão, Tristão da Cunha)
 
         - SL (Serra Leoa)
 
         - SN (Senegal)
 
-        - Então (Somália)
+        - Assim(Somália)
 
         - SS (Sudão do Sul)
 
@@ -564,7 +564,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - TD (Chade)
 
-        - TF (territórios franceses do Sul)
+        - TF (Territórios franceses do Sul)
 
         - TG (Togo)
 
@@ -574,7 +574,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - UG (Uganda)
 
-        - YT (Mayotte)
+        - YT(Mayotte)
 
         - ZA (África do Sul)
 
@@ -582,9 +582,9 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - ZW(Zimbabwe)
 
-    - GEO-um (Antártica)
+    - GEO-AN (Antártida)
 
-        - AQ (Antártica)
+        - AQ(Antártica)
 
     - GEO-SA (América do Sul)
 
@@ -592,47 +592,47 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - BO (Bolívia)
 
-        - BR (Brasil)
+        - BR(Brasil)
 
         - CL (Chile)
 
-        - CO (Colômbia)
+        - CO(Colômbia)
 
-        - EC (Equador)
+        - CE (Equador)
 
         - FK (Ilhas Falkland [Malvinas])
 
-        - GF (Guiana francesa)
+        - GF (Guiana Francesa)
 
-        - GS (Ilhas Geórgia do Sul e Sandwich do Sul)
+        - GS (Ilhas Sandwich do Sul e Do sul)
 
         - GY (Guiana)
 
         - PE (Peru)
 
-        - PY (Paraguai)
+        - PY(Paraguai)
 
-        - SR (Suriname)
+        - SR(Suriname)
 
         - UY (Uruguai)
 
         - VE(Venezuela)
 
-    - GEO-AP (Austrália/Pacífico)
+    - GEO-AP (Austrália / Pacífico)
 
-        - COMO (Samoa Americana)
+        - AS (Samoa Americana)
 
         - AU (Austrália)
 
-            - AU-ACT (território da capital australiana)
+            - AU-ACT (Território da Capital Australiana)
 
-            - AU-NSW (Novo Gales do Sul)
+            - AU-NSW (Nova Gales do Sul)
 
-            - AU-NT (território do Norte)
+            - AU-NT (Território do Norte)
 
             - AU-QLD (Queensland)
 
-            - AU-SA (sul da Austrália)
+            - AU-Sa (Austrália do Sul)
 
             - AU-TAS (Tasmânia)
 
@@ -644,31 +644,31 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - FJ(Fiji)
 
-        - FM (Micronésia)
+        - FM(Micronésia)
 
-        - GU (Guam)
+        - GU(Guam)
 
-        - HM (Ilhas Heard e McDonald)
+        - HM (Ilha Ouvida e Ilhas McDonald)
 
-        - KI (KIRIBATI)
+        - KI (Kiribati)
 
         - MH (Ilhas Marshall)
 
         - MP (Ilhas Marianas do Norte)
 
-        - NC (Nova Caledônia)
+        - NC (Nova Caledonia)
 
         - NF (Ilha Norfolk)
 
-        - NR (NAURU)
+        - NR (Nauru)
 
-        - NU (Niue)
+        - NU(Niue)
 
         - NZ (Nova Zelândia)
 
-        - PF (Polinésia francesa)
+        - PF (Polinésia Francesa)
 
-        - PG (Papua-Nova Guiné)
+        - PG (Papua Nova Guiné)
 
         - PN (Ilhas Pitcairn)
 
@@ -676,9 +676,9 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - SB (Ilhas Salomão)
 
-        - TK (TOKELAU)
+        - TK (Tokelau)
 
-        - A (Tonga)
+        - TO (Tonga)
 
         - TV(Tuvalu)
 
@@ -690,4 +690,4 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [método de roteamento de tráfego geográfico no Gerenciador de tráfego do Azure](traffic-manager-routing-methods.md#geographic).
+- Saiba mais sobre o método de [encaminhamento de tráfego geográfico no Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

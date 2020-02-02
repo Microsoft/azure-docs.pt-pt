@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para .NET'
+title: 'Quickstart: Biblioteca de clientes Computer Vision para .NET'
 description: Neste guia de início rápido, introdução à biblioteca de cliente Pesquisa Visual Computacional para .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -9,21 +9,21 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: aa162fb47eab84ff26af2256f8fe0ba9896b7cf0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61e7da2d82262b234d9352c7a1198d121d7f73f9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448290"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935771"
 ---
-# <a name="quickstart-computer-vision-client-library-for-net"></a>Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para .NET
+# <a name="quickstart-computer-vision-client-library-for-net"></a>Quickstart: Biblioteca de clientes Computer Vision para .NET
 
-Introdução à biblioteca de cliente do Pesquisa Visual Computacional para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. Pesquisa Visual Computacional fornece acesso a algoritmos avançados para processamento de imagens e retorno de informações.
+Inicie-se com a biblioteca de clientes computer vision para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. A Computer Vision fornece-lhe acesso a algoritmos avançados para processar imagens e devolver informações.
 
-Use a biblioteca de cliente do Pesquisa Visual Computacional para .NET para:
+Utilize a biblioteca de clientes computer vision para .NET para:
 
-* Analise uma imagem para marcas, descrição de texto, rostos, conteúdo adulto e muito mais.
-* Reconheça o texto impresso e manuscrito com a API de leitura em lote.
+* Analise uma imagem para tags, descrição de texto, rostos, conteúdo adulto e muito mais.
+* Reconheça texto impresso e manuscrito com a API de leitura do lote.
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [do NuGet ( do pacote)de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [amostras biblioteca](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -41,13 +41,13 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL do ponto de extremidade, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, denominado `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
 
 Crie um novo aplicativo .NET Core em seu editor ou IDE preferido. 
 
-Em uma janela de console (como cmd, PowerShell ou bash), use o comando `dotnet new` para criar um novo aplicativo de console com o nome `computer-vision-quickstart`. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: *Program.cs*.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando `dotnet new` para criar uma nova aplicação de consola com o nome `computer-vision-quickstart`. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: *Program.cs*.
 
 ```console
 dotnet new console -n computer-vision-quickstart
@@ -73,13 +73,13 @@ No diretório do projeto, abra o arquivo *Program.cs* no seu editor ou IDE prefe
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_using)]
 
-Na classe **programa** do aplicativo, crie variáveis para o ponto de extremidade e a chave do Azure do recurso.
+Na aula de **Programa** da aplicação, crie variáveis para o ponto final e chave azure do seu recurso.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_vars)]
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
 
-No diretório do aplicativo, instale a biblioteca de cliente do Pesquisa Visual Computacional para .NET com o seguinte comando:
+Dentro do diretório de aplicações, instale a biblioteca cliente Computer Vision para .NET com o seguinte comando:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
@@ -89,17 +89,17 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de cliente estará 
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK do .NET Pesquisa Visual Computacional.
+As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision .NET SDK.
 
 |Nome|Descrição|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para fazer a maioria das operações de imagem.|
-|[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Essa classe contém métodos adicionais para o **ComputerVisionClient**.|
-|[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Você especifica um conjunto de valores de VisualFeatureTypes dependendo de suas necessidades. |
+|[Extensões computerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Esta classe contém métodos adicionais para o **ComputerVisionClient**.|
+|[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Especifica um conjunto de valores VisualFeatureTypes dependendo das suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Esses trechos de código mostram como realizar as seguintes tarefas com a biblioteca de cliente Pesquisa Visual Computacional para .NET:
+Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Computer Vision para .NET:
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Analisar uma imagem](#analyze-an-image)
@@ -108,9 +108,9 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a biblio
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Este início rápido pressupõe que você [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para sua chave de pesquisa Visual computacional e ponto de extremidade, chamados `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+> Este quickstart assume que [criou variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a sua chave e ponto final da Visão computacional, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT` respectivamente.
 
-Em um novo método, crie uma instância de um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com sua chave e use-o com seu ponto de extremidade para criar um objeto [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) .
+Em um novo método, crie uma instância de um cliente com o ponto de extremidade e a chave. Crie um objeto **[ApiKeyServiceClientCredenciais](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials?view=azure-dotnet)** com a sua chave e use-o com o seu ponto final para criar um objeto **[ComputerVisionClient.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet)**
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_auth)]
 
@@ -120,34 +120,34 @@ Você provavelmente desejará chamar esse método no método `Main`.
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
-O código a seguir define um método, `AnalyzeImageUrl`, que usa o objeto de cliente para analisar uma imagem remota e imprimir os resultados. O método retorna uma descrição de texto, categorização, lista de marcas, faces detectadas, sinalizadores de conteúdo somente para adultos, cores principais e tipo de imagem.
+O código que se segue define um método, `AnalyzeImageUrl`, que utiliza o objeto do cliente para analisar uma imagem remota e imprimir os resultados. O método devolve uma descrição de texto, categorização, lista de tags, rostos detetados, bandeiras de conteúdo adulto, cores principais e tipo de imagem.
 
-Adicione a chamada de método em seu método `Main`.
+Adicione a chamada de método no seu método `Main`.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyzeinmain)]
 
-### <a name="set-up-test-image"></a>Configurar imagem de teste
+### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
-Na classe **programa** , salve uma referência à URL da imagem que você deseja analisar.
+Na sua aula de **Programa,** guarde uma referência ao URL da imagem que pretende analisar.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyze_url)]
 
 > [!NOTE]
 > Você também pode analisar uma imagem local. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) para ver cenários que envolvem imagens locais.
 
-### <a name="specify-visual-features"></a>Especificar recursos visuais
+### <a name="specify-visual-features"></a>Especificar funcionalidades visuais
 
-Defina o novo método para análise de imagem. Adicione o código abaixo, que especifica os recursos visuais que você gostaria de extrair em sua análise. Consulte a enumeração [VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet) para obter uma lista completa.
+Defina o seu novo método de análise de imagem. Adicione o código abaixo, que especifica as funcionalidades visuais que gostaria de extrair na sua análise. Consulte o **[VisualFeatureTypes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)** enum para obter uma lista completa.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
 
 ### <a name="analyze"></a>Analise
 
-O método **AnalyzeImageAsync** retorna um objeto **ImageAnalysis** que contém todas as informações extraídas.
+O método **AnalyzeImageAsync** devolve um objeto **ImageAnalysis** que contém toda a informação extraída.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyze_call)]
 
-As seções a seguir mostram como analisar essas informações detalhadamente.
+As seguintes secções mostram como analisar esta informação em detalhe.
 
 ### <a name="get-image-description"></a>Obter descrição da imagem
 
@@ -199,9 +199,9 @@ O código a seguir imprime os atributos de cor detectados na imagem, como as cor
 
 ### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
 
-Pesquisa Visual Computacional pode usar modelos especializados para fazer mais análises sobre imagens. Consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
+A Computer Vision pode utilizar modelos especializados para fazer uma análise mais aprofundada das imagens. Consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
 
-O código a seguir analisa dados sobre celebridades detectados na imagem.
+O código que se segue analisa dados sobre celebridades detetadas na imagem.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_celebs)]
 
@@ -211,42 +211,42 @@ O código a seguir analisa dados sobre os pontos de referência detectados na im
 
 ### <a name="get-the-image-type"></a>Obter o tipo de imagem
 
-O código a seguir imprime informações sobre o tipo de imagem&mdash;se ela é uma clip-art ou um desenho de linha.
+O código que se segue imprime informações sobre o tipo de imagem&mdash;se é clip art ou um desenho de linha.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_type)]
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
-Pesquisa Visual Computacional pode ler o texto visível em uma imagem e convertê-lo em um fluxo de caracteres. O código nesta seção define um método, `ExtractTextUrl`, que usa o objeto de cliente para detectar e extrair texto impresso ou manuscrito na imagem.
+Pesquisa Visual Computacional pode ler o texto visível em uma imagem e convertê-lo em um fluxo de caracteres. O código nesta secção define um método, `ExtractTextUrl`, que utiliza o objeto cliente para detetar e extrair texto impresso ou manuscrito na imagem.
 
-Adicione a chamada de método em seu método `Main`.
+Adicione a chamada de método no seu método `Main`.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extracttextinmain)]
 
-### <a name="set-up-test-image"></a>Configurar imagem de teste
+### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
-Na classe **programa** , salve uma referência à URL da imagem da qual você deseja extrair o texto.
+Na sua aula de **Programa,** guarde uma referência ao URL da imagem da sua deseja extrair texto.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extracttext_url)]
 
 > [!NOTE]
-> Você também pode extrair texto de uma imagem local. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) para ver cenários que envolvem imagens locais.
+> Também pode extrair texto de uma imagem local. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) para ver cenários que envolvem imagens locais.
 
-### <a name="call-the-read-api"></a>Chamar a API de leitura
+### <a name="call-the-read-api"></a>Ligue para a API read
 
-Defina o novo método para ler o texto. Adicione o código abaixo, que chama o método **BatchReadFileAsync** para a imagem fornecida. Isso retorna uma ID de operação e inicia um processo assíncrono para ler o conteúdo da imagem.
+Defina o novo método de leitura do texto. Adicione o código abaixo, que chama o método **BatchReadFileAsync** para a imagem dada. Isto devolve um ID de operação e inicia um processo assíncrono para ler o conteúdo da imagem.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extract_call)]
 
-### <a name="get-read-results"></a>Obter resultados da leitura
+### <a name="get-read-results"></a>Obter resultados de leitura
 
-Em seguida, obtenha a ID da operação retornada da chamada **BatchReadFileAsync** e use-a para consultar o serviço para obter os resultados da operação. O código a seguir verifica a operação em intervalos de um segundo até que os resultados sejam retornados. Em seguida, ele imprime os dados de texto extraídos no console.
+Em seguida, retire o ID de operação da chamada **BatchReadFileAsync** e use-o para consultar o serviço para obter resultados de operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extract_response)]
 
-### <a name="display-read-results"></a>Exibir resultados da leitura
+### <a name="display-read-results"></a>Mostrar Resultados de ler
 
-Adicione o código a seguir para analisar e exibir os dados de texto recuperados e concluir a definição do método.
+Adicione o seguinte código para analisar e exibir os dados de texto recuperados e termine a definição de método.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extract_display)]
 
@@ -268,7 +268,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Referência de API da Pesquisa Visual Computacional (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
+>[Referência API da Visão Computacional (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
 * [O que é Pesquisa Visual Computacional?](../Home.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).

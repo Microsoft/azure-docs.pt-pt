@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fc74e72c6c2fe3e2b8817e6ffb418928ede08193
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 975117ad5c58bed77002a33f0dc5370d0f1c17e2
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773365"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931470"
 ---
 # <a name="protected-web-api-code-configuration"></a>API da web protegida: Configuração de código
 
@@ -47,7 +47,7 @@ O token portador que está definido no cabeçalho quando a aplicação é chamad
 Aqui está C# um exemplo de código que mostra um cliente a ligar para a API depois de adquirir um símbolo com a Microsoft Authentication Library para .NET (MSAL.NET):
 
 ```csharp
-var scopes = new[] {$"api://.../access_as_user}";
+var scopes = new[] {$"api://.../access_as_user"};
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
 

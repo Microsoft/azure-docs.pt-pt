@@ -3,12 +3,12 @@ title: O que é a integridade de serviço do Azure?
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados por problemas e manutenção atuais e futuros do serviço do Azure.
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d9d9dcb4db483b524cb7be8e006ba12edcc8442
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 039583d9243f8ce76b33afcee098e71a670b5285
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463964"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939206"
 ---
 # <a name="what-is-azure-service-health"></a>O que é a integridade de serviço do Azure?
 
@@ -27,3 +27,5 @@ No seu conjunto, estas experiências dão-lhe uma vista abrangente sobre o estad
 **Assista a uma visão geral da página de status do Azure, da integridade do serviço do Azure e do Azure Resource Health**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]

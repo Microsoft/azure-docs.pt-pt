@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: d8f0f6c63c584cacfa5c996bd541ce4dfc4bd289
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ddd81c4788cae7c239678366305fe97c6c08ba99
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763934"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932221"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usar um modelo existente com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Se você tiver um modelo de aprendizado de máquina que foi treinado fora do Azu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [criar um espaço de trabalho](how-to-manage-workspace.md).
+* Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte [Criar um espaço de trabalho.](how-to-manage-workspace.md)
 
     > [!TIP]
     > Os exemplos do Python neste artigo pressupõem que a variável `ws` é definida como seu espaço de trabalho Azure Machine Learning.
@@ -100,6 +100,7 @@ conda_dep.add_conda_package("scikit-learn")
 # You must list azureml-defaults as a pip dependency
 conda_dep.add_pip_package("azureml-defaults")
 conda_dep.add_pip_package("keras")
+conda_dep.add_pip_package("gensim")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep
@@ -136,6 +137,7 @@ dependencies:
 - pip:
     - azureml-defaults
     - keras
+    - gensim
 ```
 
 Para obter mais informações sobre a configuração de inferência, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
@@ -227,7 +229,7 @@ Para obter mais informações sobre scripts de entrada, consulte [implantar mode
 
 ## <a name="define-deployment"></a>Definir implantação
 
-O pacote [WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) contém as classes usadas para implantação. A classe usada determina onde o modelo é implantado. Por exemplo, para implantar como um serviço Web no serviço kubernetes do Azure, use [AksWebService. deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) para criar a configuração de implantação.
+O pacote [WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) contém as classes usadas para implantação. A classe usada determina onde o modelo é implantado. Por exemplo, para implementar como um serviço web no Serviço Azure Kubernetes, utilize [aksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) para criar a configuração de implementação.
 
 O código Python a seguir define uma configuração de implantação para uma implantação local. Essa configuração implanta o modelo como um serviço Web em seu computador local.
 
@@ -240,7 +242,7 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-Para obter mais informações, consulte a referência [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) .
+Para mais informações, consulte a referência [LocalWebservice.deploy_configuration().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-)
 
 A CLI carrega a configuração de implantação de um arquivo YAML:
 

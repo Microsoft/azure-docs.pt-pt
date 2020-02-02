@@ -3,20 +3,20 @@ title: Gerir pontos finais no Traffic Manager do Azure | Microsoft Docs
 description: Este artigo ajuda-o a adicionar, remover, ativar e desativar pontos finais no Traffic Manager do Azure.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: allensu
-ms.openlocfilehash: 573a8f7ede29b045053d77194d15707df9e23641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 2aee4282fe6a66151ea39018f0d6c0db51f2c027
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071090"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939142"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
 
@@ -71,10 +71,10 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. No painel **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais**. 
 4. Clique no ponto final que pretende eliminar.
-5. Na **ponto final** painel, clique em **eliminar**
+5. Na lâmina **Endpoint,** clique em **Eliminar**
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir perfis do Gestor de Tráfego](traffic-manager-manage-profiles.md)
 * [Configurar métodos de encaminhamento](traffic-manager-configure-routing-method.md)

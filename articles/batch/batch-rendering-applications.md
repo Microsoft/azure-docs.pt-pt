@@ -1,18 +1,18 @@
 ---
 title: Aplicativos de renderização – lote do Azure
-description: Aplicativos de renderização em lotes pré-instalados
+description: É possível usar qualquer aplicativo de renderização com o lote do Azure. No entanto, as imagens de VM do Azure Marketplace estão disponíveis com aplicativos comuns pré-instalados.
 services: batch
 ms.service: batch
 author: ju-shim
 ms.author: jushiman
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 367f7655c32c30f11b37c86c098d76e146fec69c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e47d05594142de87fabd2d61faeb40d25fdc1873
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026581"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934598"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicativos pré-instalados ao renderizar imagens de VM
 
@@ -64,7 +64,7 @@ A lista a seguir se aplica às imagens de renderização do Windows Server 2016,
 * AZ 10
 
 > [!IMPORTANT]
-> Para executar o V-Ray com Maya fora dos [modelos de extensão do lote do Azure](https://github.com/Azure/batch-extension-templates), inicie `vrayses.exe` antes de executar a renderização. Para iniciar o vrayses. exe fora dos modelos, você pode usar o seguinte comando `%MAYA_2017%\vray\bin\vrayses.exe"`.
+> Para executar o V-Ray com Maya fora dos [modelos de extensão do lote do Azure](https://github.com/Azure/batch-extension-templates), inicie `vrayses.exe` antes de executar a renderização. Para iniciar as vrayses.exe fora dos modelos pode utilizar o comando seguinte `%MAYA_2017%\vray\bin\vrayses.exe"`.
 >
 > Para obter um exemplo, consulte a tarefa inicial do [modelo Maya e V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) no github.
 

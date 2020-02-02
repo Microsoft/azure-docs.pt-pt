@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 058099ceca886f375e6add07033174bf80d5b647
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156544"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934923"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para Windows
 
@@ -36,7 +36,7 @@ A extensão de script personalizado para Windows será executada no OSs de exten
 
 Você pode configurar a extensão para usar suas credenciais de armazenamento de BLOBs do Azure para acessar o armazenamento de BLOBs do Azure. O local do script pode estar em qualquer lugar, desde que a VM possa ser roteada para esse ponto de extremidade, como o GitHub ou um servidor de arquivos interno.
 
-### <a name="internet-connectivity"></a>Conectividade com a Internet
+### <a name="internet-connectivity"></a>Conectividade da Internet
 
 Se você precisar baixar um script externamente, como do GitHub ou do armazenamento do Azure, as portas de grupo de segurança de rede e firewall adicionais precisam ser abertas. Por exemplo, se o seu script estiver localizado no armazenamento do Azure, você poderá permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](../../virtual-network/security-overview.md#service-tags).
 
@@ -115,7 +115,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |
 | tipo | CustomScriptExtension | string |
-| typeHandlerVersion | 1,10 | int |
+| typeHandlerVersion | 1.10 | int |
 | fileuris (por exemplo,) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (por exemplo) | 123456789 | inteiro de 32 bits |
 | commandToExecute (por exemplo,) | PowerShell-ExecutionPolicy Unrestricted-File configure-Music-app. ps1 | string |
@@ -209,7 +209,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Usando vários scripts
 
-Neste exemplo, você tem três scripts que são usados para criar seu servidor. O **commandToExecute** chama o primeiro script e, em seguida, você tem opções sobre como os outros são chamados. Por exemplo, você pode ter um script mestre que controla a execução, com o tratamento de erros, o registro em log e o gerenciamento de estado corretos. Os scripts são baixados no computador local para execução. Por exemplo, no `1_Add_Tools.ps1` você chamaria `2_Add_Features.ps1` adicionando `.\2_Add_Features.ps1` ao script e repetiria esse processo para os outros scripts definidos no `$settings`.
+Neste exemplo, você tem três scripts que são usados para criar seu servidor. O **commandToExecute** chama o primeiro script e, em seguida, você tem opções sobre como os outros são chamados. Por exemplo, você pode ter um script mestre que controla a execução, com o tratamento de erros, o registro em log e o gerenciamento de estado corretos. Os scripts são baixados no computador local para execução. Por exemplo, em `1_Add_Tools.ps1` chamaria de `2_Add_Features.ps1` adicionando `.\2_Add_Features.ps1` ao guião e repetindo este processo para os outros scripts que define em `$settings`.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -268,6 +268,9 @@ Se você estiver usando [Invoke-WebRequest](/powershell/module/microsoft.powersh
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
+## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
+
+Para implementar a extensão do script personalizado num conjunto de escala, consulte [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## <a name="classic-vms"></a>VMs clássicas
 

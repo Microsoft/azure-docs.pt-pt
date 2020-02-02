@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965927"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935325"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs de Azure Monitor para Load Balancer básica pública
 
@@ -34,7 +34,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 > [!IMPORTANT]
 > Os logs de Azure Monitor atualmente só funcionam para balanceadores de carga básicos públicos. Os logs estão disponíveis somente para recursos implantados no modelo de implantação do Gerenciador de recursos. Você não pode usar logs para recursos no modelo de implantação clássico. Para obter mais informações sobre os modelos de implantação, consulte [noções básicas sobre a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="enable-logging"></a>Ativar registo
+## <a name="enable-logging"></a>Ativar o registo
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Habilite o log de investigação de integridade e de evento para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
 
@@ -51,7 +51,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com). Se você ainda n�
    * **Transmitir para um hub de eventos**
    * **Enviar para Log Analytics**
 
-    ### <a name="archive-to-a-storage-account"></a>Arquivar numa conta de armazenamento
+    ### <a name="archive-to-a-storage-account"></a>Arquivar para uma conta de armazenamento
     Você precisará de uma conta de armazenamento já criada para esse processo.  Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
     1. Marque a caixa de seleção ao lado de **arquivar em uma conta de armazenamento**.
@@ -60,7 +60,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com). Se você ainda n�
     4. Selecione o nome da sua conta de armazenamento em **conta de armazenamento** na caixa de pull.
     5. Selecione OK.
 
-    ### <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
+    ### <a name="stream-to-an-event-hub"></a>Stream para um centro de eventos
     Você precisará de um hub de eventos já criado para esse processo.  Para criar um hub de eventos, consulte [início rápido: criar um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
     1. Marque a caixa de seleção ao lado de **transmitir para um hub de eventos**
@@ -156,11 +156,11 @@ Esse log só será gerado se você o tiver habilitado com base no balanceador de
 
 A saída JSON é mostrada no campo Propriedades as informações básicas para o status de integridade da investigação. A propriedade *dipDownCount* mostra o número total de instâncias no back-end, que não estão recebendo tráfego de rede devido a respostas de investigação com falha.
 
-### <a name="view-and-analyze-the-audit-log"></a>Exibir e analisar o log de auditoria
+### <a name="view-and-analyze-the-activity-log"></a>Ver e analisar o registo de atividades
 
-Você pode exibir e analisar os dados do log de auditoria usando qualquer um dos seguintes métodos:
+Pode visualizar e analisar dados de registo de atividade utilizando qualquer um dos seguintes métodos:
 
-* **Ferramentas do Azure:** Recupere informações dos logs de auditoria por meio de Azure PowerShell, a CLI (interface de linha de comando) do Azure, a API REST do Azure ou o portal do Azure. Instruções passo a passo para cada método são detalhadas no artigo operações de [auditoria com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
+* **Ferramentas Azure:** Retire informações do registo de atividade através do Azure PowerShell, da Interface da Linha de Comando Azure (CLI), da API Azure REST ou do portal Azure. Instruções passo a passo para cada método são detalhadas no artigo operações de [auditoria com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power bi:** Se você ainda não tiver uma conta de [Power bi](https:// .microsoft.com/pricing) , poderá experimentá-la gratuitamente. Usando o [pacote de conteúdo dos logs de auditoria do Azure para Power bi](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), você pode analisar seus dados com painéis pré-configurados ou pode personalizar modos de exibição para atender às suas necessidades.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Exibir e analisar a investigação de integridade e o log de eventos
@@ -170,7 +170,7 @@ Conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para
 > [!TIP]
 > Se estiver familiarizado com os conceitos básicos do Visual Studio para alterar os valores de constantes e variáveis em C#, pode utilizar as [ferramentas de conversor de registo](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
-## <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
+## <a name="stream-to-an-event-hub"></a>Stream para um centro de eventos
 Quando as informações de diagnóstico são transmitidas para um hub de eventos, elas podem ser usadas para análise de log centralizada em uma ferramenta SIEM de terceiros com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics

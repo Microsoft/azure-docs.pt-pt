@@ -2,13 +2,13 @@
 title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos e das atualizações mais recentes no serviço de Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: ecd42c624cf1fe62c8041a0b8798585c8870cabc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/31/2020
+ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896027"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934928"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -36,6 +36,18 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 ## <a name="updates-january-2020"></a>Atualizações (janeiro de 2020)
 
+### <a name="update-rollup-44"></a>Atualizar rollup 44
+[A atualização do rollup 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) fornece as seguintes atualizações.
+
+**Atualização** | **Detalhes**
+--- | ---
+**Correções de problemas/aprimoramentos** | Uma série de atualizações aos agentes e fornecedores de recuperação do site (conforme detalhado no rollup).
+
+### <a name="azure-vmware-disaster-recovery"></a>Recuperação de desastres azure VMware
+
+As máquinas virtuais Azure suportam agora vMs ativados para encriptação em repouso com chaves geridas pelo cliente. [Saiba mais](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+
+
 ### <a name="update-rollup-43"></a>Pacote cumulativo de atualizações 43
 
 O [pacote cumulativo](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) de atualizações 43 fornece as seguintes atualizações.
@@ -58,7 +70,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4531426/update-rollup-4
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
 
 
-## <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre da VM do Azure
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre da VM do Azure
 
 Os novos recursos para a recuperação de desastres de VM do Azure são resumidos na tabela.
 

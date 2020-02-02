@@ -1,6 +1,6 @@
 ---
-title: Evento de conclusão de tarefa do lote do Azure | Microsoft Docs
-description: Referência para evento de conclusão de tarefa em lote.
+title: Evento completo da tarefa do Lote Azure
+description: Referência para evento de conclusão de tarefa em lote. Esse evento é emitido quando uma tarefa é concluída, independentemente do código de saída.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: 0a325060097f11b38e3b35d032c572b9dfbe0cc7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2f591330df4a3757ba1f5c6be1a34955c4cc2fa6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026109"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937743"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -53,9 +53,9 @@ ms.locfileid: "76026109"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|String|A ID do trabalho que contém a tarefa.|
-|`id`|String|A ID da tarefa.|
-|`taskType`|String|O tipo da tarefa. Pode ser ' JobManager ' indicando que se trata de uma tarefa do Gerenciador de trabalho ou ' user ', indicando que ele não é uma tarefa do Gerenciador de trabalho. Esse evento não é emitido para tarefas de preparação de trabalho, tarefas de liberação de trabalho ou tarefas de inicialização.|
+|`jobId`|Cadeia|A ID do trabalho que contém a tarefa.|
+|`id`|Cadeia|A ID da tarefa.|
+|`taskType`|Cadeia|O tipo da tarefa. Pode ser ' JobManager ' indicando que se trata de uma tarefa do Gerenciador de trabalho ou ' user ', indicando que ele não é uma tarefa do Gerenciador de trabalho. Esse evento não é emitido para tarefas de preparação de trabalho, tarefas de liberação de trabalho ou tarefas de inicialização.|
 |`systemTaskVersion`|Int32|Este é o contador de repetição interno em uma tarefa. Internamente, o serviço de lote pode repetir uma tarefa para considerar problemas transitórios. Esses problemas podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em um estado inadequado.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação no qual a tarefa foi executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa de várias instâncias que requer vários nós de computação.  Consulte [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
@@ -66,8 +66,8 @@ ms.locfileid: "76026109"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|String|A ID do pool no qual a tarefa foi executada.|
-|`nodeId`|String|A ID do nó no qual a tarefa foi executada.|
+|`poolId`|Cadeia|A ID do pool no qual a tarefa foi executada.|
+|`nodeId`|Cadeia|A ID do nó no qual a tarefa foi executada.|
 
 ###  <a name="multiInstanceSettings"></a>multiInstanceSettings
 

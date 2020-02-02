@@ -1,18 +1,18 @@
 ---
-title: Criar uma zona DNS e um registro para um nome de domínio-CLI do Azure-DNS do Azure
+title: Crie uma zona DNS e registre para um nome de domínio - Azure CLI - Azure DNS
 description: Este exemplo de script da CLI do Azure mostra como criar e registar uma zona DNS para um nome de domínio
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
-ms.author: allensu
-ms.openlocfilehash: 8f5dde0a35f31d2c33ab2857659efc88339c2ead
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b1db9ffb895470dd9224dc020eb82b0bbf6560c1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210400"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939311"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemplo de script da CLI do Azure: Criar e registar uma zona DNS
 
@@ -46,7 +46,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network dns record-set list](/cli/azure/network/dns/record-set) | Lista todos os conjuntos de registos *A* numa zona DNS. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

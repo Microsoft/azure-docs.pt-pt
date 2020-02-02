@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 56e02d5723fefe45f5df15a4889a35fc55d8da3b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: abfd96eae38bf7c0ad145c2c262efc044b741cea
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842389"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936719"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -75,7 +75,7 @@ Os endereços IP de SKU Standard:
 - Sempre use o método de alocação estática.
 - Ter um tempo limite de ociosidade de fluxo originado de entrada ajustável de 4-30 minutos, com um padrão de 4 minutos e o tempo limite de ociosidade do fluxo de saída fixo de 4 minutos.
 - São seguros por predefinição e fechados ao tráfego de entrada. Tem de especificar a lista de permissões para o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- Atribuído a interfaces de rede, balanceadores de carga públicos padrão, gateways de aplicativo ou gateways de VPN. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Atribuído a interfaces de rede, Balanceadores de Carga públicos Standard ou Gateways de Aplicação. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Com redundância de zona por padrão e, opcionalmente, zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]

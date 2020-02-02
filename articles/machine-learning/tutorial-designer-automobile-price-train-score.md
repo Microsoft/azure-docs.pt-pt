@@ -8,18 +8,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: c7a21bb3f086257b7f6a5edde5cbfdf835645a70
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720190"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934047"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: prever o preço do automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste tutorial de duas partes, você aprende a usar o Azure Machine Learning designer para desenvolver e implantar uma solução de análise preditiva que prevê o preço de qualquer carro.
+Neste tutorial em duas partes, aprende-se a usar o designer de Machine Learning Azure para treinar e implementar um modelo de machine learning que preveja o preço de qualquer carro. O designer é uma ferramenta de drag-and-drop que permite criar modelos de aprendizagem automática sem uma única linha de código.
 
 Na parte um do tutorial, você aprenderá a:
 
@@ -45,13 +45,15 @@ Para criar um pipeline de Azure Machine Learning, você precisa de um espaço de
 
 ### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
+Para utilizar o designer, precisa primeiro de um espaço de trabalho Azure Machine Learning. O espaço de trabalho é o recurso de alto nível para o Azure Machine Learning, que fornece um lugar centralizado para trabalhar com todos os artefactos que cria em Azure Machine Learning.
+
 Se você tiver um espaço de trabalho Azure Machine Learning com uma Enterprise Edition, [pule para a próxima seção](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
-1. Entre no [ml.Azure.com](https://ml.azure.com)e selecione o espaço de trabalho com o qual você deseja trabalhar.
+1. Entre no <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.Azure.com</a>e selecione o espaço de trabalho com o qual você deseja trabalhar.
 
 1. Selecione **Designer**.
 
@@ -60,6 +62,30 @@ Se você tiver um espaço de trabalho Azure Machine Learning com uma Enterprise 
 1. Selecione **módulos pré-criados fáceis de usar**.
 
 1. Na parte superior da tela, selecione o nome de pipeline padrão **Pipeline-Created-on**. Mude o nome para previsão de *preço do Automóvel.* O nome não tem de ser exclusivo.
+
+## <a name="set-the-default-compute-target"></a>Definir o alvo de computação padrão
+
+Um oleoduto funciona num alvo de cálculo, que é um recurso de computação que está ligado ao seu espaço de trabalho. Depois de criar um alvo de cálculo, pode reutilizá-lo para futuras corridas.
+
+Pode definir um alvo de **computação Padrão** para todo o pipeline, que dirá a cada módulo para usar o mesmo alvo de computação por padrão. No entanto, pode especificar os alvos da computação numa base por módulo.
+
+1. Ao lado do nome do pipeline, selecione o **ícone de Engrenagem** ![Screenshot do ícone de engrenagem](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) na parte superior da tela para abrir o painel **Definições.**
+
+1. No painel **Definições** à direita da tela, **selecione Selecione o alvo computacional**.
+
+    Se já tem um alvo de cálculo disponível, pode selecioná-lo para executar este pipeline.
+
+    > [!NOTE]
+    > O designer só pode fazer experiências com alvos da Computação de Machine Learning Azure. Outros alvos de computação não serão mostrados.
+
+1. Introduza um nome para o recurso computacional.
+
+1. Selecione **Guardar**.
+
+    > [!NOTE]
+    > Leva aproximadamente cinco minutos para criar um recurso de computação. Depois de criado o recurso, pode reutilizá-lo e saltar este tempo de espera para futuras corridas.
+    >
+    > O recurso computacional automaticamente escala para zero nódosos quando está inativo para economizar custos. Quando o voltar a usar após um atraso, poderá experimentar aproximadamente cinco minutos de tempo de espera enquanto volta a subir.
 
 ## <a name="import-data"></a>Importar dados
 
@@ -77,7 +103,7 @@ Você pode visualizar os dados para entender o DataSet que você usará.
 
 1. Selecione o módulo **dados de preço do automóvel (brutos)** .
 
-1. No painel Propriedades à direita da tela, selecione **saídas**.
+1. No módulo os detalhes espem à direita da tela, selecione **Saídas**.
 
 1. Selecione o ícone de grafo para visualizar os dados.
 
@@ -93,9 +119,9 @@ Os conjuntos de linhas normalmente exigem algum pré-processamento antes da aná
 
 ### <a name="remove-a-column"></a>Remover uma coluna
 
-Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse conjunto de DataSet, a coluna **normalized-derrotas** não tem muitos valores, portanto, você exclui a coluna do modelo completamente.
+Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Neste conjunto de dados, a coluna **de perdas normalizadas** está a perder muitos valores, pelo que excluirá completamente essa coluna do modelo.
 
-1. Digite **Select** na caixa de pesquisa na parte superior da paleta para localizar o módulo **selecionar colunas no conjunto de DataSet** .
+1. Na paleta de módulos à esquerda da tela, expanda a secção **de Transformação** de Dados e encontra as Colunas Select no módulo **Dataset.**
 
 1. Arraste o módulo **selecionar colunas no conjunto de DataSet** para a tela. Descarte o módulo abaixo do módulo DataSet.
 
@@ -109,7 +135,7 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse co
 
 1. Selecione o módulo **selecionar colunas no conjunto** de módulos.
 
-1. Nas propriedades espumrem à direita da tela, selecione **Todas as colunas**.
+1. No módulo os detalhes espumem à direita da tela, selecione **Todas as colunas**.
 
 1. Selecione o **+** para adicionar uma nova regra.
 
@@ -123,7 +149,7 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse co
 
 1. Selecione o módulo **selecionar colunas no conjunto** de módulos. 
 
-1. No painel de propriedades, selecione a caixa de texto **Comentar** e *introduza Excluir perdas normalizadas*.
+1. No módulo os detalhes painelem à direita da tela, selecione a caixa de texto **'Comentar'** e *introduza excluir perdas normalizadas*.
 
     Os comentários aparecerão no gráfico para ajudá-lo a organizar o seu pipeline.
 
@@ -134,13 +160,15 @@ O conjunto de seus conjuntos de seus valores ainda faltam depois que você remov
 > [!TIP]
 > Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos no designer.
 
-1. Digite **limpar** na caixa de pesquisa para localizar o módulo **limpar dados ausentes** .
+1. Na paleta de módulos à esquerda da tela, expanda a secção **Data Transformation,** e encontre o módulo **Clean Missing Data.**
 
 1. Arraste o módulo **limpar dados ausentes** para a tela do pipeline. Conecte-o ao módulo **selecionar colunas no conjunto de DataSet** . 
 
-1. No painel Propriedades, selecione **remover linha inteira** no **modo de limpeza**.
+1. Selecione o módulo **Clean Missing Data.**
 
-1. Na caixa de **Comentário** do painel Propriedades, digite *remover linhas de valor ausentes*. 
+1. No módulo, os detalhes são à direita da tela, **selecione Remova a linha inteira** sob o modo de **limpeza**.
+
+1. No módulo os detalhes painelam à direita da tela, selecionem a caixa **de comentários** e introduzam Remover as linhas de valor *em falta*. 
 
     Seu pipeline agora deve ser semelhante a este:
     
@@ -156,26 +184,28 @@ Como você deseja prever o preço, que é um número, você pode usar um algorit
 
 Dividir dados é uma tarefa comum na aprendizagem automática. Dividirá os seus dados em dois conjuntos de dados separados. Um conjunto de dados irá treinar o modelo e o outro vai testar o quão bem o modelo foi executado.
 
-1. Insira **dividir dados** na caixa de pesquisa para localizar o módulo **dividir dados** . Ligue a porta esquerda do módulo **Clean Missing Data** ao módulo De dados **divididos.**
+1. Na paleta de módulos, expanda a secção **Data Transformation** e encontre o módulo **De dados divididos.**
+
+1. Arraste o módulo **De dados divididos** para a tela do gasoduto.
+
+1. Ligue a porta esquerda do módulo **Clean Missing Data** ao módulo De dados **divididos.**
 
     > [!IMPORTANT]
     > Certifique-se de que as portas de saída esquerda de **Dados Em Falta Limpos** ligam-se a Dados **Divididos**. A porta esquerda contém os dados limpos. A porta direita contém os dados desprotegidos.
 
 1. Selecione o módulo **dividir dados** .
 
-1. No painel Propriedades, defina a **fração de linhas no primeiro conjunto de registros de saída** como 0,7.
+1. No módulo os detalhes painelam à direita da tela, coloque a **Fração de linhas no primeiro conjunto de dados de saída** para 0,7.
 
     Essa opção divide 70 por cento dos dados para treinar o modelo e 30 por cento para testá-lo. O conjunto de dados de 70% será acessível através da porta de saída esquerda. Os restantes dados estarão disponíveis através da porta de saída certa.
 
-1. Na caixa de **Comentário** do painel Propriedades, digite *dividir o conjunto de os em conjunto de treinamento (0,7) e conjunto de teste (0,3)* .
+1. No módulo os detalhes painelam à direita da tela, selecionem a caixa **de comentários** e introduzam dividir o conjunto de dados em conjunto de *treino (0.7) e conjunto de teste (0.3)* .
 
 ### <a name="train-the-model"></a>Formar o modelo
 
 Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo constrói um modelo que explica a relação entre as características e o preço apresentado pelos dados de formação.
 
-1. Para selecionar o algoritmo de aprendizado, desmarque a caixa de pesquisa paleta de módulos.
-
-1. Expanda **algoritmos Machine Learning**.
+1. Na paleta de módulos, expanda algoritmos de **aprendizagem automática.**
     
     Essa opção exibe várias categorias de módulos que você pode usar para inicializar algoritmos de aprendizado.
 
@@ -192,9 +222,11 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     ![Captura de tela mostrando a configuração correta do módulo modelo de treinamento. O módulo regressão linear conecta-se à porta esquerda do módulo modelo de treinamento e o módulo dividir dados se conecta à porta direita do modelo de treinamento](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
+1. Na paleta de módulos, expanda o treino do **Módulo**de secção e arraste o módulo **Modelo de Comboio** para a tela.
+
 1. Selecione o módulo **modelo de treinamento** .
 
-1. No painel Propriedades, selecione Editar seletor de **coluna** .
+1. No módulo os detalhes painelem à direita da tela, selecione Seletor de **colunas Editar.**
 
 1. Na caixa de diálogo **coluna de rótulo** , expanda o menu suspenso e selecione **nomes de coluna**. 
 
@@ -204,7 +236,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     ![Captura de tela mostrando a configuração correta do pipeline depois de adicionar o módulo modelo de treinamento.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="score-a-machine-learning-model"></a>Marque um modelo de aprendizagem automática
+### <a name="add-the-score-model-module"></a>Adicione o módulo 'Modelo de Pontuação'
 
 Depois de treinar seu modelo usando 70% dos dados, você pode usá-lo para pontuar os outros 30% para ver como seu modelo funciona.
 
@@ -212,7 +244,7 @@ Depois de treinar seu modelo usando 70% dos dados, você pode usá-lo para pontu
 
 1. Conecte a saída do módulo **modelo de treinamento** à porta de entrada à esquerda do **modelo de Pontuação**. Conecte a saída de dados de teste (porta direita) do módulo **dividir dados** à porta de entrada à direita do **modelo de Pontuação**.
 
-## <a name="evaluate-a-machine-learning-model"></a>Avaliar um modelo de aprendizado de máquina
+### <a name="add-the-evaluate-model-module"></a>Adicionar o módulo modelo de avaliação
 
 Utilize o módulo **'Avaliar modelo'** para avaliar a forma como o seu modelo obteve o conjunto de dados de teste.
 
@@ -226,7 +258,20 @@ Utilize o módulo **'Avaliar modelo'** para avaliar a forma como o seu modelo ob
 
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
+Agora que o seu oleoduto está pronto, pode submeter uma corrida de gasodutos.
+
+1. Na parte superior da tela, selecione **Executar**.
+
+1. Na caixa de diálogo de execução do **gasoduto Configurar, selecione** **+ Nova experiência** para a **Experiência**.
+
+    > [!NOTE]
+    > Experiências grupo gasoduto semelhante corre juntos. Se executar um pipeline várias vezes, pode selecionar a mesma experiência para execuções sucessivas.
+
+    1. Introduza um nome descritivo para **Nome da Experiência**.
+
+    1. Selecione **Executar**.
+    
+    Pode ver o estado de execução e os detalhes na parte superior direita da tela.
 
 ### <a name="view-scored-labels"></a>Ver etiquetas pontuadas
 
@@ -234,7 +279,7 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
 1. Selecione o módulo **modelo de Pontuação** para exibir sua saída.
 
-1. No painel de propriedades, selecione **Outputs** > ícone de gráfico ![visualizar o ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, selecione **Outputs** > ícone de gráfico ![visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
 
     Aqui você pode ver os preços previstos e os preços reais dos dados de teste.
 
@@ -246,7 +291,7 @@ Utilize o **Modelo de Avaliação** para ver se o modelo treinado foi executado 
 
 1. Selecione o módulo **avaliar modelo** para exibir sua saída.
 
-1. No painel de propriedades, selecione **Output** > ícone de gráfico ![visualizar o ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, selecione **Output** > ícone de gráfico ![visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
 
 As seguintes estatísticas são mostradas para seu modelo:
 
@@ -260,16 +305,11 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor me
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
+Ignore esta secção se quiser continuar com a parte 2 do tutorial, [implantando modelos](tutorial-designer-automobile-price-deploy.md).
+
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-
-Na parte um deste tutorial, você concluiu as seguintes tarefas:
-
-* Criar um pipeline
-* Preparar os dados
-* Formar o modelo
-* Pontuar e avaliar o modelo
 
 Na parte dois, você aprenderá a implantar seu modelo como um ponto de extremidade em tempo real.
 

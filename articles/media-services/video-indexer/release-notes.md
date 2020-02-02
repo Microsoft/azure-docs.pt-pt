@@ -12,16 +12,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832315"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933851"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` em seu leitor de RSS feed.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` no leitor de feed RSS.
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -29,6 +29,24 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidades preteridas
+
+## <a name="january-2020"></a>Janeiro de 2020
+ 
+### <a name="custom-language-support-for-additional-languages"></a>Suporte de linguagem personalizada para idiomas adicionais
+
+O Indexer de vídeo suporta agora modelos de linguagem personalizada para `ar-SY`, `en-UK`e `en-AU` (apenas API).
+ 
+### <a name="delete-account-timeframe-action-update"></a>Eliminar a atualização de ação do prazo da conta
+
+A eliminação da ação da conta agora elimina a conta no prazo de 90 dias em vez de 48 horas.
+ 
+### <a name="new-video-indexer-github-repository"></a>Novo repositório do Indexer de Vídeo GitHub
+
+Um novo Índice de Vídeo GitHub com diferentes projetos, iniciando guias e amostras de código está agora disponível: https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### <a name="swagger-update"></a>Atualização swagger
+
+Autenticações e **operações** **unificadas** do Indexer de Vídeo numa única [especificação openaPI do Indexer de vídeo (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Os develpers podem encontrar as APIs no Portal de Desenvolvimento do [Indexante](https://api-portal.videoindexer.ai/)de Vídeo .
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
@@ -186,4 +204,4 @@ Além do formato de legenda oculta já suportado (SRT, VTT e TTML), Video Indexe
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral](video-indexer-overview.md)
+[Descrição Geral](video-indexer-overview.md)

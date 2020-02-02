@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 5732df2551eafa74b81f9a918a1cb7cf5ac1395c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768028"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936396"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
@@ -78,7 +78,7 @@ Os parâmetros de configuração são fornecidos como JSON:
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -94,7 +94,7 @@ Use essas propriedades opcionais para configurar a transcrição:
 | `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora de nível de palavra devem ser adicionados à saída. Os valores aceitos são `true` que habilita os carimbos de data e hora de nível de palavra e `false` (o valor padrão) para desabilitá-lo. |
 | `AddSentiment` | Especifica um sentimentos que deve ser adicionado ao expressão. Os valores aceitos são `true` que habilita a expressão e a `false` (o valor padrão) para desabilitá-lo. |
 | `AddDiarization` | Especifica que a análise de diarization deve ser executada na entrada que é esperada como canal mono contendo duas vozes. Os valores aceitos são `true` que habilita diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer que `AddWordLevelTimestamps` seja definido como true.|
-|`TranscriptionResultsContainerUrl`|Token SAS opcional para um contêiner gravável no Azure. O resultado será armazenado nesse contêiner.
+|`TranscriptionResultsContainerUrl`|URL opcional com [serviço SAS](../../storage/common/storage-sas-overview.md) para um recipiente reemputável em Azure. O resultado será armazenado nesse contêiner.
 
 ### <a name="storage"></a>Armazenamento
 

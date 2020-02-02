@@ -1,5 +1,5 @@
 ---
-title: Executar tarefas em paralelo para usar os recursos de computação com eficiência – lote do Azure | Microsoft Docs
+title: Executar tarefas paralelas à otimização de recursos computacionais - Lote Azure
 description: Aumente a eficiência e reduza os custos usando menos nós de computação e executando tarefas simultâneas em cada nó em um pool do lote do Azure
 services: batch
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/17/2019
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1ee0db85818349938fcf5248e10e5eaac546bae5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026820"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930441"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nós de computação do lote 
 
@@ -33,9 +33,9 @@ Embora alguns cenários se beneficiem de dedicar todos os recursos de um nó a u
 * **Replicar um cluster de computação local**, como quando você move um ambiente de computação pela primeira vez para o Azure. Se sua solução local atual executar várias tarefas por nó de computação, você poderá aumentar o número máximo de tarefas de nó para espelhar mais de forma mais próxima essa configuração.
 
 ## <a name="example-scenario"></a>Cenário de exemplo
-Como um exemplo para ilustrar os benefícios da execução de tarefas paralelas, digamos que o aplicativo de tarefa tenha requisitos de CPU e memória, de modo que os nós [padrão\_D1](../cloud-services/cloud-services-sizes-specs.md) sejam suficientes. Mas, para concluir o trabalho no tempo necessário, 1.000 desses nós são necessários.
+Como exemplo para ilustrar os benefícios da execução paralela da tarefa, digamos que a sua aplicação de tarefa tem CPU e requisitos de memória tais que os nós [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) são suficientes. Mas, para concluir o trabalho no tempo necessário, 1.000 desses nós são necessários.
 
-Em vez de usar\_nós D1 padrão que têm 1 núcleo de CPU, você poderia usar os nós de [\_de D14 padrão](../cloud-services/cloud-services-sizes-specs.md) que têm 16 núcleos cada e habilitar a execução de tarefas paralelas. Portanto, *16 vezes menos nós* poderiam ser usados, em vez de 1.000 nós, apenas 63 seria necessário. Além disso, se arquivos de aplicativo grandes ou dados de referência forem necessários para cada nó, a duração e a eficiência do trabalho serão novamente aprimoradas, já que os dados são copiados para apenas nós 63.
+Em vez de utilizar os nós Standard\_D1 que têm 1 núcleo CPU, pode utilizar os nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) que têm 16 núcleos cada, e permitir a execução paralela de tarefas. Portanto, *16 vezes menos nós* poderiam ser usados, em vez de 1.000 nós, apenas 63 seria necessário. Além disso, se arquivos de aplicativo grandes ou dados de referência forem necessários para cada nó, a duração e a eficiência do trabalho serão novamente aprimoradas, já que os dados são copiados para apenas nós 63.
 
 ## <a name="enable-parallel-task-execution"></a>Habilitar a execução de tarefas paralelas
 Você configura nós de computação para a execução de tarefas paralelas no nível do pool. Com a biblioteca .NET do lote, defina a propriedade [CloudPool. MaxTasksPerComputeNode][maxtasks_net] ao criar um pool. Se você estiver usando a API REST do lote, defina o elemento [maxTasksPerNode][rest_addpool] no corpo da solicitação durante a criação do pool.
@@ -52,7 +52,7 @@ Quando os nós de computação em um pool podem executar tarefas simultaneamente
 
 Usando a propriedade [CloudPool. TaskSchedulingPolicy][task_schedule] , você pode especificar que as tarefas devem ser atribuídas uniformemente em todos os nós no pool ("difusão"). Ou você pode especificar que o máximo de tarefas possível deve ser atribuído a cada nó antes que as tarefas sejam atribuídas a outro nó no pool ("empacotamento").
 
-Como um exemplo de como esse recurso é valioso, considere o pool de nós [padrão de\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) configurado com um valor de 16 [CloudPool. MaxTasksPerComputeNode][maxtasks_net] . Se o [CloudPool. TaskSchedulingPolicy][task_schedule] for configurado com um [ComputeNodeFillType][fill_type] do *Pack*, ele maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento](batch-automatic-scaling.md) automático removesse nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economiza dinheiro.
+Como exemplo de como esta funcionalidade é valiosa, considere o conjunto de nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) que está configurado com um valor [CloudPool.MaxTasksPerComputeNode][maxtasks_net] de 16. Se o [CloudPool. TaskSchedulingPolicy][task_schedule] for configurado com um [ComputeNodeFillType][fill_type] do *Pack*, ele maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento](batch-automatic-scaling.md) automático removesse nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economiza dinheiro.
 
 ## <a name="batch-net-example"></a>Exemplo de .NET do lote
 Este trecho de código de API [.net do lote][api_net] mostra uma solicitação para criar um pool que contém quatro nós com um máximo de quatro tarefas por nó. Ele especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para obter mais informações sobre como adicionar pools usando a API .NET do lote, consulte [BatchClient. PoolOperations. createpool][poolcreate_net].

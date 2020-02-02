@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 831a867d1084f7396db0f8aa4c2e2e665eb98732
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1852ba059d13a8886b739cac439798b4d031a531
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898831"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932626"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)
 
-O armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer [chaves gerenciadas pelo cliente][customer-managed-keys] para usar na criptografia do sistema operacional e dos discos de dados para seus clusters AKs.
+O armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer [chaves geridas pelo cliente][customer-managed-keys] para usar para encriptação em repouso tanto para o SISTEMA como para os discos de dados para os seus clusters AKS.
 
 > [!NOTE]
 > Os clusters AKS baseados em Linux e Windows BYOK estão disponíveis em [regiões do Azure][supported-regions] que dão suporte à criptografia do lado do servidor de discos gerenciados do Azure.

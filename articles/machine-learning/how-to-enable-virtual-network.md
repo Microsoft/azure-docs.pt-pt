@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: fafb40c8505b7178782ab15c14184c5bec052a1b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760861"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937866"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -136,7 +136,7 @@ Para usar uma instância de computação ou cluster de computação Azure Machin
 > * A sub-rede especificada para a instância ou cluster de computação deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs que são direcionadas. Se a sub-rede não tiver endereços IP não atribuídos suficientes, um cluster de computação será parcialmente alocado.
 > * Verifique se as políticas de segurança ou os bloqueios na assinatura ou no grupo de recursos da rede virtual restringem as permissões para gerenciar a rede virtual. Se você planeja proteger a rede virtual restringindo o tráfego, deixe algumas portas abertas para o serviço de computação. Para obter mais informações, consulte a seção [portas necessárias](#mlcports) .
 > * Se você pretende colocar várias instâncias de computação ou clusters em uma rede virtual, talvez seja necessário solicitar um aumento de cota para um ou mais dos seus recursos.
-> * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que a instância ou cluster de computação Azure Machine Learning. Se você estiver criando uma instância de computação na mesma rede virtual, precisará desanexar as contas de armazenamento da rede virtual, criar a instância de computação na rede virtual e, em seguida, anexar as contas de armazenamento de volta à rede virtual.
+> * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que a instância ou cluster de computação Azure Machine Learning. 
 
 A instância ou cluster de computação Machine Learning aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a rede virtual. Para cada instância ou cluster de computação, o serviço aloca os seguintes recursos:
 

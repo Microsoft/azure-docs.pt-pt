@@ -1,9 +1,9 @@
 ---
-title: Solucionando problemas de status degradado no Gerenciador de tráfego do Azure
-description: Como solucionar problemas de perfis do Gerenciador de tráfego quando ele aparece como status degradado.
+title: Situação de resolução de problemas degradou-se no Gestor de Tráfego do Azure
+description: Como resolver os perfis do Traffic Manager quando mostra o estado degradado.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,44 +11,44 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: allensu
-ms.openlocfilehash: 8b8fbdf55e408874f6a6e83d6333583238865b5c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227723"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938371"
 ---
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de estado degradado no Gerenciador de tráfego do Azure
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas degradou estado em Azure Traffic Manager
 
-Este artigo descreve como solucionar problemas de um perfil do Gerenciador de tráfego do Azure que está mostrando um status degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o log de diagnóstico.  Consulte [Habilitar logs de diagnóstico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que você configurou um perfil do Gerenciador de tráfego apontando para alguns dos seus serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de tráfego exibir um status **degradado** , o status de um ou mais pontos de extremidade poderá ser **degradado**:
+Este artigo descreve como resolver um perfil do Gestor de Tráfego Azure que mostra um estado degradado. Como um primeiro passo na resolução de problemas um estado dedegradado do Gestor de Tráfego Azure é permitir a exploração de diagnóstico.  Consulte os [registos de diagnóstico enable](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que configura um perfil de Gestor de Tráfego apontando para alguns dos seus serviços cloudapp.net hospedados. Se a saúde do seu Gestor de Tráfego apresentar um estado **degradado,** então o estado de um ou mais pontos finais pode ser **degradado:**
 
-![status de ponto de extremidade degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
+![estatuto de ponto final degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Se a integridade do seu Gerenciador de tráfego exibir um status **inativo** , ambos os pontos de extremidade poderão ser **desabilitados**:
+Se a saúde do seu Gestor de Tráfego apresentar um estado **inativo,** então ambos os pontos finais podem ser **desativados:**
 
-![Status do Gerenciador de tráfego inativo](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
+![Estado do Gestor de Tráfego Inativo](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>Entendendo as investigações do Gerenciador de tráfego
+## <a name="understanding-traffic-manager-probes"></a>Compreender as sondas do Gestor de Tráfego
 
-* O Gerenciador de tráfego considera um ponto de extremidade como ONLINE somente quando a investigação recebe uma resposta HTTP 200 do caminho de investigação. Se seu aplicativo retornar qualquer outro código de resposta HTTP, você deverá adicionar esse código de resposta aos [intervalos de código de status esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego.
-* Uma resposta de redirecionamento de 30 vezes é tratada como falha, a menos que você tenha especificado isso como um código de resposta válido em [intervalos de códigos de status esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego. O Gerenciador de tráfego não investiga o destino de redirecionamento.
-* Para investigações HTTPs, os erros de certificado são ignorados.
-* O conteúdo real do caminho de investigação não importa, desde que um 200 seja retornado. Investigar uma URL para algum conteúdo estático como "/favicon.ico" é uma técnica comum. O conteúdo dinâmico, como as páginas ASP, nem sempre pode retornar 200, mesmo quando o aplicativo está íntegro.
-* Uma prática recomendada é definir o caminho de investigação para algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao definir o caminho para "/favicon.ico", você está testando apenas que w3wp. exe está respondendo. Essa investigação não pode indicar que seu aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como "/Probe.aspx" que tem lógica para determinar a integridade do site. Por exemplo, você pode usar contadores de desempenho para utilização da CPU ou medir o número de solicitações com falha. Ou você pode tentar acessar os recursos do banco de dados ou o estado da sessão para certificar-se de que o aplicativo Web está funcionando.
-* Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de tráfego tratará todos os pontos de extremidade como íntegros e roteará o tráfego para todos os pontos de extremidade. Esse comportamento garante que os problemas com o mecanismo de investigação não resultem em uma interrupção completa do seu serviço.
+* O Traffic Manager considera que um ponto final só está online quando a sonda recebe uma resposta HTTP 200 de volta do caminho da sonda. Se a aplicação devolver qualquer outro código de resposta HTTP, deve adicionar esse código de resposta aos intervalos de código de [estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil de Gestor de Tráfego.
+* Uma resposta de redirecionamento de 30x é tratada como falha, a menos que tenha especificado isto como um código de resposta válido nas gamas de [código de estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil de Gestor de Tráfego. O Gestor de Tráfego não sonda o alvo de redirecionamento.
+* Para as sondas HTTPs, os erros de certificado são ignorados.
+* O conteúdo real do caminho da sonda não importa, desde que um 200 seja devolvido. Sondar um URL a algum conteúdo estático como "/favicon.ico" é uma técnica comum. O conteúdo dinâmico, tal como as páginas ASP, nem sempre pode devolver 200, mesmo quando a aplicação é saudável.
+* Uma boa prática é definir o caminho da sonda para algo que tem lógica suficiente para determinar que o site está para cima ou para baixo. No exemplo anterior, definindo o caminho para "/favicon.ico", está apenas a testar que w3wp.exe está a responder. Esta sonda pode não indicar que a sua aplicação web é saudável. Uma melhor opção seria definir um caminho para algo como "/Probe.aspx" que tem lógica para determinar a saúde do site. Por exemplo, pode utilizar contadores de desempenho para a utilização do CPU ou medir o número de pedidos falhados. Ou pode tentar aceder aos recursos da base de dados ou ao estado de sessão para se certificar de que a aplicação web está a funcionar.
+* Se todos os pontos finais de um perfil estiverem degradados, então o Traffic Manager trata todos os pontos finais como saudáveis e encaminha o tráfego para todos os pontos finais. Este comportamento garante que os problemas com o mecanismo de sondagem não resultam numa interrupção completa do seu serviço.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno do código de status HTTP da URL de investigação. Há muitas ferramentas disponíveis que mostram a resposta HTTP bruta.
+Para resolver uma falha na sonda, precisa de uma ferramenta que mostre o retorno do código de estado HTTP do URL da sonda. Existem muitas ferramentas disponíveis que mostram a resposta http crua.
 
 * [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Além disso, você pode usar a guia rede das ferramentas de depuração F12 no Internet Explorer para exibir as respostas HTTP.
+Além disso, pode utilizar o separador Rede das Ferramentas de Depuração F12 no Internet Explorer para visualizar as respostas HTTP.
 
-Para este exemplo, queremos ver a resposta de nossa URL de investigação: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo do PowerShell a seguir ilustra o problema.
+Para este exemplo queremos ver a resposta do nosso URL da sonda: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo da PowerShell ilustra o problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -60,9 +60,9 @@ Exemplo de saída:
     ---------- -----------------
            301 Moved Permanently
 
-Observe que recebemos uma resposta de redirecionamento. Como mencionado anteriormente, qualquer StatusCode diferente de 200 é considerado uma falha. O Gerenciador de tráfego altera o status do ponto de extremidade para offline. Para resolver o problema, verifique a configuração do site para garantir que o StatusCode apropriado possa ser retornado do caminho de investigação. Reconfigure a investigação do Traffic Manager para apontar para um caminho que retorna um 200.
+Reparem que recebemos uma resposta redireccional. Como indicado anteriormente, qualquer StatusCode que não seja 200 é considerado uma falha. O Gestor de Tráfego altera o estado do ponto final para Offline. Para resolver o problema, verifique a configuração do site para garantir que o StatusCode adequado pode ser devolvido do caminho da sonda. Reconfigure a sonda do Gestor de Tráfego para apontar para um caminho que retorne um 200.
 
-Se sua investigação estiver usando o protocolo HTTPS, talvez seja necessário desabilitar a verificação de certificado para evitar erros de SSL/TLS durante o teste. As instruções do PowerShell a seguir desabilitam a validação de certificado para a sessão atual do PowerShell:
+Se a sua sonda estiver a utilizar o protocolo HTTPS, poderá ter de desativar a verificação de certificados para evitar erros SSL/TLS durante o seu teste. As seguintes declarações powerShell desativam a validação do certificado para a sessão atual da PowerShell:
 
 ```powershell
 add-type @"
@@ -81,16 +81,16 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Próximos Passos
 
-[Sobre métodos de roteamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md)
+[Sobre os métodos de encaminhamento de tráfego do Gestor de Tráfego](traffic-manager-routing-methods.md)
 
-[O que é o Gerenciador de tráfego](traffic-manager-overview.md)
+[O que é Gestor de Tráfego](traffic-manager-overview.md)
 
 [Serviços Cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Serviço de Aplicações Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Serviço de Aplicações do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlets do Gerenciador de tráfego do Azure][1]
+[Cmdlets do Gestor de Tráfego Azure][1]
 
 [1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

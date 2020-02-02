@@ -1,7 +1,7 @@
 ---
 title: Desenvolver um aplicativo Web seguro do Azure AD | Microsoft Docs
 description: Este aplicativo de exemplo simples implementa práticas recomendadas de segurança que melhoram seu aplicativo e a postura de segurança de sua organização quando você desenvolve no Azure.
-keywords: nd
+keywords: na
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 11bf7c0ae05c2e52d59efb32be47ce6bd96fac4f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771279"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937971"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver um aplicativo seguro para um aplicativo do Azure AD
 ## <a name="overview"></a>Visão geral
@@ -55,7 +55,7 @@ A arquitetura consiste nesses componentes
 - [Sistema de nomes de domínio do Azure](../../dns/dns-overview.md). Forneça o serviço para hospedar o domínio.
 - [Balanceador de Carga do Azure](../../load-balancer/load-balancer-overview.md). Fornece para dimensionar seus aplicativos e criar alta disponibilidade para seus serviços.
 - [Aplicação Web do Azure](../../app-service/overview.md).  Fornece um serviço baseado em HTTP para hospedar aplicativos Web.
-- [Centro de Segurança do Azure](../../security-center/index.yml). fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem.
+- [Centro de Segurança Azure.](../../security-center/index.yml) fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem.
 - [Azure Policy](../../governance/policy/overview.md). Fornece avaliação de seus recursos para não conformidade com políticas atribuídas.
 
 ## <a name="threat-model"></a>Modelo de ameaça
@@ -185,7 +185,7 @@ $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 
 
 #Assign an address range to be used for the back-end address pool.
 
-$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.0.0/24
+$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
 #Create a virtual network with the subnets defined in the preceding steps.
 
@@ -212,7 +212,7 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAdd
 
 #Configure the back-end IP address pool with the IP addresses of the back-end web servers
 
-$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.0.0
+$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.3.11
 
 #Configure the front-end IP port for the public IP endpoint
 
@@ -222,6 +222,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 $passwd = ConvertTo-SecureString  "P@ssword!1" -AsPlainText -Force 
 $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\AAD\Securities\Certificates\sslcert.com.cer" -Password $passwd 
+
 
 #Create the HTTP listener for the application gateway
 
@@ -334,7 +335,7 @@ Agora que você habilitou a integração de rede virtual, você pode adicionar g
 
 5. Na folha sub-redes do NSG, selecione **associar**, selecione a rede virtual criada na implantação e selecione a sub-rede de gateway denominada **GW-subnet**. O NSG é aplicado à sub-rede.
 
-6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dê um nome a ela. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
+6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dá-lhe um nome. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
 
    Se você tiver uma instância do serviço de aplicativo implantada em uma instância do Ambiente do Serviço de Aplicativo, que não é o caso desse aplicativo, você poderá adicionar regras de entrada para permitir investigações de integridade do serviço do Azure abrindo as portas 454-455 nos grupos de segurança de entrada de seu serviço de aplicativo NSG. Aqui está a configuração:
 
@@ -343,7 +344,7 @@ Agora que você habilitou a integração de rede virtual, você pode adicionar g
     *Adicionar regras para investigações de integridade do serviço do Azure (somente Ambiente do Serviço de Aplicativo)*
 
 Para limitar a superfície de ataque, modifique as configurações de rede do serviço de aplicativo para permitir que apenas o gateway de aplicativo acesse o aplicativo.
-Para aplicar as configurações, vá para a guia rede do serviço de aplicativo, selecione a guia **restrições de IP** e crie uma regra de permissão que permita que apenas o IP do gateway de aplicativo acesse o serviço diretamente. Você pode recuperar o endereço IP do gateway de sua página de visão geral. Na guia **CIDR endereço IP** , insira o endereço IP neste formato: `<GATEWAY_IP_ADDRESS>/32`.
+Para aplicar as configurações, vá para a guia rede do serviço de aplicativo, selecione a guia **restrições de IP** e crie uma regra de permissão que permita que apenas o IP do gateway de aplicativo acesse o serviço diretamente. Você pode recuperar o endereço IP do gateway de sua página de visão geral. No **separador IP Address CIDR,** introduza o endereço IP neste formato: `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Permitir somente o gateway](./media/secure-web-app/app-allow-gw-only.png)
 
@@ -412,12 +413,12 @@ Os serviços do Azure registram extensivamente a atividade do sistema e do usuá
    - Chave de acesso de armazenamento de dados
    - Cadeia de ligação
    - Nome da tabela de dados
-   - Credenciais de Utilizador
+   - Credenciais de utilizador
    - As políticas de acesso avançadas são configuradas de acordo com a necessidade
    - Key Vault políticas de acesso são definidas com as permissões mínimas necessárias para chaves e segredos
    - Todas as chaves e segredos no Key Vault têm datas de expiração
-   - Todas as chaves em Key Vault são protegidas pelo módulo de segurança de hardware (HSM) [tipo de chave = módulo de segurança de hardware (HSM) protegido       
-     Chave RSA de 2048 bits]
+   - Todas as teclas no Cofre chave estão protegidas por módulo de segurança de hardware (HSM) [Tipo chave = módulo de segurança de hardware (HSM) Protegido       
+     Chave RSA de 2048]
    - Todos os usuários/identidades recebem as permissões mínimas necessárias usando o RBAC (controle de acesso baseado em função)
    - Os aplicativos não compartilham um Key Vault, a menos que eles confiem um do outro e precisem acessar os mesmos segredos no tempo de execução
    - Os logs de diagnóstico para Key Vault estão habilitados com um período de retenção de pelo menos 365 dias.
@@ -465,7 +466,7 @@ Para habilitar o MFA para entradas de administrador
    1. Vá para a guia **Azure Active Directory** na portal do Azure
    2. Na categoria segurança, selecione acesso condicional. Você vê esta tela
 
-       ![Políticas de Acesso Condicional](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Acesso Condicional - Políticas](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Se você não puder criar uma nova política
 
@@ -518,7 +519,7 @@ Para criar este espaço de trabalho
 
    3. Use a caixa de pesquisa para pesquisar o **Azure Sentinel**.
 
-   ![Procurar o Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
+   ![Pesquisa por Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
 
    *Pesquisar pelo Azure Sentinel*
 
@@ -558,6 +559,6 @@ Para criar este espaço de trabalho
 ## <a name="next-steps"></a>Passos seguintes
    Os artigos a seguir podem ajudá-lo a projetar, desenvolver e implantar aplicativos seguros.
 
-- [Estruturar](secure-design.md)
+- [Design](secure-design.md)
 - [Programar](secure-develop.md)
 - [Implementar](secure-deploy.md)

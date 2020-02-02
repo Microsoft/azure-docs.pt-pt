@@ -1,17 +1,18 @@
 ---
-title: Criptografar dados de implantação
+title: Encriptar dados de implementação
 description: Saiba mais sobre a criptografia de dados persistidos para seus recursos de instância de contêiner e como criptografar os dados com uma chave gerenciada pelo cliente
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 146effd7f1a7ad1ddd94886d1a79e2914bd1c94b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904214"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934308"
 ---
-# <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
+# <a name="encrypt-deployment-data"></a>Encriptar dados de implementação
 
 Ao executar recursos de ACI (instâncias de contêiner do Azure) na nuvem, o serviço ACI coleta e mantém os dados relacionados aos seus contêineres. O ACI criptografa esses dados automaticamente quando eles são persistidos na nuvem. Essa criptografia protege seus dados para ajudar a atender aos compromissos de segurança e conformidade de sua organização. O ACI também oferece a opção de criptografar esses dados com sua própria chave, proporcionando a você maior controle sobre os dados relacionados às implantações do ACI.
 
@@ -23,7 +24,7 @@ Os dados no ACI são criptografados e descriptografados usando a criptografia AE
 
 Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de seus dados de contêiner ou pode gerenciar a criptografia com suas próprias chaves. A tabela a seguir compara estas opções: 
 
-|    |    Chaves gerenciadas pela Microsoft     |     Chaves gerenciadas pelo cliente     |
+|    |    Chaves gerenciadas pela Microsoft     |     Chaves geridas pelo cliente     |
 |----|----|----|
 |    Operações de criptografia/descriptografia    |    Azure    |    Azure    |
 |    Armazenamento de chaves    |    Repositório de chaves da Microsoft    |    Azure Key Vault    |
@@ -74,7 +75,7 @@ Crie uma nova política de acesso para permitir que o serviço ACI acesse sua ch
 
 * Depois que a chave tiver sido gerada, volte na folha de recursos do cofre de chaves, em configurações, clique em **políticas de acesso**.
 * Na página "políticas de acesso" do cofre de chaves, clique em **Adicionar política de acesso**.
-* Defina as *permissões de chave* para incluir a chave **Get** e a **desencapsulamento** ![definir permissões de chave](./media/container-instances-encrypt-data/set-key-permissions.png)
+* Detete as *permissões chave* para incluir **obter** e **desembrulhar as** ![definir permissões de chave](./media/container-instances-encrypt-data/set-key-permissions.png)
 * Para *selecionar entidade de segurança*, selecione **serviço de instância de contêiner do Azure**
 * Clique em **Adicionar** na parte inferior 
 
@@ -87,15 +88,18 @@ A política de acesso agora deve aparecer nas políticas de acesso do cofre de c
 > [!IMPORTANT]
 > A criptografia de dados de implantação com uma chave gerenciada pelo cliente está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação. Se você tiver problemas com isso, entre em contato com o suporte do Azure.
 
-Depois que a chave do Key Vault e a política de acesso forem configuradas, adicione a propriedade a seguir ao seu modelo de implantação do ACI. Você pode aprender mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Assim que a chave do cofre e a política de acesso estiverem configuradas, adicione as seguintes propriedades ao seu modelo de implementação ACI. Saiba mais sobre a implementação de recursos ACI com um modelo no [Tutorial: Implante um grupo multi-contentor usando um modelo](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)de Gestor de Recursos . 
+* Em `resources`, `apiVersion` definida para `2012-12-01`.
+* Sob a secção de propriedades do grupo de contentores do modelo de implantação, adicione um `encryptionProperties`, que contenha os seguintes valores:
+  * `vaultBaseUrl`: o Nome DNS do seu cofre chave, pode ser encontrado na lâmina geral do recurso do cofre chave no Portal
+  * `keyName`: o nome da chave gerada anteriormente
+  * `keyVersion`: a versão atual da chave. Isso pode ser encontrado ao clicar na chave em si (em "chaves" na seção de configurações do recurso do cofre de chaves)
+* Sob as propriedades do grupo de contentores, adicione uma propriedade `sku` com valor `Standard`. A propriedade `sku` é exigida na versão API 2019-12-01.
 
-Especificamente, na seção Propriedades do grupo de contêineres do modelo de implantação, adicione um "EncryptionProperties", que contém os seguintes valores:
-* vaultBaseUrl: o nome DNS do cofre de chaves, pode ser encontrado na folha visão geral do recurso do cofre de chaves no portal
-* keyName: o nome da chave gerada anteriormente
-* keyversion: a versão atual da chave. Isso pode ser encontrado ao clicar na chave em si (em "chaves" na seção de configurações do recurso do cofre de chaves)
-
+O seguinte modelo de corte mostra estas propriedades adicionais para encriptar dados de implementação:
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -108,12 +112,107 @@ Especificamente, na seção Propriedades do grupo de contêineres do modelo de i
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+Segue-se um modelo completo, adaptado a partir do modelo no [Tutorial: Implante um grupo multi-contentorusando um modelo](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)de Gestor de Recursos . 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### <a name="deploy-your-resources"></a>Implantar seus recursos

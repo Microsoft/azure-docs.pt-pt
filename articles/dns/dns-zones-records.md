@@ -1,20 +1,20 @@
 ---
 title: Visão geral de Zonas DNS e registros-DNS do Azure
 description: Visão geral do suporte para hospedar zonas e registros DNS no Microsoft Azure DNS.
-author: asudbring
+author: rohinkoul
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: allensu
-ms.openlocfilehash: 460a1696497918ba525560507a16b0a321bd0e18
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.author: rohink
+ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276207"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938838"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -30,7 +30,7 @@ O DNS do Azure fornece uma infraestrutura de servidor de nome de alta disponibil
 
 Atualmente, o DNS do Azure não dá suporte à compra de nomes de domínio. Se você quiser adquirir um nome de domínio, precisará usar um registrador de nome de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem ser hospedados no DNS do Azure para o gerenciamento de registros DNS. Veja [Delegar um Domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
-## <a name="dns-zones"></a>Zonas DNS
+## <a name="dns-zones"></a>Zonas de DNS
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -92,7 +92,7 @@ O número de série da zona no registro SOA não é atualizado automaticamente q
 
 Os [Registros SRV](https://en.wikipedia.org/wiki/SRV_record) são usados por vários serviços para especificar locais de servidor. Ao especificar um registro SRV no DNS do Azure:
 
-* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_SIP.\_tcp.name '.  Para um registro no Apex da zona, não é necessário especificar '\@' no nome do registro, basta usar o serviço e o protocolo, por exemplo, '\_SIP.\_TCP '.
+* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo,\_gole.\_tcp.name'.  Para um registo no ápice da zona, não há necessidade de especificar '\@' no nome de registo, basta utilizar o serviço e o protocolo, por exemplo "\_gole.\_tcp'.
 * A *prioridade*, o *peso*, a *porta*e o *destino* são especificados como parâmetros de cada registro no conjunto de registros.
 
 ### <a name="txt-records"></a>Registros TXT

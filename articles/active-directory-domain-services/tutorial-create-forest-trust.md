@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425422"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931238"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: criar uma relação de confiança de floresta de saída para um domínio local no Azure Active Directory Domain Services (versão prévia)
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, você precisa dos seguintes recursos e privilégios
     * Se necessário, [crie e configure uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Certifique-se de criar um domínio gerenciado do Azure AD DS usando uma floresta de *recursos* . A opção padrão cria uma floresta de *usuário* . Somente as florestas de recursos podem criar relações de confiança com ambientes AD DS locais.
+    > Certifique-se de criar um domínio gerenciado do Azure AD DS usando uma floresta de *recursos* . A opção padrão cria uma floresta de *usuário* . Somente as florestas de recursos podem criar relações de confiança com ambientes AD DS locais. Também precisa de utilizar um mínimo de *Enterprise* SKU para o seu domínio gerido. Se necessário, mude o SKU para um domínio gerido por [AD DS azure][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -220,3 +220,4 @@ Para obter mais informações conceituais sobre tipos de floresta no Azure AD DS
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md

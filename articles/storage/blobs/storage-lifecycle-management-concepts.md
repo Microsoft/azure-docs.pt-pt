@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260958"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939230"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -348,9 +348,9 @@ Este exemplo mostra como fazer a transição de blobs de bloco prefixados com `c
 }
 ```
 
-### <a name="archive-data-at-ingest"></a>Arquivar dados em ingestão
+### <a name="archive-data-after-ingest"></a>Arquivar dados após ingerir
 
-Alguns dados permanecem ociosos na nuvem e raramente são acessados uma vez armazenados. A política de ciclo de vida a seguir é configurada para arquivar dados após sua ingestão. Este exemplo faz a transição de blobs de blocos na conta de armazenamento dentro do contêiner `archivecontainer` para uma camada de arquivo morto. A transição é realizada agindo em BLOBs 0 dias após a hora da última modificação:
+Alguns dados permanecem ociosos na nuvem e raramente são acessados uma vez armazenados. A seguinte política de ciclo de vida é configurada para arquivar dados logo após a sua ingestão. Este exemplo faz a transição de blobs de blocos na conta de armazenamento dentro do contêiner `archivecontainer` para uma camada de arquivo morto. A transição é realizada agindo em BLOBs 0 dias após a hora da última modificação:
 
 > [!NOTE] 
 > É recomendável carregar seus BLOBs diretamente a camada de arquivo para ser mais eficiente. Você pode usar o cabeçalho x-MS-acesso-Tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recente ou nossas bibliotecas de cliente de armazenamento de blob mais recentes. 

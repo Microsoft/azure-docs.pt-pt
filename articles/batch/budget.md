@@ -1,6 +1,6 @@
 ---
 title: Análise de custo e orçamento-lote do Azure
-description: Saiba como obter uma análise de custo e definir um orçamento para a carga de trabalho do lote.
+description: Aprenda a obter uma análise de custos e detetete um orçamento para os recursos computacionais subjacentes e licenças de software usadas para executar as suas cargas de trabalho do Batch.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
 ms.author: jushiman
-ms.openlocfilehash: 7707d966049e9eced1add1104441af8fee356ef0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 0cd17271d041b41f9f71c7861e29ab8116c74710
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029563"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930191"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custo e orçamentos para o lote do Azure
 
@@ -50,9 +50,9 @@ Por meio do portal do Azure, você pode criar orçamentos e gastar alertas para 
 1. Na portal do Azure, selecione **Gerenciamento de custos + cobrança** na barra de navegação à esquerda.
 1. Selecione sua assinatura na seção **minhas assinaturas**
 1. Vá para **análise de custo** na seção **Gerenciamento de custos** da barra de navegação à esquerda, que mostrará um modo de exibição como este:
-1. Selecione **Adicionar filtro**. Na primeira lista suspensa, selecione **recurso** ![selecione o filtro de recursos](./media/batch-budget/resource-filter.png)
+1. Selecione **Adicionar filtro**. Na primeira gota, selecione **Recursos** ![Selecione o filtro de recursos](./media/batch-budget/resource-filter.png)
 1. Na segunda lista suspensa, selecione o pool do lote. Quando o pool for selecionado, a análise de custo será semelhante à análise a seguir.
-    ![análise de custo de um pool](./media/batch-budget/pool-cost-analysis.png)
+    ![Análise de custos de um](./media/batch-budget/pool-cost-analysis.png) de piscina
 
 A análise de custo resultante mostra o custo do pool, bem como os recursos que contribuem com esse custo. Neste exemplo, as VMs usadas no pool são o recurso mais dispendioso.
 
@@ -75,7 +75,7 @@ Saiba mais sobre como configurar VMs de baixa prioridade para sua carga de traba
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo de disco do so da máquina virtual
 
-Há vários [tipos de disco de sistema operacional de VM](../virtual-machines/windows/disks-types.md). A maioria das séries de VM tem tamanhos que dão suporte ao armazenamento Premium e Standard. Quando um ' tamanho da VM ' é selecionado para um pool, o lote configura OS discos do sistema operacional SSD Premium. Quando o tamanho da VM ' não s' é selecionado, o tipo de disco HDD padrão mais barato é usado. Por exemplo, OS discos do sistema operacional SSD Premium são usados para `Standard_D2s_v3` e discos do sistema operacional HDD padrão são usados para `Standard_D2_v3`.
+Há vários [tipos de disco de sistema operacional de VM](../virtual-machines/windows/disks-types.md). A maioria das séries de VM tem tamanhos que dão suporte ao armazenamento Premium e Standard. Quando um ' tamanho da VM ' é selecionado para um pool, o lote configura OS discos do sistema operacional SSD Premium. Quando o tamanho da VM ' não s' é selecionado, o tipo de disco HDD padrão mais barato é usado. Por exemplo, os discos SSD OS premium são utilizados para `Standard_D2s_v3` e os discos HDD OS padrão são utilizados para `Standard_D2_v3`.
 
 SSD Premium discos do sistema operacional são mais caros, mas têm maior desempenho e VMs com discos Premium podem começar um pouco mais rapidamente do que as VMs com discos do sistema operacional HDD padrão. Com o lote, o disco do sistema operacional geralmente não é usado, pois os aplicativos e os arquivos de tarefa estão localizados no disco SSD temporário de VMs. Portanto, em muitos casos, não há necessidade de pagar o aumento do custo para o SSD Premium que é provisionado quando um "tamanho de VM" é especificado.
 
@@ -83,7 +83,7 @@ SSD Premium discos do sistema operacional são mais caros, mas têm maior desemp
 
 Se você pretende usar o lote por um longo período de tempo, poderá economizar no custo das VMs usando as reservas do [Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md) para suas cargas de trabalho. Uma taxa de reserva é consideravelmente menor do que uma taxa paga conforme o uso. As instâncias de máquina virtual usadas sem uma reserva são cobradas à taxa paga conforme o uso. Se você comprar uma reserva, o desconto de reserva será aplicado e você não será mais cobrado com as tarifas pago pelo uso.
 
-### <a name="automatic-scaling"></a>Dimensionamento automático
+### <a name="automatic-scaling"></a>Escala automática
 
 O [dimensionamento automático](batch-automatic-scaling.md) dimensiona dinamicamente o número de VMs em seu pool do lote com base nas demandas do trabalho atual. Ao dimensionar o pool com base no tempo de vida de um trabalho, o dimensionamento automático garante que as VMs sejam escaladas verticalmente e usadas somente quando houver um trabalho a ser executado. Quando o trabalho for concluído ou não houver nenhum trabalho, as VMs serão dimensionadas automaticamente para salvar os recursos de computação. O dimensionamento permite reduzir o custo geral da solução do lote usando apenas os recursos de que você precisa.
 

@@ -2,17 +2,17 @@
 title: Protegendo Zonas DNS e registros-DNS do Azure
 description: Neste roteiro de aprendizagem, comece a proteger as zonas DNS e os conjuntos de registros em Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
-ms.author: allensu
-ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: rohink
+ms.openlocfilehash: 64c71047c60482ff198dbba833d4d0a35c80c60d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969011"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932423"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger registros e zonas DNS
 
@@ -156,7 +156,7 @@ A função pode ser atribuída da mesma maneira que as funções internas, confo
 
 Para obter mais informações sobre como criar, gerenciar e atribuir funções personalizadas, consulte [funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Bloqueios de recurso
+## <a name="resource-locks"></a>Bloqueios de recursos
 
 Além do RBAC, o Azure Resource Manager dá suporte a outro tipo de controle de segurança, ou seja, a capacidade de bloquear recursos. Onde as regras de RBAC permitem controlar as ações de usuários e grupos específicos, os bloqueios de recursos são aplicados ao recurso e são efetivos entre todos os usuários e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 

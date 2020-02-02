@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 2624f9fafd82aad9613d6940eca69486d897aa08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393356bd8604f6e7622acd778817681aad31f1f9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905339"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935012"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar Azure Toolkit for IntelliJ para depurar Apache Spark aplicativos remotamente no HDInsight por meio de VPN
 
@@ -35,7 +35,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 * **INTELLIJ ideia**. Este artigo usa a versão 2017,1. Você pode instalá-lo no [site do JetBrains](https://www.jetbrains.com/idea/download/).
 * **Ferramentas do HDInsight no Azure Toolkit for IntelliJ**. As ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Azure Toolkit for IntelliJ. Para obter instruções sobre como instalar o kit de ferramentas do Azure, consulte [instalar Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Entre em sua assinatura do Azure do INTELLIJ Idea**. Siga as instruções em [usar Azure Toolkit for IntelliJ para criar Apache Spark aplicativos para um cluster HDInsight](apache-spark-intellij-tool-plugin.md).
-* **Exceção alternativa**. Ao executar o aplicativo do Spark escalar para depuração remota em um computador Windows, você pode obter uma exceção. Essa exceção é explicada em [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils. exe ausente no Windows. Para contornar este erro, tem de descarregar `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` para um local como **C:\WinUtils\bin**. Adicione uma variável **ambiente HADOOP_HOME** e, em seguida, definir o valor da variável para **C\WinUtils**.
+* **Exceção alternativa**. Ao executar o aplicativo do Spark escalar para depuração remota em um computador Windows, você pode obter uma exceção. Essa exceção é explicada em [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils. exe ausente no Windows. Para contornar este erro, tem de baixar [winutils.exe](https://github.com/steveloughran/winutils) para um local como **C:\WinUtils\bin**. Adicione uma variável **ambiente HADOOP_HOME** e, em seguida, definir o valor da variável para **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Etapa 1: criar uma rede virtual do Azure
 

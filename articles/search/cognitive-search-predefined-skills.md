@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f0975aceeb55c8f184ebe4e6a44d819b4a8bf38
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837865"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933372"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competências cognitivas incorporadas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva Azure)
 
@@ -31,6 +31,7 @@ Várias competências são flexíveis naquilo que consomem ou produzem. Em geral
 
 | Habilidade | Descrição |
 |-------|-------------|
+|[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Procura texto a partir de uma lista personalizada e definida pelo utilizador de palavras e frases.|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Esta habilidade usa um modelo pré-treinado para detetar frases importantes baseadas na colocação de termo, regras linguísticas, proximidade a outros termos, e quão incomum o termo é dentro dos dados de origem. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para detetar que linguagem é usada (um ID de idioma por documento). Quando várias línguas são usadas nos mesmos segmentos de texto, a saída é o LCID da língua predominantemente utilizada.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Consolida o texto de uma coleção de campos num único campo.  |

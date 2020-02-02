@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: c4395628ac31dd69a4978f7f68ecc24ca1e15cfb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 225ae9d07cc6df2fa809e250083ee6007ab2f945
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453113"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932089"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando Azure PowerShell.
@@ -109,7 +109,7 @@ Obtenha detalhes sobre o serviço de link privado com [Get-AzPrivateLinkService]
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
 
-Neste estágio, o serviço de vínculo privado foi criado com êxito e está pronto para receber o tráfego. Observe que o exemplo acima é apenas para demonstrar a criação do serviço de vínculo privado usando o PowerShell.  Não configuramos os pools de back-end do balanceador de carga ou qualquer aplicativo nos pools de back-end para escutar o tráfego. Se você quiser ver fluxos de tráfego de ponta a ponta, poderá configurar seu aplicativo por trás do balanceador de carga padrão. 
+Neste estágio, o serviço de vínculo privado foi criado com êxito e está pronto para receber o tráfego. Observe que o exemplo acima é apenas para demonstrar a criação do serviço de vínculo privado usando o PowerShell.  Não configuramos os pools de back-end do balanceador de carga ou qualquer aplicativo nos pools de back-end para escutar o tráfego. Se quiser ver os fluxos de tráfego finais, é fortemente aconselhável configurar a sua aplicação por trás do seu equilibrador de carga padrão. 
 
 Em seguida, demonstraremos como mapear esse serviço para um ponto de extremidade privado em uma VNet diferente usando o PowerShell. Novamente, o exemplo é limitado à criação do ponto de extremidade privado e à conexão com o serviço de vínculo privado criado acima. Você pode criar máquinas virtuais na rede virtual para enviar/receber tráfego para o ponto de extremidade privado para criar seu cenário. 
 
@@ -134,7 +134,7 @@ $vnetPE = New-AzVirtualNetwork `
 -Subnet $peSubnet 
 ```
 
-### <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
+### <a name="create-a-private-endpoint"></a>Criar um ponto final privado
 Crie um ponto de extremidade privado para consumir o serviço de vínculo privado criado acima em sua rede virtual:
  
 ```azurepowershell

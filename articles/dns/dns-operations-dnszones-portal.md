@@ -3,7 +3,7 @@ title: Gerenciar zonas DNS no DNS do Azure-portal do Azure | Microsoft Docs
 description: Você pode gerenciar zonas DNS usando o portal do Azure. Este artigo descreve como atualizar, excluir e criar zonas DNS no DNS do Azure
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: allensu
-ms.openlocfilehash: 4e6b5dc200f49b34d8f808e5587b173197b9da8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: rohink
+ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437319"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936771"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerenciar Zonas DNS no portal do Azure
 

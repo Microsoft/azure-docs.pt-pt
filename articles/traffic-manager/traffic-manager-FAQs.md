@@ -3,20 +3,20 @@ title: Gerenciador de tráfego do Azure-perguntas frequentes
 description: Este artigo fornece respostas para perguntas frequentes sobre o Gerenciador de tráfego
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: allensu
-ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.author: rohink
+ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045304"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938803"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Traffic Manager
 
@@ -406,7 +406,7 @@ Para perfis com o método de roteamento definido como vários valores:
 
 Sim, você pode, com a exceção de que um perfil do tipo de vários valores não pode ser um perfil pai em um conjunto de perfis aninhado.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parei um ponto de extremidade do aplicativo Web no meu perfil do Gerenciador de tráfego, mas não estou recebendo nenhum tráfego mesmo depois de reiniciá-lo. Como posso corrigir este problema?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parei um ponto de extremidade do aplicativo Web no meu perfil do Gerenciador de tráfego, mas não estou recebendo nenhum tráfego mesmo depois de reiniciá-lo. Como posso consertar isto?
 
 Quando um ponto de extremidade de aplicativo Web do Azure é interrompido, o Gerenciador de tráfego para de verificar sua integridade e reinicia as verificações de integridade somente após detectar que o ponto de extremidade foi reiniciado. Para evitar esse atraso, desabilite e reabilite o ponto de extremidade no perfil do Gerenciador de tráfego depois de reiniciar o ponto de extremidade.
 
@@ -458,7 +458,7 @@ O número de verificações de integridade do Gerenciador de tráfego que atinge
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso ser notificado se um dos meus pontos de extremidade ficar inativo?
 
-Uma das métricas fornecidas pelo Gerenciador de tráfego é o status de integridade de pontos de extremidade em um perfil. Você pode ver isso como uma agregação de todos os pontos de extremidade dentro de um perfil (por exemplo, 75% de seus pontos de extremidade estão íntegros) ou, em um nível por ponto de extremidades. As métricas do Gerenciador de tráfego são expostas por meio de Azure Monitor e você pode usar seus [recursos de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para obter notificações quando houver uma alteração no status de integridade de seu ponto de extremidade. Para obter mais detalhes, consulte [métricas e alertas do Gerenciador de tráfego](traffic-manager-metrics-alerts.md).  
+Uma das métricas fornecidas pelo Gerenciador de tráfego é o status de integridade de pontos de extremidade em um perfil. Pode ver isto como um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais são saudáveis), ou, a um nível final. As métricas do Gerenciador de tráfego são expostas por meio de Azure Monitor e você pode usar seus [recursos de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para obter notificações quando houver uma alteração no status de integridade de seu ponto de extremidade. Para obter mais detalhes, consulte [métricas e alertas do Gerenciador de tráfego](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfis aninhados do Gerenciador de tráfego
 
@@ -499,7 +499,7 @@ A tabela a seguir descreve o comportamento das verificações de integridade do 
 
 | Status do monitor de perfil filho | Status do monitor de ponto de extremidade pai | Notas |
 | --- | --- | --- |
-| Desativado. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é parado, não desabilitado. O estado desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
+| Deficiente. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é parado, não desabilitado. O estado desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade de perfil filho está em um estado degradado. |Online: o número de pontos de extremidade online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade online Plus CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints for definido muito alto, o ponto de extremidade sempre será degradado. |
 | Online. Pelo menos um ponto de extremidade de perfil filho é um estado online. Nenhum ponto de extremidade está no estado degradado. |Veja acima. | |
 | Verificando pontos. Pelo menos um ponto de extremidade de perfil filho é ' CheckingEndpoint '. Nenhum ponto de extremidade está ' online ' ou ' degradado ' |O mesmo que acima. | |

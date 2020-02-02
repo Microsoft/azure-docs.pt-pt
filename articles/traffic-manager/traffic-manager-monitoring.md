@@ -1,204 +1,204 @@
 ---
-title: Monitoramento de ponto de extremidade do Gerenciador de tráfego do Azure | Microsoft Docs
-description: Este artigo pode ajudá-lo a entender como o Gerenciador de tráfego usa o monitoramento de ponto de extremidade e o failover automático para ajudar os clientes do Azure a implantar aplicativos de alta disponibilidade
+title: Monitorização do ponto final do Gestor de Tráfego azure  Microsoft Docs
+description: Este artigo pode ajudá-lo a entender como o Traffic Manager utiliza a monitorização de pontos finais e falha automática do ponto final para ajudar os clientes azure a implementar aplicações de alta disponibilidade
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: allensu
-ms.openlocfilehash: e06d2ce93ac7c534f2c729dce794e66e3ee894d8
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.author: rohink
+ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333809"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938564"
 ---
-# <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de tráfego
+# <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
 
-O Gerenciador de tráfego do Azure inclui monitoramento de ponto de extremidade interno e failover de ponto de extremidade automático. Esse recurso ajuda a fornecer aplicativos de alta disponibilidade que são resilientes a falhas de ponto de extremidade, incluindo falhas de região do Azure.
+O Azure Traffic Manager inclui monitorização de ponto final incorporado e falha automática do ponto final. Esta funcionalidade ajuda-o a fornecer aplicações de alta disponibilidade que são resistentes a falhas de pontofinal, incluindo falhas na região de Azure.
 
-## <a name="configure-endpoint-monitoring"></a>Configurar o monitoramento de ponto de extremidade
+## <a name="configure-endpoint-monitoring"></a>Configurar a monitorização do ponto final
 
-Para configurar o monitoramento de ponto de extremidade, você deve especificar as seguintes configurações no seu perfil do Gerenciador de tráfego:
+Para configurar a monitorização do ponto final, deve especificar as seguintes definições no perfil do Gestor de Tráfego:
 
-* **Protocolo**. Escolha HTTP, HTTPS ou TCP como o protocolo que o Gerenciador de tráfego usa ao investigar seu ponto de extremidade para verificar sua integridade. O monitoramento de HTTPS não verifica se o certificado SSL é válido – ele verifica apenas se o certificado está presente.
-* **Porta**. Escolha a porta usada para a solicitação.
-* **Caminho**. Essa configuração é válida somente para os protocolos HTTP e HTTPS, para os quais a especificação da configuração de caminho é necessária. O fornecimento dessa configuração para o protocolo de monitoramento TCP resulta em um erro. Para o protocolo HTTP e HTTPS, forneça o caminho relativo e o nome da página da Web ou o arquivo que o monitoramento acessa. Uma barra (/) é uma entrada válida para o caminho relativo. Esse valor implica que o arquivo está no diretório raiz (padrão).
-* **Configurações de cabeçalho personalizadas** Essa definição de configuração ajuda a adicionar cabeçalhos HTTP específicos às verificações de integridade que o Gerenciador de tráfego envia aos pontos de extremidade em um perfil. Os cabeçalhos personalizados podem ser especificados em um nível de perfil para serem aplicáveis a todos os pontos de extremidade nesse perfil e/ou em um nível de ponto de extremidades aplicável somente a esse ponto de extremidade. Você pode usar cabeçalhos personalizados para que as verificações de integridade de pontos de extremidade em um ambiente multilocatário sejam roteadas corretamente para seu destino, especificando um cabeçalho de host. Você também pode usar essa configuração adicionando cabeçalhos exclusivos que podem ser usados para identificar solicitações HTTP (S) originadas do Gerenciador de tráfego e processá-las de forma diferente. Você pode especificar até oito pares de cabeçalho: valor seprated por uma vírgula. Por exemplo, "header1: value1, header2: value2". 
-* **Intervalos de códigos de status esperados** Essa configuração permite que você especifique vários intervalos de códigos de êxito no formato 200-299, 301-301. Se esses códigos de status forem recebidos como resposta de um ponto de extremidade quando uma verificação de integridade for iniciada, o Gerenciador de tráfego marcará esses pontos como íntegros. Você pode especificar um máximo de 8 intervalos de código de status. Essa configuração é aplicável somente ao protocolo HTTP e HTTPS e a todos os pontos de extremidade. Essa configuração está no nível do perfil do Traffic Manager e, por padrão, o valor 200 é definido como o código de status de êxito.
-* **Intervalo de investigação**. Esse valor especifica com que frequência um ponto de extremidade é verificado para sua integridade de um agente de investigação do Gerenciador de tráfego. Você pode especificar dois valores aqui: 30 segundos (investigação normal) e 10 segundos (investigação rápida). Se nenhum valor for fornecido, o perfil definirá como um valor padrão de 30 segundos. Visite a página de [preços do Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) para saber mais sobre os preços de investigação rápida.
-* **Número de falhas toleradas**. Esse valor especifica quantas falhas um agente de investigação do Traffic Manager tolera antes de marcar esse ponto de extremidade como não íntegro. Seu valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitoramento pode fazer com que esse ponto de extremidade seja marcado como não íntegro. Se nenhum valor for especificado, ele usará o valor padrão de 3.
-* **Tempo limite de investigação**. Essa propriedade especifica a quantidade de tempo que o agente de investigação do Traffic Manager deve aguardar antes de considerar que verificar uma falha quando um teste de verificação de integridade é enviado para o ponto de extremidade. Se o intervalo de investigação for definido como 30 segundos, você poderá definir o valor de tempo limite entre 5 e 10 segundos. Se nenhum valor for especificado, ele usará um valor padrão de 10 segundos. Se o intervalo de investigação for definido como 10 segundos, você poderá definir o valor de tempo limite entre 5 e 9 segundos. Se nenhum valor de tempo limite for especificado, ele usará um valor padrão de 9 segundos.
+* **Protocolo**. Escolha HTTP, HTTPS ou TCP como o protocolo que o Gestor de Tráfego utiliza ao sondar o seu ponto final para verificar a sua saúde. A monitorização HTTPS não verifica se o seu certificado SSL é válido - apenas verifica se o certificado está presente.
+* **Porto.** Escolha a porta utilizada para o pedido.
+* **Caminho.** Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para os quais é necessária a definição do caminho. A disponibilização desta definição para o protocolo de monitorização do TCP resulta num erro. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página web ou o ficheiro a que acede o monitor. Um corte para a frente (/) é uma entrada válida para o caminho relativo. Este valor implica que o ficheiro está no diretório raiz (padrão).
+* **Definições personalizadas do cabeçalho** Esta definição de configuração ajuda-o a adicionar cabeçalhos HTTP específicos aos controlos de saúde que o Gestor de Tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil a ser aplicável para todos os pontos finais desse perfil e/ou a um nível final aplicável apenas a esse ponto final. Você pode usar cabeçalhos personalizados para ter verificações de saúde em pontos finais em um ambiente multi-inquilino ser encaminhado corretamente para o seu destino, especificando um cabeçalho anfitrião. Também pode utilizar esta definição adicionando cabeçalhos únicos que podem ser usados para identificar pedidos http(S) originados do Gestor de Tráfego e processa-os de forma diferente. Pode especificar até oito cabeçalhos: pares de valor costurados por uma vírposta. Por exemplo, "header1:value1,header2:value2". 
+* **Intervalos de código de estado esperados** Esta definição permite especificar várias gamas de códigos de sucesso no formato 200-299, 301-301. Se estes códigos de estado forem recebidos como resposta a partir de um ponto final quando um exame de saúde é iniciado, o Gestor de Tráfego marca esses pontos finais como saudáveis. Pode especificar um máximo de 8 intervalos de código de estado. Esta definição é aplicável apenas ao protocolo HTTP e HTTPS e a todos os pontos finais. Esta definição encontra-se ao nível do perfil do Gestor de Tráfego e, por padrão, o valor 200 é definido como o código de estado de sucesso.
+* **Intervalo de sondagem.** Este valor especifica a frequência com que um ponto final é verificado para a sua saúde a partir de um agente de sondagem do Gestor de Tráfego. Pode especificar dois valores aqui: 30 segundos (sondagem normal) e 10 segundos (sondagem rápida). Se não forem fornecidos valores, o perfil fixa-se num valor predefinido de 30 segundos. Visite a página de [Preços do Gestor](https://azure.microsoft.com/pricing/details/traffic-manager) de Tráfego para saber mais sobre preços de sondagem rápida.
+* **Número tolerado de falhas.** Este valor especifica quantas falhas um agente de sondagem do Traffic Manager tolera antes de marcar esse ponto final como insalubre. O seu valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitorização pode fazer com que esse ponto final seja marcado como insalubre. Se não for especificado qualquer valor, utiliza o valor predefinido de 3.
+* **Intervalo da sonda.** Esta propriedade especifica a quantidade de tempo que o agente de sondagem do Gestor de Tráfego deve esperar antes de considerar que verifique uma falha quando uma sonda de verificação de saúde é enviada para o ponto final. Se o intervalo de sondagem estiver definido para 30 segundos, pode definir o valor do tempo entre 5 e 10 segundos. Se não for especificado qualquer valor, utiliza um valor predefinido de 10 segundos. Se o intervalo de sondagem estiver definido para 10 segundos, pode definir o valor do tempo entre 5 e 9 segundos. Se não for especificado o valor do timeout, utiliza um valor predefinido de 9 segundos.
 
-    ![Monitoramento de ponto de extremidade do Gerenciador de tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Monitorização do ponto final do Gestor de Tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Figuras  Monitoramento de ponto de extremidade do Gerenciador de tráfego**
+    **Figura: Monitorização do ponto final do gestor de tráfego**
 
-## <a name="how-endpoint-monitoring-works"></a>Como funciona o monitoramento do ponto de extremidade
+## <a name="how-endpoint-monitoring-works"></a>Como funciona a monitorização do ponto final
 
-Se o protocolo de monitoramento estiver definido como HTTP ou HTTPS, o agente de investigação do Traffic Manager fará uma solicitação GET para o ponto de extremidade usando o protocolo, a porta e o caminho relativo fornecidos. Se obtiver novamente uma resposta 200-OK ou qualquer uma das respostas configuradas nos **intervalos de código \*de status esperados**, esse ponto de extremidade será considerado íntegro. Se a resposta for um valor diferente, ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Traffic Manager tentará novamente de acordo com a configuração de número de falhas toleradas (nenhuma nova tentativa será feita se essa configuração for 0). Se o número de falhas consecutivas for maior que a configuração de número de falhas toleradas, esse ponto de extremidade será marcado como não íntegro. 
+Se o protocolo de monitorização for definido como HTTP ou HTTPS, o agente de sondagem do Gestor de Tráfego faz um pedido GET ao ponto final utilizando o protocolo, porta e caminho relativo dado. Se recuperar uma resposta de 200 OK, ou qualquer uma das respostas configuradas no código de **estado esperado \*intervalos,** então esse ponto final é considerado saudável. Se a resposta for de um valor diferente, ou, se não for recebida qualquer resposta dentro do prazo de tempo especificado, então o Gestor de Tráfego que sonda re-tente de acordo com a definição de Número tolerado de Falhas (não são feitas retentativas se esta definição for de 0). Se o número de falhas consecutivas for superior à definição de Número tolerado de Falhas, então esse ponto final é marcado como insalubre. 
 
-Se o protocolo de monitoramento for TCP, o agente de investigação do Traffic Manager iniciará uma solicitação de conexão TCP usando a porta especificada. Se o ponto de extremidade responder à solicitação com uma resposta para estabelecer a conexão, essa verificação de integridade será marcada como êxito e o agente de investigação do Traffic Manager redefinirá a conexão TCP. Se a resposta for um valor diferente, ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Traffic Manager tentará novamente de acordo com a configuração de número de falhas toleradas (nenhuma nova tentativa será feita se essa configuração for 0). Se o número de falhas consecutivas for maior que a configuração de número de falhas toleradas, esse ponto de extremidade será marcado como não íntegro.
+Se o protocolo de monitorização for TCP, o gestor de sons do Gestor de Tráfego inicia um pedido de ligação TCP utilizando a porta especificada. Se o ponto final responder ao pedido com uma resposta para estabelecer a ligação, esse exame de saúde é marcado como um sucesso e o agente de sondagem do Gestor de Tráfego repõe a ligação TCP. Se a resposta for de um valor diferente, ou se não for recebida qualquer resposta dentro do prazo de tempo especificado, o Gestor de Tráfego que sonda re-tentativas de acordo com a definição de Número tolerado de Falhas (não são feitas retentativas se esta definição for de 0). Se o número de falhas consecutivas for superior à definição de Número tolerado de Falhas, então esse ponto final é marcado como insalubre.
 
-Em todos os casos, o Gerenciador de tráfego investiga de vários locais e a determinação de falha consecutiva ocorre dentro de cada região. Isso também significa que os pontos de extremidade estão recebendo investigações de integridade do Gerenciador de tráfego com uma frequência maior do que a configuração usada para o intervalo de investigação.
+Em todos os casos, o Gestor de Tráfego sonda de vários locais e a determinação de falha consecutiva ocorre em cada região. Isto também significa que os pontos finais estão a receber sondas de saúde do Traffic Manager com uma frequência mais elevada do que a regulação utilizada para o Intervalo de Sondagem.
 
 >[!NOTE]
->Para o protocolo de monitoramento HTTP ou HTTPS, uma prática comum no lado do ponto de extremidade é implementar uma página personalizada em seu aplicativo, por exemplo,/Health.aspx. Usando esse caminho para monitoramento, você pode executar verificações específicas do aplicativo, como verificação de contadores de desempenho ou verificação da disponibilidade do banco de dados. Com base nessas verificações personalizadas, a página retorna um código de status HTTP apropriado.
+>Para o protocolo de monitorização HTTP ou HTTPS, uma prática comum no lado final é implementar uma página personalizada dentro da sua aplicação - por exemplo, /health.aspx. Utilizando este caminho para monitorização, pode efetuar verificações específicas da aplicação, tais como verificar contadores de desempenho ou verificar a disponibilidade da base de dados. Com base nestas verificações personalizadas, a página devolve um código de estado HTTP apropriado.
 
-Todos os pontos de extremidade em um perfil do Gerenciador de tráfego compartilham configurações de monitoramento. Se precisar usar configurações de monitoramento diferentes para pontos de extremidade diferentes, você poderá criar [perfis aninhados do Gerenciador de tráfego](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
+Todos os pontos finais de uma definição de monitorização de partilha de perfil do Gestor de Tráfego. Se necessitar de utilizar diferentes definições de monitorização para diferentes pontos finais, pode criar [perfis aninhados do Traffic Manager](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
-## <a name="endpoint-and-profile-status"></a>Status do ponto de extremidade e perfil
+## <a name="endpoint-and-profile-status"></a>Estado do ponto final e perfil
 
-Você pode habilitar e desabilitar os perfis e os pontos de extremidade do Gerenciador de tráfego. No entanto, uma alteração no status do ponto de extremidade também pode ocorrer como resultado de configurações e processos automatizados do Gerenciador de tráfego.
+Pode ativar e desativar perfis e pontos finais do Gestor de Tráfego. No entanto, uma alteração no estado do ponto final também pode ocorrer como resultado de configurações e processos automatizados do Gestor de Tráfego.
 
 ### <a name="endpoint-status"></a>Estado do ponto final
 
-Você pode habilitar ou desabilitar um ponto de extremidade específico. O serviço subjacente, que ainda pode estar íntegro, não é afetado. Alterar o status do ponto de extremidade controla a disponibilidade do ponto de extremidade no perfil do Gerenciador de tráfego. Quando um status de ponto de extremidade é desabilitado, o Gerenciador de tráfego não verifica sua integridade e o ponto de extremidade não é incluído em uma resposta DNS.
+Pode ativar ou desativar um ponto final específico. O serviço subjacente, que ainda pode ser saudável, não é afetado. A alteração do estado do ponto final controla a disponibilidade do ponto final no perfil do Gestor de Tráfego. Quando um estado de ponto final é desativado, o Gestor de Tráfego não verifica a sua saúde e o ponto final não está incluído numa resposta DNS.
 
-### <a name="profile-status"></a>Status do perfil
+### <a name="profile-status"></a>Estado do perfil
 
-Usando a configuração status do perfil, você pode habilitar ou desabilitar um perfil específico. Enquanto o status do ponto de extremidade afeta um único ponto de extremidade, o status do perfil afeta todo o perfil, incluindo todos os pontos de extremidades. Quando você desabilita um perfil, os pontos de extremidade não são verificados quanto à integridade e nenhum ponto de extremidade é incluído em uma resposta DNS. Um código de resposta [NXDOMAIN](https://tools.ietf.org/html/rfc2308) é retornado para a consulta DNS.
+Utilizando a definição de estado do perfil, pode ativar ou desativar um perfil específico. Embora o estado do ponto final afete um único ponto final, o estado do perfil afeta todo o perfil, incluindo todos os pontos finais. Quando desativa um perfil, os pontos finais não são verificados para a saúde e não estão incluídos pontos finais numa resposta DNS. Um código de resposta [NXDOMAIN](https://tools.ietf.org/html/rfc2308) é devolvido para a consulta dNS.
 
-### <a name="endpoint-monitor-status"></a>Status do monitor de ponto de extremidade
+### <a name="endpoint-monitor-status"></a>Estado do monitor endpoint
 
-O status do monitor de ponto de extremidade é um valor gerado pelo Gerenciador de tráfego que mostra o status do ponto de extremidade. Você não pode alterar essa configuração manualmente. O status do monitor do ponto de extremidade é uma combinação dos resultados do monitoramento do ponto de extremidade e do status do ponto de extremidade configurado. Os valores possíveis do status do monitor de ponto de extremidade são mostrados na tabela a seguir:
+O estado do monitor endpoint é um valor gerado pelo Gestor de Tráfego que mostra o estado do ponto final. Não é possível alterar manualmente esta definição. O estado do monitor do ponto final é uma combinação dos resultados da monitorização do ponto final e do estado do ponto final configurado. Os valores possíveis do estado do monitor do ponto final são apresentados no quadro seguinte:
 
-| Status do perfil | Estado do ponto final | Status do monitor de ponto de extremidade | Notas |
+| Estado do perfil | Estado do ponto final | Estado do monitor endpoint | Notas |
 | --- | --- | --- | --- |
-| Desativado |Enabled |Inativa |O perfil foi desabilitado. Embora o status do ponto de extremidade esteja habilitado, o status do perfil (desabilitado) tem precedência. Os pontos de extremidade em perfis desabilitados não são monitorados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
-| &lt;outro&gt; |Desativado |Desativado |O ponto de extremidade foi desabilitado. Os pontos de extremidade desabilitados não são monitorados. O ponto de extremidade não está incluído nas respostas DNS, portanto, não recebe tráfego. |
-| Enabled |Enabled |Online |O ponto de extremidade é monitorado e está íntegro. Ele é incluído nas respostas DNS e pode receber tráfego. |
-| Enabled |Enabled |Degradado |As verificações de integridade de monitoramento do ponto de extremidade estão falhando. O ponto de extremidade não está incluído nas respostas DNS e não recebe tráfego. <br>Uma exceção a isso é se todos os pontos de extremidade estiverem degradados; nesse caso, todos eles serão considerados retornados na resposta da consulta).</br>|
-| Enabled |Enabled |CheckingEndpoint |O ponto de extremidade é monitorado, mas os resultados da primeira investigação ainda não foram recebidos. CheckingEndpoint é um estado temporário que geralmente ocorre imediatamente após a adição ou habilitação de um ponto de extremidade no perfil. Um ponto de extremidade nesse estado é incluído nas respostas DNS e pode receber tráfego. |
-| Enabled |Enabled |Parada |O aplicativo Web para o qual o ponto de extremidade aponta não está em execução. Verifique as configurações do aplicativo Web. Isso também pode acontecer se o ponto de extremidade for do tipo ponto de extremidade aninhado e o perfil filho estiver desabilitado ou estiver inativo. <br>Um ponto de extremidade com um status parado não é monitorado. Ele não está incluído nas respostas DNS e não recebe tráfego. Uma exceção a isso é se todos os pontos de extremidade estiverem degradados; nesse caso, todos eles serão considerados retornados na resposta da consulta.</br>|
+| Desativado |Ativado |Inativo |O perfil foi desativado. Embora o estado do ponto final esteja ativado, o estado do perfil (Desativado) tem precedência. Os pontos finais dos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é devolvido para a consulta dNS. |
+| &lt;qualquer&gt; |Desativado |Desativado |O ponto final foi desativado. Os pontos finais desativados não são monitorizados. O ponto final não está incluído nas respostas do DNS, portanto, não recebe tráfego. |
+| Ativado |Ativado |Online |O ponto final é monitorizado e saudável. Está incluído nas respostas do DNS e pode receber tráfego. |
+| Ativado |Ativado |Degradado |Os controlos de saúde do ponto final estão a falhar. O ponto final não está incluído nas respostas do DNS e não recebe tráfego. <br>Uma exceção a esta situação é se todos os pontos finais forem degradados, caso em que todos eles são considerados devolvidos na resposta à consulta).</br>|
+| Ativado |Ativado |Ponto de verificação Endpoint |O ponto final é monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. Verificar endpoint é um estado temporário que geralmente ocorre imediatamente após adicionar ou ativar um ponto final no perfil. Um ponto final neste estado está incluído nas respostas do DNS e pode receber tráfego. |
+| Ativado |Ativado |Parada |A aplicação web a que o ponto final aponta não está a funcionar. Verifique as definições da aplicação web. Isto também pode acontecer se o ponto final for de ponto final aninhado tipo e o perfil da criança estiver desativado ou estiver inativo. <br>Um ponto final com um estado de paragem não é monitorizado. Não está incluído nas respostas do DNS e não recebe tráfego. Uma exceção a esta questão é se todos os pontos finais forem degradados, caso em que todos eles serão considerados devolvidos na resposta à consulta.</br>|
 
-Para obter detalhes sobre como o status do monitor de ponto de extremidade é calculado para pontos de extremidades aninhados, consulte [perfis aninhados do Gerenciador de tráfego](traffic-manager-nested-profiles.md).
+Para obter mais detalhes sobre como o estado do monitor de ponto final é calculado para pontos finais aninhados, consulte [os perfis do Gestor de Tráfego aninhadas](traffic-manager-nested-profiles.md).
 
 >[!NOTE]
-> Um status de monitor de ponto de extremidade parado poderá ocorrer no serviço de aplicativo se seu aplicativo Web não estiver em execução na camada Standard ou superior. Para obter mais informações, consulte [integração do Gerenciador de tráfego com o serviço de aplicativo](/azure/app-service/web-sites-traffic-manager).
+> Um estado de monitor stop Endpoint pode acontecer no Serviço de Aplicações se a sua aplicação web não estiver a funcionar no nível Standard ou acima. Para mais informações, consulte a integração do Gestor de Tráfego com o Serviço de [Aplicações.](/azure/app-service/web-sites-traffic-manager)
 
-### <a name="profile-monitor-status"></a>Status do monitor de perfil
+### <a name="profile-monitor-status"></a>Estado do monitor de perfil
 
-O status do monitor de perfil é uma combinação do status do perfil configurado e os valores de status do monitor do ponto de extremidade para todos os pontos de extremidade. Os valores possíveis são descritos na tabela a seguir:
+O estado do monitor de perfil é uma combinação do estado do perfil configurado e dos valores de estado do monitor do ponto final para todos os pontos finais. Os valores possíveis são descritos no quadro seguinte:
 
-| Status do perfil (conforme configurado) | Status do monitor de ponto de extremidade | Status do monitor de perfil | Notas |
+| Estado do perfil (conforme configurado) | Estado do monitor endpoint | Estado do monitor de perfil | Notas |
 | --- | --- | --- | --- |
-| Desativado |&lt;qualquer&gt; um ou um perfil sem pontos de extremidade definidos. |Desativado |O perfil foi desabilitado. |
-| Enabled |O status de pelo menos um ponto de extremidade está degradado. |Degradado |Examine os valores de status do ponto de extremidade individual para determinar quais pontos de extremidades exigem mais atenção. |
-| Enabled |O status de pelo menos um ponto de extremidade está online. Nenhum ponto de extremidade tem um status degradado. |Online |O serviço está aceitando tráfego. Não são necessárias mais ações. |
-| Enabled |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade está no status online ou degradado. |Verificando pontos |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
-| Enabled |Os status de todos os pontos de extremidade no perfil são desabilitados ou interrompidos ou o perfil não tem pontos de extremidade definidos. |Inativa |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
+| Desativado |&lt;qualquer&gt; ou perfil sem pontos finais definidos. |Desativado |O perfil foi desativado. |
+| Ativado |O estatuto de pelo menos um ponto final está degradado. |Degradado |Reveja os valores de estado do ponto final individuais para determinar quais os pontos finais que requerem mais atenção. |
+| Ativado |O estado de pelo menos um ponto final está online. Nenhum ponto final tem um estatuto degradado. |Online |O serviço está a aceitar o trânsito. Não são necessárias mais ações. |
+| Ativado |O estado de pelo menos um ponto final é verificar endpoint. Não existem pontos finais em estado online ou degradado. |Verificação de Pontos Finais |Este estado de transição ocorre quando um perfil se criado ou ativado. A saúde do ponto final está a ser verificada pela primeira vez. |
+| Ativado |Os estatutos de todos os pontos finais do perfil são desativados ou parados, ou o perfil não tem pontos finais definidos. |Inativo |Não existem pontos finais ativos, mas o perfil ainda está ativado. |
 
-## <a name="endpoint-failover-and-recovery"></a>Failover e recuperação de ponto de extremidade
+## <a name="endpoint-failover-and-recovery"></a>Falha e recuperação de endpoint
 
-O Gerenciador de tráfego verifica periodicamente a integridade de cada ponto de extremidade, incluindo pontos de extremidades não íntegros. O Gerenciador de tráfego detecta quando um ponto de extremidade se torna íntegro e o coloca de volta em rotação.
+O Gestor de Tráfego verifica periodicamente a saúde de todos os pontos finais, incluindo pontos finais pouco saudáveis. O Gestor de Tráfego deteta quando um ponto final fica saudável e o faz voltar à rotação.
 
-Um ponto de extremidade não está íntegro quando ocorre um dos seguintes eventos:
+Um ponto final não é saudável quando ocorre qualquer um dos seguintes eventos:
 
-- Se o protocolo de monitoramento for HTTP ou HTTPS:
-    - Uma resposta diferente de 200 ou uma resposta que não inclua o intervalo de status especificado na configuração **intervalos de códigos de status esperados** , será recebida (incluindo um código 2xx diferente ou um redirecionamento 301/302).
-- Se o protocolo de monitoramento for TCP: 
-    - Uma resposta diferente de ACK ou SYN-ACK é recebida em resposta à solicitação SYN enviada pelo Gerenciador de tráfego para tentar um estabelecimento de conexão.
-- Cedido. 
-- Qualquer outro problema de conexão que resulte no ponto de extremidade não está acessível.
+- Se o protocolo de monitorização for HTTP ou HTTPS:
+    - Uma resposta não-200, ou uma resposta que não inclua o intervalo de estado especificado na definição **de código de estado esperado,** é recebida (incluindo um código 2xx diferente, ou um redirecionamento 301/302).
+- Se o protocolo de monitorização for TCP: 
+    - Uma resposta diferente da ACK ou da SYN-ACK é recebida em resposta ao pedido da SYN enviado pelo Traffic Manager para tentar um estabelecimento de ligação.
+- Intervalo. 
+- Qualquer outro problema de ligação que resulte no ponto final não é alcançável.
 
-Para obter mais informações sobre como solucionar problemas de verificações com falha, consulte [Solucionando problemas de status degradado no Gerenciador de tráfego do Azure](traffic-manager-troubleshooting-degraded.md). 
+Para obter mais informações sobre verificações falhadas de resolução de problemas, consulte [o estado dedegradação](traffic-manager-troubleshooting-degraded.md)de Resolução de Problemas no Gestor de Tráfego azure . 
 
-A linha do tempo na figura a seguir é uma descrição detalhada do processo de monitoramento do ponto de extremidade do Gerenciador de tráfego que tem as seguintes configurações: o protocolo de monitoramento é HTTP, o intervalo de investigação é de 30 segundos, o número de falhas toleradas é 3, o valor de tempo limite é de 10 segundos e o TTL do DNS é de 30 segundos.
+A cronologia na figura seguinte é uma descrição detalhada do processo de monitorização do ponto final do Gestor de Tráfego que tem as seguintes definições: o protocolo de monitorização é HTTP, o intervalo de sondagem é de 30 segundos, o número de falhas toleradas é 3, o valor do tempo é 10 segundos, e DNS TTL é de 30 segundos.
 
-![Failover de ponto de extremidade do Gerenciador de tráfego e sequência de failback](./media/traffic-manager-monitoring/timeline.png)
+![Falha no ponto final do Gestor de Tráfego e sequência de recuo](./media/traffic-manager-monitoring/timeline.png)
 
-**Figuras  Failover de ponto de extremidade do Gerenciador de tráfego e sequência de recuperação**
+**Figura: Falha no ponto final do gestor de tráfego e sequência de recuperação**
 
-1. **OBTER**. Para cada ponto de extremidade, o sistema de monitoramento do Traffic Manager executa uma solicitação GET no caminho especificado nas configurações de monitoramento.
-2. **200 OK ou o intervalo de códigos personalizado especificou configurações de monitoramento de perfil do Gerenciador de tráfego** . O sistema de monitoramento espera um HTTP 200 OK ou a mensagem de configurações de monitoramento do perfil do Gerenciador de tráfego especificada no intervalo de códigos personalizado para ser retornada em 10 segundos. Quando ele recebe essa resposta, ele reconhece que o serviço está disponível.
-3. **30 segundos entre cheques**. A verificação de integridade do ponto de extremidade é repetida a cada 30 segundos.
-4. **Serviço indisponível**. O serviço se torna indisponível. O Gerenciador de tráfego não saberá até a próxima verificação de integridade.
-5. **Tenta acessar o caminho de monitoramento**. O sistema de monitoramento executa uma solicitação GET, mas não recebe uma resposta dentro do período de tempo limite de 10 segundos (como alternativa, uma resposta não 200 pode ser recebida). Em seguida, ele tenta mais três vezes, em intervalos de 30 segundos. Se uma das tentativas for bem-sucedida, o número de tentativas será redefinido.
-6. **Status definido como degradado**. Após uma quarta falha consecutiva, o sistema de monitoramento marca o status do ponto de extremidade indisponível como degradado.
-7. O **tráfego é desviado para outros pontos de extremidade**. Os servidores de nome DNS do Traffic Manager são atualizados e o Gerenciador de tráfego não retorna mais o ponto de extremidade em resposta às consultas DNS. Novas conexões são direcionadas para outros pontos de extremidade disponíveis. No entanto, as respostas DNS anteriores que incluem esse ponto de extremidade ainda podem ser armazenadas em cache por servidores DNS recursivos e clientes DNS. Os clientes continuam a usar o ponto de extremidade até que o cache DNS expire. Como o cache DNS expira, os clientes fazem novas consultas DNS e são direcionados a diferentes pontos de extremidade. A duração do cache é controlada pela configuração TTL no perfil do Gerenciador de tráfego, por exemplo, 30 segundos.
-8. As **verificações de integridade continuam**. O Gerenciador de tráfego continua verificando a integridade do ponto de extremidade enquanto ele tem um status degradado. O Gerenciador de tráfego detecta quando o ponto de extremidade retorna à integridade.
-9. O **serviço volta a ficar online**. O serviço se torna disponível. O ponto de extremidade mantém seu status degradado no Gerenciador de tráfego até que o sistema de monitoramento execute sua próxima verificação de integridade.
-10. O **tráfego para o serviço**é retomado. O Traffic Manager envia uma solicitação GET e recebe uma resposta de status de 200 OK. O serviço retornou a um estado íntegro. Os servidores de nome do Gerenciador de tráfego são atualizados e começam a entregar o nome DNS do serviço em respostas DNS. O tráfego retorna ao ponto de extremidade, uma vez que as respostas de DNS em cache que retornam outros pontos de extremidades expiram e, conforme as conexões existentes com outros pontos de extremidade, são encerradas.
+1. **VAI.** Para cada ponto final, o sistema de monitorização do Gestor de Tráfego executa um pedido GET no caminho especificado nas definições de monitorização.
+2. **200 OK ou gama de códigos personalizados especificadas definições** de monitorização do perfil do Gestor de Tráfego . O sistema de monitorização espera que uma mensagem de monitorização http 200 OK ou a gama de códigos ou códigos personalizados especificada para o perfil do Gestor de Tráfego seja devolvida dentro de 10 segundos. Quando recebe esta resposta, reconhece que o serviço está disponível.
+3. **30 segundos entre as verificações.** O exame de saúde final é repetido a cada 30 segundos.
+4. **Serviço indisponível**. O serviço fica indisponível. O Gestor de Tráfego não saberá até ao próximo exame de saúde.
+5. **Tenta aceder à via de monitorização**. O sistema de monitorização executa um pedido GET, mas não recebe uma resposta no prazo de 10 segundos (em alternativa, pode ser recebida uma resposta não-200). Tenta mais três vezes, em intervalos de 30 segundos. Se uma das tentativas for bem sucedida, então o número de tentativas é reposto.
+6. **Estado definido para Degradado**. Após uma quarta falha consecutiva, o sistema de monitorização marca o estado final indisponível como Degradado.
+7. **O tráfego é desviado para outros pontos finais.** Os servidores de nome DNS do Gestor de Tráfego são atualizados e o Traffic Manager já não devolve o ponto final em resposta a consultas de DNS. Novas ligações são direcionadas para outros pontos finais disponíveis. No entanto, respostas DNS anteriores que incluem este ponto final podem ainda ser cached por servidores DNS recursivos e clientes DNS. Os clientes continuam a utilizar o ponto final até que a cache DNS expire. À medida que a cache DNS expira, os clientes fazem novas consultas de DNS e são direcionados para diferentes pontos finais. A duração da cache é controlada pela definição TTL no perfil do Gestor de Tráfego, por exemplo, 30 segundos.
+8. **Os controlos de saúde continuam.** O Gestor de Tráfego continua a verificar a saúde do ponto final enquanto tem um estatuto degradado. O Gestor de Tráfego deteta quando o ponto final volta à saúde.
+9. **O serviço volta online.** O serviço fica disponível. O ponto final mantém o seu estado degradado no Traffic Manager até que o sistema de monitorização realize o seu próximo exame de saúde.
+10. **O tráfego para o serviço retoma.** O Gestor de Tráfego envia um pedido GET e recebe uma resposta de 200 OK. O serviço regressou a um estado saudável. Os servidores de nome do Gestor de Tráfego são atualizados e começam a distribuir o nome DNS do serviço em respostas DNS. O tráfego regressa ao ponto final à medida que as respostas dNS em cache que devolvem outros pontos finais expiram, e como as ligações existentes a outros pontos finais são terminadas.
 
     > [!NOTE]
-    > Como o Gerenciador de tráfego funciona no nível do DNS, ele não pode influenciar as conexões existentes com nenhum ponto de extremidade. Quando ele direciona o tráfego entre os pontos de extremidade (por configurações de perfil alteradas ou durante o failover ou failback), o Gerenciador de tráfego direciona novas conexões para os pontos de extremidade disponíveis. No entanto, outros pontos de extremidade podem continuar a receber tráfego por meio de conexões existentes até que essas sessões sejam encerradas. Para permitir que o tráfego dissipe de conexões existentes, os aplicativos devem limitar a duração da sessão usada com cada ponto de extremidade.
+    > Como o Gestor de Tráfego trabalha ao nível do DNS, não pode influenciar as ligações existentes a qualquer ponto final. Quando direciona o tráfego entre pontos finais (seja por definições de perfil alteradas, quer durante o failover ou failback), o Traffic Manager direciona novas ligações para pontos finais disponíveis. No entanto, outros pontos finais poderão continuar a receber tráfego através das ligações existentes até que essas sessões sejam encerradas. Para permitir que o tráfego escorra das ligações existentes, as aplicações devem limitar a duração da sessão utilizada em cada ponto final.
 
-## <a name="traffic-routing-methods"></a>Métodos de roteamento de tráfego
+## <a name="traffic-routing-methods"></a>Métodos de encaminhamento de tráfego
 
-Quando um ponto de extremidade tem um status degradado, ele não é mais retornado em resposta a consultas DNS. Em vez disso, um ponto de extremidade alternativo é escolhido e retornado. O método de roteamento de tráfego configurado no perfil determina como o ponto de extremidade alternativo é escolhido.
+Quando um ponto final tem um estatuto degradado, já não é devolvido em resposta a consultas de DNS. Em vez disso, um ponto final alternativo é escolhido e devolvido. O método de encaminhamento de tráfego configurado no perfil determina como o ponto final alternativo é escolhido.
 
-* **Prioridade**. Os pontos de extremidade formam uma lista priorizada. O primeiro ponto de extremidade disponível na lista é sempre retornado. Se um status de ponto de extremidade for degradado, o próximo ponto de extremidade disponível será retornado.
-* **Ponderado**. Qualquer ponto de extremidade disponível é escolhido aleatoriamente com base em seus pesos atribuídos e os pesos dos outros pontos de extremidade disponíveis.
-* **Desempenho**. O ponto de extremidade mais próximo ao usuário final é retornado. Se esse ponto de extremidade não estiver disponível, o Gerenciador de tráfego moverá o tráfego para os pontos de extremidade na região do Azure mais próxima. Você pode configurar planos de failover alternativos para o roteamento de tráfego de desempenho usando [perfis aninhados do Gerenciador de tráfego](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
-* **Geográfico**. O ponto de extremidade mapeado para servir a localização geográfica com base no IP da solicitação de consulta é retornado. Se esse ponto de extremidade não estiver disponível, outro ponto de extremidade não será selecionado para failover, pois uma localização geográfica pode ser mapeada somente para um ponto de extremidade em um perfil (mais detalhes estão nas [perguntas frequentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como prática recomendada, ao usar o roteamento geográfico, recomendamos que os clientes usem perfis aninhados do Gerenciador de tráfego com mais de um ponto de extremidade como pontos de extremidades do perfil.
-* Vários **valores** São retornados vários pontos de extremidade mapeados para endereços IPv4/IPv6. Quando uma consulta é recebida para esse perfil, os pontos de extremidade íntegros são retornados com base na **contagem máxima de registros no** valor de resposta especificado. O número padrão de respostas é dois pontos de extremidade.
-* **Sub-rede** O ponto de extremidade mapeado para um conjunto de intervalos de endereços IP é retornado. Quando uma solicitação é recebida desse endereço IP, o ponto de extremidade retornado é aquele mapeado para esse endereço IP. 
+* **Prioridade.** Os pontos finais formam uma lista prioritária. O primeiro ponto final disponível na lista é sempre devolvido. Se um estado de ponto final estiver degradado, o próximo ponto final disponível é devolvido.
+* **Ponderado.** Qualquer ponto final disponível é escolhido aleatoriamente com base nos seus pesos atribuídos e nos pesos dos outros pontos finais disponíveis.
+* **Desempenho.** O ponto final mais próximo do utilizador final é devolvido. Se esse ponto final não estiver disponível, o Traffic Manager desloca o tráfego para os pontos finais da região de Azure mais próxima. Pode configurar planos alternativos de failover para o tráfego de desempenho através da utilização de [perfis aninhados do Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Geográfico.** O ponto final mapeado para servir a localização geográfica com base no pedido de consulta IP's é devolvido. Se esse ponto final não estiver disponível, outro ponto final não será selecionado para falhar, uma vez que uma localização geográfica só pode ser mapeada para um ponto final num perfil (mais detalhes estão no [FAQ).](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method) Como uma boa prática, ao utilizar o encaminhamento geográfico, recomendamos que os clientes utilizem perfis aninhados do Traffic Manager com mais de um ponto final como pontofinal do perfil.
+* **MultiValor** São devolvidos vários pontos finais mapeados para endereços IPv4/IPv6. Quando uma consulta é recebida para este perfil, os pontos finais saudáveis são devolvidos com base na contagem máxima de **registo no** valor de resposta que especificou. O número padrão de respostas é de dois pontos finais.
+* **Sub-rede** O ponto final mapeado para um conjunto de gamas de endereços IP é devolvido. Quando um pedido é recebido desse endereço IP, o ponto final devolvido é o que está mapeado para esse endereço IP. 
 
-Para obter mais informações, consulte [métodos de roteamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md).
+Para obter mais informações, consulte [os métodos de encaminhamento de tráfego do Gestor de Tráfego](traffic-manager-routing-methods.md).
 
 > [!NOTE]
-> Uma exceção ao comportamento normal de roteamento de tráfego ocorre quando todos os pontos de extremidade qualificados têm um status degradado. O Gerenciador de tráfego faz uma tentativa de "melhor esforço" e *responde como se todos os pontos de extremidade de status degradados realmente estiverem em um estado online*. Esse comportamento é preferível à alternativa, o que seria não retornar nenhum ponto de extremidade na resposta DNS. Os pontos de extremidade desabilitados ou interrompidos não são monitorados, portanto, eles não são considerados qualificados para o tráfego.
+> Uma exceção ao comportamento normal de encaminhamento de tráfego ocorre quando todos os pontos finais elegíveis têm um estatuto degradado. O Gestor de Tráfego faz uma tentativa de "melhor esforço" e *responde como se todos os pontos finais do estado degradados estivessem realmente num estado online.* Este comportamento é preferível à alternativa, que seria não devolver qualquer ponto final na resposta do DNS. Por conseguinte, os pontos finais desativados ou parados não são monitorizados, pelo que não são considerados elegíveis para o tráfego.
 >
-> Essa condição é normalmente causada pela configuração imprópria do serviço, como:
+> Esta condição é geralmente causada por uma configuração inadequada do serviço, tais como:
 >
-> * Uma lista de controle de acesso [ACL] bloqueando as verificações de integridade do Gerenciador de tráfego.
-> * Uma configuração incorreta da porta de monitoramento ou do protocolo no perfil do Gerenciador de tráfego.
+> * Uma lista de controlo de acessos [ACL] bloqueando os controlos de saúde do Gestor de Tráfego.
+> * Uma configuração inadequada da porta de monitorização ou protocolo no perfil do gestor de tráfego.
 >
-> A consequência desse comportamento é que, se as verificações de integridade do Traffic Manager não estiverem configuradas corretamente, elas poderão ser exibidas no roteamento de tráfego, como *se* o Gerenciador de tráfego estivesse funcionando corretamente. No entanto, nesse caso, o failover de ponto de extremidade não pode ocorrer, o que afeta a disponibilidade geral do aplicativo. É importante verificar se o perfil mostra um status online, não um status degradado. Um status online indica que as verificações de integridade do Traffic Manager estão funcionando conforme o esperado.
+> A consequência deste comportamento é que, se os controlos de saúde do Gestor de Tráfego não estiverem corretamente configurados, pode parecer que o traffic-routing está *a* funcionar corretamente. No entanto, neste caso, não pode ocorrer uma falha no ponto final que afeta a disponibilidade global de aplicações. É importante verificar se o perfil mostra um estado Online, não um estado degradado. Um estado online indica que os controlos de saúde do Gestor de Tráfego estão a funcionar como esperado.
 
-Para obter mais informações sobre a solução de problemas de verificações de integridade com falha, consulte [Solucionando problemas de status degradado no Gerenciador de tráfego do Azure](traffic-manager-troubleshooting-degraded.md).
+Para obter mais informações sobre a resolução de problemas, consulte o estado degradado de Resolução de Problemas no Gestor de [Tráfego de Azure.](traffic-manager-troubleshooting-degraded.md)
 
-## <a name="faqs"></a>FAQs
+## <a name="faqs"></a>FAQ
 
-* [O Gerenciador de tráfego é resiliente a falhas de região do Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+* [O Gestor de Tráfego é resiliente às falhas da região de Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
 
-* [Como a escolha do local do grupo de recursos afeta o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+* [Como é que a escolha da localização do grupo de recursos afeta o Gestor de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
 
-* [Como fazer determinar a integridade atual de cada ponto de extremidade?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+* [Como determino a saúde atual de cada ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
 
-* [Posso monitorar pontos de extremidade HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+* [Posso monitorizar os pontos finais HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
 
-* [Eu uso um endereço IP ou um nome DNS ao adicionar um ponto de extremidade?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+* [Uso um endereço IP ou um nome DNS ao adicionar um ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
 
-* [Que tipos de endereços IP posso usar ao adicionar um ponto de extremidade?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+* [Que tipos de endereços IP posso usar ao adicionar um ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
 
-* [Posso usar diferentes tipos de endereçamento de ponto de extremidade em um único perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+* [Posso usar diferentes tipos de endereços de ponto final dentro de um único perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
 
-* [O que acontece quando o tipo de registro de uma consulta de entrada é diferente do tipo de registro associado ao tipo de endereçamento dos pontos de extremidade?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+* [O que acontece quando o tipo de registo de uma consulta é diferente do tipo de registo associado ao tipo de endereçamento dos pontos finais?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
 
-* [Posso usar um perfil com pontos de extremidade endereçados por IPv4/IPv6 em um perfil aninhado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+* [Posso usar um perfil com iPv4 / IPv6 endereçado pontos finais num perfil aninhado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [Parei um ponto de extremidade do aplicativo Web no meu perfil do Gerenciador de tráfego, mas não estou recebendo nenhum tráfego mesmo depois de reiniciá-lo. Como posso corrigir isso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [Parei um ponto final de aplicação web no meu perfil de Traffic Manager, mas não estou a receber nenhum tráfego mesmo depois de o reiniciar. Como posso consertar isto?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
-* [Posso usar o Gerenciador de tráfego mesmo que meu aplicativo não tenha suporte para HTTP ou HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+* [Posso usar o Traffic Manager mesmo que a minha aplicação não tenha suporte para HTTP ou HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
 
-* [Quais respostas específicas são necessárias do ponto de extremidade ao usar o monitoramento de TCP?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+* [Que respostas específicas são necessárias a partir do ponto final quando se utiliza a monitorização do TCP?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
 
-* [Com que velocidade o Gerenciador de tráfego move meus usuários para fora de um ponto de extremidade não íntegro?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+* [A que velocidade o Traffic Manager afasta os meus utilizadores de um ponto final pouco saudável?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
 
-* [Como especificar diferentes configurações de monitoramento para diferentes pontos de extremidade em um perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+* [Como posso especificar diferentes definições de monitorização para diferentes pontos finais num perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
 
-* [Como posso atribuir cabeçalhos HTTP às verificações de integridade do Gerenciador de tráfego aos meus pontos de extremidade?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+* [Como posso atribuir cabeçalhos HTTP ao Gestor de Tráfego cheques de saúde para os meus pontos finais?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
 
-* [Qual cabeçalho de host as verificações de integridade do ponto de extremidade usam?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+* [Que cabeçalho de hospedeiro usam os controlos de saúde finais?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
 
-* [Quais são os endereços IP dos quais as verificações de integridade se originam?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+* [Quais são os endereços IP de que provêm os controlos de saúde?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
 
-* [Quantas verificações de integridade no meu ponto de extremidade posso esperar do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+* [Quantos exames de saúde posso esperar do Gerente de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
 
-* [Como posso ser notificado se um dos meus pontos de extremidade ficar inativo?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
+* [Como posso ser notificado se um dos meus pontos finais cai?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba [como funciona o Gerenciador de tráfego](traffic-manager-how-it-works.md)
+Saiba como funciona o [Gestor de Tráfego](traffic-manager-how-it-works.md)
 
-Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de tráfego
+Saiba mais sobre os [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) suportados pelo Traffic Manager
 
-Saiba como [criar um perfil do Gerenciador de tráfego](traffic-manager-manage-profiles.md)
+Saiba como [criar um perfil de Gestor](traffic-manager-manage-profiles.md) de Tráfego
 
-[Solucionar problemas de status degradado](traffic-manager-troubleshooting-degraded.md) em um ponto de extremidade do Gerenciador de tráfego
+[Problemas desclassificação do estado](traffic-manager-troubleshooting-degraded.md) num ponto final do Gestor de Tráfego

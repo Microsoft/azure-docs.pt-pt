@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: d0e0e8a5aa3a3e43997e3f9512525be9f51d2018
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844977"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934873"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -29,13 +29,15 @@ A Azure Search é agora renomeada para **Azure Cognitive Search** para refletir 
 
 ### <a name="february-2020"></a>fevereiro de 2020
 
-+ [PiI Deteção](cognitive-search-skill-pii-detection.md) é uma habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de mascarar esse texto de várias maneiras.
++ [PiI Deteção (pré-visualização)](cognitive-search-skill-pii-detection.md) é uma habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de a mascarar desse texto de várias formas.
+
++ [O Lookup de EntidadePersonalizada (pré-visualização)](cognitive-search-skill-custom-entity-lookup.md ) procura texto a partir de uma lista personalizada e definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência fuzzy que pode ser aplicado para encontrar fósforos que são semelhantes, mas não exatamente. 
 
 ### <a name="january-2020"></a>Janeiro de 2020
 
 + [As chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) agora estão disponíveis para o público geral. Se você estiver usando o REST, poderá acessar o recurso usando `api-version=2019-05-06`. Para código gerenciado, o pacote correto ainda é o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , embora o recurso esteja fora de visualização. 
 
-+ O acesso privado a um serviço de pesquisa está disponível por meio de dois mecanismos:
++ O acesso privado a um serviço de pesquisa está disponível através de dois mecanismos, ambos atualmente em pré-visualização:
 
   + Você pode restringir o acesso a endereços IP específicos usando a API REST de gerenciamento `api-version=2019-10-01-Preview` para criar o serviço. A API de visualização tem novas propriedades **IpRule** e **NetworkRuleSet** na [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Esse recurso de visualização está disponível em regiões selecionadas. Para obter mais informações, consulte [como usar a API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 

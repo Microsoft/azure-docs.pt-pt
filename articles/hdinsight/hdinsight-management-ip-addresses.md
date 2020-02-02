@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435471"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929892"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
 > [!Important]
-> Use o recurso de [marca de serviço](hdinsight-service-tags.md) para grupos de segurança de rede. Novas regiões serão adicionadas somente para marcas de serviço e os endereços IP estáticos eventualmente serão preteridos.
+> Na maioria dos casos, pode agora utilizar a funcionalidade de etiqueta de [serviço](hdinsight-service-tags.md) para grupos de segurança de rede, em vez de adicionar manualmente endereços IP. Novas regiões serão adicionadas somente para marcas de serviço e os endereços IP estáticos eventualmente serão preteridos.
 
 Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure.  Alguns dos endereços IP para esses serviços são específicos da região e alguns deles se aplicam a todas as regiões do Azure. Poderá também ter de permitir o tráfego do serviço DNS do Azure se não utilizar um DNS personalizado.
 
@@ -62,7 +62,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | Europa | Europa do Norte | 52.164.210.96</br>13.74.153.132 | \*:443 | Entrada |
 | &nbsp; | Europa Ocidental| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
 | França | França Central| 20.188.39.64</br>40.89.157.135 | \*:443 | Entrada |
-| Alemanha | Alemanha Central | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
+| Alemanha | Nordeste da Alemanha | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
 | &nbsp; | Nordeste da Alemanha | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
 | Índia | Índia Central | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
 | &nbsp; | Sul da Índia | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |

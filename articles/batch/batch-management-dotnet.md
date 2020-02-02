@@ -1,5 +1,5 @@
 ---
-title: Gerenciar recursos de conta com a biblioteca de cliente para .NET-Azure batch | Microsoft Docs
+title: Utilize a biblioteca De Gestão de Lotes .NET para gerir os recursos da conta
 description: Crie, exclua e modifique os recursos da conta do lote do Azure com a biblioteca .NET de gerenciamento do lote.
 services: batch
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 233081b43fa5dd83c88619007d4d6fbe27f24e30
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ab78f12e7d1424ebd2528af188891c5403c95e17
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027060"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933042"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerenciar contas e cotas do lote com a biblioteca de cliente de gerenciamento de lote para .NET
 

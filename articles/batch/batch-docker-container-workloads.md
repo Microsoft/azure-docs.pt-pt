@@ -1,6 +1,6 @@
 ---
-title: Cargas de trabalho do contêiner – lote do Azure | Microsoft Docs
-description: Saiba como executar aplicativos de imagens de contêiner no lote do Azure.
+title: Cargas de trabalho de contentores - Lote Azure
+description: Aprenda a executar e dimensionar aplicações a partir de imagens de contentores no Lote Azure. Crie um conjunto de nódosos computacionais que suportem tarefas de contentores em execução.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 493c9b30f6c7f735d69e113f3f1efe26ca6c1576
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029719"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935057"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no lote do Azure
 
@@ -128,7 +128,7 @@ new_pool = batch.models.PoolAddParameter(
 
 ### <a name="prefetch-images-for-container-configuration"></a>Imagens de pré-busca para configuração de contêiner
 
-Para realizar a pré-busca de imagens de contêiner no pool, adicione a lista de imagens de contêiner (`container_image_names`, em Python) à `ContainerConfiguration`. 
+Para pré-rebuscar imagens de contentores na piscina, adicione a lista de imagens de contentores (`container_image_names`, em Python) ao `ContainerConfiguration`. 
 
 O exemplo de Python básico a seguir mostra como fazer uma pré-busca de uma imagem de contêiner do Ubuntu padrão do [Hub do Docker](https://hub.docker.com).
 
@@ -251,9 +251,9 @@ Uma tarefa de contêiner de lote é executada em um diretório de trabalho no co
 
 Para uma tarefa de contêiner de lote:
 
-* Todos os diretórios recursivamente abaixo da `AZ_BATCH_NODE_ROOT_DIR` no nó de host (a raiz dos diretórios do lote do Azure) são mapeados para o contêiner
+* Todos os diretórios recursivamente abaixo do `AZ_BATCH_NODE_ROOT_DIR` no nó hospedeiro (a raiz dos diretórios do Lote Azure) são mapeados no recipiente
 * Todas as variáveis de ambiente de tarefa são mapeadas para o contêiner
-* O diretório de trabalho de tarefa `AZ_BATCH_TASK_WORKING_DIR` no nó é definido como para uma tarefa regular e mapeado para o contêiner. 
+* O diretório de trabalho de tarefas `AZ_BATCH_TASK_WORKING_DIR` no nó é definido da mesma forma que para uma tarefa regular e mapeado no recipiente. 
 
 Esses mapeamentos permitem que você trabalhe com tarefas de contêiner praticamente da mesma forma que as tarefas que não são do contêiner. Por exemplo, instale aplicativos usando pacotes de aplicativos, acesse arquivos de recursos do armazenamento do Azure, use configurações de ambiente de tarefas e mantenha arquivos de saída de tarefas depois que o contêiner for interrompido.
 

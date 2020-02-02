@@ -2,17 +2,17 @@
 title: Perguntas frequentes-DNS do Azure
 description: Neste artigo, saiba mais sobre as perguntas frequentes sobre o DNS do Azure
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
-ms.author: allensu
-ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: rohink
+ms.openlocfilehash: 990adf73211e96370fd06f5e322301128321e81f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974536"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937298"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes sobre o DNS do Azure
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte a [página de preços do DNS do Azure](h
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>Qual é o SLA do DNS do Azure?
 
-O Azure garante que as solicitações DNS válidas recebam uma resposta de pelo menos um servidor de nome DNS do Azure 100% do tempo.
+O Azure garante que os pedidos dNS válidos recebem uma resposta de pelo menos um servidor de nome DNS Azure a 100% das vezes.
 
 Para obter mais informações, consulte a [página SLA do DNS do Azure](https://azure.microsoft.com/support/legal/sla/dns).
 

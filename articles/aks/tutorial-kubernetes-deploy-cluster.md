@@ -8,35 +8,35 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8ad542a3614253e11331e9b49513a887aff65890
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 130cb973f2de1de0d4c4636a4752a06e22edf65b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512925"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932549"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
-O Kubernetes fornece uma plataforma distribuída para aplicações em contentores. Com o AKS, você pode criar rapidamente um cluster kubernetes pronto para produção. Neste tutorial, parte três de sete, é implementado um cluster do Kubernetes no AKS. Saiba como:
+O Kubernetes fornece uma plataforma distribuída para aplicações em contentores. Com aks, você pode rapidamente criar um cluster kubernetes pronto para produção. Neste tutorial, parte três de sete, é implementado um cluster do Kubernetes no AKS. Saiba como:
 
 > [!div class="checklist"]
-> * Implantar um cluster kubernetes AKS que possa se autenticar em um registro de contêiner do Azure
+> * Implementar um cluster Kubernetes AKS que pode autenticar um registo de contentores Azure
 > * Instalar a CLI do Kubernetes (kubectl)
 > * Configurar o kubectl para ligar ao seu cluster do AKS
 
-Em Tutoriais adicionais, o aplicativo de voto do Azure é implantado no cluster, dimensionado e atualizado.
+Em tutoriais adicionais, a aplicação Azure Vote é implantada para o cluster, dimensionada e atualizada.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para uma instância do Azure Container Registry. Se você ainda não realizou essas etapas e gostaria de acompanhar, comece no [tutorial 1 – criar imagens de contêiner][aks-tutorial-prepare-app].
+Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para uma instância do Azure Container Registry. Se ainda não fez estes passos, e gostaria de seguir em frente, comece no Tutorial 1 – Criar imagens de [contentores.][aks-tutorial-prepare-app]
 
-Este tutorial requer que você esteja executando o CLI do Azure versão 2.0.75 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 
-Os clusters do AKS podem utilizar os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos permitem-lhe definir o acesso a recursos com base nas funções atribuídas a utilizadores. As permissões são combinadas se um usuário recebe várias funções e as permissões podem ser delimitadas para um único namespace ou em todo o cluster. Por predefinição, a CLI do Azure ativa automaticamente o RBAC quando cria um cluster do AKS.
+Os clusters do AKS podem utilizar os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos permitem-lhe definir o acesso a recursos com base nas funções atribuídas a utilizadores. As permissões são combinadas se um utilizador tiver várias funções, e as permissões podem ser consultadas para um único espaço de nome ou em todo o cluster. Por predefinição, a CLI do Azure ativa automaticamente o RBAC quando cria um cluster do AKS.
 
-Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr]. Para permitir que um cluster AKS interaja com outros recursos do Azure, uma entidade de serviço Azure Active Directory é criada automaticamente, já que você não especificou um. Aqui, essa entidade de serviço [recebe o direito de efetuar pull de imagens][container-registry-integration] da instância do ACR (registro de contêiner do Azure) que você criou no tutorial anterior.
+Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior.][aks-tutorial-prepare-acr] Para permitir que um cluster AKS interaja com outros recursos Azure, é criado automaticamente um diretor de serviço de Diretório Ativo Azure, uma vez que não especificou um. Aqui, este diretor de serviço tem o direito de [retirar imagens][container-registry-integration] da instância do Registo de Contentores Azure (ACR) que criou no tutorial anterior.
 
 ```azurecli
 az aks create \
@@ -47,10 +47,10 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-Depois de alguns minutos, a implantação é concluída e retorna informações formatadas em JSON sobre a implantação do AKS.
+Após alguns minutos, a implementação completa e devolve informações formatadas pela JSON sobre a implantação da AKS.
 
 > [!NOTE]
-> Para garantir que o cluster opere de forma confiável, você deve executar pelo menos 2 (dois) nós.
+> Para garantir que o seu cluster funcione de forma fiável, deve executar pelo menos 2 (dois) nós.
 
 ## <a name="install-the-kubernetes-cli"></a>Instalar a CLI do Kubernetes
 
@@ -64,13 +64,13 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Ligar ao cluster com o kubectl
 
-Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][] . O exemplo a seguir obtém as credenciais para o cluster AKS chamado *myAKSCluster* no grupo *MyResource*:
+Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][] . O exemplo que se segue obtém credenciais para o cluster AKS chamado *myAKSCluster* no *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para verificar a conexão com o cluster, execute o comando [kubectl Get Nodes][kubectl-get] :
+Para verificar a ligação ao seu cluster, execute o [kubectl obtenha][kubectl-get] comando de nós para devolver uma lista dos nós do cluster:
 
 ```
 $ kubectl get nodes
@@ -84,7 +84,7 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 Neste tutorial, um cluster do cluster do Kubernetes foi implementado no AKS e configurou `kubectl` para se ligar ao mesmo. Aprendeu a:
 
 > [!div class="checklist"]
-> * Implantar um cluster kubernetes AKS que possa se autenticar em um registro de contêiner do Azure
+> * Implementar um cluster Kubernetes AKS que pode autenticar um registo de contentores Azure
 > * Instalar a CLI do Kubernetes (kubectl)
 > * Configurar o kubectl para ligar ao seu cluster do AKS
 

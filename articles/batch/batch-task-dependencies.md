@@ -1,5 +1,5 @@
 ---
-title: Usar dependências de tarefas para executar tarefas com base na conclusão de outras tarefas – lote do Azure | Microsoft Docs
+title: Criar dependências de tarefas para executar tarefas - Lote Azure
 description: Crie tarefas que dependem da conclusão de outras tarefas para processamento de estilo MapReduce e cargas de trabalho de Big Data semelhantes no lote do Azure.
 services: batch
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 875e0314c41a6bb277769361b6faa0345312db2b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 733c6e0fb178ed246ac77e0783225ddd642a5fed
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026243"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937774"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar dependências de tarefas para executar tarefas que dependem de outras tarefas
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/23/2020
-ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: 09cc9e1475616700aa77cdf92fd7ca808cd4290c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715100"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937842"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Níveis de serviço de base de dados Azure SQL
 
@@ -53,7 +53,7 @@ A tabela seguinte descreve as principais diferenças entre os níveis de serviç
 |**OLTP em memória** | | N/A | N/A | Disponível |
 |**Réplicas somente leitura**| | 0 embutido <br> 0 - 4 utilizando [a geo-replicação](sql-database-active-geo-replication.md) | 0 - 4 embutidos | 1 incorporado, incluído no preço <br> 0 - 4 utilizando [a geo-replicação](sql-database-active-geo-replication.md) |
 |**Preços/faturação** | Base de dados única | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são carregados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
-|| Instância Gerida | [vCore e armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.<br/>O armazenamento de reserva ainda não está carregado. | N/A | [vCore e armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.<br/>O armazenamento de reserva ainda não está carregado. | 
+|| Instância Gerida | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>IOPS não é cobrado| N/A | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.| 
 |**Modelos de desconto**| | [Casos reservados](sql-database-reserved-capacity.md)<br/>[Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Casos reservados](sql-database-reserved-capacity.md)<br/>[Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test|
 
 Para obter mais informações, consulte as diferenças detalhadas entre os níveis de serviço na base de [dados single (vCore)](sql-database-vcore-resource-limits-single-databases.md), piscinas de bases de [dados únicas (vCore)](sql-database-dtu-resource-limits-single-databases.md), base de [dados única (DTU)](sql-database-dtu-resource-limits-single-databases.md), bases de [dados únicas (DTU)](sql-database-dtu-resource-limits-single-databases.md)e páginas [De Instância Gerida.](sql-database-managed-instance-resource-limits.md)
