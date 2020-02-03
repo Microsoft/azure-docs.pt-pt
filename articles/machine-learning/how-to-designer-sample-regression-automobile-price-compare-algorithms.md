@@ -5,31 +5,31 @@ description: Crie & Compare vários modelos de regressão de ML para prever o pr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: b2511feefbe419223f355509ecb435518ce8382e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 189b36c8d9a7c1d1e247bb2cb34795dc4e3595ce
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311058"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963347"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Treine & comparar vários modelos de regressão para prever os preços de carros com o designer de Azure Machine Learning
 
-**Amostra 2 do designer**
+**Amostra 2 do designer (visualização)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Saiba como criar um pipeline de Machine Learning sem escrever uma única linha de código usando o designer. Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse pipeline para que você possa lidar com seus próprios problemas de aprendizado de máquina.
+Saiba como criar um pipeline de Machine Learning sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse pipeline para que você possa lidar com seus próprios problemas de aprendizado de máquina.
 
 Se você estiver apenas começando a usar o Machine Learning, dê uma olhada na [versão básica](how-to-designer-sample-regression-automobile-price-basic.md) desse pipeline.
 
 Este é o grafo concluído para este pipeline:
 
-[![grafo do pipeline](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png)](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png#lightbox)
+[gráfico ![do oleoduto](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png)](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Como o objetivo desse pipeline é prever os preços do automóvel e, como a colu
 
 Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, **regressão de árvore de decisão aumentada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas este exemplo usa os valores padrão para esse pipeline.
 
-Use o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% do dado original.
+Utilize o módulo **De dados divididos** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% dos dados originais.
 
 ## <a name="test-evaluate-and-compare-the-models"></a>Testar, avaliar e comparar os modelos
 

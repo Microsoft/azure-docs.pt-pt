@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 8749f7dee2ceeb09e37cc97d4e5bfe76c52e2da6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64c5d80b5a2660164b21e71f06e847d5b11e40da
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438744"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964431"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: compartilhar dados usando o compartilhamento de dados do Azure  
 
@@ -22,7 +22,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um Data Share.
 > * Adicionar conjuntos de dados ao Data Share.
-> * Ativar uma agenda de sincronização para o Data Share. 
+> * Ative um calendário instantâneo para a sua Partilha de Dados. 
 > * Adicione destinatários ao Data Share. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,25 +33,36 @@ Neste tutorial, ficará a saber como:
 ### <a name="share-from-a-storage-account"></a>Compartilhar de uma conta de armazenamento:
 
 * Uma conta de armazenamento do Azure: se você ainda não tiver uma, poderá criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Permissão para adicionar a atribuição de função à conta de armazenamento, que está presente na permissão *Microsoft. Authorization/role atribuitions/Write* . Essa permissão existe na função proprietário. 
+* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe no papel de Contribuinte.
+* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorizações/atribuições/escritas/ escrita*. Esta permissão existe no papel de Proprietário. 
+
 
 ### <a name="share-from-a-sql-based-source"></a>Compartilhar de uma fonte baseada em SQL:
 
-* Um banco de dados SQL do Azure ou o Azure SQL Data Warehouse com tabelas e exibições que você deseja compartilhar.
+* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (antiga Azure SQL Data Warehouse) com tabelas e vistas que pretende partilhar.
+* Permissão para escrever para as bases de dados no servidor SQL, que está presente em *Microsoft.Sql/servers/bases de dados/write*. Esta permissão existe no papel de Contribuinte.
 * Permissão para o compartilhamento de dados acessar o data warehouse. Isso pode ser feito por meio das seguintes etapas: 
-    1. Defina-se como o administrador do Azure Active Directory para o servidor.
+    1. Desemprete-se como o Administrador de Diretório Ativo Azure para o servidor SQL.
     1. Conecte-se ao banco de dados SQL do Azure/data warehouse usando Azure Active Directory.
-    1. Use o editor de consultas (versão prévia) para executar o script a seguir para adicionar o MSI de compartilhamento de dados como um db_owner. Você deve se conectar usando Active Directory e não SQL Server autenticação. 
+    1. Utilize o Editor de Consulta (pré-visualização) para executar o seguinte script para adicionar o recurso Data Share Managed Identity como um db_datareader. Você deve se conectar usando Active Directory e não SQL Server autenticação. 
     
-```sql
-    create user <share_acct_name> from external provider;     
-    exec sp_addrolemember db_owner, <share_acct_name>; 
-```                   
-Observe que o *< share_acc_name >* é o nome da sua conta de compartilhamento de dados. Se você ainda não criou uma conta de compartilhamento de dados, poderá voltar para esse pré-requisito posteriormente.  
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Note que o *recursos <share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso data Share, pode voltar a este pré-requisito mais tarde.  
 
-* Um [usuário do banco de dados SQL do Azure com `db_owner` acesso](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users) para navegar e selecionar as tabelas e/ou exibições que você deseja compartilhar. 
+* Um Utilizador de Base de Dados Azure SQL com acesso 'db_datareader' para navegar e selecionar as tabelas e/ou vistas que deseja partilhar. 
 
-* IP do cliente SQL Server acesso ao firewall: isso pode ser feito por meio das seguintes etapas: 1. Navegue até *firewalls e redes virtuais* 1. Clique no **botão de alternância para** permitir o acesso aos serviços do Azure. 
+* Acesso ao servidor IP SQL do cliente. Isso pode ser feito por meio das seguintes etapas: 
+    1. No servidor SQL no portal Azure, navegue para *Firewalls e redes virtuais*
+    1. Clique no **botão de alternância para** permitir o acesso aos serviços do Azure.
+    1. Clique em **+Adicionar IP do cliente** e clique em **Guardar**. O endereço IP do cliente está sujeito a alterações. Também pode adicionar uma gama IP. 
+
+### <a name="share-from-azure-data-explorer"></a>Partilhar do Azure Data Explorer
+* Um cluster Azure Data Explorer com bases de dados que pretende partilhar.
+* Permissão para escrever para o cluster Azure Data Explorer, que está presente na *Microsoft.Kusto/clusters/write*. Esta permissão existe no papel de Contribuinte.
+* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Autorizações/atribuições/escrita.* Esta permissão existe no papel de Proprietário.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -91,7 +102,7 @@ Crie um recurso de compartilhamento de dados do Azure em um grupo de recursos do
 
 1. Selecione **Criar**.   
 
-1. Preencha os detalhes do seu compartilhamento de dados. Especifique um nome, uma descrição do conteúdo do compartilhamento e os termos de uso (opcional). 
+1. Preencha os detalhes do seu compartilhamento de dados. Especifique um nome, tipo de partilha, descrição do conteúdo das ações e termos de utilização (opcional). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Inserir detalhes do compartilhamento") 
 
@@ -101,7 +112,7 @@ Crie um recurso de compartilhamento de dados do Azure em um grupo de recursos do
 
     ![Conjuntos de dados](./media/datasets.png "Conjuntos de dados")
 
-1. Selecione o tipo de conjunto de texto que você deseja adicionar. Se estiver compartilhando de um banco de dados SQL do Azure ou de um DataWarehouse do Azure SQL, você será solicitado a fornecer algumas credenciais do SQL. Autentique usando o usuário criado como parte dos pré-requisitos.
+1. Selecione o tipo de conjunto de texto que você deseja adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no lugar) selecionado no passo anterior. Se partilhar a partir de uma Base de Dados Azure SQL ou azure SQL Data Warehouse, você será solicitado para algumas credenciais SQL. Autentique usando o usuário criado como parte dos pré-requisitos.
 
     ![Adddatasets](./media/add-datasets.png "Adicionar conjuntos de os")    
 
@@ -115,7 +126,7 @@ Crie um recurso de compartilhamento de dados do Azure em um grupo de recursos do
 
 1. Selecione **continuar**
 
-1. Se você quiser que seu consumidor de dados possa obter atualizações incrementais de seus dados, habilite o agendamento do instantâneo. 
+1. Se tiver selecionado o tipo de partilha de instantâneos, pode configurar o calendário de instantâneos para fornecer atualizações dos seus dados ao seu consumidor de dados. 
 
     ![EnableSnapshots](./media/enable-snapshots.png "Habilitar instantâneos") 
 

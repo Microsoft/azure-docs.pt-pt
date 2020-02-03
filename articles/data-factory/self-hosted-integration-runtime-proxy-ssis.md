@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 12/23/2019
-ms.openlocfilehash: 8754b2ef9727b5526cc9bcf756085f2f05f6a398
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 48d4df5684c84e195810439912dd610f5af364d4
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552105"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964486"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurar o IR auto-hospedado como um proxy para Azure-SSIS IR no ADF
 
@@ -70,6 +70,40 @@ Tendo preparado seu serviço vinculado de IR e armazenamento de BLOBs do Azure a
 
    ![Configurações avançadas com um IR auto-hospedado](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
+Também pode configurar o seu novo/existente IR Azure-SSIS com IR auto-hospedado como um proxy usando powerShell.
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
+$DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
+
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
+{
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
+        -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
+
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
+}
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
+```
+
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Habilitar pacotes SSIS para se conectar por proxy
 
 Usando a extensão mais recente do SSDT com projetos do SSIS para o Visual Studio que pode ser baixado [aqui](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) ou como um instalador autônomo que pode ser baixado [aqui](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer), você pode encontrar uma nova propriedade **ConnectByProxy** que foi adicionada em gerenciadores de conexões de arquivo simples/OLEDB.  
@@ -87,11 +121,11 @@ Você também pode habilitar essa propriedade ao executar pacotes existentes sem
   
   ![Habilitar ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- Reimplantando o projeto que contém esses pacotes para execução em seu IR do SSIS: a propriedade pode ser habilitada fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e definindo-a como **true** como uma substituição de propriedade na guia **avançado** da janela pop-up de execução de pacote ao executar pacotes do SSMS.
+- Reimplantando o projeto contendo esses pacotes para executar no seu SSIS IR: A propriedade pode então ser ativada fornecendo o seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`, e definindo-o **como** uma propriedade sobreposição no separador **Avançado** de Executar Pacote pop-up janela ao executar pacotes de SSMS.
 
   ![Habilitar ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  A propriedade também pode ser habilitada fornecendo seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e definindo-a como **true** como uma substituição de propriedade na guia **substituições de propriedade** da [atividade executar pacote SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) ao executar pacotes em pipelines do ADF.
+  A propriedade também pode ser ativada fornecendo o seu caminho de propriedade, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`, e definindo-o **como** uma propriedade sobreposição no separador **Desobreações de Propriedade** da atividade do Pacote Execute [SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) ao executar pacotes em pipelines ADF.
   
   ![Habilitar ConnectByProxy property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 

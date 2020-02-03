@@ -34,6 +34,8 @@
           href: how-to-install.md
         - name: Configuração do aprovisionamento na cloud
           href: how-to-configure.md
+        - name: Utilizar o Início de Sessão Único
+          href: how-to-sso.md
     - name: Planear e conceber
       items:
         - name: Topologias e cenários do aprovisionamento na cloud do Azure AD Connect

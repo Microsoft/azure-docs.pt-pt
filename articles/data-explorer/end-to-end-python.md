@@ -6,13 +6,13 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 22a7ab7aa5d85e716d9b594ee3fb11aad3fa6a36
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/03/2020
+ms.openlocfilehash: 61864c51c2ab99e5266e39f2c9a7344aaf7413c1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496547"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964310"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Ingestão de blob de ponta a ponta no Azure Data Explorer por meio do Python
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="install-the-python-package"></a>Instalar o pacote do Python
 
-Para instalar o pacote do Python para o Data Explorer do Azure (Kusto), abra um prompt de comando que tenha o Python em seu caminho. Execute estes comandos:
+Para instalar o pacote do Python para o Data Explorer do Azure (Kusto), abra um prompt de comando que tenha o Python em seu caminho. Executar estes comandos:
 
 ```
 pip install azure-common
@@ -49,7 +49,7 @@ pip install azure-storage-blob
 
 O exemplo de código a seguir fornece um processo passo a passo que resulta na ingestão de dados no Azure Data Explorer. 
 
-Primeiro, você cria um grupo de recursos. Você também cria recursos do Azure, como uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Em seguida, você cria uma assinatura da grade de eventos do Azure, juntamente com um mapeamento de tabela e coluna, no banco de dados Data Explorer do Azure. Por fim, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento.
+Primeiro, você cria um grupo de recursos. Também cria recursos Azure, como uma conta de armazenamento e um contentor, um hub de eventos, e um cluster e base de dados do Azure Data Explorer, e adiciona os principais. Em seguida, você cria uma assinatura da grade de eventos do Azure, juntamente com um mapeamento de tabela e coluna, no banco de dados Data Explorer do Azure. Por fim, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -87,6 +87,16 @@ kusto_table_name = "Events"
 kusto_column_mapping_name = "Events_CSV_Mapping"
 kusto_data_connection_name = deployment_name + "kustoeventgridconnection"
 
+#principals
+principal_id_for_cluster = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+role_for_cluster_principal = "AllDatabasesAdmin";
+tenant_id_for_cluster_principal = tenant_id;
+principal_type_for_cluster = "App";
+principal_id_for_database = "xxxxxxxx@xxxxxxxx.com";//User Email
+role_for_database_principal = "Admin";
+tenant_id_for_database_principal = tenant_id;
+principal_type_for_database = "User";
+
 
 credentials = ServicePrincipalCredentials(
     client_id=client_id,
@@ -103,7 +113,7 @@ resource_client.resource_groups.create_or_update(
     }
 )
 
-print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, and database by using an Azure Resource Manager template.')
+print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, database, and add principals by using an Azure Resource Manager template.')
 #Read the Azure Resource Manager template
 with open(azure_resource_template_path, 'r') as template_file_fd:
     template = json.load(template_file_fd)
@@ -114,7 +124,15 @@ parameters = {
     'storageAccountName': storage_account_name,
     'containerName': storage_container_name,
     'kustoClusterName': kusto_cluster_name,
-    'kustoDatabaseName': kusto_database_name
+    'kustoDatabaseName': kusto_database_name,
+    'principalIdForCluster': principal_id_for_cluster,
+    'roleForClusterPrincipal': role_for_cluster_principal,
+    'tenantIdForClusterPrincipal': tenant_id_for_cluster_principal,
+    'principalTypeForCluster': principal_type_for_cluster,
+    'principalIdForDatabase': principal_id_for_database,
+    'roleForDatabasePrincipal': role_for_database_principal,
+    'tenantIdForDatabasePrincipal': tenant_id_for_database_principal,
+    'principalTypeForDatabase': principal_type_for_database
 }
 parameters = {k: {'value': v} for k, v in parameters.items()}
 deployment_properties = {
@@ -221,4 +239,4 @@ poller.wait()
 *  Para saber mais sobre outras maneiras de criar um cluster e um banco de dados, consulte [criar um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-python.md).
 * Para saber mais sobre os métodos de ingestão, confira [ingestão de dados do Azure data Explorer](ingest-data-overview.md).
 * Para saber mais sobre o aplicativo Web, consulte [início rápido: consultar dados na interface do usuário da Web do Azure data Explorer](web-query-data.md).
-* [Escreva consultas](write-queries.md) com linguagem de consulta Kusto.
+* [Escreva consultas](write-queries.md) com linguagem de consulta kusto.

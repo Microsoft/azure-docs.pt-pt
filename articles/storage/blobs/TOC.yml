@@ -82,11 +82,7 @@
             - name: 4 - Verifique as métricas de débito e latência
               href: storage-blob-scalable-app-verify-metrics.md
         - name: Alojar um website estático
-          items:
-            - name: 1 - Criar um site estático
-              href: storage-blob-static-website-host.md
-            - name: 2 - Ativar um domínio personalizado com SSL
-              href: storage-blob-static-website-custom-domain.md
+          href: storage-blob-static-website-host.md
         - name: Conceber aplicações para elevada disponibilidade
           items:
             - name: 1 - Torne a aplicação altamente disponível
@@ -383,10 +379,12 @@
             - name: Utilizar o emulador de armazenamento do Azure
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Alojar um website estático
-          href: storage-blob-static-website-how-to.md
-        - name: Mapear CDN do Azure para um domínio personalizado para acesso através de HTTPS
-          href: storage-https-custom-domain-cdn.md
-        - name: Configurar um domínio personalizado
+          items:
+            - name: Alojar um website estático
+              href: storage-blob-static-website-how-to.md
+            - name: Integrar na CDN do Azure
+              href: static-website-content-delivery-network.md
+        - name: Utilizar um domínio personalizado
           href: storage-custom-domain-name.md
         - name: Encaminhar eventos para um ponto final personalizado
           href: storage-blob-event-quickstart.md

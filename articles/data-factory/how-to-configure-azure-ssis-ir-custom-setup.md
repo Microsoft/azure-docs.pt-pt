@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 12/23/2019
-ms.openlocfilehash: ccf7ba2fd27dabdb090be87c5438ad68471996da
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/01/2020
+ms.openlocfilehash: e85ef22542fc162648dbfc637892cf7e580c6aac
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497050"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964554"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a instalação para o tempo de execução de integração do Azure-SSIS
 
@@ -70,7 +70,7 @@ Para personalizar sua Azure-SSIS IR, você precisará das seguintes coisas:
 
    1. Você precisa verificar se o script pode ser executado silenciosamente, é recomendável testar o script no computador local primeiro.
 
-   1. Se desejar que logs adicionais gerados por outras ferramentas (por exemplo, `msiexec.exe`) sejam carregados em seu contêiner, especifique a variável de ambiente predefinida, `CUSTOM_SETUP_SCRIPT_LOG_DIR` como a pasta de log em seus scripts (por exemplo, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+   1. Se pretender que registos adicionais gerados por outras ferramentas (por exemplo, `msiexec.exe`) sejam enviados para o seu recipiente, especifique a variável ambiente predefinida, `CUSTOM_SETUP_SCRIPT_LOG_DIR` como pasta de registo nos seus scripts (por exemplo, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 1. Baixe, instale e inicie o [Gerenciador de armazenamento do Azure](https://storageexplorer.com/).
 
@@ -131,19 +131,66 @@ Para personalizar sua Azure-SSIS IR, você precisará das seguintes coisas:
 
    ![Configurações avançadas com instalações personalizadas](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
 
-   Ao provisionar ou reconfigurar seu Azure-SSIS IR com o PowerShell, você pode adicionar/remover configurações personalizadas executando o cmdlet `Set-AzDataFactoryV2IntegrationRuntime` antes de iniciar o Azure-SSIS IR.
+1. Ao provisionar ou reconfigurar seu Azure-SSIS IR com o PowerShell, você pode adicionar/remover configurações personalizadas executando o cmdlet `Set-AzDataFactoryV2IntegrationRuntime` antes de iniciar o Azure-SSIS IR.
    
-   Para configurações personalizadas padrão, você pode fornecer o URI de SAS do seu contêiner como o valor para `SetupScriptContainerSasUri` parâmetro. Por exemplo:
-
    ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
-                                         -Name $MyAzureSsisIrName `
-                                         -ResourceGroupName $MyResourceGroupName `
-                                         -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
+   $ResourceGroupName = "[your Azure resource group name]"
+   $DataFactoryName = "[your data factory name]"
+   $AzureSSISName = "[your Azure-SSIS IR name]"
+   # Custom setup info: Standard/express custom setups
+   $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
-   Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
-                                           -Name $MyAzureSsisIrName `
-                                           -ResourceGroupName $MyResourceGroupName
+   # Add custom setup parameters if you use standard/express custom setups
+   if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
+   {
+       Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+           -DataFactoryName $DataFactoryName `
+           -Name $AzureSSISName `
+           -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+   }
+   if(![string]::IsNullOrEmpty($ExpressCustomSetup))
+   {
+       if($ExpressCustomSetup -eq "RunCmdkey")
+       {
+           $addCmdkeyArgument = "YourFileShareServerName or YourAzureStorageAccountName.file.core.windows.net"
+           $userCmdkeyArgument = "YourDomainName\YourUsername or azure\YourAzureStorageAccountName"
+           $passCmdkeyArgument = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourPassword or YourAccessKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.CmdkeySetup($addCmdkeyArgument, $userCmdkeyArgument, $passCmdkeyArgument)
+       }
+       if($ExpressCustomSetup -eq "SetEnvironmentVariable")
+       {
+           $variableName = "YourVariableName"
+           $variableValue = "YourVariableValue"
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
+       }
+       if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
+       {
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup)
+       }
+       # Create an array of one or more express custom setups
+       $setups = New-Object System.Collections.ArrayList
+       $setups.Add($setup)
+
+       Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+           -DataFactoryName $DataFactoryName `
+           -Name $AzureSSISName `
+           -ExpressCustomSetup $setups
+   }
+   Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+       -DataFactoryName $DataFactoryName `
+       -Name $AzureSSISName `
+       -Force
    ```
    
    Depois que a instalação personalizada padrão for concluída e o Azure-SSIS IR for iniciado, você poderá encontrar a saída padrão de `main.cmd` e outros logs de execução na pasta `main.cmd.log` do seu contêiner de armazenamento.
@@ -178,23 +225,23 @@ Para personalizar sua Azure-SSIS IR, você precisará das seguintes coisas:
       
       1. Uma pasta `MYSQL ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar os drivers ODBC do MySQL em cada nó de seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões ODBC/origem/destino para se conectar ao servidor MySQL. Primeiro, baixe as versões mais recentes de 64 bits e 32 bits dos instaladores de driver ODBC do MySQL-por exemplo, `mysql-connector-odbc-8.0.13-winx64.msi` e `mysql-connector-odbc-8.0.13-win32.msi`-do [MySQL](https://dev.mysql.com/downloads/connector/odbc/)e, em seguida, carregue-as junto com `main.cmd` em seu contêiner.
 
-      1. Uma pasta `ORACLE ENTERPRISE`, que contém um script de instalação personalizada (`main.cmd`) e o arquivo de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores Oracle e o driver de OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões Oracle/origem/destino para se conectar ao servidor Oracle. Primeiro, baixe o Microsoft Connectors v 5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) do [centro de download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente Oracle mais recente, por exemplo, `winx64_12102_client.zip`-da [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)e, em seguida, carregue-os juntos com `main.cmd` e `client.rsp` em seu contêiner. Se você usar TNS para se conectar ao Oracle, também precisará baixar `tnsnames.ora`, editá-lo e carregá-lo em seu contêiner, para que ele possa ser copiado para a pasta de instalação do Oracle durante a instalação.
+      1. Uma pasta `ORACLE ENTERPRISE`, que contém um script de instalação personalizada (`main.cmd`) e o arquivo de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores Oracle e o driver de OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões Oracle/origem/destino para se conectar ao servidor Oracle. Primeiro, baixe os Conectores Microsoft v5.0 para o Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o mais recente cliente oracle - por exemplo, `winx64_12102_client.zip` - da [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), em seguida, carregue-os todos juntamente com `main.cmd` e `client.rsp` para o seu recipiente. Se você usar TNS para se conectar ao Oracle, também precisará baixar `tnsnames.ora`, editá-lo e carregá-lo em seu contêiner, para que ele possa ser copiado para a pasta de instalação do Oracle durante a instalação.
 
-      1. Uma pasta `ORACLE STANDARD ADO.NET`, que contém um script de instalação personalizada (`main.cmd`) para instalar o Driver Oracle ODP.NET em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões do ADO.NET/origem/destino para se conectar ao servidor Oracle. Primeiro, baixe o driver do Oracle ODP.NET mais recente, por exemplo, `ODP.NET_Managed_ODAC122cR1.zip`-do [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o junto com `main.cmd` em seu contêiner.
+      1. Uma pasta `ORACLE STANDARD ADO.NET`, que contém um script de instalação personalizada (`main.cmd`) para instalar o Driver Oracle ODP.NET em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões do ADO.NET/origem/destino para se conectar ao servidor Oracle. Primeiro, faça o download do mais recente condutor da Oracle ODP.NET - por exemplo, `ODP.NET_Managed_ODAC122cR1.zip` - da [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), em seguida, carregue-o juntamente com `main.cmd` para o seu recipiente.
        
-      1. Uma pasta `ORACLE STANDARD ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar o driver ODBC Oracle e configurar o DSN em cada nó do seu Azure-SSIS IR. Essa configuração permite usar o Gerenciador de conexões ODBC/origem/destino ou Power Query Gerenciador de conexões/origem com o tipo de fonte de dados ODBC para se conectar ao servidor Oracle. Primeiro, baixe o pacote mais recente do Oracle Instant Client (pacote básico ou Basic Lite) e ODBC, por exemplo, os pacotes de 64 bits [aqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pacote básico: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, pacote Basic Lite: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, pacote ODBC: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou os pacotes de 32 bits [aqui](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pacote básico: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, pacote Basic Lite: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, pacote ODBC: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) e, em seguida, carregue-os juntos com `main.cmd` em seu contêiner.
+      1. Uma pasta `ORACLE STANDARD ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar o driver ODBC Oracle e configurar o DSN em cada nó do seu Azure-SSIS IR. Essa configuração permite usar o Gerenciador de conexões ODBC/origem/destino ou Power Query Gerenciador de conexões/origem com o tipo de fonte de dados ODBC para se conectar ao servidor Oracle. Primeiro, faça o download do mais recente Cliente Instantâneo oracle (Pacote Básico ou Pacote Basic Lite) e do Pacote ODBC - por exemplo, os pacotes de 64 bits [daqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Pacote Básico: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, Pacote Básico lite: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, Pacote ODBC: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou os pacotes de 32 bits a partir [daqui](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (Pacote Básico: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, Pacote Básico de Lite: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, Pacote OBCD: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), em seguida, carregue-os todos juntamente com `main.cmd` no seu recipiente.
 
-      1. Uma pasta `ORACLE STANDARD OLEDB`, que contém um script de instalação personalizada (`main.cmd`) para instalar o Driver Oracle OLEDB em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões OLEDB/origem/destino para se conectar ao servidor Oracle. Primeiro, baixe o Driver Oracle OLEDB mais recente, por exemplo, `ODAC122010Xcopy_x64.zip`-do [Oracle](https://www.oracle.com/partners/campaign/index-090165.html), em seguida, carregue-o junto com `main.cmd` em seu contêiner.
+      1. Uma pasta `ORACLE STANDARD OLEDB`, que contém um script de instalação personalizada (`main.cmd`) para instalar o Driver Oracle OLEDB em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões OLEDB/origem/destino para se conectar ao servidor Oracle. Primeiro, faça o download do mais recente condutor oLEDB Oracle - por exemplo, `ODAC122010Xcopy_x64.zip` - da [Oracle](https://www.oracle.com/partners/campaign/index-090165.html), em seguida, carregue-o juntamente com `main.cmd` no seu recipiente.
 
-      1. Uma pasta `POSTGRESQL ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar os drivers ODBC do PostgreSQL em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões ODBC/origem/destino para se conectar ao servidor PostgreSQL. Primeiro, baixe as versões mais recentes de 64 bits e 32 bits dos instaladores de driver ODBC do PostgreSQL-por exemplo, `psqlodbc_x64.msi` e `psqlodbc_x86.msi`-do [PostgreSQL](https://www.postgresql.org/ftp/odbc/versions/msi/)e, em seguida, carregue-as junto com `main.cmd` em seu contêiner.
+      1. Uma pasta `POSTGRESQL ODBC`, que contém um script de instalação personalizada (`main.cmd`) para instalar os drivers ODBC do PostgreSQL em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use o Gerenciador de conexões ODBC/origem/destino para se conectar ao servidor PostgreSQL. Primeiro, faça o download das versões mais recentes de 64 bits e 32 bits dos instaladores de controladores PostgreSQL ODBC - por exemplo, `psqlodbc_x64.msi` e `psqlodbc_x86.msi` - do [PostgreSQL](https://www.postgresql.org/ftp/odbc/versions/msi/), em seguida, carregue-as todas juntamente com `main.cmd` no seu recipiente.
 
-      1. Uma pasta `SAP BW`, que contém um script de instalação personalizada (`main.cmd`) para instalar o assembly do conector do SAP .NET (`librfc32.dll`) em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões SAP BW/origem/destino para se conectar ao servidor SAP BW. Primeiro, carregue a versão de 64 bits ou 32 bits do `librfc32.dll` da pasta de instalação do SAP junto com `main.cmd` em seu contêiner. Em seguida, o script copia o assembly SAP para a pasta `%windir%\SysWow64` ou `%windir%\System32` durante a instalação.
+      1. Uma pasta `SAP BW`, que contém um script de instalação personalizada (`main.cmd`) para instalar o assembly do conector do SAP .NET (`librfc32.dll`) em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões SAP BW/origem/destino para se conectar ao servidor SAP BW. Primeiro, carregue a versão de 64 bits ou 32 bits do `librfc32.dll` da pasta de instalação do SAP junto com `main.cmd` em seu contêiner. Em seguida, o script copia o conjunto SAP para a pasta `%windir%\SysWow64` ou `%windir%\System32` durante a configuração.
 
       1. Uma pasta `STORAGE`, que contém uma instalação personalizada para instalar Azure PowerShell em cada nó do seu Azure-SSIS IR. Essa configuração permite implantar e executar pacotes do SSIS que executam [scripts do PowerShell para manipular sua conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copie `main.cmd`, um `AzurePowerShell.msi` de exemplo (ou use a versão mais recente) e `storage.ps1` ao seu contêiner. Use o PowerShell. dtsx como um modelo para seus pacotes. O modelo de pacote combina uma [tarefa de download de blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), que baixa `storage.ps1` como um script do PowerShell modificável e uma [tarefa Executar processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) que executa o script em cada nó.
 
-      1. Uma pasta `TERADATA`, que contém um script de instalação personalizada (`main.cmd`), seu arquivo associado (`install.cmd`) e os pacotes do instalador (`.msi`). Esses arquivos instalam os conectores do Teradata, a API do TPT e o driver ODBC em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões do Teradata/origem/destino para se conectar ao servidor Teradata. Primeiro, baixe o arquivo zip de ferramentas e utilitários do Teradata 15. x (por exemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) do [Teradata](http://partnerintelligence.teradata.com), em seguida, carregue-o junto com os `.cmd` e `.msi` arquivos acima em seu contêiner.
+      1. Uma pasta `TERADATA`, que contém um script de instalação personalizada (`main.cmd`), seu arquivo associado (`install.cmd`) e os pacotes do instalador (`.msi`). Esses arquivos instalam os conectores do Teradata, a API do TPT e o driver ODBC em cada nó do seu Azure-SSIS IR Enterprise Edition. Essa configuração permite que você use o Gerenciador de conexões do Teradata/origem/destino para se conectar ao servidor Teradata. Primeiro, faça o download do ficheiro Teradata Tools and Utilities 15.x zip (por exemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata,](http://partnerintelligence.teradata.com)em seguida, carregue-o juntamente com os ficheiros `.cmd` e `.msi` acima para o seu recipiente.
 
-      1. Uma pasta `ZULU OPENJDK`, que contém um script de instalação personalizado (`main.cmd`) e um arquivo do PowerShell (`install_openjdk.ps1`) para instalar o Zulu OpenJDK em cada nó do seu Azure-SSIS IR. Essa configuração permite que você use conectores de arquivo Azure Data Lake Store/flexível para processar arquivos ORC/parquet, consulte [aqui](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java) para obter mais informações. Primeiro, baixe a mais recente Zulu OpenJDK – por exemplo, `zulu8.33.0.1-jdk8.0.192-win_x64.zip`- [daqui, carregue](https://www.azul.com/downloads/zulu/zulu-windows/)-a junto com `main.cmd` e `install_openjdk.ps1` em seu contêiner.
+      1. Uma pasta `ZULU OPENJDK`, que contém um script de configuração personalizado (`main.cmd`) e ficheiro PowerShell (`install_openjdk.ps1`) para instalar zulu OpenJDK em cada nó do seu IR Azure-SSIS. Essa configuração permite que você use conectores de arquivo Azure Data Lake Store/flexível para processar arquivos ORC/parquet, consulte [aqui](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java) para obter mais informações. Primeiro, faça o download do mais recente Zulu OpenJDK - por exemplo, `zulu8.33.0.1-jdk8.0.192-win_x64.zip` - a partir [daqui](https://www.azul.com/downloads/zulu/zulu-windows/), em seguida, carregue-o juntamente com `main.cmd` e `install_openjdk.ps1` para o seu recipiente.
 
       ![Pastas na pasta cenários de usuário](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

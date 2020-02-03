@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/01/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: fec34c54971878178b2a5ea4548ad20d3b51b104
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119930"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964354"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir um tempo de execução de integração do Azure-SSIS a uma rede virtual
 
@@ -149,7 +149,7 @@ Uma abordagem recomendada é a seguinte:
 Para obter mais informações, consulte [resolução de nomes que usa seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Use um FQDN (nome de domínio totalmente qualificado) para o nome do host privado, por exemplo, use `<your_private_server>.contoso.com` em vez de `<your_private_server>`, já que Azure-SSIS IR não acrescentará automaticamente seu próprio sufixo DNS.
+> Utilize um nome de domínio totalmente qualificado (FQDN) para o seu nome de anfitrião privado, por exemplo, use `<your_private_server>.contoso.com` em vez de `<your_private_server>`, uma vez que o Azure-SSIS IR não anexaautomaticamente o seu próprio sufixo DNS.
 
 ### <a name="nsg"></a>Configurar um NSG
 Se você precisar implementar um NSG para a sub-rede usada pelo seu Azure-SSIS IR, permita o tráfego de entrada e de saída por meio das seguintes portas: 
@@ -226,7 +226,7 @@ Se você não precisar da capacidade de inspecionar o tráfego de saída de Azur
 -   Em um cenário do Azure ExpressRoute, você pode aplicar uma rota 0.0.0.0/0 com o tipo do próximo salto como **Internet** na sub-rede que hospeda o Azure-SSIS ir. 
 -   Em um cenário de NVA, você pode modificar a rota 0.0.0.0/0 existente aplicada na sub-rede que hospeda o Azure-SSIS IR do tipo do próximo salto como **dispositivo virtual** para a **Internet**.
 
-![Adicionar uma rota](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+![Adicione uma rota](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
 > [!NOTE]
 > Especificar a rota com o próximo salto tipo **Internet** não significa que todo o tráfego passará pela Internet. Desde que o endereço de destino seja para um dos serviços do Azure, o Azure roteia o tráfego diretamente para o serviço pela rede de backbone do Azure, em vez de rotear o tráfego para a Internet.
@@ -428,6 +428,20 @@ Depois de configurar sua rede virtual Azure Resource Manager ou rede virtual cl�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+### <a name="define-the-variables"></a>Definir as variáveis
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
+```
+
 ### <a name="configure-a-virtual-network"></a>Configurar uma rede virtual
 
 Antes de poder ingressar seu Azure-SSIS IR em uma rede virtual, você precisa configurar a rede virtual. Para configurar automaticamente as permissões e as configurações de rede virtual para seu Azure-SSIS IR para ingressar na rede virtual, adicione o seguinte script:
@@ -463,26 +477,15 @@ O artigo [criar um Azure-SSIS ir](create-azure-ssis-integration-runtime.md) most
 1. Configure o Azure-SSIS IR para ingressar na rede virtual. 
 1. Inicie o Azure-SSIS IR. 
 
-### <a name="define-the-variables"></a>Definir as variáveis
-
-```powershell
-$ResourceGroupName = "<your Azure resource group name>"
-$DataFactoryName = "<your Data Factory name>" 
-$AzureSSISName = "<your Azure-SSIS IR name>"
-# Specify the information about your classic or Azure Resource Manager virtual network.
-$VnetId = "<your Azure virtual network resource ID>"
-$SubnetName = "<the name of subnet in your virtual network>"
-```
-
 ### <a name="stop-the-azure-ssis-ir"></a>Parar o Azure-SSIS IR
 
 Você precisa parar o Azure-SSIS IR antes de poder associá-lo a uma rede virtual. Este comando libera todos os seus nós e interrompe a cobrança:
 
 ```powershell
 Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                            -DataFactoryName $DataFactoryName `
-                                            -Name $AzureSSISName `
-                                            -Force 
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force 
 ```
 
 ### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Definir configurações de rede virtual para o Azure-SSIS IR a ser associado
@@ -515,11 +518,20 @@ Para ingressar seu Azure-SSIS IR em uma rede virtual, execute o comando `Set-AzD
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Type Managed `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
+}
 ```
 
 ### <a name="start-the-azure-ssis-ir"></a>Iniciar o Azure-SSIS IR
@@ -528,10 +540,9 @@ Para iniciar o Azure-SSIS IR, execute o seguinte comando:
 
 ```powershell
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
-
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 ```
 
 Esse comando leva de 20 a 30 minutos para ser concluído.

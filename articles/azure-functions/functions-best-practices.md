@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433301"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963666"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a confiabilidade do Azure Functions
 
@@ -74,7 +74,9 @@ Reutilize conexões a recursos externos sempre que possível. Consulte [como ger
 
 ### <a name="avoid-sharing-storage-accounts"></a>Evite compartilhar contas de armazenamento
 
-Ao criar um aplicativo de funções, você deve associá-lo a uma conta de armazenamento. A conexão da conta de armazenamento é mantida na [configuração do aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Para maximizar o desempenho, use uma conta de armazenamento separada para cada aplicativo de funções. Isso é particularmente importante quando você tem Durable Functions ou funções disparadas pelo hub de eventos, que geram um alto volume de transações de armazenamento. Quando a lógica do aplicativo interage com o armazenamento do Azure, seja diretamente (usando o SDK de armazenamento) ou por meio de uma das associações de armazenamento, você deve usar uma conta de armazenamento dedicada. Por exemplo, se você tiver uma função disparada por Hub de eventos gravando alguns dados no armazenamento de BLOBs, use duas contas de armazenamento&mdash;uma para o aplicativo de funções e outra para os blobs que estão sendo armazenados pela função.
+Ao criar um aplicativo de funções, você deve associá-lo a uma conta de armazenamento. A conexão da conta de armazenamento é mantida na [configuração do aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+
+[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Não misture o código de teste e de produção no mesmo aplicativo de funções
 
@@ -96,9 +98,9 @@ No C#, sempre Evite referenciar a propriedade `Result` ou chamar `Wait` método 
 
 ### <a name="use-multiple-worker-processes"></a>Usar vários processos de trabalho
 
-Por padrão, qualquer instância de host para o Functions usa um único processo de trabalho. Para melhorar o desempenho, especialmente com tempos de execução de thread único como Python, use o [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar o número de processos de trabalho por host (até 10). Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
+Por padrão, qualquer instância de host para o Functions usa um único processo de trabalho. Para melhorar o desempenho, especialmente com tempos de execução de roscar como python, use o [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar o número de processos de trabalhador por hospedeiro (até 10). Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
 
-O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao escalar horizontalmente seu aplicativo para atender à demanda. 
+O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções criam ao escalonar a sua aplicação para satisfazer a procura. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Receber mensagens no lote sempre que possível
 

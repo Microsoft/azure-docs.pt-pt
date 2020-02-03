@@ -5,25 +5,25 @@ description: Siga este exemplo criar um classificador sem código para prever a 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: bfae0d8eed80a88475c447a141097022fed9adff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311139"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963377"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Criar um classificador & usar a seleção de recursos para prever a renda com o designer de Azure Machine Learning
 
-**Exemplo de designer 3**
+**Designer (visualização) exemplo 3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Saiba como criar um classificador de aprendizado de máquina sem escrever uma única linha de código usando o designer. Este exemplo treina uma **árvore de decisão aumentada de duas classes** para prever censo de renda de adulto (> = 50 mil ou < = 50 mil).
+Saiba como criar um classificador de aprendizado de máquina sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina uma **árvore de decisão aumentada de duas classes** para prever censo de renda de adulto (> = 50 mil ou < = 50 mil).
 
 Porque a pergunta está respondendo "Qual é?" Isso é chamado de problema de classificação. No entanto, você pode aplicar o mesmo processo fundamental para lidar com qualquer tipo de problema de aprendizado de máquina – regressão, classificação, clustering e assim por diante.
 
@@ -41,7 +41,7 @@ Este é o grafo de pipeline final para este exemplo:
 
 ## <a name="data"></a>Dados
 
-O conjunto de conteúdo contém 14 recursos e uma coluna de rótulo. Há vários tipos de recursos, incluindo numéricos e categóricos. O diagrama a seguir mostra um trecho do conjunto de dados: ![data](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
+O conjunto de conteúdo contém 14 recursos e uma coluna de rótulo. Há vários tipos de recursos, incluindo numéricos e categóricos. O diagrama seguinte mostra um excerto do conjunto de dados: ![dados](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
 
 
 
@@ -50,12 +50,12 @@ O conjunto de conteúdo contém 14 recursos e uma coluna de rótulo. Há vários
 Siga estas etapas para criar o pipeline:
 
 1. Arraste o módulo conjunto de conteúdo binário censo de renda de adulto para a tela de pipeline.
-1. Adicione um módulo **dividir dados** para criar os conjuntos de treinamento e teste. Defina a fração de linhas no primeiro conjunto de registros de saída como 0,7. Essa configuração especifica que 70% dos dados serão gerados para a porta esquerda do módulo e a porta restante para a direita. Usamos o conjunto de espaço da esquerda para treinamento e o correto para teste.
+1. Adicione um módulo **dividir dados** para criar os conjuntos de treinamento e teste. Defina a fração de linhas no primeiro conjunto de registros de saída como 0,7. Esta definição especifica que 70% dos dados serão de saída para a porta esquerda do módulo e os restantes para a porta direita. Usamos o conjunto de espaço da esquerda para treinamento e o correto para teste.
 1. Adicione o módulo **seleção de recursos baseada em filtro** para selecionar 5 recursos por PearsonCorreclation. 
 1. Adicione um módulo de **árvore de decisão aumentada de duas classes** para inicializar um classificador de árvore de decisão aumentada.
 1. Adicione um módulo **modelo de treinamento** . Conecte o classificador da etapa anterior à porta de entrada à esquerda do **modelo de treinamento**. Conecte o conjunto de texto filtrado do módulo seleção de recursos com base em filtro como conjunto de módulos de treinamento.  O **modelo de treinamento** treinará o classificador.
 1. Adicione a transformação selecionar colunas e aplique o módulo transformação para aplicar a mesma transformação (seleção de recursos com base em filtro) para testar o conjunto de testes.
-![aplicar-transformação](./media/how-to-designer-sample-classification-predict-income/transformation.png)
+![](./media/how-to-designer-sample-classification-predict-income/transformation.png) de transformação de aplicações
 1. Adicione o módulo **modelo de Pontuação** e conecte o módulo **modelo de treinamento** a ele. Em seguida, adicione o conjunto de teste (a saída do módulo aplicar transformação que aplica a seleção de recursos também ao conjunto de teste) ao **modelo de Pontuação**. O **modelo de Pontuação** fará as previsões. Você pode selecionar sua porta de saída para ver as previsões e as probabilidades de classe positivas.
 
 

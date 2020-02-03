@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719845"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962948"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão do Azure Media Services V3
 
@@ -36,6 +36,13 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 Para obter mais informações, consulte [diretrizes de migração para mudar dos serviços de mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2020"></a>Janeiro de 2020
+
+### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
+
+- Um suporte melhorado para fontes interligadas em Análise de Vídeo – esse conteúdo está agora desinterligado corretamente antes de ser enviado para motores de inferência.
+- Ao gerar miniaturas com o modo "Best", o codificador procura agora mais de 30 segundos para selecionar uma moldura que não seja monocromática.
+ 
 ## <a name="november-2019"></a>Novembro de 2019
 
 ### <a name="live-transcription-preview"></a>Visualização de transcrição ao vivo
@@ -334,5 +341,5 @@ Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral](media-services-overview.md)
+- [Descrição Geral](media-services-overview.md)
 - [Notas de versão do Media Services v2](../previous/media-services-release-notes.md)

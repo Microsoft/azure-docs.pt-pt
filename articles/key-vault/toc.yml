@@ -118,6 +118,8 @@
       href: event-grid-logicapps.md
     - name: Integrar no Azure Policy
       href: azure-policy.md
+    - name: Integrar no Serviço Azure Private Link (Pré-visualização)
+      href: private-link-service.md
     - name: Registo do Azure Key Vault
       href: key-vault-logging.md
     - name: Acesso por trás de firewalls

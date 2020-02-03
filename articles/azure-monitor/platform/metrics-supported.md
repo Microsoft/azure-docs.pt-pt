@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor supported metrics by resource type
-description: List of metrics available for each resource type with Azure Monitor.
+title: Azure Monitor métricas com suporte por tipo de recurso
+description: Lista de métricas disponíveis para cada tipo de recurso com Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,23 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0210317ef74433b740feb043a1cc4f1f9bc2ef57
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e67cd8c85d9ba85e32ef7aece402f97ab24243e5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901149"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963449"
 ---
-# <a name="supported-metrics-with-azure-monitor"></a>Supported metrics with Azure Monitor
+# <a name="supported-metrics-with-azure-monitor"></a>Métricas com suporte com Azure Monitor
 
-Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo o gráfico delas no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. Abaixo está uma lista completa de todas as métricas disponíveis atualmente com o pipeline de métrica do Azure Monitor. Outras métricas podem estar disponíveis no portal ou usando APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis usando o pipeline de métrica de Azure Monitor consolidado. As métricas são organizadas pelo espaço de nome. Para obter uma lista de serviços e os espaços de nome que lhes pertencem, consulte os fornecedores de [recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) Para consultar e aceder a estas métricas programáticamente, por favor use a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
 > *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
-> For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
-
+> Para obter uma lista de métricas de plataforma exportáveis por meio de configurações de diagnóstico, consulte [Este artigo](metrics-supported-export-diagnostic-settings.md).
 
 
 
@@ -33,27 +32,27 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|Contagem|Média|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|ServerResourceType|
-|memory_metric|Memória|Bytes|Média|A memória. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|ServerResourceType|
-|private_bytes_metric|Bytes Privados|Bytes|Média|Private bytes.|ServerResourceType|
-|virtual_bytes_metric|Virtual Bytes|Bytes|Média|Virtual bytes.|ServerResourceType|
-|TotalConnectionRequests|Total Connection Requests|Contagem|Média|Total connection requests. These are arrivals.|ServerResourceType|
-|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Média|Rate of successful connection completions.|ServerResourceType|
-|TotalConnectionFailures|Total Connection Failures|Contagem|Média|Total failed connection attempts.|ServerResourceType|
-|CurrentUserSessions|Current User Sessions|Contagem|Média|Current number of user sessions established.|ServerResourceType|
-|QueryPoolBusyThreads|Query Pool Busy Threads|Contagem|Média|Number of busy threads in the query thread pool.|ServerResourceType|
-|CommandPoolJobQueueLength|Command Pool Job Queue Length|Contagem|Média|Number of jobs in the queue of the command thread pool.|ServerResourceType|
-|ProcessingPoolJobQueueLength|Processing Pool Job Queue Length|Contagem|Média|Number of non-I/O jobs in the queue of the processing thread pool.|ServerResourceType|
-|CurrentConnections|Connection: Current connections|Contagem|Média|Current number of client connections established.|ServerResourceType|
-|CleanerCurrentPrice|Memory: Cleaner Current Price|Contagem|Média|Current price of memory, $/byte/time, normalized to 1000.|ServerResourceType|
-|CleanerMemoryShrinkable|Memory: Cleaner Memory shrinkable|Bytes|Média|Amount of memory, in bytes, subject to purging by the background cleaner.|ServerResourceType|
-|CleanerMemoryNonshrinkable|Memory: Cleaner Memory nonshrinkable|Bytes|Média|Amount of memory, in bytes, not subject to purging by the background cleaner.|ServerResourceType|
-|MemoryUsage|Memory: Memory Usage|Bytes|Média|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory which was mapped or allocated by the xVelocity in-memory analytics engine (VertiPaq) in excess of the xVelocity engine Memory Limit.|ServerResourceType|
-|MemoryLimitHard|Memory: Memory Limit Hard|Bytes|Média|Hard memory limit, from configuration file.|ServerResourceType|
-|MemoryLimitHigh|Memory: Memory Limit High|Bytes|Média|High memory limit, from configuration file.|ServerResourceType|
-|MemoryLimitLow|Memory: Memory Limit Low|Bytes|Média|Low memory limit, from configuration file.|ServerResourceType|
-|MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Média|In-memory limit, from configuration file.|ServerResourceType|
-|Quota|Memory: Quota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como concessão de memória ou reserva de memória.|ServerResourceType|
+|qpu_metric|QPU|Contagem|Média|QPU. Intervalo de 0-100 para S1, 0-200 para S2 e 0-400 para S4|ServerResourceType|
+|memory_metric|Memória|Bytes|Média|A memória. Intervalo de 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|ServerResourceType|
+|private_bytes_metric|Bytes Privados|Bytes|Média|Bytes privados.|ServerResourceType|
+|virtual_bytes_metric|Bytes Virtuais|Bytes|Média|Bytes virtuais.|ServerResourceType|
+|TotalConnectionRequests|Total de solicitações de conexão|Contagem|Média|Total de solicitações de conexão. Essas são entradas.|ServerResourceType|
+|SuccessfullConnectionsPerSec|Conexões com êxito por segundo|CountPerSecond|Média|Taxa de conclusões de conexão com êxito.|ServerResourceType|
+|TotalConnectionFailures|Total de falhas de conexão|Contagem|Média|Total de tentativas de conexão com falha.|ServerResourceType|
+|CurrentUserSessions|Sessões de usuário atuais|Contagem|Média|Número atual de sessões de usuário estabelecidas.|ServerResourceType|
+|QueryPoolBusyThreads|Threads ocupados do pool de consulta|Contagem|Média|Número de threads ocupados no pool de threads de consulta.|ServerResourceType|
+|CommandPoolJobQueueLength|Comprimento da fila de trabalhos do pool de comandos|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|ServerResourceType|
+|ProcessingPoolJobQueueLength|Tamanho da fila de trabalhos do pool de processamento|Contagem|Média|Número de trabalhos que não são de e/s na fila do pool de threads de processamento.|ServerResourceType|
+|CurrentConnections|Conexão: conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|ServerResourceType|
+|CleanerCurrentPrice|Memória: preço atual do limpador|Contagem|Média|Preço atual da memória, $/byte/time, normalizado para 1000.|ServerResourceType|
+|CleanerMemoryShrinkable|Memória: memória de limpeza recolhida|Bytes|Média|Quantidade de memória, em bytes, sujeita a limpeza pelo limpador de segundo plano.|ServerResourceType|
+|CleanerMemoryNonshrinkable|Memória: memória de limpeza não reduzida|Bytes|Média|Quantidade de memória, em bytes, não sujeita a limpeza pelo limpador de segundo plano.|ServerResourceType|
+|MemoryUsage|Memória: uso de memória|Bytes|Média|Uso de memória do processo do servidor conforme usado no cálculo do preço de memória de limpeza. Igual ao contador Process\PrivateBytes mais o tamanho dos dados mapeados na memória, ignorando qualquer memória que foi mapeada ou alocada pelo VertiPaq (mecanismo analítico na memória) xVelocity excedendo o limite de memória do mecanismo xVelocity.|ServerResourceType|
+|MemoryLimitHard|Memória: limite de memória rígido|Bytes|Média|Limite de memória rígido, do arquivo de configuração.|ServerResourceType|
+|MemoryLimitHigh|Memória: limite de memória alto|Bytes|Média|Limite de memória alto, do arquivo de configuração.|ServerResourceType|
+|MemoryLimitLow|Memória: limite de memória baixo|Bytes|Média|Limite de memória baixo, do arquivo de configuração.|ServerResourceType|
+|MemoryLimitVertiPaq|Memória: limite de memória VertiPaq|Bytes|Média|Limite na memória, do arquivo de configuração.|ServerResourceType|
+|Quota|Memória: cota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como concessão de memória ou reserva de memória.|ServerResourceType|
 |QuotaBlocked|Memória: cota bloqueada|Contagem|Média|Número atual de solicitações de cota que são bloqueadas até que outras cotas de memória sejam liberadas.|ServerResourceType|
 |VertiPaqNonpaged|Memória: VertiPaq não paginável|Bytes|Média|Bytes de memória bloqueados no conjunto de trabalho para uso pelo mecanismo na memória.|ServerResourceType|
 |VertiPaqPaged|Memória: VertiPaq paginável|Bytes|Média|Bytes de memória paginável em uso para dados na memória.|ServerResourceType|

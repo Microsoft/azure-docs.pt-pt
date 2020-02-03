@@ -5,25 +5,25 @@ description: Crie um modelo de regressão ML para prever o preço de um automóv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 18a9f9d49dce96b037f10a95a458e52d020fe6c7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311075"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963302"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Use a regressão para prever os preços de carro com o designer de Azure Machine Learning
 
-**Amostra 1 do designer**
+**Amostra do designer (visualização) 1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Saiba como criar um modelo de regressão do Machine Learning sem escrever uma única linha de código usando o designer.
+Saiba como criar um modelo de regressão do Machine Learning sem escrever uma única linha de código usando o designer (versão prévia).
 
 Esse pipeline treina um **regressor linear** para prever o preço de um carro com base em recursos técnicos, como marca, modelo, potência e tamanho. Porque você está tentando responder à pergunta "o quanto?" Isso é chamado de problema de regressão. No entanto, você pode aplicar as mesmas etapas fundamentais neste exemplo para lidar com qualquer tipo de problema de aprendizado de máquina, seja regressão, classificação, clustering e assim por diante.
 
@@ -63,7 +63,7 @@ Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de má
 
 Como o objetivo deste exemplo é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear. Portanto, usamos a **regressão da floresta de decisão** para esse pipeline.
 
-Use o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% do dado original.
+Utilize o módulo **De dados divididos** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% dos dados originais.
 
 ## <a name="test-evaluate-and-compare"></a>Testar, avaliar e comparar
 

@@ -151,8 +151,8 @@
               href: methods-for-assigning-users-and-groups.md
             - name: Atribuir um utilizador a uma aplicação
               href: assign-user-or-group-access-portal.md
-            - name: Criar áreas de trabalho em As Minhas Aplicações (pré-visualização)
-              href: access-panel-workspaces.md
+            - name: Criar coleções em As Minhas Aplicações
+              href: access-panel-collections.md
             - name: Utilizar o acesso personalizado às aplicações
               href: access-panel-manage-self-service-access.md
             - name: Métodos para remover o acesso de um utilizador a uma aplicação

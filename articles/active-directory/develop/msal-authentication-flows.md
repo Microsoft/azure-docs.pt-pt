@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/30/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bf241bc15ccdcf9e7d65f277c235f1aa668fcbe0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696645"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962101"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -64,7 +64,7 @@ Para obter mais informações sobre como usar o MSAL.NET para adquirir tokens de
 
 Para obter mais informações sobre chamadas interativas no MSAL. js, consulte [comportamento de prompt em solicitações interativas do MSAL. js](msal-js-prompt-behavior.md).
 
-## <a name="implicit-grant"></a>Concessão implícita
+## <a name="implicit-grant"></a>Subvenção implícita
 
 O MSAL dá suporte ao [fluxo de concessão implícita do OAuth 2](v2-oauth2-implicit-grant-flow.md), que permite que o aplicativo obtenha tokens da plataforma de identidade da Microsoft sem executar uma troca de credenciais de servidor back-end. Isso permite que o aplicativo entre no usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo no código JavaScript do cliente.
 
@@ -74,7 +74,7 @@ Muitos aplicativos Web modernos são criados como aplicativos do lado do cliente
 
 Esse fluxo de autenticação não inclui cenários de aplicativos que usam estruturas JavaScript de plataforma cruzada, como o ar-nativo e o reajam, porque exigem mais recursos para interação com as plataformas nativas.
 
-## <a name="authorization-code"></a>Código de autorização
+## <a name="authorization-code"></a>código de autorização
 
 O MSAL dá suporte à [concessão de código de autorização OAuth 2](v2-oauth2-auth-code-flow.md). Essa concessão pode ser usada em aplicativos que estão instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Isso permite que você adicione entrada e acesso à API aos seus aplicativos móveis e de área de trabalho. 
 

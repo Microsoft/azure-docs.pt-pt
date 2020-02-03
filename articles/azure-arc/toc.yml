@@ -5,12 +5,12 @@
   items:
     - name: O que é o Azure Arc para servidores?
       href: ./servers/overview.md
-- name: Inícios rápidos
+- name: Ligar ao Azure Arc
   expanded: true
   items:
-    - name: Ligar computadores ao Azure com o Azure Arc para servidores - Portal
+    - name: Ligar computadores ao Azure Arc no portal do Azure
       href: ./servers/quickstart-onboard-portal.md
-    - name: Ligar computadores em escala com o Azure Arc para servidores - PowerShell
+    - name: Ligar computadores em escala através do principal de serviço
       href: ./servers/quickstart-onboard-powershell.md
 - name: Referência
   items:

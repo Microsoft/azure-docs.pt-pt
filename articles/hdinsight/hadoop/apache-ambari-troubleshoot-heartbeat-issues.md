@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895391"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964622"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de pulsação do Apache Ambari no Azure HDInsight
 
@@ -82,6 +82,21 @@ Os alertas são causados pelo agente do Ambari não estar em execução.
     ```
 
     Se os serviços do controlador de failover não estiverem em execução, provavelmente devido a um problema, impeça que o hdinsight-Agent inicie o controlador de failover. Verifique o log do hdinsight-Agent de `/var/log/hdinsight-agent/hdinsight-agent.out` arquivo.
+
+## <a name="scenario-heartbeat-lost-for-ambari"></a>Cenário: Batimento cardíaco perdido para Ambari
+
+### <a name="issue"></a>Problema
+
+O agente do batimento cardíaco ambari perdeu-se.
+
+### <a name="cause"></a>Causa
+
+Os registos oMS estão a causar uma alta utilização do CPU.
+
+### <a name="resolution"></a>Resolução
+
+* Desative a exploração de oms utilizando o módulo PowerShell PowerShell [desactivado-AzHDInsightOperationsManagementSuite.](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) 
+* Eliminar o ficheiro de registo `mdsd.warn`
 
 ---
 

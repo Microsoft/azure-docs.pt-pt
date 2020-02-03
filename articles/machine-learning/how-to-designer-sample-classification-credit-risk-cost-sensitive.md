@@ -5,31 +5,31 @@ description: Crie um classificador e use scripts Python personalizados para prev
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 1430db34f9c31cbd9d9df921650c628d265bccc5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ed8ee9b1c711ee0056377154379b8df56e0785df
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311092"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964605"
 ---
 # <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Criar um classificador & usar scripts Python para prever o risco de crédito usando o designer de Azure Machine Learning
 
-**Exemplo 4 do designer**
+**Designer (visualização) exemplo 4**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Este artigo mostra como criar um pipeline de aprendizado de máquina complexo usando o designer. Você aprenderá a implementar a lógica personalizada usando scripts Python e a comparar vários modelos para escolher a melhor opção.
+Este artigo mostra como criar um pipeline de aprendizado de máquina complexo usando o designer (versão prévia). Você aprenderá a implementar a lógica personalizada usando scripts Python e a comparar vários modelos para escolher a melhor opção.
 
 Este exemplo treina um classificador para prever o risco de crédito usando informações de aplicativo de crédito, como histórico de crédito, idade e número de cartões de crédito. No entanto, você pode aplicar os conceitos neste artigo para lidar com seus próprios problemas de Machine Learning.
 
 Este é o grafo concluído para este pipeline:
 
-[![grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
+[gráfico ![do oleoduto](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,7 @@ O custo de classificar incorretamente um exemplo de baixo risco como alto é 1, 
 
 Este é o grafo do pipeline:
 
-[![grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
+[gráfico ![do oleoduto](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Processamento de dados
 

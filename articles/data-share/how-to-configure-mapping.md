@@ -1,43 +1,43 @@
 ---
-title: Configurar um mapeamento de conjunto de dados no Azure data share
-description: Saiba como configurar um mapeamento de DataSet para um compartilhamento recebido usando o compartilhamento de dados do Azure.
+title: Configure um mapeamento de conjunto de dados na Partilha de Dados do Azure
+description: Saiba como configurar um mapeamento de conjunto de dados para uma parte recebida usando a Partilha de Dados do Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 754977788c5f6e5e574500552f670ba9083cf683
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ff432c2073536448c8194ebe537c8bf8cf00663
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490618"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964248"
 ---
-# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de DataSet para um compartilhamento recebido no compartilhamento de dados do Azure
+# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de conjunto de dados para uma participação recebida na Partilha de Dados do Azure
 
-Este artigo explica como configurar um mapeamento de DataSet para um compartilhamento recebido usando o compartilhamento de dados do Azure. Você desejará fazer isso se tiver aceitado um convite de compartilhamento de dados, mas tiver optado por "aceitar e configurar mais tarde". Talvez você queira configurar um mapeamento de conjunto de dados se precisar alterar o destino para que sejam compartilhados com você ou se desejar receber dados em um SQL Server. 
+Este artigo explica como configurar um mapeamento de dataset para uma Partilha de Dados Recebida sem acordo. Você vai querer fazê-lo se você aceitou um convite de partilha de dados mas optou por "Aceitar e configurar mais tarde", ou se os dados são partilhados no local. Pode querer configurar um mapeamento de dataset se precisar de alterar o destino para os dados que estão a ser partilhados consigo, ou se quiser receber dados num Servidor SQL. 
 
-## <a name="navigate-to-a-received-data-share"></a>Navegar até um compartilhamento de dados recebido
+## <a name="navigate-to-a-received-data-share"></a>Navegar para uma partilha de dados recebida
 
-No serviço de compartilhamento de dados do Azure, navegue até o compartilhamento recebido e selecione a guia **detalhes** . 
+No serviço Azure Data Share, navegue para a sua parte recebida e selecione o separador **Detalhes.** 
 
-![Mapeamento de DataSet](./media/dataset-mapping.png "Mapeamento de DataSet") 
+![Mapeamento de conjunto de dados](./media/dataset-mapping.png "Mapeamento de conjunto de dados") 
 
-Marque a caixa ao lado do conjunto de um para o qual você gostaria de atribuir um destino. Selecione **desmapear** para desmapear o mapeamento existente. Selecione **+ mapear para destino** para escolher um novo repositório de destino. 
+Verifique a caixa ao lado do conjunto de dados a que gostaria de atribuir um destino. Selecione **Unmap** para desmapear o mapeamento existente. Selecione **+ Map para escolher** uma nova loja de destino. 
 
-![Mapear para o destino](./media/dataset-map-target.png "Mapear para o destino") 
+![Mapa para o alvo](./media/dataset-map-target.png "Mapa para o alvo") 
 
-## <a name="select-a-new-destination-store"></a>Selecione um novo repositório de destino
+## <a name="select-a-new-target-store"></a>Selecione uma nova loja-alvo
 
-Selecione um tipo de dados de destino no qual você deseja que os dados entrem. Observe que todos os dados que já existem em todas as contas de armazenamento mapeadas anteriormente não serão automaticamente movidos para o novo destino.
+Selecione um tipo de dados-alvo que gostaria que os dados aterrassem. Para a partilha baseada em instantâneos, quaisquer dados que já existam em quaisquer contas de armazenamento previamente mapeadas não serão automaticamente transferidos para a nova loja-alvo. Para partilha no local, selecione uma loja de dados no Local especificado. O Local é o centro de dados Azure onde está localizada a loja de dados de fonte do fornecedor de dados.
 
 ![Conta de armazenamento de destino](./media/dataset-map-target-sql.png "Armazenamento de destino") 
 
-## <a name="select-a-file-format-sql-sources-only"></a>Selecionar um formato de arquivo (somente fontes SQL)
+## <a name="select-a-file-format-sql-sources-only"></a>Selecione um formato de ficheiro (apenas fontes SQL)
 
-Se os dados de origem forem de uma fonte baseada em SQL, você poderá escolher em qual formato ele será recebido. 
+Se os dados de origem forem de uma fonte baseada em SQL, pode escolher em que formato é recebido. 
 
-![Escolher formato](./media/sql-file-formats.png "Formatos de arquivo SQL")
+![Escolha o formato](./media/sql-file-formats.png "Formatos de ficheiroS SQL")
 
 ## <a name="next-steps"></a>Passos seguintes
 

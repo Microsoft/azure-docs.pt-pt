@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8a3d8c8769ff5026ec1dde98f3c4167aac302bf8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bb2371fc7732e8fa6fcfea53bf2822fcf3d7d2fa
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292948"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963959"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions
 
@@ -41,7 +41,7 @@ Uma implantação Azure Functions normalmente consiste nesses recursos:
 <a name="storage"></a>
 ### <a name="storage-account"></a>Conta de armazenamento
 
-Uma conta de armazenamento do Azure é necessária para um aplicativo de funções. Você precisa de uma conta de uso geral que dê suporte a BLOBs, tabelas, filas e arquivos. Para obter mais informações, consulte [Azure Functions requisitos da conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
+Uma conta de armazenamento do Azure é necessária para um aplicativo de funções. Você precisa de uma conta de uso geral que dê suporte a BLOBs, tabelas, filas e arquivos. Para obter mais informações, consulte [Azure Functions requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
 ```json
 {
@@ -96,7 +96,7 @@ Application Insights é recomendado para monitorar seus aplicativos de funções
         },
 ```
 
-Além disso, a chave de instrumentação precisa ser fornecida ao aplicativo de funções usando a configuração `APPINSIGHTS_INSTRUMENTATIONKEY` aplicativo. Essa propriedade é especificada na coleção de `appSettings` no objeto `siteConfig`:
+Além disso, a chave de instrumentação deve ser fornecida na aplicação de funções utilizando a definição de aplicação `APPINSIGHTS_INSTRUMENTATIONKEY`. Essa propriedade é especificada na coleção de `appSettings` no objeto `siteConfig`:
 
 ```json
 "appSettings": [
@@ -133,7 +133,7 @@ O recurso de aplicativo de funções é definido usando um recurso do tipo **Mic
 ```
 
 > [!IMPORTANT]
-> Se você estiver definindo explicitamente um plano de hospedagem, um item adicional será necessário na matriz de dependências: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> Se estiver a definir explicitamente um plano de hospedagem, será necessário um item adicional na matriz dependsOn: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
 Um aplicativo de funções deve incluir estas configurações de aplicativo:
 
@@ -214,7 +214,7 @@ Se você definir explicitamente seu plano de consumo, será necessário definir 
 
 #### <a name="windows"></a>Windows
 
-No Windows, um plano de consumo requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo onde o código do aplicativo de funções e a configuração são armazenados.
+No Windows, um plano de consumo requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo onde o código do aplicativo de funções e a configuração são armazenados.
 
 ```json
 {
@@ -508,7 +508,7 @@ Os aplicativos do Linux também devem incluir uma propriedade `linuxFxVersion` e
 }
 ```
 
-Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como em [aplicativo Web para contêineres](/azure/app-service/containers). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false`, já que o conteúdo do aplicativo é fornecido no próprio contêiner:
+Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como em [aplicativo Web para contêineres](/azure/app-service/containers). Além disso, detete `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para `false`, uma vez que o conteúdo da sua aplicação é fornecido no próprio recipiente:
 
 ```json
 {

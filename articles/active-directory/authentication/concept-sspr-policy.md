@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425331"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962497"
 ---
-# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de password sinuosas no Diretório Ativo do Azure
 
 Este artigo descreve as políticas de senha e os requisitos de complexidade associados às contas de usuário no locatário do Azure Active Directory (Azure AD).
 
@@ -32,24 +32,24 @@ A política de duas portas requer duas partes de dados de autenticação, como u
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de assistência técnica
-  * Administrador de suporte de serviços
+  * Administrador de suporte de serviço
   * Administrador de faturação
   * Parceiro de Suporte de Escalão 1
   * Parceiro de Suporte de Escalão 2
-  * Administrador do Exchange
-  * Administrador do Skype para Empresas
+  * Administrador de intercâmbio
+  * Skype para administrador de negócios
   * Administrador do usuário
   * Gravadores de diretório
   * Administrador global ou administrador da empresa
   * Administrador do SharePoint
   * Administrador de conformidade
-  * Administrador de aplicações
+  * Administrador de candidatura
   * Administrador de segurança
   * Administrador de função com privilégios
-  * Administrador do Intune
+  * Administrador insinado
   * Administrador do serviço de proxy de aplicativo
   * Administrador do Dynamics 365
-  * Administrador do serviço Power BI
+  * Administrador de serviço power BI
   * Administrador de autenticação
   * Administrador de autenticação privilegiada
 
@@ -85,8 +85,8 @@ A tabela a seguir descreve as configurações de política de senha aplicadas a 
 | Caracteres não permitidos | Caracteres Unicode. |
 | Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 caracteres.</li><li>Requer três de quatro dos seguintes:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de senha anteriores).</li></ul></li></ul> |
 | Duração da expiração da senha (duração máxima da senha) |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do módulo Azure Active Directory para o Windows PowerShell.</li></ul> |
-| Notificação de expiração de senha (quando os usuários são notificados da expiração da senha) |<ul><li>Valor padrão: **14** dias (antes de a senha expirar).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
-| Expiração de senha (as senhas já expiram) |<ul><li>Valor padrão: **false** dias (indica que a expiração de senha está habilitada).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
+| Notificação de validade da palavra-passe (Quando os utilizadores são notificados da expiração da palavra-passe) |<ul><li>Valor padrão: **14** dias (antes de a senha expirar).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
+| Caducidade da palavra-passe (Deixe a palavra-passe nunca expirar) |<ul><li>Valor predefinido: **falso** (indica que a palavra-passe tem uma data de validade).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
 | Histórico de alterações de senha | A última senha *não pode* ser usada novamente quando o usuário altera uma senha. |
 | Histórico de redefinição de senha | A última senha *pode* ser usada novamente quando o usuário redefine uma senha esquecida. |
 | Bloqueio de conta | Após 10 tentativas de entrada malsucedidas com a senha incorreta, o usuário será bloqueado por um minuto. Outras tentativas de entrada incorretas bloqueiam o usuário para aumentar a duração do tempo. O [bloqueio inteligente](howto-password-smart-lockout.md) rastreia os três últimos hashes de senha inválidos para evitar incrementar o contador de bloqueios para a mesma senha. Se alguém inserir a mesma senha inválida várias vezes, esse comportamento não causará o bloqueio da conta. |

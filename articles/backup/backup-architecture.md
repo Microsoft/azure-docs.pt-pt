@@ -1,14 +1,14 @@
 ---
-title: Descrição geral da arquitetura
+title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, dos componentes e dos processos usados pelo serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450201"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963942"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -48,7 +48,7 @@ Os cofres dos serviços de recuperação têm os seguintes recursos:
   - **Armazenamento com redundância geográfica (GRS)** : para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
 
-## <a name="backup-agents"></a>Agentes do Azure Backup
+## <a name="backup-agents"></a>Agentes de reserva
 
 O backup do Azure fornece diferentes agentes de backup, dependendo do tipo de computador cujo backup está sendo feito:
 
@@ -57,7 +57,7 @@ O backup do Azure fornece diferentes agentes de backup, dependendo do tipo de co
 **Agente MARS** | <ul><li>É executado em máquinas locais individuais do Windows Server para fazer backup de arquivos, pastas e do estado do sistema.</li> <li>É executado em VMs do Azure para fazer backup de arquivos, pastas e do estado do sistema.</li> <li>É executado em servidores DPM/MABS para fazer backup do disco de armazenamento local do DPM/MABS no Azure.</li></ul>
 **Extensão de VM do Azure** | É executado em VMs do Azure para fazer backup em um cofre.
 
-## <a name="backup-types"></a>Tipos de cópia de segurança
+## <a name="backup-types"></a>Tipos de backup
 
 A tabela a seguir explica os diferentes tipos de backups e quando eles são usados:
 
@@ -65,7 +65,7 @@ A tabela a seguir explica os diferentes tipos de backups e quando eles são usad
 --- | --- | ---
 **Completo** | Um backup completo contém a fonte de dados inteira. Consome mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado para backup inicial.
 **Diferencial** |  Um backup diferencial armazena os blocos que foram alterados desde o backup completo inicial. O usa uma quantidade menor de rede e armazenamento e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre os backups posteriores são transferidos e armazenados. | Não usado pelo backup do Azure.
-**Lucrativ** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alta eficiência de armazenamento e rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo DPM/MABS para backups de disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
+**Incremental** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alta eficiência de armazenamento e rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo DPM/MABS para backups de disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
 
 ## <a name="sql-server-backup-types"></a>SQL Server tipos de backup
 
@@ -101,6 +101,23 @@ Executar backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do DPM/MABS implantados somente localmente.
 
 ![Chave de tabela](./media/backup-architecture/table-key.png)
+
+## <a name="backup-policy-essentials"></a>Essenciais de política de backup
+
+- Uma política de reserva é criada por cofre.
+- Uma política de backup pode ser criada para o backup de seguintes cargas de trabalho
+  - VM do Azure
+  - SQL em Azure VM
+  - Partilha de Ficheiros do Azure
+- Uma política pode ser atribuída a muitos recursos. Uma política de backup Azure VM pode ser usada para proteger muitos VMs Azure.
+- Uma política consiste em dois componentes
+  - Horário: Quando levar o backup
+  - Retenção: Durante quanto tempo cada cópia de segurança deve ser retida.
+- A programação pode ser definida como "diária" ou "semanal" com um determinado ponto de tempo.
+- A retenção pode ser definida para pontos de backup "diários", "semanais", "mensais", "anuais".
+- "Semanalmente" refere-se a um backup num determinado dia da semana, "mensalmente" significa um backup num determinado dia do mês e "anualmente" refere-se a um backup num determinado dia do ano.
+- A retenção para pontos de backup "mensais", "anuais" é referida como "LongTermRetention".
+- Quando um cofre é criado, é também criada uma política para backups De VM Azure chamada "DefaultPolicy" e pode ser usada para apoiar Os VMs Azure.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: backup de VM do Azure interno
 

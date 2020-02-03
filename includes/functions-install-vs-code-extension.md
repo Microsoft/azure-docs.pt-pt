@@ -4,23 +4,23 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: 19b754b959a5c78ee2e4b78ced783e81b653b072
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: c63fa01a078c415568b8d3d82701e424b9c72951
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845398"
 ---
-## <a name="install-the-azure-functions-extension"></a>Instalar a extensão de Azure Functions
+## <a name="install-the-azure-functions-extension"></a>Instalar a extensão funções Azure
 
-Você pode usar a extensão Azure Functions para criar e testar funções e implantá-las no Azure.
+Pode utilizar a extensão funções Azure para criar e testar funções e implantá-las para o Azure.
 
-1. No Visual Studio Code, abra **extensões** e pesquise o **Azure Functions**ou [Selecione este link em Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
+1. No Código do Estúdio Visual, abra **extensões** e procure **funções azure,** ou [selecione este link no Código](vscode:extension/ms-azuretools.vscode-azurefunctions)do Estúdio Visual .
 
-1. Selecione **instalar** para instalar a extensão para Visual Studio Code:
+1. Selecione **Instalar** para instalar a extensão para o Código do Estúdio Visual:
 
     ![Instalar a extensão das Funções do Azure](./media/functions-install-vs-code-extension/vscode-install-extension.png)
 
-1. Reinicie o Visual Studio Code e selecione o ícone do Azure na barra de Atividade. Deverá ver uma área de Funções do Azure na Barra Lateral.
+1. Após a instalação, selecione o ícone Azure na barra de atividade. Deverá ver uma área de Funções do Azure na Barra Lateral.
 
     ![Área de Funções do Azure na Barra Lateral](./media/functions-install-vs-code-extension/azure-functions-window-vscode.png)

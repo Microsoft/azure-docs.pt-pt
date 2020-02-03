@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 5b3f3eea4d23d84d684648d19fb67258d1ea2050
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 0e04f7e190ef22fb5c2b288e478cac5ffaf89141
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906992"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962514"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -748,7 +748,7 @@ O campo `tags` é uma cadeia de caracteres com as marcas delimitadas por ponto e
 **Pedido**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
 ```
 
 **Resposta**
@@ -1054,7 +1054,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. Como fazer obter suporte para o serviço?
    * Para obter suporte para o serviço, crie um problema de suporte no portal do Azure para a VM em que você não consegue obter resposta de metadados após tentativas longas.
 9. Obtenho o tempo limite da solicitação para minha chamada para o serviço?
-   * As chamadas de metadados devem ser feitas do endereço IP primário atribuído à placa de rede da VM. Além disso, caso você tenha alterado suas rotas, deve haver uma rota para o endereço 169.254.0.0/16 da placa de rede.
+   * As chamadas de metadados devem ser feitas a partir do endereço IP primário atribuído ao cartão de rede primário do VM, além de ter alterado as suas rotas, deve haver uma rota para 169.254.0.0/16 endereço fora do seu cartão de rede.
 10. Atualizei minhas marcas no conjunto de dimensionamento de máquinas virtuais, mas elas não aparecem nas instâncias diferentemente das VMs?
     * Atualmente, somente as marcas conjuntos mostram a VM em uma reinicialização/reimagem/ou uma alteração de disco para a instância.
 

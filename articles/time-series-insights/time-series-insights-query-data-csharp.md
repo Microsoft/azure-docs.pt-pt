@@ -11,16 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a5cb435b38a776ba652854592bdc7d3e833742d1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c1c4f139dedc9be11a5f19730221ccec77139200
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935086"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962021"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Dados de consulta do ambiente Azure Time Series Insights GA usandoC#
 
 Este C# exemplo demonstra como usar as [APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) de consulta ga para consultar dados de ambientes Ga Da Série De Tempo Azure.
+
+> [!TIP]
+> Ver C# amostras de código GA em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="summary"></a>Resumo
 
@@ -42,9 +45,6 @@ O código da amostra abaixo demonstra as seguintes características:
    * [Obtenha eventos ambientais transmitidos API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
    * [Obter agregados ambientais streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
 
-> [!NOTE]
-> O código de exemplo está disponível em [https://github.com/Azure-Samples/Azure-Time-Series-Insights. ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)
-
 ## <a name="prerequisites-and-setup"></a>Pré-requisitos e configuração
 
 Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
@@ -58,9 +58,6 @@ Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
 1. Editar o código da amostra abaixo substituindo cada **#DUMMY#** com o identificador ambiente apropriado.
 
 1. Execute o código dentro do Estúdio Visual.
-
-> [!TIP]
-> * Veja outros exemplos C# de código GA em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 

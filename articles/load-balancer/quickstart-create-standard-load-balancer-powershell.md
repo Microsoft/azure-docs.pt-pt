@@ -1,29 +1,29 @@
 ---
-title: 'Início rápido: criar um Standard Load Balancer-Azure PowerShell'
+title: 'Quickstart: Criar um Balancer de Carga - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: Este guia de início rápido mostra como criar um Standard Load Balancer usando Azure PowerShell
+description: Este quickstart mostra como criar um Balancer de Carga usando o Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045660"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846529"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Início rápido: criar um Standard Load Balancer usando Azure PowerShell
+# <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Quickstart: Criar um Balancer de carga utilizando o Azure PowerShell
 
 Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o balanceador de carga, implante três máquinas virtuais (VMs) executando o Windows Server e equilibre o balanceamento de carga de um aplicativo Web entre as VMs. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Crie um endereço IP público com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo a seguir cria um endereço IP público chamado *myPublicIP* no grupo de recursos *myResourceGroupSLB* :
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Crie um endereço IP público com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo seguinte cria um endereço IP público redundante da zona chamado *myPublicIP* no grupo de recursos *myResourceGroupSLB:*
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -56,11 +56,25 @@ $publicIp = New-AzPublicIpAddress `
  -SKU Standard
 ```
 
-## <a name="create-standard-load-balancer"></a>Criar o Balanceador de Carga Standard
+Para criar um endereço IP público zonal na zona 1, utilize o seguinte:
+
+```azurepowershell
+$publicIp = New-AzPublicIpAddress `
+ -ResourceGroupName $rgName `
+ -Name 'myPublicIP' `
+ -Location $location `
+ -AllocationMethod static `
+ -SKU Standard
+ -zone 1
+```
+
+Use ```-SKU Basic``` para criar um IP Público Básico. A Microsoft recomenda a utilização do Standard para cargas de trabalho de produção.
+
+## <a name="create-load-balancer"></a>Criar Balanceador de carga
 
 Nesta seção, você configura o IP de front-end e o pool de endereços de back-end para o balanceador de carga e, em seguida, cria o Standard Load Balancer.
 
-### <a name="create-front-end-ip"></a>Criar IP de front-end
+### <a name="create-frontend-ip"></a>Criar o IP de front-end
 
 Crie um IP de front-end com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo a seguir cria uma configuração de IP de front-end chamada *myfrontend* e anexa o endereço *myPublicIP* :
 
@@ -146,6 +160,8 @@ $lb = New-AzLoadBalancer `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
 
+Utilize ```-SKU Basic``` para criar um Equilíbrio de Carga Básico. A Microsoft recomenda a utilização do Standard para cargas de trabalho de produção.
+
 ## <a name="create-network-resources"></a>Criar recursos de rede
 Antes de implementar algumas VMs e testar o balanceador, tem de criar recursos de rede de apoio: rede virtual e NICs virtuais. 
 
@@ -195,6 +211,9 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
+
+Use ```-SKU Basic``` para criar um IPs público básico. A Microsoft recomenda a utilização do Standard para cargas de trabalho de produção.
+
 ### <a name="create-network-security-group"></a>Criar grupo de segurança de rede
 Crie um grupo de segurança de rede para definir ligações recebidas para a sua rede virtual.
 
@@ -356,7 +375,6 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução, criou um Balanceador de Carga Standard, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+Neste guia de início rápido, você criou um Standard Load Balancer, as VMs anexadas a ele, configurou a regra de tráfego Load Balancer, a investigação de integridade e testou a Load Balancer. Para saber mais sobre o Azure Load Balancer, continue a colocar [os tutoriais do Azure Load Balancer.](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 
-> [!div class="nextstepaction"]
-> [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-basic-internal-portal.md)
+Saiba mais sobre as zonas de [Balancer de Carga e Disponibilidade.](load-balancer-standard-availability-zones.md)

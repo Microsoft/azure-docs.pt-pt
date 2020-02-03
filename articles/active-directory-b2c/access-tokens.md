@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0694b18bc674b7b682724b8128542b8bc3035405
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d808bca17012d46d1c32658ec0069ca2e2e6a3ac
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846734"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962038"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicite um sinal de acesso no Diretório Ativo Azure B2C
 
@@ -72,7 +72,7 @@ GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
-&scope=https://tenant-name>.onmicrosoft.com/api/read
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
 &response_type=code
 ```
 

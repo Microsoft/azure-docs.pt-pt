@@ -1,6 +1,6 @@
 ---
 title: Perguntas mais frequentes
-description: Perguntas frequentes sobre o serviço âncoras espaciais do Azure.
+description: Perguntas frequentes sobre o serviço De Âncoras Espaciais Azure.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,120 +8,121 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277085"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844892"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes acerca do Azure Spatial Anchors
 
-As âncoras espaciais do Azure são um serviço de nuvem gerenciado e uma plataforma de desenvolvedor que permite experiências de realidade mista de vários usuários, com reconhecimento espacial, em dispositivos de HoloLens, iOS e Android.
+O Azure Spatial Anchors é uma plataforma de serviço sinuoso gerido em nuvem e plataforma de desenvolvimento que permite experiências de realidade mista multiutilizador, conscientes espacialmente em dispositivos HoloLens, iOS e Android.
 
-Para obter mais informações, consulte [visão geral das âncoras espaciais do Azure](overview.md).
+Para mais informações, consulte a visão geral das [Âncoras Espaciais Azure](overview.md).
 
-## <a name="azure-spatial-anchors-product-faqs"></a>Perguntas frequentes sobre o produto da âncora espacial do Azure
+## <a name="azure-spatial-anchors-product-faqs"></a>FaQs de produtos de âncora espacial azure
 
-**P: a quais dispositivos as âncoras espaciais do Azure dão suporte?**
+**P: Que dispositivos suportam as Âncoras Espaciais Azure?**
 
-**R:** As âncoras espaciais do Azure permitem que os desenvolvedores criem aplicativos no HoloLens, em dispositivos iOS com suporte a ARKit e em dispositivos Android com suporte a ARCore; para iOS e Android, isso inclui telefones e tablets.
+**A:** O Azure Spatial Anchors permite que os desenvolvedores construam aplicações em HoloLens, em dispositivos iOS com suporte ARKit e em dispositivos Android com suporte ARCore; para iOS e Android isto inclui tanto telefones como tablets.
 
-**P: preciso estar conectado à nuvem para usar âncoras espaciais do Azure?**
+**P: Tenho de estar ligado à nuvem para usar âncoras espaciais Azure?**
 
-**R:** As âncoras espaciais do Azure atualmente exigem uma conexão de rede com a Internet. Agradecemos seus comentários sobre nosso [site de comentários](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
+**A:** Atualmente, a Azure Spatial Anchors requer uma ligação de rede à internet. Congratulamo-nos com os seus comentários no nosso site de [comentários.](https://feedback.azure.com/forums/919252-azure-spatial-anchors)
 
-**P: quais são os requisitos de conectividade para âncoras espaciais do Azure?**
+**P: Quais são os requisitos de conectividade para âncoras espaciais Azure?**
 
-**R:** As âncoras espaciais do Azure funcionam com conexões Wi-Fi e de banda larga móvel.
+**A:** As Âncoras Espaciais Azure funcionam com ligações Wi-Fi e banda larga móvel.
 
-**P: quão precisamente as âncoras espaciais do Azure podem localizar âncoras?**
+**P: Com precisão as âncoras espaciais azure podem localizar âncoras?**
 
-**R:** Muitos fatores afetam a precisão da localização de âncoras – condições de iluminação, os objetos no ambiente e até mesmo a superfície na qual a âncora é colocada. Para determinar se a exatidão atenderá às suas necessidades, experimente as âncoras no representante de ambientes de onde você planeja usá-las. Se você encontrar ambientes em que a precisão não atende às suas necessidades, consulte [registro em log e diagnóstico em âncoras espaciais do Azure](./concepts/logging-diagnostics.md).
+**A:** Muitos fatores afetam a precisão da localização das âncoras- condições de iluminação, os objetos no ambiente e até mesmo a superfície em que a âncora é colocada. Para determinar se a precisão vai atender às suas necessidades, experimente as âncoras em ambientes representativos de onde planeia usá-las. Se encontrar ambientes onde a precisão não satisfaz as suas necessidades, consulte [a exploração madeireira e os diagnósticos em Âncoras Espaciais Azure](./concepts/logging-diagnostics.md).
 
-**P: quanto tempo leva para criar e localizar âncoras?**
+**P: Quanto tempo demora a criar e localizar âncoras?**
 
-**R:** O tempo necessário para criar e localizar âncoras depende de muitos fatores, da conexão de rede, do processamento e da carga do dispositivo e do ambiente específico. Temos clientes criando aplicativos em muitos setores, incluindo manufatura, varejo e jogos, indicando que o serviço permite uma excelente experiência de usuário para seus cenários.
+**A:** O tempo necessário para criar e localizar âncoras depende de muitos factores-- ligação de rede, processamento e carga do dispositivo, e o ambiente específico. Temos clientes a construir aplicações em muitas indústrias, incluindo fabricação, retalho e jogos, indicando que o serviço permite uma grande experiência de utilizador para os seus cenários.
 
-## <a name="privacy-faq"></a>Perguntas frequentes sobre privacidade
+## <a name="privacy-faq"></a>FAQ de privacidade
 
-**P: quando meu aplicativo coloca uma âncora espacial em algum lugar, todos os aplicativos têm acesso a ele?**
+**P: Quando a minha aplicação coloca uma Âncora Espacial em algum lugar todas as aplicações têm acesso a ela?**
 
-**R:** As âncoras são isoladas pela conta do Azure. Somente os aplicativos aos quais você concede acesso à sua conta poderão acessar âncoras dentro da conta.
+**A:** As âncoras são isoladas pela conta Azure. Apenas as aplicações às quais concede acesso à sua conta poderão aceder a âncoras dentro da conta.
 
-**P: quais informações sobre um ambiente são transmitidas e armazenadas no serviço ao usar âncoras espaciais do Azure? As imagens do ambiente são transmitidas e armazenadas?**
+**P: Que informações sobre um ambiente são transmitidas e armazenadas no serviço quando se utilizam âncoras espaciais Azure? As imagens do ambiente são transmitidas e armazenadas?**
 
-**R**: ao criar ou localizar âncoras, as imagens do ambiente são processadas no dispositivo em um formato derivado. Esse formato derivado é transmitido para e armazenado no serviço.
+**R**: Ao criar ou localizar âncoras, as imagens do ambiente são processadas no dispositivo num formato derivado. Este formato derivado é transmitido e armazenado no serviço.
 
-Para fornecer transparência, abaixo está uma imagem de um ambiente e a nuvem de pontos esparsos derivados. A nuvem do ponto mostra a representação geométrica do ambiente transmitido e armazenado no serviço. Para cada ponto na nuvem de ponto esparso, transmitimos e armazenamos um hash das características visuais desse ponto. O hash é derivado de, mas não contém, nenhum dado de pixel.
+Para proporcionar transparência, abaixo está uma imagem de um ambiente e a nuvem de ponto escasso derivada. A nuvem de ponto mostra a representação geométrica do ambiente que é transmitida e armazenada no serviço. Para cada ponto na nuvem de ponto escasso, transmitimos e armazenamos um hash das características visuais desse ponto. O hash é derivado, mas não contém, quaisquer dados de pixel.
 
-As âncoras espaciais do Azure seguem os [termos do contrato de serviço do Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9)e a [política de privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
+A Azure Spatial Anchors adere aos Termos do Contrato de [Serviço Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9)e à Declaração de Privacidade da [Microsoft.](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409)
 
-![um ambiente e sua nuvem de ponto esparsa derivada](./media/sparse-point-cloud.png)
-*Figura 1: um ambiente e sua nuvem de pontos esparsos derivados*
+![Um ambiente e a sua nuvem de ponto escasso derivada](./media/sparse-point-cloud.png)
+*Figura 1: Um ambiente e a sua nuvem de ponto escassa derivada*
 
 
-**P: há uma maneira de enviar informações de diagnóstico para a Microsoft?**
+**P: Existe uma maneira de enviar informações de diagnóstico para a Microsoft?**
 
-**R**: Sim. As âncoras espaciais do Azure têm um modo de diagnóstico que os desenvolvedores podem optar por aceitar por meio da API de âncoras espaciais do Azure. Isso é útil, por exemplo, se você encontrar um ambiente no qual não é possível criar e localizar âncoras de forma previsível. Poderemos perguntar se você pode enviar um relatório de diagnóstico contendo informações que nos ajudam a depurar. Para obter mais informações, consulte [registro em log e diagnóstico em âncoras espaciais do Azure](./concepts/logging-diagnostics.md).
+**R**: Sim. A Azure Spatial Anchors tem um modo de diagnóstico que os desenvolvedores podem optar por optar através da API de Âncoras Espaciais Azure. Isto é útil, por exemplo, se encontrar um ambiente onde não é capaz de criar e localizar âncoras previsivelmente. Podemos perguntar se pode apresentar um relatório de diagnóstico contendo informações que nos ajudem a depurar. Para mais informações consulte [A exploração madeireira e diagnósticos em Âncoras Espaciais Azure](./concepts/logging-diagnostics.md).
 
-## <a name="availability-and-pricing-faqs"></a>Perguntas frequentes sobre disponibilidade e preços
+## <a name="availability-and-pricing-faqs"></a>FaQs de disponibilidade e preços
 
-**P: você fornece um SLA?**
+**P: Fornece um SLA?**
 
-**R:** Como é o padrão para os serviços do Azure, visamos uma disponibilidade maior que 99,9%. Observe que as âncoras espaciais do Azure estão atualmente em visualização e, assim, os [termos suplementares de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se aplicam.
+**A:** Como é padrão para os serviços Azure, visamos uma disponibilidade superior a 99,9%. Note que as âncoras espaciais Azure estão atualmente em Pré-visualização e, como tal, aplicam-se os Termos Suplementares de [Pré-Visualização.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-**P: posso publicar meus aplicativos usando âncoras espaciais do Azure para lojas de aplicativos? Posso usar âncoras espaciais do Azure para cenários de produção de missão crítica?**
+**P: Posso publicar as minhas aplicações usando âncoras espaciais Azure para lojas de aplicações? Posso usar âncoras espaciais Azure para cenários de produção críticos da missão?**
 
-**R:** As âncoras espaciais do Azure estão atualmente em visualização e, durante esse tempo, convidamos você a desenvolver aplicativos, [fornecer comentários](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sobre o produto e planejar suas implantações de produção.
+**A:** A Azure Spatial Anchors está atualmente em Pré-visualização e durante este tempo convidamo-lo a desenvolver aplicações, [fornecer feedback](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sobre o produto e planear as suas implementações de produção.
 
-As datas de disponibilidade geral (GA) serão anunciadas em breve.
+As datas de Disponibilidade Geral (GA) serão anunciadas em breve.
 
-**P: você tem algum limite de limitação em vigor?**
+**P: Tem algum limite de estrangulamento?**
 
-**R**: Sim, temos limites de limitação.  Não esperamos que você os acessará para desenvolvimento e teste de aplicativos típicos. Para implantações de produção, estamos prontos para dar suporte aos requisitos de grande escala dos nossos clientes. [Entre em contato conosco](mailto:azuremrs@microsoft.com) para discutir. Durante essa fase de visualização, ainda não publicamos nossa estrutura de camadas e preços, mas esperamos fazer isso em breve.
+**R:** Sim, temos limites de estrangulamento.  Não esperamos que os acerte para o desenvolvimento e teste típicos de aplicações. Para implementações de produção, estamos prontos para apoiar os requisitos de alta escala dos nossos clientes. [Contacte-nos](mailto:azuremrs@microsoft.com) para discutir. Durante esta fase de Pré-visualização, ainda não publicámos a nossa estrutura de tiering e preços, mas esperamos fazê-lo em breve.
 
-**P: em quais regiões as âncoras espaciais do Azure estão disponíveis?**
+**P: Em que regiões estão disponíveis âncoras espaciais Azure?**
 
-**R:** Você pode criar uma conta de âncoras espaciais do Azure hoje na região leste dos EUA 2 do Azure. Isso significa que a computação e o armazenamento que capacitam esse serviço estão nessa região. Dito isso, não há restrições de onde os clientes estão localizados. No futuro, expandiremos a disponibilidade regional do serviço para todas as regiões primárias do Azure.
+**A:** Você pode criar uma conta Azure Spatial Anchors hoje na região azure east US 2. O que isto significa é que tanto a computação como o armazenamento deste serviço estão nesta região. Dito isto, não existem restrições sobre onde os seus clientes estão localizados. No futuro, iremos expandir a disponibilidade regional do serviço a todas as regiões primárias do Azure.
 
-**P: você cobra pelas âncoras espaciais do Azure? Você já será cobrado?**
+**P: Cobra por Âncoras Espaciais Azure? Alguma vez vai cobrar?**
 
-**R:** Você pode encontrar detalhes sobre os preços durante a visualização em nossa [página de preços](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+**A:** Pode encontrar detalhes sobre preços durante a Pré-visualização na nossa [página de preços](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
-## <a name="technical-faqs"></a>Perguntas técnicas frequentes
+## <a name="technical-faqs"></a>Perguntas-Gerais Técnicas
 
-**P: como as âncoras espaciais do Azure funcionam?**
+**P: Como funciona a Azure Spatial Anchors?**
 
-**R:** As âncoras espaciais do Azure dependem de realidade misturada/roteiros de realidade aumentada. Esses rastreadores percebem o ambiente com câmeras e acompanham o dispositivo em 6 graus de liberdade (6DoF) à medida que se movem pelo espaço.
+**A:** As Âncoras Espaciais Azure dependem da realidade mista /rastreadores de realidade aumentada. Estes rastreadores percebem o ambiente com câmaras e rastreiam o dispositivo em 6 graus de liberdade (6DoF) à medida que se move através do espaço.
 
-Dado um controlador 6DoF como um bloco de construção, as âncoras espaciais do Azure permitem designar determinados pontos de interesse em seu ambiente real como pontos de "ancoragem". Você pode, por exemplo, usar uma âncora para renderizar o conteúdo em um local específico no mundo real.
+Dado um localizador 6DoF como um bloco de construção, as Âncoras Espaciais Azure permitem-lhe designar certos pontos de interesse no seu ambiente real como pontos de "âncora". Pode, por exemplo, usar uma âncora para tornar o conteúdo num lugar específico no mundo real.
 
-Quando você cria uma âncora, o SDK do cliente captura informações de ambiente nesse ponto e transmite-as para o serviço. Se outro dispositivo procurar a âncora no mesmo espaço, os dados semelhantes são transmitidos para o serviço. Esses dados são correspondidos em relação aos dados de ambiente armazenados anteriormente. A posição da âncora relativa ao dispositivo é enviada de volta para uso no aplicativo.
+Quando cria uma âncora, o cliente SDK captura informações ambientais em torno desse ponto e transmite-a para o serviço. Se outro dispositivo procurar a âncora no mesmo espaço, dados semelhantes transmitem ao serviço. Estes dados são comparados com os dados ambientais anteriormente armazenados. A posição da âncora relativa ao dispositivo é então enviada para utilização na aplicação.
 
-**P: como as âncoras espaciais do Azure se integram ao ARKit e ao ARCore no iOS e no Android?**
+**P: Como é que as Âncoras Espaciais Azure se integram com arKit e ARCore no iOS e Android?**
 
-**R:** As âncoras espaciais do Azure aproveitam os recursos de rastreamento nativo de ARKit e ARCore. Além disso, nossos SDKs para iOS e Android oferecem recursos como as âncoras persistentes em um serviço de nuvem gerenciado e permitem que seus aplicativos localizem essas âncoras novamente simplesmente conectando-se ao serviço.
+**A:** As Âncoras Espaciais Azure aproveitam as capacidades de rastreio nativas da ARKit e arCore. Além disso, os nossos SDKs para iOS e Android oferecem capacidades como âncoras persistentes num serviço de nuvem gerido, e permitindo que as suas aplicações voltem a localizar essas âncoras, limitando-se a ligar-se ao serviço.
 
-**P: como as âncoras espaciais do Azure se integram ao HoloLens?**
+**P: Como é que as Âncoras Espaciais Azure se integram com hololens?**
 
-**R:** As âncoras espaciais do Azure aproveitam os recursos de acompanhamento nativo do HoloLens. Fornecemos um SDK de âncoras espaciais do Azure para criar aplicativos no HoloLens. O SDK integra-se com os recursos nativos do HoloLens e fornece recursos adicionais. Esses recursos incluem permitir que os desenvolvedores de aplicativos persistam âncoras em um serviço de nuvem gerenciado e permitindo que seus aplicativos localizem essas âncoras novamente conectando-se ao serviço.
+**A:** As Âncoras Espaciais Azure aproveitam as capacidades de localização nativas dos HoloLens. Fornecemos um Azure Spatial Anchors SDK para construir aplicações em HoloLens. O SDK integra-se com as capacidades nativas dos HoloLens e fornece capacidades adicionais. Estas capacidades incluem permitir que os desenvolvedores de aplicações persistam âncoras num serviço de cloud gerido e permitir que as suas aplicações voltem a localizar essas âncoras, conectando-se ao serviço.
 
-**P: a quais plataformas e linguagens as âncoras espaciais do Azure dão suporte?**
+**P: Quais plataformas e línguas suportam as Âncoras Espaciais Azure?**
 
-**R:** Os desenvolvedores podem criar aplicativos com âncoras espaciais do Azure usando ferramentas e estruturas familiares para seus dispositivos:
+**A:** Os desenvolvedores podem construir aplicações com âncoras espaciais Azure usando ferramentas e estruturas familiares para o seu dispositivo:
 
-- Unity entre o HoloLens, o iOS e o Android
+- Unidade através de HoloLens, iOS e Android
+- Xamarin no iOS e Android
 - Swift ou Objective-C no iOS
-- Java ou Android NDK no Android
-- C++/WinRT no HoloLens
+- Java ou o Android NDK no Android
+- C++/WinRT em HoloLens
 
-Comece a usar o [desenvolvimento aqui](index.yml).
+Começar com o [desenvolvimento aqui.](index.yml)
 
-**P: funciona com um inreal?**
+**P: Funciona com irreal?**
 
-**R:** O suporte para inreal será considerado no futuro.
+**A:** O apoio à Irreal será considerado no futuro.
 
-**P: quais portas e protocolos as âncoras espaciais do Azure usam?**
+**P: Que portas e protocolos utilizam as Âncoras Espaciais Azure?**
 
-**R:** As âncoras espaciais do Azure se comunicam pela porta TCP 443 usando um protocolo criptografado. Para autenticação, ele usa [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), que se comunica usando HTTPS pela porta 443.
+**A:** As Âncoras Espaciais Azure comunicam através da porta TCP 443 utilizando um protocolo encriptado. Para autenticação, utiliza o [Diretório Ativo Azure,](https://docs.microsoft.com/azure/active-directory/)que comunica utilizando HTTPS sobre a porta 443.

@@ -330,16 +330,13 @@
     - name: Monitorizar
       items:
         - name: Monitorizar aplicações lógicas
-          href: logic-apps-monitor-your-logic-apps.md
+          href: monitor-logic-apps.md
         - name: Monitorizar aplicações lógicas com os registos do Azure Monitor
-          href: logic-apps-monitor-your-logic-apps-oms.md
+          href: monitor-logic-apps-log-analytics.md
         - name: Monitorizar mensagens B2B com os registos do Azure Monitor
-          href: logic-apps-monitor-b2b-message.md
-          items:
-            - name: Controlar mensagens B2B com os registos do Azure Monitor
-              href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Criar consultas para mensagens B2B com os registos do Azure Monitor
-              href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+          href: monitor-b2b-messages-log-analytics.md
+        - name: Criar consultas de monitorização e rastreio
+          href: create-monitoring-tracking-queries.md
     - name: 'Exemplos, cenários e instruções'
       href: logic-apps-examples-and-scenarios.md
       items:
