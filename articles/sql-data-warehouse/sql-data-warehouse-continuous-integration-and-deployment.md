@@ -59,7 +59,7 @@ Neste ponto, você tem um ambiente simples onde qualquer check-in no seu ramo pr
 
    Corra e valide o seu oleoduto. Pode fazer alterações localmente e verificar alterações no seu controlo de origem que devem gerar uma construção e implementação automáticas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Explore a [arquitetura azure SQL Data Warehouse](massively-parallel-processing-mpp-architecture.md)
 - Crie rapidamente um Armazém de [Dados SQL](create-data-warehouse-portal.md)

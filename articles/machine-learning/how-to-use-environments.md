@@ -46,7 +46,7 @@ As seguintes secções exploram as múltiplas formas de criar um ambiente para a
 
 Pode selecionar um dos ambientes com curadoria para começar: 
 
-* O ambiente do _AzureML-mínimo_ contém um conjunto mínimo de pacotes para habilitar o acompanhamento de execução e o carregamento de ativos. Você pode usá-lo como um ponto de partida para seu próprio ambiente.
+* O ambiente _AzureML-Minimal_ contém um conjunto mínimo de pacotes para permitir o rastreio de execução e o upload de ativos. Você pode usá-lo como um ponto de partida para seu próprio ambiente.
 
 * O ambiente _AzureML-Tutorial_ contém pacotes comuns de ciência de dados. Estes pacotes incluem Scikit-Learn, Pandas, Matplotlib, e um conjunto maior de pacotes azureml-sdk.
 
@@ -253,7 +253,7 @@ myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image
 ```
 
 > [!NOTE]
-> Se especificar `environment.python.user_managed_dependencies=False` enquanto estiver a usar uma imagem personalizada do Docker, o serviço irá construir um ambiente Conda dentro da imagem. Executará a execução nesse ambiente em vez de utilizar quaisquer bibliotecas Python que tenha instalado na imagem base. Defina o parâmetro como `True` para usar seus próprios pacotes instalados.
+> Se especificar `environment.python.user_managed_dependencies=False` enquanto estiver a usar uma imagem personalizada do Docker, o serviço irá construir um ambiente Conda dentro da imagem. Executará a execução nesse ambiente em vez de utilizar quaisquer bibliotecas Python que tenha instalado na imagem base. Defina o parâmetro para `True` utilizar as suas próprias embalagens instaladas.
 
 ## <a name="use-environments-for-training"></a>Utilizar ambientes para a formação
 
@@ -317,7 +317,7 @@ run = experiment.submit(sk_est)
 
 Pode utilizar ambientes quando implementa o seu modelo como serviço web. Esta capacidade permite um fluxo de trabalho reprodutível e conectado. Neste fluxo de trabalho, pode treinar, testar e implementar o seu modelo utilizando as mesmas bibliotecas tanto no seu computacional de treino como no seu cálculo de inferência.
 
-Para implementar um serviço web, combine o ambiente, a computação de inferência, o script de pontuação e o modelo registado no seu objeto de implantação, [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Para obter mais informações, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+Para implementar um serviço web, combine o ambiente, a computação de inferência, o script de pontuação e o modelo registado no seu objeto de implantação, [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Para mais informações, consulte [Como e onde implementar modelos.](how-to-deploy-and-where.md)
 
 Neste exemplo, suponha que completou um treino. Agora quer implantar esse modelo para as instâncias de contentores Azure. Quando se constrói o serviço web, o modelo e os ficheiros de pontuação são montados na imagem, e a pilha de inferência de Machine Learning Azure é adicionada à imagem.
 
@@ -345,9 +345,9 @@ service = Model.deploy(
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
-Este [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expande sobre conceitos e métodos demonstrados neste artigo.
+Este [caderno de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expande-se sobre conceitos e métodos demonstrados neste artigo.
 
-[Implantar um modelo usando uma imagem de base do Docker personalizada](how-to-deploy-custom-docker-image.md) demonstra como implantar um modelo usando uma imagem de base do Docker personalizada.
+[Implementar um modelo usando uma imagem de base personalizada do Docker](how-to-deploy-custom-docker-image.md) demonstra como implementar um modelo usando uma imagem de base personalizada do Docker.
 
 Este [caderno de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) demonstra como implementar um modelo Spark como um serviço web.
 
@@ -379,7 +379,7 @@ Descarregue um ambiente registado utilizando o seguinte comando.
 az ml environment download -n myenv -d downloaddir
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para utilizar um alvo de computação gerido para treinar um modelo, consulte [Tutorial: Treine um modelo](tutorial-train-models-with-aml.md).
 * Depois de ter um modelo treinado, aprenda [como e onde implementar modelos.](how-to-deploy-and-where.md)

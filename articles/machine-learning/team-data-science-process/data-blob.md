@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721103"
 ---
-# <a name="heading"></a>Processar dados de Blobs do Azure com a análise avançada
+# <a name="heading"></a>Processar dados de blob Azure com análise avançada
 Este documento aborda a explorar dados e as funcionalidades da geração de dados armazenados no armazenamento de Blobs do Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carregar os dados para um quadro de dados Pandas
@@ -48,7 +48,7 @@ Para explorar e manipular um conjunto de dados, este deve ser descarregado da fo
 
 Agora, está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="blob-dataexploration"></a>Exploração de dados
+## <a name="blob-dataexploration"></a>Exploração de Dados
 Aqui estão alguns exemplos de formas para explorar dados com o Pandas:
 
 1. Inspecione o número de linhas e colunas 
@@ -94,7 +94,7 @@ Aqui estão alguns exemplos de formas para explorar dados com o Pandas:
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Geração de funcionalidade
+## <a name="blob-featuregen"></a>Geração de Recursos
 Podemos gerar recursos com o Python da seguinte forma:
 
 ### <a name="blob-countfeature"></a>Geração de características baseada em valor indicador
@@ -116,7 +116,7 @@ Funcionalidades categóricas podem ser criadas da seguinte forma:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Discretização de funcionalidade de geração
+### <a name="blob-binningfeature"></a>Geração de recursos de fixação
 Para gerar recursos compartimentados, podemos proceda da seguinte forma:
 
 1. Adicionar uma sequência de colunas a uma coluna numérica de discretização
@@ -130,7 +130,7 @@ Para gerar recursos compartimentados, podemos proceda da seguinte forma:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Escrever dados blob do Azure e consumir no Azure Machine Learning
+## <a name="sql-featuregen"></a>Escrever dados de volta à blob Azure e consumir em Azure Machine Learning
 Depois de ter explorado os dados e criado as funcionalidades necessárias, pode enviar os dados (amostrados ou caracterizados) para uma bolha Azure e consumi-la no Azure Machine Learning utilizando os seguintes passos: Podem ser criadas funcionalidades adicionais no Azure Machine Learning Estúdio (clássico) também. 
 
 1. Escrever o quadro de dados para o ficheiro local

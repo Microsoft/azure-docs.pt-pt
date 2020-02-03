@@ -25,13 +25,13 @@ Existem poucas opções que o Azure fornece para alcançar a Alta Disponibilidad
 
 ### <a name="availability-zones"></a>Zonas de disponibilidade
 
-As [zonas de disponibilidade](../articles/availability-zones/az-overview.md) expandem o nível de controle que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. Uma Zona de Disponibilidade é uma zona fisicamente separada, dentro de uma região de Azure. Existem três Zonas de Disponibilidade por região de Azure apoiada. 
+[As zonas](../articles/availability-zones/az-overview.md) de disponibilidade expandem o nível de controlo que tem para manter a disponibilidade das aplicações e dados nos seus VMs. Uma Zona de Disponibilidade é uma zona fisicamente separada, dentro de uma região de Azure. Existem três Zonas de Disponibilidade por região de Azure apoiada. 
 
 Cada Zona de Disponibilidade tem uma fonte de energia, uma rede e um sistema de refrigeração distintos. Ao arquitetar as suas soluções para utilizar VMs replicados em zonas, pode proteger as suas aplicações e dados da perda de um datacenter. Se uma zona for comprometida, os aplicativos e dados replicados estarão instantaneamente disponíveis em outra zona. 
 
 ![Zonas de disponibilidade](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
-Saiba mais sobre como implantar uma VM do [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) ou [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) em uma zona de disponibilidade.
+Saiba mais sobre a implementação de um [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) ou [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM numa Zona de Disponibilidade.
 
 
 ### <a name="fault-domains"></a>Domínios de falha
@@ -81,6 +81,6 @@ Os VMs dentro de um conjunto de disponibilidade também são distribuídos autom
 
 ![Conjuntos de disponibilidade](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode agora começar a utilizar estas funcionalidades de redundância e disponibilidade para criar o seu ambiente do Azure. Para informações relativas a melhores práticas, veja [Melhores Práticas de Disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
 

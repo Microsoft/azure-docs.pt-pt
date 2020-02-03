@@ -49,12 +49,12 @@ A Azure Time Series Insights suporta o UTF8 codificado JSON submetido através d
 
 Abaixo está a lista de tipos de dados suportados.
 
-| Data type | Descrição |
+| Tipo de dados | Descrição |
 |-----------|------------------|-------------|
-| booleano      |   Um tipo de dados com um de dois estados: verdadeiro ou falso.       |
+| bool      |   Um tipo de dados com um de dois estados: verdadeiro ou falso.       |
 | DateTime    |   Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. O DateTimes deve estar no formato ISO 8601.      |
 | double    |   Um ponto flutuante De precisão dupla 64 bits IEEE 754
-| string    |   Valores de texto, compostos por caracteres Unicode.          |
+| Cadeia de caracteres    |   Valores de texto, compostos por caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos e matrizes
 
@@ -67,7 +67,7 @@ Recomendamos que você empregue as seguintes práticas recomendadas:
 
 * Configure insights da Série de Tempo e o seu Hub IoT ou Hub de Eventos na mesma região, de forma a reduzir a latência de ingestão incorrida em rede.
 * Planeje suas necessidades de dimensionamento calculando sua taxa de ingestão antecipada e verificando se ela está dentro da taxa com suporte listada abaixo
-* Entenda como otimizar e formatar seus dados JSON, bem como as limitações atuais na visualização, lendo [como formatar JSON para entrada e consulta](./time-series-insights-update-how-to-shape-events.md).
+* Compreenda como otimizar e moldar os seus dados JSON, bem como as limitações atuais na pré-visualização, lendo [como moldar a JSON para ingresso e consulta](./time-series-insights-update-how-to-shape-events.md).
 
 ### <a name="ingress-scale-and-limitations-in-preview"></a>Escala e limitações de entrada na visualização
 
@@ -75,7 +75,7 @@ Recomendamos que você empregue as seguintes práticas recomendadas:
 
 Em geral, as tarifas de entrada são exibidas como o fator do número de dispositivos que estão em sua organização, a frequência de emissão de eventos e o tamanho de cada evento:
 
-*  **Número de dispositivos** × **frequência de emissão de eventos** × **tamanho de cada evento**.
+*  **Número de dispositivos** × Frequência de **emissão** de evento × **Tamanho de cada evento**.
 
 Por padrão, a pré-visualização time Series Insights pode ingerir dados de entrada a uma taxa de até 1 megabyte por segundo (MBps) **por ambiente TSI**. Contacte-nos se isso não cumprir os seus requisitos, podemos apoiar até 16 MBps para um ambiente, apresentando um bilhete de apoio no portal Azure.
  
@@ -111,9 +111,9 @@ Recomendamos o seguinte:
 
 Consulte os seguintes links para obter mais informações sobre unidades de entrada e divisórias:
 
-* [Escala do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
-* [Escala do hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
-* [Partições do hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+* [Escala de hub iot](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Escala de Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Partições do Centro de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### <a name="data-storage"></a>Armazenamento de dados
 
@@ -122,9 +122,9 @@ Ao criar uma Time Series Insights visualização do ambiente de SKU pago conform
 * Um ambiente de visualização Time Series Insights que pode incluir, opcionalmente, recursos de armazenamento quentes.
 * Uma conta de blob v1 de uso geral do armazenamento do Azure para armazenamento de dados frio.
 
-Os dados em sua loja a quente estão disponíveis apenas por meio da [consulta de série temporal](./time-series-insights-update-tsq.md) e do [Azure Time Series insights Explorer Preview](./time-series-insights-update-explorer.md). 
+Os dados na sua loja quente só estão disponíveis através da [Time Series Query](./time-series-insights-update-tsq.md) e do explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Série De Tempo Azure Insights . 
 
-Time Series Insights visualização salva os dados de armazenamento frio no armazenamento de BLOBs do Azure no [formato de arquivo parquet](#parquet-file-format-and-folder-structure). Time Series Insights visualização gerencia esses dados de armazenamento frio exclusivamente, mas está disponível para você ler diretamente como arquivos parquet padrão.
+Time Series Insights Preview guarda os seus dados da loja fria para o armazenamento De Blob Azure no formato de [ficheiro Parquet](#parquet-file-format-and-folder-structure). Time Series Insights visualização gerencia esses dados de armazenamento frio exclusivamente, mas está disponível para você ler diretamente como arquivos parquet padrão.
 
 > [!WARNING]
 > Como o proprietário da conta de armazenamento de BLOBs do Azure onde os dados de armazenamento frio residem, você tem acesso completo a todos os dados na conta. Esse acesso inclui permissões de gravação e exclusão. Não edite ou exclua os dados que Time Series Insights as gravações de visualização, pois isso pode causar perda de dados.
@@ -136,11 +136,11 @@ Time Series Insights Visualizar partições e dados de índices para obter um de
 > [!IMPORTANT]
 > Durante a pré-visualização, poderá experimentar um período de até 60 segundos antes de os dados se tornarem disponíveis. Se você enfrentar uma latência significativa além de 60 segundos, envie um tíquete de suporte por meio do portal do Azure.
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 Esta seção descreve os detalhes do armazenamento do Azure relevantes para Azure Time Series Insights versão prévia.
 
-Para obter uma descrição completa do armazenamento de BLOBs do Azure, leia a [introdução aos blobs de armazenamento](../storage/blobs/storage-blobs-introduction.md).
+Para obter uma descrição completa do armazenamento de Blob Azure, leia a introdução das bolhas de [armazenamento](../storage/blobs/storage-blobs-introduction.md).
 
 ### <a name="your-storage-account"></a>Sua conta de armazenamento
 
@@ -162,9 +162,9 @@ Talvez você queira acessar os dados exibidos no Time Series Insights Explorer P
 
 Você pode acessar seus dados de três maneiras gerais:
 
-* No Gerenciador do Time Series Insights Preview. Você pode exportar dados como um arquivo CSV do Explorer. Para obter mais informações, leia [Time Series insights Gerenciador de visualização](./time-series-insights-update-explorer.md).
-* A partir da Time Series Insights Preview API usando Get Events Query. Para saber mais sobre essa API, leia [consulta de série temporal](./time-series-insights-update-tsq.md).
-* Diretamente de uma conta de armazenamento do Azure. Você precisa de acesso de leitura para qualquer conta que esteja usando para acessar seus Time Series Insights dados de visualização. Para obter mais informações, leia [gerenciar o acesso aos recursos da sua conta de armazenamento](../storage/blobs/storage-manage-access-to-resources.md).
+* No Gerenciador do Time Series Insights Preview. Você pode exportar dados como um arquivo CSV do Explorer. Para mais informações, leia o explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Time Series Insights .
+* A partir da Time Series Insights Preview API usando Get Events Query. Para saber mais sobre esta API, leia A Pergunta da [Série Tempo.](./time-series-insights-update-tsq.md)
+* Diretamente de uma conta de armazenamento do Azure. Você precisa de acesso de leitura para qualquer conta que esteja usando para acessar seus Time Series Insights dados de visualização. Para mais informações, leia Gerir o acesso aos recursos da sua conta de [armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
 
 #### <a name="data-deletion"></a>Exclusão de dados
 
@@ -174,7 +174,7 @@ Não exclua seus arquivos de visualização Time Series Insights. Gerenciar dado
 
 Parquet é um formato de arquivo de coluna de código aberto que foi projetado para um armazenamento e desempenho eficientes. Time Series Insights visualização usa o parquet por esses motivos. Ele particiona os dados por ID de série temporal para desempenho de consulta em escala.  
 
-Para obter mais informações sobre o tipo de arquivo parquet, leia a [documentação do parquet](https://parquet.apache.org/documentation/latest/).
+Para mais informações sobre o tipo de ficheiro Parquet, leia a documentação do [Parquet.](https://parquet.apache.org/documentation/latest/)
 
 Time Series Insights visualização armazena cópias de seus dados da seguinte maneira:
 
@@ -182,27 +182,27 @@ Time Series Insights visualização armazena cópias de seus dados da seguinte m
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* A segunda cópia reparticionada é particionada por um agrupamento de IDs de série temporal e reside na pasta `PT=TsId`:
+* A segunda cópia, reparticionada é dividida por um agrupamento de IDs da Série do Tempo e reside na pasta `PT=TsId`:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-Em ambos os casos, os valores de tempo correspondem ao tempo de criação do blob. Os dados na pasta `PT=Time` são preservados. Os dados na pasta `PT=TsId` serão otimizados para consulta ao longo do tempo e não permanecerão estáticos.
+Em ambos os casos, os valores de tempo correspondem ao tempo de criação do blob. Os dados da pasta `PT=Time` são preservados. Os dados da pasta `PT=TsId` serão otimizados para consulta ao longo do tempo e não permanecerão estáticos.
 
 > [!NOTE]
-> * `<YYYY>` mapeia para uma representação de ano de quatro dígitos.
-> * `<MM>` mapeia para uma representação de mês de dois dígitos.
-> * `<YYYYMMDDHHMMSSfff>` mapeia para uma representação de carimbo de data/hora com ano de quatro dígitos (`YYYY`), mês de dois dígitos (`MM`), dia de dois dígitos (`DD`), hora de dois dígitos (`HH`), minuto de dois dígitos (`MM`), segundo de dois dígitos (`SS`) e milissegundos de três dígitos (`fff`).
+> * `<YYYY>` mapas para uma representação de quatro dígitos.
+> * `<MM>` mapas para uma representação de dois dígitos.
+> * `<YYYYMMDDHHMMSSfff>` mapas para uma representação de carimbo de tempo com quatro dígitos ano (`YYYY`), mês de dois dígitos (`MM`), dia de dois dígitos (`DD`), hora de dois dígitos (`HH`), dois dígitos de minuto (`MM`), segundo de dois dígitos (`SS`) e milissegundo de três dígitos (`fff`).
 
 Time Series Insights eventos de visualização são mapeados para o conteúdo do arquivo parquet da seguinte maneira:
 
 * Cada evento é mapeado para uma única linha.
-* Cada linha inclui a coluna timestamp com um carimbo de data **/** hora de evento. A propriedade de carimbo de data/hora nunca é nula. O padrão será o **tempo de enfileiramento do evento** se a propriedade de carimbo de data/hora não for especificada na origem do evento. O carimbo de data/hora sempre está em UTC.
+* Cada linha inclui a coluna de **carimbo** sinuoso com um carimbo de tempo de evento. A propriedade de carimbo de data/hora nunca é nula. Não se incorre no **tempo em que** o tempo não é especificado na fonte do evento. O carimbo de data/hora sempre está em UTC.
 * Cada linha inclui a(s) coluna s id da Série de Tempo, tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade inclui o sufixo `_string`.
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_string` (corda), `_bool` (Boolean), `_datetime` (data), ou `_double` (duplo), dependendo do tipo de propriedade.
-* Este esquema de mapeamento se aplica à primeira versão do formato de arquivo, referenciado como **V = 1**. Conforme esse recurso evolui, o nome pode ser incrementado.
+* Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1**. Conforme esse recurso evolui, o nome pode ser incrementado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia [como moldar a JSON para ingresso e consulta.](./time-series-insights-update-how-to-shape-events.md)
 
-- Leia sobre a nova [modelagem de dados](./time-series-insights-update-tsm.md).
+- Leia sobre a nova modelação de [dados.](./time-series-insights-update-tsm.md)

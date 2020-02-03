@@ -79,6 +79,6 @@ Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL
 
 4. **(Opcional)** Utilize o Schema Compare e atualize as alterações no seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório Azure Repo e repositório local refletem o seu armazém de dados
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Desenvolvimento para Armazém de Dados Azure SQL](sql-data-warehouse-overview-develop.md)

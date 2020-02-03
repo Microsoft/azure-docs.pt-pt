@@ -24,11 +24,11 @@ O Processo de Ciência de Dados da Equipa exige que os dados sejam ingeridos ou 
 
 Os seguintes artigos descrevem como a ingestão de dados em vários ambientes de destino onde os dados são armazenados e processados.
 
-* De/para [armazenamento de Blobs do Azure](move-azure-blob.md)
-* Para [SQL Server numa VM do Azure](move-sql-server-virtual-machine.md)
+* De/para [o armazenamento de blob azure](move-azure-blob.md)
+* Para [o Servidor SQL no Azure VM](move-sql-server-virtual-machine.md)
 * Para [azure SQL Base de Dados](move-sql-azure.md)
-* Para [tabelas do Hive](move-hive-tables.md)
-* Para [tabelas particionadas do SQL](parallel-load-sql-partitioned-tables.md)
-* De [no local do SQL Server](move-sql-azure-adf.md)
+* Para [mesas de colmeia](move-hive-tables.md)
+* Para [mesas de partição SQL](parallel-load-sql-partitioned-tables.md)
+* A partir do [Servidor SQL on-local](move-sql-azure-adf.md)
 
 As necessidades técnicas e empresariais, bem como a localização inicial, formato e tamanho dos seus dados determinarão o melhor plano de ingestão de dados. Não é incomum um melhor plano ter vários passos. Esta sequência de tarefas pode incluir, por exemplo, exploração de dados, processamento prévio de, limpeza, amostragem de baixo e preparação de modelos.  A Azure Data Factory é um recurso Azure recomendado para orquestrar o movimento e transformação de dados.

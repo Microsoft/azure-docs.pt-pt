@@ -19,7 +19,7 @@ ms.locfileid: "76720321"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW) 
 
-O Azure Synapse é um serviço de análise ilimitada que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados de acordo os seus critérios, através de recursos a pedido ou aprovisionados sem servidor, em escala. O Azure Synapse alia estes dois universos a uma experiência unificada para ingerir, preparar, gerir e fornecer dados a necessidades imediatas de BI e machine learning.
+O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. A Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning.
 
  Azure Synapse tem quatro componentes:
 - SQL Analytics: Análise completa baseada em T-SQL 
@@ -48,7 +48,7 @@ Com armazenamento e computação dissociados, ao utilizar o SQL Analytics pode-s
 * Pausa na capacidade da computação enquanto deixa os dados intactos, por isso só paga pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
 A SQL Analytics aproveita o Armazenamento Azure para manter os dados dos seus utilizadores seguros.  Uma vez que os seus dados são armazenados e geridos pelo Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **distribuídos** para otimizar o desempenho do sistema. Pode escolher qual o padrão mais grave a utilizar para distribuir os dados quando definir a tabela. Estes padrões de sharding são suportados:
 
@@ -105,7 +105,7 @@ O diagrama abaixo mostra uma tabela replicada que é cached na primeira distribu
 
 ![Mesa replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Mesa replicada") 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um pool SQL](./sql-data-warehouse-get-started-provision.md) e carregue dados de [amostras.](./sql-data-warehouse-load-sample-databases.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../azure-glossary-cloud-terminology.md) à medida que encontra terminologia nova. Ou olhe para alguns destes outros Recursos Synapse Azure.  
 
 * [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)

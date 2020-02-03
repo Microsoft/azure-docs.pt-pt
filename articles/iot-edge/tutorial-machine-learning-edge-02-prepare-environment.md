@@ -18,7 +18,7 @@ ms.locfileid: "76722301"
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
 
 > [!NOTE]
-> Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
+> Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se chegou diretamente a este artigo, encorajamo-lo a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
 
 Este artigo ajuda-o a preparar o seu ambiente para desenvolvimento e implantação. Primeiro, instale uma máquina de desenvolvimento com todas as ferramentas necessárias. Em seguida, crie os recursos em nuvem necessários em Azure.
 
@@ -30,18 +30,18 @@ Criámos um script PowerShell que cria uma máquina virtual Azure com muitos dos
 
 O VM de desenvolvimento será criado com:
 
-* Windows 10
-* [Chocolatey](https://chocolatey.org/)
+* Windows 10
+* [Chocolate](https://chocolatey.org/)
 * [Docker Desktop para Windows](https://www.docker.com/products/docker-desktop)
 * [Git para Windows](https://gitforwindows.org/)
 * [Git Credential Manager para Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 * [SDK .Net Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
 * [Extensões de código VS](https://marketplace.visualstudio.com/search?target=VSCode)
-  * [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-  * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  * [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   * [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
   * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
@@ -208,7 +208,7 @@ Como parte da criação do hub IoT, o guião que executamos na secção anterior
 
 1. Como não foram feitas edificações, basta fechar esta página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criámos um Hub IoT e configuramos uma rota para uma conta de Armazenamento Azure. Em seguida, enviaremos dados de um conjunto de dispositivos simulados através do IoT Hub para a conta de armazenamento. Mais tarde no tutorial, depois de configurarmos o nosso dispositivo e módulos IoT Edge, vamos revisitar rotas e olhar um pouco mais para a consulta de encaminhamento.
 

@@ -29,7 +29,7 @@ Neste tutorial, ficará a saber como:
 > * Ver registos de diagnóstico
 > * Gerenciar o aplicativo Web no portal do Azure
 
-Você pode seguir as etapas neste artigo sobre macOS, Linux ou Windows. As etapas são semelhantes na maioria dos casos, embora as diferenças não sejam detalhadas neste tutorial. A maioria dos exemplos abaixo usa uma janela `bash` terminal no Linux. 
+Você pode seguir as etapas neste artigo sobre macOS, Linux ou Windows. As etapas são semelhantes na maioria dos casos, embora as diferenças não sejam detalhadas neste tutorial. A maioria dos exemplos abaixo usam uma janela terminal `bash` em Linux. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,14 +37,14 @@ Antes de iniciar este tutorial:
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - Instale o [Git](https://git-scm.com/).
-- Instale o [Python 3](https://www.python.org/downloads/).
-- Instale e execute o [PostgreSQL](https://www.postgresql.org/download/).
+- Instale [python 3](https://www.python.org/downloads/).
+- Instale e execute [postgreSQL](https://www.postgresql.org/download/).
 
 ## <a name="test-postgresql-installation-and-create-a-database"></a>Testar a instalação do PostgreSQL e criar um banco de dados
 
 Primeiro, conecte-se ao seu servidor PostgreSQL local e crie um banco de dados: 
 
-Em uma janela de terminal local, execute `psql` para se conectar ao servidor PostgreSQL local como o usuário interno `postgres`.
+Numa janela de terminal local, execute `psql` para ligar ao seu servidor Local PostgreSQL como o utilizador `postgres` incorporado.
 
 ```bash
 sudo su - postgres
@@ -57,7 +57,7 @@ psql -U postgres
 
 Se a ligação for bem-sucedida, a base de dados PostgreSQL está em execução. Caso contrário, certifique-se de que a base de dados PostgresQL local é iniciada conforme as instruções para o seu sistema operativo em [Transferências - Distribuição do PostgreSQL Core](https://www.postgresql.org/download/).
 
-Crie um novo banco de dados chamado *pollsdb*e configure um usuário de banco de dados chamado *gerente* com a senha *supersecretpass*:
+Crie uma nova base de dados chamada *pollsdb*, e crie um utilizador de base de dados nomeado *gestor* com senha *supersecretpass*:
 
 ```sql
 CREATE DATABASE pollsdb;
@@ -72,7 +72,7 @@ Escreva `\q` para sair do cliente PostgreSQL.
 
 Em seguida, configure e execute o aplicativo Web python django de exemplo.
 
-O repositório de exemplo [djangoapp](https://github.com/Azure-Samples/djangoapp) contém o aplicativo de sondagens do [Django](https://www.djangoproject.com/) controlado por dados que você obtém ao [escrever seu primeiro aplicativo Django](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) na documentação do Django.
+O repositório de [amostras djangoapp](https://github.com/Azure-Samples/djangoapp) contém a aplicação de sondagens [Django](https://www.djangoproject.com/) baseada em dados que obtém ao seguir a escrita da [sua primeira aplicação Django](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) na documentação django.
 
 ### <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
@@ -97,7 +97,7 @@ py -3 -m venv venv
 venv\scripts\activate
 ```
 
-No ambiente de `venv`, execute *env.sh* ou *env. ps1* para definir as variáveis de ambiente que *azuresite/Settings. py* usará para as configurações de conexão do banco de dados.
+No ambiente `venv`, faça *env.sh* ou *env.ps1* para definir as variáveis ambientais que *o azuresite/configurações.py* utilizará para as definições de ligação da base de dados.
 
 ```bash
 source ./env.sh
@@ -107,7 +107,7 @@ ou
 .\env.ps1
 ```
 
-Instale os pacotes necessários em *requirements. txt*, execute [migrações do Django](https://docs.djangoproject.com/en/2.1/topics/migrations/)e [crie um usuário administrador](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user):
+Instale os pacotes necessários a partir de *requisitos.txt,* executar [migrações Django,](https://docs.djangoproject.com/en/2.1/topics/migrations/)e [criar um utilizador administrativo:](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user)
 
 ```bash
 pip install -r requirements.txt
@@ -135,13 +135,13 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-Vá para *http:\//localhost: 8000* em um navegador. Você deverá ver a mensagem **nenhuma sondagem está disponível**. 
+Visite *http:\//localhost:8000* em um navegador. Devia ver a mensagem **Não há sondagens disponíveis.** 
 
-Vá para *http:\//localhost: 8000/admin* e entre usando o usuário administrador que você criou na última etapa. Selecione **Adicionar** ao lado de **perguntas**e crie uma pergunta de sondagem com algumas opções.
+Vá a *http:\//localhost:8000/admin* e assine usando o utilizador administrativo que criou no último passo. Selecione **Adicionar** ao lado de **Perguntas**, e criar uma pergunta de sondagem com algumas escolhas.
 
 ![Executar o aplicativo python django nos serviços de aplicativos localmente](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
-Vá para *http:\//localhost: 8000* novamente para ver a pergunta da pesquisa e responder à pergunta. O aplicativo de exemplo Django local grava e armazena dados de usuário no banco de dado PostgreSQL local.
+Vá a *http:\//localhost:8000* novamente para ver a pergunta da sondagem e responder à pergunta. O aplicativo de exemplo Django local grava e armazena dados de usuário no banco de dado PostgreSQL local.
 
 Para interromper o servidor Django, digite CTRL + C no terminal.
 
@@ -161,14 +161,14 @@ Você pode criar um novo grupo de recursos para o servidor do banco de dados do 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL
 
-Você cria um servidor PostgreSQL com o comando [AZ postgres Server CREATE](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) no Cloud Shell.
+Cria um servidor PostgreSQL com o [servidor az postgres criar](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) comando na Cloud Shell.
 
 > [!NOTE]
-> Antes de criar um banco de dados do Azure para o servidor PostgreSQL, verifique qual [geração de computação](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) está disponível em sua região. Se sua região não der suporte a hardware Gen4, altere *--SKU-Name* na linha de comando a seguir para um valor com suporte em sua região, como Gen5. 
+> Antes de criar uma Base de Dados Azure para servidor PostgreSQL, verifique qual a [geração](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) de cálculo disponível na sua região. Se a sua região não apoiar o hardware gen4, mude *o nome --sku-nome* na seguinte linha de comando para um valor que é suportado na sua região, como gen5. 
 
-No comando a seguir, substitua *\<PostgreSQL-name >* com um nome de servidor exclusivo. O nome do servidor faz parte do seu ponto de extremidade PostgreSQL *https://\<PostgreSQL-name >. Postgres. Database. Azure. com*, portanto, o nome precisa ser exclusivo em todos os servidores no Azure. 
+No comando seguinte, substitua *\<postgresql-name>* com um nome de servidor único. O nome do servidor faz parte do seu ponto final PostgreSQL *https://\<postgresql-name>.postgres.database.azure.com,* pelo que o nome tem de ser único em todos os servidores do Azure. 
 
-Substitua *\<> de nome* de grupo de recursos e *\<> de região* com o nome e a região do grupo de recurso que você deseja usar. Para *\<admin-username >* e *\<> admin-password*, crie as credenciais do usuário para a conta de administrador do banco de dados. Lembre-se do *> de\<admin-username* e *\<> de senha de administrador* para uso posterior para entrar no servidor e nos bancos de dados PostgreSQL.
+Substitua\<nome do grupo de *recursos>* e *\<região>* com o nome e região do grupo de recursos que pretende utilizar. Para *\<nome de administrador&username>* e\<*admin-password>* Lembre-se do *\<nome de administração>* e *\<admin-password>* para utilizar mais tarde para iniciar sessão no servidor e bases de dados do PostgreSQL.
 
 ```azurecli-interactive
 az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -201,16 +201,16 @@ Quando o banco de dados do Azure para servidor PostgreSQL é criado, o CLI do Az
 
 ### <a name="create-firewall-rules-for-the-azure-database-for-postgresql-server"></a>Criar regras de firewall para o servidor do banco de dados do Azure para PostgreSQL
 
-Execute o comando [AZ postgres Server firewall-Rule Create](/cli/azure/postgres/server/firewall-rule#az-postgres-server-firewall-rule-create) para permitir o acesso ao banco de dados de recursos do Azure. Substitua os *\<PostgreSQL-name >* e *\<o nome do resourcegroup >* espaços reservados com seus valores.
+Executar a regra de firewall do [servidor az postgres criar](/cli/azure/postgres/server/firewall-rule#az-postgres-server-firewall-rule-create) comando para permitir o acesso à base de dados a partir de recursos Azure. Substitua a *\<postgresql-name>* e\<nome de *grupo de recursos>* espaços reservados com os seus valores.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group <resourcegroup-name> --server-name <postgresql-name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
 ```
 
 > [!NOTE]
-> A configuração anterior permite conexões de rede de todos os endereços IP na rede do Azure. Para uso em produção, tente configurar as regras de firewall mais restritivas possíveis [permitindo apenas os endereços IP de saída que seu aplicativo usa](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> A configuração anterior permite conexões de rede de todos os endereços IP na rede do Azure. Para utilização da produção, tente configurar as regras de firewall mais restritivas [possíveis, permitindo apenas os endereços IP](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)de saída que a sua aplicação utiliza .
 
-Execute o comando `firewall-rule create` novamente para permitir o acesso do seu computador local. Substitua *\<seu endereço ip >* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/). Substitua os *\<PostgreSQL-name >* e *\<o nome do resourcegroup >* espaços reservados com seus próprios valores.
+Volte a executar o comando `firewall-rule create` para permitir o acesso ao computador local. Substitua *\<seu endereço ip>* com [o seu endereço IP IPv4 local](https://www.whatsmyip.org/). Substitua o *\<postgresql-name>* e *\<nome de grupo de recursos>* espaços reservados com os seus próprios valores.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group <resourcegroup-name> --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
@@ -218,7 +218,7 @@ az postgres server firewall-rule create --resource-group <resourcegroup-name> --
 
 ### <a name="create-and-connect-to-the-azure-database-for-postgresql-database"></a>Criar e conectar-se ao banco de dados do Azure para o banco de dados PostgreSQL
 
-Conecte-se ao banco de dados do Azure para o servidor PostgreSQL executando o comando a seguir. Use seu próprio *\<PostgreSQL-name >* e *\<admin-username >* e entre com a senha que você criou.
+Conecte-se ao banco de dados do Azure para o servidor PostgreSQL executando o comando a seguir. Use o seu próprio *\<postgresql-name>* e *\<admin-username> e inscreva-se*com a palavra-passe que criou.
 
 ```bash
 psql -h <postgresql-name>.postgres.database.azure.com -U <admin-username>@<postgresql-name> postgres
@@ -233,13 +233,13 @@ GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 > [!NOTE]
-> É uma prática recomendada criar usuários de banco de dados com permissões restritas para aplicativos específicos, em vez de usar o usuário administrador. O usuário `manager` tem privilégios totais *apenas* para o banco de dados `pollsdb`.
+> É uma prática recomendada criar usuários de banco de dados com permissões restritas para aplicativos específicos, em vez de usar o usuário administrador. O `manager` utilizador tem plenos privilégios *apenas* para a base de dados `pollsdb`.
 
 Escreva `\q` para sair do cliente PostgreSQL.
 
 ### <a name="test-app-connectivity-to-the-azure-postgresql-database"></a>Testar a conectividade do aplicativo com o banco de dados PostgreSQL do Azure
 
-Edite seu arquivo *env.sh* ou *env. ps1* local para apontar para o banco de dados PostgreSQL de nuvem, substituindo *\<> do PostgreSQL* pelo nome do servidor do banco de dados do Azure para PostgreSQL.
+Edite o seu ficheiro *local env.sh* ou *env.ps1* para apontar para a sua base de dados PostgreSQL em nuvem, substituindo *\<postgresql-name>* com a sua Base de Dados Azure para o nome do servidor PostgreSQL.
 
 ```bash
 export DBHOST="<postgresql-name>.postgres.database.azure.com"
@@ -255,7 +255,7 @@ $Env:DBNAME = "pollsdb"
 $Env:DBPASS = "supersecretpass"
 ```
 
-No ambiente de `venv` na janela do terminal local, execute o *env.sh* ou *env. ps1*editado. 
+No ambiente `venv` na janela do terminal local, execute o *env.sh* editado ou *env.ps1*. 
 ```bash
 source ./env.sh
 ```
@@ -277,13 +277,13 @@ Depois que o usuário administrador for criado, execute o servidor Django.
 python manage.py runserver
 ```
 
-Em um navegador, vá para *http:\//localhost: 8000*, e você deverá ver a mensagem **nenhuma sondagem está disponível** novamente. 
+Num browser, vá a *http:\//localhost:8000*, e você deve ver a mensagem **Não há sondagens disponíveis** novamente. 
 
-Vá para *http:\//localhost: 8000/admin*, entre usando o usuário administrador que você criou e crie uma pergunta de pesquisa como antes.
+Vá a *http:\//localhost:8000/admin,* inscreva-se usando o utilizador administrativo que criou, e crie uma pergunta de sondagem como antes.
 
 ![Executar o aplicativo python django nos serviços de aplicativos localmente](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
-Vá para *http:\//localhost: 8000* novamente e veja a pergunta de sondagem exibida. Agora, seu aplicativo está gravando dados no Azure Database para o banco de dados PostgreSQL.
+Vá a *http:\//localhost:8000* novamente, e veja a pergunta da sondagem exibida. Agora, seu aplicativo está gravando dados no Azure Database para o banco de dados PostgreSQL.
 
 Para interromper o servidor Django, digite CTRL + C no terminal.
 
@@ -293,7 +293,7 @@ Nesta etapa, você implantará o aplicativo Python conectado ao banco de dados d
 
 ### <a name="configure-repository"></a>Configurar o repositório
 
-Como este tutorial usa um exemplo de Django, você precisa alterar e adicionar algumas configurações em seu arquivo *djangoapp/azuresite/Settings. py* para trabalhar com o serviço Azure app. 
+Como este tutorial utiliza uma amostra Django, é necessário alterar e adicionar algumas definições no seu *ficheiro djangoapp/azuresite/settings.py* para trabalhar com o Azure App Service. 
 
 1. Django valida o cabeceamento `HTTP_HOST` nos pedidos de entrada. Para que seu aplicativo Web Django funcione no serviço de aplicativo, você precisa adicionar o nome de domínio totalmente qualificado do aplicativo aos hosts permitidos. 
    
@@ -303,9 +303,9 @@ Como este tutorial usa um exemplo de Django, você precisa alterar e adicionar a
    ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
    ```
    
-1. Django não dá suporte para a [manutenção de arquivos estáticos em produção](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/). Para este tutorial, use [WhiteNoise](https://whitenoise.evans.io/en/stable/) para habilitar o fornecimento dos arquivos. O pacote WhiteNoise já foi instalado com *requirements. txt*. 
+1. Django não suporta [servir ficheiros estáticos em produção.](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/) Para este tutorial, utiliza o [WhiteNoise](https://whitenoise.evans.io/en/stable/) para permitir servir os ficheiros. O pacote WhiteNoise já estava instalado com *requisitos.txt*. 
    
-   Para configurar o Django para usar WhiteNoise, em *azuresite/Settings. py*, localize a configuração de `MIDDLEWARE` e adicione `whitenoise.middleware.WhiteNoiseMiddleware` à lista, logo após a linha de `django.middleware.security.SecurityMiddleware`. Sua configuração de `MIDDLEWARE` deve ter a seguinte aparência:
+   Para configurar o Django para utilizar o WhiteNoise, em *azuresite/configurações.py,* encontre a definição `MIDDLEWARE` e adicione `whitenoise.middleware.WhiteNoiseMiddleware` à lista, logo após a linha `django.middleware.security.SecurityMiddleware`. A sua definição `MIDDLEWARE` deve ser assim:
    
    ```python
    MIDDLEWARE = [
@@ -315,19 +315,19 @@ Como este tutorial usa um exemplo de Django, você precisa alterar e adicionar a
    ]
    ```
    
-1. No final de *azuresite/Settings. py*, adicione as seguintes linhas:
+1. No final do *azuresite/configurações.py,* adicione as seguintes linhas:
    
    ```python
    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
    ```
    
-   Para obter mais informações sobre como configurar o WhiteNoise, consulte a [documentação do WhiteNoise](https://whitenoise.evans.io/en/stable/).
+   Para obter mais informações sobre a configuração do WhiteNoise, consulte a [documentação do WhiteNoise](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
-> A seção Configurações de banco de dados já segue a prática recomendada de segurança de usar variáveis de ambiente. Para obter recomendações completas de implantação, consulte a [documentação do Django: lista de verificação de implantação](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+> A seção Configurações de banco de dados já segue a prática recomendada de segurança de usar variáveis de ambiente. Para recomendações completas de implantação, consulte [a Documentação Django: lista de verificação de implementação](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
-Confirme suas alterações na bifurcação do repositório *djangoapp* :
+Cometa as suas alterações na sua bifurcação do repositório *djangoapp:*
 
 ```bash
 git commit -am "configure for App Service"
@@ -349,15 +349,15 @@ git commit -am "configure for App Service"
 
 No início do tutorial, definiu as variáveis de ambiente para ligar à base de dados PostgreSQL.
 
-No Azure App Service, você define as variáveis de ambiente como *configurações do aplicativo*, usando o comando [AZ webapp config appSettings Set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) .
+No Serviço de Aplicações Azure, define variáveis ambientais como configurações de *aplicações,* utilizando o comando de definições de definição de aplicações de [config webapp az webapp.](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set)
 
-No Azure Cloud Shell, execute o comando a seguir para especificar os detalhes de conexão do banco de dados como configurações do aplicativo. Substitua *\<> do nome do aplicativo*, *\<> do nome do resourcegroup*e\<o nome do *PostgreSQL >* com seus próprios valores.
+No Azure Cloud Shell, execute o comando a seguir para especificar os detalhes de conexão do banco de dados como configurações do aplicativo. Substitua *\<nome de aplicativo>* *\<nome de grupo de recursos>* e *\<postgresql-name>* com os seus próprios valores.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resourcegroup-name> --settings DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="manager@<postgresql-name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
 
-Para obter informações sobre como o seu código acessa essas configurações de aplicativo, consulte [acessar variáveis de ambiente](how-to-configure-python.md#access-environment-variables).
+Para obter informações sobre como o seu código acede a estas definições de aplicações, consulte [as variáveis do ambiente de acesso](how-to-configure-python.md#access-environment-variables).
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
@@ -389,46 +389,46 @@ To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```  
 
-O servidor de implantação do serviço de aplicativo vê *requirements. txt* na raiz do repositório e executa o gerenciamento de pacotes do Python automaticamente após a `git push`.
+O servidor de implementação do Serviço de Aplicações vê *requisitos.txt* na raiz do repositório e executa a gestão do pacote Python automaticamente após `git push`.
 
 ### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure
 
-Navegue até o aplicativo implantado com URL *http:\//\<nome-do-aplicativo >. azurewebsites. net*. Leva algum tempo para começar, porque o contêiner deve ser baixado e executado quando o aplicativo é solicitado pela primeira vez. Se a página exceder o limite de tempo ou apresentar uma mensagem de erro, aguarde alguns minutos e atualize a página.
+Navegue na aplicação implementada com URL *http:\//\<app-name>.azurewebsites.net*. Leva algum tempo para começar, porque o contêiner deve ser baixado e executado quando o aplicativo é solicitado pela primeira vez. Se a página exceder o limite de tempo ou apresentar uma mensagem de erro, aguarde alguns minutos e atualize a página.
 
 Você deve ver as perguntas de pesquisa que você criou anteriormente. 
 
-O serviço de aplicativo detecta um projeto Django em seu repositório procurando um arquivo *WSGI.py* em cada subdiretório, que `manage.py startproject` cria por padrão. Quando o serviço de aplicativo encontra o arquivo, ele carrega o aplicativo Web Django. Para obter mais informações sobre como o serviço de aplicativo carrega aplicativos Python, consulte [Configurar imagem interna do Python](how-to-configure-python.md).
+O Serviço de Aplicações deteta um projeto Django no seu repositório, procurando um ficheiro *wsgi.py* em cada subdiretório, que `manage.py startproject` cria por padrão. Quando o serviço de aplicativo encontra o arquivo, ele carrega o aplicativo Web Django. Para obter mais informações sobre como o App Service carrega aplicações Python, consulte a [imagem de Python incorporada configurada](how-to-configure-python.md).
 
-Vá para *http:\//\<nome-do-aplicativo >. azurewebsites. net/admin* e entre usando o usuário administrador que você criou. Se desejar, crie mais algumas perguntas de pesquisa.
+Visite *http:\//\<app-name>.azurewebsites.net/admin e inscreva-se* usando o utilizador administrativo que criou. Se desejar, crie mais algumas perguntas de pesquisa.
 
 ![Executar o aplicativo python django nos serviços de aplicativos no Azure](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 **Parabéns!** Você está executando um aplicativo Web Python (Django) no serviço Azure App para Linux.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
 ## <a name="manage-your-app-in-the-azure-portal"></a>Gerenciar seu aplicativo no portal do Azure
 
-Na [portal do Azure](https://portal.azure.com), procure e selecione o aplicativo que você criou.
+No [portal Azure,](https://portal.azure.com)procure e selecione a app que criou.
 
 ![Navegue até seu aplicativo python django no portal do Azure](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
-Por padrão, o portal mostra a página de **visão geral** do aplicativo. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, você também pode executar tarefas básicas de gerenciamento, como procurar, parar, reiniciar e excluir. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
+Por padrão, o portal mostra a página **de visão geral** da sua aplicação. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, você também pode executar tarefas básicas de gerenciamento, como procurar, parar, reiniciar e excluir. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
 ![Gerencie seu aplicativo python django na página Visão geral no portal do Azure](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo:
 
 > [!div class="nextstepaction"]
-> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Mapeie o nome dNS personalizado para a sua aplicação](../app-service-web-tutorial-custom-domain.md)
 
 Ou confira outros recursos:
 
 > [!div class="nextstepaction"]
-> [Configurar o aplicativo Python](how-to-configure-python.md)
+> [App Configure Python](how-to-configure-python.md)

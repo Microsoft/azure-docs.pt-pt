@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas
+title: Resolução de Problemas
 description: Resolução de problemas Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -67,7 +67,7 @@ Este artigo enumera uma pergunta comum de resolução de problemas.
 | Limitações de procedimento armazenadas          | Consulte [as limitações de procedimento armazenadas](../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md#limitations) para compreender algumas das limitações dos procedimentos armazenados. |
 | Os UDFs não suportam declarações SELECT | Esta é uma limitação atual dos nossos UDFs.  Consulte a [FUNÇÃO CREATE](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para a sintaxe que apoiamos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais ajuda na procura de solução para o seu problema, aqui estão outros recursos que pode tentar.
 
 * [Blogues](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

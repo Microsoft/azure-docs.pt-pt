@@ -13,7 +13,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76715121"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
+# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações Azure
 
 > [!NOTE]
 > Neste momento, o AAD V2 (incluindo o MSAL) não é suportado para serviços de aplicações azure e funções azure. Verifique novamente se há atualizações.
@@ -46,7 +46,7 @@ Este módulo lida com várias coisas para a sua aplicação:
 
 O módulo funciona separadamente do seu código de aplicação e é configurado utilizando as definições da aplicação. Não são necessários SDKs, línguas específicas ou alterações ao código de aplicação. 
 
-### <a name="user-claims"></a>Reclamações dos utilizadores
+### <a name="user-claims"></a>Afirmações de utilizador
 
 Para todos os quadros linguísticos, o Serviço de Aplicações disponibiliza as reclamações do utilizador ao seu código injetando-as nos cabeçalhos de pedido. Para ASP.NET 4.6 aplicações, o Serviço de Aplicações povoa [o ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as alegações do utilizador autenticado, para que possa seguir o padrão de código .NET padrão, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações PHP, o App Service povoa a variável `_SERVER['REMOTE_USER']`. Para aplicações Java, as reclamações são [acessíveis a partir do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 

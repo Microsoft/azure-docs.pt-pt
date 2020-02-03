@@ -23,36 +23,36 @@ ms.locfileid: "76718519"
 Este conjunto de tópicos mostra como utilizar o Spark do HDInsight para executar tarefas comuns de ciência de dados, tais como ingestão de dados, engenharia de funcionalidades, modelação e avaliação do modelo. Os dados utilizados são um exemplo do 2013 NYC táxis viagem e Europeia conjunto de dados. Modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores de elevada gradação. Os tópicos também mostram como armazenar esses modelos no armazenamento de Blobs do Azure (WASB) e como proceder à sua classificação e avaliar seu desempenho de previsão. Tópicos mais avançados abordam como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar. Este tópico de descrição geral referencia também os tópicos que descrevem como configurar o cluster do Spark que precisa para concluir os passos nas instruções fornecidas.
 
 ## <a name="spark-and-mllib"></a>Spark e o MLlib
-[Spark](https://spark.apache.org/) é processamento de uma arquitetura de processamento paralelo de código-fonte aberto que suporta dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. [MLlib](https://spark.apache.org/mllib/) é dimensionável biblioteca de machine learning do Spark que traz o algoritmo capacidades de modelação para este ambiente distribuído.
+[Spark](https://spark.apache.org/) é um quadro de processamento paralelo de código aberto que suporta o processamento na memória para aumentar o desempenho de aplicações analíticas de big data. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. [MLlib](https://spark.apache.org/mllib/) é a biblioteca de machine learning escalável da Spark que traz as capacidades de modelação algorítmica para este ambiente distribuído.
 
 ## <a name="hdinsight-spark"></a>HDInsight Spark
-[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta do Azure alojada do Spark de código-fonte aberto. Ele também inclui suporte para **blocos de notas do Jupyter PySpark** no cluster do Spark que pode executar consultas interativas do Spark SQL para transformar, a filtragem e a visualização de dados armazenados em Blobs do Azure (WASB). PySpark é a API do Python para o Spark. Os fragmentos de código que fornecem as soluções e mostram os gráficos relevantes para visualizar os dados aqui executados em blocos de notas do Jupyter instalados nos clusters do Spark. Os passos de modelação nos seguintes tópicos contêm código que mostra como treinar, avaliar, guardar e consumir cada tipo de modelo.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é o Azure hospedado oferta de spark de código aberto. Também inclui suporte para **os cadernos Jupyter PySpark** no cluster Spark que podem executar consultas interativas Spark SQL para transformar, filtrar e visualizar dados armazenados em Blobs Azure (WASB). PySpark é a API do Python para o Spark. Os fragmentos de código que fornecem as soluções e mostram os gráficos relevantes para visualizar os dados aqui executados em blocos de notas do Jupyter instalados nos clusters do Spark. Os passos de modelação nos seguintes tópicos contêm código que mostra como treinar, avaliar, guardar e consumir cada tipo de modelo.
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Configuração: Os clusters do Spark e o Jupyter notebooks
-Passos de configuração e de código são fornecidos esta explicação passo a passo para utilizar um HDInsight Spark 1.6. Mas blocos de notas do Jupyter são fornecidos para os clusters do HDInsight Spark 1.6 e Spark 2.0. Uma descrição dos blocos de notas e links para eles são fornecidos na [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que contém-los. Além disso, o código aqui e em blocos de notas ligados é genérico e deve trabalhar em qualquer cluster do Spark. Se não estiver a utilizar o Spark do HDInsight, os passos de configuração e o gerenciamento de cluster podem ser ligeiramente diferentes do que é mostrado aqui. Por conveniência, aqui estão os links para os cadernos Jupyter para Spark 1.6 (a ser executado no núcleo pySpark do servidor Jupyter Notebook) e Spark 2.0 (a ser executado no núcleo pySpark3 do servidor Jupyter Notebook):
+Passos de configuração e de código são fornecidos esta explicação passo a passo para utilizar um HDInsight Spark 1.6. Mas blocos de notas do Jupyter são fornecidos para os clusters do HDInsight Spark 1.6 e Spark 2.0. Uma descrição dos cadernos e links para eles são fornecidas no [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório GitHub que os contém. Além disso, o código aqui e em blocos de notas ligados é genérico e deve trabalhar em qualquer cluster do Spark. Se não estiver a utilizar o Spark do HDInsight, os passos de configuração e o gerenciamento de cluster podem ser ligeiramente diferentes do que é mostrado aqui. Por conveniência, aqui estão os links para os cadernos Jupyter para Spark 1.6 (a ser executado no núcleo pySpark do servidor Jupyter Notebook) e Spark 2.0 (a ser executado no núcleo pySpark3 do servidor Jupyter Notebook):
 
 ### <a name="spark-16-notebooks"></a>Blocos de notas do Spark 1.6
 Estes blocos de notas estão a ser executados no kernel do pySpark, do servidor de bloco de notas do Jupyter.
 
-- [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornece informações sobre como efetuar a exploração, modelação e com diversos algoritmos de classificação de dados.
-- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): inclui tópicos no bloco de notas #1 e desenvolvimento de modelos usando a otimização de hiper-parâmetros e a validação cruzada.
-- [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb): mostra como operacionalizar um modelo guardado com o Python nos clusters do HDInsight.
+- [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): Fornece informações sobre como realizar a exploração de dados, modelação e pontuação com vários algoritmos diferentes.
+- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Inclui tópicos em #1 de cadernos, e desenvolvimento de modelos utilizando a finação e validação cruzada do hiperparâmetro.
+- [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb): Mostra como operacionalizar um modelo salvo usando Python em clusters HDInsight.
 
 ### <a name="spark-20-notebooks"></a>Blocos de notas do Spark 2.0
 Estes blocos de notas estão a ser executados no kernel do pySpark3 do servidor de bloco de notas do Jupyter.
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este ficheiro fornece informações sobre como efetuar a exploração de dados, de modelagem, e de classificação no Spark 2.0 clusters com a viagem de táxis de NYC e Europeia-conjunto de dados descrito [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este bloco de notas pode ser um ponto de partida para explorar rapidamente o código fornecidos para Spark 2.0. Para um bloco de notas mais detalhado analisa os dados de táxis de NYC, consulte o seguinte bloco de notas nesta lista. Consulte as notas que seguem esta lista que compara estes cadernos.
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este ficheiro mostra como realizar a preparação de dados (operações de Spark SQL e o pacote de dados), exploração, modelação e classificação usando a viagem de táxis de NYC e Europeia conjunto de dados descrito [aqui ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): este ficheiro mostra como realizar a preparação de dados (operações de Spark SQL e o pacote de dados), exploração, modelação e classificação usando a mudança de no tempo de companhia aérea bem conhecida conjunto de dados de 2011 e 2012. Integrámos o conjunto de dados da companhia aérea com os dados meteorológicos do aeroporto (por exemplo, velocidade do vento, temperatura, altitude, etc.) antes da modelação, para que estas características meteorológicas possam ser incluídas no modelo.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este ficheiro fornece informações sobre como realizar a exploração de dados, modelação e pontuação em clusters Spark 2.0 utilizando a viagem de táxi de NYC e o conjunto de dados de tarifas descrito [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este bloco de notas pode ser um ponto de partida para explorar rapidamente o código fornecidos para Spark 2.0. Para um bloco de notas mais detalhado analisa os dados de táxis de NYC, consulte o seguinte bloco de notas nesta lista. Consulte as notas que seguem esta lista que compara estes cadernos.
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Este ficheiro mostra como realizar a discussão de dados (Operações Spark SQL e dataframe), exploração, modelação e pontuação utilizando a viagem de táxi de NYC e o conjunto de dados de tarifas descrito [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Este ficheiro mostra como realizar a discussão de dados (Operações Spark SQL e dataframe), exploração, modelação e pontuação utilizando o conhecido conjunto de dados de partida da Companhia Aérea On-time de 2011 e 2012. Integrámos o conjunto de dados da companhia aérea com os dados meteorológicos do aeroporto (por exemplo, velocidade do vento, temperatura, altitude, etc.) antes da modelação, para que estas características meteorológicas possam ser incluídas no modelo.
 
 <!-- -->
 
 > [!NOTE]
 > O conjunto de dados de companhia aérea foi adicionado para os blocos de notas do Spark 2.0 para melhor ilustrar a utilização de algoritmos de classificação. Consulte as seguintes ligações para informações sobre a companhia aérea no tempo de conjunto de dados de saída e o conjunto de dados de Meteorologia:
 > 
-> - Dados de saída no tempo de companhia aérea: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> - Dados de partida a tempo das companhias aéreas: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
-> - Dados meteorológicos de aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
+> - Dados meteorológicos do aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 
@@ -63,22 +63,22 @@ Estes blocos de notas estão a ser executados no kernel do pySpark3 do servidor 
 
 <!-- -->
 
-Para obter orientações sobre a operacionalização de um modelo de Spark 2.0 e o consumo de modelo para a classificação, consulte a [Spark 1.6 documento no consumo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) para obter um exemplo que descreva os passos necessários. Para utilizar este exemplo no Spark 2.0, substitua o ficheiro de código Python por [este ficheiro](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
+Para obter orientações sobre a operacionalização de um modelo Spark 2.0 e o consumo de modelo para pontuação, consulte o [documento Spark 1.6 sobre o consumo,](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) por exemplo, delineando os passos necessários. Para utilizar este exemplo no Spark 2.0, substitua o ficheiro de código Python por [este ficheiro](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Os procedimentos seguintes relacionados com Spark 1.6. Para a versão de Spark 2.0, utilize os blocos de notas descrito e associados a anteriormente.
 
-1. Precisa de uma subscrição do Azure. Se ainda não tiver uma, veja [avaliação gratuita do Azure obter](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+1. Precisa de uma subscrição do Azure. Se ainda não tem um, consulte [o Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. Precisa de um aglomerado spark 1.6 para completar esta passagem. Para criar um, veja as instruções fornecidas [começar a utilizar: criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). O tipo de cluster e a versão é especificada a partir da **selecionar o tipo de Cluster** menu.
+2. Precisa de um aglomerado spark 1.6 para completar esta passagem. Para criar um, consulte as instruções fornecidas em [Get started: create Apache Spark on Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). O tipo de cluster e a versão são especificados no menu **Select Cluster Type.**
 
 ![Configurar cluster](./media/spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
 > [!NOTE]
-> Para um tópico que mostra como utilizar o Scala, em vez de Python para executar tarefas de um processo de ciência de dados ponto a ponto, consulte a [ciência de dados com o Scala spark no Azure](scala-walkthrough.md).
+> Para um tópico que mostra como usar Scala em vez de Python para completar tarefas para um processo de ciência de dados de ponta a ponta, consulte a [Data Science usando Scala com Spark on Azure](scala-walkthrough.md).
 >
 >
 
@@ -108,9 +108,9 @@ Os dados da viagem de táxis de NYC são cerca de 20 GB de arquivos de comprimid
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Temos decorrido um exemplo de 0,1% desses arquivos e associados a viagem\_dados e viagem\_se comportarão ficheiros CSV num único conjunto de dados para utilizar como o conjunto de dados de entrada para este passo a passo. A chave exclusiva para aderir a viagem\_dados e viagem\_Europeia é composta pelos campos: medallion, aceder de modo ilícito\_licença e recolha\_datetime. Cada registro do conjunto de dados contém os seguintes atributos representa uma viagem de táxis de NYC:
+Retirámos uma amostra de 0,1% destes ficheiros e juntamo-nos à viagem\_dados e viagem\_ficheiros CVS de tarifa num único conjunto de dados para usar como conjunto de dados de entrada para esta passagem. A chave única para se juntar aos dados da viagem\_e viagem\_tarifa é composta pelos campos: medalhão, licença de\_e recolha\_data. Cada registro do conjunto de dados contém os seguintes atributos representa uma viagem de táxis de NYC:
 
-| Campo | Breve descrição |
+| Campo | Breve Descrição |
 | --- | --- |
 | Medallion |Medallion de táxis anónimos (id de táxis exclusivo) |
 | hack_license |Número de licença de carro Hackney anónimo |
@@ -145,15 +145,15 @@ Pode iniciar o bloco de notas do Jupyter no portal do Azure. Encontre o seu clus
 
 ![Dashboards de clusters](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os blocos de notas do Jupyter. Substitua a parte CLUSTERNAME deste URL com o nome do seu próprio cluster. Terá da palavra-passe para a sua conta de administrador acessar os blocos de notas.
+Também pode navegar para ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** aceder aos Cadernos Jupyter. Substitua a parte CLUSTERNAME deste URL com o nome do seu próprio cluster. Terá da palavra-passe para a sua conta de administrador acessar os blocos de notas.
 
 ![Procurar os blocos de notas do Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Selecione PySpark para ver um diretório que contenha alguns exemplos de cadernos pré-embalados que usam a API PySpark. Os cadernos que contêm as amostras de código para este conjunto de tópicos Spark estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Pode carregar os blocos de notas diretamente a partir [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor de bloco de notas do Jupyter no cluster do Spark. Na home page de sua Jupyter, clique nas **carregar** botão na parte direita do ecrã. É aberto um Explorador de ficheiros. Aqui pode colar o URL do GitHub (conteúdo não processado) do bloco de notas e clique em **aberto**.
+Pode fazer o upload dos cadernos diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor de cadernos Jupyter no seu cluster Spark. Na página inicial do seu Jupyter, clique no botão **Upload** na parte direita do ecrã. É aberto um Explorador de ficheiros. Aqui pode colar o URL GitHub (conteúdo bruto) do Caderno e clicar **em Open**.
 
-Ver o nome de ficheiro na sua lista de ficheiros do Jupyter com um **carregar** novamente no botão. Clique nele **carregar** botão. Agora que importou o bloco de notas. Repita estes passos para carregar os outros blocos de notas nestas instruções.
+Vê o nome do ficheiro na sua lista de ficheiros jupyter com um botão **upload** novamente. Clique neste botão **de upload.** Agora que importou o bloco de notas. Repita estes passos para carregar os outros blocos de notas nestas instruções.
 
 > [!TIP]
 > Pode clicar corretamente nos links do seu navegador e selecionar **Copy Link** para obter o URL de conteúdo bruto GitHub. Pode colar este URL na caixa de diálogo a de Explorador de ficheiros Jupyter carregar.
@@ -163,23 +163,23 @@ Ver o nome de ficheiro na sua lista de ficheiros do Jupyter com um **carregar** 
 Agora, pode:
 
 * Consulte o código clicando o bloco de notas.
-* Executar cada célula, premindo **SHIFT-ENTER**.
-* Executar o bloco de notas completo clicando em **célula** -> **executar**.
+* Execute cada célula pressionando **SHIFT-ENTER**.
+* Execute todo o caderno clicando na **Cell** -> **Run**.
 * Utilize a visualização automática de consultas.
 
 > [!TIP]
-> O kernel do PySpark automaticamente visualiza a saída de consultas SQL (HiveQL). É-lhe dada a opção de selecionar entre os vários tipos diferentes de visualizações (tabela, gráfico de pizza, linha, área ou barra) ao utilizar o **tipo** botões de menu no bloco de notas:
+> O kernel do PySpark automaticamente visualiza a saída de consultas SQL (HiveQL). É-lhe dada a opção de selecionar entre vários tipos diferentes de visualizações (Tabela, Tarte, Linha, Área ou Bar) utilizando os botões do menu **Tipo** no caderno:
 >
 >
 
 ![Curva cor MULTICLASSE de regressão logística de abordagem genérica](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="whats-next"></a>O que se segue?
+## <a name="whats-next"></a>Passos seguintes?
 Agora que estão configurados com um cluster do Spark do HDInsight e carregar os blocos de notas do Jupyter, está pronto para trabalhar com os tópicos que correspondem aos três blocos de anotações do PySpark. Eles mostram como explorar os seus dados e, em seguida, como criar e consumir modelos. O bloco de notas do exploração e modelação avançada de dados mostra como incluir a validação cruzada, hyper varrimento, parâmetro e modelar a avaliação.
 
-**Exploração de dados e modelação com o Spark:** explorar o conjunto de dados e criar, classificação e avaliar os modelos de machine learning ao trabalhar com o [criar modelos de classificação e regressão binários para dados com o Spark MLlib Kit de ferramentas](spark-data-exploration-modeling.md) tópico.
+**Exploração de Dados e modelação com Faísca:** Explore o conjunto de dados e crie, marque e avalie os modelos de machine learning trabalhando através dos modelos de [classificação binária e regressão para dados com o tópico de toolkit Spark MLlib.](spark-data-exploration-modeling.md)
 
-**Consumo de modelo:** para saber como classificar modelos de classificação e regressão criados neste tópico, consulte o artigo [pontuação e avaliar modelos de aprendizagem automática criados com o Spark](spark-model-consumption.md).
+**Consumo de modelo:** Para aprender a pontuar os modelos de classificação e regressão criados neste tópico, consulte [o Score e avalie os modelos de aprendizagem automática construídos pela Spark.](spark-model-consumption.md)
 
-**A validação cruzada e varrimento de hiper-parâmetros**: veja [avançada de exploração de dados e modelagem com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar
+**Validação cruzada e varredura de hiperparâmetros**: Ver [advanced a exploração e modelação de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando validação cruzada e varredura de hiperparâmetros
 

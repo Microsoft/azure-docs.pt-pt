@@ -61,7 +61,7 @@ Se precisar de criar um cluster AKS, use as [aks az criar][az-aks-create] comand
 > [!IMPORTANT]
 > O autoscaler cluster é um componente Kubernetes. Embora o cluster AKS utilize um conjunto de escala de máquina virtual para os nós, não ative manualmente ou edite as definições para a escala definida automaticamente no portal Azure ou utilizando o Azure CLI. Deixe o autoescalador de cluster Kubernetes gerir as definições de escala necessárias. Para mais informações, consulte [posso modificar os recursos aks no grupo de recursos do nó?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-O exemplo seguinte cria um cluster AKS com uma única piscina de nó apoiada por um conjunto de escala de máquina virtual. Ele também habilita o dimensionador do cluster em conjunto de nós para o cluster e define um mínimo de *1* e o máximo de *3* nós:
+O exemplo seguinte cria um cluster AKS com uma única piscina de nó apoiada por um conjunto de escala de máquina virtual. Também permite o autoescalador de cluster na piscina do nó para o cluster e define um mínimo de *1* e nomáximo de *3* nós:
 
 ```azurecli-interactive
 # First create a resource group
@@ -180,7 +180,7 @@ az aks nodepool update \
 
 Se desejar reativar o autoescalador de cluster num cluster existente, pode reativa-lo utilizando o comando de [atualização az aks nodepool,][az-aks-nodepool-update] especificando os parâmetros de *--enable-cluster-autoscaler*, *--min-count*e *--max-count.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo mostrou-lhe como escalar automaticamente o número de nós AKS. Também pode utilizar o autoescalador horizontal para ajustar automaticamente o número de cápsulas que executam a sua aplicação. Para os passos na utilização do autoscaler horizontal, consulte [as aplicações Scale em AKS][aks-scale-apps].
 

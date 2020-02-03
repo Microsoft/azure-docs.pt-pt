@@ -53,10 +53,10 @@ Quaisquer cabeçalhos enviados para a Porta da Frente a partir do backend també
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYWYS00YTU0LTk0YzMnwZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. Isto é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma porta da frente](quickstart-create-front-door.md)
-- [Como funciona a porta frontal](front-door-routing-architecture.md)
+- [Como funciona a Porta da Frente](front-door-routing-architecture.md)
 
 <!--Image references-->
 [1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

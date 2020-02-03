@@ -69,6 +69,6 @@ Depois de resolver o problema, reinicie o trabalho de provisionamento. Algumas a
 
 - Use o portal do Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** da aplicação em **Definições,** selecione **clear state e reinicie** a sincronização e desemque o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de provisionamento, que pode demorar algum tempo. Um ciclo inicial completo voltará a funcionar, o que limpa os esquástis, remove a aplicação da quarentena e limpa quaisquer marcas de água.
 
-- Use Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. Utilize o seguinte pedido:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. Utilize o seguinte pedido:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

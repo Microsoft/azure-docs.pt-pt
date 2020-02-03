@@ -30,19 +30,19 @@ Neste tutorial, ficará a saber como:
 
 Este tutorial destina-se a um público experiente e pressupõe que o usuário esteja familiarizado com a implantação e a conexão com ambas as instâncias gerenciadas e SQL Server VMs no Azure. Como tal, determinadas etapas neste tutorial são iteradas. 
 
-Para saber mais, confira os artigos visão geral, [recursos](sql-database-managed-instance.md)e [replicação transacional](sql-database-managed-instance-transactional-replication.md) do [banco de dados SQL do Azure](sql-database-managed-instance-index.yml).
+Para saber mais, consulte a Base de [Dados Azure SQL gerida](sql-database-managed-instance-index.yml)na visão geral da instância , [capacidades](sql-database-managed-instance.md)e artigos de [replicação transacional SQL.](sql-database-managed-instance-transactional-replication.md)
 
-Para configurar a replicação entre um Publicador de instância gerenciada e um assinante de instância gerenciada, consulte [Configurar a replicação transacional entre duas instâncias gerenciadas](replication-with-sql-database-managed-instance.md). 
+Para configurar a replicação entre um editor de instância gerido e um assinante de instância gerido, consulte a [replicação transacional Configure entre duas instâncias geridas](replication-with-sql-database-managed-instance.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
-- Uma [subscrição do Azure](https://azure.microsoft.com/free/). 
+- Uma [subscrição Azure.](https://azure.microsoft.com/free/) 
 - Experiência com a implantação de duas instâncias gerenciadas na mesma rede virtual. 
 - Um Assinante SQL Server, seja local ou uma VM do Azure. Este tutorial usa uma VM do Azure.  
-- [SQL Server Management Studio (SSMS) 18,0 ou superior](/sql/ssms/download-sql-server-management-studio-ssms).
-- A versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- [Estúdio de Gestão de Servidores SQL (SSMS) 18.0 ou superior](/sql/ssms/download-sql-server-management-studio-ssms).
+- A versão mais recente do [Azure Powershell.](/powershell/azure/install-az-ps?view=azps-1.7.0)
 - A porta 445 e 1433 permitem o tráfego do SQL no firewall do Azure e no firewall do Windows. 
 
 ## <a name="1---create-the-resource-group"></a>1-criar o grupo de recursos
@@ -58,27 +58,27 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
 ## <a name="2---create-two-managed-instances"></a>2-criar duas instâncias gerenciadas
-Crie duas instâncias gerenciadas dentro desse novo grupo de recursos usando o [portal do Azure](https://portal.azure.com). 
+Crie duas instâncias geridas dentro deste novo grupo de recursos utilizando o [portal Azure.](https://portal.azure.com) 
 
-- O nome da instância gerenciada pelo Publicador deve ser: `sql-mi-publisher` (juntamente com alguns caracteres para randomização) e o nome da rede virtual deve ser `vnet-sql-mi-publisher`.
-- O nome da instância gerenciada do distribuidor deve ser: `sql-mi-distributor` (juntamente com alguns caracteres para randomização) e deve estar _na mesma rede virtual que a instância gerenciada do Publicador_.
+- O nome da instância gerida pela editora deve ser: `sql-mi-publisher` (juntamente com alguns caracteres para aleatoriedade) e o nome da rede virtual deve ser `vnet-sql-mi-publisher`.
+- O nome da instância gerida pelo distribuidor deve ser: `sql-mi-distributor` (juntamente com alguns caracteres para aleatoriedade) e deve estar na mesma rede virtual que _a instância gerida pelo editor._
 
    ![Usar a vnet do Publicador para o distribuidor](media/sql-database-managed-instance-configure-replication-tutorial/use-same-vnet-for-distributor.png)
 
-Para obter mais informações sobre como criar uma instância gerenciada, consulte [criar uma instância gerenciada no portal](sql-database-managed-instance-get-started.md)
+Para mais informações sobre a criação de um caso gerido, consulte [Criar uma instância gerida no portal](sql-database-managed-instance-get-started.md)
 
   > [!NOTE]
   > Para simplificar, e por ser a configuração mais comum, este tutorial sugere colocar a instância gerenciada do distribuidor dentro da mesma rede virtual que o Publicador. No entanto, é possível criar o distribuidor em uma rede virtual separada. Para fazer isso, você precisará configurar o emparelhamento VPN entre as redes virtuais do Publicador e o distribuidor e, em seguida, configurar o emparelhamento VPN entre as redes virtuais do distribuidor e do Assinante. 
 
 ## <a name="3---create-a-sql-server-vm"></a>3-criar uma VM SQL Server
-Crie uma máquina virtual SQL Server usando o [portal do Azure](https://portal.azure.com). A máquina virtual SQL Server deve ter as seguintes características:
+Crie uma máquina virtual SQL Server utilizando o [portal Azure](https://portal.azure.com). A máquina virtual SQL Server deve ter as seguintes características:
 
 - Nome: `sql-vm-sub`
 - Imagem: SQL Server 2016 ou superior
 - Grupo de recursos: o mesmo que a instância gerenciada
 - Rede virtual: `sql-vm-sub-vnet` 
 
-Para obter mais informações sobre como implantar uma VM SQL Server no Azure, consulte [início rápido: criar SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md).
+Para obter mais informações sobre a implementação de um VM de servidor SQL para o Azure, consulte [Quickstart: Create SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md).
 
 ## <a name="4---configure-vpn-peering"></a>4-configurar o emparelhamento VPN
 Configure o emparelhamento VPN para habilitar a comunicação entre a rede virtual das duas instâncias gerenciadas e a rede virtual de SQL Server. Para fazer isso, use este trecho de código do PowerShell:
@@ -126,7 +126,7 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Quando o emparelhamento VPN for estabelecido, teste a conectividade iniciando SQL Server Management Studio (SSMS) no SQL Server e se conectando a ambas as instâncias gerenciadas. Para obter mais informações sobre como se conectar a uma instância gerenciada usando o SSMS, consulte [usar o SSMS para se conectar ao mi](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
+Quando o emparelhamento VPN for estabelecido, teste a conectividade iniciando SQL Server Management Studio (SSMS) no SQL Server e se conectando a ambas as instâncias gerenciadas. Para obter mais informações sobre a ligação a uma instância gerida utilizando SSMS, consulte [Use SSMS para se ligar ao MI](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
 
 ![Testar a conectividade com as instâncias gerenciadas](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
 
@@ -136,62 +136,62 @@ Uma zona DNS privada permite o Roteamento DNS entre as instâncias gerenciadas e
 
 ### <a name="create-private-dns-zone"></a>Criar zona DNS privada
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione **criar um recurso** para criar um novo recurso do Azure. 
-1. Pesquise `private dns zone` no Azure Marketplace. 
-1. Escolha o recurso de **zona de DNS privado** publicado pela Microsoft e, em seguida, selecione **criar** para criar a zona DNS. 
+1. Selecione **Criar um recurso** para criar um novo recurso Azure. 
+1. Procure `private dns zone` no Azure Marketplace. 
+1. Escolha o recurso **privado da zona DNS** publicado pela Microsoft e, em seguida, selecione **Criar** para criar a zona DNS. 
 1. Escolha a assinatura e o grupo de recursos na lista suspensa. 
-1. Forneça um nome arbitrário para a zona DNS, como `repldns.com`. 
+1. Forneça um nome arbitrário para a sua zona DNS, como `repldns.com`. 
 
    ![Criar zona DNS privada](media/sql-database-managed-instance-configure-replication-tutorial/create-private-dns-zone.png)
 
-1. Selecione **Rever + criar**. Examine os parâmetros de sua zona DNS privada e, em seguida, selecione **criar** para criar o recurso. 
+1. Selecione **Rever + criar**. Reveja os parâmetros da sua zona Privada DNS e, em seguida, selecione **Criar** para criar o seu recurso. 
 
 ### <a name="create-a-record"></a>Criar um registro
 
-1. Vá para a nova **zona de DNS privado** e selecione **visão geral**. 
-1. Selecione **+ conjunto de registros** para criar um novo registro a. 
+1. Vá à sua nova **zona Privada dNS** e selecione **visão geral**. 
+1. Selecione **+ Conjunto de registos** para criar um novo A-Record. 
 1. Forneça o nome da VM SQL Server, bem como o endereço IP interno privado. 
 
    ![Configurar um registro](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
 
-1. Selecione **OK** para criar o registro a. 
+1. Selecione **OK** para criar o disco A. 
 
 ### <a name="link-the-virtual-network"></a>Vincular a rede virtual
 
-1. Vá para a nova **zona de DNS privado** e selecione **links de rede virtual**. 
+1. Vá para a sua nova **zona Privada DNS** e selecione links de **rede Virtual**. 
 1. Selecione **+ Adicionar**. 
 1. Forneça um nome para o link, como `Pub-link`. 
 1. Selecione sua assinatura na lista suspensa e selecione a rede virtual para a instância gerenciada do Publicador. 
-1. Marque a caixa ao lado de **habilitar o registro automático**. 
+1. Verifique a caixa ao lado do **registo automático enable**. 
 
    ![Criar link de vnet](media/sql-database-managed-instance-configure-replication-tutorial/configure-vnet-link.png)
 
-1. Selecione **OK** para vincular sua rede virtual. 
-1. Repita essas etapas para adicionar um link para a rede virtual do Assinante, com um nome como `Sub-link`. 
+1. Selecione **OK** para ligar a sua rede virtual. 
+1. Repita estes passos para adicionar um link para a rede virtual do assinante, com um nome como `Sub-link`. 
 
 
 ## <a name="6---create-azure-storage-account"></a>6-criar conta de armazenamento do Azure
 
-[Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento. 
+[Crie uma Conta](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) de Armazenamento Azure para o diretório de trabalho e, em seguida, crie uma parte de [ficheiro](../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento. 
 
-Copie o caminho do compartilhamento de arquivos no formato: `\\storage-account-name.file.core.windows.net\file-share-name`   
+Copie o caminho da partilha de ficheiros no formato: `\\storage-account-name.file.core.windows.net\file-share-name`   
 
 Exemplo: `\\replstorage.file.core.windows.net\replshare`
 
-Copie a cadeia de conexão da chave de acesso de armazenamento no formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`   
+Copie a cadeia de ligação de ligação de acesso ao armazenamento no formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`   
 
 Exemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
 
-Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md). 
+Para mais informações, consulte Gerir as chaves de [acesso à conta](../storage/common/storage-account-keys-manage.md)de armazenamento . 
 
 
 ## <a name="7---create-a-database"></a>7-criar um banco de dados
 Crie um novo banco de dados no Publicador MI. Para isso, siga estes passos:
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
-1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
-1. Abra uma **nova** janela de consulta e execute a seguinte consulta T-SQL para criar o banco de dados:
+1. Ligue-se à `sql-mi-publisher` instância gerida. 
+1. Abra uma nova janela **de consulta** e execute a seguinte consulta T-SQL para criar a base de dados:
 
 ```sql
 -- Create the databases
@@ -234,11 +234,11 @@ GO
 ```
 
 ## <a name="8---configure-distribution"></a>8-configurar a distribuição 
-Depois que a conectividade é estabelecida e você tem um banco de dados de exemplo, você pode configurar a distribuição em sua instância gerenciada `sql-mi-distributor`. Para isso, siga estes passos:
+Uma vez estabelecida a conectividade e tiver uma base de dados de amostras, pode configurar a distribuição na sua `sql-mi-distributor` instância gerida. Para isso, siga estes passos:
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
-1. Conecte-se à instância gerenciada `sql-mi-distributor`. 
-1. Abra uma **nova** janela de consulta e execute o seguinte código TRANSACT-SQL para configurar a distribuição na instância gerenciada do distribuidor: 
+1. Ligue-se à `sql-mi-distributor` instância gerida. 
+1. Abra uma nova janela **de consulta** e execute o seguinte código Transact-SQL para configurar a distribuição na instância gerida pelo distribuidor: 
 
    ```sql
    EXEC sp_adddistpublisher @publisher = 'sql-mi-publisher.b6bf57.database.windows.net', -- primary publisher
@@ -253,10 +253,10 @@ Depois que a conectividade é estabelecida e você tem um banco de dados de exem
    ```
 
    > [!NOTE]
-   > Certifique-se de que utiliza apenas as pestanas (`\`) para o parâmetro @working_directory. O uso de uma barra (`/`) pode causar um erro ao se conectar ao compartilhamento de arquivos. 
+   > Certifique-se de que utiliza apenas as pestanas (`\`) para o parâmetro @working_directory. A utilização de um corte para a frente (`/`) pode causar um erro ao ligar-se à parte do ficheiro. 
 
-1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
-1. Abra uma **nova** janela de consulta e execute o seguinte código TRANSACT-SQL para registrar o distribuidor no Publicador: 
+1. Ligue-se à `sql-mi-publisher` instância gerida. 
+1. Abra uma nova janela **de consulta** e execute o seguinte código Transact-SQL para registar o distribuidor na editora: 
 
 ```sql
 Use MASTER
@@ -268,21 +268,21 @@ EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.wi
 Depois que a distribuição tiver sido configurada, agora você poderá criar a publicação. Para isso, siga estes passos: 
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
-1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
-1. No Pesquisador de **objetos**, expanda o nó **replicação** e clique com o botão direito do mouse na pasta **publicação local** . Selecione **nova publicação...** . 
-1. Selecione **Avançar** para ir para a página de boas-vindas. 
-1. Na página **banco de dados de publicação** , selecione o banco de dados `ReplTutorial` que você criou anteriormente. Selecione **Seguinte**. 
-1. Na página **tipo de publicação** , selecione **publicação transacional**. Selecione **Seguinte**. 
-1. Na página **artigos** , marque a caixa ao lado de **tabelas**. Selecione **Seguinte**. 
-1. Na página **filtrar linhas da tabela** , selecione **Avançar** sem adicionar nenhum filtro. 
-1. Na página **agente de instantâneo** , marque a caixa ao lado de **criar instantâneo imediatamente e mantenha o instantâneo disponível para inicializar assinaturas**. Selecione **Seguinte**. 
-1. Na página **segurança do agente** , selecione **configurações de segurança.** .. Forneça SQL Server credenciais de logon a serem usadas para o Snapshot Agent e para se conectar ao Publicador. Selecione **OK** para fechar a página **agente de instantâneo segurança** . Selecione **Seguinte**. 
+1. Ligue-se à `sql-mi-publisher` instância gerida. 
+1. No **Object Explorer,** expanda o nó de **replicação** e clique à direita na pasta **De publicação local.** Selecione **Nova Publicação...** . 
+1. Selecione **Next** para passar pela página de boas-vindas. 
+1. Na página base de dados da **Publicação,** selecione a base de dados `ReplTutorial` criada anteriormente. Selecione **Seguinte**. 
+1. Na página do **tipo Publicação,** selecione **publicação transacional**. Selecione **Seguinte**. 
+1. Na página de **Artigos,** verifique a caixa ao lado das **Tabelas**. Selecione **Seguinte**. 
+1. Na página **Filter Table Rows,** selecione **Seguinte** sem adicionar filtros. 
+1. Na página do **Snapshot Agent,** verifique imediatamente a caixa ao lado da **Create snapshot e mantenha o instantâneo disponível para inicializar as subscrições**. Selecione **Seguinte**. 
+1. Na página de Segurança do **Agente,** selecione Definições de **Segurança..** . Forneça credenciais de login do SQL Server para utilizar para o agente Snapshot e para se ligar ao Editor. Selecione **OK** para fechar a página de Segurança do **Agente Instantâneo.** Selecione **Seguinte**. 
 
    ![Configurar segurança de Agente de Instantâneo](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-agent-security.png)
 
-1. Na página **ações do assistente** , escolha **criar a publicação** e (opcionalmente) optar por **gerar um arquivo de script com etapas para criar a publicação** se você quiser salvar esse script para mais tarde. 
-1. Na página **concluir o assistente** , nomeie a publicação `ReplTest` e selecione **Avançar** para criar a publicação. 
-1. Depois que a publicação tiver sido criada, atualize o nó **replicação** no **pesquisador de objetos** e expanda **publicações locais** para ver sua nova publicação. 
+1. Na página **Wizard Actions,** opte por **Criar a publicação** e (opcionalmente) optar por Gerar um ficheiro de script com **passos para criar a publicação** se quiser guardar este script para mais tarde. 
+1. Na página **Complete the Wizard,** nomeie a sua publicação `ReplTest` e selecione **Next** para criar a sua publicação. 
+1. Uma vez criada a sua publicação, refresque o nó **de Replicação** no **Object Explorer** e expanda **publicações locais** para ver a sua nova publicação. 
 
 
 ## <a name="10---create-the-subscription"></a>10-criar a assinatura 
@@ -290,8 +290,8 @@ Depois que a distribuição tiver sido configurada, agora você poderá criar a 
 Depois que a publicação tiver sido criada, você poderá criar a assinatura. Para isso, siga estes passos: 
 
 1. Inicie o SQL Server Management Studio (SSMS) no seu SQL Server. 
-1. Conecte-se à instância gerenciada `sql-mi-publisher`. 
-1. Abra uma **nova** janela de consulta e execute o seguinte código TRANSACT-SQL para adicionar a assinatura e o agente de distribuição. Use o DNS como parte do nome do Assinante. 
+1. Ligue-se à `sql-mi-publisher` instância gerida. 
+1. Abra uma nova janela **de consulta** e execute o seguinte código Transact-SQL para adicionar o agente de subscrição e distribuição. Use o DNS como parte do nome do Assinante. 
 
 ```sql
 use [ReplTutorial]
@@ -338,11 +338,11 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-1. Navegue até o grupo de recursos na [portal do Azure](https://portal.azure.com). 
-1. Selecione as instâncias gerenciadas e, em seguida, selecione **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. Esse processo pode levar algum tempo para ser concluído em segundo plano e até que ele seja concluído, você não poderá excluir o *cluster virtual* nem outros recursos dependentes. Monitore a exclusão na guia atividade para confirmar se a instância gerenciada foi excluída. 
-1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o em seu grupo de recursos e, em seguida, escolhendo **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
-1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
-1. Exclua o grupo de recursos selecionando **excluir grupo de recursos**, digitando o nome do grupo de recursos, `myResourceGroup`e, em seguida, selecionando **excluir**. 
+1. Navegue para o seu grupo de recursos no [portal Azure.](https://portal.azure.com) 
+1. Selecione as instâncias geridas e, em seguida, **selecione Eliminar**. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, **selecione Eliminar**. Este processo pode demorar algum tempo a ser concluído em segundo plano, e até que esteja feito, não poderá eliminar o *cluster Virtual* ou quaisquer outros recursos dependentes. Monitore a exclusão na guia atividade para confirmar se a instância gerenciada foi excluída. 
+1. Uma vez eliminada a instância gerida, elimine o *cluster Virtual* selecionando-o no seu grupo de recursos e, em seguida, escolhendo **Eliminar**. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, **selecione Eliminar**. 
+1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, **selecione Eliminar**. 
+1. Elimine o grupo de recursos selecionando o grupo de **recursos Delete**, digitando em nome do grupo de recursos, `myResourceGroup`, e, em seguida, selecionando **Delete**. 
 
 ## <a name="known-errors"></a>Erros conhecidos
 
@@ -350,7 +350,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 `Exception Message: Windows logins are not supported in this version of SQL Server.`
 
-O agente foi configurado com um logon do Windows e precisa usar um logon SQL Server em vez disso. Use a página **segurança do agente** das **Propriedades da publicação** para alterar as credenciais de logon para um SQL Server logon. 
+O agente foi configurado com um logon do Windows e precisa usar um logon SQL Server em vez disso. Utilize a página de Segurança do **Agente** das propriedades da **Publicação** para alterar as credenciais de login para um login do Servidor SQL. 
 
 
 ### <a name="failed-to-connect-to-azure-storage"></a>Falha ao conectar ao armazenamento do Azure
@@ -358,14 +358,14 @@ O agente foi configurado com um logon do Windows e precisa usar um logon SQL Ser
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 
-2019-11-19 02:21:05.07 obteve a cadeia de conexão do armazenamento do Azure para replstorage 2019-11-19 02:21:05.07 conectando-se ao armazenamento de arquivos do Azure '\\replstorage. File. Core. Windows. net\replshare ' 2019-11-19 02:21:31.21 falhou ao se conectar ao armazenamento do Azure ' ' com o erro de sistema operacional: 53.
+2019-11-19 02:21:05.07 Obteve a linha de conexão de armazenamento azure para replstorage 2019-11-19 02:21:05.07 Ligação aos Ficheiros Azure Armazenamento '\\replstorage.file.windows.windows.net\replshare' 2019-11-19 02:21:31.21 Não conseguiu ligar-se ao Armazenamento Azure '' com erro de OS: 53.
 
 
 Isso é provável porque a porta 445 está fechada no firewall do Azure, no firewall do Windows ou em ambos. 
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 55.`
 
-O uso de uma barra invertida em vez de uma barra à frente no caminho do arquivo para o compartilhamento de arquivos pode causar esse erro. Isso está ok: `\\replstorage.file.core.windows.net\replshare` isso pode causar um erro do sistema operacional 55: `'\\replstorage.file.core.windows.net/replshare'`
+O uso de uma barra invertida em vez de uma barra à frente no caminho do arquivo para o compartilhamento de arquivos pode causar esse erro. Isto é ok: `\\replstorage.file.core.windows.net\replshare` Isto pode causar um erro de OS 55: `'\\replstorage.file.core.windows.net/replshare'`
 
 ### <a name="could-not-connect-to-subscriber"></a>Não foi possível conectar ao Assinante
 
@@ -383,29 +383,29 @@ Possíveis soluções:
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Não há publicações para as quais você pode assinar
 
-Ao adicionar uma nova assinatura usando o assistente para **nova assinatura** , na página **publicação** , você pode descobrir que não há bancos de dados e publicações listados como opções disponíveis e pode ver a seguinte mensagem de erro:
+Ao adicionar uma nova subscrição utilizando o novo assistente **de subscrição,** na página **De publicação,** poderá descobrir que não existem bases de dados e publicações listadas como opções disponíveis, podendo ver a seguinte mensagem de erro:
 
 `There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 Embora seja possível que essa mensagem de erro seja precisa e realmente não haja publicações disponíveis no Publicador ao qual você se conectou ou não tenha permissões suficientes, esse erro também pode ser causado por uma versão mais antiga do SQL Server Management Studio. Tente atualizar para SQL Server Management Studio 18,0 ou superior para refazer a regra como uma causa raiz. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="enable-security-features"></a>Habilitar recursos de segurança
 
-Consulte o artigo recursos de [segurança de funcionalidades de instância gerenciada](sql-database-managed-instance.md#azure-sql-database-security-features) a seguir para obter uma lista abrangente de maneiras de proteger seu banco de dados. Os seguintes recursos de segurança são discutidos:
+Consulte o seguinte artigo de funcionalidades de segurança de funcionalidades de segurança de recursos de instância [geridas](sql-database-managed-instance.md#azure-sql-database-security-features) para uma lista completa de formas de proteger a sua base de dados. Os seguintes recursos de segurança são discutidos:
 
-- [Auditoria de instância gerenciada](sql-database-managed-instance-auditing.md) 
+- [Auditoria de instânciagerida](sql-database-managed-instance-auditing.md) 
 - [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security) 
-- [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Funcionalidades de instância gerida
 
 Para obter uma visão geral completa de um recurso de instância gerenciada, consulte:
 
 > [!div class="nextstepaction"]
-> [Recursos de instância gerenciada](sql-database-managed-instance.md)
+> [Capacidades de instância geridas](sql-database-managed-instance.md)

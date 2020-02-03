@@ -220,6 +220,6 @@ Abaixo está uma lista completa de todas as verificações executadas por meio d
 |<ul><li>O servidor host está em execução?</li><li>O servidor de informações da Internet está em execução?</li><li>O balanceador de carga está em execução?</li><li>O aplicativo Web pode ser acessado de dentro do datacenter?</li><li>A conta de armazenamento está hospedando o conteúdo do site disponível?</li></ul>|
 
 ## <a name="next-steps"></a>Próximos Passos
--  Consulte [introdução ao painel de integridade do serviço do Azure](service-health-overview.md) e [introdução ao Azure Resource Health](resource-health-overview.md) para entender mais sobre eles. 
--  [Perguntas frequentes sobre Azure Resource Health](resource-health-faq.md)
-- Configure alertas para que você seja notificado sobre problemas de integridade. Para obter mais informações, consulte [configurar alertas para eventos de integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+-  Consulte a introdução ao painel de saúde do [serviço Azure](service-health-overview.md) e [introdução à Azure Resource Health](resource-health-overview.md) para saber mais sobre eles. 
+-  [Perguntas frequentes sobre a Saúde dos Recursos Azure](resource-health-faq.md)
+- Configure alertas para que você seja notificado sobre problemas de integridade. Para mais informações, consulte [Configurar Alertas para eventos de saúde de serviço.](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

@@ -26,32 +26,32 @@ O processo de ciência de dados de equipa exige que o dados ser ingeridos ou car
 
 Os seguintes artigos descrevem como mover dados para e do armazenamento de Blobs do Azure com diferentes tecnologias.
 
-* [Explorador de armazenamento do Azure](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
 * [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
-* [Python](move-data-to-azure-blob-using-python.md)
+* [python](move-data-to-azure-blob-using-python.md)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 
-Qual é o método melhor para depende do seu cenário. O [cenários de análises avançadas no Azure Machine Learning](plan-sample-scenarios.md) artigo ajuda-o a determinar os recursos necessários para uma variedade de fluxos de trabalho do ciência de dados usados no processo de análise avançada.
+Qual é o método melhor para depende do seu cenário. Os [Cenários para análiseavançada no artigo de Aprendizagem automática de Azure](plan-sample-scenarios.md) ajudam-no a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados utilizados no processo de análise avançada.
 
 > [!NOTE]
-> Para obter uma introdução completa para o armazenamento de Blobs do Azure, consulte [Noções básicas de Blobs do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e, a [serviço de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para uma introdução completa ao armazenamento de blob Azure, consulte [o Azure Blob Basics](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e o [Serviço Blob Azure.](https://msdn.microsoft.com/library/azure/dd179376.aspx)
 > 
 > 
 
 ## <a name="using-azure-data-factory"></a>Utilizar o Azure Data Factory
 
-Como alternativa, pode utilizar [do Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para: 
+Como alternativa, pode utilizar a [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para: 
 
 * criar e agendar um pipeline que transfere dados a partir do armazenamento de Blobs do Azure, 
 * passá-lo para um serviço web Azure Machine Learning publicado, 
 * receber os resultados de Análise Preditiva, e 
 * carregar os resultados para o armazenamento. 
 
-Para obter mais informações, consulte [crie pipelines previsíveis utilizando o Azure Data Factory e o Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
+Para mais informações, consulte [Create predive pipelines utilizando a Azure Data Factory e a Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem uma subscrição do Azure, uma conta de armazenamento e a chave de armazenamento correspondente para essa conta. Antes de fazer o upload/download de dados, deve saber o nome da sua conta de Armazenamento Azure e a chave da conta.
 
-* Para configurar uma subscrição do Azure, veja [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Para configurar uma subscrição Azure, consulte o [teste gratuito de um mês.](https://azure.microsoft.com/pricing/free-trial/)
 * Para obter instruções sobre a criação de uma conta de armazenamento e para obter informações de conta e chave, consulte as contas de [Armazenamento Azure](../../storage/common/storage-create-storage-account.md).
 

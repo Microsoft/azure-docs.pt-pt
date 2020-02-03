@@ -36,28 +36,28 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="create-a-lab-account"></a>Criar uma conta de laboratório
 Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta de laboratório com o Azure Lab Services. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** no menu à esquerda. Selecione **serviços de laboratório** na seção **DEVOPS** . Se você selecionar asterisco (`*`) ao lado de **serviços de laboratório**, ele será adicionado à seção **favoritos** no menu à esquerda. Da próxima vez em diante, selecione **serviços de laboratório** em **favoritos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **Todos os Serviços** no menu esquerdo. Selecione **Serviços de Laboratório** na secção **DEVOPS.** Se selecionar estrela (`*`) ao lado dos Serviços de **Laboratório,** é adicionado à secção **FAVORITES** no menu esquerdo. A partir da próxima vez, selecione **Serviços** de Laboratório sob **OS FAVORITOS**.
 
     ![Todos os serviços-> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Na página de **serviços de laboratório** , selecione **Adicionar** na barra de ferramentas. 
+3. Na página serviços de **laboratório,** selecione **Adicionar** na barra de ferramentas. 
 
     ![Selecione Adicionar na página contas do laboratório](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. Na página **conta do laboratório** , execute as seguintes ações: 
+4. Na página **da Conta lab,** faça as seguintes ações: 
     1. Em **Nome da conta de laboratório**, introduza um nome. 
     2. Selecione a **Subscrição do Azure**, na qual pretende criar a conta de laboratório.
-    3. Em **Grupo de recursos**: selecione **Criar novo** e introduza um nome para o grupo de recursos.
+    3. Em **Grupo de recursos**, selecione **Criar novo** e introduza um nome para o grupo de recursos.
     4. Em **Localização**, selecione uma região/localização na qual pretende criar a conta de laboratório. 
-    5. Selecione uma **Galeria de imagens compartilhada** existente ou crie uma. Você pode salvar a VM de modelo na Galeria de imagens compartilhadas para que ela seja reutilizada por outras pessoas. Para obter informações detalhadas sobre galerias de imagens compartilhadas, consulte [usar uma galeria de imagens compartilhadas no Azure Lab Services](how-to-use-shared-image-gallery.md). 
-    6. Para **rede virtual de mesmo nível**, selecione uma rede virtual par (VNet) para a rede do laboratório. Os laboratórios criados nessa conta estão conectados à VNet selecionada e têm acesso aos recursos na VNet selecionada. 
-    7. Especifique um **intervalo de endereços** para as VMs no laboratório. O intervalo de endereços deve estar na notação CIDR (roteamento entre domínios sem classificação) (exemplo: 10.20.0.0/23). As máquinas virtuais no laboratório serão criadas neste intervalo de endereços. Para obter mais informações, consulte [especificar um intervalo de endereços para VMs no laboratório](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).
-    8. Para o campo **permitir que o criador** do laboratório escolha o local do laboratório, especifique se deseja que os criadores do laboratório possam selecionar um local para o laboratório. Por padrão, a opção está desabilitada. Quando desabilitado, os criadores de laboratório não podem especificar um local para o laboratório que estão criando. Os laboratórios são criados na localização geográfica mais próxima da conta do laboratório. Quando ele está habilitado, um criador de laboratório pode selecionar um local no momento da criação de um laboratório. 
+    5. Selecione uma galeria de **imagens partilhadas** existente ou crie uma. Você pode salvar a VM de modelo na Galeria de imagens compartilhadas para que ela seja reutilizada por outras pessoas. Para obter informações detalhadas sobre galerias de imagem partilhadas, consulte [Use uma galeria de imagens partilhada nos Serviços de Laboratório Azure.](how-to-use-shared-image-gallery.md) 
+    6. Para **a rede virtual Peer,** selecione uma rede virtual de pares (VNet) para a rede de laboratório. Os laboratórios criados nessa conta estão conectados à VNet selecionada e têm acesso aos recursos na VNet selecionada. 
+    7. Especifique um intervalo de **endereços** para VMs no laboratório. O intervalo de endereços deve estar na notação CIDR (roteamento entre domínios sem classificação) (exemplo: 10.20.0.0/23). As máquinas virtuais no laboratório serão criadas neste intervalo de endereços. Para mais informações, consulte [Especifique um intervalo de endereços para VMs no laboratório](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).
+    8. Para que o criador do laboratório escolha o campo de localização do **laboratório,** especifique se quer que os criadores de laboratório sejam capazes de selecionar um local para o laboratório. Por padrão, a opção está desabilitada. Quando desabilitado, os criadores de laboratório não podem especificar um local para o laboratório que estão criando. Os laboratórios são criados na localização geográfica mais próxima da conta do laboratório. Quando ele está habilitado, um criador de laboratório pode selecionar um local no momento da criação de um laboratório. 
     9. Selecione **Criar**. 
 
         ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. Selecione o **ícone de sino** na barra de ferramentas (**notificações**), confirme se a implantação foi bem-sucedida e, em seguida, selecione **ir para o recurso**. 
+5. Selecione o ícone da **campainha** na barra de**ferramentas (Notificações),** confirme que a implementação foi bem sucedida e, em seguida, selecione **Ir para o recurso**. 
 
-    Como alternativa, selecione **Atualizar** na página **contas do laboratório** e selecione a conta do laboratório que você criou. 
+    Em alternativa, selecione **Refresh** na página **Lab Accounts** e selecione a conta de laboratório que criou. 
 
     ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. Verá a página **conta de laboratório** seguinte:
@@ -69,10 +69,10 @@ Para configurar um laboratório de sala de aula numa conta de laboratório, o ut
 
 Para dar permissão aos educadores para criarem laboratórios para as classes deles, adicione-os à função **Criador do Laboratório**:
 
-1. Na página **conta do laboratório** , selecione **controle de acesso (iam)** , selecione **+ Adicionar** na barra de ferramentas e, em seguida, selecione **+ Adicionar atribuição de função** na barra de ferramentas. 
+1. Na página **da Conta Lab,** selecione o controlo de **acesso (IAM)** , selecione **+ Adicione** na barra de ferramentas e, em seguida, selecione + Adicione a atribuição de **funções** na barra de ferramentas. 
 
     ![Controle de acesso – botão > Adicionar atribuição de função](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. Na página **Adicionar atribuição de função** , selecione **criador de laboratório** para **função**, selecione o usuário que você deseja adicionar à função criadores de laboratório e selecione **salvar**. 
+1. Na página de atribuição de **funções Add,** selecione **Lab Creator** para **Função**, selecione o utilizador que pretende adicionar à função De Criadores de Laboratório e selecione **Save**. 
 
     ![Adicionar criador de laboratório](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
@@ -99,7 +99,7 @@ Enquanto proprietário de uma conta de laboratório, pode especificar as imagens
     1. Selecione **... (reticências)** na última coluna e selecione **Ativar imagem**. 
     2. Selecione uma ou mais imagens a partir da lista ao selecionar as caixas de verificação antes dos nomes de imagem na lista e selecione **Ativar imagens selecionadas**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou uma conta de laboratório. Para saber mais sobre como criar um laboratório de sala de aula como um professor, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

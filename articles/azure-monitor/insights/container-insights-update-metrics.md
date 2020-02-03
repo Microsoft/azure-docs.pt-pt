@@ -22,35 +22,35 @@ As seguintes métricas são habilitadas como parte desse recurso:
 
 | Espaço de nomemétrico | Métrica | Descrição |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Essas são as métricas de *nó* e incluem *host* como uma dimensão e também incluem o<br> nome do nó como valor para a dimensão do *host* . |
-| percepções. Container/pods | podCount | Essas são métricas de *Pod* e incluem as seguintes como dimensões-ControllerName, namespace kubernetes, nome, fase. |
+| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Estas são métricas *de nó* e incluem *hospedeiro* como uma dimensão, e também incluem o<br> nome do nó como valor para a dimensão do *hospedeiro.* |
+| percepções. Container/pods | podCount | Estas são métricas de *pod* e incluem o seguinte como dimensões - ControllerName, Kubernetes namespace, nome, fase. |
 
 A atualização do cluster para dar suporte a esses novos recursos pode ser executada no portal do Azure, Azure PowerShell ou com CLI do Azure. Com Azure PowerShell e CLI, você pode habilitar esse por cluster ou para todos os clusters em sua assinatura. As novas implantações do AKS incluirão automaticamente essa alteração de configuração e os recursos.
 
-Qualquer processo atribui a função de **Editor de métricas de monitoramento** à entidade de serviço do cluster para que os dados coletados pelo agente possam ser publicados no recurso de clusters. O monitoramento de métricas Publisher tem permissão apenas para enviar métricas por push para o recurso, ele não pode alterar nenhum estado, atualizar o recurso ou ler dados. Para obter mais informações sobre a função, consulte [monitorando métricas de função de editor](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Qualquer um dos processos atribui a função de Editor de **Métricas de Monitorização** ao principal de serviço do cluster para que os dados recolhidos pelo agente possam ser publicados no recurso dos seus clusters. O monitoramento de métricas Publisher tem permissão apenas para enviar métricas por push para o recurso, ele não pode alterar nenhum estado, atualizar o recurso ou ler dados. Para mais informações sobre o papel, consulte [o papel da Editora De Métricas de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, confirme o seguinte:
 
-* As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte está documentada [aqui](../platform/metrics-custom-overview.md#supported-regions).
-* Você é membro da função **[proprietário](../../role-based-access-control/built-in-roles.md#owner)** no recurso de cluster AKs para habilitar a coleta de métricas de desempenho personalizadas de nó e Pod. 
+* As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões apoiadas está [documentada aqui.](../platform/metrics-custom-overview.md#supported-regions)
+* Você é um membro do **[papel](../../role-based-access-control/built-in-roles.md#owner)** proprietário no recurso de cluster AKS para permitir a recolha de métricas de desempenho personalizados de nó e pod. 
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.59 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.59 ou posterior. Para identificar a sua versão, execute `az --version`. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Atualizar um cluster do portal do Azure
 
-Para clusters AKS existentes monitorados por Azure Monitor para contêineres, depois de selecionar o cluster para exibir sua integridade do modo de exibição de vários clusters no Azure Monitor ou diretamente do cluster, selecionando **insights** no painel esquerdo, você verá uma faixa na parte superior do Portal.
+Para os aglomerados AKS existentes monitorizados pelo Azure Monitor para contentores, depois de selecionar o cluster para ver a sua saúde a partir da vista multi-cluster no Monitor Azure ou diretamente do cluster, selecionando **Insights** do painel da mão esquerda, deve ver um banner na parte superior do portal.
 
 ![Atualizar a faixa do cluster AKS no portal do Azure](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 
-Clicar em **habilitar** iniciará o processo para atualizar o cluster. Esse processo pode levar vários segundos para ser concluído e você pode acompanhar seu progresso em notificações no menu.
+Clicar no **Enable** iniciará o processo de atualização do cluster. Esse processo pode levar vários segundos para ser concluído e você pode acompanhar seu progresso em notificações no menu.
 
 ## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Atualizar todos os clusters usando o bash no Shell de comando do Azure
 
 Execute as etapas a seguir para atualizar todos os clusters em sua assinatura usando o bash no Shell de comando do Azure.
 
-1. Execute o comando a seguir usando o CLI do Azure.  Edite o valor de **SubscriptionId** usando o valor da página **visão geral do AKS** para o cluster AKs.
+1. Execute o comando a seguir usando o CLI do Azure.  Editar o valor para **subscriçãoId** utilizando o valor da página de visão geral do **AKS** para o cluster AKS.
 
     ```azurecli
     az login
@@ -68,7 +68,7 @@ Execute as etapas a seguir para atualizar todos os clusters em sua assinatura us
 
 Execute as etapas a seguir para atualizar um cluster específico em sua assinatura usando CLI do Azure.
 
-1. Execute o comando a seguir usando o CLI do Azure. Edite os valores para **SubscriptionId**, **resourceGroupName**e **ClusterName** usando os valores na página **visão geral do AKS** para o cluster AKs.  Para obter o valor de **clientIdOfSPN**, ele é retornado quando você executa o comando `az aks show` conforme mostrado no exemplo abaixo.
+1. Execute o comando a seguir usando o CLI do Azure. Editar os valores para **subscriçãoId**, **resourceGroupName**, e **clusterName** utilizando os valores na página **de visão geral aks** para o cluster AKS.  Para obter o valor do **clienteIdOfSPN,** é devolvido quando executa o comando `az aks show` como mostrado no exemplo abaixo.
 
     ```azurecli
     az login
@@ -322,7 +322,7 @@ Execute as etapas a seguir para atualizar todos os clusters em sua assinatura us
     ```
 
 2. Guarde este ficheiro como **onboard_metrics_atscale.ps1** para uma pasta local.
-3. Execute o comando a seguir usando o Azure PowerShell.  Edite o valor de **SubscriptionId** usando o valor da página **visão geral do AKS** para o cluster AKs.
+3. Execute o comando a seguir usando o Azure PowerShell.  Editar o valor para **subscriçãoId** utilizando o valor da página de visão geral do **AKS** para o cluster AKS.
 
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
@@ -572,7 +572,7 @@ Execute as etapas a seguir para atualizar um cluster específico usando Azure Po
     ```
 
 2. Guarde este ficheiro como **onboard_metrics.ps1** para uma pasta local.
-3. Execute o comando a seguir usando o Azure PowerShell. Edite os valores para **SubscriptionId**, **resourceGroupName**e **ClusterName** usando os valores na página **visão geral do AKS** para o cluster AKs.
+3. Execute o comando a seguir usando o Azure PowerShell. Editar os valores para **subscriçãoId**, **resourceGroupName**, e **clusterName** utilizando os valores na página **de visão geral aks** para o cluster AKS.
 
     ```powershell
     .\onboard_metrics.ps1 subscriptionId <subscriptionId> resourceGroupName <resourceGroupName> clusterName <clusterName>
@@ -586,4 +586,4 @@ Execute as etapas a seguir para atualizar um cluster específico usando Azure Po
 
 ## <a name="verify-update"></a>Verificar atualização 
 
-Depois de iniciar a atualização usando um dos métodos descritos anteriormente, você pode usar Azure Monitor métricas Explorer e verificar no **namespace de métrica** que o **insights** está listado. Se for, isso indicará que você pode começar a configurar alertas de [métrica](../platform/alerts-metric.md) ou fixar seus gráficos nos [painéis](../../azure-portal/azure-portal-dashboards.md).  
+Depois de ter dado início à atualização utilizando um dos métodos descritos anteriormente, pode utilizar o explorador de métricas Do Monitor Azure e verificar a partir do espaço de **nomemétrico** que os **insights** estão listados. Se for, isto indica que pode avançar e começar a configurar [alertas métricos](../platform/alerts-metric.md) ou a fixar os seus gráficos nos [dashboards](../../azure-portal/azure-portal-dashboards.md).  

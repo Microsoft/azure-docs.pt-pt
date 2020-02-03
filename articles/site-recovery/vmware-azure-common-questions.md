@@ -22,7 +22,7 @@ Este artigo responde a perguntas comuns que podem surgir ao implantar a recupera
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>O que é necessário para a recuperação de desastres de VM VMware?
 
-[Saiba mais sobre os componentes envolvidos](vmware-azure-architecture.md) na recuperação de desastres de VMs VMware.
+[Conheça os componentes envolvidos](vmware-azure-architecture.md) na recuperação de desastres de VMware VMs.
 
 ### <a name="can-i-use-site-recovery-to-migrate-vmware-vms-to-azure"></a>Posso usar Site Recovery para migrar VMs VMware para o Azure?
 
@@ -39,7 +39,7 @@ Se você for um administrador de assinatura, terá as permissões de replicaçã
 
 ### <a name="what-applications-can-i-replicate"></a>Quais aplicativos posso replicar?
 
-Você pode replicar qualquer aplicativo ou carga de trabalho em execução em uma VM VMware que atenda aos [requisitos de replicação](vmware-physical-azure-support-matrix.md#replicated-machines).
+Pode replicar qualquer aplicação ou carga de trabalho em execução num VMware VMque que satisfaça os requisitos de [replicação](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 - O Site Recovery dá suporte à replicação com reconhecimento de aplicativos, para que os aplicativos possam realizar failover e failback para um estado inteligente.
 - O Site Recovery integra-se com aplicativos da Microsoft, como SharePoint, Exchange, Dynamics, SQL Server e Active Directory. Ele também funciona em conjunto com os principais fornecedores, incluindo Oracle, SAP, IBM e Red Hat.
@@ -48,7 +48,7 @@ Você pode replicar qualquer aplicativo ou carga de trabalho em execução em um
 
 ### <a name="can-i-use-a-guest-os-server-license-on-azure"></a>Posso usar uma licença de servidor de SO convidado no Azure?
 
-Sim, os clientes do Microsoft Software Assurance podem usar [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para economizar em custos de licenciamento para computadores Windows Server que são migrados para o Azure ou para usar o Azure para recuperação de desastres.
+Sim, os clientes da Microsoft Software Assurance podem usar o [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) para economizar nos custos de licenciamento das máquinas Windows Server que são migradas para o Azure, ou para usar o Azure para a recuperação de desastres.
 
 ## <a name="security"></a>Segurança
 
@@ -77,17 +77,17 @@ Site Recovery é certificado para ISO 27001:2013 e 27018, HIPAA e DPA. Ele está
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Como fazer calcular encargos aproximados para a recuperação de desastres do VMware?
 
-Use a [calculadora de preços](https://aka.ms/asr_pricing_calculator) para estimar os custos ao usar site Recovery.
+Utilize a [calculadora](https://aka.ms/asr_pricing_calculator) de preços para estimar os custos enquanto utiliza a Recuperação do Site.
 
-Para obter uma estimativa detalhada dos custos, execute a ferramenta planejador de implantação para [VMware](https://aka.ms/siterecovery_deployment_planner) e use o [relatório estimativa de custo](https://aka.ms/asr_DP_costreport).
+Para uma estimativa detalhada dos custos, execute a ferramenta de planificador de implementação para [VMware](https://aka.ms/siterecovery_deployment_planner) e utilize o relatório de estimativa de [custos](https://aka.ms/asr_DP_costreport).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Há alguma diferença no custo entre replicar para armazenamento ou diretamente para discos gerenciados?
 
-Os discos gerenciados são cobrados de forma ligeiramente diferente das contas de armazenamento. [Saiba mais](https://azure.microsoft.com/pricing/details/managed-disks/) sobre os preços do disco gerenciado.
+Os discos gerenciados são cobrados de forma ligeiramente diferente das contas de armazenamento. [Saiba mais](https://azure.microsoft.com/pricing/details/managed-disks/) sobre os preços do disco gerido.
 
 ### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Há alguma diferença no custo ao replicar para Uso Geral conta de armazenamento v2?
 
-Normalmente, você verá um aumento no custo das transações incorridos nas contas de armazenamento GPv2, uma vez que Azure Site Recovery tem transações pesadas. [Leia mais](../storage/common/storage-account-upgrade.md#pricing-and-billing) para estimar a alteração.
+Normalmente, você verá um aumento no custo das transações incorridos nas contas de armazenamento GPv2, uma vez que Azure Site Recovery tem transações pesadas. [Leia mais](../storage/common/storage-account-upgrade.md#pricing-and-billing) para estimar a mudança.
 
 ## <a name="mobility-service"></a>Serviço de Mobilidade
 
@@ -99,18 +99,18 @@ Os instaladores estão na pasta %ProgramData%\ASR\home\svsystems\pushinstallsvc\
 
 Em cada VM que você deseja replicar, instale o serviço por um dos vários métodos:
 
-- [Instalação por push](vmware-physical-mobility-service-overview.md#push-installation)
-- [Instalação manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) da interface do usuário ou do PowerShell
-- Implantação usando uma ferramenta de implantação como o [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- [Instalação de empurrar](vmware-physical-mobility-service-overview.md#push-installation)
+- [Instalação manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) da UI ou PowerShell
+- Implementação utilizando uma ferramenta de implementação como o Gestor de [Configuração](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Managed disks
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Para onde Site Recovery replicar dados?
 
 Site Recovery Replica VMs VMware locais e servidores físicos para Managed disks no Azure.
 
 - O servidor de processo de Site Recovery grava os logs de replicação em uma conta de armazenamento de cache na região de destino.
-- Esses logs são usados para criar pontos de recuperação em discos gerenciados pelo Azure que têm o prefixo de **asrseeddisk**.
+- Estes registos são utilizados para criar pontos de recuperação em discos geridos pelo Azure que têm prefixo de **disco asrseedd .**
 - Quando ocorre o failover, o ponto de recuperação selecionado é usado para criar um novo disco gerenciado de destino. Esse disco gerenciado é anexado à VM no Azure.
 - As VMs que foram replicadas anteriormente para uma conta de armazenamento (antes de março de 2019) não são afetadas.
 
@@ -122,13 +122,13 @@ A replicação de novas VMs para uma conta de armazenamento está disponível so
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Quais são os benefícios da replicação para o Managed disks?
 
-[Saiba como](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/) Site Recovery simplifica a recuperação de desastres com discos gerenciados.
+[Saiba como](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/) A Recuperação do Site simplifica a recuperação de desastres com discos geridos.
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Posso alterar o tipo de disco gerenciado depois que um computador é protegido?
 
-Sim, você pode [alterar facilmente o tipo de disco gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para replicações em andamento. Antes de alterar o tipo, certifique-se de que nenhuma URL de assinatura de acesso compartilhado seja gerada no disco gerenciado:
+Sim, pode [facilmente alterar o tipo de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para as replicações em curso. Antes de alterar o tipo, certifique-se de que nenhuma URL de assinatura de acesso compartilhado seja gerada no disco gerenciado:
 
-1. Vá para o recurso de **disco gerenciado** no portal do Azure e verifique se você tem uma faixa de URL de assinatura de acesso compartilhado na folha **visão geral** .
+1. Vá ao recurso **Do Disco Gerido** no portal Azure e verifique se tem um banner URL de assinatura de acesso partilhado na lâmina de visão **geral.**
 1. Se a faixa estiver presente, selecione-a para cancelar a exportação em andamento.
 1. Altere o tipo do disco nos próximos minutos. Se você alterar o tipo de disco gerenciado, aguarde até que os pontos de recuperação novos sejam gerados pelo Azure Site Recovery.
 1. Use os novos pontos de recuperação para qualquer failover de teste ou failover no futuro.
@@ -141,7 +141,7 @@ Não. Não há suporte para alternar de gerenciado para não gerenciado.
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quais são os requisitos de VM replicados?
 
-[Saiba mais](vmware-physical-azure-support-matrix.md#replicated-machines) sobre os requisitos de suporte para VMs VMware e servidores físicos.
+[Saiba mais](vmware-physical-azure-support-matrix.md#replicated-machines) sobre os requisitos de suporte para VMware VMs e servidores físicos.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência eu posso replicar no Azure?
 
@@ -149,15 +149,15 @@ A replicação é contínua ao replicar VMs VMware para o Azure.
 
 ### <a name="can-i-extend-replication"></a>Posso estender a replicação?
 
-Não é suportada a replicação expandida ou em cadeia. Solicite esse recurso no [Fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Não é suportada a replicação expandida ou em cadeia. Solicite esta funcionalidade no fórum de [feedback](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Posso fazer uma replicação inicial offline?
 
-Não há suporte para replicação offline. Solicite esse recurso no [Fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Não há suporte para replicação offline. Solicite esta funcionalidade no fórum de [feedback](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="what-is-asrseeddisk"></a>O que é o asrseeddisk?
 
-Para cada disco de origem, os dados são replicados em um disco gerenciado no Azure. Esse disco tem o prefixo de **asrseeddisk**. Ele armazena a cópia do disco de origem e todos os instantâneos de ponto de recuperação.
+Para cada disco de origem, os dados são replicados em um disco gerenciado no Azure. Este disco tem o prefixo do **disco asrseedd**. Ele armazena a cópia do disco de origem e todos os instantâneos de ponto de recuperação.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Posso excluir discos da replicação?
 
@@ -188,17 +188,17 @@ Não, Site Recovery não dá suporte à replicação para o armazenamento do Azu
 
 ## <a name="component-upgrade"></a>Atualização de componente
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Minha versão do agente de serviços de mobilidade ou do servidor de configuração é antiga e a minha atualização falhou. O que devo fazer?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Minha versão do agente de serviços de mobilidade ou do servidor de configuração é antiga e a minha atualização falhou. O que posso fazer?
 
-Site Recovery segue o modelo de suporte N-4. [Saiba mais](https://aka.ms/asr_support_statement) sobre como atualizar de versões muito antigas.
+Site Recovery segue o modelo de suporte N-4. [Saiba mais](https://aka.ms/asr_support_statement) sobre como fazer upgrade a partir de versões muito antigas.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Onde posso encontrar as notas de versão e os pacotes cumulativos de atualizações para Azure Site Recovery?
 
-[Saiba mais sobre novas atualizações](site-recovery-whats-new.md)e [Obtenha informações de rollup](service-updates-how-to.md).
+[Conheça novas atualizações](site-recovery-whats-new.md)e obtenha informações de [rollup.](service-updates-how-to.md)
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Onde posso encontrar informações de atualização para recuperação de desastres no Azure?
 
-[Saiba mais sobre a atualização](https://aka.ms/asr_vmware_upgrades).
+[Saiba mais sobre a atualização.](https://aka.ms/asr_vmware_upgrades)
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>É necessário reinicializar computadores de origem para cada atualização?
 
@@ -226,11 +226,11 @@ Você precisa de uma VM VMware local única e altamente disponível para o servi
 
 ### <a name="what-do-i-need-for-the-configuration-server"></a>O que é necessário para o servidor de configuração?
 
-Examine os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequisites).
+Reveja os [pré-requisitos.](vmware-azure-deploy-configuration-server.md#prerequisites)
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Posso configurar manualmente o servidor de configuração em vez de usar um modelo?
 
-Recomendamos que você [crie a VM do servidor de configuração](vmware-azure-deploy-configuration-server.md) usando a versão mais recente do modelo de Open VIRTUALIZATION Format (OVF). Se você não puder usar o modelo (por exemplo, se não tiver acesso ao servidor VMware), [Baixe](physical-azure-set-up-source.md) o arquivo de instalação do portal e configure o servidor de configuração.
+Recomendamos que [crie o VM do servidor](vmware-azure-deploy-configuration-server.md) de configuração utilizando a versão mais recente do modelo de Formato de Virtualização Aberta (OVF). Se não puder utilizar o modelo (por exemplo, se não tiver acesso ao servidor VMware), [descarregue](physical-azure-set-up-source.md) o ficheiro de configuração a partir do portal e instale o servidor de configuração.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar para mais de uma região?
 
@@ -244,9 +244,9 @@ Embora seja possível, a VM do Azure que executa o servidor de configuração pr
 
 [Saiba](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) como atualizar o servidor de configuração.
 
-- Você pode encontrar as informações de atualização mais recentes na [página atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).
-- Você pode baixar a versão mais recente no Portal. Ou então, você pode baixar a versão mais recente do servidor de configuração diretamente do [centro de download da Microsoft](https://aka.ms/asrconfigurationserver).
-- Se sua versão tiver mais de quatro versões anteriores à versão atual, consulte a [declaração de suporte](https://aka.ms/asr_support_statement) para obter diretrizes de atualização.
+- Pode encontrar as últimas informações sobre a atualização na [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).
+- Você pode baixar a versão mais recente no Portal. Ou pode descarregar a versão mais recente do servidor de configuração diretamente do [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- Se a sua versão for mais de quatro versões mais antigas do que a versão atual, consulte a declaração de [suporte](https://aka.ms/asr_support_statement) para orientação de atualização.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>Devo fazer backup do servidor de configuração?
 
@@ -254,15 +254,15 @@ Recomendamos fazer backups agendados regulares do servidor de configuração.
 
 - Para um failback bem-sucedido, a VM que está sendo reprovada deve existir no banco de dados do servidor de configuração.
 - O servidor de configuração deve estar em execução e em um estado conectado.
-- [Saiba mais](vmware-azure-manage-configuration-server.md) sobre as tarefas comuns de gerenciamento do servidor de configuração.
+- [Saiba mais](vmware-azure-manage-configuration-server.md) sobre tarefas comuns de gestão do servidor de configuração.
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Quando estou Configurando o servidor de configuração, posso baixar e instalar o MySQL manualmente?
 
-Sim. Baixe o MySQL e coloque-o na pasta C:\Temp\ASRSetup Em seguida, instale-o manualmente. Quando você configurar a VM do servidor de configuração e aceitar os termos, o MySQL será listado como **já instalado** em **baixar e instalar**.
+Sim. Baixe o MySQL e coloque-o na pasta C:\Temp\ASRSetup Em seguida, instale-o manualmente. Quando configurar o VM do servidor de configuração e aceitar os termos, o MySQL será listado como **já instalado** no Download **e instalar**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Posso evitar o download do MySQL, mas permitir que Site Recovery o instale?
 
-Sim. Baixe o instalador do MySQL e coloque-o na pasta C:\Temp\ASRSetup Ao configurar a VM do servidor de configuração, aceite os termos e selecione **baixar e instalar**. O portal usará o instalador que você adicionou para instalar o MySQL.
+Sim. Baixe o instalador do MySQL e coloque-o na pasta C:\Temp\ASRSetup Quando configurar o VM do servidor de configuração, aceite os termos e selecione **Descarregar e instalar**. O portal usará o instalador que você adicionou para instalar o MySQL.
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Posso usar a VM do servidor de configuração para qualquer outra coisa?
 
@@ -274,7 +274,7 @@ Não. Configure um novo servidor de configuração para evitar problemas de regi
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Posso alterar o cofre no qual o servidor de configuração está registrado?
 
-Não. Depois que um cofre é associado ao servidor de configuração, ele não pode ser alterado. [Saiba mais](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) sobre como registrar um servidor de configuração com um cofre diferente.
+Não. Depois que um cofre é associado ao servidor de configuração, ele não pode ser alterado. [Aprenda](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) a registar um servidor de configuração com um cofre diferente.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Posso usar o mesmo servidor de configuração para recuperação de desastre de VMs VMware e servidores físicos?
 
@@ -282,11 +282,11 @@ Sim, mas observe que a máquina física pode passar por failback apenas para uma
 
 ### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Onde posso baixar a senha para o servidor de configuração?
 
-[Saiba](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) como baixar a frase secreta.
+[Saiba](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) como descarregar a frase-passe.
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Onde posso baixar chaves de registro do cofre?
 
-No cofre dos serviços de recuperação, selecione **servidores de configuração** no **site Recovery infraestrutura** > **gerenciar**. Em seguida, em **servidores**, selecione **baixar chave de registro** para baixar o arquivo de credenciais do cofre.
+No cofre dos Serviços de Recuperação, selecione **Servidores** de Configuração na **Infraestrutura** de recuperação do local > **Gerir**. Em seguida, em **Servers**, selecione a **chave de registo de descarregamento** para descarregar o ficheiro de credenciais de cofre.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Um único servidor de configuração pode ser usado para proteger várias instâncias do vCenter?
 
@@ -300,11 +300,11 @@ Sim, Azure Site Recovery pode proteger VMs em diferentes clusters.
 
 ### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>Por que não posso selecionar o servidor de processo quando habilito a replicação?
 
-As atualizações nas versões 9,24 e posteriores agora exibem a [integridade do servidor de processo quando você habilita a replicação](vmware-azure-enable-replication.md#enable-replication). Esse recurso ajuda a evitar a limitação do servidor de processo e minimizar o uso de servidores de processo não íntegros.
+Atualizações nas versões 9.24 e mais tarde exibem agora a [saúde do servidor de processo quando ativa a replicação](vmware-azure-enable-replication.md#enable-replication). Esse recurso ajuda a evitar a limitação do servidor de processo e minimizar o uso de servidores de processo não íntegros.
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Como fazer atualizar o servidor de processo para a versão 9,24 ou posterior para obter informações precisas de integridade?
 
-A partir da [versão 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), mais alertas foram adicionados para indicar a integridade do servidor de processo. [Atualize seus componentes do site Recovery para a versão 9,24 ou posterior](service-updates-how-to.md#links-to-currently-supported-update-rollups) para que todos os alertas sejam gerados.
+Começando pela [versão 9.24,](service-updates-how-to.md#links-to-currently-supported-update-rollups)foram adicionados mais alertas para indicar a saúde do servidor do processo. [Atualize os componentes da Recuperação do Site para a versão 9.24 ou posterior para](service-updates-how-to.md#links-to-currently-supported-update-rollups) que todos os alertas sejam gerados.
 
 ## <a name="failover-and-failback"></a>Ativação pós-falha e reativação pós-falha
 
@@ -314,11 +314,11 @@ A partir da [versão 9,24](service-updates-how-to.md#links-to-currently-supporte
 
 ### <a name="can-i-keep-the-ip-address-on-failover"></a>Posso manter o endereço IP no failover?
 
-Sim, você pode manter o endereço IP no failover. Certifique-se de especificar o endereço IP de destino nas configurações de **computação e rede** para a VM antes do failover. Além disso, desligue os computadores no momento do failover para evitar conflitos de endereço IP durante o failback.
+Sim, você pode manter o endereço IP no failover. Certifique-se de que especifica o endereço IP do alvo nas definições **de Compute e Rede** para o VM antes da falha. Além disso, desligue os computadores no momento do failover para evitar conflitos de endereço IP durante o failback.
 
 ### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Posso alterar o tamanho ou o tipo da VM de destino antes do failover?
 
-Sim, você pode alterar o tipo ou o tamanho da VM a qualquer momento antes do failover. No portal, use as configurações de **computação e rede** para a VM replicada.
+Sim, você pode alterar o tipo ou o tamanho da VM a qualquer momento antes do failover. No portal, utilize as definições **de Compute e Rede** para o VM replicado.
 
 ### <a name="how-far-back-can-i-recover"></a>Até que distância posso recuperar?
 
@@ -334,7 +334,7 @@ O Azure foi concebido para ser resiliente. O Site Recovery é projetado para fai
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
 
-O [failover](site-recovery-failover.md) não é automático. Você inicia um failover fazendo uma única seleção no portal ou pode usar o [PowerShell](/powershell/module/az.recoveryservices) para disparar um failover.
+[Falhar](site-recovery-failover.md) não é automático. Inicia uma falha fazendo uma única seleção no portal, ou pode usar o [PowerShell](/powershell/module/az.recoveryservices) para desencadear uma falha.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Posso fazer failback para um local diferente?
 
@@ -357,7 +357,7 @@ Sim. Você pode automatizar fluxos de trabalho de Site Recovery usando a API RES
 
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Examine](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
-- [Configurar](vmware-azure-tutorial.md) Replicação do VMware para o Azure.
+- [Rever](vmware-physical-azure-support-matrix.md) os requisitos de apoio.
+- [Configurar](vmware-azure-tutorial.md) VMware para a replicação de Azure.

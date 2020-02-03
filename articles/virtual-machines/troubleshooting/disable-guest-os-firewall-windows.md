@@ -118,7 +118,7 @@ Siga estes passos para utilizar o [Registo Remoto](https://support.microsoft.com
 
 Se tiver uma situação em que não possa chegar ao VM por qualquer método, a extensão do script personalizado falhará e terá de trabalhar no modo OFFLINE trabalhando diretamente através do disco do sistema. Para tal, siga estes passos:
 
-1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Fixe o disco do sistema a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .
 
 2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 
@@ -160,6 +160,6 @@ Se tiver uma situação em que não possa chegar ao VM por qualquer método, a e
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Desanexar o disco do sistema e voltar a criar a VM](troubleshoot-recovery-disks-portal-windows.md).
+10. [Desmontar o disco do sistema e recriar o VM](troubleshoot-recovery-disks-portal-windows.md).
 
 11. Verifique se o problema está resolvido.

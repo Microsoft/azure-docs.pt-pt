@@ -33,8 +33,8 @@ As sincronizações subsequentes após o ciclo inicial são mais rápidas, uma v
 
 Se o ciclo inicial demorar mais do que algumas horas, há uma coisa que pode fazer para melhorar o desempenho:
 
--   **Filtros de deteção do utilizador.** Os filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando os usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
+-   **Filtros de deteção do utilizador.** Os filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando os usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de deteção, consulte o [fornecimento de aplicações baseado no Atributo com filtros](define-conditional-rules-for-provisioning-user-accounts.md)de deteção .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
 

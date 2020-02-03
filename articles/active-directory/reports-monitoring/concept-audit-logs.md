@@ -35,7 +35,7 @@ A arquitetura de reporte consiste nos seguintes componentes:
     - **Registos de auditoria** - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Exemplos de logs de auditoria incluem alterações feitas em qualquer recurso no Azure AD, como adicionar ou remover usuários, aplicativos, grupos, funções e políticas.
 - **Segurança** 
     - **Inscrições arriscadas** - Um [sinal de inscrição arriscado](concept-risky-sign-ins.md) é um indicador para uma tentativa de inscrição que poderia ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Utilizadores sinalizados para o risco** - Um [utilizador arriscado](concept-user-at-risk.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
 
 Este artigo dá-lhe uma visão geral do relatório de auditoria.
  
@@ -77,11 +77,11 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 Pode filtrar os dados de auditoria nos seguintes campos:
 
-- Serviço
+- Service
 - Categoria
 - Atividade
 - Estado
-- Visar
+- Destino
 - Iniciado por (Actor)
 - Intervalo de datas
 
@@ -89,7 +89,7 @@ Pode filtrar os dados de auditoria nos seguintes campos:
 
 O filtro **Serviço** permite-lhe selecionar a partir de uma lista de drop-down dos seguintes serviços:
 
-- Tudo
+- Todas
 - Revisões de Acesso
 - Aprovisionamento de Contas 
 - Aplicação SSO
@@ -98,7 +98,7 @@ O filtro **Serviço** permite-lhe selecionar a partir de uma lista de drop-down 
 - Acesso Condicional
 - Diretório do Núcleo
 - Gestão de Direitos
-- Proteção de Identidade
+- Identity Protection
 - Utilizadores Convidados
 - PIM
 - Gestão de Grupos Personalizada
@@ -107,18 +107,18 @@ O filtro **Serviço** permite-lhe selecionar a partir de uma lista de drop-down 
 
 O filtro **categoria** permite selecionar um dos seguintes filtros:
 
-- Tudo
+- Todas
 - AdministrativeUnit
 - Gestão de Aplicações
 - Autenticação
 - Autorização
-- Contacte-nos
+- Contacto
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Outros
+- Other
 - Política
 - ResourceManagement
 - RoleManagement
@@ -130,7 +130,7 @@ Pode obter a lista de todas as Atividades de Auditoria utilizando o Gráfico API
 
 O filtro **Status** permite filtrar com base no estado de uma operação de auditoria. O estatuto pode ser um dos seguintes:
 
-- Tudo
+- Todas
 - Êxito
 - Falha
 
@@ -144,11 +144,11 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Personalizados
+- Personalizar
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
-Também pode optar por descarregar os dados filtrados, até 250.000 registos, selecionando o botão **Download.** Pode descarregar os registos em formato CSV ou JSON. O número de registros que você pode baixar é restrito pelo [Azure Active Directory políticas de retenção de relatório](reference-reports-data-retention.md).
+Também pode optar por descarregar os dados filtrados, até 250.000 registos, selecionando o botão **Download.** Pode descarregar os registos em formato CSV ou JSON. O número de registos que pode descarregar está limitado pelas políticas de retenção de [relatórios do Azure Ative Directory.](reference-reports-data-retention.md)
 
 ![Registos de auditoria](./media/concept-audit-logs/download.png "Registos de auditoria")
 
@@ -157,7 +157,7 @@ Também pode optar por descarregar os dados filtrados, até 250.000 registos, se
 Para além do **Azure Active Directory**, o portal do Azure proporciona-lhe dois pontos de entrada adicionais para dados de auditoria:
 
 - Utilizadores e grupos
-- Aplicações Empresariais
+- Aplicações empresariais
 
 ### <a name="users-and-groups-audit-logs"></a>Registos de auditoria de utilizadores e grupos
 
@@ -203,11 +203,11 @@ Se pretender rever os dados de auditoria relacionados com as suas aplicações, 
 
 ## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os registos de atividade da Azure AD partilhem muitos dos recursos de diretório, apenas o centro de administração da Microsoft 365 fornece uma visão completa dos registos de atividade do Office 365. 
+Pode ver registos de atividade do Office 365 a partir do centro de administração da [Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os registos de atividade da Azure AD partilhem muitos dos recursos de diretório, apenas o centro de administração da Microsoft 365 fornece uma visão completa dos registos de atividade do Office 365. 
 
-Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Também pode aceder aos registos de atividade do Office 365 programáticamente utilizando as APIs de [Gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Referência de atividade de auditoria da AD Azure](reference-audit-activities.md)
 - [Azure AD reporta referência de retenção](reference-reports-data-retention.md)

@@ -17,10 +17,10 @@ ms.locfileid: "76721630"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Separador marketplace do módulo IoT Edge
 
-A guia **Marketplace** da página **nova oferta** permite que você forneça a seus clientes potenciais com marketing, vendas e informações legais e contratos e gerencie clientes potenciais gerados no Marketplace. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de marketing**, **Gerenciamento de leads**e **ofício**.
+O separador **Marketplace** da página **New Offer** permite-lhe fornecer aos seus potenciais clientes informações e acordos de marketing, vendas e informações legais e gerir pistas geradas a partir do mercado. Esta longa forma é dividida em quatro secções: **Visão Geral,** **Artefactos de Marketing,** **Gestão de Chumbo,** e **Legal.**
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco (*) anexado ao nome de campo indica que é necessário.
 
@@ -32,10 +32,10 @@ A tabela a seguir descreve a finalidade e o conteúdo desses campos. Os campos o
 |  ---------                |     ---------------                                                          |
 | **Título\***                 | Título da oferta. Será exibido proeminentemente no mercado.  Comprimento máximo de 50 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumo\***               | Resumo curto da oferta. Comprimento máximo de 100 caracteres. <!--ADD PICTURE IN ACTION-->|
-| **Resumo longo\***          | Resumo mais longo da oferta (embora possa ser o mesmo que o **resumo).**  Comprimento máximo de 256 caracteres. <!--ADD PICTURE IN ACTION-->|
+| **\* de resumo longo**          | Resumo mais longo da oferta (embora possa ser o mesmo que o **resumo).**  Comprimento máximo de 256 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Descrição\***           | Descrição da oferta.  O comprimento máximo de 3000 caracteres oferece suporte à formatação HTML simples.<br/> Deve incluir um parágrafo mínimo de requisitos de *hardware* na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e arm32 OS, 1 GB de RAM, 500 Mb de armazenamento</p>
-| **Identificador de marketing\***  | Uma URL exclusiva para associar a esta oferta, normalmente inclui o nome da sua organização e da solução, o comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
-| **Visualizar IDs de assinatura** | Adicione um a 100 identificadores de assinatura de visualizações. Essas assinaturas listadas em branco terão acesso à oferta depois de publicadas, antes de entrar em tempo real. |
+| **Identificação de Marketing\***  | Uma URL exclusiva para associar a esta oferta, normalmente inclui o nome da sua organização e da solução, o comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **IDs de subscrição de pré-visualização** | Adicione um a 100 identificadores de assinatura de visualizações. Essas assinaturas listadas em branco terão acesso à oferta depois de publicadas, antes de entrar em tempo real. |
 | **Links úteis**          | A multi-selecção de categorias empresariais e técnicas que oferecem pode ser melhor associada.  Um máximo de 10 permitidos. Certifique-se de adicionar pelo menos um link à sua documentação e um link para os dispositivos IoT Edge compatíveis do catálogo do [dispositivo Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Categorias sugeridas\*** | Escolha até cinco categorias. Serão mostrados na sua página de detalhes do produto. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria de módulo sinuoso *\> IoT Edge.*|
 |  |  |
@@ -86,12 +86,12 @@ Esta secção tem as seguintes subsecções: **Logos,** **Screenshot**e **Vídeo
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logotipos*  | Veja as capturas de ecrã anteriores para ver como e onde serão utilizados os seus logótipos.  |
-| **\* pequeno**                 | Formato PNG de 40x40 pixel                                                     |
-| **\* médio**                | Formato PNG de 90x90 pixel                                                     |
-| **\* grandes**                 | Formato PNG de 115x115 pixel                                                  |
-| **\* largo**                  | Formato PNG de 255x115 pixel                                                   |
-| **'**                  | Formato PNG de 815x290 pixel.  Opcional, no entanto, uma vez carregado, o ícone Hero não pode ser excluído. |
-| *Capturas*  | As imagens são exibidas na página de detalhes do produto. São uma boa forma de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Pode mostrar diagramas de arquitetura ou usar ilustrações de caso, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
+| **Pequenas\***                 | Formato PNG de 40x40 pixel                                                     |
+| **\* média**                | Formato PNG de 90x90 pixel                                                     |
+| **Grandes\***                 | Formato PNG de 115x115 pixel                                                  |
+| **\***                  | Formato PNG de 255x115 pixel                                                   |
+| **Herói**                  | Formato PNG de 815x290 pixel.  Opcional, no entanto, uma vez carregado, o ícone Hero não pode ser excluído. |
+| *Screenshots*  | As imagens são exibidas na página de detalhes do produto. São uma boa forma de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Pode mostrar diagramas de arquitetura ou usar ilustrações de caso, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
 | **Nome**                  | Nome ou título. Comprimento máximo de 100 caracteres.                             |
 | **Imagem**                 | Imagem de captura de ecrã, formato DE PIXEL 533x324 pixel                               |
 | *Vídeos*  | Os vídeos são exibidos na página de detalhes do produto. São uma boa forma de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. |
@@ -140,12 +140,12 @@ As an example, the following hero icon is for the Azure Container Service.
 
 Esta secção permite-lhe configurar as opções de recolha de leads de clientes gerados a partir das suas ofertas do Azure Marketplace. Pode selecionar as seguintes opções de armazenamento a partir de uma lista de dropdown.
 
-* **Nenhum** -o padrão, as informações de Lead não são coletadas.
+* **Nenhuma** - a informação por defeito, chumbo não é recolhida.
 * Tabela do Azure-gravada na tabela do Azure especificada por uma cadeia de conexão.
-* Dynamics CRM Online – gravado na instância [online do Microsoft Dynamics 365](https://dynamics.microsoft.com/) , especificada por uma URL e credenciais de autenticação.
+* Dynamics CRM Online - escrito para a instância [Online Microsoft Dynamics 365,](https://dynamics.microsoft.com/) especificado por um URL e credenciais de autenticação.
 * Ponto de extremidade HTTPS-gravado no ponto de extremidade HTTPS especificado como uma carga JSON.
-* Marketo-gravado na instância especificada do [marketo](https://www.marketo.com/) , especificada pela ID do servidor, ID do MUNCHKIN e ID do formulário.
-* Salesforce-gravado em um banco de dados do [Salesforce](https://www.salesforce.com/) , especificado por um identificador de objeto.
+* Marketo - escrito para a instância de [Marketo](https://www.marketo.com/) especificada, especificado por ID do servidor, identificação de munchkin e id de formulário.
+* Salesforce - escrito para uma base de dados [salesforce,](https://www.salesforce.com/) especificado por um identificador de objetos.
 
 Depois de publicar com sucesso a sua oferta, a ligação de chumbo é verificada e um fio de teste é automaticamente enviado para o destino que configura. 
 
@@ -159,18 +159,18 @@ Depois de publicar com sucesso a sua oferta, a ligação de chumbo é verificada
 4. amp.com the tile -->
 
 
-## <a name="legal"></a>Informações Legais
+## <a name="legal"></a>Legal
 
 Esta secção permite-lhe fornecer os dois documentos legais que são necessários para cada oferta: Política de Privacidade e os Termos de Utilização.
 
 |  **Campo**                    |     **Descrição**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **URL da política de privacidade\***      | URL para a política de privacidade postada                                            |
+| **URL de política de privacidade\***      | URL para a política de privacidade postada                                            |
 | **Use\* de Constract Padrão**  | Se usar o modelo padrão de contrato da Microsoft.  Para mais informações, consulte [O Contrato Padrão](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
 | **Termos de utilização\***            | *Termos de utilização* como HTML simples inline ou link para os termos de utilização publicados     |
 |  |  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Utilize o separador [Suporte](./cpp-support-tab.md) para fornecer os recursos técnicos e de suporte ao utilizador para a sua oferta.

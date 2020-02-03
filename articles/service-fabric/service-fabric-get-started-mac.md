@@ -101,7 +101,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. O cluster levará alguns instantes para ser iniciado. Quando estiver em execução, você poderá exibir os logs usando o comando a seguir ou ir até o painel para exibir a integridade dos clusters [http://localhost:19080](http://localhost:19080):
+5. O cluster levará alguns instantes para ser iniciado. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte comando ou saltar para o painel de instrumentos para ver os clusters de saúde [http://localhost:19080: ](http://localhost:19080)
 
     ```bash 
     docker logs sftestcluster
@@ -211,7 +211,7 @@ Os atributos são definidos do seguinte modo:
 >Se iniciar o contentor com um nome que não seja `sfonebox`, atualize o valor de nome no ficheiro testclient.sh na sua aplicação Java de atores do Service Fabric.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 <!-- Links -->
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

@@ -126,7 +126,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
 
     Para acompanhar a versão no registo do seu contentor, adicione a etiqueta com um formato de versão, como `v1`.
 
-1. Empurre a imagem para o registo do seu contentor. Esta operação poderá demorar alguns minutos.
+1. Empurre a imagem para o registo do seu contentor. Esta ação poderá demorar alguns minutos.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -150,7 +150,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
 
 ## <a name="get-language-detection-docker-image"></a>Obtenha imagem de Docker de deteção de linguagem
 
-1. Puxe a versão mais recente da imagem do Docker para a máquina local. Esta operação poderá demorar alguns minutos. Se houver uma versão mais recente deste recipiente, mude o valor de `1.1.006770001-amd64-preview` para a versão mais recente.
+1. Puxe a versão mais recente da imagem do Docker para a máquina local. Esta ação poderá demorar alguns minutos. Se houver uma versão mais recente deste recipiente, mude o valor de `1.1.006770001-amd64-preview` para a versão mais recente.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -162,7 +162,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. Empurre a imagem para o registo do seu contentor. Esta operação poderá demorar alguns minutos.
+1. Empurre a imagem para o registo do seu contentor. Esta ação poderá demorar alguns minutos.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -313,14 +313,14 @@ Esta secção utiliza o **KUBectl** CLI para falar com o Serviço Azure Kubernet
 
 1. Altere as linhas de implementação do frontend de idioma de `language.yml` com base na tabela seguinte para adicionar os nomes de imagens do registo de contentores, o segredo do cliente e as definições de análise de texto.
 
-    Definições de implementação de frontend de idioma|Finalidade|
+    Definições de implementação de frontend de idioma|Objetivo|
     |--|--|
     |Linha 32<br> propriedade `image`|Localização da imagem para a imagem frontal no seu Registo de Contentores<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Linha 44<br> propriedade `name`|Registo de contentores em segredo para a imagem, referido como `<client-secret>` numa secção anterior.|
 
 1. Altere as linhas de implementação de idiomas de `language.yml` com base na tabela seguinte para adicionar os nomes de imagens do registo de contentores, o segredo do cliente e as definições de análise de texto.
 
-    |Definições de implementação de idiomas|Finalidade|
+    |Definições de implementação de idiomas|Objetivo|
     |--|--|
     |Linha 78<br> propriedade `image`|Localização da imagem para a imagem linguística no seu Registo de Contentores<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Linha 95<br> propriedade `name`|Registo de contentores em segredo para a imagem, referido como `<client-secret>` numa secção anterior.|
@@ -405,10 +405,10 @@ az group delete --name cogserv-container-rg
 
 * [kubectl para Utilizadores de Docker](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Contêineres de serviços cognitivas](../cognitive-services-container-support.md)
+> [Recipientes de Serviços Cognitivos](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

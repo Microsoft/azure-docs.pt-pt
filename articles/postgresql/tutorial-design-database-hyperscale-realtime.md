@@ -196,7 +196,7 @@ Com a nossa função no lugar, execute-os para arregaçar os dados:
 SELECT rollup_http_request();
 ```
 
-E com os nossos dados de forma pré-agregada podemos consultar a mesa de rollup para obter o mesmo relatório de antes. Executar a seguinte consulta:
+E com os nossos dados de forma pré-agregada podemos consultar a mesa de rollup para obter o mesmo relatório de antes. Execute a seguinte consulta:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -220,7 +220,7 @@ Na produção, pode embrulhar estas consultas numa função e chamá-las a cada 
 
 Nos passos anteriores, criou os recursos do Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Visão Geral'* para o seu grupo de servidores. Quando solicitado numa página pop-up, confirme o nome do grupo do servidor e clique no *botão* Eliminar final.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a fornecer um grupo de servidores de Hiperescala (Citus). Ligaste-lhe com o PSQL, criaste um esquema e distribuíste dados. Aprendeu a consultar dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar dados antigos.
 

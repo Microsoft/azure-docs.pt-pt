@@ -112,6 +112,6 @@ Sim. Se tiver codificado uma aplicação para o comportamento antigo que existia
 7. Complete a configuração de fornecimento do utilizador como normalmente faria.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre o provisionamento e o desprovisionamento às aplicações saaS](user-provisioning.md)
 

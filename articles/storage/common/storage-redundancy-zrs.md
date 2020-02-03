@@ -23,7 +23,7 @@ ms.locfileid: "76719097"
 
 ## <a name="support-coverage-and-regional-availability"></a>Cobertura de apoio e disponibilidade regional
 
-Atualmente, o ZRS suporta os tipos padrão de v2 de uso geral, FileStorage e BlockBlobStorage. Para obter mais informações sobre tipos de conta de armazenamento, consulte [visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+Atualmente, o ZRS suporta os tipos padrão de v2 de uso geral, FileStorage e BlockBlobStorage. Para obter mais informações sobre os tipos de conta de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](storage-account-overview.md)
 
 Contas de v2 ZRS de propósito geral suportam bolhas de blocos, bolhas de página não-disco, partilhas de ficheiros padrão, tabelas e filas.
 
@@ -34,12 +34,12 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Europa Ocidental
 - França Central
 - Leste do Japão
-- Norte da África do Sul
-- Sul do Reino Unido
+- África do Sul Norte
+- Reino Unido Sul
 - E.U.A. Central
 - E.U.A Leste
-- E.U.A Leste 2
-- E.U.A. Oeste 2
+- E.U.A. Leste 2
+- E.U.A. Oeste 2
 
 Para contas de FileStorage (ações de ficheiropremium) e contas BlockBlobStorage (blobs de blocopremium), o ZRS está geralmente disponível nas seguintes regiões:
 
@@ -50,8 +50,8 @@ A Microsoft continua a permitir o ZRS em regiões azure adicionais. Consulte reg
 
 **Limitações conhecidas**
 
-- O nível de arquivo não é atualmente suportado nas contas ZRS. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
-- Os discos geridos não suportam ZRS. Você pode armazenar instantâneos e imagens para SSD Standard Managed Disks no armazenamento HDD Standard e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
+- O nível de arquivo não é atualmente suportado nas contas ZRS. Consulte [o armazenamento Azure Blob: hot, cool e archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para mais detalhes.
+- Os discos geridos não suportam ZRS. Pode armazenar instantâneos e imagens para discos geridos standard SSD no armazenamento Standard HDD e [escolher entre opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>O que acontece quando uma zona fica indisponível?
 
@@ -94,21 +94,21 @@ Tenha em mente as seguintes restrições na migração ao vivo:
 - Você só pode migrar dados dentro da mesma região. Se pretender migrar os seus dados para uma conta ZRS localizada numa região diferente da conta fonte, então deve realizar uma migração manual.
 - Somente os tipos de conta de armazenamento Standard dão suporte à migração dinâmica. As contas de armazenamento Premium devem ser migradas manualmente.
 - A migração ao vivo de ZRS para LRS, GRS ou RA-GRS não é suportada. Terá de mover os dados manualmente para uma conta de armazenamento nova ou existente.
-- Os discos geridos só estão disponíveis para LRS e não podem ser migrados para ZRS. Você pode armazenar instantâneos e imagens para SSD Standard Managed Disks no armazenamento HDD Standard e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para integração com conjuntos de disponibilidade ver [Introdução aos discos geridos pelo Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)
+- Os discos geridos só estão disponíveis para LRS e não podem ser migrados para ZRS. Pode armazenar instantâneos e imagens para discos geridos standard SSD no armazenamento Standard HDD e [escolher entre opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para integração com conjuntos de disponibilidade ver [Introdução aos discos geridos pelo Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)
 - As contas LRS ou GRS com dados do Arquivo não podem ser migradas para ZRS.
 
 Pode solicitar migração ao vivo através do [portal de suporte azure.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) A partir do portal, selecione a conta de armazenamento que pretende converter para ZRS.
 1. Selecione **novo pedido de suporte**
-2. Conclua os **conceitos básicos** com base nas informações da sua conta. Na secção **Serviço,** selecione **Gestão** de Conta de Armazenamento e o recurso que pretende converter para ZRS. 
+2. Complete o **Básico** com base nas informações da sua conta. Na secção **Serviço,** selecione **Gestão** de Conta de Armazenamento e o recurso que pretende converter para ZRS. 
 3. Selecione **Seguinte**. 
-4. Especifique os valores a seguir na seção **problema** : 
-    - **Severidade**: Deixe o valor padrão como está.
-    - **Tipo de problema**: selecione **migração de dados**.
+4. Especificar os seguintes valores na secção **Problema:** 
+    - **Gravidade**: Deixe o valor padrão como está.
+    - **Tipo de problema:** Selecione **migração de dados**.
     - **Categoria**: **Selecione Migrar para ZRS**.
     - **Denominação**: Digite um título descritivo, por exemplo, migração da **conta ZRS**.
     - **Detalhes**: Digite detalhes adicionais na caixa **de Detalhes,** por exemplo, gostaria de migrar para ZRS de [LRS, GRS] na região \_\_. 
 5. Selecione **Seguinte**.
-6. Verifique se as informações de contato estão corretas na folha **informações de contato** .
+6. Verifique se as informações de contacto estão corretas na lâmina de informação do **contacto.**
 7. Selecione **Criar**.
 
 Uma pessoa de apoio entrará em contacto consigo e fornecerá toda a assistência que precisar.
@@ -165,7 +165,7 @@ Para atualizar para ZRS utilizando cli ligue para o seguinte comando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)
-- [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
-- [Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)
+- [Armazenamento localmente redundante (LRS): redundância de dados de baixo custo para armazenamento azure](storage-redundancy-lrs.md)
+- [Armazenamento geo-redundante (GRS): replicação inter-regional para armazenamento azure](storage-redundancy-grs.md)

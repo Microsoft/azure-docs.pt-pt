@@ -14,9 +14,9 @@ ms.locfileid: "76722344"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de Service Fabric do Azure e conjuntos de dimensionamento de máquinas virtuais
 
-Os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets) são um recurso de computação do Azure. Você pode usar conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster de Service Fabric do Azure define uma escala separada. O tempo de execução do Service Fabric é instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual *Microsoft. Azure. perfabric* . Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, alterar a SKU do sistema operacional em execução em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes.
+[Os conjuntos](/azure/virtual-machine-scale-sets) de escala de máquinas virtuais são um recurso de computação Azure. Você pode usar conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster de Service Fabric do Azure define uma escala separada. O tempo de execução do Tecido de Serviço está instalado em cada máquina virtual na escala definida pela extensão *Microsoft.Azure.ServiceFabric* Virtual Machine. Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, alterar a SKU do sistema operacional em execução em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes.
 
-A figura a seguir mostra um cluster que tem dois tipos de nó, chamados *frontend* e *back-end*. Cada tipo de nó tem cinco nós.
+A figura que se segue mostra um cluster que tem dois tipos de nó, chamado *FrontEnd* e *BackEnd*. Cada tipo de nó tem cinco nós.
 
 ![Um cluster que tem dois tipos de nó][NodeTypes]
 
@@ -28,7 +28,7 @@ Quando você escala verticalmente um conjunto de dimensionamento, uma nova inst�
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear conjunto de dimensionamento de balanceamento de carga para tipos de nó e conjuntos de dimensionamento
 
-Se você implantou o cluster no portal do Azure ou usou o modelo de Azure Resource Manager de exemplo, todos os recursos em um grupo de recursos são listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **lb-&lt;nome do tipo de nó&gt;** . Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
+Se você implantou o cluster no portal do Azure ou usou o modelo de Azure Resource Manager de exemplo, todos os recursos em um grupo de recursos são listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do equilíbrio de carga utiliza o seguinte formato: **LB-&lt;nome** do tipo nó&gt;. Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
 
 ![Recursos][Resources]
 
@@ -70,29 +70,29 @@ Veja a seguir um trecho de Service Fabric extensão da máquina virtual:
 
 A seguir estão as descrições de propriedade:
 
-| **Nome** | **Valores permitidos** | **Orientação ou descrição resumida** |
+| **Nome** | **Valores Permitidos** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-| nome | string | nome exclusivo para a extensão |
+| nome | Cadeia de caracteres | nome exclusivo para a extensão |
 | tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | publicador | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de tecido de serviço |
-| clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | string | nome do nodeType |
+| clusterEndpont | Cadeia de caracteres | URI: porta para ponto de extremidade de gerenciamento |
+| nodeTypeRef | Cadeia de caracteres | nome do nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
-| nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0/24" |
+| nicPrefixOverride | Cadeia de caracteres | Prefixo de sub-rede como "10.0.0.0/24" |
 | commonNames | string[] | Nomes comuns de certificados de cluster instalados |
-| x509StoreName | string | Nome do repositório onde o certificado de cluster instalado está localizado |
+| x509StoreName | Cadeia de caracteres | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1.1 | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| dataPath | string | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
+| dataPath | Cadeia de caracteres | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Consulte a [visão geral do recurso "implantar em qualquer lugar" e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md).
-* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
-* [Conexão remota](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) a uma instância específica do conjunto de dimensionamento
-* [Atualizar os valores de intervalo de porta RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) em VMs de cluster após a implantação
-* [Alterar o nome de usuário e a senha do administrador](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) para VMs do cluster
+* Veja a [visão geral da funcionalidade "Implementar em qualquer lugar" e uma comparação com clusters geridos pelo Azure](service-fabric-deploy-anywhere.md).
+* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
+* [Ligação remota](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) a uma instância específica de conjunto de escala
+* [Atualizar os valores da gama de porta rdp](./scripts/service-fabric-powershell-change-rdp-port-range.md) em VMs de cluster após a implantação
+* Alterar o nome de utilizador e a [palavra-passe](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) do administrador para VMs de cluster
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png

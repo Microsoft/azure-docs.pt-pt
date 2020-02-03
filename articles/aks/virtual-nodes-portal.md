@@ -79,7 +79,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Serviço Kubernetes**.
 
-Na página **noções básicas** , configure as seguintes opções:
+Na página **Basics,** configure as seguintes opções:
 
 - *DETALHES DO PROJETO*: selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
 - *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
@@ -217,7 +217,7 @@ $ curl -L 10.241.0.4
 
 Feche a sessão terminal na sua cápsula de teste com `exit`. Quando a sua sessão terminar, a cápsula é a eliminada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, uma cápsula foi programada no nó virtual e atribuiu um endereço IP privado e interno. Em vez disso, poderia criar uma implantação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para mais informações, consulte Criar um controlador básico de [ingresso no AKS][aks-basic-ingress].
 

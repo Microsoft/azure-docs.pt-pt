@@ -10,7 +10,7 @@ ms.date: 10/18/2019
 ms.author: diberry
 ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
 ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76748781"
@@ -18,7 +18,7 @@ ms.locfileid: "76748781"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Chave inicial.
-* Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório do GitHub cognitiva-Services-Language-Understanding.
+* Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. O ID da aplicação é apresentado no dashboard de aplicações.
 * A ID da versão no aplicativo que recebe o declarações. O ID predefinido é "0.1".
 * Linguagem de programação [Node.js](https://nodejs.org/) 
@@ -35,7 +35,7 @@ ms.locfileid: "76748781"
 
 ## <a name="change-model-programmatically"></a>Alterar modelo programaticamente
 
-Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquina ao aplicativo. 
+Use O Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquinas à aplicação. 
 
 1. Crie um novo ficheiro com o nome `model.js`. Adicione o seguinte código:
 
@@ -113,9 +113,9 @@ Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de enti
     ```
 1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com a ID do seu aplicativo
+    * `YOUR-KEY` com a sua chave de arranque
+    * `YOUR-ENDPOINT` com o seu ponto final, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-APP-ID` com a identificação da sua aplicação
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, digite o seguinte comando para executar o arquivo:
 
@@ -131,7 +131,7 @@ Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de enti
 
 Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Práticas recomendadas para um aplicativo](../luis-concept-best-practices.md)
+> [Boas práticas para uma aplicação](../luis-concept-best-practices.md)

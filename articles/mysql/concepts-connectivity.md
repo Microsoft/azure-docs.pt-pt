@@ -52,10 +52,10 @@ As conexões de banco de dados são um recurso limitado, portanto, fazer uso efe
 
 O gerenciamento de conexões de banco de dados pode ter um impacto significativo no desempenho do aplicativo como um todo. Para otimizar o desempenho do seu aplicativo, o objetivo deve ser reduzir o número de vezes que as conexões são estabelecidas e o tempo para estabelecer conexões em caminhos de código-chave. É altamente recomendável usar o pool de conexões de banco de dados ou conexões persistentes para se conectar ao banco de dados do Azure para MySQL. O pool de conexões de banco de dados lida com a criação, o gerenciamento e a alocação de conexões de banco de dados. Quando um programa solicita uma conexão de banco de dados, ele prioriza a alocação de conexões de banco de dados ociosas existentes, em vez da criação de uma nova conexão. Depois que o programa terminar de usar a conexão de banco de dados, a conexão será recuperada na preparação para uso posterior, em vez de simplesmente ser fechada.
 
-Para uma ilustração melhor, este artigo fornece [um trecho de código de exemplo](./sample-scripts-java-connection-pooling.md) que usa Java como exemplo. Para obter mais informações, consulte [apache common dbcp](https://commons.apache.org/proper/commons-dbcp/).
+Para uma melhor ilustração, este artigo fornece [um pedaço de código de amostra](./sample-scripts-java-connection-pooling.md) que usa java como exemplo. Para mais informações, consulte [o Apache Common DBCP.](https://commons.apache.org/proper/commons-dbcp/)
 
 > [!NOTE]
-> O servidor configura um mecanismo de tempo limite para fechar uma conexão que esteve em estado ocioso por algum tempo para liberar recursos. Certifique-se de configurar o sistema de verificação para garantir a eficácia de conexões persistentes quando você as estiver usando. Para obter mais informações, consulte [Configurar sistemas de verificação no lado do cliente para garantir a eficácia de conexões persistentes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
+> O servidor configura um mecanismo de tempo limite para fechar uma conexão que esteve em estado ocioso por algum tempo para liberar recursos. Certifique-se de configurar o sistema de verificação para garantir a eficácia de conexões persistentes quando você as estiver usando. Para mais informações, consulte os sistemas de [verificação Configure do lado do cliente para garantir a eficácia das ligações persistentes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
 
 ## <a name="access-databases-by-using-persistent-connections-recommended"></a>Acessar bancos de dados usando conexões persistentes (recomendado)
 
@@ -71,7 +71,7 @@ O servidor configura um mecanismo de tempo limite para fechar uma conexão que e
 
 Ao definir o parâmetro TestOnBorrow, quando há uma nova solicitação, o pool de conexões verifica automaticamente a eficácia de todas as conexões ociosas disponíveis. Se essa conexão for eficaz, o pool de conexão retornado de outra forma retornará a conexão. O pool de conexões cria uma nova conexão efetiva e a retorna. Esse processo garante que o banco de dados seja acessado com eficiência. 
 
-Para obter informações sobre as configurações específicas, consulte o [documento introdução oficial do pool de conexões JDBC](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). Você precisa definir principalmente os três parâmetros a seguir: TestOnBorrow (definido como true), ValidationQuery (definido como SELECT 1) e ValidationQueryTimeout (definido como 1). O código de exemplo específico é mostrado abaixo:
+Para obter informações sobre as definições específicas, consulte o documento oficial de introdução do [pool de ligação JDBC](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). Você precisa definir principalmente os três parâmetros a seguir: TestOnBorrow (definido como true), ValidationQuery (definido como SELECT 1) e ValidationQueryTimeout (definido como 1). O código de exemplo específico é mostrado abaixo:
 
 ```java
 public class SimpleTestOnBorrowExample {
@@ -110,6 +110,6 @@ public class SimpleTestOnBorrowExample {
   }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Resolver problemas de ligação à Base de Dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)

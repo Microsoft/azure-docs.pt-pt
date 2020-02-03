@@ -19,7 +19,7 @@ ms.locfileid: "76722106"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento ágil de projetos de ciência de dados
 
-Este documento descreve como os desenvolvedores podem executar um projeto de ciência de dados numa sistemática, a versão controlada e a forma de colaboração dentro de uma equipe de projeto, utilizando o [Team Data Science Process](overview.md) (TDSP). O TDSP é um quadro desenvolvido pela Microsoft que fornece uma sequência estruturada de atividades para executar eficientemente soluções de análise preditivas baseadas na nuvem. Para um esboço das funções e tarefas que são tratadas por uma equipa de ciência de dados padronizada no TDSP, consulte as [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipa. 
+Este documento descreve como os desenvolvedores podem executar um projeto de ciência de dados de forma sistemática, controlada e colaborativa dentro de uma equipa de projeto, utilizando o Processo de Ciência de Dados da [Equipa](overview.md) (TDSP). O TDSP é um quadro desenvolvido pela Microsoft que fornece uma sequência estruturada de atividades para executar eficientemente soluções de análise preditivas baseadas na nuvem. Para um esboço das funções e tarefas que são tratadas por uma equipa de ciência de dados padronizada no TDSP, consulte as [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipa. 
 
 Este artigo inclui instruções sobre como: 
 
@@ -158,9 +158,9 @@ Os cientistas de dados podem sentir-se mais confortáveis usando um modelo ágil
    
 1. Siga os mesmos passos para renomear **funcionalidades** para *estágios TDSP,* e adicione os seguintes novos tipos de itens de trabalho:
    
-   - *Compreensão empresarial*
+   - *Compreensão de Negócios*
    - *Aquisição de Dados*
-   - *Modelagem*
+   - *Modelação*
    - *Implementação*
    
 1. Sob **atraso de requisitos**, rebatiza **histórias** para *subpalcos TDSP,* adicione o novo item de trabalho tipo *TDSP Substage,* e detete o tipo de artigo de trabalho padrão para **substagee TDSP**.
@@ -208,7 +208,7 @@ Aqui está um exemplo de como os itens de trabalho do projeto de ciência de dad
 ![18](./media/agile-development/18-workitems1.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [A codificação colaborativa com git](collaborative-coding-with-git.md) descreve como fazer o desenvolvimento colaborativo de códigos para projetos de ciência de dados usando Git como o quadro de desenvolvimento de código compartilhado, e como ligar essas atividades de codificação ao trabalho planeado com o processo ágil.
 

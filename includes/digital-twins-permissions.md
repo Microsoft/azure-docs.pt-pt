@@ -17,21 +17,21 @@ ms.lasthandoff: 01/24/2020
 ms.locfileid: "76748976"
 ---
 >[!NOTE]
->Esta seção fornece instruções para o [registro de aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+>Esta secção fornece instruções para o registo da [aplicação Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
-1. No [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no menu expansível à esquerda e, em seguida, abra o painel **registros de aplicativo** . 
+1. No [portal Azure,](https://portal.azure.com)abra o **Azure Ative Directory** a partir do menu esquerdo expansível e, em seguida, abra o painel de inscrições da **App.** 
 
     [![Selecione o painel de diretório ativo Azure](./media/digital-twins-permissions/azure-portal-select-aad-pane.png)](./media/digital-twins-permissions/azure-portal-select-aad-pane.png#lightbox)
 
-1. Selecione o botão **+ novo registro** .
+1. Selecione o botão **+ Novo de registo.**
 
     [![Selecione o novo botão de registo](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
-1. Dê um nome amigável para esse registro de aplicativo na caixa **nome** . Na seção **URI de redirecionamento (opcional)** , escolha **cliente público/nativo (Mobile & Desktop)** no menu suspenso à esquerda e digite `https://microsoft.com` na caixa de texto à direita. Selecione **Registar**.
+1. Dê um nome amigável para este registo de aplicação na caixa **Nome.** No âmbito da secção **Redirect URI (opcional),** escolha cliente **público/nativo (mobile & desktop)** no menu suspenso à esquerda e introduza `https://microsoft.com` na caixa de texto à direita. Selecione **Registar**.
 
     [![Criar o painel](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. Para certificar-se [de que o aplicativo está registrado como um **cliente público**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra o painel de **autenticação** para o registro do aplicativo e role para baixo nesse painel. Na seção **tipo de cliente padrão** , escolha **Sim** para **tratar aplicativo como um cliente público**e clique em **salvar**.
+1. Para se certificar de que [a aplicação está registada como **cliente público,** ](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)abra o painel de **Autenticação** para o registo da sua aplicação e desloque-se para baixo nesse painel. Na secção **de tipo de cliente Predefinido,** escolha **sim** para **tratar aplicação como cliente público**, e bata **save**.
 
     1. **As URIs de redirecionamento** devem coincidir com o endereço fornecido pelo pedido de autenticação:
 
@@ -46,34 +46,34 @@ ms.locfileid: "76748976"
 
         [![configuração de configuração do cliente público](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
-1.  Abra o painel **visão geral** do seu aplicativo registrado e copie os valores das entidades a seguir para um arquivo temporário. Você usará esses valores para configurar o aplicativo de exemplo nas seções a seguir.
+1.  Abra o painel de **visão geral** da sua app registada e copie os valores das seguintes entidades para um ficheiro temporário. Você usará esses valores para configurar o aplicativo de exemplo nas seções a seguir.
 
-    - **ID do aplicativo (cliente)**
-    - **ID do diretório (locatário)**
+    - **Id de aplicação (cliente)**
+    - **ID do diretório (inquilino)**
 
     [ID de aplicação de diretório ativo ![Azure](./media/digital-twins-permissions/aad-app-reg-app-id.png)](./media/digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
 
-1. Abra o painel **permissões de API** para o registro do aplicativo. Selecione **+ Adicionar um botão de permissão** . No painel **solicitar permissões de API** , selecione a guia **APIs que minha organização usa** e, em seguida, pesquise um dos seguintes:
+1. Abra o painel de **permissões DaPI** para o registo da sua aplicação. Selecione + Adicione um botão **de permissão.** No painel de **permissões Request API,** selecione as **APIs** que a minha organização usa aba e, em seguida, procure por uma das seguintes:
     
-    1. `Azure Digital Twins`. Selecione a API de **gêmeos digital do Azure** .
+    1. `Azure Digital Twins`. Selecione a API de **Gémeos Digitais Azure.**
 
         [![Pesquisa API ou Gémeos Digitais Azure](./media/digital-twins-permissions/aad-aap-search-api-dt.png)](./media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    1. Como alternativa, pesquise por `Azure Smart Spaces Service`. Selecione a API de **serviço de espaços inteligentes do Azure** .
+    1. Alternativamente, procure `Azure Smart Spaces Service`. Selecione a API **de Serviço de Espaços Inteligentes Azure.**
 
         [![Pesquisa API para espaços inteligentes Azure](./media/digital-twins-permissions/aad-app-search-api.png)](./media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
     > O nome e a ID da API do Azure AD que serão exibidos dependerá do seu locatário:
-    > * As contas de locatário e cliente de teste devem Pesquisar `Azure Digital Twins`.
-    > * Outras contas da Microsoft devem Pesquisar `Azure Smart Spaces Service`.
+    > * O inquilino de teste e as contas dos clientes devem procurar `Azure Digital Twins`.
+    > * Outras contas da Microsoft devem procurar por `Azure Smart Spaces Service`.
 
-1. A API será exibida como **Azure digital gêmeos** no mesmo painel de **permissões de API de solicitação** , uma vez selecionada. Selecione a opção lista suspensa **ler** e, em seguida, marque a caixa de seleção **ler. gravar** . Selecione o botão **adicionar permissões** .
+1. Ou a API aparecerá como **Azure Digital Twins** no mesmo painel de **permissões Request API** uma vez selecionado. Selecione a opção "Ler"drop-down" e, em seguida, selecione a caixa de verificação **Read.Write.** Selecione o botão **adicionar permissões.**
 
     [![Adicionar permissões de APIs](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Dependendo das configurações da sua organização, talvez seja necessário executar etapas adicionais para conceder acesso de administrador a essa API. Contate o administrador para obter mais informações. Depois que o acesso de administrador for aprovado, a coluna **consentimento de administrador necessário** no painel **permissões de API** exibirá suas permissões. 
+1. Dependendo das configurações da sua organização, talvez seja necessário executar etapas adicionais para conceder acesso de administrador a essa API. Contate o administrador para obter mais informações. Uma vez aprovado o acesso ao administrador, a coluna **Requerida** de Consentimento do Administrador no painel de **permissões DaPI** apresentará as suas permissões. 
 
     [aprovação de consentimento do Administrador ![](./media/digital-twins-permissions/aad-app-admin-consent.png)](./media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
-    Verifique se o **Azure digital gêmeos** é exibido.
+    Verifique se surgem **gémeos digitais Azure.**

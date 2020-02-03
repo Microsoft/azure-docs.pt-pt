@@ -65,7 +65,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . 
+Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) 
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Armazene o nome do grupo de recursos em uma variável para uso futuro. Neste exemplo, um grupo de recursos chamado *pshtablesrg* é criado na região *oriental.*
 
@@ -76,7 +76,7 @@ New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Criar conta de armazenamento
 
-Crie uma conta de armazenamento de uso geral padrão com LRS (armazenamento com redundância local) usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Certifique-se de especificar um nome único da conta de armazenamento. Em seguida, obtenha o contexto que representa a conta de armazenamento. Ao agir numa conta de armazenamento, pode fazer referência ao contexto em vez de fornecer repetidamente as suas credenciais.
+Crie uma conta de armazenamento padrão para fins gerais com armazenamento redundante localmente (LRS) utilizando [new-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Certifique-se de especificar um nome único da conta de armazenamento. Em seguida, obtenha o contexto que representa a conta de armazenamento. Ao agir numa conta de armazenamento, pode fazer referência ao contexto em vez de fornecer repetidamente as suas credenciais.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
@@ -146,7 +146,7 @@ Se criou uma nova conta de grupo de recursos e armazenamento no início deste ho
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo de como fazer, aprendeu sobre operações comuns de armazenamento de mesa azure com a PowerShell, incluindo como: 
 

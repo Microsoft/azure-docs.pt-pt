@@ -33,7 +33,7 @@ Certifique-se de configurar um recurso do Analisador de Internet e selecionar a 
 2. Na sua aplicação web personalizada, implemente a imagem de teste num caminho acessível ao público. O caminho deve funcionar sobre HTTPS. 
 3. Copie o URL completo do ponto final personalizado (por exemplo, https://contoso.com/test/trans.gif) no campo de ponto final personalizado durante a sua criação de teste.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Leia as [perguntas frequentes do Internet Analyzer](internet-analyzer-faq.md)
+Leia o [FaQ do Analisador](internet-analyzer-faq.md) de Internet
 

@@ -1,5 +1,5 @@
 ---
-title: Isolamento das cargas de trabalho
+title: Isolamento de cargas de trabalho
 description: Diretrizes para definir o isolamento de carga de trabalho com grupos de carga de trabalho no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -24,11 +24,11 @@ Este artigo explica como os grupos de cargas de trabalho podem ser usados para c
 
 ## <a name="workload-groups"></a>Grupos de cargas de trabalho
 
-Grupos de cargas de trabalho são contêineres para um conjunto de solicitações e são a base para como o gerenciamento de carga de trabalho, incluindo o isolamento da carga de trabalho, é configurado em um sistema.  Os grupos de cargas de trabalho são criados usando a sintaxe [Criar grupo de carga de trabalho](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Uma configuração simples de gerenciamento de carga de trabalho pode gerenciar cargas de dados e consultas de usuário.  Por exemplo, um grupo de carga de trabalho chamado `wgDataLoads` definirá os aspectos de carga de trabalho para os dados que estão sendo carregados no sistema. Além disso, um grupo de carga de trabalho chamado `wgUserQueries` definirá aspectos de carga de trabalho para os usuários que executam consultas para ler dados do sistema.
+Grupos de cargas de trabalho são contêineres para um conjunto de solicitações e são a base para como o gerenciamento de carga de trabalho, incluindo o isolamento da carga de trabalho, é configurado em um sistema.  Os grupos de carga de trabalho são criados utilizando a sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Uma configuração simples de gerenciamento de carga de trabalho pode gerenciar cargas de dados e consultas de usuário.  Por exemplo, um grupo de carga de trabalho chamado `wgDataLoads` definirá aspetos de carga de trabalho para os dados que estão a ser carregados no sistema. Além disso, um grupo de carga de trabalho chamado `wgUserQueries` definirá aspetos de carga de trabalho para os utilizadores que executam consultas para ler dados do sistema.
 
 As seções a seguir destacarão como os grupos de cargas de trabalho fornecem a capacidade de definir isolamento, contenção, solicitar definição de recursos e aderir às regras de execução.
 
-## <a name="workload-isolation"></a>Isolamento das cargas de trabalho
+## <a name="workload-isolation"></a>Isolamento de cargas de trabalho
 
 O isolamento da carga de trabalho significa que os recursos são reservados, exclusivamente, para um grupo de cargas de trabalho.  O isolamento da carga de trabalho é alcançado configurando o parâmetro MIN_PERCENTAGE_RESOURCE para maior do que zero na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Para cargas de trabalho de execução contínua que precisam aderir a SLAs rígidos, o isolamento garante que os recursos estejam sempre disponíveis para o grupo de carga de trabalho. 
 
@@ -37,16 +37,16 @@ Configurar o isolamento de carga de trabalho implicitamente define um nível gar
 [Concurrency Garantida] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Existem valores mínimos de nível de serviço viáveis para min_percentage_resource.  Para obter mais informações, consulte [valores efetivos](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) para obter mais detalhes.
+> Existem valores mínimos de nível de serviço viáveis para min_percentage_resource.  Para mais informações, consulte [Valores Efetivos](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) para mais informações.
 
-Na ausência de isolamento de carga de trabalho, as solicitações operam no [pool compartilhado](#shared-pool-resources) de recursos.  O acesso a recursos no pool compartilhado não é garantido e é atribuído de acordo com a [importância](sql-data-warehouse-workload-importance.md) .
+Na ausência de isolamento de carga de trabalho, os pedidos operam no [conjunto partilhado](#shared-pool-resources) de recursos.  O acesso aos recursos na piscina partilhada não está garantido e é atribuído numa base [de importância.](sql-data-warehouse-workload-importance.md)
 
 Configurar o isolamento de carga de trabalho deve ser feito com cautela, pois os recursos são alocados para o grupo de cargas de trabalho, mesmo que não haja nenhuma solicitação ativa no grupo de carga de trabalho. O isolamento de excesso de configuração pode levar à redução geral da utilização do sistema.
 
 Os utilizadores devem evitar uma solução de gestão da carga de trabalho que consuma 100% de isolamento da carga de trabalho: o isolamento 100% é alcançado quando a soma de min_percentage_resource configurada em todos os grupos de carga de trabalho equivale a 100%.  Esse tipo de configuração é excessivamente restritivo e rígido, deixando pouco espaço para as solicitações de recursos que são acidentalmente incorretas. Há uma provisão para permitir que uma solicitação seja executada a partir de grupos de carga de trabalho não configurados para isolamento. Os recursos alocados a essa solicitação aparecerão como zero nos DMVs dos sistemas e emprestando um nível smallrc de concessão de recurso de recursos reservados do sistema.
 
 > [!NOTE] 
-> Para garantir a melhor utilização de recursos, considere uma solução de gerenciamento de carga de trabalho que aproveita algum isolamento para garantir que os SLAs sejam atendidos e misturados com recursos compartilhados que são acessados com base na [importância da carga de trabalho](sql-data-warehouse-workload-importance.md).
+> Para garantir uma utilização ótima dos recursos, considere uma solução de gestão da carga de trabalho que aproveite algum isolamento para garantir que os SLAs são cumpridos e misturados com recursos partilhados que são acedidos com base na importância da [carga de trabalho.](sql-data-warehouse-workload-importance.md)
 
 ## <a name="workload-containment"></a>Contenção de carga de trabalho
 
@@ -66,9 +66,9 @@ Os grupos de carga de trabalho fornecem um mecanismo para definir o min e a quan
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT é um parâmetro opcional que não se aplica ao mesmo valor especificado para REQUEST_MIN_RESOURCE_GRANT_PERCENT.
 
-Como escolher uma classe de recursos, configurar REQUEST_MIN_RESOURCE_GRANT_PERCENT define o valor para os recursos utilizados por um pedido.  A quantidade de recursos indicados pelo valor definido é garantida para a alocação para a solicitação antes de começar a execução.  Para clientes que migram de classes de recursos para grupos de carga de trabalho, considere seguir o artigo [como](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) fazer para mapear de classes de recursos para grupos de carga de trabalho como um ponto de partida.
+Como escolher uma classe de recursos, configurar REQUEST_MIN_RESOURCE_GRANT_PERCENT define o valor para os recursos utilizados por um pedido.  A quantidade de recursos indicados pelo valor definido é garantida para a alocação para a solicitação antes de começar a execução.  Para os clientes que migram de classes de recursos para grupos de carga de trabalho, considere seguir o artigo [Como mapear](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) das classes de recursos para grupos de carga de trabalho como um ponto de partida.
 
-Configurar REQUEST_MAX_RESOURCE_GRANT_PERCENT a um valor superior ao REQUEST_MIN_RESOURCE_GRANT_PERCENT permite ao sistema alocar mais recursos por pedido.  Ao agendar um pedido, o sistema determina a atribuição real de recursos ao pedido, que é entre REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT, com base na disponibilidade de recursos em pool partilhado e carga atual no sistema.  Os recursos devem existir no [pool compartilhado](#shared-pool-resources) de recursos quando a consulta for agendada.  
+Configurar REQUEST_MAX_RESOURCE_GRANT_PERCENT a um valor superior ao REQUEST_MIN_RESOURCE_GRANT_PERCENT permite ao sistema alocar mais recursos por pedido.  Ao agendar um pedido, o sistema determina a atribuição real de recursos ao pedido, que é entre REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT, com base na disponibilidade de recursos em pool partilhado e carga atual no sistema.  Os recursos devem existir no [conjunto partilhado](#shared-pool-resources) de recursos quando a consulta está agendada.  
 
 > [!NOTE] 
 > REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT têm valores efetivos que dependem dos valores MIN_PERCENTAGE_RESOURCE e CAP_PERCENTAGE_RESOURCE eficazes.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para valores eficazes do tempo de funcionano.
@@ -83,11 +83,11 @@ Os recursos do pool compartilhado são os recursos não configurados para isolam
 
 [Piscina Partilhada] = 100 - [soma de `MIN_PERCENTAGE_RESOURCE` em todos os grupos de carga de trabalho]
 
-O acesso aos recursos no pool compartilhado é alocado de acordo com a [importância](sql-data-warehouse-workload-importance.md) .  As solicitações com o mesmo nível de importância acessarão os recursos do pool compartilhado em uma base/primeiro a sair.
+O acesso aos recursos na piscina partilhada é atribuído numa base [de importância.](sql-data-warehouse-workload-importance.md)  As solicitações com o mesmo nível de importância acessarão os recursos do pool compartilhado em uma base/primeiro a sair.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Início rápido: configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
+- [Quickstart: configurar o isolamento da carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
 - [CRIAR GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
-- [Converter classes de recursos em grupos de cargas de trabalho](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
-- [Monitoramento de carga de trabalho portal de gerenciamento](sql-data-warehouse-workload-management-portal-monitor.md).  
+- [Converter classes de recursos em grupos de carga de trabalho](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
+- [Monitorização do Portal de Gestão da Carga de Trabalho.](sql-data-warehouse-workload-management-portal-monitor.md)  

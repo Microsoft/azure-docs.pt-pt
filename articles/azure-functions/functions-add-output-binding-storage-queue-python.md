@@ -251,13 +251,13 @@ Agora que testou a função localmente e verificou que escreveu uma mensagem par
     
 1. Tal como no quickstart anterior, utilize um navegador ou CURL para testar a função reimplantada.
 
-    # <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+    # <a name="browsertabbrowser"></a>[Navegador](#tab/browser)
     
     Copie o **url invocado** completo mostrado na saída do comando de publicação numa barra de endereços de navegador, adiando o parâmetro de consulta `&name=Azure`. O navegador deve apresentar uma saída semelhante à que executou a função localmente.
 
     ![A saída da função é executada no Azure num browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
-    # <a name="curltabcurl"></a>[curl](#tab/curl)
+    # <a name="curltabcurl"></a>[caracol](#tab/curl)
     
     Corra [o caracol](https://curl.haxx.se/) com a **url Invoca,** aparando o parâmetro `&name=Azure`. A saída do comando deve ser o texto, "Olá Azure".
     
@@ -279,7 +279,7 @@ Caso contrário, utilize o seguinte comando para eliminar o grupo de recursos e 
 az group delete --name AzureFunctionsQuickstart-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ativar a integração de Insights de Aplicação com uma aplicação De Funções Azure](functions-monitoring.md#manually-connect-an-app-insights-resource)

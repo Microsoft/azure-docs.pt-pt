@@ -383,7 +383,7 @@ int main(void)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

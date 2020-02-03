@@ -35,9 +35,9 @@ Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir
 > * Ver informações de ligação para instâncias de conjunto de dimensionamento
 > * Utilizar discos de dados num conjunto de dimensionamento
 
-Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Descrição geral de Conjunto de Dimensionamento
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. As VMs num conjunto de dimensionamento estão distribuídas por domínios de atualização e de falha lógicos num ou mais *grupos de posicionamento*. Estes são grupos de VMs configuradas de forma parecida, à semelhança dos [conjuntos de disponibilidade](tutorial-availability-sets.md).
@@ -117,7 +117,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação.
+A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Pode demorar mais alguns minutos antes de poder aceder à aplicação.
 
 
 ## <a name="allow-web-traffic"></a>Permitir tráfego Web
@@ -250,7 +250,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou um conjunto de dimensionamento de máquinas virtuais. Aprendeu a:
 
 > [!div class="checklist"]

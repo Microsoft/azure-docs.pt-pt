@@ -26,7 +26,7 @@ Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios 
 ## <a name="quotas"></a>Quotas
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>A cota por usuário ou por semana ou por toda a duração do laboratório? 
-A cota que você definiu para um laboratório é para cada aluno toda a duração do laboratório. E o [tempo de execução agendado das VMs](how-to-create-schedules.md) não conta com a cota alocada para um usuário. A cota é para o tempo fora das horas de agendamento que um aluno gasta nas VMs.  Para obter mais informações sobre cotas, consulte [definir cotas para usuários](how-to-configure-student-usage.md#set-quotas-for-users).
+A cota que você definiu para um laboratório é para cada aluno toda a duração do laboratório. E o [tempo de funcionamento programado dos VMs](how-to-create-schedules.md) não conta com a quota atribuída a um utilizador. A cota é para o tempo fora das horas de agendamento que um aluno gasta nas VMs.  Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
 
 ## <a name="schedules"></a>Agendas
 
@@ -45,7 +45,7 @@ Por exemplo, se você tiver um bloco de/19-10.0.0.0/19, esse intervalo de endere
 As portas são: 49152 – 65535. Os laboratórios de sala de aula ficam atrás de um balanceador de carga, portanto, todas as máquinas virtuais em um laboratório têm um único endereço IP e cada máquina virtual no laboratório tem uma porta exclusiva. Os números de porta e o endereço IP público podem ser alterados toda vez que o laboratório for republicado.
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Qual intervalo de endereços IP públicos devo abrir nas configurações de firewall da minha organização para se conectar às máquinas virtuais do laboratório via RDP/SSH?
-Consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519), que fornece o intervalo de endereços IP públicos para data centers no Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.
+Consulte [as gamas e etiquetas de serviço Azure IP — Public Cloud,](https://www.microsoft.com/download/details.aspx?id=56519)que fornece a gama pública de endereços IP para centros de dados em Azure. Você pode abrir os endereços IP para as regiões nas quais suas contas de laboratório estão.
 
 ## <a name="users"></a>Utilizadores
 
@@ -53,16 +53,16 @@ Consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](htt
 Você pode adicionar até 400 usuários a um laboratório de sala de aula. 
 
 ## <a name="blog-post"></a>Postagem no blog
-Assine o [blog do Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+Subscreva o [blog Azure Lab Services.](https://azure.microsoft.com/blog/tag/azure-lab-services/)
 
 ## <a name="update-notifications"></a>Notificações de atualização
-Assine [as atualizações do Lab Services](https://azure.microsoft.com/updates/?product=lab-services) para se manter informado sobre os novos recursos no Lab Services.
+Subscreva [as atualizações dos Serviços](https://azure.microsoft.com/updates/?product=lab-services) labiais para se manter informado sobre novas funcionalidades nos Serviços labiais.
 
 ## <a name="general"></a>Geral
 ### <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não for respondida aqui?
 Se sua pergunta não estiver listada aqui, informe-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
 - Poste uma pergunta no final das perguntas frequentes. 
-- Para alcançar um público mais amplo, poste uma pergunta sobre o [Azure Lab Services – Stack Overflow Fórum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
-- Para solicitações de recursos, envie suas solicitações e ideias para [Azure Lab Services – User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
+- Para chegar a um público mais vasto, publique uma pergunta sobre o [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Para pedidos de funcionalidades, envie os seus pedidos e ideias para os [Serviços do Laboratório Azure — Voz do Utilizador](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

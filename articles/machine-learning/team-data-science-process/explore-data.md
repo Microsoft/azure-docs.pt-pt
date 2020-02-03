@@ -20,12 +20,12 @@ ms.locfileid: "76721273"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Explorar dados no Team Data Science Process
 
-Explorar os dados é um passo na [Team Data Science Process](overview.md).
+Explorar dados é um passo no Processo de Ciência de Dados da [Equipa.](overview.md)
 
 Os seguintes artigos descrevem como explorar os dados em três ambientes de armazenamento diferentes são normalmente usados no processo de ciência de dados:
 
-* Explore [contentor de Blobs do Azure](explore-data-blob.md) de dados com o [Pandas](https://pandas.pydata.org/) pacote do Python.
-* Explore [SQL Server](explore-data-sql-server.md) dados com o SQL e ao utilizar uma linguagem de programação, como Python.
-* Explore [tabela do Hive](explore-data-hive-tables.md) dados através de consultas do Hive.
+* Explore os dados do [contentor de blob Azure](explore-data-blob.md) utilizando o pacote [Pandas](https://pandas.pydata.org/) Python.
+* Explore os dados do [SQL Server](explore-data-sql-server.md) utilizando o SQL e utilizando uma linguagem de programação como a Python.
+* Explore os dados da [tabela hive](explore-data-hive-tables.md) usando consultas da Hive.
 
 Além disso, o vídeo, [Preprocessing Data in Azure Machine Learning Studio,](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)descreve os módulos comumente usados para limpar e transformar dados.

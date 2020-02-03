@@ -106,7 +106,7 @@ Depois de publicar no ponto final do tópico, recebe uma resposta. A resposta é
 |Êxito  | 200 OK  |
 |Os dados do evento têm formato incorreto | 400 solicitação inadequada |
 |Chave de acesso inválida | 401 não autorizado |
-|Ponto final incorreto | 404 Não Encontrado |
+|Ponto final incorreto | 404 não encontrados |
 |Matriz ou evento excede limites de tamanho | 413 Carga útil demasiado grande |
 
 Para erros, o corpo da mensagem tem o seguinte formato:
@@ -124,8 +124,8 @@ Para erros, o corpo da mensagem tem o seguinte formato:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter informações sobre como monitorar entregas de eventos, consulte [monitorar a entrega de mensagens na grade de eventos](monitor-event-delivery.md).
-* Para obter mais informações sobre a chave de autenticação, consulte [segurança e autenticação da grade de eventos](security-authentication.md).
-* Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md).
+* Para obter informações sobre a monitorização das entregas de eventos, consulte a entrega de [mensagens Monitor Event Grid](monitor-event-delivery.md).
+* Para mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)
+* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).

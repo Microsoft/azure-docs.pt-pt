@@ -14,7 +14,7 @@ ms.locfileid: "76710857"
 
 Este artigo mostra-lhe como utilizar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente windows, e gerir a cópia de segurança e recuperação.
 
-## <a name="install-azure-powershell"></a>Instalar Azure PowerShell
+## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ As etapas a seguir orientarão você na criação de um cofre dos serviços de r
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Especifique o tipo de redundância de armazenamento a ser usado; Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy-lrs.md) ou o [grs (armazenamento com redundância geográfica)](../storage/common/storage-redundancy-grs.md). O exemplo seguinte mostra a opção -BackupStorageRedundancy para testeVault está definida para GeoRedundant.
+4. Especificar o tipo de redundância de armazenamento a utilizar; pode utilizar [armazenamento redundante localmente (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Armazenamento Geo Redundante (GRS)](../storage/common/storage-redundancy-grs.md). O exemplo seguinte mostra a opção -BackupStorageRedundancy para testeVault está definida para GeoRedundant.
 
    > [!TIP]
    > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
@@ -122,7 +122,7 @@ As opções disponíveis incluem:
 | /ph |Endereço de anfitrião proxy |- |
 | /po |Número de porta de anfitrião proxy |- |
 | /pu |Nome de utilizador do anfitrião proxy |- |
-| /pw |Senha de procuração |- |
+| /pw |Palavra-Passe do Proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registar o Windows Server ou a máquina cliente windows para um cofre de serviços de recuperação
 
@@ -223,7 +223,7 @@ Server properties updated successfully
 >
 >
 
-## <a name="back-up-files-and-folders"></a>Faça uma cópia de segurança de ficheiros e pastas
+## <a name="back-up-files-and-folders"></a>Back up ficheiros e pastas
 
 Todas as cópias de segurança dos Servidores windows e clientes para o Azure Backup são regidas por uma política. A política compreende três partes:
 
@@ -733,7 +733,7 @@ $Session = New-PSSession -ComputerName REMOTESERVER01
 Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath $D $A -Wait } -ArgumentList $Agent, $Args
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre o Backup Azure para Windows Server/Cliente:
 

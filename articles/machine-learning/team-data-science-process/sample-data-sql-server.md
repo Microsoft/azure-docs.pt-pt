@@ -18,26 +18,26 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76717656"
 ---
-# <a name="heading"></a>Dados de exemplo no SQL Server no Azure
+# <a name="heading"></a>Dados da amostra no Servidor SQL no Azure
 
 Este artigo mostra como os dados armazenados no SQL Server no Azure de exemplo usando a linguagem de programação Python ou SQL. Ele também mostra como mover dados de amostras para o Azure Machine Learning ao salvá-lo para um ficheiro, carregá-lo para um blob do Azure e, em seguida, lê-lo para o Azure Machine Learning Studio.
 
-A amostragem de Python utiliza a [pyodbc](https://code.google.com/p/pyodbc/) biblioteca ODBC para estabelecer ligação ao SQL Server no Azure e o [Pandas](https://pandas.pydata.org/) biblioteca para fazer a amostragem.
+A amostragem python usa a biblioteca [Pyodbc](https://code.google.com/p/pyodbc/) ODBC para ligar ao SQL Server em Azure e à biblioteca [Pandas](https://pandas.pydata.org/) para fazer a amostragem.
 
 > [!NOTE]
-> O código de SQL de exemplo neste documento parte do princípio de que os dados estão num SQL Server no Azure. Se não estiver, consulte [mover dados para o SQL Server no Azure](move-sql-server-virtual-machine.md) artigo para obter instruções sobre como mover seus dados para o SQL Server no Azure.
+> O código de SQL de exemplo neste documento parte do princípio de que os dados estão num SQL Server no Azure. Caso contrário, consulte o [Mover dados para o SQL Server no](move-sql-server-virtual-machine.md) artigo do Azure para obter instruções sobre como mover os seus dados para o SQL Server no Azure.
 > 
 > 
 
-**Por que os dados de exemplo?**
-Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. A amostragem facilita a compreensão de dados, a exploração e a engenharia de recursos. Sua função do [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) é permitir a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
+**Por que provar os seus dados?**
+Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. A amostragem facilita a compreensão de dados, a exploração e a engenharia de recursos. O seu papel no Processo de Ciência de [Dados da Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) é permitir a prototipagem rápida das funções de processamento de dados e dos modelos de machine learning.
 
-Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa de amostragem é um passo no Processo de Ciência de [Dados da Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="SQL"></a>Com o SQL
+## <a name="SQL"></a>Usando SQL
 Esta secção descreve vários métodos com o SQL para executar a amostragem aleatória simple relativamente aos dados na base de dados. Escolha um método com base no tamanho dos dados e sua distribuição.
 
-Os dois itens seguintes mostram como usar `newid` no SQL Server para executar a amostragem. O método que escolher depende do quão aleatório pretende que a amostra seja (pk_id no seguinte código de amostra é assumido como uma chave primária autogerada).
+Os dois itens seguintes mostram como usar `newid` no SQL Server para efetuar a amostragem. O método que escolher depende do quão aleatório pretende que a amostra seja (pk_id no seguinte código de amostra é assumido como uma chave primária autogerada).
 
 1. Menos rígida amostra aleatória
    
@@ -59,19 +59,19 @@ Tablesample pode ser utilizado para também os dados de amostragem. Esta opção
 > 
 > 
 
-### <a name="sql-aml"></a>Ligar ao Azure Machine Learning
+### <a name="sql-aml"></a>Ligação à Aprendizagem automática azure
 Pode utilizar diretamente as consultas de amostra acima no módulo de dados de [importação][import-data] de aprendizagem automática Azure para recolher os dados da mosca e trazê-lo para uma experiência de Aprendizagem automática Azure. Uma imagem de utilização do módulo de leitor para ler os dados amostrados é mostrada aqui:
 
 ![leitor sql][1]
 
-## <a name="python"></a>Utilizar a linguagem de programação
-Esta secção demonstra como utilizar o [pyodbc biblioteca](https://code.google.com/p/pyodbc/) para estabelecer um ODBC ligar a uma base de dados do SQL server em Python. A cadeia de ligação à base de dados é a seguinte: (substituir o nome do servidor, o nome de utilizador, o nome de utilizador e a palavra-passe pela sua configuração):
+## <a name="python"></a>Usando a linguagem de programação Python
+Esta secção demonstra o uso da [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para estabelecer uma ligação ODBC a uma base de dados de servidores SQL em Python. A cadeia de ligação à base de dados é a seguinte: (substituir o nome do servidor, o nome de utilizador, o nome de utilizador e a palavra-passe pela sua configuração):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-O [Pandas](https://pandas.pydata.org/) biblioteca em Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O seguinte código lê uma amostra de 0,1% dos dados de uma tabela na Base de Dados Azure SQL em dados pandas:
+A biblioteca [Pandas](https://pandas.pydata.org/) em Python fornece um conjunto rico de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação python. O seguinte código lê uma amostra de 0,1% dos dados de uma tabela na Base de Dados Azure SQL em dados pandas:
 
     import pandas as pd
 
@@ -80,7 +80,7 @@ O [Pandas](https://pandas.pydata.org/) biblioteca em Python fornece um conjunto 
 
 Agora, pode trabalhar com dados amostrados na estrutura de dados Pandas. 
 
-### <a name="python-aml"></a>Ligar ao Azure Machine Learning
+### <a name="python-aml"></a>Ligação à Aprendizagem automática azure
 Pode utilizar o seguinte código de exemplo para guardar os dados de objeto de amostragem de baixo para um ficheiro e carregá-lo para um blob do Azure. Os dados na bolha podem ser lidos diretamente numa experiência de aprendizagem automática azure utilizando o módulo [de dados de importação.][import-data] Os passos são os seguintes: 
 
 1. Escrever o quadro de dados de pandas num ficheiro local

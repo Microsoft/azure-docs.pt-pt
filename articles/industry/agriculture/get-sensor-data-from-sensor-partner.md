@@ -24,7 +24,7 @@ Para iniciar o streaming de dados do sensor, verifique o seguinte:
 
 -  Você instalou o FarmBeats no Azure Marketplace.
 -  Você decidiu sobre os sensores e dispositivos que deseja instalar em seu farm.
--  Se você planeja usar sensores de umidade de solo, use o mapa de posicionamento do sensor de umidade de solo FarmBeats para obter uma recomendação sobre o número de sensores e onde exatamente você deve colocá-los. Para obter mais informações, consulte [gerar mapas](generate-maps-in-azure-farmbeats.md).
+-  Se você planeja usar sensores de umidade de solo, use o mapa de posicionamento do sensor de umidade de solo FarmBeats para obter uma recomendação sobre o número de sensores e onde exatamente você deve colocá-los. Para mais informações, consulte [Generate maps](generate-maps-in-azure-farmbeats.md).
 - Você compra e implanta dispositivos ou sensores do seu parceiro de dispositivo em seu farm. Verifique se você pode acessar os dados do sensor por meio da solução de seus parceiros de dispositivo.
 
 ## <a name="enable-device-integration-with-farmbeats"></a>Habilitar a integração de dispositivos com o FarmBeats
@@ -39,18 +39,18 @@ Depois de iniciar o streaming de dados do sensor, você pode começar o processo
 
 Pode gerar a informação acima seguindo estes passos: (Por favor, note que estes passos são necessários para serem feitos no Azure para que você precise de acesso à subscrição Azure onde o FarmBeats é implantado)
 
-1. Baixe o [arquivo zip](https://aka.ms/farmbeatspartnerscriptv2)e extraia-o para a unidade local. Haverá um arquivo dentro do arquivo zip.
-2. Entre para https://portal.azure.com/ e vá para registros do aplicativo Azure Active Directory->
+1. Descarregue o [ficheiro zip](https://aka.ms/farmbeatspartnerscriptv2)e extrai-o para a sua unidade local. Haverá um arquivo dentro do arquivo zip.
+2. Inscreva-se na https://portal.azure.com/ e vá ao Azure Ative Directory -> Registos de Aplicações
 
 3. Clique no registro do aplicativo que foi criado como parte de sua implantação do FarmBeats. Ele terá o mesmo nome que o seu hub de dados FarmBeats.
 
-4. Clique em "expor uma API"-> clique em "adicionar um aplicativo cliente" e insira **04b07795-8ddb-461A-bbee-02f9e1bf7b46** e marque "autorizar escopo". Isso dará acesso ao CLI do Azure (Cloud Shell) para executar as etapas a seguir.
+4. Clique em "Expor um API" -> Clique em "Adicionar uma aplicação de cliente" e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique "Autorizar o Scope". Isso dará acesso ao CLI do Azure (Cloud Shell) para executar as etapas a seguir.
 
 5. Abra o Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do portal do Azure.
 
     ![Barra de ferramentas portal do Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Verifique se o ambiente está definido como **PowerShell**. Por padrão, ele é definido como bash.
+6. Certifique-se de que o ambiente está definido para **powerShell**. Por padrão, ele é definido como bash.
 
     ![Configuração da barra de ferramentas do PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -68,7 +68,7 @@ Pode gerar a informação acima seguindo estes passos: (Por favor, note que este
 
     ```
 
-10. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
+10. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do inquilino,** **ID do cliente,** segredo do **cliente**e String **de Conexão EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrar dados do dispositivo usando as credenciais geradas
 
@@ -93,13 +93,13 @@ Use a seção a seguir para exibir os dispositivos e sensores para seu farm.
 
 Atualmente, o FarmBeats dá suporte aos seguintes dispositivos:
 
-- **Nó**: um dispositivo ao qual um ou mais sensores estão anexados.
-- **Gateway**: um dispositivo ao qual um ou mais nós estão anexados.
+- **Nó**: Um dispositivo ao qual estão ligados um ou mais sensores.
+- **Porta de entrada**: Um dispositivo ao qual um ou mais nós estão ligados.
 
 Siga estes passos.
 
-1. Na home page, selecione **dispositivos** no menu.
-  A página **dispositivos** exibe o tipo de dispositivo, o modelo, o status, o farm no qual ele é colocado e a data da última atualização para os metadados. Por padrão, a coluna farm é definida como *NULL*. Você pode optar por atribuir um dispositivo a um farm. Para obter mais informações, consulte [atribuir dispositivos](#assign-devices).
+1. Na página inicial, selecione **Dispositivos** do menu.
+  A página **Dispositivos** exibe o tipo de dispositivo, modelo, estado, a quinta onde está colocada e a última data atualizada para metadados. Por defeito, a coluna da quinta está definida para *NU*. Você pode optar por atribuir um dispositivo a um farm. Para mais informações, consulte os [dispositivos De atribuição](#assign-devices).
 2. Selecione o dispositivo para exibir as propriedades do dispositivo, telemetria e dispositivos filho conectados ao dispositivo.
 
     ![Página de dispositivos](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
@@ -108,8 +108,8 @@ Siga estes passos.
 
 Siga estes passos.
 
-1. Na home page, selecione **sensores** no menu.
-  A página **sensores** exibe detalhes sobre o tipo de sensor, o farm ao qual ele está conectado, dispositivo pai, nome da porta, tipo de porta e o último status atualizado.
+1. Na página inicial, selecione **Sensores** do menu.
+  A página **Sensors** apresenta detalhes sobre o tipo de sensor, a quinta a que está ligado, dispositivo principal, nome da porta, tipo de porta, e o último estado atualizado.
 2. Selecione o sensor para exibir as propriedades do sensor, os alertas ativos e a telemetria do sensor.
 
     ![Página de sensores](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
@@ -118,27 +118,27 @@ Siga estes passos.
 
 Depois que os dados do sensor estiverem fluindo, você poderá atribuí-los ao farm no qual você implantou os sensores.
 
-1. Na home page, selecione **farms** no menu. A página lista de **farms** é exibida.
-2. Selecione o farm ao qual você deseja atribuir o dispositivo e selecione **Adicionar dispositivos**.
-3. A janela **Adicionar dispositivos** é exibida. Selecione o dispositivo que você deseja atribuir ao farm.
+1. Na página inicial, selecione **Quintas** do menu. A página da lista **de Quintas** aparece.
+2. Selecione a quinta à qual pretende atribuir o dispositivo e selecione **Adicionar Dispositivos**.
+3. Aparece a janela **Add Devices.** Selecione o dispositivo que você deseja atribuir ao farm.
 
     ![Janela Adicionar dispositivos](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
-4. Selecione **Adicionar dispositivos**. Como alternativa, vá para o menu **dispositivos** , selecione os dispositivos que você deseja atribuir a um farm e selecione **associar dispositivos**.
-5. Na janela **associar dispositivos** , selecione o farm na lista suspensa e selecione **aplicar a todos** para associar o farm a todos os dispositivos selecionados.
+4. Selecione **Adicionar Dispositivos**. Em alternativa, vá ao menu **Dispositivos,** selecione os dispositivos que pretende atribuir a uma quinta e selecione **Dispositivos Associados**.
+5. Na janela **Dispositivos Associados,** selecione a quinta a partir da lista de drop-down e selecione **Aplicar a Todos** para associar a quinta a todos os dispositivos selecionados.
 
     ![Janela associar dispositivos](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
-6. Para associar cada dispositivo a um farm diferente, selecione a seta suspensa na coluna **atribuir ao farm** e selecione um farm para cada linha de dispositivo.
-7. Selecione **atribuir** para concluir a atribuição de dispositivo.
+6. Para associar cada dispositivo a uma quinta diferente, selecione a seta de entrega na coluna **Atributa à Quinta** e selecione uma exploração para cada linha de dispositivo.
+7. **Selecione Atribuir** para completar a atribuição do dispositivo.
 
 ### <a name="visualize-sensor-data"></a>Visualizar dados do sensor
 
 Siga estes passos.
 
-1. Na home page, selecione **farms** no menu para exibir a página **farms** .
-2. Selecione o **farm** para o qual você deseja ver os dados do sensor.
-3. No painel do **farm** , você pode exibir dados de telemetria. Você pode exibir a telemetria ao vivo ou usar o **intervalo personalizado** para ver um intervalo de datas específico.
+1. Na página inicial, selecione **Quintas** do menu para ver a página **Quintas.**
+2. Selecione a **Quinta** para a qual pretende ver os dados do sensor.
+3. No painel da **Quinta,** pode ver dados de telemetria. Pode ver telemetria ao vivo ou usar **o Custom Range** para ver um intervalo de data específico.
 
     ![Painel do farm](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
 
@@ -146,8 +146,8 @@ Siga estes passos.
 
 Siga estes passos.
 
-1. Na home page, selecione **sensores** no menu para exibir a página **sensores** .
-2. Selecione o dispositivo que você deseja excluir e selecione **excluir** na janela de confirmação.
+1. Na página inicial, selecione **Sensores** do menu para visualizar a página **Sensors.**
+2. Selecione o dispositivo que pretende eliminar e selecione **Apagar** na janela de confirmação.
 
     ![Botão de eliminar](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
@@ -157,11 +157,11 @@ Uma mensagem de confirmação mostra que o sensor foi excluído com êxito.
 
 Siga estes passos.
 
-1. Na home page, selecione **dispositivos** no menu para exibir a página **dispositivos** .
-2. Selecione o dispositivo que você deseja excluir e selecione **excluir** na janela de confirmação.
+1. Na página inicial, selecione **Dispositivos** do menu para ver a página **dispositivos.**
+2. Selecione o dispositivo que pretende eliminar e selecione **Apagar** na janela de confirmação.
 
     ![Botão de eliminar](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Agora você tem dados de sensor fluindo para sua instância de FarmBeats do Azure. Agora, saiba como [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para seus farms.
+Agora você tem dados de sensor fluindo para sua instância de FarmBeats do Azure. Agora, aprendam a [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para as vossas quintas.

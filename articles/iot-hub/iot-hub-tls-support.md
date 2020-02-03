@@ -22,9 +22,9 @@ TLS 1.0 e 1.1 são considerados legados e estão previstos para depreciação. P
 
 ## <a name="restrict-connections-to-tls-12-in-your-iot-hub-resource"></a>Restringir conexões ao TLS 1,2 em seu recurso de Hub IoT
 
-Para maior segurança, é aconselhável configurar seus hubs IoT para permitir *somente* conexões de cliente que usam TLS versão 1,2 e para impor o uso de [codificações recomendadas](#recommended-ciphers).
+Para maior segurança, é aconselhável configurar os seus Hubs IoT para *permitir apenas* ligações ao cliente que utilizem a versão TLS 1.2 e para impor o uso de [cifras recomendadas](#recommended-ciphers).
 
-Para essa finalidade, provisione um novo hub IoT em qualquer uma das [regiões com suporte](#supported-regions) e defina a propriedade `minTlsVersion` como `1.2` na especificação de recurso do Hub IOT do modelo de Azure Resource Manager:
+Para o efeito, disponibilize um novo Hub IoT em qualquer uma das [regiões apoiadas](#supported-regions) e coloque a propriedade `minTlsVersion` para `1.2` na especificação de recursos ioT do seu modelo de gestor de recursos de recursos de recursos:
 
 ```json
 {
@@ -49,10 +49,10 @@ Para essa finalidade, provisione um novo hub IoT em qualquer uma das [regiões c
 }
 ```
 
-O recurso do Hub IoT criado usando essa configuração recusará clientes de dispositivo e serviço que tentam se conectar usando as versões 1,0 e 1,1 do TLS. Da mesma forma, o handshake TLS será recusado se a mensagem de SAUDAção do cliente não listar nenhuma das [codificações recomendadas](#recommended-ciphers).
+O recurso do Hub IoT criado usando essa configuração recusará clientes de dispositivo e serviço que tentam se conectar usando as versões 1,0 e 1,1 do TLS. Da mesma forma, o aperto de mão TLS será recusado se a mensagem HELLO do cliente não listar nenhuma das [cifras recomendadas](#recommended-ciphers).
 
 > [!NOTE]
-> A propriedade `minTlsVersion` é apenas leitura e não pode ser alterada uma vez que o seu recurso IoT Hub é criado. Portanto, é essencial que você teste e valide corretamente que *todos* os seus dispositivos e serviços de IOT sejam compatíveis com o TLS 1,2 e as [codificações recomendadas](#recommended-ciphers) com antecedência.
+> A propriedade `minTlsVersion` é apenas leitura e não pode ser alterada uma vez que o seu recurso IoT Hub é criado. Por isso, é essencial que teste e valide corretamente que *todos os* seus dispositivos e serviços IoT são compatíveis com TLS 1.2 e as [cifras recomendadas](#recommended-ciphers) com antecedência.
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
@@ -60,10 +60,10 @@ Os hubs IoT que exigem o uso de TLS 1,2 podem ser criados nas seguintes regiões
 
 * E.U.A. Leste
 * E.U.A. Centro-Sul
-* E.U.A. Oeste 2
+* EUA Oeste 2
 
 > [!NOTE]
-> Após os failovers, a propriedade `minTlsVersion` do Hub IoT permanecerá efetiva na região emparelhada após o failover.
+> Após falhas, a propriedade `minTlsVersion` do seu Hub IoT permanecerá eficaz na região geo-emparelhada após o fracasso.
 
 ### <a name="recommended-ciphers"></a>Codificações recomendadas
 
@@ -78,7 +78,7 @@ Os hubs IoT configurados para aceitar somente o TLS 1,2 também impedirão o uso
 
 Use os links abaixo para configurar o TLS 1,2 e as codificações permitidas nos SDKs do cliente do Hub IoT.
 
-| Linguagem | Compatível com TLS 1,2 | Documentação |
+| Idioma | Compatível com TLS 1,2 | Documentação |
 |----------|-------------------|---------------|
 | C        | Sim               | [Ligação](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Sim               | [Ligação](https://aka.ms/Tls_Python_SDK_IoT) |
@@ -89,4 +89,4 @@ Use os links abaixo para configurar o TLS 1,2 e as codificações permitidas nos
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>Usar o TLS 1,2 na instalação do IoT Edge
 
-IoT Edge dispositivos podem ser configurados para usar o TLS 1,2 ao se comunicar com o Hub IoT. Para essa finalidade, use a [página de documentação IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+IoT Edge dispositivos podem ser configurados para usar o TLS 1,2 ao se comunicar com o Hub IoT. Para o efeito, utilize a página de [documentação IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).

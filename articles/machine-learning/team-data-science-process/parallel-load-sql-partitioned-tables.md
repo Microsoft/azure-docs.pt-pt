@@ -20,12 +20,12 @@ ms.locfileid: "76721341"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Compilar e otimizar tabelas para a importação de dados rápido paralela num SQL Server numa VM do Azure
 
-Este artigo descreve como criar tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server. Para grandes volumes de dados carregamento/transferência de um banco de dados do SQL, importar dados para a BD SQL e consultas subsequentes pode ser melhorado usando *vistas e tabelas Particionadas*. 
+Este artigo descreve como criar tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server. Para o carregamento/transferência de dados grandes para uma base de dados SQL, a importação de dados para o SQL DB e consultas subsequentes pode ser melhorada utilizando *tabelas e pontos*de vista divididos . 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Criar uma nova base de dados e um conjunto de grupos de ficheiros
-* [Criar uma nova base de dados](https://technet.microsoft.com/library/ms176061.aspx), se ainda não exista.
+* [Crie uma nova base de dados,](https://technet.microsoft.com/library/ms176061.aspx)se já não existir.
 * Adicione grupos de ficheiros de base de dados na base de dados, que contém os arquivos físicos particionados. 
-* Isso pode ser feito com [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se a nova ou [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se a base de dados já existir.
+* Isto pode ser feito com base de [dados CREATE](https://technet.microsoft.com/library/ms176061.aspx) se a base de dados de [alteração](https://msdn.microsoft.com/library/bb522682.aspx) já existir.
 * Adicione um ou mais arquivos (conforme necessário) para cada grupo de ficheiros de base de dados.
   
   > [!NOTE]
@@ -33,7 +33,7 @@ Este artigo descreve como criar tabelas particionadas para a importação em mas
   > 
   > 
 
-O exemplo seguinte cria uma nova base de dados com três grupos de ficheiros que não seja o principal e grupos de registos, que contém um arquivo físico em cada um. Os ficheiros de base de dados são criados na pasta de dados do SQL Server predefinida, conforme configurado na instância do SQL Server. Para obter mais informações sobre localizações predefinidas de ficheiros, consulte [localizações de ficheiros para o padrão e com o nome de instâncias do SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+O exemplo seguinte cria uma nova base de dados com três grupos de ficheiros que não seja o principal e grupos de registos, que contém um arquivo físico em cada um. Os ficheiros de base de dados são criados na pasta de dados do SQL Server predefinida, conforme configurado na instância do SQL Server. Para obter mais informações sobre as localizações de ficheiros predefinidos, consulte localizações de [ficheiros para Padrão e Instâncias Nomeadas do Servidor SQL](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -58,7 +58,7 @@ O exemplo seguinte cria uma nova base de dados com três grupos de ficheiros que
 Para criar tabelas particionadas, de acordo com o esquema de dados, mapeado para os grupos de ficheiros de base de dados criados no passo anterior, primeiro tem de criar uma função de partição e o esquema. Quando os dados estão em massa importada para a tabela particionada (s), os registos são distribuídos entre os grupos de ficheiros, de acordo com um esquema de partição, conforme descrito abaixo.
 
 ### <a name="1-create-a-partition-function"></a>1. Criar uma função de partição
-[Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx) esta função define o intervalo de valores/limites incluídos em cada tabela de partições individuais, por exemplo, para limitar as partições por mês (alguns\_datetime\_campo) no ano de 2013:
+[Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx) Esta função define a gama de valores/limites a incluir em cada tabela individual de partição, por exemplo, para limitar as divisórias por mês (algumas\_data\_campo) no ano de 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
@@ -67,7 +67,7 @@ Para criar tabelas particionadas, de acordo com o esquema de dados, mapeado para
             '20130901', '20131001', '20131101', '20131201' )
 
 ### <a name="2-create-a-partition-scheme"></a>2. Criar um regime de partição
-[Criar um esquema de partição](https://msdn.microsoft.com/library/ms179854.aspx). Este esquema mapeia cada intervalo de partição na função de partição para um grupo de ficheiros físico, por exemplo:
+Criar um esquema de [partição.](https://msdn.microsoft.com/library/ms179854.aspx) Este esquema mapeia cada intervalo de partição na função de partição para um grupo de ficheiros físico, por exemplo:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -86,17 +86,17 @@ Para criar tabelas particionadas, de acordo com o esquema de dados, mapeado para
         WHERE pfun.name = <DatetimeFieldPFN>
 
 ### <a name="3-create-a-partition-table"></a>3. Criar uma mesa de partição
-[Criar tabela particionada](https://msdn.microsoft.com/library/ms174979.aspx)(s) de acordo com seu esquema de dados e especificar o campo de esquema e restrição de partição utilizado para particionar a tabela, por exemplo:
+[Crie](https://msdn.microsoft.com/library/ms174979.aspx)tabelas (s) divididas de acordo com o seu esquema de dados, e especifique o esquema de partição e o campo de restrição utilizado para dividir a tabela, por exemplo:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 
-Para obter mais informações, consulte [criar tabelas Particionadas e índices](https://msdn.microsoft.com/library/ms188730.aspx).
+Para mais informações, consulte [Criar Tabelas e Índices Divididos](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Em massa importar os dados para cada tabela de partições individuais
 
-* Pode utilizar BCP, a inserção em massa ou outros métodos como [Assistente de migração do SQL Server](https://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
-* [Alterar o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de Registro em log de transação para BULK_LOGGED para minimizar a sobrecarga de iniciar sessão, por exemplo:
+* Pode utilizar BCP, INSERT A GRANEL ou outros métodos, como [o SQL Server Migration Wizard](https://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
+* [Altere a base de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de registo de transações para BULK_LOGGED para minimizar as despesas gerais de exploração madeireira, por exemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * Para acelerar o processo de carregamento de dados, inicie as operações de importação em massa em paralelo. Para obter dicas sobre a rápida importação a granel de big data para as bases de dados do SQL Server, consulte [a Carregar 1 TB em menos](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)de 1 hora .
@@ -167,7 +167,7 @@ O seguinte script do PowerShell é um exemplo de paralelos com o BCP de carregam
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Criar índices para otimizar as associações e o desempenho de consulta
 * Se extrair dados para a Modelagem de várias tabelas, crie índices nas chaves de associação para melhorar o desempenho de associação.
-* [Criar índices](https://technet.microsoft.com/library/ms188783.aspx) (em cluster ou não-clusterizados) direcionar o mesmo grupo de arquivos para cada partição, por exemplo:
+* [Criar índices](https://technet.microsoft.com/library/ms188783.aspx) (agrupados ou não agrupados) direcionados para o mesmo grupo de ficheiros para cada partição, por exemplo:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
@@ -182,5 +182,5 @@ O seguinte script do PowerShell é um exemplo de paralelos com o BCP de carregam
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Processo de análise avançada e tecnologia no exemplo de ação
-Para obter um exemplo passo a passo-a-ponto utilizando o processo de ciência de dados de equipa com um conjunto de dados público, veja [processo de ciência de dados de equipa em ação: utilizar o SQL Server](sql-walkthrough.md).
+Para um exemplo de passagem de ponta a ponta utilizando o Processo de Ciência de Dados da Equipa com um conjunto de dados público, consulte o Processo de Ciência de Dados da Equipa em Ação: utilizando o [Servidor SQL](sql-walkthrough.md).
 

@@ -22,13 +22,13 @@ ms.locfileid: "76710534"
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
 
 ## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa
-Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é efetuado pelo proprietário da aplicação ou funcionário para validar as expressões selecionadas para [rever](luis-how-to-review-endpoint-utterances.md), incluindo a intenção correta e todas as entidades na intenção. Depois de rever as expressões, formar e publicar a aplicação novamente.
+Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é realizado pelo proprietário ou colaborador da app para validar as declarações selecionadas para [revisão](luis-how-to-review-endpoint-utterances.md), incluindo a intenção correta e quaisquer entidades dentro da intenção. Depois de rever as expressões, formar e publicar a aplicação novamente.
 
 ## <a name="which-utterances-are-on-the-review-list"></a>As expressões são na lista de revisão
 LUIS adiciona expressões com a lista de revisão quando a parte superior disparando intenção tem uma pontuação baixa ou pontuações de principais dois objetivos estão muito próximos.
 
 ## <a name="single-pool-for-utterances-per-app"></a>Conjunto único para expressões com por aplicação
-O **rever expressões de ponto final** lista não é alterada com base na versão. Há um único conjunto de expressões para rever, independentemente da versão da expressão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final.
+A lista de declarações de **pontofinal** da Revisão não muda com base na versão. Há um único conjunto de expressões para rever, independentemente da versão da expressão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final.
 
 ## <a name="where-are-the-utterances-from"></a>Onde estão as expressões de
 Expressões de ponto de extremidade são obtidas a partir de consultas de utilizador final no ponto final HTTP do aplicativo. Se a aplicação não está publicada ou não recebeu pedidos com êxito na ainda, não tem quaisquer expressões de com para rever. Se não existem resultados de ponto de extremidade são recebidos para um objetivo específico ou uma entidade, não tem expressões para rever o que os contêm.
@@ -37,12 +37,12 @@ Expressões de ponto de extremidade são obtidas a partir de consultas de utiliz
 Rever expressões sugeridas com não precisa ser feito a todos os dias, mas deve fazer parte da manutenção regular de LUIS.
 
 ## <a name="delete-review-items-programmatically"></a>Eliminar itens de revisão através de programação
-Utilize as declarações a **[eliminar não etiquetadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Cópia de segurança essas expressões com antes da eliminação por  **[exportar os ficheiros de registo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** .
+Utilize as declarações a **[eliminar não etiquetadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Faça o reforço destas declarações antes da eliminação **[exportando os ficheiros](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** de registo .
 
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e valor `log=true` QueryString.
+Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isto é conseguido chamando a [consulta de ponto final](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro de corda de `log=true` e valor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [rever](luis-how-to-review-endpoint-utterances.md) expressões de ponto final
+* Saiba como [rever](luis-how-to-review-endpoint-utterances.md) as expressões de ponto final

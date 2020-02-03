@@ -55,7 +55,7 @@ Este artigo mostra-lhe como implementar a [máscara dinâmica](sql-database-dyna
 
 10. Clique em **Guardar** na página de configuração de máscara de dados para guardar a nova ou atualizada política de mascaramento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma visão geral da máscara dinâmica de dados, consulte a máscara de [dados dinâmicos](sql-database-dynamic-data-masking-get-started.md).
 * Também pode implementar máscaras dinâmicas de dados utilizando cmdlets de base de [dados Azure SQL](https://docs.microsoft.com/powershell/module/az.sql/) ou a [API REST](https://docs.microsoft.com/rest/api/sql/).

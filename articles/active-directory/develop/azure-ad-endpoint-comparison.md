@@ -24,7 +24,7 @@ ms.locfileid: "76712437"
 Ao desenvolver uma nova aplicação, é importante conhecer as diferenças entre a plataforma de identidade da Microsoft (v2.0) e os pontos finais do Azure Ative Directory (v1.0). Este artigo aborda as principais diferenças entre os pontos finais e algumas limitações existentes para a plataforma de identidade da Microsoft.
 
 > [!NOTE]
-> O ponto de extremidade da plataforma de identidade da Microsoft não dá suporte a todos os cenários e recursos do Azure AD. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](#limitations).
+> O ponto de extremidade da plataforma de identidade da Microsoft não dá suporte a todos os cenários e recursos do Azure AD. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](#limitations)da plataforma de identidade da Microsoft .
 
 ## <a name="who-can-sign-in"></a>Quem pode entrar
 

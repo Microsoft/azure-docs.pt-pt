@@ -28,10 +28,10 @@ Este artigo fornece uma visão geral do TDSP e seus principais componentes. Forn
 
 TDSP inclui os seguintes componentes principais:
 
-- R **ciclo de vida de ciência de dados** definição
-- A **padronizados a estrutura do projeto**
-- **Recursos de infraestrutura e** para projetos de ciência de dados
-- **Ferramentas e utilitários** para execução do projeto
+- Uma definição de ciclo de **vida da ciência dos dados**
+- Uma **estrutura de projeto padronizada**
+- **Infraestruturas e recursos** para projetos de ciência de dados
+- **Ferramentas e utilidades** para a execução do projeto
 
 
 ## <a name="data-science-lifecycle"></a>Ciclo de vida de ciência de dados
@@ -44,17 +44,17 @@ Este ciclo de vida foi projetado para projetos de ciência de dados que são for
 
 O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
-* **Compreensão empresarial**
-* **Aquisição de dados e compreensão**
-* **Modelagem**
+* **Compreensão de Negócios**
+* **Aquisição e Compreensão de Dados**
+* **Modelação**
 * **Implementação**
 * **Aceitação do cliente**
 
-Aqui está uma representação visual do **ciclo de vida do processo de ciência de dados de equipa**. 
+Aqui está uma representação visual do ciclo de vida do Processo de Ciência de Dados da **Equipa.** 
 
 ![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
-As metas, tarefas e artefactos de documentação para cada fase do ciclo de vida no TDSP descritos a [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md) tópico. Estas tarefas e os artefactos estão associados a funções do projeto:
+Os objetivos, tarefas e artefactos de documentação para cada fase do ciclo de vida em TDSP são descritos no tópico do ciclo de vida do Processo de Ciência de Dados da [Equipa.](lifecycle.md) Estas tarefas e os artefactos estão associados a funções do projeto:
 
 - Arquiteto de soluções
 - Gerente de projeto
@@ -69,7 +69,7 @@ O diagrama seguinte fornece uma exibição de grade das tarefas (a azul) e artef
 
 Ter todos os projetos Compartilhar uma estrutura de diretório e usar modelos para documentos de projeto torna mais fácil para os membros da Equipe obter informações sobre seus projetos. Todos os código e os documentos são armazenados num sistema de controle de versão (VCS) como o Git, TFS ou o Subversion para permitir a colaboração em equipe. Controlo de tarefas e recursos num sistema, como no Jira, Rally e DevOps do Azure de acompanhamento de projetos agile permite que mais perto de controlo de código para recursos individuais. Esse controle também permite às equipes obter estimativas de custo melhor. TDSP recomenda a criação de um repositório separado para cada projeto no VCS para controle de versão, a segurança de informações e colaboração. A estrutura padronizada para todos os projetos ajuda a criar o conhecimento institucional toda a organização.
 
-Fornecemos modelos para a estrutura de pastas e os documentos necessários em locais padrão. Esta estrutura de pastas organiza os ficheiros que contêm o código de exploração de dados e a extração de recurso e que registe iterações do modelo. Estes modelos tornam mais fácil para os membros da Equipe para compreender o trabalho realizado por terceiros e para adicionar novos membros de equipes. É fácil ver e atualizar os modelos de documento no formato de markdown. Utilize modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados cumprem a qualidade esperada. Alguns exemplos:
+Fornecemos modelos para a estrutura de pastas e os documentos necessários em locais padrão. Esta estrutura de pastas organiza os ficheiros que contêm o código de exploração de dados e a extração de recurso e que registe iterações do modelo. Estes modelos tornam mais fácil para os membros da Equipe para compreender o trabalho realizado por terceiros e para adicionar novos membros de equipes. É fácil ver e atualizar os modelos de documento no formato de markdown. Utilize modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados cumprem a qualidade esperada. Os exemplos incluem:
 
 - um estatuto de projeto para documentar o problema de negócios e o escopo do projeto
 - relatórios de dados para a estrutura do documento e as estatísticas dos dados não processados
@@ -79,14 +79,14 @@ Fornecemos modelos para a estrutura de pastas e os documentos necessários em lo
 
 [![diretórios TDSP](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
-A estrutura de diretórios pode ser clonada do [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+A estrutura do diretório pode ser clonada a partir do [GitHub.](https://github.com/Azure/Azure-TDSP-ProjectTemplate)
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infraestrutura e os recursos para projetos de ciência de dados  
 
 TDSP fornece recomendações para a gestão de análise partilhado e a infraestrutura de armazenamento, tais como:
 
 - sistemas de ficheiros de cloud para armazenar conjuntos de dados 
-- databases
+- DWDataMart
 - clusters de grandes volumes de dados (Hadoop ou Spark) 
 - serviço de Machine learning 
 
@@ -99,9 +99,9 @@ Eis um exemplo de uma equipe de trabalhar em vários projetos e partilha vários
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto
 
-Introduzir processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados mais baixo, as barreiras para e aumentar a consistência da adoção. TDSP fornece um conjunto inicial de ferramentas e scripts para promover a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas das tarefas comuns do ciclo de vida de ciência de dados, como a exploração e modelação de linha de base dados. Existe uma estrutura bem definida fornecida para indivíduos contribuir partilhadas ferramentas e utilitários para o repositório de código compartilhado de sua equipe. Estes recursos, em seguida, podem ser aproveitados por outros projetos dentro da Equipe ou a organização. Também planeja TDSP ativar as contribuições de ferramentas e utilitários para a Comunidade inteira. Os utilitários TDSP podem ser clonados do [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Introduzir processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados mais baixo, as barreiras para e aumentar a consistência da adoção. TDSP fornece um conjunto inicial de ferramentas e scripts para promover a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas das tarefas comuns do ciclo de vida de ciência de dados, como a exploração e modelação de linha de base dados. Existe uma estrutura bem definida fornecida para indivíduos contribuir partilhadas ferramentas e utilitários para o repositório de código compartilhado de sua equipe. Estes recursos, em seguida, podem ser aproveitados por outros projetos dentro da Equipe ou a organização. Também planeja TDSP ativar as contribuições de ferramentas e utilitários para a Comunidade inteira. Os utilitários TDSP podem ser clonados a partir do [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Processo de ciência de dados de equipa: Funções e tarefas](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descreve as funções de pessoal-chave e das respetivas tarefas associadas para uma equipa de ciência de dados que padroniza sobre esse processo. 
+Processo de Ciência de [Dados da Equipa: Funções e tarefas](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Delineia as principais funções de pessoal e as suas tarefas associadas para uma equipa de ciência de dados que normaliza este processo. 

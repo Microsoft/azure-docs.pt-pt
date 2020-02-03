@@ -19,7 +19,7 @@ ms.lasthandoff: 01/24/2020
 ms.locfileid: "76722070"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Código de ciência de dados de teste no Azure com o processo de ciência de dados de equipa e os serviços do Azure DevOps
-Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Um Team Data Science Process (TDSP), usamos [projeto que usa o conjunto de dados de rendimento para adultos de UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos anteriormente para mostrar como teste de código pode ser feito. 
+Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Utilizamos um projeto team Data Science Process (TDSP) que utiliza o conjunto de [dados uci adult income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicámos anteriormente para mostrar como os testes de código podem ser feitos. 
 
 ## <a name="introduction-on-code-testing"></a>Introdução no código de teste
 "Testes de unidade" é uma prática de longa data para o desenvolvimento de software. Mas para a ciência dos dados, muitas vezes não é claro o que significa "teste de unidade" e como você deve testar código para diferentes fases de um ciclo de vida da ciência dos dados, tais como:
@@ -89,18 +89,18 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
       ![Código para verificar os valores de previsão](./media/code-test/check_prediction_values.PNG)
 
-1. PUT todos testar as funções em conjunto num script de Python chamado **test_funcs.py**:
+1. Junte todas as funções de teste num guião python chamado **test_funcs.py:**
 
     ![Script de Python para funções de teste](./media/code-test/create_file_test_func.PNG)
 
 
 1. Depois dos códigos de teste estão preparados, pode configurar o ambiente de teste no Visual Studio.
 
-   Crie um ficheiro Python denominado **test1.py**. Este ficheiro, crie uma classe que inclui todos os testes que deseja fazer. O exemplo seguinte mostra seis testes preparados:
+   Crie um ficheiro Python chamado **test1.py.** Este ficheiro, crie uma classe que inclui todos os testes que deseja fazer. O exemplo seguinte mostra seis testes preparados:
     
     ![Ficheiro de Python com uma lista de testes numa classe](./media/code-test/create_file_test1_class.PNG)
 
-1. Esses testes podem ser detetados automaticamente se colocar **codetest.testCase** após o nome da sua classe. Abra o Gerenciador de testes no painel da direita e selecione **executar todos**. Todos os testes serão executados sequencialmente e informará se o teste é efetuada com êxito ou não.
+1. Esses testes podem ser automaticamente descobertos se colocar **o codetest.testCase** após o nome da sua classe. Abra o Explorador de Teste no painel direito e selecione **Run All**. Todos os testes serão executados sequencialmente e informará se o teste é efetuada com êxito ou não.
 
     ![Executar os testes](./media/code-test/run_tests.PNG)
 
@@ -112,7 +112,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
 1. Configurar a compilação automática e teste no Azure DevOps:
 
-    a. No repositório do projeto, selecione **criar e lançar**e, em seguida, selecione **+ novo** para criar um novo processo de compilação.
+    a. No repositório do projeto, selecione **Build and Release,** e depois selecione **+New** para criar um novo processo de construção.
 
     ![Seleções para iniciar um novo processo de construção](./media/code-test/create_new_build.PNG)
 
@@ -120,19 +120,19 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
     
     ![Fonte, nome, repositório e informação sobre sucursais](./media/code-test/fill_in_build_info.PNG)
 
-    c. Selecione um modelo. Como não há nenhum modelo de projeto de Python, comece por selecionar **vazio processo**. 
+    c. Selecione um modelo. Porque não há modelo de projeto Python, comece por selecionar o **processo Empty**. 
 
     ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie a compilação e selecione o agente. Pode escolher o padrão aqui se pretender utilizar um DSVM para completar o processo de construção. Para obter mais informações sobre agentes de definição, consulte [criar e lançar agentes](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie a compilação e selecione o agente. Pode escolher o padrão aqui se pretender utilizar um DSVM para completar o processo de construção. Para mais informações sobre a definição de [agentes,](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)consulte a Build and release agents .
     
     ![Seleções de construção e agente](./media/code-test/select_agent.PNG)
 
-    e. Selecione **+** no painel esquerdo, para adicionar uma tarefa para esta fase de compilação. Como vamos executar o guião python **test1.py** para completar todos os cheques, esta tarefa é usar um comando PowerShell para executar o código Python.
+    e. Selecione **+** no painel esquerdo, para adicionar uma tarefa para esta fase de construção. Como vamos executar o guião python **test1.py** para completar todos os cheques, esta tarefa é usar um comando PowerShell para executar o código Python.
     
     ![Painel "Adicionar tarefas" com powerShell selecionado](./media/code-test/add_task_powershell.PNG)
 
-    f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e versão do PowerShell. Escolher **o Inline Script de** como o tipo. 
+    f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e versão do PowerShell. Escolha o **Script Inline** como o tipo. 
     
     Na caixa em **Script Inline,** pode escrever **test1.py python**. Certifique-se de que a variável ambiental está corretamente configurada para python. Se precisar de uma versão ou núcleo diferente de Python, pode especificar explicitamente o caminho como mostrado na figura: 
     
@@ -150,12 +150,12 @@ Se os alertas estão configurados corretamente, será notificado por e-mail quan
 
 ![Notificação de DevOps do Azure de sucesso de compilação](./media/code-test/vs_online_build_succeed.PNG)
 
-## <a name="next-steps"></a>Passos seguintes
-* Consulte a [repositório de predição de renda UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para exemplos concretos de testes de unidade para cenários de ciência de dados.
+## <a name="next-steps"></a>Passos Seguintes
+* Consulte o [repositório](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) de previsão de rendimento da UCI para exemplos concretos de testes unitários para cenários de ciência de dados.
 * Siga a estrutura de tópicos e exemplos de cenário de predição de renda UCI em seus próprios projetos de ciência de dados anterior.
 
 ## <a name="references"></a>Referências
 * [Processo de Ciência de Dados de Equipa](https://aka.ms/tdsp)
-* [Ferramentas de teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Recursos de teste de DevOps do Azure](https://www.visualstudio.com/team-services/)
-* [Máquinas de virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Ferramentas de teste de estúdio visual](https://www.visualstudio.com/vs/features/testing-tools/)
+* [Recursos de teste Azure DevOps](https://www.visualstudio.com/team-services/)
+* [Máquinas virtuais da ciência dos dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

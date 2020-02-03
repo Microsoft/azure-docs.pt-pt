@@ -84,7 +84,7 @@ No ecrã **New Pull Request,** se necessário, navegue para o repositório Git e
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
-## <a name='ReviewandMerge-4'></a>Revisão e intercalação
+## <a name='ReviewandMerge-4'></a>Rever e fundir
 
 Assim que criar o pedido de pull, os seus revisores recebem uma notificação de e-mail para rever o pedido de pull. Os revisores testam se as alterações funcionam e verificam as alterações com o solicitador, se possível. Os revisores podem fazer comentários, solicitar alterações e aprovar ou rejeitar o pedido de retirada com base na sua avaliação. 
 
@@ -112,7 +112,7 @@ git branch -d script
 
 ![13](./media/collaborative-coding-with-git/13-spring-branch-deleted-commandline.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Executar tarefas de ciência](execute-data-science-tasks.md) de dados mostra como usar utilitários para completar várias tarefas comuns de ciência de dados, tais como a exploração interativa de dados, análise de dados, relatórios e criação de modelos.
 

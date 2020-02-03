@@ -20,7 +20,7 @@ As bibliotecas dos clientes são necessárias para que as aplicações e ferrame
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Descarregue as mais recentes bibliotecas de clientes (Instalador do Windows)  
 
-|Transferir  |Versão do produto  | 
+|Transferência  |Versão do produto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.21.27    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.21.27       |
@@ -90,6 +90,6 @@ As bibliotecas de clientes para ligações com clientes são diferentes dos forn
 2. Clique direito **microsoft.AnalysisServices.AdomdClient** > **Properties** > **Detalhes**.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Conecte-se com excel](analysis-services-connect-excel.md)    
 [Ligar com o Power BI](analysis-services-connect-pbi.md)

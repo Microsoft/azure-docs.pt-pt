@@ -1,5 +1,5 @@
 ---
-title: Cmdlets Powershell
+title: Cmdlets do PowerShell
 description: Encontre os cmdlets powerShell superiores para o Azure SQL Data Warehouse, incluindo como parar e retomar uma base de dados.
 services: sql-data-warehouse
 author: kevinvngo
@@ -72,15 +72,15 @@ Estes cmdlets PowerShell são suportados com o Azure SQL Data Warehouse.
 * [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
 * [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
 * [Get-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint)
-* [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-* [Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)
-* [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
+* [Nova AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
+* [Remover-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)
+* [Restaurar-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
 * [Retomar-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase)
 * [Select-AzSubscription](https://msdn.microsoft.com/library/dn722499.aspx)
 * [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 * [Suspender-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais exemplos powerShell, consulte:
 
 * [Criar um Armazém de Dados SQL usando powerShell](create-data-warehouse-powershell.md)

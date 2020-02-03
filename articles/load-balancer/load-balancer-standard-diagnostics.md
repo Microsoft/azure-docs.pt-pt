@@ -23,9 +23,9 @@ ms.locfileid: "76722446"
 
 O Standard Load Balancer do Azure expõe os seguintes recursos de diagnóstico:
 
-* **Métricas e alertas multidimensionais**: fornece recursos de diagnóstico multidimensionais por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão do Load Balancer. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
+* **Métricas e alertas multidimensionais:** Fornece capacidades de diagnóstico multidimensionais através [do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão de equilíbrio de carga. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
 
-* **Resource Health**: a página Load Balancer na portal do Azure e a página Resource Health (em monitor) expõem a seção Resource Health para Standard Load Balancer. 
+* **Saúde dos recursos**: A página balanceiro de carga no portal Azure e na página de Saúde de Recursos (sob monitor) expõem a secção de Saúde de Recursos para O Equilíbrio de Carga Padrão. 
 
 Este artigo fornece um tour rápido por esses recursos e oferece maneiras de usá-los para Standard Load Balancer. 
 
@@ -57,13 +57,13 @@ Para exibir as métricas para seus recursos de Standard Load Balancer:
 
     ![Métricas para Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-    *Figura: métrica de disponibilidade de caminho de dados para Standard Load Balancer*
+    *Figura: Métrica de disponibilidade de caminhos de dados para o equilíbrio de carga padrão*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar métricas multidimensionais programaticamente via APIs
 
-Para obter diretrizes de API para recuperar valores e definições de métrica multidimensionais, consulte [passo a passos da API REST de monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento apenas através da opção 'All Metrics'. 
+Para obter orientação da API para recuperar definições e valores métricos multidimensionais, consulte a passagem da API de [Monitorização do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento apenas através da opção 'All Metrics'. 
 
-### <a name = "DiagnosticScenarios"></a>Cenários comuns de diagnóstico e exibições recomendadas
+### <a name = "DiagnosticScenarios"></a>Cenários de diagnóstico comuns e vistas recomendadas
 
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>O caminho de dados está ativo e disponível para o VIP do balanceador de carga?
 
@@ -74,13 +74,13 @@ A métrica de disponibilidade de VIP descreve a integridade do caminho de dados 
 
 Para obter a disponibilidade do caminho de dados para seus recursos de Standard Load Balancer:
 1. Verifique se o recurso correto do balanceador de carga está selecionado. 
-2. Na lista suspensa **métrica** , selecione **disponibilidade do caminho de dados**. 
-3. Na lista suspensa **agregação** , selecione **Méd**. 
+2. Na lista de drop-down **métrica,** selecione Disponibilidade de **Caminho de Dados**. 
+3. Na lista de **agregação,** selecione **Avg**. 
 4. Além disso, adicione um filtro no endereço IP de front-end ou na porta de front-end como a dimensão com o endereço IP de front-end ou a porta de front-ends necessária e agrupe-os pela dimensão selecionada.
 
 ![Investigação de VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figura: detalhes de investigação de front-end Load Balancer*
+*Figura: Carregador De equilíbrio Frontal detalhes*
 
 A métrica é gerada por uma medida ativa e em banda. Um serviço de investigação dentro da região origina o tráfego para a medição. O serviço é ativado assim que você cria uma implantação com um front-end público e continua até que você remova o front-end. 
 
@@ -90,67 +90,67 @@ A disponibilidade do VIP falha pelos seguintes motivos:
 - Sua implantação não tem VMs íntegras restantes no pool de back-end. 
 - Ocorreu uma interrupção de infraestrutura.
 
-Para fins de diagnóstico, você pode usar a [métrica de disponibilidade de caminho de dados junto com o status da investigação de integridade](#vipavailabilityandhealthprobes).
+Para fins de diagnóstico, pode utilizar a métrica de disponibilidade do [caminho de dados juntamente com o estado da sonda de saúde](#vipavailabilityandhealthprobes).
 
-Use **Average** como a agregação para a maioria dos cenários.
+Use a **Média** como a gregação para a maioria dos cenários.
 
 #### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>As instâncias de back-end para meu VIP estão respondendo às investigações?
 
 A métrica de status de investigação de integridade descreve a integridade da implantação do aplicativo conforme configurado por você quando você configura a investigação de integridade do balanceador de carga. O balanceador de carga usa o status da investigação de integridade para determinar para onde enviar novos fluxos. As investigações de integridade originam-se de um endereço de infraestrutura do Azure e são visíveis no SO convidado da VM.
 
 Para obter o status da investigação de integridade para seus recursos de Standard Load Balancer:
-1. Selecione a métrica **status da investigação de integridade** com tipo de agregação **Méd** . 
+1. Selecione a métrica do Estado da **Sonda de Saúde** com o tipo de agregação **Avg.** 
 2. Aplique um filtro na porta ou endereço IP de front-end necessário (ou ambos).
 
 As investigações de integridade falham pelos seguintes motivos:
 - Você configura uma investigação de integridade para uma porta que não está escutando ou não respondendo ou está usando o protocolo errado. Se o serviço estiver usando regras de retorno de servidor direto (DSR ou IP flutuante), verifique se o serviço está escutando no endereço IP da configuração de IP da NIC e não apenas no auto-retorno configurado com o endereço IP de front-end.
 - Sua investigação não é permitida pelo grupo de segurança de rede, pelo firewall do sistema operacional convidado da VM ou pelos filtros da camada de aplicativo.
 
-Use **Average** como a agregação para a maioria dos cenários.
+Use a **Média** como a gregação para a maioria dos cenários.
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Como fazer verificar minhas estatísticas de conexão de saída? 
 
-A métrica de conexões SNAT descreve o volume de conexões bem-sucedidas e com falha para [fluxos de saída](https://aka.ms/lboutbound).
+A métrica de ligações SNAT descreve o volume de ligações bem sucedidas e falhadas para [os fluxos de saída](https://aka.ms/lboutbound).
 
-Um volume de conexões com falha maior que zero indica esgotamento de porta SNAT. Você deve investigar ainda mais para determinar o que pode estar causando essas falhas. Manifestos de esgotamento de porta SNAT como uma falha ao estabelecer um [fluxo de saída](https://aka.ms/lboutbound). Examine o artigo sobre conexões de saída para entender os cenários e mecanismos no trabalho e para saber como mitigar e projetar para evitar o esgotamento da porta SNAT. 
+Um volume de conexões com falha maior que zero indica esgotamento de porta SNAT. Você deve investigar ainda mais para determinar o que pode estar causando essas falhas. A exaustão da porta SNAT manifesta-se como uma falha na [criação](https://aka.ms/lboutbound)de um fluxo de saída . Examine o artigo sobre conexões de saída para entender os cenários e mecanismos no trabalho e para saber como mitigar e projetar para evitar o esgotamento da porta SNAT. 
 
 Para obter estatísticas de conexão SNAT:
-1. Selecione tipo de métrica de **conexões SNAT** e **soma** como agregação. 
-2. Agrupar por **estado de conexão** para contagens de conexão SNAT com êxito e com falha que são representadas por linhas diferentes. 
+1. Selecione o tipo métrico de **ligações SNAT** e a **soma** como agregação. 
+2. Grupo por **Connection State** para contagens de ligação SNAT bem sucedidas e falhadas que são representadas por diferentes linhas. 
 
 ![Conexão SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figura: contagem de conexões SNAT Load Balancer*
+*Figura: Contagem de ligação SNAT do balancedor de carga*
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Como fazer verificar tentativas de conexão de entrada/saída para meu serviço?
 
-Uma métrica de pacotes SYN descreve o volume de pacotes TCP SYN, que chegaram ou foram enviados (para [fluxos de saída](https://aka.ms/lboutbound)) associados a um front-end específico. Você pode usar essa métrica para entender as tentativas de conexão TCP com o serviço.
+Uma métrica de pacotes SYN descreve o volume de pacotes De SYN TCP, que chegaram ou foram enviados (para [fluxos de saída](https://aka.ms/lboutbound)) que estão associados a uma extremidade frontal específica. Você pode usar essa métrica para entender as tentativas de conexão TCP com o serviço.
 
-Use **total** como a agregação para a maioria dos cenários.
+Use a **Total** como agregação para a maioria dos cenários.
 
 ![Conexão SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Figura: Load Balancer contagem de SYN*
+*Figura: Contagem de SYN do Balancer de Carga*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Como fazer verificar o consumo de largura de banda da rede? 
 
 A métrica bytes e contadores de pacotes descreve o volume de bytes e os pacotes que são enviados ou recebidos pelo seu serviço em uma base por front-end.
 
-Use **total** como a agregação para a maioria dos cenários.
+Use a **Total** como agregação para a maioria dos cenários.
 
 Para obter estatísticas de contagem de pacotes ou bytes:
-1. Selecione a **contagem de bytes** e/ou o tipo de métrica de **contagem de pacotes** , com **Méd** como a agregação. 
+1. Selecione o tipo métrico **de Contagem de Bytes** e/ou Contagem de **Pacotes,** com **Avg** como agregação. 
 2. Efetue um dos seguintes procedimentos:
    * Aplique um filtro em um IP de front-end específico, porta de front-end, IP de back-end ou porta de back-end.
    * Obtenha estatísticas gerais para o recurso de balanceador de carga sem nenhuma filtragem.
 
 ![Contagem de bytes](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura: contagem de Load Balancer bytes*
+*Figura: Contagem de byte saqueta do balancer de carga*
 
-#### <a name = "vipavailabilityandhealthprobes"></a>Como fazer diagnosticar minha implantação do balanceador de carga?
+#### <a name = "vipavailabilityandhealthprobes"></a>Como diagnostico a minha implantação de equilibradores de carga?
 
 Usando uma combinação das métricas de disponibilidade de VIP e de investigação de integridade em um único gráfico, você pode identificar onde procurar o problema e resolver o problema. Você pode ter a garantia de que o Azure está funcionando corretamente e usar esse conhecimento para determinar de forma conclusiva que a configuração ou o aplicativo é a causa raiz.
 
@@ -160,7 +160,7 @@ Você pode levar um passo adiante e usar métricas de disponibilidade de VIP par
 
 ![Combinando métricas de status de investigação de integridade e disponibilidade de caminho de dados](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Figura: combinação de métricas de status de investigação de integridade e disponibilidade do caminho de dados*
+*Figura: Combinando disponibilidade de caminhos de dados e métricas de estado da sonda de saúde*
 
 O gráfico exibe as seguintes informações:
 - A infraestrutura que hospeda suas VMs não estava disponível e está em 0% no início do gráfico. Posteriormente, a infraestrutura estava íntegra e as VMs estavam acessíveis e mais de uma VM foi colocada no back-end. Essas informações são indicadas pelo rastreamento azul para disponibilidade de caminho de dados (disponibilidade de VIP), que foi posterior em 100%. 
@@ -168,40 +168,40 @@ O gráfico exibe as seguintes informações:
 
 O gráfico permite que os clientes solucionem problemas de implantação por conta própria sem precisar adivinhar ou perguntar ao suporte se outros problemas estão ocorrendo. O serviço não estava disponível porque as investigações de integridade estavam falhando devido a uma configuração incorreta ou a um aplicativo com falha.
 
-## <a name = "ResourceHealth"></a>Status de integridade do recurso
+## <a name = "ResourceHealth"></a>Estado de saúde dos recursos
 
-O status de integridade para os recursos de Standard Load Balancer é exposto por meio da **integridade do recurso** existente em **monitorar > integridade do serviço**.
+O estado de saúde dos recursos standard load balancer é exposto através da **saúde de recursos** existente no **Monitor > Service Health**.
 
 Para exibir a integridade de seus recursos de Standard Load Balancer públicos:
-1. Selecione **monitorar** > **integridade do serviço**.
+1. Selecione **Monitor** > **Saúde**do Serviço .
 
    ![Página de monitor](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Figura: o link de integridade do serviço no Azure Monitor*
+   *Figura: A ligação de saúde de serviço no Monitor Azure*
 
-2. Selecione **Resource Health**e, em seguida, verifique se a **ID da assinatura** e o **tipo de recurso = Load Balancer** estão selecionados.
+2. Selecione **Saúde de Recursos**, e, em seguida, certifique-se de que **o ID de subscrição** e o **tipo de recurso = Balancer de carga** são selecionados.
 
    ![Status de integridade do recurso](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Figura: selecione o recurso para a exibição de integridade*
+   *Figura: Selecione recurso para vista para a saúde*
 
 3. Na lista, selecione o recurso de Load Balancer para exibir seu status de integridade histórico.
 
     ![Status de integridade do Load Balancer](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Figura: exibição do Load Balancer Resource Health*
+   *Figura: Visão de saúde dos recursos do Balancer de Carga*
  
 Os vários status de integridade de recursos e suas descrições são listados na tabela a seguir: 
 
 | Status de integridade do recurso | Descrição |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Indisponível | O recurso padrão do Load Balancer não está íntegro. Diagnostique a integridade selecionando **Azure Monitor** > **métricas**.<br>(O status*indisponível* também pode significar que o recurso não está conectado ao balanceador de carga padrão.) |
-| Desconhecido | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O status*desconhecido* também pode significar que o recurso não está conectado ao balanceador de carga padrão.)  |
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. Diagnosticar a saúde selecionando **O Monitor > ** **Métricas.**<br>(O estado*indisponível* também pode significar que o recurso não está ligado ao seu equilibrador de carga padrão.) |
+| Desconhecido | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O estado*desconhecido* também pode significar que o recurso não está ligado ao seu equilibrador de carga padrão.)  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre a [conectividade de saída do balanceador de carga](https://aka.ms/lboutbound).
-- Saiba mais sobre [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Saiba mais sobre a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/) e [como recuperar métricas por meio da API REST](/rest/api/monitor/metrics/list).
+- Saiba mais sobre a sua conectividade de saída do [seu balancer de carga.](https://aka.ms/lboutbound)
+- Saiba mais sobre [o Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/overview)
+- Saiba mais sobre a [API REST Do Monitor Azure](https://docs.microsoft.com/rest/api/monitor/) e [como recuperar métricas através da API REST](/rest/api/monitor/metrics/list).

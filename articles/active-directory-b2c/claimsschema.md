@@ -42,9 +42,9 @@ O elemento **ClaimsSchema** define os tipos de reclamação que podem ser refere
 
 O elemento **ClaimType** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o tipo de reclamação. Outros elementos podem utilizar este identificador na política. |
+| ID | Sim | Um identificador que é usado para o tipo de reclamação. Outros elementos podem utilizar este identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
@@ -65,11 +65,11 @@ Os Tipos de **Reclamação por Predefinição** podem conter o seguinte elemento
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Protocolo | 0: n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
+| Protocol | 0: n | Lista de protocolos com o nome do tipo de reclamação do parceiro predefinido. |
 
-O elemento **Protocol** contém os seguintes atributos:
+O elemento **Protocolo** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sim | O nome do tipo de reclamação a utilizar. |
@@ -104,7 +104,7 @@ Como resultado, o símbolo JWT emitido pelo Azure AD B2C, emite o `family_name` 
 
 O elemento **Máscara** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de máscara de reivindicação. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma simples máscara de texto é aplicada à parte principal de uma reivindicação de cordas. O valor `Regex` indica que uma expressão regular é aplicada à reivindicação da cadeia no seu conjunto.  Se o valor `Regex` for especificado, um atributo opcional também deve ser definido com a expressão regular a utilizar. |
 | `Regex` | Não | Se **`Type`** estiver programado para `Regex`, especifique a expressão regular a utilizar.
@@ -144,7 +144,7 @@ O Quadro de Experiência de Identidade torna apenas a primeira letra do endereç
 
 O elemento **restrição** pode conter o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Função Função Behavior | Não | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O valor `Append` é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O valor `Prepend` é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O valor `ReplaceAll` é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
 
@@ -159,7 +159,7 @@ O elemento **restrição** contém os seguintes elementos:
 
 O elemento **Enumeração** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de visualização que é mostrada ao utilizador na interface do utilizador para esta opção. |
 |Valor | Sim | O valor de reclamação que está associado à seleção desta opção. |
@@ -188,7 +188,7 @@ Lista de cidades dropdown com um valor padrão definido para Nova Iorque:
 
 O elemento **Padrão** pode conter os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Expressão regular | Sim | A expressão regular que reclama deste tipo deve coincidir para ser válida. |
 | Texto de Ajuda | Não | O padrão ou expressão regular para esta afirmação. |

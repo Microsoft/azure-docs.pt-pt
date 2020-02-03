@@ -710,6 +710,6 @@ Se não tiver um servidor UA Real oPC, pode utilizar a [amostra OPC UA PLC](http
 
 Implementa uma série de tags, que geram dados aleatórios e tags com anomalias. Pode estender a amostra se precisar de simular valores adicionais de etiqueta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu a gerir a OPC Publisher, os próximos passos recomendados são para aprender sobre [o OPC Twin](overview-opc-twin.md) e [o OPC Vault](overview-opc-vault.md).

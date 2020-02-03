@@ -16,7 +16,7 @@ ms.locfileid: "76722788"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Depreciação de TLS 1.0 e 1.1 no IoT Hub e Serviço de Provisionamento de Dispositivos
 
-Para fornecer a melhor criptografia, o Hub IoT e o DPS (serviço de provisionamento de dispositivos) estão mudando para o protocolo TLS 1,2 como o mecanismo de criptografia de escolha para dispositivos e serviços de IoT. Assim, o suporte herdado para TLS 1,0 e TLS 1,1, bem como várias codificações herdadas não recomendadas, será preterido em **1º de julho de 2020**.
+Para fornecer a melhor criptografia, o Hub IoT e o DPS (serviço de provisionamento de dispositivos) estão mudando para o protocolo TLS 1,2 como o mecanismo de criptografia de escolha para dispositivos e serviços de IoT. Como tal, o apoio legado para TLS 1.0 e TLS 1.1, bem como várias cifras legados não recomendadas serão depreciados em 1 de julho de **2020.**
 
 
 ## <a name="impact"></a>Impacto
@@ -35,4 +35,4 @@ Apenas são permitidas as seguintes cifras durante o aperto de mão TLS:
 
 ## <a name="customer-feedback"></a>Feedback do cliente
 
-Embora a imposição do TLS 1.2 seja a melhor opção de encriptação ao nível do setor e seja ativada como planeada, gostaríamos de saber a opinião dos clientes relativamente às implementações específicas e dificuldades ao adotarem o TLS 1.2. Para o efeito, pode enviar os seus comentários para [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
+Embora a aplicação da tls 1.2 seja uma escolha de encriptação de melhor classe em toda a indústria e seja ativada como planeado, gostaríamos ainda de ouvir os clientes sobre as suas implementações específicas e dificuldades em adotar tLS 1.2. Para o efeito, pode enviar os seus comentários para [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

@@ -121,5 +121,5 @@ Teste a sua configuração utilizando uma ferramenta de teste de carga como o ba
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [**Problemas problemas do Controlador de Ingress:** ](ingress-controller-troubleshoot.md)Problemas de resolução de problemas com o Controlador De Entrada.

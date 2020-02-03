@@ -86,7 +86,7 @@ Para verificar se o Ambiente de Trabalho Remoto está a utilizar codificação a
 3. Para determinar se é utilizada codificação acelerada por GPU, procure o ID 170 do evento. Se vir "Codificador de hardware AVC ativado: 1" então a codificação de GPU é utilizada.
 4. Para determinar se o modo AVC 444 é utilizado, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado O Vc 444.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Estas instruções devem fazê-lo funcionar com aceleração de GPU em uma única sessão anfitrião VM. Algumas considerações adicionais para permitir a aceleração da GPU através de uma piscina de hospedeiro maior:
 

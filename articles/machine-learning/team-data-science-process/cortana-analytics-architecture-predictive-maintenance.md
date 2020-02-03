@@ -19,9 +19,9 @@ ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721800"
 ---
 # <a name="architecture-of-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Arquitetura do modelo de solução Cortana Intelligence para manutenção preditiva no espaço aéreo
-O diagrama abaixo fornece uma visão geral da arquitetura do [modelo de solução do Cortana Intelligence para manutenção preditiva](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
+O diagrama abaixo fornece uma visão arquitetónica do Modelo de Solução de [Inteligência Cortana para manutenção preditiva](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
 
-Pode baixar uma versão em tamanho normal do diagrama aqui: [diagrama de arquitetura: modelo de solução para manutenção preditiva](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Pode baixar uma versão em tamanho real do diagrama aqui: Diagrama de arquitetura: Modelo de [solução para manutenção preditiva](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 ![Diagrama de arquitetura do modelo de solução de manutenção preditiva][image]
 

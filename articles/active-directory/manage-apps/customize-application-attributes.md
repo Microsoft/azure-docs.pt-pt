@@ -31,23 +31,23 @@ Você pode personalizar os mapeamentos de atributo padrão de acordo com suas ne
 
 ## <a name="editing-user-attribute-mappings"></a>Editando atributos de usuário-mapeamentos
 
-Siga estas etapas para acessar o recurso **mapeamentos** do provisionamento de usuário:
+Siga estes passos para aceder à funcionalidade **Mapeamentos** de fornecimento de utilizadores:
 
-1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com).
-1. Selecione **aplicativos empresariais** no painel esquerdo. Uma lista de todos os aplicativos configurados é mostrada, incluindo os aplicativos que foram adicionados da galeria.
+1. Inscreva-se no [portal de Diretório Ativo Azure.](https://aad.portal.azure.com)
+1. Selecione **aplicações Enterprise** a partir do painel esquerdo. Uma lista de todos os aplicativos configurados é mostrada, incluindo os aplicativos que foram adicionados da galeria.
 1. Selecione qualquer aplicativo para carregar seu painel de gerenciamento de aplicativo, no qual você pode exibir relatórios e gerenciar configurações de aplicativo.
-1. Selecione **provisionamento** para gerenciar as configurações de provisionamento de conta de usuário para o aplicativo selecionado.
-1. Expanda **mapeamentos** para exibir e editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino. Se o aplicativo de destino oferecer suporte a ele, esta seção permitirá que você configure o provisionamento de grupos e contas de usuário opcionalmente.
+1. Selecione **Provisioning** para gerir as definições de provisionamento da conta de utilizador para a aplicação selecionada.
+1. Expandir **Mapeamentos** para visualizar e editar os atributos do utilizador que fluem entre a AD Azure e a aplicação-alvo. Se o aplicativo de destino oferecer suporte a ele, esta seção permitirá que você configure o provisionamento de grupos e contas de usuário opcionalmente.
 
    ![Usar mapeamentos para exibir e editar atributos de usuário](media/customize-application-attributes/21.png)
 
-1. Selecione uma configuração de **mapeamentos** para abrir a tela de **mapeamento de atributo** relacionada. Alguns mapeamentos de atributo são exigidos por um aplicativo SaaS para funcionar corretamente. Para os atributos necessários, o recurso de **exclusão** não está disponível.
+1. Selecione uma configuração **de Mapeamento** para abrir o ecrã de Mapeamento do **Atributo** relacionado. Alguns mapeamentos de atributo são exigidos por um aplicativo SaaS para funcionar corretamente. Para atributos necessários, a funcionalidade **Eliminar** não está disponível.
 
    ![Usar mapeamento de atributo para configurar mapeamentos de atributo para aplicativos](media/customize-application-attributes/22.png)
 
-   Nesta captura de tela, você pode ver que o atributo **username** de um objeto gerenciado no Salesforce é preenchido com o valor **userPrincipalName** do objeto Azure Active Directory vinculado.
+   Nesta imagem, pode ver que o atributo do **Username** de um objeto gerido no Salesforce é povoado com o valor do **userPrincipalName** do Objeto de Diretório Ativo Azure ligado.
 
-1. Selecione um **mapeamento de atributo** existente para abrir a tela **Editar atributo** . Aqui você pode editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
+1. Selecione um **Mapeamento** de Atributo existente para abrir o ecrã do **Atributo editar.** Aqui você pode editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
 
    ![Usar o atributo editar para editar atributos de usuário](media/customize-application-attributes/23.png)
 
@@ -56,37 +56,37 @@ Siga estas etapas para acessar o recurso **mapeamentos** do provisionamento de u
 Com os mapeamentos de atributos, você controla como os atributos são populados em um aplicativo SaaS de terceiros.
 Há quatro tipos diferentes de mapeamento com suporte:
 
-- **Direto** – o atributo de destino é populado com o valor de um atributo do objeto vinculado no Azure AD.
-- **Constante** – o atributo de destino é populado com uma cadeia de caracteres específica que você especificou.
-- **Expressão** -o atributo de destino é preenchido com base no resultado de uma expressão do tipo script.
-  Para obter mais informações, consulte [escrevendo expressões para mapeamentos de atributo em Azure Active Directory](functions-for-customizing-application-data.md).
-- **Nenhum** -o atributo de destino é deixado sem modificações. No entanto, se o atributo de destino já estiver vazio, ele será preenchido com o valor padrão que você especificar.
+- **Direto** – o atributo-alvo é povoado com o valor de um atributo do objeto ligado em Azure AD.
+- **Constante** – o atributo-alvo é povoado com uma corda específica especificada.
+- **Expressão** - o atributo-alvo é povoado com base no resultado de uma expressão semelhante a um script.
+  Para mais informações, consulte [Expressões de Escrita para Atribuições em Diretório Ativo Azure](functions-for-customizing-application-data.md).
+- **Nenhum** - o atributo alvo é deixado inalterado. No entanto, se o atributo de destino já estiver vazio, ele será preenchido com o valor padrão que você especificar.
 
-Juntamente com esses quatro tipos básicos, os mapeamentos de atributo personalizados dão suporte ao conceito de uma atribuição de valor **padrão** opcional. A atribuição de valor padrão garante que um atributo de destino seja preenchido com um valor se não houver um valor no Azure AD ou no objeto de destino. A configuração mais comum é deixar em branco.
+Juntamente com estes quatro tipos básicos, os mapeamentos personalizados suportam o conceito de uma atribuição opcional de valor **por defeito.** A atribuição de valor padrão garante que um atributo de destino seja preenchido com um valor se não houver um valor no Azure AD ou no objeto de destino. A configuração mais comum é deixar em branco.
 
 ### <a name="understanding-attribute-mapping-properties"></a>Noções básicas sobre propriedades de mapeamento de atributo
 
 Na seção anterior, você já foi apresentado à propriedade tipo de mapeamento de atributo.
 Junto com essa propriedade, os mapeamentos de atributo também oferecem suporte aos seguintes atributos:
 
-- **Atributo de origem** -o atributo de usuário do sistema de origem (exemplo: Azure Active Directory).
-- **Atributo de destino** – o atributo de usuário no sistema de destino (exemplo: ServiceNow).
-- **Valor padrão se NULL (opcional)** – o valor que será passado para o sistema de destino se o atributo de origem for nulo. Esse valor só será provisionado quando um usuário for criado. O "valor padrão quando nulo" não será provisionado durante a atualização de um usuário existente. Se, por exemplo, pretender fornecer todos os utilizadores existentes no sistema-alvo com um determinado Título de Trabalho (quando for nulo no sistema de origem), pode utilizar a seguinte [expressão](functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Certifique-se de substituir o "valor padrão" pelo que você gostaria de provisionar quando nulo no sistema de origem. 
-- **Corresponder objetos usando este atributo** – se esse mapeamento deve ser usado para identificar exclusivamente os usuários entre os sistemas de origem e de destino. Normalmente, ele é definido no atributo userPrincipalName ou mail no Azure AD, que normalmente é mapeado para um campo de nome de usuário em um aplicativo de destino.
-- **Precedência de correspondência** – vários atributos correspondentes podem ser definidos. Quando há vários, eles são avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum atributo correspondente será avaliado.
-- **Aplicar este mapeamento**
-  - **Sempre** – aplique esse mapeamento nas ações de criação e atualização do usuário.
-  - **Somente durante a criação** – aplique esse mapeamento somente em ações de criação de usuário.
+- **Atributo de origem** - O atributo do utilizador do sistema de origem (exemplo: Diretório Ativo Azure).
+- **Atributo-alvo** – O atributo do utilizador no sistema-alvo (exemplo: ServiceNow).
+- **Valor predefinido se nulo (opcional)** - O valor que será passado para o sistema-alvo se o atributo de origem for nulo. Esse valor só será provisionado quando um usuário for criado. O "valor padrão quando nulo" não será provisionado durante a atualização de um usuário existente. Se, por exemplo, pretender fornecer todos os utilizadores existentes no sistema-alvo com um determinado Título de Trabalho (quando for nulo no sistema de origem), pode utilizar a seguinte [expressão](functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Certifique-se de substituir o "valor padrão" pelo que você gostaria de provisionar quando nulo no sistema de origem. 
+- **Combine objetos usando este atributo** – Se este mapeamento deve ser usado para identificar exclusivamente os utilizadores entre a fonte e os sistemas de destino. Normalmente, ele é definido no atributo userPrincipalName ou mail no Azure AD, que normalmente é mapeado para um campo de nome de usuário em um aplicativo de destino.
+- **Precedência correspondente** – Podem ser definidos múltiplos atributos correspondentes. Quando há vários, eles são avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum atributo correspondente será avaliado.
+- **Aplique este mapeamento**
+  - **Sempre** – Aplique este mapeamento tanto na criação do utilizador como nas ações de atualização.
+  - **Apenas durante** a criação - Aplique este mapeamento apenas em ações de criação do utilizador.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Usuários correspondentes nos sistemas de origem e de destino
 O serviço de provisionamento do Azure AD pode ser implantado em cenários "greenfield" (onde os usuários não saem no sistema de destino) e nos cenários "Brownfield" (onde os usuários já existem no sistema de destino). Para dar suporte a ambos os cenários, o serviço de provisionamento usa o conceito de atributos correspondentes. Os atributos correspondentes permitem que você determine como identificar exclusivamente um usuário na origem e corresponder ao usuário no destino. Como parte do planejamento de sua implantação, identifique o atributo que pode ser usado para identificar exclusivamente um usuário nos sistemas de origem e de destino. Itens a serem observados:
 
-- Os **atributos correspondentes devem ser exclusivos:** Os clientes geralmente usam atributos como userPrincipalName, email ou ID de objeto como o atributo correspondente.
-- **Vários atributos podem ser usados como atributos correspondentes:** Você pode definir vários atributos a serem avaliados quando os usuários correspondentes e a ordem em que eles são avaliados (definidos como precedência de correspondência na interface do usuário). Se, por exemplo, você definir três atributos como atributos correspondentes e um usuário for correspondido com exclusividade depois de avaliar os dois primeiros atributos, o serviço não avaliará o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e interromperá a avaliação quando uma correspondência for encontrada.  
-- **O valor na origem e no destino não precisam corresponder exatamente:** O valor no destino pode ser uma função simples do valor na origem. Portanto, um pode ter um atributo emailAddress na origem e o userPrincipalName no destino e corresponder por uma função do atributo emailAddress que substitui alguns caracteres por um valor constante.  
-- **Não há suporte para a correspondência com base em uma combinação de atributos:** A maioria dos aplicativos não oferece suporte à consulta com base em duas propriedades. Portanto, não é possível fazer a correspondência com base em uma combinação de atributos. É possível avaliar as propriedades únicas após a outra.
-- **Todos os usuários devem ter um valor para pelo menos um atributo correspondente:** Se você definir um atributo correspondente, todos os usuários deverão ter um valor para esse atributo no sistema de origem. Se, por exemplo, você definir userPrincipalName como o atributo correspondente, todos os usuários deverão ter um userPrincipalName. Se você definir vários atributos correspondentes (por exemplo, extensionAttribute1 e email), nem todos os usuários precisarão ter o mesmo atributo correspondente. Um usuário poderia ter um extensionAttribute1, mas não um email, enquanto outro usuário poderia ter um email, mas sem extensionAttribute1. 
-- **O aplicativo de destino deve dar suporte à filtragem no atributo correspondente:** Os desenvolvedores de aplicativos permitem a filtragem de um subconjunto de atributos em sua API de usuário ou de grupo. Para aplicativos na Galeria, garantimos que o mapeamento de atributo padrão seja para um atributo no qual a API do aplicativo de destino dá suporte à filtragem. Ao alterar o atributo de correspondência padrão para o aplicativo de destino, verifique a documentação da API de terceiros para garantir que o atributo possa ser filtrado.  
+- **Os atributos correspondentes devem ser únicos:** Os clientes usam frequentemente atributos como userPrincipalName, mail ou object ID como o atributo correspondente.
+- **Vários atributos podem ser usados como atributos correspondentes:** Pode definir múltiplos atributos a avaliar quando combinar utilizadores e a ordem em que são avaliados (definidos como precedência correspondente na UI). Se, por exemplo, você definir três atributos como atributos correspondentes e um usuário for correspondido com exclusividade depois de avaliar os dois primeiros atributos, o serviço não avaliará o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e interromperá a avaliação quando uma correspondência for encontrada.  
+- O valor na fonte e no alvo não têm de **corresponder exatamente:** O valor no alvo pode ser uma função simples do valor na fonte. Portanto, um pode ter um atributo emailAddress na origem e o userPrincipalName no destino e corresponder por uma função do atributo emailAddress que substitui alguns caracteres por um valor constante.  
+- **A correspondência com base numa combinação de atributos não é suportada:** A maioria das aplicações não suporta consulta com base em duas propriedades. Portanto, não é possível fazer a correspondência com base em uma combinação de atributos. É possível avaliar as propriedades únicas após a outra.
+- **Todos os utilizadores devem ter um valor para pelo menos um atributo correspondente:** Se definir um atributo correspondente, todos os utilizadores devem ter um valor para esse atributo no sistema fonte. Se, por exemplo, você definir userPrincipalName como o atributo correspondente, todos os usuários deverão ter um userPrincipalName. Se você definir vários atributos correspondentes (por exemplo, extensionAttribute1 e email), nem todos os usuários precisarão ter o mesmo atributo correspondente. Um usuário poderia ter um extensionAttribute1, mas não um email, enquanto outro usuário poderia ter um email, mas sem extensionAttribute1. 
+- **A aplicação-alvo deve apoiar a filtragem do atributo correspondente:** Os desenvolvedores de aplicações permitem a filtragem para um subconjunto de atributos no seu utilizador ou grupo API. Para aplicativos na Galeria, garantimos que o mapeamento de atributo padrão seja para um atributo no qual a API do aplicativo de destino dá suporte à filtragem. Ao alterar o atributo de correspondência padrão para o aplicativo de destino, verifique a documentação da API de terceiros para garantir que o atributo possa ser filtrado.  
 
 ## <a name="editing-group-attribute-mappings"></a>Editando atributo de grupo-mapeamentos
 
@@ -94,54 +94,54 @@ Um número selecionado de aplicativos, como ServiceNow, Box e G Suite, dá supor
 
 ![Exemplo mostra o ServiceNow com objetos de grupo e usuário provisionados](media/customize-application-attributes/24.png)
 
-O provisionamento de grupo pode ser opcionalmente habilitado ou desabilitado selecionando o mapeamento de grupo em **mapeamentos**e a configuração **habilitada** para a opção desejada na tela **mapeamento de atributos** .
+O fornecimento do grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento do grupo em **Mapeamentos,** e definindo **Ativado** para a opção que deseja no ecrã de Mapeamento do **Atributo.**
 
 Os atributos provisionados como parte dos objetos de grupo podem ser personalizados da mesma maneira que os objetos de usuário, descritos anteriormente. 
 
 > [!TIP]
-> O provisionamento de objetos de grupo (Propriedades e membros) é um conceito distinto de [atribuir grupos](assign-user-or-group-access-portal.md) a um aplicativo. É possível atribuir um grupo a um aplicativo, mas apenas provisionar os objetos de usuário contidos no grupo. O provisionamento de objetos de grupo completo não é necessário para usar grupos em atribuições.
+> O fornecimento de objetos de grupo (propriedades e membros) é um conceito distinto de [atribuir grupos](assign-user-or-group-access-portal.md) a uma aplicação. É possível atribuir um grupo a um aplicativo, mas apenas provisionar os objetos de usuário contidos no grupo. O provisionamento de objetos de grupo completo não é necessário para usar grupos em atribuições.
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Editando a lista de atributos com suporte
 
 Os atributos de usuário com suporte para um determinado aplicativo são pré-configurados. A maioria das APIs de gerenciamento de usuário do aplicativo não oferece suporte à descoberta de esquema. Portanto, o serviço de provisionamento do Azure AD não é capaz de gerar dinamicamente a lista de atributos com suporte fazendo chamadas para o aplicativo.
 
-No entanto, alguns aplicativos dão suporte a atributos personalizados e o serviço de provisionamento do Azure AD pode ler e gravar em atributos personalizados. Para inserir suas definições no portal do Azure, marque a caixa de seleção **Mostrar opções avançadas** na parte inferior da tela **mapeamento de atributos** e selecione **Editar lista de atributos para** seu aplicativo.
+No entanto, alguns aplicativos dão suporte a atributos personalizados e o serviço de provisionamento do Azure AD pode ler e gravar em atributos personalizados. Para introduzir as suas definições no portal Azure, selecione a caixa de verificação de **opções avançadas do Show** na parte inferior do ecrã **de Mapeamento** do Atributo e, em seguida, selecione a lista de **atributos editar para** a sua aplicação.
 
 Os aplicativos e sistemas que dão suporte à personalização da lista de atributos incluem:
 
 - Salesforce
 - ServiceNow
-- Workday
-- Azure Active Directory (há suporte para[atributos padrão do Azure AD API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizadas)
-- Aplicativos que dão suporte a [SCIM 2,0](https://tools.ietf.org/html/rfc7643), em que os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam ser adicionados
+- Dia de trabalho
+- Diretório Ativo Azure ([AD Graph API atributos padrão](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados são suportados)
+- Aplicativos que suportam [O SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema central](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 > [!NOTE]
 > A edição da lista de atributos com suporte é recomendada apenas para administradores que personalizaram o esquema de seus aplicativos e sistemas e têm conhecimento inicial de como seus atributos personalizados foram definidos. Isso às vezes requer familiaridade com as APIs e as ferramentas de desenvolvedor fornecidas por um aplicativo ou sistema.
 
 Ao editar a lista de atributos com suporte, as seguintes propriedades são fornecidas:
 
-- **Nome** – o nome do sistema do atributo, conforme definido no esquema do objeto de destino.
-- **Tipo** – o tipo de dados que o atributo armazena, conforme definido no esquema do objeto de destino, que pode ser um dos seguintes tipos:
-  - O atributo *Binary* contém dados binários.
-  - O atributo *booliano* contém um valor verdadeiro ou falso.
-  - *DateTime* -o atributo contém uma cadeia de caracteres de data.
-  - *Integer* -o atributo contém um inteiro.
-  - *Reference* -o atributo contém uma ID que faz referência a um valor armazenado em outra tabela no aplicativo de destino.
-  - *String* -o atributo contém uma cadeia de texto.
-- **Chave primária?** -Se o atributo é definido como um campo de chave primária no esquema do objeto de destino.
+- **Nome** - O nome do sistema do atributo, tal como definido no esquema do objecto-alvo.
+- **Tipo** - O tipo de dados que o atributo armazena, tal como definido no esquema do objecto-alvo, que pode ser um dos seguintes tipos:
+  - *Binário* - Atributo contém dados binários.
+  - *Boolean* - Atributo contém um valor verdadeiro ou falso.
+  - *DataTime* - Atributo contém uma corda de data.
+  - *Inteiro* - Atributo contém um inteiro.
+  - *Referência* - O atributo contém um ID que refere um valor armazenado noutra tabela na aplicação-alvo.
+  - *String* - Atributo contém uma cadeia de texto.
+- **Chave Primária?** -Se o atributo é definido como um campo de chave primária no esquema do objeto de destino.
 - **Necessário?** -Se o atributo deve ser preenchido no aplicativo ou sistema de destino.
-- **Vários valores?** -Se o atributo dá suporte a vários valores.
+- **Multi-valor?** -Se o atributo dá suporte a vários valores.
 - **Caso exato?** -Se os valores de atributos são avaliados de maneira diferenciada de maiúsculas e minúsculas.
-- **Expressão de API** -não use, a menos que seja instruído a fazer isso pela documentação para um conector de provisionamento específico (como workday).
-- **Atributo de objeto referenciado** -se for um atributo de tipo de referência, esse menu permitirá que você selecione a tabela e o atributo no aplicativo de destino que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Department" cujo valor armazenado faz referência a um objeto em uma tabela "departamentos" separada, selecione "Departments.Name". As tabelas de referência e os campos de ID primária com suporte para um determinado aplicativo são pré-configurados e, no momento, não podem ser editados usando o portal do Azure, mas podem ser editados usando o [API do Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Expressão API** - Não utilize, a menos que seja instruído pela documentação para um conector de provisionamento específico (como o Dia de Trabalho).
+- **Atributo** de objeto referenciado - Se for um atributo tipo de referência, então este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Department" cujo valor armazenado faz referência a um objeto em uma tabela "departamentos" separada, selecione "Departments.Name". As tabelas de referência e os principais campos de IDENTIFICAção suportados para uma determinada aplicação estão pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizado para um aplicativo compatível com SCIM
 A RFC SCIM define um esquema de usuário e grupo principal, permitindo também que as extensões do esquema atendam às necessidades do seu aplicativo. Para adicionar um atributo personalizado a um aplicativo SCIM:
-   1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com), selecione **aplicativos empresariais**, selecione seu aplicativo e, em seguida, selecione **provisionamento**.
-   2. Em **mapeamentos**, selecione o objeto (usuário ou grupo) para o qual você deseja adicionar um atributo personalizado.
+   1. Inscreva-se no [portal de Diretório Ativo Azure,](https://aad.portal.azure.com)selecione **Aplicações Empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning**.
+   2. Em **Mapeamentos,** selecione o objeto (utilizador ou grupo) para o qual deseja adicionar um atributo personalizado.
    3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
-   4. Selecione **Editar lista de atributos para AppName**.
-   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar atributo**.
+   4. **Selecione editar lista de atributos para AppName**.
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo**.
 
 Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute
 
@@ -149,7 +149,7 @@ Essas instruções só são aplicáveis a aplicativos habilitados para SCIM. Apl
 
 Atributos personalizados não podem ser atributos de referência ou atributos de valores múltiplos. Os atributos de extensão de vários valores personalizados atualmente têm suporte apenas para aplicativos na galeria.  
  
-**Exemplo de representação de um usuário com um atributo de extensão:**
+**Representação de exemplo de um utilizador com um atributo de extensão:**
 
 ```json
    {
@@ -193,17 +193,17 @@ Atributos personalizados não podem ser atributos de referência ou atributos de
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Provisionando uma função para um aplicativo SCIM
 Use as etapas abaixo para provisionar funções para um usuário para seu aplicativo. Observe que a descrição abaixo é específica para aplicativos SCIM personalizados. Para aplicativos de galeria, como Salesforce e ServiceNow, use os mapeamentos de função predefinidos. Os marcadores abaixo descrevem como transformar o atributo AppRoleAssignments no formato esperado pelo aplicativo.
 
-- O mapeamento de um appRoleAssignment no Azure AD para uma função em seu aplicativo requer que você transforme o atributo usando uma [expressão](functions-for-customizing-application-data.md). O atributo appRoleAssignment **não deve ser mapeado diretamente** para um atributo role sem usar uma expressão para analisar os detalhes da função. 
+- Mapear uma appRoleAssignment em Azure AD para um papel na sua aplicação requer que transforme o atributo usando uma [expressão](functions-for-customizing-application-data.md). O atributo da appRoleAssignment **não deve ser mapeado diretamente** para um atributo de função sem usar uma expressão para analisar os detalhes do papel. 
 
-- **SingleAppRoleAssignment** 
-  - **Quando usar:** Use a expressão SingleAppRoleAssignment para provisionar uma única função para um usuário e para especificar a função primária. 
-  - **Como configurar:** Use as etapas descritas acima para navegar até a página Mapeamentos de atributo e use a expressão SingleAppRoleAssignment para mapear para o atributo funções. Há três atributos de papel a escolher: (papéis [primárioe "True"].display, roles[primary eq "True].type, e papéis[primário eq "True"].value). Você pode optar por incluir qualquer um dos atributos de função ou todos eles em seus mapeamentos. Se você quiser incluir mais de um, basta adicionar um novo mapeamento e incluí-lo como o atributo de destino.  
+- **Atribuição singleAppRole** 
+  - **Quando utilizar:** Utilize a expressão SingleAppRoleAssignment para fornecer uma única função para um utilizador e especificar a função principal. 
+  - **Como configurar:** Utilize os passos acima descritos para navegar na página de mapeamento de atributos e use a expressão SingleAppRoleAssignment para mapear as funções atributos. Há três atributos de papel a escolher: (papéis [primárioe "True"].display, roles[primary eq "True].type, e papéis[primário eq "True"].value). Você pode optar por incluir qualquer um dos atributos de função ou todos eles em seus mapeamentos. Se você quiser incluir mais de um, basta adicionar um novo mapeamento e incluí-lo como o atributo de destino.  
   
   ![Adicionar SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
-  - **Itens a serem considerados**
+  - **Coisas a considerar**
     - Certifique-se de que várias funções não sejam atribuídas a um usuário. Não podemos garantir qual função será provisionada.
     
-  - **Exemplo de saída** 
+  - **Saída de exemplo** 
 
    ```json
     {
@@ -228,19 +228,19 @@ Use as etapas abaixo para provisionar funções para um usuário para seu aplica
    ```
   
 - **AppRoleAssignmentsComplex** 
-  - **Quando usar:** Use a expressão AppRoleAssignmentsComplex para provisionar várias funções para um usuário. 
-  - **Como configurar:** Edite a lista de atributos com suporte, conforme descrito acima, para incluir um novo atributo para as funções: 
+  - **Quando utilizar:** Utilize a expressão AppRoleAssignmentsComplex para fornecer múltiplas funções para um utilizador. 
+  - **Como configurar:** Editar a lista de atributos suportados acima descritos para incluir um novo atributo para funções: 
   
     ![Adicionar papéis](media/customize-application-attributes/add-roles.png)<br>
 
     Em seguida, use a expressão AppRoleAssignmentsComplex para mapear para o atributo de função personalizada, conforme mostrado na imagem abaixo:
 
     ![Adicionar AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
-  - **Itens a serem considerados**
+  - **Coisas a considerar**
     - Todas as funções serão provisionadas como primárias = falso.
     - A POSTAgem contém o tipo de função. A solicitação de PATCH não contém o tipo. Estamos trabalhando para enviar o tipo em solicitações POST e PATCH.
     
-  - **Exemplo de saída** 
+  - **Saída de exemplo** 
   
    ```json
    {
@@ -300,26 +300,26 @@ Determinados atributos, como phoneNumbers e emails, são atributos de vários va
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restaurando atributos padrão e mapeamentos de atributo
 
-Se você precisar reiniciar e redefinir seus mapeamentos existentes de volta para seu estado padrão, poderá marcar a caixa de seleção **restaurar mapeamentos padrão** e salvar a configuração. Isso define todos os mapeamentos como se o aplicativo acabou de ser adicionado ao seu locatário do Azure AD por meio da Galeria de aplicativos.
+Caso necessite de recomeçar e redefinir os mapeamentos existentes de volta ao seu estado padrão, pode selecionar a caixa de verificação de **mapeamentopadrão de restauro** e guardar a configuração. Isso define todos os mapeamentos como se o aplicativo acabou de ser adicionado ao seu locatário do Azure AD por meio da Galeria de aplicativos.
 
 A seleção dessa opção forçará efetivamente uma ressincronização de todos os usuários enquanto o serviço de provisionamento estiver em execução.
 
 > [!IMPORTANT]
-> É altamente recomendável que o **status de provisionamento** seja definido como **desativado** antes de invocar essa opção.
+> Recomendamos vivamente que o estado de **provisionamento** seja definido **antes** de invocar esta opção.
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
 - Microsoft Azure AD fornece uma implementação eficiente de um processo de sincronização. Em um ambiente inicializado, somente objetos que exigem atualizações são processados durante um ciclo de sincronização.
 - A atualização de mapeamentos de atributo tem um impacto no desempenho de um ciclo de sincronização. Uma atualização para a configuração de mapeamento de atributo requer que todos os objetos gerenciados sejam reavaliados.
 - Uma prática recomendada é manter o número de alterações consecutivas em seus mapeamentos de atributo no mínimo.
-- Não há suporte para a adição de um atributo de foto a ser provisionado para um aplicativo hoje, pois não é possível especificar o formato para sincronizar a foto. Você pode solicitar o recurso no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- Não há suporte para a adição de um atributo de foto a ser provisionado para um aplicativo hoje, pois não é possível especificar o formato para sincronizar a foto. Pode solicitar a funcionalidade na Voz do [Utilizador](https://feedback.azure.com/forums/169401-azure-active-directory)
 - O atributo IsSoftDeleted geralmente faz parte dos mapeamentos padrão para um aplicativo. IsSoftdeleted pode ser verdadeiro em um dos quatro cenários (o usuário está fora do escopo devido à falta de atribuição do aplicativo, o usuário está fora do escopo devido à não reunião de um filtro de escopo, o usuário foi excluído de maneira reversível no Azure AD ou a propriedade AccountEnabled está definida como false  no usuário). 
 - O serviço de provisionamento do Azure AD não dá suporte ao provisionamento de valores nulos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](user-provisioning.md)
-- [Gravando expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)
-- [Filtros de âmbito para o aprovisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Automatizar o fornecimento/deprovisionamento de utilizadores para apps SaaS](user-provisioning.md)
+- [Expressões de escrita para atributo-mapeamento](functions-for-customizing-application-data.md)
+- [Filtros de deteção para fornecimento de utilizadores](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
-- [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS](../saas-apps/tutorial-list.md)

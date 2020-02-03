@@ -25,15 +25,15 @@ Este artigo descreve como dimensionar os dados armazenados em tabelas de ramo de
 * Amostragem aleatória por grupos
 * Amostragem stratified
 
-**Por que os dados de exemplo?**
+**Por que provar os seus dados?**
 Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Amostragem de baixo facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. O processo de ciência de dados de equipa de sua função é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 
-Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa de amostragem é um passo no Processo de Ciência de [Dados da Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Como submeter consultas do Hive
-Consultas do Hive podem ser submetidas a partir da consola da linha de comandos do Hadoop no nó principal do cluster de Hadoop.  Entre no nó da cabeça do cluster Hadoop, abra a consola hadoop Command-Line e submeta as consultas da Colmeia a partir daí. Para obter instruções sobre como submeter consultas do Hive na consola da linha de comandos do Hadoop, consulte [submeter consultas do Hive como](move-hive-tables.md#submit).
+Consultas do Hive podem ser submetidas a partir da consola da linha de comandos do Hadoop no nó principal do cluster de Hadoop.  Entre no nó da cabeça do cluster Hadoop, abra a consola hadoop Command-Line e submeta as consultas da Colmeia a partir daí. Para obter instruções sobre a submissão de consultas de Hive na consola de Linha de Comando Hadoop, consulte [Como Submeter Consultas](move-hive-tables.md#submit)de Colmeia .
 
-## <a name="uniform"></a> Amostragem aleatória uniforme
+## <a name="uniform"></a>Amostragem aleatória uniforme
 Amostragem aleatória uniforme significa que cada linha no conjunto de dados tem uma oportunidade igual de ser divididos em amostras. Ele pode ser implementado ao adicionar um rand() campo extra para o conjunto de dados na consulta "selecionar" interna e na consulta "selecionar" externa essa condição sobre esse campo aleatório.
 
 Segue-se uma consulta de exemplo:
@@ -49,10 +49,10 @@ Segue-se uma consulta de exemplo:
         )a
     where samplekey<='${hiveconf:sampleRate}'
 
-Aqui, `<sample rate, 0-1>` Especifica a proporção de registos que os usuários desejam de exemplo.
+Aqui, `<sample rate, 0-1>` especifica a proporção de registos que os utilizadores querem provar.
 
-## <a name="group"></a> Amostragem aleatória por grupos
-Quando recolha de dados categóricos, pode querer incluir ou excluir todas as instâncias para um valor da variável categórica. Esse tipo de amostragem é chamado de "amostragem pelo grupo". Por exemplo, se tiver uma variável categórica "*estado*", que tem valores como NY, MA, AC, NJ e PA, se pretender que os registos de cada Estado para ser em conjunto, se eles são recolhidos ou não.
+## <a name="group"></a>Amostragem aleatória por grupos
+Quando recolha de dados categóricos, pode querer incluir ou excluir todas as instâncias para um valor da variável categórica. Esse tipo de amostragem é chamado de "amostragem pelo grupo". Por exemplo, se tiver uma variável categórica "*Estado*", que tem valores como NY, MA, CA, NJ e PA, quer registos de cada estado para estarem juntos, sejam eles amostrados ou não.
 
 Aqui está um exemplo de consulta que exemplos por grupo:
 
@@ -80,7 +80,7 @@ Aqui está um exemplo de consulta que exemplos por grupo:
         )c
     on b.catfield=c.catfield
 
-## <a name="stratified"></a>Amostragem stratified
+## <a name="stratified"></a>Amostragem estratificada
 Amostragem aleatória é stratified em relação a uma variável categórica, quando os exemplos de obteve tem valores categóricos que estão presentes na mesma proporção como estavam na população principal. Seguindo o exemplo anterior, conforme apresentado acima, vamos supor que seus dados têm as seguintes observações por Estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se especificar a taxa de amostragem stratified ser 0,5, em seguida, o exemplo de obteve deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respetivamente.
 
 Segue-se uma consulta de exemplo:
@@ -99,5 +99,5 @@ Segue-se uma consulta de exemplo:
     where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-Para obter informações sobre métodos de amostragem mais avançados que estão disponíveis no ramo de registo, consulte [LanguageManual amostragem](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
+Para obter informações sobre métodos de amostragem mais avançados disponíveis na Colmeia, consulte A [Amostragem Manual de Idiomas](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

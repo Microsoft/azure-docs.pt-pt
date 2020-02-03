@@ -22,7 +22,7 @@ ms.locfileid: "76710321"
 
 Quais recursos são necessários para que você crie um ambiente que possa executar o processamento de análise avançada em um conjunto de um DataSet? Este artigo sugere uma série de perguntas a serem feitas que podem ajudar a identificar tarefas e recursos relevantes ao seu cenário.
 
-Para saber mais sobre a ordem das etapas de alto nível para análise preditiva, confira o [que é o TDSP (processo de ciência de dados de equipe)](overview.md). Cada etapa requer recursos específicos para as tarefas relevantes para seu cenário específico.
+Para conhecer a ordem dos passos de alto nível para análises preditivas, consulte o Que é o Processo de Ciência de [Dados da Equipa (TDSP)](overview.md). Cada etapa requer recursos específicos para as tarefas relevantes para seu cenário específico.
 
 Responda às principais perguntas nas seguintes áreas para identificar seu cenário:
 
@@ -65,8 +65,8 @@ Onde os dados precisam ser para processamento ou modelagem?
 
 Para obter procedimentos e recursos para ingerir ou carregar dados em uma variedade de diferentes ambientes de armazenamento e processamento, consulte:
 
-* [Carregar dados para ambientes de armazenamento para análise](ingest-data.md)
-* [Importe seus dados de treinamento para Azure Machine Learning Studio (clássico) de várias fontes de dados](../studio/import-data.md)
+* [Carregue dados em ambientes de armazenamento para análise](ingest-data.md)
+* [Importe os seus dados de formação para o Azure Machine Learning Studio (clássico) de várias fontes de dados](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Os dados precisam ser movidos em um agendamento regular ou modificados durante a migração?
 
@@ -79,7 +79,7 @@ Para mais informações, consulte [Mover dados de um servidor SQL no local para 
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quanto dos dados serão movidos para o Azure?
 
-Grandes conjuntos de dados podem exceder a capacidade de armazenamento de certos ambientes. Para obter um exemplo, consulte a discussão sobre limites de tamanho para Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes de como dimensionar um conjunto de dados em vários ambientes do Azure, consulte [amostra dos dados no Team Data Science Process](sample-data.md).
+Grandes conjuntos de dados podem exceder a capacidade de armazenamento de certos ambientes. Para obter um exemplo, consulte a discussão sobre limites de tamanho para Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para mais detalhes sobre como recolher um conjunto de dados em vários ambientes Do Azure, consulte [os dados da amostra no Processo](sample-data.md)de Ciência de Dados da Equipa .
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Perguntas de características de dados: tipo, o formato e o tamanho
 
@@ -90,7 +90,7 @@ Essas perguntas são fundamentais para planejar seus ambientes de armazenamento 
 * Numérica
 * Categórico
 * Cadeias
-* Binary
+* Binário
 
 ### <a name="how-is-your-data-formatted"></a>Como os dados são formatados?
 
@@ -108,8 +108,8 @@ Essas perguntas são fundamentais para planejar seus ambientes de armazenamento 
 
 Considere o ambiente Azure Machine Learning Studio (clássico), por exemplo:
 
-* Para obter uma lista dos formatos de dados e tipos suportados pelo Azure Machine Learning Studio, consulte [formatos de dados e tipos de dados suportados](../studio/import-data.md#supported-data-formats-and-data-types) secção.
-* Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, consulte [subscrição do Azure e limites do serviço, Quotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+* Para obter uma lista dos formatos e tipos de dados suportados pelo Azure Machine Learning Studio, consulte os [formatos](../studio/import-data.md#supported-data-formats-and-data-types) de dados e os tipos de dados suportados na secção.
+* Para obter informações sobre as limitações de outros serviços Azure utilizados no processo de análise, consulte [limites de subscrição e serviço do Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Perguntas de qualidade de dados: exploração e processamento prévio de
 
@@ -127,11 +127,11 @@ Esta etapa é importante para ajudá-lo a:
 * Formular hipóteses que sugerem os recursos mais apropriados ou o tipo de análise
 * Formular planos para coleta de dados adicionais
 
-Técnicas úteis para a inspeção de dados incluem gráficos descritivos de cálculo e visualização de estatísticas. Para obter detalhes de como explorar um conjunto de dados em vários ambientes do Azure, consulte [explorar dados no Team Data Science Process](explore-data.md).
+Técnicas úteis para a inspeção de dados incluem gráficos descritivos de cálculo e visualização de estatísticas. Para mais detalhes sobre como explorar um conjunto de dados em vários ambientes Azure, consulte [Explore dados no Processo](explore-data.md)de Ciência de Dados da Equipa .
 
 ### <a name="does-the-data-require-preprocessing-or-cleaning"></a>Os dados exigem pré-processamento ou limpeza?
 
-Talvez seja necessário pré-processar e limpar os dados antes de usar o conjunto de dados com eficiência para o aprendizado de máquina. Os dados brutos geralmente são ruidosas e não confiáveis. Os valores podem estar ausentes. Usar esses dados para a Modelagem pode produzir resultados enganosos. Para obter uma descrição, consulte [tarefas para preparar dados para avançada do machine learning](prepare-data.md).
+Talvez seja necessário pré-processar e limpar os dados antes de usar o conjunto de dados com eficiência para o aprendizado de máquina. Os dados brutos geralmente são ruidosas e não confiáveis. Os valores podem estar ausentes. Usar esses dados para a Modelagem pode produzir resultados enganosos. Para obter uma descrição, consulte [tasks para preparar dados para uma aprendizagem automática melhorada](prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Perguntas de ferramentas e linguagens
 
@@ -139,15 +139,15 @@ Há muitas opções para linguagens, ambientes de desenvolvimento e ferramentas.
 
 ### <a name="what-languages-do-you-prefer-to-use-for-analysis"></a>Quais idiomas você prefere usar para análise?
 
-* R.
+* R
 * Python
 * SQL
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Quais ferramentas você deve usar para a análise de dados?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) -uma linguagem de script usada para administrar os recursos do Azure em uma linguagem de script
+* [Microsoft Azure Powershell](/powershell/azure/overview) - uma linguagem de script usada para administrar os seus recursos Azure em uma linguagem script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-* [O Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
+* [Análise da Revolução](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Ferramentas do Python para Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
@@ -156,9 +156,9 @@ Há muitas opções para linguagens, ambientes de desenvolvimento e ferramentas.
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificar o seu cenário de análise avançada
 
-Depois de responder às perguntas na seção anterior, você estará pronto para determinar qual cenário melhor se adapta ao seu caso. Os cenários de exemplo descritos na [cenários de análises avançadas no Azure Machine Learning](plan-sample-scenarios.md).
+Depois de responder às perguntas na seção anterior, você estará pronto para determinar qual cenário melhor se adapta ao seu caso. Os cenários da amostra são delineados em [Cenários para análises avançadas em Azure Machine Learning](plan-sample-scenarios.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [O que é o TDSP (processo de ciência de dados de equipe)?](overview.md)
+> [O que é o Processo de Ciência de Dados da Equipa (TDSP)?](overview.md)

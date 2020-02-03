@@ -22,7 +22,7 @@ Para criar uma subscrição do Event Grid, envie um pedido para a operação de 
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Por exemplo criar uma subscrição de evento para uma conta de armazenamento com o nome `examplestorage` num grupo de recursos com o nome `examplegroup`, utilize o seguinte formato:
+Por exemplo, para criar uma subscrição de evento para uma conta de armazenamento chamada `examplestorage` num grupo de recursos chamado `examplegroup`, utilize o seguinte formato:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -34,24 +34,24 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| destination | objeto | O objeto que define o ponto final. |
-| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
+| destination | object | O objeto que define o ponto final. |
+| filter | object | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| endpointType | string | O tipo de ponto final para a subscrição (webhook/HTTP, Hub de eventos ou fila). | 
-| endpointUrl | string | O URL de destino para eventos nesta subscrição de evento. | 
+| endpointType | Cadeia de caracteres | O tipo de ponto final para a subscrição (webhook/HTTP, Hub de eventos ou fila). | 
+| endpointUrl | Cadeia de caracteres | O URL de destino para eventos nesta subscrição de evento. | 
 
 ### <a name="filter-object"></a>objeto de filtro
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| includedEventTypes | array | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata com um destes nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipos de eventos registrados para a origem do evento. Predefinição corresponde a todos os tipos de eventos. |
-| subjectBeginsWith | string | Uma correspondência de prefixo filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
-| subjectEndsWith | string | Uma correspondência de sufixo de filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
-| isSubjectCaseSensitive | string | Controlos de maiúsculas e minúsculas correspondente para filtros. |
+| includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata com um destes nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipos de eventos registrados para a origem do evento. Predefinição corresponde a todos os tipos de eventos. |
+| subjectBeginsWith | Cadeia de caracteres | Uma correspondência de prefixo filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
+| subjectEndsWith | Cadeia de caracteres | Uma correspondência de sufixo de filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
+| isSubjectCaseSensitive | Cadeia de caracteres | Controlos de maiúsculas e minúsculas correspondente para filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de subscrições de exemplo
@@ -75,6 +75,6 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter uma introdução ao Event Grid, consulte [o que é o Event Grid?](overview.md)
+* Para uma introdução à Grelha de Eventos, veja [o que é a Grelha de Eventos?](overview.md)

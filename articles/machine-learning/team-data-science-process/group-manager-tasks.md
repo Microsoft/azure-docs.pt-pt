@@ -145,19 +145,19 @@ Para personalizar conteúdos de repositório:
 
 1. Na estrutura de diretório do repositório, navegue até a pasta ou o arquivo que você deseja alterar. 
    
-   - Para criar novas pastas ou arquivos, selecione a seta ao lado de **novo**. 
+   - Para criar novas pastas ou ficheiros, selecione a seta ao lado de **New**. 
      
      ![Criar novo arquivo](./media/group-manager-tasks/new-file.png)
      
-   - Para carregar arquivos, selecione **carregar arquivo (s)** . 
+   - Para fazer upload de ficheiros, selecione **Ficheiros upload(s)** . 
      
      ![Carregar ficheiros](./media/group-manager-tasks/upload-files.png)
      
-   - Para editar os arquivos existentes, navegue até o arquivo e, em seguida, selecione **Editar**. 
+   - Para editar os ficheiros existentes, navegue para o ficheiro e, em seguida, **selecione Editar**. 
      
      ![Editar um arquivo](./media/group-manager-tasks/edit-file.png)
      
-1. Depois de adicionar ou editar arquivos, selecione **confirmar**.
+1. Depois de adicionar ou editar ficheiros, selecione **'Cometer**'
    
    ![Comprometer alterações](./media/group-manager-tasks/commit.png)
 
@@ -166,16 +166,16 @@ Para personalizar conteúdos de repositório:
 Se pretender fazer alterações utilizando a sua máquina local ou DSVM e empurrar as alterações para os repositórios de grupo, certifique-se de que tem os pré-requisitos para trabalhar com Git e DSVMs:
 
 - Uma subscrição Azure, se quiser criar um DSVM.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
-- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
-- Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
-- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte as [Plataformas e ferramentas do apêndice](platforms-and-tools.md#appendix).
+- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para mais informações e instruções, consulte a [Documentação](/azure/machine-learning/data-science-virtual-machine/)da Máquina Virtual da Ciência dos Dados .
+- Para um DSVM windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **Descarregamento e Instalação** e selecione o **mais recente instalador**. Descarregue o instalador *.ex e* execute-o. 
+- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a secção de **chaves públicas Create SSH** nas Plataformas e no apêndice das [ferramentas](platforms-and-tools.md#appendix). 
 
 Primeiro, copie ou *clone* o repositório para a sua máquina local. 
    
 1. Na **página** resumo do projeto **GroupCommon,** selecione **Repos**, e no topo da página, selecione o repositório que pretende clonar.
    
-1. Na página repositório, selecione **clonar** no canto superior direito.
+1. Na página do repo, selecione **Clone** na parte superior direita.
    
 1. No diálogo de **repositório Clone,** selecione **HTTPS** para uma ligação HTTP, ou **SSH** para uma ligação SSH, e copie o URL do clone sob **a linha de comando** para a sua área de pré-quadro.
    
@@ -192,13 +192,13 @@ Primeiro, copie ou *clone* o repositório para a sua máquina local.
    
    Por exemplo, qualquer um dos seguintes comandos clona o repositório **GroupUtilities** ao diretório *GroupCommon* na sua máquina local. 
    
-   **Conexão HTTPS:**
+   **Ligação HTTPS:**
    
    ```bash
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupUtilities
    ```
    
-   **Conexão SSH:**
+   **Ligação SSH:**
    
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/GroupCommon/GroupUtilities
@@ -215,7 +215,7 @@ git push
 ```
 
 > [!NOTE]
-> Se esta for a primeira vez que você se compromete a um repositório git, talvez seja necessário configurar os parâmetros globais *User.Name* e *User. email* antes de executar o comando `git commit`. Execute os dois comandos seguintes:
+> Se esta for a primeira vez que se compromete com um repositório Git, poderá ter de configurar parâmetros globais *user.name* e *user.email* antes de executar o comando `git commit`. Execute os dois comandos seguintes:
 > 
 > `git config --global user.name <your name>`
 > 
@@ -233,31 +233,31 @@ Para adicionar membros ao grupo:
    
    ![Configurar equipes](./media/group-manager-tasks/teams.png)
    
-1. Na página **perfil da equipe** , selecione **Adicionar**.
+1. Na página perfil da **equipa,** selecione **Adicionar**.
    
    ![Adicionar à Equipa Comum de Grupo](./media/group-manager-tasks/add-to-team.png)
    
-1. Na caixa de diálogo **Adicionar usuários e grupos** , procure e selecione Membros para adicionar ao grupo e, em seguida, selecione **salvar alterações**. 
+1. No diálogo **de utilizadores e grupos Adicionar,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Guardar alterações**. 
    
    ![Adicionar usuários e grupos](./media/group-manager-tasks/add-users.png)
    
 
 Para configurar permissões para os membros:
 
-1. Nas **configurações do projeto** navegação à esquerda, selecione **permissões**. 
+1. A partir das **Definições** do Projeto à esquerda, selecione **Permissões**. 
    
-1. Na página **permissões** , selecione o grupo ao qual você deseja adicionar membros. 
+1. Na página **Permissões,** selecione o grupo a que pretende adicionar membros. 
    
-1. Na página desse grupo, selecione **Membros**e, em seguida, selecione **Adicionar**. 
+1. Na página desse grupo, selecione **Membros**, e, em seguida, selecione **Adicionar**. 
    
-1. No pop-up **convidar Membros** , procure e selecione Membros para adicionar ao grupo e, em seguida, selecione **salvar**. 
+1. No popup dos **membros do Convidar,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Save**. 
    
    ![Conceder permissões a membros](./media/group-manager-tasks/grant-permissions.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas no Processo de Ciência de Dados da Equipa:
 
-- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
-- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
-- [Projetar tarefas de colaborador individuais para uma equipe de ciência de dados](project-ic-tasks.md)
+- [Tarefas de Team Lead para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas do Project Lead para uma equipa de ciência de dados](project-lead-tasks.md)
+- [Tarefas do Project Individual Contributor para uma equipa de ciência de dados](project-ic-tasks.md)

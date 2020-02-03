@@ -22,7 +22,7 @@ A arquitetura de armazenamento Gen2 automaticamente nivete os seus segmentos de 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Resolução de problemas usando o portal Azure
 Pode utilizar o Monitor Azure para ver as métricas de cache gen2 para resolver o desempenho da consulta. Primeiro vá ao portal Azure e clique no Monitor:
 
-![Monitor do Azure](./media/sql-data-warehouse-cache-portal/cache_0.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
 
 Selecione o botão métricas e preencha o grupo **de subscrição,** **grupo** **de recursos,** **tipo de recurso**e nome **de recurso** do seu armazém de dados.
 
@@ -50,5 +50,5 @@ A matriz abaixo descreve cenários baseados nos valores das métricas de cache:
 > [!IMPORTANT]
 > Se a percentagem de impacto da cache ou a percentagem utilizada não estiver em atualização após a reexecução da sua carga de trabalho, o seu conjunto de trabalho já pode residir na memória. Apenas as mesas de lojas de colunas agrupadas estão em cache.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a sintonização geral do desempenho da consulta, consulte a [execução](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution)da consulta do Monitor .

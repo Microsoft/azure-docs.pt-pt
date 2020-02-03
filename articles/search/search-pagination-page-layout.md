@@ -123,7 +123,7 @@ Pode enviar um filtro com ou sem expressão de pesquisa. Por exemplo, o seguinte
 
 Consulte documentos de [pesquisa (API de pesquisa cognitiva azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter mais informações sobre `$filter` expressões.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte Também
 
 - [API de pesquisa cognitiva azure](https://docs.microsoft.com/rest/api/searchservice)
 - [Operações indexadas](https://docs.microsoft.com/rest/api/searchservice/Index-operations)

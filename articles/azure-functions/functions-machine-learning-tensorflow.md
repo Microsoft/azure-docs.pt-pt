@@ -304,7 +304,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
 Como todo este tutorial funciona localmente na sua máquina, não existem recursos ou serviços Azure para limpar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a construir e personalizar um ponto final http API com funções Azure para classificar imagens usando um modelo TensorFlow. Também aprendeu a chamar a API de uma aplicação web. Você pode usar as técnicas deste tutorial para criar APIs de qualquer complexidade, tudo durante a execução no modelo de computação sem servidor fornecido pelo Azure Functions.
 

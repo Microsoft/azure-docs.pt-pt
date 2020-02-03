@@ -52,15 +52,15 @@ Você pode habilitar e desabilitar informações de Aplicativo Azure no portal d
 
 1. No separador **Implementações,** selecione o serviço onde pretende ativar o Azure Application Insights
 
-   [![Lista de serviços no separador de implementações](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Lista de serviços no separador Deployments](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. **Selecione Editar**
 
-   [![Botão Editar](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [botão ![Editar](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. Em **Definições Avançadas,** selecione a caixa de verificação de **diagnósticos Enable AppInsights**
 
-   [![Caixa de verificação selecionada para ativar os diagnósticos](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![caixa de verificação selecionada para permitir diagnósticos](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Selecione **Atualizar** na parte inferior do ecrã para aplicar as alterações
 
@@ -69,11 +69,11 @@ Você pode habilitar e desabilitar informações de Aplicativo Azure no portal d
 1. No [portal Azure,](https://portal.azure.com)abra o seu espaço de trabalho
 1. Selecione **Implementações,** selecione o serviço e, em seguida, **selecione Editar**
 
-   [![Utilize o botão de edição](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Use o botão de edição](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. Em **Definições Avançadas,** limpe a caixa de verificação de **diagnósticos Enable AppInsights**
 
-   [![Caixa de verificação desmarcada para ativar os diagnósticos](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![caixa de verificação limpa para permitir diagnósticos](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Selecione **Atualizar** na parte inferior do ecrã para aplicar as alterações
  
@@ -95,7 +95,7 @@ Você pode habilitar e desabilitar informações de Aplicativo Azure no portal d
 
 ### <a name="log-custom-traces-in-your-service"></a>Rastreios personalizados no seu serviço
 
-Se quiser personalizados rastreios de registo, siga o processo de implementação padrão para o AKS ou ACI no [como implementar e, em que](how-to-deploy-and-where.md) documento. Em seguida, utilize os seguintes passos:
+Se pretender registar vestígios personalizados, siga o processo de implementação padrão de AKS ou ACI no [Como implementar e onde](how-to-deploy-and-where.md) documenta. Em seguida, utilize os seguintes passos:
 
 1. Atualizar o ficheiro de pontuação adicionando declarações de impressão
     
@@ -109,7 +109,7 @@ Se quiser personalizados rastreios de registo, siga o processo de implementaçã
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Crie uma imagem e implante-a em [AKs ou ACI](how-to-deploy-and-where.md).
+3. Construa uma imagem e implemente-a em [AKS ou ACI](how-to-deploy-and-where.md).
 
 ### <a name="disable-tracking-in-python"></a>Desativar o controle no Python
 
@@ -130,24 +130,24 @@ Para vê-la:
 
 1. Selecione o separador **Overview** para ver um conjunto básico de métricas para o seu serviço
 
-   [![Descrição geral](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+   [visão geral ![](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Para examinar os metadados e a resposta da solicitação de serviço Web, selecione a tabela **solicitações** na seção **logs (análise)** e selecione **executar** para exibir solicitações
+1. Para ver os metadados e resposta do seu serviço web, selecione a tabela **de pedidos** na secção **Registos (Analytics)** e selecione **Executar** para ver pedidos
 
    [dados do Modelo ![](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 
 3. Para ver os seus vestígios personalizados, selecione **Analytics**
-4. Na secção de esquema, selecione **rastreios**. Em seguida, selecione **executar** para executar a consulta. Os dados devem aparecer em formato de tabela e devem mapear as suas chamadas personalizadas no seu ficheiro de pontuação
+4. Na secção de esquemas, selecione **Traces**. Em seguida, selecione **Run** para executar a sua consulta. Os dados devem aparecer em formato de tabela e devem mapear as suas chamadas personalizadas no seu ficheiro de pontuação
 
-   [![Rastreios personalizados](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![vestígios personalizados](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
 
 Para saber mais sobre como usar insights de aplicação Azure, consulte [o que é a Aplicação Insights?](../azure-monitor/app/app-insights-overview.md)
 
 ## <a name="export-data-for-further-processing-and-longer-retention"></a>Exportar dados para processamento adicional e retenção mais longa
 
 >[!Important]
-> Aplicativo Azure insights só dá suporte a exportações para o armazenamento de BLOBs. Os limites adicionais desse recurso de exportação estão listados em [Exportar telemetria do App insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Aplicativo Azure insights só dá suporte a exportações para o armazenamento de BLOBs. Os limites adicionais desta capacidade de exportação estão listados na [telemetria exportação da App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
 Pode utilizar a [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) da Azure Application Insights para enviar mensagens para uma conta de armazenamento apoiada, onde pode ser definida uma retenção mais longa. As mensagens `"model_data_collection"` são armazenadas em formato JSON e podem ser facilmente analisadas para extrair dados do modelo. 
 
@@ -162,7 +162,7 @@ O bloco de notas [enable-app-insights-in-production-service.ipynb](https://githu
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Veja como implementar um modelo para um cluster de [serviço Saque Azure Kubernetes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) ou [como implementar um modelo para o Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) para implementar os seus modelos em pontos finais de serviço web e permitir que a Azure Application Insights aproveite a recolha de dados e a monitorização do ponto final
 * Ver [MLOps: Gerir, implementar e monitorizar modelos com](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) o Azure Machine Learning para saber mais sobre alavancar os dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática

@@ -130,5 +130,5 @@ Verá mais duas colunas adicionadas ao conjunto de dados de teste.
 
 Ao comparar a coluna BikeBuyer (real) com as Etiquetas Classificadas (predição), pode ver quão bom foi o desempenho do modelo. Em seguida, pode utilizar este modelo para fazer previsões para novos clientes e publicar este modelo como um serviço web ou escrever resultados de volta ao SQL Data Warehouse.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como criar modelos preditivos de machine learning, consulte [Introdução ao Machine Learning no Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

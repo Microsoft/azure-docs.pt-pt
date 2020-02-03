@@ -28,9 +28,9 @@ O provisionamento é o processo de criação de um objeto com base em determinad
 
 Com relação ao Azure Active Directory, o provisionamento pode ser dividido nos seguintes cenários principais.  
 
-- **[Provisionamento controlado por RH](#hr-driven-provisioning)**  
-- **[Provisionamento de aplicativo](#app-provisioning)**  
-- **[Provisionamento de diretório](#directory-provisioning)** 
+- **[Provisionamento orientado por RH](#hr-driven-provisioning)**  
+- **[Fornecimento de aplicativos](#app-provisioning)**  
+- **[Fornecimento de diretórios](#directory-provisioning)** 
 
 ## <a name="hr-driven-provisioning"></a>Provisionamento controlado por RH
 
@@ -40,17 +40,17 @@ O provisionamento de RH para a nuvem envolve a criação de objetos (usuários, 
 
 O cenário mais comum seria, quando um novo funcionário ingressar na sua empresa, ele será inserido no sistema de RH.  Quando isso ocorrer, eles serão provisionados para a nuvem.  Nesse caso, o Azure AD.  O provisionamento do RH pode abranger os cenários a seguir. 
 
-- **Contratando novos funcionários** – quando um novo funcionário é adicionado ao RH da nuvem, uma conta de usuário é criada automaticamente em Active Directory, Azure Active Directory e, opcionalmente, o Office 365 e outros aplicativos SaaS com suporte do Azure AD, com write-back do endereço de email para a nuvem de RH.
-- **Atualizações de perfil e atributo de funcionário** – quando um registro de funcionário é atualizado no RH da nuvem (como seu nome, título ou gerente), sua conta de usuário será atualizada automaticamente no Active Directory, Azure Active Directory e, opcionalmente, no Office 365 e em outros aplicativos SaaS com suporte do Azure AD.
-- **Encerramentos de funcionários** – quando um funcionário é encerrado na nuvem de RH, sua conta de usuário é automaticamente desabilitada em Active Directory, Azure Active Directory e, opcionalmente, o Office 365 e outros aplicativos SaaS com suporte do Azure AD.
-- **Recontratação de funcionário** -quando um funcionário é recontratado na nuvem de RH, sua conta antiga pode ser reativada automaticamente ou reprovisionada (dependendo da sua preferência) para Active Directory, Azure Active Directory e, opcionalmente, o Office 365 e outros aplicativos SaaS com suporte do Azure AD.
+- **Contratação** de novos colaboradores - Quando um novo colaborador é adicionado à cloud HR, uma conta de utilizador é automaticamente criada em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS suportadas pela Azure AD, com redação do endereço de e-mail para cloud HR.
+- **Atributos e atualizações** de perfis dos colaboradores - Quando um registo de empregados é atualizado na cloud HR (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada em Ative Directory, Azure Ative Directory, e opcionalmente office 365 e outras aplicações SaaS suportadas pela Azure AD.
+- **Rescisões** de funcionários - Quando um empregado é rescindido na cloud HR, a sua conta de utilizador é automaticamente desativada em Diretório Ativo, Diretório Ativo Azure e opcionalmente Office 365 e outras aplicações SaaS suportadas pela Azure AD.
+- **Recontratações** de funcionários - Quando um empregado é recontratado na cloud HR, a sua conta antiga pode ser automaticamente reativada ou reaprovisionada (dependendo da sua preferência) para ative directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS apoiadas pela Azure AD.
 
 
 ## <a name="app-provisioning"></a>Provisionamento de aplicativo
 
 ![provisionamento de nuvem](media/what-is-provisioning/cloud3.png)
 
-No Azure Active Directory (AD do Azure), o termo **[provisionamento de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refere-se à criação automática de identidades de usuário e funções nos aplicativos de nuvem aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e muito mais.
+No Azure Ative Directory (Azure AD), o fornecimento de aplicações de prazo refere-se à **[criação](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** automática de identidades e funções de utilizador nas aplicações na nuvem a que os utilizadores precisam de ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o fornecimento de um utilizador de AD Azure em aplicações como [Dropbox,](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial) [Salesforce,](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e muito mais.
 
 ## <a name="directory-provisioning"></a>Provisionamento de diretório
 
@@ -62,7 +62,7 @@ O cenário mais comum seria, quando um usuário no Active Directory (AD) é prov
 
 Isso foi realizado por Azure AD Connect sincronização, Azure AD Connect provisionamento e Microsoft Identity Manager de nuvem. 
  
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
-- [O que é Azure AD Connect provisionamento de nuvem?](what-is-cloud-provisioning.md)
-- [Instalar o provisionamento de nuvem](how-to-install.md)
+- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [Instalar o fornecimento de nuvem](how-to-install.md)

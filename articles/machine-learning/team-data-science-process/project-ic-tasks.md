@@ -45,10 +45,10 @@ Este tutorial pressupõe que os seguintes recursos e permissões foram criados p
 Para clonar repositórios e modificar conteúdos na sua máquina local ou DSVM, ou montar o armazenamento de ficheiros Azure para o seu DSVM, você precisa considerar esta lista de verificação:
 
 - Uma subscrição do Azure.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
-- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
-- Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
-- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte as [Plataformas e ferramentas do apêndice](platforms-and-tools.md#appendix).
+- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para mais informações e instruções, consulte a [Documentação](/azure/machine-learning/data-science-virtual-machine/)da Máquina Virtual da Ciência dos Dados .
+- Para um DSVM windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **Descarregamento e Instalação** e selecione o **mais recente instalador**. Descarregue o instalador *.ex e* execute-o. 
+- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a secção de **chaves públicas Create SSH** nas Plataformas e no apêndice das [ferramentas](platforms-and-tools.md#appendix). 
 - As informações de armazenamento de ficheiros Azure para qualquer armazenamento de ficheiros Azure que você precisa montar para o seu DSVM. 
 
 ## <a name="clone-repositories"></a>Repositórios de clones
@@ -59,7 +59,7 @@ Para trabalhar com repositórios localmente e empurrar as suas mudanças para a 
    
 1. Selecione **Repos** na navegação esquerda e, no topo da página, selecione o repositório que pretende clonar.
    
-1. Na página repositório, selecione **clonar** no canto superior direito.
+1. Na página do repo, selecione **Clone** na parte superior direita.
    
 1. No diálogo de **repositório Clone,** selecione **HTTPS** para uma ligação HTTP, ou **SSH** para uma ligação SSH, e copie o URL do clone sob **a linha de comando** para a sua área de pré-quadro.
    
@@ -76,13 +76,13 @@ Para trabalhar com repositórios localmente e empurrar as suas mudanças para a 
    
    Por exemplo, os seguintes clones de comando o repositório **TeamUtilities** para o diretório *MyTeam* na sua máquina local. 
    
-   **Conexão HTTPS:**
+   **Ligação HTTPS:**
    
    ```bash
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
    ```
    
-   **Conexão SSH:**
+   **Ligação SSH:**
    
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
@@ -96,11 +96,11 @@ Para trabalhar com repositórios localmente e empurrar as suas mudanças para a 
 
 Se a sua equipa ou projeto tiver ativos partilhados no armazenamento de ficheiros Azure, monte o armazenamento de ficheiros na sua máquina local ou DSVM. Siga as instruções no armazenamento de [ficheiros Mount Azure na sua máquina local ou DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 
-- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
-- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
-- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
+- [Tarefas do Gestor de Grupos para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de Team Lead para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas do Project Lead para uma equipa de ciência de dados](project-lead-tasks.md)
 

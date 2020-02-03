@@ -75,7 +75,7 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Crie uma variável para sua ID de assinatura. Você pode obter isso usando `az account show | grep id`.
+Crie uma variável para sua ID de assinatura. Pode obter isto usando `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -118,7 +118,7 @@ az storage blob copy start \
 
 
 
-Dê permissão ao Image Builder para criar recursos no grupo de recursos de imagem. O valor de `--assignee` é a ID de registro do aplicativo para o serviço do construtor de imagem. 
+Dê permissão ao Image Builder para criar recursos no grupo de recursos de imagem. O valor `--assignee` é o ID de registo de aplicações para o serviço Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -232,6 +232,6 @@ az group delete -n $imageResourceGroup
 az group delete -n $strResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se tiver algum problema em trabalhar com o Azure Image Builder, consulte [a Resolução de Problemas.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json)

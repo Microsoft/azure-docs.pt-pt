@@ -35,7 +35,7 @@ Por exemplo, para a base de dados `Database1` sobre `Server1` o seguinte é um p
 
 ### <a name="event-hub"></a>Hub de Eventos
 
-Os eventos de auditoria são escritos para o espaço de nome e centro de eventos que foi definido durante a configuração de auditoria, e são capturados no corpo de eventos [Apache Avro](https://avro.apache.org/) e armazenados usando formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar [Ferramentas do Avro](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processam esse formato.
+Os eventos de auditoria são escritos para o espaço de nome e centro de eventos que foi definido durante a configuração de auditoria, e são capturados no corpo de eventos [Apache Avro](https://avro.apache.org/) e armazenados usando formatação JSON com codificação UTF-8. Para ler os registos de auditoria, pode utilizar [ferramentas Avro](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processem este formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -45,49 +45,49 @@ Os eventos de auditoria são escritos para log Analytics espaço de trabalho def
 
 | Nome (Blob) | Nome (Centros de Eventos/Log Analytics) | Descrição | Tipo blob | Hubs de eventos/log analytics tipo |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
-| action_id | action_id_s | ID da ação | varchar(4) | string |
-| action_name | action_name_s | Nome da ação | N/A | string |
-| additional_information | additional_information_s | Qualquer informação adicional sobre o evento, armazenada como XML | nvarchar(4000) | string |
+| action_id | action_id_s | ID da ação | varchar(4) | Cadeia de caracteres |
+| action_name | action_name_s | Nome da ação | N/A | Cadeia de caracteres |
+| additional_information | additional_information_s | Qualquer informação adicional sobre o evento, armazenada como XML | nvarchar(4000) | Cadeia de caracteres |
 | affected_rows | affected_rows_d | Número de linhas afetadas pela consulta | bigint | int |
-| application_name | application_name_s| Nome da aplicação do cliente | nvarchar(128) | string |
+| application_name | application_name_s| Nome da aplicação do cliente | nvarchar(128) | Cadeia de caracteres |
 | audit_schema_version | audit_schema_version_d | Sempre 1 | int | int |
-| class_type | class_type_s | Tipo de entidade auditável em que a auditoria ocorre | varchar(2) | string |
-| class_type_desc | class_type_description_s | Descrição da entidade auditável em que a auditoria ocorre | N/A | string |
-| client_ip | client_ip_s | Fonte IP da aplicação do cliente | nvarchar(128) | string |
+| class_type | class_type_s | Tipo de entidade auditável em que a auditoria ocorre | varchar(2) | Cadeia de caracteres |
+| class_type_desc | class_type_description_s | Descrição da entidade auditável em que a auditoria ocorre | N/A | Cadeia de caracteres |
+| client_ip | client_ip_s | Fonte IP da aplicação do cliente | nvarchar(128) | Cadeia de caracteres |
 | connection_id | N/A | ID da ligação no servidor | GUID | N/A |
-| data_sensitivity_information | data_sensitivity_information_s | Tipos de informação e etiquetas de sensibilidade devolvidas pela consulta auditada, com base nas colunas classificadas na base de dados. Saiba mais sobre os dados da [Base de Dados Azure SQL descobrir e classificar](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
-| database_name | database_name_s | O contexto da base de dados em que a ação ocorreu | sysname | string |
+| data_sensitivity_information | data_sensitivity_information_s | Tipos de informação e etiquetas de sensibilidade devolvidas pela consulta auditada, com base nas colunas classificadas na base de dados. Saiba mais sobre os dados da [Base de Dados Azure SQL descobrir e classificar](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | Cadeia de caracteres |
+| database_name | database_name_s | O contexto da base de dados em que a ação ocorreu | sysname | Cadeia de caracteres |
 | database_principal_id | database_principal_id_d | ID do contexto do utilizador da base de dados em que a ação é realizada em | int | int |
-| database_principal_name | database_principal_name_s | Nome do contexto do utilizador da base de dados em que a ação é realizada | sysname | string |
+| database_principal_name | database_principal_name_s | Nome do contexto do utilizador da base de dados em que a ação é realizada | sysname | Cadeia de caracteres |
 | duration_milliseconds | duration_milliseconds_d | Duração da execução da consulta em milissegundos | bigint | int |
 | event_time | event_time_t | Data e hora em que a ação auditável é disparada | datetime2 | datetime |
-| host_name | N/A | Nome do anfitrião do cliente | string | N/A |
-| is_column_permission | is_column_permission_s | Bandeira indicando se esta é uma permissão de nível de coluna. 1 = verdadeiro, 0 = falso | bit | string |
-| N/A | is_server_level_audit_s | Bandeira indicando se esta auditoria está ao nível do servidor | N/A | string |
+| host_name | N/A | Nome do anfitrião do cliente | Cadeia de caracteres | N/A |
+| is_column_permission | is_column_permission_s | Bandeira indicando se esta é uma permissão de nível de coluna. 1 = verdadeiro, 0 = falso | bit | Cadeia de caracteres |
+| N/A | is_server_level_audit_s | Bandeira indicando se esta auditoria está ao nível do servidor | N/A | Cadeia de caracteres |
 | object_ id | object_id_d | A identificação da entidade em que ocorreu a auditoria. Isto inclui os objetos do servidor, bases de dados, objetos de base de dados e objetos de esquema. 0 se a entidade for o servidor em si ou se a auditoria não for realizada a um nível de objeto | int | int |
-| object_name | object_name_s | O nome da entidade em que ocorreu a auditoria. Isto inclui os objetos do servidor, bases de dados, objetos de base de dados e objetos de esquema. 0 se a entidade for o servidor em si ou se a auditoria não for realizada a um nível de objeto | sysname | string |
-| permission_bitmask | permission_bitmask_s | Quando aplicável, mostra as permissões que foram concedidas, negadas ou revogadas | varbinary(16) | string |
+| object_name | object_name_s | O nome da entidade em que ocorreu a auditoria. Isto inclui os objetos do servidor, bases de dados, objetos de base de dados e objetos de esquema. 0 se a entidade for o servidor em si ou se a auditoria não for realizada a um nível de objeto | sysname | Cadeia de caracteres |
+| permission_bitmask | permission_bitmask_s | Quando aplicável, mostra as permissões que foram concedidas, negadas ou revogadas | varbinary(16) | Cadeia de caracteres |
 | response_rows | response_rows_d | Número de linhas devolvidas no conjunto de resultados | bigint | int |
-| schema_name | schema_name_s | O contexto do esquema em que ocorreu a ação. NULO para auditorias que ocorram fora de um esquema | sysname | string |
-| N/A | securable_class_type_s | Objeto securável que mapeia para o class_type a ser auditado | N/A | string |
+| schema_name | schema_name_s | O contexto do esquema em que ocorreu a ação. NULO para auditorias que ocorram fora de um esquema | sysname | Cadeia de caracteres |
+| N/A | securable_class_type_s | Objeto securável que mapeia para o class_type a ser auditado | N/A | Cadeia de caracteres |
 | sequence_group_id | sequence_group_id_g | Identificador exclusivo | varbinary | GUID |
 | sequence_number | sequence_number_d | Rastreia a sequência de registos dentro de um único registo de auditoria que era demasiado grande para caber no tampão de escrita para auditorias | int | int |
-| server_instance_name | server_instance_name_s | Nome da instância do servidor onde ocorreu a auditoria | sysname | string |
+| server_instance_name | server_instance_name_s | Nome da instância do servidor onde ocorreu a auditoria | sysname | Cadeia de caracteres |
 | server_principal_id | server_principal_id_d | ID do contexto de login em que a ação é realizada | int | int |
-| server_principal_name | server_principal_name_s | Login atual | sysname | string |
-| server_principal_sid | server_principal_sid_s | Sid de login atual | varbinary | string |
+| server_principal_name | server_principal_name_s | Login atual | sysname | Cadeia de caracteres |
+| server_principal_sid | server_principal_sid_s | Sid de login atual | varbinary | Cadeia de caracteres |
 | session_id | session_id_d | ID da sessão em que ocorreu o evento | smallint | int |
-| session_server_principal_name | session_server_principal_name_s | Diretor do servidor para sessão | sysname | string |
-| declaração | statement_s | Declaração T-SQL que foi executada (se houver) | nvarchar(4000) | string |
-| conseguiu | succeeded_s | Indica se a ação que desencadeou o evento foi bem sucedida. Para eventos que não sejam login e lote, isto apenas informa se a verificação de permissão foi bem sucedida ou falhou, e não a operação. 1 = sucesso, 0 = falhar | bit | string |
+| session_server_principal_name | session_server_principal_name_s | Diretor do servidor para sessão | sysname | Cadeia de caracteres |
+| declaração | statement_s | Declaração T-SQL que foi executada (se houver) | nvarchar(4000) | Cadeia de caracteres |
+| conseguiu | succeeded_s | Indica se a ação que desencadeou o evento foi bem sucedida. Para eventos que não sejam login e lote, isto apenas informa se a verificação de permissão foi bem sucedida ou falhou, e não a operação. 1 = sucesso, 0 = falhar | bit | Cadeia de caracteres |
 | target_database_principal_id | target_database_principal_id_d | A base de dados principal da operação GRANT/DENY/REVOKE é executada. 0 se não aplicável | int | int |
-| target_database_principal_name | target_database_principal_name_s | Alvo de ação. NULO se não aplicável | string | string |
+| target_database_principal_name | target_database_principal_name_s | Alvo de ação. NULO se não aplicável | Cadeia de caracteres | Cadeia de caracteres |
 | target_server_principal_id | target_server_principal_id_d | Diretor do servidor em que a operação GRANT/DENY/REVOKE é executada. Devoluções 0 se não aplicável | int | int |
-| target_server_principal_name | target_server_principal_name_s | Início de ação do alvo. NULO se não aplicável | sysname | string |
-| target_server_principal_sid | target_server_principal_sid_s | SID do login do alvo. NULO se não aplicável | varbinary | string |
+| target_server_principal_name | target_server_principal_name_s | Início de ação do alvo. NULO se não aplicável | sysname | Cadeia de caracteres |
+| target_server_principal_sid | target_server_principal_sid_s | SID do login do alvo. NULO se não aplicável | varbinary | Cadeia de caracteres |
 | transaction_id | transaction_id_d | SQL Server apenas (a partir de 2016) - 0 para Azure SQL DB | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | O id de evento definido pelo utilizador passou como um argumento para sp_audit_write. NULO para eventos do sistema (predefinido) e não zero para evento definido pelo utilizador. Para mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
-| user_defined_information | user_defined_information_s | A informação definida pelo utilizador passou como um argumento para sp_audit_write. NULO para eventos do sistema (predefinido) e não zero para evento definido pelo utilizador. Para mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
+| user_defined_information | user_defined_information_s | A informação definida pelo utilizador passou como um argumento para sp_audit_write. NULO para eventos do sistema (predefinido) e não zero para evento definido pelo utilizador. Para mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | Cadeia de caracteres |
 
 ## <a name="next-steps"></a>Próximos Passos
 

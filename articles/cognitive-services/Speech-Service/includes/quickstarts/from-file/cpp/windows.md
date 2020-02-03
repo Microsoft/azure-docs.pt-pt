@@ -21,9 +21,9 @@ ms.locfileid: "76748785"
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=windows)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -37,20 +37,20 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Substitua a cadeia de caracteres `whatstheweatherlike.wav` pelo seu próprio nome de arquivo.
+1. Substitua a cadeia `whatstheweatherlike.wav` pelo seu próprio nome de ficheiro.
 
-1. Na barra de menus, escolha **arquivo** > **salvar tudo**.
+1. Na barra de menus, escolha **File** > **Save All**.
 
 > [!NOTE]
-> O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. Na barra de menus, selecione **compilar** > **Compilar solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
+1. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
 
 1. O arquivo de áudio é transmitido para o serviço de fala e o primeiro expressão no arquivo é transcrita para texto, que aparece na mesma janela.
 
@@ -59,6 +59,6 @@ Antes de começar, certifique-se de:
    We recognized: What's the weather like?
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

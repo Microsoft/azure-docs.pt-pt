@@ -125,11 +125,11 @@ Para obter instruções detalhadas sobre o fluxo de trabalho de execução do pr
 
 Utilize o [repositório](https://github.com/Azure/Azure-TDSP-ProjectTemplate) de modelos de projeto da equipa da Microsoft TDSP para apoiar a execução e colaboração eficientes do projeto. O repositório dá-lhe uma estrutura de diretório padronizada e modelos de documentoque pode usar para os seus próprios projetos De TDSP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipa:
 
-- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
-- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
-- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
-- [Projetar tarefas de colaborador individuais para uma equipe de ciência de dados](project-ic-tasks.md)
+- [Tarefas do Gestor de Grupos para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de Team Lead para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas do Project Lead para uma equipa de ciência de dados](project-lead-tasks.md)
+- [Tarefas do Project Individual Contributor para uma equipa de ciência de dados](project-ic-tasks.md)

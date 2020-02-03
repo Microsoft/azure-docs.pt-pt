@@ -47,8 +47,8 @@ O quadro seguinte mostra os estados de tratamento dos conjuntos de dados importa
 | Estado | Significado |
 | ----- | ------- |
 | Em processamento | O seu conjunto de dados foi recebido e está a ser tratado. |
-| Bem-sucedido | O seu conjunto de dados foi validado e pode agora ser usado para construir um modelo de voz. |
-| Com Falhas | O seu conjunto de dados foi falhado durante o processamento devido a muitas razões, por exemplo erros de ficheiros, problemas de dados ou problemas de rede. |
+| Succeeded | O seu conjunto de dados foi validado e pode agora ser usado para construir um modelo de voz. |
+| Falhou | O seu conjunto de dados foi falhado durante o processamento devido a muitas razões, por exemplo erros de ficheiros, problemas de dados ou problemas de rede. |
 
 Após a validação estar completa, pode ver o número total de expressões correspondidas para cada um dos seus conjuntos de dados na coluna **Utterances.** Se o tipo de dados que selecionou requer segmentação de áudio longo, esta coluna apenas reflete as expressões que segmentamos para si, quer com base nas suas transcrições, quer através do serviço de transcrição da fala. Pode ainda descarregar o conjunto de dados validado para ver os resultados pormenorizados das expressões importadas com sucesso e as suas transcrições de mapeamento. Atenção: a segmentação de áudio longo pode demorar mais de uma hora a concluir o processamento de dados.
 
@@ -89,8 +89,8 @@ O estado que é mostrado reflete o processo de conversão do seu conjunto de dad
 | Estado | Significado |
 | ----- | ------- |
 | Em processamento | O teu modelo de voz está a ser criado. |
-| Bem-sucedido | O seu modelo de voz foi criado e pode ser implantado. |
-| Com Falhas | O seu modelo de voz foi falhado no treino devido a muitas razões, por exemplo problemas de dados invisíveis ou problemas de rede. |
+| Succeeded | O seu modelo de voz foi criado e pode ser implantado. |
+| Falhou | O seu modelo de voz foi falhado no treino devido a muitas razões, por exemplo problemas de dados invisíveis ou problemas de rede. |
 
 O tempo de formação varia consoante o volume de dados áudio processados. Os tempos típicos variam de cerca de 30 minutos para centenas de expressões a 40 horas para 20.000 expressões. Assim que o teu treino de modelo for bem sucedido, podes começar a testá-lo.
 
@@ -143,7 +143,7 @@ Os testes online do ponto final também estão disponíveis através do portal d
 
 O ponto final personalizado é funcionalmente idêntico ao ponto final padrão que é usado para pedidos de texto a fala. Consulte a [REST API](rest-text-to-speech.md) para mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Guia: Grave as amostras de voz](record-custom-voice-samples.md)
 * [Referência da API texto-a-fala](rest-text-to-speech.md)

@@ -182,7 +182,7 @@ Abra um navegador na máquina anfitriã e vá ao **local de acolhimento** utiliz
 
 ![Recipiente de reconhecimento de formulário](media/form-recognizer-swagger-page.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Recipientes de Serviços Cognitivos](../cognitive-services-container-support.md)

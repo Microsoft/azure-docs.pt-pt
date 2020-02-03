@@ -68,7 +68,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue.yml`:
           var: queue
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue.yml
@@ -105,7 +105,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy.yml`:
 Antes de executar o guia estratégico, consulte as seguintes observações:
 - O valor `rights` representa o privilégio que um utilizador tem com a fila. Especifique um dos seguintes valores: `manage`, `listen`, `send`ou `listen_send`.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue_policy.yml
@@ -138,7 +138,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_namespace_info.yml`:
 Antes de executar o guia estratégico, consulte as seguintes observações:
 - O valor `show_sas_policies` indica se deve mostrar as políticas SAS no âmbito do espaço de nome especificado. Por predefinição, o valor é `False` para evitar sobrecargas adicionais da rede.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
@@ -173,7 +173,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_info.yml`:
 Antes de executar o guia estratégico, consulte as seguintes observações:
 - O valor `show_sas_policies` indica se deve mostrar as políticas sas sob a fila especificada. Por predefinição, este valor está definido para `False` para evitar sobrecargas adicionais da rede.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
@@ -202,7 +202,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy_delete.y
           state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
@@ -240,12 +240,12 @@ Guarde o seguinte código `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
 > [Tutorial: Configure um tópico no Ônibus de Serviço Azure usando Ansible](ansible-service-bus-topic-configure.md)

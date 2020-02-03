@@ -50,13 +50,13 @@ Para descarregar os metadados de aplicação ou certificado da Azure AD, siga es
 
 2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
 
 4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
 
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
 
 6. Selecione a aplicação que configurau um único sinal.
 
@@ -70,5 +70,5 @@ A Azure AD não fornece um URL para obter os metadados. Os metadados só podem s
 
 Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Diretório Ativo Azure](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Managing Applications with Azure Active Directory](what-is-application-management.md) (Gerir Aplicações com o Azure Active Directory)

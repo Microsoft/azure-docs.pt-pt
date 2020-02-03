@@ -21,12 +21,12 @@ ms.locfileid: "76716678"
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de características no Team Data Science Process (TDSP)
 Este artigo explica os efeitos da seleção de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning. Esses exemplos são obtidos a partir do Azure Machine Learning Studio.
 
-A engenharia e a seleção de funcionalidades é uma parte do Team Data Science Process (TDSP) descritos no artigo [o que é o processo de ciência de dados de equipa?](overview.md). Engenharia de funcionalidades e seleção são partes do **desenvolver funcionalidades** passo do TDSP.
+A engenharia e seleção de funcionalidades faz parte do Processo de Ciência de Dados da Equipa (TDSP) delineado no artigo Qual é o Processo de Ciência de Dados da [Equipa?](overview.md) Engenharia e seleção de recursos são partes do passo de **desenvolvimento** do TDSP.
 
-* **"Feature Engineering"** : Este processo tenta para criar as funcionalidades relevantes adicionais dos recursos existentes não processados nos dados e para aumentar o poder de previsão para o algoritmo de aprendizagem.
-* **seleção de funcionalidades**: Este processo seleciona o subconjunto de chave dos recursos de dados original numa tentativa de reduzir a dimensionalidade do problema de treinamento.
+* **engenharia**de recursos : Este processo tenta criar funcionalidades relevantes adicionais a partir das características cruas existentes nos dados, e aumentar o poder preditivo para o algoritmo de aprendizagem.
+* **seleção de recursos**: Este processo seleciona o subconjunto chave das características originais dos dados numa tentativa de reduzir a dimensionalidade do problema de treino.
 
-Normalmente **com engenharia** é aplicada primeiro para gerar recursos adicionais e, em seguida, o **seleção de funcionalidades** passo é realizado para eliminar recursos irrelevantes, redundantes ou altamente correlacionados.
+Normalmente, a engenharia de **recursos** é aplicada primeiro para gerar funcionalidades adicionais, e em seguida, o passo de **seleção** de recursos é realizado para eliminar funcionalidades irrelevantes, redundantes ou altamente correlacionadas.
 
 ## <a name="filter-features-from-your-data---feature-selection"></a>Filtrar recursos dos seus dados - seleção de funcionalidades
 A seleção de funcionalidades pode ser utilizada para tarefas de classificação ou regressão. O objetivo é selecionar um subconjunto das funcionalidades do conjunto de dados original que reduzir suas dimensões utilizando um conjunto mínimo de recursos para representar a quantidade máxima de variação nos dados. Este subconjunto de recursos é utilizado para preparar o modelo. Seleção de funcionalidades tem duas finalidades principais.

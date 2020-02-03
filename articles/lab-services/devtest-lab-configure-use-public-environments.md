@@ -36,7 +36,7 @@ Pode ativar/desativar ambientes públicos para o seu laboratório, e também dis
 
 1. Selecione **Configuração e políticas** para o seu laboratório. 
 2. Na secção BASES DE **MÁQUINAVirtual,** selecione **ambientes públicos.**
-3. Para permitir ambientes públicos para o laboratório, selecione **Sim**. Caso contrário, selecione **não**. 
+3. Para permitir ambientes públicos para o laboratório, selecione **Sim**. Caso contrário, selecione **Nº**. 
 4. Se habilitasse ambientes públicos, todos os ambientes do repositório são ativados por incumprimentos. Pode desseleccionar um ambiente para que não esteja disponível para os utilizadores do laboratório. 
 
 ![Página de ambientes públicos](media/devtest-lab-configure-use-public-environments/public-environments-page.png)
@@ -46,5 +46,5 @@ Como utilizador de laboratório, pode criar um novo ambiente a partir da lista a
 
 ![Modelos de ambiente público](media/devtest-lab-configure-use-public-environments/public-environment-templates.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este repositório é um repositório de código aberto que pode contribuir para adicionar modelos de Gestor de Recursos frequentemente utilizados e úteis. Para contribuir, basta apresentar um pedido de retirada contra o repositório.  

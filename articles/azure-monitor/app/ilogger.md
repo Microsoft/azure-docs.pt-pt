@@ -500,7 +500,7 @@ Este código só é exigido quando utilizar um fornecedor de registo autónomo. 
    }
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre:
 

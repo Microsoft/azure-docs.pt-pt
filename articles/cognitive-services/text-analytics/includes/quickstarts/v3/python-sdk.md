@@ -13,16 +13,16 @@ ms.locfileid: "76717228"
 ---
 <a name="HOLTop"></a>
 
-[Documentação de referência](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html) |  | [(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics)
+[Documentação de referência](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html) | [código fonte | ](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) Pacote [(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
-> * Este guia de início rápido usa a versão `3.0-preview` da biblioteca de cliente do Análise de Texto, que inclui uma visualização pública para [análise de sentimento](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) aprimorado e [reconhecimento de entidade nomeada (Ner)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * Este quickstart utiliza versão `3.0-preview` da biblioteca de clientes Text Analytics, que inclui uma pré-visualização pública para uma melhor análise de [sentimentos](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e reconhecimento de [entidades nomeadas (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 > * O código neste artigo usa métodos síncronos e o armazenamento de credenciais não protegidas por motivos de simplicidade. Para cenários de produção, é recomendável usar os métodos assíncronos em lote para desempenho e escalabilidade. Por exemplo, importar o cliente do espaço de `azure.ai.textanalytics.aio` e chamar `analyze_sentiment()`, em vez de `analyze_sentiment()` do espaço de nome `azure.ai.textanalytics`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* [Python 3. x](https://www.python.org/)
+* Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* [Python 3.x](https://www.python.org/)
 
 ## <a name="setting-up"></a>Configurando
 
@@ -52,9 +52,9 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente Análise de Texto é um objeto `TextAnalyticsClient` que se autentica no Azure usando sua chave. O cliente fornece vários métodos para analisar o texto como um lote. Este guia de início rápido usa uma coleção de funções para enviar rapidamente documentos individuais.
+O cliente Text Analytics é um objeto `TextAnalyticsClient` que autentica o Azure usando a sua chave. O cliente fornece vários métodos para analisar o texto como um lote. Este guia de início rápido usa uma coleção de funções para enviar rapidamente documentos individuais.
 
-Quando o texto de processamento em lotes é enviado para a API como uma lista de `documents`, que são `dictionary` objetos que contêm uma combinação de atributos `id`, `text`e `language` dependendo do método usado. O atributo `text` armazena o texto a ser analisado no `language`de origem e o `id` pode ser qualquer valor. Ao processar documentos únicos, apenas uma entrada de `text` é necessária, como pode ser visto nos exemplos abaixo.  
+Quando o texto de processamento do lote é enviado para a API como uma lista de `documents`, que são `dictionary` objetos que contêm uma combinação de `id`, `text`, e `language` atributos dependendo do método utilizado. O atributo `text` armazena o texto a analisar na origem `language`, e o `id` pode ser qualquer valor. Ao processar documentos únicos, apenas é necessária uma entrada `text`, como se pode ver nos exemplos abaixo.  
 
 O objeto de resposta é uma lista que contém as informações de análise de cada documento. 
 
@@ -62,12 +62,12 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 Esses trechos de código mostram como realizar as seguintes tarefas com a biblioteca de cliente Análise de Texto para Python:
 
-* [Análise de sentimento](#sentiment-analysis) (visualização pública)
-* [Detecção de idioma](#language-detection)
-* [Reconhecimento de entidade nomeada](#named-entity-recognition-public-preview) (visualização pública)
-* [Reconhecimento de entidade nomeada – informações pessoais](#named-entity-recognition---personal-information-public-preview) (visualização pública)
-* [Vinculação de entidade](#entity-linking)
-* [Extração de frases-chave](#key-phrase-extraction)
+* [Análise de Sentimento](#sentiment-analysis) (pré-visualização pública)
+* [Deteção de linguagem](#language-detection)
+* [Reconhecimento de Entidade Nomeada](#named-entity-recognition-public-preview) (pré-visualização pública)
+* [Reconhecimento de Entidade seleções - informação pessoal](#named-entity-recognition---personal-information-public-preview) (pré-visualização pública)
+* [Ligação de entidades](#entity-linking)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
@@ -158,7 +158,7 @@ Language:  French
 > [!NOTE]
 > O código abaixo é para o reconhecimento de entidade nomeada v3, que está em visualização pública.
 
-Crie uma nova função chamada `entity_recognition_example` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_entities()` e iterates através dos resultados. O objeto de resposta retornado conterá a lista de entidades detectadas em `entity` se for bem-sucedido e um `error` se não for. Para cada entidade detectada, imprima seu tipo e subtipo, se existir.
+Crie uma nova função chamada `entity_recognition_example` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_entities()` e iterates através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas em `entity` se for bem sucedido, e uma `error` se não for. Para cada entidade detectada, imprima seu tipo e subtipo, se existir.
 
 ```python
 from azure.ai.textanalytics import single_recognize_entities
@@ -225,9 +225,9 @@ Personally Identifiable Information Entities:
         Offset:  33     Length:  11     Score: 0.850 
 ```
 
-## <a name="entity-linking"></a>Ligação de Entidades
+## <a name="entity-linking"></a>Ligar à Entidade
 
-Crie uma nova função chamada `entity_linking_example()` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_linked_entities()` e iterates através dos resultados. O objeto de resposta retornado conterá a lista de entidades detectadas em `entities` se for bem-sucedido e um `error` se não for. Como as entidades vinculadas são identificadas exclusivamente, as ocorrências da mesma entidade são agrupadas em um objeto `entity` como uma lista de objetos `match`.
+Crie uma nova função chamada `entity_linking_example()` que leve o ponto final e a chave como argumentos, em seguida, chama a função `single_recognize_linked_entities()` e iterates através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas em `entities` se for bem sucedido, e uma `error` se não for. Uma vez que as entidades ligadas são identificadas de forma única, as ocorrências da mesma entidade são agrunadas sob um objeto `entity` como uma lista de objetos `match`.
 
 ```python
 from azure.ai.textanalytics import single_recognize_linked_entities

@@ -60,9 +60,9 @@ O diagrama e os passos seguintes descrevem a arquitetura do gasoduto CI/CD:
 10. Os pedidos do utilizador para a aplicação passam pelo servidor DNS.
 11. O servidor DNS transmite os pedidos a um equilibrista de carga e envia respostas aos utilizadores.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Processo de ciência de dados de equipa (TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
+- [Processo de Ciência de Dados da Equipa (TDSP)](/azure/machine-learning/team-data-science-process/)
+- [Aprendizagem automática azure (AML)](/azure/machine-learning/)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Serviços de Kubernetes do Azure (AKS)](/azure/aks/intro-kubernetes)
+- [Serviços Azure Kubernetes (AKS)](/azure/aks/intro-kubernetes)

@@ -70,7 +70,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 3. Selecione a sua instância de Salesforce e, em seguida, selecione o separador **Provisioning.**
 
-4. Defina o **modo de provisionamento** como **automático**.
+4. Detete o **modo de provisionamento** para **automático**.
 
     ![provisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -117,7 +117,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Salesforce na secção Utilizadores e Grupos. Note que a sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Salesforce.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../manage-apps/check-status-user-account-provisioning.md)de conta de utilizador .
 
 ## <a name="common-issues"></a>Problemas comuns
 * Se tiver problemas que autorizem o acesso à Salesforce, certifique-se do seguinte:
@@ -134,6 +134,6 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](tutorial-list.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar um único signo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

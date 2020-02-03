@@ -54,5 +54,5 @@ Um modelo num laboratório é a imagem de máquina virtual de base da qual todas
 ## <a name="use-vms-in-the-classroom-lab"></a>Use VMs no laboratório de sala de aula
 Um aluno ou participante de formação registra-se no laboratório, e conecta-se ao VM para fazer exercícios para o curso. Para mais detalhes, consulte [Como aceder a um laboratório de sala de aula.](how-to-use-classroom-lab.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Comece com a criação de uma conta de laboratório em Laboratórios de Sala de Aula seguindo instruções no artigo: [Tutorial: Configurar uma conta](tutorial-setup-lab-account.md)de laboratório com os Serviços de Laboratório Azure .

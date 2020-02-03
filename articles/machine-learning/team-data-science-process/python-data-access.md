@@ -40,9 +40,9 @@ Ele tem uma dependência nos seguintes pacotes:
 * python-dateutil
 * pandas
 
-Recomendamos que utilize uma distribuição do Python, tal como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que vêm com o Python, IPython e instalado de três pacotes listados acima. Embora o IPython não é estritamente necessário, é um ótimo ambiente para manipular e visualizar dados de forma interativa.
+Recomendamos a utilização de uma distribuição Python, como [a Anaconda](http://continuum.io/downloads#all) ou [canopy,](https://store.enthought.com/downloads/)que vem com Python, IPython e os três pacotes listados acima instalados. Embora o IPython não é estritamente necessário, é um ótimo ambiente para manipular e visualizar dados de forma interativa.
 
-### <a name="installation"></a>Como instalar a biblioteca de cliente Python do Azure Machine Learning
+### <a name="installation"></a>Como instalar a biblioteca de clientes Azure Machine Learning Python
 Instale a biblioteca de clientes Azure Machine Learning Python para completar as tarefas descritas neste tópico. Esta biblioteca está disponível a partir do Índice de [Pacotes Python.](https://pypi.python.org/pypi/azureml) Para instalá-lo no seu ambiente de Python, execute o seguinte comando do seu ambiente de Python local:
 
     pip install azureml
@@ -64,15 +64,15 @@ A partir da interface web do Azure Machine Learning Studio (clássico), pode ger
 ### <a name="security"></a>Segurança para acesso a dados
 Os códigos fornecidos pelo Azure Machine Learning Studio (clássico) para uso com a biblioteca de clientes Python inclui o seu ID de espaço de trabalho e ficha de autorização. Estes disponibilizar acesso total à sua área de trabalho e têm de ser protegidos, como uma palavra-passe.
 
-Por motivos de segurança, a funcionalidade de trechos de código só está disponível para os utilizadores que têm a sua função definida como **proprietário** para a área de trabalho. O seu papel é apresentado no Azure Machine Learning Studio (clássico) na página **UTILIZADORES** em **Definições**.
+Por razões de segurança, a funcionalidade de snippet de código só está disponível para utilizadores que tenham a sua função definida como **Proprietário** para o espaço de trabalho. O seu papel é apresentado no Azure Machine Learning Studio (clássico) na página **UTILIZADORES** em **Definições**.
 
 ![Segurança][security]
 
-Se a sua função não está definida como **proprietário**, pode de qualquer pedido para ser novamente convidado como um proprietário ou peça ao proprietário da área de trabalho para fornecer a o trecho de código.
+Se o seu papel não for definido como **Proprietário,** pode solicitar para ser reconvidado como proprietário, ou pedir ao proprietário do espaço de trabalho que lhe forneça o código.
 
 Para obter o sinal de autorização, pode escolher uma destas opções:
 
-* Pedir um token de um proprietário. Os proprietários podem aceder às suas fichas de autorização a partir da página Definições do seu espaço de trabalho no Azure Machine Learning Studio (clássico). Selecione **configurações** no painel esquerdo e clique **TOKENS de autorização** para ver os tokens primários e secundários. Embora principal ou tokens de autorização secundário podem ser usados no trecho de código, recomenda-se que os proprietários de partilham apenas tokens de autorização secundário.
+* Pedir um token de um proprietário. Os proprietários podem aceder às suas fichas de autorização a partir da página Definições do seu espaço de trabalho no Azure Machine Learning Studio (clássico). Selecione **Definições** a partir do painel esquerdo e clique em **TOKENS de AUTORIZAÇÃO** para ver as fichas primárias e secundárias. Embora principal ou tokens de autorização secundário podem ser usados no trecho de código, recomenda-se que os proprietários de partilham apenas tokens de autorização secundário.
 
    ![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
 
@@ -80,12 +80,12 @@ Para obter o sinal de autorização, pode escolher uma destas opções:
 
 Uma vez que os desenvolvedores obtenham o ID do espaço de trabalho e o símbolo de autorização, eles são capazes de aceder ao espaço de trabalho usando o código snippet independentemente do seu papel.
 
-Tokens de autorização são geridos na **TOKENS de autorização** página sob **definições**. Pode voltar a gerá-los, mas este procedimento revoga o acesso ao token anterior.
+As fichas de autorização são geridas na página **TOKENS** de AUTORIZAÇÃO em **DEFINIÇÕES**. Pode voltar a gerá-los, mas este procedimento revoga o acesso ao token anterior.
 
-### <a name="accessingDatasets"></a>Conjuntos de dados de acesso de um aplicativo local do Python
+### <a name="accessingDatasets"></a>Aceder a conjuntos de dados de uma aplicação python local
 1. No Machine Learning Studio (clássico), clique EM **DATASETS** na barra de navegação à esquerda.
-2. Selecione o conjunto de dados que pretende aceder. Pode selecionar qualquer um dos conjuntos de dados do **conjuntos de dados de meu** lista ou a partir da **exemplos** lista.
-3. A partir da barra de ferramentas na parte inferior, clique em **gerar código de acesso a dados**. Se os dados estão num formato incompatível com a biblioteca de cliente de Python, este botão está desativado.
+2. Selecione o conjunto de dados que pretende aceder. Pode selecionar qualquer um dos conjuntos de dados da lista **MY DATASETS** ou da lista **DE AMOSTRAS.**
+3. A partir da barra de ferramentas inferior, clique **em Gerar Código**de Acesso de Dados . Se os dados estão num formato incompatível com a biblioteca de cliente de Python, este botão está desativado.
    
     ![Conjuntos de dados][datasets]
 4. Selecione o fragmento de código a partir da janela que aparece e copie-o para a área de transferência.
@@ -95,7 +95,7 @@ Tokens de autorização são geridos na **TOKENS de autorização** página sob 
    
     ![Cole o código no bloco de notas][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Conjuntos de dados intermediários do acesso de experimentações de Machine Learning
+## <a name="accessingIntermediateDatasets"></a>Aceder a conjuntos de dados intermédios a partir de experiências de Machine Learning
 Depois que um experimento é executado no Machine Learning Studio (clássico), é possível acessar os conjuntos de resultados intermediários dos nós de saída dos módulos. Conjuntos de dados intermediários são dados que foi criados e utilizados para obter os passos intermédios quando uma ferramenta de modelo tiver sido executada.
 
 Conjuntos de dados intermediários podem ser acedidos, desde que o formato de dados é compatível com a biblioteca de cliente Python.
@@ -121,12 +121,12 @@ Alguns dos módulos, como o módulo [Split,][split] são saídas para um formato
 Os passos seguintes mostram um exemplo que cria uma experimentação, executa-o e acessa o conjunto de dados intermediário.
 
 1. Crie uma nova experimentação.
-2. Inserir um **conjunto de dados de classificação de binário para adultos recenseamento receitas** módulo.
+2. Insira um módulo de conjunto de dados de **classificação binária** de rendimento de censos adultos.
 3. Insira um módulo [Split][split] e ligue a sua entrada à saída do módulo dataset.
 4. Insira um módulo [Converte para CSV][convert-to-csv] e ligue a sua entrada a uma das saídas do módulo [Split.][split]
 5. Salve a experiência, execute-a, e espere que o trabalho termine.
 6. Clique no nó de saída do módulo [Converte para CSV.][convert-to-csv]
-7. Quando for apresentado o menu de contexto, selecione **gerar código de acesso a dados**.
+7. Quando o menu de contexto aparecer, **selecione Generate Data Access Code**.
    
     ![Menu de Contexto][experiment]
 8. Selecione o fragmento de código e copiá-lo para a área de transferência a partir da janela que aparece.
@@ -139,7 +139,7 @@ Os passos seguintes mostram um exemplo que cria uma experimentação, executa-o 
     
     ![Histograma][ipython-histogram]
 
-## <a name="clientApis"></a>Utilize a biblioteca de cliente Python do Machine Learning para aceder, ler, criar e gerir conjuntos de dados
+## <a name="clientApis"></a>Utilize a biblioteca de clientes Machine Learning Python para aceder, ler, criar e gerir conjuntos de dados
 ### <a name="workspace"></a>Área de trabalho
 A área de trabalho é o ponto de entrada para a biblioteca de cliente Python. Forneça a classe `Workspace` com o seu ID do espaço de trabalho e o token de autorização para criar uma instância:
 
@@ -188,10 +188,10 @@ Outras são valores atribuídos pelo Azure ML:
     print(ds.created_date)
     print(ds.size)
 
-Consulte o `SourceDataset` classe para obter mais informações sobre os metadados disponíveis.
+Consulte a `SourceDataset` aula para saber mais sobre os metadados disponíveis.
 
 ### <a name="read-contents"></a>Ler o conteúdo
-Os fragmentos de código fornecidos pelo Machine Learning Studio (clássico) descarregam e desserializam automaticamente o conjunto de dados para um objeto dataFrame pandas. Isso é feito com o `to_dataframe` método:
+Os fragmentos de código fornecidos pelo Machine Learning Studio (clássico) descarregam e desserializam automaticamente o conjunto de dados para um objeto dataFrame pandas. Isto é feito com o método `to_dataframe`:
 
     frame = ds.to_dataframe()
 
@@ -236,7 +236,7 @@ Se os dados já são serializados, pode usar:
         description='my description'
     )
 
-A biblioteca de cliente Python é capaz de serializar uma pandas DataFrame para os seguintes formatos (constantes para estes estão no `azureml.DataTypeIds` classe):
+A biblioteca de clientes Python é capaz de serializar um pandas DataFrame para os seguintes formatos (constantes para estes estão na classe `azureml.DataTypeIds`):
 
 * Texto sem formatação
 * GenericCSV
@@ -255,7 +255,7 @@ Para atualizar um conjunto de dados existente, tem primeiro de obter uma referê
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Em seguida, utilizar `update_from_dataframe` para serializar e substitua o conteúdo do conjunto de dados no Azure:
+Em seguida, utilize `update_from_dataframe` para serializar e substituir o conteúdo do conjunto de dados no Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -265,7 +265,7 @@ Em seguida, utilizar `update_from_dataframe` para serializar e substitua o conte
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Se desejar serializar os dados num formato diferente, especifique um valor para o opcional `data_type_id` parâmetro.
+Se pretender serializar os dados para um formato diferente, especifique um valor para o parâmetro opcional `data_type_id`.
 
     from azureml import DataTypeIds
 
@@ -280,7 +280,7 @@ Se desejar serializar os dados num formato diferente, especifique um valor para 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Opcionalmente, pode definir uma nova descrição ao especificar um valor para o `description` parâmetro.
+Pode definir opcionalmente uma nova descrição especificando um valor para o parâmetro `description`.
 
     dataset = ws.datasets['existing dataset']
 
@@ -293,7 +293,7 @@ Opcionalmente, pode definir uma nova descrição ao especificar um valor para o 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-Opcionalmente, pode definir um novo nome, especificando um valor para o `name` parâmetro. De agora em diante, irá obter o conjunto de dados com o novo nome. O código seguinte atualiza os dados, nome e descrição.
+Pode definir opcionalmente um novo nome especificando um valor para o parâmetro `name`. De agora em diante, irá obter o conjunto de dados com o novo nome. O código seguinte atualiza os dados, nome e descrição.
 
     dataset = ws.datasets['existing dataset']
 
@@ -310,9 +310,9 @@ Opcionalmente, pode definir um novo nome, especificando um valor para o `name` p
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-O `data_type_id`, `name` e `description` parâmetros são opcionais e predefinido para o valor anterior. O `dataframe` sempre é necessário o parâmetro.
+Os parâmetros `data_type_id`, `name` e `description` são opcionais e indefinidos ao valor anterior. O parâmetro `dataframe` é sempre necessário.
 
-Se os dados já são serializados, utilize `update_from_raw_data` em vez de `update_from_dataframe`. Se passar apenas `raw_data` em vez de `dataframe`, funciona de forma semelhante.
+Se os seus dados já estiverem serializados, utilize `update_from_raw_data` em vez de `update_from_dataframe`. Se passarem por `raw_data` em vez de `dataframe`, funciona da mesma forma.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

@@ -18,28 +18,28 @@ ms.locfileid: "76718178"
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
-O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter suporte assíncrono, utilize o [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
+O SDK de Java API do SQL oferece suporte a operações síncronas. Para suporte assíncrono, utilize o [SQL ASYNC Java SDK](sql-api-sdk-async-java.md). 
 
 | |  |
 |---|---|
-|**Transferência de SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
-|**Documentação da API**|[Documentação de referência da API de Java](/java/api/com.microsoft.azure.documentdb)|
+|**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**Documentação da API**|[Documentação de referência da API java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
-|**Tutorial da aplicação Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-java-application.md)|
-|**Mínimo de runtime suportada**|[Kit de desenvolvimento Java (JDK) 7 +](https://aka.ms/azure-jdks)|
+|**Get started**|[Começar com o Java SDK](sql-api-java-get-started.md)|
+|**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-java-application.md)|
+|**Tempo mínimo de execução suportado**|[Kit de Desenvolvimento Java (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -127,7 +127,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Desempenho melhorado de serialização Json.
-* Esta versão do SDK requer a versão mais recente do emulador do Cosmos DB disponível para download em https://aka.ms/cosmosdb-emulator.
+* Esta versão SDK requer a versão mais recente do Emulador De DD D DDS Azure Cosmos disponível para download a partir de https://aka.ms/cosmosdb-emulator.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 * Alterações internas para bibliotecas de amigos da Microsoft.
@@ -153,8 +153,8 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * Foi corrigido um erro na configuração do motor de consulta que pode causar exceções para consultas no modo de Gateway.
 * Corrigir alguns bugs no contentor de sessão que pode fazer com que uma exceção de "Recurso de proprietário não encontrado" para pedidos imediatamente após a criação de coleção.
 
-### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](sql-query-aggregates.md).
+### <a name="a-name195195"></a><a name="1.9.5"/>1,9.5
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Consulte o suporte de [agregação](sql-query-aggregates.md).
 * Foi adicionado suporte para o feed de alterações.
 * Foi adicionado suporte para obter informações de quota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o registo de script do procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
@@ -163,7 +163,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * Foi corrigido um erro que pode causar NullReferenceException no HttpContext, quando a taxa de pedidos é elevada.
 * Desempenho aprimorado do modo de DirectHttps.
 
-### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
+### <a name="a-name194194"></a><a name="1.9.4"/>1,9.4
 * Suporte de proxy com base na instância de cliente simples foi adicionado com a API de ConnectionPolicy.setProxy().
 * API de DocumentClient.close() foi adicionado para a instância do DocumentClient encerramento corretamente.
 * Desempenho melhorado das consultas no modo de conectividade direta, derivando o plano de consulta do assembly nativo em vez do Gateway.
@@ -180,7 +180,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Foi corrigido um problema na gestão de ligações para estabilidade.
 
-### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+### <a name="a-name191191"></a><a name="1.9.1"/>1,9.1
 * Foi adicionado suporte para o nível de consistência BoundedStaleness.
 * Foi adicionado suporte para ligação direta para operações de CRUD para coleções particionadas.
 * Foi corrigido um erro na consulta um banco de dados SQL.
@@ -196,7 +196,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * Foi adicionado e LineString tipos de dados ao especificar a coleção de política para consultas espaciais do perímetro geográfico de indexação de polígonos.
 * Foi corrigidos problemas com o documento de Java para Java 1.8.
 
-### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
+### <a name="a-name181181"></a><a name="1.8.1"/>1,8.1
 * Foi corrigido um erro no PartitionKeyDefinitionMap colocar em cache coleções de partição única e não faça fetch extra pedidos de chave de partição.
 * Foi corrigido um erro não repetir quando é fornecido um valor de chave de partição incorreto.
 
@@ -212,7 +212,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * Tempo extra para o suporte do live (TTL) para documentos.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
-* Implementado [particionados coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md).
+* Coleções [divididas implementadas](partition-data.md) e [níveis de desempenho definidos pelo utilizador.](performance-levels.md)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * Foi corrigido um erro no HashPartitionResolver para gerar valores de hash no little-endian para ser consistente com outros SDKs.
@@ -229,7 +229,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Oferece suporte Geoespacial índice
-* Valida a propriedade ID para todos os recursos. IDs de recursos não podem conter?, /, #, \, carateres ou terminar com um espaço.
+* Valida a propriedade ID para todos os recursos. Ids for resources can contain ?, /, #, \, characters or end with a space.
 * Adiciona o novo cabeçalho "índice transformação progress" ao ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
@@ -239,19 +239,19 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * SDK DE DISPONIBILIDADE GERAL
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
-A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
+A Microsoft irá notificar com pelo menos **12 meses** de antecedência a retirada de um SDK de forma a suavizar a transição para uma versão mais recente/suportada.
 
 Novos recursos e funcionalidade e otimizações, apenas são adicionadas ao SDK atual, como tal, é recomendável que sempre atualiza para a versão mais recente SDK mais cedo possível.
 
 Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 > [!WARNING]
-> Todas as versões **1. x** do SDK do SQL para Java serão desativadas em **30 de maio de 2020**.
+> Todas as versões **1.x** do SQL SDK para Java serão retiradas a 30 de maio de **2020**.
 > 
 >
 
 > [!WARNING]
-> Todas as versões do SDK para Java SQL anterior à versão **1.0.0** foram extinguidas **29 de Fevereiro de 2016**.
+> Todas as versões do SQL SDK para Java antes da versão **1.0.0** foram retiradas em 29 de fevereiro de **2016**.
 > 
 > 
 
@@ -305,6 +305,6 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
-Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
+## <a name="see-also"></a>Consulte também
+Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

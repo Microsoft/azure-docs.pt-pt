@@ -15,16 +15,16 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76720304"
 ---
-# <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
+# <a name="troubleshoot-input-connections"></a>Resolver problemas de ligações de entrada
 
 Esta página descreve problemas comuns com ligações de entrada e como resolvê-los.
 
 ## <a name="input-events-not-received-by-job"></a>Eventos de entrada não recebidos por tarefa 
-1.  Teste a conectividade. Verifique a conectividade com entradas e saídas ao utilizar o **Testar ligação** botão para cada entrada e saída.
+1.  Teste a conectividade. Verifique a conectividade com as inputs e saídas utilizando o botão **de ligação** de teste para cada entrada e saída.
 
 2.  Examine os dados de entrada.
 
-    1. Para verificar que os dados de entrada é fluir para o Hub de eventos, utilize [Explorador do Service Bus](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) para ligar ao Hub de eventos do Azure (se for utilizada a entrada do Hub de eventos).
+    1. Para verificar se os dados de entrada estão a fluir para o Event Hub, utilize o [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) para se ligar ao Azure Event Hub (se for utilizada a entrada do Event Hub).
         
     1. Utilize o botão Dados da [**Amostra**](stream-analytics-sample-data-input.md) para cada entrada. Descarregue os dados da amostra de entrada.
         
@@ -35,7 +35,7 @@ Esta página descreve problemas comuns com ligações de entrada e como resolvê
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventos de entrada mal formados provocam erros de desserialização 
 Desserialização problemas causados quando o fluxo de entrada da sua tarefa do Stream Analytics contém mensagens com formato incorreto. Por exemplo, pode dever-se uma mensagem incorretamente formada por um parêntesis de em falta ou uma chave num objeto JSON ou tem um formato de timestamp incorreto no campo de tempo. 
  
-Quando uma tarefa do Stream Analytics recebe uma mensagem incorretamente formada de entrada, ele ignora a mensagem e notifica-o com um aviso. Um símbolo de aviso é apresentado no **entradas** mosaico da sua tarefa do Stream Analytics. Este início de sessão de aviso existe, desde que a tarefa está no estado de execução:
+Quando uma tarefa do Stream Analytics recebe uma mensagem incorretamente formada de entrada, ele ignora a mensagem e notifica-o com um aviso. Um símbolo de aviso é mostrado no azulejo de **entrada** do seu trabalho stream analytics. Este início de sessão de aviso existe, desde que a tarefa está no estado de execução:
 
 ![Mosaico de entradas de Stream Analytics do Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -53,11 +53,11 @@ Pode realizar os passos seguintes para analisar os eventos de entrada em detalhe
 
    ![Stream Analytics mensagem de aviso com deslocamento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
-3. Para encontrar os dados JSON com formato incorreto, execute o código de CheckMalformedEvents.cs disponível na [repositório de exemplos do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e imprime os dados que estão localizados no deslocamento. 
+3. Para encontrar os dados da JSON com o formato incorreto, execute o código CheckMalformedEvents.cs disponível no [repositório de amostras GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e imprime os dados que estão localizados no deslocamento. 
 
 4. Depois de ler os dados, pode analisar e corrigir o formato de serialização.
 
-5. Também pode [ler eventos a partir de um IoT Hub com o Explorador do Service Bus](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
+5. Também pode [ler eventos a partir de um Hub IoT com o Service Bus Explorer.](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b)
 
 ## <a name="job-exceeds-maximum-event-hub-receivers"></a>Tarefa excede o máximo Recetores do Hub de eventos
 Uma melhor prática para utilizar os Hubs de eventos é usar vários grupos de consumidores para assegurar a escalabilidade de tarefa. O número de leitores da tarefa do Stream Analytics para uma introdução específica afeta o número de leitores num grupo de consumidor. O número exato de recetores baseia-se nos detalhes da implementação interna para a lógica de topologia de escalamento horizontal e não está exposto externamente. O número de leitores pode alterar quando é iniciada uma tarefa ou durante atualizações de tarefa.
@@ -74,13 +74,13 @@ Para adicionar um novo grupo de consumidores na sua instância de Hubs de evento
 
 2. Localize os Hubs de eventos.
 
-3. Selecione **os Hubs de eventos** sob a **entidades** cabeçalho.
+3. Selecione Centros de **Eventos** sob a rubrica **Entidades.**
 
 4. Selecione o Hub de eventos por nome.
 
-5. Sobre o **instância de Hubs de eventos** página, no **entidades** título, selecione **grupos de consumidores**. Um grupo de consumidores com o nome **$Default** está listado.
+5. Na página De Exemplo de Hubs de **Eventos,** sob a rubrica **Entidades,** selecione **Grupos de Consumidores**. Está listado um grupo de consumidores com nome **$Default.**
 
-6. Selecione **+ grupo de consumidores** para adicionar um novo grupo de consumidor. 
+6. Selecione **+ Grupo de Consumidores** para adicionar um novo grupo de consumidores. 
 
    ![Adicionar um grupo de consumidores em Hubs de eventos](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
@@ -93,9 +93,9 @@ Se a sintaxe de consulta de transmissão em fluxo referencia o mesmo recurso de 
 
 Cenários em que o número de leitores por partição excede o limite de Hubs de eventos de cinco incluem o seguinte:
 
-* Múltiplas instruções SELECIONADAS: Se utilizar várias instruções SELECT que fazem referência a **mesmo** hub de eventos de entrada, cada instrução SELECIONADA faz com que um novo recetor a ser criada.
-* União: Quando utiliza uma União, é possível ter várias entradas que consulte o **mesmo** grupo de hub e o consumidor de eventos.
-* ASSOCIAÇÃO automática: Quando utiliza uma operação de associação de SELF, é possível fazer referência a **mesmo** hub de eventos várias vezes.
+* Múltiplas declarações SELECT: Se utilizar várias declarações SELECT que se referem à entrada **do mesmo** hub de eventos, cada declaração SELECT faz com que um novo recetor seja criado.
+* Quando se usa uma UNIÃO, é possível ter várias inputs que se referem ao **mesmo** centro de eventos e grupo de consumidores.
+* SELF JOIN: Quando utilizar uma operação SELF JOIN, é possível referir-se ao **mesmo** centro de eventos várias vezes.
 
 As seguintes práticas recomendadas podem ajudar a atenuar os cenários em que o número de leitores por partição excede o limite de Hubs de eventos de cinco.
 
@@ -139,9 +139,9 @@ Para consultas em que os três ou mais entradas estão ligadas ao mesmo grupo de
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

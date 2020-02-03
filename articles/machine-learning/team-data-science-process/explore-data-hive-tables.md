@@ -22,23 +22,23 @@ ms.locfileid: "76722174"
 
 Este artigo fornece os scripts de Hive de exemplo que são utilizadas para explorar dados em tabelas do Hive num cluster do HDInsight Hadoop.
 
-Esta tarefa é um passo na [Team Data Science Process](overview.md).
+Esta tarefa é um passo no Processo de Ciência de Dados da [Equipa.](overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem:
 
-* Criar uma conta de armazenamento do Azure. Se precisar de instruções, consulte [criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md)
-* Aprovisionar um cluster do Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [personalizar o Azure HDInsight Hadoop Clusters do Advanced Analytics](customize-hadoop-cluster.md).
-* Os dados tem sido carregados para tabelas do Hive em clusters do Hadoop de HDInsight do Azure. Se não tiver, siga as instruções em [criar e carregar dados para tabelas do Hive](move-hive-tables.md) para carregar dados para tabelas do Hive em primeiro lugar.
-* Ativar o acesso remoto para o cluster. Se precisar de instruções, consulte [aceder a cabeça nó de Cluster do Hadoop](customize-hadoop-cluster.md).
-* Se precisar de instruções sobre como submeter consultas do Hive, veja [como submeter consultas do Hive](move-hive-tables.md#submit)
+* Criar uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md)
+* Aprovisionar um cluster do Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](customize-hadoop-cluster.md).
+* Os dados tem sido carregados para tabelas do Hive em clusters do Hadoop de HDInsight do Azure. Se não o tiver, siga as instruções em [Criar e carregue os dados para as tabelas da Colmeia](move-hive-tables.md) para fazer o upload dos dados para as tabelas da Colmeia primeiro.
+* Ativar o acesso remoto para o cluster. Se precisar de instruções, consulte [Aceda ao nó de cabeça do aglomerado de hadoop](customize-hadoop-cluster.md).
+* Se precisar de instruções sobre como submeter consultas de Colmeia, consulte [Como Submeter Consultas](move-hive-tables.md#submit) de Colmeia
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Scripts de consulta do Hive de exemplo para exploração de dados
-1. Obter a contagem de observações por partição  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Obter a contagem de observações por dia  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+1. Obtenha a contagem de observações por divisória `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Obtenha a contagem de observações por dia `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Obter os níveis numa coluna categórico  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. Obter o número de níveis na combinação de duas colunas categóricas  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Obtenha o número de níveis em combinação de duas colunas categóricas `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Obter a distribuição para colunas numéricas  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extrair os registos de associar as duas tabelas
@@ -69,5 +69,5 @@ Este artigo pressupõe que tem:
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Scripts de consulta adicionais para cenários de dados de viagens de táxis
-Exemplos de consultas que são específicas [dados de viagens de táxis NYC](https://chriswhong.com/open-data/foil_nyc_taxi/) cenários também são fornecidos na [repositório do GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas já tem o esquema de dados especificado e estão prontas para serem submetidas para executar.
+Exemplos de consultas específicas para os cenários de dados da [viagem](https://chriswhong.com/open-data/foil_nyc_taxi/) de táxi de NYC também são fornecidos no [repositório GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas já tem o esquema de dados especificado e estão prontas para serem submetidas para executar.
 

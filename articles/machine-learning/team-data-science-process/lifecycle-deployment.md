@@ -22,9 +22,9 @@ ms.locfileid: "76720491"
 
 Este artigo descreve os objetivos, tarefas e resultados finais associados à implantação do Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
-   1. **Compreensão empresarial**
-   2. **Aquisição de dados e compreensão**
-   3. **Modelagem**
+   1. **Compreensão de negócios**
+   2. **Aquisição e compreensão de dados**
+   3. **Modelação**
    4. **Implementação**
    5. **Aceitação do cliente**
 
@@ -39,7 +39,7 @@ Implemente modelos com um pipeline de dados para um ambiente de produção simul
 ## <a name="how-to-do-it"></a>Como fazê-lo
 A tarefa principal abordada nessa etapa:
 
-**Operacionalizar o modelo**: implementar o modelo e um pipeline para um ambiente de produção simulado para consumo de aplicativo ou produção.
+**Operacionalizar o modelo**: Implantar o modelo e o oleoduto num ambiente de produção ou produção para consumo de aplicação.
 
 ### <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Depois de ter um conjunto de modelos com bom desempenho, pode operacionalizá-las para outras aplicações para consumir. Consoante os requisitos de negócios, são feitas previsões em tempo real ou numa base de batch. Para implementar os modelos, expô-los com uma interface de API aberta. A interface permite que o modelo possa ser facilmente consumidos a partir de vários aplicativos, tais como:
@@ -50,7 +50,7 @@ Depois de ter um conjunto de modelos com bom desempenho, pode operacionalizá-la
    * Aplicações de linha de negócio 
    * Aplicações de back-end 
 
-Para obter exemplos de operacionalização de modelo com um serviço web Azure Machine Learning, consulte [implementar um serviço web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É melhor prática para criar a telemetria e monitorização para o modelo de produção e o pipeline de dados que implementar. Essa prática ajuda com o estado do sistema subsequentes reporting e resolução de problemas.  
+Por exemplo, de operacionalização de modelos com um serviço web Azure Machine Learning, consulte [Implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É melhor prática para criar a telemetria e monitorização para o modelo de produção e o pipeline de dados que implementar. Essa prática ajuda com o estado do sistema subsequentes reporting e resolução de problemas.  
 
 ## <a name="artifacts"></a>Artefactos
 
@@ -59,16 +59,16 @@ Para obter exemplos de operacionalização de modelo com um serviço web Azure M
 * Um documento de arquitetura da solução final
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
 
-   1. [Compreensão empresarial](lifecycle-business-understanding.md)
-   2. [Aquisição de dados e compreensão](lifecycle-data.md)
-   3. [Modelagem](lifecycle-modeling.md)
+   1. [Compreensão de negócios](lifecycle-business-understanding.md)
+   2. [Aquisição e compreensão de dados](lifecycle-data.md)
+   3. [Modelação](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos passeios completos que demonstram todos os passos no processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
+Fornecemos passeios completos que demonstram todos os passos no processo para cenários específicos. O artigo de [walkthroughs Exemplo](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Por exemplo, como executar passos em TDSPs que usam o Estúdio de Aprendizagem automática Azure, consulte [Utilize o TDSP com aprendizagem automática azure](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

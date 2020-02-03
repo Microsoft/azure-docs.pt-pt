@@ -341,6 +341,6 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para carregar o conjunto completo de dados, execute o exemplo carregue o armazém completo de dados de retalho de [Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) do repositório de amostras do Servidor Microsoft SQL.
 Para obter mais dicas de desenvolvimento, consulte decisões de [design e técnicas de codificação para armazéns](sql-data-warehouse-overview-develop.md)de dados.

@@ -35,8 +35,8 @@ Primeiro deve completar e submeter o formulário de pedido do recipiente de dete
 
 [!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Reveja [Instalar e executar recipientes](../anomaly-detector-container-configuration.md) para puxar a imagem do recipiente e executar o recipiente
-* Revisão [configurar contentores](../anomaly-detector-container-configuration.md) para definições de configuração
+* Rever [Configure recipientes](../anomaly-detector-container-configuration.md) para configurações de configuração
 * [Saiba mais sobre o serviço API do Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

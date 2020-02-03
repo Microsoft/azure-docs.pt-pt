@@ -26,7 +26,7 @@ Este artigo explica como criar uma oferta SaaS com APIs. As APIs, compostas por 
 São fornecidas as seguintes APIs para ajudá-lo a integrar o seu serviço SaaS com o Azure:
 
 -   Resolver
--   Subscrever
+-   Inscreva-se
 -   Converter
 -   Cancelar a subscrição
 
@@ -116,13 +116,13 @@ Quando um utilizador é redirecionado para o website de um ISV, o URL contém um
 |  |  |  |
 
 
-### <a name="subscribe"></a>Subscrever
+### <a name="subscribe"></a>Inscreva-se
 
 O ponto final de subscrição permite que os utilizadores iniciem uma subscrição de um serviço SaaS para um determinado plano e permitam faturação no sistema de comércio.
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -187,7 +187,7 @@ O ponto final de alteração permite ao utilizador converter o seu plano atualme
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -251,7 +251,7 @@ A ação Delete no ponto final de subscrição permite que um utilizador elimine
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -369,7 +369,7 @@ A ação Get no ponto final de subscrição permite que um utilizador recupere u
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -530,11 +530,11 @@ Um webhook SaaS é usado para notificar alterações proactivamente ao serviço 
 | offerId                | String        | Ofereça ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".        |
 | publisherId                | String        | Identificação da editora da oferta SaaS         |
 | planId                 | String        | Plano ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".          |
-| action                 | String        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
+| ação                 | String        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
 | timeStamp                 | String        | Valor de carimbo na UTC quando esta notificação foi desencadeada.          |
 |  |  |  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os desenvolvedores também podem recuperar e manipular programáticamente cargas de trabalho, ofertas e perfis de editor usando o Portal de [Parceiros cloud REST APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

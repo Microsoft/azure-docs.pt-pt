@@ -29,12 +29,12 @@ Este artigo mostra-lhe como se juntar a um CoreOS VM a um domínio gerido pelo A
 Para concluir este tutorial, você precisa dos seguintes recursos e privilégios:
 
 * Uma subscrição ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
-    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
+    * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
-    * Se necessário, o primeiro tutorial [cria e configura uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
+    * Se necessário, o primeiro tutorial cria e configura uma instância de Serviços de [Domínio de Diretório Ativo Azure.][create-azure-ad-ds-instance]
+* Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
 
 ## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Criar e ligar a um CoreOS Linux VM
 
@@ -44,7 +44,7 @@ Se precisar de criar um VM CoreOS Linux, ou pretender criar um VM de teste para 
 
 * [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [O Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Quando criar o VM, preste atenção às definições de rede virtual para se certificar de que o VM pode comunicar com o domínio gerido pelo Azure AD DS:
 
@@ -168,7 +168,7 @@ Para verificar se o VM foi bem-sucedido juntou-se ao domínio gerido pelo Azure 
 
     Deve ver os seus membros do grupo do domínio gerido pelo Azure AD DS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se tiver problemas em ligar o VM ao domínio gerido pelo Azure AD DS ou iniciar sessão com uma conta de domínio, consulte problemas de resolução de [domínios](join-windows-vm.md#troubleshoot-domain-join-issues).
 

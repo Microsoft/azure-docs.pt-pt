@@ -23,7 +23,7 @@ A série Fsv2 é baseada no processador Intel® Xeon® Platinum 8168. Ele aprese
 
 Em um preço de lista inferior por hora, a série Fsv2 é o melhor valor em preço-desempenho no portfólio do Azure com base na ACU (unidade de computação do Azure) por vCPU.
 
-## <a name="fsv2-series-sup1sup"></a>Série Fsv2 <sup>1</sup>
+## <a name="fsv2-series-sup1sup"></a>Fsv2 série <sup>1</sup>
 
 ACU: 195 - 210
 
@@ -31,7 +31,7 @@ Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
 
-| Tamanho             | vCPUs | Memória: GiB | Armazenamento (SSD) temporário em GiB | Máximo de discos de dados | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
+| Size             | vCPUs | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000/31 (32)           | 3200/47                | 2 / 875                 |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000/63 (64)           | 6400/95                | 2 / 1750               |
@@ -42,9 +42,9 @@ Cache de armazenamento Premium: com suporte
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 / 1024 (1024)     | 80000 / 1100             | 8 / 28000              |
 | <sup>Standard_F72s_v2 2,&nbsp;3</sup> | 72 | 144 | 576         | 32             | 144000 / 1152 (1520)     | 80000 / 1100             | 8 / 30000              |
 
-<sup>1</sup> o recurso de VMs da série Fsv2 Intel® tecnologia Hyper-Threading.
+<sup>1</sup> VMs da série Fsv2 apresentam Intel® Tecnologia Hiper-Threading.
 
-<sup>2</sup> o uso de mais de 64 vCPU exige um destes sistemas operacionais convidados com suporte:
+<sup>2</sup> A utilização de mais de 64 vCPU requer um destes sistemas operativos de hóspedes suportados:
 - Windows Server 2016 ou posterior
 - Ubuntu 16, 4 LTS ou posterior, com kernel ajustado do Azure (kernel 4,15 ou posterior)
 - SLES 12 SP2 ou posterior
@@ -55,4 +55,4 @@ Cache de armazenamento Premium: com suporte
 - Debian 9 com o kernel de backports, Debian 10 ou posterior
 - CoreOS com um kernel 4,14 ou posterior
 
-<sup>3</sup> a instância é isolada em hardware dedicado a um único cliente.
+<sup>3</sup> A Instância está isolada em hardware dedicado a um único cliente.

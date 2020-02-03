@@ -17,13 +17,13 @@ Depois de ativar a monitorização do seu cluster do AKS, pode parar a monitoriz
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Utilize o [az aks disable-complementos](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) comando para desativar o Monitor do Azure para contentores. O comando Remove o agente dos nós de cluster, ele não remove a solução ou os dados já coletados e armazenados em seu recurso de Azure Monitor.  
+Utilize o comando [az aks de saque de saque](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desativar o Monitor Azure para os recipientes. O comando Remove o agente dos nós de cluster, ele não remove a solução ou os dados já coletados e armazenados em seu recurso de Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Para voltar a Ativar monitorização do seu cluster, veja [ativar a monitorização com a CLI do Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
+Para reativar a monitorização do seu cluster, consulte a [monitorização ativa utilizando o Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
@@ -31,13 +31,13 @@ São fornecido dois modelo Azure Resource Manager para suportar a remoção os r
 
 Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
+* [Implementar recursos com modelos de Gestor de Recursos e o Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->O modelo precisa ser implantado no mesmo grupo de recursos do cluster. Se você omitir quaisquer outras propriedades ou Complementos ao usar esse modelo, isso poderá resultar na remoção do cluster. Por exemplo, *enableRBAC* para políticas RBAC implementadas em seu cluster ou *aksResourceTagValues* se as marcas forem especificadas para o cluster AKs.  
+>O modelo precisa ser implantado no mesmo grupo de recursos do cluster. Se você omitir quaisquer outras propriedades ou Complementos ao usar esse modelo, isso poderá resultar na remoção do cluster. Por exemplo, *o enableRBAC* para as políticas RBAC implementadas no seu cluster, ou *aksResourceTagValues* se as etiquetas forem especificadas para o cluster AKS.  
 >
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.27 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.27 ou posterior. Para identificar a sua versão, execute `az --version`. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Criar o modelo
 
@@ -115,13 +115,13 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
     }
     ```
 
-4. Edite os valores dos **aksResourceId** e **aksResourceLocation** utilizando os valores do cluster do AKS, que pode ser encontrado no **propriedades** página para o cluster selecionado .
+4. Editar os **valores para aksResourceId** e **aksResourceLocation** utilizando os valores do cluster AKS, que pode encontrar na página **Propriedades** para o cluster selecionado.
 
     ![Página de propriedades do contentor](media/container-insights-optout/container-properties-page.png)
 
-    Enquanto estiver a utilizar o **propriedades** página, também copiar a **ID de recurso da área de trabalho**. Este valor é necessário se decidir que pretende eliminar a área de trabalho do Log Analytics mais tarde. A eliminar a área de trabalho do Log Analytics não é efetuada como parte deste processo.
+    Enquanto estiver na página **Propriedades,** também copie o ID do **Recurso Workspace**. Este valor é necessário se decidir que pretende eliminar a área de trabalho do Log Analytics mais tarde. A eliminar a área de trabalho do Log Analytics não é efetuada como parte deste processo.
 
-    Edite os valores de **aksResourceTagValues** para corresponder aos valores de marca existentes especificados para o cluster AKs.
+    Editar os **valores para aksResourceTagValues** para corresponder aos valores de etiqueta existentes especificados para o cluster AKS.
 
 5. Guarde este ficheiro como **OptOutParam.json** para uma pasta local.
 
@@ -162,6 +162,6 @@ ProvisioningState       : Succeeded
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Se a área de trabalho foi criada apenas para suportar a monitorização do cluster e já não for necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça de que a **ID de recurso do espaço de trabalho** foi copiada anteriormente na etapa 4, você precisará dela.
+Se a área de trabalho foi criada apenas para suportar a monitorização do cluster e já não for necessário, terá de eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Delete a Azure Log Analytics espaço de trabalho com o portal Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não te esqueças do ID do **Workspace Resource** copiado no primeiro passo 4, vais precisar disso.

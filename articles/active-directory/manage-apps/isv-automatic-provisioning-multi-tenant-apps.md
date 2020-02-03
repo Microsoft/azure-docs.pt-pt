@@ -52,7 +52,7 @@ As aplicações que exigem que um registo de utilizador esteja presente na aplic
 
 * Reduzir os custos de hospedagem e manutenção de soluções de provisionamento personalizadas.
 
-## <a name="choose-a-provisioning-method"></a>Escolha um método de provisionamento
+## <a name="choose-a-provisioning-method"></a>Selecione um método de aprovisionamento
 
 A Azure AD fornece vários caminhos de integração para permitir o fornecimento automático de utilizadores para a sua aplicação.
 

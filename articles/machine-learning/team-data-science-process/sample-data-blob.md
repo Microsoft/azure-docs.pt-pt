@@ -18,14 +18,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76720287"
 ---
-# <a name="heading"></a>Armazenamento de BLOBs de dados de exemplo no Azure
+# <a name="heading"></a>Dados da amostra no armazenamento de blob Azure
 
 Este artigo aborda os dados de amostragem armazenados no armazenamento de Blobs do Azure ao baixá-lo por meio de programação e, em seguida, a amostragem usando procedimentos escritos em Python.
 
-**Por que os dados de exemplo?**
+**Por que provar os seus dados?**
 Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. A amostragem facilita a compreensão de dados, a exploração e a engenharia de recursos. Sua função no Cortana Analytics Process é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 
-Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa de amostragem é um passo no Processo de Ciência de [Dados da Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Transferir e dimensionar dados
 1. Descarregue os dados do armazenamento de blob Azure utilizando o serviço Blob a partir do seguinte código Python da amostra: 
@@ -53,7 +53,7 @@ Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](htt
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Dimensionar os dados com o `numpy`do `random.choice` da seguinte forma:
+3. Aprove os dados utilizando a `random.choice` do `numpy`da seguinte forma:
    
         # A 1 percent sample
         sample_ratio = 0.01 
@@ -63,7 +63,7 @@ Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](htt
 
 Agora você pode trabalhar com o quadro de dados acima com a amostra de um por cento para mais exploração e geração de recursos.
 
-## <a name="heading"></a>Carregar dados e lê-lo no Azure Machine Learning
+## <a name="heading"></a>Faça upload de dados e leia-os em Azure Machine Learning
 Pode utilizar o seguinte código de exemplo para dimensionar os dados e utilizá-lo diretamente no Azure Machine Learning:
 
 1. Escrever o quadro de dados para um ficheiro local
@@ -92,7 +92,7 @@ Pode utilizar o seguinte código de exemplo para dimensionar os dados e utilizá
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Ler os dados de blob do Azure com o Azure Machine Learning [importar dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) conforme mostrado na imagem abaixo:
+3. Leia os dados do blob Azure utilizando dados de [importação](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) de aprendizagem automática azure, como mostrado na imagem abaixo:
 
 ![blob de leitor](./media/sample-data-blob/reader_blob.png)
 

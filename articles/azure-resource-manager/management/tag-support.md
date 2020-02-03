@@ -11,54 +11,54 @@ ms.lasthandoff: 01/24/2020
 ms.locfileid: "76715615"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
-Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
+Este artigo descreve se um tipo de recurso suporta [etiquetas](tag-resources.md). As etiquetas de suporte com a etiqueta da coluna com **etiquetas** indica se o tipo de recurso tem uma propriedade para a etiqueta. O relatório de **custos** da coluna rotulada tag indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode visualizar os custos através de tags na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de faturação Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
 
-Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [tag-support. csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
+Para obter os mesmos dados que um ficheiro de valores separados de vírem, descarregue [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 Ir para um namespace do provedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft. addons](#microsoftaddons)
-> - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
-> - [Microsoft. Advisor](#microsoftadvisor)
+> - [Microsoft.Addons](#microsoftaddons)
+> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft.Advisor](#microsoftadvisor)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft. AppPlatform](#microsoftappplatform)
-> - [Microsoft. atestador](#microsoftattestation)
+> - [Microsoft.AppPlatform](#microsoftappplatform)
+> - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
-> - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft. Azconfig](#microsoftazconfig)
-> - [Microsoft. Azure. Geneva](#microsoftazuregeneva)
+> - [Microsoft.Automação](#microsoftautomation)
+> - [Microsoft.Azconfig](#microsoftazconfig)
+> - [Microsoft.Azure.Genebra](#microsoftazuregeneva)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft. AzureData](#microsoftazuredata)
+> - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft. billing](#microsoftbilling)
+> - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft. Capacity](#microsoftcapacity)
+> - [Microsoft.Capacidade](#microsoftcapacity)
 > - [Microsoft.Cdn](#microsoftcdn)
 > - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
+> - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft. Commerce](#microsoftcommerce)
+> - [Microsoft.Serviços Cognitivos](#microsoftcognitiveservices)
+> - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft. consumo](#microsoftconsumption)
+> - [Microsoft.Consumo](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
-> - [Microsoft. CustomProviders](#microsoftcustomproviders)
+> - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
+> - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -67,35 +67,35 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft. DataShare](#microsoftdatashare)
+> - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft. DevOps](#microsoftdevops)
+> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
+> - [Microsoft.Dispositivos](#microsoftdevices)
+> - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
+> - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft. Features](#microsoftfeatures)
-> - [Microsoft. Gallery](#microsoftgallery)
-> - [Microsoft.Genomics](#microsoftgenomics)
-> - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
+> - [Microsoft.Features](#microsoftfeatures)
+> - [Microsoft.Gallery](#microsoftgallery)
+> - [Microsoft.Genómica](#microsoftgenomics)
+> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
-> - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
+> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
 > - [Microsoft.HDInsight](#microsofthdinsight)
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft. Hydra](#microsofthydra)
+> - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
-> - [Microsoft. Intune](#microsoftintune)
+> - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
@@ -105,21 +105,21 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. Managedservices](#microsoftmanagedservices)
-> - [Microsoft. Management](#microsoftmanagement)
+> - [Microsoft.ManagedServices](#microsoftmanagedservices)
+> - [Microsoft.Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft. Marketplace](#microsoftmarketplace)
+> - [Microsoft.Marketplace](#microsoftmarketplace)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
-> - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
+> - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
+> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
-> - [Microsoft. MixedReality](#microsoftmixedreality)
+> - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft. ObjectStore](#microsoftobjectstore)
-> - [Microsoft. OffAzure](#microsoftoffazure)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
+> - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft.Peering](#microsoftpeering)
@@ -127,45 +127,45 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft. ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
-> - [Microsoft. RemoteApp](#microsoftremoteapp)
-> - [Microsoft. ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft. ResourceHealth](#microsoftresourcehealth)
-> - [Microsoft. Resources](#microsoftresources)
+> - [Microsoft.RemoteApp](#microsoftremoteapp)
+> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
+> - [Microsoft.Recursos](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
-> - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
+> - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft. Services](#microsoftservices)
+> - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
-> - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft. SQL](#microsoftsql)
+> - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
+> - [Microsoft.Soluções](#microsoftsolutions)
+> - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft. StorageReplication](#microsoftstoragereplication)
+> - [Microsoft.StorageReplication](#microsoftstoragereplication)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
 > - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
 > - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft. Subscription](#microsoftsubscription)
+> - [Microsoft.Subscrição](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
-> - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft. WorkloadMonitor](#microsoftworkloadmonitor)
+> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -192,7 +192,7 @@ Ir para um namespace do provedor de recursos:
 > | representantes | Não | Não |
 > | anonymousapiusers | Não | Não |
 > | configuração | Não | Não |
-> | registos | Não | Não |
+> | logs | Não | Não |
 > | relatórios | Não | Não |
 > | servicehealthmetrics | Não | Não |
 > | services | Não | Não |
@@ -498,7 +498,7 @@ Ir para um namespace do provedor de recursos:
 > | calculatePurchasePrice | Não | Não |
 > | catálogos | Não | Não |
 > | commercialReservationOrders | Não | Não |
-> | exchange | Não | Não |
+> | troca | Não | Não |
 > | placePurchaseOrder | Não | Não |
 > | reservationOrders | Não | Não |
 > | reservationOrders / calculateRefund | Não | Não |
@@ -752,7 +752,7 @@ Ir para um namespace do provedor de recursos:
 > | departamentos | Não | Não |
 > | Dimensões | Não | Não |
 > | EnrollmentAccounts | Não | Não |
-> | Exportações | Não | Não |
+> | Port | Não | Não |
 > | ExternalBillingAccounts | Não | Não |
 > | ExternalBillingAccounts/alertas | Não | Não |
 > | ExternalBillingAccounts/dimensões | Não | Não |
@@ -767,7 +767,7 @@ Ir para um namespace do provedor de recursos:
 > | Consulta | Não | Não |
 > | registar | Não | Não |
 > | Reportconfigs | Não | Não |
-> | Relatórios | Não | Não |
+> | Reports | Não | Não |
 > | Definições | Não | Não |
 > | showbackRules | Não | Não |
 > | Vistas | Não | Não |
@@ -1071,7 +1071,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | elástica | Não | Não |
+> | características | Não | Não |
 > | Fornecedores | Não | Não |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
@@ -1079,7 +1079,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | inscrever-se | Não | Não |
+> | inscrever | Não | Não |
 > | galleryitems | Não | Não |
 > | generateartifactaccessuri | Não | Não |
 > | minhas áreas | Não | Não |
@@ -1248,7 +1248,7 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | commitmentPlans | Sim | Sim |
 > | webServices | Sim | Sim |
-> | Áreas de trabalho | Sim | Sim |
+> | Áreas de Trabalho | Sim | Sim |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -1428,9 +1428,9 @@ Ir para um namespace do provedor de recursos:
 > | expressRoutePorts | Sim | Sim |
 > | expressRouteServiceProviders | Não | Não |
 > | firewallPolicies | Sim | Sim |
-> | frontdoors | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Não |
-> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
+> | frontdoors | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Sim |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Não |
+> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Sim |
 > | getDnsResourceReference | Não | Não |
 > | internalNotify | Não | Não |
 > | loadBalancers | Sim | Não |
@@ -1722,7 +1722,7 @@ Ir para um namespace do provedor de recursos:
 > | securityStatuses | Não | Não |
 > | securityStatusesSummaries | Não | Não |
 > | serverVulnerabilityAssessments | Não | Não |
-> | settings | Não | Não |
+> | definições | Não | Não |
 > | subavaliações | Não | Não |
 > | tarefas | Não | Não |
 > | topologias | Não | Não |
@@ -1750,7 +1750,7 @@ Ir para um namespace do provedor de recursos:
 > | contabilidade | Não | Não |
 > | entityQueries | Não | Não |
 > | officeConsents | Não | Não |
-> | settings | Não | Não |
+> | definições | Não | Não |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -1786,7 +1786,7 @@ Ir para um namespace do provedor de recursos:
 > | secretstores | Sim | Sim |
 > | secretstores/certificados | Não | Não |
 > | secretstores/segredos | Não | Não |
-> | volumes | Sim | Sim |
+> | protegidos | Sim | Sim |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -1798,7 +1798,7 @@ Ir para um namespace do provedor de recursos:
 > | gateways | Sim | Sim |
 > | às | Sim | Sim |
 > | confidenciais | Sim | Sim |
-> | volumes | Sim | Sim |
+> | protegidos | Sim | Sim |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
 
@@ -1847,7 +1847,7 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sim | Sim |
-> | managedInstances/bancos de dados | Sim (veja a [Observação abaixo](#sqlnote)) | Sim |
+> | managedInstances/bancos de dados | Sim (ver [nota abaixo)](#sqlnote) | Sim |
 > | managedInstances/bancos de dados/backupShortTermRetentionPolicies | Não | Não |
 > | managedInstances/bancos de dados/esquemas/tabelas/colunas/sensitivityLabels | Não | Não |
 > | managedInstances/bancos de dados/vulnerabilityAssessments | Não | Não |
@@ -1859,7 +1859,7 @@ Ir para um namespace do provedor de recursos:
 > | servidores | Sim | Sim |
 > | servidores/administradores | Não | Não |
 > | servidores/communicationLinks | Não | Não |
-> | servidores/bancos de dados | Sim (veja a [Observação abaixo](#sqlnote)) | Sim |
+> | servidores/bancos de dados | Sim (ver [nota abaixo)](#sqlnote) | Sim |
 > | servidores/encryptionProtector | Não | Não |
 > | servidores/firewallRules | Não | Não |
 > | servidores/chaves | Não | Não |
@@ -2079,6 +2079,6 @@ Ir para um namespace do provedor de recursos:
 > | monitores | Não | Não |
 > | notificationSettings | Não | Não |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como aplicar marcas a recursos, consulte [usar marcas para organizar os recursos do Azure](tag-resources.md).
+Para aprender a aplicar tags aos recursos, consulte [Use tags para organizar os seus recursos Azure.](tag-resources.md)

@@ -378,6 +378,6 @@ A sintaxe do ficheiro de configuração é a seguinte:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu a configurar a Editora OPC, o próximo passo sugerido é aprender a executar a [Editora OPC](howto-opc-publisher-run.md).

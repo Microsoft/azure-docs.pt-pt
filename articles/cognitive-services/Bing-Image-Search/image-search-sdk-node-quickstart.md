@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Pesquisa de imagens - Bing Image Search SDK for Node.js'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK de Pesquisa de Imagens do Bing, um wrapper para a API com as mesmas funcionalidades. Esta aplicação Node.js simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
+description: Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação Node.js simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -20,7 +20,7 @@ ms.locfileid: "76716198"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Guia de Início Rápido: procurar imagens com o SDK de Pesquisa de Imagens do Bing para Node.js
 
-Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK de Pesquisa de Imagens do Bing, um wrapper para a API com as mesmas funcionalidades. Esta aplicação JavaScript simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
+Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação JavaScript simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 
 O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) com processamento de erros e anotações adicionais.
 
@@ -91,12 +91,12 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
       .catch(err => console.error(err))
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)

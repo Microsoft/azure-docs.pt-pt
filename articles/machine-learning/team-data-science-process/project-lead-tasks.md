@@ -19,7 +19,7 @@ ms.locfileid: "76714423"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tarefas de liderança do projeto no Processo de Ciência de Dados da Equipa
 
-Este artigo descreve tarefas que um líder de *projeto* completa para criar um repositório para a sua equipa de projeto no Processo de Ciência de Dados da [Equipa](overview.md) (TDSP). O TDSP é um quadro desenvolvido pela Microsoft que fornece uma sequência estruturada de atividades para executar eficientemente soluções de análise preditivas baseadas na nuvem. O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. Para obter uma descrição das funções de pessoal e tarefas associadas para uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md).
+Este artigo descreve tarefas que um líder de *projeto* completa para criar um repositório para a sua equipa de projeto no Processo de Ciência de Dados da [Equipa](overview.md) (TDSP). O TDSP é um quadro desenvolvido pela Microsoft que fornece uma sequência estruturada de atividades para executar eficientemente soluções de análise preditivas baseadas na nuvem. O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. Para um esboço das funções de pessoal e tarefas associadas para uma equipa de ciência de dados padronizada no TDSP, consulte as [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipa .
 
 Um líder de projeto gere as atividades diárias de cientistas de dados individuais num projeto específico de ciência de dados no TDSP. O diagrama seguinte mostra o fluxo de trabalho para tarefas de chumbo do projeto:
 
@@ -40,7 +40,7 @@ Para o passo 6: Configurar o controlo de segurança do repositório do projeto, 
 
 Este tutorial pressupõe que o seu [gestor](group-manager-tasks.md) de grupo e [o líder da equipa](team-lead-tasks.md) criaram os seguintes recursos e permissões:
 
-- A **organização** DevOps do Azure para sua unidade de dados
+- A **organização** Azure DevOps para a sua unidade de dados
 - Um **projeto** de equipa para a sua equipa de ciência de dados
 - Modelo de equipa e **repositórios** de utilidades
 - **Permissões** na sua conta de organização para que você crie e edite repositórios para o seu projeto
@@ -48,10 +48,10 @@ Este tutorial pressupõe que o seu [gestor](group-manager-tasks.md) de grupo e [
 Para clonar repositórios e modificar conteúdos na sua máquina local ou máquina virtual de ciência de dados (DSVM), ou configurar o armazenamento de ficheiros Azure e montá-lo no seu DSVM, também precisa considerar esta lista de verificação:
 
 - Uma subscrição do Azure.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
-- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
-- Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
-- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte as [Plataformas e ferramentas do apêndice](platforms-and-tools.md#appendix).
+- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para mais informações e instruções, consulte a [Documentação](/azure/machine-learning/data-science-virtual-machine/)da Máquina Virtual da Ciência dos Dados .
+- Para um DSVM windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **Descarregamento e Instalação** e selecione o **mais recente instalador**. Descarregue o instalador *.ex e* execute-o. 
+- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a secção de **chaves públicas Create SSH** nas Plataformas e no apêndice das [ferramentas](platforms-and-tools.md#appendix). 
 
 ## <a name="create-a-project-repository-in-your-team-project"></a>Crie um repositório de projetos no seu projeto de equipa
 
@@ -63,7 +63,7 @@ Para criar um repositório de projetos no projeto **MyTeam** da sua equipa:
    
    ![Selecionar novo repositório](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
-1. Na caixa de diálogo **criar um novo repositório** , verifique se **git** está selecionado em **tipo**. Introduza *o DSProject1* sob **o nome repositório**e, em seguida, selecione **Criar**.
+1. No Create um novo diálogo **de repositório,** certifique-se de que **git** é selecionado em **Tipo**. Introduza *o DSProject1* sob **o nome repositório**e, em seguida, selecione **Criar**.
    
    ![Criar repositório](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
@@ -91,10 +91,10 @@ Para povoar o seu repositório de projeto com o conteúdo do repositório do mod
 
 Se precisar de personalizar o conteúdo do seu repositório de projeto para atender às necessidades específicas do seu projeto, pode adicionar, excluir ou modificar ficheiros e pastas de repositório. Pode trabalhar diretamente no Azure Repos, ou clonar o repositório para a sua máquina local ou DSVM, fazer alterações e comprometer e empurrar as suas atualizações para o repositório de projetopartilhado. Siga as instruções em [Personalizar o conteúdo dos repositórios da equipa](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 
-- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
-- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas do Gestor de Grupos para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de Team Lead para uma equipa de ciência de dados](team-lead-tasks.md)
 - [Tarefas individuais do Contribuinte para uma equipa de ciência de dados](project-ic-tasks.md)

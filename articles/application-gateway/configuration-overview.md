@@ -48,7 +48,7 @@ Recomendamos que você use um tamanho de sub-rede de pelo menos/28. Esse tamanho
 
 Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Mas há algumas restrições:
 
-- Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como qualquer e origem como **uma** marca de serviço do **gatewaymanager** . Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
+- Deve permitir a entrada de tráfego na Internet nas portas TCP 65503-65534 para o Gateway de aplicação v1 SKU, e as portas TCP 65200-65535 para o V2 SKU com a subnet de destino como **Qualquer** e fonte como etiqueta de serviço **GatewayManager.** Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
 
 - A conectividade de Internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que:
 
@@ -62,7 +62,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as seguintes restrições na sub-rede nesta ordem de prioridade:
 
 1. Permita o tráfego de entrada de um IP de origem ou intervalo de IP com o destino como o intervalo de endereços de sub-rede do gateway de aplicativo inteiro e a porta de destino como sua porta de acesso de entrada, por exemplo, a porta 80 para acesso HTTP.
-2. Permitir solicitações de entrada da origem como **uma** marca de serviço do **gatewaymanager** e destino como portas de destino e como 65503-65534 para a SKU do gateway de aplicativo v1 e portas 65200-65535 para SKU v2 para [comunicação de status de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
+2. Permita os pedidos de entrada de origem como etiqueta de serviço **gatewayManager** e destino como **portos de** destino 65503-65534 para o Gateway de Aplicação v1 SKU, e portas 65200-65535 para v2 SKU para comunicação de estado de [saúde back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
 3. Permitir a entrada de sondas Azure Load Balancer (etiqueta*AzureLoadBalancer)* e tráfego de rede virtual de entrada *(virtualNetwork* tag) no grupo de segurança da [rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todos os outros tráfegos de entrada usando uma regra negar-tudo.
 5. Permitir o tráfego de saída para a Internet para todos os destinos.
@@ -77,7 +77,7 @@ Para a SKU v2, não há suporte para UDRs na sub-rede do gateway de aplicativo. 
 > UDRs não tem suporte para a SKU v2 a partir de agora.
 
 > [!NOTE]
-> Usar UDRs na sub-rede do gateway de aplicativo pode fazer com que o status de integridade na [exibição de integridade do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) seja exibido como "desconhecido". Ele também pode causar falha na geração de logs e métricas do gateway de aplicativo. Recomendamos que você não use UDRs na sub-rede do gateway de aplicativo para poder exibir a integridade, os logs e as métricas de back-end.
+> A utilização de UDRs na subnet Application Gateway pode fazer com que o estado de saúde na visão de saúde de [back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) apareça como "Desconhecido". Ele também pode causar falha na geração de logs e métricas do gateway de aplicativo. Recomendamos que você não use UDRs na sub-rede do gateway de aplicativo para poder exibir a integridade, os logs e as métricas de back-end.
 
 ## <a name="front-end-ip"></a>IP de front-end
 
@@ -121,7 +121,7 @@ Escolha o endereço IP de front-end que você planeja associar a este ouvinte. O
 
 Escolha a porta de front-end. Selecione uma porta existente ou crie uma nova. Escolha qualquer valor da [gama permitida de portas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Você pode usar não apenas portas bem conhecidas, como 80 e 443, mas qualquer porta personalizada que seja adequada. Uma porta pode ser usada para ouvintes voltados para o público ou para ouvintes de face privada.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Escolha HTTP ou HTTPS:
 
@@ -153,7 +153,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 O suporte ao WebSocket está habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitá-la ou desabilitá-la. Você pode usar Websockets com ouvintes HTTP e HTTPS.
 
-### <a name="custom-error-pages"></a>Páginas de erros personalizadas
+### <a name="custom-error-pages"></a>Páginas de erro personalizada
 
 Você pode definir um erro personalizado no nível global ou no nível do ouvinte. No momento, não há suporte para a criação de páginas de erro personalizadas de nível global do portal do Azure. Você pode configurar uma página de erro personalizada para um erro de firewall do aplicativo Web 403 ou uma página de manutenção de 502 no nível do ouvinte. Você também deve especificar uma URL de blob publicamente acessível para o código de status de erro fornecido. Para obter mais informações, consulte [Criar páginas de erro personalizadas do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
@@ -241,7 +241,7 @@ Para obter mais informações sobre o redirecionamento, consulte:
 
 #### <a name="rewrite-the-http-header-setting"></a>Reescrever a configuração do cabeçalho HTTP
 
-Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitação e resposta, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Para obter mais informações, veja:
+Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitação e resposta, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Para obter mais informações, consulte:
 
  - [Reescrever a visão geral dos cabeçalhos http](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configure http cabeçalho reescrever](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
@@ -258,13 +258,13 @@ Esse recurso é útil quando você deseja manter uma sessão de usuário no mesm
 
 O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Garante que todos os casos de desregistro de um pool de back-end continuam a manter as ligações existentes e a servir pedidos em curso para um tempo de tempo configurável e não recebem quaisquer novos pedidos ou ligações. A única exceção a isso são solicitações associadas para cancelar o registro de instâncias devido à afinidade de sessão gerenciada pelo gateway e continuarão sendo encaminhadas para as instâncias de cancelamento de registro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 O gateway de aplicativo dá suporte a HTTP e HTTPS para roteamento de solicitações para os servidores back-end. Se você escolher HTTP, o tráfego para os servidores back-end será descriptografado. Se a comunicação não criptografada não for aceitável, escolha HTTPS.
 
 Esta definição combinada com HTTPS no ouvinte suporta [o SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Isso permite que você transmita com segurança dados confidenciais criptografados para o back-end. Cada servidor back-end no pool de back-end que tem o SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir a comunicação segura.
 
-### <a name="port"></a>Porta
+### <a name="port"></a>Port
 
 Essa configuração especifica a porta em que os servidores back-end escutam o tráfego do gateway de aplicativo. Você pode configurar portas que variam de 1 a 65535.
 
@@ -340,7 +340,7 @@ Um gateway de aplicativo monitora a integridade de todos os recursos em seu back
 > [!NOTE]
 > Depois de criar uma investigação de integridade personalizada, você precisa associá-la a uma configuração de HTTP de back-end. Uma investigação personalizada não monitorará a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você conhece os componentes do gateway de aplicativo, você pode:
 

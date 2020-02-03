@@ -25,8 +25,8 @@ Implantação de produção permite que um modelo para desempenhar um papel ativ
 
 Existem várias abordagens e plataformas para colocar os modelos em produção. Aqui estão algumas opções:
 
-- [Onde implantar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Implementação de um modelo no SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Onde implementar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
+- [Implementação de um modelo no servidor SQL](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
@@ -34,13 +34,13 @@ Existem várias abordagens e plataformas para colocar os modelos em produção. 
 >
 
 >[!NOTE]
->Para ver a implementação com o Azure Machine Learning Studio, consulte [implementar um serviço web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+>Para ser implementado utilizando o Azure Machine Learning Studio, consulte [A implantação de um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 
-## <a name="ab-testing"></a>Testes A/B
+## <a name="ab-testing"></a>A testes a / B
 
 Quando vários modelos estão em produção, os [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) podem ser usados para comparar o desempenho do modelo. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Orientações passo a passo que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) artigo. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
+São também fornecidos walkthroughs que demonstrem todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no artigo [de walkthroughs exemplo.](walkthroughs.md) Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 

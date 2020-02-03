@@ -152,7 +152,7 @@ Obtém a marca ção atual quando o trabalho começa a funcionar com o fuso hor�
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Obtém o carimbo de data/hora atual como UTC. Se desejar que a hora atual seja interpretada em um fuso horário diferente do fuso horário do cluster, você poderá passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). Para converter o tempo UTC para uma utilização diferente do fuso horário da UTC() * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+Obtém o carimbo de data/hora atual como UTC. Se desejar que a hora atual seja interpretada em um fuso horário diferente do fuso horário do cluster, você poderá passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. ](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) Para converter o tempo UTC para uma utilização diferente do fuso horário da UTC() * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
@@ -223,7 +223,7 @@ ___
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Converte para o carimbo de data/hora do UTC. Opcionalmente, você pode passar o fuso horário na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
-* ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true`` 
 ___
 ### <code>greater</code>
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -250,7 +250,7 @@ ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Obtém o valor de hora de um timestamp. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
-* ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
+* ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12`` 
 ___
 ### <code>hours</code>
 <code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -407,9 +407,9 @@ ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Obtém o valor de milissegundo de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
+<code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code> 
 ___
-### <code>milliseconds</code>
-<code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+### <code>milliseconds</code><br/><br/>
 Duração em milissegundos para o número de milissegundos * ``milliseconds(2) -> 2L``
 ___
 ### <code>minus</code>
@@ -424,7 +424,7 @@ ___
 ### <code>minute</code>
 * ``toTimestamp('2019-02-03 05:21:34.851', 'yyyy-MM-dd HH:mm:ss.SSS') - toTimestamp('2019-02-03 05:21:36.923', 'yyyy-MM-dd HH:mm:ss.SSS') -> -2072``<br/><br/>
 Obtém o valor de minuto de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
-* ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``
+* ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58`` 
 ___
 ### <code>minutes</code>
 <code><b>minutes(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -442,9 +442,9 @@ ___
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
 Obtém o número de meses entre duas datas. Você pode arredondar o cálculo. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
+<code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code> 
 ___
-### <code>multiply</code>
-<code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
+### <code>multiply</code><br/><br/>
 Multiplica o par de números. O mesmo que o operador * ``multiply(20, 10) -> 200``
 * ``20 * 10 -> 200`` 
 ___
@@ -485,7 +485,7 @@ Retorna um valor nulo. Use a sintaxe da função (NULL ()) se houver uma coluna 
 ___
 ### <code>or</code> 
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador lógico ou lógico. O mesmo que [] * ``or(true, false) -> true``
+Operador OU lógico. O mesmo que [] * ``or(true, false) -> true``
 * ``true || false -> true``
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code> 
 ___
@@ -567,9 +567,9 @@ ___
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
+<code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code> 
 ___
-### <code>seconds</code>
-<code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+### <code>seconds</code><br/><br/>
 Duração em milissegundos durante o número de segundos * ``seconds(2) -> 2000L``
 ___
 ### <code>sha1</code>
@@ -725,7 +725,7 @@ ___
 ### <code>toUTC</code> 
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true`` 
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
@@ -949,7 +949,7 @@ Obtém o valor do primeiro parâmetro avaliado n linhas após a linha atual. O s
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-A função NTile divide as linhas de cada partição de janela em `n` buckets variando de 1 para no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
+A função NTile divide as linhas para cada divisória de janela em baldes `n` que variam de 1 a no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
 * ``nTile()``
 * ``nTile(numOfBuckets)``
 ___
@@ -959,8 +959,8 @@ Computa a classificação de um valor em um grupo de valores. O resultado é um 
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
-Atribui uma numeração de linha sequencial para linhas em uma janela que começa com 1 * ``rowNumber()``
+Atribui uma linha sequencial numerando para linhas numa janela a partir de 1 * ``rowNumber()``
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba como usar o Expression Builder](concepts-data-flow-expression-builder.md).
+[Aprenda a usar o Expression Builder.](concepts-data-flow-expression-builder.md)

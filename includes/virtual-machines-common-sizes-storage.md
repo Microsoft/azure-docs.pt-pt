@@ -17,7 +17,7 @@ ms.locfileid: "76748967"
 ---
 Os tamanhos de VM otimizados de armazenamento oferecem alta entrada de disco e IO, e são ideais para big data, bases de dados SQL, NoSQL, armazenamento de dados e grandes bases de dados transacionais.  Exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a entrada local de armazenamento e largura de banda da rede para cada tamanho otimizado.
 
-A série Lsv2 apresenta alta potência, baixa latência, mapeado diretamente o armazenamento local NVMe em execução no [processador AMD EPYC &trade; 7551](https://www.amd.com/en/products/epyc-7000-series) com um impulso de núcleo de 2,55GHz e um aumento máximo de 3,0GHz. As VMs da série Lsv2 existem em tamanhos que variam entre as 8 e as 80 vCPUs numa configuração de multithreading simultâneo.  Inclui memória de 8 GiB por vCPU e um dispositivo NVMe SSD M.2 de 1,92 TB por 8 vCPUs, com um valor máximo de 19,2 TB (10 x 1,92 TB) disponível na versão L80s v2.
+A série Lsv2 apresenta alta potência, baixa latência, mapeado diretamente o armazenamento local NVMe em execução no [processador AMD EPYC &trade; 7551](https://www.amd.com/en/products/epyc-7000-series) com um impulso de núcleo de 2,55GHz e um aumento máximo de 3,0GHz. Os VMs da série Lsv2 vêm em tamanhos de 8 a 80 vCPU numa configuração multi-rosca simultânea.  Existe 8 GiB de memória por vCPU, e um dispositivo 1.92TB NVMe SSD M.2 por 8 vCPUs, com até 19.2TB (10x1.92TB) disponíveis no L80s v2.
 
 > [!NOTE]
 > Os VMs da série Lsv2 são otimizados para usar o disco local no nó ligado diretamente ao VM em vez de utilizar discos de dados duráveis. Isto permite um maior iOPs / entrada para as suas cargas de trabalho. As séries Lsv2 e Ls não suportam a criação de uma cache local para aumentar os IOPs alcançáveis por discos de dados duráveis.
@@ -35,7 +35,7 @@ Armazenamento Premium: com suporte
 
 Armazenamento em cache Premium: sem suporte
 
-| Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Entrada de disco NVMe<sup>3</sup> (Ler IOPS / MBps) | Entrada de disco de dados max uncached (IOPs/MBps)<sup>4</sup> | Discos de dados Max | Máximo de NICs/largura de banda de rede esperada (Mbps) |
+| Size          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Entrada de disco NVMe<sup>3</sup> (Ler IOPS / MBps) | Entrada de disco de dados max uncached (IOPs/MBps)<sup>4</sup> | Discos de dados Max | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000  | 8000/160   | 16 | 2 / 3200  |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000  | 16000/320  | 32 | 4 / 6400  |

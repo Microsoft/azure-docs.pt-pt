@@ -17,28 +17,28 @@ LUIS dá-lhe a capacidade de obter informações de expressões de linguagem nat
 Os dados mais difíceis de extrair são os dados aprendidos pela máquina porque não é uma correspondência exata de texto. A extração de dados das entidades aprendidas por [máquinas](luis-concept-entity-types.md) tem de fazer parte do ciclo de [autor](luis-concept-app-iteration.md) até estar confiante de que recebe os dados que espera.
 
 ## <a name="data-location-and-key-usage"></a>Utilização de localização e a chave de dados
-LUIS fornece os dados a partir do publicados [ponto final](luis-glossary.md#endpoint). O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, como ambientes de teste ou produção.
+A LUIS fornece os dados do [ponto final](luis-glossary.md#endpoint)publicado. O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, tais como ambientes de encenação ou produção.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 solicitação de ponto de extremidade de previsão](#tab/V2)
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Pedido de ponto final de previsão V2](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Solicitação de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Pedido de ponto final de previsão V3](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-O `appID` está disponível na página de **Definições** da sua aplicação LUIS, bem como parte do URL (depois de `/apps/`) quando estiver a editar aquela aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Embora possa utilizar a sua chave de autor/arranque gratuita enquanto está a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporta o uso esperado do [LUIS.](luis-boundaries.md#key-limits) O `timezoneOffset` unidade é minutos.
+O `appID` está disponível na página de **Definições** da sua aplicação LUIS, bem como parte do URL (depois de `/apps/`) quando estiver a editar aquela aplicação LUIS. O `subscription-key` é a chave final utilizada para consultar a sua aplicação. Embora possa utilizar a sua chave de autor/arranque gratuita enquanto está a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporta o uso esperado do [LUIS.](luis-boundaries.md#key-limits) A unidade `timezoneOffset` tem minutos.
 
-O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar com base no modelo publicado atual do ponto final de transição ou produção. O ponto final do URL encontra-se no [LUIS](luis-reference-regions.md) Web site, na **gerir** na secção o **chaves e os pontos finais** página.
+A **resposta HTTPS** contém todas as informações de intenção e entidade que a LUIS pode determinar com base no modelo publicado atual, quer na encenação quer no ponto final de produção. O URL de ponto final encontra-se no site da [LUIS,](luis-reference-regions.md) na secção **Gerir,** na página **Keys e endpoints.**
 
 ## <a name="data-from-intents"></a>Dados desde intenções
-Os dados primários são a parte superior de classificação **intenção nome**. A resposta do ponto final é:
+Os dados primários são o nome de **intenção**de pontuação superior. A resposta do ponto final é:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +51,7 @@ Os dados primários são a parte superior de classificação **intenção nome**
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -69,18 +69,18 @@ Os dados primários são a parte superior de classificação **intenção nome**
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
+|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|
 |Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se o seu chatbot ou app de chamada LUIS tomar uma decisão com base em mais de uma pontuação de intenção, devolva todas as pontuações das intenções.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 Defina o parâmetro de corda de consulta, `verbose=true`. A resposta do ponto final é:
 
@@ -105,7 +105,7 @@ Defina o parâmetro de corda de consulta, `verbose=true`. A resposta do ponto fi
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 Defina o parâmetro de corda de consulta, `show-all-intents=true`. A resposta do ponto final é:
 
@@ -129,20 +129,20 @@ Defina o parâmetro de corda de consulta, `show-all-intents=true`. A resposta do
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
 Os objetivos são ordenados da mais alta pontuação mais baixa.
 
-|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|Classificação|
+|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Classificação|
 |--|--|--|--|:--|
 |Intenção|String|.intent intenções [0]|"GetStoreInfo"|0.984749258|
 |Intenção|String|.intent intenções [1]|"None"|0.0168218873|
 
-Se adicionar domínios pré-concebidos, o nome de intenção indica o domínio, tal como `Utilties` ou `Communication` , bem como a intenção:
+Se adicionar domínios pré-construídos, o nome de intenção indica o domínio, como `Utilties` ou `Communication`, bem como a intenção:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -168,7 +168,7 @@ Se adicionar domínios pré-concebidos, o nome de intenção indica o domínio, 
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -192,14 +192,14 @@ Se adicionar domínios pré-concebidos, o nome de intenção indica o domínio, 
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-|Domain|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
+|Domínio|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|--|
-|Serviços Públicos|Intenção|String|.intent intenções [0]|"<b>Utilitários</b>. ShowNext"|
-|Comunicação|Intenção|String|.intent intenções [1]|<b>Comunicação</b>. StartOver"|
+|Serviços Públicos|Intenção|String|.intent intenções [0]|"<b>Serviços públicos</b>. ShowNext"|
+|Comunicação|Intenção|String|.intent intenções [1]|<b>Comunicação.</b> Início"|
 ||Intenção|String|.intent intenções [2]|"None"|
 
 
@@ -208,9 +208,9 @@ A maioria dos chatbots e as aplicações necessitam de mais do que o nome de int
 
 Uma única palavra ou frase numa expressão pode corresponder a mais de uma entidade. Nesse caso, cada entidade correspondente é devolvida com sua pontuação.
 
-Todas as entidades são retornadas no **entidades** matriz da resposta do ponto final:
+Todas as entidades são devolvidas na variedade de **entidades** da resposta a partir do ponto final:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -233,7 +233,7 @@ Todas as entidades são retornadas no **entidades** matriz da resposta do ponto 
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 ```JSON
 "entities": {
@@ -241,7 +241,7 @@ Todas as entidades são retornadas no **entidades** matriz da resposta do ponto 
     "number": [3]
 }
 ```
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
@@ -251,7 +251,7 @@ Reveja o [suporte simbólico](luis-language-support.md#tokenization) no LUIS.
 
 ## <a name="simple-entity-data"></a>Dados de entidades simples
 
-R [entidade simple](reference-entity-simple.md) é um valor aprendidas por máquina. Pode ser uma palavra ou frase.
+Uma [entidade simples](reference-entity-simple.md) é um valor aprendido por máquinas. Pode ser uma palavra ou frase.
 
 ## <a name="composite-entity-data"></a>Dados de entidades compostos
 
@@ -259,14 +259,14 @@ Uma [entidade composta](reference-entity-composite.md) é constituída por outra
 
 ## <a name="list-entity-data"></a>Dados de entidades de lista
 
-[As entidades da lista](reference-entity-list.md) representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. LUIS não Deteta valores adicionais para entidades de lista. Utilize o **Recomendamos** funcionalidade para ver sugestões para novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final.
+[As entidades da lista](reference-entity-list.md) representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. LUIS não Deteta valores adicionais para entidades de lista. Utilize a função **Recomendar** para ver sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final.
 
 ## <a name="prebuilt-entity-data"></a>Dados de entidade predefinidos
-[Pré-criados](luis-concept-entity-types.md) entidades são detetadas com base numa correspondência de expressão regular com o código-fonte aberto [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text) projeto. Entidades pré-concebidas são devolvidas da matriz de entidades e utilizar o nome do tipo com o prefixo `builtin::`. O texto seguinte é uma expressão de exemplo com as entidades retornadas de pré-criados:
+[Entidades pré-construídas](luis-concept-entity-types.md) são descobertas com base numa correspondência de expressão regular usando o projeto [Recognisers-Text](https://github.com/Microsoft/Recognizers-Text) de código aberto. As entidades pré-construídas são devolvidas na matriz de entidades e usam o nome tipo pré-fixado com `builtin::`. O texto seguinte é uma expressão de exemplo com as entidades retornadas de pré-criados:
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -347,7 +347,7 @@ Uma [entidade composta](reference-entity-composite.md) é constituída por outra
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 Sem o parâmetro de corda de consulta, `verbose=true`:
 
@@ -524,7 +524,7 @@ Com o parâmetro de corda de consulta, `verbose=true`:
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 ## <a name="regular-expression-entity-data"></a>Dados de entidades de expressão regular
@@ -542,7 +542,7 @@ As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](lui
 
 Nome das pessoas pode ter algum formato ligeiro dependendo do idioma e cultura. Utilize uma entidade pré-construída **[nome ou](luis-reference-prebuilt-person.md)** uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [papéis](luis-concept-roles.md) de primeiro e último nome.
 
-Se utilizar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o último nome em diferentes partes da expressão, em expressões de diferentes comprimentos, e expressões em todas as intenções, incluindo a intenção De None. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente.
+Se utilizar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o último nome em diferentes partes da expressão, em expressões de diferentes comprimentos, e expressões em todas as intenções, incluindo a intenção De None. [Rever](luis-how-to-review-endoint-utt.md) as declarações finais regularmente para rotular quaisquer nomes que não tenham sido corretamente previstos.
 
 ### <a name="names-of-places"></a>Nomes de locais
 
@@ -550,13 +550,13 @@ Os nomes de localização são definidos e conhecidos como cidades, condados, es
 
 ### <a name="new-and-emerging-names"></a>Nomes de novos e emergentes
 
-Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Estes tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista de [frases.](luis-concept-feature.md) [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente.
+Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Estes tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista de [frases.](luis-concept-feature.md) [Rever](luis-how-to-review-endoint-utt.md) as declarações finais regularmente para rotular quaisquer nomes que não tenham sido corretamente previstos.
 
 ## <a name="pattern-roles-data"></a>Dados de funções padrão
 As funções são as diferenças contextuais das entidades.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 O nome da entidade é `Location`, com duas funções, `Origin` e `Destination`.
 
@@ -589,7 +589,7 @@ O nome da entidade é `Location`, com duas funções, `Origin` e `Destination`.
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 Em V3, o **nome** principal é o nome principal do objeto.
 
@@ -673,7 +673,7 @@ Com o parâmetro de corda de consulta, `verbose=true`:
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
@@ -682,12 +682,12 @@ Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.
 [Pattern.any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado apenas na expressão do modelo de um padrão para marcar onde a entidade começa e termina.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
-Se a análise de sentimentos está configurada, a resposta de json de LUIS inclui a análise de sentimentos. Saiba mais sobre a análise de sentimentos no [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentação.
+Se a análise de sentimentos está configurada, a resposta de json de LUIS inclui a análise de sentimentos. Saiba mais sobre a análise de sentimentos na documentação do [Text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
 
 ### <a name="sentiment-data"></a>Dados de sentimento
 Dados de sentimento são uma pontuação entre 1 e 0 indicando o positivo (mais de perto como 1) nem negativa (mais próximo de 0) sentimentos dos dados.
 
-Quando estiver a cultura `en-us`, a resposta é:
+Quando a cultura é `en-us`, a resposta é:
 
 ```JSON
 "sentimentAnalysis": {
@@ -706,10 +706,10 @@ Para todas as outras culturas, a resposta é:
 
 
 ### <a name="key-phrase-extraction-entity-data"></a>Dados de entidades de extração de expressões-chave
-A entidade de extração de expressões-chave devolve expressões-chave na expressão, fornecida pela [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+A entidade de extração de frases-chave devolve frases-chave na expressão, fornecida por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -744,9 +744,9 @@ A entidade de extração de expressões-chave devolve expressões-chave na expre
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 Sem o parâmetro de corda de consulta, `verbose=true`:
 
@@ -809,7 +809,7 @@ Com o parâmetro de corda de consulta, `verbose=true`:
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
@@ -822,7 +822,7 @@ LUIS devolve todas as entidades detetadas na expressão. Como resultado, o seu c
 
 O ponto final do LUIS pode descobrir os mesmos dados em diferentes entidades.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -948,7 +948,7 @@ O ponto final do LUIS pode descobrir os mesmos dados em diferentes entidades.
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 Sem `verbose=true` como parâmetro de corda de consulta.
 
@@ -1125,7 +1125,7 @@ Com `verbose=true` como parâmetro de corda de consulta.
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
@@ -1133,9 +1133,9 @@ Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.
 
 Se uma palavra ou frase corresponder a mais de uma entidade de lista, a consulta de ponto final devolve cada entidade de lista.
 
-Para a consulta `when is the best time to go to red rock?`, e a aplicação com a palavra `red` em mais de uma lista, LUIS reconhece todas as entidades e retorna uma matriz de entidades como parte da resposta do ponto final JSON:
+Para a consulta `when is the best time to go to red rock?`, e a app tem a palavra `red` em mais de uma lista, a LUIS reconhece todas as entidades e devolve um conjunto de entidades como parte da resposta do ponto final da JSON:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -1173,7 +1173,7 @@ Para a consulta `when is the best time to go to red rock?`, e a aplicação com 
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
 
 Sem `verbose=true` na corda de consulta:
 
@@ -1262,10 +1262,10 @@ Com `verbose=true` na corda de consulta:
 }
 ```
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Ver [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.
+Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.

@@ -85,7 +85,7 @@ Agora que tem um destino de armazenamento para exportar dados, siga estes passos
 
 9. Para ativar a exportação contínua de dados, certifique-se de que o toggle de **exportação de Dados** está **ligado**. Selecione **Guardar**.
 
-   ![Configurar a exportação de dados contínua](media/howto-export-data/export-list-blob2.png)
+   ![Configurar exportação de dados contínua](media/howto-export-data/export-list-blob2.png)
 
 10. Após alguns minutos, os seus dados aparecerão na sua conta de armazenamento.
 
@@ -645,7 +645,7 @@ function load(filePath) {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe exportar os seus dados, continue para o próximo passo:
 

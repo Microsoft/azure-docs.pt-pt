@@ -21,9 +21,9 @@ ms.locfileid: "76749009"
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=linux)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=linux)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=linux)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -35,12 +35,12 @@ Antes de começar, certifique-se de:
 
 1. Neste novo ficheiro, substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do serviço de Voz.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Substitua a cadeia de caracteres `whatstheweatherlike.wav` pelo seu próprio nome de arquivo.
+1. Substitua a cadeia `whatstheweatherlike.wav` pelo seu próprio nome de ficheiro.
 
 > [!NOTE]
-> O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+> O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 ## <a name="build-the-app"></a>Criar a aplicação
 
@@ -59,7 +59,7 @@ Antes de começar, certifique-se de:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
-* Em um sistema **ARM64** (64 bits), execute o comando a seguir para compilar o aplicativo.
+* Num sistema **ARM64** (64-bit), execute o seguinte comando para construir a aplicação.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
@@ -81,7 +81,7 @@ Antes de começar, certifique-se de:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-   * Em um sistema **ARM64** (64 bits), digite o comando a seguir.
+   * Num sistema **ARM64** (64 bits), introduza o seguinte comando.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
@@ -100,6 +100,6 @@ Antes de começar, certifique-se de:
    We recognized: What's the weather like?
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

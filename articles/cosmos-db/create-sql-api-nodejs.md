@@ -22,7 +22,7 @@ ms.locfileid: "76719505"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Python](create-sql-api-python.md)
+> * [python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Este quickstart demonstra como usar uma app Node.js para se conectar à conta [SQL API](sql-api-introduction.md) em Azure Cosmos DB. Em seguida, pode utilizar consultas Azure Cosmos DB SQL para consultar e gerir dados. A aplicação Node.js que construíu neste artigo utiliza o [SQL JavaScript SDK](sql-api-sdk-node.md). Este início rápido utiliza a versão 2.0 do [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
@@ -150,7 +150,7 @@ Agora volte ao portal Azure para obter os detalhes da linha de ligação da sua 
     
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. Execute `npm install` num terminal para instalar os módulos npm necessários
+1. Executar `npm install` num terminal para instalar os módulos npm necessários
 
 2. Execute `node app.js` num terminal para iniciar a aplicação Node.js.
 
@@ -164,7 +164,7 @@ Agora pode voltar ao Data Explorer, modificar e trabalhar com estes novos dados.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos, criar um recipiente usando o explorador de dados e executar uma app. Pode agora importar dados adicionais para a sua base de dados Azure Cosmos. 
 

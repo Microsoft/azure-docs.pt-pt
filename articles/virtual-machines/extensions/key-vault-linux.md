@@ -30,7 +30,7 @@ A extensão VM do cofre chave suporta estas distribuições Linux:
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão não requer configurações protegidas - todas as suas definições são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorizados, frequência de sondagens e a loja de certificados de destino. Especificamente:  
+O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão não requer configurações protegidas - todas as suas definições são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorizados, frequência de sondagens e a loja de certificados de destino. Mais concretamente:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -70,14 +70,14 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | string |
-| tipo | KeyVaultForLinux | string |
+| publicador | Microsoft.Azure.KeyVault | Cadeia de caracteres |
+| tipo | KeyVaultForLinux | Cadeia de caracteres |
 | typeHandlerVersion | 1.0 | int |
-| sondagensIntervalInS | 3600 | string |
-| certificateStoreName | MY | string |
-| linkOnRenovação | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
-| necessárioInitialSync | true | boolean |
+| sondagensIntervalInS | 3600 | Cadeia de caracteres |
+| certificateStoreName | MY | Cadeia de caracteres |
+| linkOnRenovação | false | valor booleano |
+| certificateStoreLocation  | LocalMachine | Cadeia de caracteres |
+| necessárioInitialSync | true | valor booleano |
 | certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
 
 
@@ -193,7 +193,7 @@ Tenha em atenção as seguintes restrições/requisitos:
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure PowerShell.
 
@@ -209,4 +209,4 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

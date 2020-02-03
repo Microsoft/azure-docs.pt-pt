@@ -21,7 +21,7 @@ Este artigo descreve como usar o portal para ver o estado das entregas de evento
 
 A Rede de Eventos proporciona uma entrega duradoura. Entrega cada mensagem pelo menos uma vez para cada subscrição. Os eventos são enviados imediatamente para o webhook registado de cada subscrição. Se um webhook não reconhecer a receção de um evento no prazo de 60 segundos após a primeira tentativa de entrega, a Rede de Eventos retenta a entrega do evento.
 
-Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+Para obter informações sobre entrega e repetições de eventos, entrega e retentativa de mensagens da Grelha de [Eventos.](delivery-and-retry.md)
 
 ## <a name="delivery-metrics"></a>Métricas de entrega
 
@@ -82,8 +82,8 @@ Pode definir alertas sobre as métricas de nível de tópico e domínio para tó
 
 ![Ver métricas de eventos](./media/monitor-event-delivery/select-alerts.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+* Para obter informações sobre entrega e repetições de eventos, entrega e retentativa de mensagens da Grelha de [Eventos.](delivery-and-retry.md)
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
-* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).
+* Para começar rapidamente a usar a Grelha de Eventos, consulte [create e encaminhe eventos personalizados com a Grelha de Eventos Azure](custom-event-quickstart.md).

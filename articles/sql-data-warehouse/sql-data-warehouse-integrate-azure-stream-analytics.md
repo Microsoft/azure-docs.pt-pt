@@ -34,13 +34,13 @@ Primeiro, passe pelos seguintes passos no Get começou a usar o tutorial [Azure 
 Em seguida, criar uma base de dados azure SQL Data Warehouse
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especificar saída de trabalho: Base de dados azure SQL Data Warehouse
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 No seu trabalho stream Analytics clique em **OUTPUT** a partir do topo da página e, em seguida, clique em **ADD**.
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 Selecione Base de Dados SQL.
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 Introduza os seguintes valores na página seguinte:
 
 * *Alias de saída*: Introduza um nome amigável para esta saída de trabalho.
@@ -63,7 +63,7 @@ Clique no botão de verificação para adicionar esta saída de trabalho e para 
 
 Quando a ligação à base de dados for bem sucedida, verá uma notificação no portal. Pode clicar em Testar para testar a ligação à base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para uma visão geral da integração, consulte [Integrar outros serviços.](sql-data-warehouse-overview-integrate.md)
 Para obter mais dicas de desenvolvimento, consulte decisões de [design e técnicas de codificação para armazéns](sql-data-warehouse-overview-develop.md)de dados.
 

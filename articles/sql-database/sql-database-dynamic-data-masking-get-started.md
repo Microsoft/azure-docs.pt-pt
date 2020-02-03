@@ -1,5 +1,5 @@
 ---
-title: Mascaramento de dados dinâmicos
+title: Máscara de dados dinâmica
 description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e data warehouse
 services: sql-database
 ms.service: sql-database
@@ -33,32 +33,32 @@ Você configura uma política de mascaramento de dados dinâmicos na portal do A
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmicos
 
-A máscara de dados dinâmicos pode ser configurada pelas funções administrador do banco de dados SQL do Azure, administrador do servidor ou [Gerenciador de segurança do SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) .
+A máscara de dados dinâmicos pode ser configurada pelas funções de administração da Base de Dados Azure SQL, administração do servidor ou [SQL Security Manager.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
 
 ### <a name="dynamic-data-masking-policy"></a>Política de mascaramento de dados dinâmicos
 
-* **Usuários do SQL excluídos do mascaramento** – um conjunto de usuários do SQL ou identidades do AAD que obtém dados não mascarados nos resultados da consulta SQL. Os usuários com privilégios de administrador sempre são excluídos do mascaramento e veem os dados originais sem nenhuma máscara.
-* **Regras de mascaramento** – um conjunto de regras que definem os campos designados a serem mascarados e a função de mascaramento usada. Os campos designados podem ser definidos usando um nome de esquema de banco de dados, um nome de tabela e um nome de coluna.
-* **Funções de mascaramento** – um conjunto de métodos que controlam a exposição de dados para diferentes cenários.
+* **Utilizadores de SQL excluídos da máscara** - um conjunto de utilizadores SQL ou identidades AAD que obtêm dados desmascarados nos resultados da consulta SQL. Os usuários com privilégios de administrador sempre são excluídos do mascaramento e veem os dados originais sem nenhuma máscara.
+* Regras de **mascaramento** - Um conjunto de regras que definem os campos designados a mascarar e a função de mascaramento que é usada. Os campos designados podem ser definidos usando um nome de esquema de banco de dados, um nome de tabela e um nome de coluna.
+* **Funções** de mascaramento - Um conjunto de métodos que controlam a exposição de dados para diferentes cenários.
 
 | Função de mascaramento | Lógica de mascaramento |
 | --- | --- |
-| **Predefinição** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos XS se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, Decimal, int, Money, Numeric, smallint, SmallMoney, tinyint, float, real).<br/>• Use 01-01-1900 para tipos de dados de data/hora (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, time).<br/>• Para variante SQL, o valor padrão do tipo atual é usado.<br/>• For XML, o documento \<mascarado/> será usado.<br/>• Use um valor vazio para tipos de dados especiais (carimbo de data/hora, hierarchyid, GUID, binário, imagem, tipos espaciais varbinary). |
-| **Cartão de crédito** |**Método de mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **E-mail** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por xxx.com** usando um prefixo de cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) de navegação |
-| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e o último caracteres** e adiciona uma cadeia de caracteres de preenchimento personalizada no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>prefixo[enchimento]sufixo<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) de navegação |
+| **Predefinição** |**Máscara completa de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos XS se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, Decimal, int, Money, Numeric, smallint, SmallMoney, tinyint, float, real).<br/>• Use 01-01-1900 para tipos de dados de data/hora (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, time).<br/>• Para variante SQL, o valor padrão do tipo atual é usado.<br/>• Para xml, o documento \<mascarado/> é utilizado.<br/>• Use um valor vazio para tipos de dados especiais (carimbo de data/hora, hierarchyid, GUID, binário, imagem, tipos espaciais varbinary). |
+| **Cartão de crédito** |Método de **mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
+| **E-mail** |Método de **mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
+| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) de navegação |
+| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e último caracteres** e adiciona uma corda de enchimento personalizada no meio. Se a cadeia de caracteres original for menor do que o prefixo e o sufixo expostos, somente a cadeia de caracteres de preenchimento será usada. <br/>prefixo[enchimento]sufixo<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) de navegação |
 
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>Campos recomendados para mascarar
 
-O mecanismo de recomendações do DDM, sinaliza determinados campos do seu banco de dados como campos potencialmente confidenciais, que podem ser bons candidatos para mascaramento. Na folha Máscara de Dados Dinâmicos no portal, você verá as colunas recomendadas para seu banco de dados. Tudo o que você precisa fazer é clicar em **Adicionar máscara** para uma ou mais colunas e, em seguida, **salvar** para aplicar uma máscara para esses campos.
+O mecanismo de recomendações do DDM, sinaliza determinados campos do seu banco de dados como campos potencialmente confidenciais, que podem ser bons candidatos para mascaramento. Na folha Máscara de Dados Dinâmicos no portal, você verá as colunas recomendadas para seu banco de dados. Tudo o que precisa fazer é clicar em **Adicionar Máscara** para uma ou mais colunas e, em seguida, **guardar** para aplicar uma máscara para estes campos.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar o mascaramento de dados dinâmicos para seu banco usando cmdlets do PowerShell
 
-Consulte [cmdlets do banco de dados SQL do Azure](https://docs.microsoft.com/powershell/module/az.sql).
+Consulte [os Cmdlets de Base de Dados Azure SQL](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurar o mascaramento de dados dinâmicos para seu banco usando a API REST
 
-Consulte [operações para o banco de dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/).
+Consulte operações para base de [dados Azure SQL](https://docs.microsoft.com/rest/api/sql/).

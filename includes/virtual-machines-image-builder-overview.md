@@ -36,10 +36,10 @@ Para a pré-visualização, estas funcionalidades são suportadas:
 ## <a name="regions"></a>Regiões
 O Azure Image Builder Service estará disponível para pré-visualização nestas regiões. As imagens podem ser distribuídas fora destas regiões.
 - E.U.A. Leste
-- E.U.A. Leste 2
+- EUA Leste 2
 - E.U.A. Centro-Oeste
-- E.U.A. Oeste
-- E.U.A. Oeste 2
+- EUA Oeste
+- EUA Oeste 2
 
 ## <a name="os-support"></a>Apoio ao OS
 O AIB apoiará as imagens ossia base do Azure Marketplace:
@@ -113,7 +113,7 @@ O Image Builder cria um VM utilizando um tamanho D1v2 VM, e o armazenamento e a 
  
 O Azure Image Builder distribuirá a imagem para as regiões escolhidas, o que poderá incorrer em cargas de egress de rede.
  
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
  
 Para experimentar o Azure Image Builder, consulte os artigos para construir imagens [linux](../articles/virtual-machines/linux/image-builder.md) ou [Windows.](../articles/virtual-machines/windows/image-builder.md)
  

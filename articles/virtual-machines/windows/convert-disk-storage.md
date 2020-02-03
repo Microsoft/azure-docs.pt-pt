@@ -18,18 +18,18 @@ ms.locfileid: "76720950"
 
 Há quatro tipos de disco de discos gerenciados do Azure: ultra SSDs do Azure (visualização), SSD Premium, SSD padrão e HDD padrão. Você pode alternar entre os três tipos de disco de GA (SSD Premium, SSD padrão e HDD padrão) com base em suas necessidades de desempenho. Você ainda não é capaz de mudar de ou para um ultra SSD, você deve implantar um novo.
 
-Não há suporte para essa funcionalidade em discos não gerenciados. Mas você pode [converter facilmente um disco não gerenciado em um disco gerenciado](convert-unmanaged-to-managed-disks.md) para poder alternar entre tipos de disco.
+Não há suporte para essa funcionalidade em discos não gerenciados. Mas pode [facilmente converter um disco não gerido num disco gerido](convert-unmanaged-to-managed-disks.md) para poder alternar entre tipos de disco.
 
  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Como a conversão requer uma reinicialização da VM (máquina virtual), você deve agendar a migração do armazenamento em disco durante uma janela de manutenção pré-existente.
-* Se o disco não for gerenciado, primeiro [converta-o em um disco gerenciado](convert-unmanaged-to-managed-disks.md) para que você possa alternar entre as opções de armazenamento.
+* Se o disco não for gerido, [converta-o](convert-unmanaged-to-managed-disks.md) primeiro num disco gerido para que possa alternar entre opções de armazenamento.
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Mudar todos os discos gerenciados de uma VM entre Premium e Standard
 
-Este exemplo mostra como converter todos os discos de uma VM do armazenamento Standard para Premium ou do armazenamento Premium para Standard. Para usar o Premium Managed disks, sua VM deve usar um [tamanho de VM](sizes.md) que dá suporte ao armazenamento Premium. Este exemplo também muda para um tamanho que dá suporte ao armazenamento Premium:
+Este exemplo mostra como converter todos os discos de uma VM do armazenamento Standard para Premium ou do armazenamento Premium para Standard. Para utilizar discos geridos premium, o seu VM deve utilizar um [tamanho VM](sizes.md) que suporta o armazenamento Premium. Este exemplo também muda para um tamanho que dá suporte ao armazenamento Premium:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -73,7 +73,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Alternar discos gerenciados individuais entre Standard e Premium
 
-Para sua carga de trabalho de desenvolvimento/teste, talvez você queira uma combinação de discos Standard e Premium para reduzir os custos. Você pode optar por atualizar somente os discos que precisam de melhor desempenho. Este exemplo mostra como converter um único disco de VM do armazenamento Standard para Premium ou do armazenamento Premium para Standard. Para usar o Premium Managed disks, sua VM deve usar um [tamanho de VM](sizes.md) que dá suporte ao armazenamento Premium. Este exemplo também mostra como mudar para um tamanho que dá suporte ao armazenamento Premium:
+Para sua carga de trabalho de desenvolvimento/teste, talvez você queira uma combinação de discos Standard e Premium para reduzir os custos. Você pode optar por atualizar somente os discos que precisam de melhor desempenho. Este exemplo mostra como converter um único disco de VM do armazenamento Standard para Premium ou do armazenamento Premium para Standard. Para utilizar discos geridos premium, o seu VM deve utilizar um [tamanho VM](sizes.md) que suporta o armazenamento Premium. Este exemplo também mostra como mudar para um tamanho que dá suporte ao armazenamento Premium:
 
 ```azurepowershell-interactive
 
@@ -111,14 +111,14 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 Siga estes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione a VM na lista de **máquinas virtuais** no Portal.
-3. Se a VM não estiver parada, selecione **parar** na parte superior do painel **visão geral** da VM e aguarde a interrupção da VM.
-3. No painel da VM, selecione **discos** no menu.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione o VM da lista de **máquinas Virtuais** no portal.
+3. Se o VM não estiver parado, selecione **Stop** no topo do painel de **visão geral** vM e espere que o VM pare.
+3. No painel para o VM, selecione **Discos** do menu.
 4. Selecione o disco que você deseja converter.
-5. Selecione **configuração** no menu.
-6. Altere o **tipo de conta** de **HDD Standard** para **SSD Premium**.
-7. Clique em **salvar**e feche o painel disco.
+5. **Selecione Configuração** do menu.
+6. Alterar o tipo de **conta** de **HDD Standard** para **SSD Premium**.
+7. Clique em **Guardar**e feche o painel do disco.
 
 A conversão de tipo de disco é instantânea. Você pode iniciar a VM após a conversão.
 
@@ -151,6 +151,6 @@ $disk | Update-AzDisk
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Faça uma cópia somente leitura de uma VM usando um [instantâneo](snapshot-copy-managed-disk.md).
+Faça uma cópia apenas de um VM através de uma [imagem .](snapshot-copy-managed-disk.md)
