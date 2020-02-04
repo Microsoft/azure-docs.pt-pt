@@ -6,43 +6,39 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 503482243f5aa2e7f833257a3a6eb91a3b5c5ec1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503746"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966605"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Chave inicial.
+* Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório do GitHub cognitiva-Services-Language-Understanding.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. O ID da aplicação é apresentado no dashboard de aplicações.
 * A ID da versão no aplicativo que recebe o declarações. O ID predefinido é "0.1".
-* [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## <a name="get-luis-key"></a>Obter chave LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Alterar modelo programaticamente
 
-Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquina ao aplicativo. 
+Utilize C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquinas à aplicação.
 
-1. Crie um novo aplicativo de console destinado C# ao idioma, com um nome de projeto e pasta de `model-with-rest`. 
+1. Crie uma nova aplicação de consola direcionada ao C# idioma, com um nome de projeto e pasta de `model-with-rest`.
 
     ```console
     dotnet new console -lang C# -n model-with-rest
     ```
 
-1. Instale as dependências necessárias com os seguintes comandos da CLI do dotnet.
+1. Instale dependências necessárias com os seguintes comandos CLI dotnet.
 
     ```console
     dotnet add package System.Net.Http
@@ -58,29 +54,29 @@ Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using System.Linq;
-    
+
     // 3rd party NuGet packages
     using JsonFormatterPlus;
-    
+
     namespace AddUtterances
     {
         class Program
         {
-            // NOTE: use your starter key value
+            // NOTE: use your LUIS authoring key - 32 character value
             static string authoringKey = "YOUR-KEY";
-    
-            // NOTE: Replace this endpoint with your starter key endpoint
-            // for example, westus.api.cognitive.microsoft.com
+
+            // NOTE: Replace this endpoint with your authoring key endpoint
+            // for example, your-resource-name.api.cognitive.microsoft.com
             static string endpoint = "YOUR-ENDPOINT";
-    
+
             // NOTE: Replace this with the ID of your LUIS application
             static string appID = "YOUR-APP-ID";
-    
+
             // NOTE: Replace this your version number
             static string appVersion = "0.1";
-    
+
             static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
-    
+
             // GET request with authentication
             async static Task<HttpResponseMessage> SendGet(string uri)
             {
@@ -101,21 +97,21 @@ Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                 {
                     request.Method = HttpMethod.Post;
                     request.RequestUri = new Uri(uri);
-    
+
                     if (!String.IsNullOrEmpty(requestBody))
                     {
                         request.Content = new StringContent(requestBody, Encoding.UTF8, "text/json");
                     }
-    
+
                     request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
                     return await client.SendAsync(request);
                 }
-            }        
+            }
             // Add utterances as string with POST request
             async static Task AddUtterances(string utterances)
             {
                 string uri = host + "examples";
-    
+
                 var response = await SendPost(uri, utterances);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Added utterances.");
@@ -125,12 +121,12 @@ Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
             async static Task Train()
             {
                 string uri = host  + "train";
-    
+
                 var response = await SendPost(uri, null);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Sent training request.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Check status of training
             async static Task Status()
             {
@@ -138,7 +134,7 @@ Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Requested training status.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Add utterances, train, check status
             static void Main(string[] args)
             {
@@ -161,7 +157,7 @@ Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
                         'entityLabels': []
                     }
                 ]
-                ";            
+                ";
                 AddUtterances(utterances).Wait();
                 Train().Wait();
                 Status().Wait();
@@ -170,31 +166,31 @@ Use C# para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
     }
     ```
 
-1. Substitua os seguintes valores:
+1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com a ID do seu aplicativo
+    |Proteção das|Finalidade|
+    |--|--|
+    |`YOUR-KEY`|A tua chave de autor de 32 personagens.|
+    |`YOUR-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Definiu o seu nome de recurso quando criou o recurso.|
+    |`YOUR-APP-ID`| O seu ID de aplicativo LUIS. |
 
-1. Crie a aplicação da consola. 
+    As chaves e recursos atribuídos são visíveis no portal LUIS na secção Gerir, na página de **recursos do Azure.** O ID da aplicação está disponível na mesma secção Gerir, na página definições de **aplicações.**
+
+1. Crie a aplicação da consola.
 
     ```console
     dotnet build
     ```
 
-1. Execute a aplicação de consola. A saída do console exibe o mesmo JSON que você viu anteriormente na janela do navegador.
+1. Execute a aplicação de consola. A saída da consola apresenta o mesmo JSON que viu anteriormente na janela do navegador.
 
     ```console
     dotnet run
     ```
 
-## <a name="luis-keys"></a>Chaves LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

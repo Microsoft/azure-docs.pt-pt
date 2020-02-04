@@ -1,73 +1,86 @@
 ---
-title: Obter previsão com chamada REST emC#
+title: Obtenha previsão com chamada RESTC#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 2d3a000040ff1b4f6e0ae548b578e8be014dc06a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4cbec342bc20de35c0c62284e4e1fe1ae8b8e8a4
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414637"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966782"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID da aplicação pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Obter chave LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>Criar a chave de tempo de execução do LUIS para previsões
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Assine no [portal Azure](https://portal.azure.com)
+1. Clique em [criar **compreensão linguística** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Introduza todas as definições necessárias para a tecla Runtime:
+
+    |Definição|Valor|
+    |--|--|
+    |Nome|Nome desejado (2-64 caracteres)|
+    |Subscrição|Selecione subscrição apropriada|
+    |Localização|Selecione qualquer local próximo e disponível|
+    |Escalão de Preço|`F0` - o nível de preços mínimos|
+    |Grupo de Recursos|Selecione um grupo de recursos disponíveis|
+
+1. Clique em **Criar** e aguarde a criação do recurso. Depois de criado, navegue para a página de recursos.
+1. Colete `endpoint` configurado e um `key`.
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use C# (.NET Core) para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) e obter um resultado de previsão.
+Utilize C# (.NET Core) para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da previsão e obter um resultado de previsão.
 
-1. Crie um novo aplicativo de console destinado C# ao idioma, com um nome de projeto e pasta de `predict-with-rest`. 
+1. Crie uma nova aplicação de consola direcionada ao C# idioma, com um nome de projeto e pasta de `predict-with-rest`.
 
     ```console
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Altere para o diretório `predict-with-rest` que você acabou de criar e instale as dependências necessárias com estes comandos:  
+1. Mude para o diretório `predict-with-rest` que acabou de criar e instale dependências necessárias com estes comandos:
 
     ```console
     cd predict-with-rest
     dotnet add package System.Net.Http
     ```
 
-1. Abra `Program.cs` em seu IDE ou editor favorito. Em seguida, substitua `Program.cs` pelo código a seguir:
-    
+1. Abra `Program.cs` no seu IDE ou editor favorito. Em seguida, redute `Program.cs` com o seguinte código:
+
    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
-    
+
     namespace predict_with_rest
     {
         class Program
         {
             static void Main(string[] args)
             {
-                // YOUR-KEY: for example, the starter key
+                // YOUR-KEY: 32 character key
                 var key = "YOUR-KEY";
-                
-                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+
+                // YOUR-ENDPOINT: example is your-resource-name.api.cognitive.microsoft.com
                 var endpoint = "YOUR-ENDPOINT";
 
                 // //public sample app
-                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; 
-    
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+
                 var utterance = "turn on all lights";
-    
+
                 MakeRequest(key, endpoint, appId, utterance);
-    
+
                 Console.WriteLine("Hit ENTER to exit...");
                 Console.ReadLine();
             }
@@ -75,25 +88,25 @@ Use C# (.NET Core) para consultar o [ponto de extremidade de previsão](https://
             {
                 var client = new HttpClient();
                 var queryString = HttpUtility.ParseQueryString(string.Empty);
-    
+
                 // The request header contains your subscription key
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-    
+
                 // The "q" parameter contains the utterance to send to LUIS
                 queryString["query"] = utterance;
-    
+
                 // These optional request parameters are set to their default values
                 queryString["verbose"] = "true";
                 queryString["show-all-intents"] = "true";
                 queryString["staging"] = "false";
                 queryString["timezoneOffset"] = "0";
-    
+
                 var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
-    
+
                 var response = await client.GetAsync(endpointUri);
-    
+
                 var strResponseContent = await response.Content.ReadAsStringAsync();
-                
+
                 // Display the JSON result from LUIS
                 Console.WriteLine(strResponseContent.ToString());
             }
@@ -102,31 +115,33 @@ Use C# (.NET Core) para consultar o [ponto de extremidade de previsão](https://
 
    ```
 
-1. Substitua os seguintes valores:
+1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão e ponto final.
 
-    * `YOUR-KEY` com a sua chave inicial.
-    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
+    |Proteção das|Finalidade|
+    |--|--|
+    |`YOUR-KEY`|A tua chave de previsão de 32 caracteres.|
+    |`YOUR-ENDPOINT`| O seu ponto final de URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
-1. Crie o aplicativo de console com este comando: 
+1. Construa a aplicação da consola com este comando:
 
     ```console
     dotnet build
     ```
 
-1. Execute a aplicação de consola. A saída do console exibe o mesmo JSON que você viu anteriormente na janela do navegador.
+1. Execute a aplicação de consola. A saída da consola apresenta o mesmo JSON que viu anteriormente na janela do navegador.
 
     ```console
     dotnet run
     ```
 
-1. Examine a resposta de previsão, que é retornada como JSON:
+1. Reveja a resposta de previsão, que é devolvida como JSON:
 
     ```console
     Hit ENTER to exit...
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    A resposta JSON formatada para facilitar a leitura: 
+    A resposta json formatada para a legibilidade:
 
     ```JSON
     {
@@ -169,15 +184,11 @@ Use C# (.NET Core) para consultar o [ponto de extremidade de previsão](https://
     }
     ```
 
-## <a name="luis-keys"></a>Chaves LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)
+> [Adicione expressões e comboio](../get-started-get-model-rest-apis.md)

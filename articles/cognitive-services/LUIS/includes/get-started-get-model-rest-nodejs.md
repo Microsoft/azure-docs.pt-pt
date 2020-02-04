@@ -6,22 +6,22 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: HT
+ms.openlocfilehash: 056b2d2b1951b6630b61bbd6fd8a8c38b272900a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748781"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966863"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Chave inicial.
-* Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
+* Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
+* Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório do GitHub cognitiva-Services-Language-Understanding.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. O ID da aplicação é apresentado no dashboard de aplicações.
 * A ID da versão no aplicativo que recebe o declarações. O ID predefinido é "0.1".
-* Linguagem de programação [Node.js](https://nodejs.org/) 
+* Linguagem de programação [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
@@ -29,27 +29,26 @@ ms.locfileid: "76748781"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 
-## <a name="get-luis-key"></a>Obter chave LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Alterar modelo programaticamente
 
-Use O Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquinas à aplicação. 
+Use o Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entidade aprendida por máquina ao aplicativo.
 
 1. Crie um novo ficheiro com o nome `model.js`. Adicione o seguinte código:
 
     ```javascript
     var request = require('request');
     var requestpromise = require('request-promise');
-    
+
+    // 32 character key value
     const LUIS_authoringKey = "YOUR-KEY";
+
+    // endpoint example: your-resource-name.api.cognitive.microsoft.com
     const LUIS_endpoint = "YOUR-ENDPOINT";
     const LUIS_appId = "YOUR-APP-ID";
     const LUIS_versionId = "0.1";
     const addUtterancesURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
     const addTrainURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-    
+
     const utterances = [
             {
               'text': 'go to Seattle today',
@@ -68,17 +67,17 @@ Use O Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de enti
                 'entityLabels': []
             }
           ];
-    
+
     const main = async() =>{
-    
-    
+
+
         await addUtterance();
         await train("POST");
         await trainStatus("GET");
-    
+
     }
     const addUtterance = async () => {
-    
+
         const options = {
             uri: addUtterancesURI,
             method: 'POST',
@@ -88,50 +87,51 @@ Use O Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de enti
             json: true,
             body: utterances
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
     const train = async (verb) => {
-    
+
         const options = {
             uri: addTrainURI,
-            method: verb, 
+            method: verb,
             headers: {
                 'Ocp-Apim-Subscription-Key': LUIS_authoringKey
             },
             json: true,
             body: null // The body can be empty for a training request
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
-    
+
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
-1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` com a sua chave de arranque
-    * `YOUR-ENDPOINT` com o seu ponto final, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com a identificação da sua aplicação
+1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
+
+    |Proteção das|Finalidade|
+    |--|--|
+    |`YOUR-KEY`|A tua chave de autor de 32 personagens.|
+    |`YOUR-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Definiu o seu nome de recurso quando criou o recurso.|
+    |`YOUR-APP-ID`| O seu ID de aplicativo LUIS. |
+
+    As chaves e recursos atribuídos são visíveis no portal LUIS na secção Gerir, na página de **recursos do Azure.** O ID da aplicação está disponível na mesma secção Gerir, na página definições de **aplicações.**
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, digite o seguinte comando para executar o arquivo:
 
     ```console
     node model.js
-    ```  
-
-## <a name="luis-keys"></a>Chaves LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Boas práticas para uma aplicação](../luis-concept-best-practices.md)
+> [Práticas recomendadas para um aplicativo](../luis-concept-best-practices.md)

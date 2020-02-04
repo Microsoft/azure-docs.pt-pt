@@ -1,105 +1,120 @@
 ---
-title: Obter a intenção com a chamada REST no node. js
+title: Obtenha intenção com chamada REST no Node.js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: b158f3738e5d5e33c831e7312c167e5185d19e95
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c7354ecce9873cd65580dc2a9d79f9f3b8ac37db
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414515"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966888"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Linguagem de programação [Node.js](https://nodejs.org/) 
+* Linguagem de programação [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID da aplicação pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Obter chave LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>Criar a chave de tempo de execução do LUIS para previsões
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Assine no [portal Azure](https://portal.azure.com)
+1. Clique em [criar **compreensão linguística** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Introduza todas as definições necessárias para a tecla Runtime:
+
+    |Definição|Valor|
+    |--|--|
+    |Nome|Nome desejado (2-64 caracteres)|
+    |Subscrição|Selecione subscrição apropriada|
+    |Localização|Selecione qualquer local próximo e disponível|
+    |Escalão de Preço|`F0` - o nível de preços mínimos|
+    |Grupo de Recursos|Selecione um grupo de recursos disponíveis|
+
+1. Clique em **Criar** e aguarde a criação do recurso. Depois de criado, navegue para a página de recursos.
+1. Colete `endpoint` configurado e um `key`.
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use o Node. js para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) e obter um resultado de previsão.
+Use nonó.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da previsão e obter um resultado de previsão.
 
-1. Copie o trecho de código a seguir para um arquivo chamado `predict.js`:
+1. Copie o seguinte código de corte para um ficheiro chamado `predict.js`:
 
     ```javascript
     var request = require('request');
     var requestpromise = require('request-promise');
     var querystring = require('querystring');
-    
+
     // Analyze text
     //
     getPrediction = async () => {
-    
-        // YOUR-KEY - Language Understanding starter key
+
+        // YOUR-KEY - Language Understanding runtime key
         var endpointKey = "YOUR-KEY";
-    
-        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is westus2.api.cognitive.microsoft.com
+
+        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is your-resource-name.api.cognitive.microsoft.com
         var endpoint = "YOUR-ENDPOINT";
-    
-        // Set the LUIS_APP_ID environment variable 
+
+        // Set the LUIS_APP_ID environment variable
         // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID
-        // of a public sample application.    
+        // of a public sample application.
         var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
-    
+
         var utterance = "turn on all lights";
-    
-        // Create query string 
+
+        // Create query string
         var queryParams = {
             "show-all-intents": true,
             "verbose":  true,
             "query": utterance,
             "subscription-key": endpointKey
         }
-    
+
         // append query string to endpoint URL
         var URI = `https://${endpoint}/luis/prediction/v3.0/apps/${appId}/slots/production/predict?${querystring.stringify(queryParams)}`
-    
+
         // HTTP Request
         const response = await requestpromise(URI);
-    
+
         // HTTP Response
         console.log(response);
-    
+
     }
-    
+
     // Pass an utterance to the sample LUIS app
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Substitua os seguintes valores:
+1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão e ponto final.
 
-    * `YOUR-KEY` à sua chave de início.
-    * `YOUR-ENDPOINT` à URL do ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
+    |Proteção das|Finalidade|
+    |--|--|
+    |`YOUR-KEY`|A tua chave de previsão de 32 caracteres.|
+    |`YOUR-ENDPOINT`| O seu ponto final de URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
-1. Instale as dependências de `request`, `request-promise`e `querystring` com este comando: 
+1. Instale as dependências `request`, `request-promise`e `querystring` com este comando:
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. Execute o aplicativo com este comando:
+1. Execute a sua aplicação com este comando:
 
     ```console
     node predict.js
     ```
 
- 1. Examine a resposta de previsão, que é retornada como JSON:   
-    
+ 1. Reveja a resposta de previsão, que é devolvida como JSON:
+
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    A resposta JSON formatada para facilitar a leitura: 
+    A resposta json formatada para a legibilidade:
 
     ```JSON
     {
@@ -142,15 +157,11 @@ Use o Node. js para consultar o [ponto de extremidade de previsão](https://aka.
     }
     ```
 
-## <a name="luis-keys"></a>Chaves LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)
+> [Adicione expressões e comboio](../get-started-get-model-rest-apis.md)

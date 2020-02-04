@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: f1553a5c9d55366b2764877b48d0606ff8e0b370
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8c63d314c253152d2815a70831870fe331071c68
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842190"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964168"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -21,29 +21,24 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na subs
 
 1. Forneça as seguintes informações nas instruções:
 
-    ::: zone pivot="programming-language-csharp,programming-language-powershell"
+    + **Selecione subscrição**: Escolha a subscrição para utilizar. Não verá isto se tiver apenas uma assinatura.
 
-    | Mensagem | Valor | Descrição |
-    | ------ | ----- | ----- |
-    | Selecionar subscrição | A sua subscrição | Mostrado quando tem várias subscrições. |
-    | Selecione App de Funções em Azure | + Criar nova App de Funções | A publicação de uma aplicação de funções existente substitui o conteúdo dessa aplicação no Azure. |
-    | Insira um nome globalmente único para a aplicação de funções | Nome exclusivo | Os carateres válidos para um nome de aplicação de funções são `a-z`, `0-9` e `-`. |
-    | Selecione um local para novos recursos | Região | Escolher uma [região](https://azure.microsoft.com/regions/) próxima de si. | 
-
+    + **Selecione App de Funções em Azure**: Escolha `+ Create new Function App` (não `Advanced`). Este artigo não suporta o [fluxo de publicação avançado.](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options) 
+    
+    >[!IMPORTANT]
+    > A publicação de uma aplicação de funções existente substitui o conteúdo dessa aplicação no Azure. 
+    
+    + **Introduza um nome globalmente único para a aplicação de funções**: Escreva um nome válido num caminho de URL. O nome que digita é validado para se certificar de que é único nas Funções Azure. 
+    
+    ::: zone pivot="programming-language-python"
+    + **Selecione um tempo**de execução : Escolha a versão de Python em que tem estado a funcionar localmente. Pode utilizar o comando `python --version` para verificar a sua versão.
     ::: zone-end
 
-    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
-
-    | Mensagem | Valor | Descrição |
-    | ------ | ----- | ----- |
-    | Selecionar subscrição | A sua subscrição | Mostrado quando tem várias subscrições. |
-    | Selecione App de Funções em Azure | + Criar nova App de Funções | A publicação de uma aplicação de funções existente substitui o conteúdo dessa aplicação no Azure. |
-    | Insira um nome globalmente único para a aplicação de funções | Nome exclusivo | Os carateres válidos para um nome de aplicação de funções são `a-z`, `0-9` e `-`. |
-    | Selecione um tempo de execução | A sua versão | Escolha a versão linguística em que tem estado a correr localmente. |
-    | Selecione um local para novos recursos | Região | Escolher uma [região](https://azure.microsoft.com/regions/) próxima de si. | 
-
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    + **Selecione um tempo**de execução : Escolha a versão do Node.js em que tem estado a correr localmente. Pode utilizar o comando `node --version` para verificar a sua versão.
     ::: zone-end
 
+    + **Selecione um local para novos recursos**: Para um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de si. 
     
 1.  Quando concluído, os seguintes recursos Azure são criados na sua subscrição:
 
@@ -55,10 +50,6 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na subs
 
     Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. 
     
-1. Selecione **Exibir saída** nesta notificação para exibir os resultados de criação e implantação, incluindo os recursos do Azure que você criou.
+1. Selecione **Exibir saída** nesta notificação para exibir os resultados de criação e implantação, incluindo os recursos do Azure que você criou. Se perder a notificação, selecione o ícone do sino no canto inferior direito para vê-lo novamente.
 
     ![Criar notificação completa](media/functions-publish-project-vscode/function-create-notifications.png)
-
-1. De volta à área **Azure: Funções** na barra lateral, expanda a nova aplicação de funções sob a sua subscrição. Expandir **funções,** clicar à direita (Windows) ou Ctrl + clicar (MacOS) em **HttpExample**e, em seguida, escolher **Copy function URL**.
-
-    ![Copiar a URL da função para o novo gatilho HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

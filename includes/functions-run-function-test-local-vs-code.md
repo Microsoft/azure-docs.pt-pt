@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: f4075b8d05c179e8115ff46c9f82751817372491
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4af3c202d4f00c4ac3041921175c92226f0db7c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842221"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964156"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
@@ -17,16 +17,20 @@ O Visual Studio Code integra-se com as [Ferramentas Core funções do Azure](../
 
 1. Para ligar para a sua função, prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
 
-1. Se ainda não tiver instalado as ferramentas core funções do Azure, **selecione Instalar** à mão. Quando as Ferramentas Core são instaladas, a sua aplicação começa no painel **Terminal.**
-
-1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP. 
+1. Se ainda não tiver instalado as ferramentas core funções do Azure, **selecione Instalar** à mão. Quando as Ferramentas Core são instaladas, a sua aplicação começa no painel **Terminal.** Pode ver o ponto final url da sua função desencadeada em HTTP a funcionar localmente. 
 
     ![Resultado local do Azure](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
-1. Cole o URL do pedido HTTP na barra de endereço do browser. Anexar a cadeia de consulta `?name=<yourname>` a este URL e executar o pedido GET. 
+1. Com as Ferramentas Core em execução, navegue para o seguinte URL para executar um pedido GET, que inclui `?name=Functions` corda de consulta.
+
+    <http://localhost:7071/api/HttpExample?name=Functions>
 
 1. Uma resposta é devolvida, que se parece com a seguinte num browser:
 
     ![Resposta da função localhost no browser](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
-1. Pressione o Shift + F5 para parar as Ferramentas Core e desligar o desbugger.
+1. A informação sobre o pedido é mostrada no painel **terminal.**
+
+    ![Execução de funções no painel terminal](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
+
+1. Prima Ctrl + C para parar as Ferramentas Core e desligar o desbugger.
